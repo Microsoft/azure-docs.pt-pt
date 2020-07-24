@@ -8,12 +8,12 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 9ce807238e1e373701305f8b6bb03451e0202633
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: a5511d7cd4b5bb0f3fe901a735535f8db9036ee7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964639"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078161"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modelo de preços para apps Azure Logic
 
@@ -77,27 +77,27 @@ Para aplicações lógicas que cria e funciona num ISE, paga-se um [preço fixo]
 
 ## <a name="connectors"></a>Conectores
 
-Os conectores Azure Logic Apps ajudam a sua aplicação lógica a aceder a apps, serviços e sistemas na nuvem ou nas instalações, fornecendo [gatilhos,](#triggers) [ações](#actions)ou ambos. Os conectores são classificados como Standard ou Enterprise. Para uma visão geral sobre estes conectores, consulte [Conectors para Aplicações Lógicas Azure](../connectors/apis-list.md). Se não houver conectores pré-construídos para as APIs REST que pretende utilizar nas suas aplicações lógicas, pode criar [conectores personalizados](https://docs.microsoft.com/connectors/custom-connectors)– que são apenas invólucros em torno dessas APIs REST. Os conectores personalizados são faturados como conectores Standard. As secções seguintes fornecem mais informações sobre como a faturação para gatilhos e ações funcionam.
+Os conectores Azure Logic Apps ajudam a sua aplicação lógica a aceder a apps, serviços e sistemas na nuvem ou nas instalações, fornecendo [gatilhos,](#triggers) [ações](#actions)ou ambos. Os conectores são classificados como Standard ou Enterprise. Para uma visão geral sobre estes conectores, consulte [Conectors para Aplicações Lógicas Azure](../connectors/apis-list.md). Se não houver conectores pré-construídos para as APIs REST que pretende utilizar nas suas aplicações lógicas, pode criar [conectores personalizados](/connectors/custom-connectors)– que são apenas invólucros em torno dessas APIs REST. Os conectores personalizados são faturados como conectores Standard. As secções seguintes fornecem mais informações sobre como a faturação para gatilhos e ações funcionam.
 
 <a name="triggers"></a>
 
 ## <a name="triggers"></a>Acionadores
 
-Os gatilhos são ações especiais que criam uma instância lógica de aplicações quando um evento específico acontece. Os gatilhos atuam de formas diferentes, que afetam a forma como a aplicação lógica é medido. Aqui estão os vários tipos de gatilhos que existem em Azure Logic Apps:
+Um gatilho é sempre o primeiro passo num fluxo de trabalho de aplicações lógicas e é uma ação especial que cria e executa uma instância de aplicação lógica quando critérios específicos são cumpridos ou um evento específico acontece. Os gatilhos atuam de formas diferentes, que afetam a forma como a aplicação lógica é medido. Aqui estão os vários tipos de gatilhos que existem em Azure Logic Apps:
 
-* **Gatilho de sondagens**: Este gatilho verifica continuamente um ponto final de mensagens que satisfazem os critérios para criar uma instância lógica de aplicações e iniciar o fluxo de trabalho. Mesmo quando nenhuma instância de aplicação lógica é criada, as Aplicações Lógicas mediem cada pedido de sondagem como uma execução. Para especificar o intervalo de votação, censuuse o gatilho através do Logic App Designer.
+* **Trigger de recorrência**: Pode utilizar este gatilho genérico, que não é específico de qualquer serviço ou sistema, para iniciar qualquer fluxo de trabalho de aplicações lógicas e criar uma instância lógica de aplicação que funciona com base no intervalo de recorrência que configura no gatilho. Por exemplo, pode configurar um gatilho de Recorrência que é executado a cada três dias ou num horário mais complexo.
+
+* **Gatilho de sondagens**: Pode utilizar este gatilho de recorrência mais especializado, que normalmente está associado ao conector gerido para um serviço ou sistema específico, para verificar eventos ou mensagens que satisfaçam os critérios de criação e execução de instâncias lógicas com base no intervalo de recorrência que configura no gatilho. Mesmo quando nenhuma instância de aplicação lógica é criada, por exemplo, quando os gatilhos são ignorados, o serviço Desío de Aplicações Lógicas medi cada pedido de sondagem como uma execução. Para especificar o intervalo de votação, censuuse o gatilho através do Logic App Designer.
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
-* **Webhook trigger**: Este gatilho aguarda que um cliente envie um pedido para um ponto final específico. Cada pedido enviado ao ponto final do webhook conta como uma execução de ação. Por exemplo, o gatilho Request e HTTP Webhook são ambos gatilhos webhook.
-
-* **Trigger de recorrência**: Este gatilho cria uma instância de aplicação lógica com base no intervalo de recorrência que configura no gatilho. Por exemplo, pode configurar um gatilho de Recorrência que é executado a cada três dias ou num horário mais complexo.
+* **Webhook trigger**: Em vez de usar um gatilho de sondagens, pode usar um gatilho webhook para esperar que o cliente envie um pedido para a sua aplicação lógica num URL específico do ponto final. Cada pedido enviado para o ponto final do webhook conta como uma execução de ação. Por exemplo, o gatilho Request e HTTP Webhook são ambos gatilhos genéricos webhook. Alguns conectores para serviços ou sistemas também têm gatilhos webhook.
 
 <a name="actions"></a>
 
 ## <a name="actions"></a>Ações
 
-A Azure Logic Apps medi ações "incorporadas", como HTTP, como ações nativas. Por exemplo, as ações incorporadas incluem chamadas HTTP, chamadas de Funções Azure ou Gestão de API, e passos de fluxo de controlo tais como condições, loops e declarações de switch. Cada ação tem o seu próprio tipo de ação. Por exemplo, as ações que chamam [conectores](https://docs.microsoft.com/connectors) têm o tipo "ApiConnection". Estes conectores são classificados como conectores Standard ou Enterprise, que são medidos com base nos respetivos [preços.](https://azure.microsoft.com/pricing/details/logic-apps) Os conectores da empresa em *Pré-visualização* são carregados como conectores Standard.
+A Azure Logic Apps medi ações "incorporadas", como HTTP, como ações nativas. Por exemplo, as ações incorporadas incluem chamadas HTTP, chamadas de Funções Azure ou Gestão de API, e passos de fluxo de controlo tais como condições, loops e declarações de switch. Cada ação tem o seu próprio tipo de ação. Por exemplo, as ações que chamam [conectores](/connectors) têm o tipo "ApiConnection". Estes conectores são classificados como conectores Standard ou Enterprise, que são medidos com base nos respetivos [preços.](https://azure.microsoft.com/pricing/details/logic-apps) Os conectores da empresa em *Pré-visualização* são carregados como conectores Standard.
 
 A Azure Logic Apps medi todas as ações bem sucedidas e mal sucedidas como execuções. No entanto, as Aplicações Lógicas não são paritórias destas ações:
 
@@ -122,7 +122,7 @@ Se tiver um ambiente de serviço de [ *integração* (ISE),](../logic-apps/conne
 
 Para escolher entre uma conta de integração gratuita, básica ou standard, reveja estas descrições de casos de uso:
 
-* **Grátis**: Para quando quiser experimentar cenários exploratórios, não cenários de produção. Este nível só está disponível para regiões públicas em Azure, por exemplo, eua ocidental ou sudeste asiático, mas não para [o Azure China 21Vianet](https://docs.microsoft.com/azure/china/overview-operations) ou [para o Governo Azure.](../azure-government/documentation-government-welcome.md)
+* **Grátis**: Para quando quiser experimentar cenários exploratórios, não cenários de produção. Este nível só está disponível para regiões públicas em Azure, por exemplo, eua ocidental ou sudeste asiático, mas não para [o Azure China 21Vianet](/azure/china/overview-operations) ou [para o Governo Azure.](../azure-government/documentation-government-welcome.md)
 
 * **Básico**: Para quando só pretender o tratamento de mensagens ou agir como um parceiro de pequena empresa que tenha uma relação de parceiro comercial com uma entidade de negócio maior
 
@@ -167,7 +167,7 @@ Para ajudá-lo a monitorizar o consumo de armazenamento da sua aplicação lógi
 
 1. No painel de ação da **aplicação Logic,** encontre os tamanhos para as entradas e saídas dessa ação aparecem respectivamente no **link inputs** e **na ligação Outputs**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais sobre a Azure Logic Apps](logic-apps-overview.md)
 * [Criar a sua primeira aplicação lógica](quickstart-create-first-logic-app-workflow.md)

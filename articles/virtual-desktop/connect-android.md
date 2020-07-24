@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a7ca15a301de3c54195c0978aa31121c3624a98a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 39df24380917c51f3b492bb62c98024d3d090458
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85209458"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080663"
 ---
-# <a name="connect-with-the-android-client"></a>Ligar ao cliente Android
+# <a name="connect-to-windows-virtual-desktop-with-the-android-client"></a>Conecte-se ao Windows Virtual Desktop com o cliente Android
 
 > Aplica-se a: Android 4.1 e posteriormente, Chromebooks com ChromeOS 53 e mais tarde.
 
@@ -54,6 +54,6 @@ Após a subscrição, o Centro de Ligação deve exibir os recursos remotos.
 
 Uma vez subscrito um feed, o conteúdo do feed será atualizado automaticamente regularmente. Os recursos podem ser adicionados, alterados ou removidos com base em alterações efetuadas pelo seu administrador.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como usar o cliente Android, confira [Consulte o cliente Android.](/windows-server/remote/remote-desktop-services/clients/remote-desktop-android/)

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: f9eefc40f7bca3f0bc21510a2d8a3d3fe76711b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71929cd449f4a00b91cc6c8620b33b0e0c6d506c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82611420"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078142"
 ---
 # <a name="schema-reference-guide-for-the-workflow-definition-language-in-azure-logic-apps"></a>Guia de referência de Schema para a linguagem de definição de fluxo de trabalho em apps lógicas Azure
 
@@ -37,7 +37,7 @@ Aqui está a estrutura de alto nível para uma definição de fluxo de trabalho:
 
 | Atributo | Obrigatório | Descrição |
 |-----------|----------|-------------|
-| `definition` | Yes | O elemento de partida para a definição de fluxo de trabalho |
+| `definition` | Sim | O elemento de partida para a definição de fluxo de trabalho |
 | `$schema` | Só quando referenciar externamente uma definição de fluxo de trabalho | A localização do ficheiro de esquema JSON que descreve a versão Idioma de Definição de Fluxo de Trabalho, que pode encontrar aqui: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
 | `actions` | No | As definições para uma ou mais ações para executar em tempo de execução do fluxo de trabalho. Para obter mais informações, consulte [Triggers e ações](#triggers-actions). <p><p>Máximas ações: 250 |
 | `contentVersion` | No | O número da versão para a definição de fluxo de trabalho, que é "1.0.0.0" por predefinição. Para ajudar a identificar e confirmar a definição correta ao implementar um fluxo de trabalho, especifique um valor a utilizar. |
@@ -76,7 +76,7 @@ Aqui está a estrutura geral para uma definição de parâmetro:
 
 | Atributo | Necessário | Tipo | Description |
 |-----------|----------|------|-------------|
-| <*nome de parâmetro*> | Yes | String | O nome para o parâmetro que quer definir |
+| <*nome de parâmetro*> | Yes | Cadeia | O nome para o parâmetro que quer definir |
 | <*tipo de parâmetro*> | Yes | int, flutuar, corda, bool, matriz, objeto, securestring, secureobject <p><p>**Nota:** Para todas as palavras-passe, chaves e segredos, utilize os `securestring` ou tipos porque a `secureobject` `GET` operação não devolve estes tipos. Para obter mais informações sobre a fixação de parâmetros, consulte [recomendações de segurança para ações e parâmetros de entrada](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). | O tipo para o parâmetro |
 | <*padrão-parâmetro-valor*> | Yes | O mesmo que`type` | O valor do parâmetro padrão a utilizar se não for especificado qualquer valor quando o fluxo de trabalho instantaneamente for. O `defaultValue` atributo é necessário para que o Designer de Aplicações Lógicas possa mostrar corretamente o parâmetro, mas pode especificar um valor vazio. |
 | <*matriz-com-parâmetro-valores permitidos*> | No | Matriz | Uma matriz com valores que o parâmetro pode aceitar |
@@ -114,11 +114,11 @@ No `staticResults` atributo, defina a simulação de uma ação `outputs` e que 
 
 | Atributo | Necessário | Tipo | Description |
 |-----------|----------|------|-------------|
-| <*nome de definição de resultados estáticos*> | Yes | String | O nome para uma definição de resultado estático que uma definição de ação pode referenciar através de um `runtimeConfiguration.staticResult` objeto. Para obter mais informações, consulte [as definições de configuração do tempo de execução](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Pode usar o nome único que quiser. Por padrão, este nome único é anexado com um número, que é incrementado conforme necessário. |
+| <*nome de definição de resultados estáticos*> | Yes | Cadeia | O nome para uma definição de resultado estático que uma definição de ação pode referenciar através de um `runtimeConfiguration.staticResult` objeto. Para obter mais informações, consulte [as definições de configuração do tempo de execução](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Pode usar o nome único que quiser. Por padrão, este nome único é anexado com um número, que é incrementado conforme necessário. |
 | <*saída-atributos-e-valores-devolvidos*> | Yes | Varia | Os requisitos para estes atributos variam em função de diferentes condições. Por exemplo, quando o `status` é , o atributo inclui `Succeeded` `outputs` atributos e valores devolvidos como saídas falsas pela ação. Se `status` `Failed` for, o `outputs` atributo inclui o `errors` atributo, que é um conjunto com um ou mais objetos de erro `message` que têm informações de erro. |
 | <*cabeçalho-valores*> | No | JSON | Quaisquer valores de cabeçalho devolvidos pela ação |
-| <*estado-código devolvido*> | Yes | String | O código de estado devolvido pela ação |
-| <*estado de ação*> | Yes | String | O estado da ação, por exemplo, `Succeeded` ou`Failed` |
+| <*estado-código devolvido*> | Yes | Cadeia | O código de estado devolvido pela ação |
+| <*estado de ação*> | Yes | Cadeia | O estado da ação, por exemplo, `Succeeded` ou`Failed` |
 |||||
 
 Por exemplo, nesta definição de ação HTTP, o `runtimeConfiguration.staticResult.name` atributo refere referências `HTTP0` dentro do atributo onde são `staticResults` definidas as saídas falsas para a ação. O `runtimeConfiguration.staticResult.staticResultOptions` atributo especifica que a definição de resultados está na ação `Enabled` HTTP.
@@ -168,7 +168,7 @@ A ação HTTP devolve as saídas na `HTTP0` definição interior `staticResults`
 
 <a name="expressions"></a>
 
-## <a name="expressions"></a>Expressions (Expressões)
+## <a name="expressions"></a>Expressões
 
 Com o JSON, você pode ter valores literais que existem no tempo de design, por exemplo:
 
@@ -178,7 +178,7 @@ Com o JSON, você pode ter valores literais que existem no tempo de design, por 
 "rainbowColorsCount": 7
 ```
 
-Também pode ter valores que não existem até ao tempo de execução. Para representar estes valores, pode utilizar expressões , que são *avaliadas*no tempo de execução. Uma expressão é uma sequência que pode conter uma ou mais [funções,](#functions) [operadores,](#operators) [variáveis, valores explícitos](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-variables-store-values)ou constantes. Na definição de fluxo de trabalho, pode utilizar uma expressão em qualquer lugar do valor da cadeia JSON, préfixando a expressão com o sinal de at-sign \@ (). Ao avaliar uma expressão que representa um valor JSON, o corpo de expressão é extraído removendo o \@ personagem, e resulta sempre em outro valor JSON.
+Também pode ter valores que não existem até ao tempo de execução. Para representar estes valores, pode utilizar expressões , que são *avaliadas*no tempo de execução. Uma expressão é uma sequência que pode conter uma ou mais [funções,](#functions) [operadores,](#operators) [variáveis, valores explícitos](./logic-apps-create-variables-store-values.md)ou constantes. Na definição de fluxo de trabalho, pode utilizar uma expressão em qualquer lugar do valor da cadeia JSON, préfixando a expressão com o sinal de at-sign \@ (). Ao avaliar uma expressão que representa um valor JSON, o corpo de expressão é extraído removendo o \@ personagem, e resulta sempre em outro valor JSON.
 
 Por exemplo, para o imóvel previamente `customerName` definido, você pode obter o valor da propriedade usando a função [de parâmetros()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) numa expressão e atribuir esse valor ao `accountName` imóvel:
 
@@ -275,14 +275,14 @@ Aqui está a estrutura geral para uma definição de saída:
 }
 ```
 
-| Atributo | Necessário | Tipo | Description |
+| Atributo | Necessário | Tipo | Descrição |
 |-----------|----------|------|-------------|
-| <*nome-chave*> | Yes | String | O nome-chave para o valor de retorno de saída |
+| <*nome-chave*> | Yes | Cadeia | O nome-chave para o valor de retorno de saída |
 | <*tipo-chave*> | Yes | int, flutuar, string, securestring, bool, array, objeto JSON | O tipo para o valor de retorno de saída |
 | <*valor-chave*> | Yes | O mesmo que <*tipo-chave*> | O valor de retorno da saída |
 |||||
 
-Para obter a saída de uma execução de fluxo de trabalho, reveja o histórico de execução da sua aplicação lógica e detalhes no portal Azure ou use o [Workflow REST API](https://docs.microsoft.com/rest/api/logic/workflows). Também pode passar a saída para sistemas externos, por exemplo, Power BI para que possa criar dashboards.
+Para obter a saída de uma execução de fluxo de trabalho, reveja o histórico de execução da sua aplicação lógica e detalhes no portal Azure ou use o [Workflow REST API](/rest/api/logic/workflows). Também pode passar a saída para sistemas externos, por exemplo, Power BI para que possa criar dashboards.
 
 <a name="operators"></a>
 
@@ -307,4 +307,4 @@ Algumas expressões obtêm os seus valores de ações de tempo de execução que
 ## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [ações e gatilhos de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-actions-triggers.md)
-* Saiba sobre a criação e gestão programática de apps lógicas com a [API de Fluxo de Trabalho REST](https://docs.microsoft.com/rest/api/logic/workflows)
+* Saiba sobre a criação e gestão programática de apps lógicas com a [API de Fluxo de Trabalho REST](/rest/api/logic/workflows)

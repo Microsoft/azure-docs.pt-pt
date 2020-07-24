@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: quickstart
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 86be7ec73d8e19597062f3fa3777f3aa422082c3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: acfe4695b94fe9337296d70ef4a2864794730ec4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506354"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081734"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Quickstart: Criar uma função no Azure que responda aos pedidos HTTP
 
@@ -111,6 +111,9 @@ Fornecer os seguintes valores quando solicitado:
 Digite `Y` ou prima Enter para confirmar.
 
 A Maven cria os ficheiros do projeto numa nova pasta com o nome de _artifactId_, que neste exemplo é `fabrikam-functions` . 
+
+Para correr em Java 11 em Azure, tem de modificar os valores do ficheiro pom.xml. Para saber mais, consulte as [versões Java.](functions-reference-java.md#java-versions) 
+
 ::: zone-end  
 Navegue na pasta do projeto:
 
@@ -157,6 +160,8 @@ As definições para os recursos Azure criados para hospedar a sua aplicação s
 :::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-102":::
 
 Pode alterar estas definições para controlar a forma como os recursos são criados no Azure, tais como alterando `runtime.os` de antes da `windows` `linux` implantação inicial. Para obter uma lista completa de definições suportadas pelo plug-in Maven, consulte os detalhes da [configuração](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
+
+Se pretender executar a sua aplicação de função em Java 11 em vez de Java 8, tem de atualizar manualmente o ficheiro pom.xml com os valores de Java 11. Para saber mais, consulte as [versões Java.](functions-reference-java.md#java-versions) Ao correr em Java 11, certifique-se de que  
 
 #### <a name="functiontestjava"></a>FunçãoTest.java
 
@@ -367,7 +372,7 @@ Isto cria os seguintes recursos em Azure:
 + Grupo de recursos. Nomeado como _grupo java-funções._
 + Conta de armazenamento. Requerido por Funções. O nome é gerado aleatoriamente com base nos requisitos de nome da conta de armazenamento.
 + Plano de hospedagem. Hospedagem sem servidor para a sua aplicação de função na região _de Westus._ O nome é _java-funções-app-service-plan_.
-+ App de função. Uma aplicação de função é a unidade de implementação e execução para as suas funções. O nome é gerado aleatoriamente com base no seu _artefactoId,_ anexado a um número gerado aleatoriamente. 
++ App de função. Uma aplicação de função é a unidade de implementação e execução para as suas funções. O nome é gerado aleatoriamente com base no seu _artefactoId,_ anexado com um número gerado aleatoriamente. 
 
 A implementação embala os ficheiros do projeto e implanta-os na nova aplicação de função utilizando a [implementação zip](functions-deployment-technologies.md#zip-deploy). O código é executado a partir do pacote de implantação em Azure.
 ::: zone-end
@@ -419,7 +424,7 @@ az group delete --name java-functions-group
 Para sair do ambiente virtual, `deactivate` corra.
 ::: zone-end
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Ligue-se a uma fila de armazenamento Azure](functions-add-output-binding-storage-queue-cli.md)

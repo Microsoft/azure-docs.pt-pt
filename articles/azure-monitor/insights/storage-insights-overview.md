@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 7ab7071f504231290f72646e59a30fa855cff6cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d71201da0c4af35720a309fe0dfa068cd2c69630
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84944496"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081615"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitorizar o seu serviço de armazenamento com o Azure Monitor para armazenamento
 
@@ -31,7 +31,7 @@ Combinado, entrega:
 
 * **Personalizável** onde pode alterar quais as métricas que deseja ver, modificar ou definir limiares que se alinham com os seus limites, e guardar como seu próprio livro de trabalho. Os gráficos do livro podem ser fixados ao painel Azure.  
 
-Esta funcionalidade não requer que você ative ou configure nada, as métricas de armazenamento das suas contas de armazenamento são recolhidas por padrão. Se não estiver familiarizado com as métricas disponíveis no Azure Storage, veja a descrição e definição nas métricas de Armazenamento Azure, revendo [as métricas de armazenamento Azure](../../storage/common/storage-metrics-in-azure-monitor.md).
+Esta funcionalidade não requer que você ative ou configure nada, as métricas de armazenamento das suas contas de armazenamento são recolhidas por padrão. Se não estiver familiarizado com as métricas disponíveis no Azure Storage, veja a descrição e definição nas métricas de Armazenamento Azure, revendo [as métricas de armazenamento Azure](../../storage/common/monitor-storage.md).
 
 >[!NOTE]
 >Não há qualquer custo para aceder a esta funcionalidade e só será cobrado para as funcionalidades essenciais do Azure Monitor que configura ou ativa, conforme descrito na página de detalhes de preços do [Azure Monitor.](https://azure.microsoft.com/pricing/details/monitor/)
@@ -198,7 +198,7 @@ Agora vamos mudar o tema de cor para as métricas de capacidade no relatório pa
 
 1. Selecione **Definições de colunas** na grelha de métricas.
 
-2. No painel de **definições** da coluna Editar, selecione sob a secção **colunas** **microsoft.storage/storageaccounts-Capacity-UsedCapacity$;microsoft.storage/storageaccounts/blobservices-Capacity-BlobCapacity$;microsoft.storage/storageaccounts/serviços de ficheiros-Capacidade-Capacidade-FicheiroCapy$;microsoft.storage/storageaccounts/queueservices-Capacity-QueueCapacity$;microsoft.storage/storageaccounts/tableservices-Capacity-TableCapacity$**. Sob a lista de drop-down **Paleta de cores**, selecione **Verde**.
+2. No painel de **definições** da coluna Editar, selecione sob a secção **colunas** **microsoft.storage/storageaccounts-Capacity-UsedCapacity$ `|` microsoft.storage/storageaccounts/blobservices-Capacity-BlobCapacity$ `|` microsoft.storage/storageaccounts/fileservices-Capacity-FileCapacity$ `|` microsoft.storage/storageaccounts/queueservices-Capacity-QueueCapacity$microsoft.storage/storageaccounts/tableacs-capacity-capacity- `|` ** Sob a lista de drop-down **Paleta de cores**, selecione **Verde**.
 
 3. **Selecione Guardar e quase** para cometer a sua alteração.
 
@@ -246,7 +246,7 @@ Consulte a secção [de limiar de disponibilidade](storage-insights-overview.md#
 
 ### <a name="how-to-analyze-and-troubleshoot-the-data-shown-in-azure-monitor-for-storage"></a>Como analisar e resolver os dados apresentados no Azure Monitor para armazenamento?
 
- Consulte o [monitor, o diagnóstico e a resolução de problemas do artigo do Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-monitoring-diagnosing-troubleshooting) para obter detalhes sobre como analisar e resolver problemas os dados de armazenamento do Azure apresentados no Azure Monitor para armazenamento.
+ Consulte o [monitor, o diagnóstico e a resolução de problemas do artigo do Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md) para obter detalhes sobre como analisar e resolver problemas os dados de armazenamento do Azure apresentados no Azure Monitor para armazenamento.
 
 ### <a name="why-dont-i-see-all-the-types-of-errors-in-metrics"></a>Por que não vejo todos os tipos de erros nas métricas?
 
@@ -267,9 +267,9 @@ Se quiser ver n diferentes tipos de erro do que especificar splitByLimit como n+
 
 Cada livro é guardado na conta de armazenamento em que o guardou. Tente encontrar a Conta de Armazenamento específica na qual o utilizador guardou o livro. Caso contrário, não há como encontrar um livro específico sem conhecer o recurso (conta de armazenamento).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Configure [alertas métricos](../platform/alerts-metric.md) e [notificações de saúde](../../service-health/alerts-activity-log-service-notifications.md) de serviço para configurar alertas automatizados para ajudar na deteção de problemas.
+* Configure [alertas métricos](../platform/alerts-metric.md) e [notificações de saúde](../../service-health/alerts-activity-log-service-notifications-portal.md) de serviço para configurar alertas automatizados para ajudar na deteção de problemas.
 
 * Saiba os cenários que os livros de trabalho são projetados para apoiar, como autorizar novos e personalizar relatórios existentes, e mais através da revisão [criar relatórios interativos com os livros de trabalho do Azure Monitor.](../platform/workbooks-overview.md)
 

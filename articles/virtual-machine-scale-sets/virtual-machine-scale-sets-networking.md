@@ -9,12 +9,12 @@ ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 0f8075af53752da0e0abc2dec7ab49c28af2e3ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f63bcbb26752dc787d508260cce0b0518cdc7c38
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374734"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080408"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Trabalhar em rede em conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -62,9 +62,9 @@ Ao trabalhar com conjuntos de balança de máquina virtual e balanceador de carg
 
 Os seguintes métodos podem ser utilizados para implantar uma balança de máquina virtual definida com um equilibrador de carga Azure existente.
 
-* [Configure uma balança de máquina virtual definida com um Equilibrador de Carga Azure existente utilizando o portal Azure](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-portal).
-* [Configure uma balança de máquina virtual definida com um Equilibrador de Carga Azure existente utilizando a Azure PowerShell](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-powershell).
-* [Configure uma balança de máquina virtual definida com um Equilibrador de Carga Azure existente utilizando o Azure CLI](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-cli).
+* [Configure uma balança de máquina virtual definida com um Equilibrador de Carga Azure existente utilizando o portal Azure](../load-balancer/configure-vm-scale-set-portal.md).
+* [Configure uma balança de máquina virtual definida com um Equilibrador de Carga Azure existente utilizando a Azure PowerShell](../load-balancer/configure-vm-scale-set-powershell.md).
+* [Configure uma balança de máquina virtual definida com um Equilibrador de Carga Azure existente utilizando o Azure CLI](../load-balancer/configure-vm-scale-set-cli.md).
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Criar um conjunto de dimensionamento que referencie um Gateway de Aplicação
 Para criar um conjunto de dimensionamento que utiliza um gateway de aplicação, referencie o conjunto de endereços de back-end do gateway de aplicação na secção ipConfigurations do seu conjunto de dimensionamento como nesta configuração de modelo ARM:
@@ -405,5 +405,5 @@ az vmss show \
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre redes virtuais do Azure, veja [Descrição geral das redes virtuais do Azure](../virtual-network/virtual-networks-overview.md).

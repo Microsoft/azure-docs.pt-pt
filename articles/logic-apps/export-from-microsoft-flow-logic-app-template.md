@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: b8bf409d759b74e6a5ef0d840aebbe807a04448a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2a45218118282f4f1cadb29c9022fc05b30f907
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324865"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078741"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportar fluxos do Power Automate e implementá-los no Azure Logic Apps
 
@@ -19,9 +20,9 @@ Para alargar e expandir as capacidades do seu fluxo, pode migrar esse fluxo de [
 > [!NOTE]
 > Nem todos os conectores Power Automate estão disponíveis em Azure Logic Apps. Só pode migrar fluxos Power Automamate que tenham os conectores equivalentes em Azure Logic Apps. Por exemplo, o gatilho do botão, o conector de aprovação e o conector de notificação são específicos do Automatismo de Energia. Atualmente, os fluxos baseados no OpenAPI no Power Automamate não são suportados para exportação e implementação como modelos de aplicações lógicas.
 >
-> * Para descobrir quais os conectores Power Automamate que não têm equivalentes de Aplicações Lógicas, consulte [conectores Power Automamate](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
+> * Para descobrir quais os conectores Power Automamate que não têm equivalentes de Aplicações Lógicas, consulte [conectores Power Automamate](/connectors/connector-reference/connector-reference-powerautomate-connectors).
 >
-> * Para descobrir quais os conectores de Aplicações Lógicas que não possuem equivalentes power automate, consulte [conectores de Aplicações Lógicas](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
+> * Para descobrir quais os conectores de Aplicações Lógicas que não possuem equivalentes power automate, consulte [conectores de Aplicações Lógicas](/connectors/connector-reference/connector-reference-powerautomate-connectors).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -171,7 +172,7 @@ Se configurar o Visual Studio com os [pré-requisitos](../logic-apps/quickstart-
 
 Para obter mais informações sobre estes passos de implementação, consulte [Quickstart: Criar tarefas, processos e fluxos de trabalho automatizados com Apps Azure Logic - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-to-Azure)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [Conectores para Apps Azure Logic](../connectors/apis-list.md)
 * Saiba mais sobre [a Azure Logic Apps](../logic-apps/logic-apps-overview.md)

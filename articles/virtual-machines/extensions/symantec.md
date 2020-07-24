@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: akjosh
-ms.openlocfilehash: 63f9441d4df9551405c2ab2bf8c0c67d7de5753c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 985aa094a2761483e682cdfc576891affab68547
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77919911"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080340"
 ---
 # <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>Como instalar e configurar a proteção de ponto final Symantec num VM do Windows
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
@@ -74,7 +75,7 @@ Para verificar se a extensão de segurança Symantec foi instalada e está atual
 
 [Create]:../windows/classic/tutorial.md
 
-[PS]: /powershell/azureps-cmdlets-docs
+[PS]: /powershell/azure/
 
 [Agent]: https://go.microsoft.com/fwlink/p/?LinkId=403947
 

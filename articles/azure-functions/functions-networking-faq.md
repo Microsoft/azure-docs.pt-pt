@@ -6,11 +6,12 @@ ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: acb1e942c1f342ce6fee7d8aeacafcc1d7b6fd91
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d3493cc76dfb05cca3c89114b279b99ab49bac2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75409534"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081649"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Perguntas frequentes sobre networking em Funções Azure
 
@@ -54,11 +55,11 @@ Também pode desencadear uma função de todos os outros recursos numa rede virt
 
 ## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>Como posso implementar a minha aplicação de função numa rede virtual?
 
-Implementar um Ambiente de Serviço de Aplicações é a única forma de criar uma aplicação de função que esteja totalmente dentro de uma rede virtual. Para obter mais informações sobre a utilização de um equilibrador de carga interno com um Ambiente de Serviço de Aplicações, comece com o artigo [Criar e utilizar um equilibrador de carga interno com um Ambiente de Serviço de Aplicações](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase).
+Implementar um Ambiente de Serviço de Aplicações é a única forma de criar uma aplicação de função que esteja totalmente dentro de uma rede virtual. Para obter mais informações sobre a utilização de um equilibrador de carga interno com um Ambiente de Serviço de Aplicações, comece com o artigo [Criar e utilizar um equilibrador de carga interno com um Ambiente de Serviço de Aplicações](../app-service/environment/create-ilb-ase.md).
 
 Para cenários em que só precisa de acesso unidirecional aos recursos de rede virtuais, ou isolamento de rede menos abrangente, consulte a visão geral da [rede de Funções](functions-networking-options.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre networking e funções: 
 

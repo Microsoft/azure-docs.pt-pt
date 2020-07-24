@@ -1,5 +1,5 @@
 ---
-title: Conecte o cliente web virtual do Windows Desktop - Azure
+title: Conecte-se ao Windows Virtual Desktop com o cliente web - Azure
 description: Como ligar-se ao Windows Virtual Desktop utilizando o cliente web.
 services: virtual-desktop
 author: Heidilohr
@@ -8,13 +8,14 @@ ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bb3a73566cd2477e493ca8621336fb3a51f3b3b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bb54db8a18baa237f1c32c223b5f609638c7523
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212467"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080629"
 ---
-# <a name="connect-with-the-web-client"></a>Ligar com o cliente web
+# <a name="connect-to-windows-virtual-desktop-with-the-web-client"></a>Conecte-se ao Windows Virtual Desktop com o cliente web
 
 >[!IMPORTANT]
 >Este conteúdo aplica-se à atualização primavera 2020 com objetos de desktop virtual do Windows Manager do Azure. Se estiver a utilizar o desbloqueio virtual do Windows Desktop Fall 2019 sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/connect-web-2019.md).
@@ -51,6 +52,6 @@ Num browser, navegue para a versão integrada do Azure Resource Manager do clien
 
 Depois de iniciar sessão, deve agora ver uma lista de recursos. Pode lançar recursos selecionando-os como se fosse uma aplicação normal no separador **Todos os Recursos.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como usar o cliente web, confira [Consulte o cliente web.](/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client)

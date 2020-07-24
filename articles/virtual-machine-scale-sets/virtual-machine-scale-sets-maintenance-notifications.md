@@ -9,11 +9,12 @@ ms.subservice: management
 ms.date: 08/20/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: c4b0cb8204891538ef9c4eef3fa0ff5fd9686536
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db6a8965b6a0d03c3de95644d3d455ce3c950960
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83200095"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080442"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Planned maintenance notifications for virtual machine scale sets (Notificações de manutenção planeada para conjuntos de dimensionamento de máquinas virtuais)
 
@@ -83,7 +84,7 @@ A coluna **de manutenção de autosserviço** aparece agora na lista de conjunto
 | Valor | Descrição |
 |-------|-------------|
 | Sim | Pelo menos um VM no seu conjunto de escala de máquina virtual está numa janela de autosserviço. Pode iniciar a manutenção a qualquer momento durante esta janela de autosserviço. | 
-| Não | Não há VMs numa janela de autosserviço no conjunto de escala de máquina virtual afetado. | 
+| No | Não há VMs numa janela de autosserviço no conjunto de escala de máquina virtual afetado. | 
 | - | Os conjuntos de escala de máquinas virtuais não fazem parte de uma onda de manutenção planeada.| 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notificação e alertas no portal
@@ -111,7 +112,7 @@ Depois de iniciar a manutenção, os VMs afetados na sua balança de máquinas v
  
 ## <a name="check-maintenance-status-by-using-powershell"></a>Verifique o estado de manutenção utilizando o PowerShell
 
-Pode utilizar o Azure PowerShell para ver quando estão programados VMs nos seus conjuntos de balanças de máquinas virtuais para manutenção. As informações de manutenção planeadas estão disponíveis utilizando o cmdlet [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) quando utilizar o `-InstanceView` parâmetro.
+Pode utilizar o Azure PowerShell para ver quando estão programados VMs nos seus conjuntos de balanças de máquinas virtuais para manutenção. As informações de manutenção planeadas estão disponíveis utilizando o cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss) quando utilizar o `-InstanceView` parâmetro.
  
 As informações de manutenção só são devolvidas se a manutenção for planeada. Se não for programada qualquer manutenção que afete a instância VM, o cmdlet não devolve nenhuma informação de manutenção. 
 
@@ -213,6 +214,6 @@ Para obter mais informações sobre a elevada disponibilidade, consulte [Regiõe
    - Escolheu parar (deallocate) e reiniciar o VM.
    - Tem **a paragem automática** ligada para o VM.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como se inscrever para eventos de manutenção dentro do VM utilizando [eventos agendados.](../virtual-machines/windows/scheduled-events.md)

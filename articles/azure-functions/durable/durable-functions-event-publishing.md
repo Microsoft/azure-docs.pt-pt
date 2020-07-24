@@ -3,15 +3,16 @@ title: Funções Duradouras publicadas na Grelha de Eventos Azure (pré-visualiz
 description: Saiba como configurar a publicação automática da Azure Event Grid para funções duradouras.
 ms.topic: conceptual
 ms.date: 04/25/2020
-ms.openlocfilehash: c0106f3754e0cdcbf1f295fbe3f1b5def8dc3ca1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e4651dd7548ba76380bfc2d1b314e67d7abe63d9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124293"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081751"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Funções Duradouras publicadas na Grelha de Eventos Azure (pré-visualização)
 
-Este artigo mostra como configurar funções duráveis para publicar eventos de ciclo de vida de orquestração (como criados, concluídos e falhados) a um tópico de [grelha de eventos Azure.](https://docs.microsoft.com/azure/event-grid/overview)
+Este artigo mostra como configurar funções duráveis para publicar eventos de ciclo de vida de orquestração (como criados, concluídos e falhados) a um tópico de [grelha de eventos Azure.](../../event-grid/overview.md)
 
 Seguem-se alguns cenários em que esta funcionalidade é útil:
 
@@ -25,7 +26,7 @@ Seguem-se alguns cenários em que esta funcionalidade é útil:
 
 * Instale [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) no seu projeto Funções Duradouras.
 * Instale [o Emulador de Armazenamento Azure](../../storage/common/storage-use-emulator.md) (apenas para Windows) ou utilize uma conta de Armazenamento Azure existente.
-* Instale [o Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) ou use [a Azure Cloud Shell](../../cloud-shell/overview.md)
+* Instale [o Azure CLI](/cli/azure/?view=azure-cli-latest) ou use [a Azure Cloud Shell](../../cloud-shell/overview.md)
 
 ## <a name="create-a-custom-event-grid-topic"></a>Crie um tópico personalizado da Grelha de Eventos
 
@@ -167,7 +168,7 @@ Utilizando o portal Azure, crie outra aplicação de função para ouvir os even
 
 ### <a name="add-an-event-grid-subscription"></a>Adicionar uma subscrição de Grade de Eventos
 
-Agora pode adicionar uma subscrição de Grade de Eventos para o tópico 'Grade de Eventos' que criou. Para mais informações, consulte [Conceitos na Grelha de Eventos Azure.](https://docs.microsoft.com/azure/event-grid/concepts)
+Agora pode adicionar uma subscrição de Grade de Eventos para o tópico 'Grade de Eventos' que criou. Para mais informações, consulte [Conceitos na Grelha de Eventos Azure.](../../event-grid/concepts.md)
 
 1. Na sua nova função, selecione **Integração** e, em seguida, selecione **Event Grid Trigger (eventGridEvent)**. 
 
@@ -253,7 +254,7 @@ A seguinte lista explica o esquema de eventos do ciclo de vida:
 
 Para testar localmente, leia [Azure Function Event Event Grid Trigger Local Debugging](../functions-debug-event-grid-trigger-local.md)local .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Aprenda a gestão de instâncias em Funções Duradouras](durable-functions-instance-management.md)

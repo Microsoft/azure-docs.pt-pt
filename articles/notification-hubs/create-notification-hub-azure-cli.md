@@ -13,12 +13,12 @@ ms.date: 05/27/2020
 ms.author: dbradish
 ms.reviewer: sethm
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 3014a66c633a4293de8cd6eb325e962366c103b9
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: d32bae48348e482e0e175760a416097ffbc17a1c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85208268"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080952"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Quickstart: Criar um centro de notificação Azure utilizando o Azure CLI
 
@@ -32,7 +32,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Os Centros de Notificação requerem a versão 2.0.67 ou posterior do Azure CLI. Corra `az --version` para encontrar a versão e bibliotecas dependentes que estão instaladas. Para instalar ou atualizar, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
 
-## <a name="prepare-your-environment"></a>Preparar o ambiente
+## <a name="prepare-your-environment"></a>Preparar o seu ambiente
 
 1. Inicia sessão.
 
@@ -95,7 +95,7 @@ Os Centros de Notificação requerem a versão 2.0.67 ou posterior do Azure CLI.
    az notification-hub namespace create --resource-group spnhubrg --name spnhubns  --location eastus --sku Free
    ```
 
-   Se o `--name` que forneceu ao comando não estiver `az notification-hub namespace create` disponível, ou não cumprir [as regras de nomeação e as restrições para os recursos Azure,](/azure/azure-resource-manager/management/resource-name-rules)o Azure CLI responderá com a seguinte saída da consola:
+   Se o `--name` que forneceu ao comando não estiver `az notification-hub namespace create` disponível, ou não cumprir [as regras de nomeação e as restrições para os recursos Azure,](../azure-resource-manager/management/resource-name-rules.md)o Azure CLI responderá com a seguinte saída da consola:
 
    ```output
    #the name is not available
@@ -148,7 +148,7 @@ Os Centros de Notificação requerem a versão 2.0.67 ou posterior do Azure CLI.
 
 1. Enuse as políticas de acesso a um centro de notificação.
 
-   O Azure Notification Hubs utiliza [a segurança de assinatura](/azure/notification-hubs/notification-hubs-push-notification-security) de acesso partilhado através da utilização de políticas de acesso.  Duas políticas são criadas automaticamente quando cria um centro de notificação.  As cadeias de ligação destas políticas são necessárias para configurar notificações push.  O comando [da lista de regras de autorização az-hub](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list) fornece uma lista de nomes de política e respetivos grupos de recursos.
+   O Azure Notification Hubs utiliza [a segurança de assinatura](./notification-hubs-push-notification-security.md) de acesso partilhado através da utilização de políticas de acesso.  Duas políticas são criadas automaticamente quando cria um centro de notificação.  As cadeias de ligação destas políticas são necessárias para configurar notificações push.  O comando [da lista de regras de autorização az-hub](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list) fornece uma lista de nomes de política e respetivos grupos de recursos.
 
    ```azurecli
    az notification-hub authorization-rule list --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --output table
@@ -167,7 +167,7 @@ Os Centros de Notificação requerem a versão 2.0.67 ou posterior do Azure CLI.
 
 3. Listar chaves e cadeias de conexão para uma política de acesso ao centro de notificação
 
-   Existem dois conjuntos de chaves e cordas de ligação para cada política de acesso.  Mais tarde, vai precisar deles para [configurar um centro de notificação.](/azure/notification-hubs/configure-notification-hub-portal-pns-settings)  Para listar as cordas das chaves e ligações para uma política de acesso ao centro de notificação, utilize o comando [az notification-hub de regra de regra de lista-chaves.](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys)
+   Existem dois conjuntos de chaves e cordas de ligação para cada política de acesso.  Mais tarde, vai precisar deles para [configurar um centro de notificação.](./configure-notification-hub-portal-pns-settings.md)  Para listar as cordas das chaves e ligações para uma política de acesso ao centro de notificação, utilize o comando [az notification-hub de regra de regra de lista-chaves.](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys)
 
    ```azurecli
    #query the keys and connection strings for DefaultListenSharedAccessSignature

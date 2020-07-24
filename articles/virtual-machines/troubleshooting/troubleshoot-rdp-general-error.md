@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f996ffa864fb4178ddedecde7c5511d5d9cf39a1
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: df318fea4960601dcbfa84149fdc47bedc9104a2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985811"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079830"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Resolução de problemas num erro geral do PDR em Azure VM
 
@@ -183,7 +183,7 @@ Para obter mais informações, consulte [as desconexões de ambientes de trabalh
 
 #### <a name="step-1-turn-on-remote-desktop"></a>Passo 1: Ligue o ambiente de trabalho remoto
 
-1. [Fixe o disco DE A uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Fixe o disco DE A uma VM de recuperação](./troubleshoot-recovery-disks-portal-windows.md).
 2. Inicie uma ligação de ambiente de trabalho remoto ao VM de recuperação.
 3. Certifique-se de que o disco está sinalizado como **Online** na consola de Gestão de Discos. Note a letra de unidade que é atribuída ao disco de sos anexado.
 4. Inicie uma ligação de ambiente de trabalho remoto ao VM de recuperação.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: 5d0eee6b89ec3e0be944f17c361aafa598724069
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: bc29a62f469b0b9d091fcdef2488afba764a09fe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042123"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080357"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensões e funcionalidades de máquina virtual para Linux
 
@@ -32,7 +32,7 @@ Este artigo fornece uma visão geral das extensões VM, pré-requisitos para a u
 Estão disponíveis várias extensões VM Azure diferentes, cada uma com um caso de utilização específico. Alguns exemplos incluem:
 
 - Aplicar as configurações do Estado Desejado PowerShell a um VM com a extensão DSC para Linux. Para obter mais informações, consulte [a extensão de configuração do Estado Desejado Azure](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
-- Configure a monitorização de um VM com a extensão VM do Agente de Monitorização da Microsoft. Para mais informações, consulte [Como monitorizar um Linux VM](../linux/tutorial-monitoring.md).
+- Configure a monitorização de um VM com a extensão VM do Agente de Monitorização da Microsoft. Para mais informações, consulte [Como monitorizar um Linux VM](../linux/tutorial-monitor.md).
 - Configure a monitorização da sua infraestrutura Azure com a extensão do Chef ou Datadog. Para mais informações, consulte o [chef docs](https://docs.chef.io/azure_portal.html) ou [o blog Datadog.](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)
 
 Além de extensões específicas do processo, está disponível uma extensão de Script Personalizado para máquinas virtuais Windows e Linux. A extensão de Script Personalizado para Linux permite que qualquer script Bash seja executado em um VM. Scripts personalizados são úteis para projetar implementações Azure que requerem configuração além do que a ferramenta nativa Azure pode fornecer. Para mais informações, consulte a [extensão do Script Personalizado Linux VM](custom-script-linux.md).
@@ -65,7 +65,7 @@ Os pacotes de extensão são descarregados do repositório de extensão de armaz
 > [!IMPORTANT]
 > Se bloqueou o acesso a *168.63.129.16* utilizando a firewall do hóspede, então as extensões falham independentemente do acima.
 
-Os agentes só podem ser usados para descarregar pacotes de extensão e estado de reporte. Por exemplo, se uma instalação de extensão precisar de descarregar um script do GitHub (Script Personalizado) ou precisar de acesso ao Azure Storage (Azure Backup), então devem ser abertas portas adicionais do Firewall/Network Security Group. As extensões diferentes têm requisitos diferentes, uma vez que são aplicações por si só. Para extensões que requerem acesso ao Azure Storage, pode permitir o acesso usando tags de serviço Azure NSG para [armazenamento.](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)
+Os agentes só podem ser usados para descarregar pacotes de extensão e estado de reporte. Por exemplo, se uma instalação de extensão precisar de descarregar um script do GitHub (Script Personalizado) ou precisar de acesso ao Azure Storage (Azure Backup), então devem ser abertas portas adicionais do Firewall/Network Security Group. As extensões diferentes têm requisitos diferentes, uma vez que são aplicações por si só. Para extensões que requerem acesso ao Azure Storage, pode permitir o acesso usando tags de serviço Azure NSG para [armazenamento.](../../virtual-network/security-overview.md#service-tags)
 
 Para redirecionar os pedidos de tráfego de agentes, o Agente Linux tem suporte para servidor de procuração. No entanto, este suporte ao servidor proxy não aplica extensões. Deve configurar cada extensão individual para trabalhar com um representante.
 
@@ -259,7 +259,7 @@ Na saída de exemplo anterior, a versão principal ou "versão distribuída por 
 
 O 'Agente estatal goal' é a versão de atualização automática.
 
-Recomenda-se vivamente que tenha sempre uma atualização automática para o agente, [AutoUpdate.Enabled=y](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). Não ter isto ativado significa que precisa de continuar a atualizar manualmente o agente e não obter correções de erros e segurança.
+Recomenda-se vivamente que tenha sempre uma atualização automática para o agente, [AutoUpdate.Enabled=y](./update-linux-agent.md). Não ter isto ativado significa que precisa de continuar a atualizar manualmente o agente e não obter correções de erros e segurança.
 
 #### <a name="extension-updates"></a>Atualizações de extensão
 

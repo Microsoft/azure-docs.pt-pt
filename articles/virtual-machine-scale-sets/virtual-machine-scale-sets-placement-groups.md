@@ -9,15 +9,15 @@ ms.subservice: management
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 0848d092c342b29c1839a4dd4cebd0bad62ea3ca
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 001b5d803dedad8de407480e668c9ec40a004ace
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023011"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080391"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Trabalhar com conjuntos de dimensionamento de máquinas virtuais de grande escala
-Agora, pode criar [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/) do Azure com uma capacidade de até 1000 VMs. Neste documento, um _conjunto de dimensionamento de máquinas virtuais de grande escala_ está definido como um conjunto de dimensionamento com capacidade para dimensionar para mais do que 100 VMs. Esta capacidade é definida por uma propriedade de conjunto de dimensionamento (_singlePlacementGroup=False_). 
+Agora, pode criar [conjuntos de dimensionamento de máquinas virtuais](./index.yml) do Azure com uma capacidade de até 1000 VMs. Neste documento, um _conjunto de dimensionamento de máquinas virtuais de grande escala_ está definido como um conjunto de dimensionamento com capacidade para dimensionar para mais do que 100 VMs. Esta capacidade é definida por uma propriedade de conjunto de dimensionamento (_singlePlacementGroup=False_). 
 
 Determinados aspetos de conjuntos de dimensionamento de grande escala, como o balanceamento de carga e os domínios de falha, têm um comportamento diferente de um conjunto de dimensionamento padrão. Este documento explica as características dos conjuntos de dimensionamento de grande escala e descreve o que precisa de saber para utilizá-los com êxito nas aplicações. 
 
@@ -34,10 +34,10 @@ Para decidir se a aplicação pode utilizar eficazmente os conjuntos de dimensio
 - Atualmente, os conjuntos de dimensionamento criados a partir de imagens personalizadas (imagens VM criadas e carregadas por si) podem ser aumentados verticalmente até 600 VMs.
 - Os conjuntos de dimensionamento de grande escala requerem Managed Disks do Azure. Os conjuntos de dimensionamento que não são criados com discos geridos requerem várias contas de armazenamento (uma por cada 20 VMs). Os conjuntos de dimensionamento de grande escala são concebidos para funcionar exclusivamente com Managed Disks, para reduzir a sobrecarga da gestão do armazenamento e para evitar o risco de existirem limites de subscrição para contas de armazenamento. 
 - Em grande escala (SPG=falso) não suporta a rede InfiniBand
-- O balanceamento de carga de camada 4 com conjuntos de dimensionamento compostos por vários grupos de colocação requer o [SKU Balanceador de Carga do Azure Standard](../load-balancer/load-balancer-standard-overview.md). O SKU Balanceador de Carga do Azure Standard oferece mais benefícios, como a capacidade de balancear a carga entre diversos conjuntos de dimensionamento. O SKU Standard também requer que os conjuntos de dimensionamento tenham um Grupo de Segurança de rede associado ao mesmo, caso contrário, os conjuntos NAT não funcionam corretamente. Se tiver de utilizar o SKU Balanceador de Carga do Azure Básico, confirme que o conjunto de dimensionamento está configurado para utilizar um único grupo de colocação, que é a predefinição.
+- O balanceamento de carga de camada 4 com conjuntos de dimensionamento compostos por vários grupos de colocação requer o [SKU Balanceador de Carga do Azure Standard](../load-balancer/load-balancer-overview.md). O SKU Balanceador de Carga do Azure Standard oferece mais benefícios, como a capacidade de balancear a carga entre diversos conjuntos de dimensionamento. O SKU Standard também requer que os conjuntos de dimensionamento tenham um Grupo de Segurança de rede associado ao mesmo, caso contrário, os conjuntos NAT não funcionam corretamente. Se tiver de utilizar o SKU Balanceador de Carga do Azure Básico, confirme que o conjunto de dimensionamento está configurado para utilizar um único grupo de colocação, que é a predefinição.
 - O balanceamento de carga de camada 7 com o Gateway de Aplicação do Azure é suportado para todos os conjuntos de dimensionamento.
 - Um conjunto de dimensionamento é definido com uma única sub-rede - certifique-se de que a sub-rede tem um espaço de endereço suficientemente grande para todas as VMs necessárias. Por predefinição, um conjunto de dimensionamento aprovisiona em excesso (cria VMs adicionais no momento da implementação ou ao aumentar horizontalmente, o que não lhe é cobrado) para melhorar a fiabilidade e o desempenho da implementação. Permita um espaço de endereço 20% maior do que o número de VMs que planeia dimensionar.
-- Os domínios de falha e os domínios de atualização só são consistentes dentro de um grupo de colocação. Esta arquitetura não altera a disponibilidade geral de um conjunto de dimensionamento, uma vez que as VMs são distribuídas por hardware físico distinto, mas tal não significa que, se precisar de garantir que duas VMs estão em hardware diferente, certifique-se de que estão em domínios de falha diferentes no mesmo grupo de colocação. Consulte este link [As opções de disponibilidade.](/azure/virtual-machines/windows/availability) 
+- Os domínios de falha e os domínios de atualização só são consistentes dentro de um grupo de colocação. Esta arquitetura não altera a disponibilidade geral de um conjunto de dimensionamento, uma vez que as VMs são distribuídas por hardware físico distinto, mas tal não significa que, se precisar de garantir que duas VMs estão em hardware diferente, certifique-se de que estão em domínios de falha diferentes no mesmo grupo de colocação. Consulte este link [As opções de disponibilidade.](../virtual-machines/windows/availability.md) 
 - O domínio de falha e o ID do grupo de colocação são apresentados na _vista de instância_ da VM do conjunto de dimensionamento. Pode ver a vista de instância da VM de um conjunto de dimensionamento no [Explorador de Recursos do Azure](https://resources.azure.com/).
 
 ## <a name="creating-a-large-scale-set"></a>Criar um conjunto de dimensionamento de grande escala
@@ -84,5 +84,3 @@ Para que um conjunto de dimensionamento de máquina virtual existente seja capaz
 
 > [!NOTE]
 > Pode alterar um conjunto de dimensionamento para que não suporte apenas um único grupo de colocação (o comportamento padrão), mas para que suporte vários grupos de colocação. No entanto, não pode fazer a conversão inversa. Por conseguinte, certifique-se de que compreende as propriedades dos conjuntos de dimensionamento de grande escala antes de converter.
-
-

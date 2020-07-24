@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 44262c30dc49182314fb70dbb814be25c49e9d50
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 23e7b0f8dcb0c64259627d5350511ebdc48d6fac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080011"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078970"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicione contas de armazenamento adicionais ao HDInsight
 
@@ -26,7 +26,7 @@ Saiba como usar as ações de script para adicionar *contas* adicionais de Armaz
 
 * Um aglomerado hadoop em HDInsight. Ver [Começar com HDInsight no Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Nome e chave da conta de armazenamento. Consulte [as teclas de acesso à conta de armazenamento](../storage/common/storage-account-keys-manage.md).
-* Se utilizar o PowerShell, necessitará do módulo AZ.  Ver [visão geral da Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+* Se utilizar o PowerShell, necessitará do módulo AZ.  Ver [visão geral da Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
 
 ## <a name="how-it-works"></a>Como funciona
 
@@ -134,6 +134,6 @@ Para contornar este problema:
 > [!IMPORTANT]  
 > Não é suportada a chave de armazenamento da conta de armazenamento primária anexada a um cluster.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aprendeu a adicionar contas de armazenamento adicionais a um cluster HDInsight existente. Para obter mais informações sobre as ações de script, consulte [os clusters HDInsight baseados em Linux utilizando ação de script](hdinsight-hadoop-customize-cluster-linux.md)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 29a90b94db5e6e5791361bad004efcf649e1950b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 62645e6252256079e27792b1905d60a073c1fa3a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500613"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080234"
 ---
 ## <a name="limitations"></a>Limitações
 
@@ -46,9 +46,9 @@ az disk create -g myResourceGroup -n mySharedDisk --size-gb 1024 -l westcentralu
 #### <a name="powershell"></a>PowerShell
 ```azurepowershell-interactive
 
-$datadiskconfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType PremiumSSD_LRS -CreateOption Empty
+$dataDiskConfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType PremiumSSD_LRS -CreateOption Empty -MaxSharesCount 2
 
-New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $datadiskconfig
+New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $dataDiskConfig
 
 ```
 
@@ -116,7 +116,7 @@ az disk show -g rg1 -n clidisk
 #### <a name="powershell"></a>PowerShell
 ```azurepowershell-interactive
 
-$datadiskconfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType UltraSSD_LRS -CreateOption Empty -DiskIOPSReadWrite 2000 -DiskMBpsReadWrite 200 -DiskIOPSReadOnly 100 -DiskMBpsReadOnly 1
+$datadiskconfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType UltraSSD_LRS -CreateOption Empty -DiskIOPSReadWrite 2000 -DiskMBpsReadWrite 200 -DiskIOPSReadOnly 100 -DiskMBpsReadOnly 1 -MaxSharesCount 5
 
 New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $datadiskconfig
 
@@ -258,4 +258,4 @@ PR_EXCLUSIVE_ACCESS_ALL_REGISTRANTS
 Você também precisa fornecer uma chave de reserva persistente ao usar PR_RESERVE, PR_REGISTER_AND_IGNORE, PR_REGISTER_KEY, PR_PREEMPT_RESERVATION, PR_CLEAR_RESERVATION ou PR_RELEASE-RESERVA.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes

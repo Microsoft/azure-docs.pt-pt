@@ -5,11 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 37a387b93f1c6b3796b66993405787cf43990bc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88a8dcb53ab2f845f52121b11c96c23ad0a3e791
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83684015"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078921"
 ---
 # <a name="sensor-partner-integration"></a>Integração de parceiros de sensores
 
@@ -130,7 +131,7 @@ O FarmBeats Datahub tem as seguintes APIs que permitem aos parceiros de disposit
 - /**SensorModel**: SensorModel corresponde aos metadados do sensor, como o fabricante, o tipo de sensor, que é analógico ou digital, e a medida do sensor, como a temperatura e a pressão ambiente.
 - /**Sensor**: O sensor corresponde a um sensor físico que regista valores. Um sensor é normalmente ligado a um dispositivo com um ID do dispositivo.
 
-  **DeviceModel** |  |
+  DeviceModel | Descrição |
   --- | ---
   Tipo (nó, porta de entrada)  | Tipo do dispositivo - Nó ou Gateway |
   Fabricante  | Nome do fabricante |
@@ -139,7 +140,7 @@ O FarmBeats Datahub tem as seguintes APIs que permitem aos parceiros de disposit
   Name  | Nome para identificar recurso. Por exemplo, nome do modelo ou nome do produto. |
   Descrição  | Forneça uma descrição significativa do modelo. |
   Propriedades  | Propriedades adicionais do fabricante. |
-  **Dispositivo** |  |
+  **Dispositivo** | **Descrição** |
   DeviceModelId  |Identificação do modelo do dispositivo associado. |
   HardwareId   |ID único para o dispositivo, como um endereço MAC.  |
   ReporteInterval |Intervalo de reportagem em segundos. |
@@ -148,7 +149,7 @@ O FarmBeats Datahub tem as seguintes APIs que permitem aos parceiros de disposit
   Name  | Nome para identificar o recurso. Os parceiros do dispositivo precisam de enviar um nome consistente com o nome do dispositivo no lado do parceiro do dispositivo. Se o nome do dispositivo for definido pelo utilizador no lado do parceiro do dispositivo, o mesmo nome definido pelo utilizador deve ser propagado ao FarmBeats.  |
   Descrição  | Forneça uma descrição significativa.  |
   Propriedades  |Propriedades adicionais do fabricante.  |
-  **SensorModel** |  |
+  **SensorModel** | **Descrição** |
   Tipo (analógico, digital)  |Mencione sensor analógico ou digital.|
   Fabricante  | Nome do fabricante. |
   Código de Produto  | Código do produto ou nome ou número do modelo. Por exemplo, RS-CO2-N01.  |
@@ -162,7 +163,7 @@ O FarmBeats Datahub tem as seguintes APIs que permitem aos parceiros de disposit
   Name  | Nome para identificar recurso. Por exemplo, o nome do modelo ou o nome do produto.
   Descrição  | Forneça uma descrição significativa do modelo.
   Propriedades  | Propriedades adicionais do fabricante.
-  **Sensor**  |  |
+  **Sensor**  | **Descrição** |
   HardwareId  | ID único para o sensor definido pelo fabricante.
   SensorModelId  | Identificação do modelo de sensor associado.
   Localização  | Latitude sensora (-90 a +90), longitude (-180 a 180) e elevação (em metros).
@@ -347,6 +348,6 @@ Os fabricantes ou parceiros do dispositivo podem utilizar a seguinte lista de ve
    - Verifique se uma chamada da API tem sucesso com o token de acesso que foi recebido.
    - Verifique se a ligação ao cliente do EventHub está estabelecida.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a API REST, consulte [REST API.](rest-api-in-azure-farmbeats.md)

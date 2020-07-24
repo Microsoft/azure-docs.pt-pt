@@ -7,22 +7,22 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7c4a148d68de8c57ed9237c05ba11eaf6c5e81e3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5ea17edc61988f13df5137686d823a424f6752ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103964"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080867"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Trabalhar com a versão anterior de Azure Migrate
 
-Este artigo fornece informações sobre o trabalho com a versão anterior do Azure Migrate.
+Este artigo fornece informações sobre o trabalho com a versão anterior do Azure Migrate. 
 
 
 Existem duas versões do serviço Azure Migrate:
 
 - **Versão atual**: Utilize esta versão para criar projetos Azure Migrate, descubra máquinas no local e orquestrar avaliações e migrações. [Saiba mais](whats-new.md) sobre as novidades desta versão.
-- **Versão anterior**: Se estiver a utilizar a versão anterior do Azure Migrate (apenas foi suportada a avaliação dos VMS VMware no local), deverá agora utilizar a versão atual. Se ainda precisa de utilizar os projetos Azure Migrate criados na versão anterior, isto é o que pode e não pode fazer:
+- **Versão anterior**: Se estiver a utilizar a versão anterior do Azure Migrate (apenas foi suportada a avaliação dos VMS VMware no local), deverá agora utilizar a versão atual. Os projetos de versão anterior são referidos como projetos clássicos neste artigo. Se ainda precisa de utilizar os projetos Azure Migrate criados na versão anterior, isto é o que pode e não pode fazer:
     - Já não se pode criar projetos de migração.
     - Recomendamos que não realize novas descobertas.
     - Ainda pode aceder a projetos existentes.
@@ -31,7 +31,7 @@ Existem duas versões do serviço Azure Migrate:
 
 ## <a name="upgrade-between-versions"></a>Upgrade entre versões
 
-Não é possível atualizar projetos ou componentes na versão anterior para a nova versão. Você precisa [criar um novo projeto Azure Migrate](how-to-add-tool-first-time.md), e adicionar-lhe ferramentas de avaliação e migração.
+Não é possível atualizar projetos ou componentes na versão anterior para a nova versão. Você precisa [criar um novo projeto Azure Migrate](create-manage-projects.md), e [adicionar-lhe ferramentas de avaliação e migração.](how-to-add-tool-first-time.md) Use os tutoriais para entender como usar as ferramentas de avaliação e migração disponíveis. Se tiver um espaço de trabalho log Analytics ligado a um projeto Clássico, pode anexá-lo a um projeto de versão atual depois de eliminar o projeto Classic.
 
 ## <a name="find-projects-from-previous-version"></a>Encontre projetos a partir de versão anterior
 
@@ -39,7 +39,16 @@ Encontre projetos da versão anterior da seguinte forma:
 
 1. No portal Azure > **Todos os serviços,** procure e selecione **Azure Migrate**. 
 2. No painel Azure Migrate, há uma notificação e um link para aceder a antigos projetos da Azure Migrate.
-3. Clique no link para abrir projetos v1.
+3. Clique no link para abrir projetos clássicos.
+
+## <a name="delete-projects-from-previous-version"></a>Eliminar projetos de versão anterior
+
+Localizar e apagar projetos da versão anterior da seguinte forma:
+
+1. No portal Azure > **Todos os serviços,** procure e selecione **Azure Migrate**. 
+2. No painel Azure Migrate, há uma notificação e um link para aceder a antigos projetos da Azure Migrate.
+3. Clique no link para abrir projetos clássicos.
+4. Selecione o projeto que pretende eliminar e eliminá-lo. 
 
 
 ## <a name="create-an-assessment"></a>Criar uma avaliação
@@ -56,7 +65,7 @@ Criar uma avaliação da seguinte forma:
 3. Crie o grupo e especifique um nome.
 4. Selecione as máquinas que quer adicionar ao grupo.
 5. Clique em **Criar Avaliação**, para criar o grupo e a avaliação.
-6. Após a avaliação ser criada, veja-a no **Painel de**  >  **Visão Geral**.
+6. Após a criação da avaliação, visualize-a em **Descrição geral** > **Dashboard**.
 7. Clique em **Exportar avaliação**, para transferi-la como um ficheiro do Excel.
 
 Se quiser atualizar uma avaliação existente com os dados de desempenho mais recentes, poderá utilizar o comando **Recalcular** na avaliação para a atualizar.
@@ -76,7 +85,7 @@ Uma máquina só se move para uma fase posterior se passar a anterior. Por exemp
 
 A vista de preparação para o Azure na avaliação mostra o estado de preparação de cada VM.
 
-**Prontidão** | **Estado** | **Detalhes**
+**Preparação** | **Estado** | **Detalhes**
 --- | --- | ---
 Preparado para o Azure | Sem problemas de compatibilidade. A máquina pode ser migrada como está para Azure, e irá arrancar em Azure com suporte Azure completo. | Para as VMs que estão prontas, o Azure Migrate recomenda um tamanho de VM no Azure.
 Condicionalmente preparado para o Azure | A máquina pode arrancar em Azure, mas pode não ter suporte completo do Azure. Por exemplo, uma máquina com uma versão mais antiga do Windows Server que não é suportada no Azure. | Azure Migrate explica as questões de prontidão e fornece medidas de reparação.
@@ -88,7 +97,7 @@ Preparação desconhecida | Azure Migrate não consegue identificar a prontidão
 A prontidão tem em conta uma série de propriedades VM, para identificar se o VM pode funcionar em Azure.
 
 
-**Propriedade** | **Detalhes** | **Prontidão**
+**Propriedade** | **Detalhes** | **Preparação**
 --- | --- | ---
 **Tipo de bota** | BIOS suportado. UEFI não apoiada. | Condicionalmente pronto se o tipo de arranque for UEFI.
 **Núcleos** | Máquinas core <= o número máximo de núcleos (128) suportados para um Azure VM.<br/><br/> Se o histórico de desempenho estiver disponível, a Azure Migrate considera os núcleos utilizados.<br/>Se um fator de conforto for especificado nas definições de avaliação, o número de núcleos utilizados é multiplicado pelo fator de conforto.<br/><br/> Se não houver histórico de desempenho, a Azure Migrate utiliza os núcleos atribuídos, sem aplicar o fator de conforto. | Pronto se for inferior ou igual a limites.
@@ -105,7 +114,7 @@ Juntamente com as propriedades VM, Azure Migrate também olha para o so convidad
 
 É utilizada a seguinte lógica.
 
-**Sistema Operativo** | **Detalhes** | **Prontidão**
+**Sistema Operativo** | **Detalhes** | **Preparação**
 --- | --- | ---
 Windows Server 2016 e todos os SPs | O Azure oferece todo o apoio. | Preparado para o Azure
 Windows Server 2012 R2 e todos os SPs | O Azure oferece todo o apoio. | Preparado para o Azure
@@ -340,5 +349,5 @@ VMConnection
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Conheça](migrate-services-overview.md) a versão mais recente do Azure Migrate.

@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 262431cfcc906b6df1054aaa7dc2b9573c3b8833
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e4f33f0974462197382ea6ac5d2b68d61909f73b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965251"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079251"
 ---
 # <a name="using-azure-batch-rendering"></a>Usando a renderização do lote Azure
 
@@ -19,7 +19,7 @@ Existem várias formas de utilizar a renderização do Azure Batch:
 * APIs:
   * Escreva código usando qualquer uma das APIs do lote.  Os desenvolvedores podem integrar as capacidades do Azure Batch nas suas aplicações ou fluxo de trabalho existentes, seja em nuvem ou com base nas instalações.
 * Ferramentas da linha de comando:
-  * A [linha de comando Azure](/cli/azure/) ou [PowerShell](/powershell/azure/overview) pode ser usada para script Batch.
+  * A [linha de comando Azure](/cli/azure/) ou [PowerShell](/powershell/azure/) pode ser usada para script Batch.
   * Em particular, o suporte ao [modelo do Grupo CLI](./batch-cli-templates.md) facilita muito a criação de piscinas e a apresentação de empregos.
 * UI do Explorador de Lote:
   * [O Batch Explorer](https://github.com/Azure/BatchLabs) é uma ferramenta de clientes de plataforma cruzada que também permite que as contas do Batch sejam geridas e monitorizadas.
@@ -61,7 +61,7 @@ Os plug-ins estão disponíveis para algumas das aplicações do cliente.  Os pl
 * [Autodesk 3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
 * [Autodesk Maya](https://github.com/Azure/azure-batch-maya)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Por exemplo, a renderização do Lote experimente os dois tutoriais:
 

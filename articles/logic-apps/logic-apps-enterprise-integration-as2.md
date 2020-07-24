@@ -7,18 +7,18 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 02/27/2020
-ms.openlocfilehash: 545c1720ef379ec74bd2e7c0bc68f6a2fcbba789
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/24/2020
+ms.openlocfilehash: e47cd89b2f0a5de4e0fc7663f37a2960e2ada971
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82115504"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078629"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens AS2 para a integração empresarial B2B no Azure Logic Apps com o Enterprise Integration Pack
 
 > [!IMPORTANT]
-> O conector AS2 original está a ser depreciado, por isso certifique-se de que utiliza o conector **AS2 (v2).** Esta versão fornece as mesmas capacidades que a versão original, é nativa do tempo de execução das Aplicações Lógicas, e fornece melhorias significativas no desempenho em termos de produção e tamanho de mensagem. Além disso, o conector v2 nativo não requer que crie uma ligação à sua conta de integração. Em vez disso, conforme descrito nos pré-requisitos, certifique-se de que liga a sua conta de integração à aplicação lógica onde planeia utilizar o conector.
+> O conector AS2 original está a ser depreciado, por isso, a menos que precise de capacidades de rastreio, utilize o conector **AS2 (v2).** Com exceção do rastreio, o conector V2 fornece as mesmas capacidades que a versão original, é nativo do tempo de funcionaamento das Aplicações Lógicas, e tem melhorias significativas no desempenho no tamanho, produção e latência da mensagem. Além disso, o conector V2 não requer que crie uma ligação à sua conta de integração. Em vez disso, conforme descrito nos pré-requisitos, certifique-se de que liga a sua conta de integração à aplicação lógica onde planeia utilizar o conector.
 
 Para trabalhar com mensagens AS2 no Azure Logic Apps, pode utilizar o conector AS2, que proporciona acionadores e ações para gerir a comunicação AS2. Por exemplo, para estabelecer segurança e fiabilidade ao transmitir mensagens, pode utilizar estas ações:
 
@@ -119,7 +119,7 @@ Para tentar implementar uma aplicação lógica totalmente operacional e experim
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter mais detalhes técnicos sobre este conector, tais como ações e limites descritos pelo ficheiro Swagger do conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/as2/). 
+Para obter mais detalhes técnicos sobre este conector, tais como ações e limites descritos pelo ficheiro Swagger do conector, consulte a [página de referência do conector](/connectors/as2/). 
 
 > [!NOTE]
 > Para aplicações lógicas num ambiente de serviço de [integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)esta versão com rótulo ISE deste conector utiliza os limites de [mensagem B2B para ISE](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits).

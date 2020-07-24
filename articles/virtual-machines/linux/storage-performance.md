@@ -10,11 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
-ms.openlocfilehash: 7a0d5e29097bc9a672e142fcffb0ebe879fe2475
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2068682ced09c8683ad7aae37366fcff443ae761
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81757682"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080119"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Otimizar o desempenho nas máquinas virtuais da série Lsv2
 
@@ -84,7 +85,7 @@ Os cenários que apagam de forma segura os dados para proteger o cliente incluem
 
 Para saber mais sobre as opções de backup de dados no armazenamento local, consulte [backup e recuperação de desastres para discos Azure IaaS](backup-and-disaster-recovery-for-azure-iaas-disks.md).
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 * **Como começo a implantar VMs da série Lsv2?**  
    Tal como qualquer outro VM, utilize o [Portal](quick-create-portal.md), [Azure CLI](quick-create-cli.md)ou [PowerShell](quick-create-powershell.md) para criar um VM.
@@ -107,6 +108,6 @@ Para saber mais sobre as opções de backup de dados no armazenamento local, con
 
    Note também que o melhor desempenho é obtido quando a E/S é feita diretamente para cada um dos dispositivos NVMe crus sem divisórias, sem sistemas de ficheiros, sem RAID 0 config, etc. Antes de iniciar uma sessão de testes, certifique-se de que a configuração está num estado fresco/limpo conhecido, funcionando `blkdiscard` em cada um dos dispositivos NVMe.
    
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Consulte as especificações de todos os [VMs otimizados para o desempenho do armazenamento](sizes-storage.md) no Azure
+* Consulte as especificações de todos os [VMs otimizados para o desempenho do armazenamento](../sizes-storage.md) no Azure

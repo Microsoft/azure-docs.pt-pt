@@ -4,16 +4,16 @@ description: Saiba como usar funcionalidades de segurança no Azure Backup para 
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 24dc108ce4d9c991b1e062c0435b38a63899a249
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d8f8d6937cd93a9da9c82b2ed501c9fbb815b11
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186775"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079354"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funcionalidades de segurança para ajudar a proteger backups híbridos que usam backup Azure
 
-As preocupações com questões de segurança, como malware, ransomware e intrusão, estão a aumentar. Estas questões de segurança podem ser dispendiosas, tanto em termos de dinheiro como de dados. Para evitar tais ataques, o Azure Backup agora fornece funcionalidades de segurança para ajudar a proteger os backups híbridos. Este artigo cobre como ativar e utilizar estas funcionalidades, utilizando um agente dos Serviços de Recuperação Azure e o Azure Backup Server. As funcionalidades incluem:
+As preocupações com questões de segurança, como malware, ransomware e intrusão, estão a aumentar. Estas questões de segurança podem ser dispendiosas, tanto em termos de dinheiro como de dados. Para evitar tais ataques, o Azure Backup agora fornece funcionalidades de segurança para ajudar a proteger os backups híbridos. Este artigo cobre como ativar e utilizar estas funcionalidades, utilizando um agente dos Serviços de Recuperação Azure e o Azure Backup Server. Estas funcionalidades incluem:
 
 - **Prevenção**. Uma camada adicional de autenticação é adicionada sempre que é realizada uma operação crítica como alterar uma palavra-passe. Esta validação destina-se a garantir que tais operações só podem ser realizadas por utilizadores que tenham credenciais Azure válidas.
 - **Alertando**. Uma notificação por e-mail é enviada para o administrador de subscrição sempre que uma operação crítica como a eliminação de dados de backup é realizada. Este e-mail garante que o utilizador é notificado rapidamente sobre tais ações.
@@ -48,7 +48,7 @@ Se estiver a criar um cofre dos Serviços de Recuperação, pode utilizar todas 
     ![Screenshot das propriedades do cofre dos Serviços de Recuperação](./media/backup-azure-security-feature/security-settings-update.png)
 
     O link de atualização abre a lâmina **Definições de Segurança,** que fornece um resumo das funcionalidades e permite-lhe ative-las.
-5. Da lista de drop-down **já configuraste a autenticação multi-factor Azure?** [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) Se estiver ativado, é-lhe pedido que autente para autenticar a partir de outro dispositivo (por exemplo, um telemóvel) enquanto faz a sessão no portal Azure.
+5. Da lista de drop-down **já configuraste a autenticação multi-factor Azure?** [Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) Se estiver ativado, é-lhe pedido que autente para autenticar a partir de outro dispositivo (por exemplo, um telemóvel) enquanto faz a sessão no portal Azure.
 
    Quando executa operações críticas em Backup, tem de introduzir um PIN de segurança, disponível no portal Azure. Ativar a autenticação multi-factor Azure adiciona uma camada de segurança. Apenas os utilizadores autorizados com credenciais Azure válidas, e autenticados a partir de um segundo dispositivo, podem aceder ao portal Azure.
 6. Para guardar as definições de segurança, selecione **'Ativar** e clique em Guardar ' **'Guardar'** Pode selecionar **Ativar** apenas depois de selecionar um valor da lista **de autenticação multi-factor Azure configurada no** passo anterior.
@@ -88,7 +88,7 @@ Como parte da adição de uma camada extra de autenticação para operações cr
 
 Para receber este PIN:
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 2. Navegue para o **cofre dos serviços de recuperação**  >  **Propriedades de**  >  **configurações**.
 3. Em **Pin de segurança,** clique em **Gerar**. Isto abre uma lâmina que contém o PIN a ser introduzido na interface de utilizador do agente Azure Recovery Services.
     Este PIN é válido por apenas cinco minutos, e é gerado automaticamente após esse período.

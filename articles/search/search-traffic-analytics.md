@@ -8,11 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 794c88556fb69aae11c582afd03f548480469e34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21f91c15adb5e950f5ed9cc20449387ddcf6504f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83684704"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080833"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Recolher dados de telemetria para análise de tráfego de pesquisa
 
@@ -76,9 +77,9 @@ private static TelemetryClient _telemetryClient;
 
 // Add a constructor that accepts a telemetry client:
 public HomeController(TelemetryClient telemetry)
-    {
-        _telemetryClient = telemetry;
-    }
+{
+    _telemetryClient = telemetry;
+}
 ```
 
 **Utilizar JavaScript**
@@ -109,7 +110,8 @@ var client = new SearchIndexClient(<SearchServiceName>, <IndexName>, new SearchC
 var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
 var response = await client.Documents.SearchWithHttpMessagesAsync(searchText: searchText, searchParameters: parameters, customHeaders: headers);
 string searchId = string.Empty;
-if (response.Response.Headers.TryGetValues("x-ms-azs-searchid", out IEnumerable<string> headerValues)){
+if (response.Response.Headers.TryGetValues("x-ms-azs-searchid", out IEnumerable<string> headerValues))
+{
     searchId = headerValues.FirstOrDefault();
 }
 ```
@@ -140,14 +142,15 @@ Sempre que um pedido de pesquisa é emitido por um utilizador, deve registar iss
 **Utilizar C#**
 
 ```csharp
-var properties = new Dictionary <string, string> {
+var properties = new Dictionary <string, string> 
+{
     {"SearchServiceName", <service name>},
     {"SearchId", <search Id>},
     {"IndexName", <index name>},
     {"QueryTerms", <search terms>},
     {"ResultCount", <results count>},
     {"ScoringProfile", <scoring profile used>}
-    };
+};
 _telemetryClient.TrackEvent("Search", properties);
 ```
 
@@ -155,12 +158,12 @@ _telemetryClient.TrackEvent("Search", properties);
 
 ```javascript
 appInsights.trackEvent("Search", {
-SearchServiceName: <service name>,
-SearchId: <search id>,
-IndexName: <index name>,
-QueryTerms: <search terms>,
-ResultCount: <results count>,
-ScoringProfile: <scoring profile used>
+  SearchServiceName: <service name>,
+  SearchId: <search id>,
+  IndexName: <index name>,
+  QueryTerms: <search terms>,
+  ResultCount: <results count>,
+  ScoringProfile: <scoring profile used>
 });
 ```
 
@@ -180,12 +183,13 @@ Sempre que um utilizador clica num documento, é um sinal que deve ser registado
 **Utilizar C#**
 
 ```csharp
-var properties = new Dictionary <string, string> {
+var properties = new Dictionary <string, string> 
+{
     {"SearchServiceName", <service name>},
     {"SearchId", <search id>},
     {"ClickedDocId", <clicked document id>},
     {"Rank", <clicked document position>}
-    };
+};
 _telemetryClient.TrackEvent("Click", properties);
 ```
 
@@ -229,7 +233,7 @@ A imagem que se segue mostra como um relatório incorporado pode parecer se tive
 
 ![Painel de bi de potência para pesquisa cognitiva de Azure](./media/search-traffic-analytics/azuresearch-powerbi-dashboard.png "Painel de bi de potência para pesquisa cognitiva de Azure")
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Instrumento a sua aplicação de pesquisa para obter dados poderosos e perspicazes sobre o seu serviço de pesquisa.
 

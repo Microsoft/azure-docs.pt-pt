@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f5e0eda72f39a70f02b596a8fd69728336eac333
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e682232afa401f443ffe8f14f617b075978117ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82594819"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080051"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Prepare a infraestrutura Azure para o SAP HA utilizando um cluster de failover do Windows e disco partilhado para SAP ASCS/SCS
 
@@ -372,7 +372,7 @@ No nosso exemplo, o espaço de endereço da rede virtual Azure é de 10.0.0.0/16
 Para definir os endereços IP DNS necessários, complete os seguintes passos:
 
 1. No portal Azure, no painel de **servidores DNS,** certifique-se de que a opção de **servidores DNS** de rede virtual está definida para **DNS personalizados**.
-2. Selecione as suas definições com base no tipo de rede que tem. Para obter mais informações, consulte os seguintes recursos:
+2. Selecione as suas definições com base no tipo de rede que tem. Para obter mais informações, veja os seguintes recursos:
    * Adicione os endereços IP dos servidores DNS no local.  
    Pode estender os servidores DNS no local às máquinas virtuais que estão a funcionar em Azure. Nesse cenário, pode adicionar os endereços IP das máquinas virtuais Azure nas quais executou o serviço DNS.
    * Para implementações VM que estão isoladas no Azure: Implemente uma máquina virtual adicional na mesma instância de Rede Virtual que serve como um servidor DNS. Adicione os endereços IP das máquinas virtuais Azure que criou para executar o serviço DNS.
@@ -555,7 +555,7 @@ Para adicionar entradas de registo em ambos os nós de cluster da instância SAP
 | Nome da variável |`KeepAliveTime` |
 | Tipo variável |REG_DWORD (Decimal) |
 | Valor |120000 |
-| Ligação à documentação |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
+| Ligação à documentação |[https://technet.microsoft.com/library/cc957549.aspx](/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10)) |
 
 **Tabela 3:** Alterar o primeiro parâmetro TCP/IP
 
@@ -566,7 +566,7 @@ Em seguida, adicione esta entrada de registo do Windows em ambos os nós de clus
 | Nome da variável |`KeepAliveInterval` |
 | Tipo variável |REG_DWORD (Decimal) |
 | Valor |120000 |
-| Ligação à documentação |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
+| Ligação à documentação |[https://technet.microsoft.com/library/cc957548.aspx](/previous-versions/windows/it-pro/windows-2000-server/cc957548(v=technet.10)) |
 
 **Tabela 4:** Alterar o segundo parâmetro TCP/IP
 

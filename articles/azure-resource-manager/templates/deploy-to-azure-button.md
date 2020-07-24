@@ -2,13 +2,13 @@
 title: Implementar para o botão Azure
 description: Utilize o botão para implementar os modelos do Gestor de Recursos Azure a partir de um repositório GitHub.
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: e403d095f7419ed13742dcfa8e8407a92ad10be0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/20/2020
+ms.openlocfilehash: 9fe69eba2a91bf19e0662ae071c222905c348666
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82744097"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079447"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Use um botão de implementação para implementar modelos do repositório GitHub
 
@@ -28,7 +28,11 @@ A imagem aparece como:
 
 ## <a name="create-url-for-deploying-template"></a>Criar URL para implementar o modelo
 
-Para criar o URL para o seu modelo, comece com o URL cru para o modelo no seu repo:
+Para criar o URL para o seu modelo, comece com o URL cru para o modelo no seu repo. Para ver o URL cru, selecione **Raw**.
+
+:::image type="content" source="./media/deploy-to-azure-button/select-raw.png" alt-text="selecionar Raw":::
+
+O formato do URL é:
 
 ```html
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json

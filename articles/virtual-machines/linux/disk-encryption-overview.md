@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: f8e4843ad71455f8e478ef74ee71975c1dbf2925
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6b0bc3af01c81cdf82da684653ef10099e57d9a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510569"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080272"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Encriptação do disco Azure para VMs Linux 
 
@@ -139,10 +139,10 @@ A tabela a seguir define alguns dos termos comuns utilizados na documentação d
 | CLI do Azure | [O CLI Azure](/cli/azure/install-azure-cli) está otimizado para gerir e administrar recursos Azure a partir da linha de comando.|
 | DM-Crypt |[DM-Crypt](https://gitlab.com/cryptsetup/cryptsetup/wikis/DMCrypt) é o subsistema de encriptação de disco transparente baseado em Linux que é usado para permitir encriptação de discos em VMs Linux. |
 | Chave de encriptação (KEK) | A chave assimétrica (RSA 2048) que pode usar para proteger ou embrulhar o segredo. Pode fornecer uma chave protegida por hardware (HSM) ou uma chave protegida por software. Para obter mais informações, consulte a documentação do [Cofre da Chave Azure](https://azure.microsoft.com/services/key-vault/) e [criando e configurando um cofre chave para encriptação do disco Azure](disk-encryption-key-vault.md). |
-| Cmdlets do PowerShell | Para obter mais informações, consulte [os cmdlets Azure PowerShell](/powershell/azure/overview). |
+| Cmdlets do PowerShell | Para obter mais informações, consulte [os cmdlets Azure PowerShell](/powershell/azure/). |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Quickstart - Criar e encriptar um Linux VM com Azure CLI](disk-encryption-cli-quickstart.md)
 - [Quickstart - Criar e encriptar um Linux VM com Azure Powershell](disk-encryption-powershell-quickstart.md)

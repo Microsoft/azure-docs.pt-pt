@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 69d018db26a42c331ff41d242eae54d6fcc43990
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 66796a819c0ca7e114d82210a988fc7e13003941
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536256"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078194"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Monitorize o estado de execução, reveja o histórico do gatilho e crie alertas para apps Azure Logic
 
@@ -86,7 +86,7 @@ Cada vez que o gatilho dispara para um item ou evento, o motor De Aplicações L
      Agora pode ver informações como entradas e saídas para esse passo, por exemplo:
 
    > [!NOTE]
-   > Todos os detalhes e eventos de tempo de execução são encriptados dentro do serviço De aplicações lógicas. Só são desencriptados quando um utilizador solicita visualizar esses dados. Pode [ocultar entradas e saídas no histórico de execução](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) ou controlar o acesso do utilizador a estas informações utilizando [o Controlo de Acesso Baseado em Funções (RBAC) ( RBAC).](../role-based-access-control/overview.md)
+   > Todos os detalhes e eventos de tempo de execução são encriptados dentro do serviço De aplicações lógicas. Só são desencriptados quando um utilizador solicita visualizar esses dados. Pode [ocultar entradas e saídas no histórico de execução](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) ou controlar o acesso do utilizador a estas informações utilizando [o controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/overview.md).
 
 <a name="review-trigger-history"></a>
 
@@ -189,6 +189,6 @@ Para obter alertas baseados em métricas específicas ou limiares excededos para
 > * [Enviar um SMS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
 > * [Adicione uma mensagem a uma fila](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Monitorize aplicações lógicas utilizando o Azure Monitor](../logic-apps/monitor-logic-apps-log-analytics.md)

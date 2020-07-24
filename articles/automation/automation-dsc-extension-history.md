@@ -1,20 +1,17 @@
 ---
 title: Trabalhe com o histórico da versão da extensão da configuração do estado Azure Desired
 description: Este artigo diz como trabalhar com o histórico da versão para a extensão de Configuração do Estado Desejado (DSC) em Azure.
-ms.date: 06/21/2018
+ms.date: 07/22/2020
 keywords: dsc, powershell, azul, extensão
-author: mgoedtel
-ms.author: magoedte
 services: automation
-ms.service: automation
 ms.subservice: dsc
 ms.topic: conceptual
-ms.openlocfilehash: 0bb82ce92a151bd8e955c136751d8e7f307bbf1b
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: b45512faf09cfe745023d29d32f89a4432cc3b2b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186423"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079762"
 ---
 # <a name="work-with-azure-desired-state-configuration-extension-version-history"></a>Trabalhe com o histórico da versão da extensão da configuração do estado Azure Desired
 
@@ -23,6 +20,29 @@ A extensão VM de Configuração do Estado Azure Desired (DSC) é atualizada con
 Este artigo fornece informações sobre cada versão da Extensão VM Azure DSC, quais os ambientes que suporta, e comentários e observações sobre novas funcionalidades ou alterações.
 
 ## <a name="latest-version"></a>Versão mais recente
+
+### <a name="version-280"></a>Versão 2.80
+
+- **Data de lançamento:**
+  - 26 de setembro, set-2019 (Azure) 6 de julho de 2020 (Azure China Vianet 21) 20 de julho de 2020 (Governo de Azure)
+- **Suporte do SO:**
+  - Windows Server 2019
+  - Windows Server 2016
+  - Windows Server 2012 R2
+  - Windows Server 2012
+  - Windows Server 2008 R2 SP1
+  - Cliente Windows 7/8.1/10
+  - Nano Server
+- **Suporte do WMF:**
+  - WMF 5.1
+  - WMF 5.0 RTM
+  - Atualização WMF 4.0
+  - WMF 4.0
+- **Ambiente:**
+  - Azure
+  - Azure China Vianet 21
+  - Azure Government
+- **Observações:** Não estão incluídas novas funcionalidades nesta versão.
 
 ### <a name="version-276"></a>Versão 2.76
 

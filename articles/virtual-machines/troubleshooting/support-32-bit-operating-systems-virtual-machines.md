@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: b4e08cba2b49f43baea16b01ec709d8d9ab6a18d
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 91e5ca10e97e8fc1646367ac6d575d6813f3a291
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856950"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079864"
 ---
 # <a name="support-for-32-bit-operating-systems-in-azure-virtual-machines"></a>Suporte para sistemas operativos de 32 bits nas máquinas virtuais do Azure
 
@@ -34,12 +34,12 @@ Para obter mais informações sobre sistemas operativos suportados em máquinas 
 ## <a name="references"></a>Referências
 
 * [Saiba mais sobre atualizações de segurança estendidas gratuitas para Windows Server 2008/R2 em Azure](https://www.microsoft.com/cloud-platform/windows-server-2008)
-* [Saiba mais sobre o suporte para imagens especializadas do Windows Server 2008 SP2 32-bit em Azure](https://docs.microsoft.com/windows-server/get-started/uploading-specialized-ws08-image-to-azure)
-* [Saiba mais sobre o suporte à migração de imagens do Windows Server 2008 para o Azure usando a Recuperação do Site Azure](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-windows-server-2008)
+* [Saiba mais sobre o suporte para imagens especializadas do Windows Server 2008 SP2 32-bit em Azure](/windows-server/get-started/uploading-specialized-ws08-image-to-azure)
+* [Saiba mais sobre o suporte à migração de imagens do Windows Server 2008 para o Azure usando a Recuperação do Site Azure](../../site-recovery/migrate-tutorial-windows-server-2008.md)
 * [Saiba mais sobre os sistemas operativos suportados pela Extensão Azure](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems)
 * [Saiba mais sobre a execução do Windows Server 2003 no Microsoft Azure](https://support.microsoft.com/help/3206074/running-windows-server-2003-on-microsoft-azure)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se precisar de mais ajuda em qualquer ponto deste artigo, contacte os especialistas da Azure nos [fóruns msdn Azure e Stack Overflow](https://azure.microsoft.com/support/forums/).
 

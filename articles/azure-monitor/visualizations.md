@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 0176454b38dfa88480e63fedfae175a63192eaee
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4c5290d9f5ec47969ae43e5986d31484927a0ac5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498598"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081360"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizar dados do Azure Monitor
 Este artigo fornece um resumo dos métodos disponíveis para visualizar os dados de registo e métrica armazenados no Azure Monitor.
@@ -40,6 +40,8 @@ Os livros de trabalho são [documentos](../azure-monitor/platform/workbooks-over
 [Os dashboards Azure](../azure-portal/azure-portal-dashboards.md) são a principal tecnologia de dashboarding para o Azure. Eles são particularmente úteis para fornecer um único painel de vidro sobre a sua infraestrutura e serviços Azure permitindo-lhe identificar rapidamente questões importantes.
 
 ![Dashboard](media/visualizations/dashboard.png)
+
+Aqui está um vídeo sobre a criação de dashboards.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH]
 
@@ -135,7 +137,7 @@ Pode aceder aos dados em registo e dados métricos no Azure Monitor através da 
 - Sem suporte para consulta em vários espaços de trabalho ou aplicações application insights.
 - As consultas são limitadas no tamanho da resposta a 8MB e o tempo de execução de consulta de 110 segundos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Conheça os [dados recolhidos pelo Azure Monitor.](platform/data-platform.md)
 - Saiba mais [sobre os dashboards Azure](../azure-portal/azure-portal-dashboards.md).
 - Saiba mais [sobre as vistas no Azure Monitor](platform/view-designer.md).

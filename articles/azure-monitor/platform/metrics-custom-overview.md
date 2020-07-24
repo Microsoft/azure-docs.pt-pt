@@ -7,16 +7,16 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.subservice: metrics
-ms.openlocfilehash: 930e32cfc57cb5b48180c7695b7b6c7d11df8caa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9581bb17e29a25b618a90aece5675d132c14a97c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506978"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081496"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métricas personalizadas no Monitor Azure (Pré-visualização)
 
-À medida que implementa recursos e aplicações em Azure, vai querer começar a colecionar telemetria para obter informações sobre o seu desempenho e saúde. O Azure disponibiliza-te algumas métricas da caixa. Estas métricas são chamadas [padrão ou plataforma.](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) No entanto, são limitados na natureza. 
+À medida que implementa recursos e aplicações em Azure, vai querer começar a colecionar telemetria para obter informações sobre o seu desempenho e saúde. O Azure disponibiliza-te algumas métricas da caixa. Estas métricas são chamadas [padrão ou plataforma.](./metrics-supported.md) No entanto, são limitados na natureza. 
 
 É melhor recolher alguns indicadores de desempenho personalizados ou métricas específicas do negócio para fornecer informações mais profundas. Estas métricas **personalizadas** podem ser recolhidas através da telemetria da sua aplicação, um agente que funciona com os seus recursos Azure, ou mesmo um sistema de monitorização externo e submetido diretamente ao Azure Monitor. Depois de publicados no Azure Monitor, pode navegar, consultar e alertar sobre métricas personalizadas para os seus recursos E aplicações Azure lado a lado com as métricas padrão emitidas pela Azure.
 
@@ -37,7 +37,7 @@ Consulte a página de preços do [Azure Monitor](https://azure.microsoft.com/pri
 As métricas personalizadas são mantidas pelo mesmo tempo que as [métricas da plataforma.](data-platform-metrics.md#retention-of-metrics) 
 
 > [!NOTE]  
-> As métricas enviadas ao Azure Monitor através do Application Insights SDK são faturadas como dados de registo ingeridos. Só incorrem em métricas adicionais se a funcionalidade Desinsuidor de Aplicações [Ativar o alerta sobre as dimensões métricas personalizadas.](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) Esta caixa de verificação envia dados para a base de dados de métricas do Azure Monitor utilizando as métricas personalizadas API para permitir o alerta mais complexo.  Saiba mais sobre o [modelo de preços](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model) e preços da Application Insights na sua [região.](https://azure.microsoft.com/pricing/details/monitor/)
+> As métricas enviadas ao Azure Monitor através do Application Insights SDK são faturadas como dados de registo ingeridos. Só incorrem em métricas adicionais se a funcionalidade Desinsuidor de Aplicações [Ativar o alerta sobre as dimensões métricas personalizadas.](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) Esta caixa de verificação envia dados para a base de dados de métricas do Azure Monitor utilizando as métricas personalizadas API para permitir o alerta mais complexo.  Saiba mais sobre o [modelo de preços](../app/pricing.md#pricing-model) e preços da Application Insights na sua [região.](https://azure.microsoft.com/pricing/details/monitor/)
 
 
 ## <a name="how-to-send-custom-metrics"></a>Como enviar métricas personalizadas
@@ -46,8 +46,8 @@ Quando envia métricas personalizadas para o Azure Monitor, cada ponto de dados,
 
 ### <a name="authentication"></a>Autenticação
 Para submeter métricas personalizadas ao Azure Monitor, a entidade que submete a métrica necessita de um token válido do Azure Ative Directory (Azure AD) no cabeçalho do Pedido ao **Portador.** Existem algumas formas suportadas de adquirir um símbolo de portador válido:
-1. [Identidades geridas para recursos Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Dá uma identidade a um recurso Azure em si, como um VM. A Identidade de Serviço Gerido (MSI) foi concebida para dar permissões de recursos para a realização de determinadas operações. Um exemplo é permitir que um recurso emita métricas sobre si mesmo. Um recurso, ou o seu MSI, pode ser concedido **permissões de Monitor Métricas Editor** em outro recurso. Com esta permissão, o MSI pode emitir métricas para outros recursos também.
-2. [Azure Ad Service Principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). Neste cenário, uma aplicação AD Azure, ou serviço, pode ser atribuída permissões para emitir métricas sobre um recurso Azure.
+1. [Identidades geridas para recursos Azure](../../active-directory/managed-identities-azure-resources/overview.md). Dá uma identidade a um recurso Azure em si, como um VM. A Identidade de Serviço Gerido (MSI) foi concebida para dar permissões de recursos para a realização de determinadas operações. Um exemplo é permitir que um recurso emita métricas sobre si mesmo. Um recurso, ou o seu MSI, pode ser concedido **permissões de Monitor Métricas Editor** em outro recurso. Com esta permissão, o MSI pode emitir métricas para outros recursos também.
+2. [Azure Ad Service Principal](../../active-directory/develop/app-objects-and-service-principals.md). Neste cenário, uma aplicação AD Azure, ou serviço, pode ser atribuída permissões para emitir métricas sobre um recurso Azure.
 Para autenticar o pedido, o Azure Monitor valida o token da aplicação utilizando as chaves públicas Azure AD. O papel existente **da Editora de Métricas de Monitorização** já tem esta permissão. Está disponível no portal Azure. O diretor de serviço, dependendo dos recursos para os quais emite métricas personalizadas, pode ser dado o papel de **Editor de Métricas de Monitorização** no âmbito exigido. Exemplos são uma subscrição, grupo de recursos ou recurso específico.
 
 > [!TIP]  
@@ -68,7 +68,7 @@ Esta propriedade captura o que a região de Azure, o recurso para o qual está a
 >
 >
 
-### <a name="timestamp"></a>Carimbo de data/hora
+### <a name="timestamp"></a>Timestamp
 Cada ponto de dados enviado ao Monitor Azure deve ser marcado com uma marca de tempo. Esta estampta de tempo captura o DateTime no qual o valor métrico é medido ou recolhido. O Azure Monitor aceita dados métricos com timetamps até 20 minutos no passado e 5 minutos no futuro. A estada de tempo deve estar no formato ISO 8601.
 
 ### <a name="namespace"></a>Espaço de Nomes
@@ -92,7 +92,7 @@ Ao publicar um valor métrico, só é possível especificar um valor de dimensã
 As dimensões são opcionais, nem todas as métricas podem ter dimensões. Se um poste métrico define teclas de dimensão, os valores de dimensão correspondentes são obrigatórios.
 
 ### <a name="metric-values"></a>Valores de métricas
-O Azure Monitor armazena todas as métricas em intervalos de granularidade de um minuto. Entendemos que durante um determinado minuto, uma métrica pode precisar de ser amostrada várias vezes. Um exemplo é a utilização do CPU. Ou pode ter de ser medido para muitos eventos discretos. Um exemplo são as latências de transação de inscrição. Para limitar o número de valores brutos que tem de emitir e pagar no Azure Monitor, pode-se localmente pré-agregar e emitir os valores:
+O Azure Monitor armazena todas as métricas em intervalos de granularidade de um minuto. Entendemos que durante um determinado minuto, uma métrica pode precisar de ser amostrada várias vezes. A utilização da CPU é um exemplo. Ou pode ter de ser medido para muitos eventos discretos. Um exemplo são as latências de transação de inscrição. Para limitar o número de valores brutos que tem de emitir e pagar no Azure Monitor, pode-se localmente pré-agregar e emitir os valores:
 
 * **Min**: O valor mínimo observado de todas as amostras e medições durante o minuto.
 * **Máximo**: O valor máximo observado de todas as amostras e medições durante o minuto.
@@ -176,7 +176,7 @@ Depois de as métricas personalizadas serem submetidas ao Azure Monitor, pode na
 > Você precisa ser um leitor ou um papel contribuinte para ver métricas personalizadas.
 
 ### <a name="browse-your-custom-metrics-via-the-azure-portal"></a>Navegue pelas suas métricas personalizadas através do portal Azure
-1.    Vá ao [portal Azure.](https://portal.azure.com)
+1.    Aceda ao [portal do Azure](https://portal.azure.com).
 2.    Selecione o **painel monitor.**
 3.    Selecione **Métricas**.
 4.    Selecione um recurso contra o qual emitia métricas personalizadas.
@@ -190,7 +190,7 @@ Durante a pré-visualização pública, a capacidade de publicar métricas perso
 |---|---|
 | **EUA e Canadá** | |
 |E.U.A. Centro-Oeste | https: \/ /westcentralus.monitoring.azure.com |
-|E.U.A.Oeste 2       | https: \/ /westus2.monitoring.azure.com |
+|E.U.A. Oeste 2       | https: \/ /westus2.monitoring.azure.com |
 |E.U.A. Centro-Norte | https: \/ /northcentralus.monitoring.azure.com
 |E.U.A. Centro-Sul| https: \/ /southcentralus.monitoring.azure.com |
 |E.U.A. Central      | https: \/ /centralus.monitoring.azure.com |
@@ -208,7 +208,7 @@ Durante a pré-visualização pública, a capacidade de publicar métricas perso
 |Índia Central | https: \/ /centralindia.monitoring.azure.com |
 |Leste da Austrália | https: \/ /australiaeast.monitoring.azure.com |
 |Leste do Japão | https: \/ /japaneast.monitoring.azure.com |
-|Ásia Sudeste  | https: \/ /southeastasia.monitoring.azure.com |
+|Sudeste Asiático  | https: \/ /southeastasia.monitoring.azure.com |
 |Ásia Leste | https: \/ /eastasia.monitoring.azure.com |
 |Coreia do Sul Central   | https: \/ /koreacentral.monitoring.azure.com |
 
@@ -223,13 +223,13 @@ O Azure Monitor impõe os seguintes limites de utilização em métricas persona
 
 |Categoria|Limite|
 |---|---|
-|Séries/subscrições/regiões de tempo ativo|50.000|
+|Séries/subscrições/regiões de tempo ativo|50 000|
 |Chaves de dimensão por métrica|10|
 |Comprimento de corda para espaços de nome métrico, nomes métricos, teclas de dimensão e valores de dimensão|256 caracteres|
 
 Uma série de tempo ativa é definida como qualquer combinação única de métrica, chave de dimensão ou valor de dimensão que teve valores métricos publicados nas últimas 12 horas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Utilize métricas personalizadas de diferentes serviços: 
  - [Máquinas Virtuais](collect-custom-metrics-guestos-resource-manager-vm.md)
  - [Conjuntos de dimensionamento de máquinas virtuais](collect-custom-metrics-guestos-resource-manager-vmss.md)

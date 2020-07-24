@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 089d5dbb1eece2904f104dfecb3de8adec052dfc
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 21b90f423a3ba3c7fa38334c79aec9dc65a250cd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391745"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079185"
 ---
 # <a name="limits-and-quotas"></a>Limites e quotas
 
@@ -23,7 +23,7 @@ Existem dois níveis de chaves para o serviço De Visão Personalizada. Pode ins
 
 Espera-se que o número de imagens de formação por projeto e etiquetas por projeto aumente ao longo do tempo para os projetos S0.
 
-||**F0**|**S0**|
+|Fator|**F0**|**S0**|
 |-----|-----|-----|
 |Projetos|2|100|
 |Imagens de formação por projeto |5000|100.000|

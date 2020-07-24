@@ -1,5 +1,5 @@
 ---
-title: Proteja as suas aplicações web e APIs do Azure App Service
+title: Proteger as suas aplicações Web e APIs do Serviço de Aplicações do Azure
 description: Este artigo ajuda-o a começar a proteger as suas aplicações web e APIs do Azure App Service no Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -10,19 +10,20 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/27/2019
 ms.author: memildin
-ms.openlocfilehash: 2d81e1a1218add504e1e35015276b6924da0e3e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35b91aab8c228fc7dced5dfe06e33f939f4634f5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77616471"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080799"
 ---
-# <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Proteja as suas aplicações web e APIs do Azure App Service
+# <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Proteger as suas aplicações Web e APIs do Serviço de Aplicações do Azure
 
 O Azure App Service é uma plataforma totalmente gerida para construir e hospedar as suas aplicações web e APIs sem se preocupar em ter de gerir a infraestrutura. Fornece informações de gestão, monitorização e operacionais para atender aos requisitos de desempenho, segurança e conformidade de nível empresarial. Para mais informações, consulte [o Azure App Service](https://azure.microsoft.com/services/app-service/).
 
 Para permitir uma proteção avançada de ameaças para o seu plano de Serviço de Aplicações Azure, deve:
 
-* Subscreva o nível de preços standard do Azure Security Center
+* Subscreva o nível de preços padrão do Azure Security Center
 * Ativar o plano de Serviço de Aplicações como mostrado abaixo. O Security Center está nativamente integrado com o Serviço de Aplicações, eliminando a necessidade de implantação e embarque - a integração é transparente.
 * Tenha um plano de Serviço de Aplicações que esteja associado a máquinas dedicadas. Os planos suportados são: Básico, Standard, Premium, Isolado ou Linux. O Centro de Segurança não suporta os planos gratuitos, partilhados ou de consumo. Para mais informações, consulte [os Planos de Serviço de Aplicações.](https://azure.microsoft.com/pricing/details/app-service/plans/)
 
@@ -37,7 +38,7 @@ O Security Center aproveita a escala da nuvem e a visibilidade que o Azure tem c
 2. Vá a **definições de preços &** e escolha uma subscrição.
 3. No **nível de preços,** na linha de serviço da **App,** altere o seu plano para **Ativar**.
 
-    [![Ativar serviços de aplicações na subscrição standard tier](media/security-center-app-services/app-services-toggle.png)](media/security-center-app-services/app-services-toggle.png#lightbox)
+    [![Ativar serviços de aplicativos na subscrição de nível padrão](media/security-center-app-services/app-services-toggle.png)](media/security-center-app-services/app-services-toggle.png#lightbox)
 
 
 >[!NOTE]
@@ -56,7 +57,7 @@ Para desativar a monitorização e recomendações para o seu Serviço de Aplica
 
 
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 Neste artigo, aprendeu a utilizar as capacidades de monitorização no Centro de Segurança do Azure. Para saber mais sobre o Azure Security Center, consulte os seguintes artigos:
 
 * [Definir políticas de segurança no Centro de Segurança do Azure](tutorial-security-policy.md): saiba como configurar definições de segurança no Centro de Segurança do Azure.

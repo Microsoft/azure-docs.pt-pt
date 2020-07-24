@@ -1,5 +1,5 @@
 ---
-title: Criar uma configuração SAP multi-SID em Azure Microsoft Docs
+title: Criar configuração multi-SID SAP de alta disponibilidade em Azure
 description: Guia para configuração multi-SID SAP NetWeaver de alta disponibilidade em máquinas virtuais do Windows
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
@@ -16,13 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7938f7db22f004a0bf6cdf2e22dc8e103896719
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9cf62be1ad9d95ff20351966bf21af0cb3d9f0a3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77617404"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079881"
 ---
-# <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Criar uma configuração multi-SID SAP NetWeaver
+# <a name="create-a-high-availability-sap-netweaver-multi-sid-configuration"></a>Criar uma configuração multi-SID SAP NetWeaver de alta disponibilidade
 
 [load-balancer-multivip-overview]:../../../load-balancer/load-balancer-multivip-overview.md
 [sap-ha-guide]:sap-high-availability-guide.md 
@@ -266,7 +267,7 @@ O procedimento de alto nível é o seguinte:
 
 10. [Teste a falha de falha da instância SAP ASCS/SCS e a replicação sios][sap-ha-guide-10].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Limites de rede: Gestor de Recursos Azure][networking-limits-azure-resource-manager]
 - [Vários VIPs para Equilibrador de Carga Azure][load-balancer-multivip-overview]

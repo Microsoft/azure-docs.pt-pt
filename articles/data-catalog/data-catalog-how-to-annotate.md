@@ -4,13 +4,14 @@ description: Como-a-artigo destacando como anotar ativos de dados no Catálogo d
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: c1e022591ce1aee073330055744fbd78d97c0b1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61a91ca8a51886c28beee77853d1ae67911e00e7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68950250"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081241"
 ---
 # <a name="how-to-annotate-data-sources-in-azure-data-catalog"></a>Como anotar fontes de dados no Catálogo de Dados do Azure
 
@@ -41,7 +42,7 @@ O Catálogo de Dados suporta os seguintes tipos de anotações:
 | Etiquetas (etiquetas glossárias) |As etiquetas podem ser fornecidas nos níveis de atributos/colunas. As etiquetas glossárias são termos glossários definidos centralmente que podem ser usados para categorizar ativos de dados ou atributos usando uma taxonomia de negócio comum. Para mais informações [consulte Como Configurar o Glossário de Negócios para Marcação Governada](data-catalog-how-to-business-glossary.md) |
 | Especialistas |Os especialistas podem ser fornecidos ao nível do ativo de dados. Os especialistas identificam utilizadores ou grupos com perspetivas especializadas sobre os dados e podem servir como pontos de contacto para os utilizadores que descobrem as fontes de dados registadas e têm dúvidas que não são respondidas pelas anotações existentes. |
 | Pedir acesso |As informações de acesso ao pedido podem ser fornecidas ao nível do ativo dos dados. Esta informação é para os utilizadores que descobrem uma fonte de dados que ainda não têm permissões de acesso. Os utilizadores podem introduzir o endereço de e-mail do utilizador ou grupo que concede acesso, o URL do processo ou ferramenta a que os utilizadores precisam de ter acesso, ou podem introduzir o processo em si como texto. |
-| Documentation |A documentação pode ser fornecida ao nível do ativo dos dados. A documentação do ativo é uma rica informação de texto que pode incluir links e imagens, e que pode fornecer qualquer informação não transmitida através de descrições e tags. |
+| Documentação |A documentação pode ser fornecida ao nível do ativo dos dados. A documentação do ativo é uma rica informação de texto que pode incluir links e imagens, e que pode fornecer qualquer informação não transmitida através de descrições e tags. |
 
 ## <a name="annotating-multiple-assets"></a>Anotar múltiplos ativos
 Ao selecionar vários ativos de dados no portal data Catalog, os utilizadores podem anotar todos os ativos selecionados numa única operação. As anotações aplicar-se-ão a todos os ativos selecionados, facilitando a seleção e fornecendo uma descrição consistente e conjuntos de tags e especialistas para ativos de dados relacionados.
@@ -59,5 +60,5 @@ Assim como os metadados extraídos da fonte de dados durante o registo são adic
 ## <a name="summary"></a>Resumo
 Registar uma fonte de dados com o Data Catalog torna esses dados detetáveis copiando metadados estruturais e descritivos da fonte de dados para o serviço Catálogo. Uma vez registada uma fonte de dados, os utilizadores podem fornecer anotações para facilitar a descoberta e compreensão dentro do portal do Catálogo de Dados.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 * Começar com o tutorial do Catálogo de [Dados Azure](data-catalog-get-started.md) para detalhes passo a passo sobre como anotar fontes de dados.

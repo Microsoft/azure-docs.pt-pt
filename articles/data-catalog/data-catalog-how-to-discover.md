@@ -4,13 +4,14 @@ description: Este artigo destaca como descobrir ativos de dados registados com o
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: b12cb94832a1ea977fb13f5f2271984dc8780cee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4eb689b17df8236a00b5914912d1927804944f25
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68736381"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081207"
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Como descobrir fontes de dados no Azure Data Catalog
 
@@ -32,7 +33,7 @@ Ao utilizar uma combinação de pesquisa e filtragem, pode navegar rapidamente n
 
 Embora a pesquisa por texto gratuita por defeito seja simples e intuitiva, também pode utilizar a sintaxe de pesquisa do Catálogo de Dados para um maior controlo sobre os resultados da pesquisa. A pesquisa do Catálogo de Dados suporta as seguintes técnicas:
 
-| Técnica | Utilizar | Exemplo |
+| Técnica | Utilização | Exemplo |
 | --- | --- | --- |
 | Pesquisa básica |Pesquisa básica que utiliza um ou mais termos de pesquisa. Os resultados são quaisquer ativos que correspondam a qualquer propriedade com um ou mais dos termos especificados. |`sales data` |
 | Escoagem de propriedade |Devolva apenas fontes de dados em que o termo de pesquisa é combinado com a propriedade especificada. |`name:finance` |
@@ -59,6 +60,6 @@ Na vista de azulejos predefinidos, cada azulejo apresentado nos resultados da pe
 
 Uma vez que o registo de uma fonte de dados com o Catálogo de Dados copia metadados estruturais e descritivos da fonte de dados para o serviço de catálogo, a fonte de dados torna-se mais fácil de descobrir e compreender. Depois de ter registado uma fonte de dados, pode descobri-la utilizando a filtragem e pesquisa a partir do portal do Catálogo de Dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter detalhes passo a passo sobre como descobrir fontes de dados, consulte [Get Started com O Catálogo de Dados do Azure](data-catalog-get-started.md).

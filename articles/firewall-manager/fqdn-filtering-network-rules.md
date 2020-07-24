@@ -1,5 +1,5 @@
 ---
-title: Filtragem FQDN de Azure Firewall nas regras da rede (pré-visualização)
+title: Filtragem do Azure Firewall Manager nas regras da rede (pré-visualização)
 description: Como utilizar a filtragem FQDN nas regras de rede
 services: firewall-manager
 author: vhorne
@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 46d1f2eae1342901a660f99891d1ac1529e8ad77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 599620c5fcc3ad1802527bd66e2dbead1b97d11d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85569316"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079028"
 ---
 # <a name="fqdn-filtering-in-network-rules-preview"></a>Filtragem FQDN nas regras da rede (pré-visualização)
 
@@ -28,6 +28,6 @@ O Azure Firewall traduz o FQDN para um endereço IP(es) utilizando as suas defin
 
 Para utilizar FQDNs nas regras de rede, deve ativar o proxy DNS. Se não ativar o proxy DNS, o processamento de regras fiável está em risco. Quando está ativado, o tráfego DNS é direcionado para a Azure Firewall, onde pode configurar o seu servidor DNS personalizado. Em seguida, a firewall e os clientes usam o mesmo servidor DNS configurado. Se o proxy DNS não estiver ativado, o Azure Firewall pode produzir uma resposta diferente porque o cliente e a firewall podem usar diferentes servidores para a resolução de nomes. A filtragem FQDN nas regras de rede pode ser defeituosa ou inconsistente se o cliente e a firewall receberem diferentes respostas DNS.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Definições de DNS de Firewall Azure Firewall](dns-settings.md)

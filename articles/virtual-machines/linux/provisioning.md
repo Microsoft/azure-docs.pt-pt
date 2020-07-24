@@ -9,21 +9,21 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 6530d05b8e1aa565e64256054e81b785572edfb0
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: a7d9aa7de8bb75a22acc85c77924765eaa1b6b3b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85308146"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080153"
 ---
 # <a name="azure-linux-vm-provisioning"></a>Provisão de Azure Linux VM
 Quando cria um VM a partir de uma imagem generalizada (Galeria de Imagens Partilhada ou Imagem Gerida), o plano de controlo permitir-lhe-á criar um VM e passar parâmetros e configurações para o VM. Isto chama-se *provisão*VM . Durante o fornecimento, a plataforma disponibiliza os valores de parâmetros VM Create (nome de anfitrião, nome de utilizador, palavra-passe, teclas SSH, customData) disponíveis para o VM à medida que arranca. 
 
 Um agente de provisionamento assado dentro da imagem irá interagir com a plataforma, conectando-se a várias interfaces independentes de provisionamento), definir as propriedades e sinal para a plataforma que completou. 
 
-Os agentes de provisionamento podem ser o [Agente Azure Linux,](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux)ou [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init). Estes são [pré-requisitos](create-upload-generic.md) para a criação de imagens generalizadas.
+Os agentes de provisionamento podem ser o [Agente Azure Linux,](../extensions/agent-linux.md)ou [cloud-init](./using-cloud-init.md). Estes são [pré-requisitos](create-upload-generic.md) para a criação de imagens generalizadas.
 
-Os agentes de provisionamento, fornecem suporte para todas as [distribuições Azure Linux endossadas](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros), e você encontrará as imagens de distro endossadas em muitos casos irá enviar com cloud-init e o Linux Agent. Isto dá-lhe a opção de ter uma ineção em nuvem para lidar com o fornecimento, então o Agente Linux fornecerá suporte para lidar com [extensões Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows). Fornecer suporte para extensões significa que o VM será então elegível para suportar serviços adicionais de Azure, tais como VM Password Reset, Azure Monitoring, Azure Backup, Encriptação do Disco Azure, etc.
+Os agentes de provisionamento, fornecem suporte para todas as [distribuições Azure Linux endossadas](./endorsed-distros.md), e você encontrará as imagens de distro endossadas em muitos casos irá enviar com cloud-init e o Linux Agent. Isto dá-lhe a opção de ter uma ineção em nuvem para lidar com o fornecimento, então o Agente Linux fornecerá suporte para lidar com [extensões Azure](../extensions/features-windows.md). Fornecer suporte para extensões significa que o VM será então elegível para suportar serviços adicionais de Azure, tais como VM Password Reset, Azure Monitoring, Azure Backup, Encriptação do Disco Azure, etc.
 
 Após o provisionamento completo, a cloud-init será executada em cada bota. A cloud-init irá monitorizar alterações no VM, como alterações de rede, montagem e formatação do disco efémero, e iniciar o Agente Linux. O Agente Linux funciona continuamente no servidor, procurando um 'goal state' (nova configuração) a partir da plataforma Azure, pelo que sempre que instalar extensões, o agente poderá processá-las.
 

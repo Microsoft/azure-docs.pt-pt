@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: a4811bcb47120ba37337c73604e33826d9affcbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8fe945b028b574e71ae24b1483ad8e7fd67b01d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830031"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078717"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Adicione recursos ao seu ambiente de serviço de integração (ISE) em Azure Logic Apps
 
@@ -44,10 +44,10 @@ Para construir aplicativos lógicos que funcionam no seu ambiente de serviço de
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome** | Sim | O nome para a app lógica para criar |
-   | **Subscrição** | Sim | O nome para a subscrição Azure para usar |
-   | **Grupo de recursos** | Sim | O nome para o grupo de recursos Azure (novo ou existente) para usar |
-   | **Localização** | Sim | Em **ambientes de serviço de integração,** selecione o ISE para utilizar, se ainda não selecionado. <p><p> **Importante**: Para utilizar as suas aplicações lógicas com uma conta de integração, ambas devem utilizar o mesmo ISE. |
+   | **Nome** | Yes | O nome para a app lógica para criar |
+   | **Subscrição** | Yes | O nome para a subscrição Azure para usar |
+   | **Grupo de recursos** | Yes | O nome para o grupo de recursos Azure (novo ou existente) para usar |
+   | **Localização** | Yes | Em **ambientes de serviço de integração,** selecione o ISE para utilizar, se ainda não selecionado. <p><p> **Importante**: Para utilizar as suas aplicações lógicas com uma conta de integração, ambas devem utilizar o mesmo ISE. |
    ||||
 
 1. Quando concluir, selecione **Criar**.
@@ -76,11 +76,11 @@ Para criar uma conta de integração que utilize um ISE, siga estes passos:
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome** | Sim | O nome da conta de integração que pretende criar |
-   | **Subscrição** | Sim | O nome da subscrição Azure que pretende usar |
-   | **Grupo de recursos** | Sim | O nome para o grupo de recursos Azure (novo ou existente) para usar |
-   | **Nível de preços** | Sim | O nível de preços a utilizar para a conta de integração |
-   | **Localização** | Sim | Em **ambientes de serviço de Integração,** selecione o mesmo ISE que as suas aplicações lógicas utilizam, se ainda não selecionadas. <p><p> **Importante**: Para utilizar a sua conta de integração com aplicações lógicas, ambas devem utilizar o mesmo ISE. |
+   | **Nome** | Yes | O nome da conta de integração que pretende criar |
+   | **Subscrição** | Yes | O nome da subscrição Azure que pretende usar |
+   | **Grupo de recursos** | Yes | O nome para o grupo de recursos Azure (novo ou existente) para usar |
+   | **Escalão de preço** | Yes | O nível de preços a utilizar para a conta de integração |
+   | **Localização** | Yes | Em **ambientes de serviço de Integração,** selecione o mesmo ISE que as suas aplicações lógicas utilizam, se ainda não selecionadas. <p><p> **Importante**: Para utilizar a sua conta de integração com aplicações lógicas, ambas devem utilizar o mesmo ISE. |
    ||||
 
 1. Quando concluir, selecione **Criar**.
@@ -127,10 +127,10 @@ Para utilizar conectores personalizados no seu ISE, crie esses conectores person
 
    ![Selecione e edite o conector personalizado](./media/add-artifacts-integration-service-environment-ise/edit-custom-connectors.png)
 
-1. Continue criando o conector da forma habitual a partir de uma [definição OpenAPI](https://docs.microsoft.com/connectors/custom-connectors/define-openapi-definition#import-the-openapi-definition) ou [SOAP](https://docs.microsoft.com/connectors/custom-connectors/create-register-logic-apps-soap-connector#2-define-your-connector).
+1. Continue criando o conector da forma habitual a partir de uma [definição OpenAPI](/connectors/custom-connectors/define-openapi-definition#import-the-openapi-definition) ou [SOAP](/connectors/custom-connectors/create-register-logic-apps-soap-connector#2-define-your-connector).
 
 1. Para gerir os conectores personalizados no seu ISE, consulte [Gerir o seu ambiente de serviço de integração.](../logic-apps/ise-manage-integration-service-environment.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gerir ambientes do serviço de integração](../logic-apps/ise-manage-integration-service-environment.md)

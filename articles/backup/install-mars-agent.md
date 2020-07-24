@@ -3,12 +3,12 @@ title: Instale o agente Microsoft Azure Recovery Services (MARS)
 description: Saiba como instalar o agente Microsoft Azure Recovery Services (MARS) para fazer o back up das máquinas Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 7a43f585e978b7d6974ac89fbb5d93f15aebb1d7
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: b9842f6b07621301a0a8a32f5eb7fae5ece153bc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855227"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079371"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Instale o agente Azure Backup MARS
 
@@ -42,10 +42,10 @@ Os dados disponíveis para cópia de segurança dependem do local onde o agente 
 
 ## <a name="modify-storage-replication"></a>Modificar a replicação do armazenamento
 
-Por predefinição, os cofres utilizam [armazenamento geo-redundante (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+Por predefinição, os cofres utilizam [armazenamento geo-redundante (GRS)](../storage/common/storage-redundancy.md).
 
 * Se o cofre for o seu mecanismo de reserva primário, recomendamos que utilize GRS.
-* Pode utilizar [o armazenamento localmente redundante (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para reduzir os custos de armazenamento da Azure.
+* Pode utilizar [o armazenamento localmente redundante (LRS)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) para reduzir os custos de armazenamento da Azure.
 
 Para modificar o tipo de replicação de armazenamento:
 
@@ -95,7 +95,7 @@ Para utilizar o espreguio da Microsoft, selecione os seguintes serviços, regiõ
 * Região de Azure, de acordo com a localização do cofre dos Serviços de Recuperação
 * Azure Storage, de acordo com a localização do cofre dos Serviços de Recuperação
 
-Para obter mais informações, consulte [os requisitos de encaminhamento ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Para obter mais informações, consulte [os requisitos de encaminhamento ExpressRoute](../expressroute/expressroute-routing.md).
 
 > [!NOTE]
 > O olhar público é depreciado para novos circuitos.
@@ -162,6 +162,6 @@ Se já instalou o agente em alguma máquina, certifique-se de que está a execut
 
 1. Selecione **Concluir**. O agente está agora instalado, e a sua máquina está registada no cofre. Está pronto para configurar e agendar a cópia de segurança.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [fazer backup das máquinas do Windows utilizando o agente Azure Backup MARS](backup-windows-with-mars-agent.md)

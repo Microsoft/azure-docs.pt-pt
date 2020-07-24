@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: 6624cd0ff70ab359f4af36ca2f1f107d8f0b5fd9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c52e8dfa3cda40cc663b5d7f27b67c7d2ad0b60
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83659269"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078652"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para o Azure Logic Apps
 
@@ -21,7 +22,7 @@ Antes de [poder ligar-se a fontes de dados no local a partir de Azure Logic Apps
 * [Microsoft Power Apps no local gateway de dados](/powerapps/maker/canvas-apps/gateway-reference)
 * [Azure Analysis Services on-in-local data gateway](../analysis-services/analysis-services-gateway.md)
 
-Este artigo mostra como descarregar, instalar e configurar o seu portal de dados no local para que possa aceder a fontes de dados no local a partir de Azure Logic Apps. Também pode saber mais sobre [como o portal de dados funciona](#gateway-cloud-service) mais tarde neste tópico. Para mais informações sobre o portal, veja [o que é um portal no local?](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem) Para automatizar tarefas de instalação e gestão de gateways, visite a galeria PowerShell para os [cmdlets DataGateway PowerShell](https://www.powershellgallery.com/packages/DataGateway/3000.15.15).
+Este artigo mostra como descarregar, instalar e configurar o seu portal de dados no local para que possa aceder a fontes de dados no local a partir de Azure Logic Apps. Também pode saber mais sobre [como o portal de dados funciona](#gateway-cloud-service) mais tarde neste tópico. Para mais informações sobre o portal, veja [o que é um portal no local?](/data-integration/gateway/service-gateway-onprem) Para automatizar tarefas de instalação e gestão de gateways, visite a galeria PowerShell para os [cmdlets DataGateway PowerShell](https://www.powershellgallery.com/packages/DataGateway/3000.15.15).
 
 <a name="requirements"></a>
 
@@ -79,7 +80,7 @@ Este artigo mostra como descarregar, instalar e configurar o seu portal de dados
 
   * O gateway tem dois modos: modo padrão e modo pessoal, que se aplica apenas ao Power BI. Não se pode ter mais do que um portal a funcionar no mesmo modo no mesmo computador.
 
-  * A Azure Logic Apps suporta operações de leitura e escrita através do gateway. No entanto, estas operações têm [limites no seu tamanho de carga](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations)útil.
+  * A Azure Logic Apps suporta operações de leitura e escrita através do gateway. No entanto, estas operações têm [limites no seu tamanho de carga](/data-integration/gateway/service-gateway-onprem#considerations)útil.
 
 <a name="install-gateway"></a>
 
@@ -142,8 +143,8 @@ Este artigo mostra como descarregar, instalar e configurar o seu portal de dados
 
 O gateway de dados no local depende do [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) para a conectividade na nuvem e estabelece as conexões de saída correspondentes à região de Azure associada do gateway. Se o seu ambiente de trabalho exigir que o tráfego passe por um proxy ou firewall para aceder à internet, esta restrição pode impedir que o portal de dados no local se conecte ao serviço de cloud gateway e ao Azure Service Bus. O gateway tem várias definições de comunicação, que pode ajustar. Para obter mais informações, veja estes tópicos:
 
-* [Ajustar as definições de comunicação para o portal de dados no local](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)
-* [Configurar as definições de proxy do gateway de dados no local](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)
+* [Ajustar as definições de comunicação para o portal de dados no local](/data-integration/gateway/service-gateway-communication)
+* [Configurar as definições de proxy do gateway de dados no local](/data-integration/gateway/service-gateway-proxy)
 
 <a name="high-availability"></a>
 
@@ -155,7 +156,7 @@ Para evitar pontos únicos de falha no acesso a dados no local, pode ter várias
 
 * O seu gateway principal deve estar a executar a atualização do gateway a partir de novembro de 2017 ou mais tarde.
 
-Depois de configurar o seu gateway principal, quando for instalar outro gateway, **selecione Adicione a um cluster de gateway existente,** selecione o gateway principal, que é o primeiro portal que instalou, e forneça a chave de recuperação para esse gateway. Para obter mais informações, consulte [clusters de alta disponibilidade para o gateway de dados no local.](https://docs.microsoft.com/data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster)
+Depois de configurar o seu gateway principal, quando for instalar outro gateway, **selecione Adicione a um cluster de gateway existente,** selecione o gateway principal, que é o primeiro portal que instalou, e forneça a chave de recuperação para esse gateway. Para obter mais informações, consulte [clusters de alta disponibilidade para o gateway de dados no local.](/data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster)
 
 <a name="update-gateway-installation"></a>
 
@@ -185,7 +186,7 @@ Se tiver de alterar a localização do seu gateway, mover a instalação do gate
 
 ## <a name="tenant-level-administration"></a>Administração ao nível do inquilino
 
-Para obter visibilidade em todos os gateways de dados no local de um inquilino AZure AD, os administradores globais nesse inquilino podem inscrever-se no [centro de administração da Power Platform](https://powerplatform.microsoft.com) como administrador de inquilinos e selecionar a opção Data **Gateways.** Para obter mais informações, consulte [a administração ao nível do inquilino para a porta de dados no local.](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin)
+Para obter visibilidade em todos os gateways de dados no local de um inquilino AZure AD, os administradores globais nesse inquilino podem inscrever-se no [centro de administração da Power Platform](https://powerplatform.microsoft.com) como administrador de inquilinos e selecionar a opção Data **Gateways.** Para obter mais informações, consulte [a administração ao nível do inquilino para a porta de dados no local.](/data-integration/gateway/service-gateway-tenant-level-admin)
 
 <a name="restart-gateway"></a>
 
@@ -196,7 +197,7 @@ Por predefinição, a instalação gateway no seu computador local funciona como
 > [!NOTE]
 > A sua conta de serviço Windows difere da conta utilizada para ligar a fontes de dados no local e da conta Azure que utiliza quando iniciar seduca nos serviços na nuvem.
 
-Como qualquer outro serviço Windows, pode iniciar e parar o gateway de várias maneiras. Para obter mais informações, consulte [Reiniciar uma porta de dados no local.](https://docs.microsoft.com/data-integration/gateway/service-gateway-restart)
+Como qualquer outro serviço Windows, pode iniciar e parar o gateway de várias maneiras. Para obter mais informações, consulte [Reiniciar uma porta de dados no local.](/data-integration/gateway/service-gateway-restart)
 
 <a name="gateway-cloud-service"></a>
 
@@ -217,11 +218,11 @@ Estes passos descrevem o que acontece quando interage com um elemento ligado a u
 
 1. O serviço na nuvem cria uma consulta, juntamente com as credenciais encriptadas para a fonte de dados. Em seguida, o serviço envia a consulta e as credenciais para a fila do gateway para processamento.
 
-1. O serviço de nuvem gateway analisa a consulta e empurra o pedido para a Azure Service Bus.
+1. O serviço cloud do gateway analisa a consulta e envia o pedido para o Azure Service Bus.
 
-1. A Azure Service Bus envia os pedidos pendentes para o portal.
+1. O Azure Service Bus envia os pedidos pendentes para o gateway.
 
-1. O gateway obtém a consulta, desencripta as credenciais e conecta-se a uma ou mais fontes de dados com essas credenciais.
+1. O gateway obtém a consulta, desencripta as credenciais e estabelece ligação a uma ou mais origens de dados com essas credenciais.
 
 1. O portal envia a consulta para a fonte de dados para correr.
 
@@ -260,12 +261,12 @@ Aqui estão as formas de combinar as suas contas de Ative Directory no local com
 
 ## <a name="faq-and-troubleshooting"></a>FAQ e resolução de problemas
 
-* [FAQ do gateway de dados no local](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
-* [Resolução de problemas do gateway de dados no local](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
-* [Monitorizar e otimizar o desempenho de gateways](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
+* [FAQ do gateway de dados no local](/data-integration/gateway/service-gateway-onprem-faq)
+* [Resolução de problemas do gateway de dados no local](/data-integration/gateway/service-gateway-tshoot)
+* [Monitorizar e otimizar o desempenho de gateways](/data-integration/gateway/service-gateway-performance)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Conecte-se aos dados no local a partir de aplicações lógicas](../logic-apps/logic-apps-gateway-connection.md)
 * [Funcionalidades de integração empresarial](../logic-apps/logic-apps-enterprise-integration-overview.md)
-* [Conectores para Azure Logic Apps](../connectors/apis-list.md)
+* [Conectores para o Azure Logic Apps](../connectors/apis-list.md)

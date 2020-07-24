@@ -7,11 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 07/24/2019
 ms.author: osamaz
-ms.openlocfilehash: b8a454c2a104dfe8545cf734bf0b020b8f749bb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 80863b56334b0d2d76cdf505dcd15c5cc4c14c52
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73889632"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081105"
 ---
 # <a name="connecting-azure-with-public-clouds"></a>Ligando Azure com nuvens públicas
 
@@ -33,7 +34,7 @@ Os fornecedores de camadas3 são vulgarmente conhecidos como fornecedores IP VPN
  
 Ao ligar através do fornecedor Layer3, a Microsoft anunciará as rotas VNET do cliente ao fornecedor de serviços em vez do BGP. O fornecedor pode ter duas implementações diferentes.
 
-![](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l3.png)
+![Diagrama que mostra um fornecedor de Camadas3.](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l3.png)
 
 O fornecedor pode estar a aterrar cada fornecedor de nuvem num VRF separado, se o tráfego de todos os fornecedores de nuvem chegar ao router do cliente. Se o cliente estiver a executar o BGP com o fornecedor de serviços, então estas rotas serão re-publicitadas a outros fornecedores de nuvem por padrão. 
 
@@ -44,7 +45,7 @@ Cada nuvem pública tem um limite de prefixo diferente, pelo que, ao distribuir 
 ### <a name="layer2-provider-and-direct-connection"></a>Camada2 Provedor e conexão direta
 
 Embora a conectividade física em ambos os modelos seja diferente, mas na camada3 BGP é estabelecida diretamente entre o MSEE e o router do cliente. Para o cliente ExpressRoute Direct conecta-se diretamente à MSEE. Enquanto no caso da Layer2, o prestador de serviços estende o VLAN das instalações do cliente para a nuvem. Os clientes executam BGP em cima da rede de camadas2 para ligar os seus DCs à nuvem.
-![](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l2.png)
+![Diagrama que mostra um fornecedor layer2 e ligação direta.](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l2.png)
 Em ambos os casos, o cliente terá ligações ponto a ponto a cada uma das nuvens públicas. O cliente estabelecerá uma ligação BGP separada a cada nuvem pública. As rotas recebidas por um fornecedor de nuvem serão publicitadas a outro fornecedor de nuvem por padrão. Cada fornecedor de nuvem tem um limite de prefixo diferente, por isso, enquanto publicita as rotas o cliente deve cuidar destes limites. O cliente pode usar os botões BGP habituais com a Microsoft enquanto publicita rotas de outras nuvens públicas.
 
 ## <a name="direct-connection-with-expressroute"></a>Ligação direta com o ExpressRoute
@@ -57,7 +58,7 @@ Os clientes podem aproveitar a Internet para ligar as suas instâncias em Azure 
 
 A VPN local não é considerada uma solução de alta produção e baixa latência. No entanto, pode ser usado como uma cópia de segurança para a conectividade física.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte [o ExpressRoute FAQ][ER-FAQ] para mais perguntas sobre a conectividade ExpressRoute e rede virtual.
 
 Ver [Configurar a ligação direta entre Azure e Oracle Cloud][ER-OCI] para a conectividade entre Azure e Oráculo

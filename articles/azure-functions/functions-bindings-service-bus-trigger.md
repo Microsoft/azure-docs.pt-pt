@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: ee4961c6c1bb8cafe25ec2c84affdf0f1789e9f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aedf39f99ace6e1119dde7089a3c83b96ac41fb1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603031"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079711"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Gatilho de ônibus de serviço Azure para funções Azure
 
@@ -312,10 +312,10 @@ Os seguintes tipos de parâmetros estão disponíveis para a fila ou mensagem de
 * `string`- Se a mensagem for sms.
 * `byte[]`- Útil para dados binários.
 * Um tipo personalizado - Se a mensagem contiver JSON, a Azure Functions tenta deserizar os dados JSON.
-* `BrokeredMessage`- Dá-lhe a mensagem desercializada com o método [BrokeredMessage.GetBody \<T> ().](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)
-* [`MessageReceiver`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet)- Utilizado para receber e reconhecer mensagens do recipiente de mensagens (necessário quando [`autoComplete`](functions-bindings-service-bus-output.md#hostjson-settings) definido para `false` )
+* `BrokeredMessage`- Dá-lhe a mensagem desercializada com o método [BrokeredMessage.GetBody \<T> ().](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)
+* [`MessageReceiver`](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet)- Utilizado para receber e reconhecer mensagens do recipiente de mensagens (necessário quando [`autoComplete`](functions-bindings-service-bus-output.md#hostjson-settings) definido para `false` )
 
-Estes tipos de parâmetros são para Azure Functions versão 1.x; para 2.x e superior, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) em vez de `BrokeredMessage` .
+Estes tipos de parâmetros são para Azure Functions versão 1.x; para 2.x e superior, use [`Message`](/dotnet/api/microsoft.azure.servicebus.message) em vez de `BrokeredMessage` .
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
@@ -324,9 +324,9 @@ Os seguintes tipos de parâmetros estão disponíveis para a fila ou mensagem de
 * `string`- Se a mensagem for sms.
 * `byte[]`- Útil para dados binários.
 * Um tipo personalizado - Se a mensagem contiver JSON, a Azure Functions tenta deserizar os dados JSON.
-* `BrokeredMessage`- Dá-lhe a mensagem desercializada com o método [BrokeredMessage.GetBody \<T> ().](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)
+* `BrokeredMessage`- Dá-lhe a mensagem desercializada com o método [BrokeredMessage.GetBody \<T> ().](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)
 
-Estes parâmetros são para Azure Functions versão 1.x; para 2.x e superior, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) em vez de `BrokeredMessage` .
+Estes parâmetros são para Azure Functions versão 1.x; para 2.x e superior, use [`Message`](/dotnet/api/microsoft.azure.servicebus.message) em vez de `BrokeredMessage` .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -352,7 +352,7 @@ O manuseamento de mensagens venenosas não pode ser controlado ou configurado em
 
 O tempo de execução das funções recebe uma mensagem no [modo PeekLock](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Solicita `Complete` a mensagem se a função terminar com sucesso ou se `Abandon` ligar se a função falhar. Se a função for mais longa do que o `PeekLock` tempo limite, o bloqueio é automaticamente renovado enquanto a função estiver em funcionamento. 
 
-O `maxAutoRenewDuration` é configurável em *host.jsem*, que mapeia para [OnMessageOptions.MaxAutoRenewDuration](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration?view=azure-dotnet). O máximo permitido para esta regulação é de 5 minutos de acordo com a documentação do Service Bus, enquanto que pode aumentar o prazo de tempo de Funções do padrão de 5 minutos para 10 minutos. Para funções de Service Bus, não gostaria de fazer isso, pois ultrapassaria o limite de renovação do Service Bus.
+O `maxAutoRenewDuration` é configurável em *host.jsem*, que mapeia para [OnMessageOptions.MaxAutoRenewDuration](/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration?view=azure-dotnet). O máximo permitido para esta regulação é de 5 minutos de acordo com a documentação do Service Bus, enquanto que pode aumentar o prazo de tempo de Funções do padrão de 5 minutos para 10 minutos. Para funções de Service Bus, não gostaria de fazer isso, pois ultrapassaria o limite de renovação do Service Bus.
 
 ## <a name="message-metadata"></a>Metadados de mensagens
 
@@ -377,6 +377,6 @@ O gatilho do Service Bus fornece várias [propriedades de metadados.](./function
 
 Consulte [exemplos de código](#example) que utilizam estas propriedades anteriormente neste artigo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Enviar mensagens de autocarro da Azure Service de Azure Functions (ligação de saída)](./functions-bindings-service-bus-output.md)

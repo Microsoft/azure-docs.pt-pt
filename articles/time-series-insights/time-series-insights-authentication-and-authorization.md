@@ -10,34 +10,34 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 06/30/2020
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 9668307047771304c2d3785dc7ff3f760171a43f
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 3441a540cb00dc9b85de54543484b1723fa4226e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86182003"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080777"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticação e autorização para API do Azure Time Series Insights
 
-Este documento descreve como registar uma aplicação no Azure Ative Directory utilizando a nova lâmina do Azure Ative Directory. As aplicações registadas no Azure Ative Directory permitem que os utilizadores autentem autenticar e ser autorizados a utilizar a Azure Time Series Insight API associada a um ambiente de Insights de Séries Temporais.
+Este documento descreve como registar uma aplicação no Azure Ative Directory utilizando a nova lâmina do Azure Ative Directory. As aplicações registadas no Azure Ative Directory permitem que os utilizadores autentem autenticar e ser autorizados a utilizar a Azure Time Series Insight API associada a um ambiente Azure Time Series Insights.
 
 ## <a name="service-principal"></a>Service principal (Principal de serviço)
 
-As secções seguintes descrevem como configurar uma aplicação para aceder à API do Time Series Insights em nome de uma aplicação. A aplicação pode então consultar ou publicar dados de referência no ambiente Time Series Insights utilizando as suas próprias credenciais de aplicação através do Azure Ative Directory.
+As secções seguintes descrevem como configurar uma aplicação para aceder à Azure Time Series Insights API em nome de uma aplicação. A aplicação pode então consultar ou publicar dados de referência no ambiente Azure Time Series Insights utilizando as suas próprias credenciais de aplicação através do Azure Ative Directory.
 
 ## <a name="summary-and-best-practices"></a>Resumo e boas práticas
 
 O fluxo de registo de aplicações Azure Ative Directory envolve três passos principais.
 
 1. [Registe um requerimento](#azure-active-directory-app-registration) no Diretório Ativo Azure.
-1. Autorizar a aplicação a ter [acesso a dados ao ambiente Time Series Insights](#granting-data-access).
-1. Utilize o **ID da Aplicação** e o **Cliente Secret** para adquirir um token `https://api.timeseries.azure.com/` da sua [aplicação cliente.](#client-app-initialization) O token pode então ser usado para chamar a API de Insights de Séries Tempotatórias.
+1. Autorizar a aplicação a ter [acesso a dados ao ambiente Azure Time Series Insights](#granting-data-access).
+1. Utilize o **ID da Aplicação** e o **Cliente Secret** para adquirir um token `https://api.timeseries.azure.com/` da sua [aplicação cliente.](#client-app-initialization) O token pode então ser usado para chamar a AZure Time Series Insights API.
 
 Por **passo 3,** separar as credenciais da sua aplicação e do seu utilizador permite-lhe:
 
-* Atribua permissões à identidade da aplicação que são distintas das suas próprias permissões. Normalmente, estas permissões são restritas apenas ao que a app requer. Por exemplo, pode permitir que a aplicação leia dados apenas a partir de um determinado ambiente de Insights de Séries de Tempo.
+* Atribua permissões à identidade da aplicação que são distintas das suas próprias permissões. Normalmente, estas permissões são restritas apenas ao que a app requer. Por exemplo, pode permitir que a aplicação leia dados apenas a partir de um determinado ambiente Azure Time Series Insights.
 * Isolar a segurança da aplicação da criação de credenciais de autenticação do utilizador utilizando um **Segredo do Cliente** ou certificado de segurança. Como resultado, as credenciais da aplicação não dependem das credenciais de um utilizador específico. Se a função do utilizador mudar, a aplicação não requer necessariamente novas credenciais ou posterior configuração. Se o utilizador alterar a sua palavra-passe, todo o acesso à aplicação não necessita de novas credenciais ou chaves.
 * Executar um script sem supervisão usando um certificado **de segurança** ou Segredo de Cliente em vez de credenciais específicas de um utilizador (exigindo que estejam presentes).
 * Utilize um certificado de segurança em vez de uma palavra-passe para garantir o acesso à API da Série de Tempos Azure.
@@ -57,9 +57,9 @@ Por **passo 3,** separar as credenciais da sua aplicação e do seu utilizador p
 
 ### <a name="granting-data-access"></a>Concessão de acesso a dados
 
-1. Para o ambiente de Insights de Séries Tempo, selecione **Políticas de Acesso a Dados** e selecione **Adicionar**.
+1. Para o ambiente Azure Time Series Insights, selecione **Políticas de Acesso a Dados** e selecione **Add**.
 
-   [![Adicione nova política de acesso a dados ao ambiente Time Series Insights](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png#lightbox)
+   [![Adicione nova política de acesso a dados ao ambiente Azure Time Series Insights](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png#lightbox)
 
 1. Na caixa de diálogo **Select User,** cole o Nome de **Aplicação** ou o ID da **aplicação** Azure Ative.
 
@@ -78,34 +78,32 @@ Por **passo 3,** separar as credenciais da sua aplicação e do seu utilizador p
 
 * Os desenvolvedores podem usar a [Microsoft Authentication Library (MSAL) para autenticar com insights da Série De Tempo Azure.
 
-* Para autenticar usando a ADAL:
+* Para autenticar usando o MSAL:
 
    1. Utilize o ID de **aplicação** e o Segredo do **Cliente** (Chave de Aplicações) da secção de registo de aplicações Azure Ative Directory para adquirir o token em nome da aplicação.
 
-   1. Em C#, o seguinte código pode adquirir o token em nome da aplicação. Para obter uma amostra completa, leia [os dados de consulta utilizando C#](time-series-insights-query-data-csharp.md).
+   1. Em C#, o seguinte código pode adquirir o token em nome da aplicação. Para obter uma amostra completa de como consultar dados de um ambiente Gen1, leia [os dados de consulta utilizando C#](time-series-insights-query-data-csharp.md).
 
         [!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-ga-sample/Program.cs?range=170-199)]
 
-   1. O token pode então ser passado no `Authorization` cabeçalho quando a aplicação chama a API de Insights de Séries Tempotatórias.
+   1. O token pode então ser passado no `Authorization` cabeçalho quando a aplicação chama a AZure Time Series Insights API.
 
 > [!IMPORTANT]
 > Se estiver a utilizar [a Azure Ative Directory Authentication Library (ADAL)](https://docs.microsoft.com/azure/active-directory/azuread-dev/active-directory-authentication-libraries) leia sobre [a migração para o MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration).
 
-   Consulte [os nossos dados de referência da Manage GA para um ambiente Azure Time Series Insights utilizando](time-series-insights-manage-reference-data-csharp.md) o artigo C# para saber mais.
-
 ## <a name="common-headers-and-parameters"></a>Cabeçalhos e parâmetros comuns
 
-Esta secção descreve os cabeçalhos e parâmetros comuns de pedidos HTTP utilizados para fazer consultas contra as APIs de Insights de Séries Tempos e APIs de pré-visualização. Os requisitos específicos da API são cobertos com maior detalhe na documentação de referência da [API da Série De Tempo Insights REST](https://docs.microsoft.com/rest/api/time-series-insights/).
+Esta secção descreve os cabeçalhos e parâmetros comuns de pedidos HTTP utilizados para fazer consultas contra as Azure Time Series Insights Gen1 e Gen2 APIs. Os requisitos específicos da API são cobertos com maior detalhe na documentação de referência da [Azure Time Series Insights REST API](https://docs.microsoft.com/rest/api/time-series-insights/).
 
 > [!TIP]
 > Leia a [referência API AZure REST](https://docs.microsoft.com/rest/api/azure/) para saber mais sobre como consumir APIs DE REST, fazer pedidos HTTP e lidar com respostas HTTP.
 
 ### <a name="authentication"></a>Autenticação
 
-Para realizar consultas autenticadas contra as [AP DE INSIGHTS da Série Tempo,](https://docs.microsoft.com/rest/api/time-series-insights/)um token portador de OAuth 2.0 válido deve ser passado no [cabeçalho de autorização](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) utilizando um cliente REST à sua escolha (Carteiro, JavaScript, C#).
+Para realizar consultas autenticadas contra o [Azure Time Series Insights REST APIs](https://docs.microsoft.com/rest/api/time-series-insights/), um token portador OAuth 2.0 válido deve ser passado no [cabeçalho de autorização](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) usando um cliente REST à sua escolha (Carteiro, JavaScript, C#).
 
 > [!TIP]
-> Leia a visualização da [amostra do cliente SDK](https://tsiclientsample.azurewebsites.net/) da Série De Tempo Azure para aprender a autenticar com as Séries Tempotíries APIs programáticamente utilizando o [JavaScript Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) juntamente com gráficos e gráficos.
+> Leia a visualização da [amostra do cliente SDK](https://tsiclientsample.azurewebsites.net/) da Série De Tempo Azure para aprender a autenticar com o Azure Time Series Insights APIs programáticamente utilizando o [JavaScript Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) juntamente com gráficos e gráficos.
 
 ### <a name="http-headers"></a>Cabeçalhos HTTP
 
@@ -113,7 +111,7 @@ Os cabeçalhos de pedido necessários são descritos abaixo.
 
 | Cabeçalho de pedido exigido | Descrição |
 | --- | --- |
-| Autorização | Para autenticar com insights de séries de tempo, um token OAuth 2.0 Bearer válido deve ser passado no cabeçalho **de autorização.** |
+| Autorização | Para autenticar com a Azure Time Series Insights, um token OAuth 2.0 Bearer válido deve ser passado no cabeçalho **de autorização.** |
 
 > [!IMPORTANT]
 > O símbolo deve ser emitido exatamente para o `https://api.timeseries.azure.com/` recurso (também conhecido como o "público" do token).
@@ -146,22 +144,25 @@ Os parâmetros de cadeia de consulta de URL necessários dependem da versão API
 
 | Libertar | Possíveis valores da versão API |
 | --- |  --- |
-| Disponibilidade Geral | `api-version=2016-12-12`|
-| Pré-visualizar | `api-version=2018-11-01-preview` |
-| Pré-visualizar | `api-version=2018-08-15-preview` |
+| Gen1 | `api-version=2016-12-12`|
+| Gen2 | `api-version=2020-07-31` e `api-version=2018-11-01-preview`|
+
+> [!IMPORTANT]
+>
+> A `api-version=2018-11-01-preview` versão será depreciada em breve. Recomendamos que os utilizadores mudem para a versão mais recente.
 
 Os parâmetros de cadeia de consulta de URL opcionais incluem a definição de um tempo limite para os tempos de execução do pedido HTTP.
 
 | Parâmetro de consulta opcional | Descrição | Versão |
 | --- |  --- | --- |
-| `timeout=<timeout>` | Tempo de tempo do lado do servidor para a execução do pedido HTTP. Aplicável apenas aos [Eventos De Ambiente](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) e [Obter ApIs agregados ambientais.](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) O valor de tempo limite deve estar no formato de duração ISO 8601, por `"PT20S"` exemplo, e deve estar na gama `1-30 s` . O valor predefinido é `30 s` . | GA |
-| `storeType=<storeType>` | Para ambientes de pré-visualização com loja quente ativada, a consulta pode ser executada no `WarmStore` ou `ColdStore` no . Este parâmetro na consulta define em que loja a consulta deve ser executada. Se não estiver definida, a consulta será executada na loja de frio. Para consultar a loja quente, **o storeType** precisa de ser configurado para `WarmStore` . Se não estiver definida, a consulta será executada contra a loja de frio. | Pré-visualizar |
+| `timeout=<timeout>` | Tempo de tempo do lado do servidor para a execução do pedido HTTP. Aplicável apenas aos [Eventos De Ambiente](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) e [Obter ApIs agregados ambientais.](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) O valor de tempo limite deve estar no formato de duração ISO 8601, por `"PT20S"` exemplo, e deve estar na gama `1-30 s` . O valor predefinido é `30 s` . | Gen1 |
+| `storeType=<storeType>` | Para ambientes Gen2 com loja quente ativada, a consulta pode ser executada no `WarmStore` ou `ColdStore` . Este parâmetro na consulta define em que loja a consulta deve ser executada. Se não estiver definida, a consulta será executada na loja de frio. Para consultar a loja quente, **o storeType** precisa de ser configurado para `WarmStore` . Se não estiver definida, a consulta será executada contra a loja de frio. | Gen2 |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para o código de amostra que chama a API de Insights de Séries De Tempo GA, leia [os dados de consulta utilizando C#](./time-series-insights-query-data-csharp.md).
+* Para o código de amostra que chama a Gen1 Azure Time Series Insights API, leia [os dados da Consulta Gen1 utilizando C#](./time-series-insights-query-data-csharp.md).
 
-* Para pré-visualização Série de Tempo Insights API amostras de código, leia [os dados de pré-visualização de consulta usando C#](./time-series-insights-update-query-data-csharp.md).
+* Para obter o código de amostra que chama as amostras de código API da Série De Tempo Azure Gen2, leia [os dados da Consulta Gen2 utilizando C#](./time-series-insights-update-query-data-csharp.md).
 
 * Para obter informações de referência da API, leia a documentação de referência da [API.](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api)
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 522aed07d850dfdb2782ee8263f33bd3f42eb8c2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 34a02de8a6789a028c776e784ea4aa9692f53d9d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258033"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079164"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Utilizar as APIs e SDKs do Azure Digital Twins
 
@@ -54,7 +54,7 @@ Para utilizar as APIs do plano de dados:
    - você pode encontrar a fonte SDK, incluindo uma pasta de amostras, em GitHub: [Azure IoT Digital Twins biblioteca cliente para .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
    - pode ver a [documentação de referência do SDK.](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview)
    - pode ver informações detalhadas e exemplos de utilização continuando na secção [.NET (C#) SDK (plano de dados)](#net-c-sdk-data-plane) deste artigo.
-* Pode gerar um SDK para outro idioma utilizando o AutoRest. Siga as instruções em [Como-a-: Crie SDKs personalizados para Gémeos Digitais Azure com AutoRest](how-to-create-custom-sdks.md).
+* Pode gerar um SDK para outro idioma utilizando o AutoRest. Siga as instruções em [*Como-a-: Crie SDKs personalizados para Gémeos Digitais Azure com AutoRest*](how-to-create-custom-sdks.md).
 
 Também pode exercitar APIs de plano de data interagindo com a Azure Digital Twins através do [CLI](how-to-use-cli.md).
 
@@ -71,11 +71,11 @@ Para utilizar o SDK, inclua o pacote NuGet **Azure.DigitalTwins.Core** com o seu
 * Utilizando a ferramenta linha de comando .NET, pode executar:
 
     ```cmd/sh
-    dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.2
+    dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
     dotnet add package Azure.identity
     ```
 
-Para obter um walk-through detalhado da utilização das APIs na prática, consulte o [Tutorial: Código de uma aplicação para clientes](tutorial-code.md). 
+Para obter um walk-through detalhado da utilização das APIs na prática, consulte o [*Tutorial: Código de uma aplicação para clientes*](tutorial-code.md). 
 
 ### <a name="net-sdk-usage-examples"></a>.NET SDK exemplos de utilização
 
@@ -137,7 +137,7 @@ await foreach (string twin in result)
 }
 ```
 
-Consulte o [Tutorial: Código de um aplicativo](tutorial-code.md) de cliente para uma passagem deste código de aplicação de amostra. 
+Consulte o [*Tutorial: Código de um aplicativo*](tutorial-code.md) de cliente para uma passagem deste código de aplicação de amostra. 
 
 Também pode encontrar amostras adicionais no [repo GitHub para o .NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core/samples).
 
@@ -290,8 +290,8 @@ A partir daqui, você pode ver as métricas para o seu exemplo e criar vistas pe
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Veja como usar as APIs para criar um exemplo de Azure Digital Twins:
-* [Como fazer: Criar um exemplo de Gémeos Digitais Azure](how-to-set-up-instance.md)
+Veja como usar as APIs para configurar uma instância e autenticação de Gémeos Digitais Azure:
+* [*Como fazer: Configurar um caso e autenticação*](how-to-set-up-instance-scripted.md)
 
 Ou, caminhe pelos degraus para criar uma aplicação de cliente como a usada neste como:
-* [Tutorial: Código de uma aplicação de cliente](tutorial-code.md)
+* [*Tutorial: Código de uma aplicação de cliente*](tutorial-code.md)

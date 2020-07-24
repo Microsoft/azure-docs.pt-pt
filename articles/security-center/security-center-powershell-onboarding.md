@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: 0ca5cdcb0410d52f40e28c66a839bddcb34cc8a8
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e6dfc0eb704b0b35ab4e181076d8f97fd3e8c9d7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963364"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080758"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatizar o embarque no Azure Security Center usando o PowerShell
 
@@ -98,7 +98,7 @@ Agora pode utilizar estes cmdlets PowerShell com scripts de automação para ite
 
 
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 Para saber mais sobre como pode utilizar o PowerShell para automatizar o embarque no Security Center, consulte o seguinte artigo:
 
 * [Az.Security](https://docs.microsoft.com/powershell/module/az.security)

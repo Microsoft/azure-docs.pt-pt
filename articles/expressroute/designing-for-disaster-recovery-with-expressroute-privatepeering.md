@@ -7,17 +7,22 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 05/25/2019
 ms.author: rambala
-ms.openlocfilehash: 726a014983c0da959d72b7976fef2ebb2c6e9b9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8adfb0ef0d9aa79d1b14127453f76223f035d62a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74076693"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081173"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Desenho para recuperação de desastres com o espreitamento privado ExpressRoute
 
 O ExpressRoute foi concebido para uma elevada disponibilidade para fornecer conectividade de rede privada de nível de transportadora aos recursos da Microsoft. Por outras palavras, não existe um único ponto de falha no caminho ExpressRoute dentro da rede microsoft. Para obter considerações de design para maximizar a disponibilidade de um circuito ExpressRoute, consulte [Design para alta disponibilidade com o ExpressRoute.][HA]
 
 No entanto, tomando o adágio popular de Murphy-*se alguma coisa pode correr mal, vai*-- em consideração, neste artigo vamos focar-nos em soluções que vão além de falhas que podem ser abordadas usando um único circuito ExpressRoute. Por outras palavras, neste artigo, analisemos as considerações de arquitetura de rede para a construção de uma robusta conectividade de rede de backend para a recuperação de desastres utilizando circuitos ExpressRoute geo redundantes.
+
+>[!NOTE]
+>Os conceitos descritos neste artigo aplicam-se igualmente quando um circuito ExpressRoute é criado sob WAN virtual ou fora dele.
+>
 
 ## <a name="need-for-redundant-connectivity-solution"></a>Necessidade de solução de conectividade redundante
 
@@ -126,7 +131,7 @@ A solução é ilustrada no diagrama seguinte. Como ilustrado, pode arquitetar o
 [![10]][10]
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, discutimos como projetar para a recuperação de desastres de um circuito ExpressRoute conectividade de espreitar privadamente. Os seguintes artigos abordam a recuperação de desastres a partir de aplicações e perspetivas de acesso frontend:
 

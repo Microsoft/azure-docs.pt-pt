@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mbullwin
-ms.openlocfilehash: 897e615234e17cfe36790778d00cd56371afd91f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f27771291d95770a693fa56041f7dce3de459d13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560136"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081428"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Fontes de dados de livros do Azure Monitor
 
@@ -61,7 +61,7 @@ Para fazer um controlo de consulta utilizar esta fonte de dados, utilize a fonte
 
 ## <a name="azure-data-explorer"></a>Azure Data Explorer
 
-Os livros de trabalho têm agora suporte para consulta a partir de clusters [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/) com a poderosa linguagem de consulta [Kusto.](https://docs.microsoft.com/azure/kusto/query/index)   
+Os livros de trabalho têm agora suporte para consulta a partir de clusters [Azure Data Explorer](/azure/data-explorer/) com a poderosa linguagem de consulta [Kusto.](/azure/kusto/query/index)   
 
 ![Screenshot da janela de consulta de Kusto](./media/workbooks-overview/data-explorer.png)
 
@@ -90,7 +90,7 @@ O provedor JSON permite-lhe criar um resultado de consulta a partir do conteúdo
 > [!NOTE]
 > A forma sugerida de consultar informações sobre o Alerta de Azure é utilizando a fonte de dados do [Azure Resource Graph,](#azure-resource-graph) consultando a `AlertsManagementResources` tabela.
 >
-> Consulte a referência da [tabela Azure Resource Graph,](https://docs.microsoft.com/azure/governance/resource-graph/reference/supported-tables-resources)ou o [modelo Alertas,](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Azure%20Resources/Alerts/Alerts.workbook) por exemplo.
+> Consulte a referência da [tabela Azure Resource Graph,](../../governance/resource-graph/reference/supported-tables-resources.md)ou o [modelo Alertas,](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Azure%20Resources/Alerts/Alerts.workbook) por exemplo.
 >
 > A fonte de dados alerts permanecerá disponível por um período de tempo enquanto os autores transitam para a utilização de ARG. A utilização desta fonte de dados em modelos é desencorajada. 
 
@@ -109,9 +109,9 @@ Para evitar fazer chamadas automaticamente para anfitriões não confiáveis qua
 > [!NOTE]
 > Não escreva segredos em nenhum dos campos, `headers` `parameters` uma vez que `body` `url` serão visíveis para todos os utilizadores do Livro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Começar a](workbooks-visualizations.md) aprender mais sobre livros de trabalho muitas opções de visualizações ricas.
 * [Controle](workbooks-access-control.md) e partilhe o acesso aos seus recursos do livro.
-* [Dicas de otimização de consultas log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization)
+* [Dicas de otimização de consultas log Analytics](../log-query/query-optimization.md)
 * 

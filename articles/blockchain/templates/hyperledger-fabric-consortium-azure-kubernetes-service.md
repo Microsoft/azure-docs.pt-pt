@@ -4,12 +4,12 @@ description: Como implementar e configurar a rede de consórcios Hyperledger Fab
 ms.date: 07/07/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: e1cbfa56f1e4ea9f8cbaa0ad973d06e8b8d486ca
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 1e90eeccb015b4d5ef78b79297565ddde9cfa305
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085814"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081287"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Consórcio de tecido hiper-iniciante no Serviço Azure Kubernetes (AKS)
 
@@ -28,9 +28,9 @@ Antes de optar por usar um modelo de solução, compare o seu cenário com os ca
 
 Opção | Modelo de serviço | Caso de uso comum
 -------|---------------|-----------------
-Modelos de solução | IaaS | Os modelos de solução são modelos de Gestor de Recursos Azure que pode utilizar para providenciar uma topologia de rede blockchain totalmente configurada. Os modelos implementam e configuram os serviços de computação, networking e armazenamento do Microsoft Azure para um determinado tipo de rede blockchain. Os modelos de solução são fornecidos sem um acordo de nível de serviço. Utilize a [página de perguntas&Microsoft Q](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) para suporte.
+Modelos de solução | IaaS | Os modelos de solução são modelos de Gestor de Recursos Azure que pode utilizar para providenciar uma topologia de rede blockchain totalmente configurada. Os modelos implementam e configuram os serviços de computação, networking e armazenamento do Microsoft Azure para um determinado tipo de rede blockchain. Os modelos de solução são fornecidos sem um acordo de nível de serviço. Utilize a [página de perguntas&Microsoft Q](/answers/topics/azure-blockchain-workbench.html) para suporte.
 [Azure Blockchain Service](../service/overview.md) | PaaS | A antevisão do serviço Azure Blockchain simplifica a formação, gestão e governação das redes blockchain do consórcio. Utilize o Serviço Azure Blockchain para soluções que exijam paaS, gestão de consórcios ou privacidade de contratos e transações.
-[Azure Blockchain Workbench](../workbench/overview.md) | IaaS e PaaS | A Azure Blockchain Workbench Preview é uma coleção de serviços e capacidades da Azure projetadas para ajudá-lo a criar e implementar aplicações blockchain para partilhar processos de negócio e dados com outras organizações. Utilize a bancada Azure Blockchain workbench para prototipar uma solução blockchain ou uma aplicação blockchain comprovativo de conceito. O Azure Blockchain Workbench é fornecido sem contrato de nível de serviço. Utilize a [página de perguntas&Microsoft Q](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) para suporte.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS e PaaS | A Azure Blockchain Workbench Preview é uma coleção de serviços e capacidades da Azure projetadas para ajudá-lo a criar e implementar aplicações blockchain para partilhar processos de negócio e dados com outras organizações. Utilize a bancada Azure Blockchain workbench para prototipar uma solução blockchain ou uma aplicação blockchain comprovativo de conceito. O Azure Blockchain Workbench é fornecido sem contrato de nível de serviço. Utilize a [página de perguntas&Microsoft Q](/answers/topics/azure-blockchain-workbench.html) para suporte.
 
 ## <a name="hyperledger-fabric-consortium-architecture"></a>Arquitetura do Consórcio de Tecidos Hiper-Ledger
 
@@ -113,7 +113,7 @@ Para começar com a implantação de componentes da rede HLF, navegue até ao [p
     - **Prefixo do prefixo do dnso**: Sistema de Nome de Domínio (DNS) prefixo para cluster AKS. Utilizará o DNS para ligar à API de Kubernetes ao gerir os contentores depois de criar o cluster.
     - **Tamanho do nó**: O tamanho do nó Kubernetes, pode escolher entre a lista de unidade de manutenção de stock VM (SKUs) disponível no Azure. Para um melhor desempenho, recomendamos o Standard DS3 v2.
     - **Contagem de nó:** A contagem do número de nós Kubernetes a implantar no cluster. Recomendamos manter esta contagem de nós pelo menos igual ou superior ao número de nós HLF especificados nas definições de Tecido.
-    - **ID do cliente principal**do serviço : Introduza a identificação do cliente de um principal de serviço existente ou crie um novo, que é necessário para a autenticação AKS. Veja, passos para [criar o principal de serviço.](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps?view=azps-3.2.0#create-a-service-principal)
+    - **ID do cliente principal**do serviço : Introduza a identificação do cliente de um principal de serviço existente ou crie um novo, que é necessário para a autenticação AKS. Veja, passos para [criar o principal de serviço.](/powershell/azure/create-azure-service-principal-azureps?view=azps-3.2.0#create-a-service-principal)
     - **Segredo do cliente principal**do serviço : Insira o segredo do cliente do principal serviço fornecido na identificação principal do cliente de serviço.
     - **Confirme o segredo**do cliente: Confirme o segredo do cliente fornecido no segredo do cliente principal do serviço.
     - **Ativar a monitorização do contentor**: Opte por ativar a monitorização AKS, que permite que os registos AKS empurrem para o espaço de trabalho do Log Analytics especificado.
@@ -138,7 +138,7 @@ Para construir o post do consórcio blockchain implantando o serviço de encomen
 
 Todos os comandos para executar o script Azure HLF podem ser executados através da Linha de Comando Azure Bash. Interface (CLI). Você pode iniciar sessão na versão web da Azure shell através  ![Tecido hiper-iniciante no modelo de serviço Azure Kubernetes](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) opção no canto superior direito do portal Azure. No pedido de comando, escreva e entre para mudar para bater CLI.
 
-Consulte [a concha Azure](https://docs.microsoft.com/azure/cloud-shell/overview) para mais informações.
+Consulte [a concha Azure](../../cloud-shell/overview.md) para mais informações.
 
 ![Tecido hiper-iniciante no modelo de serviço Azure Kubernetes](./media/hyperledger-fabric-consortium-azure-kubernetes-service/hyperledger-powershell.png)
 
@@ -409,7 +409,7 @@ Execute abaixo o comando para consultar o código de corrente:
 ```
 Passe nome da função de consulta e espaço separado lista de argumentos dentro  `<queryFunction>`   e  `<queryFuncArgs>`   respectivamente. Mais uma vez, tomando chaincode_example02.go chaincode como referência, ao valor de consulta de "a" no estado mundial definido  `<queryFunction>`   para e para  `query`  `<queryArgs>` "a".  
 
-## <a name="troubleshoot"></a>Resolver Problemas
+## <a name="troubleshoot"></a>Resolução de Problemas
 
 **Para verificar a versão do modelo de execução**
 
@@ -441,6 +441,6 @@ Para fornecer feedback do produto ou para solicitar novas funcionalidades, publi
 
 Envolva-se com engenheiros da Microsoft e especialistas da comunidade Azure Blockchain.
 
-- [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). O suporte de engenharia para modelos blockchain está limitado a problemas de implantação.
+- [Microsoft Q&Uma página de perguntas](/answers/topics/azure-blockchain-workbench.html). O suporte de engenharia para modelos blockchain está limitado a problemas de implantação.
 - [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)

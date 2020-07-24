@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 02/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6fa3a120788bf6b196409491584e068609b65e60
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af6063c93997d1faf6453cfe7e184bd4cc2427da
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85209059"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080646"
 ---
-# <a name="connect-with-the-ios-client"></a>Ligar ao cliente de iOS
+# <a name="connect-to-windows-virtual-desktop-with-the-ios-client"></a>Conecte-se ao Windows Virtual Desktop com o cliente iOS
 
 > Aplica-se a: iOS 13.0 ou posterior. Compatível com iPhone, iPad e iPod touch.
 
@@ -52,6 +52,6 @@ Depois disso, o Centro de Ligação deverá exibir os recursos remotos.
 
 Uma vez subscrito um feed, o conteúdo do feed será atualizado automaticamente regularmente. Os recursos podem ser adicionados, alterados ou removidos com base em alterações efetuadas pelo seu administrador.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como usar o cliente iOS, confira o Get start com a documentação [do cliente iOS.](/windows-server/remote/remote-desktop-services/clients/remote-desktop-ios/)

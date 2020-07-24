@@ -2,16 +2,17 @@
 title: Como direcionar as versões de tempo de execução do Azure Functions
 description: O Azure Functions suporta várias versões do tempo de execução. Saiba como especificar a versão de tempo de execução de uma aplicação de função hospedada no Azure.
 ms.topic: conceptual
-ms.date: 11/26/2018
-ms.openlocfilehash: 5a71338b1b9735d7e7494dc2667bd7addf5d4a53
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/22/2020
+ms.openlocfilehash: 3d4e40af1ba1e28bc9e9a433872e1315ffbe7747
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77151960"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079660"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Como direcionar as versões de tempo de execução do Azure Functions
 
-Uma aplicação de função executa numa versão específica do tempo de execução das Funções Azure. Existem três versões principais: [1.x, 2.x e 3.x](functions-versions.md). Por predefinição, as aplicações de função são criadas na versão 2.x do tempo de execução. Este artigo explica como configurar uma aplicação de função no Azure para executar na versão que escolher. Para obter informações sobre como configurar um ambiente de desenvolvimento local para uma versão específica, consulte [Código e teste funções Azure localmente](functions-run-local.md).
+Uma aplicação de função executa numa versão específica do tempo de execução das Funções Azure. Existem três versões principais: [1.x, 2.x e 3.x](functions-versions.md). Por predefinição, as aplicações de função são criadas na versão 3.x do tempo de execução. Este artigo explica como configurar uma aplicação de função no Azure para executar na versão que escolher. Para obter informações sobre como configurar um ambiente de desenvolvimento local para uma versão específica, consulte [Código e teste funções Azure localmente](functions-run-local.md).
 
 ## <a name="automatic-and-manual-version-updates"></a>Atualizações automáticas e manuais da versão
 
@@ -103,7 +104,7 @@ Pode executar este comando a partir da [Azure Cloud Shell](../cloud-shell/overvi
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Direcione o tempo de execução 2.0 no seu ambiente de desenvolvimento local](functions-run-local.md)

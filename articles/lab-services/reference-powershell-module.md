@@ -3,11 +3,12 @@ title: Módulo PowerShell para Serviços Azure Lab Microsoft Docs
 description: Este artigo fornece informações sobre um módulo PowerShell que ajuda na gestão de artefactos nos Serviços Azure Lab.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: d9c184f3917be378eb77d1bf4096bfebb5ee1884
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f5809dcf981a1ecf30cda06af03d2b8a06d3694
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445598"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078825"
 ---
 # <a name="azlabservices-powershell-module-preview"></a>Módulo do PowerShell Az.LabServices (pré-visualização)
 Az.LabServices é um módulo PowerShell que simplifica a gestão dos serviços do Azure Lab. Fornece funções compósíveis para criar, consultar, atualizar e apagar contas de laboratório, laboratórios, VMs e Imagens. Para mais informações sobre este módulo, consulte a página inicial do [Az.LabServices no GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
@@ -23,7 +24,7 @@ Get-AzLabAccount | Get-AzLab | Get-AzLabVm -Status Running | Stop-AzLabVm
 ```
 
 ## <a name="get-started"></a>Introdução
-1. Instale [a Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) se não existir na sua máquina. 
+1. Instale [a Azure PowerShell](https://docs.microsoft.com/powershell/azure/) se não existir na sua máquina. 
 2. Faça o download [de Az.LabServices.psm1](https://github.com/Azure/azure-devtestlab/blob/master/samples/ClassroomLabs/Modules/Library/Az.LabServices.psm1) para a sua máquina.
 3. Importar o módulo:
 
@@ -36,5 +37,5 @@ Get-AzLabAccount | Get-AzLab | Get-AzLabVm -Status Running | Stop-AzLabVm
     Get-AzLabAccount | Get-AzLab
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte a página inicial do [Az.LabServices no GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).

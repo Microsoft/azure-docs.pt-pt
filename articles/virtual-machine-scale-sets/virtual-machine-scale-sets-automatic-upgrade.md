@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 06/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: af0dea5297cca02b12aecdc8252e62030032b93e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 558dd152aa1c6638155ad4215dc16f08d33d2e2f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601348"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080544"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Escala de máquina virtual Azure definir atualizações automáticas de imagem de SO
 
@@ -143,7 +143,7 @@ Durante uma atualização do SISTEMA, as instâncias VM num conjunto de escala s
 
 Um conjunto de escala pode opcionalmente ser configurado com Sondas de Saúde de Aplicação para fornecer à plataforma informações precisas sobre o estado em curso da aplicação. As sondas de saúde da aplicação são sondas de balanço de carga personalizadas que são usadas como um sinal de saúde. A aplicação em execução em uma instância VM definida em escala pode responder a pedidos externos de HTTP ou TCP indicando se é saudável. Para obter mais informações sobre o funcionaamento das sondas de balanço de carga personalizada, consulte [para compreender as sondas do balançador de carga](../load-balancer/load-balancer-custom-probe-overview.md). As sondas de saúde da aplicação não são suportadas para conjuntos de escala de tecido de serviço. Os conjuntos de escala de tecido não servido requerem sondas de saúde de aplicação de balanceadores de carga ou [extensão de Saúde de Aplicação](virtual-machine-scale-sets-health-extension.md).
 
-Se o conjunto de balança estiver configurado para utilizar vários grupos de colocação, devem ser utilizadas sondas utilizando um [Balanceador de Carga Padrão.](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
+Se o conjunto de balança estiver configurado para utilizar vários grupos de colocação, devem ser utilizadas sondas utilizando um [Balanceador de Carga Padrão.](../load-balancer/load-balancer-overview.md)
 
 ### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>Configurar uma sonda de balanço de carga personalizada como sonda de saúde de aplicação em um conjunto de escala
 Como uma boa prática, crie uma sonda de equilíbrio de carga explicitamente para a saúde definida em escala. O mesmo ponto final para uma sonda HTTP ou sonda TCP existente pode ser usado, mas uma sonda de saúde pode exigir um comportamento diferente de uma sonda tradicional de equilíbrio de carga. Por exemplo, uma sonda de balanço de carga tradicional poderia voltar pouco saudável se a carga no caso fosse demasiado elevada, mas isso não seria apropriado para determinar a saúde do caso durante uma atualização automática do SO. Configufique a sonda para ter uma alta taxa de sondagem de menos de dois minutos.
@@ -161,7 +161,7 @@ A sonda de compensação de carga pode ser referenciada na *redeProfile* do conj
 ```
 
 > [!NOTE]
-> Ao utilizar atualizações automáticas de OS com Tecido de Serviço, a nova imagem de SO é lançada domínio de atualização por Atualização do Domínio para manter uma elevada disponibilidade dos serviços em execução no Tecido de Serviço. Para utilizar atualizações automáticas de OS no Tecido de Serviço, o seu cluster deve ser configurado para utilizar o Nível de Durabilidade prateada ou superior. Para obter mais informações sobre as características de durabilidade dos clusters de Tecidos de Serviço, consulte [esta documentação.](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster)
+> Ao utilizar atualizações automáticas de OS com Tecido de Serviço, a nova imagem de SO é lançada domínio de atualização por Atualização do Domínio para manter uma elevada disponibilidade dos serviços em execução no Tecido de Serviço. Para utilizar atualizações automáticas de OS no Tecido de Serviço, o seu cluster deve ser configurado para utilizar o Nível de Durabilidade prateada ou superior. Para obter mais informações sobre as características de durabilidade dos clusters de Tecidos de Serviço, consulte [esta documentação.](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster)
 
 ### <a name="keep-credentials-up-to-date"></a>Manter as credenciais atualizadas
 Se o seu conjunto de escalas utilizar quaisquer credenciais para aceder a recursos externos, como uma extensão VM configurada para usar um token SAS para conta de armazenamento, então certifique-se de que as credenciais são atualizadas. Se alguma credencial, incluindo certificados e fichas, tiver expirado, a atualização falhará e o primeiro lote de VMs será deixado num estado de falha.
@@ -295,5 +295,5 @@ Pode utilizar modelos para implementar uma escala definida com atualizações au
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fvm-scale-sets%2Fmaster%2Fpreview%2Fupgrade%2Fautoupdate.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais exemplos sobre como utilizar upgrades automáticos de SO com conjuntos de escala, reveja o [repo GitHub](https://github.com/Azure/vm-scale-sets/tree/master/preview/upgrade).

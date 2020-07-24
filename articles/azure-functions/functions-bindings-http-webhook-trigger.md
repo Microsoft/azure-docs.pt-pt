@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 437cbb87694adf89054161a7b0d40f6528b94199
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: d1b545129312e2954c76e296560d9476f37f4424
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224099"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081768"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Funções HTTP Trigger
 
@@ -487,7 +487,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 | **nome** | n/a| Requerido - o nome variável utilizado no código de função para o órgão de pedido ou pedido. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determina quais as teclas, se houver, que precisam de estar presentes no pedido para invocar a função. O nível de autorização pode ser um dos seguintes valores: <ul><li><code>anonymous</code>&mdash;Não é necessária nenhuma chave API.</li><li><code>function</code>&mdash;É necessária uma chave API específica para a função. Este é o valor padrão se nenhum for fornecido.</li><li><code>admin</code>&mdash;A chave principal é necessária.</li></ul> Para mais informações, consulte a secção sobre [as chaves de autorização.](#authorization-keys) |
 | **métodos** |**Métodos** | Uma matriz dos métodos HTTP aos quais a função responde. Se não for especificado, a função responde a todos os métodos HTTP. Consulte [personalizar o ponto final HTTP](#customize-the-http-endpoint). |
-| **rota** | **Encaminhar** | Define o modelo de rota, controlando a que pedido URLs a sua função responde. O valor predefinido se nenhum for fornecido é `<functionname>` . Para mais informações, consulte [personalizar o ponto final HTTP](#customize-the-http-endpoint). |
+| **rota** | **Rota** | Define o modelo de rota, controlando a que pedido URLs a sua função responde. O valor predefinido se nenhum for fornecido é `<functionname>` . Para mais informações, consulte [personalizar o ponto final HTTP](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** | _Suportado apenas para a versão 1.x tempo de execução._<br/><br/>Configura o gatilho HTTP para funcionar como um recetor [webhook](https://en.wikipedia.org/wiki/Webhook) para o fornecedor especificado. Não desateia a `methods` propriedade se você definir esta propriedade. O tipo webhook pode ser um dos seguintes valores:<ul><li><code>genericJson</code>&mdash;Um ponto final webhook de uso geral sem lógica para um fornecedor específico. Esta definição restringe os pedidos apenas a quem utiliza HTTP POST e com o `application/json` tipo de conteúdo.</li><li><code>github</code>&mdash;A função responde a [webhooks GitHub](https://developer.github.com/webhooks/). Não utilize a propriedade _authLevel_ com webhooks GitHub. Para mais informações, consulte a secção de webhooks do GitHub mais tarde neste artigo.</li><li><code>slack</code>&mdash;A função responde a [webhooks Slack](https://api.slack.com/outgoing-webhooks). Não utilize a propriedade _authLevel_ com webhooks Slack. Para mais informações, consulte a secção De webhooks Slack mais tarde neste artigo.</li></ul>|
 
 ## <a name="payload"></a>Carga útil
@@ -674,7 +674,7 @@ Também pode ler estas informações a partir de dados vinculativos. Esta capaci
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Informações relativas a clientes autenticados estão disponíveis como [SinistrosPrincipal.](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal) O ClaimsPrincipal está disponível como parte do contexto de pedido, como mostrado no seguinte exemplo:
+Informações relativas a clientes autenticados estão disponíveis como [SinistrosPrincipal.](/dotnet/api/system.security.claims.claimsprincipal) O ClaimsPrincipal está disponível como parte do contexto de pedido, como mostrado no seguinte exemplo:
 
 ```csharp
 using System.Net;
@@ -706,7 +706,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-Informações relativas a clientes autenticados estão disponíveis como [SinistrosPrincipal.](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal) O ClaimsPrincipal está disponível como parte do contexto de pedido, como mostrado no seguinte exemplo:
+Informações relativas a clientes autenticados estão disponíveis como [SinistrosPrincipal.](/dotnet/api/system.security.claims.claimsprincipal) O ClaimsPrincipal está disponível como parte do contexto de pedido, como mostrado no seguinte exemplo:
 
 ```csharp
 using System.Net;

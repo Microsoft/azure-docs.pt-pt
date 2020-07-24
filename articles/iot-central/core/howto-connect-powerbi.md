@@ -7,12 +7,12 @@ author: viv-liu
 ms.author: viviali
 ms.date: 10/4/2019
 ms.topic: conceptual
-ms.openlocfilehash: a484ab2553aeefbbe8c03ae639bdd667e4d9cb8e
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: f996bb2d5126ef038ca872aee1f1893979a5229b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84661195"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "87081003"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualize e analise os seus dados Azure IoT Central num painel power BI
 
@@ -20,7 +20,7 @@ ms.locfileid: "84661195"
 
 :::image type="content" source="media/howto-connect-powerbi/iot-continuous-data-export.png" alt-text="Pipeline de solução de BI de potência":::
 
-Utilize a Solução Power BI para Azure IoT Central para criar um poderoso painel power BI para monitorizar o desempenho dos seus dispositivos IoT. No seu painel Power BI, pode:
+Utilize a Solução Power BI para O Azure IoT Central V3 para criar um poderoso painel power BI para monitorizar o desempenho dos seus dispositivos IoT. No seu painel Power BI, pode:
 
 - Acompanhe a quantidade de dados que os seus dispositivos estão a enviar ao longo do tempo
 - Comparar volumes de dados entre diferentes fluxos de telemetria
@@ -35,16 +35,19 @@ Para completar os passos neste guia de como fazer, precisa de uma subscrição a
 
 A configuração da solução requer os seguintes recursos:
 
-- IoT Central. Para saber mais, consulte [Criar uma aplicação Azure IoT Central](./quick-deploy-iot-central.md).
+- Uma aplicação IoT Central versão 3. Para saber como verificar a sua versão de aplicação, consulte [sobre a sua aplicação.](./howto-get-app-info.md) Para aprender a criar uma aplicação IoT Central, consulte [Criar uma aplicação Azure IoT Central](./quick-deploy-iot-central.md).
 - Exportação contínua de dados configurado para exportar telemetria, dispositivos e modelos de dispositivo para o armazenamento de Azure Blob. Para saber mais, consulte [Como exportar dados de IoT para destinos em Azure.](howto-export-data.md)
   - Certifique-se de que apenas a sua aplicação IoT Central está a exportar dados para o recipiente blob.
   - Os seus [dispositivos devem enviar mensagens codificadas JSON](../../iot-hub/iot-hub-devguide-messages-d2c.md). Os dispositivos devem especificar `contentType:application/JSON` e ou ou ou nas propriedades do sistema de `contentEncoding:utf-8` `contentEncoding:utf-16` `contentEncoding:utf-32` mensagens.
 - Power BI Desktop (versão mais recente). Ver [downloads de Power BI](https://powerbi.microsoft.com/downloads/).
 - Power BI Pro (se quiser partilhar o painel com outros).
 
+> [!NOTE]
+> Se estiver a utilizar uma aplicação IoT Central da versão 2, consulte [visualizar e analisar os dados do Azure IoT Central num dashboard Power BI](https://docs.microsoft.com/previous-versions/azure/iot-central/core/howto-connect-powerbi) no site de documentação das versões anteriores.
+
 ## <a name="install"></a>Instalar
 
-Para configurar o pipeline, navegue para a solução Power BI para a página [Azure IoT Central](https://appsource.microsoft.com/product/web-apps/iot-central.power-bi-solution-iot-central) no site da **Microsoft AppSource.** **Selecione Obter agora**, e siga as instruções.
+Para configurar o pipeline, navegue para a Solução Power BI para a página [Azure IoT Central V3](https://appsource.microsoft.com/product/web-apps/iot-central.power-bi-solution-iot-central) no site da **Microsoft AppSource.** **Selecione Obter agora**, e siga as instruções.
 
 Quando abrir o ficheiro PBIX, certifique-se de que lê e segue as instruções na página de identificação. Estas instruções descrevem como ligar o seu relatório à sua base de dados SQL.
 
@@ -68,7 +71,7 @@ A aplicação Azure Function dispara cada vez que a IoT Central escreve um novo 
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 
-A Azure Data Factory conecta-se à base de dados SQL como um serviço ligado. Executa procedimentos armazenados para processar os dados e armazená-lo nas tabelas de análise.
+A Azure Data Factory conecta-se à BASE de Dados SQL como um serviço ligado. Executa procedimentos armazenados para processar os dados e armazená-lo nas tabelas de análise.
 
 A Azure Data Factory funciona a cada 15 minutos para transformar o último lote de dados para carregar nas tabelas SQL (que é o número mínimo atual para o Gatilho da **janela ).**
 
@@ -78,8 +81,8 @@ A Azure Data Factory gera um conjunto de tabelas de análise para Power BI. Voc�
 
 ## <a name="estimated-costs"></a>Custos estimados
 
-A solução Power BI para a página [Central Azure IoT](https://appsource.microsoft.com/product/web-apps/iot-central.power-bi-solution-iot-central) no site da Microsoft AppSource inclui um link para um estimador de custos para os recursos que implementa.
+A Solução Power BI para a página [Azure IoT Central V3](https://appsource.microsoft.com/product/web-apps/iot-central.power-bi-solution-iot-central) no site do Microsoft AppSource inclui um link para um estimador de custos para os recursos que implementa.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a visualizar os seus dados no Power BI, o próximo passo sugerido é aprender [a gerir dispositivos.](howto-manage-devices.md)

@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: e1b260b1249af25ac5a8364798c532dcb3885cb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e47ed9b5505966973644bee0578d5b13d1659766
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887885"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080561"
 ---
 # <a name="create-a-scale-set-using-a-specialized-image-version-with-the-azure-cli"></a>Crie um conjunto de escala usando uma versão de imagem especializada com o Azure CLI
 
-Crie um conjunto de escala a partir de uma [versão de imagem especializada](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) armazenada numa Galeria de Imagens Partilhadas. Se pretender criar um conjunto de escala utilizando uma versão de imagem generalizada, consulte [Criar um conjunto de escala a partir de uma imagem generalizada](instance-generalized-image-version-cli.md).
+Crie um conjunto de escala a partir de uma [versão de imagem especializada](../virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images) armazenada numa Galeria de Imagens Partilhadas. Se pretender criar um conjunto de escala utilizando uma versão de imagem generalizada, consulte [Criar um conjunto de escala a partir de uma imagem generalizada](instance-generalized-image-version-cli.md).
 
 Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.4.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
@@ -52,7 +52,7 @@ az vmss create \
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [O Azure Image Builder (pré-visualização)](../virtual-machines/linux/image-builder-overview.md) pode ajudar a automatizar a criação de versão de imagem, podendo até usá-la para atualizar e [criar uma nova versão de imagem a partir de uma versão de imagem existente.](../virtual-machines/linux/image-builder-gallery-update-image-version.md) 
 
 Também pode criar recursos da Galeria de Imagens Partilhadas utilizando modelos. Existem vários modelos Azure Quickstart disponíveis: 
@@ -60,6 +60,3 @@ Também pode criar recursos da Galeria de Imagens Partilhadas utilizando modelos
 - [Criar um Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [Criar uma Definição de Imagem num Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [Criar uma Versão de Imagem num Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-
-
-

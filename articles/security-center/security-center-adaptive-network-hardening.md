@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: a75be23e2e8215d86aebcfd7f4317f2f597d3c5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d12df01fe1506f7f5ade9cce60ae7af0412e3010
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80385083"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080816"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Endurecimento de rede adaptativa no Centro de Segurança Azure
 Saiba como configurar o Endurecimento adaptativo da rede no Centro de Segurança Azure.
@@ -45,7 +45,7 @@ Por exemplo, digamos que a regra nSG existente é permitir o tráfego a partir d
    * **Recursos não identificados**: VMs que o algoritmo de endurecimento da rede adaptável não pode ser executado devido a uma das seguintes razões:
       * **Os VMs são VMs clássicos**: Apenas VMs Azure Resource Manager são suportados.
       * **Não existem dados suficientes**: Para gerar recomendações precisas de endurecimento do tráfego, o Centro de Segurança requer pelo menos 30 dias de dados de tráfego.
-      * **A VM não está protegida pela norma ASC**: Apenas os VMs que estão definidos para o nível de preços standard do Centro de Segurança são elegíveis para esta funcionalidade.
+      * **A VM não está protegida pela norma ASC**: Apenas os VMs que estão definidos para o nível de preços padrão do Centro de Segurança são elegíveis para esta funcionalidade.
 
      ![recursos insalubres](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
 

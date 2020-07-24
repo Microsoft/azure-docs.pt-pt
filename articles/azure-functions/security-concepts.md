@@ -3,19 +3,20 @@ title: Assegurar funções de Azure
 description: Saiba como tornar o seu código de função em funcionamento em Azure mais seguro de ataques comuns.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 692e8420bda1e7baa8521dd6caaf5eef183823fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bdb012c3f379b1e0314364f79ccc4aa49eba4bd3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84259427"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079694"
 ---
 # <a name="securing-azure-functions"></a>Assegurar funções de Azure
 
-Em muitos aspetos, o planeamento para o desenvolvimento seguro, implementação e funcionamento de funções sem servidor é praticamente o mesmo que para qualquer aplicação baseada na Web ou na nuvem. [O Azure App Service](/azure/app-service/) fornece a infraestrutura de hospedagem para as suas aplicações de função. Este artigo fornece estratégias de segurança para executar o seu código de função e como o Serviço de Aplicações pode ajudá-lo a proteger as suas funções. 
+Em muitos aspetos, o planeamento para o desenvolvimento seguro, implementação e funcionamento de funções sem servidor é praticamente o mesmo que para qualquer aplicação baseada na Web ou na nuvem. [O Azure App Service](../app-service/index.yml) fornece a infraestrutura de hospedagem para as suas aplicações de função. Este artigo fornece estratégias de segurança para executar o seu código de função e como o Serviço de Aplicações pode ajudá-lo a proteger as suas funções. 
 
 [!INCLUDE [app-service-security-intro](../../includes/app-service-security-intro.md)]
 
-Para um conjunto de recomendações de segurança que seguem o [Benchmark de Segurança Azure,](/azure/security/benchmarks/overview)consulte [a Linha de Base de Segurança Azure para funções de Azure](security-baseline.md).
+Para um conjunto de recomendações de segurança que seguem o [Benchmark de Segurança Azure,](../security/benchmarks/overview.md)consulte [a Linha de Base de Segurança Azure para funções de Azure](security-baseline.md).
 
 ## <a name="secure-operation"></a>Operação segura 
 
@@ -61,7 +62,7 @@ A tabela a seguir compara as utilizações para vários tipos de chaves de acess
 |-----------------------------------------------|--------------------------|--------------------|
 | Executar uma função                            | Função específica        | Função           |
 | Executar uma função                            | Qualquer função             | Função ou hospedeiro   |
-| Chame um ponto final de administração                        | Function app             | Hospedeiro (apenas mestre) |
+| Chame um ponto final de administração                        | Aplicação de funções             | Hospedeiro (apenas mestre) |
 | Ligue para APIs de extensão de tarefa durável              | App de função<sup>1</sup> | Sistema<sup>2</sup> |
 | Ligue para um Webhook específico de extensão (interno) | App de função<sup>1</sup> | sistema<sup>2</sup> |
 
@@ -202,7 +203,7 @@ As restrições de acesso permitem-lhe definir listas de regras de permitir/nega
 
 Os serviços gateway, tais como [Azure Application Gateway](../application-gateway/overview.md) e [Azure Front Door](../frontdoor/front-door-overview.md) permitem configurar uma Firewall de Aplicação Web (WAF). As regras da WAF são usadas para monitorizar ou bloquear ataques detetados, que fornecem uma camada extra de proteção para as suas funções. Para configurar um WAF, a sua aplicação de função precisa de estar a funcionar num ASE ou a utilizar pontos de final privados (pré-visualização). Para saber mais, consulte [utilização de pontos finais privados.](../app-service/networking/private-endpoint.md)    
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 + [Linha de Base de Segurança Azure para Funções Azure](security-baseline.md)
 + [Diagnóstico de funções Azure](functions-diagnostics.md)

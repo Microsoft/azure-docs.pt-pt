@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b55707612c34cb3c95eafd95780955bf991c409c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 7664cebbd12e075e9b9ea7ea75021b61569a80cf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206161"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080289"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Cenários do Azure Disk Encryption em VMs com Linux
 
@@ -205,13 +205,13 @@ A tabela que se segue lista os parâmetros do modelo do Gestor de Recursos para 
 | forceUpdateTag | Passe um valor único como um GUID sempre que a operação precisa de ser executada à força. |
 | localização | Localização de todos os recursos. |
 
-Para obter mais informações sobre a configuração do modelo de encriptação do disco Linux VM, consulte [a encriptação do disco Azure para Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/azure-disk-enc-linux).
+Para obter mais informações sobre a configuração do modelo de encriptação do disco Linux VM, consulte [a encriptação do disco Azure para Linux](../extensions/azure-disk-enc-linux.md).
 
 ## <a name="use-encryptformatall-feature-for-data-disks-on-linux-vms"></a>Use funcionalidade EncryptFormatAll para discos de dados em VMs Linux
 
 O parâmetro **EncryptFormatAll** reduz o tempo para os discos de dados Do Linux serem encriptados. As partições que satisfazem determinados critérios serão formatadas, juntamente com os seus sistemas de ficheiros atuais, e depois remontadas de volta ao local onde estavam antes da execução do comando. Se desejar excluir um disco de dados que satisfaça os critérios, pode desmontá-lo antes de executar o comando.
 
- Depois de executar este comando, quaisquer unidades que foram montadas anteriormente serão formatadas, e a camada de encriptação será iniciada em cima da unidade agora vazia. Quando esta opção for selecionada, o disco temporário ligado ao VM também será encriptado. Se o disco temporário for reiniciado, será reformatado e reencrimado para o VM pela solução de encriptação do disco Azure na próxima oportunidade. Uma vez encriptado o disco de recursos, o Agente Linux do [Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) não será capaz de gerir o disco de recursos e ativar o ficheiro swap, mas pode configurar manualmente o ficheiro swap.
+ Depois de executar este comando, quaisquer unidades que foram montadas anteriormente serão formatadas, e a camada de encriptação será iniciada em cima da unidade agora vazia. Quando esta opção for selecionada, o disco temporário ligado ao VM também será encriptado. Se o disco temporário for reiniciado, será reformatado e reencrimado para o VM pela solução de encriptação do disco Azure na próxima oportunidade. Uma vez encriptado o disco de recursos, o Agente Linux do [Microsoft Azure](../extensions/agent-linux.md) não será capaz de gerir o disco de recursos e ativar o ficheiro swap, mas pode configurar manualmente o ficheiro swap.
 
 >[!WARNING]
 > O EncryptFormatAll não deve ser utilizado quando são necessários dados sobre os volumes de dados de um VM. Pode excluir os discos da encriptação desmontando-os. Primeiro deve experimentar o EncryptFormatAll primeiro num VM de teste, compreender o parâmetro de funcionalidade e a sua implicação antes de experimentá-lo no VM de produção. A opção EncryptFormatAll forma o disco de dados e todos os dados nele serão perdidos. Antes de prosseguir, verifique se os discos que pretende excluir estão devidamente desmontados. </br></br>
@@ -262,7 +262,7 @@ Recomendamos uma configuração LVM-on-crypt. Para todos os exemplos a seguir, s
 
 1. Formato, montagem e adicione estes discos ao ficheiro fstab.
 
-1. Escolha um padrão de partição, crie uma divisória que abra por todo o percurso e, em seguida, formate a partição. Usamos symlinks gerados pelo Azure aqui. A utilização de symlinks evita problemas relacionados com a alteração de nomes de dispositivos. Para obter mais informações, consulte o artigo ['Troubleshoot Device Names'.](troubleshoot-device-names-problems.md)
+1. Escolha um padrão de partição, crie uma divisória que abra por todo o percurso e, em seguida, formate a partição. Usamos symlinks gerados pelo Azure aqui. A utilização de symlinks evita problemas relacionados com a alteração de nomes de dispositivos. Para obter mais informações, consulte o artigo ['Troubleshoot Device Names'.](../troubleshooting/troubleshoot-device-names-problems.md)
     
     ```bash
     parted /dev/disk/azure/scsi1/lun0 mklabel gpt
@@ -332,7 +332,7 @@ Pode adicionar um novo disco de dados utilizando [o az vm disk attach](add-disk.
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-cli"></a>Ativar a encriptação num disco recém-adicionado com O Azure CLI
 
- Se o VM foi previamente encriptado com "All", então o parâmetro do tipo volume deve permanecer "All". Tudo inclui os discos de SO e de dados. Se o VM foi previamente encriptado com um tipo de volume de "SO", então o parâmetro do tipo volume deve ser alterado para "All" de modo a que tanto o SISTEMA como o novo disco de dados sejam incluídos. Se o VM foi encriptado apenas com o tipo de volume de "Dados", então pode permanecer "Dados" como demonstrado abaixo. Adicionar e anexar um novo disco de dados a um VM não é preparação suficiente para a encriptação. O disco recém-anexado também deve ser formatado e montado corretamente dentro do VM antes de permitir a encriptação. No Linux o disco deve ser montado em /etc/fstab com um [nome persistente do dispositivo de bloqueio](troubleshoot-device-names-problems.md).  
+ Se o VM foi previamente encriptado com "All", então o parâmetro do tipo volume deve permanecer "All". Tudo inclui os discos de SO e de dados. Se o VM foi previamente encriptado com um tipo de volume de "SO", então o parâmetro do tipo volume deve ser alterado para "All" de modo a que tanto o SISTEMA como o novo disco de dados sejam incluídos. Se o VM foi encriptado apenas com o tipo de volume de "Dados", então pode permanecer "Dados" como demonstrado abaixo. Adicionar e anexar um novo disco de dados a um VM não é preparação suficiente para a encriptação. O disco recém-anexado também deve ser formatado e montado corretamente dentro do VM antes de permitir a encriptação. No Linux o disco deve ser montado em /etc/fstab com um [nome persistente do dispositivo de bloqueio](../troubleshooting/troubleshoot-device-names-problems.md).  
 
 Em contraste com a sintaxe PowerShell, o CLI não requer que o utilizador forneça uma versão de sequência única ao permitir a encriptação. O CLI gera e utiliza automaticamente o seu próprio valor exclusivo de versão de sequência.
 
@@ -413,7 +413,7 @@ A Azure Disk Encryption não funciona para os seguintes cenários, funcionalidad
 - Um VM com "pontos de montagem aninhados"; ou seja, múltiplos pontos de montagem num único caminho (como "/1stmountpoint/data/2stmountpoint").
 - Um VM com uma unidade de dados montada em cima de uma pasta de SO.
 - VMs da série M com discos de acelerador de escrita.
-- Aplicação [de encriptação do lado do servidor com chaves geridas pelo cliente](disk-encryption.md) a um VMs encriptado por ADE, e vice-versa.
+- Aplicando ADE a um VM que tenha um disco de dados encriptado com [encriptação do lado do servidor com teclas geridas pelo cliente](disk-encryption.md) (SSE + CMK), ou aplicando SSE + CMK a um disco de dados num VM encriptado com ADE.
 - Migrar um VM encriptado com ADE para [encriptação do lado do servidor com teclas geridas pelo cliente](disk-encryption.md).
 
 ## <a name="next-steps"></a>Passos seguintes

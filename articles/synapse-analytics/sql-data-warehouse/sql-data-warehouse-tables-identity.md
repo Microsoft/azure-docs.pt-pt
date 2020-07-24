@@ -7,15 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 04/30/2019
+ms.date: 07/20/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 60f2e3f949a4f627839a07137ebaf77518db87a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d19f59635920951b506e41884f4ab79be78e247d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213980"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080731"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Utilização da IDENTIDADE para criar chaves de substituição na piscina Synapse SQL
 
@@ -23,7 +24,7 @@ Neste artigo, você encontrará recomendações e exemplos para usar a proprieda
 
 ## <a name="what-is-a-surrogate-key"></a>O que é uma chave de substituição
 
-Uma chave de substituição em uma mesa é uma coluna com um identificador único para cada linha. A chave não é gerada a partir dos dados da tabela. Os modeladores de dados gostam de criar chaves de substituição nas suas tabelas quando desenham modelos de armazém de dados. Você pode usar a propriedade IDENTITY para alcançar este objetivo de forma simples e eficaz sem afetar o desempenho da carga.  
+Uma chave de substituição em uma mesa é uma coluna com um identificador único para cada linha. A chave não é gerada a partir dos dados da tabela. Os modeladores de dados gostam de criar chaves de substituição nas suas tabelas quando desenham modelos de armazém de dados. Você pode usar a propriedade IDENTITY para alcançar este objetivo de forma simples e eficaz sem afetar o desempenho da carga. A propriedade IDENTITY tem algumas limitações conforme detalhado na [IDENTIDADE CREATE TABLE (Transact-SQL) (Propriedade)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest). Uma das limitações da IDENTIDADE é que não é garantido ser único. Definir IDENTIDADE Inserir e não resedição do valor de identidade levará a valores mais únicos, mas pode não garantir a singularidade em todas as situações. Se não puder utilizar valores de identidade devido às restrições no IDENTITY, crie uma tabela separada com um valor atual e gere o acesso à tabela e atribuição de números com a sua aplicação. 
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Criar uma tabela com uma coluna IDENTITÁRIA
 
@@ -49,7 +50,7 @@ Este remanescente desta secção destaca as nuances da implementação para ajud
 
 ### <a name="allocation-of-values"></a>Atribuição de valores
 
-A propriedade IDENTITY não garante a ordem pela qual os valores de substituição são atribuídos, o que reflete o comportamento do SQL Server e da Azure SQL Database. No entanto, na piscina Synapse SQL, a ausência de garantia é mais acentuada.
+O imóvel IDENTITY não garante a ordem pela qual os valores de substituição são atribuídos devido à arquitetura distribuída do armazém de dados. A propriedade IDENTITY é projetada para escalar em todas as distribuições na piscina Synapse SQL sem afetar o desempenho da carga. 
 
 O exemplo a seguir é uma ilustração:
 
@@ -238,7 +239,7 @@ AND     tb.name = 'T1'
 ;
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral da tabela](sql-data-warehouse-tables-overview.md)
 - [CREATE TABLE (Transact-SQL) IDENTIDADE (Propriedade)](/sql/t-sql/statements/create-table-transact-sql-identity-property?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

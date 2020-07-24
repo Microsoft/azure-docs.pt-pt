@@ -5,12 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 045b938e2612aa7e5b366f93c22669412f2d98e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/17/2020
+ms.openlocfilehash: 91980972dcbe7af28a1b222f6cd3002a7420145d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85100810"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080850"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Utilizar os pontos finais de serviço e regras de Rede Virtual para Base de Dados do Azure para MySQL
 
@@ -23,6 +24,8 @@ Para criar uma regra de rede virtual, deve primeiro existir uma [rede virtual][v
 > [!NOTE]
 > Esta funcionalidade encontra-se disponível em todas as regiões do Azure onde a Base de Dados Azure para o MySQL é implantada para servidores otimizados para fins gerais e memória.
 > Em caso de observação de VNet, se o tráfego estiver a fluir através de um VNet Gateway comum com pontos finais de serviço e for suposto fluir para o par, por favor crie uma regra ACL/VNet para permitir que as Máquinas Virtuais Azure no Gateway VNet acedam à Base de Dados Azure para o servidor MySQL.
+
+Também pode considerar a utilização [de Link Privado](concepts-data-access-security-private-link.md) para ligações. O Private Link fornece um endereço IP privado no seu VNet para a Base de Dados Azure para o servidor MySQL.
 
 <a name="anch-terminology-and-description-82f"></a>
 
@@ -50,7 +53,7 @@ Uma regra de rede virtual diz ao seu Azure Database para o servidor MySQL aceita
 
 Até tomar medidas, os VMs nas suas sub-redes não podem comunicar com a sua Base de Dados Azure para o servidor MySQL. Uma ação que estabelece a comunicação é a criação de uma regra de rede virtual. A razão para escolher a abordagem da regra VNet requer uma discussão de comparação e contraste envolvendo as opções de segurança concorrentes oferecidas pela firewall.
 
-### <a name="a-allow-access-to-azure-services"></a>R. Permitir acesso aos serviços do Azure
+### <a name="a-allow-access-to-azure-services"></a>A. Permitir o acesso aos serviços do Azure
 
 O painel de segurança Connection tem um botão **ON/OFF** com a etiqueta **Permitir o acesso aos serviços Azure**. A definição **ON** permite comunicações a partir de todos os endereços Azure IP e de todas as sub-redes Azure. Estes IPs ou sub-redes Azure podem não ser propriedade de si. Esta definição **ON** é provavelmente mais aberta do que pretende que a sua Base de Dados Azure para a Base de Dados MySQL seja. A funcionalidade de regra de rede virtual oferece um controlo granular muito mais fino.
 
@@ -61,12 +64,6 @@ A Base de Dados Azure para firewall MySQL permite especificar as gamas de endere
 Pode salvar a opção IP obtendo um endereço IP *estático* para o seu VM. Para mais informações, consulte [endereços IP privados configurar uma máquina virtual utilizando o portal Azure][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w].
 
 No entanto, a abordagem ip estática pode tornar-se difícil de gerir, e é dispendiosa quando feita em escala. As regras de rede virtual são mais fáceis de estabelecer e gerir.
-
-### <a name="c-cannot-yet-have-azure-database-for-mysql-on-a-subnet-without-defining-a-service-endpoint"></a>C. Ainda não é possível ter a Base de Dados Azure para o MySQL numa sub-rede sem definir um ponto final de serviço
-
-Se o seu servidor **Microsoft.Sql** fosse um nó numa sub-rede na sua rede virtual, todos os nós dentro da rede virtual poderiam comunicar com o seu Azure Database para o servidor MySQL. Neste caso, os seus VMs podem comunicar com a Base de Dados Azure para o MySQL sem precisar de quaisquer regras de rede virtuais ou regras de IP.
-
-No entanto, a partir de agosto de 2018, a Base de Dados Azure para o serviço MySQL ainda não está entre os serviços que podem ser atribuídos diretamente a uma sub-rede.
 
 <a name="anch-details-about-vnet-rules-38q"></a>
 
@@ -119,6 +116,8 @@ Para a base de dados Azure para o MySQL, a funcionalidade de regras de rede virt
 
 - O suporte para os pontos finais do serviço VNet é apenas para servidores otimizados para fins gerais e memória.
 
+- Se **o Microsoft.Sql** estiver ativado numa sub-rede, indica que só pretende utilizar as regras VNet para se ligar. [As regras de recursos de firewall não-VNet](concepts-firewall-rules.md) nessa sub-rede não funcionarão.
+
 - Na firewall, as gamas de endereços IP aplicam-se aos seguintes itens de rede, mas as regras de rede virtuais não:
     - [Rede privada virtual local-a-local (S2S) (VPN)][vpn-gateway-indexmd-608y]
     - No local via [ExpressRoute][expressroute-indexmd-744v]
@@ -129,17 +128,17 @@ Se a sua rede estiver ligada à rede Azure através da utilização do [ExpressR
 
 Para permitir a comunicação do seu circuito para Azure Database para o MySQL, tem de criar regras de rede IP para os endereços IP públicos dos seus circuitos. Para encontrar os endereços IP públicos do seu circuito ExpressRoute, abra um bilhete de apoio com o ExpressRoute utilizando o portal Azure.
 
-## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Adicionar uma regra de Firewall VNET ao seu servidor sem ligar pontos finais de serviço VNET
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Adicionar uma regra VNET Firewall ao seu servidor sem ligar pontos finais de serviço VNET
 
-Apenas definir uma regra de Firewall não ajuda a fixar o servidor ao VNet. Também tem de ligar os **pontos** finais do serviço VNet para que a segurança produza efeitos. Quando gira os pontos finais de serviço **On,** a sua sub-rede VNet experimenta tempo de inatividade até completar a transição de **Off** para **On**. Isto é especialmente verdade no contexto dos grandes VNets. Pode utilizar a bandeira **IgnoreMissingServiceEndpoint** para reduzir ou eliminar o tempo de inatividade durante a transição.
+Apenas a definição de uma regra de firewall VNet não ajuda a fixar o servidor ao VNet. Também tem de ligar os **pontos** finais do serviço VNet para que a segurança produza efeitos. Quando gira os pontos finais de serviço **On,** a sua sub-rede VNet experimenta tempo de inatividade até completar a transição de **Off** para **On**. Isto é especialmente verdade no contexto dos grandes VNets. Pode utilizar a bandeira **IgnoreMissingServiceEndpoint** para reduzir ou eliminar o tempo de inatividade durante a transição.
 
 Pode definir a bandeira **IgnoreMissingServiceEndpoint** utilizando o Azure CLI ou portal.
 
 ## <a name="related-articles"></a>Artigos relacionados
-- [Redes virtuais Azure][vm-virtual-network-overview]
+- [Redes virtuais do Azure][vm-virtual-network-overview]
 - [Pontos finais de serviço de rede virtual Azure][vm-virtual-network-service-endpoints-overview-649d]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para artigos sobre a criação de regras VNet, consulte:
 - [Criar e gerir a Base de Dados Azure para as regras do MySQL VNet utilizando o portal Azure](howto-manage-vnet-using-portal.md)
 - [Criar e gerir a Base de Dados de Azure para as regras do MySQL VNet utilizando o Azure CLI](howto-manage-vnet-using-cli.md)

@@ -3,12 +3,12 @@ title: Integre com Apache Kafka Connect- Azure Event Hubs Microsoft Docs
 description: Este artigo fornece informações sobre como usar Apache Spark com Azure Event Hubs para Kafka.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 2e7a6b406b6d33c94c6fddea2f73b70c24f45f86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c63d27549df40120a90b2594ab54337c11168b6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320177"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079103"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Integrar o Apache Kafka Connect nos Hubs de Eventos do Azure (Pré-visualização)
 À medida que as necessidades de ingestão das empresas aumenta, também o mesmo se passa relativamente aos requisitos para ingerir de várias origens e sinks externos. O [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) proporciona uma arquitetura para ligar e importar/exportar dados de/para qualquer sistema externo, como o MySQL, o HDFS e qualquer sistema de ficheiros, através de um cluster do Kafka. Este tutorial acompanha-o através da estrutura Kafka Connect com os Centros de Eventos.
@@ -31,10 +31,10 @@ Neste tutorial, siga os seguintes passos:
 Para concluir esta orientação, confirme que tem os seguintes pré-requisitos:
 
 - Subscrição do Azure. Se não tiver uma subscrição, [crie uma conta gratuita](https://azure.microsoft.com/free/).
-- [Git](https://www.git-scm.com/downloads)
+- [Rio Git](https://www.git-scm.com/downloads)
 - Linux/MacOS
 - Versão do Kafka (versão 1.1.1, Scala versão 2.11), disponível em [kafka.apache.org](https://kafka.apache.org/downloads#1.1.1).
-- Ler o artigo de introdução dos [Event Hubs for Apache Kafka](https://docs.microsoft.com/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview) (Hubs de Eventos para Apache Kafka).
+- Ler o artigo de introdução dos [Event Hubs for Apache Kafka](./event-hubs-for-kafka-ecosystem-overview.md) (Hubs de Eventos para Apache Kafka).
 
 ## <a name="create-an-event-hubs-namespace"></a>Criar um espaço de nomes dos Hubs de Eventos
 É necessário um espaço de nomes dos Hubs de Eventos para enviar e receber a partir de qualquer serviços dos Hubs de Eventos. Consulte [a criação de um centro de eventos](event-hubs-create.md) para obter instruções para criar um espaço de nome e um centro de eventos. Obtenha a cadeia de ligação dos Hubs de Eventos e o nome de domínio completamente qualificado (FQDN), para utilizar mais tarde. Para obter instruções, veja [Get an Event Hubs connection string](event-hubs-get-connection-string.md) (Obter uma cadeia de ligação dos Hubs de Eventos). 
@@ -150,7 +150,7 @@ Esta secção mostra-lhe como criar rapidamente os conectores FileStreamSource e
 ### <a name="cleanup"></a>Limpeza
 O Kafka Connect cria tópicos dos Hubs de Eventos para armazenar configurações, deslocamentos e estados que persistem mesmo depois de o cluster do Connect ter sido removido. A menos que essa persistência seja pretendida, recomenda-se que os tópicos sejam eliminados. Também pode ser útil eliminar o hub de eventos `connect-quickstart` que foi criado no decorrer desta orientação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os Centros de Eventos para Kafka, consulte os seguintes artigos:  
 

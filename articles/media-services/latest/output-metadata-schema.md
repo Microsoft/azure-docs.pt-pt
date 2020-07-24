@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: juliako
-ms.openlocfilehash: 692fe12d12538bc35e3a22d4af1bd185839f69d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce3d0a5beb5903d29b1deec345cf4673e3492e5d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84418716"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080929"
 ---
 # <a name="output-metadata"></a>Metadados de saída
 
-Um trabalho de codificação está associado a um ativo de entrada (ou ativos) no qual pretende executar algumas tarefas de codificação. Por exemplo, codificar um ficheiro MP4 para conjuntos de bitrate adaptativos H.264 MP4; criar uma miniatura; criar sobreposições. Após a conclusão de uma tarefa, é produzido um ativo de saída.  O ativo de saída contém vídeo, áudio, miniaturas e outros ficheiros. O ativo de saída também contém um ficheiro com metadados sobre o ativo de saída. O nome do ficheiro JSON dos metadados tem o seguinte formato: `<source_file_name>_manifest.json` (por exemplo, `BigBuckBunny_manifest.json` ).  
+Um trabalho de codificação está associado a um ativo de entrada (ou ativos) no qual pretende executar algumas tarefas de codificação. Por exemplo, codificar um ficheiro MP4 para conjuntos de bitrate adaptativos H.264 MP4; criar uma miniatura; criar sobreposições. Após a conclusão de uma tarefa, é produzido um ativo de saída.  O ativo de saída contém vídeo, áudio, miniaturas e outros ficheiros. O ativo de saída também contém um ficheiro com metadados sobre o ativo de saída. O nome do ficheiro JSON dos metadados tem o seguinte formato: `<source_file_name>_manifest.json` (por exemplo, `BigBuckBunny_manifest.json` ). Deve procurar qualquer *_metadata.jse consultar a cadeia de ficheiros no interior para encontrar o nome de ficheiro de origem (sem truncação).
 
 Os Serviços de Comunicação Social não verificam preventivamente os ativos de entrada para gerar metadados. Os metadados de entrada são gerados apenas como um artefacto quando um ativo de entrada é processado num trabalho. Daí que este artefacto seja escrito para o ativo de saída. Diferentes ferramentas são usadas para gerar metadados para ativos de entrada e ativos de saída. Portanto, os metadados de entrada têm um esquema ligeiramente diferente dos metadados de saída.
 
@@ -33,7 +34,7 @@ Pode encontrar o código de esquema completo e o exemplo JSON no final deste art
 
 Cobrança de entradas do AssetFile para o trabalho de codificação.  
 
-| Name | Descrição |
+| Nome | Descrição |
 | --- | --- |
 | **Origens** |Recolha de ficheiros de meios de entrada/fonte, que foram processados para produzir este AssetFile.<br />Exemplo: `"Sources": [{"Name": "Ignite-short_1280x720_AACAudio_3551.mp4"}]`|
 | **VideoTracks**|Cada AssetFile físico pode conter nele zero ou mais vídeos faixas intercaladas num formato de recipiente apropriado. <br />Ver [VideoTracks](#videotracks). |
@@ -46,14 +47,14 @@ Cobrança de entradas do AssetFile para o trabalho de codificação.
 
 Cada AssetFile físico pode conter nele zero ou mais vídeos faixas intercaladas num formato de recipiente apropriado. O elemento **VideoTracks** representa uma coleção de todas as faixas de vídeo.  
 
-| Name | Descrição |
+| Nome | Descrição |
 | --- | --- |
 | **ID**<br /> Necessário |Índice baseado em zero desta pista de vídeo. **Nota:**  Este **Id** não é necessariamente o TrackID usado num ficheiro MP4. <br /><br />Exemplo: `"Id": 1`|
 | **FourCC**<br />Necessário | Código de vídeo Código FourCC que é reportado por ffmpeg.  <br /><br />Exemplo: `"FourCC": "avc1"`|
 | **Perfil** |Perfil H264 (apenas aplicável ao código H264).  <br /><br />Exemplo: `"Profile": "High"` |
 | **Nível** |Nível H264 (apenas aplicável ao código H264).  <br /><br />Exemplo: `"Level": "3.2"`|
 | **Width**<br />Necessário |Largura de vídeo codificada em pixels.  <br /><br />Exemplo: `"Width": "1280"`|
-| **Height**<br />Necessário |A altura de vídeo codificada em pixels.  <br /><br />Exemplo: `"Height": "720"`|
+| **Altura**<br />Necessário |A altura de vídeo codificada em pixels.  <br /><br />Exemplo: `"Height": "720"`|
 | **DisplayAspectRatioNumerator**<br />Necessário|Numerador de aspeto de visualização de vídeo.  <br /><br />Exemplo: `"DisplayAspectRatioNumerator": 16.0`|
 | **DisplayAspectRatioDenominador**<br />Necessário |Denominador de rácio de aspeto do visualização de vídeo.  <br /><br />Exemplo: `"DisplayAspectRatioDenominator": 9.0`|
 | **Taxa de fotogramas**<br />Necessário |Taxa de fotogramas de vídeo medida em formato .3f.  <br /><br />Exemplo: `"Framerate": 29.970`|
@@ -64,12 +65,12 @@ Cada AssetFile físico pode conter nele zero ou mais vídeos faixas intercaladas
 
 Cada ActivoFile físico pode conter nele zero ou mais faixas de áudio intercaladas num formato de recipiente apropriado. O elemento **AudioTracks** representa uma coleção de todas aquelas faixas de áudio.  
 
-| Name  | Descrição |
+| Nome  | Descrição |
 | --- | --- |
 | **ID**<br />Necessário  |Índice baseado em zero desta faixa de áudio. **Nota:**  Este não é necessariamente o TrackID usado num ficheiro MP4.  <br /><br />Exemplo: `"Id": 2`|
 | **Codec**  |Cadeia de codec de faixa de áudio.  <br /><br />Exemplo: `"Codec": "aac"`|
 | **Linguagem**|Exemplo: `"Language": "eng"`|
-| **Canais**<br />Necessário|Número de canais de áudio.  <br /><br />Exemplo: `"Channels": 2`|
+| **Channels** (Canais)<br />Necessário|Número de canais de áudio.  <br /><br />Exemplo: `"Channels": 2`|
 | **AmostragemRate**<br />Necessário |Taxa de amostragem de áudio em amostras/seg ou Hz.  <br /><br />Exemplo: `"SamplingRate": 48000`|
 | **Bitrate**<br />Necessário |Taxa média de bits de áudio em bits por segundo, calculada a partir do AssetFile. Conta apenas a carga de fluxo elementar, e não inclui a sobrecarga da embalagem.  <br /><br />Exemplo: `"Bitrate": 128041`|
 
@@ -257,6 +258,6 @@ Cada ActivoFile físico pode conter nele zero ou mais faixas de áudio intercala
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar uma entrada de trabalho a partir de um URL HTTPS](job-input-from-http-how-to.md)

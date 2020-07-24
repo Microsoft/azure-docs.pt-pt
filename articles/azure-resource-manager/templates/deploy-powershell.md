@@ -2,16 +2,17 @@
 title: Implementar recursos com PowerShell e modelo
 description: Utilize o Azure Resource Manager e a Azure PowerShell para mobilizar recursos para a Azure. Os recursos são definidos num modelo do Resource Manager.
 ms.topic: conceptual
-ms.date: 06/04/2020
-ms.openlocfilehash: af255e0248c029f42c9c2999ae7c0389d60c58fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/21/2020
+ms.openlocfilehash: 64993b526b67430266a8b3e85e3bcc233a3e28a3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84431833"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079524"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Implementar recursos com modelos ARM e Azure PowerShell
 
-Saiba como utilizar o Azure PowerShell com modelos Azure Resource Manager (ARM) para implantar os seus recursos no Azure. Para obter mais informações sobre os conceitos de implantação e gestão das suas soluções Azure, consulte [a visão geral da implementação do modelo.](overview.md)
+Este artigo explica como usar a Azure PowerShell com modelos de Gestor de Recursos Azure (modelos ARM) para implantar os seus recursos no Azure. Se não está familiarizado com os conceitos de implantação e gestão das suas soluções Azure, consulte a [visão geral da implementação do modelo](overview.md).
 
 ## <a name="deployment-scope"></a>Âmbito de implantação
 
@@ -69,11 +70,40 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
+New-AzResourceGroupDeployment -Name ExampleDeployment `
+  -ResourceGroupName $resourceGroupName `
   -TemplateFile c:\MyTemplates\azuredeploy.json
 ```
 
 A implementação pode demorar alguns minutos a concluir.
+
+## <a name="deployment-name"></a>Nome de implantação
+
+No exemplo anterior, nomeou o `ExampleDeployment` destacamento. Se não fornecer um nome para a implementação, o nome do ficheiro de modelo é usado. Por exemplo, se implementar um modelo nomeado `azuredeploy.json` e não especificar um nome de implantação, a implementação é nomeada `azuredeploy` .
+
+Sempre que executa uma implantação, uma entrada é adicionada ao histórico de implantação do grupo de recursos com o nome de implantação. Se executar outra implantação e lhe der o mesmo nome, a entrada anterior é substituída pela implementação atual. Se pretender manter entradas únicas no histórico de implantação, dê a cada implementação um nome único.
+
+Para criar um nome único, pode atribuir um número aleatório.
+
+```azurepowershell-interactive
+$suffix = Get-Random -Maximum 1000
+$deploymentName = "ExampleDeployment" + $suffix
+```
+
+Ou adicionar um valor de data.
+
+```azurepowershell-interactive
+$today=Get-Date -Format "MM-dd-yyyy"
+$deploymentName="ExampleDeployment"+"$today"
+```
+
+Se executar implementações simultâneas para o mesmo grupo de recursos com o mesmo nome de implantação, apenas a última implementação é concluída. Quaisquer implementações com o mesmo nome que não tenham terminado são substituídas pela última implantação. Por exemplo, se executar uma implantação com o nome `newStorage` de uma conta de armazenamento chamada , e ao mesmo tempo executar outra `storage1` implantação com o nome de uma `newStorage` conta de armazenamento chamada , implementa `storage2` apenas uma conta de armazenamento. A conta de armazenamento resultante é `storage2` nomeada.
+
+No entanto, se executar uma implantação com o nome `newStorage` de uma conta de armazenamento chamada , e imediatamente após a sua `storage1` conclusão, executar outra implantação com o nome `newStorage` de uma conta de armazenamento chamada , `storage2` então tem duas contas de armazenamento. Um tem o nome `storage1` , e o outro chama-se `storage2` . Mas só tens uma entrada na história da implantação.
+
+Quando especificar um nome único para cada implantação, pode executá-los simultaneamente sem conflitos. Se executar uma implantação com o nome `newStorage1` de uma conta de armazenamento chamada , e ao mesmo tempo executar outra `storage1` implantação com o nome de uma `newStorage2` conta de armazenamento , `storage2` então tem duas contas de armazenamento e duas entradas no histórico de implantação.
+
+Para evitar conflitos com implementações simultâneas e para garantir entradas únicas no histórico de implantação, dê a cada implementação um nome único.
 
 ## <a name="deploy-remote-template"></a>Implementar o modelo remoto
 
@@ -174,7 +204,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
   -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para voltar a uma implementação bem sucedida quando tiver um erro, consulte [o Reversão do erro para uma implementação bem sucedida](rollback-on-error.md).
 - Para especificar como lidar com os recursos que existem no grupo de recursos mas não estão definidos no modelo, consulte os [modos de implementação do Gestor de Recursos Azure](deployment-modes.md).

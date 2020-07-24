@@ -3,12 +3,12 @@ title: Configurar o Servidor de Backup Azure para a Solução VMware Azure
 description: Confende o ambiente Azure VMware Solution para fazer backup de máquinas virtuais utilizando o Azure Backup Server.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: c56ebaff6b08f3d6586dfe025fdb2a5bfc708fa4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c45d2030e282057c487d142669ab634cd81f6929
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84816866"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079541"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Configurar o Servidor de Backup Azure para a Solução VMware Azure
 
@@ -309,7 +309,7 @@ Se descarregou o pacote de software para um servidor diferente, copie os ficheir
    * **Base de dados**: **O nome de base de dados** deve ser **ReportServer$ \<SQLInstanceName> **.
    * **URL do Portal Web**: **O Diretório Virtual** deve ser ** \<SQLInstanceName> Reports_**.
 
-   [Saiba mais](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) sobre a configuração SSRS.
+   [Saiba mais](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) sobre a configuração SSRS.
 
    > [!NOTE]
    > [Os Termos de Serviços Online](https://www.microsoft.com/licensing/product-licensing/products) da Microsoft (OST) regem o licenciamento para o SQL Server usado como base de dados para Ozure Backup Server. De acordo com o OST, o SQL Server agregado com o Azure Backup Server só pode ser utilizado como base de dados para Ozure Backup Server.
@@ -319,7 +319,7 @@ Se descarregou o pacote de software para um servidor diferente, copie os ficheir
 1. Forneça uma localização para a instalação de ficheiros do Microsoft Azure Backup Server e selecione **Next**.
 
    > [!NOTE]
-   > A localização do risco é necessária para o backup para Azure. Certifique-se de que a localização do risco é de pelo menos 5% dos dados planeados para serem apoiados até à nuvem. Para a proteção do disco, os discos separados devem ser configurados após o fim da instalação. Para obter mais informações sobre piscinas de armazenamento, consulte [as piscinas de armazenamento Configure e o armazenamento em disco.](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12))
+   > A localização do risco é necessária para o backup para Azure. Certifique-se de que a localização do risco é de pelo menos 5% dos dados planeados para serem apoiados até à nuvem. Para a proteção do disco, os discos separados devem ser configurados após o fim da instalação. Para obter mais informações sobre piscinas de armazenamento, consulte [as piscinas de armazenamento Configure e o armazenamento em disco.](/previous-versions/system-center/system-center-2012-r2/hh758075(v=sc.12))
 
    ![Definições de configuração de backup do Microsoft Azure](../backup/media/backup-azure-microsoft-azure-backup/space-screen.png)
 
@@ -387,10 +387,9 @@ O Azure Backup Server v3 só aceita volumes de armazenamento. Quando adiciona um
 
 ![Adicionar volumes disponíveis](../backup/media/backup-mabs-add-storage/mabs-add-storage-7.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Continue até ao próximo tutorial para aprender a configurar a cópia de segurança dos VMware VMs em execução na Solução VMware Azure utilizando o Azure Backup Server.
 
 > [!div class="nextstepaction"]
 > [Cópia de segurança configurada da Azure VMware Solution VMs](backup-avs-vms-with-mabs.md)
-

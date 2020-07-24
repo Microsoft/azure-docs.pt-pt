@@ -6,11 +6,12 @@ ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 05/28/2020
-ms.openlocfilehash: b5c4005c95a88a40a836b9c0f6d1fd01e0417ed0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8211127d7c886b86f97e83a61b3b3ebb055851e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84170278"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078668"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Aplicações lógicas de chamada, gatilho ou ninho utilizando pontos finais HTTPS em Azure Logic Apps
 
@@ -18,7 +19,7 @@ Para tornar a sua aplicação lógica callable através de um URL para que a sua
 
 Para configurar um ponto final chamado, pode utilizar qualquer um destes tipos de gatilho, que permitem que as aplicações lógicas recebam pedidos de entrada:
 
-* [Pedir](../connectors/connectors-native-reqres.md)
+* [Pedido](../connectors/connectors-native-reqres.md)
 * [Webhook de HTTP](../connectors/connectors-native-webhook.md)
 * Triggers de conector geridos que têm o [tipo ApiConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) e podem receber pedidos HTTPS de entrada
 
@@ -97,7 +98,7 @@ Se é novo em aplicações lógicas, consulte [O que é Azure Logic Apps](../log
 
       A caixa **de esquemas JSON do Corpo de Pedido** mostra agora o esquema gerado.
 
-1. Guarde a aplicação lógica.
+1. Guarde a sua aplicação lógica.
 
    A caixa **URL HTTP POST** mostra agora o URL de retorno gerado que outros serviços podem usar para ligar e desencadear a sua aplicação lógica. Este URL inclui parâmetros de consulta que especificam uma chave assinatura de acesso partilhado (SAS), que é usada para autenticação.
 
@@ -248,7 +249,7 @@ Quando pretende aceitar valores de parâmetros através do URL do ponto final, t
 
       ![Corpo de resposta de exemplo com parâmetro](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
 
-1. Guarde a aplicação lógica.
+1. Guarde a sua aplicação lógica.
 
    No gatilho do Pedido, o URL de retorno é atualizado e agora inclui o caminho relativo, por exemplo:
 
@@ -387,7 +388,7 @@ Para ver a definição JSON para a ação Resposta e a definição completa de J
 
 #### <a name="q-what-about-url-security"></a>P: E a segurança da URL?
 
-**A**: Azure gera de forma segura URLs de callback de aplicações lógicas utilizando [a Assinatura de Acesso Partilhado (SAS)](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature). Esta assinatura passa como parâmetro de consulta e deve ser validada antes que a sua aplicação lógica possa ser executada. O Azure gera a assinatura usando uma combinação única de uma chave secreta por aplicação lógica, o nome do gatilho e a operação que é realizada. Portanto, a menos que alguém tenha acesso à chave de aplicações lógicas secretas, não pode gerar uma assinatura válida.
+**A**: Azure gera de forma segura URLs de callback de aplicações lógicas utilizando [a Assinatura de Acesso Partilhado (SAS)](/rest/api/storageservices/delegate-access-with-shared-access-signature). Esta assinatura passa como parâmetro de consulta e deve ser validada antes que a sua aplicação lógica possa ser executada. O Azure gera a assinatura usando uma combinação única de uma chave secreta por aplicação lógica, o nome do gatilho e a operação que é realizada. Portanto, a menos que alguém tenha acesso à chave de aplicações lógicas secretas, não pode gerar uma assinatura válida.
 
 > [!IMPORTANT]
 > Para a produção e sistemas de segurança mais elevados, aconselhamos veementemente que não chame a sua aplicação lógica diretamente do navegador por estas razões:
@@ -404,6 +405,6 @@ Para ver a definição JSON para a ação Resposta e a definição completa de J
 * Confle o seu domínio de Gestão de API no [portal Azure](https://portal.azure.com/)
 * Definir política para verificar a autenticação básica
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Receber e responder às chamadas HTTPS recebidas utilizando apps Azure Logic](../connectors/connectors-native-reqres.md)

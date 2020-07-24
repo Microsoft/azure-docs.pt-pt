@@ -1,5 +1,5 @@
 ---
-title: Localizações de dados para Windows Virtual Desktop - Azure
+title: Localizações de dados para Windows Virtual Desktop Spring 2020 - Azure
 description: Uma breve visão geral das localizações onde os dados e metadados do Windows Virtual Desktop são armazenados.
 services: virtual-desktop
 author: Heidilohr
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 853f5766c4fd6344eecfd7be1d7911163133a8a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 96072b8008f42f58ec6a3aff32728c087b8e3290
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82611539"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080578"
 ---
-# <a name="data-locations-for-windows-virtual-desktop"></a>Localizações de dados para o Windows Virtual Desktop
+# <a name="data-and-metadata-locations-for-windows-virtual-desktop"></a>Localizações de dados e metadados para o Windows Virtual Desktop
 
 >[!IMPORTANT]
 >Este conteúdo aplica-se à atualização primavera 2020 com objetos de desktop virtual do Windows Manager do Azure. Se estiver a utilizar o desbloqueio virtual do Windows Desktop Fall 2019 sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/data-locations-2019.md).

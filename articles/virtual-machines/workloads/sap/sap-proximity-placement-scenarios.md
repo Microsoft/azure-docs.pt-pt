@@ -15,11 +15,12 @@ ms.workload: infrastructure
 ms.date: 01/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01ce1599f86082aef3ff53d298cc53896074af66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7aa71062c86d57cabe8579e13011956137804f74
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76277601"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079796"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Grupos de colocação de proximidade azul para a latência ideal da rede com aplicações SAP
 As aplicações SAP baseadas na arquitetura SAP NetWeaver ou SAP S/4HANA são sensíveis à latência da rede entre o nível de aplicação SAP e o nível de base de dados SAP. Esta sensibilidade é o resultado da maior parte da lógica de negócio que funciona na camada de aplicação. Como a camada de aplicação SAP gere a lógica do negócio, emite consultas para o nível da base de dados a uma frequência elevada, a uma taxa de milhares ou dezenas de milhares por segundo. Na maioria dos casos, a natureza destas consultas é simples. Podem ser executados na base de dados em 500 microsegundos ou menos.
@@ -28,7 +29,7 @@ O tempo gasto na rede para enviar essa consulta do nível de aplicação para o 
 
 Em muitas regiões do Azure, o número de centros de dados tem crescido. Este crescimento foi também desencadeado pela introdução de Zonas de Disponibilidade. Ao mesmo tempo, os clientes, especialmente para sistemas SAP de gama alta, estão a utilizar SKUs VM mais especiais na família M-Series, ou HANA Large Instances. Estes tipos de máquinas virtuais Azure não estão disponíveis em todos os datacenters de uma região específica do Azure. Devido a estas duas tendências, os clientes experimentaram a latência da rede que não está na gama ideal. Em alguns casos, esta latência resulta num desempenho sub-ideal dos seus sistemas SAP.
 
-Para prevenir estes problemas, o Azure oferece [grupos de colocação de proximidade.](https://docs.microsoft.com/azure/virtual-machines/linux/co-location) Esta nova funcionalidade já foi utilizada para a implementação de vários sistemas SAP. Para obter restrições aos grupos de colocação de proximidade, consulte o artigo referido no início do presente parágrafo. Este artigo abrange os cenários SAP em que os grupos de colocação de proximidade Azure podem ou devem ser utilizados.
+Para prevenir estes problemas, o Azure oferece [grupos de colocação de proximidade.](../../linux/co-location.md) Esta nova funcionalidade já foi utilizada para a implementação de vários sistemas SAP. Para obter restrições aos grupos de colocação de proximidade, consulte o artigo referido no início do presente parágrafo. Este artigo abrange os cenários SAP em que os grupos de colocação de proximidade Azure podem ou devem ser utilizados.
 
 ## <a name="what-are-proximity-placement-groups"></a>O que são grupos de colocação de proximidade? 
 Um grupo de colocação de proximidade Azure é uma construção lógica. Quando se é definido, está ligado a uma região de Azure e a um grupo de recursos Azure. Quando os VMs são implantados, um grupo de colocação de proximidade é referenciado por:
@@ -39,7 +40,7 @@ Um grupo de colocação de proximidade Azure é uma construção lógica. Quando
 > [!NOTE]
 > Se não houver hardware de hospedeiro implantado que possa executar um tipo VM específico no datacenter onde o primeiro VM foi colocado, a implementação do tipo VM solicitado não será bem sucedida. Receberá uma mensagem de fracasso.
 
-Um único [grupo de recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) pode ter vários grupos de colocação de proximidade atribuídos a ele. Mas um grupo de colocação de proximidade pode ser atribuído a apenas um grupo de recursos Azure.
+Um único [grupo de recursos Azure](../../../azure-resource-manager/management/manage-resources-portal.md) pode ter vários grupos de colocação de proximidade atribuídos a ele. Mas um grupo de colocação de proximidade pode ser atribuído a apenas um grupo de recursos Azure.
 
 Quando utilizar grupos de colocação de proximidade, lembre-se destas considerações:
 
@@ -48,9 +49,9 @@ Quando utilizar grupos de colocação de proximidade, lembre-se destas considera
 - Devido ao desmantelamento de hardware, a Microsoft pode acumular capacidades para um tipo VM que usou num datacenter diferente, em vez daquele que usou inicialmente. Nesse cenário, poderá ser necessário mover os VMs do grupo de colocação de proximidade para outro datacenter.
 
 ## <a name="proximity-placement-groups-with-sap-systems-that-use-only-azure-vms"></a>Grupos de colocação de proximidade com sistemas SAP que utilizam apenas VMs Azure
-A maioria das implementações do sistema SAP NetWeaver e S/4HANA em Azure não utilizam [grandes instâncias HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture). Para implementações que não usam HANA Large Instances, é importante proporcionar um desempenho ideal entre a camada de aplicação SAP e o nível DBMS. Para tal, defina um grupo de colocação de proximidade Azure apenas para o sistema.
+A maioria das implementações do sistema SAP NetWeaver e S/4HANA em Azure não utilizam [grandes instâncias HANA](./hana-overview-architecture.md). Para implementações que não usam HANA Large Instances, é importante proporcionar um desempenho ideal entre a camada de aplicação SAP e o nível DBMS. Para tal, defina um grupo de colocação de proximidade Azure apenas para o sistema.
 
-Na maioria das implementações de clientes, os clientes constroem um único [grupo de recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) para sistemas SAP. Nesse caso, existe uma relação um-para-um entre, por exemplo, o grupo de recursos do sistema ERP de produção e o seu grupo de colocação de proximidade. Noutros casos, os clientes organizam os seus grupos de recursos horizontalmente e recolhem todos os sistemas de produção num único grupo de recursos. Neste caso, você teria uma relação de um a muitos entre o seu grupo de recursos para a produção de sistemas SAP e vários grupos de colocação de proximidade para a sua produção SAP ERP, SAP BW, e assim por diante.
+Na maioria das implementações de clientes, os clientes constroem um único [grupo de recursos Azure](../../../azure-resource-manager/management/manage-resources-portal.md) para sistemas SAP. Nesse caso, existe uma relação um-para-um entre, por exemplo, o grupo de recursos do sistema ERP de produção e o seu grupo de colocação de proximidade. Noutros casos, os clientes organizam os seus grupos de recursos horizontalmente e recolhem todos os sistemas de produção num único grupo de recursos. Neste caso, você teria uma relação de um a muitos entre o seu grupo de recursos para a produção de sistemas SAP e vários grupos de colocação de proximidade para a sua produção SAP ERP, SAP BW, e assim por diante.
 
 Evite agregar vários sistemas de produção sap ou não-produção num único grupo de colocação de proximidade. Quando um pequeno número de sistemas SAP ou um sistema SAP e algumas aplicações circundantes precisam de ter uma comunicação de rede de baixa latência, você pode considerar mover estes sistemas para um grupo de colocação de proximidade. Deve evitar pacotes de sistemas porque quanto mais sistemas se agrupar em um grupo de colocação de proximidade, maiores são as hipóteses:
 
@@ -64,11 +65,11 @@ Aqui está o que a configuração ideal, como descrito, parece:
 Neste caso, os sistemas SAP únicos são agrupados num único grupo de recursos cada, com um grupo de colocação de proximidade cada. Não há dependência de usar configurações de escala HANA ou DBMS.
 
 ## <a name="proximity-placement-groups-and-hana-large-instances"></a>Grupos de colocação de proximidade e HANA Grandes Instâncias
-Se alguns dos seus sistemas SAP dependerem de [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) para a camada de aplicação, pode experimentar melhorias significativas na latência da rede entre a unidade HANA Large Instances e os VMs Azure quando estiver a utilizar unidades HANA Large Instances que são implantadas na [Revisão 4 linhas ou selos](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance). Uma melhoria é que as unidades HANA Large Instances, à medida que são implantadas, implantam-se com um grupo de colocação de proximidade. Pode utilizar esse grupo de colocação de proximidade para implantar os VMs da sua camada de aplicação. Como resultado, esses VMs serão implantados no mesmo centro de dados que hospeda a sua unidade HANA Large Instances.
+Se alguns dos seus sistemas SAP dependerem de [HANA Large Instances](./hana-overview-architecture.md) para a camada de aplicação, pode experimentar melhorias significativas na latência da rede entre a unidade HANA Large Instances e os VMs Azure quando estiver a utilizar unidades HANA Large Instances que são implantadas na [Revisão 4 linhas ou selos](./hana-network-architecture.md#networking-architecture-for-hana-large-instance). Uma melhoria é que as unidades HANA Large Instances, à medida que são implantadas, implantam-se com um grupo de colocação de proximidade. Pode utilizar esse grupo de colocação de proximidade para implantar os VMs da sua camada de aplicação. Como resultado, esses VMs serão implantados no mesmo centro de dados que hospeda a sua unidade HANA Large Instances.
 
-Para determinar se a sua unidade HANA Large Instances está implantada num selo ou linha de Revisão 4, consulte o artigo [controlo Azure HANA Large Instances através do portal Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#look-at-attributes-of-single-hli-unit). Na visão geral dos atributos da sua unidade HANA Large Instances, também pode determinar o nome do grupo de colocação de proximidade porque foi criado quando a sua unidade HANA Large Instances foi implantada. O nome que aparece na visão geral dos atributos é o nome do grupo de colocação de proximidade em que deve implementar os VMs da sua camada de aplicação.
+Para determinar se a sua unidade HANA Large Instances está implantada num selo ou linha de Revisão 4, consulte o artigo [controlo Azure HANA Large Instances através do portal Azure](./hana-li-portal.md#look-at-attributes-of-single-hli-unit). Na visão geral dos atributos da sua unidade HANA Large Instances, também pode determinar o nome do grupo de colocação de proximidade porque foi criado quando a sua unidade HANA Large Instances foi implantada. O nome que aparece na visão geral dos atributos é o nome do grupo de colocação de proximidade em que deve implementar os VMs da sua camada de aplicação.
 
-Em comparação com os sistemas SAP que utilizam apenas máquinas virtuais Azure, quando utiliza HANA Large Instances, você tem menos flexibilidade na decisão de quantos [grupos de recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) devem usar. Todas as unidades HANA Large Instances de um [inquilino HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-know-terms) estão agrupadas num único grupo de recursos, como descrito [neste artigo.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#display-of-hana-large-instance-units-in-the-azure-portal) A menos que você se insiram em diferentes inquilinos para separar, por exemplo, sistemas de produção e não-produção ou outros sistemas, todas as suas unidades HANA Large Instances serão implantadas em um inquilino HANA Large Instances. Este inquilino tem uma relação de um para um com um grupo de recursos. Mas um grupo de colocação de proximidade separado será definido para cada uma das unidades individuais.
+Em comparação com os sistemas SAP que utilizam apenas máquinas virtuais Azure, quando utiliza HANA Large Instances, você tem menos flexibilidade na decisão de quantos [grupos de recursos Azure](../../../azure-resource-manager/management/manage-resources-portal.md) devem usar. Todas as unidades HANA Large Instances de um [inquilino HANA Large Instances](./hana-know-terms.md) estão agrupadas num único grupo de recursos, como descrito [neste artigo.](./hana-li-portal.md#display-of-hana-large-instance-units-in-the-azure-portal) A menos que você se insiram em diferentes inquilinos para separar, por exemplo, sistemas de produção e não-produção ou outros sistemas, todas as suas unidades HANA Large Instances serão implantadas em um inquilino HANA Large Instances. Este inquilino tem uma relação de um para um com um grupo de recursos. Mas um grupo de colocação de proximidade separado será definido para cada uma das unidades individuais.
 
 Como resultado, as relações entre grupos de recursos Azure e grupos de colocação de proximidade para um único inquilino serão como mostrado aqui:
 
@@ -158,11 +159,10 @@ O resultado desta implantação é:
 Se já tiver sistemas SAP implantados, talvez queira otimizar a latência da rede de alguns dos seus sistemas críticos e localizar a camada de aplicação e a camada DBMS no mesmo datacenter. Para mover os VMs de uma disponibilidade completa de Azure definida para um grupo de colocação de proximidade existente que já está traçado, você precisa desligar todos os VMs do conjunto de disponibilidade e atribuir o conjunto de disponibilidade definida para o grupo de colocação de proximidade existente através do portal Azure, PowerShell ou CLI. Se quiser mover um VM que não faça parte de uma disponibilidade definida para um grupo de colocação de proximidade existente, basta encerrar o VM e atribuí-lo a um grupo de colocação de proximidade existente. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Confira a documentação:
 
-- [Cargas de trabalho sap em Azure: lista de verificação de planeamento e implantação](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
-- [Pré-visualização: Implementar VMs para grupos de colocação de proximidade usando O Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/proximity-placement-groups)
-- [Pré-visualização: Implementar VMs para grupos de colocação de proximidade usando PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups)
-- [Considerações para a implantação de DBMS de máquinas virtuais Azure para cargas de trabalho SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
-
+- [Cargas de trabalho sap em Azure: lista de verificação de planeamento e implantação](./sap-deployment-checklist.md)
+- [Pré-visualização: Implementar VMs para grupos de colocação de proximidade usando O Azure CLI](../../linux/proximity-placement-groups.md)
+- [Pré-visualização: Implementar VMs para grupos de colocação de proximidade usando PowerShell](../../windows/proximity-placement-groups.md)
+- [Considerações para a implantação de DBMS de máquinas virtuais Azure para cargas de trabalho SAP](./dbms_guide_general.md)

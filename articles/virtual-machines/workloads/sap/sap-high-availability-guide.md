@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machines alta disponibilidade para SAP NetWeaver Microsoft Docs
+title: Azure Virtual Machines alta disponibilidade para SAP NetWeaver
 description: Guia de alta disponibilidade para SAP NetWeaver em Máquinas Virtuais Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -16,13 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d1b028472785b146a45c22b3d23db7cb241c11da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbdbae3d310d6e4c3224663dd523cb124744dfbd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84557320"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080187"
 ---
-# <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure Virtual Machines alta disponibilidade para SAP NetWeaver
+# <a name="high-availability-azure-virtual-machines-for-sap-netweaver"></a>Máquinas virtuais Azure de alta disponibilidade para SAP NetWeaver
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -35,7 +36,7 @@ ms.locfileid: "84557320"
 [azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 [azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
-[dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
+[dbms-guide]:dbms-guide.md
 
 [deployment-guide]:deployment-guide.md
 
@@ -170,7 +171,7 @@ Para simplificar a implementação e configuração, neste artigo, utilizamos os
 ## <a name="prerequisites"></a><a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a>Pré-requisitos
 Antes de começar, certifique-se de que cumpre os pré-requisitos descritos nas seguintes secções. Além disso, certifique-se de verificar todos os recursos listados na secção [Recursos.][sap-ha-guide-2]
 
-Neste artigo, utilizamos modelos de Gestor de Recursos Azure para [netWeaver SAP de três níveis usando Discos Geridos](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md/). Para obter uma visão geral útil dos modelos, consulte [os modelos do GESTOR de Recursos SAP Azure](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/).
+Neste artigo, utilizamos modelos de Gestor de Recursos Azure para [netWeaver SAP de três níveis usando Discos Geridos](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md/). Para obter uma visão geral útil dos modelos, consulte [os modelos do GESTOR de Recursos SAP Azure](/archive/blogs/saponsqlserver/azure-quickstart-templates-for-sap).
 
 ## <a name="resources"></a><a name="42b8f600-7ba3-4606-b8a5-53c4f026da08"></a>Recursos
 Estes artigos abrangem as implementações da SAP em Azure:
@@ -319,7 +320,7 @@ Deve colocar todas as máquinas virtuais que acolhem as instâncias do Servidor 
 * Todas as máquinas virtuais fazem parte do mesmo domínio de upgrade. Um domínio de atualização, por exemplo, garante que as máquinas virtuais não são atualizadas ao mesmo tempo durante o tempo de inatividade de manutenção planeado.
 * Todas as máquinas virtuais fazem parte do mesmo domínio de avaria. Um domínio de avaria, por exemplo, garante que as máquinas virtuais são implantadas de modo a que nenhum ponto de falha afete a disponibilidade de todas as máquinas virtuais.
 
-Saiba mais sobre como [gerir a disponibilidade de máquinas virtuais.][virtual-machines-manage-availability]
+Saiba mais sobre como [gerir a disponibilidade de máquinas virtuais][.. /manage-availability.md].
 
 Apenas disco não gerido: Como a conta de armazenamento Azure é um potencial ponto único de falha, é importante ter pelo menos duas contas de armazenamento Azure, nas quais pelo menos duas máquinas virtuais são distribuídas. Numa configuração ideal, os discos de cada máquina virtual que está a executar uma instância de diálogo SAP seriam implantados numa conta de armazenamento diferente.
 
@@ -587,7 +588,7 @@ No nosso exemplo, o espaço de endereço da rede virtual Azure é de 10.0.0.0/16
 Para definir os endereços IP DNS necessários, faça os seguintes passos.
 
 1. No portal Azure, na lâmina dos **servidores DNS,** certifique-se de que a opção de **servidores DNS** de rede virtual está definida para **DNS personalizados**.
-2. Selecione as suas definições com base no tipo de rede que tem. Para obter mais informações, consulte os seguintes recursos:
+2. Selecione as suas definições com base no tipo de rede que tem. Para obter mais informações, veja os seguintes recursos:
    * Adicione os endereços IP dos servidores DNS no local.  
    Pode estender os servidores DNS no local às máquinas virtuais que estão a funcionar em Azure. Nesse cenário, pode adicionar os endereços IP das máquinas virtuais Azure nas quais executou o serviço DNS.
    * Para implementações VM isoladas em Azure: Implementar uma máquina virtual adicional na mesma instância de Rede Virtual que serve como um servidor DNS. Adicione os endereços IP das máquinas virtuais Azure que criou para executar o serviço DNS.
@@ -770,7 +771,7 @@ Para adicionar entradas de registo em ambos os nós de cluster da instância SAP
 | Nome da variável |`KeepAliveTime` |
 | Tipo variável |REG_DWORD (Decimal) |
 | Valor |120000 |
-| Ligação à documentação |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
+| Ligação à documentação |[https://technet.microsoft.com/library/cc957549.aspx](/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10)) |
 
 _**Tabela 3:** Alterar o primeiro parâmetro TCP/IP_
 
@@ -781,7 +782,7 @@ Em seguida, adicione estas entradas de registo do Windows em ambos os nós do cl
 | Nome da variável |`KeepAliveInterval` |
 | Tipo variável |REG_DWORD (Decimal) |
 | Valor |120000 |
-| Ligação à documentação |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
+| Ligação à documentação |[https://technet.microsoft.com/library/cc957548.aspx](/previous-versions/windows/it-pro/windows-2000-server/cc957548(v=technet.10)) |
 
 _**Tabela 4:** Alterar o segundo parâmetro TCP/IP_
 

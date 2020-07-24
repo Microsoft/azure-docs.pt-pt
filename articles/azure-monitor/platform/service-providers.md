@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 3adb94709d089e2f1d106680acc00c08d2203a4d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e49f9caaeb1b16daa49fabb217b6fc40fff17f53
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340887"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081479"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Registos de monitores Azure para Prestadores de Serviços
 
@@ -20,7 +21,7 @@ As grandes empresas partilham muitas semelhanças com os prestadores de serviço
 
 Para parceiros e prestadores de serviços que fazem parte do programa [Cloud Solution Provider (CSP),](https://partner.microsoft.com/en-US/membership/cloud-solution-provider) o Log Analytics in Azure Monitor é um dos serviços Azure disponíveis nas subscrições do Azure CSP.
 
-O Log Analytics in Azure Monitor também pode ser utilizado por um prestador de serviços que gere os recursos dos clientes através da capacidade delegada de gestão de recursos da [Azure no Farol de Azure.](https://docs.microsoft.com/azure/lighthouse/overview)
+O Log Analytics in Azure Monitor também pode ser utilizado por um prestador de serviços que gere os recursos dos clientes através da capacidade delegada de gestão de recursos da [Azure no Farol de Azure.](../../lighthouse/overview.md)
 
 ## <a name="architectures-for-service-providers"></a>Arquiteturas para Prestadores de Serviços
 
@@ -34,12 +35,12 @@ Nesta arquitetura, é implantado um espaço de trabalho no arrendatário do clie
 
 Existem duas formas de os administradores de prestadores de serviços terem acesso a um espaço de trabalho log analytics num inquilino do cliente:
 
-- Um cliente pode adicionar utilizadores individuais do prestador de serviços como [utilizadores convidados do Azure Ative Directory (B2B)](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b). Os administradores do prestador de serviços terão de subscrever o diretório de cada cliente no portal Azure para poderem aceder a estes espaços de trabalho. Isto também requer que os clientes gerem o acesso individual para cada administrador de prestador de serviços.
-- Para uma maior escalabilidade e flexibilidade, os prestadores de serviços podem utilizar a capacidade [delegada](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management) de gestão de recursos do [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) para aceder ao inquilino do cliente. Com este método, os administradores do prestador de serviços estão incluídos num grupo de utilizadores AD AZure no arrendatário do prestador de serviços, e este grupo tem acesso durante o processo de embarque para cada cliente. Estes administradores podem então aceder aos espaços de trabalho de cada cliente a partir do seu próprio inquilino prestador de serviços, em vez de terem de aceder individualmente ao inquilino de cada cliente. O acesso aos espaços de trabalho do Log Analytics dos seus clientes reduz desta forma o trabalho exigido do lado do cliente, podendo facilitar a recolha e análise de dados em vários clientes geridos pelo mesmo prestador de serviços através de ferramentas como [os Livros de Trabalho do Monitor Azure.](https://docs.microsoft.com/azure//azure-monitor/platform/workbooks-overview) Para obter mais informações, consulte [os recursos do cliente do Monitor em escala.](https://docs.microsoft.com/azure/lighthouse/how-to/monitor-at-scale)
+- Um cliente pode adicionar utilizadores individuais do prestador de serviços como [utilizadores convidados do Azure Ative Directory (B2B)](../../active-directory/b2b/what-is-b2b.md). Os administradores do prestador de serviços terão de subscrever o diretório de cada cliente no portal Azure para poderem aceder a estes espaços de trabalho. Isto também requer que os clientes gerem o acesso individual para cada administrador de prestador de serviços.
+- Para uma maior escalabilidade e flexibilidade, os prestadores de serviços podem utilizar a capacidade [delegada](../../lighthouse/concepts/azure-delegated-resource-management.md) de gestão de recursos do [Azure Lighthouse](../../lighthouse/overview.md) para aceder ao inquilino do cliente. Com este método, os administradores do prestador de serviços estão incluídos num grupo de utilizadores AD AZure no arrendatário do prestador de serviços, e este grupo tem acesso durante o processo de embarque para cada cliente. Estes administradores podem então aceder aos espaços de trabalho de cada cliente a partir do seu próprio inquilino prestador de serviços, em vez de terem de aceder individualmente ao inquilino de cada cliente. O acesso aos espaços de trabalho do Log Analytics dos seus clientes reduz desta forma o trabalho exigido do lado do cliente, podendo facilitar a recolha e análise de dados em vários clientes geridos pelo mesmo prestador de serviços através de ferramentas como [os Livros de Trabalho do Monitor Azure.](../..//azure-monitor/platform/workbooks-overview.md) Para obter mais informações, consulte [os recursos do cliente do Monitor em escala.](../../lighthouse/how-to/monitor-at-scale.md)
 
 As vantagens da arquitetura distribuída são:
 
-* O cliente pode confirmar níveis específicos de permissões através da [gestão de recursos delegados da Azure,](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management)ou pode gerir o acesso aos registos utilizando o seu próprio [acesso baseado em funções.](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* O cliente pode confirmar níveis específicos de permissões através da [gestão de recursos delegados da Azure,](../../lighthouse/concepts/azure-delegated-resource-management.md)ou pode gerir o acesso aos registos utilizando o seu próprio [acesso baseado em funções.](../../role-based-access-control/overview.md)
 * Os registos podem ser recolhidos de todos os tipos de recursos, e não apenas dados VM baseados em agentes. Por exemplo, Registos de Auditoria Azure.
 * Cada cliente pode ter diferentes configurações para o seu espaço de trabalho, como retenção e cobertura de dados.
 * Isolamento entre clientes para regulação e complicância.
@@ -74,11 +75,11 @@ A terceira mistura de arquitetura entre as duas opções. Baseia-se na primeira 
 
 Existem duas opções para implementar registos numa localização central:
 
-1. Espaço de trabalho central: O prestador de serviços pode criar um espaço de trabalho no seu inquilino e utilizar um script que utilize a [API de Consulta](https://dev.loganalytics.io/) com a [API de Recolha](../../azure-monitor/platform/data-collector-api.md) de Dados para trazer os dados dos vários espaços de trabalho para esta localização central. Outra opção, além de um script, é utilizar [aplicações Azure Logic.](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
+1. Espaço de trabalho central: O prestador de serviços pode criar um espaço de trabalho no seu inquilino e utilizar um script que utilize a [API de Consulta](https://dev.loganalytics.io/) com a [API de Recolha](../../azure-monitor/platform/data-collector-api.md) de Dados para trazer os dados dos vários espaços de trabalho para esta localização central. Outra opção, além de um script, é utilizar [aplicações Azure Logic.](../../logic-apps/logic-apps-overview.md)
 
 2. Power BI como localização central: O Power BI pode funcionar como a localização central quando os vários espaços de trabalho exportam dados para ele utilizando a integração entre o espaço de trabalho Log Analytics e [o Power BI](../../azure-monitor/platform/powerbi.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Automatizar a criação e configuração de espaços de trabalho usando [modelos de Gestor de Recursos](template-workspace-configuration.md)
 
@@ -88,4 +89,4 @@ Existem duas opções para implementar registos numa localização central:
 
 * Gerar relatórios sumários usando [Power BI](../../azure-monitor/platform/powerbi.md)
 
-* Clientes a bordo da [Azure delegaram gestão de recursos.](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management)
+* Clientes a bordo da [Azure delegaram gestão de recursos.](../../lighthouse/concepts/azure-delegated-resource-management.md)

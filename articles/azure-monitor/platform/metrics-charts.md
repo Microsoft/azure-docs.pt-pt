@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e6ff33b6a23cb85649a8811a8bef27ab455ab9e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e554fe48c3cbf8b744bf2f435f7b51e424d28808
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82980903"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079558"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Advanced features of Azure Metrics Explorer (Funcionalidades avançadas do Explorador de Métricas do Azure)
 
@@ -20,7 +21,7 @@ ms.locfileid: "82980903"
 
 ## <a name="metrics-in-azure"></a>Métricas em Azure
 
-[As métricas no Azure Monitor](data-platform-metrics.md) são a série de valores e contagens medidos que são recolhidos e armazenados ao longo do tempo. Existem métricas padrão (ou "plataforma") e métricas personalizadas. As métricas padrão são fornecidas pela própria plataforma Azure. As métricas padrão refletem as estatísticas de saúde e utilização dos seus recursos Azure. Enquanto as métricas personalizadas são enviadas para a Azure pelas suas aplicações utilizando a [API de Insights de Aplicação para eventos e métricas personalizadas,](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics) [extensão de Diagnóstico do Windows Azure (WAD)](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview)ou pela [Azure Monitor REST API](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
+[As métricas no Azure Monitor](data-platform-metrics.md) são a série de valores e contagens medidos que são recolhidos e armazenados ao longo do tempo. Existem métricas padrão (ou "plataforma") e métricas personalizadas. As métricas padrão são fornecidas pela própria plataforma Azure. As métricas padrão refletem as estatísticas de saúde e utilização dos seus recursos Azure. Enquanto as métricas personalizadas são enviadas para a Azure pelas suas aplicações utilizando a [API de Insights de Aplicação para eventos e métricas personalizadas,](../app/api-custom-events-metrics.md) [extensão de Diagnóstico do Windows Azure (WAD)](./diagnostics-extension-overview.md)ou pela [Azure Monitor REST API](./metrics-store-custom-rest-api.md).
 
 ## <a name="create-views-with-multiple-metrics-and-charts"></a>Criar vistas com várias métricas e gráficos
 
@@ -173,7 +174,6 @@ Confira este [artigo](alerts-metric.md) para saber mais sobre a configuração d
 
 * Se segmentar um gráfico por uma propriedade que não está definida na métrica, então não haverá nada na tabela. Tente limpar a segmentação (divisão), ou escolha uma propriedade diferente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-  Leia [A criação de dashboards KPI personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) para aprender sobre as melhores práticas para criar dashboards accuáveis com métricas.
-
+  Leia [A criação de dashboards KPI personalizados](../learn/tutorial-app-dashboards.md) para aprender sobre as melhores práticas para criar dashboards accuáveis com métricas.

@@ -8,17 +8,17 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: guybo
-ms.openlocfilehash: f0fe18623d1cea6c7fd692a383a351e0ec76fe91
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: ed14aee756456e35198a501df309fc9eb032898e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132970"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080085"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Prepare a SLES or openSUSE virtual machine for Azure (Preparar uma máquina virtual SLES ou openSUSE para o Azure)
 
 
-Este artigo pressupõe que já instalou um sistema operativo SUSE ou openSUSE Linux para um disco rígido virtual. Existem várias ferramentas para criar ficheiros .vhd, por exemplo uma solução de virtualização como o Hyper-V. Para obter instruções, consulte [instalar a função Hiper-V e configurar uma máquina virtual.](https://technet.microsoft.com/library/hh846766.aspx)
+Este artigo pressupõe que já instalou um sistema operativo SUSE ou openSUSE Linux para um disco rígido virtual. Existem várias ferramentas para criar ficheiros .vhd, por exemplo uma solução de virtualização como o Hyper-V. Para obter instruções, consulte [instalar a função Hiper-V e configurar uma máquina virtual.](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11))
 
 ## <a name="sles--opensuse-installation-notes"></a>Notas de instalação SLES / openSUSE
 * Consulte também [as notas de instalação do General Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais dicas sobre a preparação do Linux para o Azure.
@@ -225,5 +225,5 @@ Como alternativa à construção do seu próprio VHD, a SUSE também publica ima
 
 13. Clique em **Ação -> Desligar** em Hyper-V Manager. O seu VHD Linux está agora pronto para ser enviado para Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Está agora pronto a usar o seu disco rígido virtual SUSE Linux para criar novas máquinas virtuais em Azure. Se esta for a primeira vez que está a enviar o ficheiro .vhd para a Azure, consulte [Create a Linux VM a partir de um disco personalizado](upload-vhd.md#option-1-upload-a-vhd).

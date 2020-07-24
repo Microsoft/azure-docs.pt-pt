@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e539e2a26e53ded8a2c42491c1e1e596a2180ed7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5c81897f74163191de4b167ffa56225ca0698ca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85269117"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079037"
 ---
 # <a name="azure-security-baseline-for-expressroute"></a>Linha de segurança Azure para ExpressRoute
 
@@ -116,7 +116,7 @@ Utilize qualquer uma das definições da Política Azure incorporadas relacionad
 
 Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar ações em recursos baseados nas suas etiquetas.
 
-* [Use etiquetas para organizar os seus recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Utilizar etiquetas para organizar os seus recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -246,7 +246,7 @@ Além disso, os parceiros que utilizam a API do Gestor de Recursos do Parceiro E
 
 * [Compreender o RBAC em Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-* [Alavancagem RBAC na API do Gestor de Recursos parceiros ExpressRoute](https://docs.microsoft.com/azure/expressroute/cross-connections-api-developmentment)
+* [Alavancagem RBAC na API do Gestor de Recursos parceiros ExpressRoute](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -985,7 +985,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
 - Saiba mais sobre [as linhas de base de segurança da Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

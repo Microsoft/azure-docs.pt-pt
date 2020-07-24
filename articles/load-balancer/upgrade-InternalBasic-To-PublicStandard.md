@@ -1,5 +1,5 @@
 ---
-title: Upgrade de Público Básico para Público Padrão - Equilibrador de Carga Azure
+title: Upgrade de Basic Internal para Standard Public - Azure Load Balancer
 description: Este artigo mostra-lhe como atualizar o Equilibrador de Carga Interna Básico Azure para o Balanceador de Carga Pública Padrão
 services: load-balancer
 author: irenehua
@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 6b4d2a5cf441eb702bc33fc862fec9cc28a998b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 225252f2cd47c36de2c7eed4ed1e5dae3ebd81b2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809360"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078749"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Upgrade Azure Internal Load Balancer - Ligação de saída necessária
 [O Azure Standard Load Balancer](load-balancer-overview.md) oferece um rico conjunto de funcionalidades e alta disponibilidade através da redundância de zona. Para saber mais sobre o Balancer de Carga SKU, consulte [a tabela de comparação](https://docs.microsoft.com/azure/load-balancer/skus#skus). Uma vez que o Balanceador de Carga Interna Padrão não fornece ligação de saída, fornecemos uma solução para criar um Balanceador de Carga Pública Padrão.
@@ -124,7 +124,7 @@ Se quiser abster-se de evitar que o tráfego de Internet chegue aos seus VMs, po
 
 ### <a name="are-there-any-limitations-with-the-azure-powershell-script-to-migrate-the-configuration-from-v1-to-v2"></a>Existem limitações com o script Azure PowerShell para migrar a configuração de V1 para v2?
 
-Sim. Ver [Ressalvas/Limitações.](#caveatslimitations)
+Yes. Ver [Ressalvas/Limitações.](#caveatslimitations)
 
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>O script Azure PowerShell também muda o tráfego do meu Balancer de Carga Básica para o recém-criado Balancer de Carga Padrão?
 
@@ -134,6 +134,6 @@ Não. O script Azure PowerShell apenas migra a configuração. A migração real
   
 Pode enviar um e-mail slbupgradesupport@microsoft.com para, abrir um caso de suporte com o Suporte Azure, ou fazer ambos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais sobre o Balanceador de Carga Padrão](load-balancer-overview.md)

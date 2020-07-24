@@ -8,11 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: 577e2128cf7e4e9f914ec5504917053acb3c19d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b82dba923db16e96cc0884b629723c4e8496c3a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78898486"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080935"
 ---
 # <a name="powershell-cmdlets-reference-for-azure-scheduler"></a>Referência de cmdlets PowerShell para Azure Scheduler
 
@@ -21,7 +22,7 @@ ms.locfileid: "78898486"
 >
 > O programador já não está disponível no portal Azure, mas os cmdlets [REST API](/rest/api/scheduler) e [Azure Scheduler PowerShell](scheduler-powershell-reference.md) permanecem disponíveis neste momento para que possa gerir os seus empregos e coleções de emprego.
 
-Para autores de scripts para criar e gerir empregos de Scheduler e coleções de emprego, pode utilizar cmdlets PowerShell. Este artigo lista os principais cmdlets powerShell para Azure Scheduler com links para os seus artigos de referência. Para instalar o Azure PowerShell para a sua subscrição Azure, consulte [Como instalar e configurar a Azure PowerShell](/powershell/azure/overview). Para obter mais informações sobre [os cmdlets do Azure Resource Manager](/powershell/azure/overview), consulte utilizar a [Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md).
+Para autores de scripts para criar e gerir empregos de Scheduler e coleções de emprego, pode utilizar cmdlets PowerShell. Este artigo lista os principais cmdlets powerShell para Azure Scheduler com links para os seus artigos de referência. Para instalar o Azure PowerShell para a sua subscrição Azure, consulte [Como instalar e configurar a Azure PowerShell](/powershell/azure/). Para obter mais informações sobre [os cmdlets do Azure Resource Manager](/powershell/azure/), consulte utilizar a [Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -54,7 +55,7 @@ Get-Help <cmdlet name> -Examples
 Get-Help <cmdlet name> -Full
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
 * [Limites, predefinições e códigos de erro do Agendador do Azure](scheduler-limits-defaults-errors.md)

@@ -6,11 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: e2f732a8cf51c51de1b6125717eafb672d7fff74
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 90ca46ace5f774e288b40a969f8f7e9802e79857
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027414"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080884"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Base de Dados Azure para encriptação de dados MySQL com uma chave gerida pelo cliente
 
@@ -51,7 +52,7 @@ Para que um servidor MySQL utilize chaves geridas pelo cliente armazenadas no Co
 * **wrapKey**: Para ser capaz de encriptar o DEK.
 * **desembrulharKey**: Para ser capaz de desencriptar o DEK.
 
-O administrador-chave do cofre também pode [permitir o registo de eventos de auditoria do Key Vault,](../azure-monitor/insights/azure-key-vault.md)para que possam ser auditados mais tarde.
+O administrador-chave do cofre também pode [permitir o registo de eventos de auditoria do Key Vault,](../azure-monitor/insights/key-vault-insights-overview.md)para que possam ser auditados mais tarde.
 
 Quando o servidor está configurado para utilizar a chave gerida pelo cliente armazenada no cofre de chaves, o servidor envia o DEK para o cofre de chaves para encriptação. O Key Vault devolve o DEK encriptado, que está armazenado na base de dados do utilizador. Da mesma forma, quando necessário, o servidor envia o DEK protegido para o cofre da chave para desencriptação. Os auditores podem usar o Azure Monitor para rever os registos de eventos de auditoria do Key Vault, se o registo estiver ativado.
 
@@ -139,6 +140,6 @@ Para a Base de Dados Azure para o MySQL, o suporte para encriptação de dados e
 
 * A encriptação só é suportada com a chave criptográfica RSA 2048.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como configurar a [encriptação de dados com uma chave gerida pelo cliente para a sua base de dados Azure para o MySQL utilizando o portal Azure](howto-data-encryption-portal.md).

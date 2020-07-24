@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 451bbf8f82623fdc20be21b4ffa1699f6c5722cf
-  ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+  ms.openlocfilehash: cddf39ee7b13b8af887ccb424d540cbf482040e9
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/20/2020
-  ms.locfileid: "86536884"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87079077"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -951,7 +951,7 @@ productDirectory:
     azureCategories:
     - management-and-governance
     url: azure-resource-manager/index.yml
-  - title: Modelos do Azure Resource Manager
+  - title: Modelos de ARM
     summary: Forneça infraestrutura como código para todos os seus recursos do Azure com o Resource Manager
     imageSrc: https://static.docs.com/ui/media/product/azure/resource-groups.svg
     azureCategories:

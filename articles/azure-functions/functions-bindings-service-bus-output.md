@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 6159ea7c9e00e822019a0d6542be2e84dbbdc335
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 559198c4ecbbc86cc82ce8b286d9608170e161c5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603643"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079728"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Ligação de saída de ônibus Azure Service para funções Azure
 
@@ -311,7 +311,7 @@ Ao trabalhar com funções C#:
 
 * As funções async precisam de um valor de retorno ou `IAsyncCollector` em vez de um `out` parâmetro.
 
-* Para aceder ao ID da sessão, ligue-se a um [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) tipo e use a `sessionId` propriedade.
+* Para aceder ao ID da sessão, ligue-se a um [`Message`](/dotnet/api/microsoft.azure.servicebus.message) tipo e use a `sessionId` propriedade.
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
@@ -328,7 +328,7 @@ Ao trabalhar com funções C#:
 
 * As funções async precisam de um valor de retorno ou `IAsyncCollector` em vez de um `out` parâmetro.
 
-* Para aceder ao ID da sessão, ligue-se a um [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) tipo e use a `sessionId` propriedade.
+* Para aceder ao ID da sessão, ligue-se a um [`Message`](/dotnet/api/microsoft.azure.servicebus.message) tipo e use a `sessionId` propriedade.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -336,11 +336,11 @@ Aceda à fila ou tópico utilizando `context.bindings.<name from function.json>`
 
 # <a name="python"></a>[Python](#tab/python)
 
-Utilize o [Azure Service Bus SDK](https://docs.microsoft.com/azure/service-bus-messaging) em vez da ligação de saída incorporada.
+Utilize o [Azure Service Bus SDK](../service-bus-messaging/index.yml) em vez da ligação de saída incorporada.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Utilize o [Azure Service Bus SDK](https://docs.microsoft.com/azure/service-bus-messaging) em vez da ligação de saída incorporada.
+Utilize o [Azure Service Bus SDK](../service-bus-messaging/index.yml) em vez da ligação de saída incorporada.
 
 ---
 
@@ -348,8 +348,8 @@ Utilize o [Azure Service Bus SDK](https://docs.microsoft.com/azure/service-bus-m
 
 | Enlace | Referência |
 |---|---|
-| Service Bus | [Códigos de erro do autocarro de serviço](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
-| Service Bus | [Limites de autocarro de serviço](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |
+| Service Bus | [Códigos de erro do autocarro de serviço](../service-bus-messaging/service-bus-messaging-exceptions.md) |
+| Service Bus | [Limites de autocarro de serviço](../service-bus-messaging/service-bus-quotas.md) |
 
 <a name="host-json"></a>  
 
@@ -388,10 +388,10 @@ Se `isSessionsEnabled` tiver pronto `true` para, o será `sessionHandlerOptions`
 |---------|---------|---------|
 |prefetchCount|0|Recebe ou define o número de mensagens que o recetor de mensagens pode simultaneamente solicitar.|
 |maxAutoRenewDuration|00:05:00|A duração máxima dentro da qual o bloqueio de mensagem será renovado automaticamente.|
-|autoComplete|true|Se o gatilho deve ligar automaticamente completamente após o processamento, ou se o código de função ligar manualmente completo.<br><br>A definição `false` para é suportada apenas em C#.<br><br>Se for `true` programado, o gatilho completa a mensagem automaticamente se a execução da função terminar com sucesso e abandonar a mensagem de outra forma.<br><br>Quando definido `false` para , você é responsável por ligar para os métodos [MessageReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) para completar, abandonar ou matar a mensagem. Se for lançada uma exceção (e nenhum dos `MessageReceiver` métodos for chamado), então o bloqueio permanece. Uma vez expirado o bloqueio, a mensagem é novamente em fila com o `DeliveryCount` incremento e o bloqueio é automaticamente renovado.<br><br>Em funções não-C#, as exceções na função resultam nas chamadas de tempo de `abandonAsync` execução em segundo plano. Se não ocorrer exceção, `completeAsync` então é chamado em segundo plano. |
+|autoComplete|true|Se o gatilho deve ligar automaticamente completamente após o processamento, ou se o código de função ligar manualmente completo.<br><br>A definição `false` para é suportada apenas em C#.<br><br>Se for `true` programado, o gatilho completa a mensagem automaticamente se a execução da função terminar com sucesso e abandonar a mensagem de outra forma.<br><br>Quando definido `false` para , você é responsável por ligar para os métodos [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) para completar, abandonar ou matar a mensagem. Se for lançada uma exceção (e nenhum dos `MessageReceiver` métodos for chamado), então o bloqueio permanece. Uma vez expirado o bloqueio, a mensagem é novamente em fila com o `DeliveryCount` incremento e o bloqueio é automaticamente renovado.<br><br>Em funções não-C#, as exceções na função resultam nas chamadas de tempo de `abandonAsync` execução em segundo plano. Se não ocorrer exceção, `completeAsync` então é chamado em segundo plano. |
 |maxConcurrentCalls|16|O número máximo de chamadas simultâneas para a chamada que a bomba de mensagem deve iniciar por instância em escala. Por predefinição, o tempo de execução de Funções processa várias mensagens simultaneamente.|
 |maxConcurrentSessions|2000|O número máximo de sessões que podem ser manuseadas simultaneamente por instância em escala.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Executar uma função quando uma fila de autocarro de serviço ou mensagem de tópico é criada (Trigger)](./functions-bindings-service-bus-trigger.md)

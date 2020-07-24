@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 05/13/2020
-ms.openlocfilehash: e4096b00ca1bbe1ad7d88c37a846d3f56b2860b1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: e523d468ae53e220cbda1c9748965110e82d48a0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085332"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081088"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Use Azure Monitor logs to monitor HDInsight clusters (Utilizar registos do Azure Monitor para monitorizar clusters do HDInsight)
 
@@ -40,7 +40,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
   Para obter as instruções sobre como criar um cluster HDInsight, consulte [Começar com Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).  
 
-* Se utilizar o PowerShell, necessitará do [Módulo Az](https://docs.microsoft.com/powershell/azure/overview). Certifique-se de que tem a versão mais recente. Se necessário, `Update-Module -Name Az` corra.
+* Se utilizar o PowerShell, necessitará do [Módulo Az](https://docs.microsoft.com/powershell/azure/). Certifique-se de que tem a versão mais recente. Se necessário, `Update-Module -Name Az` corra.
 
 * Se quiser utilizar o Azure CLI e ainda não o instalou, consulte [instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -158,7 +158,7 @@ Auditoria de cluster de suporte HDInsight com registos Azure Monitor, importando
 * `log_ambari_audit_CL`- esta tabela fornece registos de auditoria de Ambari.
 * `log_ranger_audti_CL`- esta tabela fornece registos de auditoria da Apache Ranger em aglomerados ESP.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Registos do Monitor de Consulta Azure para monitorizar clusters HDInsight](hdinsight-hadoop-oms-log-analytics-use-queries.md)
 * [Como monitorizar a disponibilidade do cluster com os registos Apache Ambari e Azure Monitor](./hdinsight-cluster-availability.md)

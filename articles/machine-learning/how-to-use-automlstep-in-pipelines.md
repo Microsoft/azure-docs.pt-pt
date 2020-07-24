@@ -11,12 +11,12 @@ author: lobrien
 manager: cgronlun
 ms.date: 06/15/2020
 ms.custom: tracking-python
-ms.openlocfilehash: f162aca8c30d890ecf662a88fb5f2182edb14c9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1b8dfa37047113d84470f86cd67c601ebf48f793
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298247"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078100"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Utilize ML automatizado num oleoduto de aprendizagem de máquinas Azure em Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -97,6 +97,8 @@ if not compute_name in ws.compute_targets :
 
 compute_target = ws.compute_targets[compute_name]
 ```
+
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
 Os dados intermédios entre a preparação de dados e o passo ML automatizado podem ser armazenados na loja de dados padrão do espaço de trabalho, pelo que não precisamos de fazer mais do que chamar `get_default_datastore()` o `Workspace` objeto. 
 
@@ -268,7 +270,7 @@ prepped_data = Dataset.get_by_name(ws, 'Data_prepared')
 
 Comparando as duas técnicas:
 
-| Técnica |  | 
+| Técnica | Benefícios e inconvenientes | 
 |-|-|
 |`PipelineOutputTabularDataset`| Maior desempenho | 
 || Rota natural de`PipelineData` | 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 03ef1708f836eb016d8f2fce530b9588cc61cd35
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 45b9c158aca85d62b02d65282876d5e40129878f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075710"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081071"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Gerir os clusters HDInsight utilizando a API Apache Ambari REST
 
@@ -253,7 +253,7 @@ O valor de retorno é semelhante a um dos seguintes exemplos:
     O valor de retorno é semelhante a `/clusters/CLUSTERNAME/` . Este valor é um caminho dentro da conta de Armazenamento do Lago de Dados. Este caminho é a raiz do sistema de ficheiros compatível com HDFS para o cluster.  
 
 > [!NOTE]  
-> A cmdlet [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) fornecida pela [Azure PowerShell](/powershell/azure/overview) também devolve as informações de armazenamento do cluster.
+> A cmdlet [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) fornecida pela [Azure PowerShell](/powershell/azure/) também devolve as informações de armazenamento do cluster.
 
 ### <a name="get-all-configurations"></a>Obtenha todas as configurações
 
@@ -513,6 +513,6 @@ Neste ponto, o UI web Ambari indica que o serviço Spark precisa de ser reinicia
         -Body '{"RequestInfo": {"context": "turning off maintenance mode for SPARK2"},"Body": {"ServiceInfo": {"maintenance_state":"OFF"}}}'
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma referência completa da API REST, consulte [a Referência API AMBAri Apache Ambari V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).  Consulte também, [Autorizar utilizadores para Vistas Apache Ambari](./hdinsight-authorize-users-to-ambari.md)

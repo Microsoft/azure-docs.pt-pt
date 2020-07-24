@@ -9,15 +9,16 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 7a21fb1c8da365176c27921bd58a5dffae468d2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b69bb480112993c42a22c71227b64943f33585e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735953"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080374"
 ---
 # <a name="edv4-and-edsv4-series"></a>Séries Edv4 e Edsv4
 
-A série Edv4 e Edsv4 funciona nos processadores Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake) numa configuração hiper roscada, e são ideais para várias aplicações empresariais intensivas de memória e apresentam até 504 GiB de RAM, [Intel Turbo Boost Technology &reg; 2.0,](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html) [Tecnologia de &reg; Hiper-Threading Intel](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e [ &reg; Extensões Avançadas de Vetores Intel 512 (Intel &reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Também apoiam [o Intel Deep Learning &reg; Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Estes novos tamanhos VM terão 50% maior armazenamento local, bem como melhores IOPS de disco local tanto para ler como escrever em comparação com os tamanhos [Ev3/Esv3](https://docs.microsoft.com/azure/virtual-machines/ev3-esv3-series) com [VMs Gen2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2)
+A série Edv4 e Edsv4 funciona nos processadores Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake) numa configuração hiper roscada, e são ideais para várias aplicações empresariais intensivas de memória e apresentam até 504 GiB de RAM, [Intel Turbo Boost Technology &reg; 2.0,](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html) [Tecnologia de &reg; Hiper-Threading Intel](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e [ &reg; Extensões Avançadas de Vetores Intel 512 (Intel &reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Também apoiam [o Intel Deep Learning &reg; Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Estes novos tamanhos VM terão 50% maior armazenamento local, bem como melhores IOPS de disco local tanto para ler como escrever em comparação com os tamanhos [Ev3/Esv3](./ev3-esv3-series.md) com [VMs Gen2](./linux/generation-2.md)
 
 ## <a name="edv4-series"></a>Série Edv4
 
@@ -70,7 +71,7 @@ Atualizações de preservação da memória: Suportadas
 | Standard_E48ds_v4 | 48 | 384 | 1800 | 32 | 462000/2904(1200) | 76800/1152 | 8/24000 |
 | Standard_E64ds_v4 <sup>1</sup> | 64 | 504 | 2400 | 32 | 615000/3872(1600) | 80000/1200 | 8/30000 |
 
-<sup>1</sup> [Tamanhos de núcleo limitados disponíveis)](https://docs.microsoft.com/azure/virtual-machines/windows/constrained-vcpu).
+<sup>1</sup> [Tamanhos de núcleo limitados disponíveis)](./windows/constrained-vcpu.md).
 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
@@ -80,10 +81,10 @@ Atualizações de preservação da memória: Suportadas
 - [Fins gerais](sizes-general.md)
 - [Com otimização de memória](sizes-memory.md)
 - [Com otimização de armazenamento](sizes-storage.md)
-- [Com otimização de GPU](sizes-gpu.md)
+- [Otimizada para GPU](sizes-gpu.md)
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

@@ -7,11 +7,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 03/10/2020
 ms.author: cynthn
-ms.openlocfilehash: 195a19ef881f235ad8e42f23b53da9e667ef88d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 068f6e85a0b2a56bb20c8581ec4fa59d50009088
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79086751"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080323"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Implementar VMs para anfitriões dedicados usando o portal
 
@@ -45,7 +46,7 @@ Pode adicionar um VM de saída a um anfitrião dedicado, mas o VM tem primeiro d
 
 - O tamanho VM deve ser do mesmo tamanho da família do hospedeiro dedicado. Por exemplo, se o seu anfitrião dedicado for DSv3, então o tamanho VM pode ser Standard_D4s_v3, mas não pode ser um Standard_A4_v2. 
 - O VM precisa de ser localizado na mesma região que o hospedeiro dedicado.
-- O VM não pode fazer parte de um grupo de colocação de proximidade. Retire o VM do grupo de colocação de proximidade antes de o mover para um hospedeiro dedicado. Para obter mais informações, consulte [mover um VM de um grupo de colocação de proximidade](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#move-an-existing-vm-out-of-a-proximity-placement-group)
+- O VM não pode fazer parte de um grupo de colocação de proximidade. Retire o VM do grupo de colocação de proximidade antes de o mover para um hospedeiro dedicado. Para obter mais informações, consulte [mover um VM de um grupo de colocação de proximidade](../windows/proximity-placement-groups.md#move-an-existing-vm-out-of-a-proximity-placement-group)
 - O VM não pode estar num conjunto de disponibilidade.
 - Se o VM estiver numa zona de disponibilidade, deve ser a mesma zona de disponibilidade que o grupo anfitrião. As definições da zona de disponibilidade para o VM e o grupo anfitrião devem corresponder.
 
@@ -59,13 +60,10 @@ Mover o VM para um hospedeiro dedicado utilizando o [portal](https://portal.azur
 1. Depois de adicionar o VM ao anfitrião, selecione **a visão geral** do menu esquerdo.
 1. No topo da página, selecione **Iniciar** a reiniciar o VM.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para mais informações, consulte a visão geral dos [anfitriões dedicados.](dedicated-hosts.md)
 
 - Existe o modelo de amostra, encontrado [aqui,](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)que usa ambas as zonas e domínios de avaria para máxima resiliência numa região.
 
 - Também pode implantar um anfitrião dedicado utilizando o [Azure CLI](dedicated-hosts-cli.md).
-
-
-

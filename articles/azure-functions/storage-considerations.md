@@ -3,11 +3,12 @@ title: Considerações de armazenamento para funções Azure
 description: Saiba mais sobre os requisitos de armazenamento das Funções Azure e sobre a encriptação de dados armazenados.
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 324516240d09a5443908cbffec514e4caba2b604
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2efd583b319e3f3b1fa3db307ea4a3cf53710165
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83648790"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079609"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considerações de armazenamento para funções Azure
 
@@ -40,7 +41,7 @@ Cada aplicação de função requer que uma conta de armazenamento funcione. Se 
 
 A ligação à conta de armazenamento é mantida na definição da [aplicação AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). 
 
-O fio de ligação da conta de armazenamento deve ser atualizado quando regenerar as chaves de armazenamento. [Leia mais sobre a gestão de chaves de armazenamento aqui.](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)
+O fio de ligação da conta de armazenamento deve ser atualizado quando regenerar as chaves de armazenamento. [Leia mais sobre a gestão de chaves de armazenamento aqui.](../storage/common/storage-account-create.md)
 
 ### <a name="shared-storage-accounts"></a>Contas de armazenamento partilhadas
 
@@ -73,11 +74,9 @@ import os
 files_in_share = os.listdir("/path/to/mount")
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as opções de hospedagem do Azure Functions.
 
 > [!div class="nextstepaction"]
 > [Dimensionamento e alojamento de Funções do Azure](functions-scale.md)
-
-

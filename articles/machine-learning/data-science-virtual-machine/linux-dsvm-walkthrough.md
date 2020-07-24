@@ -9,11 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: dec9d7d6f4676c3550bb6c0be79e25d907e5b3da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed552a57e51ce9249f84bab6bb72bfe783e43edb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83682488"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078106"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Ciência de dados com uma máquina virtual linux data science em Azure
 
@@ -29,7 +30,7 @@ Antes de poder utilizar um DSVM Linux, deve ter os seguintes pré-requisitos:
 
 * **Assinatura Azure**. Para obter uma subscrição do Azure, consulte [hoje a sua conta Azure gratuita.](https://azure.microsoft.com/free/)
 * [**Máquina virtual linux data science**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Para obter informações sobre o fornecimento da máquina virtual, consulte [a Máquina Virtual Linux Data Science](linux-dsvm-intro.md).
-* [**X2Go**](https://wiki.x2go.org/doku.php) instalado no seu computador com uma sessão de XFCE aberta. Para mais informações, consulte [instalar e configurar o cliente X2Go.](linux-dsvm-intro.md#x2go)
+* [**X2Go**](https://wiki.x2go.org/doku.php) instalado no seu computador com uma sessão de XFCE aberta. Para mais informações, consulte [instalar e configurar o cliente X2Go.](dsvm-ubuntu-intro.md#x2go)
 * Para uma experiência de scrolling mais suave, no navegador web Firefox da DSVM, altere a `gfx.xrender.enabled` bandeira em `about:config` . [Saiba mais](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Considere também a definição `mousewheel.enable_pixel_scrolling` para `False` . [Saiba mais](https://support.mozilla.org/questions/981140).
 * **Conta Azure Machine Learning**. Se ainda não tiver uma, inscreva-se para uma nova conta na página inicial do [Azure Machine Learning](https://azure.microsoft.com/free/services/machine-learning//).
 
@@ -374,12 +375,12 @@ Também pode utilizar o separador **Explore** para gerar enredos perspicazes. Pa
 
 1. Selecione **Distribuições**.
 1. Para **word_freq_remove** e **word_freq_you,** selecione **Histograma**.
-1. Selecione **Executar**. Você deve ver ambos os enredos de densidade em uma única janela de gráfico, onde é claro que a palavra _que você_ aparece muito mais frequentemente em e-mails do que _remover_.
+1. Selecione **Execute** (Executar). Você deve ver ambos os enredos de densidade em uma única janela de gráfico, onde é claro que a palavra _que você_ aparece muito mais frequentemente em e-mails do que _remover_.
 
 Os enredos **da Correlação** também são interessantes. Para criar um enredo:
 
 1. Para **tipo**, selecione **Correlation**.
-1. Selecione **Executar**.
+1. Selecione **Execute** (Executar).
 1. O Rattle avisa-lhe que recomenda um máximo de 40 variáveis. Selecione **Sim** para ver o enredo.
 
 Há algumas correlações interessantes que surgem: a _tecnologia_ está fortemente correlacionada com a _HP_ e _os laboratórios_, por exemplo. Também está fortemente correlacionado com _650_ porque o código de área dos dadores de conjuntos de dados é 650.
@@ -401,7 +402,7 @@ O chocalho também pode executar a análise do cluster. Vamos excluir algumas fu
 * word_freq_business
 * spam
 
-Voltar ao **separador Cluster.** Selecione **KMeans**e, em seguida, coloque **o número de aglomerados** em **4**. Selecione **Executar**. Os resultados são apresentados na janela de saída. Um cluster tem alta frequência _de george_ e _hp_, e é provavelmente um e-mail de negócios legítimo.
+Voltar ao **separador Cluster.** Selecione **KMeans**e, em seguida, coloque **o número de aglomerados** em **4**. Selecione **Execute** (Executar). Os resultados são apresentados na janela de saída. Um cluster tem alta frequência _de george_ e _hp_, e é provavelmente um e-mail de negócios legítimo.
 
 Para construir um modelo básico de aprendizagem de máquinas de decisão:
 
@@ -413,7 +414,7 @@ Para construir um modelo básico de aprendizagem de máquinas de decisão:
 Uma característica útil do Rattle é a sua capacidade de executar vários métodos de aprendizagem automática e avaliá-los rapidamente. Aqui estão os passos:
 
 1. Para **escrever**, selecione **All**.
-1. Selecione **Executar**.
+1. Selecione **Execute** (Executar).
 1. Quando o Rattle terminar de correr, pode selecionar qualquer valor **tipo,** como **SVM,** e ver os resultados.
 1. Também pode comparar o desempenho dos modelos no conjunto de validação utilizando o separador **Avaliar.** Por exemplo, a seleção **Desemprete Matrix** mostra-lhe a matriz de confusão, erro geral e erro de classe médio para cada modelo no conjunto de validação. Também pode traçar curvas ROC, executar análises de sensibilidade e fazer outros tipos de avaliações de modelos.
 
@@ -495,7 +496,7 @@ Para começar, no menu **Aplicações,** abra O SQL SQuirreL. Para configurar o 
 1. Clique à direita **PostgreSQL** e selecione **Modificar o Controlador.**
 1. Selecione **extra class path**  >  **add**.
 1. Para **o nome do ficheiro**, insira **/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar**.
-1. Selecione **Open** (Abrir).
+1. Selecione **Abrir**.
 1. Selecione **Condutores de Listas**. Para **o nome da classe**, selecione **org.postgresql.Driver**, e, em seguida, selecione **OK**.
 
 Para configurar a ligação ao servidor local:
@@ -566,7 +567,7 @@ GO
 
 Também pode consultar o SQuirreL SQL. Siga passos semelhantes ao PostgreSQL utilizando o controlador JDBC do servidor SQL. O controlador JDBC está na pasta /usr/share/java/jdbcdrivers/sqljdbc42.jar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma visão geral de artigos que o percorrem através das tarefas que compõem o processo de ciência de dados em Azure, consulte [o Processo de Ciência de Dados da Equipa.](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview)
 

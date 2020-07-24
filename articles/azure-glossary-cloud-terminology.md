@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: fa7464c70593c83c708aba49235ecdde1be0cc9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a06435d4b5a4c11f74073e67e3f48fd2ed0779d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807764"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079575"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure glossário: Um dicionário de terminologia em nuvem na plataforma Azure
 
@@ -51,7 +51,7 @@ Uma interface de linha de comando que pode ser usada para gerir os serviços Azu
 
 ## <a name="azure-powershell"></a><a name="powershell"></a>Azure PowerShell
 Uma interface de linha de comando para gerir os serviços Azure através de uma linha de comando a partir de Computadores Windows. Alguns serviços ou funcionalidades de serviço só podem ser geridos através do PowerShell ou do CLI.
-Ver [Como instalar e configurar a Azure PowerShell](/powershell/azure/overview)
+Ver [Como instalar e configurar a Azure PowerShell](/powershell/azure/)
 
 ## <a name="azure-resource-manager-deployment-model"></a><a name="arm-model"></a>Modelo de implementação do Gestor de Recursos Azure
 Um dos dois modelos de [implementação usados](resource-manager-deployment-model.md) para implementar recursos no Microsoft Azure (o outro é o modelo clássico de implementação). Alguns serviços Azure suportam apenas o modelo de implementação do Gestor de Recursos, alguns suportam apenas o modelo clássico de implementação, e alguns suportes ambos. A documentação de cada serviço Azure especifica quais os modelos que suportam.
@@ -153,7 +153,7 @@ Ver [Visão Geral da Rede Virtual](virtual-network/virtual-networks-overview.md)
 ## <a name="web-app"></a>Aplicação Web
 Outro nome para [App Service App](#app-service-app).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Introdução ao Azure](https://azure.microsoft.com/get-started/)
 * [Centro de recursos de nuvem](https://azure.microsoft.com/resources/)  

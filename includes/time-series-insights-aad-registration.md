@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.date: 02/03/2020
-ms.openlocfilehash: 5be6e7937a6e1f710b8e2576a9058963413fb6c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2e86a92c253bc1926386269e289cdb7ae578746
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76984594"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080778"
 ---
 1. No [portal Azure,](https://ms.portal.azure.com/)selecione **Azure Ative Directory**  >  **App registos**  >  **Novo registo**.
 
@@ -66,7 +66,7 @@ ms.locfileid: "76984594"
    > [!NOTE]
    > Em vez disso, tem a capacidade de importar um certificado. Para uma segurança reforçada, recomenda-se um certificado. Para utilizar um certificado, selecione **o certificado de upload**.
 
-1. Associe a sua app Azure Ative Directory Azure TIme Series Insights. Selecione **permissões API**  >  **Adicione uma permissão**  >  **APIs que a minha organização usa.** 
+1. Associe a sua app Azure Ative Directory Azure Time Series Insights. Selecione **permissões API**  >  **Adicione uma permissão**  >  **APIs que a minha organização usa.** 
 
     [![Associe uma API com a sua app Azure Ative Directory](media/time-series-insights-aad-registration/active-directory-app-api-permission.png)](media/time-series-insights-aad-registration/active-directory-app-api-permission.png#lightbox)
 

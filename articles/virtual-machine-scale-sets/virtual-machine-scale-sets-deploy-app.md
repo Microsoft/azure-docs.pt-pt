@@ -9,11 +9,12 @@ ms.subservice: management
 ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 7c39088890680b6cfc903083283ed09cb7618d16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90cda1e8d48e6c7f9e925d6d1b9e11b5d2514e93
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124929"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080527"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementar uma aplicação em conjuntos de dimensionamento de máquinas virtuais
 
@@ -111,5 +112,5 @@ Quando os novos lançamentos de SO estiverem disponíveis, pode utilizar ou cons
 Se utilizar uma imagem VM personalizada com a aplicação pré-instalada, poderá integrar as atualizações da aplicação com um pipeline de implementação para construir as novas imagens e implementar atualizações de SISTEMA em toda a escala definida. Esta abordagem permite ao pipeline recolher as mais recentes construções de aplicações, criar e validar uma imagem VM e, em seguida, atualizar as instâncias VM no conjunto de escala. Para executar um oleoduto de implementação que constrói e implementa atualizações de aplicações através de imagens VM personalizadas, pode [criar uma imagem Packer e implementar com a Azure DevOps Services](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset), ou usar outra plataforma como [Spinnaker](https://www.spinnaker.io/) ou [Jenkins.](https://jenkins.io/)
 
 
-## <a name="next-steps"></a>Próximos passos
-À medida que constrói e implementa aplicações para os seus conjuntos de escala, pode rever a [visão geral do conjunto de escalas](virtual-machine-scale-sets-design-overview.md). Para obter mais informações sobre como gerir o seu conjunto de escalas, consulte [Use PowerShell para gerir o seu conjunto de escalas](virtual-machine-scale-sets-windows-manage.md).
+## <a name="next-steps"></a>Passos seguintes
+À medida que constrói e implementa aplicações para os seus conjuntos de escala, pode rever a [visão geral do conjunto de escalas](virtual-machine-scale-sets-design-overview.md). Para obter mais informações sobre como gerir o seu conjunto de escalas, consulte [Use PowerShell para gerir o seu conjunto de escalas](./virtual-machine-scale-sets-manage-powershell.md).

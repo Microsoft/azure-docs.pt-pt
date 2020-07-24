@@ -2,12 +2,13 @@
 title: Implementar recursos com API rest e modelo
 description: Utilize o Azure Resource Manager e o Resource Manager REST API para mobilizar recursos para o Azure. Os recursos são definidos num modelo do Resource Manager.
 ms.topic: conceptual
-ms.date: 06/04/2020
-ms.openlocfilehash: a2280d3bb406fd7e5c41558478363de68cbd44b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/21/2020
+ms.openlocfilehash: 17ea7da3e0b581ed60d2db97d350a70d5250ef28
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678414"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079485"
 ---
 # <a name="deploy-resources-with-arm-templates-and-resource-manager-rest-api"></a>Implementar recursos com modelos ARM e Gestor de Recursos REST API
 
@@ -100,7 +101,7 @@ Os exemplos deste artigo utilizam implementações de grupos de recursos.
    }
    ```
 
-    Se pretender registar o conteúdo da resposta, solicite conteúdo, ou ambos, **inclua depurar** o pedido.
+    Se pretender registar o conteúdo da resposta, solicite conteúdo, ou ambos, inclua `debugSetting` no pedido.
 
    ```json
    {
@@ -194,7 +195,23 @@ Os exemplos deste artigo utilizam implementações de grupos de recursos.
    GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-10-01
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="deployment-name"></a>Nome de implantação
+
+Pode dar à sua implantação um nome como `ExampleDeployment` .
+
+Sempre que executa uma implantação, uma entrada é adicionada ao histórico de implantação do grupo de recursos com o nome de implantação. Se executar outra implantação e lhe der o mesmo nome, a entrada anterior é substituída pela implementação atual. Se pretender manter entradas únicas no histórico de implantação, dê a cada implementação um nome único.
+
+Para criar um nome único, pode atribuir um número aleatório. Ou adicionar um valor de data.
+
+Se executar implementações simultâneas para o mesmo grupo de recursos com o mesmo nome de implantação, apenas a última implementação é concluída. Quaisquer implementações com o mesmo nome que não tenham terminado são substituídas pela última implantação. Por exemplo, se executar uma implantação com o nome `newStorage` de uma conta de armazenamento chamada , e ao mesmo tempo executar outra `storage1` implantação com o nome de uma `newStorage` conta de armazenamento chamada , implementa `storage2` apenas uma conta de armazenamento. A conta de armazenamento resultante é `storage2` nomeada.
+
+No entanto, se executar uma implantação com o nome `newStorage` de uma conta de armazenamento chamada , e imediatamente após a sua `storage1` conclusão, executar outra implantação com o nome `newStorage` de uma conta de armazenamento chamada , `storage2` então tem duas contas de armazenamento. Um tem o nome `storage1` , e o outro chama-se `storage2` . Mas só tens uma entrada na história da implantação.
+
+Quando especificar um nome único para cada implantação, pode executá-los simultaneamente sem conflitos. Se executar uma implantação com o nome `newStorage1` de uma conta de armazenamento chamada , e ao mesmo tempo executar outra `storage1` implantação com o nome de uma `newStorage2` conta de armazenamento , `storage2` então tem duas contas de armazenamento e duas entradas no histórico de implantação.
+
+Para evitar conflitos com implementações simultâneas e para garantir entradas únicas no histórico de implantação, dê a cada implementação um nome único.
+
+## <a name="next-steps"></a>Passos seguintes
 
 - Para voltar a uma implementação bem sucedida quando tiver um erro, consulte [o Reversão do erro para uma implementação bem sucedida](rollback-on-error.md).
 - Para especificar como lidar com os recursos que existem no grupo de recursos mas não estão definidos no modelo, consulte os [modos de implementação do Gestor de Recursos Azure](deployment-modes.md).

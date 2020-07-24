@@ -3,11 +3,12 @@ title: Visão geral das versões de tempo de execução do Azure Functions
 description: O Azure Functions suporta várias versões do tempo de execução. Aprende as diferenças entre eles e como escolher o que é certo para ti.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 0989795d802b21e07ad9fea3bd417f0408df706c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29dd4a1ea60c463655c5b9a17fedcf6d51eee927
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83996725"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081683"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Visão geral das versões de tempo de execução do Azure Functions
 
@@ -90,7 +91,7 @@ Seguem-se as alterações a ter em conta antes de atualizar uma aplicação de 2
 
 #### <a name="net"></a>.NET
 
-* [As operações do servidor sincronizado são desativadas por defeito](https://docs.microsoft.com/dotnet/core/compatibility/2.2-3.0#http-synchronous-io-disabled-in-all-servers).
+* [As operações do servidor sincronizado são desativadas por defeito](/dotnet/core/compatibility/2.2-3.0#http-synchronous-io-disabled-in-all-servers).
 
 ### <a name="changing-version-of-apps-in-azure"></a>Mudar versão de apps em Azure
 
@@ -192,9 +193,9 @@ A tabela a seguir mostra quais as ligações suportadas em cada versão de tempo
 
 [!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações, consulte os seguintes recursos:
+Para obter mais informações, veja os seguintes recursos:
 
 * [Criar código e testar as Funções do Azure localmente](functions-run-local.md)
 * [Como direcionar as versões de tempo de execução do Azure Functions](set-runtime-version.md)

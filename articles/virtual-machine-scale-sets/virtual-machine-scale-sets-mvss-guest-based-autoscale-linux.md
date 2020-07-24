@@ -9,23 +9,24 @@ ms.subservice: autoscale
 ms.date: 04/26/2019
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: aa004cc3ad6c02937ae3c3c8bdb1d5ebd225f434
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 549f8fbc1e3acf435011f223faeb5b8240f0c55d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124810"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080425"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Autoescala usando métricas de hóspedes em um modelo de conjunto de escala Linux
 
 Existem dois amplos tipos de métricas em Azure que são recolhidas a partir de VMs e conjuntos de escala: métricas de anfitrião e métricas de hóspedes. A um nível elevado, se você gostaria de usar CPU padrão, métricas de disco e rede, então as métricas do hospedeiro são um bom ajuste. Se, no entanto, precisar de uma maior seleção de métricas, então as métricas dos hóspedes devem ser analisadas.
 
-As métricas do anfitrião não requerem configuração adicional porque são recolhidas pelo VM anfitrião, enquanto as métricas dos hóspedes exigem que você instale a [extensão de Diagnóstico do Windows Azure](../virtual-machines/windows/extensions-diagnostics-template.md) ou a [extensão de Diagnóstico Linux Azure](../virtual-machines/linux/diagnostic-extension.md) no VM convidado. Uma razão comum para usar métricas de hóspedes em vez de métricas de hospedeiro é que as métricas dos hóspedes fornecem uma maior seleção de métricas do que as métricas do hospedeiro. Um desses exemplos são as métricas de consumo de memória, que só estão disponíveis através de métricas de hóspedes. As métricas de anfitrião suportadas estão listadas [aqui,](../azure-monitor/platform/metrics-supported.md)e as métricas de hóspedes geralmente usadas estão listadas [aqui.](../azure-monitor/platform/autoscale-common-metrics.md) Este artigo mostra como modificar o [modelo básico de conjunto de escala viável](virtual-machine-scale-sets-mvss-start.md) para usar regras de autoescala com base em métricas de hóspedes para conjuntos de escala Linux.
+As métricas do anfitrião não requerem configuração adicional porque são recolhidas pelo VM anfitrião, enquanto as métricas dos hóspedes exigem que você instale a [extensão de Diagnóstico do Windows Azure](../virtual-machines/extensions/diagnostics-template.md) ou a [extensão de Diagnóstico Linux Azure](../virtual-machines/extensions/diagnostics-linux.md) no VM convidado. Uma razão comum para usar métricas de hóspedes em vez de métricas de hospedeiro é que as métricas dos hóspedes fornecem uma maior seleção de métricas do que as métricas do hospedeiro. Um desses exemplos são as métricas de consumo de memória, que só estão disponíveis através de métricas de hóspedes. As métricas de anfitrião suportadas estão listadas [aqui,](../azure-monitor/platform/metrics-supported.md)e as métricas de hóspedes geralmente usadas estão listadas [aqui.](../azure-monitor/platform/autoscale-common-metrics.md) Este artigo mostra como modificar o [modelo básico de conjunto de escala viável](virtual-machine-scale-sets-mvss-start.md) para usar regras de autoescala com base em métricas de hóspedes para conjuntos de escala Linux.
 
 ## <a name="change-the-template-definition"></a>Alterar a definição de modelo
 
 Num [artigo anterior](virtual-machine-scale-sets-mvss-start.md) tínhamos criado um modelo de conjunto de escala básica. Vamos agora usar esse modelo anterior e modificá-lo para criar um modelo que implementa um conjunto de escala Linux com autoescala baseada em métricas de hóspedes.
 
-Primeiro, adicione parâmetros para `storageAccountName` e `storageAccountSasToken` . O agente de diagnóstico armazena dados métricos numa [tabela](../cosmos-db/table-storage-how-to-use-dotnet.md) nesta conta de armazenamento. A partir da versão 3.0 do Agente de Diagnóstico Linux, a utilização de uma chave de acesso ao armazenamento já não é suportada. Em vez disso, use um [Token SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Primeiro, adicione parâmetros para `storageAccountName` e `storageAccountSasToken` . O agente de diagnóstico armazena dados métricos numa [tabela](../cosmos-db/tutorial-develop-table-dotnet.md) nesta conta de armazenamento. A partir da versão 3.0 do Agente de Diagnóstico Linux, a utilização de uma chave de acesso ao armazenamento já não é suportada. Em vez disso, use um [Token SAS](../storage/common/storage-sas-overview.md).
 
 ```diff
      },
@@ -41,7 +42,7 @@ Primeiro, adicione parâmetros para `storageAccountName` e `storageAccountSasTok
    },
 ```
 
-Em seguida, modifique a escala definida `extensionProfile` para incluir a extensão de diagnóstico. Nesta configuração, especifique o ID de recurso da escala definida para recolher métricas, bem como a conta de armazenamento e o token SAS para usar para armazenar as métricas. Especificar com que frequência as métricas são agregadas (neste caso, a cada minuto) e quais as métricas a rastrear (neste caso, por cento de memória usada). Para obter informações mais detalhadas sobre esta configuração e métricas que não a porcento da memória usada, consulte [esta documentação](../virtual-machines/linux/diagnostic-extension.md).
+Em seguida, modifique a escala definida `extensionProfile` para incluir a extensão de diagnóstico. Nesta configuração, especifique o ID de recurso da escala definida para recolher métricas, bem como a conta de armazenamento e o token SAS para usar para armazenar as métricas. Especificar com que frequência as métricas são agregadas (neste caso, a cada minuto) e quais as métricas a rastrear (neste caso, por cento de memória usada). Para obter informações mais detalhadas sobre esta configuração e métricas que não a porcento da memória usada, consulte [esta documentação](../virtual-machines/extensions/diagnostics-linux.md).
 
 ```diff
                  }
@@ -180,6 +181,6 @@ Finalmente, adicione um `autoscaleSettings` recurso para configurar a autoescala
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

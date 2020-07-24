@@ -10,15 +10,15 @@ ms.subservice: management
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: d2160f2c014e1bf7c486c29a48c756936df12788
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5aad73db2f01cec8c1c8b0144d29c105b6e8ae0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373986"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080510"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Considerações de design para conjuntos de escalas
-Este artigo discute considerações de design para conjuntos de escala de máquina virtual. Para obter informações sobre quais são os conjuntos de escala de máquina virtual, consulte a [visão geral dos conjuntos de escala de máquinas virtuais](virtual-machine-scale-sets-overview.md).
+Este artigo discute considerações de design para conjuntos de escala de máquina virtual. Para obter informações sobre quais são os conjuntos de escala de máquina virtual, consulte a [visão geral dos conjuntos de escala de máquinas virtuais](./overview.md).
 
 ## <a name="when-to-use-scale-sets-instead-of-virtual-machines"></a>Quando usar conjuntos de escala em vez de máquinas virtuais?
 Geralmente, os conjuntos de escala são úteis para implantar infraestruturas altamente disponíveis onde um conjunto de máquinas tem uma configuração semelhante. No entanto, algumas funcionalidades só estão disponíveis em conjuntos de escala, enquanto outras funcionalidades só estão disponíveis em VMs. Para tomar uma decisão informada sobre quando usar cada tecnologia, você deve primeiro dar uma olhada em algumas das funcionalidades geralmente usadas que estão disponíveis em conjuntos de escala, mas não VMs:
@@ -27,8 +27,8 @@ Geralmente, os conjuntos de escala são úteis para implantar infraestruturas al
 
 - Uma vez especificada a configuração definida na escala, pode atualizar a propriedade de *capacidade* para implantar mais VMs em paralelo. Este processo é melhor do que escrever um script para orquestrar a implementação de muitos VMs individuais em paralelo.
 - Pode [utilizar o Azure Autoscale para escalar automaticamente um conjunto de escala,](./virtual-machine-scale-sets-autoscale-overview.md) mas não vMs individuais.
-- Pode [reimagem conjunto de VMs,](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage) mas [não VMs individuais.](https://docs.microsoft.com/rest/api/compute/virtualmachines)
-- Pode [aumentar a](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning) escala de VMs para aumentar a fiabilidade e os tempos de implementação mais rápidos. Não é possível exagerar nos VM individuais a menos que escreva código personalizado para realizar esta ação.
+- Pode [reimagem conjunto de VMs,](/rest/api/compute/virtualmachinescalesets/reimage) mas [não VMs individuais.](/rest/api/compute/virtualmachines)
+- Pode [aumentar a](#overprovisioning) escala de VMs para aumentar a fiabilidade e os tempos de implementação mais rápidos. Não é possível exagerar nos VM individuais a menos que escreva código personalizado para realizar esta ação.
 - Pode especificar uma [política de atualização](./virtual-machine-scale-sets-upgrade-scale-set.md) para facilitar a colocação de upgrades em VMs no seu conjunto de escala. Com VMs individuais, você deve orquestrar atualizações por si mesmo.
 
 ### <a name="vm-specific-features"></a>Características específicas do VM
@@ -68,4 +68,3 @@ Um conjunto de escala configurado com contas de armazenamento geridas pelo utili
 Um conjunto de escala construído sobre uma imagem personalizada (uma construída por si) pode ter uma capacidade de até 600 VMs quando configurado com discos geridos Azure. Se o conjunto de escalas estiver configurado com contas de armazenamento geridas pelo utilizador, deve criar todos os VHDs do disco DE NUMA conta de armazenamento. Como resultado, o número máximo recomendado de VMs em um conjunto de escala construído em uma imagem personalizada e armazenamento gerido pelo utilizador é de 20. Se desligar o excesso de revisão, pode chegar aos 40.
 
 Para mais VMs do que estes limites permitem, você precisa implementar conjuntos de várias escalas como mostrado [neste modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale).
-

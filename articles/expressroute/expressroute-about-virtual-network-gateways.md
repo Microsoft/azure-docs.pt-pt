@@ -7,11 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: mialdrid
-ms.openlocfilehash: 58e75e4efecf390c4c1449b7ec59684554fa7516
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7779e0638ea61c70758394dc212910ba8f1d7f6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710512"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081139"
 ---
 # <a name="about-expressroute-virtual-network-gateways"></a>Sobre os gateways de rede virtual ExpressRoute
 
@@ -27,7 +28,7 @@ Quando criar um gateway de rede virtual, tem de especificar várias definições
 
 Cada rede virtual pode ter apenas um gateway de rede virtual por tipo de gateway. Por exemplo, pode ter um gateway de rede virtual que utilize -GatewayType Vpn e outro que utilize GatewayType ExpressRoute.
 
-## <a name="gateway-skus"></a><a name="gwsku"></a>SKUs de gateway
+## <a name="gateway-skus"></a><a name="gwsku"></a>SKUs de Gateway
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
 Se quiser atualizar o seu gateway para um gateway SKU mais potente, na maioria dos casos pode utilizar o cmdlet PowerShell 'Resize-AzVirtualNetworkGateway'. Isto funcionará para upgrades para SKUs Standard e HighPerformance. No entanto, para atualizar para o SKU UltraPerformance, terá de recriar o gateway. Recriar um portal incorre no tempo de inatividade.
@@ -87,10 +88,10 @@ Para obter recursos técnicos adicionais e requisitos específicos de sintaxe ao
 
 | **Clássico** | **Resource Manager** |
 | --- | --- |
-| [PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure) |[PowerShell](https://docs.microsoft.com/powershell/module/az.network#networking) |
+| [PowerShell](/powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0#azure) |[PowerShell](https://docs.microsoft.com/powershell/module/az.network#networking) |
 | [API REST](https://msdn.microsoft.com/library/jj154113.aspx) |[API REST](https://msdn.microsoft.com/library/mt163859.aspx) |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre as configurações de ligação disponíveis, consulte [a Visão Geral do ExpressRoute](expressroute-introduction.md).
 

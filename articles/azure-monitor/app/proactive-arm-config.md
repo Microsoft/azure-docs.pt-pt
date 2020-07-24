@@ -6,12 +6,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7ca4df620739b2ab55b8ba986031cc48fe87f1fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5a4cb788a24252a2de7b9d669b166b25ed48be1c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80294907"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081598"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gerir regras de deteção inteligentes de deteção de aplicações usando modelos de Gestor de Recursos Azure
 
@@ -22,7 +22,7 @@ Este método pode ser utilizado ao implementar novos recursos de Insights de Apl
 
 Pode configurar as seguintes definições para uma regra de deteção inteligente:
 - Se a regra estiver ativada (o padrão é **verdadeiro**.)
-- Se os e-mails forem enviados aos utilizadores associados às funções de [Monitoring Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) e [Monitoring Da](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) subscrição quando uma deteção é encontrada (o padrão é **verdadeiro**.)
+- Se os e-mails forem enviados aos utilizadores associados às funções de [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) e [Monitoring Da](../../role-based-access-control/built-in-roles.md#monitoring-contributor) subscrição quando uma deteção é encontrada (o padrão é **verdadeiro**.)
 - Quaisquer destinatários de e-mail adicionais que devam receber uma notificação quando uma deteção é encontrada.
     -  A configuração de e-mail não está disponível para regras de Deteção Inteligente marcadas como _pré-visualização_.
 

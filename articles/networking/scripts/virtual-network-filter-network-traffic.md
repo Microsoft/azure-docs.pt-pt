@@ -11,13 +11,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
-ms.openlocfilehash: e91e59e8e8acbf76ed35cff6b2f654103bb763b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb62def47e46e6f72a2f04efaefaa9d36ef9e72c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73888563"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080906"
 ---
-# <a name="filter-inbound-and-outbound-vm-network-traffic"></a>Filtrar o tráfego de rede VM de entrada e saída
+# <a name="use-an-azure-cli-script-to-filter-inbound-and-outbound-vm-network-traffic"></a>Use um script Azure CLI para filtrar o tráfego de rede VM de entrada e saída
 
 Este script de exemplo cria uma rede virtual com as sub-redes de front-end e back-end. O tráfego de rede de entrada na sub-rede frontal é limitado a HTTP, HTTPS e SSH, enquanto não é permitido o tráfego de saída para a Internet a partir da sub-rede back-end. Depois de executar o script, terá uma máquina virtual com dois NICs. Cada NIC está ligado a outra sub-rede.
 
@@ -55,7 +56,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma r
 | [az vm create](/cli/azure/vm) | Cria máquinas virtuais e anexa um NIC para cada VM. Este comando também especifica a imagem da máquina virtual a utilizar e as credenciais administrativas. |
 | [az group delete](/cli/azure/group) | Elimina um grupo de recursos e todos os recursos contidos no mesmo. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

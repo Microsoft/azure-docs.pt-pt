@@ -3,17 +3,18 @@ title: Pacote de deteção de segurança com insights de aplicações Azure
 description: Monitorize a aplicação com Azure Application Insights e Smart Detection para potenciais problemas de segurança.
 ms.topic: conceptual
 ms.date: 12/12/2017
-ms.openlocfilehash: b23ada6fe4596a2eee242cc9145789521caf697f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ed304e903bb50591e61e294b6701f8268f9d8e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669731"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081632"
 ---
 # <a name="application-security-detection-pack-preview"></a>Pacote de deteção de segurança de aplicação (pré-visualização)
 
 O Application Insights analisa automaticamente a telemetria gerada pela sua aplicação e deteta potenciais problemas de segurança. Esta capacidade permite identificar potenciais problemas de segurança e tratá-los corrigindo a aplicação ou tomando as medidas de segurança necessárias.
 
-Esta funcionalidade não requer nenhuma configuração especial, além de [configurar a sua aplicação para enviar telemetria.](https://docs.microsoft.com/azure/application-insights/app-insights-usage-overview)
+Esta funcionalidade não requer nenhuma configuração especial, além de [configurar a sua aplicação para enviar telemetria.](./usage-overview.md)
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Quando é que eu receberia este tipo de notificação de deteção inteligente?
 Existem três tipos de problemas de segurança que são detetados:

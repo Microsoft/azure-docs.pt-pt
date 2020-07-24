@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 51d7ae8671d4b57e1822aa1c4ee5bf30a5f24cbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ed9e9e4ec658fc506ad2bd449ee1a49d510503f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253992"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081343"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Utilize pontos finais de serviço de rede virtual e regras para servidores na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -31,8 +31,6 @@ Para criar uma regra de rede virtual, deve primeiro existir um [ponto final de s
 ## <a name="how-to-create-a-virtual-network-rule"></a>Como criar uma regra de rede virtual
 
 Se criar apenas uma regra de rede virtual, pode adiantar-se aos passos e explicações [mais tarde neste artigo.](#anchor-how-to-by-using-firewall-portal-59j)
-
-<!--<a name="anch-details-about-vnet-rules-38q"/> -->
 
 ## <a name="details-about-virtual-network-rules"></a>Detalhes sobre regras de rede virtual
 
@@ -282,7 +280,7 @@ Já deve ter uma sub-rede que está marcada com o nome de *tipo de ponto* final 
 - [Pontos finais de serviço de rede virtual Azure][vm-virtual-network-service-endpoints-overview-649d]
 - [Regras de firewall ao nível do servidor e de nível de base de dados][sql-db-firewall-rules-config-715d]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Utilize o PowerShell para criar um ponto final de serviço de rede virtual e, em seguida, uma regra de rede virtual para Azure SQL Database.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
 - [Regras de Rede Virtual: Operações][rest-api-virtual-network-rules-operations-862r] com APIs REST

@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5560d24601b8aef0d8a4058cc2c04e27e9c86362
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c3d43bc20c31475a00a0ea81e4abdeb5405162a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170416"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081802"
 ---
 # <a name="monitor-azure-functions"></a>Monitorizar as Funções do Azure
 
@@ -58,7 +58,7 @@ Para abrir insights de aplicação a partir de uma aplicação de função no po
 
 ![Abrir informações sobre aplicações a partir da página geral da aplicação de funções](media/functions-monitoring/ai-link.png)
 
-Para obter informações sobre como utilizar o Application Insights, consulte a [documentação do Application Insights](https://docs.microsoft.com/azure/application-insights/). Esta secção mostra alguns exemplos de como visualizar dados em Insights de Aplicação. Se já está familiarizado com o Application Insights, pode ir diretamente às [secções sobre como configurar e personalizar os dados de telemetria](#configure-categories-and-log-levels).
+Para obter informações sobre como utilizar o Application Insights, consulte a [documentação do Application Insights](/azure/application-insights/). Esta secção mostra alguns exemplos de como visualizar dados em Insights de Aplicação. Se já está familiarizado com o Application Insights, pode ir diretamente às [secções sobre como configurar e personalizar os dados de telemetria](#configure-categories-and-log-levels).
 
 ![Separador de visão geral de insights de aplicação](media/functions-monitoring/metrics-explorer.png)
 
@@ -68,12 +68,12 @@ As seguintes áreas de Insights de Aplicação podem ser úteis na avaliação d
 | ---- | ----------- |
 | **[Falhas](../azure-monitor/app/asp-net-exceptions.md)** |  Crie gráficos e alertas com base em falhas de função e exceções ao servidor. O **Nome da Operação** é o nome da função. Falhas nas dependências não são mostradas a menos que implemente telemetria personalizada para dependências. |
 | **[Desempenho](../azure-monitor/app/performance-counters.md)** | Analise os problemas de desempenho visualizando a utilização de recursos e a produção por **instâncias de função cloud**. Estes dados podem ser úteis para depurar cenários onde as funções estão a atrapalhar os seus recursos subjacentes. |
-| **[Métricas](../azure-monitor/app/metrics-explorer.md)** | Crie gráficos e alertas baseados em métricas. As métricas incluem o número de invocações de funções, tempo de execução e taxas de sucesso. |
+| **[Métricas](../azure-monitor/platform/metrics-charts.md)** | Crie gráficos e alertas baseados em métricas. As métricas incluem o número de invocações de funções, tempo de execução e taxas de sucesso. |
 | **[Métricas Vivas](../azure-monitor/app/live-stream.md)** | Veja os dados das métricas como são criados em quase tempo real. |
 
 ## <a name="query-telemetry-data"></a>Dados de telemetria de consulta
 
-[Application Insights Analytics](../azure-monitor/app/analytics.md) dá-lhe acesso a todos os dados de telemetria sob a forma de tabelas numa base de dados. A Analytics fornece uma linguagem de consulta para extrair, manipular e visualizar os dados. 
+[Application Insights Analytics](../azure-monitor/log-query/log-query-overview.md) dá-lhe acesso a todos os dados de telemetria sob a forma de tabelas numa base de dados. A Analytics fornece uma linguagem de consulta para extrair, manipular e visualizar os dados. 
 
 Escolha **Registos** para explorar ou consultar eventos registados.
 
@@ -153,7 +153,7 @@ O [host.jsno] ficheiro configura a quantidade de registo de uma aplicação de f
 
 ### <a name="version-2x-and-higher"></a>Versão 2.x e superior
 
-Versão v2.x e versões posteriores do tempo de execução das Funções utilize a hierarquia do [filtro de registo de registo .NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
+Versão v2.x e versões posteriores do tempo de execução das Funções utilize a hierarquia do [filtro de registo de registo .NET Core](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
 
 ```json
 {
@@ -246,7 +246,7 @@ Como indicado na secção anterior, o tempo de execução agrega dados sobre exe
 
 ## <a name="configure-sampling"></a>Amostragem de configure
 
-A Application Insights tem uma funcionalidade [de amostragem](../azure-monitor/app/sampling.md) que pode protegê-lo de produzir demasiados dados de telemetria em execuções concluídas em momentos de carga máxima. Quando a taxa de execuções recebidas excede um limiar especificado, os Insights de Aplicação começam a ignorar aleatoriamente algumas das execuções recebidas. A definição predefinição para o número máximo de execuções por segundo é de 20 (cinco na versão 1.x). Pode configurar a amostragem em [host.js.](https://docs.microsoft.com/azure/azure-functions/functions-host-json#applicationinsights)  Eis um exemplo:
+A Application Insights tem uma funcionalidade [de amostragem](../azure-monitor/app/sampling.md) que pode protegê-lo de produzir demasiados dados de telemetria em execuções concluídas em momentos de carga máxima. Quando a taxa de execuções recebidas excede um limiar especificado, os Insights de Aplicação começam a ignorar aleatoriamente algumas das execuções recebidas. A definição predefinição para o número máximo de execuções por segundo é de 20 (cinco na versão 1.x). Pode configurar a amostragem em [host.js.](./functions-host-json.md#applicationinsights)  Eis um exemplo:
 
 ### <a name="version-2x-and-later"></a>Versão 2.x e mais tarde
 
@@ -285,9 +285,9 @@ Pode escrever registos no seu código de função que aparecem como vestígios e
 
 ### <a name="ilogger"></a>ILogger
 
-Utilize um parâmetro [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) nas suas funções em vez de um `TraceWriter` parâmetro. Os registos criados através da utilização `TraceWriter` vão para Application Insights, mas permitem fazer `ILogger` [registos estruturados](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
+Utilize um parâmetro [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) nas suas funções em vez de um `TraceWriter` parâmetro. Os registos criados através da utilização `TraceWriter` vão para Application Insights, mas permitem fazer `ILogger` [registos estruturados](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-Com um `ILogger` objeto, você chama `Log<level>` [métodos de extensão no ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) para criar registos. O código seguinte escreve `Information` registos com a categoria "Função.<YOUR_FUNCTION_NAME>. Utilizador."
+Com um `ILogger` objeto, você chama `Log<level>` [métodos de extensão no ILogger](/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) para criar registos. O código seguinte escreve `Information` registos com a categoria "Função.<YOUR_FUNCTION_NAME>. Utilizador."
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
@@ -553,7 +553,7 @@ module.exports = function (context, req) {
     var operationIdOverride = {"ai.operation.id":context.traceContext.traceparent};
 
     client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
-    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride);
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
     client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
     client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
     client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
@@ -577,7 +577,7 @@ module.exports = function (context, req) {
     var operationIdOverride = {"ai.operation.id":context.operationId};
 
     client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
-    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride);
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
     client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
     client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
     client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
@@ -679,14 +679,11 @@ az webapp log tail --resource-group <RESOURCE_GROUP_NAME> --name <FUNCTION_APP_N
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Pode ativar registos de streaming utilizando [a Azure PowerShell](/powershell/azure/overview). Para o PowerShell, utilize os seguintes comandos para adicionar a sua conta Azure, escolha a sua subscrição e faça o streaming de ficheiros de registo:
+Pode ativar registos de streaming utilizando [a Azure PowerShell](/powershell/azure/). Para powerShell, utilize o comando [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) para permitir o início de sessão na aplicação de função, como mostrado no seguinte corte: 
 
-```powershell
-Add-AzAccount
-Get-AzSubscription
-Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscription
-Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
-```
+:::code language="powershell" source="~/powershell_scripts/app-service/monitor-with-logs/monitor-with-logs.ps1" range="19-20":::
+
+Para mais informações, consulte o exemplo completo do [código.](../app-service/scripts/powershell-monitor.md#sample-script) 
 
 ## <a name="scale-controller-logs-preview"></a>Registos de controlador de escala (pré-visualização)
 
