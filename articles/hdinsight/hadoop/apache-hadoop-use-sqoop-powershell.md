@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/14/2020
-ms.openlocfilehash: cd0918da2a1bf6d953eb6006dc71f0611d3ed1c8
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 3f8a5bdc9e1240303216df1dec31c78a560c55eb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076101"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086499"
 ---
 # <a name="run-apache-sqoop-jobs-with-azure-powershell-in-hdinsight"></a>Executar empregos apache Sqoop com Azure PowerShell em HDInsight
 
@@ -23,7 +23,7 @@ Aprenda a usar a Azure PowerShell para executar empregos Apache Sqoop em Azure H
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma estação de trabalho com módulo Azure PowerShell [AZ](https://docs.microsoft.com/powershell/azure/overview) instalado.
+* Uma estação de trabalho com módulo Azure PowerShell [AZ](https://docs.microsoft.com/powershell/azure/) instalado.
 
 * Conclusão do ambiente de teste de [configuração](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) da [Utilização de Apache Sqoop com Hadoop em HDInsight](./hdinsight-use-sqoop.md).
 
@@ -275,7 +275,7 @@ A HDInsight baseada em Linux apresenta as seguintes limitações:
 
 * Lote: Ao utilizar o `-batch` interruptor quando executa inserções, a Sqoop executa múltiplas inserções em vez de lotar as operações de inserção.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora aprendeste a usar o Sqoop. Para saber mais, consulte:
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 5d32c130205420ef8f20d7ce8cb97f9a2595e978
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 0f277661ab61e7292fbb81d96c26c7d48c6d03ef
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232207"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087055"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) da Rede Virtual do Azure
 
@@ -236,7 +236,7 @@ Yes. Pode utilizar APIs REST para VNets no [Azure Resource Manager](/rest/api/vi
 ### <a name="is-there-tooling-support-for-vnets"></a>Existe suporte de ferramentas para VNets?
 Yes. Saiba mais sobre a utilização:
 - O portal Azure para implantar VNets através do [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) e modelos [clássicos](virtual-networks-create-vnet-classic-pportal.md) de implementação.
-- PowerShell para gerir VNets implantados através do [Gestor de Recursos](/powershell/module/az.network) e modelos de implementação [clássicos.](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0)
+- PowerShell para gerir VNets implantados através do [Gestor de Recursos](/powershell/module/az.network) e modelos de implementação [clássicos.](/powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0)
 - A interface de linha de comando Azure (CLI) para implantar e gerir VNets implantados através do [Gestor de Recursos](/cli/azure/network/vnet) e modelos de implementação [clássicos.](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-resources)  
 
 ## <a name="vnet-peering"></a>VNet peering
@@ -258,7 +258,7 @@ Os seguintes recursos podem utilizar balanceadores de carga básicos, o que sign
 - SQL MI
 - Gestão de API
 - Serviço de Domínio do Diretório Ativo (ADDS)
-- Aplicações Lógicas
+- Logic Apps
 - HDInsight
 -   Azure Batch
 - Ambiente do Serviço de Aplicações
@@ -414,7 +414,7 @@ Não existe limite para o número total de pontos finais de serviço VNet numa r
 |Azure KeyVault|    127|
 |Azure Cosmos DB|   64|
 |Hub de Eventos do Azure|   128|
-|Service Bus do Azure| 128|
+|Azure Service Bus| 128|
 |Loja Azure Data Lake V1|  100|
  
 >[!NOTE]

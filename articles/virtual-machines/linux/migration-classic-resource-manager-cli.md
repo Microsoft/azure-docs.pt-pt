@@ -8,19 +8,19 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: a5a9ace105e56d9db61470c35f665954812c3825
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 92543383ad530242eab59387e658e7b9d137f328
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134255"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085508"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI (Migrar recursos IaaS de clássica para Azure Resource Manager com a CLI do Azure)
 
 > [!IMPORTANT]
-> Hoje, cerca de 90% dos VMs da IaaS estão a usar [o Azure Resource Manager.](https://azure.microsoft.com/features/resource-manager/) A partir de 28 de fevereiro de 2020, os VM clássicos foram depreciados e serão totalmente retirados a 1 de março de 2023. [Saiba mais]( https://aka.ms/classicvmretirement) sobre esta depreciação e [como isso o afeta.](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me)
+> Hoje, cerca de 90% dos VMs da IaaS estão a usar [o Azure Resource Manager.](https://azure.microsoft.com/features/resource-manager/) A partir de 28 de fevereiro de 2020, os VM clássicos foram depreciados e serão totalmente retirados a 1 de março de 2023. [Saiba mais]( https://aka.ms/classicvmretirement) sobre esta depreciação e [como isso o afeta.](../classic-vm-deprecation.md#how-does-this-affect-me)
 
-Estes passos mostram-lhe como utilizar comandos de interface de linha de comandos Azure (CLI) para migrar a infraestrutura como um serviço (IaaS) recursos do modelo de implementação clássico para o modelo de implementação do Azure Resource Manager. O artigo requer o CLI clássico do [Azure.](../../cli-install-nodejs.md) Uma vez que o Azure CLI só é aplicável aos recursos do Gestor de Recursos Azure, não pode ser utilizado para esta migração.
+Estes passos mostram-lhe como utilizar comandos de interface de linha de comandos Azure (CLI) para migrar a infraestrutura como um serviço (IaaS) recursos do modelo de implementação clássico para o modelo de implementação do Azure Resource Manager. O artigo requer o CLI clássico do [Azure.](/cli/azure/install-classic-cli) Uma vez que o Azure CLI só é aplicável aos recursos do Gestor de Recursos Azure, não pode ser utilizado para esta migração.
 
 > [!NOTE]
 > Todas as operações descritas aqui são idempotentes. Se tiver outro problema que não seja uma funcionalidade não suportada ou um erro de configuração, recomendamos que relemisse a preparação, abortar ou cometer o funcionamento. A plataforma tentará a ação novamente.
@@ -46,7 +46,7 @@ Aqui estão algumas boas práticas que recomendamos à medida que avalia os recu
 > 
 
 ## <a name="step-2-set-your-subscription-and-register-the-provider"></a>Passo 2: Descreva a sua subscrição e registe o fornecedor
-Para cenários de migração, você precisa configurar o seu ambiente tanto para o clássico como para o Gestor de Recursos. [Instale o Azure CLI](../../cli-install-nodejs.md) e [selecione a sua subscrição](/cli/azure/authenticate-azure-cli).
+Para cenários de migração, você precisa configurar o seu ambiente tanto para o clássico como para o Gestor de Recursos. [Instale o Azure CLI](/cli/azure/install-classic-cli) e [selecione a sua subscrição](/cli/azure/authenticate-azure-cli).
 
 Inscreva-se na sua conta.
 
@@ -215,7 +215,7 @@ Se a configuração preparada parecer boa, pode avançar e comprometer os recurs
 azure storage account commit-migration <storageAccountName>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral da migração suportada pela plataforma de recursos iaas do clássico para o Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Análise detalhada técnica sobre a migração suportada por plataforma da clássica para Azure Resource Manager)

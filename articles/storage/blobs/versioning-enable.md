@@ -6,14 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/05/2020
+ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 0e24bcb54fd26d4a3d983681b3348ef736b277cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ff0bb6d593a199bd249441cf484d1f0580774ac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82884348"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086052"
 ---
 # <a name="enable-and-manage-blob-versioning"></a>Ativar e gerir a versão blob
 
@@ -67,7 +68,7 @@ Para obter mais informações sobre a implantação de recursos com modelos no p
 
 ## <a name="modify-a-blob-to-trigger-a-new-version"></a>Modificar uma bolha para desencadear uma nova versão
 
-O exemplo de código que se segue mostra como desencadear a criação de uma nova versão com a biblioteca cliente do Azure Storage para a versão .NET 12. Antes de executar este exemplo, certifique-se de que ativou a versão para a sua conta de armazenamento.
+O exemplo de código que se segue mostra como desencadear a criação de uma nova versão com a biblioteca cliente Azure Storage para .NET, versão [12.5.0-preview.5](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.0-preview.5) ou posterior. Antes de executar este exemplo, certifique-se de que ativou a versão para a sua conta de armazenamento.
 
 O exemplo cria uma bolha de bloco e, em seguida, atualiza os metadados da bolha. A atualização dos metadados da blob desencadeia a criação de uma nova versão. O exemplo recupera a versão inicial e a versão atual, e mostra que apenas a versão atual inclui os metadados.
 
@@ -151,7 +152,7 @@ static void PrintMetadata(Response<BlobProperties> propertiesResponse)
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Veragem blob (pré-visualização)](versioning-overview.md)
 - [Eliminação de forma recuperável dos blobs do Armazenamento do Microsoft Azure](soft-delete-overview.md)

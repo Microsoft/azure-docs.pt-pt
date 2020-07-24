@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7a138308b48a24a78c55bdc0105379e31482456d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ceb58182b34a4eccbed0dc1cdd1c351ae7868da
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85209390"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085916"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Utilize o Log Analytics para a funcionalidade de diagnóstico
 
@@ -96,7 +96,7 @@ Pode aceder aos espaços de trabalho do Log Analytics no portal Azure ou no Azur
 
 ### <a name="access-log-analytics-on-a-log-analytics-workspace"></a>Acesso Log Analytics em um espaço de trabalho Log Analytics
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 
 2. Procure por **Log Analytics espaço de trabalho**.
 
@@ -133,52 +133,16 @@ Log Analytics apenas reporta nestes estados intermédios para atividades de cone
 
 ## <a name="example-queries"></a>Consultas de exemplo
 
-As seguintes consultas de exemplo mostram como a funcionalidade de diagnóstico gera um relatório para as atividades mais frequentes no seu sistema.
+Acesso a consultas de exemplo através do Azure Monitor Log Analytics UI:
+1. Vá ao seu espaço de trabalho Log Analytics e, em seguida, **selecione Logs**. O exemplo de consulta UI é mostrado automaticamente.
+1. Mude o filtro para **categoria**.
+1. Selecione **o Windows Virtual Desktop** para rever as consultas disponíveis.
+1. Selecione **Executar** para executar a consulta selecionada. 
 
-Para obter uma lista de ligações feitas pelos seus utilizadores, execute este cmdlet:
+Saiba mais sobre a interface de consulta de amostras em [consultas Saved in Azure Monitor Log Analytics](../azure-monitor/log-query/saved-queries.md).
 
-```kusto
-WVDConnections
-| project-away TenantId,SourceSystem
-| summarize arg_max(TimeGenerated, *), StartTime =  min(iff(State== 'Started', TimeGenerated , datetime(null) )), ConnectTime = min(iff(State== 'Connected', TimeGenerated , datetime(null) ))   by CorrelationId
-| join kind=leftouter (
-    WVDErrors
-    |summarize Errors=makelist(pack('Code', Code, 'CodeSymbolic', CodeSymbolic, 'Time', TimeGenerated, 'Message', Message ,'ServiceError', ServiceError, 'Source', Source)) by CorrelationId
-    ) on CorrelationId
-| join kind=leftouter (
-   WVDCheckpoints
-   | summarize Checkpoints=makelist(pack('Time', TimeGenerated, 'Name', Name, 'Parameters', Parameters, 'Source', Source)) by CorrelationId
-   | mv-apply Checkpoints on
-    (
-        order by todatetime(Checkpoints['Time']) asc
-        | summarize Checkpoints=makelist(Checkpoints)
-    )
-   ) on CorrelationId
-| project-away CorrelationId1, CorrelationId2
-| order by  TimeGenerated desc
-```
+A lista de consultas que se segue permite rever as informações de ligação ou problemas para um único utilizador. Pode executar estas consultas no [editor de consultas do Log Analytics.](../azure-monitor/log-query/get-started-portal.md#write-and-run-basic-queries) Para cada consulta, `userupn` substitua-a pela UPN do utilizador que pretende procurar.
 
-Para visualizar a atividade de feed dos seus utilizadores:
-
-```kusto
-WVDFeeds
-| project-away TenantId,SourceSystem
-| join kind=leftouter (
-    WVDErrors
-    |summarize Errors=makelist(pack('Code', Code, 'CodeSymbolic', CodeSymbolic, 'Time', TimeGenerated, 'Message', Message ,'ServiceError', ServiceError, 'Source', Source)) by CorrelationId
-    ) on CorrelationId
-| join kind=leftouter (
-   WVDCheckpoints
-   | summarize Checkpoints=makelist(pack('Time', TimeGenerated, 'Name', Name, 'Parameters', Parameters, 'Source', Source)) by CorrelationId
-   | mv-apply Checkpoints on
-    (
-        order by todatetime(Checkpoints['Time']) asc
-        | summarize Checkpoints=makelist(Checkpoints)
-    )
-   ) on CorrelationId
-| project-away CorrelationId1, CorrelationId2
-| order by  TimeGenerated desc
-```
 
 Para encontrar todas as ligações para um único utilizador:
 
@@ -199,7 +163,6 @@ WVDConnections
 |sort by TimeGenerated asc, CorrelationId
 |summarize dcount(CorrelationId) by bin(TimeGenerated, 1d)
 ```
-
 
 Para encontrar a duração da sessão pelo utilizador:
 
@@ -224,7 +187,7 @@ WVDErrors
 |take 100
 ```
 
-Para saber se ocorreu um erro específico:
+Para saber se ocorreu um erro específico para outros utilizadores:
 
 ```kusto
 WVDErrors
@@ -232,33 +195,13 @@ WVDErrors
 | summarize count(UserName) by CodeSymbolic
 ```
 
-Para encontrar a ocorrência de um erro em todos os utilizadores:
 
-```kusto
-WVDErrors
-| where ServiceError =="false"
-| summarize usercount = count(UserName) by CodeSymbolic
-| sort by usercount desc
-| render barchart
-```
-
-Para consultar aplicações que os utilizadores abriram, execute esta consulta:
-
-```kusto
-WVDCheckpoints
-| where TimeGenerated > ago(7d)
-| where Name == "LaunchExecutable"
-| extend App = parse_json(Parameters).filename
-| summarize Usage=count(UserName) by tostring(App)
-| sort by Usage desc
-| render columnchart
-```
 >[!NOTE]
 >- Quando um utilizador abre o Full Desktop, a utilização da aplicação na sessão não é rastreada como pontos de verificação na tabela WVDCheckpoints.
 >- A coluna ResourcesAlias na tabela WVDConnections mostra se um utilizador ligou-se a um ambiente de trabalho completo ou a uma aplicação publicada. A coluna mostra apenas a primeira aplicação que abrem durante a ligação. Quaisquer aplicações publicadas que o utilizador abre são rastreadas em WVDCheckpoints.
 >- A tabela WVDErrors mostra erros de gestão, problemas de registo de anfitrião e outros problemas que ocorrem enquanto o utilizador subscreve uma lista de aplicações ou desktops.
 >- A WVDErrors ajuda-o a identificar problemas que podem ser resolvidos através de tarefas de administração. O valor no ServiceError diz sempre "falso" para este tipo de problemas. Se o ServiceError = "verdadeiro", terá de aumentar o problema para a Microsoft. Certifique-se de que fornece o CorrelationID para os erros que agrava.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para rever cenários de erro comuns que a funcionalidade de diagnóstico pode identificar para si, consulte [identificar e diagnosticar problemas](diagnostics-role-service.md#common-error-scenarios).

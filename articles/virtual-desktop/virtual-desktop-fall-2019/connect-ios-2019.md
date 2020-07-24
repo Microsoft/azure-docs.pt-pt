@@ -1,5 +1,5 @@
 ---
-title: Conecte-se ao Windows Virtual Desktop a partir do iOS - Azure
+title: Ligue ao Windows Virtual Desktop Fall 2019 do iOS - Azure
 description: Como ligar-se ao Windows Virtual Desktop utilizando o cliente iOS.
 services: virtual-desktop
 author: heidilohr
@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 10ad1e3fdcccce4eb0ce97806f67486ce5cc391b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 26c031710c96c42b1d5236332e445992de87616e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213215"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087140"
 ---
 # <a name="connect-with-the-ios-client"></a>Ligar ao cliente de iOS
 
@@ -48,6 +49,6 @@ Depois disso, o Centro de Ligação deverá exibir os recursos remotos.
 
 Uma vez subscrito um feed, o conteúdo do feed será atualizado automaticamente regularmente. Os recursos podem ser adicionados, alterados ou removidos com base em alterações efetuadas pelo seu administrador.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como usar o cliente iOS, confira o Get start com a documentação [do cliente iOS.](/windows-server/remote/remote-desktop-services/clients/remote-desktop-ios/)

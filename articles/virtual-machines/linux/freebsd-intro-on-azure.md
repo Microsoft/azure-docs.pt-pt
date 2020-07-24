@@ -7,11 +7,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: mimckitt
-ms.openlocfilehash: 0825a29b45ea701315a57ff5248731e64e29de32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7ca47e0fbb9acbac67f2cc9af6e1e7555690046
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81261640"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085610"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Introdução ao FreeBSD no Azure
 Este artigo fornece uma visão geral de executar uma máquina virtual FreeBSD em Azure.
@@ -30,7 +31,7 @@ O agente é responsável pela comunicação entre o FreeBSD VM e o tecido Azure 
 Quanto às futuras versões do FreeBSD, a estratégia é manter-se atual e disponibilizar as mais recentes versões pouco depois de serem publicadas pela equipa de engenharia de lançamentos FreeBSD.
 
 ### <a name="create-a-freebsd-vm-through-azure-cli-on-freebsd"></a>Criar um FreeBSD VM através do Azure CLI em FreeBSD
-Primeiro, tem de instalar [o Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) seguindo o comando numa máquina FreeBSD.
+Primeiro, tem de instalar [o Azure CLI](/cli/azure/get-started-with-azure-cli) seguindo o comando numa máquina FreeBSD.
 
 ```bash 
 curl -L https://aka.ms/InstallAzureCli | bash
@@ -117,5 +118,5 @@ Pode obter opcionalmente uma casca de raiz utilizando `sudo -s` .
 ## <a name="known-issues"></a>Problemas conhecidos
 A versão 2.2.2 [do Agente Convidado Azure VM](https://github.com/Azure/WALinuxAgent/) tem um [problema conhecido](https://github.com/Azure/WALinuxAgent/pull/517) que causa a falha de provisão para FreeBSD VM em Azure. A correção foi capturada pela versão 2.2.3 do [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) e posteriormente lançada. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Vá ao [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD112) para criar um VM FreeBSD.

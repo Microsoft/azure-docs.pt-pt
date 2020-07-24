@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: fbfd52065bc0522668488492de2181f252f86a4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 495847d31682aff64fed3c81b1d5d68cf67dfd38
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81272683"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086444"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Lidar com problemas de estrangulamento (429 - erros de "muitos pedidos") em Azure Logic Apps
 
@@ -20,7 +21,7 @@ Nas [Azure Logic Apps,](../logic-apps/logic-apps-overview.md)a sua aplicação l
 
 Aqui estão alguns tipos comuns de estrangulamento que a sua aplicação lógica pode experimentar:
 
-* [Aplicativo lógico](#logic-app-throttling)
+* [Aplicação lógica](#logic-app-throttling)
 * [Conector](#connector-throttling)
 * [Serviço de destino ou sistema](#destination-throttling)
 
@@ -76,7 +77,7 @@ Para lidar com o estrangulamento a este nível, tem estas opções:
 
 ## <a name="connector-throttling"></a>Estrangulamento do conector
 
-Cada conector tem os seus próprios limites de estrangulamento, que pode encontrar na página de referência técnica do conector. Por exemplo, o [conector Azure Service Bus](https://docs.microsoft.com/connectors/servicebus/) tem um limite de estrangulamento que permite até 6.000 chamadas por minuto, enquanto o conector SQL Server tem [limites de estrangulamento que variam em função do tipo de funcionamento](https://docs.microsoft.com/connectors/sql/).
+Cada conector tem os seus próprios limites de estrangulamento, que pode encontrar na página de referência técnica do conector. Por exemplo, o [conector Azure Service Bus](/connectors/servicebus/) tem um limite de estrangulamento que permite até 6.000 chamadas por minuto, enquanto o conector SQL Server tem [limites de estrangulamento que variam em função do tipo de funcionamento](/connectors/sql/).
 
 Alguns gatilhos e ações, como HTTP, têm uma ["política de relíndi"](../logic-apps/logic-apps-exception-handling.md#retry-policies) que pode personalizar com base nos [limites de política de redação](../logic-apps/logic-apps-limits-and-config.md#retry-policy-limits) para implementar o tratamento de exceções. Esta política especifica se e com que frequência um gatilho ou ação retrifique um pedido quando o pedido original falha ou se horas fora e resulta numa resposta 408, 429 ou 5xx. Assim, quando o estrangulamento começa e devolve um erro 429, a Logic Apps segue a política de repetição onde suportado.
 
@@ -167,6 +168,6 @@ Para lidar com o estrangulamento a este nível, tem estas opções:
   
   Assim, se o serviço de destino ou sistema suporta webhooks ou fornece um conector que tenha uma versão webhook, esta opção é melhor do que usar a versão de sondagem. Para identificar os gatilhos e ações do webhook, confirme que eles têm o `ApiConnectionWebhook` tipo ou que não requerem que especifique uma recorrência. Para obter mais informações, consulte [o gatilho APIConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) e [a ação APIConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-action).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [os limites e configuração de Apps Lógicas](../logic-apps/logic-apps-limits-and-config.md)

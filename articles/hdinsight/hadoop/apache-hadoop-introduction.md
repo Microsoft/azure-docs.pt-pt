@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.date: 02/27/2020
-ms.openlocfilehash: 2dc9d5d154c8128e0744e8dd9f08dec6e52381a4
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 5e5f02b1684e56496778ab677aa9dc46e7dcd9aa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205300"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086528"
 ---
 # <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>O que é Apache Hadoop em Azure HDInsight?
 
@@ -48,7 +48,7 @@ Línguas ou quadros baseados em Java e na Máquina Virtual java podem ser dirigi
 
 O streaming hadoop comunica com o mapper e redutor sobre STDIN e STDOUT. O mapper e o redutor lê dados uma linha de cada vez a partir de STDIN, e escrever a saída para STDOUT. Cada linha lida ou emitida pelo mapper e pelo redutor deve estar no formato de um par chave/valor, delimitado por um caractere de separador:
 
-`[key]/t[value]`
+`[key]\t[value]`
 
 Para mais informações, consulte [o Hadoop Streaming.](https://hadoop.apache.org/docs/current/hadoop-streaming/HadoopStreaming.html)
 

@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop PowerShell - Azure
-description: Como resolver problemas com o PowerShell quando configurar um ambiente de inquilino virtual do Windows Desktop.
+title: Windows Virtual Desktop PowerShell (outono 2019) - Azure
+description: Como resolver problemas com o PowerShell quando configurar um ambiente de inquilino virtual do Windows Desktop (lançamento outono 2019).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: de3933b1686b433a720e78d89bd3e50c0ce5e5dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3171cc54de57b70a18a3f1b9ee3317cf29f79d4b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82615503"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085814"
 ---
-# <a name="windows-virtual-desktop-powershell"></a>Windows Virtual Desktop PowerShell
+# <a name="windows-virtual-desktop-powershell-fall-2019-release"></a>Windows Virtual Desktop PowerShell (lançamento outono 2019)
 
 >[!IMPORTANT]
 >Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../troubleshoot-powershell.md).

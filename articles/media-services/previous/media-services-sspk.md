@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: 7fce1fc529f3af71cac17d8011fe065c6381a419
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d4822f453e27a5e2fa7b97d77056b6bee1041d9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84677173"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086239"
 ---
 # <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licenciamento Microsoft &reg; Smooth Streaming Cliente Kit de Porting 
 ## <a name="overview"></a>Descrição geral
@@ -123,6 +124,7 @@ Os licenciados provisórios e finais da SSPK podem submeter perguntas técnicas 
 * Hong Kong Konka Ltd
 * Corporação Innolux
 * Innopia Technologies, Inc
+* K-Tronics (Suzhou) Technology Co., Ltd. 
 * Kaonmedia Co., Ltd.
 * Corporação KDDI
 * Mega Fame Electronics Co. Limited

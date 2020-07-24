@@ -5,21 +5,21 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 7/10/2020
+ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: b7551ec01e3401c0636b47a25d83173b6322d06e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 465b0ca3fdc5dd96b03ec7ab53bf453c4cdc083d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86219883"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086171"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de apoio à recuperação de desastres de Hiper-V VMs para Azure
 
-
 Este artigo resume os componentes e configurações suportados para a recuperação de desastres dos Hiper-V VMs para Azure no local, utilizando [a recuperação do local de Azure.](site-recovery-overview.md)
 
-
+>[!NOTE]
+> A Recuperação do Site não move nem armazena os dados dos clientes para fora da região alvo, na qual foi configurada a recuperação de desastres para as máquinas de origem. Os clientes podem selecionar um Cofre de Serviços de Recuperação de uma região diferente, se assim o desejarem. O Cofre de Serviços de Recuperação contém metadados, mas nenhum dado real do cliente.
 
 ## <a name="supported-scenarios"></a>Cenários suportados
 
@@ -68,11 +68,12 @@ Rede de anfitriões: IPv4 | Sim | Sim
 Rede de anfitriões: IPv6 | Não | Não
 Rede VM convidada: NIC Teaming | Não | Não
 Rede VM convidada: IPv4 | Sim | Sim
-Rede VM convidada: IPv6 | Não | Yes
+Rede VM convidada: IPv6 | No | Yes
 Rede VM do hóspede: IP estático (Windows) | Sim | Sim
 Rede VM convidada: IP estático (Linux) | Não | Não
 Rede VM convidada: Multi-NIC | Sim | Sim
 Procuração https | Não | Não
+Acesso de ligação privada ao serviço de Recuperação de Sítios | Yes. [Saiba mais](hybrid-how-to-enable-replication-private-endpoints.md). | Yes. [Saiba mais](hybrid-how-to-enable-replication-private-endpoints.md).
 
 
 
@@ -84,7 +85,7 @@ Procuração https | Não | Não
 Azure ExpressRoute | Sim | Sim
 ILB | Sim | Sim
 ELB | Sim | Sim
-Gestor de Tráfego do Azure | Sim | Sim
+Traffic Manager do Azure | Sim | Sim
 Multi-NIC | Sim | Sim
 IP reservado | Sim | Sim
 IPv4 | Sim | Sim
@@ -141,8 +142,8 @@ Dupla encriptação em repouso <br></br> (Apenas para falhas a gerir discos) <br
 Armazenamento Premium | Sim | Sim
 Armazenamento Standard | Sim | Sim
 Serviço de importação/exportação | Não | Não
-Contas de Armazenamento Azure com firewall ativadas | Sim. Para armazenamento de alvo e cache. | Sim. Para armazenamento de alvo e cache.
-Modificar a conta de armazenamento | Não. A conta de armazenamento Azure alvo não pode ser modificada após permitir a replicação. Para modificar, desativar e, em seguida, reativar a recuperação de desastres. | Não
+Contas de Armazenamento Azure com firewall ativadas | Yes. Para armazenamento de alvo e cache. | Yes. Para armazenamento de alvo e cache.
+Modificar a conta de armazenamento | Não. A conta de armazenamento Azure alvo não pode ser modificada após permitir a replicação. Para modificar, desativar e, em seguida, reativar a recuperação de desastres. | No
 Opção de transferência segura | Yes
 
 
@@ -152,7 +153,7 @@ Opção de transferência segura | Yes
 --- | --- | ---
 Conjuntos de disponibilidade | Sim | Sim
 HUB | Sim | Sim  
-Discos geridos | Sim, por falhar.<br/><br/> O fracasso dos discos geridos não é suportado. | Sim, por falhar.<br/><br/> O fracasso dos discos geridos não é suportado.
+Managed disks | Sim, por falhar.<br/><br/> O fracasso dos discos geridos não é suportado. | Sim, por falhar.<br/><br/> O fracasso dos discos geridos não é suportado.
 
 ## <a name="azure-vm-requirements"></a>Requisitos da VM do Azure
 

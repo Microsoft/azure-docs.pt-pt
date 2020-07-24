@@ -9,19 +9,19 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 824ba9e1f9b4325c1e0974ed1c22b465ec4b85a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddbd64049307dcfd9b27cde1418eef2378b4f6b4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298961"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085695"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Using Linux Diagnostic Extension to monitor metrics and logs (Utilizar a Extensão de Diagnóstico do Linux para monitorizar métricas e registos)
 
 Este documento descreve a versão 3.0 e a mais recente da extensão de diagnóstico linux.
 
 > [!IMPORTANT]
-> Para obter informações sobre a versão 2.3 ou mais antiga, consulte [este documento](../linux/classic/diagnostic-extension-v2.md).
+> Para obter informações sobre a versão 2.3 ou mais antiga, consulte [este documento](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
 
 ## <a name="introduction"></a>Introdução
 
@@ -67,8 +67,8 @@ Distribuições e versões suportadas:
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* **Azure Linux Agent versão 2.2.0 ou posterior**. A maioria das imagens da galeria Azure VM Linux incluem a versão 2.2.7 ou mais tarde. Corra `/usr/sbin/waagent -version` para confirmar a versão instalada no VM. Se o VM estiver a executar uma versão mais antiga do agente convidado, siga [estas instruções](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) para atualizá-lo.
-* **Azure CLI**. [Confende o ambiente Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) na sua máquina.
+* **Azure Linux Agent versão 2.2.0 ou posterior**. A maioria das imagens da galeria Azure VM Linux incluem a versão 2.2.7 ou mais tarde. Corra `/usr/sbin/waagent -version` para confirmar a versão instalada no VM. Se o VM estiver a executar uma versão mais antiga do agente convidado, siga [estas instruções](./update-linux-agent.md) para atualizá-lo.
+* **Azure CLI**. [Confende o ambiente Azure CLI](/cli/azure/install-azure-cli) na sua máquina.
 * O comando wget, se ainda não o tem: `sudo apt-get install wget` Corra.
 * Uma subscrição Azure existente e uma conta de armazenamento existente dentro dela para armazenar os dados.
 
@@ -243,7 +243,7 @@ Se criou um SAS bom até à meia-noite utc em 1 de janeiro de 2018, o valor sasU
 https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.windows.net%2fsyslogmsgs&sig=xxxxxxxxxxxxxxxxxxxxxxxxx&se=1514764800&skn=writer
 ```
 
-Para obter mais informações sobre a geração e recuperação de informações sobre fichas SAS para Centros de Eventos, consulte [esta página web](https://docs.microsoft.com/rest/api/eventhub/generate-sas-token#powershell).
+Para obter mais informações sobre a geração e recuperação de informações sobre fichas SAS para Centros de Eventos, consulte [esta página web](/rest/api/eventhub/generate-sas-token#powershell).
 
 #### <a name="the-jsonblob-sink"></a>A pia JsonBlob
 
@@ -432,7 +432,7 @@ Elemento | Valor
 ------- | -----
 espaço de nomes | (opcional) O espaço de nome OMI dentro do qual a consulta deve ser executada. Se não for especificado, o valor padrão é "raiz/scx", implementado pelos [Fornecedores de plataformas cruzadas do System Center](https://github.com/Microsoft/SCXcore).
 consulta | A consulta da OMI a ser executada.
-table | (opcional) A tabela de armazenamento Azure, na conta de armazenamento designada (ver [definições protegidas).](#protected-settings)
+tabela | (opcional) A tabela de armazenamento Azure, na conta de armazenamento designada (ver [definições protegidas).](#protected-settings)
 frequência | (opcional) O número de segundos entre a execução da consulta. O valor predefinido é de 300 (5 minutos); o valor mínimo é de 15 segundos.
 pias | (opcional) Deve ser publicada uma lista separada de vírgulas de sumidouros adicionais aos quais devem ser publicados resultados da amostra bruta. Nenhuma agregação destas amostras cruas é calculada pela extensão ou pela Azure Metrics.
 
@@ -458,7 +458,7 @@ Controla a captura de ficheiros de registo. Lad captura novas linhas de texto à
 Elemento | Valor
 ------- | -----
 file | O nome de caminho completo do ficheiro de registo a ser observado e capturado. O nome de pathname deve nomear um único ficheiro; não pode nomear um diretório ou conter wildcards. A conta de utilizador 'omsagent' deve ter lido o acesso à via do ficheiro.
-table | (opcional) A tabela de armazenamento Azure, na conta de armazenamento designada (conforme especificado na configuração protegida), na qual são escritas novas linhas a partir da "cauda" do ficheiro.
+tabela | (opcional) A tabela de armazenamento Azure, na conta de armazenamento designada (conforme especificado na configuração protegida), na qual são escritas novas linhas a partir da "cauda" do ficheiro.
 pias | (opcional) Uma lista separada por vírgulas de nomes de pias adicionais para as quais as linhas de registo enviadas.
 
 Ou "mesa" ou "pias", ou ambos, devem ser especificados.
@@ -580,7 +580,7 @@ Assumindo que as suas definições protegidas estão no ficheiro ProtectedSettin
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
-O comando pressupõe que está a utilizar o modo Azure Resource Management (ARM) do Azure CLI. Para configurar o LAD para o modelo clássico de implementação (ASM) VMs, mude para o modo "asm" ( `azure config mode asm` ) e omita o nome do grupo de recursos no comando. Para mais informações, consulte a [documentação do CLI de plataforma cruzada.](https://docs.microsoft.com/azure/xplat-cli-connect)
+O comando pressupõe que está a utilizar o modo Azure Resource Management (ARM) do Azure CLI. Para configurar o LAD para o modelo clássico de implementação (ASM) VMs, mude para o modo "asm" ( `azure config mode asm` ) e omita o nome do grupo de recursos no comando. Para mais informações, consulte a [documentação do CLI de plataforma cruzada.](/azure/xplat-cli-connect)
 
 ### <a name="powershell"></a>PowerShell
 
@@ -757,16 +757,16 @@ Os dados enviados para as pias JsonBlob são armazenados em bolhas na conta de a
 Além disso, pode utilizar estas ferramentas de UI para aceder aos dados no Azure Storage:
 
 * Explorador visual do servidor do estúdio.
-* [Explorador de Armazenamento do Microsoft Azure](https://azurestorageexplorer.codeplex.com/ "Explorador do Storage do Azure").
+* [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Explorador do Storage do Azure").
 
 Esta imagem de uma sessão do Microsoft Azure Storage Explorer mostra as mesas e recipientes de armazenamento Azure gerados a partir de uma extensão LAD 3.0 corretamente configurada num VM de teste. A imagem não corresponde exatamente à [configuração lad 3.0](#an-example-lad-30-configuration)da amostra .
 
 ![image](./media/diagnostics-linux/stg_explorer.png)
 
-Consulte a documentação relevante do [EventHubs](../../event-hubs/event-hubs-what-is-event-hubs.md) para aprender a consumir mensagens publicadas num ponto final do EventHubs.
+Consulte a documentação relevante do [EventHubs](../../event-hubs/event-hubs-about.md) para aprender a consumir mensagens publicadas num ponto final do EventHubs.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Crie alertas métricos no [Azure Monitor](../../monitoring-and-diagnostics/insights-alerts-portal.md) para as métricas que recolhe.
-* Crie [gráficos de monitorização](../../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para as suas métricas.
+* Crie alertas métricos no [Azure Monitor](../../azure-monitor/platform/alerts-classic-portal.md) para as métricas que recolhe.
+* Crie [gráficos de monitorização](../../azure-monitor/platform/data-platform.md) para as suas métricas.
 * Aprenda a [criar um conjunto de balança de máquina virtual](../linux/tutorial-create-vmss.md) utilizando as suas métricas para controlar a autoscalagem.

@@ -9,13 +9,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
-ms.openlocfilehash: 9fd8d6428e94007002d524d9ade99f6b368b8201
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 220677df3bd0c221f61efd28a80b05cfd76e2734
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70307236"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086647"
 ---
-# <a name="use-powershell-to-monitor-the-usage-of-a-sent-data-share"></a>Use o PowerShell para monitorizar o uso de uma partilha de dados enviada
+# <a name="use-a-powershell-script-to-monitor-the-usage-of-a-sent-data-share"></a>Use um script PowerShell para monitorizar o uso de uma partilha de dados enviada
 
 Este script PowerShell cria um convite para partilha de dados.
 
@@ -44,7 +45,7 @@ Este script utiliza os seguintes comandos:
 | [Nova AzDataShareInvitação](/powershell/module/az.datashare/new-azdatashareinvitation?view=azps-2.6.0) | Crie um convite para partilha de dados. |
 |||
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 

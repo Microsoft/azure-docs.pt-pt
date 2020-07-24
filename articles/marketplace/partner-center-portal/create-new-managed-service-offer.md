@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: JnHs
 ms.author: jenhayes
 ms.date: 07/07/2020
-ms.openlocfilehash: 70f0dbff2530b11e92bd0b0cc55ad92a8679ebe9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3bb663dcdf007bf77d1b9f2b46af532774af22e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121797"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086392"
 ---
 # <a name="create-a-managed-service-offer"></a>Criar uma oferta de Serviço Gerido
 
@@ -177,7 +177,7 @@ Qualquer cliente associado a estas subscrições poderá ver a oferta no Azure M
 
 ## <a name="plan-overview"></a>Visão geral do plano
 
-Cada oferta deve ter um ou mais planos (por vezes referidos como SKUs). Pode adicionar vários planos para suportar diferentes conjuntos de funcionalidades a diferentes preços ou para personalizar um plano específico para um público limitado de clientes específicos. Os clientes podem ver os planos que estão disponíveis ao abrigo da oferta dos pais.
+Cada oferta deve ter um ou mais planos (anteriormente chamados SKUs). Pode adicionar vários planos para suportar diferentes conjuntos de funcionalidades a diferentes preços ou para personalizar um plano específico para um público limitado de clientes específicos. Os clientes podem ver os planos que estão disponíveis ao abrigo da oferta dos pais.
 
 Na página **de visão geral** do Plano, selecione + Criar novo **plano**. Em seguida, insira um **ID do plano** e um **nome de plano**. Ambos os valores só podem conter caracteres alfanuméricos minúsculos, traços e sublinhados, com um máximo de 50 caracteres. Estes valores podem ser visíveis para os clientes, e não podem ser alterados após a publicação da oferta.
 
@@ -263,7 +263,7 @@ Quando um cliente implementar a sua oferta, poderá delegar subscrições ou gru
 
 Pode [publicar uma versão atualizada da sua oferta a](update-existing-offer.md) qualquer momento. Por exemplo, pode querer adicionar uma nova definição de papel a uma oferta publicada anteriormente. Quando o fizer, os clientes que já adicionaram a oferta verão um ícone na página de fornecedores de [**Serviços**](../../lighthouse/how-to/view-manage-service-providers.md) no portal Azure que lhes permite saber que uma atualização está disponível. Cada cliente poderá rever as alterações e decidir se pretende atualizar para a nova versão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atualizar uma oferta existente no Marketplace Comercial](./update-existing-offer.md)
 - [Saiba mais sobre o Farol de Azure](../../lighthouse/overview.md)

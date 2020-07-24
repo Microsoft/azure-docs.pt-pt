@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: cec0fa3bd059cd31d9bd94773b0cce42d0f12a75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b077dc2fe3ba7528d03490a19312de946647a522
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74887022"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086307"
 ---
 # <a name="h264-multiple-bitrate-4k"></a>H264 Taxas de Bits Múltiplas 4K
 `Media Encoder Standard`define um conjunto de predefinições codificantes que pode usar ao criar trabalhos de codificação. Pode utilizar um `preset name` para especificar em que formato gostaria de codificar o seu ficheiro de mídia. Ou, pode criar as suas próprias predefinições baseadas em JSON ou XML (utilizando codificação UTF-8 ou UTF-16. Passaria então a predefinição personalizada para o codificar. Para a lista de todos os nomes predefinidos suportados por este `Media Encoder Standard` codificadores, consulte [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md).  
@@ -28,7 +29,7 @@ ms.locfileid: "74887022"
  Esta predefinição produz um conjunto de 12 ficheiros MP4 alinhados com GOP, que variam entre 20000 kbps e 1000 kbps, e áudio AAC estéreo. Para obter informações detalhadas sobre o perfil, o bitrate, a taxa de amostragem, etc. desta predefinição, examine o XML ou JSON definido abaixo. Para obter explicações sobre o que significa cada elemento nestas predefinições e os valores válidos para cada elemento, consulte o tópico [de esquema padrão Media Encoder.](media-services-mes-schema.md)  
   
 > [!NOTE]
->  Deve obter o tipo de unidade reservada Premium com codificações 4K. Para mais informações, consulte [Como Escalar a Codificação.](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units)  
+>  Deve obter o tipo de unidade reservada Premium com codificações 4K. Para mais informações, consulte [Como Escalar a Codificação.](./media-services-scale-media-processing-overview.md)  
   
 > [!NOTE]
 >  Ao modificar os `Width` valores e `Height` valores através das camadas, certifique-se de que a relação de aspeto permanece consistente. Por exemplo: 1920x1080, 1280x720, 1080x576, 640x360. Não deve utilizar uma mistura de rácios de aspeto, tais como: 1280x720, 720x480, 640x360.  

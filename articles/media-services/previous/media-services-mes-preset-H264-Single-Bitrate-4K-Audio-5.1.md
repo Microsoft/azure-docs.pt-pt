@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 9c4b133ae74438def30f4fcd9e49a5ca5e6f9cd4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e1153b58063f85b57fba99da495d6842a75a819
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61463570"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086290"
 ---
 # <a name="h264-single-bitrate-4k-audio-51"></a>H264 Taxa de Bits Única 4K Audio 5.1
 `Media Encoder Standard`define um conjunto de predefinições codificantes que pode usar ao criar trabalhos de codificação. Pode utilizar um `preset name` para especificar em que formato gostaria de codificar o seu ficheiro de mídia. Ou, pode criar as suas próprias predefinições baseadas em JSON ou XML (utilizando codificação UTF-8 ou UTF-16. Passaria então a predefinição personalizada para o codificar. Para a lista de todos os nomes predefinidos suportados por este `Media Encoder Standard` codificadores, consulte [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md).  
@@ -29,7 +29,7 @@ ms.locfileid: "61463570"
  Esta predefinição produz um único ficheiro MP4 com um bitrate de 18000 kbps e áudio AAC 5.1. Para obter informações detalhadas sobre o perfil, o bitrate, a taxa de amostragem, etc. desta predefinição, examine o XML ou JSON definido abaixo. Para obter explicações sobre o que cada elemento significa e os valores válidos para cada elemento, consulte o [esquema padrão da Media Encoder](media-services-mes-schema.md).  
   
 > [!NOTE]
->  Deve obter o tipo de unidade reservada Premium com codificações 4K. Para mais informações, consulte [Como Escalar a Codificação.](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units)  
+>  Deve obter o tipo de unidade reservada Premium com codificações 4K. Para mais informações, consulte [Como Escalar a Codificação.](./media-services-scale-media-processing-overview.md)  
   
  XML  
   

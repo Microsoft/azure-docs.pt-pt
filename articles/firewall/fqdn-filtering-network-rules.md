@@ -7,14 +7,14 @@ ms.service: firewall
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: aef6fb52aaad3dd20db63f1d9023745169e84fcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a30238250c9fcb86f1cc01226d44ab385c61843
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85569244"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086630"
 ---
-# <a name="fqdn-filtering-in-network-rules-preview"></a>Filtragem FQDN nas regras da rede (pré-visualização)
+# <a name="use-fqdn-filtering-in-network-rules-preview"></a>Utilize a filtragem FQDN nas regras da rede (pré-visualização)
 
 > [!IMPORTANT]
 > A filtragem FQDN nas regras de rede está atualmente em pré-visualização pública.
@@ -30,6 +30,6 @@ Para utilizar FQDNs nas regras de rede, deve ativar o proxy DNS. Se não ativar 
 
 Pode optar por anular este requisito reconhecendo o risco antes de selecionar **Save** na coleção de regras.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Definições de DNS de Firewall Azure Firewall](dns-settings.md)

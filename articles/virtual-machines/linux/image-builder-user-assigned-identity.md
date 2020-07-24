@@ -7,17 +7,18 @@ ms.date: 05/02/2019
 ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
-ms.openlocfilehash: 0c0e688c628d553c8b732081f1a8b8debff8846e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79349f9da45a623581c40276c8e69d490c1dd253
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82930663"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085559"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Crie uma imagem e use uma identidade gerida atribuída ao utilizador para aceder a ficheiros no Azure Storage 
 
 O Azure Image Builder suporta a utilização de scripts ou a cópia de ficheiros de vários locais, tais como o armazenamento de GitHub e Azure, etc. Para usá-las, devem ter sido acessíveis externamente ao Azure Image Builder, mas pode proteger as bolhas de armazenamento Azure usando tokens SAS.
 
-Este artigo mostra como criar uma imagem personalizada utilizando o Azure VM Image Builder, onde o serviço utilizará uma [Identidade Gerida atribuída](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) ao Utilizador para aceder a ficheiros no armazenamento Azure para a personalização da imagem, sem ter de tornar os ficheiros acessíveis ao público ou configurar fichas SAS.
+Este artigo mostra como criar uma imagem personalizada utilizando o Azure VM Image Builder, onde o serviço utilizará uma [Identidade Gerida atribuída](../../active-directory/managed-identities-azure-resources/overview.md) ao Utilizador para aceder a ficheiros no armazenamento Azure para a personalização da imagem, sem ter de tornar os ficheiros acessíveis ao público ou configurar fichas SAS.
 
 No exemplo abaixo, irá criar dois grupos de recursos, um será usado para a imagem personalizada, e o outro irá acolher uma Conta de Armazenamento Azure, que contém um ficheiro de script. Isto simula um cenário de vida real, onde você pode ter construído artefactos, ou arquivos de imagem em diferentes contas de armazenamento, fora do Image Builder. Irá criar uma identidade atribuída ao utilizador e, em seguida, concederá permissões de leitura no ficheiro do script, mas não definirá qualquer acesso público a esse ficheiro. Em seguida, utilizará o personalizador Shell para descarregar e executar o script a partir da conta de armazenamento.
 
@@ -94,7 +95,7 @@ az group create -n $strResourceGroup -l $location
 
 Crie uma identidade atribuída ao utilizador e desaprova permissões no grupo de recursos.
 
-O Image Builder utilizará a [identidade do utilizador](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) fornecida para injetar a imagem no grupo de recursos. Neste exemplo, irá criar uma definição de papel Azure que tem as ações granulares para executar a distribuição da imagem. A definição de função será então atribuída à identidade do utilizador.
+O Image Builder utilizará a [identidade do utilizador](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) fornecida para injetar a imagem no grupo de recursos. Neste exemplo, irá criar uma definição de papel Azure que tem as ações granulares para executar a distribuição da imagem. A definição de função será então atribuída à identidade do utilizador.
 
 ```console
 # create user assigned identity for image builder to access the storage account where the script is located
@@ -253,6 +254,6 @@ az group delete -n $imageResourceGroup
 az group delete -n $strResourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver algum problema em trabalhar com o Azure Image Builder, consulte [a Resolução de Problemas](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md?toc=%2fazure%2fvirtual-machines%context%2ftoc.json).

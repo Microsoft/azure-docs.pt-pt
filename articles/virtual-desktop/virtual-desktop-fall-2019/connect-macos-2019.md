@@ -1,5 +1,5 @@
 ---
-title: Ligue ao Windows Virtual Desktop a partir de macOS - Azure
+title: Ligue ao Windows Virtual Desktop Fall 2019 do macOS - Azure
 description: Como ligar-se ao Windows Virtual Desktop utilizando o cliente macOS.
 services: virtual-desktop
 author: heidilohr
@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 024a1ab1a7fef58bd5fd8f9e7e0fc743a4ecee71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d8f9e3a5f4c529e3574be7dbeae8bd385f85367
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213164"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087112"
 ---
 # <a name="connect-with-the-macos-client"></a>Ligar ao cliente de macOS
 
@@ -44,6 +45,6 @@ Depois de se inscrever, deve ver uma lista de recursos disponíveis.
 
 Uma vez subscrito um feed, o conteúdo do feed será atualizado automaticamente regularmente. Os recursos podem ser adicionados, alterados ou removidos com base em alterações efetuadas pelo seu administrador.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o cliente macOS, confira o Get start com a documentação [do cliente macOS.](/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac/)

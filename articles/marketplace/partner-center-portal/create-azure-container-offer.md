@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mingshen
 ms.author: mingshen
 ms.date: 06/17/2020
-ms.openlocfilehash: cea4a43724629793123098084098299e3915be7c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c659bbe3e5f5645bb42b3a9c94a5e5fb7ebe75f0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109681"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086477"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Criar uma oferta de contentores Azure no Azure Marketplace
 
@@ -250,17 +250,17 @@ Adicione pelo menos um ID de subscrição Azure, individualmente (até 10) ou ca
 
 ### <a name="plan-overview"></a>Visão geral do plano
 
-Este separador permite-lhe fornecer diferentes opções de plano dentro da mesma oferta. Estes planos eram anteriormente referidos como SKUs, ou unidades de armazenamento de stocks. Os planos podem diferir em termos de que nuvens estão disponíveis, como nuvens globais, nuvens do Governo e a imagem referenciada pelo plano. Para listar a sua oferta no mercado comercial, tem de definir pelo menos um plano.
+Este separador permite-lhe fornecer diferentes opções de plano dentro da mesma oferta. Os planos (anteriormente chamados SKUs) podem diferir em termos de que nuvens estão disponíveis, tais como nuvens globais, nuvens do governo, e a imagem referenciada pelo plano. Para listar a sua oferta no mercado comercial, tem de definir pelo menos um plano.
 
 Depois de criar os seus planos, o separador **De visão geral** do Plano mostra:
 
 - Nomes do plano
 - Modelo preços
-- Disponibilidade em nuvem (Global ou Governo)
+- Regiões do Azul (Global ou Governo)
 - Estado atual da publicação
 - Quaisquer ações disponíveis
 
-As ações disponíveis no Resumo do Plano variam consoante o estado atual do seu plano. Os relatórios incluem:
+As ações disponíveis no Resumo do Plano variam consoante o estado atual do seu plano. Estas incluem:
 
 - **Eliminar rascunho** - Se o estado do plano for um Projeto.
 - **Parar o plano de venda** – Se o estado do plano for publicado em direto.
@@ -293,7 +293,7 @@ Antes [de publicar](../../azure-government/documentation-government-manage-marke
 
 #### <a name="azure-government-certifications"></a>Certificações do Governo de Azure
 
-Esta opção só pode ser vista se **o Governo Azure** for selecionado sob **disponibilidade cloud**.
+Esta opção só pode ser vista se o **Governo Azure** for selecionado nas **regiões de Azure.**
 
 Os serviços do Governo Azure tratam dados que estão sujeitos a certos regulamentos e requisitos governamentais. Por exemplo, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 e CJIS.
 

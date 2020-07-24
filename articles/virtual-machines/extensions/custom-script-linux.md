@@ -1,5 +1,5 @@
 ---
-title: Executar scripts personalizados em VMs Linux em Azure
+title: Executar extensão de script personalizado em VMs Linux em Azure
 description: Automatizar as tarefas de configuração do Linux VM utilizando a extensão de script personalizada v2
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: 92bb254873669ae7c0894d633f17b5701b7ddc97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 367116948034fd4bedbeec15e655a09b179865d6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82594734"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085729"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Utilizar a Versão 2 da Extensão de Script Personalizado do Azure com as máquinas virtuais do Linux
 A versão de extensão de scripts personalizada 2 descarrega e executa scripts em máquinas virtuais Azure. Esta extensão é útil para configuração pós-implantação, instalação de software ou qualquer outra tarefa de configuração/gestão. Você pode baixar scripts a partir de Azure Storage ou outro local de internet acessível, ou você pode fornecer-lhes para o tempo de execução da extensão. 
@@ -38,14 +38,14 @@ Por favor, troque as novas e existentes implementações para utilizar a nova ve
 
 ### <a name="operating-system"></a>Sistema Operativo
 
-A extensão de script personalizada para o Linux será executada na extensão suportada os os's, para mais informações, consulte este [artigo](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+A extensão de script personalizada para o Linux será executada na extensão suportada os os's, para mais informações, consulte este [artigo](../linux/endorsed-distros.md).
 
 ### <a name="script-location"></a>Localização do script
 
 Pode utilizar a extensão para utilizar as suas credenciais de armazenamento Azure Blob, para aceder ao armazenamento do Azure Blob. Em alternativa, a localização do script pode ser qualquer onde, desde que o VM possa ir até esse ponto final, como o GitHub, o servidor interno de ficheiros, etc.
 
 ### <a name="internet-connectivity"></a>Conectividade da Internet
-Se precisar de descarregar um script externo, como GitHub ou Azure Storage, então devem ser abertas portas adicionais do Grupo de Segurança de Firewall/Rede. Por exemplo, se o seu script estiver localizado no Azure Storage, pode permitir o acesso usando tags de serviço Azure NSG para [armazenamento.](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)
+Se precisar de descarregar um script externo, como GitHub ou Azure Storage, então devem ser abertas portas adicionais do Grupo de Segurança de Firewall/Rede. Por exemplo, se o seu script estiver localizado no Azure Storage, pode permitir o acesso usando tags de serviço Azure NSG para [armazenamento.](../../virtual-network/security-overview.md#service-tags)
 
 Se o seu script estiver num servidor local, poderá ainda necessitar de portas adicionais de firewall/Grupo de Segurança de Rede.
 
@@ -56,7 +56,8 @@ Se o seu script estiver num servidor local, poderá ainda necessitar de portas a
 * Há 90 minutos permitidos para o script ser executado, qualquer coisa mais longa resultará numa disposição falhada da extensão.
 * Não coloque reboots dentro do script, isto irá causar problemas com outras extensões que estão a ser instaladas, e após o reboot, a extensão não continuará após o reinício. 
 * Se tiver um script que irá causar um reboot, então instale aplicações e execute scripts, etc. Você deve agendar o reboot usando um trabalho cron, ou usando ferramentas como DSC, ou Chef, extensões de marionetas.
-* A extensão só irá executar um script uma vez, se quiser executar um script em cada bota, então você pode usar [a imagem cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) e usar um módulo [Scripts Per Boot.](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) Em alternativa, pode utilizar o script para criar uma unidade de serviço SystemD.
+* A extensão só irá executar um script uma vez, se quiser executar um script em cada bota, então você pode usar [a imagem cloud-init](../linux/using-cloud-init.md) e usar um módulo [Scripts Per Boot.](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) Em alternativa, pode utilizar o script para criar uma unidade de serviço SystemD.
+* Só é possível ter uma versão de uma extensão aplicada ao VM. Para executar um segundo script personalizado, você precisa remover a extensão de script personalizado e reaplicá-lo novamente com o script atualizado. 
 * Se quiser agendar quando um script será executado, deve usar a extensão para criar um trabalho cron. 
 * Quando o script estiver em execução, verá apenas um estado de extensão "em transição" no portal ou na CLI do Azure. Se quiser atualizações de estado mais frequentes de um script de execução, terá de criar a sua própria solução.
 * A extensão de Script personalizado não suporta de forma nativa servidores proxy, no entanto pode utilizar uma ferramenta de transferência de ficheiros que suporta servidores proxy dentro do seu script, como *o Curl*. 
@@ -112,13 +113,13 @@ Estes itens devem ser tratados como dados sensíveis e especificados na configur
 
 | Name | Valor / Exemplo | Tipo de Dados | 
 | ---- | ---- | ---- |
-| apiVersion | 2019-03-01 | date |
+| apiVersion | 2019-03-01 | data |
 | publicador | Microsoft.Compute.Extensions | string |
 | tipo | PersonalScript | string |
 | typeHandlerVersion | 2.1 | int |
-| fileUris (por exemplo) | `https://github.com/MyProject/Archive/MyPythonScript.py` | array |
+| fileUris (por exemplo) | `https://github.com/MyProject/Archive/MyPythonScript.py` | matriz |
 | commandToExecute (por exemplo) | MyPythonScript.py pitão\<my-param1> | string |
-| . | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
+| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix (por exemplo) | false | boolean |
 | timetamp (por exemplo) | 123456789 | Inteiro de 32 bits |
 | armazenamentoSame de número de armazenamento (por exemplo) | exemplostorageacct | string |
@@ -134,7 +135,7 @@ Estes itens devem ser tratados como dados sensíveis e especificados na configur
 * `fileUris`: (opcional, matriz de cordas) os URLs para ficheiros a serem descarregados.
 * `storageAccountName`: (opcional, cadeia) o nome da conta de armazenamento. Se especificar credenciais de armazenamento, todos `fileUris` devem ser URLs para Azure Blobs.
 * `storageAccountKey`: (opcional, cadeia) a chave de acesso da conta de armazenamento
-* `managedIdentity`: (opcional, objeto json) a [identidade gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para descarregar ficheiros
+* `managedIdentity`: (opcional, objeto json) a [identidade gerida](../../active-directory/managed-identities-azure-resources/overview.md) para descarregar ficheiros
   * `clientId`: (opcional, string) o ID do cliente da identidade gerida
   * `objectId`: (opcional, cadeia) o ID do objeto da identidade gerida
 
@@ -212,9 +213,9 @@ O CustomScript utiliza o seguinte algoritmo para executar um script.
 > [!NOTE]
 > Esta propriedade **deve** ser especificada apenas em configurações protegidas.
 
-CustomScript (versão 2.1 em diante) suporta [identidade gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para descarregar ficheiros(s) de URLs fornecidos na definição "fileUris". Permite que o CustomScript aceda a blobs ou contentores privados do Azure Storage sem que o utilizador tenha de passar segredos como fichas SAS ou chaves de conta de armazenamento.
+CustomScript (versão 2.1 em diante) suporta [identidade gerida](../../active-directory/managed-identities-azure-resources/overview.md) para descarregar ficheiros(s) de URLs fornecidos na definição "fileUris". Permite que o CustomScript aceda a blobs ou contentores privados do Azure Storage sem que o utilizador tenha de passar segredos como fichas SAS ou chaves de conta de armazenamento.
 
-Para utilizar esta funcionalidade, o utilizador deve adicionar uma identidade atribuída ao [sistema](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) ou [atribuída](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity) ao VM ou VMSS onde se espera que o CustomScript seja executado, e conceder o acesso de identidade gerido ao recipiente ou bolha de [armazenamento Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
+Para utilizar esta funcionalidade, o utilizador deve adicionar uma identidade atribuída ao [sistema](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity) ou [atribuída](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-user-assigned-identity) ao VM ou VMSS onde se espera que o CustomScript seja executado, e conceder o acesso de identidade gerido ao recipiente ou bolha de [armazenamento Azure](../../active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage.md#grant-access).
 
 Para utilizar a identidade atribuída ao sistema no VM/VMSS alvo, dedije o campo "managedidentity" a um objeto json vazio. 
 

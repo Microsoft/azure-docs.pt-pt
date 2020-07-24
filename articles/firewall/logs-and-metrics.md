@@ -5,13 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 07/21/2020
 ms.author: victorh
-ms.openlocfilehash: 89c6700d5df3bcef1332121c3cf7d8f720fe054c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d0a46135e5f763e6253540fe62d63cb59026ccb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76315036"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086596"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Registos e métricas do Azure Firewall
 
@@ -98,9 +99,13 @@ As seguintes métricas estão disponíveis para Azure Firewall:
 
     Unidade: contagem
 
-- **Dados processados** - Quantidade de dados que atravessam a firewall.
+- **Dados processados** - Soma de dados que atravessam a firewall numa determinada janela de tempo.
 
     Unidade: bytes
+
+- **Produção** - Taxa de dados que atravessam a firewall por segundo.
+
+    Unidade: bits por segundo
 
 - **Estado de saúde de firewall** - Indica a saúde da firewall com base na disponibilidade do porto SNAT.
 
@@ -123,7 +128,7 @@ As seguintes métricas estão disponíveis para Azure Firewall:
    Quando adiciona mais endereços IP públicos à sua firewall, estão disponíveis mais portas SNAT, reduzindo a utilização das portas SNAT. Adicionalmente, quando a firewall se escala por diferentes razões (por exemplo, CPU ou saída) também ficam disponíveis portas SNAT adicionais. Assim, efetivamente, uma dada percentagem de utilização das portas SNAT pode diminuir sem que você adicione quaisquer endereços IP públicos, apenas porque o serviço escalou para fora. Pode controlar diretamente o número de endereços IP públicos disponíveis para aumentar as portas disponíveis na sua firewall. Mas não se pode controlar diretamente a escala de firewall. Atualmente, as portas SNAT são adicionadas apenas para os primeiros cinco endereços IP públicos.   
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para aprender a monitorizar registos e métricas do Azure Firewall, consulte [Tutorial: Monitor Azure Firewall .](tutorial-diagnostics.md)
 

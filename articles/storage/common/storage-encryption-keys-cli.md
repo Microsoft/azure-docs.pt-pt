@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d2390cbf41f9a93515f994040a287d69f0036168
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6fa4bbaf9b37c93ef4efbe405087c39395df63d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506209"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086018"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Configure as chaves geridas pelo cliente com o Azure Key Vault utilizando o Azure CLI
 
@@ -30,6 +30,7 @@ Para ativar as chaves geridas pelo cliente para a sua conta de armazenamento, at
 Para atribuir uma identidade gerida utilizando o Azure CLI, ligue para [a atualização da conta de armazenamento AZ](/cli/azure/storage/account#az-storage-account-update). Lembre-se de substituir os valores do espaço reservado nos parênteses pelos seus próprios valores.
 
 ```azurecli-interactive
+az login
 az account set --subscription <subscription-id>
 
 az storage account update \
@@ -90,9 +91,33 @@ A encriptação de armazenamento Azure suporta chaves RSA e RSA-HSM dos tamanhos
 
 ## <a name="configure-encryption-with-customer-managed-keys"></a>Configurar encriptação com chaves geridas pelo cliente
 
-Por predefinição, a encriptação do Azure Storage utiliza as teclas geridas pela Microsoft. Configure a sua conta de Armazenamento Azure para chaves geridas pelo cliente e especifique a chave para associar à conta de armazenamento.
+Por predefinição, a encriptação do Azure Storage utiliza as teclas geridas pela Microsoft. Neste passo, configufique a sua conta de Armazenamento Azure para utilizar chaves geridas pelo cliente com o Azure Key Vault e, em seguida, especifique a chave para associar à conta de armazenamento.
 
-Para atualizar as definições de encriptação da conta de armazenamento, ligue para a atualização da [conta de armazenamento AZ](/cli/azure/storage/account#az-storage-account-update), como mostra o exemplo seguinte. Inclua o `--encryption-key-source` parâmetro e desa cosma-o `Microsoft.Keyvault` para permitir as chaves geridas pelo cliente para a conta de armazenamento. O exemplo também questiona o cofre-chave URI e a versão chave mais recente, ambos os valores necessários para associar a chave à conta de armazenamento. Lembre-se de substituir os valores do espaço reservado nos parênteses pelos seus próprios valores.
+Ao configurar a encriptação com as teclas geridas pelo cliente, pode optar por rodar automaticamente a chave utilizada para encriptação quando a versão muda no cofre de teclas associado. Em alternativa, pode especificar explicitamente uma versão chave a ser utilizada para encriptação até que a versão chave seja atualizada manualmente.
+
+### <a name="configure-encryption-for-automatic-rotation-of-customer-managed-keys"></a>Encriptação configurada para rotação automática de chaves geridas pelo cliente
+
+Para configurar a encriptação para a rotação automática das teclas geridas pelo cliente, instale [a versão 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) ou posterior do Azure CLI. Para mais informações, consulte [instalar o Azure CLI](/azure/install-azure-cli).
+
+Para rodar automaticamente as teclas geridas pelo cliente, omita a versão chave quando configurar as chaves geridas pelo cliente para a conta de armazenamento. Ligue para a atualização da [conta de armazenamento AZ](/cli/azure/storage/account#az-storage-account-update) para atualizar as definições de encriptação da conta de armazenamento, como mostrado no exemplo seguinte. Inclua o `--encryption-key-source` parâmetro e desa cose para `Microsoft.Keyvault` ativar as chaves geridas pelo cliente para a conta. Lembre-se de substituir os valores do espaço reservado nos parênteses pelos seus próprios valores.
+
+```azurecli-interactive
+key_vault_uri=$(az keyvault show \
+    --name <key-vault> \
+    --resource-group <resource_group> \
+    --query properties.vaultUri \
+    --output tsv)
+az storage account update
+    --name <storage-account> \
+    --resource-group <resource_group> \
+    --encryption-key-name <key> \
+    --encryption-key-source Microsoft.Keyvault \
+    --encryption-key-vault $key_vault_uri
+```
+
+### <a name="configure-encryption-for-manual-rotation-of-key-versions"></a>Encriptação configurada para rotação manual de versões-chave
+
+Para especificar explicitamente uma versão chave a utilizar para encriptação, forneça a versão chave quando configurar a encriptação com as chaves geridas pelo cliente para a conta de armazenamento. Ligue para a atualização da [conta de armazenamento AZ](/cli/azure/storage/account#az-storage-account-update) para atualizar as definições de encriptação da conta de armazenamento, como mostrado no exemplo seguinte. Inclua o `--encryption-key-source` parâmetro e desa cose para `Microsoft.Keyvault` ativar as chaves geridas pelo cliente para a conta. Lembre-se de substituir os valores do espaço reservado nos parênteses pelos seus próprios valores.
 
 ```azurecli-interactive
 key_vault_uri=$(az keyvault show \
@@ -114,9 +139,7 @@ az storage account update
     --encryption-key-vault $key_vault_uri
 ```
 
-## <a name="update-the-key-version"></a>Atualizar a versão chave
-
-Quando criar uma nova versão de uma chave, terá de atualizar a conta de armazenamento para utilizar a nova versão. Em primeiro lugar, consulta para o cofre-chave URI chamando [az keyvault show](/cli/azure/keyvault#az-keyvault-show), e para a versão chave, chamando [az key-key-versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions). Em [seguida,](/cli/azure/storage/account#az-storage-account-update) ligue para a atualização da conta de armazenamento AZ para atualizar as definições de encriptação da conta de armazenamento para usar a nova versão da chave, como mostrado na secção anterior.
+Quando rodar manualmente a versão chave, terá de atualizar as definições de encriptação da conta de armazenamento para utilizar a nova versão. Em primeiro lugar, consulta para o cofre-chave URI chamando [az keyvault show](/cli/azure/keyvault#az-keyvault-show), e para a versão chave, chamando [az key-key-versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions). Em [seguida,](/cli/azure/storage/account#az-storage-account-update) ligue para a atualização da conta de armazenamento AZ para atualizar as definições de encriptação da conta de armazenamento para usar a nova versão da chave, como mostrado no exemplo anterior.
 
 ## <a name="use-a-different-key"></a>Use uma chave diferente
 
@@ -124,7 +147,7 @@ Para alterar a chave utilizada para encriptação de armazenamento Azure, ligue 
 
 ## <a name="revoke-customer-managed-keys"></a>Revogar as chaves geridas pelo cliente
 
-Se acredita que uma chave pode ter sido comprometida, pode revogar as chaves geridas pelo cliente removendo a política de acesso ao cofre. Para revogar uma chave gerida pelo cliente, ligue para o comando de [política de eliminação de chave-chave az,](/cli/azure/keyvault#az-keyvault-delete-policy) como mostra o exemplo seguinte. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores e utilizar as variáveis definidas nos exemplos anteriores.
+Pode revogar as chaves geridas pelo cliente removendo a política de acesso ao cofre. Para revogar uma chave gerida pelo cliente, ligue para o comando de [política de eliminação de chave-chave az,](/cli/azure/keyvault#az-keyvault-delete-policy) como mostra o exemplo seguinte. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores e utilizar as variáveis definidas nos exemplos anteriores.
 
 ```azurecli-interactive
 az keyvault delete-policy \
@@ -143,7 +166,7 @@ az storage account update
     --encryption-key-source Microsoft.Storage
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Azure Storage encryption for data at rest](storage-service-encryption.md) (Encriptação do Armazenamento do Azure para dados inativos) 
 - [O que é Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

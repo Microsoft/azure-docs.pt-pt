@@ -15,17 +15,18 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: akjosh
-ms.openlocfilehash: bd9dc05a84a4ee54fce40e6c88e87ac90bfee8a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3b6c9d5835f6d81ab8641d8a43fb7228b6b53ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707604"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085644"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Gerir utilizadores administrativos, SSH e verificar ou reparar discos em VMs Linux utilizando a Extensão VMAccess com o CLI Azure
 ## <a name="overview"></a>Descrição geral
 O disco do seu Linux VM está a mostrar erros. De alguma forma, repõe a palavra-passe de raiz para o seu VM Linux ou apagou acidentalmente a sua chave privada SSH. Se isso acontecesse nos dias do datacenter, terias de conduzir até lá e depois abrir o KVM para chegar à consola do servidor. Pense na extensão Azure VMAccess como aquele interruptor KVM que lhe permite aceder à consola para reiniciar o acesso ao Linux ou realizar a manutenção do nível do disco.
 
-Este artigo mostra-lhe como utilizar a Extensão Azure VMAccesss para verificar ou reparar um disco, redefinir o acesso do utilizador, gerir contas administrativas do utilizador ou atualizar a configuração SSH no Linux quando estão a funcionar como máquinas virtuais Azure Resource Manager. Se precisar de gerir máquinas virtuais clássicas - pode seguir as instruções encontradas na [documentação clássica](../linux/classic/reset-access-classic.md)do VM . 
+Este artigo mostra-lhe como utilizar a Extensão Azure VMAccesss para verificar ou reparar um disco, redefinir o acesso do utilizador, gerir contas administrativas do utilizador ou atualizar a configuração SSH no Linux quando estão a funcionar como máquinas virtuais Azure Resource Manager. Se precisar de gerir máquinas virtuais clássicas - pode seguir as instruções encontradas na [documentação clássica](/previous-versions/azure/virtual-machines/linux/classic/reset-access-classic)do VM . 
  
 > [!NOTE]
 > Se utilizar a Extensão VMAccess para redefinir a palavra-passe do seu VM depois de instalar a Extensão de Início de Sessão AAD, terá de voltar a aplicar a Extensão de Início de Sessão AAD para reiniciar o Login AAD para a sua máquina.
@@ -246,7 +247,7 @@ az vm extension set \
 ```
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
-### <a name="troubleshoot"></a>Resolução de problemas
+### <a name="troubleshoot"></a>Resolução de Problemas
 
 Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure e utilizando o CLI Azure. Para ver o estado de implantação das extensões para um determinado VM, executar o seguinte comando utilizando o Azure CLI.
 

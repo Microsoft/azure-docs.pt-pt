@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
-ms.openlocfilehash: 013433d60b9f3e7f251f8d80d7b9b8f24b2395b3
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: faa338e32577e713472601fde52e038a685b7826
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206198"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086834"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Visão geral dos limites de recursos geridos da Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -119,7 +119,7 @@ A SQL Managed Instance só pode ser criada em [regiões apoiadas.](https://azure
 A SQL Managed Instance suporta atualmente a implementação apenas nos seguintes tipos de subscrições:
 
 - [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
-- [Pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/)
+- [Pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/)
 - [Fornecedor de serviços na nuvem (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
 - [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)
 - [Pay As You Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)
@@ -128,7 +128,7 @@ A SQL Managed Instance suporta atualmente a implementação apenas nos seguintes
 ## <a name="regional-resource-limitations"></a>Limitações de recursos regionais
 
 > [!Note]
-> Para obter as informações mais recentes sobre a disponibilidade da região para subscrições, consulte primeiro o [post oficial do blog COVID-19](https://aka.ms/sqlcapacity).
+> Para obter as informações mais recentes sobre a disponibilidade da região para assinaturas, consulte primeiro [uma região](https://aka.ms/sqlcapacity).
 
 Os tipos de subscrição suportados podem conter um número limitado de recursos por região. A SQL Managed Instance tem dois limites por defeito por região de Azure (que podem ser aumentados a pedido através da criação de um pedido especial de [apoio no portal Azure,](../database/quota-increase-request.md) dependendo de um tipo de subscrição:
 
@@ -142,7 +142,7 @@ O quadro que se segue mostra os **limites regionais predefinidos** para os tipos
 
 |Tipo de subscrição| Número máximo de sub-redes sql de instância gerida | Número máximo de unidades vCore* |
 | :---| :--- | :--- |
-|Pay-as-you-go|3|320|
+|Pay as you go|3|320|
 |CSP |8 (15 em algumas regiões**)|960 (1440 em algumas regiões**)|
 |Pay-as-you-go Dev/Test|3|320|
 |Enterprise Dev/Test|3|320|

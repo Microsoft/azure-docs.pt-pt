@@ -2,13 +2,13 @@
 title: Modelos de ligação para implantação
 description: Descreve como usar modelos ligados num modelo de Gestor de Recursos Azure para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um ficheiro de parâmetros e URLs criados dinamicamente.
 ms.topic: conceptual
-ms.date: 06/26/2020
-ms.openlocfilehash: 6b28268a522dde4fe16ccf9d0d01738c3b6a9b5d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.date: 07/21/2020
+ms.openlocfilehash: 40da2443828a07f2171922fcc6d8976d464d0ad4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170654"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086817"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilizar modelos ligados e aninhados ao implementar recursos do Azure
 
@@ -315,6 +315,11 @@ Ao fazer referência a um modelo ligado, o valor de `uri` não deve ser um fiche
 > Pode fazer referências a modelos utilizando parâmetros que, em última análise, se resolvem a algo que utiliza **http** ou **https**, por exemplo, utilizando o `_artifactsLocation` parâmetro como assim:`"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
 
 O Gestor de Recursos deve ser capaz de aceder ao modelo. Uma opção é colocar o seu modelo ligado numa conta de armazenamento e usar o URI para esse item.
+
+[As especificações do modelo](./template-specs.md) (atualmente em pré-visualização privada) permitem-lhe partilhar modelos ARM com outros utilizadores na sua organização. As especificações dos modelos também podem ser usadas para embalar um modelo principal e os seus modelos ligados. Para obter mais informações, veja:
+
+- [Tutorial: Criar uma especificação de modelo com modelos ligados.](./template-specs-create-linked.md)
+- [Tutorial: Implementar uma especificação de modelo como um modelo ligado](./template-specs-deploy-linked-template.md).
 
 ### <a name="parameters-for-linked-template"></a>Parâmetros para o modelo ligado
 
