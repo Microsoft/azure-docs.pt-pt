@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: e519010f902e99a3118485b3c8bc57cd47188a1f
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 6d1c7a48332aa49bc5c506ceeae287bc3affef16
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224558"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074082"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Recuperação de desastres para uma base de dados Oracle Database 12c em ambiente Azure
 
@@ -78,7 +78,7 @@ Segue-se um resumo da configuração do Azure:
 ![Screenshot da página de topologia dr](./media/oracle-disaster-recovery/oracle_topology_02.png)
 
 ### <a name="approach-2-site-to-site-vpn"></a>Abordagem 2: VPN local-a-local
-A VPN local é uma melhor abordagem. Para obter mais informações sobre a configuração de uma VPN, consulte [Criar uma rede virtual com uma ligação VPN site-to-site utilizando CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli).
+A VPN local é uma melhor abordagem. Para obter mais informações sobre a configuração de uma VPN, consulte [Criar uma rede virtual com uma ligação VPN site-to-site utilizando CLI](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md).
 
 #### <a name="topology"></a>Topologia
 
