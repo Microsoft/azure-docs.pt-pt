@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: fc14c3bd069162c390c09fddbfe9169b90bf66ce
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a9d419052f000b220c993109e45d371398607275
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086012"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006455"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Clusters Azure HDInsight
 
 O HDInsight proporciona elasticidade com opções para escalar e reduzir o número de nós de trabalhadores nos seus clusters. Esta elasticidade permite encolher um aglomerado fora de horas ou aos fins de semana. E expandi-lo durante as exigências máximas dos negócios.
 
-Dimensione o seu cluster antes do processamento periódico do lote para que o cluster tenha recursos adequados. Após o processamento completo, e a utilização desce, reduza o cluster HDInsight para menos nós de trabalhadores.
+Dimensione o seu cluster antes do processamento periódico do lote para que o cluster tenha recursos adequados.  Após o processamento completo, e a utilização desce, reduza o cluster HDInsight para menos nós de trabalhadores.
 
 Pode escalar um cluster manualmente utilizando um dos métodos descritos abaixo. Também pode utilizar opções [de autoescala](hdinsight-autoscale-clusters.md) para escalar automaticamente para cima e para baixo em resposta a determinadas métricas.
 
@@ -30,7 +30,7 @@ Pode escalar um cluster manualmente utilizando um dos métodos descritos abaixo.
 
 A Microsoft fornece os seguintes utilitários para dimensionar os clusters:
 
-|Utility | Descrição|
+|Utilitário | Descrição|
 |---|---|
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[`Set-AzHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
@@ -106,6 +106,14 @@ O impacto da alteração do número de nós de dados varia para cada tipo de clu
 * Kafka
 
     Deve reequilibrar réplicas de partição após operações de escalonamento. Para mais informações, consulte a [alta disponibilidade de dados com Apache Kafka no documento HDInsight.](./kafka/apache-kafka-high-availability.md)
+
+* Colmeia Apache LLAP
+
+    Após a escala para `N` os nós dos trabalhadores, o HDInsight definirá automaticamente as seguintes configurações e reiniciará a Colmeia.
+
+  * Máxima total de consultas simultâneas:`hive.server2.tez.sessions.per.default.queue = min(N, 32)`
+  * Número de nós usados pelo LLAP da Hive:`num_llap_nodes  = N`
+  * Número de nó(s) para a execução do daemon Hive LLAP:`num_llap_nodes_for_llap_daemons = N`
 
 ## <a name="how-to-safely-scale-down-a-cluster"></a>Como escalar com segurança um cluster
 
@@ -260,7 +268,7 @@ Os servidores da região são automaticamente equilibrados dentro de poucos minu
     balancer
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Dimensionar automaticamente os clusters do Azure HDInsight](hdinsight-autoscale-clusters.md)
 

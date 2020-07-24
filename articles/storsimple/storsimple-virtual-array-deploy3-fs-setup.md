@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 16a5e0bb3e50e3a90951572e8d2847d379c1b114
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e544d135883d0c936b3f23b3e50e385268c992c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80297637"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006301"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Implementar StorSimple Virtual Array - Configurar como servidor de ficheiros através do portal Azure
-![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
+![Diagrama mostrando os passos necessários para implantar uma matriz virtual. A primeira parte do terceiro passo é rotulada Configurar como servidor de ficheiros e é realçada.](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
 
 ## <a name="introduction"></a>Introdução
 
@@ -51,16 +51,16 @@ Utilize as seguintes instruções passo a passo para configurar e configurar o s
    
    Utilize o URL de ligação indicado no passo anterior. Vê um erro que indica que há um problema com o certificado de segurança do site. Clique **em Continuar a esta página web.**
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image2.png)
+   ![Screenshot de uma janela do navegador reportando um problema de certificado de segurança. São visíveis dois links, um para o website e outro para a página inicial do utilizador.](./media/storsimple-virtual-array-deploy3-fs-setup/image2.png)
 2. Inscreva-se na UI web da sua matriz virtual como **StorSimpleAdmin**. Introduza a palavra-passe do administrador do dispositivo que alterou no Passo 3: Inicie a matriz virtual em [Provision a StorSimple Virtual Array em Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) ou em [Provision a StorSimple Virtual Array em VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image3.png)
+   ![Screenshot da página de storSimple de sinsutor. O nome de utilizador StorSimpleAdmin é visível e uma caixa de palavra-passe é preenchida com caracteres indeterminados.](./media/storsimple-virtual-array-deploy3-fs-setup/image3.png)
 3. Foi levado para a página **inicial.** Esta página descreve as várias definições necessárias para configurar e registar a matriz virtual com o serviço StorSimple Device Manager. As **definições de Rede,** **as definições de procuração web**e as **definições de tempo** são opcionais. As únicas definições necessárias são **as definições do Dispositivo** e as **definições de Cloud**.
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image4.png)
+   ![Screenshot da página inicial. O texto indica que o dispositivo não está configurado. São visíveis ligações a vários tipos diferentes de configurações.](./media/storsimple-virtual-array-deploy3-fs-setup/image4.png)
 4. Na página **de definições de Rede** nas **interfaces da Rede,** o DATA 0 será automaticamente configurado para si. Cada interface de rede é definida por padrão para obter o endereço IP automaticamente (DHCP). Assim, um endereço IP, sub-rede e gateway são automaticamente atribuídos (tanto para IPv4 como IPv6).
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image5.png)
+   ![Screenshot da página de definições de rede mostrando os endereços IP configurados para várias versões do Protocolo de Internet.](./media/storsimple-virtual-array-deploy3-fs-setup/image5.png)
    
    Se tiver adicionado mais do que uma interface de rede durante o fornecimento do dispositivo, pode configurá-los aqui. Note que pode configurar a sua interface de rede apenas como IPv4 ou como IPv4 e IPv6. As configurações apenas iPv6 não são suportadas.
 5. Os servidores DNS são necessários porque são utilizados quando o seu dispositivo tenta comunicar com os seus fornecedores de serviços de armazenamento na nuvem ou para resolver o seu dispositivo pelo nome quando configurado como um servidor de ficheiros. Na página **de definições de Rede** nos **servidores DNS**:
@@ -70,15 +70,15 @@ Utilize as seguintes instruções passo a passo para configurar e configurar o s
 6. Na página de definições do **dispositivo:**
    
    1. Atribua um **nome** único ao seu dispositivo. Este nome pode ser de 1 a 15 caracteres e pode conter letras, números e hífenes.
-   2. Clique no ícone **do servidor de ficheiro** para o ![](./media/storsimple-virtual-array-deploy3-fs-setup/image6.png) **tipo** de dispositivo que está a criar. Um servidor de ficheiros permitir-lhe-á criar pastas partilhadas.
+   2. Clique no ícone **do servidor de ficheiro** para o :::image type="icon" source="./media/storsimple-virtual-array-deploy3-fs-setup/image6.png"::: **tipo** de dispositivo que está a criar. Um servidor de ficheiros permitir-lhe-á criar pastas partilhadas.
    3. Como o seu dispositivo é um servidor de ficheiros, terá de se juntar ao dispositivo a um domínio. Introduza um **nome de domínio**.
    4. Clique em **Aplicar**.
 7. Aparecerá uma caixa de diálogo. Introduza as suas credenciais de domínio no formato especificado. Clique no ícone de verificação. As credenciais de domínio são verificadas. Vê uma mensagem de erro se as credenciais estiverem incorretas.
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image7.png)
+   ![Screenshot mostrando uma caixa de diálogo com o nome de utilizador e senha preenchidas.](./media/storsimple-virtual-array-deploy3-fs-setup/image7.png)
 8. Clique em **Aplicar**. Isto aplica-se e valida as definições do dispositivo.
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image8.png)
+   ![Screenshot da página de definições do dispositivo. O nome do dispositivo e o nome de domínio estão preenchidos.](./media/storsimple-virtual-array-deploy3-fs-setup/image8.png)
    
    > [!NOTE]
    > Certifique-se de que a sua matriz virtual está na sua própria unidade organizacional (OU) para o Ative Directory e que nenhum objeto de política de grupo (GPO) lhe é aplicado ou herdado. A política do grupo pode instalar aplicações como software antivírus no StorSimple Virtual Array. A instalação de software adicional não é suportada e pode levar à corrupção de dados. 
@@ -86,7 +86,7 @@ Utilize as seguintes instruções passo a passo para configurar e configurar o s
    > 
 9. (Opcionalmente) configurar o seu servidor de procuração web. Apesar de a configuração do proxy Web ser opcional, tenha em atenção que se utilizar um proxy Web, só pode configurá-lo aqui.
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image9.png)
+   ![Screenshot da página de configurações de procuração web. A opção Ativa proxy web está desligada e a autenticação está definida para Nenhum. Não estão definidos outros valores.](./media/storsimple-virtual-array-deploy3-fs-setup/image9.png)
    
    Na página **de procuração** da Web:
    
@@ -96,7 +96,7 @@ Utilize as seguintes instruções passo a passo para configurar e configurar o s
    4. Clique em **Aplicar**. Isto validará e aplicará as definições configuradas de procuração web.
 10. (Opcionalmente) configurar as definições de tempo para o seu dispositivo, como o fuso horário e os servidores NTP primários e secundários. Os servidores NTP são necessários porque o seu dispositivo deve sincronizar o tempo para que possa autenticar com os seus fornecedores de serviços na nuvem.
     
-    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image10.png)
+    ![Screenshot da página de definições de tempo. O fuso horário e o servidor N T P primário estão preenchidos. O servidor secundário N T P está em branco.](./media/storsimple-virtual-array-deploy3-fs-setup/image10.png)
     
     Na página **de definições de tempo:**
     
@@ -112,10 +112,10 @@ Utilize as seguintes instruções passo a passo para configurar e configurar o s
        Se este não for o primeiro dispositivo que está a registar com este serviço, terá de fornecer a chave de encriptação de dados de serviço. Para obter mais informações, consulte para obter a [chave de encriptação de dados](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) de serviço na sua UI web local.
     3. Clique em **Registar**. Isto reiniciará o dispositivo. Pode ter de esperar 2-3 minutos antes de o aparelho ser registado com sucesso. Depois de o dispositivo ter sido reiniciado, será levado para o sinal na página.
        
-       ![](./media/storsimple-virtual-array-deploy3-fs-setup/image13.png)
+       ![Screenshot da página de definições cloud. A chave de registo e as caixas-chave de encriptação estão preenchidas, mas os valores são redigidos.](./media/storsimple-virtual-array-deploy3-fs-setup/image13.png)
 12. Regresse ao portal do Azure. Vá a **Todos os recursos,** procure o seu serviço StorSimple Device Manager.
     
-    ![](./media/storsimple-virtual-array-deploy3-fs-setup/searchdevicemanagerservice1.png) 
+    ![Screenshot da página de todos os recursos do portal Azure. Destaca-se um serviço de Gestor de Dispositivos.](./media/storsimple-virtual-array-deploy3-fs-setup/searchdevicemanagerservice1.png) 
 13. Na lista filtrada, selecione o seu serviço StorSimple Device Manager e, em seguida, navegue para **Dispositivos de Gestão >**. Na lâmina **dispositivos,** verifique se o dispositivo se ligou com sucesso ao serviço e tem o estado **pronto a configurar**.
     
     ![Configure um servidor de ficheiros](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
@@ -203,12 +203,12 @@ Execute os seguintes passos no [portal do Azure](https://portal.azure.com/) para
 Terá agora de se ligar a uma ou mais ações que criou no passo anterior. Execute estes passos no seu anfitrião do Windows Server ligado ao seu StorSimple Virtual Array.
 
 #### <a name="to-connect-to-the-share"></a>Para ligar à parte
-1. Prima ![](./media/storsimple-virtual-array-deploy3-fs-setup/image22.png) + R. Na janela Executar, especifique o * &lt; &gt; nome do servidor de ficheiros&#92;&#92;* como o caminho, substituindo o nome do *servidor de ficheiros* pelo nome do dispositivo que atribuiu ao seu servidor de ficheiros. Clique em **OK**.
+1. Prima :::image type="icon" source="./media/storsimple-virtual-array-deploy3-fs-setup/image22.png"::: + R. Na janela Executar, especifique o * &lt; &gt; nome do servidor de ficheiros&#92;&#92;* como o caminho, substituindo o nome do *servidor de ficheiros* pelo nome do dispositivo que atribuiu ao seu servidor de ficheiros. Clique em **OK**.
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image23.png)
+   ![Screenshot da caixa de diálogo Run. A caixa Open é preenchida com um caminho que conduz ao servidor de ficheiros.](./media/storsimple-virtual-array-deploy3-fs-setup/image23.png)
 2. Isto abre o File Explorer. Agora deve conseguir ver as partilhas que criou como pastas. Selecione e faça duplo clique numa partilha (pasta) para ver o conteúdo.
    
-   ![](./media/storsimple-virtual-array-deploy3-fs-setup/image24.png)
+   ![Screenshot do Explorador de Ficheiros. São visíveis várias pastas que representam as ações recém-criadas.](./media/storsimple-virtual-array-deploy3-fs-setup/image24.png)
 3. Agora pode adicionar ficheiros a estas ações e fazer uma cópia de segurança.
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -13,13 +13,13 @@ author: swinarko
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 07/09/2020
-ms.openlocfilehash: 172a2ae863714b54e052819df93f872385b9c77a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.date: 07/20/2020
+ms.openlocfilehash: 2f8706fa8b272075ec64e2d36475509732914acf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86183346"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003222"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Run an SSIS package with the Execute SSIS Package activity in Azure Data Factory (Executar um pacote do SSIS com a atividade Executar Pacote do SSIS no Azure Data Factory)
 
@@ -57,7 +57,7 @@ Neste passo, você usa a UI da Data Factory ou app para criar um pipeline. Adici
 
 No separador **Geral** da atividade do Pacote SSIS, complete os seguintes passos.
 
-   ![Definir propriedades no separador Geral](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+![Definir propriedades no separador Geral](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 
    1. Para **nome,** insira o nome da sua atividade do Pacote SSIS Executar.
 
@@ -77,7 +77,7 @@ No separador **Geral** da atividade do Pacote SSIS, complete os seguintes passos
 
 No **separador Definições** da atividade do Pacote SSIS Execute, complete os seguintes passos.
 
-   ![Definir propriedades no separador Definições - Automático](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
+![Definir propriedades no separador Definições - Automático](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
    1. Para **a Azure-SSIS IR,** selecione o Azure-SSIS IR designado para executar a sua atividade de Pacote SSIS executar.
 
@@ -103,13 +103,13 @@ No **separador Definições** da atividade do Pacote SSIS Execute, complete os s
 
    1. Se o seu Azure-SSIS IR não estiver em funcionamento ou se a caixa de verificação de **entradas manuais** for selecionada, insira os seus percursos de pacote e ambiente a partir do SSISDB diretamente nos seguintes formatos: `<folder name>/<project name>/<package name>.dtsx` e `<folder name>/<environment name>` .
 
-   ![Definir propriedades no separador Definições - Manual](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
+      ![Definir propriedades no separador Definições - Manual](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
 ##### <a name="package-location-file-system-package"></a>Localização do pacote: Sistema de Ficheiros (Pacote)
 
 **Sistema de Ficheiros (Pacote)** como a sua localização do pacote é automaticamente selecionado se o seu Azure-SSIS IR foi a provisionado sem SSISDB ou se você pode selecioná-lo por si mesmo. Se for selecionado, complete os seguintes passos.
 
-   ![Definir propriedades no separador Definições - Sistema de Ficheiros (Pacote)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
+![Definir propriedades no separador Definições - Sistema de Ficheiros (Pacote)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
    
    1. Especifique o seu pacote para executar fornecendo um caminho da Convenção Universal de Nomeação (UNC) para o seu ficheiro de pacote (com `.dtsx` ) na caixa de caminho **pacote.** Pode navegar e selecionar o seu pacote selecionando **o armazenamento de ficheiros Browse ou insira** o seu caminho manualmente. Por exemplo, se armazenar o seu pacote em Ficheiros Azure, o seu caminho é `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx` . 
    
@@ -133,13 +133,13 @@ No **separador Definições** da atividade do Pacote SSIS Execute, complete os s
    
    1. Especifique as credenciais para aceder à sua pasta de registo. Se já introduziu os valores das suas credenciais de acesso ao pacote (ver acima), pode reutilizá-las selecionando a caixa de verificação **de credenciais** de acesso a pacotes. Caso contrário, introduza os valores das suas credenciais de acesso ao registo nas caixas **De Domínio,** **Nome de Utilizador**e **Password.** Por exemplo, se armazenar os seus registos em Ficheiros Azure, o domínio é `Azure` , o nome de utilizador é , e a `<storage account name>` palavra-passe é `<storage account key>` . Em alternativa, pode utilizar os segredos armazenados no seu Cofre de Chaves Azure como valores (ver acima).
    
-   Para todos os caminhos da UNC mencionados anteriormente, o nome de ficheiro totalmente qualificado deve ser inferior a 260 caracteres. O nome do diretório deve ter menos de 248 caracteres.
+Para todos os caminhos da UNC mencionados anteriormente, o nome de ficheiro totalmente qualificado deve ser inferior a 260 caracteres. O nome do diretório deve ter menos de 248 caracteres.
 
 ##### <a name="package-location-file-system-project"></a>Localização do pacote: Sistema de Ficheiros (Projeto)
 
 Se selecionar **o Sistema de Ficheiros (Projeto)** como localização do seu pacote, complete os seguintes passos.
 
-   ![Definir propriedades no separador Definições - Sistema de Ficheiros (Projeto)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
+![Definir propriedades no separador Definições - Sistema de Ficheiros (Projeto)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
 
    1. Especifique o seu pacote para executar fornecendo um caminho UNC para o seu arquivo de projeto `.ispac` (com) na caixa de caminho do **Projeto** e um ficheiro de pacote (com ) do seu projeto na caixa de `.dtsx` nome **pacote.** Pode navegar e selecionar o seu projeto selecionando **o armazenamento de ficheiros Browse ou insira** o seu caminho manualmente. Por exemplo, se armazenar o seu projeto em Ficheiros Azure, o seu caminho é `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac` .
 
@@ -161,19 +161,19 @@ Se selecionar **o Sistema de Ficheiros (Projeto)** como localização do seu pac
    
    1. Especifique as credenciais para aceder à sua pasta de registo. Se já introduziu os valores das suas credenciais de acesso ao pacote (ver acima), pode reutilizá-las selecionando a caixa de verificação **de credenciais** de acesso a pacotes. Caso contrário, introduza os valores das suas credenciais de acesso ao registo nas caixas **De Domínio,** **Nome de Utilizador**e **Password.** Por exemplo, se armazenar os seus registos em Ficheiros Azure, o domínio é `Azure` , o nome de utilizador é , e a `<storage account name>` palavra-passe é `<storage account key>` . Em alternativa, pode utilizar os segredos armazenados no seu Cofre de Chaves Azure como valores (ver acima).
    
-   Para todos os caminhos da UNC mencionados anteriormente, o nome de ficheiro totalmente qualificado deve ser inferior a 260 caracteres. O nome do diretório deve ter menos de 248 caracteres.
+Para todos os caminhos da UNC mencionados anteriormente, o nome de ficheiro totalmente qualificado deve ser inferior a 260 caracteres. O nome do diretório deve ter menos de 248 caracteres.
 
 ##### <a name="package-location-embedded-package"></a>Localização do pacote: Pacote incorporado
 
 Se selecionar **o pacote Incorporado** como localização do seu pacote, complete os seguintes passos.
 
-   ![Definir propriedades no separador Definições - Pacote incorporado](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings5.png)
+![Definir propriedades no separador Definições - Pacote incorporado](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings5.png)
 
-   1. Arraste e deixe cair a sua encomenda para executar ou **carregá-la** de uma pasta de ficheiros para a caixa fornecida. O seu pacote será automaticamente comprimido e incorporado na carga útil da atividade. Uma vez incorporado, pode **descarregar** o seu pacote mais tarde para edição. Também pode **parametrizar** o seu pacote incorporado atribuindo-o a um parâmetro de pipeline que pode ser usado em múltiplas atividades, otimizando assim o tamanho da sua carga útil do pipeline. 
+   1. Arraste e deixe cair o seu ficheiro de pacote `.dtsx` (com) ou **carregue-o** a partir de uma pasta de ficheiros na caixa fornecida. O seu pacote será automaticamente comprimido e incorporado na carga útil da atividade. Uma vez incorporado, pode **descarregar** o seu pacote mais tarde para edição. Também pode **parametrizar** o seu pacote incorporado atribuindo-o a um parâmetro de pipeline que pode ser usado em múltiplas atividades, otimizando assim o tamanho da sua carga útil do pipeline. A incorporação de ficheiros de projeto `.ispac` (com) não é suportada atualmente, pelo que não pode utilizar parâmetros/gestores de conexão SSIS com âmbito de nível de projeto nos seus pacotes incorporados.
    
-   1. Se o seu pacote incorporado não estiver todo encriptado e detetarmos a utilização da Tarefa do Pacote Executar nele, a caixa de verificação **de tarefas do pacote executar** será automaticamente selecionada e as embalagens infantis relevantes com as suas referências do sistema de ficheiros serão automaticamente adicionadas para que também as integre. 
+   1. Se o seu pacote incorporado não estiver todo encriptado e detetarmos a utilização da Tarefa do Pacote Executo (EPT) nele, a caixa de verificação **de tarefas do pacote executar** será automaticamente selecionada e as suas embalagens para crianças referenciadas pelo seu caminho do sistema de ficheiros serão automaticamente adicionadas, para que também as possa incorporar.
    
-      Se não conseguirmos detetar a utilização da Tarefa do Pacote Executar, terá de selecionar manualmente a caixa de verificação **de tarefas do pacote executar** e adicionar as embalagens infantis relevantes com as referências do sistema de ficheiros, uma a uma, para que também as integre. Se as embalagens para crianças utilizarem referências SQL Server, certifique-se de que o SqL Server está acessível pelo seu Azure-SSIS IR.  Atualmente, a utilização de referências de projetos para pacotes infantis não é apoiada.
+      Se não conseguirmos detetar a utilização do EPT, tem de selecionar manualmente a caixa de verificação **de tarefas do pacote executar** e adicionar as suas embalagens para crianças referenciadas pelo seu caminho do sistema de ficheiros um a um, para que também possa inseri-las. Se as suas embalagens para crianças estiverem armazenadas na base de dados do SQL Server (MSDB), não pode inseri-las, pelo que tem de garantir que o seu Azure-SSIS IR pode aceder ao MSDB para os ir buscar utilizando as suas referências SQL Server. A incorporação de ficheiros de projetos `.ispac` (com) não é suportada atualmente, pelo que não pode utilizar referências baseadas em projetos para os seus pacotes infantis.
    
    1. Se usou o nível de proteção **EncriptarAllWithPassword** ou **EncryptSensitiveWithPassword** quando criou o seu pacote via SSDT, insira o valor da sua palavra-passe na caixa de senha de **encriptação.** 
    
@@ -189,13 +189,13 @@ Se selecionar **o pacote Incorporado** como localização do seu pacote, complet
    
    1. Especifique as credenciais para aceder à sua pasta de registo introduzindo os seus valores nas caixas **De Domínio,** **Nome de Utilizador**e **Password.** Por exemplo, se armazenar os seus registos em Ficheiros Azure, o domínio é `Azure` , o nome de utilizador é , e a `<storage account name>` palavra-passe é `<storage account key>` . Em alternativa, pode utilizar os segredos armazenados no seu Cofre de Chaves Azure como valores (ver acima).
    
-   Para todos os caminhos da UNC mencionados anteriormente, o nome de ficheiro totalmente qualificado deve ser inferior a 260 caracteres. O nome do diretório deve ter menos de 248 caracteres.
+Para todos os caminhos da UNC mencionados anteriormente, o nome de ficheiro totalmente qualificado deve ser inferior a 260 caracteres. O nome do diretório deve ter menos de 248 caracteres.
 
 ##### <a name="package-location-package-store"></a>Localização do pacote: Loja de pacotes
 
 Se selecionar **a loja Pacote** como localização da sua embalagem, complete os seguintes passos.
 
-   ![Definir propriedades no separador Definições - Loja de pacotes](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings6.png)
+![Definir propriedades no separador Definições - Loja de pacotes](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings6.png)
    
    1. Para **o nome da loja Pacote**, selecione uma loja de pacotes existente que está anexada ao seu Azure-SSIS IR.
 
@@ -221,49 +221,73 @@ Se selecionar **a loja Pacote** como localização da sua embalagem, complete os
    
    1. Especifique as credenciais para aceder à sua pasta de registo introduzindo os seus valores nas caixas **De Domínio,** **Nome de Utilizador**e **Password.** Por exemplo, se armazenar os seus registos em Ficheiros Azure, o domínio é `Azure` , o nome de utilizador é , e a `<storage account name>` palavra-passe é `<storage account key>` . Em alternativa, pode utilizar os segredos armazenados no seu Cofre de Chaves Azure como valores (ver acima).
    
-   Para todos os caminhos da UNC mencionados anteriormente, o nome de ficheiro totalmente qualificado deve ser inferior a 260 caracteres. O nome do diretório deve ter menos de 248 caracteres.
+Para todos os caminhos da UNC mencionados anteriormente, o nome de ficheiro totalmente qualificado deve ser inferior a 260 caracteres. O nome do diretório deve ter menos de 248 caracteres.
 
 #### <a name="ssis-parameters-tab"></a>Separador de parâmetros SSIS
 
 No separador **parâmetros SSIS** da atividade do Pacote SSIS, complete os seguintes passos.
 
-   ![Definir propriedades no separador parâmetros SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
+![Definir propriedades no separador parâmetros SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
 
    1. Se o seu Azure-SSIS IR estiver em execução, **o SSISDB** é selecionado como a **sua localização** do pacote, e a caixa de verificação de entradas manual no separador **Definições** é apurada, os parâmetros SSIS existentes no seu projeto selecionado e pacote do SSISDB são apresentados para que você atribua valores aos mesmos. Caso contrário, pode inscrevê-los um a um para lhes atribuir valores manualmente. Certifique-se de que existem e que estão corretamente inseridos para que a sua execução do pacote tenha sucesso. 
    
    1. Se utilizou o nível de proteção **CrisensitiveWithUserKey** quando criou o seu pacote através de SSDT e **Sistema de Ficheiros (Pacote)**, **Sistema de Ficheiros (Projeto)**, **Pacote Incorporado**ou Loja **de Pacotes** é selecionado como localização do seu pacote, também precisa de reentrar nos seus parâmetros sensíveis para lhes atribuir valores neste separador. 
    
-   Quando atribui valores aos seus parâmetros, pode adicionar conteúdo dinâmico utilizando expressões, funções, variáveis do sistema data factory e parâmetros ou variáveis do pipeline data Factory.
+Quando atribui valores aos seus parâmetros, pode adicionar conteúdo dinâmico utilizando expressões, funções, variáveis do sistema data factory e parâmetros ou variáveis do pipeline data Factory.
 
-   Em alternativa, pode utilizar os segredos armazenados no seu Cofre de Chaves Azure como valores. Para tal, selecione a caixa de verificação **AZURE KEY VAULT** ao lado. Selecione ou edite o serviço de ligação ao cofre de chaves existente ou crie um novo. Em seguida, selecione o nome secreto e a versão para o seu valor. Quando criar ou editar o serviço ligado ao cofre de chaves, pode selecionar ou editar o cofre de chaves existente ou criar um novo. Certifique-se de conceder à Data Factory acesso de identidade gerido ao seu cofre de chaves se ainda não o fez. Também pode inserir o seu segredo diretamente no seguinte formato: `<key vault linked service name>/<secret name>/<secret version>` . 
+Em alternativa, pode utilizar os segredos armazenados no seu Cofre de Chaves Azure como valores. Para tal, selecione a caixa de verificação **AZURE KEY VAULT** ao lado. Selecione ou edite o serviço de ligação ao cofre de chaves existente ou crie um novo. Em seguida, selecione o nome secreto e a versão para o seu valor. Quando criar ou editar o serviço ligado ao cofre de chaves, pode selecionar ou editar o cofre de chaves existente ou criar um novo. Certifique-se de conceder à Data Factory acesso de identidade gerido ao seu cofre de chaves se ainda não o fez. Também pode inserir o seu segredo diretamente no seguinte formato: `<key vault linked service name>/<secret name>/<secret version>` . 
 
 #### <a name="connection-managers-tab"></a>Separador de Gestores de Ligação
 
 No **separador Gestores** de Ligação da atividade do Pacote SSIS, complete os seguintes passos.
 
-   ![Definir propriedades no separador Gestores de Ligação](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
+![Definir propriedades no separador Gestores de Ligação](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
 
    1. Se o seu Azure-SSIS IR estiver em execução, **o SSISDB** é selecionado como a **sua localização** do pacote, e a caixa de verificação de entradas manual no separador Definições é apurada, os gestores de ligação **existentes** no seu projeto selecionado e pacote do SSISDB são apresentados para que você atribua valores às suas propriedades. Caso contrário, pode inscrevê-los um a um para atribuir valores às suas propriedades manualmente. Certifique-se de que existem e que estão corretamente inseridos para que a sua execução do pacote tenha sucesso. 
    
-   1. Se utilizou o nível de proteção **CriptografiaSensitiveWithUserKey** quando criou o seu pacote através de SSDT e **Sistema de Ficheiros (Pacote)**, **Sistema de Ficheiros (Projeto)**, **Pacote Incorporado**ou Loja **de Pacotes** é selecionado como localização do seu pacote, também precisa de reentrar nas propriedades do seu gestor de ligação sensível para atribuir valores a eles neste separador. 
-   
-   Quando atribui valores às propriedades do seu gestor de ligação, pode adicionar conteúdo dinâmico utilizando expressões, funções, variáveis do sistema data factory e parâmetros ou variáveis do pipeline data Factory. 
+      Pode obter os nomes **corretos do SCOPE,** **NAME**e **PROPERTY** para qualquer gestor de ligação, abrindo o pacote que o contém no SSDT. Após a abertura do pacote, selecione o gestor de ligação relevante para mostrar os nomes e valores de todas as suas propriedades na janela **Propriedades** de SSDT. Com esta informação, pode anular os valores de quaisquer propriedades do gestor de ligação no tempo de execução. 
 
-   Em alternativa, pode utilizar os segredos armazenados no seu Cofre de Chaves Azure como valores. Para tal, selecione a caixa de verificação **AZURE KEY VAULT** ao lado. Selecione ou edite o serviço de ligação ao cofre de chaves existente ou crie um novo. Em seguida, selecione o nome secreto e a versão para o seu valor. Quando criar ou editar o serviço ligado ao cofre de chaves, pode selecionar ou editar o cofre de chaves existente ou criar um novo. Certifique-se de conceder à Data Factory acesso de identidade gerido ao seu cofre de chaves se ainda não o fez. Também pode inserir o seu segredo diretamente no seguinte formato: `<key vault linked service name>/<secret name>/<secret version>` . 
+      ![Obtenha propriedades do gestor de conexão a partir de SSDT](media/how-to-invoke-ssis-package-ssis-activity/ssdt-connection-manager-properties.png)
+
+      Por exemplo, sem modificar o seu pacote original em SSDT, pode converter os seus fluxos de dados no local para as instalações que funcionam no SQL Server em fluxos de dados em nuvem em funcionamento no SSIS IR em ADF, sobressaltando os valores das propriedades da **ConnectByProxy,** **ConnectionString**e **ConnectUsingManagedIdentity** em gestores de conexão existentes no tempo de execução.
+      
+      Estas sobreposições de tempo de execução podem permitir o IR auto-hospedado (SHIR) como um representante para o SSIS IR ao aceder aos dados nas instalações, ver [Configurar o SHIR como um proxy para as](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)ligações SSIS IR , e Azure SQL Database/Managed Instance utilizando o mais recente controlador MSOLEDBSQL que, por sua vez, permite a autenticação do Azure Ative Directory (AAD) com identidade gerida pela ADF, ver [autenticação AAD configurada com identidade gerida pela ADF para ligações OLEDB](https://docs.microsoft.com/sql/integration-services/connection-manager/ole-db-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication).
+
+      ![Definir propriedades a partir de SSDT no separador Gestores de Ligação](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers2.png)
+   
+   1. Se utilizou o nível de proteção **CriptografiaSensitiveWithUserKey** quando criou o seu pacote através de SSDT e **Sistema de Ficheiros (Pacote)**, **Sistema de Ficheiros (Projeto)**, **Pacote Incorporado**ou Loja **de Pacotes** é selecionado como localização do seu pacote, também precisa de reentrar nas propriedades do seu gestor de ligação sensível para atribuir valores a eles neste separador. 
+
+Quando atribui valores às propriedades do seu gestor de ligação, pode adicionar conteúdo dinâmico utilizando expressões, funções, variáveis do sistema data factory e parâmetros ou variáveis do pipeline data Factory. 
+
+Em alternativa, pode utilizar os segredos armazenados no seu Cofre de Chaves Azure como valores. Para tal, selecione a caixa de verificação **AZURE KEY VAULT** ao lado. Selecione ou edite o serviço de ligação ao cofre de chaves existente ou crie um novo. Em seguida, selecione o nome secreto e a versão para o seu valor. Quando criar ou editar o serviço ligado ao cofre de chaves, pode selecionar ou editar o cofre de chaves existente ou criar um novo. Certifique-se de conceder à Data Factory acesso de identidade gerido ao seu cofre de chaves se ainda não o fez. Também pode inserir o seu segredo diretamente no seguinte formato: `<key vault linked service name>/<secret name>/<secret version>` . 
 
 #### <a name="property-overrides-tab"></a>Separador de sobreposições de propriedade
 
 No **separador Propriedade Sobrepõe-se** à atividade do Pacote SSIS Execute, complete os seguintes passos.
 
-   ![Definir propriedades no separador Propriedades Sobrepõe-se](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png)
+![Definir propriedades no separador Propriedades Sobrepõe-se](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png)
 
    1. Introduza os caminhos das propriedades existentes no seu pacote selecionado, um a um, para lhes atribuir valores manualmente. Certifique-se de que existem e que estão corretamente inseridos para que a sua execução do pacote tenha sucesso. Por exemplo, para anular o valor da variável do utilizador, insira o seu caminho no seguinte formato: `\Package.Variables[User::<variable name>].Value` . 
+
+      Pode obter o **CAMINHO DE PROPRIEDADE** correto para qualquer propriedade de pacote, abrindo o pacote que o contém em SSDT. Após a abertura do pacote, selecione o seu fluxo de controlo e a propriedade **Configurações** na janela **Propriedades** do SSDT. Em seguida, selecione o botão **elipse** **(...**) ao lado da sua propriedade Configurações para abrir o **Organizador de Configurações** de Pacotes que é normalmente utilizado para criar configurações de pacote no Modelo de [Implementação de Pacotes](https://docs.microsoft.com/sql/integration-services/create-package-configurations?view=sql-server-2014). 
+
+      ![Obtenha propriedades de pacotes a partir de propriedade SSDT - Configurações](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties.png)
+
+      No **Organizador de Configurações de Pacotes**, selecione a caixa de **verificação de configurações de pacotes de ativação** e o botão **Adicionar...** para abrir o **Assistente de Configuração de Pacotes**. 
+      
+      No Assistente de Configuração de **Pacotes**, selecione o item **de ficheiro de configuração XML** no menu de retirada **do tipo de configuração** de configuração e as **definições de configuração de especificar diretamente,** introduzir o nome do ficheiro de configuração e selecionar o botão **seguinte >.** 
+
+      ![Obtenha propriedades de pacotes da SSDT - Organizador de Configurações](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties2.png)
+
+      Por fim, selecione as propriedades do pacote cujo caminho deseja e o botão **Next >.**  Agora pode ver, copiar & colar os caminhos da propriedade do pacote que deseja e guardá-los no seu ficheiro de configuração. Com esta informação, pode sobrepor-se aos valores de quaisquer propriedades do pacote no tempo de execução. 
+
+      ![Obtenha propriedades de pacotes de SSDT - Assistente de configuração](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties3.png)
    
    1. Se utilizou o nível de proteção **CrisensitiveWithUserKey** quando criou o seu pacote através de SSDT e **Sistema de Ficheiros (Pacote)**, **Sistema de Ficheiros (Projeto)**, **Pacote Incorporado**ou Loja **de Pacotes** é selecionado como localização do seu pacote, também precisa de reentrar nas suas propriedades de pacotes sensíveis para lhes atribuir valores neste separador. 
    
-   Quando atribui valores às propriedades do seu pacote, pode adicionar conteúdo dinâmico utilizando expressões, funções, variáveis do sistema data factory e parâmetros ou variáveis do pipeline data Factory.
+Quando atribui valores às propriedades do seu pacote, pode adicionar conteúdo dinâmico utilizando expressões, funções, variáveis do sistema data factory e parâmetros ou variáveis do pipeline data Factory.
 
-   Os valores atribuídos em ficheiros de configuração e no separador **Parâmetros SSIS** podem ser ultrapassados utilizando os **separadores De Gestores de Ligação** ou **Substituições de Propriedade.** Os valores atribuídos no **separador Connection Managers** também podem ser ultrapassados utilizando o **separador Propriedade Overrides.**
+Os valores atribuídos em ficheiros de configuração e no separador **Parâmetros SSIS** podem ser ultrapassados utilizando os **separadores De Gestores de Ligação** ou **Substituições de Propriedade.** Os valores atribuídos no **separador Connection Managers** também podem ser ultrapassados utilizando o **separador Propriedade Overrides.**
 
 Para validar a configuração do pipeline, **selecione Validate** na barra de ferramentas. Para encerrar o **Relatório de Validação**do Gasoduto, selecione **>>** .
 

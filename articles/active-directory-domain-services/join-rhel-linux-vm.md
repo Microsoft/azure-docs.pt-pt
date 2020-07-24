@@ -9,13 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/23/2020
+ms.date: 07/13/2020
 ms.author: iainfou
-ms.openlocfilehash: d43c12681c7230dc4959261ffd6d96f74ea095d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2a6cb422c1133f0ed53d2c1061501a47d9c92f1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734729"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005094"
 ---
 # <a name="join-a-red-hat-enterprise-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Junte-se a uma máquina virtual Red Hat Enterprise Linux para um domínio gerido por Azure Ative Directory Domain Services
 
@@ -115,7 +116,7 @@ Agora que os pacotes necessários são instalados no VM, junte o VM ao domínio 
     kinit contosoadmin@AADDSCONTOSO.COM
     ```
 
-1. Por fim, junte a máquina ao domínio gerido utilizando o `realm join` comando. Utilize a mesma conta de utilizador que é uma parte do domínio gerido que especificou no `kinit` comando anterior, `contosoadmin@AADDSCONTOSO.COM` como:
+1. Por fim, junte o VM ao domínio gerido utilizando o `realm join` comando. Utilize a mesma conta de utilizador que é uma parte do domínio gerido que especificou no `kinit` comando anterior, `contosoadmin@AADDSCONTOSO.COM` como:
 
     ```console
     sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM'
@@ -141,7 +142,7 @@ Successfully enrolled machine in realm
     * Verifique se o VM é implantado na mesma, ou numa rede virtual esprevada em que o domínio gerido está disponível.
     * Confirme que as definições do servidor DNS para a rede virtual foram atualizadas para indicar os controladores de domínio do domínio gerido.
 
-1. Primeiro, junte-se ao domínio usando o `adcli join` comando, este comando também criará o teclado para autenticar a máquina. Utilize uma conta de utilizador que faça parte do domínio gerido.
+1. Primeiro, junte-se ao domínio usando o `adcli join` comando, este comando também cria o keytab para autenticar a máquina. Utilize uma conta de utilizador que faça parte do domínio gerido.
 
     ```console
     sudo adcli join aaddscontoso.com -U contosoadmin
@@ -313,7 +314,7 @@ Para verificar se o VM foi ligado com sucesso ao domínio gerido, inicie uma nov
     sudo yum update
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver problemas em ligar o VM ao domínio gerido ou iniciar sessão com uma conta de domínio, consulte [o domínio de resolução de problemas para se juntar a problemas](join-windows-vm.md#troubleshoot-domain-join-issues).
 

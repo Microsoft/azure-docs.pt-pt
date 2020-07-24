@@ -10,21 +10,74 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/12/2020
+ms.date: 7/21/2020
 ms.author: yohaddad
-ms.openlocfilehash: 6cde6470a8e533879de72307b8f00c70f9f165a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04e75d108b9f518311ad19b2f9027dd0ad7e9e88
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737466"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002884"
 ---
 # <a name="azure-guest-os"></a>Hóspede Azure OS
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao Azure Guest OS. Pes faça uma pesquisa neste artigo para determinar se uma determinada atualização se aplica ao so-os convidado que está a utilizar. As atualizações são sempre transmitidas para a [família][family-explain] em particular em que foram introduzidas.
 
+## <a name="july-2020-guest-os"></a>Os convidados de julho de 2020
+>[!NOTE]
+>O Sistema de Atendimento de julho está a ser lançado para os VMs do Cloud Service que estão configurados para atualizações automáticas. Quando o lançamento estiver concluído, esta versão será disponibilizada para atualizações manuais através do portal Azure e ficheiros de configuração. Os seguintes patches estão incluídos no April Guest OS. Esta lista está sujeita a alterações.
+
+
+| Product Category (Categoria de Produto) | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |
+| --- | --- | --- | --- | --- |
+|  Rel 20-07 |  [4565479]  |  Internet Explorer | 2.100, 3.87, 4.80 | 14 de julho de 2020 |
+|  Rel 20-07 |  [4565511]  |  Última Atualização Cumulativa (LCU) | 5.45 | 14 de julho de 2020 |
+|  Rel 20-07 |  [4558998]  |  Última Atualização Cumulativa (LCU) | 6.21 | 14 de julho de 2020 |
+|  Rel 20-07 |  [4565524]  |  Rollup mensal | 2.100 | 14 de julho de 2020 |
+|  Rel 20-07 |  [4565616]  |  Rollup mensal | 2.100 | 16 de julho de 2020 |
+|  Rel 20-07 |  [4565354]  |  Atualização de Stack de Manutenção | 2.100 | 14 de julho de 2020 |
+|  Rel 20-07 |  [4565612]  |  Rollup mensal | 2.100 | 14 de julho de 2020 |
+|  Rel 20-07 |  [4565615]  |  Rollup mensal | 3.87 | 14 de julho de 2020 |
+|  Rel 20-07 |  [4566426]  |  Atualização de Stack de Manutenção | 3.87 | 14 de julho de 2020 |
+|  Rel 20-07 |  [4565537]  |  Rollup mensal | 3.87 | 14 de julho de 2020 |
+|  Rel 20-07 |  [4565610]  |  Rollup mensal | 3.87 | 14 de julho de 2020 |
+|  Rel 20-07 |  [4565541]  |  Rollup mensal | 4,80 | 14 de julho de 2020 |
+|  Rel 20-07 |  [4566425]  |  Atualização de Stack de Manutenção | 4,80 | 14 de julho de 2020 |
+|  Rel 20-07 |  [4565614]  |  Rollup mensal | 4,80 | 14 de julho de 2020 |
+|  Rel 20-07 |  [4565613]  |  Rollup mensal | 4,80 | 14 de julho de 2020 |
+|  Rel 20-07 |  [4565912]  |  Atualização de Stack de Manutenção | 5.45 | 14 de julho de 2020 |
+|  Rel 20-07 |  [4565628]  |  Rollup mensal | 5.45 | 14 de julho de 2020 |
+|  Rel 20-07 |  [4494175]  |  Microcódigo | 5.45 | 25 de fevereiro de 2020 |
+|  Rel 20-07 |  [4565632]  |  Rollup mensal | 6.21 | 14 de julho de 2020 |
+|  Rel 20-07 |  [4558997]  |  Atualização de Stack de Manutenção | 6.21 | 14 de julho de 2020 |
+|  Rel 20-07 |  [4494174]  |  Microcódigo | 6.21 | 25 de fevereiro de 2020 |
+
+
+[4565479]: https://support.microsoft.com/kb/4565479
+[4565511]: https://support.microsoft.com/kb/4565511
+[4558998]: https://support.microsoft.com/kb/4558998
+[4565524]: https://support.microsoft.com/kb/4565524
+[4565616]: https://support.microsoft.com/kb/4565616
+[4565354]: https://support.microsoft.com/kb/4565354
+[4565612]: https://support.microsoft.com/kb/4565612
+[4565615]: https://support.microsoft.com/kb/4565615
+[4566426]: https://support.microsoft.com/kb/4566426
+[4565537]: https://support.microsoft.com/kb/4565537
+[4565610]: https://support.microsoft.com/kb/4565610
+[4565541]: https://support.microsoft.com/kb/4565541
+[4566425]: https://support.microsoft.com/kb/4566425
+[4565614]: https://support.microsoft.com/kb/4565614
+[4565613]: https://support.microsoft.com/kb/4565613
+[4565912]: https://support.microsoft.com/kb/4565912
+[4565628]: https://support.microsoft.com/kb/4565628
+[4494175]: https://support.microsoft.com/kb/4494175
+[4565632]: https://support.microsoft.com/kb/4565632
+[4558997]: https://support.microsoft.com/kb/4558997
+[4494174]: https://support.microsoft.com/kb/4494174
+
+
 ## <a name="june-2020-guest-os"></a>Junho 2020 Guest OS
-">[!NOTE]
->O June Guest OS está atualmente a ser lançado para os VMs do Cloud Service que estão configurados para atualizações automáticas. Quando o lançamento estiver concluído, esta versão será disponibilizada para atualizações manuais através do portal Azure e ficheiros de configuração. Os seguintes patches estão incluídos no April Guest OS. Esta lista está sujeita a alterações."
+>[!NOTE]
+>O June Guest OS está atualmente a ser lançado para os VMs do Cloud Service que estão configurados para atualizações automáticas. Quando o lançamento estiver concluído, esta versão será disponibilizada para atualizações manuais através do portal Azure e ficheiros de configuração. Os seguintes patches estão incluídos no April Guest OS. Esta lista está sujeita a alterações.
 
 
 | Product Category (Categoria de Produto) | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |

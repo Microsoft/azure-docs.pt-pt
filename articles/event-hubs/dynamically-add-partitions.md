@@ -3,12 +3,12 @@ title: Adicione dinamicamente divisórias a um centro de eventos em Azure Event 
 description: Este artigo mostra-lhe como adicionar dinamicamente divisórias a um centro de eventos em Azure Event Hubs.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: ea0477dcc695c7a2fb936daadc3679c94bfac12f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a729147eaa11497c66f82a9764dfee9492786b9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317941"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002544"
 ---
 # <a name="dynamically-add-partitions-to-an-event-hub-apache-kafka-topic-in-azure-event-hubs"></a>Adicione dinamicamente divisórias a um centro de eventos (tema Apache Kafka) em Azure Event Hubs
 O Event Hubs fornece transmissão de mensagens através de um padrão de consumidor particionado em que cada consumidor só lê um subconjunto específico, ou partição, do fluxo de mensagens. Este padrão permite um dimensionamento horizontal do processamento de eventos e fornece outras funcionalidades centradas nos fluxos que não estão disponíveis nas filas e nos tópicos. Uma partição é uma sequência ordenada de eventos mantida num hub de eventos. À medida que os eventos mais recentes chegam, são adicionados ao fim desta sequência. Para obter mais informações sobre divisórias em geral, consulte [As Partições](event-hubs-scalability.md#partitions)
@@ -33,7 +33,7 @@ Set-AzureRmEventHub -ResourceGroupName MyResourceGroupName -Namespace MyNamespac
 ```
 
 ### <a name="cli"></a>CLI
-Utilize o comando CLI de atualização do [az eventhubs](/cli/azure/eventhubs/eventhub?view=azure-cli-latest#az-eventhubs-eventhub-update) para atualizar as divisórias num centro de eventos. 
+Utilize o [`az eventhubs eventhub update`](/cli/azure/eventhubs/eventhub?view=azure-cli-latest#az-eventhubs-eventhub-update) comando CLI para atualizar as divisórias num centro de eventos. 
 
 ```azurecli-interactive
 az eventhubs eventhub update --resource-group MyResourceGroupName --namespace-name MyNamespaceName --name MyEventHubName --partition-count 12
@@ -64,7 +64,7 @@ Utilize a `AlterTopics` API (por exemplo, através da ferramenta CLI **de tópic
 ## <a name="event-hubs-clients"></a>Clientes do Event Hubs
 Vamos ver como os clientes do Event Hubs se comportam quando a contagem de divisórias é atualizada num centro de eventos. 
 
-Quando adiciona uma partição a um hub uniforme existente, o cliente do centro de eventos recebe uma "MessagingException" do serviço informando os clientes de que os metadados da entidade (entidade é o seu centro de eventos e metadados são a informação de partição) foram alterados. Os clientes reabrirão automaticamente as ligações AMQP, que recolheriam as informações de metadados alteradas. Os clientes funcionam normalmente.
+Quando adiciona uma partição a um hub uniforme existente, o cliente do centro de eventos recebe um `MessagingException` do serviço informando os clientes de que os metadados de entidade (entidade é o seu centro de eventos e metadados são a informação de partição) foram alterados. Os clientes reabrirão automaticamente as ligações AMQP, que recolheriam as informações de metadados alteradas. Os clientes funcionam normalmente.
 
 ### <a name="senderproducer-clients"></a>Clientes remetentes/produtores
 O Event Hubs oferece três opções de remetente:
@@ -84,7 +84,7 @@ O Event Hubs fornece recetores diretos e uma biblioteca de consumidores fácil c
 ## <a name="apache-kafka-clients"></a>Clientes Apache Kafka
 Esta secção descreve como os clientes Apache Kafka que usam o ponto final kafka dos Azure Event Hubs se comportam quando a contagem de divisórias é atualizada para um centro de eventos. 
 
-Os clientes Kafka que usam Os Centros de Eventos com o protocolo Apache Kafka comportam-se de forma diferente dos clientes do centro de eventos que usam o protocolo AMQP. Os clientes kafka atualizam os seus metadados uma vez a cada `metadata.max.age.ms` milissegundo. Especifica este valor nas configurações do cliente. As `librdkafka` bibliotecas também usam a mesma configuração. As atualizações de metadados informam os clientes das alterações de serviço, incluindo o aumento da contagem de divisórias. Para obter uma lista de configurações, consulte [as configurações de Apache Kafka para Os Centros de Eventos](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)
+Os clientes Kafka que usam Os Centros de Eventos com o protocolo Apache Kafka comportam-se de forma diferente dos clientes do centro de eventos que usam o protocolo AMQP. Os clientes kafka atualizam os seus metadados uma vez a cada `metadata.max.age.ms` milissegundo. Especifica este valor nas configurações do cliente. As `librdkafka` bibliotecas também usam a mesma configuração. As atualizações de metadados informam os clientes das alterações de serviço, incluindo o aumento da contagem de divisórias. Para obter uma lista de configurações, consulte [as configurações apache Kafka para Centros de Eventos](apache-kafka-configurations.md).
 
 ### <a name="senderproducer-clients"></a>Clientes remetentes/produtores
 Os produtores ditam sempre que os pedidos de envio contenham o destino de partição para cada conjunto de registos produzidos. Assim, todas as divisórias de produção são feitas do lado do cliente com a visão do produtor dos metadados do corretor. Assim que as novas divisórias forem adicionadas à visão de metadados do produtor, estarão disponíveis para pedidos de produtor.
@@ -100,9 +100,9 @@ Quando um membro do grupo de consumidores executa uma atualização de metadados
     > Enquanto os dados existentes preservam a encomenda, o hashing da partição será quebrado para mensagens hashed após a contagem de divisórias mudar devido à adição de divisórias.
 - A adição de divisórias a um tópico ou exemplo de centro de eventos existente é recomendada nos seguintes casos:
     - Quando se usa o método de rodada de robin (predefinido) de envio de eventos
-     - Estratégias de partição padrão de Kafka, exemplo - Estratégia StickyAssignor
+     - Estratégias de partição padrão de Kafka, exemplo – Estratégia de Atribuição Pegajosa
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre divisórias, consulte [As Partições.](event-hubs-scalability.md#partitions)
 

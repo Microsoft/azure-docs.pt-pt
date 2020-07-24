@@ -3,21 +3,25 @@ title: OpçõesGrupo elemento UI
 description: Descreve o elemento UI do Microsoft.Common.OptionsGroup para o portal Azure. Permite que os utilizadores selecionem entre as opções disponíveis ao implementar uma aplicação gerida.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 07/09/2020
 ms.author: tomfitz
-ms.openlocfilehash: c1da0b0082bfe046adf9596a10397e9063c888be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa73b4cbded98291a14792a7151df9fdfb885b53
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75652349"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004200"
 ---
 # <a name="microsoftcommonoptionsgroup-ui-element"></a>Microsoft.Common.OptionsGroup UI elemento
 
-Um controlo de seleção com uma linha de opções disponíveis.
+O controlo OptionsGroup permite que os utilizadores selecionem uma opção de duas ou mais opções. Um utilizador pode selecionar apenas uma opção.
+
+> [!NOTE]
+> No passado, este controlo tornou as opções horizontalmente. Agora, o controlo apresenta as opções verticalmente como botões de rádio.
 
 ## <a name="ui-sample"></a>Amostra de UI
 
-![Microsoft.Common.OptionsGroup](./media/managed-application-elements/microsoft.common.optionsgroup.png)
+:::image type="content" source="./media/managed-application-elements/microsoft-common-optionsgroup-2.png" alt-text="Microsoft.Common.OptionsGroup":::
 
 ## <a name="schema"></a>Esquema
 
@@ -57,7 +61,7 @@ Um controlo de seleção com uma linha de opções disponíveis.
 - Se especificado, o valor predefinido deve ser um rótulo presente em `constraints.allowedValues` . Se não for especificado, o primeiro item `constraints.allowedValues` é selecionado por predefinição. O valor por defeito é **nulo.**
 - `constraints.allowedValues`deve ter pelo menos um item.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para uma introdução à criação de definições de UI, consulte [Começar com CreateUiDefinition](create-uidefinition-overview.md).
 * Para obter uma descrição das propriedades comuns em elementos de UI, consulte [os elementos CreateUiDefinition](create-uidefinition-elements.md).

@@ -4,12 +4,12 @@ description: Este artigo fornece informações sobre como pode utilizar o Azure 
 services: service-bus-relay
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 0383d99aaca487bb89ab198c42d0ce189ad20249
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 42de5205be9a611957a6e340b5eaa55c5b7f52c0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314382"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004567"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor"></a>Métricas de Retransmissão Azure em Monitor Azure 
 As métricas Azure Relay dão-lhe o estado dos recursos na sua assinatura Azure. Com um rico conjunto de dados de métricas, você pode avaliar a saúde geral dos seus recursos De Retransmissor, não só ao nível do espaço de nome, mas também ao nível da entidade. Estas estatísticas podem ser importantes, uma vez que o ajudam a monitorizar o estado de Azure Relay. As métricas também podem ajudar a resolver problemas de causa de raiz sem precisar de contactar o suporte do Azure.
@@ -29,7 +29,7 @@ As métricas são ativadas por padrão, e pode aceder aos últimos 30 dias de da
 
 Pode monitorizar métricas ao longo do tempo no [portal Azure](https://portal.azure.com). O exemplo a seguir mostra como visualizar pedidos bem sucedidos e pedidos de entrada ao nível da conta:
 
-![][1]
+![Uma página intitulada "Monitor - Métricas (pré-visualização)" mostra um gráfico de linha de utilização da memória nos últimos 30 dias.][1]
 
 Também pode aceder às métricas diretamente através do espaço de nomes. Para tal, selecione o seu espaço de nome e, em seguida, clique em **Metrics **. 
 
@@ -77,7 +77,7 @@ O Azure Relay suporta as seguintes dimensões para métricas no Azure Monitor. A
 | ------------------- | ----------------- |
 |Nome de Entidade| A Azure Relay suporta entidades de mensagens sob o espaço de nome.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte a [visão geral da Monitorização do Azure](../monitoring-and-diagnostics/monitoring-overview.md).
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 36aaee030dd5267a391dd9a235dd5f8dc0932fa0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 383c64c585f05869e1d01b5c99693fcf560cdedc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087096"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006676"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalize os clusters Azure HDInsight utilizando ações de script
 
@@ -195,7 +195,7 @@ Obtenha mais informações sobre como implementar um modelo:
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Use uma ação de script durante a criação de cluster a partir de Azure PowerShell
 
-Nesta secção, utiliza o [cmdlet Add-AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) para invocar scripts para personalizar um cluster. Antes de começar, certifique-se de instalar e configurar a Azure PowerShell. Para utilizar estes comandos PowerShell, precisa do [Módulo AZ](https://docs.microsoft.com/powershell/azure/overview).
+Nesta secção, utiliza o [cmdlet Add-AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) para invocar scripts para personalizar um cluster. Antes de começar, certifique-se de instalar e configurar a Azure PowerShell. Para utilizar estes comandos PowerShell, precisa do [Módulo AZ](https://docs.microsoft.com/powershell/azure/).
 
 O seguinte script mostra como aplicar uma ação de script quando cria um cluster usando PowerShell:
 
@@ -241,7 +241,7 @@ Esta secção explica como aplicar as ações de script a um cluster de execuç�
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>Aplique uma ação de script a um cluster de execução da Azure PowerShell
 
-Para utilizar estes comandos PowerShell, precisa do [Módulo AZ](https://docs.microsoft.com/powershell/azure/overview). O exemplo a seguir mostra como aplicar uma ação de script a um cluster de execução:
+Para utilizar estes comandos PowerShell, precisa do [Módulo AZ](https://docs.microsoft.com/powershell/azure/). O exemplo a seguir mostra como aplicar uma ação de script a um cluster de execução:
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=105-117)]
 
@@ -335,7 +335,7 @@ Para um exemplo de utilização do .NET SDK para recuperar o histórico de scrip
 > [!NOTE]  
 > Este exemplo também demonstra como instalar uma aplicação HDInsight utilizando o .NET SDK.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Desenvolver scripts de ação de script para HDInsight](hdinsight-hadoop-script-actions-linux.md)
 * [Adicione armazenamento adicional a um cluster HDInsight](hdinsight-hadoop-add-storage.md)

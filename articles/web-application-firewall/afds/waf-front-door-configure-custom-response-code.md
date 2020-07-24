@@ -8,11 +8,12 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: 14e4ccdf17647823dc9e1005c1c68a9f1f217b9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a995460793686d8293d77965e74e2cbf916925a0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84726390"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005604"
 ---
 # <a name="configure-a-custom-response-for-azure-web-application-firewall-waf"></a>Configure uma resposta personalizada para a Firewall de Aplicação Web Azure (WAF)
 
@@ -36,7 +37,7 @@ No exemplo acima, mantivemos o código de resposta como 403, e configuramos uma 
 
 O Azure PowerShell fornece um conjunto de cmdlets que utilizam o modelo do [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para gerir os recursos do Azure. 
 
-Pode instalar o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) no seu computador local e utilizá-lo em qualquer sessão do PowerShell. Siga as instruções na página, para iniciar sômposições com as suas credenciais Azure e instale o módulo Az PowerShell.
+Pode instalar o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) no seu computador local e utilizá-lo em qualquer sessão do PowerShell. Siga as instruções na página, para iniciar sômposições com as suas credenciais Azure e instale o módulo Az PowerShell.
 
 ### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Ligue ao Azure com um diálogo interativo para o sent-in
 
@@ -98,5 +99,5 @@ Update-AzFrontDoorFireWallPolicy `
 -CustomBlockResponseBody "<html><head><title>Forbidden</title></head><body>{{azure-ref}}</body></html>"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [firewall de aplicação web com porta frontal Azure](../afds/afds-overview.md)

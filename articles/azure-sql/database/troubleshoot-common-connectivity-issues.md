@@ -12,12 +12,12 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: acc61cefbc9d89f11eae5b6549add57871035ddb
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0b28fa788e7b35e94482104d807c228db21f49b4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078974"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003921"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Resolução de erros de conexão transitórios na Base de Dados SQL e na SQL Gestd instance
 
@@ -148,8 +148,8 @@ Por exemplo, se a contagem for igual a 3 e o intervalo for igual a 10 segundos, 
 
 Os parâmetros **ConnectRetryCount** e **ConnectRetryInterval** permitem que o seu objeto **SqlConnection** volte a tentar a operação de ligação sem avisar ou incomodar o seu programa, tal como devolver o controlo ao seu programa. As retrações podem ocorrer nas seguintes situações:
 
-- mySqlConnection.Chamada de método aberto
-- mySqlConnection.Exechamada de método bonito
+- SqlConnection.Chamada de método aberto
+- SqlConnection.Exechamada de método bonito
 
 Há uma subtileza. Se ocorrer um erro transitório durante *a execução da sua consulta,* o seu objeto **SqlConnection** não se requalificação da operação de ligação. Certamente não relemca a sua pergunta. No entanto, **a SqlConnection** verifica rapidamente a ligação antes de enviar a sua consulta para execução. Se a verificação rápida detetar um problema de ligação, **a SqlConnection** retira a operação de ligação. Se a repetição for bem sucedida, a sua consulta será enviada para execução.
 
@@ -443,7 +443,7 @@ public bool IsTransient(Exception ex)
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Bibliotecas de conexão para Base de Dados SQL e Servidor SQL](connect-query-content-reference-guide.md#libraries)
 - [Agrupamento de conexão (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)

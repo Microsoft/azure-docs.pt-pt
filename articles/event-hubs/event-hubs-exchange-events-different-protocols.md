@@ -3,12 +3,12 @@ title: Azure Event Hubs - Trocar eventos usando diferentes protocolos
 description: Este artigo mostra como os consumidores e produtores que usam diferentes protocolos (AMQP, Apache Kafka e HTTPS) podem trocar eventos ao utilizarem os Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: ec3122dcf151fe3e7b7b9578725e810ddca22bdf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6cdc4b9040f314b4ec41f84cc7436f0f2e3d6af6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320609"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002510"
 ---
 # <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Intercâmbio de eventos entre consumidores e produtores que utilizem diferentes protocolos: AMQP, Kafka e HTTPS
 A Azure Event Hubs apoia três protocolos para consumidores e produtores: AMQP, Kafka e HTTPS. Cada um destes protocolos tem a sua própria forma de representar uma mensagem, pelo que, naturalmente, surge a seguinte questão: se uma aplicação envia eventos para um Centro de Eventos com um protocolo e os consome com um protocolo diferente, como são as várias partes e valores do evento quando chegam ao consumidor? Este artigo discute as melhores práticas tanto para o produtor como para o consumidor para garantir que os valores dentro de um evento sejam corretamente interpretados pela aplicação consumista.
@@ -328,10 +328,10 @@ String myStringProperty = new String(rawbytes, StandardCharsets.UTF_8);
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, aprendeu a transmitir para os Centros de Eventos sem alterar os seus clientes de protocolo ou executar os seus próprios clusters. Para saber mais sobre Os Centros de Eventos e Centros de Eventos para Kafka, consulte os seguintes artigos:  
 
-* [Saiba mais sobre Hubs de Eventos](event-hubs-what-is-event-hubs.md)
+* [Saiba mais sobre Hubs de Eventos](./event-hubs-about.md)
 * [Saiba mais sobre Hubs de Eventos para o Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 * [Explore mais exemplos sobre os Hubs de Eventos do GitHub do Kafka](https://github.com/Azure/azure-event-hubs-for-kafka)
 * Use [o MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) para [transmitir eventos de Kafka nas instalações para Os Centros de Eventos na nuvem.](event-hubs-kafka-mirror-maker-tutorial.md)

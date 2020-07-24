@@ -7,18 +7,18 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 59d1bf08c0680d222710b55c6d6bdb4d5745da56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 843a51ca04ae4256ed21912268443595a5f36083
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82084520"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005723"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>Mover um VM windows da Amazon Web Services (AWS) para uma máquina virtual Azure
 
 Se estiver a avaliar as máquinas virtuais Azure para hospedar as suas cargas de trabalho, pode exportar uma instância de VM do Amazon Web Services (AWS) existente e depois fazer o upload do disco rígido virtual (VHD) para Azure. Uma vez que o VHD é carregado, você pode criar um novo VM em Azure a partir do VHD. 
 
-Este artigo abrange a deslocação de um único VM de AWS para Azure. Se quiser mover VMs de AWS para Azure em escala, consulte [máquinas virtuais migratórias nos Serviços Web da Amazon (AWS) para Azure com Azure Site Recovery](../../site-recovery/site-recovery-migrate-aws-to-azure.md).
+Este artigo abrange a deslocação de um único VM de AWS para Azure. Se quiser mover VMs de AWS para Azure em escala, consulte [máquinas virtuais migratórias nos Serviços Web da Amazon (AWS) para Azure com Azure Site Recovery](../../site-recovery/migrate-tutorial-aws-azure.md).
 
 ## <a name="prepare-the-vm"></a>Preparar a VM 
  

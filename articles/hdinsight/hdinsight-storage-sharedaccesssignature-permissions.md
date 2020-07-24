@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: 3756e7d1f58c37038347888a21d98326cd4eb71f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 8ab181eb72b5a3ab54ad8dba19d23288926b8969
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087457"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006318"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Utilizar Assinaturas de Acesso Partilhado do Armazenamento do Azure para restringir o acesso aos dados no HDInsight
 
@@ -31,7 +31,7 @@ O HDInsight tem acesso total aos dados nas contas de Armazenamento Azure associa
 
 * Um recipiente de [armazenamento](../storage/blobs/storage-quickstart-blobs-portal.md)existente.  
 
-* Se utilizar o PowerShell, necessitará do [Módulo Az](https://docs.microsoft.com/powershell/azure/overview).
+* Se utilizar o PowerShell, necessitará do [Módulo Az](https://docs.microsoft.com/powershell/azure/).
 
 * Se quiser utilizar o Azure CLI e ainda não o instalou, consulte [instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -433,7 +433,7 @@ Utilize os seguintes passos para verificar se só pode ler e listar itens na con
 
     Desta vez, a operação deve estar concluída com sucesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a adicionar armazenamento de acesso limitado ao seu cluster HDInsight, aprenda outras formas de trabalhar com dados no seu cluster:
 

@@ -2,13 +2,13 @@
 title: Regras de Firewall do Azure Event Hubs Firewall Microsoft Docs
 description: Utilize regras de firewall para permitir ligações de endereços IP específicos para Azure Event Hubs.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: fb9fa72af7127224afdcf70ecca1c851e9212c4d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/16/2020
+ms.openlocfilehash: 4c42f70a4f28c560c321f7c1e825b66514a8029e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320427"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002425"
 ---
 # <a name="configure-ip-firewall-rules-for-an-azure-event-hubs-namespace"></a>Configure as regras de firewall IP para um espaço de nomes Azure Event Hubs
 Por predefinição, os espaços de nomes do Event Hubs estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Roteamento Inter-Domain Sem Classe).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
@@ -21,7 +21,6 @@ Esta funcionalidade é útil em cenários em que os Azure Event Hubs deverão se
 > Os serviços da Microsoft fidedignos não são suportados quando as Redes Virtuais são implementadas.
 >
 > Cenários de Azure comuns que não funcionam com redes virtuais (note que a lista **NÃO** é exaustiva) -
-> - Monitor Azure (definição de diagnóstico)
 > - Azure Stream Analytics
 > - Integração com a grelha de eventos Azure
 > - Rotas do Hub Azure IoT
@@ -143,7 +142,7 @@ Parâmetros do modelo:
 
 Para implementar o modelo, siga as instruções para [O Gestor de Recursos Azure][lnk-deploy].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para limitar o acesso aos Centros de Eventos às redes virtuais Azure, consulte o seguinte link:
 

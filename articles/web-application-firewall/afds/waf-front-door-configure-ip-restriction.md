@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: tyao
-ms.openlocfilehash: 077f127648688b25d45b433fa2bc94ee011b3f2d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f41dc688996b2431060a3cde209ca1ed4a21fe8c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80336091"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005621"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Configure uma regra de restrição IP com uma firewall de aplicação web para a porta frontal Azure
 
@@ -37,7 +37,7 @@ Crie um perfil da Porta Frontal Azure seguindo as instruções descritas no [Qui
    |Definição  |Valor  |
    |---------|---------|
    |Política para     |WAF Global (Porta da Frente)|
-   |Subscrição     |Selecionar a sua subscrição|
+   |Subscrição     |Selecione a sua subscrição|
    |Grupo de recursos     |Selecione o grupo de recursos onde fica a porta da frente.|
    |Nome da política     |Digite um nome para a sua política|
    |Estado político     |Ativado|
@@ -168,7 +168,7 @@ Antes de começar a configurar uma política de restrição IP, crie o seu ambie
 #### <a name="set-up-your-powershell-environment"></a>Configurar o ambiente do PowerShell
 A Azure PowerShell fornece um conjunto de cmdlets que utilizam o modelo [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para gerir os recursos da Azure.
 
-Pode instalar o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) no seu computador local e utilizá-lo em qualquer sessão do PowerShell. Siga as instruções na página para iniciar seduca no PowerShell utilizando as suas credenciais Azure e, em seguida, instale o módulo Az.
+Pode instalar o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) no seu computador local e utilizá-lo em qualquer sessão do PowerShell. Siga as instruções na página para iniciar seduca no PowerShell utilizando as suas credenciais Azure e, em seguida, instale o módulo Az.
 
 1. Ligue-se ao Azure utilizando o seguinte comando e, em seguida, utilize um diálogo interativo para iniciar seduca.
     ```

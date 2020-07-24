@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: timlt
-ms.openlocfilehash: 2a6650cac975c575415a329361da00d4fbfcaa9d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64f91263154f7e65238acdcef9d97e5f2d09aad5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68965123"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006029"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Série StorSimple 8000: uma solução híbrida de armazenamento em nuvem
 
@@ -59,7 +60,7 @@ A solução Microsoft Azure StorSimple inclui os seguintes componentes:
 * **StorSimple Cloud Appliance** – também conhecido como StorSimple Virtual Appliance, esta é uma versão de software do dispositivo StorSimple que replica a arquitetura e a maioria das capacidades do dispositivo de armazenamento híbrido físico. O StorSimple Cloud Appliance funciona num único nó numa máquina virtual Azure. Dispositivos virtuais premium, que aproveitam o armazenamento premium Azure, estão disponíveis no Update 2 e posteriormente.
 * **Serviço StorSimple Device Manager** – uma extensão do portal Azure que permite gerir um dispositivo StorSimple ou um Aparelho cloud StorSimple a partir de uma única interface web. Pode utilizar o serviço StorSimple Device Manager para criar e gerir serviços, visualizar e gerir dispositivos, ver alertas, gerir volumes e ver e gerir políticas de backup e o catálogo de backup.
 * **Windows PowerShell para StorSimple** – uma interface de linha de comando que pode utilizar para gerir o dispositivo StorSimple. O Windows PowerShell para StorSimple possui funcionalidades que lhe permitem registar o seu dispositivo StorSimple, configurar a interface de rede no seu dispositivo, instalar certos tipos de atualizações, resolver problemas com o seu dispositivo acedendo à sessão de suporte e alterar o estado do dispositivo. Pode aceder ao Windows PowerShell para StorSimple ligando-o à consola em série ou utilizando o remoting Do Windows PowerShell.
-* **Azure PowerShell StorSimple cmdlets** – uma coleção de cmdlets Windows PowerShell que lhe permitem automatizar tarefas de nível de serviço e migração a partir da linha de comando. Para obter mais informações sobre os cmdlets Azure PowerShell para StorSimple, consulte a [referência cmdlet](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0#azure).
+* **Azure PowerShell StorSimple cmdlets** – uma coleção de cmdlets Windows PowerShell que lhe permitem automatizar tarefas de nível de serviço e migração a partir da linha de comando. Para obter mais informações sobre os cmdlets Azure PowerShell para StorSimple, consulte a [referência cmdlet](/powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0#azure).
 * **StorSimple Snapshot Manager** – um snap-in MMC que utiliza grupos de volume e o Windows Volume Shadow Copy Service para gerar cópias de segurança consistentes com aplicações. Além disso, pode utilizar o StorSimple Snapshot Manager para criar horários de backup e clonar ou restaurar volumes.
 * **Adaptador StorSimple para o SharePoint** – uma ferramenta que alarga de forma transparente o armazenamento e proteção de dados do Microsoft Azure StorSimple às explorações do SharePoint Server, ao mesmo tempo que torna o armazenamento StorSimple visível e manejável a partir do portal da Administração Central do SharePoint.
 
@@ -128,7 +129,7 @@ Pode aceder ao Windows PowerShell para StorSimple a partir de uma consola em sé
 Para obter mais informações, aceda ao [Windows PowerShell para administrar o seu dispositivo](storsimple-8000-windows-powershell-administration.md).
 
 ## <a name="azure-powershell-storsimple-cmdlets"></a>Azure PowerShell StorSimple cmdlets
-Os cmdlets Azure PowerShell StorSimple são uma coleção de cmdlets Windows PowerShell que permitem automatizar tarefas de nível de serviço e migração a partir da linha de comando. Para obter mais informações sobre os cmdlets Azure PowerShell para StorSimple, consulte a [referência cmdlet](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0).
+Os cmdlets Azure PowerShell StorSimple são uma coleção de cmdlets Windows PowerShell que permitem automatizar tarefas de nível de serviço e migração a partir da linha de comando. Para obter mais informações sobre os cmdlets Azure PowerShell para StorSimple, consulte a [referência cmdlet](/powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0).
 
 ## <a name="storsimple-snapshot-manager"></a>Snapshot Manager do StorSimple
 StorSimple Snapshot Manager é um snap-in da Microsoft Management Console (MMC) que pode utilizar para criar cópias de backup consistentes e pontuais de dados locais e em nuvem. O snap-in é executado num anfitrião baseado no Windows Server. Pode utilizar o StorSimple Snapshot Manager para:
@@ -207,12 +208,12 @@ A deduplica reduz a quantidade global de dados armazenados eliminando a redundâ
 ## <a name="storsimple-workload-summary"></a>Resumo da carga de trabalho StorSimple
 Um resumo das cargas de trabalho StorSimple suportadas é tabulado abaixo.
 
-| Scenario | Carga de trabalho | Suportado | Restrições | Versão |
+| Cenário | Carga de trabalho | Suportado | Restrições | Versão |
 | --- | --- | --- | --- | --- |
-| Colaboração |Partilha de ficheiros |Sim | |Todas as versões |
-| Colaboração |Partilha de ficheiros distribuídos |Sim | |Todas as versões |
+| Colaboração |Partilha de ficheiros |Yes | |Todas as versões |
+| Colaboração |Partilha de ficheiros distribuídos |Yes | |Todas as versões |
 | Colaboração |SharePoint |Sim* |Suportado apenas com volumes fixados localmente |Atualização 2 e mais tarde |
-| Arquivo |Arquivo simples de ficheiros |Sim | |Todas as versões |
+| Arquivo |Arquivo simples de ficheiros |Yes | |Todas as versões |
 | Virtualização |Máquinas virtuais |Sim* |Suportado apenas com volumes fixados localmente |Atualização 2 e mais tarde |
 | Base de Dados |SQL |Sim* |Suportado apenas com volumes fixados localmente |Atualização 2 e mais tarde |
 | Videovigilância |Videovigilância |Sim* |Suportado quando o dispositivo StorSimple é dedicado apenas a esta carga de trabalho |Atualização 2 e mais tarde |
@@ -234,9 +235,9 @@ As seguintes cargas de trabalho não são suportadas por dispositivos da série 
 
 Segue-se uma lista dos componentes de infraestrutura suportados StorSimple.
 
-| Scenario | Carga de trabalho | Suportado | Restrições | Versão |
+| Cenário | Carga de trabalho | Suportado | Restrições | Versão |
 | --- | --- | --- | --- | --- |
-| Geral |ExpressRoute |Sim | |Todas as versões |
+| Geral |ExpressRoute |Yes | |Todas as versões |
 | Geral |DataCore FC |Sim* |Suportado com DataCore SANsymphony |Todas as versões |
 | Geral |DFSR |Sim* |Suportado apenas com volumes fixados localmente |Todas as versões |
 | Geral |Indexação |Sim* |Para volumes hierárquicos, apenas a indexação de metadados é suportada (sem dados).<br>Para volumes fixados localmente, a indexação completa é suportada. |Todas as versões |
@@ -312,6 +313,6 @@ Antes de implementar a sua solução Microsoft Azure StorSimple, recomendamos qu
 | Serviço de cópia de sombra de volume (VSS) |Um serviço de sistema operativo Windows Server que facilita a consistência da aplicação comunicando com aplicações conscientes do VSS para coordenar a criação de instantâneos incrementais. A VSS garante que as aplicações são temporariamente inativas quando as imagens são tiradas. |
 | Windows PowerShell para StorSimple |Uma interface de linha de comando baseada no Windows PowerShell utilizada para operar e gerir o seu dispositivo StorSimple. Apesar de manter algumas das capacidades básicas do Windows PowerShell, esta interface possui cmdlets dedicados adicionais que se destinam à gestão de um dispositivo StorSimple. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre [a segurança StorSimple](storsimple-8000-security.md).
 

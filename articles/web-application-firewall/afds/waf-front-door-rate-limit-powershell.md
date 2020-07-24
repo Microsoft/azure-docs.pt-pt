@@ -7,11 +7,12 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: b034159c3d12927f6425b3dc3c5b5609af9b0b76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29f50b2cf9523b9266de2f73607b0099f32852e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77649369"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005417"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configure uma regra limite de taxa de firewall de aplicação web usando Azure PowerShell
 A regra limite de taxa Azure Web Application Firewall (WAF) para Azure Front Door controla o número de pedidos permitidos aos clientes durante um minuto de duração.
@@ -24,7 +25,7 @@ Antes de começar a configurar uma política de limite de taxa, crie o seu ambie
 ### <a name="set-up-your-powershell-environment"></a>Configurar o ambiente do PowerShell
 O Azure PowerShell fornece um conjunto de cmdlets que utilizam o modelo do [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para gerir os recursos do Azure. 
 
-Pode instalar o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) no seu computador local e utilizá-lo em qualquer sessão do PowerShell. Siga as instruções na página, para iniciar sômposições com as suas credenciais Azure e instale o módulo Az PowerShell.
+Pode instalar o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) no seu computador local e utilizá-lo em qualquer sessão do PowerShell. Siga as instruções na página, para iniciar sômposições com as suas credenciais Azure e instale o módulo Az PowerShell.
 
 #### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Ligue ao Azure com um diálogo interativo para iniciar sação
 ```
@@ -101,7 +102,7 @@ O exemplo abaixo utiliza o nome do Grupo de Recursos *myResourceGroupFD1* com o 
 > [!NOTE]
 > Basta definir a propriedade *WebApplicationFirewallPolicyLink* uma vez para ligar uma política de segurança a uma porta frontal. As atualizações de política subsequentes são automaticamente aplicadas na extremidade frontal.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a Porta da Frente.](../../frontdoor/front-door-overview.md) 
 

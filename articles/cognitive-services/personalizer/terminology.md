@@ -1,76 +1,76 @@
 ---
-title: Terminologia - Personalizer
-description: O personalizer usa terminologia a partir da aprendizagem de reforço. Estes termos são utilizados no portal Azure e nas APIs.
+title: Terminologia - Personalizante
+description: O personalizar usa terminologia a partir da aprendizagem do reforço. Estes termos são utilizados no portal Azure e nas APIs.
 ms.topic: conceptual
 ms.date: 04/23/2020
-ms.openlocfilehash: 3f819ff3305a7c7302eb56c83b98340946613a92
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8177606ac6e968bd287a23554be7b9dd06d880a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83586308"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002867"
 ---
-# <a name="terminology"></a>Terminologia
+# <a name="personalizer-terminology"></a>Terminologia personalizada
 
-O personalizer usa terminologia a partir da aprendizagem de reforço. Estes termos são utilizados no portal Azure e nas APIs.
+O personalizar usa terminologia a partir da aprendizagem do reforço. Estes termos são utilizados no portal Azure e nas APIs.
 
 ## <a name="conceptual-terminology"></a>Terminologia conceptual
 
-* **Learning Loop**: Cria um recurso Personalizer, chamado ciclo de _aprendizagem,_ para cada parte da sua aplicação que pode beneficiar da personalização. Se tiver mais do que uma experiência para personalizar, crie um loop para cada um.
+* **Learning Loop**: Cria-se um recurso Personalizer, chamado ciclo de _aprendizagem,_ para cada parte da sua aplicação que pode beneficiar da personalização. Se tiver mais do que uma experiência para personalizar, crie um loop para cada um.
 
-* **Modelo**: Um modelo Personalizer captura todos os dados aprendidos sobre o comportamento do utilizador, obtendo dados de formação a partir da combinação dos argumentos que envia para chamadas De Classificação e Recompensa, e com um comportamento de treino determinado pela Política de Aprendizagem.
+* **Modelo**: Um modelo personalizante captura todos os dados aprendidos sobre o comportamento do utilizador, obtendo dados de formação a partir da combinação dos argumentos que envia para as chamadas Rank and Reward, e com um comportamento de formação determinado pela Política de Aprendizagem.
 
-* **Modo on-line**: O comportamento de [aprendizagem](#learning-behavior) padrão para personalizer onde o seu loop de aprendizagem, usa machine learning para construir o modelo que prevê a **ação de topo** para o seu conteúdo.
+* **Modo online**: O comportamento de [aprendizagem](#learning-behavior) padrão para Personalizer onde o seu ciclo de aprendizagem, utiliza machine learning para construir o modelo que prevê a **ação de topo** para o seu conteúdo.
 
 * **Modo aprendiz**: Um comportamento de [aprendizagem](#learning-behavior) que ajuda a iniciar um modelo Personalizer para treinar sem afetar os resultados e ações das aplicações.
 
-## <a name="learning-behavior"></a>Comportamento de Aprendizagem:
+## <a name="learning-behavior"></a>Comportamento de aprendizagem:
 
-* **Modo online**: Devolva a melhor ação. O seu modelo responderá às chamadas da Rank com a melhor ação e utilizará chamadas Reward para aprender e melhorar as suas seleções ao longo do tempo.
+* **Modo online**: Devolva a melhor ação. O seu modelo irá responder às chamadas rank com a melhor ação e usará chamadas Reward para aprender e melhorar as suas seleções ao longo do tempo.
 * **[Modo aprendiz](concept-apprentice-mode.md)**: Aprenda como aprendiz. O seu modelo aprenderá observando o comportamento do seu sistema existente. As chamadas de classificação retornarão sempre a **ação padrão** da aplicação (linha de base).
 
 ## <a name="personalizer-configuration"></a>Configuração personalizada
 
-O personalizer está configurado a partir do [portal Azure.](https://portal.azure.com)
+O personalizador é configurado a partir do [portal Azure](https://portal.azure.com).
 
-* **Recompensas**: configure os valores predefinidos para o tempo de espera da recompensa, recompensa por defeito e política de agregação de recompensas.
+* **Recompensas**: configurar os valores predefinidos para o tempo de espera de recompensa, recompensa por defeito e política de agregação de recompensas.
 
-* **Exploração**: configure a percentagem de chamadas rank para usar para exploração
+* **Exploração**: configurar a percentagem de chamadas rank a usar para exploração
 
 * **Frequência de atualização**do modelo : Com que frequência o modelo é retreinado.
 
-* **Retenção de dados**: Quantos dias valem dados para armazenar. Isto pode ter impacto em avaliações offline, que são usadas para melhorar o seu ciclo de aprendizagem.
+* **Retenção de**dados : Quantos dias de dados podem armazenar. Isto pode ter impacto em avaliações offline, que são usadas para melhorar o seu ciclo de aprendizagem.
 
-## <a name="use-rank-and-reward-apis"></a>Use AFIs de Classificação e Recompensa
+## <a name="use-rank-and-reward-apis"></a>Use APIs de classificação e recompensa
 
-* **Classificação**: Dadas as ações com funcionalidades e as características de contexto, utilize explorar ou explorar para devolver a ação de topo (produto de conteúdo).
+* **Classificação**: Dadas as ações com funcionalidades e as funcionalidades de contexto, utilize explorar ou explorar para devolver a ação de topo (item de conteúdo).
 
-    * **Ações**: As ações são os itens de conteúdo, como produtos ou promoções, para escolher. O Personalizer escolhe a ação de topo (ID de ação de recompensa devolvida) para mostrar aos seus utilizadores através da Rank API.
+    * **Ações**: As ações são os itens de conteúdo, como produtos ou promoções, para escolher. O personalização escolhe a ação de topo (ID de ação de recompensa devolvida) para mostrar aos seus utilizadores através da Rank API.
 
     * **Contexto**: Para fornecer uma classificação mais precisa, forneça informações sobre o seu contexto, por exemplo:
         * O seu utilizador.
         * O dispositivo em que estão.
-        * O tempo atual.
+        * A hora atual.
         * Outros dados sobre a situação atual.
         * Dados históricos sobre o utilizador ou contexto.
 
-        A sua aplicação específica pode ter diferentes informações de contexto.
+        A sua aplicação específica pode ter informações de contexto diferentes.
 
-    * **[Características](concepts-features.md)**: Uma unidade de informação sobre um item de conteúdo ou um contexto de utilizador. Certifique-se de que utiliza apenas as funcionalidades agregadas. Não utilize tempos específicos, iDs de utilizador ou outros dados não agregados como funcionalidades.
+    * **[Características](concepts-features.md)**: Uma unidade de informação sobre um item de conteúdo ou um contexto de utilizador. Certifique-se de que utiliza apenas funcionalidades que estão agregadas. Não utilize tempos específicos, IDs do utilizador ou outros dados não agregados como funcionalidades.
 
-        * Uma _funcionalidade de ação_ são metadados sobre o conteúdo.
-        * Uma _característica de contexto_ são metadados sobre o contexto em que o conteúdo é apresentado.
+        * Uma _funcionalidade de ação_ é metadados sobre o conteúdo.
+        * Uma _característica de contexto_ é metadados sobre o contexto em que o conteúdo é apresentado.
 
-* **Exploração**: O serviço Personalizer está a explorar quando, em vez de devolver a melhor ação, escolhe uma ação diferente para o utilizador. O serviço Personalizer evita deriva, estagnação e pode adaptar-se ao comportamento contínuo do utilizador explorando.
+* **Exploração**: O serviço Personalizar está a explorar quando, em vez de devolver a melhor ação, escolhe uma ação diferente para o utilizador. O serviço Personalizer evita deriva, estagnação e pode adaptar-se ao comportamento do utilizador em curso explorando.
 
-* **Exploração**: O serviço Personalizer utiliza o modelo atual para decidir a melhor ação com base em dados anteriores.
+* **Exploração**: O serviço Personalizar utiliza o modelo atual para decidir a melhor ação com base em dados passados.
 
-* **Duração da Experiência**: O tempo que o serviço Personalizer espera por uma recompensa, a partir do momento em que a chamada do Rank aconteceu para esse evento.
+* **Duração da Experiência**: A quantidade de tempo que o serviço Personaler espera por uma recompensa, a partir do momento em que a chamada do Rank aconteceu para esse evento.
 
-* **Eventos Inativos**: Um evento inativo é aquele em que chamou Rank, mas não tem a certeza se o utilizador alguma vez verá o resultado, devido a decisões de aplicação do cliente. Os eventos inativos permitem-lhe criar e armazenar resultados de personalização, depois decide descartá-los mais tarde sem afetar o modelo de aprendizagem automática.
+* **Eventos Inativos**: Um evento inativo é aquele em que chamou Rank, mas não tem certeza se o utilizador alguma vez verá o resultado, devido às decisões de aplicação do cliente. Eventos inativos permitem criar e armazenar resultados de personalização, e depois decidir deitá-los fora mais tarde sem afetar o modelo de machine learning.
 
 
-* **Recompensa**: Uma medida de como o utilizador reagiu ao ID de ação de recompensa devolvido da Rank API, como uma pontuação entre 0 a 1. O valor de 0 a 1 é definido pela sua lógica de negócio, com base na forma como a escolha ajudou a alcançar os seus objetivos de negócio de personalização. O ciclo de aprendizagem não armazena esta recompensa como histórico individual de utilizadores.
+* **Recompensa**: Uma medida de como o utilizador reagiu ao ID de ação de recompensa devolvido da Rank API, como uma pontuação entre 0 a 1. O valor de 0 a 1 é definido pela sua lógica de negócio, com base na forma como a escolha ajudou a atingir os seus objetivos de personalização. O ciclo de aprendizagem não armazena esta recompensa como histórico de utilizadores individuais.
 
 ## <a name="evaluations"></a>Avaliações
 
@@ -78,14 +78,14 @@ O personalizer está configurado a partir do [portal Azure.](https://portal.azur
 
 * **Avaliação**: Uma avaliação offline determina a melhor política de aprendizagem para o seu loop com base nos dados da sua aplicação.
 
-* **Política de Aprendizagem**: Como o Personalizer treina um modelo em cada evento será determinado por alguns parâmetros que afetam o funcionamento do algoritmo de aprendizagem automática. Um novo ciclo de aprendizagem começa com uma Política de **Aprendizagem**padrão, que pode produzir um desempenho moderado. Ao executar [Avaliações,](concepts-offline-evaluation.md)o Personalizer cria novas políticas de aprendizagem especificamente otimizadas para os casos de utilização do seu loop. O personalizer terá um desempenho significativamente melhor com as políticas otimizadas para cada loop específico, gerada durante a Avaliação. A política de aprendizagem é nomeada _definições_ de aprendizagem no **Modelo e definições** de aprendizagem para o recurso Personalizer no portal Azure.
+* **Política de Aprendizagem**: Como o Personaler treina um modelo em cada evento será determinado por alguns parâmetros que afetam o funcionamento do algoritmo de aprendizagem automática. Um novo ciclo de aprendizagem começa com uma Política de **Aprendizagem**predefinido, que pode produzir um desempenho moderado. Ao executar [Avaliações,](concepts-offline-evaluation.md)o Personalizer cria novas políticas de aprendizagem especificamente otimizadas para os casos de utilização do seu loop. O personalizador irá realizar-se significativamente melhor com políticas otimizadas para cada ciclo específico, gerado durante a Avaliação. A política de aprendizagem é nomeada _definições de aprendizagem_ no **Modelo e configurações de aprendizagem** para o recurso Personalizer no portal Azure.
 
-### <a name="apprentice-mode-evaluations"></a>Avaliações do modo aprendiz
+### <a name="apprentice-mode-evaluations"></a>Avaliações do modo de aprendiz
 
-O modo aprendiz fornece as **seguintes métricas de avaliação:**
+O modo aprendiz fornece as seguintes **métricas de avaliação:**
 * **Linha de base – recompensa média**: Recompensas médias do padrão da aplicação (linha de base).
-* **Personalizer – recompensa média**– Média de recompensas totais que o Personalizer teria potencialmente atingido.
-* **Recompensa média de rolamento**: Relação de Base e recompensa personalizada – normalizada nos mais recentes 1000 eventos.
+* **Personalização – recompensa média**: Média de recompensas totais O Personalizador teria potencialmente atingido.
+* **Recompensa média de rolamento**: Relação de base e recompensa personalizante – normalizada ao longo dos mais recentes 1000 eventos.
 
 ## <a name="next-steps"></a>Passos seguintes
 

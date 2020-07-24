@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 4e704a25e0c9700afbe4fa85031d7ff4d6a8d0c1
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e1a4a366b3e4fa045df69683d6e72b157ccf0a1f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965572"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003632"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Criar um FCI com discos partilhados Azure (SQL Server em VMs Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -157,7 +157,7 @@ Para validar o cluster utilizando a UI, faça o seguinte numa das máquinas virt
 1. Em **Servidores Selecionados ou num Cluster,** insira os nomes de ambas as máquinas virtuais.
 1. Nas **opções de Teste,** selecione **Executar apenas testes que seleciono**. 
 1. Selecione **Seguinte**.
-1. Em **Seleção de Testes**, selecione todos os testes *exceto* **os espaços de armazenamento diretos**.
+1. Em **Seleção de Testes**, selecione todos os testes, *exceto* **Armazenamento**
 
 ## <a name="test-cluster-failover"></a>Falha do cluster de teste
 
@@ -181,9 +181,7 @@ Depois de configurar o cluster failover e todos os componentes do cluster, inclu
 
 1. Selecione **a instalação de cluster de falha do novo sql server**. Siga as instruções do assistente para instalar o SQL Server FCI.
 
-   Os diretórios de dados da FCI têm de estar no armazenamento agrupado. Com os Espaços de Armazenamento Direto, não é um disco partilhado, mas um ponto de montagem para um volume em cada servidor. Espaços de Armazenamento Sincronizam diretamente o volume entre os dois nós. O volume é apresentado ao cluster como um Cluster Shared Volume (CSV). Utilize o ponto de montagem CSV para os diretórios de dados.
-
-   ![Diretórios de dados](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/20-data-dicrectories.png)
+Os diretórios de dados da FCI têm de estar nos Discos Partilhados do Azure. 
 
 1. Depois de completar as instruções no assistente, a Configuração instalará um SQL Server FCI no primeiro nó.
 
@@ -222,7 +220,7 @@ Para encaminhar o tráfego adequadamente para o nó primário atual, configufiqu
 - Apenas o SQL Server 2019 no Windows Server 2019 é suportado. 
 - Apenas é suportado o registo com o fornecedor de recursos SQL VM em [modo de gestão leve.](sql-vm-resource-provider-register.md#management-modes)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se ainda não o fez, configugue a conectividade com o seu FCI com um [nome de rede virtual e um equilibrador de carga Azure](hadr-vnn-azure-load-balancer-configure.md) ou nome de rede distribuído [(DNN)](hadr-distributed-network-name-dnn-configure.md). 
 

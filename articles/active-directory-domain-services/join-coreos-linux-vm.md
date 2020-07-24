@@ -9,13 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/23/2020
+ms.date: 07/13/2020
 ms.author: iainfou
-ms.openlocfilehash: 845b48d84040343f829648f9c7fda2372e3413dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93f16629b74ab76d7b46603d84d52cff4bf1ca13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734746"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005111"
 ---
 # <a name="join-a-coreos-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Junte uma máquina virtual CoreOS a um domínio gerido por Serviços de Domínio do Diretório Ativo Azure
 
@@ -84,7 +85,7 @@ sudo vi /etc/sssd/sssd.conf
 Especifique o seu próprio nome de domínio gerido para os seguintes parâmetros:
 
 * *domínios* em TODOS OS CASOS SUPERIORES
-* *[domínio/AADDS]* onde o AADDS está em TODOS OS CASOS SUPERIORES
+* *[domínio/AADDSCONTOSO]* onde a AADDSCONTOSO está em TODOS OS CASOS SUPERIORES
 * *ldap_uri*
 * *ldap_search_base*
 * *krb5_server*
@@ -96,7 +97,7 @@ config_file_version = 2
 services = nss, pam
 domains = AADDSCONTOSO.COM
 
-[domain/AADDSCONTOSO.COM]
+[domain/AADDSCONTOSO]
 id_provider = ad
 auth_provider = ad
 chpass_provider = ad
@@ -167,7 +168,7 @@ Para verificar se o VM foi ligado com sucesso ao domínio gerido, inicie uma nov
 
     Devia ver os seus membros do grupo do domínio gerido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver problemas em ligar o VM ao domínio gerido ou iniciar sessão com uma conta de domínio, consulte [o domínio de resolução de problemas para se juntar a problemas](join-windows-vm.md#troubleshoot-domain-join-issues).
 

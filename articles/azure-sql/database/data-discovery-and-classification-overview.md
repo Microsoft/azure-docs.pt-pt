@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 tags: azure-synapse
-ms.openlocfilehash: 8e04cb87895f00e1ee992745c43a884596bd8398
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 3f1f284255d1c0e77779c175951eaf33d3e56067
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85987270"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004108"
 ---
 # <a name="data-discovery--classification"></a>Deteção e Classificação de Dados
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -77,7 +77,7 @@ Depois de definida a política em toda a organização, pode continuar a classif
 > [!NOTE]
 > O exemplo abaixo utiliza a Base de Dados Azure SQL, mas deve selecionar o produto apropriado que pretende configurar a Data Discovery & Classificação.
 
-1. Vá ao [portal Azure.](https://portal.azure.com)
+1. Aceda ao [portal do Azure](https://portal.azure.com).
 
 2. Vá para a **Segurança Avançada de Dados** sob o título **de Segurança** no seu painel de base de dados Azure SQL. Selecione **Segurança avançada de dados**e, em seguida, selecione o cartão **de classificação data Discovery &.**
 
@@ -127,17 +127,17 @@ Estas funções incorporadas podem ler a classificação de dados de uma base de
 
 - Proprietário
 - Leitor
-- Contribuidor
+- Contribuinte
 - Gestor de Segurança SQL
-- Administrador de Acesso de Utilizador
+- Administrador de Acesso dos Utilizadores
 
 Estas funções incorporadas podem modificar a classificação de dados de uma base de dados:
 
 - Proprietário
-- Contribuidor
+- Contribuinte
 - Gestor de Segurança SQL
 
-Saiba mais sobre permissões baseadas em funções no [RBAC para recursos Azure.](https://docs.microsoft.com/azure/role-based-access-control/overview)
+Saiba mais sobre permissões baseadas em funções no [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
 ## <a name="manage-classifications"></a><a id="manage-classification"></a>Gerir classificações
 
@@ -189,7 +189,7 @@ Pode utilizar a API REST para gerir programáticamente classificações e recome
 - [Lista Corrente por Base de Dados](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase): Obtém as etiquetas de sensibilidade atuais da base de dados especificada.
 - [Lista Recomendada por Base de Dados](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): Obtém as etiquetas de sensibilidade recomendadas da base de dados especificada.
 
-## <a name="next-steps"></a><a id="next-steps"></a>Próximos passos
+## <a name="next-steps"></a><a id="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a Segurança Avançada de Dados.](advanced-data-security.md)
 - Considere configurar [a Auditoria Azure SQL](../../azure-sql/database/auditing-overview.md) para monitorizar e auditar o acesso aos seus dados confidenciais confidenciais.

@@ -4,11 +4,12 @@ description: Fornece respostas a algumas das perguntas comuns sobre Azure VMware
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: 1649b5649bd18b7ab53f3cc0196d7dff0f6f5b2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f160e617163f11c02e4d661cbf1c14f63a6772f8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84112690"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003428"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Perguntas frequentes sobre pré-visualização da Solução VMware Azure (AVS)
 
@@ -32,7 +33,7 @@ Todos os serviços da Azure estarão disponíveis para clientes de solução AVS
 
 **Uso as mesmas ferramentas que uso agora para gerir recursos privados em nuvem?**
 
-Sim. O portal Azure é utilizado para implantação e várias operações de gestão. vCenter e NSX Manager são usados para gerir recursos vSphere e NSX-T.
+Yes. O portal Azure é utilizado para implantação e várias operações de gestão. vCenter e NSX Manager são usados para gerir recursos vSphere e NSX-T.
 
 **Posso gerir uma nuvem privada com o meu vCenter no local?**
 
@@ -44,7 +45,7 @@ Integrações específicas e casos de utilização podem ser avaliados caso a ca
 
 **Posso migrar vSphere VMs de ambientes no local para nuvens privadas AVS?**
 
-Sim. A migração vM e vMotion podem ser usadas para mover VMs para uma nuvem privada se o vCenter padrão cruzado [requisitos vMotion][ https://kb.vmware.com/s/article/210695 forem cumpridos.
+Yes. A migração vM e vMotion podem ser usadas para mover VMs para uma nuvem privada se o vCenter padrão cruzado [requisitos vMotion][ https://kb.vmware.com/s/article/210695 forem cumpridos.
 
 **É necessária uma versão específica da vSphere em ambientes no local?**
 
@@ -84,15 +85,15 @@ Os servidores têm 576 GB de RAM.
 
 **Qual é a capacidade de armazenamento de cada hospedeiro?**
 
-Cada anfitrião ESXi tem dois grupos de discos VSAN com um nível de capacidade de 15.2 TB e um nível de cache 3.2 TB NVMe (1.6 TB em cada grupo de discos).
+Cada anfitrião ESXi tem dois grupos de discos vSAN com um nível de capacidade de 15.2 TB e um nível de cache 3.2 TB NVMe (1.6 TB em cada grupo de discos).
 
 **Qual a largura de banda disponível em cada anfitrião ESXi?**
 
 Os anfitriões ESXi suportam largura de banda de conectividade até 25 Gbps.
 
-**Os dados armazenados nas datas-lojas VSAN são encriptados em repouso?**
+**Os dados armazenados nas datas-tores vSAN são encriptados em repouso?**
 
-Sim, todos os dados vsan são encriptados por padrão usando chaves armazenadas no Cofre de Chaves Azure.
+Sim, todos os dados vSAN são encriptados por padrão usando chaves armazenadas no Cofre de Chaves Azure.
 
 ## <a name="hosts-clusters-and-private-clouds"></a>Anfitriões, aglomerados e nuvens privadas
 
@@ -136,7 +137,7 @@ Não, não é obrigado a usar NSX no local.
 
 **Qual é o calendário de atualização e atualização do software VMware numa nuvem privada?**
 
-As atualizações do pacote de software de nuvem privada são feitas para manter o software dentro de uma versão da versão mais recente do pacote de software da VMware. As versões privadas de software em nuvem podem ser diferentes das versões mais recentes dos componentes de software individuais (ESXi, NSX-T, vCenter, VSAN).
+As atualizações do pacote de software de nuvem privada são feitas para manter o software dentro de uma versão da versão mais recente do pacote de software da VMware. As versões privadas de software em nuvem podem ser diferentes das versões mais recentes dos componentes de software individuais (ESXi, NSX-T, vCenter, vSAN).
 
 **Com que frequência a pilha de software de nuvem privada será atualizada?**
 
@@ -165,7 +166,7 @@ Não. O tráfego de rede a entrar da internet diretamente para nuvens privadas n
 
 **Preciso de restringir o acesso à Internet de VMs em redes lógicas para a internet?**
 
-Sim. Terá de usar o gestor NSX-T para criar uma firewall que restringe o acesso de VM à internet.
+Yes. Terá de usar o gestor NSX-T para criar uma firewall que restringe o acesso de VM à internet.
 
 ## <a name="accounts-and-privileges"></a>Contas e privilégios
 
@@ -215,7 +216,7 @@ Pode solicitar um aumento de quota [através da apresentação de um pedido de a
 > ```azurecli-interactive
 > az provider register -n Microsoft.AVS --subscription <your subscription ID>
 > ```
-> Para obter formas adicionais de registar o fornecedor de recursos, consulte [os fornecedores e tipos de recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+> Para obter formas adicionais de registar o fornecedor de recursos, consulte [os fornecedores e tipos de recursos Azure](../azure-resource-manager/management/resource-providers-and-types.md).
 
 1. No seu portal Azure, no âmbito **da Ajuda + Suporte,** crie um **novo pedido de suporte** e forneça as seguintes informações para o bilhete:
    - **Tipo de emissão:** Técnico

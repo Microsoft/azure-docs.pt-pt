@@ -3,14 +3,14 @@ title: Segurança de dados da Azure Automation
 description: Este artigo ajuda-o a aprender como a Azure Automation protege a sua privacidade e protege os seus dados.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 06/03/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: cc96f2dd81b618b4170acd4b415a09248adbb7d5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 610c2050150a533e246bc74ed7750ce87f7cf617
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186168"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004652"
 ---
 # <a name="management-of-azure-automation-data"></a>Gestão dos dados da Automatização do Azure
 
@@ -50,7 +50,7 @@ O quadro que se segue resume a política de retenção de diferentes recursos.
 | Dados | Política |
 |:--- |:--- |
 | Contas |Uma conta é permanentemente removida 30 dias após o utilizador a eliminar. |
-| Elementos |Um ativo é permanentemente removido 30 dias após um utilizador o eliminar, ou 30 dias após um utilizador apagar uma conta que detém o ativo. |
+| Elementos |Um ativo é permanentemente removido 30 dias após um utilizador o eliminar, ou 30 dias após um utilizador apagar uma conta que detém o ativo. Os ativos incluem variáveis, horários, credenciais, certificados, pacotes Python 2 e conexões. |
 | Nó de DSC |Um nó DSC é removido permanentemente 30 dias após não ter sido registado numa conta de Automação utilizando o portal Azure ou o cmdlet [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-3.7.0) no Windows PowerShell. Um nó também é removido permanentemente 30 dias após um utilizador apagar a conta que detém o nó. |
 | Tarefas |Um trabalho é eliminado e permanentemente removido 30 dias após a modificação, por exemplo, após o fim do trabalho, é interrompido ou suspenso. |
 | Módulos |Um módulo é removido permanentemente 30 dias após um utilizador o eliminar, ou 30 dias após um utilizador apagar a conta que detém o módulo. |
@@ -66,7 +66,7 @@ Quando elimina uma conta Desmômes em Azure, todos os objetos da conta são elim
 
 ### <a name="runbooks"></a>Runbooks
 
-Pode exportar os seus livros para scripts utilizando o portal Azure ou o cmdlet [Get-AzureAutomationRunbookDefinition](/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) no Windows PowerShell. Pode importar estes ficheiros de script para outra conta de Automação, como discutido na [Manage runbooks in Azure Automation](manage-runbooks.md).
+Pode exportar os seus livros para scripts utilizando o portal Azure ou o cmdlet [Get-AzureAutomationRunbookDefinition](/powershell/module/servicemanagement/azure.service/get-azureautomationrunbookdefinition) no Windows PowerShell. Pode importar estes ficheiros de script para outra conta de Automação, como discutido na [Manage runbooks in Azure Automation](manage-runbooks.md).
 
 ### <a name="integration-modules"></a>Módulos de integração
 

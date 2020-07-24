@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 4f02d92e6264a05ed2cb4021adb5ae6312f58a85
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 4778ea7781d181a89e7a6b2d6c4ad5d474e9b5c9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146646"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005944"
 ---
 # <a name="azure-serial-console-for-windows"></a>Consola em série Azure para Windows
 
@@ -38,7 +38,7 @@ Para documentação de consola em série para Linux, consulte [a Consola em Sér
 
 - A sua conta que utiliza consola em série deve ter o [papel de Contribuinte de Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) para o VM e a conta de armazenamento de diagnóstico de [arranque](boot-diagnostics.md)
 
-- A sua instância de definição de escala de VM ou de máquina virtual deve ter um utilizador baseado em palavra-passe. Pode criar uma com a função [de senha de reset](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) da extensão de acesso VM. Selecione Redefinir a **palavra-passe** a partir da secção **'Suporte + resolução de problemas'.**
+- A sua instância de definição de escala de VM ou de máquina virtual deve ter um utilizador baseado em palavra-passe. Pode criar uma com a função [de senha de reset](../extensions/vmaccess.md#reset-password) da extensão de acesso VM. Selecione Redefinir a **palavra-passe** a partir da secção **'Suporte + resolução de problemas'.**
 
 * O VM para a definição de escala de máquina virtual deve ter [diagnósticos de arranque](boot-diagnostics.md) ativados.
 
@@ -50,7 +50,7 @@ Para documentação de consola em série para Linux, consulte [a Consola em Sér
 > Se não estiver a ver nada na consola em série, certifique-se de que os diagnósticos de arranque estão ativados no seu conjunto de escala de VM ou de máquina virtual.
 
 ### <a name="enable-the-serial-console-in-custom-or-older-images"></a>Ativar a consola em série em imagens personalizadas ou mais antigas
-As imagens mais recentes do Servidor do Windows no Azure têm [consola de administração especial](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) ativada por padrão. O SAC é suportado nas versões do servidor do Windows, mas não está disponível nas versões dos clientes (por exemplo, Windows 10, Windows 8 ou Windows 7).
+As imagens mais recentes do Servidor do Windows no Azure têm [consola de administração especial](/previous-versions/windows/it-pro/windows-server-2003/cc787940(v=ws.10)) (SAC) ativada por padrão. O SAC é suportado nas versões do servidor do Windows, mas não está disponível nas versões dos clientes (por exemplo, Windows 10, Windows 8 ou Windows 7).
 
 Para imagens mais antigas do Windows Server (criadas antes de fevereiro de 2018), pode ativar automaticamente a consola em série através da funcionalidade de comando do portal Azure. No portal Azure, selecione **o comando executar**e, em seguida, selecione o comando chamado **EnableEMS** da lista.
 
@@ -76,11 +76,11 @@ Se necessário, o SAC também pode ser ativado offline:
 
 #### <a name="how-do-i-know-if-sac-is-enabled"></a>Como sei se o SAC está habilitado?
 
-Se [o SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) não estiver ativado, a consola em série não apresentará a solicitação SAC. Em alguns casos, a informação de saúde em VM é mostrada, e em outros casos está em branco. Se estiver a utilizar uma imagem do Windows Server criada antes de fevereiro de 2018, a SAC provavelmente não estará ativada.
+Se [o SAC](/previous-versions/windows/it-pro/windows-server-2003/cc787940(v=ws.10)) não estiver ativado, a consola em série não apresentará a solicitação SAC. Em alguns casos, a informação de saúde em VM é mostrada, e em outros casos está em branco. Se estiver a utilizar uma imagem do Windows Server criada antes de fevereiro de 2018, a SAC provavelmente não estará ativada.
 
 ### <a name="enable-the-windows-boot-menu-in-the-serial-console"></a>Ativar o menu inicial do Windows na consola em série
 
-Se precisar de ativar as solicitações de carregamento de arranque do Windows para exibir na consola em série, pode adicionar as seguintes opções adicionais aos dados de configuração do arranque. Para mais informações, consulte [bcdedit.](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set)
+Se precisar de ativar as solicitações de carregamento de arranque do Windows para exibir na consola em série, pode adicionar as seguintes opções adicionais aos dados de configuração do arranque. Para mais informações, consulte [bcdedit.](/windows-hardware/drivers/devtest/bcdedit--set)
 
 1. Ligue-se ao seu Windows VM ou à definição de escala de máquina virtual utilizando o Ambiente de Trabalho Remoto.
 
@@ -126,7 +126,7 @@ Para obter informações sobre a configuração do Windows para criar um ficheir
 As teclas de função estão ativadas para utilização para consola em série em VMs do Windows. O F8 no dropdown da consola em série proporciona a conveniência de entrar facilmente no menu Definições avançadas de arranque, mas a consola em série é compatível com todas as outras teclas de função. Poderá ter de pressionar **Fn**  +  **F1** (ou F2, F3, etc.) no seu teclado, dependendo do computador a partir do computador a partir do seguinte.
 
 ### <a name="use-wsl-in-serial-console"></a>Use wSL na consola em série
-O Subsistema Windows para Linux (WSL) foi ativado para o Windows Server 2019 ou posteriormente, pelo que também é possível ativar o WSL para utilização dentro da consola em série se estiver a executar o Windows Server 2019 ou posteriormente. Isto pode ser benéfico para os utilizadores que também têm uma familiaridade com os comandos Linux. Para obter instruções para ativar o WSL para o Windows Server, consulte o [guia de instalação](https://docs.microsoft.com/windows/wsl/install-on-server).
+O Subsistema Windows para Linux (WSL) foi ativado para o Windows Server 2019 ou posteriormente, pelo que também é possível ativar o WSL para utilização dentro da consola em série se estiver a executar o Windows Server 2019 ou posteriormente. Isto pode ser benéfico para os utilizadores que também têm uma familiaridade com os comandos Linux. Para obter instruções para ativar o WSL para o Windows Server, consulte o [guia de instalação](/windows/wsl/install-on-server).
 
 ### <a name="restart-your-windows-vmvirtual-machine-scale-set-instance-within-serial-console"></a>Reinicie a sua instância definida em escala de máquina virtual/Windows VM/virtual dentro da Consola Em Série
 Pode iniciar um reinício dentro da consola em série navegando para o botão de alimentação e clicando em "Reiniciar VM". Isto iniciará um reinício de VM, e verá uma notificação dentro do portal Azure sobre o reinício.
@@ -147,7 +147,7 @@ O acesso à consola em série está limitado a utilizadores que tenham uma funç
 Todos os dados enviados de um lado para o outro estão encriptados no fio.
 
 ### <a name="audit-logs"></a>Registos de auditoria
-Todo o acesso à consola em série está atualmente registado nos [registos](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) de diagnóstico de arranque da máquina virtual. O acesso a estes registos é propriedade e controlado pelo administrador de máquina virtual Azure.
+Todo o acesso à consola em série está atualmente registado nos [registos](./boot-diagnostics.md) de diagnóstico de arranque da máquina virtual. O acesso a estes registos é propriedade e controlado pelo administrador de máquina virtual Azure.
 
 > [!CAUTION]
 > Não são registadas senhas de acesso para a consola. No entanto, se os comandos executados dentro da consola contiverem ou derramar palavras-passe, segredos, nomes de utilizador ou qualquer outra forma de informação pessoalmente identificável (PII), esses serão escritos para os registos de diagnóstico de arranque VM. Serão escritas juntamente com todos os outros textos visíveis, como parte da implementação da função de retrocesso da consola em série. Estes registos são circulares e apenas os indivíduos com permissões de leitura para a conta de armazenamento de diagnósticos têm acesso aos mesmos. No entanto, recomendamos seguir a melhor prática de usar o Ambiente de Trabalho Remoto para qualquer coisa que possa envolver segredos e/ou PII.
@@ -161,7 +161,7 @@ Se um utilizador estiver ligado à consola em série e outro utilizador solicita
 ## <a name="accessibility"></a>Accessibility (Acessibilidade)
 A acessibilidade é um foco chave para a consola em série Azure. Para tal, garantimos que a consola em série é acessível para pessoas com deficiência visual, ou que são difíceis de ouvir, bem como pessoas que podem não ser capazes de usar um rato.
 
-### <a name="keyboard-navigation"></a>Navegação através do teclado
+### <a name="keyboard-navigation"></a>Navegação do teclado
 Utilize a tecla **'Separador'** no teclado para navegar na interface da consola em série a partir do portal Azure. A sua localização será destacada no ecrã. Para deixar o foco da janela da consola em série, prima **Ctrl** + **F6** no seu teclado.
 
 ### <a name="use-the-serial-console-with-a-screen-reader"></a>Use a consola em série com um leitor de ecrã
@@ -173,7 +173,7 @@ Cenário          | Ações na consola em série
 :------------------|:-----------------------------------------
 Regras de firewall incorretas | Aceda à consola em série e corrija as regras de firewall do Windows.
 Corrupção/verificação do sistema de ficheiros | Aceda à consola em série e recupere o sistema de ficheiros.
-Problemas de configuração RDP | Aceda à consola em série e altere as definições. Para mais informações, consulte a [documentação do PDR.](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access)
+Problemas de configuração RDP | Aceda à consola em série e altere as definições. Para mais informações, consulte a [documentação do PDR.](/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access)
 Sistema de bloqueio de rede | Aceda à consola em série a partir do portal Azure para gerir o sistema. Alguns comandos de rede estão listados nos [comandos Windows: CMD e PowerShell](serial-console-cmd-ps-commands.md).
 Interagindo com o bootloader | Aceda ao BCD através da consola em série. Para obter informações, consulte [Ativar o menu de arranque do Windows na consola em série](#enable-the-windows-boot-menu-in-the-serial-console).
 
@@ -194,27 +194,27 @@ Colar cordas compridas não funciona. | A consola em série limita o comprimento
 
 **Q. Como posso enviar feedback?**
 
-R. Fornecer feedback criando um problema gitHub em https://aka.ms/serialconsolefeedback . Alternativamente (menos preferencial), pode enviar feedback através azserialhelp@microsoft.com ou na categoria de máquina virtual de https://feedback.azure.com .
+A. Fornecer feedback criando um problema gitHub em https://aka.ms/serialconsolefeedback . Alternativamente (menos preferencial), pode enviar feedback através azserialhelp@microsoft.com ou na categoria de máquina virtual de https://feedback.azure.com .
 
 **Q. A consola em série suporta a cópia/pasta?**
 
-R. Sim. Utilize **ctrl** + **Shift** + **C** e **Ctrl** + **Shift** + **V** para copiar e colar no terminal.
+A. Yes. Utilize **ctrl** + **Shift** + **C** e **Ctrl** + **Shift** + **V** para copiar e colar no terminal.
 
 **Q. Quem pode ativar ou desativar a consola em série para a minha subscrição?**
 
-R. Para ativar ou desativar a consola em série a um nível de subscrição, tem de escrever permissões para a subscrição. As funções que têm permissão de escrita incluem funções de administrador ou proprietário. As funções personalizadas também podem ter permissões de escrita.
+A. Para ativar ou desativar a consola em série a um nível de subscrição, tem de escrever permissões para a subscrição. As funções que têm permissão de escrita incluem funções de administrador ou proprietário. As funções personalizadas também podem ter permissões de escrita.
 
 **Q. Quem pode aceder à consola em série para o meu VM?**
 
-R. Tem de ter o papel de Contribuinte de Máquina Virtual ou superior para que um VM aceda à consola em série do VM.
+A. Tem de ter o papel de Contribuinte de Máquina Virtual ou superior para que um VM aceda à consola em série do VM.
 
 **Q. A minha consola em série não está a mostrar nada, o que faço?**
 
-R. A sua imagem está provavelmente mal configurada para o acesso à consola em série. Para obter informações sobre a configuração da sua imagem para ativar a consola em série, consulte [Ativar a consola em série em imagens personalizadas ou mais antigas.](#enable-the-serial-console-in-custom-or-older-images)
+A. A sua imagem está provavelmente mal configurada para o acesso à consola em série. Para obter informações sobre a configuração da sua imagem para ativar a consola em série, consulte [Ativar a consola em série em imagens personalizadas ou mais antigas.](#enable-the-serial-console-in-custom-or-older-images)
 
 **Q. A consola em série está disponível para conjuntos de escala de máquinas virtuais?**
 
-R. Sim, é! Ver [consola em série para conjuntos de escala de máquinas virtuais](./serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
+A. Sim, é! Ver [consola em série para conjuntos de escala de máquinas virtuais](./serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
 
 ## <a name="next-steps"></a>Passos seguintes
 * Para obter um guia aprofundado dos comandos CMD e PowerShell que pode utilizar no Windows SAC, consulte os [comandos windows: CMD e PowerShell](serial-console-cmd-ps-commands.md).

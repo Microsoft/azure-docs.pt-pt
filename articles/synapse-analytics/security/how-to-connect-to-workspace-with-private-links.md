@@ -1,5 +1,5 @@
 ---
-title: Conecte-se a um espaço de trabalho Azure Synapse usando links privados
+title: Conecte-se a um espaço de trabalho synapse usando links privados
 description: Este artigo irá ensiná-lo a conectar-se ao seu espaço de trabalho Azure Synapse usando links privados
 author: RonyMSFT
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0f2e01390a1ddd179e50523a8b5748994524a52e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17636bf993df5105093ca690e36db22493a2472e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193877"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005978"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links-preview"></a>Conecte-se ao seu espaço de trabalho Azure Synapse utilizando links privados (pré-visualização)
 
@@ -47,7 +47,7 @@ Selecione **Seguinte: Configuração>** avançar para a próxima parte da config
 
 No **separador Configuração,** selecione a **rede Virtual** e a **Sub-rede** na qual o ponto final privado deve ser criado. Também precisa de criar um registo DNS que mapeia para o ponto final privado.
 
-Selecione **Sim** para **Integrar com a zona privada de DNS** para integrar o seu ponto final privado com uma zona privada de DNS. Se não tiver uma zona privada de DNS associada ao seu VNet, então é criada uma nova zona privada de DNS. Selecione **'Rever + criar'** quando for feito.
+Selecione **Sim** para **Integrar com a zona privada de DNS** para integrar o seu ponto final privado com uma zona privada de DNS. Se não tiver uma zona de DNS privada associada à sua Rede Virtual Microsoft Azure, então é criada uma nova zona privada de DNS. Selecione **'Rever + criar'** quando for feito.
 
 ![Selecione detalhes de subscrição e região](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-4.png)
 
@@ -55,9 +55,9 @@ Quando a implementação estiver concluída, abra o seu espaço de trabalho Azur
 
 ![Selecione detalhes de subscrição e região](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-5.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [o Espaço de Trabalho Gerido VNet](./synapse-workspace-managed-vnet.md)
+Saiba mais sobre [Rede Virtual gerida do espaço de trabalho](./synapse-workspace-managed-vnet.md)
 
 Saiba mais sobre [os pontos finais privados geridos](./synapse-workspace-managed-private-endpoints.md)
 

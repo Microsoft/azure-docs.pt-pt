@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 67064cf694445acf8472b958660133c2f2d31db9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 33b4c59e14301e496d0eddafa7bdfdf201b7aa29
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85660952"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005910"
 ---
 # <a name="windows-stop-error---status-no-memory"></a>Erro de paragem do Windows - Estado Sem Memória
 
@@ -26,7 +27,7 @@ Este artigo fornece medidas para resolver problemas em que o Windows não começ
 
 ## <a name="symptom"></a>Sintoma
 
-Quando utilizar [diagnósticos boot](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para visualizar a imagem da máquina virtual (VM), verá que a imagem exibe o código de erro: `0xC0000017` . Dependendo da versão do Windows que está a executar, poderá ver este código apresentado no **Windows Boot Manager** ou no ecrã **Recovery**.
+Quando utilizar [diagnósticos boot](./boot-diagnostics.md) para visualizar a imagem da máquina virtual (VM), verá que a imagem exibe o código de erro: `0xC0000017` . Dependendo da versão do Windows que está a executar, poderá ver este código apresentado no **Windows Boot Manager** ou no ecrã **Recovery**.
 
    **Gestor de boots do Windows**
 
@@ -56,7 +57,7 @@ O disco do sistema operativo está cheio, demasiado fragmentado, ou o sistema op
 
 ### <a name="create-and-access-a-repair-vm"></a>Criar e aceder a um VM de reparação
 
-1. Utilize [os passos 1-3 dos Comandos de Reparação VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar um VM de reparação.
+1. Utilize [os passos 1-3 dos Comandos de Reparação VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar um VM de reparação.
 1. Utilizando ligação de ambiente de trabalho remoto, ligue-se ao VM de reparação.
 
 ### <a name="for-generation-2-vms-assign-a-letter-to-the-extensible-firmware-interface-efi-partition"></a>Para a Geração 2 VMs, atribua uma carta à partição extensível da Interface de Firmware (EFI):
@@ -93,7 +94,7 @@ Se estiver a utilizar uma Geração 2 VM, a partição EFI do disco anexo pode n
 Agora que o disco avariado está ligado ao VM de reparação, deve verificar se o SO do disco tem espaço suficiente para funcionar corretamente. 
 
 1. Verifique se o disco está cheio clicando à direita na unidade do disco anexo e selecionando **propriedades**.
-1. Se o disco tiver **menos de 300 Mb de espaço livre,** [expanda-o para um máximo de 1 Tb utilizando o PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk).
+1. Se o disco tiver **menos de 300 Mb de espaço livre,** [expanda-o para um máximo de 1 Tb utilizando o PowerShell](../windows/expand-os-disk.md).
 1. Uma vez que o tamanho do disco é **1 Tb,** você precisará realizar uma limpeza de disco. Pode utilizar a [ferramenta De Limpeza de Discos](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) para libertar espaço.
 1. Abra uma instância de pedido de comando elevado (executar como administrador) e efetue uma deses fragmentação na unidade:
 
@@ -222,4 +223,4 @@ Para ativar a recolha de despejo de memória e a Consola em Série, execute o se
    
 ### <a name="rebuild-the-vm"></a>Reconstruir o VM
 
-Utilize [o passo 5 dos Comandos de Reparação VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para reconstruir o VM.
+Utilize [o passo 5 dos Comandos de Reparação VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para reconstruir o VM.

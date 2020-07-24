@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 31e9e88bc37dc19d1d81dc55d52786de60706313
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: c4eb3972be85ac7e291380f64127c20424b0d0f0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134545"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004290"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Microsoft.Common.FileUpload UI elemento
 
@@ -18,7 +18,7 @@ Um controlo que permite a um utilizador especificar um ou mais ficheiros para ca
 
 ## <a name="ui-sample"></a>Amostra de UI
 
-![Microsoft.Common.FileUpload](./media/managed-application-elements/microsoft.common.fileupload.png)
+![Microsoft.Common.FileUpload](./media/managed-application-elements/microsoft-common-fileupload.png)
 
 ## <a name="schema"></a>Esquema
 
@@ -88,7 +88,7 @@ Ao testar um CreateUiDefinition, alguns navegadores (como o Google Chrome) trunc
 - Se `options.uploadMode` estiver definido para **arquivar** e estiver definido `options.openMode` para **binário,** a saída é codificada com base64.
 - `options.encoding`especifica a codificação a utilizar ao ler o ficheiro. O valor predefinido é **UTF-8**, e é utilizado apenas quando `options.openMode` é definido para **texto**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para uma introdução à criação de definições de UI, consulte [Começar com CreateUiDefinition](create-uidefinition-overview.md).
 * Para obter uma descrição das propriedades comuns em elementos de UI, consulte [os elementos CreateUiDefinition](create-uidefinition-elements.md).

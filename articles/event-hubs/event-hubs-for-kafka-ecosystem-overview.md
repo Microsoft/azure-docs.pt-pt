@@ -2,13 +2,13 @@
 title: Use o centro de eventos da aplicação Apache Kafka - Azure Event Hubs ! Microsoft Docs
 description: Este artigo fornece informações sobre o suporte da Apache Kafka pela Azure Event Hubs.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 733623895176bb3b573c2efcbda8a40b9e2d87c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/20/2020
+ms.openlocfilehash: 6dad797f6769e9804cce7d47ed74794fdddcfb0b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320533"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002483"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Use hubs de eventos Azure a partir de aplicações Apache Kafka
 O Event Hubs fornece um ponto final kafka que pode ser usado pelas suas aplicações existentes baseadas em Kafka como uma alternativa para executar o seu próprio cluster Kafka. O Event Hubs suporta [o protocolo Apache Kafka 1.0 e mais tarde,](https://kafka.apache.org/documentation/)e trabalha com as aplicações kafka existentes, incluindo o MirrorMaker.  
@@ -79,16 +79,14 @@ O evento Hubs for Kafka permite-lhe escrever com um protocolo e ler com outro, p
 
 Aqui está a lista de funcionalidades de Kafka que ainda não estão suportadas:
 
-*   Produtor idempotente
 *   Transação
 *   Compressão
 *   Retenção baseada em tamanho
 *   Compactação de registo
-*   Adicionar divisórias a um tópico existente
 *   APOIO HTTP KAFKA API
 *   Riachos Kafka
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Este artigo forneceu uma introdução aos Centros de Eventos para Kafka. Para saber mais, consulte [o guia de desenvolvimento apache Kafka para o Azure Event Hubs.](apache-kafka-developer-guide.md)
 
 

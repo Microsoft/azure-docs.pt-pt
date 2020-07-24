@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/10/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 37f99ade366a73cb96caf55a562a92476223eb6b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 46096e1f3f4266e9c070bd1d67f328241163126b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86262019"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004550"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>Resolução de problemas dos problemas de ligação do agente da máquina conectado
 
@@ -48,6 +48,9 @@ Segue-se um exemplo do comando para permitir a realização de registos verbosos
 
 Segue-se um exemplo do comando para permitir a exploração de verbose com o agente máquina conectada para o Linux ao realizar uma instalação interativa.
 
+>[!NOTE]
+>Você deve ter permissões de acesso à *raiz* em máquinas Linux para executar **azcmagent**.
+
 ```
 azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
 ```
@@ -73,12 +76,15 @@ A tabela que se segue enumera alguns dos erros e sugestões conhecidos sobre com
 |--------|------|---------------|---------|
 |Não adquiriu o fluxo de dispositivo de token de autorização |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is unreachable.` |Não pode chegar ao `login.windows.net` ponto final | Verifique a conectividade com o ponto final. |
 |Não adquiriu o fluxo de dispositivo de token de autorização |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is Forbidden`. |Proxy ou firewall está bloqueando o acesso ao `login.windows.net` ponto final. | Verifique a conectividade com o ponto final e não esteja bloqueado por uma firewall ou servidor de procuração. |
+|Não adquiriu o fluxo de dispositivo de token de autorização  |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp lookup login.windows.net: no such host`. | Configuração do computador de objeto de política *de grupo\ Modelos administrativos\ Sistema\ Perfis do utilizador\ Eliminar perfis de utilizador com mais de um número especificado de dias no reinício do sistema* está ativado. | Verifique se a GPO está ativada e direcionada para a máquina afetada. Consulte a nota de rodapé <sup>[1](#footnote1)</sup> para mais detalhes. |
 |Não adquiriu ficha de autorização da SPN |`Failed to execute the refresh request. Error = 'Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/token?api-version=1.0: Forbidden'` |Proxy ou firewall está bloqueando o acesso ao `login.windows.net` ponto final. |Verifique a conectividade com o ponto final e não esteja bloqueado por uma firewall ou servidor de procuração. |
 |Não adquiriu ficha de autorização da SPN |`Invalid client secret is provided` |Segredo principal do serviço errado ou inválido. |Verifique o segredo principal do serviço. |
 | Não adquiriu ficha de autorização da SPN |`Application with identifier 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' was not found in the directory 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant` |ID de serviço incorreto e/ou ID do inquilino. |Verifique o principal de serviço e/ou a identificação do inquilino.|
 |Obtenha resposta de recursos ARM |`The client 'username@domain.com' with object id 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' does not have authorization to perform action 'Microsoft.HybridCompute/machines/read' over scope '/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.HybridCompute/machines/MSJC01' or the scope is invalid. If access was recently granted, please refresh your credentials."}}" Status Code=403` |Credenciais erradas e/ou permissões |Verifique se você ou o diretor de serviço é membro da **função Azure Connected Machine Onboarding.** |
 |Falhou no recurso AzcmagentConnect ARM |`The subscription is not registered to use namespace 'Microsoft.HybridCompute'` |Os fornecedores de recursos Azure não estão registados. |Registe os [fornecedores de recursos.](./agent-overview.md#register-azure-resource-providers) |
 |Falhou no recurso AzcmagentConnect ARM |`Get https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.HybridCompute/machines/MSJC01?api-version=2019-03-18-preview:  Forbidden` |O servidor ou firewall proxy está a bloquear o acesso ao `management.azure.com` ponto final. |Verifique a conectividade com o ponto final e não esteja bloqueado por uma firewall ou servidor de procuração. |
+
+<a name="footnote1"></a><sup>1</sup> Se este GPO estiver ativado e se aplicar a máquinas com o agente Máquina Conectada, elimina o perfil do utilizador associado à conta incorporada especificada para o serviço *de hims.* Como resultado, também elimina o certificado de autenticação utilizado para comunicar com o serviço que está em cache na loja de certificados local por 30 dias. Antes do limite de 30 dias, é feita uma tentativa de renovar o certificado. Para resolver este problema, siga os passos para [não registar a máquina](manage-agent.md#unregister-machine) e, em seguida, reregistá-la com o serviço em funcionamento `azcmagent connect` .
 
 ## <a name="next-steps"></a>Passos seguintes
 

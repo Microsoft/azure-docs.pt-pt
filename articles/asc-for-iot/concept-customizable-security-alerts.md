@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 3b39d70c60a4c9701d0a8bafde17b241fe01cc46
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f676c4129b79499eb9ed524821a336b3859dbb3c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81311629"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004856"
 ---
-# <a name="azure-security-center-for-iot-security-alerts"></a>Alertas de segurança do Centro de Segurança do Azure para IoT
+# <a name="azure-security-center-for-iot-customizable-security-alerts"></a>Centro de Segurança Azure para alertas de segurança personalizáveis IoT
 
 O Azure Security Center for IoT analisa continuamente a sua solução IoT usando análises avançadas e inteligência de ameaça para alertá-lo para atividades maliciosas.
 
@@ -31,33 +31,33 @@ A seguinte lista de alertas do Azure Security Center for IoT é definível por s
 
 ## <a name="iot-hub-alerts-available-for-customization"></a>Alertas IoT Hub disponíveis para personalização
 
-| Gravidade | Nome do alerta | Origem de dados | Description | Remediação sugerida|
+| Gravidade | Nome do alerta | Origem de dados | Descrição | Remediação sugerida|
 |---|---|---|---|---|
-| Baixa      | Alerta personalizado - número de mensagens de nuvem para dispositivo no protocolo AMQP está fora da gama permitida          | Hub IoT     | O número de mensagens de nuvem para dispositivo (protocolo AMQP) dentro de uma janela de tempo específica está fora do alcance atualmente configurado e admissível.||
-| Baixa      | Alerta personalizado - número de mensagens de dispositivo rejeitadas no protocolo AMQP está fora do alcance permitido | Hub IoT     | Número de mensagens de nuvem para dispositivo (protocolo AMQP) rejeitado pelo dispositivo, dentro de uma janela de tempo específica está fora da gama atualmente configurada e admissível.||
-| Baixa      | Alerta personalizado - número de mensagens em nuvem no protocolo AMQP está fora da gama permitida      | Hub IoT     | A quantidade de dispositivo para mensagens em nuvem (protocolo AMQP) dentro de uma janela de tempo específica está fora do alcance atualmente configurado e permitido.|   |
-| Baixa      | Alerta personalizado - número de invocações de método direto está fora do alcance permitido | Hub IoT     | A quantidade de método direto invoca dentro de uma janela de tempo específica está fora do alcance atualmente configurado e admissível.||
-| Baixa      | Alerta personalizado - o número de uploads de ficheiros está fora do alcance permitido | Hub IoT     | A quantidade de uploads de ficheiros dentro de uma janela de tempo específica está fora do alcance atualmente configurado e admissível.| |
-| Baixa      | Alerta personalizado - número de mensagens de nuvem para dispositivo no protocolo HTTP está fora do alcance permitido | Hub IoT     | A quantidade de nuvem para mensagens de dispositivo (protocolo HTTP) numa janela de tempo não está na gama permitida configurada                                  |
-| Baixa      | Alerta personalizado - número de nuvem rejeitada para mensagens de dispositivo no protocolo HTTP não está na gama permitida | Hub IoT     | A quantidade de nuvem para mensagens de dispositivo (protocolo HTTP) dentro de uma janela de tempo específica está fora do alcance atualmente configurado e permitido. |
-| Baixa      | Alerta personalizado - número de mensagens de dispositivo para cloud no protocolo HTTP está fora do alcance permitido | Hub IoT| A quantidade de dispositivo para mensagens em nuvem (protocolo HTTP)dentro de uma janela de tempo específica está fora do alcance atualmente configurado e permitido.|    |
-| Baixa      | Alerta personalizado - número de mensagens de nuvem para dispositivo no protocolo MQTT está fora da gama permitida | Hub IoT     | A quantidade de nuvem para mensagens de dispositivo (protocolo MQTT) dentro de uma janela de tempo específica está fora do alcance atualmente configurado e permitido.|   |
-| Baixa      | Alerta personalizado - número de mensagens de dispositivo rejeitadas no protocolo MQTT está fora do alcance permitido | Hub IoT     | A quantidade de nuvem para mensagens de dispositivo (protocolo MQTT) rejeitada pelo dispositivo dentro de uma janela de tempo específica está fora da gama atualmente configurada e admissível. |
-| Baixa      | Alerta personalizado - número de mensagens de dispositivo para cloud no protocolo MQTT está fora da gama permitida          | Hub IoT     | A quantidade de dispositivo para mensagens em nuvem (protocolo MQTT) dentro de uma janela de tempo específica está fora da gama atualmente configurada e admissível.|
-| Baixa      | Alerta personalizado - número de purgas de fila de comando está fora do alcance permitido                               | Hub IoT     | A quantidade de purgas de fila de comando dentro de uma janela de tempo específica está fora do alcance atualmente configurado e admissível.||
-| Baixa      | Alerta personalizado - número de atualizações gémeas do módulo está fora da gama permitida                                       | Hub IoT     | A quantidade de duas atualizações do módulo dentro de uma janela de tempo específica está fora da gama atualmente configurada e admissível.|
-| Baixa      | Alerta personalizado - número de operações não autorizadas está fora do alcance permitido  | Hub IoT     | A quantidade de operações não autorizadas dentro de um intervalo de tempo específico está fora do alcance atualmente configurado e admissível.|
+| Baixo      | Alerta personalizado - número de mensagens de nuvem para dispositivo no protocolo AMQP está fora da gama permitida          | Hub IoT     | O número de mensagens de nuvem para dispositivo (protocolo AMQP) dentro de uma janela de tempo específica está fora do alcance atualmente configurado e admissível.||
+| Baixo      | Alerta personalizado - número de mensagens de dispositivo rejeitadas no protocolo AMQP está fora do alcance permitido | Hub IoT     | Número de mensagens de nuvem para dispositivo (protocolo AMQP) rejeitado pelo dispositivo, dentro de uma janela de tempo específica está fora da gama atualmente configurada e admissível.||
+| Baixo      | Alerta personalizado - número de mensagens em nuvem no protocolo AMQP está fora da gama permitida      | Hub IoT     | A quantidade de dispositivo para mensagens em nuvem (protocolo AMQP) dentro de uma janela de tempo específica está fora do alcance atualmente configurado e permitido.|   |
+| Baixo      | Alerta personalizado - número de invocações de método direto está fora do alcance permitido | Hub IoT     | A quantidade de método direto invoca dentro de uma janela de tempo específica está fora do alcance atualmente configurado e admissível.||
+| Baixo      | Alerta personalizado - o número de uploads de ficheiros está fora do alcance permitido | Hub IoT     | A quantidade de uploads de ficheiros dentro de uma janela de tempo específica está fora do alcance atualmente configurado e admissível.| |
+| Baixo      | Alerta personalizado - número de mensagens de nuvem para dispositivo no protocolo HTTP está fora do alcance permitido | Hub IoT     | A quantidade de nuvem para mensagens de dispositivo (protocolo HTTP) numa janela de tempo não está na gama permitida configurada                                  |
+| Baixo      | Alerta personalizado - número de nuvem rejeitada para mensagens de dispositivo no protocolo HTTP não está na gama permitida | Hub IoT     | A quantidade de nuvem para mensagens de dispositivo (protocolo HTTP) dentro de uma janela de tempo específica está fora do alcance atualmente configurado e permitido. |
+| Baixo      | Alerta personalizado - número de mensagens de dispositivo para cloud no protocolo HTTP está fora do alcance permitido | Hub IoT| A quantidade de dispositivo para mensagens em nuvem (protocolo HTTP)dentro de uma janela de tempo específica está fora do alcance atualmente configurado e permitido.|    |
+| Baixo      | Alerta personalizado - número de mensagens de nuvem para dispositivo no protocolo MQTT está fora da gama permitida | Hub IoT     | A quantidade de nuvem para mensagens de dispositivo (protocolo MQTT) dentro de uma janela de tempo específica está fora do alcance atualmente configurado e permitido.|   |
+| Baixo      | Alerta personalizado - número de mensagens de dispositivo rejeitadas no protocolo MQTT está fora do alcance permitido | Hub IoT     | A quantidade de nuvem para mensagens de dispositivo (protocolo MQTT) rejeitada pelo dispositivo dentro de uma janela de tempo específica está fora da gama atualmente configurada e admissível. |
+| Baixo      | Alerta personalizado - número de mensagens de dispositivo para cloud no protocolo MQTT está fora da gama permitida          | Hub IoT     | A quantidade de dispositivo para mensagens em nuvem (protocolo MQTT) dentro de uma janela de tempo específica está fora da gama atualmente configurada e admissível.|
+| Baixo      | Alerta personalizado - número de purgas de fila de comando está fora do alcance permitido                               | Hub IoT     | A quantidade de purgas de fila de comando dentro de uma janela de tempo específica está fora do alcance atualmente configurado e admissível.||
+| Baixo      | Alerta personalizado - número de atualizações gémeas do módulo está fora da gama permitida                                       | Hub IoT     | A quantidade de duas atualizações do módulo dentro de uma janela de tempo específica está fora da gama atualmente configurada e admissível.|
+| Baixo      | Alerta personalizado - número de operações não autorizadas está fora do alcance permitido  | Hub IoT     | A quantidade de operações não autorizadas dentro de um intervalo de tempo específico está fora do alcance atualmente configurado e admissível.|
 |
 
 ## <a name="agent-alerts-available-for-customization"></a>Alertas de agente disponíveis para personalização
 
-| Gravidade | Nome do alerta | Origem de dados | Description | Remediação sugerida|
+| Gravidade | Nome do alerta | Origem de dados | Descrição | Remediação sugerida|
 |---|---|---|---|---|
-| Baixa      | Alerta personalizado - o número de ligações ativas está fora da gama permitida  | Agente       | O número de ligações ativas dentro de uma janela de tempo específica está fora do alcance atualmente configurado e admissível.|  Investigue os registos do dispositivo. Saiba onde a ligação se originou e determine se é benigna ou maliciosa. Se for mal-intencionado, remova possível malware e compreenda a fonte. Se for benigno, adicione a fonte à lista de ligação permitida.  |
-| Baixa      | Alerta personalizado - ligação de saída criada para um IP que não é permitido                             | Agente       | Uma ligação de saída foi criada para um IP que está fora da sua lista de IP permitida. |Investigue os registos do dispositivo. Saiba onde a ligação se originou e determine se é benigna ou maliciosa. Se for mal-intencionado, remova possível malware e compreenda a fonte. Se for benigno, adicione a fonte à lista de IP permitida.                        |
-| Baixa      | Alerta personalizado - número de logins locais falhados está fora do alcance permitido                               | Agente       | A quantidade de logins locais falhados dentro de uma janela de tempo específica está fora da gama atualmente configurada e admissível. |   |
-| Baixa      | Alerta personalizado - login de um utilizador que não está na lista de utilizadores permitido | Agente       | Um utilizador local fora da sua lista de utilizadores permitido, iniciou sessão no dispositivo.|  Se estiver a guardar dados brutos, navegue na sua conta de análise de registo e utilize os dados para investigar o dispositivo, identifique a fonte e, em seguida, corrija a lista de permitis/blocos para essas definições. Se não estiver a guardar dados brutos, vá ao dispositivo e corrija a lista de admissões/blocos para essas definições.|
-| Baixa      | Alerta personalizado - um processo foi executado que não é permitido | Agente       | Um processo que não é permitido foi executado no dispositivo. |Se estiver a guardar dados brutos, navegue na sua conta de análise de registo e utilize os dados para investigar o dispositivo, identifique a fonte e, em seguida, corrija a lista de permitis/blocos para essas definições. Se não estiver a guardar dados brutos, vá ao dispositivo e corrija a lista de admissões/blocos para essas definições.  |
+| Baixo      | Alerta personalizado - o número de ligações ativas está fora da gama permitida  | Agente       | O número de ligações ativas dentro de uma janela de tempo específica está fora do alcance atualmente configurado e admissível.|  Investigue os registos do dispositivo. Saiba onde a ligação se originou e determine se é benigna ou maliciosa. Se for mal-intencionado, remova possível malware e compreenda a fonte. Se for benigno, adicione a fonte à lista de ligação permitida.  |
+| Baixo      | Alerta personalizado - ligação de saída criada para um IP que não é permitido                             | Agente       | Uma ligação de saída foi criada para um IP que está fora da sua lista de IP permitida. |Investigue os registos do dispositivo. Saiba onde a ligação se originou e determine se é benigna ou maliciosa. Se for mal-intencionado, remova possível malware e compreenda a fonte. Se for benigno, adicione a fonte à lista de IP permitida.                        |
+| Baixo      | Alerta personalizado - número de logins locais falhados está fora do alcance permitido                               | Agente       | A quantidade de logins locais falhados dentro de uma janela de tempo específica está fora da gama atualmente configurada e admissível. |   |
+| Baixo      | Alerta personalizado - login de um utilizador que não está na lista de utilizadores permitido | Agente       | Um utilizador local fora da sua lista de utilizadores permitido, iniciou sessão no dispositivo.|  Se estiver a guardar dados brutos, navegue na sua conta de análise de registo e utilize os dados para investigar o dispositivo, identifique a fonte e, em seguida, corrija a lista de permitis/blocos para essas definições. Se não estiver a guardar dados brutos, vá ao dispositivo e corrija a lista de admissões/blocos para essas definições.|
+| Baixo      | Alerta personalizado - um processo foi executado que não é permitido | Agente       | Um processo que não é permitido foi executado no dispositivo. |Se estiver a guardar dados brutos, navegue na sua conta de análise de registo e utilize os dados para investigar o dispositivo, identifique a fonte e, em seguida, corrija a lista de permitis/blocos para essas definições. Se não estiver a guardar dados brutos, vá ao dispositivo e corrija a lista de admissões/blocos para essas definições.  |
 |
 
 ## <a name="next-steps"></a>Passos seguintes

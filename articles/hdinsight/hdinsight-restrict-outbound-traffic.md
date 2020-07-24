@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: 37e6b2986f76529b5f3b2edc69f50259485df0b4
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f87c3665f558b3185e95b0ad0aa18a883439a221
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087015"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006522"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configure o tráfego de rede de saída para clusters Azure HDInsight usando firewall
 
@@ -75,7 +75,7 @@ Crie uma coleção de regras de aplicação que permita ao cluster enviar e rece
 
     **Seção FQDNs alvo**
 
-    | Name | Endereços de origem | `Protocol:Port` | Alvo FQDNS | Notas |
+    | Name | Endereços de origem | Protocolo:Porto | Alvo FQDNS | Notas |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Permite atividade de login do Windows |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Permite atividade de login do Windows |
@@ -189,7 +189,7 @@ Depois de ter a firewall configurada com sucesso, pode utilizar o ponto final in
 
 Para utilizar o ponto final público ( `https://CLUSTERNAME.azurehdinsight.net` ) ou ponto final ssh ( ), `CLUSTERNAME-ssh.azurehdinsight.net` certifique-se de que tem as rotas certas na tabela de rotas e regras NSG para evitar a questão do encaminhamento assimétrico [aqui](../firewall/integrate-lb.md)explicado. Especificamente neste caso, você precisa permitir o endereço IP do cliente nas regras NSG de entrada e também adicioná-lo à tabela de rota definida pelo utilizador com o próximo conjunto de lúpulo como `internet` . Se o encaminhamento não estiver corretamente configurado, verá um erro de tempo limite.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Arquitetura de rede virtual Azure HDInsight](hdinsight-virtual-network-architecture.md)
 * [Configurar aplicação virtual de rede](./network-virtual-appliance.md)

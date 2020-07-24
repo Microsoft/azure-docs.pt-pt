@@ -9,13 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/22/2020
+ms.date: 07/13/2020
 ms.author: iainfou
-ms.openlocfilehash: 7cbd9250ecfb05e52204e1754046e02e4045fa6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7eaf8b6b5cddc8a01b59cda0cafc819e06a5ec7c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734712"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005009"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Junte-se a uma máquina virtual Ubuntu Linux a um domínio gerido por Azure Ative Directory Domain Services
 
@@ -140,7 +141,7 @@ Agora que os pacotes necessários são instalados no VM e NTP está configurado,
     kinit contosoadmin@AADDSCONTOSO.COM
     ```
 
-1. Por fim, junte a máquina ao domínio gerido utilizando o `realm join` comando. Utilize a mesma conta de utilizador que é uma parte do domínio gerido que especificou no `kinit` comando anterior, `contosoadmin@AADDSCONTOSO.COM` como:
+1. Por fim, junte o VM ao domínio gerido utilizando o `realm join` comando. Utilize a mesma conta de utilizador que é uma parte do domínio gerido que especificou no `kinit` comando anterior, `contosoadmin@AADDSCONTOSO.COM` como:
 
     ```console
     sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM' --install=/
@@ -281,7 +282,7 @@ Para verificar se o VM foi ligado com sucesso ao domínio gerido, inicie uma nov
     sudo apt-get update
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver problemas em ligar o VM ao domínio gerido ou iniciar sessão com uma conta de domínio, consulte [o domínio de resolução de problemas para se juntar a problemas](join-windows-vm.md#troubleshoot-domain-join-issues).
 

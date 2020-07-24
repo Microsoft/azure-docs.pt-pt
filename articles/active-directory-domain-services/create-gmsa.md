@@ -11,11 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 923502132fdbe0b4a56c0fc23c19475e9074b8ff
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 19b7962462e5cdb03bad0c6004b8c19f781ccc69
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040253"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005281"
 ---
 # <a name="create-a-group-managed-service-account-gmsa-in-azure-active-directory-domain-services"></a>Criar uma conta de serviço gerida pelo grupo (gMSA) em Azure Ative Directory Domain Services
 
@@ -34,7 +35,7 @@ Para completar este artigo, precisa dos seguintes recursos e privilégios:
 * Um inquilino do Azure Ative Directory associado à sua subscrição, sincronizado com um diretório no local ou um diretório apenas na nuvem.
     * Se necessário, [crie um inquilino do Azure Ative Directory][create-azure-ad-tenant] ou [associe uma assinatura Azure à sua conta.][associate-azure-ad-tenant]
 * Um domínio de domínio do Azure Ative Directory Services gerido ativo e configurado no seu inquilino AZure AD.
-    * Se necessário, complete o tutorial para [criar e configurar um domínio de domínio do Azure Ative Directory Services][create-azure-ad-ds-instance].
+    * Se necessário, complete o tutorial para criar e configurar um domínio gerido pelos [Serviços de Domínio do Diretório Ativo Azure][create-azure-ad-ds-instance].
 * Um VM de gestão de servidores do Windows que se junta ao domínio gerido Azure AD DS.
     * Se necessário, complete o tutorial para [criar um VM de gestão.][tutorial-create-management-vm]
 
@@ -94,7 +95,7 @@ New-ADServiceAccount -Name WebFarmSvc `
 
 As aplicações e serviços podem agora ser configurados para utilizar o gMSA conforme necessário.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre os gMSAs, consulte [começar com contas de serviço geridas pelo grupo.][gmsa-start]
 

@@ -7,11 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: victorh
-ms.openlocfilehash: 493ed1a31a23366a90b80d3ab510218c8dce0e9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40f0195ced375da09891eb577bd81f36b2f37cba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74186639"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005553"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Configure uma política de Firewall de aplicação web usando a Azure PowerShell
 
@@ -28,7 +29,7 @@ Antes de começar a configurar uma política de limite de taxa, crie o seu ambie
 
 O Azure PowerShell fornece um conjunto de cmdlets que utilizam o modelo do [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para gerir os recursos do Azure. 
 
-Pode instalar o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) no seu computador local e utilizá-lo em qualquer sessão do PowerShell. Siga as instruções na página, para iniciar sômposições com as suas credenciais Azure e instale o módulo Az PowerShell.
+Pode instalar o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) no seu computador local e utilizá-lo em qualquer sessão do PowerShell. Siga as instruções na página, para iniciar sômposições com as suas credenciais Azure e instale o módulo Az PowerShell.
 
 #### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -109,7 +110,7 @@ O exemplo abaixo utiliza o nome do Grupo de Recursos *myResourceGroupFD1* com o 
 > [!NOTE]
 > Basta definir a propriedade *WebApplicationFirewallPolicyLink* uma vez para ligar uma política de segurança a uma porta frontal. As atualizações de política subsequentes são automaticamente aplicadas na extremidade frontal.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a Porta da Frente](../../frontdoor/front-door-overview.md) 
 - Saiba mais sobre [a WAF com Porta da Frente](afds-overview.md)

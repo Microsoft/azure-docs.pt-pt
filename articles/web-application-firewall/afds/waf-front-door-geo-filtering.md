@@ -8,13 +8,14 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: f620ced1bc859e5c824b45839a21ab21d0244d89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fcd7a0fe60639bbb17661a906d15136996b325e4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83747778"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005451"
 ---
-# <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>O que é a filtragem geográfica num domínio do Azure Front Door?
+# <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door-service"></a>O que é a geo-filtração num domínio para o Serviço de Porta Frontal Azure?
 
 Por predefinição, o Azure Front Door Service responde aos pedidos de utilizador independentemente da localização do utilizador que efetua o pedido. No entanto, em alguns casos, poderá querer restringir o acesso às suas aplicações web por país/região. O serviço de firewall de aplicação web (WAF) na Porta frontal permite-lhe definir uma política usando regras de acesso personalizado para uma trajetória específica no seu ponto final para permitir ou bloquear o acesso de países/regiões especificados. 
 
@@ -204,7 +205,7 @@ Pode configurar uma política de geo-filtragem para a sua Porta frontal utilizan
 | ZM | Zâmbia|
 | ZW | Zimbabué|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a [segurança de camada de aplicação com o Front Door](../../frontdoor/front-door-application-security.md).
 - Saiba como [criar um Front Door](../../frontdoor/quickstart-create-front-door.md).

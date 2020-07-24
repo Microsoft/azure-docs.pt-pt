@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: backup
 author: dcurwin
 manager: carmonm
@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/18/2018
 ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: c0f717e26534151585a51badf4bb1fe1ba58eb00
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 8586d90631e8d38fa020ff9dab3f626aaedb2760
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970535"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003828"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
@@ -51,6 +51,10 @@ Para criar um cofre dos Serviços de Recuperação, siga estes passos.
       > Se não tiver a certeza da localização da sua fonte de dados, feche a caixa de diálogo. Vá à lista dos seus recursos no portal. Se tiver fontes de dados em várias regiões, crie um cofre dos Serviços de Recuperação para cada região. Crie o cofre no primeiro local antes de criar o cofre para outro local. Não há necessidade de especificar contas de armazenamento para armazenar os dados de reserva. O cofre dos Serviços de Recuperação e o cabo de backup Azure que automaticamente.
       >
       >
+
+1. Depois de fornecer os valores, selecione **Review + create**.
+
+    ![Criar o cofre dos Serviços de Recuperação](./media/backup-create-rs-vault/review-and-create.png)
 
 1. Quando estiver pronto para criar o cofre dos Serviços de Recuperação, selecione **Criar**.
 

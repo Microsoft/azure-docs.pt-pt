@@ -3,12 +3,12 @@ title: Apoiar o estado do sistema Windows para o Azure
 description: Aprenda a fazer o back up do estado do sistema dos computadores Windows Server e/ou Windows para o Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 4319e03f9673baa2be01c1650ac1929204741087
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ea38b76d9a8b7b8ccc1898ed9450177da2cb2458
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611446"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003839"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Apoiar o estado do sistema Windows para o Azure
 
@@ -40,7 +40,7 @@ Ao criar um cofre dos Serviços de Recuperação, certifique-se de que a redund�
 
     ![opções de configuração de armazenamento](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    Por predefinição, o seu cofre tem um armazenamento georredundante. Se utilizar o Azure como um ponto final de armazenamento de cópia de segurança primário, continue a utilizar o **Georredundante**. Se não utilizar o Azure como um ponto final do armazenamento de cópia de segurança primário, escolha **Localmente redundante**, o que reduz os custos de armazenamento do Azure. Leia mais sobre as opções de armazenamento [georredundante](../storage/common/storage-redundancy-grs.md) e [localmente redundante](../storage/common/storage-redundancy-lrs.md) nesta [Descrição geral de redundância de armazenamento](../storage/common/storage-redundancy.md).
+    Por predefinição, o seu cofre tem um armazenamento georredundante. Se utilizar o Azure como um ponto final de armazenamento de cópia de segurança primário, continue a utilizar o **Georredundante**. Se não utilizar o Azure como um ponto final do armazenamento de cópia de segurança primário, escolha **Localmente redundante**, o que reduz os custos de armazenamento do Azure. Leia mais sobre as opções de armazenamento [georredundante](../storage/common/storage-redundancy.md) e [localmente redundante](../storage/common/storage-redundancy.md) nesta [Descrição geral de redundância de armazenamento](../storage/common/storage-redundancy.md).
 
 Agora que criaste um cofre, configura-o para apoiar o Windows System State.
 
@@ -86,7 +86,7 @@ Agora que criaste um cofre, configura-o para apoiar o Windows System State.
 
     ![transferir as credenciais do cofre](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-    As credenciais do cofre são transferidas para a pasta Transferências. Depois de as credenciais do cofre serem transferidas, verá um pop-up a perguntar se quer abrir ou guardar as credenciais. Clique em **Guardar**. Se clicar acidentalmente em **Abrir**, deixe a caixa de diálogo que tenta abrir as credenciais do cofre falhar. Não é possível abrir as credenciais do cofre. Avance para o passo seguinte. As credenciais do cofre estão na pasta Transferências.
+    As credenciais do cofre são transferidas para a pasta Transferências. Depois de as credenciais do cofre serem transferidas, verá um pop-up a perguntar se quer abrir ou guardar as credenciais. Clique em **Save** (Guardar). Se clicar acidentalmente em **Abrir**, deixe a caixa de diálogo que tenta abrir as credenciais do cofre falhar. Não é possível abrir as credenciais do cofre. Avance para o passo seguinte. As credenciais do cofre estão na pasta Transferências.
 
     ![as credenciais do cofre terminaram de ser transferidas](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
    > [!NOTE]
@@ -174,7 +174,7 @@ Para concluir a cópia de segurança inicial, utilize o agente dos Serviços de 
 
 5. Clique em **Fechar** para fechar o assistente. Se fechar este assistente antes de o processo de cópia de segurança estar concluído, o assistente continua a ser executado em segundo plano.
     > [!NOTE]
-    > O Agente MARS ativa o SFC /check-inonly como parte dos pré-verificações antes de cada cópia de segurança do estado do sistema. Isto é para garantir que os ficheiros com sistemas com a versão como parte do Sistema têm as versões corretas correspondentes à versão do Windows. Saiba mais sobre o System File Checker (SFC) [neste artigo](https://docs.microsoft.com/windows-server/administration/windows-commands/sfc).
+    > O Agente MARS ativa o SFC /check-inonly como parte dos pré-verificações antes de cada cópia de segurança do estado do sistema. Isto é para garantir que os ficheiros com sistemas com a versão como parte do Sistema têm as versões corretas correspondentes à versão do Windows. Saiba mais sobre o System File Checker (SFC) [neste artigo](/windows-server/administration/windows-commands/sfc).
     >
 
 Depois de concluída a cópia de segurança inicial, o estado **Tarefa concluída** é apresentado na consola de Cópia de Segurança.
@@ -185,7 +185,7 @@ Depois de concluída a cópia de segurança inicial, o estado **Tarefa concluíd
 
 Se tiver dúvidas ou se houver alguma funcionalidade que gostaria de ver incluída, [envie-nos comentários](https://feedback.azure.com/forums/258995-azure-backup).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Obtenha mais detalhes sobre como [efetuar a cópia de segurança das máquinas Windows](backup-windows-with-mars-agent.md).
 * Agora que fez o back up do seu Estado do Sistema do Servidor do Windows, pode [gerir os seus cofres e servidores](backup-azure-manage-windows-server.md).
