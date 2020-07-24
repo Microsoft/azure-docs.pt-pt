@@ -9,11 +9,12 @@ ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.custom: storage-accounts
-ms.openlocfilehash: fc2e2ff0edc09e613b1da0a503eff9d53ebcf7a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d340e37cf64961971c03af8d08a669c27d758116
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84234627"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074200"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Faça o upload de um VHD generalizado para Azure para criar um novo VM
 
@@ -33,9 +34,9 @@ Um VHD generalizado retirou todas as informações da sua conta pessoal usando a
   * Generalize a máquina virtual usando o Sysprep
 
 ### <a name="generalize-a-windows-virtual-machine-using-sysprep"></a>Generalize uma máquina virtual Windows usando o Sysprep
-Esta secção mostra-lhe como generalizar a sua máquina virtual Windows para utilização como imagem. O Sysprep remove todas as suas informações de conta pessoal, entre outras coisas, e prepara a máquina para ser utilizada como uma imagem. Para mais detalhes sobre o Sysprep, veja [Como utilizar o Sysprep: uma Introdução](https://technet.microsoft.com/library/bb457073.aspx).
+Esta secção mostra-lhe como generalizar a sua máquina virtual Windows para utilização como imagem. O Sysprep remove todas as suas informações de conta pessoal, entre outras coisas, e prepara a máquina para ser utilizada como uma imagem. Para mais detalhes sobre o Sysprep, veja [Como utilizar o Sysprep: uma Introdução](/previous-versions/windows/it-pro/windows-xp/bb457073(v=technet.10)).
 
-Certifique-se de que as funções do servidor em funcionamento na máquina são suportadas pela Sysprep. Para mais informações, consulte [o Suporte Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+Certifique-se de que as funções do servidor em funcionamento na máquina são suportadas pela Sysprep. Para mais informações, consulte [o Suporte Sysprep para funções de servidor](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles)
 
 > [!IMPORTANT]
 > Se estiver a executar o Sysprep antes de enviar o seu VHD para Azure pela primeira vez, certifique-se de que [preparou o seu VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) antes de executar o Sysprep. 
@@ -62,7 +63,7 @@ Certifique-se de que as funções do servidor em funcionamento na máquina são 
 Faça o upload do VHD para uma conta de armazenamento Azure.
 
 ### <a name="log-in-to-azure"></a>Iniciar sessão no Azure
-Se ainda não tiver a versão 1.4 ou superior da PowerShell instalada, leia [Como instalar e configurar a Azure PowerShell](/powershell/azure/overview).
+Se ainda não tiver a versão 1.4 ou superior da PowerShell instalada, leia [Como instalar e configurar a Azure PowerShell](/powershell/azure/).
 
 1. Abra o Azure PowerShell e inscreva-se na sua conta Azure. Uma janela pop-up abre-se para que você introduza as suas credenciais de conta Azure.
    
@@ -105,7 +106,7 @@ Se precisar de criar uma conta de armazenamento, siga estes passos:
     New-AzResourceGroup -Name myResourceGroup -Location "West US"
     ```
 
-2. Crie uma conta de armazenamento denominada **mystorageaccount** neste grupo de recursos utilizando o [cmdlet New-AzStorageAccount:](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount)
+2. Crie uma conta de armazenamento denominada **mystorageaccount** neste grupo de recursos utilizando o [cmdlet New-AzStorageAccount:](/powershell/module/az.storage/new-azstorageaccount)
    
     ```powershell
     New-AzStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
@@ -114,7 +115,7 @@ Se precisar de criar uma conta de armazenamento, siga estes passos:
  
 ### <a name="start-the-upload"></a>Inicie o upload 
 
-Utilize o [cmdlet Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) para enviar a imagem para um recipiente na sua conta de armazenamento. Este exemplo envia o ficheiro **myVHD.vhd** para uma conta de `"C:\Users\Public\Documents\Virtual hard disks\"` armazenamento chamada **mystorageaccount** no grupo de recursos **myResourceGroup.** O ficheiro será colocado no contentor chamado **mycontainer** e o novo nome do ficheiro será **myUploadedVHD.vhd**.
+Utilize o [cmdlet Add-AzVhd](/powershell/module/az.compute/add-azvhd) para enviar a imagem para um recipiente na sua conta de armazenamento. Este exemplo envia o ficheiro **myVHD.vhd** para uma conta de `"C:\Users\Public\Documents\Virtual hard disks\"` armazenamento chamada **mystorageaccount** no grupo de recursos **myResourceGroup.** O ficheiro será colocado no contentor chamado **mycontainer** e o novo nome do ficheiro será **myUploadedVHD.vhd**.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -141,7 +142,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 Dependendo da sua ligação à rede e do tamanho do seu ficheiro VHD, este comando pode demorar algum tempo a ser concluído.
 
 
-## <a name="create-a-new-vm"></a>Crie uma nova VM 
+## <a name="create-a-new-vm"></a>Criar uma nova VM 
 
 Agora pode utilizar o VHD carregado para criar um novo VM. 
 
@@ -216,7 +217,7 @@ Criar uma variável para a rede virtual concluída.
 $vnet = Get-AzVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 ```
 
-### <a name="create-the-vm"></a>Crie a VM
+### <a name="create-the-vm"></a>Criar a VM
 O seguinte script PowerShell mostra como configurar as configurações da máquina virtual e usar a imagem VM carregada como fonte para a nova instalação.
 
 
@@ -282,7 +283,5 @@ Quando estiver concluído, deverá ver o VM recém-criado no [portal Azure](http
     $vmList.Name
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para gerir a sua nova máquina virtual com a Azure PowerShell, consulte [Gerir máquinas virtuais utilizando o Azure Resource Manager e o PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-

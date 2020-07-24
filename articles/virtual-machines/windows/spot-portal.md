@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 03/25/2020
+ms.date: 07/17/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 6e7723a437e90807063e3c3b7af2bf068dca5b9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee2ff7119c229b8a0fd94be3b85863fcb1108f58
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82100656"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074169"
 ---
 # <a name="deploy-spot-vms-using-the-azure-portal"></a>Implementar VMs spot utilizando o portal Azure
 
@@ -23,8 +23,10 @@ Os preços dos VM spot são variáveis, com base na região e no SKU. Para obter
 
 Tem a opção de definir um preço máximo que está disposto a pagar, por hora, pelo VM. O preço máximo de um Spot VM pode ser definido em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor `0.05701` seria um preço máximo de $0.05701 USD por hora. Se definir o preço `-1` máximo, o VM não será despejado com base no preço. O preço do VM será o preço atual para o spot ou o preço para um VM padrão, que sempre é menor, desde que haja capacidade e quota disponível.
 
+Quando o VM é despejado, tem a opção de eliminar o VM e o disco subjacente ou de negociar o VM para que possa ser reiniciado mais tarde.
 
-## <a name="create-the-vm"></a>Crie a VM
+
+## <a name="create-the-vm"></a>Criar a VM
 
 O processo de criação de um VM que utilize VMs spot é o mesmo que detalhado no [arranque rápido.](quick-create-portal.md) Ao colocar um VM, pode optar por utilizar uma instância de ponto Azure.
 

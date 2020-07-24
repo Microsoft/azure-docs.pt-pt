@@ -3,12 +3,12 @@ title: Detete movimento, grave vídeo para a Azure Media Services
 description: Este quickstart mostra como usar o Live Video Analytics no IoT Edge de forma a detetar movimentos num stream de vídeo ao vivo e gravar videoclips para a Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 0a81bebe7333266e1b70f97f8c712fccf392a464
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: 24bf958c7a6af25d64d8c2884b9fa259c67e39c3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817322"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074408"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Quickstart: Detect motion, gravar vídeo para media services
 
@@ -655,7 +655,7 @@ A instância de gráfico que criou e ativou acima utiliza o nó do processador d
 
 Note as seguintes propriedades nas mensagens acima
 
-* Cada mensagem contém uma secção "body" e uma secção "aplicaçõesProperties". Para compreender o que estas secções representam, leia o artigo [Criar e Ler mensagem IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+* Cada mensagem contém uma secção "body" e uma secção "aplicaçõesProperties". Para compreender o que estas secções representam, leia o artigo [Criar e Ler mensagem IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md).
 * A primeira mensagem é um evento de Diagnóstico, mediaSessionEstablished, dizendo que o nó RTSP Source (sujeito) foi capaz de estabelecer conexão com o simulador RTSP, e começar a receber um feed ao vivo (simulado).
 * O "sujeito" na aplicaçãoDeproperias refere o nó na topologia do gráfico a partir do qual a mensagem foi gerada. Neste caso, a mensagem é originária do nó de origem RTSP.
 * "eventType" na aplicaçãoProperties indica que este é um evento de Diagnóstico.

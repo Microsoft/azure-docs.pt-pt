@@ -7,12 +7,12 @@ ms.date: 10/09/2017
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.openlocfilehash: f448174842ffd3b7ba14104c30319933c680127d
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 03df7db13ebd3ebec407bb046cc735c835e01068
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232326"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074244"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Como permitir a virtualização aninhada num VM Azure
 
@@ -22,7 +22,7 @@ Este artigo passa por permitir o Hiper-V num VM Azure e configurar a conectivida
 
 ## <a name="create-a-nesting-capable-azure-vm"></a>Criar um Azure VM capaz de nidificação
 
-Criar um novo Windows Server 2016 Azure VM. Para obter uma lista completa dos tamanhos de máquinas virtuais que suportam a nidificação, confira o [artigo da Unidade Azure Compute](acu.md).
+Criar um novo Windows Server 2016 Azure VM. Para obter uma lista completa dos tamanhos de máquinas virtuais que suportam a nidificação, confira o [artigo da Unidade Azure Compute](../acu.md).
 
 Lembre-se de escolher um tamanho VM grande o suficiente para suportar as exigências de uma máquina virtual convidada. Neste exemplo, estamos a usar um D3_v3 tamanho Azure VM. 
 
@@ -30,7 +30,7 @@ Pode ver a disponibilidade regional de máquinas virtuais da série Dv3 ou Ev3 [
 
 >[!NOTE]
 >
->Para obter instruções detalhadas sobre a criação de uma nova máquina virtual, consulte [Criar e Gerir VMs do Windows com o módulo Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
+>Para obter instruções detalhadas sobre a criação de uma nova máquina virtual, consulte [Criar e Gerir VMs do Windows com o módulo Azure PowerShell](./tutorial-manage-vm.md)
     
 ## <a name="connect-to-your-azure-vm"></a>Ligue-se ao seu Azure VM
 
@@ -181,4 +181,4 @@ Neste exemplo, utilizará um endereço na gama 192.168.0.0/24.
 Na máquina virtual do hóspede, abra o seu navegador e navegue para uma página web.
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
 
-Para obter instruções sobre como permitir uma conectividade transparente entre VMs de hóspedes e VMs Azure, consulte [este documento](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization).
+Para obter instruções sobre como permitir uma conectividade transparente entre VMs de hóspedes e VMs Azure, consulte [este documento](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization).

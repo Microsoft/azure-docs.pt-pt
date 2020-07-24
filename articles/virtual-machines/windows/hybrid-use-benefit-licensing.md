@@ -7,11 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: f84d4fcd85f1e718f414e63bbe76fd29fa32427d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c87c517a0013fa31ba63ef1f78677fe85f5d287
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81869572"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074273"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Benefício Híbrido do Azure para o Windows Server
 Para clientes com Garantia de Software, o Azure Hybrid Benefit for Windows Server permite-lhe utilizar as licenças do Windows Server no local e executar máquinas virtuais do Windows no Azure a um custo reduzido. Pode utilizar o Azure Hybrid Benefit para o Windows Server para implementar novas máquinas virtuais com o Windows OS. Este artigo percorre os passos sobre como implementar novos VMs com Azure Hybrid Benefit para o Windows Server e como pode atualizar os VMs existentes em execução. Para obter mais informações sobre o Benefício Híbrido Azure para licenciamento e poupança de custos do Windows Server, consulte a [página de licenciamento Azure Hybrid Benefit for Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -65,7 +66,7 @@ az vm create \
 ```
 
 ### <a name="template"></a>Modelo
-Dentro dos modelos do Gestor de Recursos, deve ser especificado um parâmetro `licenseType` adicional. Você pode ler mais sobre [a autoria de modelos de Gestor de Recursos Azure](../../resource-group-authoring-templates.md)
+Dentro dos modelos do Gestor de Recursos, deve ser especificado um parâmetro `licenseType` adicional. Você pode ler mais sobre [a autoria de modelos de Gestor de Recursos Azure](../../azure-resource-manager/templates/template-syntax.md)
 ```json
 "properties": {
     "licenseType": "Windows_Server",
@@ -186,10 +187,10 @@ O exemplo a seguir utiliza o modelo ARM com uma imagem do Datacenter 2016 do Win
 ```
 Também pode aprender mais sobre como [modificar uma escala de máquina virtual definida](../../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md) para mais formas de atualizar o seu conjunto de escala.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Leia mais sobre [Como economizar dinheiro com o Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 - Leia mais sobre [perguntas frequentes para benefício híbrido Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/faq/)
-- Saiba mais sobre [o Azure Hybrid Benefit para o Windows Server licenciando orientação detalhada](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)
+- Saiba mais sobre [o Azure Hybrid Benefit para o Windows Server licenciando orientação detalhada](/windows-server/get-started/azure-hybrid-benefit)
 - Saiba mais sobre [o Benefício Híbrido Azure para o Windows Server e Azure Site Recovery tornam as aplicações migratórias para o Azure ainda mais rentáveis](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
-- Saiba mais sobre [o Windows 10 no Azure com o Multitenant Hosting Right](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
+- Saiba mais sobre [o Windows 10 no Azure com o Multitenant Hosting Right](./windows-desktop-multitenant-hosting-deployment.md)
 - Saiba mais sobre [a utilização de modelos de Gestor de Recursos](../../azure-resource-manager/management/overview.md)

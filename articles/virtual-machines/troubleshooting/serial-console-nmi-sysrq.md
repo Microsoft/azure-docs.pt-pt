@@ -13,13 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 3ad68438f5fc015b6a9150d67485b90a095f1a4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 545399e1d7941351ce861ac98d995d5e57006ea1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79250091"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074373"
 ---
-# <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Utilize consola em série para chamadas SysRq e NMI
+# <a name="use-the-azure-serial-console-for-sysrq-and-nmi-calls"></a>Utilize a consola em série Azure para chamadas SysRq e NMI
 
 ## <a name="system-request-sysrq"></a>Pedido do Sistema (SysRq)
 Um SysRq é uma sequência de teclas entendida pelo núcleo do sistema de operação Linux, que pode desencadear um conjunto de ações pré-definidas. Estes comandos são frequentemente utilizados quando a resolução ou recuperação de problemas da máquina virtual não podem ser realizadas através da administração tradicional (por exemplo, se o VM não estiver a responder). A utilização da funcionalidade SysRq da Consola em Série Azure irá imitar a pressão da chave SysRq e os caracteres introduzidos num teclado físico.
@@ -28,11 +29,11 @@ Uma vez que a sequência SysRq é entregue, a configuração do núcleo controla
 
 A Consola em Série Azure pode ser utilizada para enviar um SysRq para uma máquina virtual Azure utilizando o ícone do teclado na barra de comando mostrada abaixo.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
+![Screenshot da Consola Em Série Azure. O ícone do teclado é realçado e o seu menu é visível. Este menu contém um item de Comando Enviar SysRq.](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
 
 A escolha de "Enviar o Comando SysRq" abrirá um diálogo, que fornecerá opções sysRq comuns ou aceitará uma sequência de comandos SysRq introduzidos no diálogo.  Isto permite que uma série de SysRq's execute uma operação de alto nível, como um reboot seguro utilizando: `REISUB` .
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
+![Screenshot do Comando Enviar SysRq para a caixa de diálogo do convidado. A opção para introduzir comandos é selecionada e a caixa de comandos contém REISUB.](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
 
 O comando SysRq não pode ser usado em máquinas virtuais que são paradas ou cujo núcleo está em estado de não resposta. (por exemplo, um pânico de núcleo).
 
@@ -101,7 +102,7 @@ Uma interrupção não mascarada (NMI) foi concebida para criar um sinal de que 
 
 A Consola em Série pode ser utilizada para enviar um NMI para uma máquina virtual Azure utilizando o ícone do teclado na barra de comando mostrada abaixo. Uma vez que o NMI é entregue, a configuração da máquina virtual controlará a forma como o sistema responde.  Os sistemas operativos Linux podem ser configurados para colidir e criar um depósito de memória que o sistema operativo recebe um NMI.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
+![Screenshot da Consola Em Série. O ícone do teclado é realçado e o seu menu é visível. Este menu contém um item de interrupção não mascarado.](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
 
 ### <a name="enable-nmi"></a>Ativar O NMI
 Para os sistemas Linux que suportam sisctl para configurar parâmetros de kernel, pode ativar o pânico ao receber este NMI utilizando o seguinte:
@@ -126,7 +127,7 @@ Para obter mais informações sobre as configurações do kernel do Linux, `unkn
 ### <a name="coreos"></a>CoreOS
 - [Recolha de registos de acidentes](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * A principal página de documentação da Consola em Série Linux está localizada [aqui.](serial-console-linux.md)
 * Utilize a Consola Serial para iniciar o [GRUB e insira o modo de utilizador único](serial-console-grub-single-user-mode.md)
 * A Consola em Série também está disponível para [VMs windows](serial-console-windows.md)

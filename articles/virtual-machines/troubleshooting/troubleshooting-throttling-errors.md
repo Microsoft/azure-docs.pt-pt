@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: changov
 ms.reviewer: vashan, rajraj
-ms.openlocfilehash: f5fbd80fc9a8e519cf8f49ab16d7e747c6a8171b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1cc8a43423ecd33218948aaa001fc34877eac60
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76045353"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074280"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Resolver erros de limitação da API 
 
@@ -25,7 +26,7 @@ Os pedidos do Azure Compute podem ser acelerados numa subscrição e numa base p
 
 ## <a name="throttling-by-azure-resource-manager-vs-resource-providers"></a>Throttling por Azure Resource Manager vs Fornecedores de Recursos  
 
-Como porta da frente para a Azure, o Azure Resource Manager faz a validação de autenticação e de primeira ordem e o estrangulamento de todos os pedidos de API que chegam. Os limites de taxa de chamada do Gestor de Recursos Azure e os cabeçalhos HTTP de resposta de diagnóstico relacionados são descritos [aqui.](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling)
+Como porta da frente para a Azure, o Azure Resource Manager faz a validação de autenticação e de primeira ordem e o estrangulamento de todos os pedidos de API que chegam. Os limites de taxa de chamada do Gestor de Recursos Azure e os cabeçalhos HTTP de resposta de diagnóstico relacionados são descritos [aqui.](../../azure-resource-manager/management/request-limits-and-throttling.md)
  
 Quando um cliente AZure API obtém um erro de estrangulamento, o estado HTTP é 429 Pedidos demasiados. Para entender se o estrangulamento do pedido é feito pelo Azure Resource Manager ou por um fornecedor de recursos subjacente como o CRP, inspecione os `x-ms-ratelimit-remaining-subscription-reads` pedidos get e `x-ms-ratelimit-remaining-subscription-writes` cabeçalhos de resposta para pedidos não GET. Se a contagem de chamadas restante se aproximar de 0, o limite geral de chamada definido pelo Azure Resource Manager foi atingido. As atividades de todos os clientes por subscrição são contadas em conjunto. Caso contrário, o estrangulamento provém do fornecedor de recursos-alvo (o abordado pelo `/providers/<RP>` segmento do URL de pedido). 
 
@@ -78,8 +79,8 @@ Como ilustrado acima, cada erro de estrangulamento inclui o `Retry-After` cabeç
 
 ## <a name="api-call-rate-and-throttling-error-analyzer"></a>Taxa de chamada da API e analisador de erros de estrangulamento
 Uma versão de pré-visualização de uma funcionalidade de resolução de problemas está disponível para a API do fornecedor de recursos compute. Estes cmdlets PowerShell fornecem estatísticas sobre a taxa de pedido de API por intervalo de tempo por operação e violações de estrangulamento por grupo de operação (política):
--   [Exportação-AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
--   [Exportação-AzLogAnalyticThrottledRequest](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequest)
+-   [Exportação-AzLogAnalyticRequestRateByInterval](/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
+-   [Exportação-AzLogAnalyticThrottledRequest](/powershell/module/az.compute/export-azloganalyticthrottledrequest)
 
 As estatísticas de chamadas da API podem fornecer uma grande visão sobre o comportamento do cliente(s) de uma subscrição e permitir uma identificação fácil de padrões de chamada que causam estrangulamento.
 
@@ -97,6 +98,6 @@ Os cmdlets PowerShell estão a utilizar uma API de serviço REST, que pode ser f
 - Se o código do cliente necessitar de VMs, discos e instantâneos a partir de uma localização específica do Azure, utilize a forma baseada na localização da consulta em vez de consultar todos os VMs de subscrição e, em seguida, filtrar por localização do lado do cliente: `GET /subscriptions/<subId>/providers/Microsoft.Compute/locations/<location>/virtualMachines?api-version=2017-03-30` consulta aos pontos finais regionais do Fornecedor de Recursos Compute. 
 -   Ao criar ou atualizar recursos da API em particular, VMs e conjuntos de escala de máquinas virtuais, é muito mais eficiente acompanhar a operação de assíon devolvido até à conclusão do que fazer sondagens sobre o próprio URL de recursos (com base no `provisioningState` ).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a orientação de retíria para outros serviços em Azure, consulte [a orientação da Retry para serviços específicos](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)
+Para obter mais informações sobre a orientação de retíria para outros serviços em Azure, consulte [a orientação da Retry para serviços específicos](/azure/architecture/best-practices/retry-service-specific)

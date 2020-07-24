@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 36af0eeb43fb209ed65f950576f2dc9e97ec3633
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: afbea39a080e1dd768a14d6e0eacda1bad23c5a4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71058630"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074421"
 ---
 # <a name="redeploy-windows-virtual-machine-to-new-azure-node"></a>Reimplementar a máquina virtual do Windows no novo nó do Azure
 Se tiver tido dificuldades em resolver problemas de resolução da ligação de Ambiente de Trabalho Remoto (RDP) ou acesso de aplicações à máquina virtual Azure (VM) baseada no Windows, a recolocação do VM pode ajudar. Quando recolocar um VM, o Azure desligará o VM, move o VM para um novo nó dentro da infraestrutura Azure e, em seguida, liga-o de novo, mantendo todas as suas opções de configuração e recursos associados. Este artigo mostra-lhe como recolocar um VM utilizando a Azure PowerShell ou o portal Azure.
@@ -28,7 +28,7 @@ Se tiver tido dificuldades em resolver problemas de resolução da ligação de 
 
 
 ## <a name="using-azure-powershell"></a>Utilizar o Azure PowerShell
-Certifique-se de que tem o mais recente Azure PowerShell 1.x instalado na sua máquina. Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview).
+Certifique-se de que tem o mais recente Azure PowerShell 1.x instalado na sua máquina. Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/).
 
 O exemplo a seguir implementa o VM nomeado `myVM` no grupo de recursos `myResourceGroup` denominado:
 
@@ -39,5 +39,4 @@ Set-AzVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../../includes/virtual-machines-common-redeploy-to-new-node.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
-Se tiver problemas ligados ao seu VM, pode encontrar ajuda específica para [resolver as ligações RDP](troubleshoot-rdp-connection.md) ou para as [etapas detalhadas de resolução de problemas do RDP](detailed-troubleshoot-rdp.md). Se não conseguir aceder a uma aplicação em execução no seu VM, também pode ler [problemas de resolução de problemas de aplicação](../windows/troubleshoot-app-connection.md).
-
+Se tiver problemas ligados ao seu VM, pode encontrar ajuda específica para [resolver as ligações RDP](troubleshoot-rdp-connection.md) ou para as [etapas detalhadas de resolução de problemas do RDP](detailed-troubleshoot-rdp.md). Se não conseguir aceder a uma aplicação em execução no seu VM, também pode ler [problemas de resolução de problemas de aplicação](./troubleshoot-app-connection.md).

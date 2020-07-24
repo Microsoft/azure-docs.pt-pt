@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 2b901c0d77b5bd550e7e98434cf1cba2a61e6bdb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65679c900baaf0f98a21e4b1f6b1d350c4b945c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83656479"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074328"
 ---
 # <a name="azure-serial-console"></a>Consola em série Azure
 
@@ -33,7 +34,7 @@ A Consola em Série funciona da mesma forma para VMs e instâncias de escala de 
 Para aceder à Consola em Série na sua instância de definição de escala de VM ou de máquina virtual, necessitará do seguinte:
 
 - Os diagnósticos de arranque devem ser ativados para o VM
-- Uma conta de utilizador que utilize a autenticação de palavra-passe deve existir dentro do VM. Pode criar um utilizador baseado em palavra-passe com a função de [senha de reset](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) da extensão de acesso VM. Selecione Redefinir a **palavra-passe** a partir da secção **'Suporte + resolução de problemas'.**
+- Uma conta de utilizador que utilize a autenticação de palavra-passe deve existir dentro do VM. Pode criar um utilizador baseado em palavra-passe com a função de [senha de reset](../extensions/vmaccess.md#reset-password) da extensão de acesso VM. Selecione Redefinir a **palavra-passe** a partir da secção **'Suporte + resolução de problemas'.**
 - A conta Azure que acede à Consola em Série deve ter [papel de Contribuinte de Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) tanto para o VM como para a conta de armazenamento de diagnóstico de [arranque](boot-diagnostics.md)
 
 > [!NOTE]
@@ -44,7 +45,7 @@ A Consola em Série para VMs e conjunto de escala de máquina virtual só está 
 
 ### <a name="serial-console-for-virtual-machines"></a>Consola em série para máquinas virtuais
 A consola em série para VMs é tão simples como clicar na **consola série** dentro da secção **De Resolução de Problemas De Suporte +** no portal Azure.
-  1. Abra o [portal Azure](https://portal.azure.com).
+  1. Abra o [portal do Azure](https://portal.azure.com).
 
   1. Navegue para **todos os recursos** e selecione uma Máquina Virtual. A página geral do VM abre.
 
@@ -54,7 +55,7 @@ A consola em série para VMs é tão simples como clicar na **consola série** d
 
 ### <a name="serial-console-for-virtual-machine-scale-sets"></a>Consola em série para conjuntos de escala de máquina virtual
 A Consola em Série está disponível para conjuntos de escala de máquinas virtuais, acessíveis em cada instância dentro do conjunto de escala. Terá de navegar para a instância individual de uma balança de máquina virtual definida antes de ver o botão **de consola Serial.** Se o seu conjunto de escala de máquina virtual não tiver diagnósticos de arranque ativados, certifique-se de atualizar o seu modelo de conjunto de escala de máquina virtual para ativar diagnósticos de arranque e, em seguida, atualizar todas as instâncias para o novo modelo de forma a aceder à consola em série.
-  1. Abra o [portal Azure](https://portal.azure.com).
+  1. Abra o [portal do Azure](https://portal.azure.com).
 
   1. Navegue para **todos os recursos** e selecione um Conjunto de Escala de Máquina Virtual. A página geral para o conjunto de escala de máquina virtual abre.
 
@@ -68,7 +69,7 @@ A Consola em Série está disponível para conjuntos de escala de máquinas virt
 
 
 ### <a name="tls-12-in-serial-console"></a>TLS 1.2 em Consola em Série
-A Consola em Série utiliza o TLS 1.2 de ponta a ponta para garantir toda a comunicação dentro do serviço. A Consola em Série tem uma dependência de uma conta de armazenamento de diagnóstico de arranque gerida pelo utilizador e o TLS 1.2 deve ser configurado separadamente para a conta de armazenamento. As instruções para o fazer estão localizadas [aqui.](https://docs.microsoft.com/azure/storage/common/storage-security-tls)
+A Consola em Série utiliza o TLS 1.2 de ponta a ponta para garantir toda a comunicação dentro do serviço. A Consola em Série tem uma dependência de uma conta de armazenamento de diagnóstico de arranque gerida pelo utilizador e o TLS 1.2 deve ser configurado separadamente para a conta de armazenamento. As instruções para o fazer estão localizadas [aqui.](../../storage/common/transport-layer-security-configure-minimum-version.md)
 
 ## <a name="advanced-uses-for-serial-console"></a>Usos avançados para consola em série
 Além do acesso à consola ao seu VM, também pode utilizar a Consola em Série Azure para o seguinte:
@@ -77,7 +78,7 @@ Além do acesso à consola ao seu VM, também pode utilizar a Consola em Série 
 * Graciosamente [reiniciando ou com força o seu VM](./serial-console-power-options.md)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 A documentação adicional da Consola em Série está disponível na barra lateral.
 - Mais informações estão disponíveis para [a Consola em Série para VMs Linux](./serial-console-linux.md).
 - Mais informações estão disponíveis para [consola em série para VMs windows](./serial-console-windows.md).

@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Biblioteca de clientes Azure Key Vault para Python
+title: Quickstart – Biblioteca de clientes Azure Key Vault Python – gerencie segredos
 description: Aprenda a criar, recuperar e apagar segredos de um cofre de chaves Azure usando a biblioteca do cliente Python
 author: msmbaldwin
 ms.author: mbaldwin
@@ -8,14 +8,14 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: tracking-python
-ms.openlocfilehash: c8546d159d920fc728f0bf6413d84d7b19bbe09c
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: bb73df659e3910002378b8417596b7b957022b43
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125247"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074532"
 ---
-# <a name="quickstart-azure-key-vault-client-library-for-python"></a>Quickstart: Biblioteca de clientes Azure Key Vault para Python
+# <a name="quickstart-azure-key-vault-secrets-client-library-for-python"></a>Quickstart: Azure Key Vault secreta biblioteca de clientes para Python
 
 Começa com a biblioteca de clientes do Azure Key Vault para python. Siga os passos abaixo para instalar a embalagem e experimente o código de exemplo para tarefas básicas.
 
@@ -33,7 +33,7 @@ O cofre de chave do Azure ajuda a salvaguardar as chaves criptográficas e os se
 
 - Uma subscrição Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Python 2.7, 3.5.3, ou mais tarde
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/overview)
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/)
 
 Este quickstart pressupõe que está a executar [o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) numa janela do terminal Linux.
 
@@ -55,70 +55,19 @@ pip install azure.identity
 
 ### <a name="create-a-resource-group-and-key-vault"></a>Criar um grupo de recursos e cofre chave
 
-Este quickstart usa um cofre de chave Azure pré-criado. Pode criar um cofre-chave seguindo os passos no [quickstart Azure CLI,](quick-create-cli.md) [Azure PowerShell quickstart](quick-create-powershell.md), ou [Azure portal quickstart](quick-create-portal.md). Em alternativa, pode executar os comandos Azure CLI abaixo.
-
-> [!Important]
-> Cada cofre deve ter um nome único. Substitua <o seu nome único de teclado> pelo nome do seu cofre-chave nos seguintes exemplos.
-
-```azurecli
-az group create --name "myResourceGroup" -l "EastUS"
-
-az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
-```
+[!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
 
 ### <a name="create-a-service-principal"></a>Criar um principal de serviço
 
-A forma mais simples de autenticar uma aplicação Python baseada na nuvem é com uma identidade gerida; ver [Utilizar uma identidade gerida pelo Serviço de Aplicações para aceder ao Cofre da Chave Azure](../general/managed-identity.md) para obter mais detalhes. 
-
-No entanto, por uma questão de simplicidade, este quickstart cria uma aplicação para desktop, que requer a utilização de um principal de serviço e de uma política de controlo de acessos. O seu diretor de serviço requer um nome único no formato "http:// &lt; meu nome principal de serviço &gt; único".
-
-Criar um principal de serviço utilizando o comando Azure CLI [ad sp create-for-rbac:](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac)
-
-```azurecli
-az ad sp create-for-rbac -n "http://&lt;my-unique-service-principal-name&gt;" --sdk-auth
-```
-
-Esta operação devolverá uma série de pares de chaves/valor. 
-
-```console
-{
-  "clientId": "7da18cae-779c-41fc-992e-0527854c6583",
-  "clientSecret": "b421b443-1669-4cd7-b5b1-394d5c945002",
-  "subscriptionId": "443e30da-feca-47c4-b68f-1636b75e16b3",
-  "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
-  "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-  "resourceManagerEndpointUrl": "https://management.azure.com/",
-  "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-  "galleryEndpointUrl": "https://gallery.azure.com/",
-  "managementEndpointUrl": "https://management.core.windows.net/"
-}
-```
-
-Tome nota do clienteId e clienteSecret, pois vamos usá-los no passo [variável ambiental definido](#set-environmental-variables) abaixo.
+[!INCLUDE [Create a service principal](../../../includes/key-vault-sp-creation.md)]
 
 #### <a name="give-the-service-principal-access-to-your-key-vault"></a>Dê ao serviço acesso principal ao seu cofre de chaves
 
-Crie uma política de acesso para o seu cofre-chave que concede permissão ao seu principal de serviço, passando o clienteId para o comando [de definição de chave-tevault az.](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) Dê ao diretor de serviço obter, listar e definir permissões para chaves e segredos.
-
-```azurecli
-az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
-```
+[!INCLUDE [Give the service principal access to your key vault](../../../includes/key-vault-sp-kv-access.md)]
 
 #### <a name="set-environmental-variables"></a>Definir variáveis ambientais
 
-O método DefaultAzureCredential na nossa aplicação baseia-se em três variáveis ambientais: `AZURE_CLIENT_ID` `AZURE_CLIENT_SECRET` , e `AZURE_TENANT_ID` . Desaprova estas variáveis para os valores clienteId, clientesSecret e tenantId que notou no [Create um](#create-a-service-principal) passo principal de serviço usando o `export VARNAME=VALUE` formato. (Este método apenas define as variáveis para a sua concha atual e processos criados a partir da concha; para adicionar permanentemente estas variáveis ao seu ambiente, editar o seu `/etc/environment ` ficheiro.) 
-
-Também terá de guardar o nome do cofre como uma variável ambiental chamada `KEY_VAULT_NAME` .
-
-```console
-export AZURE_CLIENT_ID=<your-clientID>
-
-export AZURE_CLIENT_SECRET=<your-clientSecret>
-
-export AZURE_TENANT_ID=<your-tenantId>
-
-export KEY_VAULT_NAME=<your-key-vault-name>
-````
+[!INCLUDE [Set environmental variables](../../../includes/key-vault-set-environmental-variables.md)]
 
 ## <a name="object-model"></a>Modelo de objeto
 

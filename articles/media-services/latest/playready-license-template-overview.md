@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 0588f02c6dfb557f32aae56dc742b9390c3cdbcb
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ba4b8de4b8cf1d1d1b8124185a8006eb7695b21e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955085"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074504"
 ---
 # <a name="media-services-v3-with-playready-license-template"></a>Serviços de Mídia v3 com modelo de licença PlayReady 
 
@@ -62,7 +62,7 @@ O XML está em conformidade com o esquema XML do modelo de licença PlayReady de
 
 Os Serviços de Mídia fornecem tipos que pode utilizar para configurar um modelo de licença PlayReady. 
 
-O snippet que se segue utiliza as classes Media Services .NET para configurar o modelo de licença PlayReady. As aulas são definidas no espaço de [nomes Microsoft.Azure.Management.Media.Models.](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet) O snippet configura a playright da licença PlayReady. O PlayRight concede ao utilizador a capacidade de reproduzir o conteúdo sujeito a quaisquer restrições configuradas na licença e na própria PlayRight (para a política específica da reprodução). Grande parte da política de um PlayRight diz respeito à restrição de saída que controla os tipos de saídas que o conteúdo pode ser reproduzido. Inclui também quaisquer restrições que devem ser postas em prática quando uma determinada saída é utilizada. Por exemplo, se o DigitalVideoOnlyContentRestriction estiver ativado, o tempo de execução drm apenas permite que o vídeo seja exibido sobre as saídas digitais. (As saídas de vídeo analógicas não podem passar o conteúdo.)
+O snippet que se segue utiliza as classes Media Services .NET para configurar o modelo de licença PlayReady. As aulas são definidas no espaço de [nomes Microsoft.Azure.Management.Media.Models.](/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet) O snippet configura a playright da licença PlayReady. O PlayRight concede ao utilizador a capacidade de reproduzir o conteúdo sujeito a quaisquer restrições configuradas na licença e na própria PlayRight (para a política específica da reprodução). Grande parte da política de um PlayRight diz respeito à restrição de saída que controla os tipos de saídas que o conteúdo pode ser reproduzido. Inclui também quaisquer restrições que devem ser postas em prática quando uma determinada saída é utilizada. Por exemplo, se o DigitalVideoOnlyContentRestriction estiver ativado, o tempo de execução drm apenas permite que o vídeo seja exibido sobre as saídas digitais. (As saídas de vídeo analógicas não podem passar o conteúdo.)
 
 > [!IMPORTANT]
 > A licença PlayReady tem restrições que são poderosas. Se as proteções de saída forem demasiado restritivas, o conteúdo pode não ser rebatível em alguns clientes. Para obter mais informações, consulte as [Regras de Conformidade PlayReady](https://www.microsoft.com/playready/licensing/compliance/).
@@ -313,6 +313,6 @@ objContentKeyPolicyPlayReadyLicense = new ContentKeyPolicyPlayReadyLicense
 </xs:schema>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Confira como [proteger com DRM](protect-with-drm.md)

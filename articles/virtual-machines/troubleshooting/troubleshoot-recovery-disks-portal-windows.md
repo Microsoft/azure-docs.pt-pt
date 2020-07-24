@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/19/2018
 ms.author: genli
-ms.openlocfilehash: e76fc2da8da2325a8bb0cda47c4405c9eb03c8f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9b51205fe67bfe5be46491b0238e987fc14f6737
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79250000"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074355"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Resolução de problemas de um VM do Windows, fixando o disco DE Aa a um VM de recuperação utilizando o portal Azure
 Se a sua máquina virtual Do Windows (VM) em Azure encontrar um erro de arranque ou disco, poderá ter de executar etapas de resolução de problemas no próprio disco rígido virtual. Um exemplo comum seria uma atualização de aplicação falhada que impede o VM de ser capaz de arrancar com sucesso. Este artigo detalha como utilizar o portal Azure para ligar o seu disco rígido virtual a outro VM do Windows para corrigir eventuais erros e, em seguida, recriar o seu VM original. 
@@ -126,7 +127,7 @@ Assim que os seus erros forem resolvidos, retire o disco rígido virtual existen
 
 ## <a name="swap-the-os-disk-for-the-vm"></a>Troque o disco DE pelo VM
 
-O portal Azure suporta agora alterar o disco de SO do VM. Para tal, siga estes passos:
+O portal Azure suporta agora a alteração do disco DE do VM. Para tal, siga estes passos:
 
 1. Ir para o [portal Azure.](https://portal.azure.com) Selecione **máquinas virtuais** da barra lateral e, em seguida, selecione o VM que tem problemas.
 1. No painel esquerdo, selecione **Discos**e, em seguida, selecione **o disco Swap OS**.
@@ -135,7 +136,7 @@ O portal Azure suporta agora alterar o disco de SO do VM. Para tal, siga estes p
 1. Escolha o novo disco que reparou e, em seguida, digite o nome do VM para confirmar a alteração. Se não vir o disco na lista, aguarde 10 ~ 15 minutos depois de retirar o disco do VM de resolução de problemas. Certifique-se também de que o disco está no mesmo local que o VM.
 1. Selecione OK.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Se tiver problemas de ligação ao seu VM, consulte [as ligações RDP de resolução de problemas a um Azure VM](troubleshoot-rdp-connection.md). Para problemas com o acesso a aplicações em execução no seu VM, consulte [problemas de conectividade da aplicação Troubleshoot num VM do Windows](troubleshoot-app-connection.md).
 
 Para obter mais informações sobre a utilização do Gestor de Recursos, consulte [a visão geral do Gestor de Recursos do Azure](../../azure-resource-manager/management/overview.md).

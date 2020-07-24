@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 07/15/2019
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 6d8d10153eb0467a84f86e54cf5b640b3162e4a1
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 1c09bf6ddef88999394ea0575d11a0fbad05f87d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224184"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074184"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants"></a>Partilhar imagens da galeria VM em inquilinos do Azure
 
-As Galerias de Imagem Partilhadas permitem-lhe partilhar imagens usando o RBAC. Você pode usar o RBAC para compartilhar imagens dentro do seu inquilino, e até mesmo para indivíduos fora do seu inquilino. Para mais informações sobre esta simples opção de partilha, consulte a [galeria Partilhar.](/azure/virtual-machines/windows/shared-images-portal#share-the-gallery)
+As Galerias de Imagem Partilhadas permitem-lhe partilhar imagens usando o RBAC. Você pode usar o RBAC para compartilhar imagens dentro do seu inquilino, e até mesmo para indivíduos fora do seu inquilino. Para mais informações sobre esta simples opção de partilha, consulte a [galeria Partilhar.](./shared-images-portal.md#share-the-gallery)
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 
