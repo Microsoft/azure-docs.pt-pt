@@ -3,18 +3,16 @@ title: Gerir a Azure Data Lake Analytics utilizando o portal Azure
 description: Este artigo descreve como usar o portal Azure para gerir contas data lake analytics, fontes de dados, utilizadores, & empregos.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: e9709f8ee700958b310b2fa94a546bb3ea4fc511
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7761da75c16e2f89ae145bad3b04cc179f415751
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121321"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127541"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gerir o Azure Data Lake Analytics com o portal do Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -37,7 +35,7 @@ Este artigo descreve como gerir as contas do Azure Data Lake Analytics, fontes d
    3. **Grupo de Recursos**: O grupo de recursos Azure para criar a conta. 
    4. **Localização**: O datacenter Azure para a conta Data Lake Analytics. 
    5. **Data Lake Store**: A loja predefinitiva a ser utilizada para a conta Data Lake Analytics. A conta Azure Data Lake Store e a conta Data Lake Analytics devem estar no mesmo local.
-4. Clique em **Criar**. 
+4. Clique em **Create** (Criar). 
 
 ### <a name="delete-a-data-lake-analytics-account"></a>Apagar uma conta data lake analytics
 
@@ -161,7 +159,7 @@ Para ver uma lista de empregos U-SQL que são recorrentes:
 2. Clique **em Insights de Emprego**. O separador "Todos os Empregos" será incumprido, mostrando uma lista de trabalhos em execução, filas e empregos terminados.
 3. Clique no **separador Empregos Recorrentes.** Será apresentada uma lista de postos de trabalho recorrentes, juntamente com estatísticas agregadas para cada trabalho recorrente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Descrição geral do Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Gerir a Azure Data Lake Analytics utilizando a Azure PowerShell](data-lake-analytics-manage-use-powershell.md)

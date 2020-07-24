@@ -1,18 +1,19 @@
 ---
 title: Cobertura de renderização / Microsoft Azure Maps
 description: Neste artigo, conheça as regiões com o Microsoft Azure Maps para fazer cobertura juntamente com o seu nível de detalhes renderizados.
-author: Philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/22/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: e7fffa0e5ab75767ab36c83542ac0e3a9ffb1231
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47dd619b4853e7167ae1b141c5741511075325c2
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83123943"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127915"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure Maps render cobertura
 
@@ -297,7 +298,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Reino Unido            | ✓ | ✓ |
 | Cidade do Vaticano              | ✓ | ✓ |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a renderização do Azure Maps, consulte [os níveis de Zoom e a grelha de azulejos.](zoom-levels-and-tile-grid.md)
 

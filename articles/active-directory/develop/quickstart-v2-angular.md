@@ -1,76 +1,76 @@
 ---
-title: Inscreva-se em utilizadores em aplicações angulares de uma página única - Azure
+title: Inscreva-se nos utilizadores em aplicações de página única angular - Azure
 titleSuffix: Microsoft identity platform
-description: Saiba como uma aplicação Angular pode chamar uma API que requer fichas de acesso utilizando a plataforma de identidade da Microsoft.
+description: Saiba como uma aplicação Angular pode chamar uma API que requer acesso a tokens utilizando a plataforma de identidade da Microsoft.
 services: active-directory
 author: jasonnutter
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-javascript
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: f457e876cb9484fce29cba35c7570572b2771aed
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: a7553eea8941b93e589f38f8229ef35b70361f8e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860057"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129190"
 ---
-# <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Quickstart: Inscreva-se nos utilizadores e obtenha um sinal de acesso numa aplicação de uma única página angular
+# <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Quickstart: Inscreva-se nos utilizadores e obtenha um token de acesso numa aplicação de página única angular
 
-Neste arranque rápido, você usa uma amostra de código para saber como uma aplicação angular de uma página única (SPA) pode inscrever utilizadores que tenham contas pessoais da Microsoft, contas de trabalho ou contas escolares. Um SPA angular também pode obter um sinal de acesso para ligar para o Microsoft Graph API ou qualquer API web.
+Neste quickstart, você usa uma amostra de código para saber como uma aplicação de página única angular (SPA) pode assinar em utilizadores que têm contas pessoais da Microsoft, contas de trabalho ou contas escolares. Um SPA Angular também pode obter um token de acesso para ligar para a API do Microsoft Graph ou qualquer API web.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Subscrição do Azure. [Crie um de graça.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Node.js.](https://nodejs.org/en/download/)
-* [Visual Studio Code](https://code.visualstudio.com/download) para editar ficheiros de projetos, ou [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) para executar o projeto.
+* [Node.js. ](https://nodejs.org/en/download/)
+* [Código visual do estúdio](https://code.visualstudio.com/download) para editar ficheiros de projeto, ou [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) para executar o projeto.
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-the-quickstart-app"></a>Registe-se e descarregue a app quickstart
 > Para iniciar a aplicação quickstart, utilize qualquer uma das seguintes opções.
 >
-> ### <a name="option-1-express-register-and-automatically-configure-the-app-and-then-download-the-code-sample"></a>Opção 1 (expresso): Registe-se e configure automaticamente a aplicação e, em seguida, descarregue a amostra de código
+> ### <a name="option-1-express-register-and-automatically-configure-the-app-and-then-download-the-code-sample"></a>Opção 1 (expresso): Registar e configurar automaticamente a aplicação e, em seguida, descarregar a amostra de código
 >
 > 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-> 1. Se a sua conta tiver acesso a mais de um inquilino, selecione a conta no canto superior direito e, em seguida, detete a sua sessão do portal para o inquilino azure Ative Directory (Azure AD) que pretende utilizar.
-> 1. Abra o painel de [inscrições](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) da nova App no portal Azure.
-> 1. Insira um nome para a sua candidatura e, em seguida, selecione **Registar**.
-> 1. Vá ao painel de arranque rápido e veja o arranque rápido angular. Siga as instruções para descarregar e configure automaticamente a sua nova aplicação.
+> 1. Se a sua conta tiver acesso a mais de um inquilino, selecione a conta no canto superior direito e, em seguida, desacione a sua sessão de portal para o inquilino do Azure Ative Directory (Azure AD) que pretende utilizar.
+> 1. Abra o novo painel [de inscrições](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) da App no portal Azure.
+> 1. Introduza um nome para a sua inscrição e, em seguida, **selecione Registar..**
+> 1. Vá para o painel de arranque rápido e veja o arranque rápido angular. Siga as instruções para descarregar e configurar automaticamente a sua nova aplicação.
 >
-> ### <a name="option-2-manual-register-and-manually-configure-the-application-and-code-sample"></a>Opção 2 (manual): Registe e configure manualmente a aplicação e a amostra de código
+> ### <a name="option-2-manual-register-and-manually-configure-the-application-and-code-sample"></a>Opção 2 (manual): Registar e configurar manualmente a aplicação e a amostra de código
 >
 > #### <a name="step-1-register-the-application"></a>Passo 1: Registar o pedido
 >
 > 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-> 1. Se a sua conta tiver acesso a mais de um inquilino, selecione a sua conta no canto superior direito e marque a sua sessão de portal para o inquilino da AD Azure que pretende utilizar.
-> 1. Siga as instruções para [registar uma aplicação de uma página única](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) no portal Azure.
-> 1. Adicione uma nova plataforma no painel de **autenticação** do registo da sua aplicação e registe o redirecionamento URI: `http://localhost:4200/` .
-> 1. Este quickstart usa o fluxo implícito de [subvenção.](v2-oauth2-implicit-grant-flow.md) Selecione as definições implícitas de **subvenção** para **fichas de ID** e **fichas de acesso**. São necessários tokens de identificação e fichas de acesso porque esta aplicação assina nos utilizadores e chama a API.
+> 1. Se a sua conta tiver acesso a mais de um inquilino, selecione a sua conta no canto superior direito e desemconfie da sua sessão de portal para o inquilino AZure AD que pretende utilizar.
+> 1. Siga as instruções para [registar uma aplicação de uma página](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) no portal Azure.
+> 1. Adicione uma nova plataforma no painel de **autenticação** do registo da sua aplicação e registe o redireccionamento URI: `http://localhost:4200/` .
+> 1. Este quickstart utiliza o [fluxo de subvenção implícito.](v2-oauth2-implicit-grant-flow.md) Selecione as definições implícitas de **concessão** **para fichas de identificação** e **fichas de acesso**. São necessários tokens de ID e fichas de acesso porque esta aplicação assina nos utilizadores e chama uma API.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-1-configure-the-application-in-the-azure-portal"></a>Passo 1: Configure a aplicação no portal Azure
-> Para a amostra de código para este arranque rápido funcionar, você precisa adicionar um URI redirecionamento como **http://localhost:4200/** e ativar **a concessão implícita**.
+> #### <a name="step-1-configure-the-application-in-the-azure-portal"></a>Passo 1: Configurar a aplicação no portal Azure
+> Para que a amostra de código para este arranque rápido funcione, é necessário adicionar um URI de redirecionamento como **http://localhost:4200/** e ativar a **concessão Implícita**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Faça estas mudanças para mim]()
+> > [Faça estas alterações para mim]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Já configurada](media/quickstart-v2-javascript/green-check.png) A sua aplicação está configurada com estes atributos.
 
 #### <a name="step-2-download-the-code-sample"></a>Passo 2: Descarregue a amostra de código
 >[!div renderon="docs"]
->Para executar o projeto com um servidor web utilizando node.js, [clone o repositório de amostras](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) ou [descarregue os ficheiros do projeto principal](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular/archive/master.zip). Abra os ficheiros usando um editor como Visual Studio Code.
+>Para executar o projeto com um servidor web utilizando Node.js, [clone o repositório de amostras](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) ou [descarregue os ficheiros do projeto principal](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular/archive/master.zip). Abra os ficheiros utilizando um editor como o Visual Studio Code.
 
 > [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Descarregue a amostra de código](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular/archive/master.zip)
 
 > [!div renderon="docs"]
->#### <a name="step-3-configure-the-javascript-app"></a>Passo 3: Configure a aplicação JavaScript
+>#### <a name="step-3-configure-the-javascript-app"></a>Passo 3: Configurar a aplicação JavaScript
 >
-> Na pasta *src/app,* edite *app.module.ts* e desempente os `clientId` valores e `authority` valores em `MsalModule.forRoot` .
+> Na pasta *src/app,* edite *app.module.ts* e desaccie os `clientId` valores e `authority` valores em `MsalModule.forRoot` .
 >
 >```javascript
 >MsalModule.forRoot({
@@ -98,18 +98,18 @@ Neste arranque rápido, você usa uma amostra de código para saber como uma apl
 >
 >|Nome do valor|Descrição|
 >|---------|---------|
->|Enter_the_Application_Id_Here|Na página **geral** do registo da sua candidatura, este é o seu valor de **ID (cliente).** |
->|Enter_the_Cloud_Instance_Id_Here|Este é o caso da nuvem Azure. Para a nuvem azure principal ou global, entre **https://login.microsoftonline.com** . Para as nuvens nacionais (por exemplo, China), veja [as nuvens nacionais.](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud)|
->|Enter_the_Tenant_Info_Here| Definir para uma das seguintes opções: Se a sua candidatura apoiar *contas neste diretório organizacional,* substitua este valor pelo nome de ID de diretório (inquilino) ou nome de inquilino (por exemplo, **contoso.microsoft.com).** Se a sua aplicação apoiar *contas em qualquer diretório organizacional,* substitua este valor por **organizações.** Se a sua aplicação suportar *contas em qualquer diretório organizacional e contas pessoais*da Microsoft, substitua este valor por **comum**. Para restringir o suporte apenas às *contas pessoais*da Microsoft, substitua este valor pelos **consumidores.** |
->|Enter_the_Redirect_Uri_Here|Substitua por **http://localhost:4200** .|
->|cacheLocalização  | (Opcional) Delineie o armazenamento do navegador para o estado de autenticação. O predefinido é **a sessãoStorage**.   |
->|lojaAuthStateInCookie  | (Opcional) Identifique a biblioteca que armazena o estado de pedido de autenticação. Este estado é obrigado a validar os fluxos de autenticação nos cookies do navegador. Este cookie está definido para o Internet Explorer e Edge para acomodar esses dois navegadores. Para mais detalhes, consulte as [questões conhecidas.](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues->on-IE-and-Edge-Browser#issues) |
+>|Enter_the_Application_Id_Here|Na página **geral** do seu registo de candidatura, este é o seu valor **de ID de candidatura(cliente).** |
+>|Enter_the_Cloud_Instance_Id_Here|Este é o exemplo da nuvem Azure. Para a nuvem Azure principal ou global, **https://login.microsoftonline.com** entre. Para nuvens nacionais (por exemplo, China), ver [nuvens nacionais.](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud)|
+>|Enter_the_Tenant_Info_Here| Definir uma das seguintes opções: Se a sua candidatura suporta *contas neste diretório organizacional,* substitua este valor pelo ID do diretório (inquilino) ou nome do inquilino (por exemplo, **contoso.microsoft.com).** Se a sua candidatura suporta *contas em qualquer diretório organizacional,* substitua este valor por **organizações.** Se a sua aplicação suportar *contas em qualquer diretório organizacional e contas pessoais da Microsoft,* substitua este valor por **comum**. Para restringir apenas o suporte às *contas pessoais da Microsoft,* substitua este valor pelos **consumidores**. |
+>|Enter_the_Redirect_Uri_Here|Substitua-a por **http://localhost:4200** .|
+>|cacheLocação  | (Opcional) Desa estação o armazenamento do navegador para o estado de autenticação. O padrão é **sessãoStorage**.   |
+>|lojaAuthStateInCookie  | (Opcional) Identifique a biblioteca que armazena o estado de pedido de autenticação. Este estado é necessário para validar os fluxos de autenticação nos cookies do navegador. Este cookie está definido para Internet Explorer e Edge para acomodar esses dois navegadores. Para mais detalhes, consulte as [questões conhecidas.](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues->on-IE-and-Edge-Browser#issues) |
 > > [!TIP]
 > > Para encontrar os valores do **ID da Aplicação (cliente)**, o **ID de Diretório (inquilino)** e os **Tipos de conta suportados**, vá para a página **Descrição geral** da aplicação no portal do Azure.
 
-Para obter mais informações sobre as opções configuráveis disponíveis, consulte [Inicialize as aplicações do cliente.](msal-js-initializing-client-applications.md) 
+Para obter mais informações sobre as opções disponíveis, consulte [As aplicações do cliente Inicialize.](msal-js-initializing-client-applications.md)
 
-Pode encontrar o código fonte para a biblioteca MSAL.js no repositório [AzureAD/microsoft-autenticação-biblioteca-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) no GitHub.
+Pode encontrar o código fonte da biblioteca MSAL.js no repositório [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) no GitHub.
 
 >[!div class="sxs-lookup" renderon="portal"]
 >#### <a name="step-3-run-the-project"></a>Passo 3: Executar o projeto
@@ -117,7 +117,7 @@ Pode encontrar o código fonte para a biblioteca MSAL.js no repositório [AzureA
 >[!div renderon="docs"]
 >#### <a name="step-4-run-the-project"></a>Passo 4: Executar o projeto
 
-Se estiver a usar o Node.js:
+Se estiver a usar Node.js:
 
 1. Inicie o servidor executando os seguintes comandos a partir do diretório do projeto:
 
@@ -126,20 +126,20 @@ Se estiver a usar o Node.js:
    npm start
    ```
 
-1. Navegue para **http://localhost:4200/** .
-1. Selecione **Login**.
-1. Selecione **Perfil** para ligar para o Microsoft Graph.
+1. Navegue para **http://localhost:4200/**.
+1. **Selecione Iniciar sessão**.
+1. Selecione **Profile** para ligar para o Microsoft Graph.
 
-Depois de o navegador carregar a aplicação, selecione **Login**. A primeira vez que começa a fazer o início do sessão, é-lhe pedido que forneça o seu consentimento para permitir que a aplicação aceda ao seu perfil e o inscreva. Depois de ter assinado com sucesso, selecione **Perfil**, e as informações do seu perfil de utilizador serão exibidas na página.
+Depois de o navegador carregar a aplicação, **selecione 'Iniciar sessão'.** A primeira vez que começa a iniciar sessão, é solicitado que forneça o seu consentimento para permitir que a aplicação aceda ao seu perfil e o inscreva. Depois de ter assinado com sucesso, selecione **Profile**, e as informações do seu perfil de utilizador serão apresentadas na página.
 
 ## <a name="how-the-sample-works"></a>Como funciona a amostra
 
-![Diagrama que mostra como funciona a aplicação de amostra sintetizadora neste quickstart](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+![Diagrama que mostra como a aplicação da amostra neste quickstart funciona](./media/quickstart-v2-angular/diagram-auth-flow-spa-angular.svg)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Em seguida, aprenda a assinar um utilizador e adquira fichas no tutorial angular:
+Em seguida, aprenda a assinar num utilizador e adquira fichas no tutorial angular:
 
 > [!div class="nextstepaction"]
 > [Tutorial angular](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-angular)

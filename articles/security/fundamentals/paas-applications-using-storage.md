@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: 675e10101d01d831aad7652c70cbfcf320085a3c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da59c0d54fa08194f9d77fc79754cbfbaca1a1e8
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70999174"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128408"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Melhores práticas para garantir aplicações web e móveis PaaS usando O Azure Storage
 Neste artigo, discutimos uma coleção de boas práticas de segurança do Azure Storage para garantir as suas aplicações web e móveis de plataforma como serviço (PaaS). Estas boas práticas derivam da nossa experiência com o Azure e das experiências de clientes como você.
@@ -65,8 +65,8 @@ As organizações que não impõem o controlo do acesso aos dados utilizando cap
 Para saber mais sobre o RBAC consulte:
 
 - [Gerir o acesso através do RBAC e do portal do Azure](/azure/role-based-access-control/role-assignments-portal)
-- [Built-in roles for Azure resources](/azure/role-based-access-control/built-in-roles) (Funções incorporadas para recursos do Azure)
-- [Guia de segurança do Armazenamento do Azure](/azure/storage/common/storage-security-guide) 
+- [Funções incorporadas do Azure](/azure/role-based-access-control/built-in-roles)
+- [Guia de segurança de Armazenamento do Azure](/azure/storage/common/storage-security-guide) 
 
 ## <a name="use-client-side-encryption-for-high-value-data"></a>Use encriptação do lado do cliente para dados de alto valor
 A encriptação do lado do cliente permite-lhe encriptar programáticamente dados em trânsito antes de fazer o upload para o Azure Storage e desencriptar programáticamente os dados ao recuperá-lo. Isto fornece encriptação de dados em trânsito, mas também fornece encriptação de dados em repouso. A encriptação do lado do cliente é o método mais seguro para encriptar os seus dados, mas requer que faça alterações programáticas na sua aplicação e coloque processos de gestão chave no lugar.

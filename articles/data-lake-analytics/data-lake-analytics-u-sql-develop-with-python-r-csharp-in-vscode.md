@@ -3,18 +3,16 @@ title: Executar empregos U-SQL em Python, R e C# - Azure Data Lake Analytics
 description: Aprenda a usar códigos com Python, R e C# para submeter trabalho no Lago de Dados Azure.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: jejiang
-ms.author: jejiang
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/22/2017
 ms.custom: tracking-python
-ms.openlocfilehash: a9686cefbbdf04d8425de673827f31cbfecb873c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: bdb40fee95c018cbdebac7c28aa131c98e3ee4c3
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121236"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129871"
 ---
 # <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Desenvolver U-SQL com Python, R e C# para Azure Data Lake Analytics em Código de Estúdio Visual
 Aprenda a usar o Código do Estúdio Visual (VSCode) para escrever o código Python, R e C# atrás com o U-SQL e submeta empregos ao serviço Azure Data Lake. Para obter mais informações sobre as ferramentas do Lago de Dados Azure para VSCode, consulte [as ferramentas do Lago de Dados Azure para código de estúdio visual.](data-lake-analytics-data-lake-tools-for-vscode.md)
@@ -179,7 +177,7 @@ Um ficheiro por trás de código é um ficheiro C# associado a um único script 
     ```
 5. Clique com o botão direito no ficheiro **USQL,** pode clicar em **Compile Script** ou **submeter Job** a executar trabalho.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Utilizar as Ferramentas do Azure Data Lake para o Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 * [U-SQL corrida local e depurar local com Código de Estúdio Visual](data-lake-tools-for-vscode-local-run-and-debug.md)
 * [Começar com data lake analytics usando PowerShell](data-lake-analytics-get-started-powershell.md)

@@ -10,12 +10,12 @@ ms.date: 04/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 9b2de4f320801b20de5bcc9687a723dadb182ef8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db65ba904cdce7bec83b851c6b50316c89fcedfd
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807710"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128731"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Utilize o portal Azure para aceder a dados de blob ou fila
 
@@ -25,7 +25,7 @@ Também pode especificar como autorizar uma operação de upload individual de b
 
 ## <a name="permissions-needed-to-access-blob-or-queue-data"></a>Permissões necessárias para aceder a dados blob ou de fila
 
-Dependendo da forma como pretende autorizar o acesso a dados de blob ou de fila no portal Azure, necessitará de permissões específicas. Na maioria dos casos, estas permissões são fornecidas através do controlo de acesso baseado em funções (RBAC). Para obter mais informações sobre o RBAC, veja [o que é o controlo de acesso baseado em funções (RBAC)?](../../role-based-access-control/overview.md)
+Dependendo da forma como pretende autorizar o acesso a dados de blob ou de fila no portal Azure, necessitará de permissões específicas. Na maioria dos casos, estas permissões são fornecidas através do controlo de acesso baseado em funções (RBAC). Para obter mais informações sobre o RBAC, veja [o que é o controlo de acesso baseado em funções Azure (Azure RBAC)?](../../role-based-access-control/overview.md)
 
 ### <a name="use-the-account-access-key"></a>Use a chave de acesso à conta
 
@@ -57,7 +57,7 @@ As funções incorporadas que suportam o acesso ao seu blob ou dados de fila inc
 - [Colaborador de dados da fila de armazenamento](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Leia/escreva/elimine permissões para filas.
 - [Leitor de dados de fila de armazenamento](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader): Permissões apenas de leitura para filas.
 
-As funções personalizadas podem suportar diferentes combinações das mesmas permissões fornecidas pelas funções incorporadas. Para obter mais informações sobre a criação de funções personalizadas de RBAC, consulte [os papéis personalizados para os recursos Azure](../../role-based-access-control/custom-roles.md) e [compreenda definições de funções para recursos Azure.](../../role-based-access-control/role-definitions.md)
+As funções personalizadas podem suportar diferentes combinações das mesmas permissões fornecidas pelas funções incorporadas. Para obter mais informações sobre a criação de funções personalizadas [Azure, consulte os papéis personalizados da Azure](../../role-based-access-control/custom-roles.md) e [compreenda definições de funções para recursos Azure.](../../role-based-access-control/role-definitions.md)
 
 A listagem de filas com uma função clássica de administrador de subscrição não é suportada. Para listar as filas, um utilizador deve ter-lhes atribuído a função de **Leitor** de Gestor de Recursos Azure, a função **de Leitor de Dados de Fila de Armazenamento** ou a função de Contribuinte de **Dados de Fila de Armazenamento.**
 
@@ -113,7 +113,7 @@ Para especificar como autorizar uma operação de upload de bolhas, siga estes p
 
     :::image type="content" source="media/storage-access-blobs-queues-portal/auth-blob-upload.png" alt-text="Screenshot mostrando como alterar método de autorização no upload de blob":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Autenticar acesso a bolhas e filas Azure usando o Azure Ative Directory](storage-auth-aad.md)
 - [Conceder acesso a contentores e filas Azure com RBAC no portal Azure](storage-auth-aad-rbac-portal.md)

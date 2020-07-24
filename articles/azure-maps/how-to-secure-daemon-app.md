@@ -2,18 +2,19 @@
 title: Como proteger uma aplicação daemon
 titleSuffix: Azure Maps
 description: Utilize o portal Azure para gerir a autenticação para configurar uma aplicação de confiança.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 4fa3492b0cd71e61900dc4be150cd0f0169379ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 066118622f19d7efac71ddd66ac1abe058008b55
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84988635"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126776"
 ---
 # <a name="secure-a-daemon-application"></a>Garantir uma aplicação daemon
 
@@ -113,7 +114,7 @@ Concede *o controlo de acesso baseado em funções* (RBAC) atribuindo a identida
 > [!div class="mx-imgBorder"]
 > ![Ver funções disponíveis](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
-1. Aceda à sua **Conta Azure Maps.** Selecione as atribuições de funções **de controlo de acesso (IAM).**  >  **Role assignments**
+1. Aceda à sua **Conta Azure Maps.** Selecione **Controlo de acesso (IAM)** > **Atribuições de funções**.
 
     > [!div class="mx-imgBorder"]
     > ![Grant RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
@@ -169,7 +170,7 @@ Resposta:
 
 Consulte [os cenários de autenticação para Azure AD,](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)para obter exemplos mais detalhados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Encontre as métricas de utilização da API para a sua conta Azure Maps:
 > [!div class="nextstepaction"]

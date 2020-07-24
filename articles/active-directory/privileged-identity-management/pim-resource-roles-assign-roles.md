@@ -15,25 +15,25 @@ ms.date: 07/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 985342b19baad8b9210e985c9c7dfb9482708a0c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 32b678058e2d24d277eaf56a1aadec3678e25a5b
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023776"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128170"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Atribuir funções de recursos da Azure na Gestão de Identidade Privilegiada
 
 O Azure Ative Directory (Azure AD) Privileged Identity Management (PIM) pode gerir as funções de recursos Azure incorporados, bem como funções personalizadas, incluindo (mas não se limitando a):
 
 - Proprietário
-- Administrador de Acesso de Utilizador
-- Contribuidor
+- Administrador de Acesso dos Utilizadores
+- Contribuinte
 - Administrador de Segurança
 - Gestor de Segurança
 
 > [!NOTE]
-> Os utilizadores ou membros de um grupo atribuído às funções de subscrição do Administrador de Acesso ao Utilizador ou ao Utilizador, e os administradores AD AD Global que permitem a gestão da subscrição em Azure AD têm permissões de administrador de recursos por padrão. Estes administradores podem atribuir funções, configurar definições de funções e rever o acesso usando a Gestão de Identidade Privilegiada para recursos Azure. Um utilizador não pode gerir a Gestão de Identidade Privilegiada para Recursos sem permissões de administrador de recursos. Veja a lista de [funções incorporadas para recursos Azure](../../role-based-access-control/built-in-roles.md).
+> Os utilizadores ou membros de um grupo atribuído às funções de subscrição do Administrador de Acesso ao Utilizador ou ao Utilizador, e os administradores AD AD Global que permitem a gestão da subscrição em Azure AD têm permissões de administrador de recursos por padrão. Estes administradores podem atribuir funções, configurar definições de funções e rever o acesso usando a Gestão de Identidade Privilegiada para recursos Azure. Um utilizador não pode gerir a Gestão de Identidade Privilegiada para Recursos sem permissões de administrador de recursos. Veja a lista de [funções incorporadas do Azure.](../../role-based-access-control/built-in-roles.md)
 
 ## <a name="assign-a-role"></a>Atribuir um papel
 
@@ -113,7 +113,7 @@ Siga estes passos para atualizar ou remover uma atribuição de função existen
 
     Para obter informações sobre o alargamento de uma atribuição de funções, consulte [alargar ou renovar funções de recurso Azure na Gestão de Identidade Privilegiada.](pim-resource-roles-renew-extend.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Alargar ou renovar funções de recursos do Azure na Gestão de Identidade Privilegiada](pim-resource-roles-renew-extend.md)
 - [Configurar configurações de funções de recursos Azure na Gestão de Identidade Privilegiada](pim-resource-roles-configure-role-settings.md)

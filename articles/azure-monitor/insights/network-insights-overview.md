@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/07/2019
-ms.openlocfilehash: 0f5b2fbd13cb9658e255fde727e115df748aaed9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccc5578944dc6eea9a62360045272896d78e2fac
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77654873"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128680"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Monitor Azure para redes (pré-visualização)
 O Azure Monitor for Network fornece uma visão abrangente da saúde e métricas para todos os recursos de rede implantados sem qualquer configuração. A capacidade avançada de pesquisa ajuda a identificar dependências de recursos, permitindo cenários como identificar recursos que estão hospedando o seu site simplesmente procurando o nome do site hospedado.
@@ -29,7 +30,7 @@ A visão de saúde e alertas de recursos pode ser personalizada usando filtros c
 
 A caixa de pesquisa pode ser usada para procurar recursos e recursos associados. Por exemplo, um IP público está associado a um Gateway de aplicação. Procurar o nome DNS do IPs Público identificará tanto o IP público como o Gateway de Aplicação associado.
 
-![Pesquisa](media/network-insights-overview/search.png)
+![Pesquisar](media/network-insights-overview/search.png)
 
 
 ## <a name="resource-health-and-metric"></a>Saúde e Métrica de Recursos
@@ -47,7 +48,7 @@ Pode clicar em cada elemento na vista da grelha. Clique no ícone Saúde para re
 A grelha **de Alertas** à direita fornece uma visão de todos os alertas gerados para os recursos selecionados em todas as subscrições. Clique nas contagens de alerta para navegar para a página de alertas detalhados.
 
 ## <a name="dependency-view"></a>Vista de dependência
-A visão **de Dependência** ajuda a visualizar como o recurso é configurado. Atualmente, a vista de dependência é suportada apenas para o Gateway de Aplicação. A vista de dependência pode ser acedida clicando no nome do recurso Application Gateway a partir da vista da grelha de métricas.
+A visão **de Dependência** ajuda a visualizar como o recurso é configurado. Atualmente a vista de dependência é agora suportada para Application Gateway, Virtual WAN e Load Balancer. Por exemplo, no caso do Gateway de Aplicação, a vista de dependência pode ser acedida clicando no nome do recurso Application Gateway a partir da vista da grelha de métricas. Isto também se aplica a WAN virtual e balanceador de carga. 
 
 ![Vista gateway de aplicação](media/network-insights-overview/application-gateway.png)
 
@@ -67,6 +68,6 @@ Filtros diferentes ajudam a reduzir-se a um caminho e estado específicos. Por e
 
 Clique em **Métrica Detalhada para** lançar um livro pré-configurado com métricas detalhadas para o gateway de aplicação, todos os recursos de backend pool e IPs frontais. 
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 
-- Saiba mais sobre a monitorização da rede no Que é [o Observador da Rede Azure?](/azure/network-watcher/network-watcher-monitoring-overview)
+- Saiba mais sobre a monitorização da rede no Que é [o Observador da Rede Azure?](../../network-watcher/network-watcher-monitoring-overview.md)

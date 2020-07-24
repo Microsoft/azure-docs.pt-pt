@@ -3,11 +3,12 @@ title: Identidades geridas para recursos Azure com Service Bus
 description: Este artigo descreve como usar identidades geridas para aceder a entidades do Azure Service Bus (filas, tópicos e subscrições).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 62c00c92ddd8265b1174cc195bfa83d533ec20d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f803b66323004ac3bf71075cda1a4f2e47bbd4e7
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341403"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128867"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticar uma identidade gerida com o Azure Ative Directory para aceder aos recursos do Azure Service Bus
 [As identidades geridas para os recursos Azure](../active-directory/managed-identities-azure-resources/overview.md) são uma funcionalidade cross-Azure que lhe permite criar uma identidade segura associada à implementação sob a qual o seu código de aplicação é executado. Em seguida, pode associar essa identidade a funções de controlo de acesso que concedem permissões personalizadas para aceder a recursos específicos do Azure de que a sua aplicação necessita.
@@ -59,7 +60,7 @@ A lista a seguir descreve os níveis em que pode aceder aos recursos do Service 
 > [!NOTE]
 > Tenha em mente que as atribuições de funções da RBAC podem demorar até cinco minutos a propagar-se. 
 
-Para obter mais informações sobre como as funções incorporadas são [definidas, consulte as definições de funções](../role-based-access-control/role-definitions.md#management-and-data-operations)de entender. Para obter informações sobre a criação de funções RBAC personalizadas, consulte [criar funções personalizadas para o Controlo de Acesso Baseado em Funções Azure.](../role-based-access-control/custom-roles.md)
+Para obter mais informações sobre como as funções incorporadas são [definidas, consulte as definições de funções](../role-based-access-control/role-definitions.md#management-and-data-operations)de entender. Para obter informações sobre a criação de funções personalizadas [Azure, consulte os papéis personalizados da Azure](../role-based-access-control/custom-roles.md).
 
 ## <a name="enable-managed-identities-on-a-vm"></a>Permitir identidades geridas num VM
 Antes de utilizar identidades geridas para a Azure Resources para autorizar os recursos do Service Bus a partir do seu VM, tem primeiro de ativar identidades geridas para recursos Azure no VM. Para aprender como permitir identidades geridas para recursos Azure, consulte um destes artigos:
@@ -133,7 +134,7 @@ Para enviar ou receber mensagens, insira o nome do espaço de nome e o nome da e
 > 
 > - Atualmente, as identidades geridas não funcionam com slots de implementação do Serviço de Aplicações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as mensagens do Service Bus, consulte os seguintes tópicos:
 

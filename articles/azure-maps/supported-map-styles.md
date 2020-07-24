@@ -1,19 +1,19 @@
 ---
 title: Estilos de mapa suportados Microsoft Azure Maps
 description: Neste artigo, você vai aprender sobre diferentes estilos de renderização de mapas suportados pelo Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 3db8ae98302ad6df7355ce03f5a33b5d21f1ea09
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c22363b3b1e0b8283de572ff578e6d78f0627486
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242105"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128068"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Azure Maps suportado estilos de mapa
 O Azure Maps suporta vários estilos de mapa incorporados diferentes, como descrito abaixo.

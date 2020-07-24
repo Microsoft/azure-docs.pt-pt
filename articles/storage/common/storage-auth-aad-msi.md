@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 69e88aed1485d07bc4adc57abc0bda02a1def728
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2434c5b80fedb7fd5ae61357cadf5d23f9b00934
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808890"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127184"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorizar o acesso a dados de blob e fila com identidades geridas para recursos Azure
 
@@ -61,7 +61,7 @@ Se o seu ambiente de desenvolvimento não suporta um único login ou login atrav
 
 #### <a name="create-the-service-principal"></a>Criar o principal de serviço
 
-Para criar um diretor de serviço com Azure CLI e atribuir um papel RBAC, ligue para o comando [ad sp create-for-rbac.](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) Forneça uma função de acesso aos dados do Azure Storage para atribuir ao novo diretor de serviço. Além disso, forneça a margem para a atribuição de funções. Para obter mais informações sobre as funções incorporadas previstas para o Armazenamento Azure, consulte [as funções incorporadas para os recursos Azure](../../role-based-access-control/built-in-roles.md).
+Para criar um diretor de serviço com Azure CLI e atribuir um papel RBAC, ligue para o comando [ad sp create-for-rbac.](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) Forneça uma função de acesso aos dados do Azure Storage para atribuir ao novo diretor de serviço. Além disso, forneça a margem para a atribuição de funções. Para obter mais informações sobre as funções incorporadas previstas para o Azure Storage, consulte [as funções incorporadas do Azure.](../../role-based-access-control/built-in-roles.md)
 
 Se não tiver permissões suficientes para atribuir uma função ao titular do serviço, poderá ter de pedir ao titular ou administrador da conta para desempenhar a função.
 
@@ -160,7 +160,7 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 > [!NOTE]
 > Para autorizar pedidos contra dados de blob ou fila com a Azure AD, deve utilizar HTTPS para esses pedidos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Gerir os direitos de acesso aos dados de armazenamento com o RBAC.](storage-auth-aad-rbac.md)
 - [Utilize a Azure AD com aplicações de armazenamento](storage-auth-aad-app.md).

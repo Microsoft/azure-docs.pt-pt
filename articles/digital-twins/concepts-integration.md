@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ba4188445f9bdf791ef760936bd27ac0f507fb4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d82289366d79f44460b96d75781cac4fa50de53a
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737177"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129734"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integre a Azure Digital Twins com outros serviços
 
@@ -24,7 +24,7 @@ As Gémeas Digitais Azure podem ser conduzidas com dados do IoT Hub. Isto permit
 
 A Azure Digital Twins não tem um Hub IoT incorporado. Você pode usar um Hub IoT existente que você tem atualmente em produção, ou implementar um novo. Isto dá-lhe acesso total a todas as capacidades de gestão de dispositivos do IoT Hub.
 
-Para ingerir dados do IoT Hub em Azure Digital Twins, utilize uma [função Azure](../azure-functions/functions-overview.md). Saiba mais sobre este padrão em [Como-a-: Ingerir telemetria a partir do IoT Hub,](how-to-ingest-iot-hub-data.md)ou experimente-o no [tutorial Azure Digital Twins: Conecte uma solução de ponta a ponta](tutorial-end-to-end.md).
+Para ingerir dados do IoT Hub em Azure Digital Twins, utilize uma [função Azure](../azure-functions/functions-overview.md). Saiba mais sobre este padrão em [*Como-a-: Ingerir telemetria a partir do IoT Hub,*](how-to-ingest-iot-hub-data.md)ou experimente-o no Tutorial de Gémeos Digitais Azure: [*Conecte uma solução de ponta a ponta*](tutorial-end-to-end.md).
 
 ## <a name="data-egress-services"></a>Serviços de saída de dados
 
@@ -33,16 +33,16 @@ A Azure Digital Twins pode enviar dados para **pontos finais conectados**. Os po
 * [Event Grid](../event-grid/overview.md)
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
-Os pontos finais são anexados a Azure Digital Twins utilizando APIs de gestão ou o portal Azure. Saiba mais sobre como anexar um ponto final às Gémeas Digitais Azure em [Como-a: Gerir pontos finais e rotas](how-to-manage-routes.md).
+Os pontos finais são anexados a Azure Digital Twins utilizando APIs de gestão ou o portal Azure. Saiba mais sobre como anexar um ponto final às Gémeas Digitais Azure em [*Como-a: Gerir pontos finais e rotas*](how-to-manage-routes.md).
 
 Existem muitos outros serviços onde poderá querer, em última análise, direcionar os seus dados, tais como [Azure Storage](../storage/common/storage-introduction.md) ou [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md). Para enviar os seus dados para serviços como estes, anexe o serviço de destino a um ponto final.
 
 Por exemplo, se também estiver a utilizar [o Azure Maps](../azure-maps/about-azure-maps.md) e quiser correlacionar a [localização](concepts-twins-graph.md)com o seu gráfico gémeo Azure Digital Twins, pode utilizar funções Azure com a Grade de Eventos para estabelecer comunicação entre todos os serviços da sua implementação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre pontos finais e eventos de encaminhamento para serviços externos:
-* [Conceitos: Eventos de Roting Azure Digital Twins](concepts-route-events.md)
+* [*Conceitos: Eventos de Roting Azure Digital Twins*](concepts-route-events.md)
 
 Veja como configurar a Azure Digital Twins para ingerir dados do IoT Hub:
-* [Como fazer: Ingerir telemetria a partir do IoT Hub](how-to-ingest-iot-hub-data.md)
+* [*Como fazer: Ingerir telemetria a partir do IoT Hub*](how-to-ingest-iot-hub-data.md)

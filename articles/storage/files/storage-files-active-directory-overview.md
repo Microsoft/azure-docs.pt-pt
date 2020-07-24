@@ -7,11 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: db256c8361af740ac536e059969a5085e57df485
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb57606259fe674519015fd2de741d6c1d08c5e9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84263371"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127201"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Visão geral das opções de autenticação baseadas na identidade do Azure Files para acesso AMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -31,7 +32,7 @@ Para saber como ativar a autenticação Azure AD DS para ações de ficheiros Az
 
     SMB é um protocolo de partilha de ficheiros padrão da indústria. SMB também é conhecido como Common Internet File System ou CIFS. Para obter mais informações sobre o SMB, consulte [o Protocolo microsoft SMB e a visão geral do protocolo CIFS](https://docs.microsoft.com/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview).
 
--   **Diretório Ativo Azure (Azure AD)**
+-   **Azure Active Directory (Azure AD)**
 
     Azure Ative Directory (Azure AD) é o serviço de gestão de identidade e diretório multi-inquilino da Microsoft. A Azure AD combina serviços de diretório principal, gestão de acesso a aplicações e proteção de identidade numa única solução. As máquinas virtuais (VMs) azure AD-joined Windows podem aceder a partilhas de ficheiros Azure com as suas credenciais AZure AD. Para mais informações, consulte [o que é o Diretório Ativo Azure?](../../active-directory/fundamentals/active-directory-whatis.md)
 
@@ -45,7 +46,7 @@ Para saber como ativar a autenticação Azure AD DS para ações de ficheiros Az
 
 -   **Controlo de Acesso Baseado em Função Azure (RBAC)**
 
-    O Controlo de Acesso Baseado em Funções (RBAC) do Azure permite uma gestão pormenorizada de acesso ao Azure. Utilizando o RBAC, pode gerir o acesso aos recursos, concedendo aos utilizadores o menor número de permissões necessárias para executar os seus trabalhos. Para obter mais informações sobre o RBAC, veja [o que é o controlo de acesso baseado em funções (RBAC) em Azure?](../../role-based-access-control/overview.md)
+    O controlo de acesso baseado em funções Azure (Azure RBAC) permite uma gestão de acesso de grãos finos para o Azure. Utilizando o RBAC, pode gerir o acesso aos recursos, concedendo aos utilizadores o menor número de permissões necessárias para executar os seus trabalhos. Para obter mais informações sobre o RBAC, veja [o que é o controlo de acesso baseado em funções (Azure RBAC) em Azure?](../../role-based-access-control/overview.md)
 
 ## <a name="common-use-cases"></a>Casos de utilização comuns
 
@@ -142,10 +143,10 @@ A Azure Files suporta a preservação de diretórios ou ACLs de nível de fichei
 ## <a name="pricing"></a>Preços
 Não existe qualquer taxa adicional de serviço para permitir a autenticação baseada na identidade sobre a SMB na sua conta de armazenamento. Para obter mais informações sobre preços, consulte [os preços dos Ficheiros Azure](https://azure.microsoft.com/pricing/details/storage/files/) e [os preços dos Serviços de Domínio AZure AD](https://azure.microsoft.com/pricing/details/active-directory-ds/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre os Ficheiros Azure e a autenticação baseada na identidade sobre a SMB, consulte estes recursos:
 
-- [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)
+- [Planear uma implementação de Ficheiros do Azure](storage-files-planning.md)
 - [Ativar no local autenticação de Serviços de Domínio de Diretório Ativo sobre SMB para ações de ficheiros Azure](storage-files-identity-auth-active-directory-enable.md)
 - [Ativar a autenticação dos Serviços de Domínio do Diretório Ativo do Azure em Ficheiros Azure](storage-files-identity-auth-active-directory-domain-service-enable.md)
 - [FAQ](storage-files-faq.md)

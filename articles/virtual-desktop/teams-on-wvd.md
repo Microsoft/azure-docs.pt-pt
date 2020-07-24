@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d482b3335b31d116846ec64883b43897fcc4e43d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: baab0160247e17556f0928f12f26a5ecca767210
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255664"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129309"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Utilize equipas da Microsoft no ambiente de trabalho virtual do Windows
 
@@ -54,6 +54,14 @@ Para permitir a otimização dos meios de comunicação para as equipas, desa es
 ### <a name="install-the-teams-websocket-service"></a>Instale o Serviço De Equipas WebSocket
 
 Instale o [Serviço WebSocket](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj0i) na sua imagem VM. Se encontrar um erro de instalação, instale o [mais recente Microsoft Visual C++ Redistribuable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) e tente novamente.
+
+#### <a name="latest-websocket-service-versions"></a>Versões mais recentes do Serviço WebSocket
+
+A tabela a seguir lista as versões atuais disponíveis para cada grupo de utilizadores:
+
+|Versão    |Data da versão  |
+|-----------|--------------|
+|0.11.0     |05/29/2020    |
 
 ### <a name="install-microsoft-teams"></a>Instalar equipas da Microsoft
 

@@ -1,20 +1,20 @@
 ---
 title: Renderizar dados personalizados num mapa raster Microsoft Azure Maps
 description: Neste artigo, você aprenderá a renderizar dados personalizados num mapa raster utilizando o Microsoft Azure Maps static image Service.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f386cbf09bb2b62e0c54826affc50a050c095fa6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6eae060b2ed2b0f7d6de5ac54d92677c95fc8a89
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524595"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126878"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Renderizar dados personalizados em um mapa raster
 
@@ -219,7 +219,7 @@ Siga estes passos para fazer um círculo e pinos com etiquetas personalizadas:
 
 Da mesma forma, pode alterar, adicionar e remover outros modificadores de estilo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 
 * Explore a documentação [AZure Maps Obter API de imagem de mapa.](https://docs.microsoft.com/rest/api/maps/render/getmapimage)

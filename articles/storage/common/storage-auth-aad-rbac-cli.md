@@ -1,21 +1,21 @@
 ---
 title: Use O CLI do Azure para atribuir uma função RBAC para o acesso a dados
 titleSuffix: Azure Storage
-description: Saiba como usar o Azure CLI para atribuir permissões a um diretor de segurança do Azure Ative Directory com controlo de acesso baseado em funções (RBAC). O Azure Storage suporta funções RBAC incorporadas e personalizadas para autenticação via Azure AD.
+description: Saiba como usar o Azure CLI para atribuir permissões a um diretor de segurança do Azure Ative Directory com controlo de acesso baseado em funções (RBAC). O Azure Storage suporta funções personalizadas incorporadas e Azure para autenticação via Azure AD.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 25a38fc6f9607ef878ad3c5bf7074f5b63d5c121
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7c74bc8bd92e2d210c8fe5deaff30d55a36bb5e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808866"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127218"
 ---
 # <a name="use-azure-cli-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Utilize o CLI Azure para atribuir uma função RBAC para acesso a dados de bolhas e filas
 
@@ -23,7 +23,7 @@ O Azure Ative Directory (Azure AD) autoriza os direitos de acesso a recursos seg
 
 Quando um papel rbac é atribuído a um diretor de segurança Azure, Azure concede acesso a esses recursos para esse chefe de segurança. O acesso pode ser alargado ao nível da subscrição, do grupo de recursos, da conta de armazenamento ou de um contentor ou fila individual. Um diretor de segurança Azure AD pode ser um utilizador, um grupo, um diretor de serviço de aplicação ou uma [identidade gerida para os recursos da Azure.](../../active-directory/managed-identities-azure-resources/overview.md)
 
-Este artigo descreve como usar o CLI Azure para listar funções RBAC incorporadas e atribuí-las aos utilizadores. Para obter mais informações sobre a utilização do [Azure CLI, consulte a Interface Azure Command-Line (CLI)](https://docs.microsoft.com/cli/azure).
+Este artigo descreve como usar o CLI Azure para listar funções RBAC incorporadas e atribuí-las aos utilizadores. Para obter mais informações sobre a utilização do [Azure CLI, consulte a Interface Azure Command-Line (CLI)](/cli/azure).
 
 ## <a name="rbac-roles-for-blobs-and-queues"></a>Papéis RBAC para bolhas e filas
 
@@ -108,7 +108,7 @@ az role assignment create \
     --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
 ```
 
-### <a name="resource-group-scope"></a>Âmbito do grupo de recursos
+### <a name="resource-group-scope"></a>Âmbito de grupo de recursos
 
 Para atribuir uma função ao grupo de recursos, especifique o nome do grupo de recursos ou o ID para o `--resource-group` parâmetro. O exemplo a seguir atribui o papel **de Leitor de Dados de Fila de Armazenamento** a um utilizador ao nível do grupo de recursos. Certifique-se de que substitui os valores da amostra e dos lugares nos parênteses pelos seus próprios valores:
 
@@ -136,7 +136,7 @@ az role assignment create \
     --scope "/subscriptions/<subscription>"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Gerir o acesso aos recursos da Azure utilizando o RBAC e o Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 - [Conceder acesso a blob Azure e dados de fila com o RBAC usando a Azure PowerShell](storage-auth-aad-rbac-powershell.md)

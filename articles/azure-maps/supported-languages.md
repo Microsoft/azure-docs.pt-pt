@@ -1,18 +1,19 @@
 ---
 title: Apoio à localização / Microsoft Azure Maps
 description: Neste artigo, você vai aprender sobre idiomas suportados para os serviços no Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 2bab7b101b5461d854bb2db509b5cb243012a592
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d3adc4bc49379a9ec3408ab76b913a096840dbb
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83746010"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127898"
 ---
 # <a name="localization-support-in-azure-maps"></a>Apoio à localização no Azure Maps
 
@@ -24,7 +25,7 @@ O Azure Maps suporta várias línguas e pontos de vista baseados em país/regiã
 O Azure Maps tem sido localizado em línguas de variedades em todos os seus serviços. A tabela seguinte fornece os códigos linguísticos suportados para cada serviço.  
   
 
-| ID         | Name                   |  Maps | Pesquisa | Encaminhamento | Meteorologia | Incidentes de trânsito | Controlo de mapas JS |
+| ID         | Name                   |  Mapas | Pesquisar | Encaminhamento | Meteorologia | Incidentes de trânsito | Controlo de mapas JS |
 |------------|------------------------|:-----:|:------:|:-------:|:--------:|:-----------------:|:--------------:|
 | af-ZA      | Afrikaans              |       |    ✓   |    ✓    |         |                   |                |
 | ar-SA      | Árabe                 |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
@@ -146,7 +147,7 @@ Por predefinição, o parâmetro 'Ver' é definido como **Unificado,** mesmo que
 
 A tabela a seguir fornece pontos de vista apoiados.
 
-| Vista         | Descrição                            |  Maps | Pesquisa | JS Controlo de Mapas |
+| Vista         | Descrição                            |  Mapas | Pesquisar | JS Controlo de Mapas |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
 | AE           | Emirados Árabes Unidos (Visão Árabe)    |   ✓   |        |     ✓          |
 | AR           | Argentina (Visão Argentina)           |   ✓   |    ✓   |     ✓          |

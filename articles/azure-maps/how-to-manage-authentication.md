@@ -2,19 +2,19 @@
 title: Gerir autenticação
 titleSuffix: Azure Maps
 description: Utilize o portal Azure para gerir a autenticação no Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 174606b4b070b69aba94f438a3f7177f0d5897f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69dda537beda1d1bec4f019e1d5cadd16bdd5b39
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84981727"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126861"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gerir a autenticação em Azure Maps
 
@@ -43,14 +43,14 @@ A tabela que se segue descreve cenários comuns de autenticação e autorizaçã
 > [!IMPORTANT]
 > A Microsoft recomenda a implementação do Azure Ative Directory (Azure AD) com controlo de acesso baseado em funções (RBAC) para aplicações de produção.
 
-| Scenario                                                                                    | Autenticação | Autorização | Esforço de desenvolvimento | Esforço operacional |
+| Cenário                                                                                    | Autenticação | Autorização | Esforço de desenvolvimento | Esforço operacional |
 | ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
-| [Aplicação de cliente fidedigna de daemon /não-interativa](./how-to-secure-daemon-app.md)        | Chave Partilhada     | N/D           | Médio             | Alta               |
-| [Aplicação de cliente fidedigna de daemon /não-interativa](./how-to-secure-daemon-app.md)        | Azure AD       | Alta          | Baixa                | Médio             |
-| [Aplicação web de página única com único sign-on interativo](./how-to-secure-spa-users.md) | Azure AD       | Alta          | Médio             | Médio             |
-| [Aplicação web de página única com sinal não interativo](./how-to-secure-spa-app.md)      | Azure AD       | Alta          | Médio             | Médio             |
-| [Aplicação web com único sign-on interativo](./how-to-secure-webapp-users.md)          | Azure AD       | Alta          | Alta               | Médio             |
-| [Dispositivo IoT / dispositivo constrangido de entrada](./how-to-secure-device-code.md)                     | Azure AD       | Alta          | Médio             | Médio             |
+| [Aplicação de cliente fidedigna de daemon /não-interativa](./how-to-secure-daemon-app.md)        | Chave Partilhada     | N/D           | Médio             | Alto               |
+| [Aplicação de cliente fidedigna de daemon /não-interativa](./how-to-secure-daemon-app.md)        | Azure AD       | Alto          | Baixo                | Médio             |
+| [Aplicação web de página única com único sign-on interativo](./how-to-secure-spa-users.md) | Azure AD       | Alto          | Médio             | Médio             |
+| [Aplicação web de página única com sinal não interativo](./how-to-secure-spa-app.md)      | Azure AD       | Alto          | Médio             | Médio             |
+| [Aplicação web com único sign-on interativo](./how-to-secure-webapp-users.md)          | Azure AD       | Alto          | Alto               | Médio             |
+| [Dispositivo IoT / dispositivo constrangido de entrada](./how-to-secure-device-code.md)                     | Azure AD       | Alto          | Médio             | Médio             |
 
 Os links na tabela levam-no a informações detalhadas de configuração para cada cenário.
 
@@ -79,7 +79,7 @@ Solicite um sinal do ponto final da Azure AD. No seu pedido AZure AD, utilize os
 
 Para obter mais informações sobre a solicitação de tokens de acesso da Azure AD para utilizadores e diretores de serviço, consulte [cenários de autenticação para Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios) e veja cenários específicos na tabela de [Cenários.](./how-to-manage-authentication.md#determine-authentication-and-authorization)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações, consulte [Azure AD e Azure Maps Web SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
 

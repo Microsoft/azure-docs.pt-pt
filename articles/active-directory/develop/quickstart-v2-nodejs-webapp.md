@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 5522d35faf1888c862e0c42328f08067e7b9be26
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-javascript
+ms.openlocfilehash: 165f3dab2413afc09a67175bb10471c2bd53ea32
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85339908"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129173"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Quickstart: Adicione o sinal na utilização do OpenID Connect a uma aplicação web Node.js
 
@@ -30,7 +30,7 @@ Para executar esta amostra, você precisará:
 
 * Ou uma [conta Microsoft](https://www.outlook.com) ou o [Microsoft 365 Developer Program](/office/developer-program/office-365-developer-program)
 
-## <a name="register-your-application"></a>Registar a sua aplicação
+## <a name="register-your-application"></a>Registar a aplicação
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. Se a sua conta estiver presente em mais de um inquilino da AZure AD:
     - Selecione o seu perfil a partir do menu no canto superior direito da página e, em seguida, altere o **diretório**.
@@ -80,7 +80,7 @@ A partir do diretório de raiz do projeto, executar o comando:
 
 `$ npm install`
 
-## <a name="configure-the-application"></a>Configure a aplicação
+## <a name="configure-the-application"></a>Configurar a aplicação
 
 Forneça os parâmetros `exports.creds` em config.js conforme instruído.
 

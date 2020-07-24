@@ -1,20 +1,20 @@
 ---
-title: Marketplace Insights - Mercado comercial da Microsoft
+title: Marketplace Insights - Mercado comercial da Microsoft, Microsoft AppSource e Azure Marketplace
 description: Aceda a um resumo da análise web do marketplace, que lhe permite medir o envolvimento do cliente no Microsoft AppSource e no Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 12/16/2019
-ms.openlocfilehash: 8b5f90449f27007febe93f1193c6d2245b076e7e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+ms.date: 07/22/2019
+ms.openlocfilehash: c72f3c9cce19896557fa9f4114b935fcc5ca8dc2
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120403"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128952"
 ---
 # <a name="marketplace-insights-dashboard-in-partner-center"></a>Painel de insights de mercado no Partner Center
 
-Este artigo fornece informações sobre o dashboard Marketplace Insights no Partner Center. Este dashboard apresenta um resumo da análise da Web do marketplace, que permite aos editores medir o envolvimento do cliente nas respetivas páginas de detalhes do produto listadas nas montras do mercado: Microsoft AppSource e Azure Marketplace.
+Este artigo fornece informações sobre o dashboard Marketplace Insights no Partner Center. Este dashboard apresenta um resumo da análise web do marketplace que permite aos editores medir o envolvimento do cliente nas respetivas páginas de detalhes do produto listadas nas lojas de marketplace comercial: Microsoft AppSource e Azure Marketplace.
 
 ## <a name="marketplace-insights-dashboard"></a>Dashboard de Informações do Marketplace
 
@@ -25,18 +25,20 @@ Pode ver as representações gráficas dos seguintes itens:
 - [Resumo do Marketplace Insights](#marketplace-insights-summary)
 - [Visitas de página por geografia](#page-visits-by-geography)  
 - [Visitas de página versus tendência única de visitantes](#page-visits-versus-unique-visitors-trend)
-- [Chamada à ação contra visitantes únicos com CTAs](#call-to-action-versus-unique-visitors-with-ctas)
+- [Chamada à ação (CTA) contra visitantes únicos com CTAs](#call-to-action-versus-unique-visitors-with-ctas)
 - [Visitas de página e chamada à ação por ofertas](#page-visits-and-calls-to-action-by-offers)
 - [Tendência percentual de apelo à ação](#call-to-action-percentage-trend)
 - [Visitas de página e chamadas à ação por domínios de referência](#page-visits-and-calls-to-action-by-referral-domains)
 - [Tabela de detalhes do Marketplace Insights](#marketplace-insights-details-table)
+
+A latência máxima entre os utilizadores que visitam ofertas no Azure Marketplace ou AppSource e reportando no Partner Center é de 48 horas.
 
 >[!NOTE]
 > Para definições detalhadas de terminologia analítica, consulte [perguntas frequentes e terminologia para análise de mercado comercial.](./faq-terminology.md)
 
 ### <a name="insights-dashboard-layout"></a>Insights dashboard layout
 
-Pode ver as métricas do Marketplace de várias maneiras:
+Ver métricas de mercado comercial de várias maneiras:
 
 - Separadores de fachada
 - Filtros de página
@@ -74,7 +76,7 @@ Este número representa a contagem de visitantes distinta durante o intervalo de
 
 ### <a name="call-to-action"></a>Chamada à ação
 
-Este número representa a contagem de cliques do botão **Call to Action** concluídos na página de oferta (página de detalhes do produto). **As chamadas para a ação** são contadas quando o Get it **now**, **Teste gratuito**, **Contacte-me**e os botões **test drive** são selecionados.
+Este número representa a contagem de cliques do botão **Call to Action** concluídos na página de oferta (página de detalhes do produto). **As chamadas para a ação** são contadas quando os utilizadores selecionam o Get it **now**, **Free trial**, Contact **me**ou **Test drive** buttons.
 
 ![Partner Center Insights chamada para resumo de ação](./media/insights-summary.png)
 
@@ -128,9 +130,9 @@ Esta tabela fornece uma visão de lista das visitas de página e as chamadas par
 
 - Os dados podem ser extraídos para um ficheiro CSV se a contagem de registos for inferior a 1000.
 - Se a contagem de registos for superior a 1000, os dados exportados serão colocados de forma assíncronea numa página de downloads durante os próximos 30 dias.
-- Os filtros podem ser aplicados para exibir os dados que lhe interessam. Os dados podem ser filtrados pelos nomes da Oferta e nomes de campanha.  
+- Filtrar os dados por Ofeia nomes e nomes de campanha para exibir os dados em que está interessado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma visão geral dos relatórios de análise disponíveis no mercado comercial do Partner Center, consulte [Analytics para o mercado comercial no Partner Center](./analytics.md).
 - Para gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para a sua oferta, consulte [o Painel De Resumo em análise de mercado comercial.](./summary-dashboard.md)

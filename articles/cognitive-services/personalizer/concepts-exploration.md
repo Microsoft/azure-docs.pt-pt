@@ -1,43 +1,41 @@
 ---
-title: Exploração - Personalizer
+title: Exploração - Personalização
 titleSuffix: Azure Cognitive Services
-description: Com a exploração, o Personalizer é capaz de continuar a apresentar bons resultados, mesmo à medida que o comportamento do utilizador muda. Escolher um cenário de exploração é uma decisão de negócio sobre a proporção de interações do utilizador para explorar, de forma a melhorar o modelo.
+description: Com a exploração, o Personalizer é capaz de continuar a apresentar bons resultados, mesmo à medida que o comportamento do utilizador muda. Escolher uma definição de exploração é uma decisão de negócio sobre a proporção de interações de utilizador para explorar, de forma a melhorar o modelo.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: diberry
-ms.openlocfilehash: 0b69c1fb070431ad61858322dce461f6496c35d7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 00b9cc881d9414e957d7503bb6156095bb821c06
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73490816"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128153"
 ---
 # <a name="exploration-and-exploitation"></a>Exploração e exploração
 
 Com a exploração, o Personalizer é capaz de continuar a apresentar bons resultados, mesmo à medida que o comportamento do utilizador muda.
 
-Quando o Personalizer recebe uma chamada de Rank, devolve um RewardActionID que:
-* Usa a exploração para corresponder ao comportamento mais provável do utilizador com base no atual modelo de aprendizagem automática.
+Quando o Personaler recebe uma chamada de Rank, devolve um RewardActionID que:
+* Utiliza a exploração para corresponder ao comportamento mais provável do utilizador com base no modelo atual de aprendizagem automática.
 * Usa a exploração, que não corresponde à ação que tem a maior probabilidade no ranking.
 
-Personalizer usa atualmente um algoritmo chamado *epsilon ganancioso* para explorar. 
+O personalizar usa atualmente um algoritmo chamado *epsilon ganancioso* para explorar. 
 
 ## <a name="choosing-an-exploration-setting"></a>Escolher um cenário de exploração
 
 Configura a percentagem de tráfego a utilizar para exploração na página de **Configuração** do portal Azure para Personalizar. Esta definição determina a percentagem de chamadas rank que realizam a exploração. 
 
-O personalizer determina se deve explorar ou explorar com esta probabilidade em cada chamada de classificação. Isto é diferente do comportamento em algumas estruturas A/B que bloqueiam um tratamento em iDs específicos do utilizador.
+O personalização determina se deve explorar ou explorar com esta probabilidade em cada chamada de classificação. Isto é diferente do comportamento em algumas estruturas A/B que bloqueiam um tratamento em IDs específicos do utilizador.
 
-## <a name="best-practices-for-choosing-an-exploration-setting"></a>Boas práticas para escolher um cenário de exploração
+## <a name="best-practices-for-choosing-an-exploration-setting"></a>Melhores práticas para escolher um cenário de exploração
 
-Escolher um cenário de exploração é uma decisão de negócio sobre a proporção de interações do utilizador para explorar, de forma a melhorar o modelo. 
+Escolher uma definição de exploração é uma decisão de negócio sobre a proporção de interações de utilizador para explorar, de forma a melhorar o modelo. 
 
-Um cenário de zero irá anular muitos dos benefícios do Personalizer. Com esta definição, o Personalizer não utiliza interações do utilizador para descobrir melhores interações do utilizador. Isto leva à estagnação do modelo, à deriva e, em última análise, a um desempenho mais baixo.
+Um ajuste de zero irá anular muitos dos benefícios do Personalizer. Com esta definição, o Personalizer não utiliza interações do utilizador para descobrir melhores interações do utilizador. Isto leva à estagnação do modelo, à deriva e, em última análise, a um desempenho mais baixo.
 
 Uma definição demasiado alta irá anular os benefícios de aprender com o comportamento do utilizador. Defini-lo a 100% implica uma aleatoriedade constante, e qualquer comportamento aprendido dos utilizadores não influenciaria o resultado.
 

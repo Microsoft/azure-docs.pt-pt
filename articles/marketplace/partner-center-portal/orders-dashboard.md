@@ -1,16 +1,16 @@
 ---
-title: Partner Center Orders dashboard em análise de marketplace comercial
-description: Saiba como aceder a relatórios analíticos sobre o seu mercado oferece encomendas num formato gráfico e transferível.
+title: Partner Center Orders dashboard em analytics marketplace comercial, Microsoft AppSource e Azure Marketplace
+description: Saiba como aceder a relatórios analíticos sobre o seu mercado comercial oferece encomendas num formato gráfico e transferível.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 07/01/2020
-ms.openlocfilehash: fe1f64994d344ad9b23895823b846da62d895128
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/22/2020
+ms.openlocfilehash: 7a704936b35ba5c747ab5884c61f3f5413ac5f07
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536135"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127320"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Dashboard de encomendas na análise do mercado comercial
 
@@ -32,6 +32,8 @@ O **painel de encomendas** do menu **'Encomendas'** apresenta as encomendas atua
 - [Encomendas por planos](#orders-by-plans)
 - [Tendência de encomendas e assentos](#orders-and-seats-trend)
 - [Tabela de detalhes do pedido](#order-details-table)
+
+A latência máxima entre a criação e reportagem de encomendas no Partner Center é de 48 horas.
 
 ## <a name="order-dashboard-details"></a>Encomende detalhes do painel de instrumentos
 
@@ -63,7 +65,7 @@ As **Encomendas por ofertas** de gráfico de donut organiza encomendas (incluind
 
 - As ofertas de topo são apresentadas no gráfico e as restantes ofertas são agrupadas como 'Rest All'.
 - Pode selecionar ofertas específicas na legenda para exibir apenas essas ofertas no gráfico.
-- Pairar sobre uma fatia no gráfico apresentará o número de encomendas e percentagem dessa oferta em comparação com o número total de encomendas em todas as ofertas.
+- Pairar sobre uma fatia no gráfico mostra o número de encomendas e percentagem dessa oferta em comparação com o seu número total de encomendas em todas as ofertas.
 - As **encomendas por ofertas de tendência** exibem tendências de crescimento mensais. A coluna mensal representa o número de encomendas pelo nome de oferta. O gráfico de linha apresenta a tendência de crescimento percentual traçada num eixo z.
 - Pode utilizar o slider no topo da tabela para deslocar para a direita e para a esquerda ao longo do eixo X e concentrar-se em pontos de dados específicos.
 - Pode apresentar o gráfico de tendências selecionando um item específico na legenda.
@@ -71,7 +73,7 @@ As **Encomendas por ofertas** de gráfico de donut organiza encomendas (incluind
 
 ### <a name="orders-trend-per-site-versus-per-seat"></a>Tendência de encomendas por site versus por assento
 
-O gráfico de donut **por site versus por assento** representa a desagregação de por site SaaS e por assento As encomendas SaaS compradas pelos clientes (este gráfico inclui encomendas canceladas). O gráfico de colunas representa a tendência de por site SaaS e por assento As encomendas SaaS compradas pelos clientes (este gráfico inclui encomendas canceladas).
+O gráfico **de donuts por local versus por assento** representa a desagregação das encomendas SaaS por local e por assento SaaS compradas pelos clientes (este gráfico inclui encomendas canceladas). O gráfico de colunas representa a tendência de por site SaaS e por assento As encomendas SaaS compradas pelos clientes (este gráfico inclui encomendas canceladas).
 
 ### <a name="orders-by-plans"></a>Encomendas por planos
 
@@ -79,16 +81,16 @@ O gráfico **de Encomendas por planos** representa a tendência das encomendas a
 
 ### <a name="orders-and-seats-trend"></a>Tendência encomendas e assentos
 
-O gráfico **de tendências de encomendas e lugares** apresenta as 50 melhores ofertas com o maior número de encomendas. Estes são exibidos num quadro de líderes e são classificados pela maior percentagem de pedidos e pedidos.
+O gráfico **de tendências de encomendas e lugares** apresenta as 50 melhores ofertas com o maior número de encomendas. Estes são exibidos num quadro de líderes e classificados pela maior percentagem de pedidos e pedidos.
 
 - **Encomendas por planos** – Selecione uma oferta para ver a contagem decrescente para os cinco melhores planos da tabela.
-- **Lugares por planos** – A tendência mensal dos lugares para os cinco primeiros planos. Se a oferta selecionada não for uma oferta por assento, não verá nenhum dado nesta tabela de área.
+- **Lugares por planos** – A tendência mensal dos lugares para os cinco primeiros planos. Se a oferta selecionada não for uma oferta por assento, nenhum dado será apresentado aqui.
 
 ### <a name="canceled-orders-by-offers"></a>Encomendas canceladas por ofertas
 
 As **encomendas canceladas por ofertas** de gráfico de tartes organizam todas as suas encomendas canceladas de acordo com os nomes da oferta. As ofertas de topo são apresentadas no gráfico e as restantes ofertas são agrupadas como "Rest All". Pode selecionar ofertas específicas na legenda para exibir no gráfico.
 
-- Pairar sobre uma fatia no gráfico apresentará o número de encomendas e percentagem da oferta selecionada em comparação com o número total de encomendas em todas as ofertas.
+- Pairar sobre uma fatia no gráfico exibe o número de encomendas e percentagem da oferta selecionada em comparação com o número total de encomendas em todas as ofertas.
 - O gráfico da coluna apresenta tendências mensais. As colunas representam o número de encomendas canceladas pelo nome de oferta. Pode utilizar o slider no topo da tabela para deslocar para a direita e para a esquerda ao longo do eixo X e concentrar-se em pontos de dados específicos. Pode apresentar o gráfico de tendências selecionando um item específico na legenda.
 
 ### <a name="order-details-table"></a>Tabela de detalhes do pedido
@@ -98,8 +100,8 @@ A tabela de detalhes da Ordem apresenta uma lista numerada das 1000 principais e
 - Cada coluna da grelha é ordenada.
 - Os dados podem ser extraídos para um ficheiro TSV se a contagem dos registos for inferior a 1000.
 - Se os registos forem mais de 1000, os dados exportados serão colocados de forma assíncronea numa página de downloads durante os próximos 30 dias.
-- Os filtros podem ser aplicados na **tabela de detalhes** da Encomenda para exibir apenas os dados que lhe interessam. Os dados podem ser filtrados por País/Região, tipo de licença Azure, tipo de licença marketplace, tipo de oferta, estado de encomenda, trilhos gratuitos, ID de assinatura do Mercado, ID do cliente e nome da Empresa.
-- Como as ofertas do SaaS adquiridas através do Azure Marketplace ou appSource não requerem uma Subscrição Azure, o ID de subscrição do Marketplace aparecerá como 000000-0000-0000-0000-00000000000000000000 na secção **de dados de encomendas detalhadas.**
+- Aplique filtros na **tabela de detalhes** da Ordem para exibir apenas os dados que lhe interessam. Filtrar por País/Região, Tipo de licença Azure, tipo de licença de mercado comercial, tipo de oferta, estado de encomenda, trilhos gratuitos, ID de assinatura de mercado comercial, ID do cliente e nome da Empresa.
+- Como o SaaS oferece adquirido através do Azure Marketplace ou appSource, não requer uma Subscrição Azure, o ID de subscrição do Marketplace aparecerá como 0000000-0000-0000-0000-000000000000000000000000 na secção **de dados de encomendas detalhadas.**
 
 #### <a name="orders-page-filters"></a>Pedidos Filtros de página
 
@@ -118,7 +120,7 @@ Pode selecionar vários filtros para tornar o gráfico para os critérios que es
 
      ![Ordem de Análise do Centro parceiro com valor único aplicado ao filtro](./media/filters-applied-single.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma visão geral dos relatórios de análise disponíveis no mercado comercial do Partner Center, consulte [Analytics para o mercado comercial no Partner Center](./analytics.md).
 - Para gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para a sua oferta, consulte [o painel Sumário na análise do mercado comercial.](./summary-dashboard.md)

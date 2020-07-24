@@ -1,19 +1,19 @@
 ---
 title: Adicione uma camada de mapa do Consórcio Geoespacial Aberto (OGC) Microsoft Azure Maps
 description: Saiba como sobrepor uma camada de mapa OGC no mapa e como usar as diferentes opções na classe OgcMapLayer.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b753ecfc07cfb3806838f8a05dbe33ef0bb92730
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6efc6b27090ecc7171bb66deb303a4764d9b6f04
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80334290"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128561"
 ---
 # <a name="add-a-map-layer-from-the-open-geospatial-consortium-ogc"></a>Adicione uma camada de mapa do Consórcio Geoespacial Aberto (OGC)
 
@@ -28,7 +28,7 @@ As secções seguintes descrevem as funcionalidades do serviço de mapa web que 
 - O GetFeatureInfo requer o serviço para suportar `EPSG:4326` ou lidar com reprojecções. 
 - Operações apoiadas:
 
-    | | |
+    | Operação | Descrição |
     | :-- | :-- |
     | ObterCapabilidades | Recupera metadados sobre o serviço com as capacidades suportadas |
     | GetMap | Recupera uma imagem de mapa para uma região especificada |
@@ -42,7 +42,7 @@ As secções seguintes descrevem as funcionalidades do serviço de mapa web que 
 - O identificador TileMatrix deve ser um valor inteiro que corresponda a um nível de zoom no mapa. Num mapa azul, o nível de zoom é um valor entre `"0"` e `"22"` . Então, `"0"` é apoiado, mas `"00"` não é apoiado.
 - Operações apoiadas:
 
-    | | |
+    | Operação | Descrição |
     | :-- | :-- |
     | ObterCapabilidades | Recupera as operações e funcionalidades suportadas |
     | GetTile | Recupera imagens para um determinado azulejo |

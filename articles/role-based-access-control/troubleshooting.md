@@ -15,11 +15,12 @@ ms.date: 05/01/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: ac5c19866a164bbc927d23495e9d6ec9a1ef6bfe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d6c9ab2bacf94b3a27bfd1de0189d8b89b5efaf
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84790709"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129445"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Resolução de problemas Azure RBAC
 
@@ -65,7 +66,7 @@ $ras.Count
 - Só é possível definir um grupo de gestão num `AssignableScopes` papel personalizado. A adição de um grupo de gestão `AssignableScopes` está atualmente em pré-visualização.
 - As funções personalizadas `DataActions` com as quais não podem ser atribuídas no âmbito do grupo de gestão.
 - O Gestor de Recursos Azure não valida a existência do grupo de gestão no âmbito atribuível da definição de função.
-- Para obter mais informações sobre funções personalizadas e grupos de gestão, consulte [Organizar os seus recursos com grupos de gestão Azure.](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment)
+- Para obter mais informações sobre funções personalizadas e grupos de gestão, consulte [Organizar os seus recursos com grupos de gestão Azure.](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment)
 
 ## <a name="transferring-a-subscription-to-a-different-directory"></a>Transferir uma subscrição para um diretório diferente
 
@@ -222,7 +223,7 @@ Algumas [funcionalidades das Funções Azure](../azure-functions/functions-overv
 
 Um leitor pode clicar no separador **funcionalidades** da Plataforma e, em seguida, clicar **em Todas as definições** para visualizar algumas definições relacionadas com uma aplicação de função (semelhante a uma aplicação web), mas não consegue modificar nenhuma destas definições. Para aceder a estas funcionalidades, necessitará da função [Colaboradora.](built-in-roles.md#contributor)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Resolução de problemas para utilizadores convidados](role-assignments-external-users.md#troubleshoot)
 - [Adicione ou remova atribuições de funções Azure usando o portal Azure](role-assignments-portal.md)

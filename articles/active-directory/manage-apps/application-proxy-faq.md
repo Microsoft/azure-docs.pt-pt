@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 10/03/2019
+ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 839ce418fa8ad72e18537cf673c8af0479409ba7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b95ae3c7fcf52a732304bb835f91c52b015801e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386288"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128935"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Diretório Ativo (Azure AD) Aplicação Proxy frequentemente perguntas
 
@@ -52,6 +52,9 @@ Para obter recomendações, consulte [alta disponibilidade e equilíbrio de carg
 ### <a name="is-tls-termination-tlshttps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>A rescisão de TLS (inspeção ou aceleração TLS/HTTPS) está suportada no tráfego dos servidores do conector para o Azure?
 
 O Conector de Procuração de Aplicações realiza a autenticação baseada em certificados para a Azure. A rescisão de TLS (inspeção ou aceleração TLS/HTTPS) quebra este método de autenticação e não é suportada. O tráfego do conector para o Azure deve contornar todos os dispositivos que estejam a realizar a Rescisão TLS.  
+
+### <a name="is-tls-12-required-for-all-connections"></a>O TLS 1.2 é necessário para todas as ligações?
+Yes. Para fornecer a melhor encriptação em classe aos nossos clientes, o serviço Application Proxy limita o acesso a apenas protocolos TLS 1.2. Estas alterações foram gradualmente lançadas e eficazes desde 31 de agosto de 2019. Certifique-se de que todas as combinações de servidores de clientes e servidores de navegador são atualizadas para utilizar o TLS 1.2 para manter a ligação ao serviço De procuração de aplicações. Estes incluem clientes que os seus utilizadores estão a usar para aceder a aplicações publicadas através do Application Proxy. Consulte a preparação para [o TLS 1.2 no Office 365](https://docs.microsoft.com/microsoft-365/compliance/prepare-tls-1.2-in-office-365) para obter referências e recursos úteis.
 
 ### <a name="can-i-place-a-forward-proxy-device-between-the-connector-servers-and-the-back-end-application-server"></a>Posso colocar um dispositivo de procuração para a frente entre o(s) servidor(s) do conector e o servidor de aplicação de back-end?
 Sim, este cenário é suportado a partir da versão do conector 1.5.1526.0. Consulte [o Trabalho com os servidores proxy existentes no local.](application-proxy-configure-connectors-with-proxy-servers.md)
@@ -93,6 +96,9 @@ A partir da página 'Registos de Candidaturas', pode alterar o URL da página in
 
 Não, não há requisitos do IIS para aplicações que sejam publicadas. Pode publicar aplicações web em execução em servidores que não o Windows Server. No entanto, poderá não ser capaz de utilizar a pré-autenticação com um Servidor não Windows, dependendo se o servidor web suporta negociar (autenticação Kerberos). O IIS não é necessário no servidor onde o conector está instalado.
 
+### <a name="can-i-configure-application-proxy-to-add-the-hsts-header"></a>Posso configurar o Application Proxy para adicionar o cabeçalho HSTS?
+A Application Proxy não adiciona automaticamente o cabeçalho HTTP Strict-Transport-Security às respostas HTTPS, mas manterá o cabeçalho se estiver na resposta original enviada pela aplicação publicada. Provar uma definição para ativar esta funcionalidade encontra-se no roteiro. Se estiver interessado numa pré-visualização que permita adicionar isto às respostas, contacte aadapfeedback@microsoft.com para obter mais detalhes.
+
 ## <a name="integrated-windows-authentication"></a>Autenticação Integrada do Windows.
 
 ### <a name="when-should-i-use-the-principalsallowedtodelegatetoaccount-method-when-setting-up-kerberos-constrained-delegation-kcd"></a>Quando devo utilizar o método PrincipalSAllowedToDeledtoAccount ao criar a Delegação Restrita kerberos (KCD)?
@@ -133,7 +139,7 @@ Sim, é esperado. O cenário de pré-autenticação requer um controlo ActiveX, 
 
 ### <a name="is-the-remote-desktop-web-client-html5-supported"></a>O Cliente Web de Desktop Remoto (HTML5) está suportado?
 
-Não, este cenário não é apoiado atualmente. Siga o nosso fórum de feedback [UserVoice](https://aka.ms/aadapuservoice) para obter atualizações sobre esta funcionalidade.
+Sim, este cenário está neste momento em pré-visualização pública. Consulte para [publicar desktop remoto com Proxy de aplicação AD Azure](application-proxy-integrate-with-remote-desktop-services.md).
 
 ### <a name="after-i-configured-the-pre-authentication-scenario-i-realized-that-the-user-has-to-authenticate-twice-first-on-the-azure-ad-sign-in-form-and-then-on-the-rdweb-sign-in-form-is-this-expected-how-can-i-reduce-this-to-one-sign-in"></a>Depois de configurar o cenário de pré-autenticação, percebi que o utilizador tem de autenticar duas vezes: primeiro no formulário de inscrição AD Azure e, em seguida, no formulário de inscrição RDWeb. Isto é esperado? Como posso reduzir isto a uma s inscrição?
 
@@ -167,7 +173,7 @@ As funcionalidades (Eventlogs, PowerShell e Remote Desktop Services) no Windows 
 
 ### <a name="does-using-link-translation-affect-performance"></a>A utilização da tradução link afeta o desempenho?
 
-Sim. A tradução de ligação afeta o desempenho. O serviço Application Proxy digitaliza a aplicação de links codificados e substitui-os pelos respetivos URLs externos publicados antes de os apresentar ao utilizador. 
+Yes. A tradução de ligação afeta o desempenho. O serviço Application Proxy digitaliza a aplicação de links codificados e substitui-os pelos respetivos URLs externos publicados antes de os apresentar ao utilizador. 
 
 Para um melhor desempenho, recomendamos a utilização de URLs internos e externos idênticos configurando [domínios personalizados](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain). Se não for possível utilizar domínios personalizados, pode melhorar o desempenho da tradução de ligações utilizando o Signo Seguro das Minhas Aplicações em Extensão ou o Navegador Microsoft Edge no telemóvel. Consulte [links codificados para apps publicadas com Proxy de aplicações AD AD Azure.](application-proxy-configure-hard-coded-link-translation.md)
 

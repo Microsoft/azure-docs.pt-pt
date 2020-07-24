@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: b7739320fa23bf4469548f61486da1a5ee6110da
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 075837d0c382f5bc6f436a63dfe227c17f0a57a3
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507165"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128663"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Access and identity options for Azure Kubernetes Service (AKS) (Opções de acesso e de identidade do Azure Kubernetes Service (AKS))
 
@@ -105,7 +105,7 @@ O Azure RBAC é um sistema de autorização construído na [Azure Resource Manag
 
 Com o Azure RBAC, cria-se uma *definição de papel* que descreve as permissões a aplicar. Um utilizador ou grupo é então atribuído esta definição de função através de uma *atribuição de papel* para um determinado *âmbito*, que poderia ser um recurso individual, um grupo de recursos, ou em toda a subscrição.
 
-Para mais informações, veja [o que é Azure RBAC?][azure-rbac]
+Para obter mais informações, consulte [o que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?][azure-rbac]
 
 Existem dois níveis de acesso necessários para operar plenamente um cluster AKS: 
 1. [Aceda ao recurso AKS na sua subscrição Azure.](#azure-rbac-to-authorize-access-to-the-aks-resource) Este processo permite-lhe controlar as coisas que escalam ou melhoram o seu cluster utilizando as APIs AKS, bem como puxar o seu kubeconfig.
@@ -147,7 +147,7 @@ A AKS fornece os seguintes quatro papéis incorporados. São semelhantes aos [pa
 
 **Veja como aproveitar a autorização do Azure RBAC para a autorização de Kubernetes [aqui.](manage-azure-rbac.md)**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para começar com Azure AD e Kubernetes RBAC, consulte [Integrate Azure Ative Directory com AKS][aks-aad].
 - Para as melhores práticas associadas, consulte [as melhores práticas de autenticação e autorização em AKS][operator-best-practices-identity].

@@ -3,14 +3,16 @@ title: Criar uma oferta de aplicações Azure - Mercado comercial da Microsoft
 description: Conheça os passos e considerações para a criação de uma nova oferta de aplicações Azure no portal do mercado comercial no Partner Center. Pode listar ou vender a sua oferta de aplicação Azure no Azure Marketplace ou através do programa Cloud Solution Provider (CSP).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: c5371b2d9379ca861addac07de50d7cdf9c34c8b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+author: qianw211
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 6789e32cbbb1257a668e7be87a8b73a0511b6fb0
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121980"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87127439"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicações do Azure
 
@@ -65,7 +67,7 @@ Os [modelos de solução de construção de vídeo e aplicações geridas para o
 
 Escolha um ou ambos os seguintes ambientes de script para ajudar a gerir a sua aplicação Azure:
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
 * [CLI do Azure](https://docs.microsoft.com/cli/azure)
 
 Recomendamos adicionar as seguintes ferramentas ao seu ambiente de desenvolvimento:
@@ -308,7 +310,7 @@ A configuração técnica define os detalhes (ID do inquilino e ID de aplicativo
 
 ## <a name="plan-overview"></a>Visão geral do plano
 
-Este separador permite-lhe fornecer diferentes opções de plano dentro da mesma oferta. Estes planos (referidos como SKUs no Portal do Parceiro cloud) podem diferir em termos de tipo de plano (modelo de solução vs aplicação gerida), monetização ou audiência.  Configure pelo menos um plano para listar a sua oferta no mercado.
+Este separador permite-lhe fornecer diferentes opções de plano dentro da mesma oferta. Estes planos (anteriormente chamados SKUs) podem diferir em termos de tipo de plano (modelo de solução vs aplicação gerida), monetização ou audiência. Configure pelo menos um plano para listar a sua oferta no mercado.
 
 Uma vez criado, verá os nomes do seu plano, IDs, tipo de plano, disponibilidade (Público ou Privado), estado de publicação atual e quaisquer ações disponíveis neste separador.
 
@@ -510,7 +512,7 @@ Indique quem deve ter acesso à gestão a esta aplicação gerida em cada nuvem 
 
 **Autorizações** – Adicione o ID do objeto Azure Ative Do utilizador, grupo ou aplicação que pretende ser autorizado ao grupo de recursos geridos. Identifique o utilizador pelo seu ID principal, que pode ser encontrado na lâmina de utilizadores do [Azure Ative Directory no portal Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
-Para cada principal, selecione uma das funções incorporadas AZure da lista (Proprietário ou Contribuinte). A função selecionada descreverá as permissões que o principal terá sobre os recursos na subscrição do cliente. Para obter mais informações, veja as [Funções incorporadas dos recursos do Azure](../../role-based-access-control/built-in-roles.md). Para obter mais informações sobre o controlo de acesso baseado em funções (RBAC), consulte [Começar com o RBAC no portal Azure](../../role-based-access-control/overview.md).
+Para cada principal, selecione uma das funções incorporadas AZure da lista (Proprietário ou Contribuinte). A função selecionada descreverá as permissões que o principal terá sobre os recursos na subscrição do cliente. Para mais informações, consulte [as funções incorporadas do Azure.](../../role-based-access-control/built-in-roles.md) Para obter mais informações sobre o controlo de acesso baseado em funções (RBAC), consulte [Começar com o RBAC no portal Azure](../../role-based-access-control/overview.md).
 
 >[!Note]
 >Embora possa adicionar até 100 autorizações por nuvem, é geralmente mais fácil criar um grupo de utilizadores do Ative Directory e especificar o seu ID no "ID principal". Isto permitir-lhe-á adicionar mais utilizadores ao grupo de gestão após a implementação do plano e reduzir a necessidade de atualizar o plano apenas para adicionar mais autorizações.
@@ -592,6 +594,6 @@ O passo **de validação manual** no processo de publicação representa uma rev
 
 Se tiver erros numa ou mais das etapas de publicação, corrija-as antes de voltar a publicar a sua oferta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Atualizar uma oferta existente no Marketplace Comercial](./update-existing-offer.md)

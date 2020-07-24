@@ -2,19 +2,17 @@
 title: Começar com a linguagem U-SQL em Azure Data Lake Analytics
 description: Aprenda os fundamentos da língua U-SQL em Azure Data Lake Analytics. Escreva a sua primeira consulta usando variáveis para dados extra de ficheiros, transforme o conjunto de linhas e os dados agregados.
 services: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 06/23/2017
-ms.openlocfilehash: e80ecac68c3352c7f067fcbfcedb9a07aed729a8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 6f2af2eed8aa01f35e1813bcd910f3ea22e2a335
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120862"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128850"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Começar com u-SQL em Azure Data Lake Analytics
 
@@ -227,7 +225,7 @@ OUTPUT @res
 
 Para cenários avançados de agregação, consulte a documentação de referência U-SQL para [funções agregadas, analíticas e de referência](/u-sql/built-in-functions)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Descrição geral do Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Desenvolver scripts U-SQL com as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
