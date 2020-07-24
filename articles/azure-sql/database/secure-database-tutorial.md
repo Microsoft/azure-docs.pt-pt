@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: c658283ed610dcd14fca82b14217cba979388fc2
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 73ffe7fe6336d9547ebbbf4c894bd1b9398e0900
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85252921"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092937"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Tutorial: Proteger uma base de dados na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -48,7 +48,7 @@ Para saber mais, consulte a visão geral de segurança da [Base de Dados Azure S
 
 Para completar o tutorial, certifique-se de que tem os seguintes pré-requisitos:
 
-- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
+- [O SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - Um [servidor](logical-servers.md) e uma única base de dados
   - Crie-os com o [portal Azure,](single-database-create-quickstart.md) [CLI](az-cli-script-samples-content-guide.md)ou [PowerShell](powershell-script-content-guide.md)
 
@@ -146,7 +146,7 @@ Para obter informações sobre a configuração da Azure AD, consulte:
 - [Adicione o seu próprio nome de domínio ao Azure AD](../../active-directory/fundamentals/add-custom-domain.md)
 - [Microsoft Azure agora suporta federação com AD do Windows Server](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Administrar o diretório do Azure AD](../../active-directory/fundamentals/active-directory-whatis.md)
-- [Gerir a AD Azure usando o PowerShell](/powershell/azure/overview?view=azureadps-2.0)
+- [Gerir a AD Azure usando o PowerShell](/powershell/azure/?view=azureadps-2.0)
 - [Identidade híbrida exigida portas e protocolos](../../active-directory/hybrid/reference-connect-ports.md)
 
 ## <a name="manage-database-access"></a>Gerir o acesso à base de dados
@@ -264,7 +264,7 @@ Se forem detetadas atividades anómalas, recebe um e-mail com informações sobr
 
    ![Mensagem de e-mail sobre deteção de ameaças](./media/secure-database-tutorial/threat-email.png)
 
-### <a name="auditing"></a>Auditoria
+### <a name="auditing"></a>Auditing (Auditoria)
 
 O recurso de auditoria rastreia eventos de base de dados e escreve eventos para um registo de auditoria no armazenamento do Azure, nos registos do Azure Monitor ou num centro de eventos. A auditoria ajuda a manter a conformidade regulatória, a compreender a atividade da base de dados e a obter informações sobre discrepâncias e anomalias que possam indicar possíveis violações de segurança.
 
@@ -321,7 +321,7 @@ Para permitir a mascaramento de dados:
 
     ![Exemplo de máscara](./media/secure-database-tutorial/mask-query.png)
 
-### <a name="transparent-data-encryption"></a>Encriptação de Dados Transparente
+### <a name="transparent-data-encryption"></a>Encriptação de dados transparente
 
 A funcionalidade de encriptação encripta automaticamente os seus dados em repouso e não requer alterações nas aplicações que acedem à base de dados encriptada. Para novas bases de dados, a encriptação está por defeito. Também pode encriptar dados usando SSMS e a funcionalidade [Sempre encriptada.](always-encrypted-certificate-store-configure.md)
 

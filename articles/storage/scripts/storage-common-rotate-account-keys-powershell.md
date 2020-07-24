@@ -1,5 +1,5 @@
 ---
-title: Rotate chaves de acesso à conta de armazenamento com PowerShell
+title: Rode as teclas de acesso à conta de armazenamento com o PowerShell
 titleSuffix: Azure Storage
 description: Crie uma conta de Armazenamento Azure, depois recupere e rode uma das chaves de acesso à conta.
 services: storage
@@ -10,14 +10,14 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 52ebed3de093f15d8188ee5fec49d75d5a4a206d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d532782847ec09d2a480951ecd77ae7746b000c2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80060816"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089379"
 ---
-# <a name="rotate-storage-account-access-keys-with-powershell"></a>Rotate chaves de acesso à conta de armazenamento com PowerShell
+# <a name="rotate-storage-account-access-keys-with-powershell"></a>Rode as teclas de acesso à conta de armazenamento com o PowerShell
 
 Este script cria uma conta de Armazenamento Azure, exibe a chave de acesso primário da nova conta de armazenamento e, em seguida, renova (gira) a chave.
 
@@ -39,11 +39,11 @@ Remove-AzResourceGroup -Name rotatekeystestrg
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para criar a conta de armazenamento e recuperar e rodar uma das suas chaves de acesso. Cada item na tabela liga para documentação de comandos específicos.
+Este script utiliza os seguintes comandos para criar a conta de armazenamento e recuperar e rodar uma das suas teclas de acesso. Cada item na tabela liga para documentação de comandos específicos.
 
 | Comando | Notas |
 |---|---|
-| [Get-AzLocation](/powershell/module/az.resources/get-azlocation) | Obtém todos os locais e fornecedores de recursos suportados para cada local. |
+| [Get-AzLocation](/powershell/module/az.resources/get-azlocation) | Obtém todas as localizações e os fornecedores de recursos suportados para cada local. |
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos Azure. |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Cria uma Conta de armazenamento. |
 | [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) | Obtém as chaves de acesso para uma conta de Armazenamento do Azure. |
@@ -51,6 +51,6 @@ Este script utiliza os seguintes comandos para criar a conta de armazenamento e 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/).
 
 Pode ver exemplos adicionais de scripts de armazenamento do PowerShell em [PowerShell samples for Azure Blob storage](../blobs/storage-samples-blobs-powershell.md) (Exemplos do PowerShell para o armazenamento de Blobs do Azure).

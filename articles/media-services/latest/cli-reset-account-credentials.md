@@ -14,20 +14,20 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/20/2019
 ms.author: juliako
-ms.openlocfilehash: 63f2abe7a3890efbaf4c79186467a3eb20d8afda
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0a1a5bf9f192a7128da8843b79b60be0175cec23
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80382992"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092138"
 ---
-# <a name="azure-cli-example-reset-the-account-credentials"></a>Exemplo do AZURE CLI: Redefinir as credenciais de conta
+# <a name="azure-cli-example-reset-the-account-credentials"></a>Exemplo do Azure CLI: Redefinir as credenciais de conta
 
 Neste artigo, o script da CLI do Azure mostra como repor as credenciais da sua conta e voltar às definições de app.config.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[Criar uma conta de Media Services.](create-account-cli-how-to.md)
+[Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social.
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 

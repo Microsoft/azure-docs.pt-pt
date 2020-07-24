@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: cd4128328ac0c3e9f03ecc80abb6e7b17537b2ee
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: af1df529ae0f6bb03a8d3f36e51619f273780dfe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85483062"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086800"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configurar grupos de disponibilidade para SQL Server em máquinas virtuais RHEL em Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -497,7 +497,7 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  
 ### <a name="create-a-custom-role-for-the-fence-agent"></a>Crie um papel personalizado para o agente da cerca
 
-Siga o tutorial para [Criar um papel personalizado para os recursos Azure usando O Azure CLI](../../../role-based-access-control/tutorial-custom-role-cli.md#create-a-custom-role).
+Siga o tutorial para [Criar um papel personalizado Azure usando Azure CLI](../../../role-based-access-control/tutorial-custom-role-cli.md#create-a-custom-role).
 
 O seu ficheiro json deve ser semelhante ao seguinte:
 
@@ -532,7 +532,7 @@ Para adicionar o papel, executar o seguinte comando:
 az role definition create --role-definition "<filename>.json"
 ```
 
-Deverá ver o resultado seguinte:
+Deverá ver o seguinte resultado:
 
 ```output
 {
@@ -571,7 +571,7 @@ Atribua o papel personalizado `Linux Fence Agent Role-<username>` que foi criado
 5. Clique **Em Adicionar uma atribuição de função**
 6. Selecione o papel `Linux Fence Agent Role-<username>` da lista **role**
 7. Na lista **Select,** insira o nome da aplicação que criou acima,`<resourceGroupName>-app`
-8. Clique **em Guardar**
+8. Clique em **Guardar**
 9. Repita os passos acima para o nó de aglomerado.
 
 ### <a name="create-the-stonith-devices"></a>Criar os dispositivos STONITH
@@ -669,7 +669,7 @@ Uma vez terminada a configuração, pode verificar o estado do SQL Server e veri
 systemctl status mssql-server --no-pager
 ```
 
-Deverá ver o resultado seguinte:
+Deverá ver o seguinte resultado:
 
 ```output
 ● mssql-server.service - Microsoft SQL Server Database Engine
@@ -951,17 +951,17 @@ Vamos seguir o guia para [criar os recursos do grupo de disponibilidade no clust
 
 1. Utilize um dos seguintes comandos com base no ambiente escolhido anteriormente para criar o recurso `ag_cluster` no grupo de disponibilidade `ag1` .
 
-      **RHEL 7** 
+    **RHEL 7**
   
-        ```bash
-        sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true
-        ```
+    ```bash
+    sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true
+    ```
 
-      **RHEL 8** 
+    **RHEL 8**
   
-        ```bash
-        sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s promotable notify=true
-        ```
+    ```bash
+    sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s promotable notify=true
+    ```
 
 2. Verifique o seu recurso e certifique-se de que estão online antes de prosseguir usando o seguinte comando:
 
@@ -969,7 +969,7 @@ Vamos seguir o guia para [criar os recursos do grupo de disponibilidade no clust
     sudo pcs resource
     ```
 
-    Deverá ver o resultado seguinte:
+    Deverá ver o seguinte resultado:
     
     **RHEL 7** 
     
@@ -1051,7 +1051,7 @@ Vamos seguir o guia para [criar os recursos do grupo de disponibilidade no clust
     sudo pcs constraint list --full
     ```
 
-    Deverá ver o resultado seguinte:
+    Deverá ver o seguinte resultado:
     
     **RHEL 7**
 
@@ -1203,7 +1203,7 @@ sudo pcs stonith fence <VM3> --debug
 > [!NOTE]
 > Por defeito, a ação da vedação desliga o nó e depois continua. Se quiser apenas desligar o nó, utilize a opção `--off` no comando.
 
-Deve obter a seguinte saída:
+Deverá obter o seguinte resultado:
 
 ```output
 [<username>@<VM1> ~]$ sudo pcs stonith fence <VM3> --debug

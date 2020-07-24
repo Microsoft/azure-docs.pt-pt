@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/25/2019
 ms.author: juliako
-ms.openlocfilehash: 44cf234fd8419164f7dd7f8320952a5c6c0842e0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ccc981af63391527473452e2f53e7abd108fb739
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74896125"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092155"
 ---
 # <a name="cli-example-publish-an-asset"></a>Exemplo da CLI: publicar um elemento
 
@@ -27,7 +27,7 @@ O script da CLI do Azure neste artigo mostra como criar um Localizador de Transm
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-[Criar uma conta de Media Services.](create-account-cli-how-to.md)
+[Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social.
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
@@ -37,4 +37,4 @@ O script da CLI do Azure neste artigo mostra como criar um Localizador de Transm
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Visão geral dos Serviços de Media](media-services-overview.md)
+[Visão geral dos Serviços de Mídia](media-services-overview.md)

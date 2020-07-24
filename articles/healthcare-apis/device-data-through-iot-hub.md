@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: tutorial
 ms.date: 06/27/2020
 ms.author: punagpal
-ms.openlocfilehash: 95e3e2be175fa810b1b966a7dda5a0e53e23d780
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: aeed0c90eeecd59e23a1d87a3ebc1e1a836a84ec
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536738"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116846"
 ---
 # <a name="tutorial-receive-device-data-through-azure-iot-hub"></a>Tutorial: Receba dados do dispositivo através do Azure IoT Hub
 
@@ -96,22 +96,22 @@ Utilize o seu dispositivo (real ou simulado) para enviar a mensagem de frequênc
 Pode ver os recursos de observação FHIR criados pelo conector IoT na Azure API para fHIR usando o Carteiro. Confenda o seu [Carteiro para aceder à Azure API para FHIR](access-fhir-postman-tutorial.md) e faça um `GET` pedido para `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` visualizar os recursos de FHIR de observação com o valor da frequência cardíaca submetido na mensagem da amostra acima.
 
 > [!TIP]
-> Certifique-se de que o seu usx'er tem acesso adequado à Azure API para o plano de dados FHIR. Utilize [o Controlo de Acesso Baseado em Funções Azure](configure-azure-rbac.md) para atribuir as funções necessárias do plano de dados.
+> Certifique-se de que o seu utilizador tem acesso adequado à Azure API para o plano de dados FHIR. Utilize [o Controlo de Acesso Baseado em Funções Azure](configure-azure-rbac.md) para atribuir as funções necessárias do plano de dados.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de arranque rápido, você configura o Azure IoT Hub para encaminhar os dados do dispositivo para ioT Connector. Selecione a partir dos próximos passos para saber mais sobre o Conector IoT:
 
 Compreenda diferentes fases do fluxo de dados dentro do Conector IoT.
 
 >[!div class="nextstepaction"]
->[Fluxo de dados do conector IoT](iot-data-flow.md)
+>[Fluxo de dados do Conector IoT](iot-data-flow.md)
 
 Aprenda a configurar o Conector IoT utilizando modelos de mapeamento de dispositivo e FHIR.
 
 >[!div class="nextstepaction"]
->[Modelos de mapeamento do conector IoT](iot-mapping-templates.md)
+>[Modelos de mapeamento do Conector IoT](iot-mapping-templates.md)
 
 FHIR é a marca registada do HL7 e é utilizada com a permissão do HL7.
 

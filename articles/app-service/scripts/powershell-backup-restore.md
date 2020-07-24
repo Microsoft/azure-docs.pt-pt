@@ -1,6 +1,6 @@
 ---
 title: 'PowerShell: Restaurar uma cópia de segurança da aplicação'
-description: Aprenda a usar o Azure PowerShell para automatizar a implementação e gestão do App Service. Esta amostra mostra como restaurar uma aplicação a partir de uma cópia de segurança.
+description: Saiba como utilizar o Azure PowerShell para automatizar a implementação e gestão do Serviço de Aplicações. Esta amostra mostra como restaurar uma aplicação a partir de uma cópia de segurança.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: a2a27d94-d378-4c17-a6a9-ae1e69dc4a72
@@ -8,18 +8,18 @@ ms.topic: sample
 ms.date: 11/21/2018
 ms.author: msangapu
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a10a451bff73c081d9b0c95c494acb8b2051bd84
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 46f5a64e88172316af7d5f875183ecc48dfe8a3e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80057735"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088160"
 ---
-# <a name="restore-a-web-app-from-a-backup-using-azure-powershell"></a>Restaurar uma aplicação web a partir de uma cópia de segurança usando o Azure PowerShell
+# <a name="restore-a-web-app-from-a-backup-using-azure-powershell"></a>Restaurar uma aplicação web a partir de uma cópia de segurança usando Azure PowerShell
 
-Este script de amostra recupera uma cópia de segurança previamente concluída a partir de uma aplicação web existente e restaura-a sobrepondo o seu conteúdo. 
+Este script de amostra recupera uma cópia de segurança previamente concluída a partir de uma aplicação web existente e restaura-a ao sobrepor o seu conteúdo. 
 
-Se for preciso, instale o Azure PowerShell com a instrução que se encontra no [Guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Connect-AzAccount` para criar uma ligação ao Azure. 
+Se for preciso, instale o Azure PowerShell com a instrução que se encontra no [Guia do Azure PowerShell](/powershell/azure/) e, em seguida, execute `Connect-AzAccount` para criar uma ligação ao Azure. 
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -29,7 +29,7 @@ Se for preciso, instale o Azure PowerShell com a instrução que se encontra no 
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação 
 
-Se já não precisar da aplicação web, utilize o seguinte comando para remover o grupo de recursos, a aplicação web e todos os recursos relacionados.
+Se já não precisar da aplicação web, use o seguinte comando para remover o grupo de recursos, a aplicação web e todos os recursos relacionados.
 
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroupName -Force
@@ -46,6 +46,6 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/).
 
 Pode ver os exemplos do Azure Powershell adicionais para as Aplicações Web do Serviço de Aplicações do Azure em [Exemplos do Azure PowerShell](../samples-powershell.md).

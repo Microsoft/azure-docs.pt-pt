@@ -1,6 +1,6 @@
 ---
 title: Exemplo do Script da CLI do Azure - Carregar um ficheiro para um contentor | Microsoft Docs
-description: Este artigo mostra como usar o script Azure CLI para carregar um ficheiro local para um recipiente de armazenamento.
+description: Este artigo mostra como usar o script Azure CLI para enviar um ficheiro local para um recipiente de armazenamento.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 5d1dc90832a399aa9ee253b2c7962b8536c1926a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 68dbeba62f5b59e2c047c7f403e7c50e7325e8ad
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80383009"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092121"
 ---
-# <a name="azure-cli-example-upload-a-local-file-to-a-container"></a>Exemplo do AZURE CLI: Faça upload de um ficheiro local para um recipiente
+# <a name="azure-cli-example-upload-a-local-file-to-a-container"></a>Exemplo do Azure CLI: Faça o upload de um ficheiro local para um contentor
 
 Neste artigo, o script da CLI do Azure mostra como carregar um ficheiro local para um contentor de armazenamento.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Criar uma conta de Media Services.](create-account-cli-how-to.md)
-* Rever [os ativos de gestão.](manage-asset-concept.md)
+* [Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social.
+* Rever [gerir ativos](manage-asset-concept.md).
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
@@ -63,4 +63,4 @@ read continue
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Visão geral dos Serviços de Media](media-services-overview.md)
+[Visão geral dos Serviços de Mídia](media-services-overview.md)

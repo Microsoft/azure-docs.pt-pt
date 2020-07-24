@@ -11,12 +11,12 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 595440dc727f3faf1fa475266825a671f00d9153
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 2e22ac4601384508869ff43d473dd191f405cd43
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143609"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092299"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutorial: Use machine learning automatizado para prever tarifas de táxi
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -122,7 +122,7 @@ green_taxi_df.head(10)
       <td>0,00</td>
       <td>nan</td>
       <td>16.30</td>
-      <td>1.00</td>
+      <td>1,00</td>
     </tr>
     <tr>
       <th>1129817</th>
@@ -139,14 +139,14 @@ green_taxi_df.head(10)
       <td>...</td>
       <td>2</td>
       <td>4.50</td>
-      <td>1.00</td>
+      <td>1,00</td>
       <td>0.50</td>
       <td>0.3</td>
       <td>0,00</td>
       <td>0,00</td>
       <td>nan</td>
       <td>6.30</td>
-      <td>1.00</td>
+      <td>1,00</td>
     </tr>
     <tr>
       <th>1278620</th>
@@ -154,7 +154,7 @@ green_taxi_df.head(10)
       <td>2015-01-01 05:58:10</td>
       <td>2015-01-01 06:00:55</td>
       <td>1</td>
-      <td>0.45</td>
+      <td>0,45</td>
       <td>Nenhum</td>
       <td>Nenhum</td>
       <td>-73.92</td>
@@ -170,7 +170,7 @@ green_taxi_df.head(10)
       <td>0,00</td>
       <td>nan</td>
       <td>4,80</td>
-      <td>1.00</td>
+      <td>1,00</td>
     </tr>
     <tr>
       <th>348430</th>
@@ -194,7 +194,7 @@ green_taxi_df.head(10)
       <td>0,00</td>
       <td>nan</td>
       <td>13.80</td>
-      <td>1.00</td>
+      <td>1,00</td>
     </tr>
     <tr>
       <th>1269627</th>
@@ -218,7 +218,7 @@ green_taxi_df.head(10)
       <td>0,00</td>
       <td>nan</td>
       <td>5,00</td>
-      <td>1.00</td>
+      <td>1,00</td>
     </tr>
     <tr>
       <th>811755</th>
@@ -242,7 +242,7 @@ green_taxi_df.head(10)
       <td>0,00</td>
       <td>nan</td>
       <td>7.80</td>
-      <td>1.00</td>
+      <td>1,00</td>
     </tr>
     <tr>
       <th>737281</th>
@@ -266,7 +266,7 @@ green_taxi_df.head(10)
       <td>0,00</td>
       <td>nan</td>
       <td>6.80</td>
-      <td>1.00</td>
+      <td>1,00</td>
     </tr>
     <tr>
       <th>113951</th>
@@ -290,7 +290,7 @@ green_taxi_df.head(10)
       <td>0,00</td>
       <td>nan</td>
       <td>13.80</td>
-      <td>1.00</td>
+      <td>1,00</td>
     </tr>
     <tr>
       <th>150436</th>
@@ -310,11 +310,11 @@ green_taxi_df.head(10)
       <td>0,00</td>
       <td>0.50</td>
       <td>0.3</td>
-      <td>1.75</td>
+      <td>1,75</td>
       <td>0,00</td>
       <td>nan</td>
       <td>9.55</td>
-      <td>1.00</td>
+      <td>1,00</td>
     </tr>
     <tr>
       <th>432136</th>
@@ -338,7 +338,7 @@ green_taxi_df.head(10)
       <td>0,00</td>
       <td>nan</td>
       <td>6.30</td>
-      <td>1.00</td>
+      <td>1,00</td>
     </tr>
   </tbody>
 </table>
@@ -410,7 +410,7 @@ green_taxi_df.head(10)
       <td>0,00</td>
       <td>nan</td>
       <td>16.30</td>
-      <td>1.00</td>
+      <td>1,00</td>
       <td>1</td>
       <td>11</td>
       <td>6</td>
@@ -434,7 +434,7 @@ green_taxi_df.head(10)
       <td>0,00</td>
       <td>nan</td>
       <td>6.30</td>
-      <td>1.00</td>
+      <td>1,00</td>
       <td>1</td>
       <td>20</td>
       <td>1</td>
@@ -446,7 +446,7 @@ green_taxi_df.head(10)
       <td>2015-01-01 05:58:10</td>
       <td>2015-01-01 06:00:55</td>
       <td>1</td>
-      <td>0.45</td>
+      <td>0,45</td>
       <td>Nenhum</td>
       <td>Nenhum</td>
       <td>-73.92</td>
@@ -458,7 +458,7 @@ green_taxi_df.head(10)
       <td>0,00</td>
       <td>nan</td>
       <td>4,80</td>
-      <td>1.00</td>
+      <td>1,00</td>
       <td>1</td>
       <td>1</td>
       <td>3</td>
@@ -482,7 +482,7 @@ green_taxi_df.head(10)
       <td>0,00</td>
       <td>nan</td>
       <td>13.80</td>
-      <td>1.00</td>
+      <td>1,00</td>
       <td>1</td>
       <td>17</td>
       <td>5</td>
@@ -506,7 +506,7 @@ green_taxi_df.head(10)
       <td>0,00</td>
       <td>nan</td>
       <td>5,00</td>
-      <td>1.00</td>
+      <td>1,00</td>
       <td>1</td>
       <td>1</td>
       <td>3</td>
@@ -530,7 +530,7 @@ green_taxi_df.head(10)
       <td>0,00</td>
       <td>nan</td>
       <td>7.80</td>
-      <td>1.00</td>
+      <td>1,00</td>
       <td>1</td>
       <td>4</td>
       <td>6</td>
@@ -554,7 +554,7 @@ green_taxi_df.head(10)
       <td>0,00</td>
       <td>nan</td>
       <td>6.80</td>
-      <td>1.00</td>
+      <td>1,00</td>
       <td>1</td>
       <td>3</td>
       <td>5</td>
@@ -578,7 +578,7 @@ green_taxi_df.head(10)
       <td>0,00</td>
       <td>nan</td>
       <td>13.80</td>
-      <td>1.00</td>
+      <td>1,00</td>
       <td>1</td>
       <td>9</td>
       <td>4</td>
@@ -598,11 +598,11 @@ green_taxi_df.head(10)
       <td>-73.95</td>
       <td>...</td>
       <td>0.3</td>
-      <td>1.75</td>
+      <td>1,75</td>
       <td>0,00</td>
       <td>nan</td>
       <td>9.55</td>
-      <td>1.00</td>
+      <td>1,00</td>
       <td>1</td>
       <td>11</td>
       <td>6</td>
@@ -626,7 +626,7 @@ green_taxi_df.head(10)
       <td>0,00</td>
       <td>nan</td>
       <td>6.30</td>
-      <td>1.00</td>
+      <td>1,00</td>
       <td>1</td>
       <td>22</td>
       <td>3</td>
@@ -726,7 +726,7 @@ green_taxi_df.describe()
     </tr>
     <tr>
       <th>min</th>
-      <td>1.00</td>
+      <td>1,00</td>
       <td>0,00</td>
       <td>0,00</td>
       <td>-74.66</td>
@@ -734,15 +734,15 @@ green_taxi_df.describe()
       <td>-74.66</td>
       <td>0,00</td>
       <td>-300.00</td>
-      <td>1.00</td>
-      <td>1.00</td>
+      <td>1,00</td>
+      <td>1,00</td>
       <td>0,00</td>
       <td>0,00</td>
     </tr>
     <tr>
       <th>25%</th>
-      <td>2.00</td>
-      <td>1.00</td>
+      <td>2,00</td>
+      <td>1,00</td>
       <td>1.06</td>
       <td>-73.96</td>
       <td>40.70</td>
@@ -751,13 +751,13 @@ green_taxi_df.describe()
       <td>7.80</td>
       <td>3,75</td>
       <td>8.00</td>
-      <td>2.00</td>
+      <td>2,00</td>
       <td>9.00</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>2.00</td>
-      <td>1.00</td>
+      <td>2,00</td>
+      <td>1,00</td>
       <td>1.90</td>
       <td>-73.94</td>
       <td>40.75</td>
@@ -771,8 +771,8 @@ green_taxi_df.describe()
     </tr>
     <tr>
       <th>75%</th>
-      <td>2.00</td>
-      <td>1.00</td>
+      <td>2,00</td>
+      <td>1,00</td>
       <td>3,60</td>
       <td>-73.92</td>
       <td>40.80</td>
@@ -786,7 +786,7 @@ green_taxi_df.describe()
     </tr>
     <tr>
       <th>máx</th>
-      <td>2.00</td>
+      <td>2,00</td>
       <td>9.00</td>
       <td>97.57</td>
       <td>0,00</td>
@@ -863,12 +863,12 @@ Para treinar automaticamente um modelo, tome os seguintes passos:
 
 ### <a name="define-training-settings"></a>Definir definições de formação
 
-Defina o parâmetro de experiência e as definições do modelo para o treino. Ver a lista completa de [definições](how-to-configure-auto-train.md). Submeter a experiência com estas definições predefinidos levará aproximadamente 5-20 min, mas se quiser um tempo de funcionamento mais curto, reduza o `experiment_timeout_minutes` parâmetro.
+Defina o parâmetro de experiência e as definições do modelo para o treino. Ver a lista completa de [definições](how-to-configure-auto-train.md). Submeter a experiência com estas definições predefinidos levará aproximadamente 5-20 min, mas se quiser um tempo de funcionamento mais curto, reduza o `experiment_timeout_hours` parâmetro.
 
 |Propriedade| Valor neste tutorial |Descrição|
 |----|----|---|
 |**iteration_timeout_minutes**|2|Limite de tempo em minutos para cada iteração. Reduza este valor para diminuir o tempo de execução total.|
-|**experiment_timeout_minutes**|20|Quantidade máxima de tempo em minutos que todas as iterações combinadas podem demorar antes do fim da experiência.|
+|**experiment_timeout_hours**|0.3|O tempo máximo em horas que todas as iterações combinadas podem demorar antes do fim da experiência.|
 |**enable_early_stopping**|Verdadeiro|Bandeira para permitir a rescisão antecipada se a pontuação não melhorar a curto prazo.|
 |**primary_metric**| spearman_correlation | Métrica que pretende otimizar. O modelo mais adequado será escolhido com base nesta métrica.|
 |**adisco**| Automático | Utilizando **o auto,** a experiência pode pré-processar os dados de entrada (manusear dados em falta, converter texto em numérico, etc.)|
@@ -880,7 +880,7 @@ import logging
 
 automl_settings = {
     "iteration_timeout_minutes": 2,
-    "experiment_timeout_minutes": 20,
+    "experiment_timeout_hours": 0.3,
     "enable_early_stopping": True,
     "primary_metric": 'spearman_correlation',
     "featurization": 'auto',
@@ -984,7 +984,9 @@ print(fitted_model)
 Use o melhor modelo para executar previsões no conjunto de dados de teste para prever tarifas de táxi. A função `predict` utiliza o melhor modelo e prevê os valores do y, custo da **viagem,** a partir do conjunto de `x_test` dados. Imprima os primeiros 10 valores de custo previstos de `y_predict` .
 
 ```python
-y_predict = fitted_model.predict(x_test.values)
+y_test = x_test.pop("totalAmount")
+
+y_predict = fitted_model.predict(x_test)
 print(y_predict[:10])
 ```
 

@@ -1,5 +1,5 @@
 ---
-title: Transmita ficheiros de vídeo com a Azure Media Services - Node.js / Microsoft Docs
+title: Stream de ficheiros de vídeo com a Azure Media Services - Node.js Microsoft Docs
 description: Siga os passos deste tutorial para criar uma nova conta Azure Media Services, codificar um ficheiro e transmiti-lo ao Azure Media Player.
 services: media-services
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: fa9fbf3bac55ca0b26c3644b7f6818fa96088612
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5e4c50b4b66d164ba2e89cfc537d9dd8593c4f57
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "69639398"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092036"
 ---
-# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---nodejs"></a>Tutorial: Codificar um ficheiro remoto com base em URL e transmitir o vídeo - Node.js
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---nodejs"></a>Tutorial: Codificar um ficheiro remoto baseado em URL e transmitir o vídeo - Node.js
 
-Este tutorial mostra como é fácil codificar e começar a transmitir vídeos numa grande variedade de navegadores e dispositivos usando o Azure Media Services. Um conteúdo de entrada pode ser especificado com URLs HTTPS, URLs SAS ou caminhos de ficheiros localizados no Armazenamento de blobs do Azure.
+Este tutorial mostra-lhe como é fácil codificar e começar a transmitir vídeos numa grande variedade de navegadores e dispositivos que utilizam o Azure Media Services. Um conteúdo de entrada pode ser especificado com URLs HTTPS, URLs SAS ou caminhos de ficheiros localizados no Armazenamento de blobs do Azure.
 
-A amostra deste artigo codifica o conteúdo que torna acessível através de um URL HTTPS. Note que, atualmente, o AMS v3 não suporta a codificação de transferência segmentada através de URLs HTTPS.
+A amostra deste artigo codifica conteúdo que torna acessível através de um URL HTTPS. Note que, atualmente, o AMS v3 não suporta a codificação de transferência segmentada através de URLs HTTPS.
 
 No final do tutorial poderá transmitir um vídeo.  
 
@@ -34,13 +34,13 @@ No final do tutorial poderá transmitir um vídeo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Instalar o [Node. js](https://nodejs.org/en/download/)
-- [Criar uma conta de Media Services.](create-account-cli-how-to.md)<br/>Lembre-se dos valores que utilizou para o nome do grupo de recursos e nome da conta Media Services.
-- Siga os passos na API access [Azure Media Services com o Azure CLI](access-api-cli-how-to.md) e guarde as credenciais. Terá de usá-los para aceder à API.
+- Instalar [Node.js](https://nodejs.org/en/download/)
+- [Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social.<br/>Lembre-se dos valores que utilizou para o nome do grupo de recursos e nome da conta dos Media Services.
+- Siga os passos na [Access Azure Media Services API com o Azure CLI](./access-api-howto.md) e guarde as credenciais. Terá de usá-los para aceder à API.
 
-## <a name="download-and-configure-the-sample"></a>Descarregue e configure a amostra
+## <a name="download-and-configure-the-sample"></a>Descarregue e configuure a amostra
 
-Clone um repositório GitHub que contenha a amostra de node.js de streaming à sua máquina utilizando o seguinte comando:  
+Clone um repositório GitHub que contenha a amostra de Node.js de streaming para a sua máquina utilizando o seguinte comando:  
 
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-node-tutorials.git
@@ -48,29 +48,29 @@ Clone um repositório GitHub que contenha a amostra de node.js de streaming à s
 
 A amostra está localizada na pasta [StreamFilesSample.](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/master/AMSv3Samples/StreamFilesSample)
 
-Open [index.js](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L25) em you downloaded projeto. Substitua `endpoint config` os valores por credenciais que obteve ao [aceder a APIs](access-api-cli-how-to.md).
+Abra [index.js](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L25) em projeto descarregado. Substitua os `endpoint config` valores por credenciais que obteve ao [aceder às APIs.](./access-api-howto.md)
 
 O exemplo realiza as seguintes ações:
 
-1. Cria uma **Transformação** (primeiro, verifica se a Transform especificada existe). 
-2. Cria um **Ativo** de saída que é usado como a saída do **Trabalho**de codificação.
-3. Cria a entrada do **Job**que é baseada num URL HTTPS.
-4. Submete o **Trabalho** de codificação utilizando a entrada e saída que foi criada anteriormente.
+1. Cria uma **Transformação** (em primeiro lugar, verifica se existe a Transformação especificada). 
+2. Cria uma saída **Ativo** que é usado como a saída de **Job**codificante.
+3. Cria a entrada do **Job**que se baseia num URL HTTPS.
+4. Submete o **trabalho** de codificação usando a entrada e saída que foi criada anteriormente.
 5. Verifica o estado da Tarefa.
-6. Cria um localizador de **streaming.**
+6. Cria um **localizador de streaming.**
 7. Cria os URLs de transmissão.
 
 ## <a name="run-the-sample-app"></a>Execute a aplicação de exemplo
 
-1. A aplicação descarrega ficheiros codificados. Crie uma pasta onde pretenda que os ficheiros de saída sejam e atualize o valor da variável **outputFolder** no ficheiro [index.js.](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L39)
-1. Abra o pedido de **comando,** navegue no diretório da amostra e execute os seguintes comandos.
+1. A aplicação descarrega ficheiros codificados. Crie uma pasta onde pretende que os ficheiros de saída vão e atualize o valor da variável **outputFolder** no ficheiro [index.js.](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L39)
+1. Abrir **o comando,** navegar no diretório da amostra e executar os seguintes comandos.
 
     ```
     npm install 
     node index.js
     ```
 
-Depois de terminar a corrida, deve ver uma saída semelhante:
+Depois de ter terminado de funcionar, deverá ver uma saída semelhante:
 
 ![Executar](./media/stream-files-nodejs-quickstart/run.png)
 
@@ -81,10 +81,10 @@ Para testar a transmissão, este artigo utiliza o Leitor de Multimédia do Azure
 > [!NOTE]
 > Se um leitor estiver alojado num site de https, confirme que atualiza o URL para “https”.
 
-1. Abra um navegador web [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/)e navegue para .
+1. Abra um navegador web e navegue para [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/) .
 2. Na caixa **URL:**, cole um dos valores do URL de transmissão que recebeu quando executou a aplicação. 
  
-     Pode colar o URL em formato HLS, Dash ou Smooth e o Azure Media Player mudará para um protocolo de streaming apropriado para reprodução no seu dispositivo automaticamente.
+     Pode colar o URL no formato HLS, Dash ou Smooth e o Azure Media Player mudará para um protocolo de streaming apropriado para reprodução no seu dispositivo automaticamente.
 3. Prima **Atualizar Leitor**.
 
 O Leitor de Multimédia do Azure pode ser utilizado para fins de teste, mas não deve ser utilizado num ambiente de produção. 
@@ -93,17 +93,17 @@ O Leitor de Multimédia do Azure pode ser utilizado para fins de teste, mas não
 
 Se já não precisar de nenhum dos recursos do seu grupo de recursos, incluindo os Serviços de Media e as contas de armazenamento que criou para este tutorial, elimine o grupo de recursos.
 
-Executar o seguinte comando CLI:
+Execute o seguinte comando CLI:
 
 ```azurecli
 az group delete --name amsResourceGroup
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-[Códigos](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)de erro de trabalho.
+[Códigos de erro de trabalho](/rest/api/media/jobs/get#joberrorcode).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Conceitos de Serviços de Media](concepts-overview.md)
+> [Conceitos de Serviços de Mídia](concepts-overview.md)

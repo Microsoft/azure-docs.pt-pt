@@ -1,20 +1,20 @@
 ---
-title: 'Crie um espaço de v Kubernetes: Visual Studio & .NET Core'
+title: 'Criar um espaço kubernetes dev: Visual Studio & .NET Core'
 services: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 07/09/2018
 ms.topic: tutorial
-description: Este tutorial mostra-lhe como usar os Espaços Azure Dev e o Estúdio Visual para depurar e iterar rapidamente uma aplicação .NET Core no Serviço Azure Kubernetes
+description: Este tutorial mostra-lhe como usar Azure Dev Spaces e Visual Studio para depurar e iterar rapidamente uma aplicação .NET Core no Serviço Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: ba90cbc8bc0267f1fba8c9495886bdc8ce2ac5e3
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 722f2f5b86bd67df7c7250cdbfc44ebcc048c773
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995909"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090795"
 ---
-# <a name="create-a-kubernetes-dev-space-visual-studio-and-net-core-with-azure-dev-spaces"></a>Crie um espaço Dev Kubernetes: Visual Studio e .NET Core com Espaços Azure Dev
+# <a name="create-a-kubernetes-dev-space-visual-studio-and-net-core-with-azure-dev-spaces"></a>Criar um espaço kubernetes dev: Visual Studio e .NET Core com Azure Dev Spaces
 
 Neste guia, vai aprender a:
 
@@ -23,8 +23,8 @@ Neste guia, vai aprender a:
 - Desenvolver de modo independente dois serviços separados e utilizar a deteção do serviço DNS de Kubernetes para fazer uma chamada para outro serviço.
 - Desenvolver e testar de forma produtiva o seu código num ambiente de equipa.
 
-> [!Note]
-> **Se ficar preso** a qualquer momento, consulte a secção de [resolução de problemas.](troubleshooting.md)
+> [!NOTE]
+> **Se ficar preso** a qualquer momento, consulte a secção [de resolução de problemas.](troubleshooting.md)
 
 ## <a name="install-the-azure-cli"></a>Instalar a CLI do Azure
 O Azure Dev Spaces só precisa de configuração mínima do computador local. A maior parte da configuração do espaço de desenvolvimento é armazenada na cloud e é partilhável com outros utilizadores. Comece por transferir e executar a [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -36,8 +36,8 @@ Inicie sessão no Azure. Escreva o seguinte comando numa janela de terminal:
 az login
 ```
 
-> [!Note]
-> Se não tiver uma subscrição Azure, pode criar uma [conta gratuita.](https://azure.microsoft.com/free)
+> [!NOTE]
+> Se não tiver uma subscrição do Azure, pode criar uma [conta gratuita.](https://azure.microsoft.com/free)
 
 #### <a name="if-you-have-multiple-azure-subscriptions"></a>Se tiver várias subscrições do Azure...
 Pode ver as suas subscrições ao executar: 
@@ -55,7 +55,7 @@ az account set --subscription <subscription ID>
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Criar um cluster do Kubernetes ativado para os Espaços de Programador do Azure
 
-No pedido de comando, crie o grupo de recursos numa região que apoie o [Azure Dev Spaces.][supported-regions]
+No comando, crie o grupo de recursos numa [região que suporte espaços Azure Dev][supported-regions].
 
 ```azurecli
 az group create --name MyResourceGroup --location <region>
@@ -78,55 +78,55 @@ Introduza o seguinte comando da CLI do Azure com o grupo de recursos que contém
    ```
    
 > [!IMPORTANT]
-> O processo de configuração dos Espaços Azure Dev removerá o espaço de `azds` nome no cluster, se existir.
+> O processo de configuração do Azure Dev Spaces removerá o `azds` espaço de nome no cluster, se existir.
 
 ## <a name="get-the-visual-studio-tools"></a>Obter as ferramentas do Visual Studio
-Instale a versão mais recente do [Visual Studio 2019](https://www.visualstudio.com/vs/) no Windows com a carga de trabalho do Desenvolvimento Azure.
+Instale a versão mais recente do [Visual Studio 2019](https://www.visualstudio.com/vs/) no Windows com a carga de trabalho do Azure Development.
 
 ## <a name="create-a-web-app-running-in-a-container"></a>Criar uma aplicação Web em execução num contentor
 
-Nesta secção, você vai criar uma ASP.NET web app Core e fazê-la funcionar em um recipiente em Kubernetes.
+Nesta secção, você vai criar uma aplicação web core ASP.NET e fazê-la funcionar em um recipiente em Kubernetes.
 
 ### <a name="create-an-aspnet-web-app"></a>Criar uma aplicação Web ASP.NET
 
-A partir do Visual Studio, crie um novo projeto. Atualmente, o projeto tem de ser uma **aplicação Web ASP.NET Core**. Atribua o nome "**webfrontend**" ao projeto.
+A partir do Estúdio Visual, crie um novo projeto. Atualmente, o projeto tem de ser uma **aplicação Web ASP.NET Core**. Atribua o nome "**webfrontend**" ao projeto.
 
-![](media/get-started-netcore-visualstudio/NewProjectDialog1.png)
+![A caixa de diálogo "New Project" mostra a criação de uma aplicação web afiada C chamada "webfrontend" no local C:\Source\Repos. A lista de down-down "Solution" mostra "Criar nova solução", e a caixa de verificação "Criar diretório para solução" é verificada.](media/get-started-netcore-visualstudio/NewProjectDialog1.png)
 
 Selecione o modelo **Web Application (Model-View-Controller)** (Aplicação Web (Controlador de Vista de Modelo)) e certifique-se de que está a apontar para **.NET Core** e **ASP.NET Core 2.0** nos dois menus pendentes na parte superior da caixa de diálogo. Clique em **OK** para criar o projeto.
 
-![](media/get-started-netcore-visualstudio/NewProjectDialog2.png)
+![Na caixa de diálogo "NEW A S P dot NET Core Web Application", duas caixas de lista pendentes mostram "dot NET Core" e "A S P dot NET Core 2 ponto 0". Numa série de botões de modelo de projeto abaixo das caixas de lista, é selecionado o modelo "Aplicação Web (Model-View-Controller)". A caixa de verificação "Enable Docker Support" não é verificada.](media/get-started-netcore-visualstudio/NewProjectDialog2.png)
 
 ### <a name="enable-dev-spaces-for-an-aks-cluster"></a>Ativar os Espaços de Programador para um cluster do AKS
 
 Com o projeto que acabou de criar, selecione **Azure Dev Spaces** no menu pendente de definições de início, conforme mostrado abaixo.
 
-![](media/get-started-netcore-visualstudio/LaunchSettings.png)
+![A caixa de lista suspensa está no topo de uma janela com o nome Microsoft Visual Studio Int Preview. "Azure Dev Spaces" é selecionado.](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
 Na caixa de diálogo apresentada a seguir, certifique-se de que tem sessão iniciada com a conta adequada e, em seguida, selecione um cluster Kubernetes existente.
 
-![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.PNG)
+![A caixa de diálogo Azure Dev Spaces tem estas caixas: "Subscrição", "Cluster de Serviços Azure Kubernetes" e "Espaço".](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.PNG)
 
 Por agora, deixe o menu pendente **Space** (Espaço) com a predefinição `default`. Vai aprender mais sobre esta opção posteriormente. Selecione a caixa de verificação **Publicly Accessible** (Acessível Publicamente) para que a aplicação Web seja acessível a partir de um ponto final público. Esta definição não é obrigatória, mas será útil para demonstrar alguns conceitos mais adiante nestas instruções. Mas não se preocupe. Em qualquer caso, poderá depurar o seu site com o Visual Studio.
 
-![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog2.png)
+![A caixa de verificação acessível ao público é verificada.](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog2.png)
 
 Clique em **OK** para selecionar ou criar o cluster.
 
 Se optar por um cluster que não tenha sido preparado para funcionar com o Azure Dev Spaces, ser-lhe-á apresentada uma mensagem a perguntar se pretende configurá-lo.
 
-![](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
+![A mensagem diz: "Adicionar recurso Azure Dev Spaces? O cluster A K S selecionado deve ser configurado para utilizar espaços Azure Dev antes de poder ser utilizado. Gostaria de fazer isso?" Há botões "O K" e "Cancele".](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
 
 Escolha **OK**.
 
 > [!IMPORTANT]
-> O processo de configuração dos Espaços Azure Dev removerá o espaço de `azds` nome no cluster, se existir.
+> O processo de configuração do Azure Dev Spaces removerá o `azds` espaço de nome no cluster, se existir.
 
  Será iniciada uma tarefa em segundo plano para executar essa configuração. Esta operação demorará alguns minutos a ser concluída. Para ver se ainda está a ser criado, faça pairar o ponteiro sobre o ícone **Background tasks** (Tarefas em segundo plano) no canto inferior esquerdo da barra de tarefas, conforme mostrado na imagem abaixo.
 
-![](media/get-started-netcore-visualstudio/BackgroundTasks.PNG)
+![A janela pop-up que aparece no hover mostra "Creating 'My A K S' no grupo de recursos."](media/get-started-netcore-visualstudio/BackgroundTasks.PNG)
 
-> [!Note]
+> [!NOTE]
 > Não pode depurar a sua aplicação enquanto o espaço não estiver criado.
 
 ### <a name="look-at-the-files-added-to-project"></a>Ver os ficheiros adicionados ao projeto
@@ -138,7 +138,7 @@ Verá que foi adicionado um ficheiro com o nome `Dockerfile`. Este ficheiro tem 
 
 Por último, verá um ficheiro denominado `azds.yaml`, que contém a configuração em tempo de desenvolvimento que é exigida pelo espaço de programador.
 
-![](media/get-started-netcore-visualstudio/ProjectFiles.png)
+![O ficheiro "a z d s dot yaml" aparece na solução "webfrontend", na janela Solution Explorer.](media/get-started-netcore-visualstudio/ProjectFiles.png)
 
 ## <a name="debug-a-container-in-kubernetes"></a>Depurar um contentor no Kubernetes
 Assim que o ambiente de programador estiver criado, pode depurar a aplicação. Defina um ponto de interrupção no código, por exemplo, na linha 20 do ficheiro `HomeController.cs` no qual está definida a variável `Message`. Clique em **F5** para iniciar a depuração. 
@@ -154,7 +154,7 @@ O Azure Dev Spaces não se limita apenas a pôr o código em execução no Kuber
 ### <a name="update-a-content-file"></a>Atualizar um ficheiro de conteúdo
 
 
-1. Localize o ficheiro `./Views/Home/Index.cshtml` e faça uma edição ao HTML. Por exemplo, alterar [a `<h2>Application uses</h2>` linha 73 que lê](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Views/Home/Index.cshtml#L73) para algo como: 
+1. Localize o ficheiro `./Views/Home/Index.cshtml` e faça uma edição ao HTML. Por exemplo, mude [a linha `<h2>Application uses</h2>` 73 que lê](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Views/Home/Index.cshtml#L73) para algo como: 
   
     ```html
     <h2>Hello k8s in Azure!</h2>`
@@ -177,7 +177,7 @@ Em vez de reconstruir e reimplementar uma imagem de contentor nova sempre que fo
 
 Atualize a aplicação Web no browser e aceda à página About (Sobre). Deverá ver a mensagem personalizada apresentada na IU.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Conheça o desenvolvimento de vários serviços](multi-service-netcore-visualstudio.md)

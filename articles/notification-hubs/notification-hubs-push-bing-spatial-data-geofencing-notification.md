@@ -18,12 +18,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: ff37a3ecb55c6ee034d3fd2558909c3b4ef1d375
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 3065cd6f185c0fdfaea1d6c0d02d2fee69bd04c7
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223436"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116935"
 ---
 # <a name="tutorial-send-location-based-push-notifications-with-notification-hubs-and-bing-spatial-data"></a>Tutorial: Enviar notificações push baseadas em localização com centros de notificação e dados espaciais de Bing
 
@@ -63,7 +63,7 @@ Neste tutorial, siga os seguintes passos:
 
     O ficheiro de pipe representa esta entidade:
 
-    ![Screenshot de um ap da orla marítima de São Francisco com um polígono vermelho delineando uma área do cais.](./media/notification-hubs-geofence/bing-maps-geofence.png)
+    ![Screenshot de um mapa da orla marítima de São Francisco com um polígono vermelho delineando uma área do cais.](./media/notification-hubs-geofence/bing-maps-geofence.png)
 5. Na página **Carregar uma origem de dados**, faça o seguinte:
    1. Selecione **pipe** para **Formato de dados**.
    2. Navegue e selecione o `NotificationHubGeofence.pipe` ficheiro que criou no passo anterior.
@@ -164,7 +164,7 @@ Neste tutorial, siga os seguintes passos:
     }
     ```
 
-    Para saber mais sobre a localização do utilizador em aplicações UWP, consulte[a localização do utilizador.](https://msdn.microsoft.com/library/windows/apps/mt219698.aspx)
+    Para saber mais sobre a localização do utilizador em aplicações UWP, consulte[a localização do utilizador.](/windows/uwp/maps-and-location/get-location)
 5. Para verificar se a aquisição de localização está, de facto, a funcionar, abra o lado de código da sua página principal (`MainPage.xaml.cs`). Crie um novo processador de eventos para o evento `Loaded` no construtor `MainPage`.
 
     ```csharp
@@ -393,7 +393,7 @@ Neste tutorial, siga os seguintes passos:
 
 Existem alguns passos que poderá ter de seguir para se certificar de que a solução está pronta para produção.
 
-1. Em primeiro lugar, tem de garantir que os perímetros geográficos são dinâmicos. Isto irá necessitar de algum trabalho adicional com a API do Bing para carregar novos limites na origem de dados existente. Para obter mais informações, veja [Documentação da API dos Serviços de Dados Geográficos do Bing](https://msdn.microsoft.com/library/ff701734.aspx).
+1. Em primeiro lugar, tem de garantir que os perímetros geográficos são dinâmicos. Isto irá necessitar de algum trabalho adicional com a API do Bing para carregar novos limites na origem de dados existente. Para obter mais informações, veja [Documentação da API dos Serviços de Dados Geográficos do Bing](/bingmaps/spatial-data-services/).
 2. Segundo, à medida que vai trabalhando para garantir que a entrega é efetuada aos participantes corretos, poderá querer segmentá-los através de [etiquetagem](notification-hubs-tags-segment-push-message.md).
 
-A solução mostrada neste tutorial descreve um cenário em que poderá ter uma grande variedade de plataformas de destino, por isso não limita o perímetro geográfico para as capacidades específicas do sistema. Dito isto, a Plataforma Universal do Windows oferece capacidades para [detetar perímetros geográficos logo na primeira execução](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence).
+A solução mostrada neste tutorial descreve um cenário em que poderá ter uma grande variedade de plataformas de destino, por isso não limita o perímetro geográfico para as capacidades específicas do sistema. Dito isto, a Plataforma Universal do Windows oferece capacidades para [detetar perímetros geográficos logo na primeira execução](/windows/uwp/maps-and-location/set-up-a-geofence).

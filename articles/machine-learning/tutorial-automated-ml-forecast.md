@@ -1,5 +1,5 @@
 ---
-title: Tutorial:Previsão da procura & AutoML
+title: 'Tutorial: Previsão da procura & AutoML'
 titleSuffix: Azure Machine Learning
 description: Aprenda a treinar e implementar um modelo de previsão de procura com aprendizagem automática de máquinas no estúdio Azure Machine Learning.
 services: machine-learning
@@ -9,18 +9,21 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 06/04/2020
-ms.openlocfilehash: 3786b7a2b8b8fc40b1cf393aa452c15d72c5b963
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.date: 07/10/2020
+ms.openlocfilehash: a244372168cb34f190bd584634bf108f2b5215a5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433709"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092298"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutorial: Previsão da procura com aprendizagem automática de máquinas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Neste tutorial, você usa machine learning automatizado, ou ML automatizado, no estúdio Azure Machine Learning para criar um modelo de previsão de séries temporizadas para prever a procura de aluguer de um serviço de partilha de bicicletas.
+
+>[!IMPORTANT]
+> A experiência automatizada de ML no estúdio de aprendizagem Azure Machine está em pré-visualização. Certas funcionalidades podem não ser suportadas ou têm capacidades limitadas.
 
 Para um exemplo de modelo de classificação, consulte [Tutorial: Criar um modelo de classificação com ML automatizado em Aprendizagem automática de máquinas.](tutorial-first-experiment-automated-ml.md)
 
@@ -37,11 +40,11 @@ Neste tutorial, aprende-se a fazer as seguintes tarefas:
 
 * Um espaço de trabalho de aprendizagem de máquinas da Edição Empresarial Azure. Se não tiver um espaço de trabalho, [crie um espaço de trabalho para a edição da Enterprise.](how-to-manage-workspace.md) 
     * Machine learning automatizado no estúdio Azure Machine Learning só está disponível para espaços de trabalho da edição enterprise. 
-* Descarregue o ficheiro [de dados bike-no.csv](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv)
+* Descarregue o ficheiro de dados [bike-no.csv](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv)
 
 ## <a name="get-started-in-azure-machine-learning-studio"></a>Começar no estúdio Azure Machine Learning
 
-Para este tutorial, você cria a sua experiência automatizada de ML executada no estúdio Azure Machine Learning, uma interface consolidada que inclui ferramentas de machine learning para executar cenários de ciência de dados para praticantes de ciência de dados de todos os níveis de habilidade. O estúdio não é suportado nos navegadores do Internet Explorer.
+Para este tutorial, você cria a sua experiência automatizada de ML executada no estúdio Azure Machine Learning, uma interface web consolidada que inclui ferramentas de machine learning para executar cenários de ciência de dados para praticantes de ciência de dados de todos os níveis de habilidade. O estúdio não é suportado nos navegadores do Internet Explorer.
 
 1. Inscreva-se no [estúdio Azure Machine Learning](https://ml.azure.com).
 
@@ -75,7 +78,7 @@ Antes de configurar a sua experiência, faça o upload do seu ficheiro de dados 
        
     1. Verifique se as Definições e o formulário **de pré-visualização são** preenchidos da seguinte forma e selecione **Next**.
         
-        Campo|Description| Valor para tutorial
+        Campo|Descrição| Valor para tutorial
         ---|---|---
         Formato do ficheiro|Define o layout e o tipo de dados armazenados num ficheiro.| Delimitado
         Delimitador|Um ou mais caracteres para especificar a fronteira entre &nbsp; regiões separadas e independentes em texto simples ou outros fluxos de dados. |Ponto
@@ -110,11 +113,14 @@ Depois de carregar e configurar os seus dados, configure o seu alvo de computaç
 
     1. Selecione **Crie um novo compute e** configuure o seu alvo de computação. O ML automatizado suporta apenas o cálculo Azure Machine Learning. 
 
-        Campo | Description | Valor para tutorial
+        Campo | Descrição | Valor para tutorial
         ----|---|---
         Nome computacional |Um nome único que identifica o seu contexto computacional.|bike-compute
+        Tipo de máquina virtual &nbsp; &nbsp;|Selecione o tipo de máquina virtual para o seu cálculo.|CPU (Unidade Central de Processamento)
         Tamanho da máquina virtual &nbsp; &nbsp;| Selecione o tamanho da máquina virtual para o seu cálculo.|Standard_DS12_V2
-        Nós Min / Max (em Definições Avançadas)| Para perfilar os dados, tem de especificar 1 ou mais nós.|Min nosdes: 1<br>Nó máximo: 6
+        Nós min / max| Para perfilar os dados, tem de especificar 1 ou mais nós.|Min nosdes: 1<br>Nó máximo: 6
+        Ocioso segundos antes de baixar a escala | Tempo de marcha lenta antes do cluster ser automaticamente reduzido à contagem mínima de nós.|120 (padrão)
+        Definições avançadas | Configurações para configurar e autorizar uma rede virtual para a sua experiência.| Nenhum
   
         1. Selecione **Criar** para obter o alvo do cálculo. 
 
@@ -130,23 +136,23 @@ Complete a configuração para a sua experiência automatizada de ML especifican
 
 1. No tipo de tarefa e no formulário **de definições,** selecione **a previsão da série tempo como** o tipo de tarefa de aprendizagem automática.
 
-1. Selecione **a data** como coluna **tempo** e deixe o Grupo **por coluna(s)** em branco. 
+1. Selecione **a data** como a **sua coluna Tempo** e deixe os **identificadores da série tempo** em branco. 
 
-    1. Selecione **Ver as definições de configuração adicionais** e povoar os campos da seguinte forma. Estas definições são para controlar melhor o trabalho de treino e especificar as definições para a sua previsão. Caso contrário, os padrão são aplicados com base na seleção de experiências e dados.
+1. O horizonte de **previsão** é o tempo que se pretende prever no futuro.  Deselelect Autodetect e tipo 14 no campo. 
 
-  
-        &nbsp;Configurações adicionais|Description|Valor &nbsp; para &nbsp; tutorial
-        ------|---------|---
-        Métrica primária| Métrica de avaliação pela que o algoritmo de aprendizagem automática será medido.|Raiz normalizada significa erro quadrado
-        Caracterização automática| Permite o pré-processamento. Isto inclui limpeza automática de dados, preparação e transformação para gerar características sintéticas.| Ativar
-        Explique o melhor modelo (pré-visualização)| Mostra automaticamente a explicabilidade do melhor modelo criado pela ML automatizada.| Ativar
-        Algoritmos bloqueados | Algoritmos que pretende excluir do trabalho de formação| Árvores aleatórias extremas
-        Definições de previsão adicionais| Estas definições ajudam a melhorar a precisão do seu modelo <br><br> _**Horizonte**_ de previsão : duração do tempo para o futuro que pretende prever <br> _**Previsão de meta fica:**_ até onde quer construir os lags de uma variável alvo <br> _**Janela de rolamento do alvo**_: especifica o tamanho da janela rolante sobre as características, tais como o *máximo, min* e *soma,* que serão geradas. |Horizonte de previsão: 14 <br> Previsões &nbsp; de metas &nbsp; desfasamento: Nenhuma <br> Tamanho &nbsp; da janela de rolamento do &nbsp; &nbsp; alvo: Nenhum
-        Critério de saída| Se um critério for cumprido, o trabalho de formação é interrompido. |Tempo &nbsp; de trabalho de &nbsp; formação (horas): 3 <br> Limiar de &nbsp; pontuação &nbsp; métrica: Nenhum
-        Validação | Escolha um tipo de validação cruzada e número de testes.|Tipo de validação:<br>&nbsp;k-dobrar &nbsp; validação cruzada <br> <br> Número de validações: 5
-        Simultaneidade| O número máximo de iterações paralelas executadas por iteração| &nbsp;Iterações &nbsp; concorrâneas máximas: 6
-        
-        Selecione **Guardar**.
+1. Selecione **Ver as definições de configuração adicionais** e povoar os campos da seguinte forma. Estas definições são para controlar melhor o trabalho de treino e especificar as definições para a sua previsão. Caso contrário, os padrão são aplicados com base na seleção de experiências e dados.
+
+    &nbsp;Configurações adicionais|Descrição|Valor &nbsp; para &nbsp; tutorial
+    ------|---------|---
+    Métrica primária| Métrica de avaliação pela que o algoritmo de aprendizagem automática será medido.|Raiz normalizada significa erro quadrado
+    Explicar o melhor modelo| Mostra automaticamente a explicabilidade do melhor modelo criado pela ML automatizada.| Ativar
+    Algoritmos bloqueados | Algoritmos que pretende excluir do trabalho de formação| Árvores aleatórias extremas
+    Definições de previsão adicionais| Estas definições ajudam a melhorar a precisão do seu modelo <br><br> _**Previsão de meta fica para trás:**_ até onde quer construir os lags da variável-alvo <br> _**Janela de rolamento do alvo**_: especifica o tamanho da janela rolante sobre as características, tais como o *máximo, min* e *soma,* que serão geradas. | <br><br>Previsões &nbsp; de metas &nbsp; desfasamento: Nenhuma <br> Tamanho &nbsp; da janela de rolamento do &nbsp; &nbsp; alvo: Nenhum
+    Critério de saída| Se um critério for cumprido, o trabalho de formação é interrompido. |Tempo &nbsp; de trabalho de &nbsp; formação (horas): 3 <br> Limiar de &nbsp; pontuação &nbsp; métrica: Nenhum
+    Validação | Escolha um tipo de validação cruzada e número de testes.|Tipo de validação:<br>&nbsp;k-dobrar &nbsp; validação cruzada <br> <br> Número de validações: 5
+    Simultaneidade| O número máximo de iterações paralelas executadas por iteração| &nbsp;Iterações &nbsp; concorrâneas máximas: 6
+    
+    Selecione **Guardar**.
 
 ## <a name="run-experiment"></a>Experiência de execução
 
@@ -163,7 +169,7 @@ Navegue no separador **Modelos** para ver os algoritmos (modelos) testados. Por 
 
 Enquanto espera que todos os modelos de experiência terminem, selecione o **nome Algoritmo** de um modelo completo para explorar os seus detalhes de desempenho. 
 
-O exemplo a seguir navega através dos detalhes do **Modelo** e dos **separadores visualizações** para visualizar as propriedades, métricas e gráficos de desempenho do modelo selecionado. 
+O exemplo a seguir navega através dos separadores **Detalhes** e **Métricas** para ver as propriedades, métricas e gráficos de desempenho do modelo selecionado. 
 
 ![Detalhe de execução](./media/tutorial-automated-ml-forecast/explore-models-ui.gif)
 
@@ -173,11 +179,15 @@ A aprendizagem automática de máquinas no estúdio Azure Machine Learning permi
 
 Para esta experiência, a implementação para um serviço web significa que a empresa de partilha de bicicletas tem agora uma solução web iterativa e escalável para a previsão da procura de aluguer de partilha de bicicletas. 
 
-Assim que a execução estiver concluída, volte à página **de detalhes de Execução** e selecione o **separador Modelos.**
+Uma vez concluída a execução, volte à página de execução dos pais selecionando **Run 1** na parte superior do ecrã.
 
-Neste contexto de experiência, **o StackEnsemble** é considerado o melhor modelo, baseado na **raiz normalizada médiamétrica de erro quadrado.**  Implementamos este modelo, mas seja avisado, a implantação leva cerca de 20 minutos para ser concluída. O processo de implementação implica várias etapas, incluindo registar o modelo, gerar recursos e configurá-los para o serviço web.
+Na secção de resumo do **modelo Best,** o **StackEnsemble** é considerado o melhor modelo no contexto desta experiência, com base na **raiz normalizada médiamétrica de erro quadrado.**  
 
-1. Selecione o melhor botão **de modelo** do conjunto no canto inferior esquerdo.
+Implementamos este modelo, mas seja avisado, a implantação leva cerca de 20 minutos para ser concluída. O processo de implementação implica várias etapas, incluindo registar o modelo, gerar recursos e configurá-los para o serviço web.
+
+1. Selecione **StackEnsemble** para abrir a página específica do modelo.
+
+1. Selecione o botão **'Implementar'** localizado na área superior esquerda do ecrã.
 
 1. Povoar o **painel de modelos** da seguinte forma:
 
@@ -193,8 +203,7 @@ Neste contexto de experiência, **o StackEnsemble** é considerado o melhor mode
 
 1. Selecione **Implementar**.  
 
-    Uma mensagem de sucesso verde aparece no topo do ecrã **Run** indicando que a implementação foi iniciada com sucesso. O progresso da implantação pode ser encontrado  
-    no painel **de modelo recomendado** sob o estado de **implantação**.
+    Uma mensagem de sucesso verde aparece no topo do ecrã **Run** indicando que a implementação foi iniciada com sucesso. O progresso da implantação pode ser encontrado no **painel de resumo** do Modelo sob o estado de **implantação**.
     
 Uma vez que a implementação tenha sucesso, você tem um serviço web operacional para gerar previsões. 
 

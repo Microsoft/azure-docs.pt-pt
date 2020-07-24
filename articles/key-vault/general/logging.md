@@ -10,11 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b3f337798525860748cf7b535c2bce478dad8e27
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 9c5b07d402219907337a590e1131691fb1e24cc2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043007"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090591"
 ---
 # <a name="azure-key-vault-logging"></a>Registo do Azure Key Vault
 
@@ -42,7 +43,7 @@ Para obter informações gerais sobre o Key Vault, veja [o que é o Cofre da Cha
 Para concluir este tutorial, deve ter o seguinte:
 
 * Um cofre de chaves que tiver utilizado.  
-* Azure PowerShell, versão mínima de 1.0.0. Para instalar o Azure PowerShell e associá-lo à sua subscrição do Azure, consulte o artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Se já instalou o Azure PowerShell e não conhece a versão, a partir da consola Azure PowerShell, entre em `$PSVersionTable.PSVersion` .  
+* Azure PowerShell, versão mínima de 1.0.0. Para instalar o Azure PowerShell e associá-lo à sua subscrição do Azure, consulte o artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/). Se já instalou o Azure PowerShell e não conhece a versão, a partir da consola Azure PowerShell, entre em `$PSVersionTable.PSVersion` .  
 * Armazenamento suficiente no Azure para os seus registos do Cofre de Chaves.
 
 ## <a name="connect-to-your-key-vault-subscription"></a><a id="connect"></a>Ligue-se à subscrição do cofre de chaves
@@ -69,7 +70,7 @@ Em seguida, para especificar a subscrição que está associada ao cofre chave q
 Set-AzContext -SubscriptionId <subscription ID>
 ```
 
-Apontar o PowerShell para a subscrição certa é um passo importante, especialmente se tiver várias subscrições associadas à sua conta. Para obter mais informações sobre como configurar o Azure PowerShell, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview).
+Apontar o PowerShell para a subscrição certa é um passo importante, especialmente se tiver várias subscrições associadas à sua conta. Para obter mais informações sobre como configurar o Azure PowerShell, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/).
 
 ## <a name="create-a-storage-account-for-your-logs"></a><a id="storage"></a>Crie uma conta de armazenamento para os seus registos
 
@@ -96,7 +97,7 @@ $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 
 ## <a name="enable-logging-using-azure-powershell"></a><a id="enable"></a>Ativar o registo utilizando o Azure PowerShell
 
-Para ativar o registo do Key Vault, utilizaremos o **cmdlet Set-AzDiagnosticSetting,** juntamente com as variáveis que criamos para a nova conta de armazenamento e o cofre-chave. Também definiremos a bandeira **ativada** para **$true** e definiremos a categoria para **AuditEvent** (a única categoria para a extração de Cofre de Chaves):
+Para ativar o registo do Key Vault, utilizaremos o **cmdlet Set-AzDiagnosticSetting,** juntamente com as variáveis que criamos para a nova conta de armazenamento e o cofre-chave. Também definiremos a bandeira **ativada** para **$true** e definiremos a categoria para `AuditEvent` (a única categoria para a extração de Cofre de Chaves):
 
 ```powershell
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
@@ -266,19 +267,19 @@ A tabela que se segue lista os nomes e descrições do campo:
 
 | Nome do campo | Descrição |
 | --- | --- |
-| **tempo** |Data e hora na UTC. |
+| **Hora** |Data e hora na UTC. |
 | **recursosId** |Identificação de recursos do Azure Resource Manager. Para os registos do Cofre de Chaves, este é sempre o ID de recurso key Vault. |
 | **operaçãoName** |Nome da operação, conforme documentada na tabela seguinte. |
-| **operationVersion** |Versão REST API solicitada pelo cliente. |
-| **categoria** |Tipo de resultado. Para os registos key Vault, **auditEvent** é o valor único disponível. |
-| **resultType** |Resultado do pedido da API REST. |
-| **resultSignature** |Estado de HTTP. |
-| **resultDescription** |Descrição adicional sobre o resultado, quando disponível. |
-| **durationMs** |Tempo necessário para o processamento do pedido de API REST, em milissegundos. Não inclui a latência de rede, assim, o tempo que medir do lado do cliente poderá não corresponder a este período de tempo. |
+| **operaçãoVer** |Versão REST API solicitada pelo cliente. |
+| **categoria** |Tipo de resultado. Para os registos key vault, `AuditEvent` é o valor único disponível. |
+| **resultadoType** |Resultado do pedido da API REST. |
+| **assinatura resultados** |Estado de HTTP. |
+| **resultadoDescrição** |Descrição adicional sobre o resultado, quando disponível. |
+| **duraçõesMs** |Tempo necessário para o processamento do pedido de API REST, em milissegundos. Não inclui a latência de rede, assim, o tempo que medir do lado do cliente poderá não corresponder a este período de tempo. |
 | **callerIpAddress** |Endereço IP do cliente que fez o pedido. |
 | **correlationId** |Um GUID opcional que o cliente pode passar para correlacionar os registos do lado do cliente com os registos do lado do serviço (Cofre de Chaves). |
 | **identidade** |Identidade do símbolo que foi apresentado no pedido da API REST. Trata-se normalmente de um "utilizador", de um "principal de serviço", ou da combinação "user+appId", como no caso de um pedido que resulta de um cmdlet Azure PowerShell. |
-| **propriedades** |Informação que varia com base na operação **(operaçãoName).** Na maioria dos casos, este campo contém informações do cliente (a cadeia de agente de utilizador passou pelo cliente), o pedido exato de API URI e o código de estado HTTP. Além disso, quando um objeto é devolvido como resultado de um pedido (por exemplo, **KeyCreate** ou **VaultGet),** também contém a chave URI (como "id"), cofre URI, ou URI secreto. |
+| **propriedades** |Informação que varia com base na operação **(operaçãoName).** Na maioria dos casos, este campo contém informações do cliente (a cadeia de agente de utilizador passou pelo cliente), o pedido exato de API URI e o código de estado HTTP. Além disso, quando um objeto é devolvido como resultado de um pedido (por exemplo, **KeyCreate** ou **VaultGet),** também contém a chave URI (as `id` ), cofre URI, ou URI secreto. |
 
 Os valores de campo **operationName** estão no formato *ObjectVerb.* Por exemplo:
 
@@ -320,11 +321,11 @@ A tabela a seguir lista os valores do nome de **operação** e os comandos corre
 
 ## <a name="use-azure-monitor-logs"></a><a id="loganalytics"></a>Utilize registos do Monitor Azure
 
-Pode utilizar a solução Key Vault nos registos do Azure Monitor para rever os registos Key Vault **AuditEvent.** Nos registos do Azure Monitor, utiliza consultas de registo para analisar dados e obter a informação de que necessita. 
+Pode utilizar a solução Key Vault nos registos do Azure Monitor para rever os registos do Key `AuditEvent` Vault. Nos registos do Azure Monitor, utiliza consultas de registo para analisar dados e obter a informação de que necessita. 
 
-Para obter mais informações, incluindo como configurar isto, consulte a [solução Azure Key Vault nos registos do Azure Monitor](../../azure-monitor/insights/azure-key-vault.md). Este artigo também contém instruções se precisar de migrar da antiga solução Key Vault que foi oferecida durante a pré-visualização dos registos do Azure Monitor, onde primeiro encaminhou os seus registos para uma conta de armazenamento Azure e configuraram os registos do Monitor Azure para ler a partir daí.
+Para obter mais informações, incluindo como configurar isto, consulte [o Azure Key Vault no Azure Monitor](../../azure-monitor/insights/key-vault-insights-overview.md).
 
-## <a name="next-steps"></a><a id="next"></a>Próximos passos
+## <a name="next-steps"></a><a id="next"></a>Passos seguintes
 
 Para um tutorial que utilize o Azure Key Vault numa aplicação web .NET, consulte [Use Azure Key Vault a partir de uma aplicação web](tutorial-net-create-vault-azure-web-app.md).
 

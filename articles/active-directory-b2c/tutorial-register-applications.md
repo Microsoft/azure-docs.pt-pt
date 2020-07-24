@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/10/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2ac8baf0e2aa9555efb6d6b4f39787d9a7bf9508
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b7164aa71495100d7be4f1c0f6ef6de90644831b
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499907"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115974"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Tutorial: Registar uma aplicação web no Azure Ative Directory B2C
 
@@ -109,7 +110,7 @@ Se a sua aplicação trocar um código de autorização para um token de acesso,
 
 * * *
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a:
 

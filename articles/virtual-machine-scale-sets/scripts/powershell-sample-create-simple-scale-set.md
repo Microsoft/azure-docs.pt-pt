@@ -1,6 +1,6 @@
 ---
-title: Amostras Azure PowerShell - Crie um conjunto básico de escala de máquina virtual
-description: Este script cria um conjunto de máquinas virtuais Azure que executa o Windows Server 2016, a que pode aceder através de RDP.
+title: Amostras Azure PowerShell - Criar um conjunto básico de escala de máquina virtual
+description: Este script cria um conjunto de escala de máquina virtual Azure em execução do Windows Server 2016, ao qual pode aceder através de RDP.
 author: mimckitt
 ms.author: mimckitt
 ms.topic: sample
@@ -9,12 +9,12 @@ ms.subservice: powershell
 ms.date: 03/27/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 3d49212e6d35e2a348a7e31ff7d2f0ad49eabfc2
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 1093d6df3bef052df2dbe6df04f52d6a119357db
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83699495"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087089"
 ---
 # <a name="create-a-basic-virtual-machine-scale-set-with-powershell"></a>Criar um conjunto de dimensionamento de máquinas virtuais básico com o PowerShell
 Este script cria um conjunto de dimensionamento de máquinas virtuais com o Windows Server 2016. Depois de executar o script, pode aceder às instâncias de VMs através de RDP.
@@ -43,5 +43,5 @@ Este script utiliza os seguintes comandos para criar a implementação. Cada ite
 | [New-AzVmss](/powershell/module/az.compute/new-azvmss) | Cria o conjunto de dimensionamento de máquinas virtuais e todos os recursos de suporte, incluindo a rede virtual, o balanceador de carga e as regras NAT. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Remove um grupo de recursos e todos os recursos contidos no grupo. |
 
-## <a name="next-steps"></a>Próximos passos
-Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
+## <a name="next-steps"></a>Passos seguintes
+Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/).

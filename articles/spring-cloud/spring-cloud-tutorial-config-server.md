@@ -6,12 +6,13 @@ ms.topic: how-to
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
-ms.openlocfilehash: bfce1ce54da9d9e8e7feaa8e8eb5cd676866a1cb
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: devx-track-java
+ms.openlocfilehash: dd97932d0aaa89373636a60e793f531cda18abdd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142181"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091441"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Configurar uma instância do Servidor Config da Nuvem de primavera para o seu serviço
 
@@ -56,9 +57,9 @@ Todas as propriedades configuráveis que são usadas para configurar o repositó
 
 | Propriedade        | Necessário | Funcionalidade                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
-| `uri`           | Sim    | O URI do repositório git que é usado como o Config Server back end começa com *http://*, *https://*, *git@*, ou *ssh://*. |
-| `default-label` | Não     | A etiqueta padrão do repositório git, deve ser o nome do *ramo,* o nome da *etiqueta,* ou *identificação* do repositório. |
-| `search-paths`  | Não     | Uma variedade de cordas que são usadas para pesquisar subdiretivas do repositório de Git. |
+| `uri`           | Yes    | O URI do repositório git que é usado como o Config Server back end começa com *http://*, *https://*, *git@*, ou *ssh://*. |
+| `default-label` | No     | A etiqueta padrão do repositório git, deve ser o nome do *ramo,* o nome da *etiqueta,* ou *identificação* do repositório. |
+| `search-paths`  | No     | Uma variedade de cordas que são usadas para pesquisar subdiretivas do repositório de Git. |
 
 ------
 
@@ -71,13 +72,13 @@ Todas as propriedades configuráveis utilizadas para configurar o repositório p
 
 | Propriedade                   | Necessário | Funcionalidade                                                      |
 | :------------------------- | -------- | ------------------------------------------------------------ |
-| `uri`                      | Sim    | O URI do repositório git usado como back end do Config Server, deve ser iniciado com *http://*, *https://*, *git@* ou *ssh://*. |
-| `default-label`            | Não     | A etiqueta padrão do repositório git, deve ser o nome do *ramo,* o nome da *etiqueta,* ou *identificação* do repositório. |
-| `search-paths`             | Não     | Uma série de cordas usadas para pesquisar subdiretivas do repositório de Git. |
-| `private-key`              | Não     | A chave privada SSH para aceder ao repositório Git, _necessária_ quando o URI começa com *git@* ou *ssh://*. |
-| `host-key`                 | Não     | A chave hospedeira do servidor repositório Git não deve incluir o prefixo do algoritmo como coberto por `host-key-algorithm` . |
-| `host-key-algorithm`       | Não     | O algoritmo-chave do anfitrião, deve ser *ssh-dss,* *ssh-rsa,* *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384*, ou *ecdsa-sha2-nistp521*. *Obrigatório apenas* se `host-key` existir. |
-| `strict-host-key-checking` | Não     | Indica se a instância do Servidor Config não começará quando alavancar o privado `host-key` . Deve ser *verdadeiro* (valor predefinido) ou *falso*. |
+| `uri`                      | Yes    | O URI do repositório git usado como back end do Config Server, deve ser iniciado com *http://*, *https://*, *git@* ou *ssh://*. |
+| `default-label`            | No     | A etiqueta padrão do repositório git, deve ser o nome do *ramo,* o nome da *etiqueta,* ou *identificação* do repositório. |
+| `search-paths`             | No     | Uma série de cordas usadas para pesquisar subdiretivas do repositório de Git. |
+| `private-key`              | No     | A chave privada SSH para aceder ao repositório Git, _necessária_ quando o URI começa com *git@* ou *ssh://*. |
+| `host-key`                 | No     | A chave hospedeira do servidor repositório Git não deve incluir o prefixo do algoritmo como coberto por `host-key-algorithm` . |
+| `host-key-algorithm`       | No     | O algoritmo-chave do anfitrião, deve ser *ssh-dss,* *ssh-rsa,* *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384*, ou *ecdsa-sha2-nistp521*. *Obrigatório apenas* se `host-key` existir. |
+| `strict-host-key-checking` | No     | Indica se a instância do Servidor Config não começará quando alavancar o privado `host-key` . Deve ser *verdadeiro* (valor predefinido) ou *falso*. |
 
 -----
 
@@ -90,11 +91,11 @@ Todas as propriedades configuráveis utilizadas para configurar o repositório p
 
 | Propriedade        | Necessário | Funcionalidade                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
-| `uri`           | Sim    | O URI do repositório git que é usado como a parte de trás do Config Server deve ser iniciado com *http://*, *https://*, *git@*, ou *ssh://*. |
-| `default-label` | Não     | A etiqueta padrão do repositório git, deve ser o nome do *ramo,* o nome da *etiqueta,* ou *identificação* do repositório. |
-| `search-paths`  | Não     | Uma série de cordas usadas para pesquisar subdiretivas do repositório de Git. |
-| `username`      | Não     | O nome de utilizador que é usado para aceder ao servidor repositório git, _exigido_ quando o servidor do repositório Git suporta `Http Basic Authentication` . |
-| `password`      | Não     | A palavra-passe utilizada para aceder ao servidor repositório git, _necessária_ quando o servidor do repositório Git suporta `Http Basic Authentication` . |
+| `uri`           | Yes    | O URI do repositório git que é usado como a parte de trás do Config Server deve ser iniciado com *http://*, *https://*, *git@*, ou *ssh://*. |
+| `default-label` | No     | A etiqueta padrão do repositório git, deve ser o nome do *ramo,* o nome da *etiqueta,* ou *identificação* do repositório. |
+| `search-paths`  | No     | Uma série de cordas usadas para pesquisar subdiretivas do repositório de Git. |
+| `username`      | No     | O nome de utilizador que é usado para aceder ao servidor repositório git, _exigido_ quando o servidor do repositório Git suporta `Http Basic Authentication` . |
+| `password`      | No     | A palavra-passe utilizada para aceder ao servidor repositório git, _necessária_ quando o servidor do repositório Git suporta `Http Basic Authentication` . |
 
 > [!NOTE]
 > Muitos `Git` servidores repositórios suportam o uso de fichas em vez de palavras-passe para a autenticação básica HTTP. Alguns repositórios, como o GitHub, permitem que os tokens persistam indefinidamente. No entanto, alguns servidores de repositórios git, incluindo Azure DevOps, forçam tokens a expirar em poucas horas. Os repositórios que fazem com que os tokens expirem não devem utilizar a autenticação baseada em símbolos com a Azure Spring Cloud.
@@ -108,18 +109,18 @@ Todas as propriedades configuráveis usadas para configurar repositórios de Git
 
 | Propriedade                           | Necessário         | Funcionalidade                                                      |
 | :--------------------------------- | ---------------- | ------------------------------------------------------------ |
-| `repos`                            | Não             | Um mapa que consiste nas definições de um repositório de Git com um nome próprio. |
+| `repos`                            | No             | Um mapa que consiste nas definições de um repositório de Git com um nome próprio. |
 | `repos."uri"`                      | Sim, em`repos` | O URI do repositório git que é usado como a parte de trás do Config Server deve ser iniciado com *http://*, *https://*, *git@*, ou *ssh://*. |
 | `repos."name"`                     | Sim, em`repos` | Um nome para identificar no repositório de Git, _só requerido_ se `repos` existir. Por exemplo, *equipa A,* *equipa B.* |
-| `repos."pattern"`                  | Não             | Uma série de cordas usadas para combinar com um nome de aplicação. Para cada padrão, utilize o `{application}/{profile}` formato com wildcards. |
-| `repos."default-label"`            | Não             | A etiqueta padrão do repositório git, deve ser o nome do *ramo,* o nome da *etiqueta,* ou *identificação* do repositório. |
-| `repos."search-paths`"             | Não             | Uma série de cordas usadas para pesquisar subdiretivas do repositório de Git. |
-| `repos."username"`                 | Não             | O nome de utilizador que é usado para aceder ao servidor repositório git, _exigido_ quando o servidor do repositório Git suporta `Http Basic Authentication` . |
-| `repos."password"`                 | Não             | A palavra-passe utilizada para aceder ao servidor repositório git, _necessária_ quando o servidor do repositório Git suporta `Http Basic Authentication` . |
-| `repos."private-key"`              | Não             | A chave privada SSH para aceder ao repositório git, _necessária_ quando o URI começa com *git@* ou *ssh://*. |
-| `repos."host-key"`                 | Não             | A chave hospedeira do servidor repositório Git não deve incluir o prefixo do algoritmo como coberto por `host-key-algorithm` . |
-| `repos."host-key-algorithm"`       | Não             | O algoritmo-chave do anfitrião, deve ser *ssh-dss,* *ssh-rsa,* *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384*, ou *ecdsa-sha2-nistp521*. *Obrigatório apenas* se `host-key` existir. |
-| `repos."strict-host-key-checking"` | Não             | Indica se a instância do Servidor Config não começará quando alavancar o privado `host-key` . Deve ser *verdadeiro* (valor predefinido) ou *falso*. |
+| `repos."pattern"`                  | No             | Uma série de cordas usadas para combinar com um nome de aplicação. Para cada padrão, utilize o `{application}/{profile}` formato com wildcards. |
+| `repos."default-label"`            | No             | A etiqueta padrão do repositório git, deve ser o nome do *ramo,* o nome da *etiqueta,* ou *identificação* do repositório. |
+| `repos."search-paths`"             | No             | Uma série de cordas usadas para pesquisar subdiretivas do repositório de Git. |
+| `repos."username"`                 | No             | O nome de utilizador que é usado para aceder ao servidor repositório git, _exigido_ quando o servidor do repositório Git suporta `Http Basic Authentication` . |
+| `repos."password"`                 | No             | A palavra-passe utilizada para aceder ao servidor repositório git, _necessária_ quando o servidor do repositório Git suporta `Http Basic Authentication` . |
+| `repos."private-key"`              | No             | A chave privada SSH para aceder ao repositório git, _necessária_ quando o URI começa com *git@* ou *ssh://*. |
+| `repos."host-key"`                 | No             | A chave hospedeira do servidor repositório Git não deve incluir o prefixo do algoritmo como coberto por `host-key-algorithm` . |
+| `repos."host-key-algorithm"`       | No             | O algoritmo-chave do anfitrião, deve ser *ssh-dss,* *ssh-rsa,* *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384*, ou *ecdsa-sha2-nistp521*. *Obrigatório apenas* se `host-key` existir. |
+| `repos."strict-host-key-checking"` | No             | Indica se a instância do Servidor Config não começará quando alavancar o privado `host-key` . Deve ser *verdadeiro* (valor predefinido) ou *falso*. |
 
 ## <a name="attach-your-config-server-repository-to-azure-spring-cloud"></a>Anexe o seu repositório Config Server à Nuvem de primavera de Azure
 
