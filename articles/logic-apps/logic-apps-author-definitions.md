@@ -6,17 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: 0f5f01c757bf651beddaa76fc3eb8046b21b31eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9163071237041d7c8510a644c573e3763434bb0c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75979398"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060664"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Criar, editar ou expandir JSON para definições de fluxo de aplicações lógicas no Azure Logic Apps
 
 Quando cria soluções de integração empresarial com fluxos de trabalho automatizados em [Azure Logic Apps,](../logic-apps/logic-apps-overview.md)as definições de aplicações lógicas subjacentes utilizam a simples e declarativa Notação de Objetos JavaScript (JSON) juntamente com o [esquema de Linguagem de Definição de Fluxo de Trabalho (WDL)](../logic-apps/logic-apps-workflow-definition-language.md) para a sua descrição e validação. Estes formatos tornam as definições de aplicações lógicas mais fáceis de ler e entender sem saber muito sobre código.
 Quando pretende automatizar a criação e implementação de aplicações lógicas, pode incluir definições de aplicações lógicas como [recursos Azure](../azure-resource-manager/management/overview.md) dentro [dos modelos do Azure Resource Manager](../azure-resource-manager/templates/overview.md).
-Para criar, gerir e implementar aplicações lógicas, pode então utilizar [a Azure PowerShell,](https://docs.microsoft.com/powershell/module/az.logicapp) [Azure CLI,](../azure-resource-manager/templates/deploy-cli.md)ou as [Azure Logic Apps REST APIs](https://docs.microsoft.com/rest/api/logic/).
+Para criar, gerir e implementar aplicações lógicas, pode então utilizar [a Azure PowerShell,](/powershell/module/az.logicapp) [Azure CLI,](../azure-resource-manager/templates/deploy-cli.md)ou as [Azure Logic Apps REST APIs](/rest/api/logic/).
 
 Para trabalhar com definições de aplicações lógicas em JSON, abra o editor code view ao trabalhar no portal Azure ou no Visual Studio, ou copie a definição em qualquer editor que queira.
 Se é novo em aplicações lógicas, [reveja como criar a sua primeira aplicação lógica.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
@@ -292,7 +293,7 @@ Saiba mais sobre [formatação de datas.](../logic-apps/logic-apps-workflow-defi
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Passos de execução com base numa condição (declarações condicionais)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
 * [Passos de execução com base em diferentes valores (declarações de switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)

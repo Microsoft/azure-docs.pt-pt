@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 5a09d672f44ce8835571277ab35f7545c7f5f33e
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 62754c455ec6aad4a3990bf4af749dcdcd425e55
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058287"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060216"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Introdução à entrega de conteúdos a pedido com o portal do Azure
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Este tutorial mostra os passos para implementar um serviço básico de entrega de conteúdos de vídeo a pedido com uma aplicação dos Serviços de Multimédia do Azure no portal do Azure.
 
@@ -125,7 +125,7 @@ Os URLs de assinatura de acesso partilhado têm o formato seguinte:
 > 
 > 
 
-Para atualizar uma data de expiração num localizador, pode utilizar uma [API REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) ou uma [API .NET](https://go.microsoft.com/fwlink/?LinkID=533259). 
+Para atualizar uma data de expiração num localizador, pode utilizar uma [API REST](/rest/api/media/operations/locator#update_a_locator) ou uma [API .NET](https://go.microsoft.com/fwlink/?LinkID=533259). 
 
 > [!NOTE]
 > Quando atualiza a data de expiração de um localizador de assinatura de acesso partilhado, o URL é alterado.
@@ -157,5 +157,5 @@ São aplicáveis algumas considerações:
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

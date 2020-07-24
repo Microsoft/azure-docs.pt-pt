@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1e4c989e4550c1ea504a08d3cc975f2add5a4ba2
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 6f521cccdc8814fad8605460bf87c0d0fca20378
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054734"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055609"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse"></a>Crie a sua primeira função com Java e Eclipse 
 
@@ -28,7 +28,7 @@ Para desenvolver uma aplicação de funções com Java e Eclipse, tem de ter o s
 -  [Java Developer Kit,](https://www.azul.com/downloads/zulu/)versão 8.
 -  [Apache Maven,](https://maven.apache.org)versão 3.0 ou superior.
 -  [Eclipse,](https://www.eclipse.org/downloads/packages/)com apoio de Java e Maven.
--  [CLI do Azure](https://docs.microsoft.com/cli/azure)
+-  [CLI do Azure](/cli/azure)
 
 > [!IMPORTANT] 
 > A variável de ambiente do JAVA_HOME tem de ser definida para a localização de instalação do JDK para concluir este guia de introdução.
@@ -43,7 +43,7 @@ Para desenvolver uma aplicação de funções com Java e Eclipse, tem de ter o s
 1. Certifique-se de preencher valores para todos os `resourceGroup` campos, `appName` incluindo, e `appRegion` (por favor, use uma app diferenteName diferente do **fabrikam-function-20170920120101928),** e, eventualmente, **Termine.**
     ![Eclipse Maven criar2](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
 
-O Maven cria os ficheiros de projeto numa nova pasta com um nome de _artifactId_. O código gerado no projeto é uma função simples DETON que [ecoa](/azure/azure-functions/functions-bindings-http-webhook) o corpo do pedido HTTP de desencadeamento.
+O Maven cria os ficheiros de projeto numa nova pasta com um nome de _artifactId_. O código gerado no projeto é uma função simples DETON que [ecoa](./functions-bindings-http-webhook.md) o corpo do pedido HTTP de desencadeamento.
 
 ## <a name="run-functions-locally-in-the-ide"></a>Executar funções localmente no IDE
 
@@ -86,7 +86,7 @@ Quando a implementação estiver concluída, verá o URL que pode utilizar para 
 [INFO] ------------------------------------------------------------------------
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja o [Guia para programadores das Funções do Java](functions-reference-java.md) para obter mais informações sobre a programação de funções do Java.
 - Adicione mais funções com diferentes acionadores ao seu projeto com o destino do Maven `azure-functions:add`.

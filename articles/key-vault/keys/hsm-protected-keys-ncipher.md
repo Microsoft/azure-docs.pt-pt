@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 4eea0529e88e183ab517e8546e3ec1cb3cd0af7d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: e67769d37b45a9e1344ce6aa72bd1e60e6bfe287
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042939"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061271"
 ---
 # <a name="import-hsm-protected-keys-for-key-vault-ncipher"></a>Chaves protegidas pelo HSM para o Cofre-Chave (nCipher)
 
@@ -62,7 +62,7 @@ Consulte a seguinte tabela para obter uma lista de pré-requisitos para trazer a
 | Uma assinatura do Azure |Para criar um Cofre de Chaves Azure, precisa de uma subscrição Azure: [Inscreva-se para teste gratuito](https://azure.microsoft.com/pricing/free-trial/) |
 | O nível de serviço Azure Key Vault Premium para suportar chaves protegidas pelo HSM |Para obter mais informações sobre os níveis de serviço e as capacidades para o Azure Key Vault, consulte o site de preços do [cofre de chaves Azure.](https://azure.microsoft.com/pricing/details/key-vault/) |
 | nCipher nShield HSMs, smartcards e software de suporte |Você deve ter acesso a um módulo de segurança de hardware nCipher e conhecimentos operacionais básicos de nCipher nShield HSMs. Consulte [nCipher nShield Hardware Security Module](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/how-to-buy) para obter a lista de modelos compatíveis ou para adquirir um HSM se não tiver um. |
-| O seguinte hardware e software:<ol><li>Uma estação de trabalho offline x64 com um sistema de funcionamento mínimo do Windows 7 e software nCipher nShield que é pelo menos a versão 11.50.<br/><br/>Se esta estação de trabalho executar o Windows 7, tem de [instalar o Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Uma estação de trabalho que está ligada à Internet e tem um sistema operativo mínimo Windows do Windows 7 e [Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) **na versão mínima 1.1.0** instalada.</li><li>Uma unidade USB ou outro dispositivo de armazenamento portátil que tenha pelo menos 16 MB de espaço livre.</li></ol> |Por motivos de segurança, recomendamos que a primeira estação de trabalho não esteja ligada a uma rede. No entanto, esta recomendação não é aplicada programáticamente.<br/><br/>Nas instruções que se seguem, esta estação de trabalho é referida como a estação de trabalho desligada.</p></blockquote><br/>Além disso, se a chave do seu inquilino for para uma rede de produção, recomendamos que use uma segunda estação de trabalho separada para descarregar o depósito de ferramentas e fazer o upload da chave do inquilino. Contudo, para fins de teste, pode utilizar a mesma estação de trabalho.<br/><br/>Nas instruções que se seguem, esta segunda estação de trabalho é referida como a estação de trabalho ligada à Internet.</p></blockquote><br/> |
+| O seguinte hardware e software:<ol><li>Uma estação de trabalho offline x64 com um sistema de funcionamento mínimo do Windows 7 e software nCipher nShield que é pelo menos a versão 11.50.<br/><br/>Se esta estação de trabalho executar o Windows 7, tem de [instalar o Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Uma estação de trabalho que está ligada à Internet e tem um sistema operativo mínimo Windows do Windows 7 e [Azure PowerShell](/powershell/azure/?view=azps-1.2.0) **na versão mínima 1.1.0** instalada.</li><li>Uma unidade USB ou outro dispositivo de armazenamento portátil que tenha pelo menos 16 MB de espaço livre.</li></ol> |Por motivos de segurança, recomendamos que a primeira estação de trabalho não esteja ligada a uma rede. No entanto, esta recomendação não é aplicada programáticamente.<br/><br/>Nas instruções que se seguem, esta estação de trabalho é referida como a estação de trabalho desligada.</p></blockquote><br/>Além disso, se a chave do seu inquilino for para uma rede de produção, recomendamos que use uma segunda estação de trabalho separada para descarregar o depósito de ferramentas e fazer o upload da chave do inquilino. Contudo, para fins de teste, pode utilizar a mesma estação de trabalho.<br/><br/>Nas instruções que se seguem, esta segunda estação de trabalho é referida como a estação de trabalho ligada à Internet.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>Gere e transfira a sua chave para Azure Key Vault HSM
 
@@ -80,7 +80,7 @@ Para este primeiro passo, faça os seguintes procedimentos no seu posto de traba
 
 ### <a name="step-11-install-azure-powershell"></a>Passo 1.1: Instalar a azure powershell
 
-A partir da estação de trabalho ligada à Internet, descarregue e instale o módulo Azure PowerShell que inclui os cmdlets para gerir o Azure Key Vault. Para obter instruções de instalação, consulte [como instalar e configurar a Azure PowerShell](/powershell/azure/overview).
+A partir da estação de trabalho ligada à Internet, descarregue e instale o módulo Azure PowerShell que inclui os cmdlets para gerir o Azure Key Vault. Para obter instruções de instalação, consulte [como instalar e configurar a Azure PowerShell](/powershell/azure/).
 
 ### <a name="step-12-get-your-azure-subscription-id"></a>Passo 1.2: Obtenha o seu ID de assinatura Azure
 
@@ -684,6 +684,6 @@ Para este último passo, na estação de trabalho ligada à Internet, utilize o 
 
 Se o upload for bem sucedido, vê as propriedades da chave que acabou de adicionar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora pode utilizar esta chave protegida pelo HSM no seu cofre de chaves. Para mais informações, consulte este preço e [comparação](https://azure.microsoft.com/pricing/details/key-vault/)de recursos.

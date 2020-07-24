@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 58d52cd194ca4391c61f2477189984273df1198a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e05c7a8388b662731c04ac4098d6eecb1d89fe4f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712399"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060163"
 ---
-# <a name="configure-a-content-key-authorization-policy"></a>Configure uma política de autorização chave de conteúdo
+# <a name="configure-a-content-key-authorization-policy-by-using-the-media-services-net-sdk"></a>Configure uma política de autorização chave de conteúdo utilizando os Serviços de Comunicação Social .NET SDK
 
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
@@ -33,7 +34,7 @@ Se pretender que os Serviços de Comunicação Encriptem um ativo, tem de associ
 
 Quando um stream é solicitado por um leitor, os Media Services utilizam a chave especificada para encriptar dinamicamente o seu conteúdo utilizando encriptação AES ou DRM. Para desencriptar a transmissão em fluxo, o leitor solicita a chave ao serviço de entrega de chaves. Para determinar se o utilizador está autorizado a obter a chave, o serviço avalia as políticas de autorização que especificou para a chave.
 
-Os Media Services suportam várias formas de autenticar utilizadores que efetuam pedidos de chave. A política de autorização de chave de conteúdo pode ter uma ou mais restrições de autorização. As opções estão abertas ou a restrição simbólica. A política de token restrito tem de ser acompanhada por um token emitido por um serviço de tokens seguro (STS). Os Serviços de Media suportam fichas no formato web simples[(SWT)](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)e no formato JSON Web Token[(JWT).](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3)
+Os Media Services suportam várias formas de autenticar utilizadores que efetuam pedidos de chave. A política de autorização de chave de conteúdo pode ter uma ou mais restrições de autorização. As opções estão abertas ou a restrição simbólica. A política de token restrito tem de ser acompanhada por um token emitido por um serviço de tokens seguro (STS). Os Serviços de Media suportam fichas no formato web simples[(SWT)](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_2)e no formato JSON Web Token[(JWT).](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3)
 
 Os Serviços de Comunicação Social não fornecem STS. Pode criar um STS personalizado ou utilizar o Serviço de Controlo de Acesso Azure para emitir fichas. O STS deve ser configurado para criar um símbolo assinado com a chave especificada e emitir alegações que especificou na configuração de restrição simbólica (conforme descrito neste artigo). Se o token for válido e as reclamações no token corresponderem às configuradas para a chave de conteúdo, o serviço de entrega de chaves dos Serviços de Media devolve a chave de encriptação ao cliente.
 
@@ -436,6 +437,5 @@ Para obter um token de teste com base na restrição simbólica que foi usada pa
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Agora que configuraste a política de autorização da chave de conteúdo, vê [a Configure uma política de entrega de ativos.](media-services-dotnet-configure-asset-delivery-policy.md)
-

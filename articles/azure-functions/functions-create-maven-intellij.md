@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7ced455e8124abed75dc7b2bbf7f92eb13613347
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1eb430f94ef545fa74ed225c427a121a47f7cf8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85556465"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055785"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>Crie a sua primeira função Azure com Java e IntelliJ
 
@@ -44,7 +44,7 @@ Para desenvolver uma função com a Java e a IntelliJ, instale o seguinte softwa
 2. Para iniciar sessão na conta do Azure, abra a barra lateral **Azure Explorer** e clique no ícone **Azure Sign In** (Início de Sessão do Azure) na barra na parte superior (ou no menu do IDEA **Tools/Azure/Azure Sign in**).
     ![O comando de Início de sessão do Azure no IntelliJ][intellij-azure-login]
 
-3. Na janela **Azure Sign In**, selecione **Device Login** (Início de sessão de dispositivo) e clique em **Sign in** (Iniciar sessão) ([other sign in options](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/sign-in-instructions)) (outras opções de início de sessão).
+3. Na janela **Azure Sign In**, selecione **Device Login** (Início de sessão de dispositivo) e clique em **Sign in** (Iniciar sessão) ([other sign in options](/azure/developer/java/toolkit-for-intellij/sign-in-instructions)) (outras opções de início de sessão).
 
    ![A janela Início de Sessão do Azure com início de sessão de dispositivo selecionado][intellij-azure-popup]
 
@@ -151,12 +151,12 @@ Nesta secção, utiliza-se o Azure Toolkit para o IntelliJ para criar um projeto
       ![Adicione funções ao gatilho selecionado do projeto](media/functions-create-first-java-intellij/delete-function.png)
       
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Criou um projeto de funções Java com uma função httpizada, executou-o na sua máquina local e implantou-o para Azure. Agora, aumente a sua função por...
 
 > [!div class="nextstepaction"]
-> [Adicionar uma ligação de saída de fila de armazenamento Azure](/azure/azure-functions/functions-add-output-binding-storage-queue-java)
+> [Adicionar uma ligação de saída de fila de armazenamento Azure](./functions-add-output-binding-storage-queue-java.md)
 
 
 [marketplace]:./media/functions-create-first-java-intellij/marketplace.png

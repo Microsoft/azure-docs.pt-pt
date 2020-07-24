@@ -14,19 +14,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: d75ba63955deb3fb6ef4a1207754097b0b3be532
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 533990ef0ea88be7f1f06021d7aa398e89f6390b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962684"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060332"
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Utilize o armazenamento da Azure Queue para monitorizar as notificações de emprego dos Media Services com .NET 
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
-Quando se faz trabalhos de codificação, muitas vezes é preciso uma forma de acompanhar o progresso do emprego. Pode configurar os Serviços de Comunicação Social para entregar notificações ao [armazenamento da Fila Azure](../../storage/storage-dotnet-how-to-use-queues.md). Pode monitorizar o progresso do trabalho recebendo notificações do armazenamento da fila. 
+Quando se faz trabalhos de codificação, muitas vezes é preciso uma forma de acompanhar o progresso do emprego. Pode configurar os Serviços de Comunicação Social para entregar notificações ao [armazenamento da Fila Azure](../../storage/queues/storage-dotnet-how-to-use-queues.md). Pode monitorizar o progresso do trabalho recebendo notificações do armazenamento da fila. 
 
 As mensagens entregues no armazenamento da fila podem ser acedidas a partir de qualquer parte do mundo. A arquitetura de mensagens de armazenamento de fila é fiável e altamente escalável. O armazenamento da fila de sondagens para mensagens é recomendado através de outros métodos.
 
@@ -37,10 +37,10 @@ Este artigo mostra como obter mensagens de notificação do armazenamento da fil
 ## <a name="considerations"></a>Considerações
 Considere o seguinte ao desenvolver aplicações de Serviços de Mídia que utilizam o armazenamento da fila:
 
-* O armazenamento em fila não oferece uma garantia de entrega ordenada pela primeira vez (FIFO). Para obter mais informações, consulte [as filas de Azure e as filas de autocarros da Azure Service Comparadas e Contrastadas.](https://msdn.microsoft.com/library/azure/hh767287.aspx)
+* O armazenamento em fila não oferece uma garantia de entrega ordenada pela primeira vez (FIFO). Para obter mais informações, consulte [as filas de Azure e as filas de autocarros da Azure Service Comparadas e Contrastadas.](/previous-versions/azure/hh767287(v=azure.100))
 * O armazenamento da fila não é um serviço de pressão. Tens de fazer uma sondagem à fila.
-* Pode ter várias filas. Para mais informações, consulte [a API DO Serviço de Fila REST.](https://docs.microsoft.com/rest/api/storageservices/Queue-Service-REST-API)
-* O armazenamento da fila tem algumas limitações e especificidades a ter em conta. Estas são descritas em [Filas Azure e filas de autocarros de serviço Azure Comparadas e Contrastadas.](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted)
+* Pode ter várias filas. Para mais informações, consulte [a API DO Serviço de Fila REST.](/rest/api/storageservices/queue-service-rest-api)
+* O armazenamento da fila tem algumas limitações e especificidades a ter em conta. Estas são descritas em [Filas Azure e filas de autocarros de serviço Azure Comparadas e Contrastadas.](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 
 ## <a name="net-code-example"></a>exemplo de código .NET
 

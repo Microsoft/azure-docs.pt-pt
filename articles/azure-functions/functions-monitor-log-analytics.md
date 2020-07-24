@@ -6,17 +6,18 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 44de63ccd90ca8a76835fabe48d6047139ddc634
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a84dda648ccc1dc73956aeb5d8364c4c3f31c9f6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84561722"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055278"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Monitorização de funções de Azure com registos do monitor Azure
 
 O Azure Functions oferece uma integração com [registos monitores Azure](../azure-monitor/platform/data-platform-logs.md) para monitorizar funções. Este artigo mostra-lhe como configurar funções Azure para enviar registos gerados pelo sistema e gerados pelo utilizador para registos do Monitor Azure.
 
-O Azure Monitor Logs dá-lhe a capacidade de consolidar registos de diferentes recursos no mesmo espaço de trabalho, onde pode ser analisado com [consultas](../azure-monitor/log-query/log-query-overview.md) para recuperar, consolidar e analisar rapidamente dados recolhidos.  Pode criar e testar consultas utilizando o [Log Analytics](../azure-monitor/log-query/portals.md) no portal Azure e, em seguida, analisar diretamente os dados utilizando estas ferramentas ou guardar consultas para utilização com visualizações ou [regras](../azure-monitor/visualizations.md) [de alerta](../azure-monitor/platform/alerts-overview.md).
+O Azure Monitor Logs dá-lhe a capacidade de consolidar registos de diferentes recursos no mesmo espaço de trabalho, onde pode ser analisado com [consultas](../azure-monitor/log-query/log-query-overview.md) para recuperar, consolidar e analisar rapidamente dados recolhidos.  Pode criar e testar consultas utilizando o [Log Analytics](../azure-monitor/log-query/log-query-overview.md) no portal Azure e, em seguida, analisar diretamente os dados utilizando estas ferramentas ou guardar consultas para utilização com visualizações ou [regras](../azure-monitor/visualizations.md) [de alerta](../azure-monitor/platform/alerts-overview.md).
 
 O Azure Monitor utiliza uma versão da linguagem de [consulta Kusto](/azure/kusto/query/) utilizada pelo Azure Data Explorer que é adequada para consultas simples de log, mas também inclui funcionalidades avançadas como agregações, juntas e análise inteligente. Pode aprender rapidamente a linguagem de consulta usando [várias lições.](../azure-monitor/log-query/get-started-queries.md)
 
@@ -120,7 +121,7 @@ FunctionAppLogs
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja a [visão geral das funções Azure](functions-overview.md).
 - Saiba mais sobre [os Registos do Monitor Azure](../azure-monitor/platform/data-platform-logs.md).

@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 4bc7fe4e464b07c77d5a857fb793faa4262f97e4
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 8ab8a3ce0718cac3135bfdac67088d36fcd4f184
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206831"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060616"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Tutorial: Use encriptação dinâmica DRM e serviço de entrega de licenças
 
 > [!NOTE]
-> Mesmo que este tutorial utilize os exemplos [.NET SDK,](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) os passos gerais são os mesmos para [REST API,](https://docs.microsoft.com/rest/api/media/liveevents) [CLI,](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)ou [outros SDKs suportados.](media-services-apis-overview.md#sdks)
+> Mesmo que este tutorial utilize os exemplos [.NET SDK,](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) os passos gerais são os mesmos para [REST API,](/rest/api/media/liveevents) [CLI,](/cli/azure/ams/live-event?view=azure-cli-latest)ou [outros SDKs suportados.](media-services-apis-overview.md#sdks)
 
 Pode utilizar os Serviços de Multimédia do Azure para entregar transmissões em fluxo encriptadas com licenças do Microsoft PlayReady, Google Widevine ou Apple FairPlay. Para obter uma explicação aprofundada, consulte [a proteção de conteúdo com encriptação dinâmica](content-protection-overview.md).
 
@@ -55,8 +55,8 @@ São necessários os itens seguintes para concluir o tutorial:
 * Reveja o artigo [Descrição Geral da Proteção de Conteúdo](content-protection-overview.md).
 * Reveja o [sistema de proteção de conteúdos multi-DRM design com controlo de acesso.](design-multi-drm-system-with-access-control.md)
 * Instale o Visual Studio Code ou o Visual Studio.
-* Crie uma nova conta dos Serviços de Multimédia do Azure, conforme descrito [neste início rápido](create-account-cli-quickstart.md).
-* Obter as credenciais necessárias para utilizar as APIs dos Serviços de Multimédia, ao seguir [APIs de Acesso](access-api-cli-how-to.md)
+* Crie uma nova conta dos Serviços de Multimédia do Azure, conforme descrito [neste início rápido](./create-account-howto.md).
+* Obter as credenciais necessárias para utilizar as APIs dos Serviços de Multimédia, ao seguir [APIs de Acesso](./access-api-howto.md)
 * Desaprove os valores adequados no ficheiro de configuração da aplicação (appsettings.jsligado).
 
 ## <a name="download-code"></a>Transferir código
@@ -144,7 +144,7 @@ Ao criar um **localizador de streaming,** é necessário especificar o desejado 
 
 ## <a name="get-a-test-token"></a>Obter um token de teste
 
-Neste tutorial, vamos especificar que a política de chave de conteúdo tem uma restrição de token. A política de token restrito tem de ser acompanhada por um token emitido por um serviço de tokens seguro (STS). Os Serviços de Comunicação Social suportam fichas nos formatos [JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) e é isso que configuramos na amostra.
+Neste tutorial, vamos especificar que a política de chave de conteúdo tem uma restrição de token. A política de token restrito tem de ser acompanhada por um token emitido por um serviço de tokens seguro (STS). Os Serviços de Comunicação Social suportam fichas nos formatos [JWT](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3) e é isso que configuramos na amostra.
 
 O ContentKeyIdentifierClaim é utilizado no ContentKeyPolicy, o que significa que o token apresentado ao serviço de entrega de chaves tem de conter o identificador do ContentKey. Na amostra, não especificamos uma chave de conteúdo ao criar o Localizador de Streaming, o sistema cria uma aleatória para nós. Para gerar o token de teste, temos de fazer com que o ContentKeyId coloque na alegação ContentKeyIdentifierClaim.
 
@@ -152,7 +152,7 @@ O ContentKeyIdentifierClaim é utilizado no ContentKeyPolicy, o que significa qu
 
 ## <a name="build-a-streaming-url"></a>Construir um URL de streaming
 
-Agora que o [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) foi criado, pode obter os URLs de transmissão. Para construir um URL, é necessário concatenar o nome de anfitrião [streamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) e o caminho **do localizador de streaming.** Nesta amostra, é utilizado o ponto final de streaming *predefinido.* **Streaming Endpoint** Quando criar uma conta de Serviço de Mídia, este **ponto final de streaming** *predefinido* estará num estado parado, pelo que tem de ligar para **o Start**.
+Agora que o [StreamingLocator](/rest/api/media/streaminglocators) foi criado, pode obter os URLs de transmissão. Para construir um URL, é necessário concatenar o nome de anfitrião [streamingEndpoint](/rest/api/media/streamingendpoints) e o caminho **do localizador de streaming.** Nesta amostra, é utilizado o ponto final de streaming *predefinido.* **Streaming Endpoint** Quando criar uma conta de Serviço de Mídia, este **ponto final de streaming** *predefinido* estará num estado parado, pelo que tem de ligar para **o Start**.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetMPEGStreamingUrl)]
 
@@ -168,7 +168,7 @@ Geralmente, deve limpar tudo, exceto objetos que planeia reutilizar (normalmente
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CleanUp)]
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se já não precisa de nenhum dos recursos presentes no seu grupo de recursos, incluindo as contas de armazenamento que criou e os Serviços de Multimédia que carregou neste tutorial, elimine o grupo de recursos que criou anteriormente.
 

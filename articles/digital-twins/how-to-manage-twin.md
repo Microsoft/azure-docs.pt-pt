@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e37c680f6bf9e296230232c0d4e0fab5f50ad3cd
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 48b8175ed5f753ffe7b62d3e97f4fe20f60da5ca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142382"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061605"
 ---
 # <a name="manage-digital-twins"></a>Gerir duplos digitais
 
 As entidades do seu ambiente são representadas por [gémeos digitais.](concepts-twins-graph.md) Gerir os seus gémeos digitais pode incluir criação, modificação e remoção. Para estas operações, pode utilizar as [**APIs DigitalTwins,**](how-to-use-apis-sdks.md)a [.NET (C#) SDK,](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)ou o [Azure Digital Twins CLI](how-to-use-cli.md).
 
-Este artigo centra-se na gestão de gémeos digitais; para trabalhar com relacionamentos e o [gráfico gémeo](concepts-twins-graph.md) como um todo, ver [Como-a- Gerir o gráfico gémeo com relacionamentos](how-to-manage-graph.md).
+Este artigo centra-se na gestão de gémeos digitais; para trabalhar com relacionamentos e o [gráfico gémeo](concepts-twins-graph.md) como um todo, ver [*Como-a- Gerir o gráfico gémeo com relacionamentos*](how-to-manage-graph.md).
 
 > [!TIP]
 > Todas as funções SDK vêm em versões sincronizadas e assíncronos.
@@ -44,7 +44,7 @@ O modelo e os valores iniciais da propriedade são fornecidos através do `initD
 
 ### <a name="initialize-properties"></a>Inicializar propriedades
 
-A API de criação gémea aceita um objeto que pode ser serializado numa descrição válida do JSON das propriedades gémeas. Ver [Conceitos: Gémeos digitais e o gráfico gémeo](concepts-twins-graph.md) para uma descrição do formato JSON para um gémeo.
+A API de criação gémea aceita um objeto que pode ser serializado numa descrição válida do JSON das propriedades gémeas. Ver [*Conceitos: Gémeos digitais e o gráfico gémeo*](concepts-twins-graph.md) para uma descrição do formato JSON para um gémeo.
 
 Pode criar um objeto de parâmetro manualmente ou utilizando uma classe de ajudante fornecida. Aqui está um exemplo de cada um.
 
@@ -91,7 +91,7 @@ object result = await client.GetDigitalTwin(id);
 
 Esta chamada devolve dados gémeos como uma cadeia JSON. 
 
-Para recuperar vários gémeos utilizando uma única chamada de API, consulte os exemplos de consulta da API em [Como-a-: Consultar o gráfico gémeo](how-to-query-graph.md).
+Para recuperar vários gémeos utilizando uma única chamada de API, consulte os exemplos de consulta da API em [*Como-a-: Consultar o gráfico gémeo*](how-to-query-graph.md).
 
 Considere o seguinte modelo (escrito em [Linguagem de Definição de Gémeos Digitais (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)que define uma *Lua*:
 
@@ -148,7 +148,7 @@ O resultado de chamar `object result = await client.DigitalTwins.GetByIdAsync("m
 As propriedades definidas do gémeo digital são devolvidas como propriedades de alto nível no twin digital. Os metadados ou informações do sistema que não fazem parte da definição DTDL são devolvidos com um `$` prefixo. As propriedades dos metadados incluem:
 * A identificação do gémeo digital neste exemplo de Azure Digital Twins, como `$dtId` .
 * `$etag`, um campo HTTP padrão atribuído pelo servidor web
-* Outras propriedades numa `$metadata` secção. Estes incluem:
+* Outras propriedades numa `$metadata` secção. Estas incluem:
     - O DTMI do modelo do gémeo digital.
     - Estado de sincronização para cada propriedade escrita. Isto é mais útil para dispositivos, onde é possível que o serviço e o dispositivo tenham estatutos divergentes (por exemplo, quando um dispositivo está offline). Atualmente, esta propriedade aplica-se apenas a dispositivos físicos ligados ao IoT Hub. Com os dados na secção de metadados, é possível compreender o estado total de uma propriedade, bem como os últimos timetamps modificados. Para obter mais informações sobre o estado de sincronização, consulte [este tutorial do IoT Hub](../iot-hub/tutorial-device-twins.md) sobre o estado do dispositivo sincronizado.
     - Metadados específicos do serviço, como do IoT Hub ou da Azure Digital Twins. 
@@ -168,7 +168,7 @@ foreach (string prop in twin.CustomProperties.Keys)
 }
 ```
 
-Pode ler mais sobre as aulas de ajudante de serialização em [Como-a-: Use as APIs e SDKs de Gémeos Digitais Azure](how-to-use-apis-sdks.md).
+Pode ler mais sobre as aulas de ajudante de serialização em [*Como-a-: Use as APIs e SDKs de Gémeos Digitais Azure*](how-to-use-apis-sdks.md).
 
 ## <a name="update-a-digital-twin"></a>Atualize um gémeo digital
 
@@ -337,13 +337,13 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
 ### <a name="delete-all-digital-twins"></a>Apagar todos os gémeos digitais
 
-Para um exemplo de como eliminar todos os gémeos de uma só vez, descarregue a aplicação de amostras utilizada no [Tutorial: Explore o básico com uma aplicação de cliente de amostra.](tutorial-command-line-app.md) O *ficheiro CommandLoop.cs* faz isto numa `CommandDeleteAllTwins` função.
+Para um exemplo de como eliminar todos os gémeos de uma só vez, descarregue a aplicação de amostras utilizada no [*Tutorial: Explore o básico com uma aplicação de cliente de amostra.*](tutorial-command-line-app.md) O *ficheiro CommandLoop.cs* faz isto numa `CommandDeleteAllTwins` função.
 
 ## <a name="manage-twins-with-cli"></a>Gerir gémeos com CLI
 
-Os gémeos também podem ser geridos usando o CLI das Gémeas Digitais Azure. Os comandos podem ser encontrados em [Como-a-: Use o CLI das Gémeas Digitais Azure](how-to-use-cli.md).
+Os gémeos também podem ser geridos usando o CLI das Gémeas Digitais Azure. Os comandos podem ser encontrados em [*Como-a-: Use o CLI das Gémeas Digitais Azure*](how-to-use-cli.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Veja como criar e gerir relações entre os seus gémeos digitais:
-* [Como fazer: Gerir o gráfico gémeo com relacionamentos](how-to-manage-graph.md)
+* [*Como fazer: Gerir o gráfico gémeo com relacionamentos*](how-to-manage-graph.md)

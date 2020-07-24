@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Aprenda a instalar e configurar um controlador de entrada NGINX que utiliza o Let's Encrypt para a geração automática de certificados TLS num cluster Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 04/27/2020
-ms.openlocfilehash: 9536d8ee6c1cab0d3ebd2648200683d454843760
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/21/2020
+ms.openlocfilehash: b25c431c7771e3c72280e936b2275f2fd10165b0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251357"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056845"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Criar um controlador de entrada HTTPS no Serviço Azure Kubernetes (AKS)
 
@@ -268,7 +268,7 @@ No exemplo seguinte, o tráfego para o endereço *olá-ingresss. MY_CUSTOM_DOMAI
 Crie um ficheiro com `hello-world-ingress.yaml` o nome de YAML abaixo. Atualize os *anfitriões* e *o anfitrião* para o nome DNS que criou num passo anterior.
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
@@ -294,7 +294,7 @@ spec:
           servicePort: 80
         path: /hello-world-two(/|$)(.*)
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress-static
@@ -340,7 +340,7 @@ tls-secret   True    tls-secret   11m
 
 Abra um navegador web para *hello-world-ingress. MY_CUSTOM_DOMAIN* do seu controlador de entrada kubernetes. Note que é redirecionado para a utilização do HTTPS e o certificado é fidedigno e a aplicação de demonstração é mostrada no navegador web. Adicione o caminho */olá-mundo-dois* e note que a segunda aplicação de demonstração com o título personalizado é mostrado.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Este artigo usou helm para instalar os componentes, certificados e aplicações de amostra. Quando se implementa um gráfico Helm, são criados vários recursos kubernetes. Estes recursos incluem cápsulas, implantações e serviços. Para limpar estes recursos, pode eliminar todo o espaço de nome da amostra ou os recursos individuais.
 

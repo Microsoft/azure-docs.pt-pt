@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 190cc74bc2967cdee7f3154e0d6a6fedd8ee90dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06c10cffcfa5c68b1da8ba366ca270f1c2fa6ea4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565036"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060967"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticar o acesso aos recursos do Azure utilizando identidades geridas em Azure Logic Apps
 
@@ -55,7 +55,7 @@ Para configurar a identidade gerida que pretende utilizar, siga o link para essa
 Ao contrário das identidades atribuídas pelo utilizador, não é preciso criar manualmente a identidade atribuída ao sistema. Para configurar a identidade atribuída ao sistema para a sua aplicação lógica, aqui estão as opções que pode utilizar:
 
 * [Portal do Azure](#azure-portal-system-logic-app)
-* [Modelos do Azure Resource Manager](#template-system-logic-app)
+* [Modelos de gestor de recursos Azure](#template-system-logic-app)
 
 <a name="azure-portal-system-logic-app"></a>
 
@@ -133,7 +133,7 @@ Quando o Azure cria a definição de recursos de aplicação lógica, o `identit
 Para configurar uma identidade gerida atribuída pelo utilizador para a sua aplicação lógica, tem primeiro de criar essa identidade como um recurso autónomo separado da Azure. Aqui estão as opções que pode utilizar:
 
 * [Portal do Azure](#azure-portal-user-identity)
-* [Modelos do Azure Resource Manager](#template-user-identity)
+* [Modelos de gestor de recursos Azure](#template-user-identity)
 * Azure PowerShell
   * [Criar identidade atribuída ao utilizador](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
   * [Adicionar atribuição de função](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md)
@@ -162,10 +162,10 @@ Para configurar uma identidade gerida atribuída pelo utilizador para a sua apli
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Nome de recursos** | Sim | <*nome de identidade atribuído pelo utilizador*> | O nome para dar a sua identidade atribuída ao utilizador. Este exemplo utiliza "Identidade atribuída ao utilizador Fabrikam". |
-   | **Subscrição** | Sim | <*Nome de subscrição Azure*> | O nome para a subscrição Azure para usar |
-   | **Grupo de recursos** | Sim | <*Nome de grupo Azure-recursos*> | O nome para o grupo de recursos a utilizar. Criar um novo grupo ou selecionar um grupo existente. Este exemplo cria um novo grupo chamado "fabrikam-managed-identities-RG". |
-   | **Localização** | Sim | <*Região de Azure*> | A região de Azure onde armazenar informações sobre o seu recurso. Este exemplo usa "West US". |
+   | **Nome do Recurso** | Yes | <*nome de identidade atribuído pelo utilizador*> | O nome para dar a sua identidade atribuída ao utilizador. Este exemplo utiliza "Identidade atribuída ao utilizador Fabrikam". |
+   | **Subscrição** | Yes | <*Nome de subscrição Azure*> | O nome para a subscrição Azure para usar |
+   | **Grupo de recursos** | Yes | <*Nome de grupo Azure-recursos*> | O nome para o grupo de recursos a utilizar. Criar um novo grupo ou selecionar um grupo existente. Este exemplo cria um novo grupo chamado "fabrikam-managed-identities-RG". |
+   | **Localização** | Yes | <*Região de Azure*> | A região de Azure onde armazenar informações sobre o seu recurso. Este exemplo usa "West US". |
    |||||
 
    Agora pode adicionar a identidade atribuída ao utilizador à sua aplicação lógica. Não é possível adicionar mais do que uma identidade atribuída ao utilizador à sua aplicação lógica.
@@ -306,8 +306,8 @@ Antes de poder utilizar a identidade gerida da sua aplicação lógica para a au
 
 * [Portal do Azure](#azure-portal-assign-access)
 * [Modelo Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
-* Azure PowerShell ([New-AzRoleAssignment)](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment)- Para obter mais informações, consulte [adicionar a atribuição de funções utilizando a Azure RBAC e a Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
-* Azure CLI[(az role assignment create)](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)- Para obter mais informações, consulte [adicionar a atribuição de funções utilizando Azure RBAC e Azure CLI](../role-based-access-control/role-assignments-cli.md).
+* Azure PowerShell ([New-AzRoleAssignment)](/powershell/module/az.resources/new-azroleassignment)- Para obter mais informações, consulte [adicionar a atribuição de funções utilizando a Azure RBAC e a Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+* Azure CLI[(az role assignment create)](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)- Para obter mais informações, consulte [adicionar a atribuição de funções utilizando Azure RBAC e Azure CLI](../role-based-access-control/role-assignments-cli.md).
 * [API REST do Azure](../role-based-access-control/role-assignments-rest.md)
 
 <a name="azure-portal-assign-access"></a>
@@ -380,25 +380,25 @@ Estes passos mostram como usar a identidade gerida com um gatilho ou ação atra
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Método** | Sim | O método HTTP que é usado pela operação que pretende executar |
-   | **URI** | Sim | O URL de ponto final para aceder ao recurso ou entidade target Azure. A sintaxe URI geralmente inclui o [ID de recurso](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) para o recurso ou serviço Azure. |
-   | **Cabeçalhos** | Não | Quaisquer valores de cabeçalho que necessite ou queira incluir no pedido de saída, como o tipo de conteúdo |
-   | **Consultas** | Não | Quaisquer parâmetros de consulta que necessite ou pretenda incluir no pedido, como o parâmetro para uma operação específica ou a versão API para a operação que pretende executar |
-   | **Autenticação** | Sim | O tipo de autenticação a utilizar para autenticar o acesso ao recurso ou entidade-alvo |
+   | **Método** | Yes | O método HTTP que é usado pela operação que pretende executar |
+   | **URI** | Yes | O URL de ponto final para aceder ao recurso ou entidade target Azure. A sintaxe URI geralmente inclui o [ID de recurso](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) para o recurso ou serviço Azure. |
+   | **Cabeçalhos** | No | Quaisquer valores de cabeçalho que necessite ou queira incluir no pedido de saída, como o tipo de conteúdo |
+   | **Consultas** | No | Quaisquer parâmetros de consulta que necessite ou pretenda incluir no pedido, como o parâmetro para uma operação específica ou a versão API para a operação que pretende executar |
+   | **Autenticação** | Yes | O tipo de autenticação a utilizar para autenticar o acesso ao recurso ou entidade-alvo |
    ||||
 
-   Como exemplo específico, suponha que pretende executar a [operação Snapshot Blob](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob) numa bolha na conta de Armazenamento Azure onde previamente estabeleceu acesso para a sua identidade. No entanto, o [conector de armazenamento Azure Blob](https://docs.microsoft.com/connectors/azureblob/) não oferece atualmente esta operação. Em vez disso, pode executar esta operação utilizando a ação [HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) ou outra [operação API do Blob Service REST](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs).
+   Como exemplo específico, suponha que pretende executar a [operação Snapshot Blob](/rest/api/storageservices/snapshot-blob) numa bolha na conta de Armazenamento Azure onde previamente estabeleceu acesso para a sua identidade. No entanto, o [conector de armazenamento Azure Blob](/connectors/azureblob/) não oferece atualmente esta operação. Em vez disso, pode executar esta operação utilizando a ação [HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) ou outra [operação API do Blob Service REST](/rest/api/storageservices/operations-on-blobs).
 
    > [!IMPORTANT]
    > Para aceder às contas de armazenamento do Azure por trás de firewalls utilizando pedidos HTTP e identidades geridas, certifique-se de que também configura a sua conta de armazenamento com a [exceção que permite o acesso por serviços confiáveis da Microsoft.](../connectors/connectors-create-api-azureblobstorage.md#access-trusted-service)
 
-   Para executar a [operação Snapshot Blob](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob), a ação HTTP especifica estas propriedades:
+   Para executar a [operação Snapshot Blob](/rest/api/storageservices/snapshot-blob), a ação HTTP especifica estas propriedades:
 
    | Propriedade | Necessário | Valor de exemplo | Descrição |
    |----------|----------|---------------|-------------|
-   | **Método** | Sim | `PUT`| O método HTTP que a operação Snapshot Blob utiliza |
-   | **URI** | Sim | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | O ID de recurso para um ficheiro de armazenamento Azure Blob no ambiente Azure Global (público), que usa esta sintaxe |
-   | **Cabeçalhos** | Sim, para o armazenamento Azure | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | Os `x-ms-blob-type` `x-ms-version` valores e cabeçalhos necessários para as operações de Armazenamento Azure. <p><p>**Importante**: Nos pedidos de acionamento HTTP de saída e pedidos de ação para o Azure Storage, o cabeçalho requer a `x-ms-version` propriedade e a versão API para a operação que pretende executar. <p>Para obter mais informações, veja estes tópicos: <p><p>- [Cabeçalhos de pedido - Snapshot Blob](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob#request) <br>- [Versão para serviços de armazenamento Azure](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+   | **Método** | Yes | `PUT`| O método HTTP que a operação Snapshot Blob utiliza |
+   | **URI** | Yes | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | O ID de recurso para um ficheiro de armazenamento Azure Blob no ambiente Azure Global (público), que usa esta sintaxe |
+   | **Cabeçalhos** | Sim, para o armazenamento Azure | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | Os `x-ms-blob-type` `x-ms-version` valores e cabeçalhos necessários para as operações de Armazenamento Azure. <p><p>**Importante**: Nos pedidos de acionamento HTTP de saída e pedidos de ação para o Azure Storage, o cabeçalho requer a `x-ms-version` propriedade e a versão API para a operação que pretende executar. <p>Para obter mais informações, veja estes tópicos: <p><p>- [Cabeçalhos de pedido - Snapshot Blob](/rest/api/storageservices/snapshot-blob#request) <br>- [Versão para serviços de armazenamento Azure](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
    | **Consultas** | Sim, para esta operação | `comp` = `snapshot` | O nome do parâmetro de consulta e o valor para a operação Snapshot Blob. |
    |||||
 
@@ -441,7 +441,7 @@ Estes passos mostram como usar a identidade gerida com um gatilho ou ação atra
    Para obter mais informações sobre a autorização de acesso com a Azure AD para armazenamento Azure, consulte estes tópicos:
 
    * [Autorizar o acesso a blobs e filas Azure utilizando o Azure Ative Directory](../storage/common/storage-auth-aad.md)
-   * [Autorizar o acesso ao Azure Storage com o Azure Ative Directory](https://docs.microsoft.com/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
+   * [Autorizar o acesso ao Azure Storage com o Azure Ative Directory](/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
 
 1. Continue a construir a aplicação lógica da forma que quiser.
 
@@ -452,7 +452,7 @@ Estes passos mostram como usar a identidade gerida com um gatilho ou ação atra
 Para parar de usar uma identidade gerida para a sua aplicação lógica, tem estas opções:
 
 * [Portal do Azure](#azure-portal-disable)
-* [Modelos do Azure Resource Manager](#template-disable)
+* [Modelos de gestor de recursos Azure](#template-disable)
 * Azure PowerShell
   * [Remover atribuição de funções](../role-based-access-control/role-assignments-powershell.md)
   * [Eliminar identidade atribuída ao utilizador](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
@@ -516,6 +516,6 @@ Se criou a identidade gerida da aplicação lógica utilizando um modelo de Gest
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Acesso seguro e dados em Azure Logic Apps](../logic-apps/logic-apps-securing-a-logic-app.md)

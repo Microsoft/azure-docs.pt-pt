@@ -5,12 +5,12 @@ description: Aprenda a criar dinamicamente um volume persistente com ficheiros A
 services: container-service
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 78bcd4925451125d5ab56a1da08cc307dc0fc236
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6735bba4a84a694e4cf6a58f695f2d89afe8994
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831595"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057271"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Criar e utilizar dinamicamente um volume persistente com ficheiros Azure no Serviço Azure Kubernetes (AKS)
 
@@ -78,7 +78,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: my-azurefile
+  storageClassName: azurefile
   resources:
     requests:
       storage: 5Gi
@@ -183,7 +183,7 @@ parameters:
   skuName: Standard_LRS
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para as melhores práticas associadas, consulte [as melhores práticas de armazenamento e backups em AKS][operator-best-practices-storage].
 

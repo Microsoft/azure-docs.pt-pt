@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: f9484b81622e208077f0659975f42f46d90d2137
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 17616a223292ec07186b0a3fba264400423977ac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232241"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058755"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Ativar ou desativar uma regra de firewall num SO convidado da VM do Azure
 
@@ -77,7 +77,7 @@ Se o VM estiver online e puder ser acedido em outro VM na mesma rede virtual, po
 
 Se o VM estiver online e puder ser acedido em outro VM na mesma rede virtual, pode fazer as seguintes mitigações utilizando o outro VM.
 
-1.  No VM de resolução de problemas, descarregue [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
+1.  No VM de resolução de problemas, descarregue [PSTools](/sysinternals/downloads/pstools).
 
 2.  Abra uma instância CMD e aceda ao VM através do seu IP Interno (DIP). 
 

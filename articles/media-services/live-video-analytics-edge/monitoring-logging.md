@@ -3,11 +3,12 @@ title: Monitorização e exploração madeireira - Azure
 description: Este artigo fornece uma visão geral do Live Video Analytics na monitorização e registo de IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 807b0623159e0b50285b89da2835e9dd6cb037aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82e4a5879e4c88e462edcddb02866ec9b671d7fe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84261213"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060447"
 ---
 # <a name="monitoring-and-logging"></a>Monitorização e registos
 
@@ -97,7 +98,7 @@ Live Video Analytics on IoT Edge emite eventos ou dados de telemetria de acordo 
      }
    }
    ```
-Os eventos emitidos pelo módulo são enviados para o [IoT Edge Hub,](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)e a partir daí pode ser encaminhado para outros destinos. 
+Os eventos emitidos pelo módulo são enviados para o [IoT Edge Hub,](../../iot-edge/iot-edge-runtime.md#iot-edge-hub)e a partir daí pode ser encaminhado para outros destinos. 
 
 ## <a name="controlling-events"></a>Controlo dos eventos
 
@@ -109,7 +110,7 @@ Pode utilizar as seguintes propriedades gémeas do módulo, como documentado no 
    
 Os eventos de análise são gerados por nós como o processador de deteção de movimentos, ou o processador de extensão HTTP, e a pia do hub IoT é usada para enviá-los para o IoT Edge Hub. 
 
-Pode controlar o [encaminhamento de todos os eventos acima referidos](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) através de uma propriedade desejada do módulo $edgeHub twin (no manifesto de implantação):
+Pode controlar o [encaminhamento de todos os eventos acima referidos](../../iot-edge/module-composition.md#declare-routes) através de uma propriedade desejada do módulo $edgeHub twin (no manifesto de implantação):
 
 ```
  "$edgeHub": {
@@ -125,14 +126,14 @@ Pode controlar o [encaminhamento de todos os eventos acima referidos](https://do
  }
 ```
 
-No acima, lvaEdge é o nome para o Live Video Analytics no módulo IoT Edge, e a regra de encaminhamento segue o esquema definido nas [rotas de declaração](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes).
+No acima, lvaEdge é o nome para o Live Video Analytics no módulo IoT Edge, e a regra de encaminhamento segue o esquema definido nas [rotas de declaração](../../iot-edge/module-composition.md#declare-routes).
 
 > [!NOTE]
 > Para garantir que os eventos de análise cheguem ao IoT Edge Hub, é necessário que exista um nó de afundanço do hub IoT a jusante de qualquer nó do processador de deteção de movimento e/ou qualquer nó do processador de extensão HTTP.
 
 ## <a name="event-schema"></a>Esquema de eventos
 
-Os eventos têm origem no dispositivo Edge, e podem ser consumidos na Borda ou na nuvem. Os eventos gerados pelo Live Video Analytics no IoT Edge estão em conformidade com o [padrão de mensagens de streaming](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct) estabelecido pelo Azure IoT Hub, com propriedades do sistema, propriedades de aplicações e um corpo.
+Os eventos têm origem no dispositivo Edge, e podem ser consumidos na Borda ou na nuvem. Os eventos gerados pelo Live Video Analytics no IoT Edge estão em conformidade com o [padrão de mensagens de streaming](../../iot-hub/iot-hub-devguide-messages-construct.md) estabelecido pelo Azure IoT Hub, com propriedades do sistema, propriedades de aplicações e um corpo.
 
 ### <a name="summary"></a>Resumo
 
@@ -142,7 +143,7 @@ Cada evento, quando observado através do IoT Hub, terá um conjunto de propried
 |---|---|---|---|
 |mensagem id |sistema |guid|  Identificação única do evento.|
 |tópico| aplicaçãoProperty |string|    Caminho do Gestor de Recursos Azure para a conta dos Serviços de Comunicação Social.|
-|Assunto|   aplicaçãoProperty |string|    Sub-caminho para a entidade que emite o evento.|
+|subject|   aplicaçãoProperty |string|    Sub-caminho para a entidade que emite o evento.|
 |eventTime| aplicaçãoProperty|    string| Hora do evento ser gerado.|
 |eventType| aplicaçãoProperty |string|    Identificador de tipo de evento (ver abaixo).|
 |body|body  |objeto|    Dados particulares do evento.|
@@ -160,7 +161,7 @@ Representa a conta Azure Media Service associada ao gráfico.
 
 `/subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.Media/mediaServices/{accountName}`
 
-#### <a name="subject"></a>Assunto
+#### <a name="subject"></a>subject
 
 Entidade que está a emitir o evento:
 
@@ -199,7 +200,7 @@ A hora do evento é descrita na cadeia ISO8601 e a hora em que o evento ocorreu.
 
 ## <a name="logging"></a>Registo
 
-Tal como acontece com outros módulos IoT Edge, também pode [examinar os registos de contentores](https://docs.microsoft.com/azure/iot-edge/troubleshoot#check-container-logs-for-issues) no dispositivo Edge. As informações escritas para os registos podem ser controladas pelas seguintes propriedades gémeas do [módulo:](module-twin-configuration-schema.md)
+Tal como acontece com outros módulos IoT Edge, também pode [examinar os registos de contentores](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) no dispositivo Edge. As informações escritas para os registos podem ser controladas pelas seguintes propriedades gémeas do [módulo:](module-twin-configuration-schema.md)
 
 * logLevel
 
@@ -221,7 +222,7 @@ Tal como acontece com outros módulos IoT Edge, também pode [examinar os regist
 
 Em certos casos, poderá ter de gerar registos mais detalhados do que os descritos acima, para ajudar o suporte do Azure a resolver um problema. Há dois passos para conseguir isto.
 
-Em primeiro lugar, [liga-se o armazenamento do módulo ao armazenamento do dispositivo](https://docs.microsoft.com/azure/iot-edge/how-to-access-host-storage-from-module#link-module-storage-to-device-storage) através do createOptions. Se examinar um modelo de manifesto de [implantação](https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp/blob/master/src/edge/deployment.template.json) a partir do início rápido, verá:
+Em primeiro lugar, [liga-se o armazenamento do módulo ao armazenamento do dispositivo](../../iot-edge/how-to-access-host-storage-from-module.md#link-module-storage-to-device-storage) através do createOptions. Se examinar um modelo de manifesto de [implantação](https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp/blob/master/src/edge/deployment.template.json) a partir do início rápido, verá:
 
 ```
 "createOptions": {
@@ -242,6 +243,6 @@ Em seguida, o módulo escreverá registos de depuração num formato binário pa
 
 [FAQs](faq.md#monitoring-and-metrics)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Gravação de vídeo contínua](continuous-video-recording-tutorial.md)

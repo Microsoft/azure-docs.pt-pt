@@ -3,17 +3,18 @@ title: Faça o back up ações de ficheiros Azure com a REST API
 description: Saiba como usar a API REST para apoiar as ações de ficheiros Azure no Cofre dos Serviços de Recuperação
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 2cf385830ec1be17cb62432e6ef9cba7d82a9db1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7059dbae9d448b710880f1f9d72b843a6d77d98b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710614"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055022"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Backup Azure partilha de ficheiros usando Azure Backup via Rest API
 
 Este artigo descreve como apoiar uma partilha de Ficheiros Azure usando a Azure Backup via REST API.
 
-Este artigo pressupõe que já criou um cofre de serviços de recuperação e uma política para configurar o backup para a sua parte do ficheiro. Se não o fez, consulte o [cofre de criação](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-createorupdatevault) e crie tutoriais [de API de política](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-createorupdatepolicy) REST para criar novos cofres e políticas.
+Este artigo pressupõe que já criou um cofre de serviços de recuperação e uma política para configurar o backup para a sua parte do ficheiro. Se não o fez, consulte o [cofre de criação](./backup-azure-arm-userestapi-createorupdatevault.md) e crie tutoriais [de API de política](./backup-azure-arm-userestapi-createorupdatepolicy.md) REST para criar novos cofres e políticas.
 
 Para este artigo, usaremos os seguintes recursos:
 
@@ -31,7 +32,7 @@ Para este artigo, usaremos os seguintes recursos:
 
 ### <a name="discover-storage-accounts-with-unprotected-azure-file-shares"></a>Descubra contas de armazenamento com ações de ficheiros Azure desprotegidas
 
-O cofre precisa de descobrir todas as contas de armazenamento da Azure na subscrição com ações de ficheiros que podem ser apoiadas até ao Cofre dos Serviços de Recuperação. Isto é acionado utilizando a [operação de atualização](https://docs.microsoft.com/rest/api/backup/protectioncontainers/refresh). É uma operação ASSíncrona *POST* que garante que o cofre obtém a mais recente lista de todas as ações de arquivo azure desprotegidas na subscrição atual e 'caches' delas. Uma vez que a partilha de ficheiros é 'cached', os serviços de recuperação podem aceder à partilha de ficheiros e protegê-la.
+O cofre precisa de descobrir todas as contas de armazenamento da Azure na subscrição com ações de ficheiros que podem ser apoiadas até ao Cofre dos Serviços de Recuperação. Isto é acionado utilizando a [operação de atualização](/rest/api/backup/protectioncontainers/refresh). É uma operação ASSíncrona *POST* que garante que o cofre obtém a mais recente lista de todas as ações de arquivo azure desprotegidas na subscrição atual e 'caches' delas. Uma vez que a partilha de ficheiros é 'cached', os serviços de recuperação podem aceder à partilha de ficheiros e protegê-la.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01&$filter={$filter}
@@ -55,7 +56,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 #### <a name="responses"></a>Respostas
 
-A operação "refresh" é uma [operação assíncronea.](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) Significa que esta operação cria outra operação que precisa de ser rastreada separadamente.
+A operação "refresh" é uma [operação assíncronea.](../azure-resource-manager/management/async-operations.md) Significa que esta operação cria outra operação que precisa de ser rastreada separadamente.
 
 Devolve duas respostas: 202 (Aceite) quando outra operação é criada, e 200 (OK) quando essa operação termina.
 
@@ -107,7 +108,7 @@ Date   : Mon, 27 Jan 2020 10:53:04 GMT
 
 ### <a name="get-list-of-storage-accounts-that-can-be-protected-with-recovery-services-vault"></a>Obtenha lista de contas de armazenamento que podem ser protegidas com cofre dos Serviços de Recuperação
 
-Para confirmar que o "caching" está feito, enumera todas as contas de armazenamento protegidas na subscrição. Em seguida, localize a conta de armazenamento desejada na resposta. Isto é feito utilizando a operação [GET ProtectableContainers.](https://docs.microsoft.com/rest/api/backup/protectablecontainers/list)
+Para confirmar que o "caching" está feito, enumera todas as contas de armazenamento protegidas na subscrição. Em seguida, localize a conta de armazenamento desejada na resposta. Isto é feito utilizando a operação [GET ProtectableContainers.](/rest/api/backup/protectablecontainers/list)
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectableContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureStorage'
@@ -159,7 +160,7 @@ Uma vez que podemos localizar a conta de armazenamento *testvault2* no corpo de 
 
 ### <a name="register-storage-account-with-recovery-services-vault"></a>Conta de armazenamento registre com cofre dos Serviços de Recuperação
 
-Este passo só é necessário se não registar a conta de armazenamento com o cofre mais cedo. Pode registar o cofre através da [operação ProtectionContainers-Register](https://docs.microsoft.com/rest/api/backup/protectioncontainers/register).
+Este passo só é necessário se não registar a conta de armazenamento com o cofre mais cedo. Pode registar o cofre através da [operação ProtectionContainers-Register](/rest/api/backup/protectioncontainers/register).
 
 ```http
 PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}?api-version=2016-12-01
@@ -208,7 +209,7 @@ O órgão de pedido de criação é o seguinte:
  }
 ```
 
-Para obter a lista completa das definições do organismo de pedido e outros detalhes, consulte o [ProtectionContainers-Register](https://docs.microsoft.com/rest/api/backup/protectioncontainers/register#azurestoragecontainer).
+Para obter a lista completa das definições do organismo de pedido e outros detalhes, consulte o [ProtectionContainers-Register](/rest/api/backup/protectioncontainers/register#azurestoragecontainer).
 
 Trata-se de uma operação assíncrona e devolve duas respostas: "202 Aceitos" quando a operação é aceite e "200 OK" quando a operação estiver concluída.  Para acompanhar o estado da operação, utilize o cabeçalho de localização para obter o estado mais recente da operação.
 
@@ -240,7 +241,7 @@ Pode verificar se o registo foi bem sucedido a partir do valor do parâmetro *de
 
 ### <a name="inquire-all-unprotected-files-shares-under-a-storage-account"></a>Inquirir todas as ações de ficheiros desprotegidas sob uma conta de armazenamento
 
-Pode inquirir sobre itens protegidos numa conta de armazenamento utilizando a operação [Protection Containers-Inquire.](https://docs.microsoft.com/rest/api/backup/protectioncontainers/inquire) É uma operação assíncronea e os resultados devem ser rastreados usando o cabeçalho de localização.
+Pode inquirir sobre itens protegidos numa conta de armazenamento utilizando a operação [Protection Containers-Inquire.](/rest/api/backup/protectioncontainers/inquire) É uma operação assíncronea e os resultados devem ser rastreados usando o cabeçalho de localização.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/inquire?api-version=2016-12-01
@@ -275,7 +276,7 @@ Date  : Mon, 27 Jan 2020 10:53:05 GMT
 
 ### <a name="select-the-file-share-you-want-to-back-up"></a>Selecione a partilha de ficheiros que pretende fazer back-up
 
-Pode listar todos os itens protegidos sob a subscrição e localizar a partilha de ficheiros pretendida para ser apoiada utilizando a operação [de proteção de backup GET.](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list)
+Pode listar todos os itens protegidos sob a subscrição e localizar a partilha de ficheiros pretendida para ser apoiada utilizando a operação [de proteção de backup GET.](/rest/api/backup/backupprotectableitems/list)
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupProtectableItems?api-version=2016-12-01&$filter={$filter}
@@ -350,7 +351,7 @@ A resposta contém a lista de todas as ações de ficheiros desprotegidas e cont
 
 ### <a name="enable-backup-for-the-file-share"></a>Ativar a cópia de segurança para a partilha de ficheiros
 
-Depois de a partilha de ficheiros relevante ser "identificada" com o nome amigável, selecione a política para proteger. Para saber mais sobre as políticas existentes no cofre, consulte a [lista de API de Política.](https://docs.microsoft.com/rest/api/backup/backuppolicies/list) Em seguida, selecione a [política relevante](https://docs.microsoft.com/rest/api/backup/protectionpolicies/get) referindo-se ao nome da apólice. Para criar políticas, consulte a [criação de tutoriais políticos.](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-createorupdatepolicy)
+Depois de a partilha de ficheiros relevante ser "identificada" com o nome amigável, selecione a política para proteger. Para saber mais sobre as políticas existentes no cofre, consulte a [lista de API de Política.](/rest/api/backup/backuppolicies/list) Em seguida, selecione a [política relevante](/rest/api/backup/protectionpolicies/get) referindo-se ao nome da apólice. Para criar políticas, consulte a [criação de tutoriais políticos.](./backup-azure-arm-userestapi-createorupdatepolicy.md)
 
 Permitir a proteção é uma operação *PUT* assíncronea que cria um "item protegido".
 
@@ -466,11 +467,11 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
 
 Para desencadear uma cópia de segurança a pedido, seguem-se os componentes do corpo de pedido.
 
-| Name       | Tipo                       | Descrição                       |
+| Nome       | Tipo                       | Descrição                       |
 | ---------- | -------------------------- | --------------------------------- |
 | Propriedades | AzurefilesharebackupReques | BackupRequestResource propriedades |
 
-Para obter a lista completa das definições do organismo de pedido e outros detalhes, consulte as [cópias de segurança para itens protegidos REST Documento API](https://docs.microsoft.com/rest/api/backup/backups/trigger#request-body).
+Para obter a lista completa das definições do organismo de pedido e outros detalhes, consulte as [cópias de segurança para itens protegidos REST Documento API](/rest/api/backup/backups/trigger#request-body).
 
 Pedido Exemplo corpo
 
@@ -488,7 +489,7 @@ Pedido Exemplo corpo
 
 ### <a name="responses"></a>Respostas
 
-Desencadear uma cópia de segurança a pedido é uma [operação assíncronea.](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) Significa que esta operação cria outra operação que precisa de ser rastreada separadamente.
+Desencadear uma cópia de segurança a pedido é uma [operação assíncronea.](../azure-resource-manager/management/async-operations.md) Significa que esta operação cria outra operação que precisa de ser rastreada separadamente.
 
 Devolve duas respostas: 202 (Aceite) quando outra operação é criada e 200 (OK) quando essa operação estiver concluída.
 
@@ -539,8 +540,8 @@ Uma vez concluída a operação, retorna 200 (OK) com o ID do trabalho de backup
 }
 ```
 
-Uma vez que o trabalho de backup é uma operação de longa duração, tem de ser rastreado como explicado nos trabalhos de monitorização utilizando o [documento REST API](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-managejobs#tracking-the-job).
+Uma vez que o trabalho de backup é uma operação de longa duração, tem de ser rastreado como explicado nos trabalhos de monitorização utilizando o [documento REST API](./backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [restaurar as ações de ficheiros Azure utilizando a API rest](restore-azure-file-share-rest-api.md).

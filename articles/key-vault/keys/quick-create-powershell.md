@@ -1,32 +1,30 @@
 ---
-title: 'Quickstart: Definir e recuperar uma chave do Cofre de Chaves Azure'
-description: Quickstart mostrando como definir e recuperar uma chave do Cofre de Chaves Azure usando O Azure PowerShell
+title: Criar e recuperar atributos de uma chave no Cofre da Chave Azure – Azure PowerShell
+description: Quickstart mostrando como definir e recuperar uma chave do Azure Key Vault usando Azure PowerShell
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.date: 03/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c407c10327a80de6b3df18a3db3978468c9f8da0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4ebd3cc605b396f72d063f3fc506df9020ec3a5f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424189"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061008"
 ---
-# <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-powershell"></a>Quickstart: Definir e recuperar uma chave do Cofre de Chaves Azure usando o Azure PowerShell
+# <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-powershell"></a>Quickstart: set and recuperar uma chave do Azure Key Vault usando Azure PowerShell
 
-Neste arranque rápido, cria-se um cofre chave no Cofre chave Azure com a Azure PowerShell. O Azure Key Vault é um serviço cloud que funciona como um arquivo de segredos seguro. Pode armazenar chaves, palavras-passe, certificados e outros segredos em segurança. Para mais informações sobre o Key Vault poderá rever a [visão geral](../general/overview.md). O Azure PowerShell é usado para criar e gerir recursos Azure usando comandos ou scripts. Assim que tiver concluído, armazenará uma chave.
+Neste arranque rápido, cria-se um cofre chave no Cofre da Chave Azure com o Azure PowerShell. O Azure Key Vault é um serviço cloud que funciona como um arquivo de segredos seguro. Pode armazenar chaves, palavras-passe, certificados e outros segredos em segurança. Para mais informações sobre o Key Vault, poderá rever a [Visão Geral.](../general/overview.md) O Azure PowerShell é utilizado para criar e gerir recursos Azure usando comandos ou scripts. Uma vez concluída, guardará uma chave.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer a versão 1.0.0 ou mais posterior do módulo PowerShell Azure. Escreva `$PSVersionTable.PSVersion` para encontrar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer a versão 1.0.0 ou posterior do módulo Azure PowerShell. Escreva `$PSVersionTable.PSVersion` para encontrar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzAccount` para criar uma ligação com o Azure.
 
 ```azurepowershell-interactive
 Login-AzAccount
@@ -34,7 +32,7 @@ Login-AzAccount
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos Azure com [o New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. 
+Criar um grupo de recursos Azure com [o New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. 
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name ContosoResourceGroup -Location EastUS
@@ -44,7 +42,7 @@ New-AzResourceGroup -Name ContosoResourceGroup -Location EastUS
 
 Em seguida, vai criar um Key Vault. Ao efetuar este passo, precisa de algumas informações:
 
-Embora usemos "Contoso KeyVault2" como nome para o nosso Cofre chave durante este quickstart, você deve usar um nome único.
+Embora utilizemos "Contoso KeyVault2" como nome para o nosso Key Vault ao longo deste quickstart, você deve usar um nome único.
 
 - **Nome do cofre**: Contoso-Vault2.
 - **Nome do grupo de recursos**: ContosoResourceGroup.
@@ -61,32 +59,30 @@ O resultado deste cmdlet mostra as propriedades do cofre de chaves recém-criado
 
 Após a criação do cofre, a sua conta do Azure é a única conta autorizada a realizar operações neste novo cofre.
 
-![Resultado após a conclusão do comando creation do Key Vault](../media/quick-create-powershell/output-after-creating-keyvault.png)
+## <a name="add-a-key-to-key-vault"></a>Adicione uma chave ao Cofre de Chaves
 
-## <a name="add-a-key-to-key-vault"></a>Adicione uma chave para o cofre da chave
+Para adicionar uma chave ao cofre, só precisa dar alguns passos adicionais. Esta chave pode ser utilizada por uma aplicação. 
 
-Para adicionar uma chave ao cofre, só precisa dar alguns passos adicionais. Esta chave pode ser usada por uma aplicação. 
-
-Digite os comandos abaixo para criar um chamado **ExemploChave:**
+Digite os comandos abaixo para criar um **chamado ExemploKey** :
 
 ```azurepowershell-interactive
 Add-AzKeyVaultKey -VaultName 'Contoso-Vault2' -Name 'ExampleKey' -Destination 'Software'
 ```
 
-Agora pode fazer referência a esta chave que adicionou ao Cofre de Chaves Azure utilizando o seu URI. Use **https://Contoso-Vault2.vault.azure.net/keys/ExampleKey** para obter a versão atual. 
+Agora pode fazer referência a esta chave que adicionou ao Azure Key Vault utilizando o seu URI. Use **https://Contoso-Vault2.vault.azure.net/keys/ExampleKey** para obter a versão atual. 
 
-Para visualizar a chave previamente armazenada:
+Para ver a chave previamente armazenada:
 
 ```azurepowershell-interactive
 Get-AzKeyVaultKey -VaultName 'Contoso-Vault2' -KeyName 'ExampleKey'
 ```
 
-Agora, criaste um Cofre chave, armazenaste uma chave e recuperaste-a.
+Criaste um Cofre-Chave, armazenaste uma chave e recuperaste-a.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Outros inícios rápidos e tutoriais desta coleção têm por base este início rápido. Se quiser continuar a trabalhar com os inícios rápidos e tutoriais subsequentes, pode manter estes recursos.
-Quando já não for necessário, pode utilizar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos relacionados. Pode eliminar os recursos da seguinte forma:
+Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos relacionados. Pode eliminar os recursos da seguinte forma:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name ContosoResourceGroup
@@ -94,8 +90,8 @@ Remove-AzResourceGroup -Name ContosoResourceGroup
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, criou um Cofre chave e guardou um certificado nele. Para saber mais sobre o Key Vault e como integrá-lo com as suas aplicações, continue para os artigos abaixo.
+Neste quickstart criou um Cofre-Chave e guardou um certificado nele. Para saber mais sobre o Key Vault e como integrá-lo com as suas aplicações, continue para os artigos abaixo.
 
-- Leia uma [visão geral do Cofre chave Azure](../general/overview.md)
-- Consulte a referência para os [cmdlets](/powershell/module/az.keyvault/) de cofre de chave Azure PowerShell
-- Rever [as melhores práticas do Cofre de Chaves Azure](../general/best-practices.md)
+- Leia uma [visão geral do cofre da chave Azure](../general/overview.md)
+- Consulte a referência para os [cmdlets Azure PowerShell Key Vault](/powershell/module/az.keyvault/)
+- Rever [as melhores práticas do Azure Key Vault](../general/best-practices.md)

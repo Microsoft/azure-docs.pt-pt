@@ -3,12 +3,12 @@ title: Melhorar a fiabilidade da sua candidatura com o Advisor
 description: Utilize o Azure Advisor para garantir e melhorar a fiabilidade nas suas implementações Azure críticas ao negócio.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 928e0b098cb2cf117eff40d2257fc79dbe114f85
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1eba688a67a8684cdbb6846b389f83e61b349abe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124627"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057674"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Melhore a fiabilidade da sua aplicação utilizando o Azure Advisor
 
@@ -59,7 +59,7 @@ Se um perfil de Gestor de Tráfego estiver configurado para o encaminhamento geo
 
 ## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-after-accidental-overwrite-or-deletion"></a>Utilize a eliminação suave na sua conta de armazenamento Azure para guardar e recuperar dados após substituição acidental ou eliminação
 
-Ativar [a eliminação suave](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) na sua conta de armazenamento de modo a que as bolhas apagadas transitem para um estado de eliminação suave em vez de serem permanentemente eliminadas. Quando os dados são substituídos, é gerado um instantâneo de eliminação de forma recuperável para guardar o estado dos dados substituídos. A utilização de eliminações suaves permite-lhe recuperar de supressões acidentais ou substituições. O Advisor identifica as contas de armazenamento Azure que não têm exclusão suave ativada e sugere que a ative.
+Ativar [a eliminação suave](../storage/blobs/soft-delete-overview.md) na sua conta de armazenamento de modo a que as bolhas apagadas transitem para um estado de eliminação suave em vez de serem permanentemente eliminadas. Quando os dados são substituídos, é gerado um instantâneo de eliminação de forma recuperável para guardar o estado dos dados substituídos. A utilização de eliminações suaves permite-lhe recuperar de supressões acidentais ou substituições. O Advisor identifica as contas de armazenamento Azure que não têm exclusão suave ativada e sugere que a ative.
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Configure a sua porta de entrada VPN para ativar para a resiliência da conexão
 
@@ -107,7 +107,7 @@ A partir de 1 de julho de 2020, não poderá criar novos clusters Kafka usando K
 A partir de 1 de julho de 2020, não será capaz de criar novos clusters Spark usando Spark 2.1 ou 2.2 no HDInsight 3.6. Não será capaz de criar novos clusters Spark usando Spark 2.3 em HDInsight 4.0. Os clusters existentes funcionarão tal como estão sem o suporte da Microsoft. 
 
 ## <a name="enable-virtual-machine-replication"></a>Ativar a replicação da máquina virtual
-Máquinas virtuais que não têm replicação ativada para outra região não são resistentes a interrupções regionais. A replicação de máquinas virtuais reduz qualquer impacto adverso no negócio durante as interrupções da região de Azure. O Advisor deteta VMs em que a replicação não está ativada e recomenda que a habilita. Quando ativa a replicação, se houver uma paragem, pode rapidamente trazer as suas máquinas virtuais para uma região remota de Azure. [Saiba mais sobre a replicação de máquinas virtuais.](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
+Máquinas virtuais que não têm replicação ativada para outra região não são resistentes a interrupções regionais. A replicação de máquinas virtuais reduz qualquer impacto adverso no negócio durante as interrupções da região de Azure. O Advisor deteta VMs em que a replicação não está ativada e recomenda que a habilita. Quando ativa a replicação, se houver uma paragem, pode rapidamente trazer as suas máquinas virtuais para uma região remota de Azure. [Saiba mais sobre a replicação de máquinas virtuais.](../site-recovery/azure-to-azure-quickstart.md)
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Como aceder a recomendações de elevada disponibilidade no Advisor
 
@@ -115,7 +115,7 @@ Máquinas virtuais que não têm replicação ativada para outra região não s�
 
 2.  No painel Advisor, selecione o separador **Alta Disponibilidade.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre recomendações do Advisor, consulte:
 * [Introdução ao Conselheiro](advisor-overview.md)

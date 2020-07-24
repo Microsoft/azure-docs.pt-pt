@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 918e34114faa7a57e54ec45c1cca8036462a8fa1
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 61e2cdf63e5553ba8d796115284dad9a538c2b81
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187392"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056280"
 ---
 # <a name="manage-certificates-in-azure-automation"></a>Gerir certificados em Azure Automation
 
@@ -34,7 +34,7 @@ Os cmdlets na tabela seguinte criam e gerem certificados de Automação com Powe
 |[Remover-AzAutomationCertificato](/powershell/module/Az.Automation/Remove-AzAutomationCertificate?view=azps-3.7.0)|Remove um certificado da Automação.|
 |[Set-AzAutomationCertificato](/powershell/module/Az.Automation/Set-AzAutomationCertificate?view=azps-3.7.0)|Define as propriedades para um certificado existente, incluindo o upload do ficheiro de certificado e a definição da palavra-passe para um ficheiro **.pfx.**|
 
-O [cmdlet Add-AzureCertificate](/powershell/module/servicemanagement/azure/add-azurecertificate) também pode ser utilizado para carregar um certificado de serviço para o serviço de nuvem especificado.
+O [cmdlet Add-AzureCertificate](/powershell/module/servicemanagement/azure.service/add-azurecertificate) também pode ser utilizado para carregar um certificado de serviço para o serviço de nuvem especificado.
 
 ## <a name="internal-cmdlets-to-access-certificates"></a>Cmdlets internos para aceder a certificados
 

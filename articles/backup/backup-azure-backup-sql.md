@@ -3,11 +3,12 @@ title: Apoiar o SQL Server para Azure como uma carga de trabalho DPM
 description: Uma introdução para fazer backup das bases de dados do SQL Server utilizando o serviço de backup Azure
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: f6a612bc56d1fa6b70ac89ed48f28d1ae48da2e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd091f9446cafdb6ff91ae5679c703e07457169c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195783"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055372"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Apoiar o SQL Server para Azure como uma carga de trabalho DPM
 
@@ -20,6 +21,34 @@ Para fazer uma base de dados do SQL Server para Azure e recuperá-la do Azure:
 1. Crie uma política de backup para proteger as bases de dados do SQL Server no Azure.
 1. Crie cópias de backup a pedido no Azure.
 1. Recupere a base de dados do Azure.
+
+## <a name="prerequisites-and-limitations"></a>Pré-requisitos e limitações
+
+* Se tiver uma base de dados com ficheiros numa partilha de ficheiros remota, a proteção vai falhar com o Erro ID 104. O DPM não suporta a proteção dos dados do SQL Server numa partilha remota de ficheiros.
+* O DPM não pode proteger bases de dados que são armazenadas em ações remotas de SMB.
+* Certifique-se de que as [réplicas do grupo de disponibilidade são configuradas apenas para leitura](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server?view=sql-server-ver15).
+* Tem de adicionar explicitamente a conta de sistema **NTAuthority\System** ao grupo Sysadmin no SQL Server.
+* Quando efetuar uma recuperação de localização alternativa para uma base de dados parcialmente contida, deve certificar-se de que a instância SQL alvo tem a funcionalidade [De Base de Dados Contida](/sql/relational-databases/databases/migrate-to-a-partially-contained-database?view=sql-server-ver15#enable) ativada.
+* Quando efetuar uma recuperação de localização alternativa para uma base de dados de fluxo de ficheiros, deve certificar-se de que a instância SQL alvo tem a [função de base de dados de fluxo de ficheiros](/sql/relational-databases/blob/enable-and-configure-filestream?view=sql-server-ver15) ativada.
+* Proteção para o SQL Server AlwaysOn:
+  * O DPM deteta Grupos de Disponibilidade quando executa consultas durante a criação do grupo de proteção.
+  * O DPM deteta uma ativação pós-falha e continua a proteção da base de dados.
+  * O DPM suporta configurações de cluster multilocal para uma instância do SQL Server.
+* Quando são protegidas bases de dados que utilizam a funcionalidade AlwaysOn, o DPM tem as seguintes limitações:
+  * O DPM respeitará a política de cópia de segurança para grupos de disponibilidade que está definida no SQL Server com base nas preferências de cópia de segurança, da seguinte forma:
+    * Preferir secundária – as cópias de segurança devem ocorrer numa réplica secundária, exceto se a réplica primária for a única online. Se houver várias réplicas secundárias disponíveis, então o nó com a maior prioridade de backup será selecionado para cópia de segurança. Se apenas a réplica primária estiver disponível, então a cópia de segurança deve ocorrer na réplica primária.
+    * Apenas secundária – a cópia de segurança não deve ser criada na réplica primária. Se a réplica primária for a única online, a cópia de segurança não deve ser criada.
+    * Primária – as cópias de segurança devem ser sempre criadas na réplica primária.
+    * Qualquer réplica – as cópias de segurança podem ser efetuadas em qualquer uma das réplicas de disponibilidade do grupo de disponibilidade. O nó a partir do qual será efetuada a cópia de segurança dependerá das prioridades de cópia de segurança de cada um dos nós.
+  * Tenha em atenção o seguinte:
+    * Cópias de segurança podem acontecer a partir de qualquer réplica legível - isto é, primário, secundário sincronizado, assíncronos secundário.
+    * Se qualquer réplica for excluída da cópia de segurança, por exemplo, **a Réplica excluída** está ativada ou está marcada como não legível, então essa réplica não será selecionada para cópia de segurança em nenhuma das opções.
+    * Se várias réplicas estiverem disponíveis e legíveis, então o nó com a maior prioridade de backup será selecionado para cópia de segurança.
+    * Se a cópia de segurança falhar no nó selecionado, a operação de backup falha.
+    * A recuperação para o local original não é suportada.
+* Problemas de backup do SQL Server 2014 ou acima:
+  * O sql server 2014 adicionou uma nova funcionalidade para criar uma [base de dados para o SQL Server no Windows Azure Blob .](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-ver15) O DPM não pode ser usado para proteger esta configuração.
+  * Existem alguns problemas conhecidos com a preferência de backup "Prefer secondary" para a opção SQL AlwaysOn. DPM sempre recebe um backup do secundário. Se não for possível encontrar secundário, o reforço falha.
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -161,6 +190,6 @@ Para recuperar uma entidade protegida, como uma base de dados SQL Server, a part
 
     Quando a recuperação estiver concluída, a base de dados restaurada é consistente com a aplicação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações, consulte [a Azure Backup FAQ](backup-azure-backup-faq.md).

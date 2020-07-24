@@ -4,18 +4,18 @@ description: Conheça as diferenças de validação de várias propriedades para
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 10/12/2019
+ms.date: 07/21/2020
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 2a1507b008903085886f9392f3f4e5461997b6e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82b721d14d114b358939bebecff00bc762b075a6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80128864"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058339"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>Diferenças de validação por tipos de conta suportados (signInAudience)
 
@@ -39,7 +39,7 @@ Consulte a tabela seguinte para as diferenças de validação de vários imóvei
 | Certificados ( `keyCredentials` ) | Chave de assinatura simétrica | Chave de assinatura simétrica | Chave de encriptação e assinatura assimétrica | 
 | Segredos do cliente `passwordCredentials` () | Sem limite* | Sem limite* | Se o liveSDK estiver ativado: Máximo de 2 segredos de cliente | 
 | Redirecionamento URIs `replyURLs` () | Consulte [as restrições e limitações de URL de redirecionamento URI/resposta](reply-url.md) para mais informações. | | | 
-| Permissões API `requiredResourceAccess` () | Sem limite* | Sem limite* | Máximo de 30 permissões por recurso permitido (por exemplo, Microsoft Graph) | 
+| Permissões API `requiredResourceAccess` () | Sem limite* | Sem limite* | Máximo de 50 recursos por aplicação e 30 permissões por recurso (por exemplo, Microsoft Graph). Limite total de 200 por pedido (recursos x permissões). | 
 | Âmbitos definidos por esta API ( `oauth2Permissions` ) | Comprimento máximo do nome do âmbito de 120 caracteres <br><br> Sem limite* no número de âmbitos definidos | Comprimento máximo do nome do âmbito de 120 caracteres <br><br> Sem limite* no número de âmbitos definidos |  Comprimento máximo do nome do âmbito de 40 caracteres <br><br> Máximo de 100 âmbitos definidos | 
 | Pedidos de cliente autorizados `preautorizedApplications` () | Sem limite* | Sem limite* | Máximo total de 500 <br><br> Máximo de 100 aplicações de cliente definidas <br><br> Máximo de 30 âmbitos definidos por cliente | 
 | appRoles | Suportado <br> Sem limite* | Suportado <br> Sem limite* | Não suportado | 

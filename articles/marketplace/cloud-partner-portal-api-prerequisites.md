@@ -3,20 +3,22 @@ title: Pré-requisitos da API - Azure Marketplace
 description: Pré-requisitos para a utilização das APIs do Portal do Parceiro cloud.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/08/2020
-ms.openlocfilehash: c932db1b86cecae4d90b0d6acffc4a0cde49e369
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: reference
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: b672afcd8f52d8293b1bb81e30097062e2ee49c3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115745"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053601"
 ---
 <a name="api-prerequisites"></a>Pré-requisitos da API
 ================
 
 > [!NOTE]
-> As APIs do Portal do Parceiro cloud estão integradas no Partner Center e continuarão a funcionar após as suas ofertas serem migradas para o Partner Center. A integração introduz pequenas mudanças. Reveja as alterações listadas no [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) para garantir que o seu código continua a funcionar após a migração para o Partner Center.
+> As APIs do Portal do Parceiro Cloud estão integradas e continuarão a trabalhar no Partner Center. A transição introduz pequenas mudanças. Reveja as alterações listadas no [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) para garantir que o seu código continua a funcionar após a transição para o Partner Center. As APIs de CPP só devem ser utilizadas para produtos já integrados antes da transição para o Partner Center; novos produtos devem utilizar APIs de submissão do Partner Center.
 
 Existem dois ativos programáticos necessários para utilizar o Portal do Parceiro de Nuvem APIs: um diretor de serviço e um token de acesso Azure Ative (Azure AD).
 

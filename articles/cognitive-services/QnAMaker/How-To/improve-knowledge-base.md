@@ -1,14 +1,14 @@
 ---
-title: Melhorar a base de conhecimentos - QnA Maker
+title: Ative Learning sugeriu perguntas - QnA Maker
 description: Melhore a qualidade da sua base de conhecimento com aprendizagem ativa. Reveja, aceite ou rejeite, adicione sem remover ou alterar as questões existentes.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 88ccbc52e0eb3447d0b99cac9ba41761e292a6fd
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: bb95ddc40e122e2589d0396b94f0de921aab9350
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231782"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053938"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Aceitar aprendizagem ativa sugerida questões na base de conhecimento
 
@@ -139,7 +139,7 @@ O corpo JSON tem várias configurações:
 
 |Propriedade corporal JSON|Tipo|Objetivo|
 |--|--|--|--|
-|`feedbackRecords`|array|Lista de comentários.|
+|`feedbackRecords`|matriz|Lista de comentários.|
 |`userId`|string|Identificação do utilizador da pessoa que aceita as perguntas sugeridas. O formato de ID do utilizador é da sua mente. Por exemplo, um endereço de e-mail pode ser um ID válido do utilizador na sua arquitetura. Opcional.|
 |`userQuestion`|string|Texto exato da consulta do utilizador. Necessário.|
 |`qnaID`|número|ID de pergunta, encontrado na [resposta GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |

@@ -1,20 +1,20 @@
 ---
 title: Crie uma oferta de módulo Azure IoT Edge com Partner Center no Azure Marketplace
-description: Aprenda a criar, configurar e publicar uma oferta de módulo IoT Edge no Azure Marketplace usando o Partner Center
+description: Aprenda a criar, configurar e publicar uma oferta de módulo IoT Edge no Azure Marketplace usando o Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: anbene
 ms.author: mingshen
-ms.date: 06/17/2020
-ms.openlocfilehash: 11deb9b8146924d1a493872219ad85556d13c405
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/22/2020
+ms.openlocfilehash: b2a1e523e2af8c0be9c4211dfc8a0ffd2a889ca0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520277"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053666"
 ---
-# <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Criar, configurar e publicar uma oferta de módulo IoT Edge no Azure Marketplace
+# <a name="create-an-iot-edge-module-offer"></a>Criar uma oferta de módulo do IoT Edge
 
 Este artigo descreve como criar e publicar uma oferta de módulos Internet of Things (IoT) Edge para o Azure Marketplace. Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](create-account.md) se ainda não o fez. Certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
 
@@ -483,6 +483,6 @@ Para submeter a oferta de publicação, **selecione Publicar**.
 
 Enviaremos um e-mail para informá-lo quando uma versão de pré-visualização da oferta estiver disponível para revisão e aprovação. Para publicar a sua oferta ao público, vá ao Partner Center e selecione **Go-live**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atualizar uma oferta existente no mercado comercial](https://docs.microsoft.com//azure/marketplace/partner-center-portal/update-existing-offer)

@@ -3,15 +3,16 @@ title: Gerir cofres e servidores dos Serviços de Recuperação Azure
 description: Neste artigo, aprenda a usar o painel de visão geral do cofre dos Serviços de Recuperação para monitorizar e gerir os cofres dos Serviços de Recuperação.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 598e9198ee7e153d8008389f97c0be399a0186ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1b3cc317b8a26b16bbeda9793f87d089f2fbc59f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84234598"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054897"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorizar e gerir cofres dos Serviços de Recuperação
 
-Este artigo explica como usar o painel **de visão geral** do cofre dos Serviços de Recuperação para monitorizar e gerir os cofres dos Serviços de Recuperação. Quando abre um cofre dos Serviços de Recuperação da lista, abre-se o painel **de controlo** geral do cofre selecionado. O painel fornece vários detalhes sobre o cofre. Há *azulejos* que mostram: o estado dos alertas críticos e de alerta, os trabalhos de backup em curso e os empregos de reserva falhados, e a quantidade de armazenamento localmente redundante (LRS) e armazenamento geodu redundante (GRS) utilizados. Se fizer cópias de segurança dos VMs Azure para o cofre, o azulejo [ **de pré-verificação de cópia** de segurança apresenta quaisquer itens críticos ou de aviso](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status). A imagem a seguir é o **painel de visão** geral para **o cima da câmara de Contoso.** O **azulejo de Itens de Reserva** mostra que há nove itens registados no cofre.
+Este artigo explica como usar o painel **de visão geral** do cofre dos Serviços de Recuperação para monitorizar e gerir os cofres dos Serviços de Recuperação. Quando abre um cofre dos Serviços de Recuperação da lista, abre-se o painel **de controlo** geral do cofre selecionado. O painel fornece vários detalhes sobre o cofre. Há *azulejos* que mostram: o estado dos alertas críticos e de alerta, os trabalhos de backup em curso e os empregos de reserva falhados, e a quantidade de armazenamento localmente redundante (LRS) e armazenamento geodu redundante (GRS) utilizados. Se fizer cópias de segurança dos VMs Azure para o cofre, o azulejo [ **de pré-verificação de cópia** de segurança apresenta quaisquer itens críticos ou de aviso](#backup-pre-check-status). A imagem a seguir é o **painel de visão** geral para **o cima da câmara de Contoso.** O **azulejo de Itens de Reserva** mostra que há nove itens registados no cofre.
 
 ![painel de abóbadas de serviços de recuperação](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
@@ -177,7 +178,7 @@ Para explorar um tipo específico de instância protegida, clique no item na col
 
 ![lista de tipo de backup](./media/backup-azure-manage-windows-server/list-of-protected-virtual-machines.png)
 
-A lista de máquinas virtuais tem dados úteis: o Grupo de Recursos Associado, [o Pré-Check de Cópia de Segurança](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status)anterior, o Último Estado de Backup e a data do mais recente Ponto de Restauro. A elipse, na última coluna, abre o menu para desencadear tarefas comuns. Os dados úteis fornecidos nas colunas são diferentes para cada tipo de backup.
+A lista de máquinas virtuais tem dados úteis: o Grupo de Recursos Associado, [o Pré-Check de Cópia de Segurança](#backup-pre-check-status)anterior, o Último Estado de Backup e a data do mais recente Ponto de Restauro. A elipse, na última coluna, abre o menu para desencadear tarefas comuns. Os dados úteis fornecidos nas colunas são diferentes para cada tipo de backup.
 
 ![lista de tipo de backup](./media/backup-azure-manage-windows-server/ellipsis-menu.png)
 
@@ -244,7 +245,7 @@ Pode ver All Status ou one. Não pode selecionar dois ou três estatutos. Os est
 * Todo o estado
 * Concluído
 * Em curso
-* Falhou
+* Com falhas
 * Cancelado
 * Concluído com avisos
 
@@ -283,7 +284,7 @@ O azulejo de armazenamento de reserva no painel de instrumentos mostra o armazen
    `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*`Por exemplo:<br/>
    `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Restaurar o Servidor do Windows ou cliente do Windows a partir do Azure](backup-azure-restore-windows-server.md)
-* Para saber mais sobre o Azure Backup, consulte [a Visão Geral do Backup da Azure](backup-introduction-to-azure-backup.md)
+* Para saber mais sobre o Azure Backup, consulte [a Visão Geral do Backup da Azure](./backup-overview.md)

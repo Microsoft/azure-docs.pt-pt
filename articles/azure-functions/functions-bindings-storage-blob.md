@@ -5,16 +5,16 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 6950f1dd81ef2c70f2c45fb4c547ed7676067790
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eead2d6ae2860bf06f1b878c1bb1692d74c06df6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847652"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055981"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Encadernações de armazenamento Azure Blob para visão geral das funções Azure
 
-As funções Azure integram-se com [o Azure Storage](https://docs.microsoft.com/azure/storage/) através [de gatilhos e encadernações](./functions-triggers-bindings.md). A integração com o armazenamento Blob permite-lhe construir funções que reagem a alterações nos dados blob, bem como a ler e escrever valores.
+As funções Azure integram-se com [o Azure Storage](../storage/index.yml) através [de gatilhos e encadernações](./functions-triggers-bindings.md). A integração com o armazenamento Blob permite-lhe construir funções que reagem a alterações nos dados blob, bem como a ler e escrever valores.
 
 | Ação | Tipo |
 |---------|---------|
@@ -46,7 +46,7 @@ As aplicações Functions 1.x têm automaticamente uma referência ao pacote [Mi
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Executar uma função quando os dados de armazenamento blob mudam](./functions-bindings-storage-blob-trigger.md)
 - [Leia os dados de armazenamento de bolhas quando uma função é executado](./functions-bindings-storage-blob-input.md)

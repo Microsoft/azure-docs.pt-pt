@@ -2,13 +2,13 @@
 title: Perguntas frequentes para o Serviço Azure Kubernetes (AKS)
 description: Encontre respostas para algumas das perguntas comuns sobre o Serviço Azure Kubernetes (AKS).
 ms.topic: conceptual
-ms.date: 05/14/2020
-ms.openlocfilehash: ba4ceaf0d7f9e3b344b2a6efbb84f2145c4a2f65
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.date: 07/21/2020
+ms.openlocfilehash: 4d93a4f3b58fc38710184f345fd467b2beb32b1a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86275721"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057193"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas mais frequentes acerca do Azure Kubernetes Service (AKS)
 
@@ -24,11 +24,11 @@ Não. Os aglomerados AKS são recursos regionais e não podem abranger regiões.
 
 ## <a name="can-i-spread-an-aks-cluster-across-availability-zones"></a>Posso espalhar um cluster AKS através de zonas de disponibilidade?
 
-Sim. Você pode implementar um cluster AKS em uma ou mais [zonas de disponibilidade][availability-zones] em [regiões que as suportam.][az-regions]
+Yes. Você pode implementar um cluster AKS em uma ou mais [zonas de disponibilidade][availability-zones] em [regiões que as suportam.][az-regions]
 
 ## <a name="can-i-limit-who-has-access-to-the-kubernetes-api-server"></a>Posso limitar quem tem acesso ao servidor API da Kubernetes?
 
-Sim. Existem duas opções para limitar o acesso ao servidor API:
+Yes. Existem duas opções para limitar o acesso ao servidor API:
 
 - Utilize [gamas IP autorizadas do servidor API][api-server-authorized-ip-ranges] se pretender manter um ponto final público para o servidor API, mas restringir o acesso a um conjunto de gamas IP fidedignas.
 - Utilize [um cluster privado][private-clusters] se pretender limitar o servidor API para estar acessível *apenas* a partir da sua rede virtual.
@@ -62,7 +62,7 @@ Para permitir esta arquitetura, cada implantação AKS abrange dois grupos de re
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>Posso dar o meu próprio nome para o grupo de recursos de nó AKS?
 
-Sim. Por padrão, a AKS nomeará o grupo de recursos de nó *MC_resourcegroupname_clustername_location*, mas também pode fornecer o seu próprio nome.
+Yes. Por padrão, a AKS nomeará o grupo de recursos de nó *MC_resourcegroupname_clustername_location*, mas também pode fornecer o seu próprio nome.
 
 Para especificar o nome do seu próprio grupo de recursos, instale a versão de extensão Azure CLI [de pré-visualização aks-preview][aks-preview-cli] *0.3.2* ou posterior. Quando criar um cluster AKS utilizando os [az aks criar][az-aks-create] comando, use o parâmetro *grupo de recursos-node* e especifique um nome para o grupo de recursos. Se [utilizar um modelo de Gestor de Recursos Azure][aks-rm-template] para implantar um cluster AKS, pode definir o nome do grupo de recursos utilizando a propriedade *nodeResourceGroup.*
 
@@ -79,7 +79,7 @@ Ao trabalhar com o grupo de recursos de nó, lembre-se que não pode:
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group"></a>Posso modificar etiquetas e outras propriedades dos recursos AKS no grupo de recursos de nó?
 
-Se modificar ou eliminar tags criadas pelo Azure e outras propriedades de recursos no grupo de recursos de nó, poderá obter resultados inesperados, tais como erros de escala e de atualização. A AKS permite-lhe criar e modificar tags personalizadas criadas pelos utilizadores finais. É possível que queira criar ou modificar tags personalizadas, por exemplo, para atribuir uma unidade de negócio ou um centro de custos. Isto pode ser conseguido através da criação de Políticas Azure com âmbito no grupo de recursos geridos.
+Se modificar ou eliminar tags criadas pelo Azure e outras propriedades de recursos no grupo de recursos de nó, poderá obter resultados inesperados, tais como erros de escala e de atualização. A AKS permite-lhe criar e modificar tags personalizadas criadas pelos utilizadores finais, e pode adicionar essas tags ao [criar uma piscina de nós.](use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool) É possível que queira criar ou modificar tags personalizadas, por exemplo, para atribuir uma unidade de negócio ou um centro de custos. Isto também pode ser conseguido através da criação de Políticas Azure com âmbito no grupo de recursos geridos.
 
 No entanto, modificar quaisquer **tags criadas pelo Azure** em recursos no âmbito do grupo de recursos de nó no cluster AKS é uma ação não apoiada que quebra o objetivo de nível de serviço (SLO). Para mais informações, consulte [a AKS oferecer um acordo de nível de serviço?](#does-aks-offer-a-service-level-agreement)
 
@@ -137,7 +137,7 @@ Os nós de agente AKS são faturados como máquinas virtuais Azure padrão, por 
 
 ## <a name="can-i-movemigrate-my-cluster-between-azure-tenants"></a>Posso mover/migrar o meu aglomerado entre inquilinos do Azure?
 
-O `az aks update-credentials` comando pode ser usado para mover um aglomerado AKS entre inquilinos de Azure. Siga as instruções em [Escolha atualizar ou criar um principal de serviço](./update-credentials.md) e, em seguida, atualizar o cluster [aks com novas credenciais](./update-credentials.md#update-aks-cluster-with-new-service-principal-credentials).
+Mover o seu cluster AKS entre inquilinos não é apoiado.
 
 ## <a name="can-i-movemigrate-my-cluster-between-subscriptions"></a>Posso mover/migrar o meu cluster entre assinaturas?
 

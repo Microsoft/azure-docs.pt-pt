@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a resolver problemas na instalação e regist
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: ddff3ca8a89d8d5674be00fdebc70b0232cdbd13
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b810b5abfb15a39d19a0571b6ac36a6c86bf0b4f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539062"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054655"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Resolução de problemas do agente Microsoft Azure Recovery Services (MARS)
 
@@ -75,6 +75,12 @@ Recomendamos que verifique o seguinte antes de começar a resolver problemas à 
 | Erro  | Causa possível | Ações recomendadas |
 | ---     | ---     | ---    |
 | <br /><ul><li>O Agente de Serviço de Recuperação do Microsoft Azure não conseguiu ligar-se ao Microsoft Azure Backup. (ID: 100050) Verifique as definições da sua rede e certifique-se de que é capaz de se ligar à internet.<li>(407) Autenticação por procuração necessária. |Um representante está a bloquear a ligação. |  <ul><li>No Internet Explorer, aceda às opções **de Internet tools**  >  **Internet options**  >  **Security**  >  **Internet.** Selecione **Custom Level** e desloque-se para baixo para a secção **de descarregamento de ficheiros.** Selecione **Ativar**.<p>Também poderá ter de adicionar [URLs e endereços IP](install-mars-agent.md#verify-internet-access) aos seus sites fidedignos no Internet Explorer.<li>Altere as definições para utilizar um servidor proxy. Em seguida, forneça os detalhes do servidor proxy.<li> Se a sua máquina tiver acesso limitado à Internet, certifique-se de que as definições de firewall na máquina ou procuração permitem estes [urls e endereços IP](install-mars-agent.md#verify-internet-access). <li>Se tiver software antivírus instalado no servidor, exclua estes ficheiros da varredura antivírus: <ul><li>CBEngine.exe (em vez de dpmra.exe).<li>CSC.exe (relacionado com o Quadro .NET). Há um CSC.exe para cada versão .NET Framework instalada no servidor. Exclua CSC.exe ficheiros para todas as versões do Quadro .NET no servidor afetado. <li>A pasta de risco ou a localização do cache. <br>A localização predefinida para a pasta de risco ou para o caminho da cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.<li>A pasta do caixote do lixo em C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
+
+## <a name="the-specified-vault-credential-file-cannot-be-used-as-it-is-not-downloaded-from-the-vault-associated-with-this-server"></a>O ficheiro de credencial de abóbada especificado não pode ser utilizado, uma vez que não é descarregado do cofre associado a este servidor
+
+| Erro  | Causa possível | Ações recomendadas |
+| ---     | ---     | ---    |
+| O ficheiro de credencial de abóbada especificado não pode ser utilizado, uma vez que não é descarregado do cofre associado a este servidor. (ID: 100110) Por favor, forneça credenciais de cofre apropriadas. | O ficheiro de credencial do cofre é de um cofre diferente daquele em que este servidor já está registado. | Certifique-se de que a máquina-alvo e a máquina de origem estão registadas no mesmo cofre dos Serviços de Recuperação. Se o servidor alvo já estiver registado num cofre diferente, utilize a opção **'Registo Servidor'** para registar-se no cofre correto.  
 
 ## <a name="backup-jobs-completed-with-warning"></a>Trabalhos de backup concluídos com aviso
 
@@ -273,7 +279,7 @@ Mensagem de erro | Ação recomendada
 -- | --
 Não é possível encontrar alterações num ficheiro. Tal pode dever-se a vários motivos. Repita a operação | Para resolver este problema, verifique os passos abaixo e relemisse a operação:<br/> - [Certifique-se de que o agente MARS é o mais recente](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Verifique e resolva problemas de armazenamento que impactem o espaço de risco de backup](#prerequisites)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Obtenha mais detalhes sobre como fazer backup do [Windows Server com o agente Azure Backup](tutorial-backup-windows-server-to-azure.md).
 - Se precisar de restaurar uma cópia de segurança, consulte [restaurar os ficheiros numa máquina Do Windows](backup-azure-restore-windows-server.md).

@@ -4,11 +4,12 @@ description: Aprenda a gerir e monitorizar as cópias de segurança Azure VM uti
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 6e49d1eed81d15970519299fb6f662c650116d6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e3fb05b054ea682c315654e6df262e49d592597
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248588"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054753"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gerir backups Azure VM com serviço de backup Azure
 
@@ -53,6 +54,17 @@ Para ver VMs no painel de abóbada:
 
 ## <a name="manage-backup-policy-for-a-vm"></a>Gerir a política de backup para um VM
 
+### <a name="modify-backup-policy"></a>Modificar a política de backup
+
+Para modificar uma política de backup existente:
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/). Abre o painel do cofre.
+2. A partir das políticas de **Backup >,** selecione a política de backup para o tipo Azure Virtual Machine.
+3.  Clique em Modificar e alterar as definições.
+
+
+### <a name="switch-backup-policy"></a>Altere a política de backup 
+
 Para gerir uma política de backup:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/). Abre o painel do cofre.
@@ -77,6 +89,9 @@ Pode executar uma cópia de segurança a pedido de um VM depois de configurar a 
 * Se a cópia de segurança inicial estiver pendente, a cópia de segurança a pedido cria uma cópia completa do VM no cofre dos Serviços de Recuperação.
 * Se a cópia de segurança inicial estiver completa, uma cópia de segurança a pedido só enviará alterações da fotografia anterior para o cofre dos Serviços de Recuperação. Ou seja, cópias de segurança posteriores são sempre incrementais.
 * O intervalo de retenção para uma cópia de segurança a pedido é o valor de retenção que especifica quando ativa a cópia de segurança.
+
+> [!NOTE]
+> O serviço Azure Backup suporta até nove backups a pedido por dia, mas a Microsoft recomenda não mais do que quatro backups diários a pedido para garantir o melhor desempenho.
 
 Para desencadear uma cópia de segurança a pedido:
 
@@ -125,6 +140,9 @@ Para parar a proteção e eliminar dados de um VM:
 
     ![Eliminar dados de cópia de segurança](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
+> [!NOTE]
+> Após completar a operação de eliminação, os dados de retenção de fundos serão conservados durante 14 dias no [estado de eliminação suave](./soft-delete-virtual-machines.md). <br>Além disso, também pode [ativar ou desativar a eliminação suave.](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete)
+
 ## <a name="resume-protection-of-a-vm"></a>Retomar a proteção de um VM
 
 Se escolher [a proteção Stop e reter](#stop-protection-and-retain-backup-data) a opção de dados de backup durante a proteção contra o VM, poderá utilizar a cópia de segurança do **Currículo**. Esta opção não está disponível se escolher [a proteção Stop e eliminar](#stop-protection-and-delete-backup-data) a opção de dados de backup ou eliminar [dados de backup](#delete-backup-data).
@@ -157,7 +175,7 @@ Existem duas formas de eliminar os dados de backup de um VM:
 
   * Para eliminar os dados de cópia de segurança do item, selecione **Eliminar**. Uma mensagem de notificação permite-lhe saber que os dados de cópia de segurança foram eliminados.
 
-Para proteger os seus dados, o Azure Backup inclui a função de exclusão suave. Com a eliminação suave, mesmo depois de eliminada a cópia de segurança (todos os pontos de recuperação) de um VM, os dados de backup são conservados por mais 14 dias. Para obter mais informações, consulte [a documentação de eliminação suave.](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud)
+Para proteger os seus dados, o Azure Backup inclui a função de exclusão suave. Com a eliminação suave, mesmo depois de eliminada a cópia de segurança (todos os pontos de recuperação) de um VM, os dados de backup são conservados por mais 14 dias. Para obter mais informações, consulte [a documentação de eliminação suave.](./backup-azure-security-feature-cloud.md)
 
   > [!NOTE]
   > Quando elimina os dados de cópia de segurança, elimina todos os pontos de recuperação associados. Não é possível escolher pontos de recuperação específicos para eliminar.
@@ -168,8 +186,8 @@ Para proteger os seus dados, o Azure Backup inclui a função de exclusão suave
 * Estes itens de backup permanecem ativos no sistema aderente à política de backup e retenção definida pelo utilizador. Os dados de back-up para estes VMs Azure serão mantidos de acordo com a política de retenção. Os pontos de recuperação expirados (exceto o último ponto de recuperação) são limpos de acordo com o intervalo de retenção definido na política de backup.
 * Recomenda-se aos utilizadores que apaguem os itens de backup em que a fonte de dados primário já não exista para evitar qualquer custo adicional, se o item/dados de cópia de segurança dos recursos de eliminação deixar de ser necessário, uma vez que o último ponto de recuperação é mantido para sempre e o utilizador é cobrado de acordo com o preço de backup aplicável.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [apoiar os VMs Azure a partir das definições do VM](backup-azure-vms-first-look-arm.md).
 * Saiba como restaurar os [VMs.](backup-azure-arm-restore-vms.md)
-* Saiba como monitorizar as [cópias de segurança do Azure VM](backup-azure-monitor-vms.md).
+* Saiba como monitorizar as [cópias de segurança do Azure VM](./backup-azure-monitoring-built-in-monitor.md).

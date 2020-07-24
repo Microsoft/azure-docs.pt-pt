@@ -3,14 +3,14 @@ title: host.jsem referência para Funções Azure 2.x
 description: A documentação de referência para as Funções Azure host.jsem arquivo com o tempo de execução v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 8d9ea01ffd5bcf2adb25d4f1b3900ff291438ac8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 629f579642185c5600586473d1280d9b26f4cba3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298502"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055289"
 ---
-# <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>host.jsem referência para as Funções Azure 2.x e posterior 
+# <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referência host.json das Funções do Azure 2.x e posterior 
 
 > [!div class="op_single_selector" title1="Selecione a versão do tempo de execução das Funções Azure que está a utilizar: "]
 > * [Versão 1](functions-host-json-v1.md)
@@ -162,12 +162,12 @@ Para obter a estrutura JSON completa, consulte o exemplo anterior [host.jsem arq
 | isEnabled | true | Permite ou desativa a amostragem. | 
 | maxTelemetryItemsPerSecond | 20 | O número-alvo de itens de telemetria registados por segundo em cada anfitrião do servidor. Se a sua aplicação for executado em muitos anfitriões, reduza este valor para permanecer dentro da sua taxa de tráfego geral. | 
 | avaliaçãoInterval | 01:00:00 | O intervalo em que a taxa atual de telemetria é reavaliada. A avaliação é realizada como uma média móvel. É melhor encurtar este intervalo se a sua telemetria for suscetível de explosões repentinas. |
-| iniciaisSamplingPercentage| 1.0 | A percentagem inicial de amostragem aplicada no início do processo de amostragem varia dinamicamente a percentagem. Não reduza o valor enquanto está a depurar. |
+| iniciaisSamplingPercentage| 1,0 | A percentagem inicial de amostragem aplicada no início do processo de amostragem varia dinamicamente a percentagem. Não reduza o valor enquanto está a depurar. |
 | amostragemPercentageIncreasTimeout | 00:00:01 | Quando o valor percentual de amostragem muda, esta propriedade determina quão cedo a Application Insights é permitida a aumentar a percentagem de amostragem novamente para capturar mais dados. |
 | amostragemPercentageDecreaseTimeout | 00:00:01 | Quando o valor percentual de amostragem muda, esta propriedade determina quão cedo os Insights de Aplicação são autorizados a baixar novamente a percentagem de amostragem para capturar menos dados. |
 | minSamplingPercentage | 0.1 | Como a percentagem de amostragem varia, esta propriedade determina a percentagem mínima de amostragem permitida. |
 | maxSamplingPercentage | 0.1 | Como a percentagem de amostragem varia, esta propriedade determina a percentagem máxima de amostragem permitida. |
-| movingAverageRatio | 1.0 | No cálculo da média móvel, o peso atribuído ao valor mais recente. Utilize um valor igual ou inferior a 1. Valores menores tornam o algoritmo menos reativo a mudanças repentinas. |
+| movingAverageRatio | 1,0 | No cálculo da média móvel, o peso atribuído ao valor mais recente. Utilize um valor igual ou inferior a 1. Valores menores tornam o algoritmo menos reativo a mudanças repentinas. |
 | Tipos excluídos | nulo | Uma lista de tipos delimitados semi-cólon que não quer ser amostrado. Os tipos reconhecidos são: `Dependency` , , , , e `Event` `Exception` `PageView` `Request` `Trace` . Todas as instâncias dos tipos especificados são transmitidas; os tipos que não são especificados são amostrados. |
 | incluídosTipos | nulo | Uma lista de tipos delimitados de pontos semi-cólon que pretende ser amostrado; uma lista vazia implica todos os tipos. Digite listado em `excludedTypes` tipos de substituição listados aqui. Os tipos reconhecidos são: `Dependency` , , , , e `Event` `Exception` `PageView` `Request` `Trace` . São amostradas as instâncias dos tipos especificados; os tipos que não são especificados ou implícitos são transmitidos sem amostragem. |
 
@@ -181,7 +181,7 @@ Para obter a estrutura JSON completa, consulte o exemplo anterior [host.jsem arq
 
 ### <a name="applicationinsightssnapshotconfiguration"></a>applicationInsights.snapshotConfiguration
 
-Para obter mais informações sobre instantâneos, consulte [instantâneos de Debug sobre exceções em aplicações .NET](/azure/azure-monitor/app/snapshot-debugger) e [problemas de resolução de problemas que permitem insights de aplicação Snapshot Debugger ou visualização de instantâneos](/azure/azure-monitor/app/snapshot-debugger-troubleshoot).
+Para obter mais informações sobre instantâneos, consulte [instantâneos de Debug sobre exceções em aplicações .NET](../azure-monitor/app/snapshot-debugger.md) e [problemas de resolução de problemas que permitem insights de aplicação Snapshot Debugger ou visualização de instantâneos](../azure-monitor/app/snapshot-debugger-troubleshoot.md).
 
 |Propriedade | Predefinição | Descrição |
 | --------- | --------- | --------- | 
@@ -310,7 +310,7 @@ Controla os comportamentos de registo da aplicação de função, incluindo o Ap
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------|
 |fileLoggingMode|depuraronamente|Define o nível de registo de ficheiros ativado.  As opções `never` `always` são, `debugOnly` . . |
-|logLevel|n/a|Objeto que define a filtragem da categoria de registo para funções na aplicação. Versões 2.x e mais tarde siga o layout ASP.NET Core para filtragem da categoria de registo. Esta definição permite filtrar o início de sessão para funções específicas. Para obter mais informações, consulte [a filtragem do Registo](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do Núcleo ASP.NET. |
+|logLevel|n/a|Objeto que define a filtragem da categoria de registo para funções na aplicação. Versões 2.x e mais tarde siga o layout ASP.NET Core para filtragem da categoria de registo. Esta definição permite filtrar o início de sessão para funções específicas. Para obter mais informações, consulte [a filtragem do Registo](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do Núcleo ASP.NET. |
 |consola|n/a| A definição de registo da [consola.](#console) |
 |aplicaçõesInsights|n/a| A [definição de aplicaçõesInsights.](#applicationinsights) |
 
@@ -413,7 +413,7 @@ Por exemplo, diga que queria desativar a amostragem de Insight de Aplicação qu
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba como atualizar o host.jsno ficheiro](functions-reference.md#fileupdate)

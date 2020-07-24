@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/24/2018
+ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 940ef671ab58074aaded49acb70db68a4971c1f2
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 0ec314e6b5abde60102dacfc81c9303cef16e887
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187035"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058628"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Como: Adicionar funções de aplicação na sua aplicação e recebê-las no token
 
@@ -76,7 +76,7 @@ O exemplo a seguir mostra o `appRoles` que pode atribuir `users` .
 > [!NOTE]
 >Os `displayName` não podem conter espaços.
 
-Pode definir funções de aplicativo para alvo `users` , `applications` ou ambos. Quando disponível para `applications` , as funções da aplicação aparecem como permissões de aplicação na lâmina **permissões necessárias.** O exemplo a seguir mostra uma função de aplicação direcionada para um `Application` .
+Pode definir funções de aplicativo para alvo `users` , `applications` ou ambos. Quando disponível para `applications` , as funções da aplicação aparecem como permissões de aplicação na secção **Gerir** > **permissões de API > Adicionar uma permissão > As minhas APIs > Escolha uma API > Permissões de Aplicação**. O exemplo a seguir mostra uma função de aplicação direcionada para um `Application` .
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -118,6 +118,10 @@ Uma vez adicionadas funções de aplicação na sua aplicação, pode atribuir u
 1. Escolha uma função e prima o botão **Select.**
 1. Pressione o botão **Atribuir** na parte inferior para terminar as atribuições de utilizadores e grupos à aplicação.
 1. Confirme que os utilizadores e grupos que adicionou estão a aparecer na lista atualizada **de Utilizadores e grupos.**
+
+### <a name="receive-roles-in-tokens"></a>Receber papéis em fichas
+
+Quando os utilizadores atribuídos às várias funções da aplicação iniciarem o sessão na aplicação, os seus tokens terão as suas funções atribuídas na `roles` reclamação.
 
 ## <a name="more-information"></a>Mais informações
 

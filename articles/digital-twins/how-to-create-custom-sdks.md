@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 895e33a111fe5bb881d198ee4995b9534ca3d528
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 2e2a7f09ac6ff3be119a07ed0a2162525801ceef
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135881"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061856"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Crie SDKs personalizados para gémeos digitais Azure usando o AutoRest
 
-Neste momento, o único plano de dados publicado SDK para interagir com as APIs das Gémeas Digitais Azure é para .NET (C#). Pode ler sobre os .NET SDK e as APIs em geral, em [Como-a-: Use as APIs e SDKs de Gémeos Digitais Azure](how-to-use-apis-sdks.md). Se estiver a trabalhar noutra língua, este artigo irá mostrar-lhe como gerar o seu próprio SDK na linguagem à sua escolha, utilizando o AutoRest.
+Neste momento, o único plano de dados publicado SDK para interagir com as APIs das Gémeas Digitais Azure é para .NET (C#). Pode ler sobre os .NET SDK e as APIs em geral, em [*Como-a-: Use as APIs e SDKs de Gémeos Digitais Azure*](how-to-use-apis-sdks.md). Se estiver a trabalhar noutra língua, este artigo irá mostrar-lhe como gerar o seu próprio SDK na linguagem à sua escolha, utilizando o AutoRest.
 
 ## <a name="set-up-your-machine"></a>Configurar a sua máquina
 
@@ -37,19 +37,19 @@ npm install -g autorest@2.0.4413
 Para executar o AutoRest contra o ficheiro Azure Digital Twins Swagger, siga estes passos:
 1. Copie o ficheiro Azure Digital Twins Swagger e a sua pasta de exemplos que o acompanha num diretório de trabalho.
 2. Use uma janela de ordem de comando para mudar para o diretório de trabalho.
-3. Corra autorest com o seguinte comando. Substitua o `<language>` espaço reservado pelo seu idioma de eleição: , , , `--python` `--java` `--go` etc. (Pode encontrar a lista completa de opções no [AutoRest README](https://github.com/Azure/autorest).)
+3. Corra autorest com o seguinte comando. Substitua o `<language>` espaço reservado pelo seu idioma de eleição: , , e assim por `--python` `--java` `--go` diante. (Pode encontrar a lista completa de opções no [AutoRest README](https://github.com/Azure/autorest).)
 
 ```cmd/sh
 autorest --input-file=adtApiSwagger.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 
-Como resultado, verá uma nova pasta chamada *ADTApi* no seu diretório de trabalho. Os ficheiros SDK gerados terão o espaço de nome *ADTApi*, que continuará a utilizar através dos restantes exemplos de utilização deste artigo.
+Como resultado, verá uma nova pasta chamada *ADTApi* no seu diretório de trabalho. Os ficheiros SDK gerados terão o espaço de nome *ADTApi*. Você continuará a usar esse espaço de nome através do resto dos exemplos de uso neste artigo.
 
 O AutoRest suporta uma vasta gama de geradores de códigos linguísticos.
 
 ## <a name="add-the-sdk-to-a-visual-studio-project"></a>Adicione o SDK a um projeto do Estúdio Visual
 
-Pode incluir os ficheiros gerados pelo AutoRest diretamente numa solução .NET. No entanto, como provavelmente necessitará do Azure Digital Twins SDK em vários projetos separados (aplicações do seu cliente, aplicações Azure Functions, e assim por diante), pode ser útil construir um projeto separado (uma biblioteca de classe .NET) a partir dos ficheiros gerados. Em seguida, pode incluir este projeto de biblioteca de classes em várias soluções como referência do projeto.
+Pode incluir os ficheiros gerados pelo AutoRest diretamente numa solução .NET. No entanto, é provável que queira incluir o Azure Digital Twins SDK em vários projetos separados (aplicações para clientes, aplicações Azure Functions, e assim por diante). Por esta razão, pode ser útil construir um projeto separado (uma biblioteca de classe .NET) a partir dos ficheiros gerados. Em seguida, você pode incluir este projeto de biblioteca de classes em várias soluções como referência de projeto.
 
 Esta secção dá instruções sobre como construir o SDK como uma biblioteca de classes, que é o seu próprio projeto e pode ser incluído em outros projetos. Estes passos dependem do **Visual Studio** (pode instalar a versão mais recente a partir [daqui).](https://visualstudio.microsoft.com/downloads/)
 
@@ -73,7 +73,7 @@ Para adicionar estes, abra *ferramentas > Gestor de Pacotes NuGet > gerir pacote
 
 1. No painel, certifique-se de que o *separador Browse* está selecionado
 2. Procurar *microsoft.rest*
-3. Selecione os pacotes *ClientRuntime* e *ClientRuntime.Azure* e adicione-os à sua solução
+3. Selecione os `ClientRuntime` `ClientRuntime.Azure` pacotes e adicione-os à sua solução
 
 Agora pode construir o projeto e incluí-lo como referência de projeto em qualquer aplicação Azure Digital Twins que escreva.
 
@@ -87,7 +87,7 @@ Todas as funções SDK vêm em versões sincronizadas e assíncronos.
 
 ### <a name="typed-and-untyped-data"></a>Dados dactilografados e não tipigidos
 
-REST As chamadas API geralmente devolvem objetos fortemente digitados. No entanto, como a Azure Digital Twins permite que os utilizadores definam os seus próprios tipos personalizados para gémeos, não há forma de pré-definir dados estáticos de retorno para muitas chamadas Azure Digital Twins. Em vez disso, as APIs devolvem tipos de invólucros fortemente digitado quando aplicável, e os dados gémeos de tipo personalizado estão em objetos Json.NET (utilizados onde quer que o tipo de dados "objeto" apareça nas assinaturas API). Pode lançar estes objetos adequadamente no seu código.
+REST As chamadas API geralmente devolvem objetos fortemente dactilografados. No entanto, como a Azure Digital Twins permite que os utilizadores definam os seus próprios tipos personalizados para gémeos, não há forma de pré-definir dados estáticos de retorno para muitas chamadas Azure Digital Twins. Em vez disso, as APIs devolvem tipos de invólucros fortemente digitado quando aplicável, e os dados gémeos de tipo personalizado estão em objetos Json.NET (utilizados onde quer que o tipo de dados "objeto" apareça nas assinaturas API). Pode lançar estes objetos adequadamente no seu código.
 
 ### <a name="error-handling"></a>Processamento de erros
 
@@ -115,7 +115,7 @@ O AutoResco gera dois tipos de padrões de paging para o SDK:
 
 No padrão de paging não-consulta, existem duas versões de cada chamada:
 * Uma versão para fazer a chamada inicial `DigitalTwins.ListEdges()` (como)
-* Uma versão para obter páginas posteriores, sufixada com "Next" `DigitalTwins.ListEdgesNext()` (como)
+* Uma versão para obter as seguintes páginas. Estas chamadas têm um sufixo de "Next" `DigitalTwins.ListEdgesNext()` (como)
 
 Aqui está um código que mostra como recuperar uma lista de relações de saída de Azure Digital Twins:
 ```csharp
@@ -185,7 +185,7 @@ try
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Caminhe pelos degraus para criar uma aplicação para clientes onde pode utilizar o seu SDK:
-* [Tutorial: Código de uma aplicação de cliente](tutorial-code.md)
+* [*Tutorial: Código de uma aplicação de cliente*](tutorial-code.md)

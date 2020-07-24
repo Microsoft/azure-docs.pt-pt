@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 019ae80020dafb54f2c06dd504797f21069914ae
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fc50934b4c301b4eea509ecc22e00c62ca091d75
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507068"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056550"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Supported Kubernetes versions in Azure Kubernetes Service (AKS) (Versões do Kubernetes suportadas no Azure Kubernetes Service [AKS])
 
@@ -162,15 +162,15 @@ Se um cluster estiver sem suporte para mais de três (3) versões menores e tive
 
 O plano de controlo deve estar dentro de uma janela de versões de todas as piscinas de nós. Para obter informações sobre a atualização do plano de controlo ou piscinas de nó, visite documentação sobre [a atualização das piscinas de nó.](use-multiple-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools)
 
-**Posso saltar uma versão durante a atualização?**
+**Posso saltar várias versões AKS durante a atualização do cluster?**
 
-Não, seguindo as boas práticas de Kubernetes, a AKS só permite upgrades para o patch imediatamente seguinte ou versão menor suportada. O portal Azure irá apenas mostrar-lhe as versões a que pode fazer o upgrade, e no CLI pode correr `az aks get-upgrades -n MyAKSCluster -g MyResourceGroup` para ver as atualizações disponíveis da sua versão atual.
+Quando atualiza um cluster AKS suportado, as versões menores de Kubernetes não podem ser ignoradas. Por exemplo, são permitidas atualizações entre *1.12.x*  ->  *1.13.x* ou *1.13.x*  ->  *1.14.x,* no entanto *1.12.x*  ->  *1.14.x* não é.
 
-**Como posso fazer upgrade para uma versão suportada se estou a várias versões por trás da versão mais recente suportada?**
+Para atualizar, a partir de *1.12.x*  ->  *1.14.x,* primeiro upgrade a partir de *1.12.x*  ->  *1.13.x,* em seguida, upgrade a partir de *1.13.x*  ->  *1.14.x*.
 
-Para se manter dentro do suporte, deve evitar ficar atrás de várias versões da lista atualmente suportada, mas se estiver nesta situação, a AKS permitirá sempre a atualização para a versão suportada mínima.
+Saltar várias versões só pode ser feito quando o upgrade de uma versão não suportada de volta para uma versão suportada. Por exemplo, o upgrade a partir de um *1.10.x* não suportado --> um *1.15.x* suportado pode ser concluído.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre como atualizar o seu cluster, consulte [upgrade de um cluster Azure Kubernetes Service (AKS).][aks-upgrade]
 

@@ -66,6 +66,9 @@
       items:
         - name: Descrição geral
           href: best-practices.md
+        - name: Arquitetura de linha de base para um cluster do AKS
+          href: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
+          maintainContext: true
         - name: Para operadores de clusters
           items:
             - name: Isolamento multi-inquilinos e de clusters

@@ -3,12 +3,12 @@ title: Introdução ao Conselheiro Azure
 description: Utilize o Azure Advisor para otimizar as suas implementações Azure.
 ms.topic: article
 ms.date: 02/01/2019
-ms.openlocfilehash: 0c6c79dd764f92475b3b0121ae46706c0dfc0bcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17b68e220b7011dee2cc8fca440d58d980c28e6d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117782"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057693"
 ---
 # <a name="introduction-to-azure-advisor"></a>Introdução ao Conselheiro Azure
 
@@ -42,7 +42,7 @@ Selecione a ação recomendada para uma recomendação para implementar a recome
 
 Se não pretender tomar medidas imediatas por recomendação, pode adiá-la por um período de tempo especificado ou descartá-la.  Se não quiser receber recomendações para uma subscrição específica ou grupo de recursos, pode configurar o Advisor apenas para gerar recomendações para subscrições especificadas e grupos de recursos.
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="how-do-i-access-advisor"></a>Como posso aceder ao Conselheiro?
 Pode aceder ao Advisor através do [portal Azure.](https://aka.ms/azureadvisordashboard) Inscreva-se no [portal,](https://portal.azure.com) **localize** o Advisor no menu de navegação ou procure-o no menu **Todos os serviços.**
@@ -51,19 +51,19 @@ Também pode ver recomendações do Advisor através da interface de recursos de
 
 ### <a name="what-permissions-do-i-need-to-access-advisor"></a>Que permissões preciso para aceder ao Advisor?
  
-Pode aceder às recomendações do Advisor como *Proprietário,* *Contribuinte*ou *Leitor* de uma subscrição.
+Pode aceder às recomendações do Advisor como *Proprietário,* *Contribuinte*ou *Leitor* de uma subscrição, Grupo de Recursos ou Recursos.
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Para que recursos o Advisor fornece recomendações?
 
 O Advisor fornece recomendações para Gateway de Aplicações, Serviços de Aplicações, conjuntos de disponibilidade, Azure Cache, Azure Data Factory, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, Azure ExpressRoute, Azure Cosmos DB, Azure Public IP addresss, SQL Data Warehouse, servidores SQL, contas de armazenamento, perfis de tráfego, e máquinas virtuais.
 
-O Azure Advisor também inclui as suas recomendações do [Azure Security Center,](https://docs.microsoft.com/azure/security-center/security-center-recommendations) que podem incluir recomendações para tipos de recursos adicionais.
+O Azure Advisor também inclui as suas recomendações do [Azure Security Center,](../security-center/security-center-recommendations.md) que podem incluir recomendações para tipos de recursos adicionais.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>Posso adiar ou rejeitar uma recomendação?
 
 Para adiar ou rejeitar uma recomendação, clique no link **Adia.** Pode especificar um período de adiamento ou selecionar **Nunca** rejeitar a recomendação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as recomendações do Advisor, consulte:
 

@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: e4185de879fa6136531e6d4c64908befa1d3bc45
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: df4292a40335e58c64b8ebc50ffb6ac1ceee8836
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531976"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059894"
 ---
 # <a name="connect-your-proofpoint-tap-to-azure-sentinel-with-azure-function"></a>Ligue o seu Ponto de Revisão TAP ao Azure Sentinel com a Função Azure
+
+> [!IMPORTANT]
+> O conector de dados proofpoint TAP em Azure Sentinel encontra-se atualmente em pré-visualização pública.
+> Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O conector de proteção de ataque direcionado proofpoint (TAP) permite-lhe ligar facilmente todos os registos da solução de segurança [Proofpoint TAP](https://www.proofpoint.com/us/products/advanced-threat-protection/targeted-attack-protection) com o Azure Sentinel, para visualizar dashboards, criar alertas personalizados e melhorar a investigação. A integração entre o Proofpoint TAP e o Azure Sentinel faz uso das Funções Azure para retirar dados de registo utilizando a API REST.
 
@@ -46,7 +50,7 @@ Após a criação de uma ligação bem sucedida, os dados aparecem no Log Analyt
 
 Pode demorar mais de 20 minutos até que os seus registos comecem a aparecer no Log Analytics.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, aprendeu a ligar o Proofpoint TAP ao Azure Sentinel utilizando apps de função Azure. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 

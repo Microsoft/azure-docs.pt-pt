@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca08b81a71cd61e727b11bbeb88c0c235d25c5e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3839c7b87e5d07368727d037b585965dce91303a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554907"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058092"
 ---
 # <a name="azure-ad-joined-devices"></a>Dispositivos associados ao Azure AD
 
@@ -29,12 +29,13 @@ A ad a ad azure destina-se a organizações que querem ser apenas cloud-first ou
 |   | Aplicável a todos os utilizadores de uma organização |
 | **Propriedade dos dispositivos** | Organização |
 | **Sistemas Operativos** | Todos os dispositivos Windows 10 |
+|   | [Máquinas virtuais do Windows Server 2019 em execução em Azure](howto-vm-sign-in-azure-ad-windows.md) (o núcleo do servidor não é suportado) |
 | **Aprovisionamento** | Self-service: Windows OOBE ou Definições |
 |   | Inscrição em massa |
 |   | Windows Autopilot |
 | **Sinal do dispositivo em opções** | Contas organizacionais utilizando: |
 |   | Palavra-passe |
-|   | Windows Hello para empresas |
+|   | Windows Hello para Empresas |
 |   | Teclas de segurança FIDO2.0 (pré-visualização) |
 | **Gestão de dispositivos** | Gestão de Dispositivos Móveis (exemplo: Microsoft Intune) |
 |   | Cogestão com o Microsoft Intune e o Microsoft Endpoint Configuration Manager |
@@ -78,9 +79,9 @@ A Associação do Azure AD pode ser implementada com um dos seguintes métodos:
 - [Implementação em massa](/intune/windows-bulk-enroll)
 - [Experiência personalizada](azuread-joined-devices-frx.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Planear a sua implementação de associação do Azure AD](azureadjoin-plan.md)
 - [Como gerir o grupo de administradores locais em Azure AD juntou dispositivos](assign-local-admin.md)
-- [Gerir identidades do dispositivo utilizando o portal Azure](device-management-azure-portal.md)
-- [Gerir dispositivos em Azure AD](manage-stale-devices.md)
+- [Gerir identidades de dispositivos com o portal do Azure](device-management-azure-portal.md)
+- [Gerir dispositivos obsoletos no AAD](manage-stale-devices.md)

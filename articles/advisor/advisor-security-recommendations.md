@@ -3,12 +3,12 @@ title: Tornar os recursos mais seguros com o Azure Advisor
 description: Utilize o Azure Advisor para ajudar a melhorar a segurança das suas implementações Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: bf7a316c893600bed18b9392404af5792e2e31f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f130135ed53dc2ba87f46cbf6f9faf0f07cc0654
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85113862"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057664"
 ---
 # <a name="make-resources-more-secure-with-azure-advisor"></a>Tornar os recursos mais seguros com o Azure Advisor
 
@@ -16,7 +16,7 @@ O Azure Advisor fornece-lhe uma visão consistente e consolidada das recomendaç
 
 O Centro de Segurança ajuda-o a evitar, detetar e responder a ameaças com uma maior visibilidade e controlo sobre a segurança dos seus recursos Azure. Analisa periodicamente o estado de segurança dos seus recursos Azure. Quando o Centro de Segurança identifica potenciais vulnerabilidades de segurança, cria recomendações. As recomendações guiam-no através do processo de configuração dos controlos de que necessita. 
 
-Para obter mais informações sobre recomendações de segurança, consulte [recomendações de segurança de gestão no Centro de Segurança Azure.](https://azure.microsoft.com/documentation/articles/security-center-recommendations/)
+Para obter mais informações sobre recomendações de segurança, consulte [recomendações de segurança de gestão no Centro de Segurança Azure.](../security-center/security-center-recommendations.md)
 
 ## <a name="how-to-access-security-recommendations-in-azure-advisor"></a>Como aceder às recomendações de segurança no Azure Advisor
 
@@ -24,7 +24,7 @@ Para obter mais informações sobre recomendações de segurança, consulte [rec
 
 2.  No painel 'Advisor', clique no separador **Segurança.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as recomendações do Advisor, consulte:
 * [Introdução ao Conselheiro](advisor-overview.md)
@@ -33,5 +33,5 @@ Para saber mais sobre as recomendações do Advisor, consulte:
 * [Recomendações de desempenho do conselheiro](advisor-performance-recommendations.md)
 * [Recomendações de fiabilidade do consultor](advisor-high-availability-recommendations.md)
 * [Recomendações de excelência operacional do consultor](advisor-operational-excellence-recommendations.md)
-* [Conselheiro REST API](https://docs.microsoft.com/rest/api/advisor/)
+* [Conselheiro REST API](/rest/api/advisor/)
  

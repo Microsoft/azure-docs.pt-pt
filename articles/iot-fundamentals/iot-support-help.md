@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
 ms.date: 6/10/2020
-ms.openlocfilehash: 3ba7e4b73fb0ac8d6318b7bfee73300800d5b7ee
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: b41e3d729fa6e5b0be9a55cc45de38f81bed494b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85340783"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061129"
 ---
 # <a name="azure-iot-support-and-help-options"></a>Opções de suporte e ajuda do Azure IoT
 
@@ -38,7 +38,7 @@ Se não conseguir encontrar uma resposta para o seu problema usando a pesquisa, 
 - [Azure IoT](https://docs.microsoft.com/answers/topics/azure-iot.html)
 - [Azure IoT Central](https://docs.microsoft.com/answers/topics/azure-iot-central.html)
 - [Azure IoT Edge](https://docs.microsoft.com/answers/topics/azure-iot-edge.html)
-- [Azure IoT Hub](https://docs.microsoft.com/answers/topics/azure-iot-hub.html)
+- [Hub IoT do Azure](https://docs.microsoft.com/answers/topics/azure-iot-hub.html)
 - [Serviço de Aprovisionamento de Dispositivos (DPS) no Hub IoT do Azure](https://docs.microsoft.com/answers/topics/azure-iot-dps.html)
 - [SDKs do Azure IoT](https://docs.microsoft.com/answers/topics/azure-iot-sdk.html)
 - [Azure Digital Twins](https://docs.microsoft.com/answers/topics/azure-digital-twins.html)
@@ -59,7 +59,7 @@ Se submeter uma nova pergunta ao Stack Overflow, utilize uma ou mais das seguint
 
  - [Azure IoT Central](https://stackoverflow.com/questions/tagged/azure-iot-central)
  - [Azure IoT Edge](https://stackoverflow.com/questions/tagged/azure-iot-edge)
- - [Azure IoT Hub](https://stackoverflow.com/questions/tagged/azure-iot-hub)
+ - [Hub IoT do Azure](https://stackoverflow.com/questions/tagged/azure-iot-hub)
  - [SDKs do Azure IoT](https://stackoverflow.com/questions/tagged/azure-iot-sdk)
  - [Azure Digital Twins](https://stackoverflow.com/questions/tagged/azure-digital-twins)
  - [Azure RTOS](https://stackoverflow.com/questions/tagged/azure-rtos)
@@ -77,7 +77,7 @@ Para solicitar novas funcionalidades, publique-as no Azure Feedback. Partilhe as
 
 | Serviço                       | Azure Feedback URL |
 |-------------------------------|---------------|
-| Azure IoT Hub                    | https://feedback.azure.com/forums/321918-azure-iot |
+| Azure IoT (Hub, DPS, SDKs)                    | https://feedback.azure.com/forums/321918-azure-iot |
 | Azure IoT Central             | https://feedback.azure.com/forums/911455-azure-iot-central |
 | Catálogo de Dispositivos Azure IoT      | https://feedback.azure.com/forums/916948-azure-iot-device-catalog |
 | Azure IoT Edge                | https://feedback.azure.com/forums/907045-azure-iot-edge |

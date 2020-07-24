@@ -8,11 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 76348a0aee48cc6d768e8233e376f266eca31917
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0efff05f84bf02908dfc8b966b80539d309f491d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83006008"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059129"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Resolução de problemas do cliente de ambiente de trabalho remoto
 
@@ -61,7 +62,7 @@ Se o seu navegador começar a agir ou deixar de funcionar enquanto estiver a uti
 
 ## <a name="web-client-does-not-show-my-resources"></a>O cliente web não mostra os meus recursos
 
-Primeiro, verifique a conta Azure Ative Directory que está a usar. Se já assinou com uma conta de Diretório Azure Ative diferente da que pretende utilizar para o Winodws Virtual Desktop, deve assinar a nossa ou utilizar uma janela de navegador privada.
+Primeiro, verifique a conta Azure Ative Directory que está a usar. Se já assinou com uma conta de Diretório Azure Ative diferente da que pretende utilizar para o Windows Virtual Desktop, deve assinar a nossa ou utilizar uma janela de navegador privada.
 
 Se estiver a utilizar a versão Virtual Desktop Fall 2019 do Windows, utilize o link do cliente web [neste artigo](./virtual-desktop-fall-2019/connect-web-2019.md) para se ligar aos seus recursos.
 
@@ -83,7 +84,7 @@ Se o cliente web continuar a pedir credenciais, siga estas instruções:
 4. Limpe a cache do browser. Para mais detalhes, consulte [Limpar a cache do navegador para o seu navegador.](https://binged.it/2RKyfdU)
 5. Abra o seu navegador em modo Privado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma visão geral sobre a resolução de problemas do Windows Virtual Desktop e as faixas de escalada, consulte [a visão geral da resolução de problemas, o feedback e o suporte](troubleshoot-set-up-overview.md).
 - Para resolver problemas enquanto cria um ambiente de ambiente de trabalho virtual do Windows e uma piscina de anfitrião num ambiente de ambiente de trabalho virtual do Windows, consulte [ambiente e a criação de piscinas de anfitriões.](troubleshoot-set-up-issues.md)

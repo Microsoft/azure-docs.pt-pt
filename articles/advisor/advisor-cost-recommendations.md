@@ -3,12 +3,12 @@ title: Reduzir os custos de serviço usando o Azure Advisor
 description: Utilize o Azure Advisor para otimizar o custo das suas implementações Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: ad8340595b10ce9c729c9c89f0099434c15a9ff2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6fa57726ee37d78438b4e07d329f1af00f157d7e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078566"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057743"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Reduzir os custos de serviço utilizando o Azure Advisor
 
@@ -89,7 +89,7 @@ Para poupar 60% do custo, recomendamos guardar as suas fotos em armazenamento pa
 Ao utilizar informações sobre a contagem de objetos de armazenamento Azure Blob, tamanho total e transações, o Advisor deteta se deve permitir a gestão do ciclo de vida para dimensionar dados em uma ou mais das suas contas de armazenamento. Solicita-lhe que crie regras de gestão do ciclo de vida para hierarquizar automaticamente os seus dados para arrefecer ou arquivar o armazenamento para otimizar os seus custos de armazenamento, mantendo os seus dados no armazenamento do Azure Blob para compatibilidade com a aplicação.
 
 ## <a name="create-an-ephemeral-os-disk-recommendation"></a>Crie uma recomendação de Disco de SO Efémero
-[O disco EFÉMER OS](https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks) permite:00: 
+[O disco EFÉMER OS](../virtual-machines/windows/ephemeral-os-disks.md) permite:00: 
 - Poupe nos custos de armazenamento dos discos de SO. 
 - Obtenha uma leitura mais baixa/escreva latência para discos DE. 
 - Obtenha operações de reimagem VM mais rápidas repondo o SO (e disco temporário) no seu estado original.
@@ -105,7 +105,7 @@ Ao utilizar informações sobre a contagem de objetos de armazenamento Azure Blo
 
 1. No painel **'Advisor',** selecione o **separador Custos.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as recomendações do Advisor, consulte:
 * [Introdução ao Conselheiro](advisor-overview.md)
@@ -114,4 +114,3 @@ Para saber mais sobre as recomendações do Advisor, consulte:
 * [Recomendações de alta disponibilidade do conselheiro](advisor-high-availability-recommendations.md)
 * [Recomendações de segurança do conselheiro](advisor-security-recommendations.md)
 * [Recomendações de excelência operacional do consultor](advisor-operational-excellence-recommendations.md)
-

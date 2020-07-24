@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 2e97442d4104f52c1a76ba8cd1d81c99508bb242
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc442886c4c4c26db5f5cde908ea647e2ee2f1bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81605192"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059018"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instale e configura o Ambiente de Trabalho Remoto para ligar a um Linux VM em Azure
 As máquinas virtuais Linux (VMs) em Azure são geralmente geridas a partir da linha de comando utilizando uma ligação secure shell (SSH). Quando novo no Linux, ou para cenários rápidos de resolução de problemas, a utilização de ambientes de trabalho remotos pode ser mais fácil. Este artigo detalha como instalar e configurar um ambiente de ambiente de trabalho[(xfce)](https://www.xfce.org)e um ambiente de trabalho remoto[(xrdp)](http://xrdp.org)para o seu Linux VM utilizando o modelo de implementação do Gestor de Recursos.
@@ -104,7 +105,7 @@ Após a autenticação, o ambiente de ambiente de trabalho xfce carregará e par
 Se o seu cliente RDP local utilizar a autenticação ao nível da rede (NLA), poderá ter de desativar essa definição de ligação. A XRDP não suporta atualmente a NLA. Pode também olhar para soluções alternativas de PDR que suportam o NLA, como o [FreeRDP.](https://www.freerdp.com)
 
 
-## <a name="troubleshoot"></a>Resolução de problemas
+## <a name="troubleshoot"></a>Resolução de Problemas
 Se não conseguir ligar-se ao seu Linux VM utilizando um cliente de Ambiente de Trabalho Remoto, utilize `netstat` no seu VM Linux para verificar se o seu VM está a ouvir as ligações RDP da seguinte forma:
 
 ```bash
@@ -132,11 +133,10 @@ tail -f /var/log/syslog
 
 Outras distribuições de Linux, como Red Hat Enterprise Linux e SUSE, podem ter diferentes formas de reiniciar serviços e registar localizações alternativas para rever.
 
-Se não receber qualquer resposta no seu cliente de ambiente de trabalho remoto e não vir quaisquer eventos no registo do sistema, este comportamento indica que o tráfego remoto de ambiente de trabalho não pode chegar ao VM. Reveja as regras do seu grupo de segurança de rede para garantir que tem uma regra para permitir a TCP na porta 3389. Para obter mais informações, consulte [problemas de conectividade da aplicação Troubleshoot](../windows/troubleshoot-app-connection.md).
+Se não receber qualquer resposta no seu cliente de ambiente de trabalho remoto e não vir quaisquer eventos no registo do sistema, este comportamento indica que o tráfego remoto de ambiente de trabalho não pode chegar ao VM. Reveja as regras do seu grupo de segurança de rede para garantir que tem uma regra para permitir a TCP na porta 3389. Para obter mais informações, consulte [problemas de conectividade da aplicação Troubleshoot](../troubleshooting/troubleshoot-app-connection.md).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre a criação e utilização de chaves SSH com VMs Linux, consulte [as teclas Create SSH para Os VMs Linux em Azure](mac-create-ssh-keys.md).
 
 Para obter informações sobre a utilização de SSH a partir do Windows, consulte [como utilizar as teclas SSH com o Windows](ssh-from-windows.md).
-

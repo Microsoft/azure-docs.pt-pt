@@ -5,26 +5,26 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: fd34595d5ea942602efc920904ff326fc203c088
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 005725acf7270ff87ac9418f27941bdb205ae986
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81380692"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059430"
 ---
-# <a name="understand-data-retention-in-azure-time-series-insights"></a>Compreender a retenção de dados em Azure Time Series Insights
+# <a name="understand-data-retention-in-azure-time-series-insights-gen1"></a>Compreender a retenção de dados em Azure Time Series Insights Gen1
 
 Este artigo descreve duas definições primárias que impactam a retenção de dados no ambiente Azure Time Series Insights.
 
 ## <a name="video"></a>Vídeo
 
-### <a name="the-following-video-summarizes-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>O vídeo que se segue resume a retenção de dados da Time Series Insights e como planeá-lo.</br>
+### <a name="the-following-video-summarizes-azure-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>O vídeo seguinte resume a retenção de dados da Azure Time Series Insights e como planeá-lo.</br>
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
@@ -36,15 +36,15 @@ Além disso, o seu ambiente Azure Time Series Insights tem um **limite de armaze
 - **Pausa ingress**
 
 > [!NOTE]
-> Por padrão, ao criar um novo ambiente, a retenção é configurada para **purgar dados antigos**. Esta definição pode ser alternada conforme necessário após o tempo de criação utilizando o portal Azure, na página **Configure** do ambiente Time Series Insights.
-> * Para obter informações sobre como configurar políticas de retenção, leia [a retenção configurante em Time Series Insights](time-series-insights-how-to-configure-retention.md).
+> Por padrão, ao criar um novo ambiente, a retenção é configurada para **purgar dados antigos**. Esta definição pode ser alternada conforme necessário após o tempo de criação utilizando o portal Azure, na página **Configure** do ambiente Azure Time Series Insights.
+> * Para obter informações sobre como configurar políticas de retenção, leia [a retenção configurante em Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
 Ambas as políticas de retenção de dados são descritas em maior detalhe abaixo.
 
 ## <a name="purge-old-data"></a>Purgar dados antigos
 
 - **Purgar dados antigos** é a definição padrão para ambientes Azure Time Series Insights.  
-- **Purgar dados antigos** é preferido quando os utilizadores querem ter sempre os seus *dados mais recentes* no seu ambiente de Insights de Séries Tempotamos.
+- **Purgar dados antigos** é preferido quando os utilizadores querem ter sempre os seus *dados mais recentes* no seu ambiente Azure Time Series Insights.
 - A definição **de dados antigos purga** *os dados* uma vez que os limites do ambiente (tempo, tamanho ou contagem de retenção, o que vier primeiro) são alcançados. A retenção está definida para 30 dias por defeito.
 - Os dados ingeridos mais antigos são purgados primeiro (a abordagem "First In First out").
 
@@ -69,7 +69,7 @@ Sempre que a taxa diária de entrada deste ambiente exceda 0,166 GB por dia, os 
 - Ajuda a protegê-lo da perda de dados, mas pode criar uma oportunidade para a perda dos seus dados mais recentes se a entrada for interrompida para além do período de retenção da sua fonte de evento.
 - No entanto, uma vez alcançada a capacidade máxima de um ambiente, o ambiente interrompe a entrada de dados até que ocorram as seguintes ações adicionais:
 
-   - Aumenta a capacidade máxima do ambiente para adicionar mais unidades de escala, conforme descrito em [Como escalar o ambiente de Insights de Séries De Tempo](time-series-insights-how-to-scale-your-environment.md).
+   - Aumenta a capacidade máxima do ambiente para adicionar mais unidades de escala, conforme descrito em [Como escalar o ambiente Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
    - O período de retenção de dados é atingido e os dados são expurgados, colocando o ambiente abaixo da sua capacidade máxima.
 
 ### <a name="example-three"></a>Exemplo três
@@ -86,16 +86,16 @@ Quando a entrada recomeça:
 > [!IMPORTANT]
 > Deve definir alertas para fornecer aviso para ajudar a evitar a pausa. A perda de dados é possível uma vez que a retenção por defeito é de 1 dia para fontes de eventos Azure. Portanto, uma vez que a entrada é pausa, você provavelmente perde os dados mais recentes, a menos que sejam tomadas medidas adicionais. Deve aumentar a capacidade ou mudar o comportamento para **purgar dados antigos** para evitar o potencial de perda de dados.
 
-Nos Impacted Event Hubs, considere ajustar a propriedade **de Retenção de Mensagens** para minimizar a perda de dados quando ocorrer uma pausa no Time Series Insights.
+Nos Impacted Event Hubs, considere ajustar a propriedade **de Retenção de Mensagens** para minimizar a perda de dados quando ocorrer uma pausa no Azure Time Series Insights.
 
 [![Retenção de mensagens do centro do evento.](media/time-series-insights-concepts-retention/event-hub-retention.png)](media/time-series-insights-concepts-retention/event-hub-retention.png#lightbox)
 
-Se nenhuma propriedade estiver configurada na fonte do evento `timeStampPropertyName` (), o Time Series Insights predefini ao tempotando de chegada ao centro de eventos como eixo X. Se `timeStampPropertyName` for configurado para ser outra coisa, o ambiente procura o configurado `timeStampPropertyName` no pacote de dados quando os eventos são analisados.
+Se nenhuma propriedade estiver configurada na fonte do evento `timeStampPropertyName` (), Azure Time Series Insights predefine o relógio de chegada ao centro de eventos como o eixo X. Se `timeStampPropertyName` for configurado para ser outra coisa, o ambiente procura o configurado `timeStampPropertyName` no pacote de dados quando os eventos são analisados.
 
-Leia [Como escalar o ambiente de Time Series Insights](time-series-insights-how-to-scale-your-environment.md) para escalar o seu ambiente para acomodar capacidade adicional ou aumentar o comprimento da retenção.
+Leia [Como escalar o ambiente Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md) para escalar o seu ambiente para acomodar capacidade adicional ou aumentar o comprimento de retenção.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter informações sobre configurar ou alterar definições de retenção de dados, [reveja a retenção de configuração em Insights de Séries de Tempo](time-series-insights-how-to-configure-retention.md).
+- Para obter informações sobre configurar ou alterar definições de retenção de dados, [reveja a retenção de configuração em Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
 - Saiba mais sobre [a mitigação da latência em Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).

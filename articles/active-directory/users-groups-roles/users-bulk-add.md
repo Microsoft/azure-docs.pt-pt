@@ -13,11 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a2c9500ecefed02b28c066de80137d8f0882fd5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41329f2f5500db35ee76c9880bdbef984413004b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84731516"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057893"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>A granel cria utilizadores no Azure Ative Directory
 
@@ -47,6 +48,7 @@ As linhas de um modelo de CSV descarregado são as seguintes:
 - As colunas necessárias são listadas primeiro.
 - Não recomendamos a adição de novas colunas ao modelo. Quaisquer colunas adicionais que adicionar são ignoradas e não processadas.
 - Recomendamos que descarregue a versão mais recente do modelo CSV com a maior frequência possível.
+- Certifique-se de que não existe um espaço branco não intencional antes/depois de qualquer campo. Para **o nome principal do utilizador,** ter tal espaço em branco causaria falha nas importações.
 
 ## <a name="to-create-users-in-bulk"></a>Para criar utilizadores a granel
 
@@ -96,7 +98,7 @@ Deve ver se os utilizadores que criou estão listados.
 
 Cada atividade a granel para criar utilizadores pode funcionar até uma hora. Isto permite a criação em massa de pelo menos 50.000 utilizadores.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Eliminar utilizadores em massa](users-bulk-delete.md)
 - [Lista de utilizadores](users-bulk-download.md)

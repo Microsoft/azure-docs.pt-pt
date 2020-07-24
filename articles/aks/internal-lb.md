@@ -5,12 +5,12 @@ description: Saiba como criar e utilizar um equilibrador de carga interno para e
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: 0789a866ebda270f3e5e8b150e072c7aedea7f04
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58aadc4fadb93a4f6eb47214f580f7a2bebdf49c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82790614"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056816"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Utilize um equilibrador interno de carga com o Serviço Azure Kubernetes (AKS)
 
@@ -19,7 +19,7 @@ Para restringir o acesso às suas aplicações no Serviço Azure Kubernetes (AKS
 > [!NOTE]
 > O Azure Load Balancer está disponível em dois SKUs - *Básico* e *Standard*. Por padrão, o SKU padrão é utilizado quando cria um cluster AKS.  Ao criar um Serviço com o tipo de LoadBalancer, obterá o mesmo tipo LB que quando forctifica o cluster. Para obter mais informações, consulte [a comparação SKU do balanceador de carga Azure][azure-lb-comparison].
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
@@ -65,7 +65,7 @@ internal-app   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   2m
 
 ## <a name="specify-an-ip-address"></a>Especificar um endereço IP
 
-Se quiser utilizar um endereço IP específico com o balançador de carga interno, adicione a propriedade *loadBalancerIP* ao manifesto YAML do balançador de carga. O endereço IP especificado deve residir na mesma sub-rede que o cluster AKS e não deve ser atribuído a um recurso.
+Se quiser utilizar um endereço IP específico com o balançador de carga interno, adicione a propriedade *loadBalancerIP* ao manifesto YAML do balançador de carga. O endereço IP especificado deve residir na mesma sub-rede que o cluster AKS e não deve ser atribuído a um recurso. Por exemplo, não deve utilizar um endereço IP no intervalo designado para a sub-rede Kubernetes.
 
 ```yaml
 apiVersion: v1

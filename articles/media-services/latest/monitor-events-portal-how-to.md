@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 01/21/2020
 ms.author: juliako
-ms.openlocfilehash: 18503e64dc6f38daab61599153cd0e0fb6fadb20
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92a97ddbd9497954b35efa33de7c2f843d4dd934
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76509228"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060677"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Create and monitor Media Services events with Event Grid using the Azure portal (Criar e monitorizar eventos de Serviços de Multimédia com o Event Grid com o portal do Azure)
 
@@ -32,7 +33,7 @@ Quando tiver terminado, verá que os dados do evento foram enviados para a aplic
 ## <a name="prerequisites"></a>Pré-requisitos 
 
 * Tenha uma subscrição ativa do Azure.
-* Crie uma nova conta dos Serviços de Multimédia do Azure, conforme descrito [neste início rápido](create-account-cli-quickstart.md).
+* Crie uma nova conta dos Serviços de Multimédia do Azure, conforme descrito [neste início rápido](./create-account-howto.md).
 
 ## <a name="create-a-message-endpoint"></a>Criar um ponto final de mensagem
 
@@ -85,6 +86,6 @@ Pode desencadear eventos para a conta dos Serviços de Comunicação Social exec
 
 ![Ver evento da subscrição](./media/monitor-events-portal/view-subscription-event.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Carregar, codificar e transmitir](stream-files-tutorial-with-api.md)

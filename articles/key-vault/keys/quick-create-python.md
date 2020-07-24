@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Biblioteca de clientes Azure Key Vault para Python
+title: Quickstart – Biblioteca cliente Azure Key Vault Python – gerencie as teclas
 description: Aprenda a criar, recuperar e apagar chaves de um cofre de chaves Azure usando a biblioteca do cliente Python
 author: msmbaldwin
 ms.author: mbaldwin
@@ -8,14 +8,14 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: tracking-python
-ms.openlocfilehash: 5335d629ef6778cbab7273200652c19998c9c19d
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: fe88cfc71959cfa0e78c9e6129853afee248fd37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125181"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060994"
 ---
-# <a name="quickstart-azure-key-vault-client-library-for-python"></a>Quickstart: Biblioteca de clientes Azure Key Vault para Python
+# <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>Quickstart: Azure Key Vault chaves biblioteca cliente para Python
 
 Começa com a biblioteca de clientes do Azure Key Vault para python. Siga os passos abaixo para instalar a embalagem e experimente o código de exemplo para tarefas básicas.
 
@@ -33,7 +33,7 @@ O cofre de chave do Azure ajuda a salvaguardar as chaves criptográficas e os se
 
 - Uma subscrição Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Python 2.7, 3.5.3, ou mais tarde
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/overview)
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/)
 
 Este quickstart pressupõe que está a executar [o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) numa janela do terminal Linux.
 

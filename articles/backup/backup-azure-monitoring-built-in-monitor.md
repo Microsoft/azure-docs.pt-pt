@@ -4,11 +4,12 @@ description: Neste artigo, conheça as capacidades de monitorização e notifica
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: f4b91302723119e707d12a86480bbaff2eb4bec5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 645bf701a8f8561b2cb4f19378036ada82c4bedd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485095"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054539"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorização das cargas de trabalho de backup do Azure
 
@@ -27,7 +28,7 @@ Os trabalhos das seguintes soluções Azure Backup são mostrados aqui:
 - Cópias de segurança de VMs do Azure
 - Backup de arquivo Azure
 - Azure workload back up como SQL e SAP HANA
-- Agente do Azure Backup (MAB)
+- Agente dos Serviços de Recuperação do Microsoft Azure (MARS)
 
 Não são apresentados empregos do Gestor de Proteção de Dados do Centro de Sistema (SC-DPM), do Microsoft Azure Backup Server (MABS).
 
@@ -43,7 +44,7 @@ Os alertas são principalmente cenários em que os utilizadores são notificados
 Os seguintes cenários são definidos pelo serviço como cenários de alerta.
 
 - Falhas de Cópia de Segurança/Restauro
-- Cópia de segurança concluída com êxito com avisos para o Agente do Azure Backup (MAB)
+- Backup conseguiu com avisos para o agente dos Serviços de Recuperação do Azure (MARS) da Microsoft Azure
 - Parar a proteção com retenção de dados/impedir a proteção com a eliminação de dados
 
 ### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Alertas das seguintes soluções Azure Backup são mostrados aqui
@@ -51,7 +52,7 @@ Os seguintes cenários são definidos pelo serviço como cenários de alerta.
 - Cópias de segurança de VMs do Azure
 - Cópias de segurança dos Ficheiros do Azure
 - Backups de carga de trabalho Azure tais como SQL, SAP HANA
-- Agente do Azure Backup (MAB)
+- Agente dos Serviços de Recuperação do Microsoft Azure (MARS) 
 
 > [!NOTE]
 > Os alertas do Gestor de Proteção de Dados do Centro de Sistema (SC-DPM), do Microsoft Azure Backup Server (MABS) não são apresentados aqui.
@@ -103,6 +104,6 @@ Para inativar/resolver um alerta ativo, pode clicar no item da lista corresponde
 
 ![Inativação de alerta RS Vault](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Monitorar cargas de trabalho de backup do Azure usando o Azure Monitor](backup-azure-monitoring-use-azuremonitor.md)

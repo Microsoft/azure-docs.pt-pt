@@ -6,11 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47, tracking-python
-ms.openlocfilehash: eb61cad5f505e6895b550adca3e9f156222d6d30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1141186a262676fc47b0727c47e682dfe95ba6fb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559963"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055927"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Encadernações de saída de armazenamento da fila Azure para funções Azure
 
@@ -368,15 +369,15 @@ Existem duas opções para a saída de uma mensagem do Event Hub a partir de uma
 
 - **Valor de retorno**: Desa estafunction.js`name` o *imóvel.* `$return` Com esta configuração, o valor de retorno da função é persistido como uma mensagem de armazenamento de fila.
 
-- **Imperativo**: Passe um valor ao método [definido](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) do parâmetro declarado como um tipo [out.](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) O valor passado `set` é persistido como uma mensagem de armazenamento de fila.
+- **Imperativo**: Passe um valor ao método [definido](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) do parâmetro declarado como um tipo [out.](/python/api/azure-functions/azure.functions.out?view=azure-python) O valor passado `set` é persistido como uma mensagem de armazenamento de fila.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Existem duas opções para a saída de uma mensagem Do Centro de Eventos a partir de uma função utilizando a anotação [QueueOutput:](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.queueoutput)
+Existem duas opções para a saída de uma mensagem Do Centro de Eventos a partir de uma função utilizando a anotação [QueueOutput:](/java/api/com.microsoft.azure.functions.annotation.queueoutput)
 
 - **Valor de retorno**: Aplicando a anotação à função em si, o valor de retorno da função é persistido como uma mensagem Do Centro de Eventos.
 
-- **Imperativo**: Para definir explicitamente o valor da mensagem, aplique a anotação a um parâmetro específico do tipo [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding) , onde se encontra um `T` POJO ou qualquer tipo de Java nativo. Com esta configuração, passar um valor para o `setValue` método persiste o valor como uma mensagem Event Hub.
+- **Imperativo**: Para definir explicitamente o valor da mensagem, aplique a anotação a um parâmetro específico do tipo [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) , onde se encontra um `T` POJO ou qualquer tipo de Java nativo. Com esta configuração, passar um valor para o `setValue` método persiste o valor como uma mensagem Event Hub.
 
 ---
 
@@ -384,9 +385,9 @@ Existem duas opções para a saída de uma mensagem Do Centro de Eventos a parti
 
 | Enlace |  Referência |
 |---|---|
-| Filas | [Códigos de erro de fila](https://docs.microsoft.com/rest/api/storageservices/queue-service-error-codes) |
-| Blob, Mesa, Fila | [Códigos de erro de armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
-| Blob, Mesa, Fila |  [Resolução de problemas](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
+| Fila | [Códigos de erro de fila](/rest/api/storageservices/queue-service-error-codes) |
+| Blob, Mesa, Fila | [Códigos de erro de armazenamento](/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| Blob, Mesa, Fila |  [Resolução de problemas](/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 <a name="host-json"></a>  
 
@@ -420,7 +421,7 @@ Esta secção descreve as definições de configuração global disponíveis par
 |maxDequeueCount|5|O número de vezes para tentar processar uma mensagem antes de movê-la para a fila de veneno.|
 |newBatchThreshold|lotEsize/2|Sempre que o número de mensagens a ser processadas se descientemente a este número, o tempo de funcionamento recupera outro lote.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Executar uma função como alterações de dados de armazenamento de fila (Gatilho)](./functions-bindings-storage-queue-trigger.md)
 

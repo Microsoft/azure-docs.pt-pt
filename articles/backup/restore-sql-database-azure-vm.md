@@ -3,12 +3,12 @@ title: Restaurar bases de dados do SQL Server num Azure VM
 description: Este artigo descreve como restaurar as bases de dados do SQL Server que estão a funcionar num Azure VM e que são cópias de segurança do Azure.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 5d7fc52aaaca0bf99955919c954cc22ab0d9d3d8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2c3b81c4d0bc4c7548fec8ec131fea66684a7aa8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538458"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054578"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurar bases de dados do SQL Server em VMs Azure
 
@@ -127,7 +127,7 @@ Para restaurar os dados de cópia de segurança como ficheiros .bak em vez de um
     >   - Execute `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
     >   - Verificar o acesso com`dir \\<storageacct>.file.core.windows.net\<filesharename>`
     >- Inicie uma restauração como ficheiros do Cofre de Reserva para `\\<storageacct>.file.core.windows.net\<filesharename>` como o caminho<BR>
-    Você pode baixar Psexec via<https://docs.microsoft.com/sysinternals/downloads/psexec>
+    Você pode baixar PsExec a partir da página [Sysinternals.](/sysinternals/downloads/psexec)
 
 1. Selecione **OK**.
 
@@ -168,6 +168,6 @@ Se o tamanho total das cordas dos ficheiros numa base de dados for superior a um
 
   ![Restaurar a Base de Dados com grande arquivo](./media/backup-azure-sql-database/restore-large-files.jpg)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Gerir e monitorizar](manage-monitor-sql-database-backup.md) Bases de dados do SQL Server que são apoiadas por Azure Backup.

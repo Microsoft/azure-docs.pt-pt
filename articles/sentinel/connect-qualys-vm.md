@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 44002a8f4ab3b644e3530ee2d2fc06a7af271fbe
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 34f2cfa06cbdbb75b8fd610cd1f76fb33dde4cde
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531968"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059848"
 ---
 # <a name="connect-your-qualys-vm-to-azure-sentinel-with-azure-function"></a>Ligue o seu VM Qualys ao Azure Sentinel com a Função Azure
+
+> [!IMPORTANT]
+> O conector de dados Qualys VM em Azure Sentinel está atualmente em pré-visualização pública.
+> Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O conector Qualys Vulnerability Management (VM) permite-lhe ligar facilmente todos os seus registos de soluções de segurança [Qualys VM](https://www.qualys.com/apps/vulnerability-management/) com o Azure Sentinel, para visualizar dashboards, criar alertas personalizados e melhorar a investigação. A integração entre qualys VM e Azure Sentinel faz uso de Funções Azure para retirar dados de registo usando a API REST.
 
@@ -46,7 +50,7 @@ Após a criação de uma ligação bem sucedida, os dados aparecem no Log Analyt
 
 Pode demorar mais de 20 minutos até que os seus registos comecem a aparecer no Log Analytics.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, aprendeu a ligar qualys VM a Azure Sentinel usando Apps de Função Azure. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 

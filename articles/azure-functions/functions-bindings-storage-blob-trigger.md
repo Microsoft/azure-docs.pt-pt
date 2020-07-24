@@ -6,11 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: c88ace8693d15a58c78c70ba46001c98e92fc0a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b9cf3f76afecb1e6f7ad00a18eb7290b8decb5f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559984"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056051"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento Azure Blob para Funções Azure
 
@@ -300,7 +301,7 @@ Aceder aos dados blob `context.bindings.<NAME>` utilizando o valor definido nafu
 
 # <a name="python"></a>[Python](#tab/python)
 
-Aceder aos dados do blob através do parâmetro dactilografado como [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Consulte o exemplo do [gatilho](#example) para obter mais detalhes.
+Aceder aos dados do blob através do parâmetro dactilografado como [InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Consulte o exemplo do [gatilho](#example) para obter mais detalhes.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -411,9 +412,9 @@ O gatilho blob utiliza uma fila internamente, pelo que o número máximo de invo
 
 [O plano de consumo](functions-scale.md#how-the-consumption-and-premium-plans-work) limita uma aplicação de função numa máquina virtual (VM) a 1,5 GB de memória. A memória é utilizada por cada instância de execução simultânea e pelo tempo de funcionamento das funções em si. Se uma função com o gatilho de bolhas colocar toda a bolha na memória, a memória máxima utilizada por essa função apenas para bolhas é de 24 * tamanho máximo de bolha. Por exemplo, uma aplicação de função com três funções acionadas por bolhas e as definições predefinidas teria uma concordância máxima por VM de 3*24 = 72 invocações de função.
 
-As funções JavaScript e Java carregam toda a bolha na memória, e as funções C# fazem-no se estiver ligado a `string` `Byte[]` , ou POCO.
+As funções JavaScript e Java carregam toda a bolha na memória, e as funções C# fazem-no se se ligar a `string` , ou `Byte[]` . .
 
-## <a name="polling"></a>Sondagem
+## <a name="polling"></a>Consultas
 
 As sondagens funcionam como um híbrido entre a inspeção de registos e a execução de verificações periódicas de contentores. As bolhas são digitalizadas em grupos de 10.000 de cada vez com um símbolo de continuação usado entre intervalos.
 
@@ -423,7 +424,7 @@ As sondagens funcionam como um híbrido entre a inspeção de registos e a execu
 > Se necessitar de um processamento de bolhas mais rápido ou fiável, considere criar uma [mensagem de fila](../storage/queues/storage-dotnet-how-to-use-queues.md) quando criar a bolha. Em seguida, use um gatilho de [fila](functions-bindings-storage-queue.md) em vez de um gatilho blob para processar a bolha. Outra opção é utilizar a Grade de Eventos; ver o tutorial [Automatizar redimensionar imagens carregadas usando a Grade de Eventos](../event-grid/resize-images-on-storage-blob-upload-event.md).
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Leia os dados de armazenamento de bolhas quando uma função é executado](./functions-bindings-storage-blob-input.md)
 - [Escreva dados de armazenamento de bolhas a partir de uma função](./functions-bindings-storage-blob-output.md)

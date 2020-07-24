@@ -8,14 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5af9e34baf6115e801fbfe35e6e3895e48b360e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c4bef25a0be12c0335a82345ec998274f1faa67
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80881728"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058405"
 ---
 # <a name="scenario-a-web-app-that-calls-web-apis"></a>Cenário: Uma aplicação web que chama APIs web
 
@@ -48,10 +49,10 @@ As aplicações web que chamam APIs web são aplicações confidenciais do clien
 
 O desenvolvimento deste cenário envolve estas tarefas específicas:
 
-- Durante [o registo de pedidos,](scenario-web-app-call-api-app-registration.md)deve fornecer uma resposta URI, segredo ou certificado a ser partilhado com a Azure AD. Se implementar a sua aplicação em vários locais, fornecerá estas informações para cada local.
+- Durante [o registo de pedidos,](scenario-web-app-call-api-app-registration.md)deve fornecer uma resposta URI, segredo ou certificado a ser partilhado com a Azure AD. Se implementar a sua aplicação em vários locais, irá fornecer um URI de resposta para cada local.
 - A configuração da [aplicação](scenario-web-app-call-api-app-configuration.md) deve fornecer as credenciais do cliente que foram partilhadas com a Azure AD durante o registo da candidatura.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Uma aplicação web que chama APIs web: Registo de aplicações](scenario-web-app-call-api-app-registration.md)

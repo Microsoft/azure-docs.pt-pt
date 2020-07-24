@@ -4,12 +4,12 @@ description: Crie alertas do Azure Advisor para nova recomendação
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: ef15891cc01d0481c6253023de262f14dce0ec81
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 2becfbbc63beb6451e5e877c5a60553d98650494
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921079"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057818"
 ---
 # <a name="quickstart-create-azure-advisor-alerts-on-new-recommendations-using-an-arm-template"></a>Quickstart: Crie alertas do Azure Advisor sobre novas recomendações usando um modelo ARM
 
@@ -17,7 +17,7 @@ Este artigo mostra-lhe como configurar um alerta para novas recomendações do A
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Sempre que o Azure Advisor deteta uma nova recomendação para um dos seus recursos, um evento é armazenado no [diário de atividades Azure](/azure/azure-monitor/platform/activity-logs-overview). Pode configurar alertas para estes eventos do Azure Advisor utilizando uma experiência de criação de alertas específicos de recomendação. Pode selecionar uma subscrição e opcionalmente um grupo de recursos para especificar os recursos em que deseja receber alertas.
+Sempre que o Azure Advisor deteta uma nova recomendação para um dos seus recursos, um evento é armazenado no [diário de atividades Azure](../azure-monitor/platform/platform-logs-overview.md). Pode configurar alertas para estes eventos do Azure Advisor utilizando uma experiência de criação de alertas específicos de recomendação. Pode selecionar uma subscrição e opcionalmente um grupo de recursos para especificar os recursos em que deseja receber alertas.
 
 Também pode determinar os tipos de recomendações utilizando estas propriedades:
 

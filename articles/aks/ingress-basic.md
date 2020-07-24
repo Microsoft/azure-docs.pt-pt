@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Aprenda a instalar e configurar um controlador básico de entrada NGINX num cluster Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 04/27/2020
-ms.openlocfilehash: bb7ac1d76e93a95fedc1dfdbfd67d2b057db60e3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/20/2020
+ms.openlocfilehash: d96118e8f9de37432874a9864fc5c35faeb95a5a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499822"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057215"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Criar um controlador de entrada no Serviço Azure Kubernetes (AKS)
 
@@ -163,10 +163,10 @@ Ambas as aplicações estão agora a ser em execução no seu cluster Kubernetes
 
 No exemplo seguinte, o tráfego para *EXTERNAL_IP* é encaminhado para o serviço denominado `aks-helloworld-one` . O tráfego para *EXTERNAL_IP/olá-mundo-dois* é encaminhado para o `aks-helloworld-two` serviço. O tráfego para *EXTERNAL_IP/estática* é encaminhado para o serviço nomeado `aks-helloworld-one` para ativos estáticos.
 
-Crie um ficheiro nomeado `hello-world-ingress.yaml` e copie no seguinte exemplo YAML.
+Crie um ficheiro chamado *hello-world-ingress.yaml* e copie no seguinte exemplo YAML.
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
@@ -188,7 +188,7 @@ spec:
           servicePort: 80
         path: /hello-world-two(/|$)(.*)
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress-static
@@ -276,7 +276,7 @@ Finalmente, pode apagar o espaço de nome em si. Utilize o `kubectl delete` coma
 kubectl delete namespace ingress-basic
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo incluiu alguns componentes externos para a AKS. Para saber mais sobre estes componentes, consulte as seguintes páginas do projeto:
 

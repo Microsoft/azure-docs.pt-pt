@@ -4,11 +4,12 @@ description: Saiba como gerir e monitorizar as cópias de segurança do Microsof
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 2cd536e191702e2619030c2e0fa06262d2e004ee
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 376e2d53165ab822f75e635b42106e1fe13282a9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057828"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054981"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gerir backups de agentes do Microsoft Azure Recovery Services (MARS) utilizando o serviço de backup da Azure
 
@@ -48,7 +49,7 @@ Quando modificar a política de backup, pode adicionar novos itens, remover iten
 
     ![Selecione os itens](./media/backup-azure-manage-mars/select-item.png)
 
-6. Complete os passos seguintes e clique em **Terminar** para completar a operação.
+6. Complete os próximos passos e clique em **Terminar** para completar a operação.
 
 ### <a name="add-exclusion-rules-to-existing-policy"></a>Adicione as regras de exclusão à política existente
 
@@ -70,7 +71,7 @@ Pode adicionar regras de exclusão para saltar ficheiros e pastas que não quer 
 
     ![Selecione os itens](./media/backup-azure-manage-mars/subfolders-type.png)
 
-5. Complete os passos seguintes e clique em **Terminar** para completar a operação.
+5. Complete os próximos passos e clique em **Terminar** para completar a operação.
 
 ### <a name="remove-items-from-existing-policy"></a>Remover itens da política existente
 
@@ -81,7 +82,7 @@ Pode adicionar regras de exclusão para saltar ficheiros e pastas que não quer 
     > [!NOTE]
     > Tenha cuidado quando retirar completamente um volume da apólice.  Se precisar de adicioná-lo novamente, então será tratado como um novo volume. A próxima cópia de segurança programada realizará uma Cópia de Segurança Inicial (cópia de segurança completa) em vez de Cópia de Segurança Incremental. Se precisar de remover temporariamente e adicionar itens mais tarde, então é aconselhável utilizar **definições** de exclusões em vez de **remover itens** para garantir uma cópia de segurança incremental em vez de uma cópia de segurança completa.
 
-2. Complete os passos seguintes e clique em **Terminar** para completar a operação.
+2. Complete os próximos passos e clique em **Terminar** para completar a operação.
 
 ## <a name="stop-protecting-files-and-folder-backup"></a>Pare de proteger ficheiros e cópias de segurança da pasta
 
@@ -102,16 +103,16 @@ Existem duas formas de parar de proteger ficheiros e pastas de reserva:
 1. Abra a consola de gestão MARS, vá ao **painel de Ações**e **selecione Agendar Backup**.
 
     ![Modifique ou pare uma cópia de segurança programada.](./media/backup-azure-manage-mars/mars-actions.png)
-1. Na página **'Escolha's Policy Item',** selecione **Modificar um calendário de cópias de segurança para os seus ficheiros e pastas** e clique em **Seguinte**.
+1. Na página **'Selecionar Artigo de Política',** selecione **Modificar um calendário de cópia de segurança para os seus ficheiros e pastas** e clique em **Seguinte**.
 
     ![Modifique ou pare uma cópia de segurança programada.](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
 1. A partir da página **Modificar ou Parar uma** página de Backup agendada, selecione Parar de usar este horário de **backup, mas mantenha as cópias de segurança armazenadas até que um horário seja novamente ativado**. Em seguida, selecione **Seguinte**.
 
     ![Modifique ou pare uma cópia de segurança programada.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
-1. Em **Pausa Agendada Cópia de Segurança** Rever as informações e clicar em **Terminar**.
+1. Em **Pausa Cópia de Segurança Programada,** reveja as informações e clique em **Terminar**.
 
     ![Modifique ou pare uma cópia de segurança programada.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. No **processo de backup Modificar** verifique se a pausa de backup do seu horário está no estado de sucesso e clique **perto** do fim.
+1. No **processo de backup modificar,** verifique se a pausa de backup do seu horário está em estado de sucesso e clique **perto** do fim.
 
 ### <a name="stop-protection-and-delete-backup-data"></a>Parar a proteção e eliminar dados de backup
 
@@ -155,17 +156,18 @@ Se parasse a proteção enquanto retém dados e decidisse retomar a proteção, 
 
 Uma palavra-passe é usada para encriptar e desencriptar dados enquanto faz o backup ou restauração do seu local ou máquina local usando o agente MARS de ou para Azure. Se perdeu ou esqueceu a palavra-passe, então pode regenerar a palavra-passe (desde que a sua máquina ainda esteja registada no Cofre dos Serviços de Recuperação e a cópia de segurança esteja configurada) seguindo estes passos:
 
-- A partir da consola de agente MARS, vá às propriedades **de Ações Pane**  >  **Change** >. Em seguida, vá ao **separador de encriptação**.<br>
-- Selecione **Change Passphrase** checkbox.<br>
-- Introduza uma nova frase ou clique em **Gerar Frases de Passe**.
-- Clique **em Procurar** para guardar a nova frase de passagem.
+1. A partir da consola de agente MARS, vá às propriedades **de Ações Pane**  >  **Change** >. Em seguida, vá ao **separador de encriptação**.<br>
+1. Selecione **Change Passphrase** checkbox.<br>
+1. Introduza uma nova frase ou clique em **Gerar Frases de Passe**.
+1. Clique **em Procurar** para guardar a nova frase de passagem.
 
     ![Gere a palavra-passe.](./media/backup-azure-manage-mars/passphrase.png)
-- Clique **em OK** para aplicar alterações.  Se a [Funcionalidade de Segurança](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#enable-security-features) estiver ativada no portal Azure para o Cofre dos Serviços de Recuperação, então será solicitado a introduzir o PIN de segurança. Para receber o PIN, siga os passos indicados neste [artigo.](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#authentication-to-perform-critical-operations)<br>
-- Cole o PIN de segurança do portal e clique **em OK** para aplicar as alterações.<br>
+
+1. Clique **em OK** para aplicar alterações.  Se a [Funcionalidade de Segurança](./backup-azure-security-feature.md#enable-security-features) estiver ativada no portal Azure para o Cofre dos Serviços de Recuperação, então será solicitado a introduzir o PIN de segurança. Para receber o PIN, siga os passos indicados neste [artigo.](./backup-azure-security-feature.md#authentication-to-perform-critical-operations)<br>
+1. Cole o PIN de segurança do portal e clique **em OK** para aplicar as alterações.<br>
 
     ![Gere a palavra-passe.](./media/backup-azure-manage-mars/passphrase2.png)
-- Certifique-se de que a palavra-passe é bem guardada num local alternativo (diferente da máquina de origem), de preferência no Cofre da Chave Azure. Acompanhe todas as frases-passe se tiver várias máquinas a serem apoiadas com os agentes MARS.
+1. Certifique-se de que a palavra-passe é bem guardada num local alternativo (diferente da máquina de origem), de preferência no Cofre da Chave Azure. Acompanhe todas as frases-passe se tiver várias máquinas a serem apoiadas com os agentes MARS.
 
 ## <a name="managing-backup-data-for-unavailable-machines"></a>Gerir dados de backup para máquinas indisponíveis
 
@@ -182,13 +184,14 @@ Para estas máquinas, o serviço de Backup Azure garante que o último ponto de 
 Gerir a política de backup para o MARS é feito através da consola MARS e não através do portal. Se precisar estender as definições de retenção para os pontos de recuperação existentes antes de expirarem, então tem de restaurar a máquina, instalar a consola MARS e alargar a política.
 
 - Para restaurar a máquina, execute os seguintes passos:
-  - [Restaurar o VM numa máquina-alvo alternativa](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
-  - Recrie a máquina-alvo com o mesmo nome de hospedeiro que a máquina de origem
-  - Instale o agente e re-registe-se no mesmo cofre e com a mesma frase de passe
-  - Lance o cliente MARS para prolongar a duração da retenção de acordo com os seus requisitos
+  1. [Restaurar o VM numa máquina-alvo alternativa](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
+  1. Recrie a máquina-alvo com o mesmo nome de hospedeiro que a máquina de origem
+  1. Instale o agente e re-registe-se no mesmo cofre e com a mesma frase de passe
+  1. Lance o cliente MARS para prolongar a duração da retenção de acordo com os seus requisitos
 - A sua máquina recém-restaurada, protegida com o MARS, continuará a receber cópias de segurança.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Para obter informações sobre cenários e limitações suportados, consulte a [Matriz de Suporte do Agente MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
+- Para obter informações sobre cenários e limitações suportados, consulte a [Matriz de Suporte do Agente MARS](./backup-support-matrix-mars-agent.md).
 - Saiba mais sobre [o comportamento de retenção de políticas de backup da demanda](backup-windows-with-mars-agent.md#set-up-on-demand-backup-policy-retention-behavior).
+- Para perguntas mais frequentes, consulte o [agente MARS FAQ.](backup-azure-file-folder-backup-faq.md)

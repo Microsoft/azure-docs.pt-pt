@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 909f120275c58b04d8674f0610c40e13b96804b6
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 9e4c3615d16834a0517b46f1be7221eef28c602c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143908"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058740"
 ---
 # <a name="about-azure-virtual-wan"></a>Sobre Azure Virtual WAN
 
@@ -110,7 +110,7 @@ O WAN virtual fornece melhorias avançadas de encaminhamento. Capacidade de conf
 
 ### <a name="global-vnet-peering"></a><a name="global"></a>Peering VNet global
 
-O VNet Peering global fornece um mecanismo para ligar dois VNets em diferentes regiões. No VIRTUAL WAN, as ligações de rede virtuais ligam VNets a centros virtuais. O utilizador não precisa de configurar o VNet global a espreitar explicitamente. Os VNets ligados ao centro virtual são da mesma região incorrem em taxas de observação VNet. Os VNets ligados ao centro virtual numa região diferente incorrem em taxas de observação globais de VNet.
+O VNet Peering global fornece um mecanismo para ligar dois VNets em diferentes regiões. No VIRTUAL WAN, as ligações de rede virtuais ligam VNets a centros virtuais. O utilizador não precisa de configurar o VNet global a espreitar explicitamente. Os VNets ligados ao centro virtual na mesma região incorrem em taxas de observação VNet. Os VNets ligados ao centro virtual numa região diferente incorrem em taxas de observação globais de VNet.
 
 ### <a name="expressroute-traffic-encryption"></a><a name="encryption"></a>Encriptação de tráfego ExpressRoute
 

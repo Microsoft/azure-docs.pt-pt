@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/01/2019
+ms.date: 07/15/2020
 ms.author: apimpm
-ms.openlocfilehash: c0cabab6f867df918c4ac86d035918c483e12da9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ec89d985c025814d903ae9a16f9b0f5123b3571
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82203173"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056435"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Comparação baseada em recursos dos escalões de Gestão API da Azure
 
@@ -42,7 +42,7 @@ Cada [nível de preços da](https://aka.ms/apimpricing) API Management oferece u
 | [Criar Cópias de Segurança e Restaurar](api-management-howto-disaster-recovery-backup-restore.md)               | No          | Sim       | Sim   | Sim      | Sim     |
 | [Gestão sobre Git](api-management-configuration-repository-git.md)                        | No          | Sim       | Sim   | Sim      | Sim     |
 | API de gestão direta                                                                        | No          | Sim       | Sim   | Sim      | Sim     |
-| Registos e métricas do Monitor Azure                                                               | Não          | Sim       | Sim   | Sim      | Sim     |
+| Registos e métricas do Monitor Azure                                                               | Sim         | Sim       | Sim   | Sim      | Sim     |
 | IP estático                                                                                    | Não          | Sim       | Sim   | Sim      | Sim     |
 
 <sup>1</sup> Permite a utilização do Azure AD (e Azure AD B2C) como fornecedor de identidade para o utilizador iniciar súbdis no portal do desenvolvedor.<br/>

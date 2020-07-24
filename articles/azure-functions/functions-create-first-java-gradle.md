@@ -5,18 +5,19 @@ author: KarlErickson
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
-ms.openlocfilehash: a366a199338539ba8e599bd5f406838f4e7bd21c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 906f3d45edef6180557c54f0ff29cd11a1c96fa3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83996653"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055668"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Use Java e Gradle para criar e publicar uma função para Azure
 
 Este artigo mostra-lhe como construir e publicar um projeto de função Java para funções Azure com a ferramenta de linha de comando Gradle. Quando termina, o seu código de função funciona em Azure num [plano de hospedagem sem servidor](functions-scale.md#consumption-plan) e é desencadeado por um pedido HTTP. 
 
 > [!NOTE]
-> Se gradle não é a sua ferramenta de desenvolvimento preferencial, confira os nossos tutoriais semelhantes para desenvolvedores java usando [Maven,](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java) [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) e [VS Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
+> Se gradle não é a sua ferramenta de desenvolvimento preferencial, confira os nossos tutoriais semelhantes para desenvolvedores java usando [Maven,](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java) [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) e [VS Code](./functions-create-first-function-vs-code.md?pivots=programming-language-java).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -61,7 +62,7 @@ Abra o novo ficheiro Function.java a partir do caminho *src/main/java* num edito
 > [!div class="nextstepaction"]
 > [Dei conta de um problema.](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=generate-project)
 
-## <a name="run-the-function-locally"></a>Executar localmente a função
+## <a name="run-the-function-locally"></a>Executar a função localmente
 
 Executar o seguinte comando para construir e executar o projeto de função:
 
@@ -165,7 +166,7 @@ Hello, AzureFunctions
 > [!div class="nextstepaction"]
 > [Dei conta de um problema.](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=verify-deployment)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Criou um projeto de funções Java com uma função httpizada, executou-o na sua máquina local e implantou-o para Azure. Agora, aumente a sua função por...
 

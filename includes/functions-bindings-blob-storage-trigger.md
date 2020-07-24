@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: functions
 author: craigshoemaker
 manager: gwallace
@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 08/02/2019
 ms.author: cshoe
 ms.custom: include file
-ms.openlocfilehash: fa3888d28c52625684676036def7e2920b77b5ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a879c4041fe317955a07eda9dd8a3ef9f542275
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77202115"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056066"
 ---
 Pode utilizar os seguintes tipos de parâmetros para a bolha de desencadeamento:
 
@@ -22,7 +22,6 @@ Pode utilizar os seguintes tipos de parâmetros para a bolha de desencadeamento:
 * `TextReader`
 * `string`
 * `Byte[]`
-* Um POCO serializável como JSON
 * `ICloudBlob`<sup>1</sup>
 * `CloudBlockBlob`<sup>1</sup>
 * `CloudPageBlob`<sup>1</sup>
@@ -32,4 +31,4 @@ Pode utilizar os seguintes tipos de parâmetros para a bolha de desencadeamento:
 
 Se tentar ligar-se a um dos tipos de SDK de armazenamento e obter uma mensagem de erro, certifique-se de que tem uma referência à [versão SDK de armazenamento correta](../articles/azure-functions/functions-bindings-storage-blob.md#azure-storage-sdk-version-in-functions-1x).
 
-A ligação a `string` `Byte[]` , ou POCO só é recomendada se o tamanho do blob for pequeno, uma vez que todo o conteúdo da bolha é carregado na memória. Geralmente, é preferível usar um `Stream` ou `CloudBlockBlob` tipo. Para mais informações, consulte [Concurrency e utilização da memória](../articles/azure-functions/functions-bindings-storage-blob-trigger.md#concurrency-and-memory-usage) mais tarde neste artigo.
+Ligação a `string` , ou só é recomendado se o tamanho do `Byte[]` blob for pequeno, uma vez que todo o conteúdo da bolha é carregado na memória. Geralmente, é preferível usar um `Stream` ou `CloudBlockBlob` tipo. Para mais informações, consulte [Concurrency e utilização da memória](../articles/azure-functions/functions-bindings-storage-blob-trigger.md#concurrency-and-memory-usage) mais tarde neste artigo.

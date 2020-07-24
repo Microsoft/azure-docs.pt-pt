@@ -4,12 +4,12 @@ description: Faça consultas para dados do Advisor no Azure Resource Graph
 ms.topic: article
 ms.date: 03/12/2020
 ms.author: sagupt
-ms.openlocfilehash: c0786d1d09ff61ddd9c375c68b7199521e319a4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66bb500d419d1f5537afafd7a2df543ded8cc7ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117839"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057769"
 ---
 # <a name="query-for-advisor-data-in-resource-graph-explorer-azure-resource-graph"></a>Consulta para dados do Advisor no Resource Graph Explorer (Gráfico de Recursos Azure)
 
@@ -24,7 +24,7 @@ Os recursos consultivos estão agora a bordo do [Azure Resource Graph](https://a
 
 ## <a name="advisor-resource-types-in-azure-graph"></a>Tipos de recursos de aconselhamento no Gráfico Azure
 
-Tipos de recursos disponíveis no [Gráfico de Recursos](https://docs.microsoft.com/azure/governance/resource-graph/): Existem 3 tipos de recursos disponíveis para consulta sob recursos Advisor. Aqui está a lista dos recursos que estão agora disponíveis para consulta no Gráfico de Recursos.
+Tipos de recursos disponíveis no [Gráfico de Recursos](../governance/resource-graph/index.yml): Existem 3 tipos de recursos disponíveis para consulta sob recursos Advisor. Aqui está a lista dos recursos que estão agora disponíveis para consulta no Gráfico de Recursos.
 * Microsoft.Advisor/configurações
 * Microsoft.Advisor/recomendações
 * Microsoft.Advisor/supressões
@@ -32,7 +32,7 @@ Tipos de recursos disponíveis no [Gráfico de Recursos](https://docs.microsoft.
 Estes tipos de recursos estão listados sob uma nova tabela chamada AdvisorResources, que também pode consultar no Portal Azure.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre recomendações do Advisor, consulte:
 * [Introdução ao Conselheiro Azure](advisor-overview.md)
@@ -42,4 +42,4 @@ Para obter mais informações sobre recomendações do Advisor, consulte:
 * [Recomendações de desempenho do conselheiro](advisor-performance-recommendations.md)
 * [Recomendações de segurança do conselheiro](advisor-security-recommendations.md)
 * [Recomendações de excelência operacional do consultor](advisor-operational-excellence-recommendations.md)
-* [Conselheiro REST API](https://docs.microsoft.com/rest/api/advisor/)
+* [Conselheiro REST API](/rest/api/advisor/)

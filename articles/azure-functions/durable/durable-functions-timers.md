@@ -2,17 +2,18 @@
 title: Temporizadores em Funções Duradouras - Azure
 description: Saiba como implementar temporizadores duráveis na extensão funções duradouras para funções Azure.
 ms.topic: conceptual
-ms.date: 11/03/2019
+ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 0565cc149a36baf31d8516fffcf48b194c465760
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0226e5141b100aa3fcf89dd1a5cade8f3cd6cf1c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76261488"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056228"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Temporizadores em Funções Duradouras (Funções Azure)
 
-[Funções Duradouras](durable-functions-overview.md) proporcionam *temporizadores duradouros* para uso em funções de orquestrador para implementar atrasos ou para configurar intervalos de tempo em ações de async. Os temporizadores duradouros devem ser utilizados em funções de orquestrador em vez de `Thread.Sleep` e `Task.Delay` (C#), ou `setTimeout()` `setInterval()` (JavaScript).
+[Funções Duradouras](durable-functions-overview.md) proporcionam *temporizadores duradouros* para uso em funções de orquestrador para implementar atrasos ou para configurar intervalos de tempo em ações de async. Os temporizadores duráveis devem ser utilizados em funções de orquestrador em vez de `Thread.Sleep` e `Task.Delay` (C#), ou `setTimeout()` `setInterval()` (JavaScript), ou `time.sleep()` (Python).
 
 Cria um temporizador durável chamando o `CreateTimer` método (.NET) ou o `createTimer` método (JavaScript) da ligação do gatilho de [orquestração](durable-functions-bindings.md#orchestration-trigger). O método devolve uma tarefa que completa numa data e hora especificadas.
 
@@ -61,7 +62,21 @@ module.exports = df.orchestrator(function*(context) {
     }
 });
 ```
+# <a name="python"></a>[Python](#tab/python)
 
+```python
+import azure.functions as func
+import azure.durable_functions as df
+from datetime import datetime, timedelta
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    for i in range(0, 9):
+        deadline = context.current_utc_datetime + timedelta(days=1)
+        yield context.create_timer(deadline)
+        yield context.call_activity("SendBillingEvent")
+
+main = df.Orchestrator.create(orchestrator_function)
+```
 ---
 
 > [!WARNING]
@@ -131,6 +146,28 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+from datetime import datetime, timedelta
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    deadline = context.current_utc_datetime + timedelta(seconds=30)
+    activity_task = context.call_activity("GetQuote")
+    timeout_task = context.create_timer(deadline)
+
+    winner = yield context.task_any([activity_task, timeout_task])
+    if winner == activity_task:
+        timeout_task.cancel()
+        return True
+    elif winner == timeout_task:
+        return False
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
 ---
 
 > [!WARNING]
@@ -140,7 +177,7 @@ Este mecanismo de cancelamento não termina a função de atividade em curso ou 
 
 Para obter um exemplo mais aprofundado de como implementar intervalos de tempo em funções orquestradoras, consulte o [artigo timeouts & Timeouts de Interação Humana - Verificação de Telefone.](durable-functions-phone-verification.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba como levantar e lidar com eventos externos](durable-functions-external-events.md)

@@ -1,6 +1,6 @@
 ---
-title: 'Azure Data Studio (pré-visualização): Connect and consulta Synapse SQL'
-description: Utilize o Azure Data Studio (pré-visualização) para ligar e consultar o Synapse SQL no Azure Synapse Analytics.
+title: Conecte-se ao SYNapse SQL com o Azure Data Studio (pré-visualização)
+description: Utilize o Azure Data Studio (pré-visualização) para ligar e consultar o Synapse SQL em Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 561ea1a4f3577e037708c3b090188c59bd3c4aad
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 78807db19b413bb642e8dcf61e480d6d954b6178
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82187550"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059560"
 ---
-# <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>Ligue-se ao Synapse SQL com o Azure Data Studio (pré-visualização)
+# <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>Conecte-se ao SYNapse SQL com o Azure Data Studio (pré-visualização)
 
 > [!div class="op_single_selector"]
 >
@@ -26,58 +26,58 @@ ms.locfileid: "82187550"
 > * [sqlcmd](get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-Pode utilizar o [Azure Data Studio (pré-visualização)](/sql/azure-data-studio/download-azure-data-studio?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para ligar e consultar o Synapse SQL no Azure Synapse Analytics. 
+Pode utilizar [o Azure Data Studio (pré-visualização)](/sql/azure-data-studio/download-azure-data-studio?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para ligar e consultar o Synapse SQL em Azure Synapse Analytics. 
 
 ## <a name="connect"></a>Ligar
 
 Para ligar ao Synapse SQL, abra o Azure Data Studio e selecione **New Connection**.
 
-![Open Azure Data Studio](./media/get-started-azure-data-studio/1-start.png)
+![Aberto Azure Data Studio](./media/get-started-azure-data-studio/1-start.png)
 
-Escolha o **Microsoft SQL Server** como o tipo de **Ligação**.
+Escolha **o Microsoft SQL Server** como o tipo de **ligação.**
 
 A ligação requer os seguintes parâmetros:
 
-* **Servidor:** Servidor no `<Azure Synapse workspace name>`formulário -ondemand.sql.azuresynapse.net
+* **Servidor:** Servidor no formulário `<Azure Synapse workspace name>` -ondemand.sql.azuresynapse.net
 * **Base de dados:** Nome da base de dados
 
 > [!NOTE]
-> Se quiser utilizar o **SQL on-demand (pré-visualização)** o URL deve parecer:
+> Se quiser utilizar o **SQL on demand (pré-visualização),** o URL deve parecer:
 >
-> - `<Azure Synapse workspace name>`- ondemand.sql.azuresynapse.net.
+> - `<Azure Synapse workspace name>`ondemand.sql.azuresynapse.net.
 >
-> Se você gostaria de usar **piscina SQL** o URL deve parecer:
+> Se você gostaria de usar piscina **SQL,** o URL deve parecer:
 >
 > - `<Azure Synapse workspace name>`.sql.azuresynapse.net
 
-Escolha a **autenticação do Windows,** **diretório Ativo Azure**ou **SQL** como tipo de **autenticação**.
+Escolha a **autenticação do Windows**, **Diretório Ativo Azure,** ou **SQL Login** como tipo de **autenticação**.
 
 Para utilizar o **SQL Login** como tipo de autenticação, adicione os parâmetros username/password:
 
 * **Utilizador:** Utilizador do servidor no formulário`<User>`
-* **Senha:** Senha associada ao utilizador
+* **Senha:** Palavra-passe associada ao utilizador
 
-Para utilizar o Diretório Ativo Azure, é necessário escolher o tipo de autenticação necessário.
+Para utilizar o Azure Ative Directory, tem de escolher o tipo de autenticação necessário.
 
 ![Autenticação do AAD](./media/get-started-azure-data-studio/3-aad-auth.png)
 
-A imagem que se segue mostra os **detalhes de ligação** para **autenticação do Windows:**
+A imagem que se segue mostra os **dados de ligação** para **autenticação do Windows**:
 
 ![Autenticação do Windows](./media/get-started-azure-data-studio/3-windows-auth.png)
 
-A imagem que se segue mostra os **detalhes de ligação** utilizando **o Login SQL:**
+A imagem que se segue mostra os **Detalhes de Conexão** utilizando **o SQL Login**:
 
 ![Início de sessão do SQL](./media/get-started-azure-data-studio/2-database-details.png)
 
-Depois de um login bem sucedido, ![você deve ver um dashboard como este: Dashboard](./media/get-started-azure-data-studio/4-dashboard.png)
+Após o login bem sucedido, você deve ver um dashboard como este: ![ Dashboard](./media/get-started-azure-data-studio/4-dashboard.png)
 
 ## <a name="query"></a>Consulta
 
-Uma vez ligado, pode consultar synapse SQL usando declarações de [Transact-SQL (T-SQL)](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) suportadas contra a instância. Selecione **Nova consulta** a partir da vista do painel de instrumentos para começar.
+Uma vez ligado, pode consultar o Synapse SQL utilizando declarações [de Transact-SQL (T-SQL)](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) suportadas contra a instância. Selecione **Nova consulta** a partir da vista do painel de instrumentos para começar.
 
 ![New Query](./media/get-started-azure-data-studio/5-new-query.png)
 
-Por exemplo, pode utilizar a seguinte declaração Transact-SQL para [consultar ficheiros Parquet](query-parquet-files.md) utilizando sql on-demand:
+Por exemplo, pode utilizar a seguinte declaração Transact-SQL para [consultar ficheiros Parquet](query-parquet-files.md) utilizando SQL a pedido:
 
 ```sql
 SELECT COUNT(*)
@@ -88,7 +88,7 @@ OPENROWSET(
 )
 ```
 ## <a name="next-steps"></a>Passos seguintes 
-Explore outras formas de se conectar com synapse SQL: 
+Explore outras formas de se conectar ao SQL da Sinapse: 
 
 - [SSMS](get-started-ssms.md)
 - [Power BI](get-started-power-bi-professional.md)

@@ -4,13 +4,14 @@ description: Crie cópias de segurança consistentes com aplicações das suas m
 ms.reviewer: anuragm
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.openlocfilehash: 36eeb9f63c67a01bf37412101e23be035596de94
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d578df45235b3bef314245e4eb7a0976c4d48d6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74173010"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054851"
 ---
-# <a name="application-consistent-backup-of-azure-linux-vms"></a>Backup consistente da aplicação dos VMs Azure Linux
+# <a name="application-consistent-backup-of-azure-linux-vms"></a>Cópia de segurança consistente com aplicações de VMs Linux do Azure
 
 Ao tirar fotos de backup dos seus VMs, a consistência da aplicação significa que as suas aplicações começam quando o arranque dos VMs após ser restaurado. Como podem imaginar, a consistência da aplicação é extremamente importante. Para garantir que os seus VMs Linux são consistentes com a aplicação, pode utilizar a estrutura pré-script e pós-script do Linux para obter cópias de segurança consistentes com aplicações. A estrutura pré-script e pós-script suporta máquinas virtuais Linux implantadas pelo Azure Resource Manager. Os scripts para a consistência da aplicação não suportam máquinas virtuais implantadas pelo Service Manager ou máquinas virtuais do Windows.
 
@@ -64,7 +65,7 @@ Os pré-scripts invocam APIs de aplicação nativa, que quiesce os IOs, e lavam 
 
     - **ScriptsExecutionPollTimeSeconds**: Desa esta medida a extensão tem de dormir entre cada sondagem e a execução do script. Por exemplo, se o valor for 2, a extensão verifica se a execução do script pré/post foi concluída a cada 2 segundos. O valor mínimo e máximo que pode ter é de 1 e 5, respectivamente. O valor deve ser estritamente um inteiro.
 
-6. A estrutura do guião está agora configurada. Se a cópia de segurança VM já estiver configurada, a próxima cópia de segurança invoca os scripts e aciona a cópia de segurança consistente da aplicação. Se a cópia de segurança VM não estiver configurada, configure-a utilizando [máquinas virtuais de Back up Azure para cofres dos Serviços de Recuperação.](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
+6. A estrutura do guião está agora configurada. Se a cópia de segurança VM já estiver configurada, a próxima cópia de segurança invoca os scripts e aciona a cópia de segurança consistente da aplicação. Se a cópia de segurança VM não estiver configurada, configure-a utilizando [máquinas virtuais de Back up Azure para cofres dos Serviços de Recuperação.](./backup-azure-vms-first-look-arm.md)
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
@@ -83,6 +84,6 @@ Certifique-se de que adiciona registos adequados enquanto escreve o seu pré-scr
 | Pré-ScriptTimeout | A execução do pré-script de backup consistente da aplicação. | Verifique o script e aumente o tempo limite no **VMSnapshotScriptPluginConfig.jsno** ficheiro localizado em **/etc/azure**. |
 | Pós-ScriptTimeout | A execução do backup consistente de aplicação pós-script cronometrado. | Verifique o script e aumente o tempo limite no **VMSnapshotScriptPluginConfig.jsno** ficheiro localizado em **/etc/azure**. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-[Configure o backup VM para um cofre dos Serviços de Recuperação](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)
+[Configure o backup VM para um cofre dos Serviços de Recuperação](./backup-azure-vms-first-look-arm.md)

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
-ms.openlocfilehash: 3833b27e9f90cbffa2320c84877d4eb5bb6520f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7d83c327eb1c37478c0c2e5725136d43a91a009
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82613273"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061221"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingerir dados telemétricos do histórico
 
@@ -19,7 +19,7 @@ Este artigo descreve como ingerir dados de sensores históricos em Azure FarmBea
 
 Ingerir dados históricos da Internet das Coisas (IoT) recursos como dispositivos e sensores é um cenário comum no FarmBeats. Cria metadados para dispositivos e sensores e, em seguida, ingere os dados históricos ao FarmBeats num formato canónico.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Antes de prosseguir com este artigo, certifique-se de que instalou FarmBeats e recolheu dados históricos dos seus dispositivos IoT. Também tem de permitir o acesso do parceiro, como mencionado nos seguintes passos.
 
@@ -33,7 +33,7 @@ Você precisa permitir a integração de parceiros para o seu exemplo Azure Farm
 - Segredo do cliente
 - Cadeia de conexão EventHub
 
-Siga estes passos.
+Siga estes passos:
 
 > [!NOTE]
 > Deve ser um administrador para fazer os seguintes passos.
@@ -61,8 +61,14 @@ Siga estes passos.
     ```azurepowershell-interactive 
     cd
     ```
+    
+6. Execute o seguinte comando. Isto liga uma conta autenticada para usar para pedidos AZure AD
 
-6. Execute o seguinte comando. Isto irá descarregar um script para o seu diretório de casa.
+    ```azurepowershell-interactive 
+    Connect-AzureAD
+    ```
+
+7. Execute o seguinte comando. Isto irá descarregar um script para o seu diretório de casa.
 
     ```azurepowershell-interactive 
 
@@ -70,7 +76,7 @@ Siga estes passos.
 
     ```
 
-7. Execute o seguinte script. O script pede o ID do inquilino, que pode ser obtido a partir da página de Visão Geral do **Diretório Ativo Azure.**  >  **Overview**
+8. Execute o seguinte script. O script pede o ID do inquilino, que pode ser obtido a partir da página de Visão Geral do **Diretório Ativo Azure.**  >  **Overview**
 
     ```azurepowershell-interactive 
 
@@ -78,7 +84,7 @@ Siga estes passos.
 
     ```
 
-8. Siga as instruções no ecrã para capturar os valores para **API Endpoint,** **ID do Inquilino,** **Identificação de Clientes,** **Segredo do Cliente**e Cadeia de **Conexão EventHub**.
+9. Siga as instruções no ecrã para capturar os valores para **API Endpoint,** **ID do Inquilino,** **Identificação de Clientes,** **Segredo do Cliente**e Cadeia de **Conexão EventHub**.
 
 
 ## <a name="create-device-or-sensor-metadata"></a>Criar metadados de dispositivo ou sensor
@@ -103,7 +109,7 @@ Siga estes passos.
 |  Código de Produto                    |  Código do produto do dispositivo ou nome ou número do modelo. Por exemplo, EnviroMonitor#6800.  |
 |            Portas          |     Nome e tipo portuário, que é digital ou analógico.
 |     Name                 |  Nome para identificar o recurso. Por exemplo, o nome do modelo ou o nome do produto.
-      Description     | Forneça uma descrição significativa do modelo.
+      Descrição     | Forneça uma descrição significativa do modelo.
 |    Propriedades          |    Propriedades adicionais do fabricante.   |
 |    **Dispositivo**             |                      |
 |   DeviceModelId     |     Identificação do modelo do dispositivo associado.  |
@@ -112,7 +118,7 @@ Siga estes passos.
 |  Localização            |  Latitude do dispositivo (-90 a +90), longitude (-180 a 180) e elevação (em metros).
 |ParentDeviceId       |    ID do dispositivo-mãe ao qual este dispositivo está ligado. Por exemplo, um nó que está ligado a um portal. Um nó tem os paisDeviceId como porta de entrada.  |
 |    Name            | Um nome para identificar o recurso. Os parceiros do dispositivo devem enviar um nome consistente com o nome do dispositivo no lado do parceiro. Se o nome do dispositivo do parceiro for definido pelo utilizador, o mesmo nome definido pelo utilizador deve ser propagado ao FarmBeats.|
-|     Description       |      Forneça uma descrição significativa. |
+|     Descrição       |      Forneça uma descrição significativa. |
 |     Propriedades    |  Propriedades adicionais do fabricante.
 |     **SensorModel**        |          |
 |       Tipo (analógico, digital)          |      O tipo de sensor, seja analógico ou digital.       |
@@ -124,7 +130,7 @@ Siga estes passos.
 |        Unidade de > sensores              | Unidade de dados de telemetria sensor. As unidades definidas pelo sistema são NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsSperquareMeter, Watts, WattsPerquareMeter, Watts, WattsPersquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentagem, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour Para adicionar mais, consulte a API /ExtendedType.|
 |    SensorMeasures > A agregaçãoType    |  Os valores não podem ser nenhum, médio, máximo, mínimo ou StandardDeviation.  |
 |          Name            | Nome para identificar um recurso. Por exemplo, o nome do modelo ou o nome do produto.  |
-|    Description        | Forneça uma descrição significativa do modelo.|
+|    Descrição        | Forneça uma descrição significativa do modelo.|
 |   Propriedades       |  Propriedades adicionais do fabricante.|
 |    **Sensor**      |          |
 | HardwareId          |   ID único para o sensor definido pelo fabricante.|
@@ -133,7 +139,7 @@ Siga estes passos.
 |   Nome > Do Porto        |  Nome e tipo da porta à qual o sensor está ligado ao dispositivo. Este tem de ser o mesmo nome definido no modelo do dispositivo.|
 |    DeviceID  |    Identificação do dispositivo a que o sensor está ligado. |
 | Name            |   Nome para identificar recurso. Por exemplo, nome do sensor ou nome do produto e número do modelo ou código do produto.|
-|    Description      | Forneça uma descrição significativa.|
+|    Descrição      | Forneça uma descrição significativa.|
 |    Propriedades        |Propriedades adicionais do fabricante.|
 
 Para obter mais informações sobre objetos, consulte [Swagger.](https://aka.ms/FarmBeatsDatahubSwagger)

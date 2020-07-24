@@ -5,12 +5,12 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 4ac33a01f574f537d64c706842c7d867f387c804
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 7c6c105a2ef5fff2e05dd3ed37a0e7650626621a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194472"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056315"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Create your first durable function in JavaScript (Criar a sua primeira função durável em JavaScript)
 
@@ -48,11 +48,11 @@ Nesta secção, você usa Código de Estúdio Visual para criar um projeto local
 
 1. Seguindo as indicações, forneça as seguintes informações:
 
-    | Mensagem | Valor | Description |
+    | Prompt | Valor | Descrição |
     | ------ | ----- | ----------- |
     | Selecione um idioma para o seu projeto de aplicação de função | JavaScript | Criar um projeto local Node.js Funções. |
     | Selecione uma versão | Funções Azure v3 | Só se vê esta opção quando as Ferramentas Core ainda não estão instaladas. Neste caso, as Ferramentas Core são instaladas na primeira vez que executam a aplicação. |
-    | Selecione um modelo para a primeira função do seu projeto | Salta por enquanto | |
+    | Selecione um modelo para a primeira função do seu projeto | Ignorar por agora | |
     | Selecione como gostaria de abrir o seu projeto | Abrir na janela atual | Reabre o Código VS na pasta selecionada. |
 
 O Código do Estúdio Visual instala as Ferramentas Centrais de Funções Azure, se necessário. Também cria um projeto de aplicação de função numa pasta. Este projeto contém o [host.jse](../functions-host-json.md) [local.settings.jsem](../functions-run-local.md#local-settings-file) ficheiros de configuração.
@@ -83,7 +83,7 @@ Utilize um modelo para criar o código de função durável no seu projeto.
 
 1. Seguindo as indicações, forneça as seguintes informações:
 
-    | Mensagem | Valor | Description |
+    | Prompt | Valor | Descrição |
     | ------ | ----- | ----------- |
     | Selecione um modelo para a sua função | Orquestrador de Funções Duráveis | Criar uma orquestração de funções duradouras |
     | Fornecer um nome de função | OláOrchestrator | Nome da sua função durável |
@@ -98,7 +98,7 @@ Em seguida, irá adicionar a função de `Hello` atividade referenciada.
 
 1. Seguindo as indicações, forneça as seguintes informações:
 
-    | Mensagem | Valor | Description |
+    | Prompt | Valor | Descrição |
     | ------ | ----- | ----------- |
     | Selecione um modelo para a sua função | Atividade de Funções Duradouras | Criar uma função de atividade |
     | Fornecer um nome de função | Hello | Nome da sua função de atividade |
@@ -113,7 +113,7 @@ Finalmente, irá adicionar uma função http desencadeada que inicia a orquestra
 
 1. Seguindo as indicações, forneça as seguintes informações:
 
-    | Mensagem | Valor | Description |
+    | Prompt | Valor | Descrição |
     | ------ | ----- | ----------- |
     | Selecione um modelo para a sua função | Funções Duradouras HTTP arranque | Criar uma função de arranque HTTP |
     | Fornecer um nome de função | DurableFunctionsHttpStart | Nome da sua função de atividade |
@@ -138,7 +138,7 @@ As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar um projet
 
 1. Seguindo as indicações, forneça as seguintes informações para criar uma nova conta de armazenamento em Azure.
 
-    | Mensagem | Valor | Description |
+    | Prompt | Valor | Descrição |
     | ------ | ----- | ----------- |
     | Selecionar subscrição | *nome da sua assinatura* | selecione a subscrição do Azure |
     | Selecione uma conta de armazenamento | Criar uma nova conta de armazenamento |  |
@@ -185,7 +185,7 @@ Depois de verificar que a função é executada corretamente no computador local
 
 ## <a name="test-your-function-in-azure"></a>Testar a sua função no Azure
 
-1. Copie o URL do acionador de HTTP no painel **Resultados**. O URL que chama a sua função desencadeada por HTTP deve estar neste formato:`http://<functionappname>.azurewebsites.net/orchestrators/HelloOrchestrator`
+1. Copie o URL do acionador de HTTP no painel **Resultados**. O URL que chama a sua função desencadeada por HTTP deve estar neste formato:`http://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
 
 2. Cole este novo URL do pedido HTTP na barra de endereço do browser. Deverá obter a mesma resposta de estado que antes quando utilizar a aplicação publicada.
 

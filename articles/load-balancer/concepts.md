@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/05/2020
+ms.date: 07/13/2020
 ms.author: allensu
-ms.openlocfilehash: cb8b3b58f1029a722121f491d202e245300d1aee
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 40b738c0f074f06b2f15a260cacda876aa78daf6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85801017"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060796"
 ---
 # <a name="azure-load-balancer-concepts"></a>Conceitos de balançador de carga de Azure
 
@@ -32,7 +32,7 @@ O haxixe inclui:
 - **Endereço IP de origem**
 - **Porta de origem**
 - **Endereço IP de destino**
-- **Porto de destino**
+- **Porta de destino**
 - **Número de protocolo IP para mapear fluxos para servidores disponíveis**
 
 A afinidade com um endereço IP de origem é criada usando um haxixe de dois ou três tuples. Os pacotes do mesmo fluxo chegam no mesmo caso por detrás da extremidade frontal equilibrada de carga. 
@@ -42,9 +42,9 @@ Para obter mais informações, consulte [configurar o modo de distribuição par
 
 A imagem seguinte apresenta a distribuição baseada em hashes:
 
-  ![Distribuição baseada em hashes](./media/load-balancer-overview/load-balancer-distribution.png)
+![Distribuição baseada em hashes](./media/load-balancer-overview/load-balancer-distribution.png)
 
-  *Figura: distribuição baseada em hashes*
+*Figura: distribuição baseada em hashes*
 
 ## <a name="application-independence-and-transparency"></a>Independência e transparência da aplicação
 
@@ -54,16 +54,38 @@ O balanceador de carga não interage diretamente com TCP ou UDP ou a camada de a
 * As cargas de aplicação são transparentes para o balançador de carga. Qualquer aplicação UDP ou TCP pode ser suportada.
 * Como o equilibrador de carga não interage com a carga útil TCP e fornece descarregamento de TLS, pode construir cenários encriptados abrangentes. A utilização do balançador de carga ganha uma grande escala para aplicações TLS, terminando a ligação TLS na própria VM. Por exemplo, a sua capacidade de teclaragem de sessão TLS é limitada apenas pelo tipo e número de VMs que adiciona à piscina traseira.
 
-## <a name="load-balancer-terminology"></a>Terminologia do balanceador de carga
-| Conceito | O que é que isso significa? | Documento detalhado |
-| ---------- | ---------- | ----------|
-Ligações de saída | Os fluxos da piscina de backend para os IPs públicos são mapeados para o frontend. O Azure traduz ligações de saída para o endereço IP frontal público através da regra de saída de equilíbrio de carga. Esta configuração tem as seguintes vantagens. Fácil upgrade e recuperação de desastres de serviços, porque a frente pode ser mapeada dinamicamente para outra instância do serviço. Gestão de lista de controlo de acessos mais fácil (ACL). Os ACLs expressos como IPs front-end não mudam à medida que os serviços escalam para cima ou para baixo ou são redistribuídos. A tradução das ligações de saída para um número menor de endereços IP do que as máquinas reduz o fardo da implementação de listas de destinatários seguras.| Para saber mais sobre a Tradução de Endereços de Rede De Origem (SNAT) e Equilibrador de Carga Azure, consulte [o Balançador de Carga SNAT e Azure](load-balancer-outbound-connections.md).
-Zonas de Disponibilidade | O balanceador de carga padrão suporta capacidades adicionais em regiões onde as Zonas de Disponibilidade estão disponíveis. Estas funcionalidades são incrementais a todos os que o balanceador de carga padrão fornece.  As configurações de Zonas de Disponibilidade estão disponíveis para ambos os tipos de balanceador de carga Standard; público e interno. Um frontend redundante de zona sobrevive à falha da zona utilizando infraestruturas dedicadas em todas as zonas simultaneamente. Além disso, pode garantir um frontend para uma zona específica. Uma frente zonal é servida por infraestruturas dedicadas numa única zona. O equilíbrio de carga cross-zone está disponível para a piscina de backend. Qualquer recurso de máquina virtual numa rede virtual pode fazer parte de uma piscina de backend. O equilibrador de carga básico não suporta zonas.| [Reveja a discussão detalhada das habilidades relacionadas com as Zonas de Disponibilidade](load-balancer-standard-availability-zones.md) e [visão geral das Zonas de Disponibilidade](../availability-zones/az-overview.md) para obter mais informações.
-| Portos HA | Pode configurar regras de equilíbrio de carga na porta HA para tornar a sua escala de aplicação e ser altamente fiável. O equilíbrio de carga por fluxo em portos de curta duração do IP do balançador de carga interno é fornecido por estas regras. A funcionalidade é útil quando é impraticável ou indesejável especificar portas individuais. Uma regra das portas HA permite-lhe criar cenários n+1 ativos passivos ou ativos. Estes cenários são para aparelhos virtuais de rede e qualquer aplicação, que requer grandes gamas de portas de entrada. Uma sonda de saúde pode ser usada para determinar quais as extremidades traseiras que devem receber novos fluxos.  Pode utilizar um Grupo de Segurança de Rede para imitar um cenário de alcance portuário. O equilibrador de carga básico não suporta portas HA. | Revisão [detalhada da discussão dos portos de HA](load-balancer-ha-ports-overview.md)
-| Vários front-ends | O equilibrador de carga suporta várias regras com vários frontends.  O Balancer de Carga Padrão expande esta capacidade para cenários de saída. As regras de saída são o inverso de uma regra de entrada. A regra de saída cria uma associação para ligações de saída. O balanceador de carga padrão utiliza todos os frontends associados a um recurso de máquina virtual através de uma regra de equilíbrio de carga. Além disso, um parâmetro sobre a regra de equilíbrio de carga permite suprimir uma regra de equilíbrio de carga para fins de conectividade de saída, que permite a seleção de frontends específicos, incluindo nenhum. Para comparação, o balanceador de carga básico seleciona um único frontend aleatoriamente. Não há capacidade de controlar qual o frontend foi selecionado.|
+## <a name="outbound-connections"></a>Ligações de saída 
+
+Os fluxos da piscina de backend para os IPs públicos são mapeados para o frontend. O Azure traduz ligações de saída para o endereço IP frontal público através da regra de saída de equilíbrio de carga. Esta configuração tem as seguintes vantagens. Fácil upgrade e recuperação de desastres de serviços, porque a frente pode ser mapeada dinamicamente para outra instância do serviço. Gestão de lista de controlo de acessos mais fácil (ACL). Os ACLs expressos como IPs front-end não mudam à medida que os serviços escalam para cima ou para baixo ou são redistribuídos. A tradução das ligações de saída para um número menor de endereços IP do que as máquinas reduz o fardo da implementação de listas de destinatários seguras. Para saber mais sobre a Tradução de Endereços de Rede De Origem (SNAT) e Equilibrador de Carga Azure, consulte [o Balançador de Carga SNAT e Azure](load-balancer-outbound-connections.md).
+
+## <a name="availability-zones"></a>Zonas de Disponibilidade 
+
+O balanceador de carga padrão suporta capacidades adicionais em regiões onde as Zonas de Disponibilidade estão disponíveis. As configurações de Zonas de Disponibilidade estão disponíveis para ambos os tipos de Balanceador de Carga Padrão; público e interno. Um frontend redundante de zona sobrevive à falha da zona utilizando infraestruturas dedicadas em todas as zonas simultaneamente. Além disso, pode garantir um frontend para uma zona específica. Uma frente zonal é servida por infraestruturas dedicadas numa única zona. O equilíbrio de carga cross-zone está disponível para a piscina de backend. Qualquer recurso de máquina virtual numa rede virtual pode fazer parte de uma piscina de backend. O equilibrador de carga básico não suporta zonas. [Reveja a discussão detalhada das habilidades relacionadas com as Zonas de Disponibilidade](load-balancer-standard-availability-zones.md) e [visão geral das Zonas de Disponibilidade](../availability-zones/az-overview.md) para obter mais informações.
+
+## <a name="ha-ports"></a>Portos ha
+
+Pode configurar regras de equilíbrio de carga na porta HA para tornar a sua escala de aplicação e ser altamente fiável. O equilíbrio de carga por fluxo em portos de curta duração do IP do balançador de carga interno é fornecido por estas regras. A funcionalidade é útil quando é impraticável ou indesejável especificar portas individuais. Uma regra das portas HA permite-lhe criar cenários n+1 ativos passivos ou ativos. Estes cenários são para aparelhos virtuais de rede e qualquer aplicação, que requer grandes gamas de portas de entrada. Uma sonda de saúde pode ser usada para determinar quais as extremidades traseiras que devem receber novos fluxos.  Pode utilizar um Grupo de Segurança de Rede para imitar um cenário de alcance portuário. O equilibrador de carga básico não suporta portas HA. [Reveja a discussão detalhada sobre os portos de HA](load-balancer-ha-ports-overview.md).
+
+## <a name="multiple-frontends"></a>Vários front-ends 
+
+O equilibrador de carga suporta várias regras com vários frontends.  O Balancer de Carga Padrão expande esta capacidade para cenários de saída. As regras de saída são o inverso de uma regra de entrada. A regra de saída cria uma associação para ligações de saída. O balanceador de carga padrão utiliza todos os frontends associados a um recurso de máquina virtual através de uma regra de equilíbrio de carga. Além disso, um parâmetro sobre a regra de equilíbrio de carga permite suprimir uma regra de equilíbrio de carga para fins de conectividade de saída, que permite a seleção de frontends específicos, incluindo nenhum. Para comparação, o balanceador de carga básico seleciona um único frontend aleatoriamente. Não há capacidade de controlar qual o frontend foi selecionado.
+
+## <a name="floating-ip"></a>IP Flutuante
+
+Alguns cenários de aplicação preferem ou exigem que a mesma porta seja usada por múltiplas instâncias de aplicação num único VM na piscina de backend. Exemplos comuns de reutilização portuária incluem agrupamentos para alta disponibilidade, aparelhos virtuais de rede e exposição de vários pontos finais TLS sem reen encriptação. Se pretender reutilizar a porta de backend através de várias regras, deve ativar o IP flutuante na definição de regra.
+
+**Ip flutuante** é a terminologia de Azure para uma parte do que é conhecido como Retorno do Servidor Direto (DSR). A DSR é constituída por duas partes: 
+
+- Topologia do fluxo
+- Um esquema de mapeamento de endereços IP
+
+A nível da plataforma, o Azure Load Balancer opera sempre numa topologia de fluxo DSR, independentemente de o IP flutuante estar ou não ativado. Isto significa que a parte de saída de um fluxo é sempre corretamente reescrita para fluir diretamente de volta à origem.
+Sem IP flutuante, o Azure expõe um sistema tradicional de mapeamento de endereço IP de equilíbrio de carga para facilitar a utilização (o IP das instâncias VM). Ativar o IP flutuante altera o mapeamento do endereço IP para o Frontend IP do Balanceador de carga para permitir uma flexibilidade adicional. Sabia mais [aqui](load-balancer-multivip-overview.md).
 
 
 ## <a name="limitations"></a><a name = "limitations"></a>Limitações
+
+- O IP flutuante não é atualmente suportado em configurações ip secundárias para cenários internos de equilíbrio de carga.
 
 - Uma regra do balançador de carga não pode abranger duas redes virtuais.  Os frontends e as suas instâncias de backend devem estar localizadas na mesma rede virtual.  
 

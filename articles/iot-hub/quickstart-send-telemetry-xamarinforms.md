@@ -1,6 +1,6 @@
 ---
-title: 'Início Rápido: Enviar telemetria para o Hub IoT do Azure | Microsoft Docs'
-description: Neste quickstart, você executou uma aplicação de Xamarin.Forms para enviar telemetria simulada para um hub IoT e para ler telemetria a partir do hub IoT para processamento na nuvem.
+title: Envie telemetria para Azure IoT Hub quickstart (Xamarin.Forms)
+description: Executar uma aplicação Xamarin.Forms de amostra para enviar telemetria simulada para um hub IoT e ler telemetria a partir do hub IoT para processamento na nuvem.
 author: cmaneu
 manager: philmea
 ms.author: chmaneu
@@ -11,12 +11,12 @@ ms.custom:
 - mvc
 - mqtt
 ms.date: 07/01/2020
-ms.openlocfilehash: 4178ee38ca179f179824a13130121b997f4f5f14
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 962dd35bd07e3ab542bdb8616b1cc2fda1441b36
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807826"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061539"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-xamarinforms"></a>Quickstart: Enviar telemetria de um dispositivo para um hub IoT (Xamarin.Forms)
 
@@ -39,7 +39,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 - Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste arranque rápido utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode ser bloqueado em alguns ambientes de rede corporativa e educacional. Para obter mais informações e formas de contornar esta questão, consulte [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-- Executar o seguinte comando para adicionar a extensão IoT do Microsoft Azure para Azure CLI à sua instância Cloud Shell. A extensão IoT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) ao Azure CLI.
+- Executar o seguinte comando para adicionar a extensão IoT do Microsoft Azure para Azure CLI à sua instância Cloud Shell. A Extensão IoT adiciona comandos específicos do Hub IoT, do IoT Edge e do Serviço Aprovisionamento de Dispositivos IoT (DPS) à CLI do Azure.
 
    ```azurecli-interactive
    az extension add --name azure-iot
@@ -47,7 +47,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
    [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -73,7 +73,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id myXamarinDevice --output table
    ```
 
-   Anote a cadeia de ligação do dispositivo, que se parece com:
+   Anote a cadeia de ligação do dispositivo, que se assemelha a:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=myXamarinDevice;SharedAccessKey={YourSharedAccessKey}`
 

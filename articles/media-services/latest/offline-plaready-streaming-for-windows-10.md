@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: 63b835d5d6c442f19f6d1fbe1710547ab96e1b40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d5d6c7738516337b3db90bbc5d1a94515e96b3ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82160244"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060603"
 ---
 # <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>Streaming Offline PlayReady para Windows 10 com Media Services v3
 
@@ -31,7 +31,7 @@ Azure Media Services suporta descarregamento/reprodução offline com proteção
 > [!NOTE]
 > A DRM offline é cobrada apenas para fazer um único pedido de licença quando você descarrega o conteúdo. Quaisquer erros não são cobrados.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Esta secção dá algum fundo na reprodução do modo offline, especialmente por que:
 
@@ -44,7 +44,7 @@ O desafio que enfrentamos na implementação do modo offline é o seguinte:
 * O MP4 é suportado por muitos intervenientes, ferramentas codificantes, mas não existe ligação entre o contentor MP4 e o DRM;
 * A longo prazo, cff com CENC é o caminho a seguir. No entanto, hoje em dia, o ecossistema de suporte de ferramentas/jogador ainda não está lá. Precisamos de uma solução, hoje.
  
-A ideia é: o formato de ficheiro de streaming suave[(PIFF)](https://docs.microsoft.com/iis/media/smooth-streaming/protected-interoperable-file-format)com H264/AAC tem uma ligação com o PlayReady (AES-128 CTR). O ficheiro de streaming suave individual .ismv (assumindo que o áudio é usado em vídeo) é em si um fMP4 e pode ser usado para reprodução. Se um conteúdo de streaming suave passar pela encriptação PlayReady, cada ficheiro .ismv torna-se um MP4 fragmentado protegido do PlayReady. Podemos escolher um ficheiro .ismv com o bitrate preferido e renomeá-lo como .mp4 para download.
+A ideia é: o formato de ficheiro de streaming suave[(PIFF)](/iis/media/smooth-streaming/protected-interoperable-file-format)com H264/AAC tem uma ligação com o PlayReady (AES-128 CTR). O ficheiro de streaming suave individual .ismv (assumindo que o áudio é usado em vídeo) é em si um fMP4 e pode ser usado para reprodução. Se um conteúdo de streaming suave passar pela encriptação PlayReady, cada ficheiro .ismv torna-se um MP4 fragmentado protegido do PlayReady. Podemos escolher um ficheiro .ismv com o bitrate preferido e renomeá-lo como .mp4 para download.
 
 Existem duas opções para hospedar o MP4 protegido do PlayReady para download progressivo:
 

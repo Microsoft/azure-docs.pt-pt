@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 11f8442f188ea6ce7ee1de5a093362279da4594c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 417ca42e014c0bb197d7dd834b960f25fcfdf468
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251168"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056811"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Utilize um balanceador de carga padrão público no serviço Azure Kubernetes (AKS)
 
@@ -167,7 +167,7 @@ az aks update \
 
 #### <a name="create-the-cluster-with-your-own-public-ip-or-prefixes"></a>Crie o cluster com o seu próprio IP público ou prefixos
 
-Você pode desejar trazer seus próprios endereços IP ou prefixos IP para saídas no tempo de criação de cluster para apoiar cenários como whitelisting egress pontos finais. Anexar os mesmos parâmetros acima mostrados ao seu passo de criação de cluster para definir os seus próprios iPs públicos e prefixos IP no início do ciclo de vida de um cluster.
+Pode desejar trazer os seus próprios endereços IP ou prefixos IP para saídas no tempo de criação de clusters para suportar cenários como adicionar pontos finais de saídas a uma lista de autorizações. Anexar os mesmos parâmetros acima mostrados ao seu passo de criação de cluster para definir os seus próprios iPs públicos e prefixos IP no início do ciclo de vida de um cluster.
 
 Utilize os *az aks criar* comando com o parâmetro *de saída ips de saída de equilíbrio de carga* para criar um novo cluster com os seus IPs públicos no início.
 
@@ -293,6 +293,24 @@ spec:
   - MY_EXTERNAL_IP_RANGE
 ```
 
+## <a name="maintain-the-clients-ip-on-inbound-connections"></a>Mantenha o IP do cliente em ligações de entrada
+
+Por padrão, um serviço de tipo `LoadBalancer` [em Kubernetes](https://kubernetes.io/docs/tutorials/services/source-ip/#source-ip-for-services-with-type-loadbalancer) e em AKS não persistirá o endereço IP do cliente na ligação ao pod. O IP de origem no pacote que é entregue na cápsula será o IP privado do nó. Para manter o endereço IP do cliente, tem de estar definido `service.spec.externalTrafficPolicy` `local` na definição de serviço. O manifesto que se segue mostra um exemplo:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vote-front
+spec:
+  type: LoadBalancer
+  externalTrafficPolicy: Local
+  ports:
+  - port: 80
+  selector:
+    app: azure-vote-front
+```
+
 ## <a name="additional-customizations-via-kubernetes-annotations"></a>Personalizações adicionais através de anotações de Kubernetes
 
 Abaixo está uma lista de anotações suportadas para serviços Kubernetes com `LoadBalancer` tipo, estas anotações aplicam-se apenas aos fluxos **INBOUND:**
@@ -322,7 +340,7 @@ Frequentemente, a causa principal da exaustão do SNAT é um anti-padrão para a
 4. Avalie se os [padrões adequados são seguidos.](#design-patterns)
 5. Avaliar se o esgotamento da porta SNAT deve ser atenuado com [endereços IP adicionais de saída + portas de saída adicionais atribuídas](#configure-the-allocated-outbound-ports) .
 
-### <a name="design-patterns"></a>Padrões de estrutura
+### <a name="design-patterns"></a>Padrões de design
 Aproveite sempre que possível a reutilização da ligação e a ligação. Estes padrões evitarão problemas de exaustão de recursos e resultarão em comportamentos previsíveis. Os primitivos para estes padrões podem ser encontrados em muitas bibliotecas e estruturas de desenvolvimento.
 
 - Os pedidos atómicos (um pedido por ligação) geralmente não são uma boa escolha de design. Tal escala de limites anti-padrão, reduz o desempenho e diminui a fiabilidade. Em vez disso, reutilizar as ligações HTTP/S para reduzir o número de ligações e portas SNAT associadas. A escala de aplicação aumentará e o desempenho melhorará devido à redução dos apertos de mão, sobrecarga e custo de operação criptográfico ao utilizar o TLS.

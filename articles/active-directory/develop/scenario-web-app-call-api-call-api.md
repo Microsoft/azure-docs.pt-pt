@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 07/14/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 12802ab6dcfbbe5a1c5576ab672ead864dd0b4ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e448f52f4e8c24dd8552cae873edac841e57fc6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82559875"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058434"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Uma aplicação web que chama APIs web: Ligue para uma API web
 
@@ -51,7 +51,7 @@ public async Task<IActionResult> Profile()
  // Use the access token to call a protected web API.
  HttpClient client = new HttpClient();
  client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
- 
+
   var response = await httpClient.GetAsync($"{webOptions.GraphApiUrl}/beta/me");
 
   if (response.StatusCode == HttpStatusCode.OK)
@@ -117,4 +117,4 @@ def graphcall():
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Mover-se para a produção](scenario-web-app-call-api-production.md)
+> [Mover para a produção](scenario-web-app-call-api-production.md)

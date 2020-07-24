@@ -1,5 +1,5 @@
 ---
-title: Como gerar e transferir chaves protegidas pelo HSM para o Cofre da Chave Azure - Cofre da Chave Azure Microsoft Docs
+title: Como gerar & transferir chaves protegidas pelo HSM - Cofre de Chaves Azure
 description: Use este artigo para ajudá-lo a planear, gerar e, em seguida, transferir as suas próprias chaves protegidas pelo HSM para usar com o Cofre da Chave Azure. Também conhecido como BYOK ou traga a sua própria chave.
 services: key-vault
 author: amitbapat
@@ -10,11 +10,12 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 5433d9746cd64d0e942e056cfcd1940eba35c77d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce59fadfcdbb38327ce603197400e9317202d651
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84417927"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061088"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importar chaves protegidas por HSM para o Key Vault
 
@@ -39,7 +40,7 @@ A transferência de chaves protegidas pelo HSM para o Key Vault é suportada atr
 |Criptomático|ISV (Sistema de Gestão de Chaves empresariais)|Múltiplas marcas e modelos HSM, incluindo<ul><li>nCipher</li><li>Thales</li><li>Rio Utimaco</li></ul>Consulte [o site Cryptomathic para mais detalhes](https://www.cryptomathic.com/azurebyok)|[Use o novo método BYOK](hsm-protected-keys-byok.md)|
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Siga [as melhores práticas do Key Vault](../general/best-practices.md) para garantir segurança, durabilidade e monitorização das suas chaves.
 * Consulte a [especificação BYOK](https://docs.microsoft.com/azure/key-vault/keys/byok-specification) para uma descrição completa do novo método BYOK

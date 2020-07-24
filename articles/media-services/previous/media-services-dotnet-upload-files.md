@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 03b9995eab503ac1fcd4615882419dde31d4f8bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4025ace5c2609783a8d0f09b99d60537addb6f08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "64869468"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060109"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>Carregar ficheiros para uma conta dos Serviços de Multimédia com .NET 
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Nos Media Services, pode carregar (ou inserir) os seus ficheiros digitais num elemento. A entidade **Do Ativo** pode conter vídeo, áudio, imagens, recolhas de miniaturas, faixas de texto e ficheiros de legendas fechados (e os metadados sobre estes ficheiros.)  Uma vez que os ficheiros são carregados, o seu conteúdo é armazenado de forma segura na nuvem para posterior processamento e streaming.
 
@@ -315,4 +315,3 @@ Também pode utilizar as Funções do Azure para acionar uma tarefa de codifica�
 Agora que fez o upload de um ativo para os Media Services, vá ao artigo [Como Obter um Processador de Media.][How to Get a Media Processor]
 
 [How to Get a Media Processor]: media-services-get-media-processor.md
-

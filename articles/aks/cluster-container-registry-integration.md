@@ -5,12 +5,12 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 02/25/2020
-ms.openlocfilehash: a60f0e2f40fa1a4945198a4b5738b4f7b65b05ed
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e1ddff9a416b55c22fcd2bfaedff32666414e4bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251846"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057255"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autenticar com o Azure Container Registry a partir do Azure Kubernetes Service
 
@@ -44,7 +44,10 @@ az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-ac
 
 Em alternativa, pode especificar o nome ACR utilizando um ID de recurso ACR, que tem o seguinte formato:
 
-`/subscriptions/\<subscription-id\>/resourceGroups/\<resource-group-name\>/providers/Microsoft.ContainerRegistry/registries/\<name\>` 
+`/subscriptions/\<subscription-id\>/resourceGroups/\<resource-group-name\>/providers/Microsoft.ContainerRegistry/registries/\<name\>`
+
+> [!NOTE]
+> Se estiver a utilizar um ACR que esteja localizado numa subscrição diferente do seu cluster AKS, utilize o ID de recursos ACR ao anexar ou separar-se de um cluster AKS.
 
 ```azurecli
 az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-acr /subscriptions/<subscription-id>/resourceGroups/myContainerRegistryResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry

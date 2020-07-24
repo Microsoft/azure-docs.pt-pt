@@ -9,12 +9,12 @@ ms.workload: mobile
 ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
-ms.openlocfilehash: 51ce2e0dec8b38c9285f4f4e71dd35056b292b66
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: abcda4ea4b14f058325318661daa574494268780
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254287"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056386"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Implementar um gateway autoalojado no Kubernetes
 
@@ -33,9 +33,9 @@ Este artigo descreve os passos para a implantação do componente de gateway aut
 1. Selecione **Gateways** em **Implementação e infraestrutura**.
 2. Selecione o recurso de gateway auto-hospedado que pretende implantar.
 3. Selecione **Implantação**.
-4. Um token de acesso na caixa de texto **Token** foi autogerido para si, com base nos valores de **validade** e **segredo** padrão. Se necessário, escolha valores em ambos os controlos para gerar um novo token.
+4. Um token de acesso na caixa de texto **Token** foi gerado automaticamente para si, com base nos valores de **validade** e **segredo** padrão. Se necessário, escolha valores em ambos os controlos para gerar um novo token.
 5. Selecione o separador **Kubernetes** nos **scripts de Implementação**.
-6. Selecione o **link de ficheiro>.yml<** e descarregue o ficheiro YAML.
+6. Selecione o link de ficheiro ** \<gateway-name\> .yml** e descarregue o ficheiro YAML.
 7. Selecione o ícone de **cópia** no canto inferior direito da caixa de texto **Implementar** para guardar os `kubectl` comandos para a área de transferência.
 8. Cole comandos para a janela do terminal (ou comando). O primeiro comando cria um segredo de Kubernetes que contém o símbolo de acesso gerado no passo 4. O segundo comando aplica o ficheiro de configuração descarregado no passo 6 para o cluster Kubernetes e espera que o ficheiro esteja no diretório atual.
 9. Executar os comandos para criar os objetos Kubernetes necessários no [espaço de nome padrão](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) e iniciar pods de gateway auto-hospedados a partir da imagem do [recipiente](https://aka.ms/apim/sputnik/dhub) descarregado do Registo de Contentores da Microsoft.
@@ -106,6 +106,12 @@ A resolução do nome DNS desempenha um papel fundamental na capacidade de um ga
 O ficheiro YAML fornecido no portal Azure aplica a política padrão [clusterFirst.](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) Esta política faz com que os pedidos de resolução de nomes não resolvidos pelo cluster DNS sejam encaminhados para o servidor DNS a montante que é herdado do nó.
 
 Para saber mais sobre a resolução de nomes em Kubernetes, consulte o [site da Kubernetes.](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service) Considere personalizar a [política de DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) ou [a configuração de DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-config) como apropriado para a sua configuração.
+
+### <a name="custom-domain-names-and-ssl-certificates"></a>Nomes de domínio personalizados e certificados SSL
+
+Se utilizar nomes de domínio personalizados para os pontos finais da API Management, especialmente se utilizar um nome de domínio personalizado para o ponto final de Gestão, poderá ter de atualizar o valor do `config.service.endpoint` ficheiro ** \<gateway-name\> .yaml** para substituir o nome de domínio predefinido pelo nome de domínio personalizado. Certifique-se de que o ponto final de Gestão pode ser acedido a partir do casulo do gateway auto-hospedado no cluster Kubernetes.
+
+Neste cenário, se o certificado SSL utilizado pelo ponto final de Gestão não for assinado por um certificado de CA bem conhecido, deve certificar-se de que o certificado de CA é fidedigno pelo casulo do gateway auto-hospedado.
 
 ### <a name="configuration-backup"></a>Backup de configuração
 Para conhecer o comportamento de gateway auto-hospedado na presença de uma interrupção temporária da conectividade Azure, consulte a [visão geral do gateway auto-hospedado](self-hosted-gateway-overview.md#connectivity-to-azure).

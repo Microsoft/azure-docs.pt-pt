@@ -1,5 +1,5 @@
 ---
-title: Use O Azure Image Builder com uma galeria de imagens para Linux VMs (pré-visualização)
+title: Use Azure Image Builder & Galeria de Imagens Partilhadas para Linux VMs (pré-visualização)
 description: Crie imagens Linux VM com Azure Image Builder e Image Gallery Partilhada.
 author: cynthn
 ms.author: cynthn
@@ -8,15 +8,16 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: ccb622f786e6df5271684cf2aabba36cd2f5184f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b918bb02de9a8003dfab76c436b3ec22cb540244
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82930697"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059041"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Pré-visualização: Criar uma imagem Linux e distribuí-la para uma Galeria de Imagens Partilhadas 
 
-Este artigo mostra-lhe como pode usar o Azure Image Builder, e o Azure CLI, para criar uma versão de imagem numa [Galeria de Imagens Partilhadas,](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)e depois distribuir a imagem globalmente. Também pode fazê-lo utilizando [a Azure PowerShell](../windows/image-builder-gallery.md).
+Este artigo mostra-lhe como pode usar o Azure Image Builder, e o Azure CLI, para criar uma versão de imagem numa [Galeria de Imagens Partilhadas,](../windows/shared-image-galleries.md)e depois distribuir a imagem globalmente. Também pode fazê-lo utilizando [a Azure PowerShell](../windows/image-builder-gallery.md).
 
 
 Vamos usar um modelo de amostra .json para configurar a imagem. O ficheiro .json que estamos a usar está aqui: [helloImageTemplateforSIG.jsem](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
@@ -92,7 +93,7 @@ az group create -n $sigResourceGroup -l $location
 ```
 
 ## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>Criar uma identidade atribuída ao utilizador e definir permissões no grupo de recursos
-O Image Builder utilizará a [identidade do utilizador](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) fornecida para injetar a imagem na Galeria de Imagens Partilhadas Azure (SIG). Neste exemplo, irá criar uma definição de papel Azure que tem as ações granulares para executar a distribuição da imagem para o SIG. A definição de função será então atribuída à identidade do utilizador.
+O Image Builder utilizará a [identidade do utilizador](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) fornecida para injetar a imagem na Galeria de Imagens Partilhadas Azure (SIG). Neste exemplo, irá criar uma definição de papel Azure que tem as ações granulares para executar a distribuição da imagem para o SIG. A definição de função será então atribuída à identidade do utilizador.
 
 ```bash
 # create user assigned identity for image builder to access the storage account where the script is located
@@ -196,7 +197,7 @@ az resource invoke-action \
 Criar a imagem e replicá-la em ambas as regiões pode demorar algum tempo. Aguarde até que esta peça esteja terminada antes de passar a criar um VM.
 
 
-## <a name="create-the-vm"></a>Crie a VM
+## <a name="create-the-vm"></a>Criar a VM
 
 Crie um VM a partir da versão de imagem que foi criada pelo Azure Image Builder.
 
@@ -295,6 +296,6 @@ Elimine o grupo de recursos.
 az group delete -n $sigResourceGroup -y
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [galerias de imagem partilhadas Azure.](shared-image-galleries.md)

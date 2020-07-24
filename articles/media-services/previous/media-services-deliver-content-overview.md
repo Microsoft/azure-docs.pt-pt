@@ -1,25 +1,21 @@
 ---
-title: Entrega de conteúdo aos clientes Microsoft Docs
+title: Entrega de conteúdo aos clientes
 description: Este tópico dá uma visão geral do que está envolvido na entrega do seu conteúdo com a Azure Media Services.
 services: media-services
-documentationcenter: ''
 author: Juliako
 manager: femila
-editor: ''
 ms.assetid: 89ede54a-6a9c-4814-9858-dcfbb5f4fed5
 ms.service: media-services
 ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 60d75a23609e962547c8c753086e9bef1d4c84eb
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 7a6a717f663e6e1ee5c2371c35557c7c374246fa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956598"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060361"
 ---
 # <a name="deliver-content-to-customers"></a>Entregar conteúdo aos clientes
 Quando está a entregar o seu conteúdo de streaming ou vídeo-on-demand aos clientes, o seu objetivo é entregar vídeos de alta qualidade a vários dispositivos em diferentes condições de rede.
@@ -55,7 +51,7 @@ Pode definir filtros para os seus ativos com Serviços de Media. Estes filtros s
 
 Para mais informações, consulte [Filtros e manifestos dinâmicos.](media-services-dynamic-manifest-overview.md)
 
-## <a name="locators"></a><a id="locators"/>Localizadores
+## <a name="locators"></a><a name="locators"></a>Localizadores
 Para fornecer ao seu utilizador um URL que pode ser usado para transmitir ou descarregar o seu conteúdo, primeiro tem de publicar o seu ativo criando um localizador. Um localizador fornece um ponto de entrada para aceder aos ficheiros contidos num ativo. Os Media Services suportam dois tipos de localizadores:
 
 * Localizadores OnDemandOrigin. Estes são usados para transmitir meios de transmissão (por exemplo, MPEG-DASH, HLS ou Smooth Streaming) ou descarregar progressivamente ficheiros.
@@ -70,9 +66,9 @@ Os localizadores têm datas de validade. O portal Azure estabelece uma data de v
 > 
 > 
 
-Para atualizar uma data de expiração num localizador, utilize as APIs [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) ou [.NET](https://go.microsoft.com/fwlink/?LinkID=533259). Observe que, ao atualizar a data de expiração de um localizador SAS, o URL é alterado.
+Para atualizar uma data de expiração num localizador, utilize as APIs [REST](/rest/api/media/operations/locator#update_a_locator) ou [.NET](https://go.microsoft.com/fwlink/?LinkID=533259). Observe que, ao atualizar a data de expiração de um localizador SAS, o URL é alterado.
 
-Os localizadores não foram concebidos para gerir o controlo de acesso por utilizador. Pode dar direitos de acesso diferentes a utilizadores individuais utilizando soluções de Gestão de Direitos Digitais (DRM). Para mais informações, consulte [a Secureing Media](https://msdn.microsoft.com/library/azure/dn282272.aspx).
+Os localizadores não foram concebidos para gerir o controlo de acesso por utilizador. Pode dar direitos de acesso diferentes a utilizadores individuais utilizando soluções de Gestão de Direitos Digitais (DRM). Para mais informações, consulte [a Secureing Media](/previous-versions/azure/dn282272(v=azure.100)).
 
 Quando se cria um localizador, pode haver um atraso de 30 segundos devido aos processos de armazenamento e propagação necessários no Azure Storage.
 
@@ -87,7 +83,7 @@ Para fornecer urls de streaming aos utilizadores, primeiro tem de criar um local
 
 Só é possível transmitir através do TLS se o ponto final de streaming a partir do qual entrega o seu conteúdo foi criado após o dia 10 de setembro de 2014. Se os urLs de streaming forem baseados nos pontos finais de streaming criados após 10 de setembro de 2014, o URL contém "streaming.mediaservices.windows.net". Os URLs de streaming que contenham "origin.mediaservices.windows.net" (o formato antigo) não suportam TLS. Se o seu URL estiver no formato antigo e pretender ser capaz de transmitir através do TLS, crie um novo ponto final de streaming. Utilize URLs com base no novo ponto final de streaming para transmitir o seu conteúdo através de TLS.
 
-## <a name="streaming-url-formats"></a><a id="URLs"/>Formatos URL de streaming
+## <a name="streaming-url-formats"></a><a name="URLs"></a>Formatos URL de streaming
 
 ### <a name="mpeg-dash-format"></a>Formato MPEG-DASH
 {nome da conta do nome dos serviços multimédia do ponto final de transmissão em fluxo}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
@@ -192,4 +188,3 @@ Alguns dos clientes de Streaming Smooth podem não suportar as etiquetas de repe
 
 ## <a name="related-topics"></a>Tópicos relacionados
 [Atualizar localizadores de Serviços de Mídia após as chaves de armazenamento rolantes](media-services-roll-storage-access-keys.md)
-

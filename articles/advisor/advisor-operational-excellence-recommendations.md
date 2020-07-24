@@ -3,12 +3,12 @@ title: Melhorar a excelência operacional com o Conselheiro
 description: Utilize o Azure Advisor para otimizar e amadurecer a sua excelência operacional para as suas subscrições Azure.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 1cac5a3f93df8422a3896b1251857bf552731fb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b4c4726400134e4eec3868e155da47cb8c515b5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85125400"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057638"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Alcançar a excelência operacional utilizando o Azure Advisor
 
@@ -54,7 +54,7 @@ A Azure Policy é um serviço em Azure que pode usar para criar, atribuir e geri
 
 **Ativar *herdar uma etiqueta de grupos de recursos*.** Esta política adiciona ou substitui a etiqueta e o valor especificados do grupo de recursos principal quando cria ou atualiza um recurso. Pode remediar os recursos existentes desencadeando uma tarefa de reparação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as recomendações do Advisor, consulte:
 * [Introdução ao Conselheiro](advisor-overview.md)
@@ -63,4 +63,4 @@ Para saber mais sobre as recomendações do Advisor, consulte:
 * [Recomendações de desempenho do conselheiro](advisor-performance-recommendations.md)
 * [Recomendações de fiabilidade do consultor](advisor-high-availability-recommendations.md)
 * [Recomendações de segurança do conselheiro](advisor-security-recommendations.md)
-* [Conselheiro REST API](https://docs.microsoft.com/rest/api/advisor/)
+* [Conselheiro REST API](/rest/api/advisor/)

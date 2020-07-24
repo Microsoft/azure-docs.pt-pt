@@ -1,68 +1,74 @@
 ---
-title: Colaborando na base de conhecimento - QnA Maker
-description: A QnA Maker permite que várias pessoas colaborem numa base de conhecimento. Esta funcionalidade é fornecida com o Controlo de Acesso baseado em Funções Azure.
+title: Colaboração na base de conhecimento - QnA Maker
+description: O QnA Maker permite que várias pessoas colaborem numa base de conhecimento. Esta funcionalidade é fornecida com o Azure Role-Based Access Control.
 ms.topic: conceptual
-ms.date: 03/17/2020
-ms.openlocfilehash: 1a2908b4b65017f427682627ce5d83b186956a58
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 07/13/2020
+ms.openlocfilehash: 4c550a36dd045873df4bc4a382e1c884466f95ad
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650778"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054045"
 ---
 # <a name="collaboration-with-authors-and-editors"></a>Colaboração com autores e editores
 
-A colaboração é fornecida ao nível de recursos do QnA Maker para permitir restringir o acesso dos colaboradores com base no papel do colaborador. Saiba mais sobre [os conceitos](../Concepts/role-based-access-control.md)de autenticação do colaborador QnA Maker.
+A colaboração é fornecida ao nível dos recursos do QnA Maker para que possa restringir o acesso dos colaboradores com base no papel do colaborador. Saiba mais sobre [os conceitos](../Concepts/role-based-access-control.md)de autenticação de colaboradores da QnA Maker.
 
-## <a name="add-role-based-access-rbac-to-your-qna-maker-resource"></a>Adicione o acesso baseado em papéis (RBAC) ao seu recurso QnA Maker
+## <a name="add-role-based-access-rbac-to-your-qna-maker-resource"></a>Adicione o acesso baseado em funções (RBAC) ao seu recurso QnA Maker
 
-O QnA Maker permite que várias pessoas colaborem em todas as bases de conhecimento no mesmo recurso QnA Maker. Esta funcionalidade é fornecida com o Controlo de [Acesso baseado em funções](../../../active-directory/role-based-access-control-configure.md)Azure.
+O QnA Maker permite que várias pessoas colaborem em todas as bases de conhecimento no mesmo recurso QnA Maker. Esta funcionalidade é fornecida com o Azure [Role-Based Access Control](../../../active-directory/role-based-access-control-configure.md).
 
-## <a name="access-at-the-qna-maker-resource-level"></a>Acesso ao nível de recursos do Fabricante qnA
+## <a name="access-at-the-qna-maker-resource-level"></a>Acesso ao nível de recursos do QnA Maker
 
-Não pode partilhar uma base de conhecimento específica num serviço QnA Maker. Se quiser um controlo de acesso mais granular, considere distribuir as suas bases de conhecimento através de diferentes recursos do QnA Maker, em seguida, adicione funções a cada recurso.
+Não é possível partilhar uma base de conhecimento específica num serviço QnA Maker. Se quiser mais controlo de acesso granular, considere distribuir as suas bases de conhecimento por diferentes recursos do QnA Maker e, em seguida, adicione papéis a cada recurso.
 
 ## <a name="add-role-to-resource"></a>Adicionar papel ao recurso
 
 ### <a name="add-a-user-account-to-the-qna-maker-resource"></a>Adicione uma conta de utilizador ao recurso QnA Maker
 
-Os seguintes passos usam o papel do colaborador, mas qualquer uma das [funções](../reference-role-based-access-control.md) pode ser adicionada usando estes passos
+Os passos seguintes usam o papel de colaborador, mas qualquer um dos [papéis](../reference-role-based-access-control.md) pode ser adicionado usando estes passos
 
-1. Inscreva-se no portal [Azure](https://portal.azure.com/) e vá ao seu recurso QnA Maker.
+1. Inscreva-se no portal [Azure](https://portal.azure.com/) e vá para o seu recurso QnA Maker.
 
-    ![Lista de recursos do Fabricante qna](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-resource-list.PNG)
+    ![Lista de recursos do Fabricante QnA](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-resource-list.png)
 
-1. Aceda ao separador Controlo de **Acesso (IAM).**
+1. Aceda ao **separador Controlo de Acesso (IAM).**
 
-    ![Fabricante de QnA IAM](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam.PNG)
+    ![IAM do Fabricante QNA](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam.png)
 
 1. Selecione **Adicionar**.
 
-    ![QnA Maker IAM adicionar](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add.PNG)
+    ![QnA Maker IAM adicionar](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add.png)
 
-1. Selecione uma função na seguinte lista:
+1. Selecione uma função da seguinte lista:
 
     |Função|
     |--|
     |Proprietário|
     |Contribuinte|
-    |Leitor de Criador qna|
-    |Editor de Criador da QnA|
+    |Leitor de fabricante de serviços cognitivos QnA|
+    |Editor de Serviços Cognitivos QnA Maker|
     |Utilizador de Serviços Cognitivos|
 
-    ![QnA Maker IAM adicionar papel](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-role.PNG)
+    :::image type="content" source="../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-add-role-iam.png" alt-text="QnA Maker IAM adicionar papel.":::
 
-1. Introduza o endereço de e-mail do utilizador e prima **Guardar**.
+1. Introduza o endereço de e-mail do utilizador e prima **Salvar.**
 
-    ![QnA Maker IAM adicionar e-mail](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-email.PNG)
+    ![QnA Maker IAM adicionar e-mail](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-email.png)
 
-Quando a pessoa que partilhou o seu serviço QnA Maker com logins no [portal QnA Maker,](https://qnamaker.ai)eles podem ver todas as bases de conhecimento desse serviço com base no seu papel.
+### <a name="view-qna-maker-knowledge-bases"></a>Ver bases de conhecimento do QnA Maker
+
+Quando a pessoa que partilhou o seu serviço QnA Maker com registos no [portal QnA Maker,](https://qnamaker.ai)eles podem ver todas as bases de conhecimento nesse serviço com base no seu papel.
+
+Quando selecionam uma base de conhecimento, o seu papel atual nesse recurso QnA Maker é visível ao lado do nome base do conhecimento.
+
+:::image type="content" source="../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-knowledge-base-role-name.png" alt-text="Screenshot da base de conhecimento no modo editar com nome de função em parênteses ao lado do nome base do conhecimento no canto superior esquerdo da página web.":::
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Testar uma base de dados de conhecimento](./test-knowledge-base.md)
 
-Saiba mais sobre colaboração:
-* Controlo de acesso baseado em funções [azure](../../../active-directory/role-based-access-control-configure.md)
-* Conceitos de controlo de acesso [baseados](../Concepts/role-based-access-control.md) em papéis qnA Maker
+Saiba mais sobre a colaboração:
+* Controlo de acesso baseado em funções [Azure](../../../active-directory/role-based-access-control-configure.md)
+* Conceitos de controlo de acesso baseados em [funções](../Concepts/role-based-access-control.md) da QnA Maker

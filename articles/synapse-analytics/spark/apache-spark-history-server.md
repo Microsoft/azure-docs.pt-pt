@@ -1,5 +1,5 @@
 ---
-title: Use o servidor de histórico spark estendido para depurar apps - Apache Spark in Azure Synapse
+title: Use o servidor histórico spark estendido para depurar apps
 description: Utilize o servidor de histórico spark estendido para depurar e diagnosticar aplicações Spark no Azure Synapse Analytics.
 services: synapse-analytics
 author: euangMS
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: b4ee5d064d17d7b11305c6c86dc1d29ddccc642e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8dece3478e00c6f9279767e57e3bb8aca865f45
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85194999"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059990"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Utilize o servidor de histórico Apache Spark estendido para depurar e diagnosticar aplicações Apache Spark
 
@@ -122,11 +122,11 @@ Para reproduzir o trabalho, selecione **Reprodução**. Pode selecionar **Parar*
 
 |Cor|Significado|
 |-|-|
-|Verde|Conseguiu: O trabalho foi concluído com sucesso.|
+|Green|Conseguiu: O trabalho foi concluído com sucesso.|
 |Laranja|Novamente julgado: Casos de tarefas que falharam mas não afetam o resultado final do trabalho. Estas tarefas duplicaram ou redobrou casos que podem ter sucesso mais tarde.|
-|Azul|A correr: A tarefa está a decorrer.|
-|Branco|Esperando ou ignorado: A tarefa está à espera de correr, ou o palco saltou.|
-|Vermelho|Falhou: a tarefa falhou.|
+|Blue|A correr: A tarefa está a decorrer.|
+|Branca|Esperando ou ignorado: A tarefa está à espera de correr, ou o palco saltou.|
+|Red|Falhou: a tarefa falhou.|
 
 A imagem a seguir mostra cores verdes, laranja e azul.
 
@@ -236,7 +236,7 @@ O Gráfico de Utilização do Executor visualiza a atribuição e o estado de fu
 
 Os dados de entrada/saída que utilizam conjuntos de dados distribuídos resilientes (RDDs) não aparecem no separador de dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Azure Synapse Analytics](../overview-what-is.md)
 - [.NET para documentação Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

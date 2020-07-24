@@ -5,22 +5,22 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/14/2019
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 4e54ca6452a219dedca56885bda28ed43991ad37
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7aef0e7e48bfd3f56bd1c3718b1a547bea66cbe8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248939"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054472"
 ---
 # <a name="quickstart-back-up-a-virtual-machine-in-azure-with-an-arm-template"></a>Quickstart: Apoie uma máquina virtual em Azure com um modelo ARM
 
-[O Azure Backup](backup-overview.md) apoia máquinas e aplicações no local e VMs Azure. Este artigo mostra-lhe como fazer o back up de um Azure VM com um modelo Azure Resource Manager (modelo ARM) e Azure PowerShell. Este quickstart foca-se no processo de implantação de um modelo ARM para criar um cofre de Serviços de Recuperação. Para obter mais informações sobre o desenvolvimento de modelos ARM, consulte a documentação do [Gestor de Recursos Azure](/azure/azure-resource-manager/) e a referência do [modelo](/azure/templates/microsoft.recoveryservices/allversions).
+[O Azure Backup](backup-overview.md) apoia máquinas e aplicações no local e VMs Azure. Este artigo mostra-lhe como fazer o back up de um Azure VM com um modelo Azure Resource Manager (modelo ARM) e Azure PowerShell. Este quickstart foca-se no processo de implantação de um modelo ARM para criar um cofre de Serviços de Recuperação. Para obter mais informações sobre o desenvolvimento de modelos ARM, consulte a documentação do [Gestor de Recursos Azure](../azure-resource-manager/index.yml) e a referência do [modelo](/azure/templates/microsoft.recoveryservices/allversions).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Um [cofre dos Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md) é um recipiente lógico que armazena dados de backup para recursos protegidos, como os VMs Azure. Quando um trabalho de reserva funciona, cria um ponto de recuperação dentro do cofre dos Serviços de Recuperação. Em seguida, pode utilizar um destes pontos de recuperação para restaurar dados para um determinado ponto no tempo. Em alternativa, pode apoiar um VM utilizando [a Azure PowerShell,](./quick-backup-vm-powershell.md)o [Azure CLI,](quick-backup-vm-cli.md)ou no [portal Azure](quick-backup-vm-portal.md).
 
-Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-recovery-services-create-vm-and-configure-backup%2Fazuredeploy.json)
 
@@ -71,7 +71,7 @@ O modelo cria um VM e permite voltar a ser o VM. Depois de implementar o modelo,
 
 Para monitorizar o trabalho de backup, consulte [monitorar o trabalho de reserva](./quick-backup-vm-powershell.md#monitor-the-backup-job).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se já não precisar de fazer o reforço do VM, pode limpá-lo.
 

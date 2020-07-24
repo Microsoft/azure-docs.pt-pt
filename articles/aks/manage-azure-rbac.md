@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: fc0464c226b8edc2dae01f8ea54c3e5b2e11f2d6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: bb4c689da38606561c657a3e4d85fd9e391267bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244265"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056743"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Utilizar o RBAC do Azure para Autorização do Kubernetes (pré-visualização)
 
@@ -35,14 +35,14 @@ A capacidade de gerir o RBAC para os recursos de Kubernetes da Azure dá-lhe a o
 - Inscreva-se para a pré-visualização <https://aka.ms/aad-rbac-sign-up-form> .
 - Certifique-se de que tem a bandeira de `EnableAzureRBACPreview` recurso ativada.
 - Certifique-se de que tem a bandeira de `AAD-V2` recurso ativada.
-- Certifique-se de que tem a `aks-preview` extensão CLI v0.4.55 ou superior instalada
+- Certifique-se de que tem a `aks-preview` [extensão CLI][az-extension-add] v0.4.55 ou superior instalada
 - Certifique-se de que instalou [kubectl v1.18.3+][az-aks-install-cli]
 
 #### <a name="register-enableazurerbacpreview-and-aad-v2-preview-features"></a>Funcionalidades de registo `EnableAzureRBACPreview` e `AAD-V2` pré-visualização
 
 Para criar um cluster AKS que utilize O RBAC Azure para a Autorização Kubernetes, deve ativar as `EnableAzureRBACPreview` bandeiras e `AAD-V2` as bandeiras da sua subscrição.
 
-Registe a bandeira de `EnableAzureRBACPreview` características utilizando o comando [de registo de recurso az,][az-feature-register] como mostra o seguinte exemplo:
+Registar as `EnableAzureRBACPreview` bandeiras e `AAD-V2` características utilizando o comando [de registo de recurso az,][az-feature-register] como mostra o seguinte exemplo:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureRBACPreview"
@@ -64,9 +64,9 @@ Quando estiver pronto, reaprovi o registo do fornecedor de recursos *Microsoft.C
 az provider register --namespace Microsoft.ContainerService
 ```
 
-#### <a name="install-aks-preview-cli-extension"></a>Instale extensão CLI de pré-visualização aks
+#### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI aks-preview
 
-Para criar um cluster AKS que utilize o Azure RBAC, precisa da versão de extensão CLI *de pré-visualização aks* 0.4.55 ou superior. Instale a extensão Azure CLI *de pré-visualização aks* utilizando o comando [de adicionar extensão az][az-extension-add] e, em seguida, verifique se há atualizações disponíveis utilizando o comando de atualização de [extensão az:][az-extension-update]
+Para criar um cluster AKS que utilize o Azure RBAC, precisa da versão de extensão CLI *de pré-visualização aks* 0.4.55 ou superior. Instale a extensão Azure CLI *de pré-visualização aks* utilizando o comando [de adicionar extensão az][az-extension-add] ou instale quaisquer atualizações disponíveis utilizando o comando de atualização de [extensão az:][az-extension-update]
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -122,7 +122,7 @@ Uma criação bem sucedida de um cluster com integração AD AZure e Azure RBAC 
 A AKS fornece as seguintes quatro funções incorporadas:
 
 
-| Função                                | Description  |
+| Função                                | Descrição  |
 |-------------------------------------|--------------|
 | Azure Kubernetes Service RBAC Viewer  | Permite o acesso apenas à leitura para ver a maioria dos objetos num espaço de nome. Não permite visualizar papéis ou encadernações de papéis. Esta função não permite a `Secrets` visualização, uma vez que a leitura do conteúdo dos Segredos permite o acesso às credenciais do ServiceAccount no espaço de nomes, o que permitiria o acesso da API como qualquer ServiceAccount no espaço de nomes (uma forma de escalada de privilégio)  |
 | Azure Kubernetes Service RBAC Writer | Permite ler/escrever o acesso à maioria dos objetos num espaço de nome. Esta função não permite visualizar ou modificar papéis ou encadernações de papéis. No entanto, esta função permite aceder `Secrets` e executar Pods como qualquer ServiceAccount no espaço de nomes, para que possa ser usado para obter os níveis de acesso API de qualquer ServiceAccount no espaço de nomes. |

@@ -6,11 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47, tracking-python
-ms.openlocfilehash: 4759541966de1d436c72cce4aaa46c2bd1235599
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 920f53fa962cc30f2068d78c9d1907b93019fe34
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559921"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055851"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento da fila Azure para funções Azure
 
@@ -350,17 +351,17 @@ A carga útil do item da fila está disponível através `context.bindings.<NAME
 
 # <a name="python"></a>[Python](#tab/python)
 
-Aceda à mensagem de fila através do parâmetro dactilografado como [QueueMessage](https://docs.microsoft.com/python/api/azure-functions/azure.functions.queuemessage?view=azure-python).
+Aceda à mensagem de fila através do parâmetro dactilografado como [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage?view=azure-python).
 
 # <a name="java"></a>[Java](#tab/java)
 
-A anotação [QueueTrigger](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable) dá-lhe acesso à mensagem de fila que desencadeou a função.
+A anotação [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable) dá-lhe acesso à mensagem de fila que desencadeou a função.
 
 ---
 
 ## <a name="message-metadata"></a>Metadados de mensagens
 
-O gatilho da fila fornece várias [propriedades de metadados.](./functions-bindings-expressions-patterns.md#trigger-metadata) Estas propriedades podem ser usadas como parte de expressões de ligação em outras encadernações ou como parâmetros no seu código. As propriedades são membros da classe [CloudQueueMessage.](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage)
+O gatilho da fila fornece várias [propriedades de metadados.](./functions-bindings-expressions-patterns.md#trigger-metadata) Estas propriedades podem ser usadas como parte de expressões de ligação em outras encadernações ou como parâmetros no seu código. As propriedades são membros da classe [CloudQueueMessage.](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage)
 
 |Propriedade|Tipo|Descrição|
 |--------|----|-----------|
@@ -405,7 +406,7 @@ O gatilho da fila impede automaticamente que uma função processe uma mensagem 
 
 A [host.jsno](functions-host-json.md#queues) ficheiro contém definições que controlam o comportamento do gatilho da fila. Consulte a secçãohost.jsna secção [de definições](functions-bindings-storage-queue-output.md#hostjson-settings) para obter informações sobre as definições disponíveis.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Escreva mensagens de armazenamento de fila (ligação de saída)](./functions-bindings-storage-blob-output.md)
 

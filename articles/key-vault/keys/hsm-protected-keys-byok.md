@@ -1,5 +1,5 @@
 ---
-title: Como gerar e transferir chaves protegidas pelo HSM para o Cofre da Chave Azure - Cofre da Chave Azure Microsoft Docs
+title: Como gerar & transferir chaves protegidas pelo HSM – BYOK – Azure Key Vault
 description: Use este artigo para ajudá-lo a planear, gerar e transferir as suas próprias chaves protegidas pelo HSM para usar com o Cofre da Chave Azure. Também conhecido como trazer a sua própria chave (BYOK).
 services: key-vault
 author: amitbapat
@@ -10,11 +10,12 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 52214d42467dfa86b5e085a660a9416904b7de59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4df934f38a8fb657fa4a8de5922d96197a3d02cc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84416703"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061105"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Chaves protegidas pelo HSM para o Cofre-Chave (BYOK)
 
@@ -48,7 +49,7 @@ As seguintes listas de tabelas pré-requisitos para a utilização do BYOK no Co
 
 | Requisito | Mais informações |
 | --- | --- |
-| Uma subscrição do Azure. |Para criar um cofre chave no Cofre da Chave Azure, precisa de uma subscrição do Azure. [Inscreva-se para um teste gratuito.](https://azure.microsoft.com/pricing/free-trial/) |
+| Uma subscrição do Azure |Para criar um cofre chave no Cofre da Chave Azure, precisa de uma subscrição do Azure. [Inscreva-se para um teste gratuito.](https://azure.microsoft.com/pricing/free-trial/) |
 | Um SKU-Key Vault Premium para importar chaves protegidas pelo HSM |Para obter mais informações sobre os níveis de serviço e as capacidades no Cofre da Chave Azure, consulte [o Key Vault Pricing](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Um HSM da lista de HSMs suportado e uma ferramenta BYOK e instruções fornecidas pelo seu fornecedor HSM | Você deve ter permissões para um HSM e conhecimento básico de como usar o seu HSM. Ver [HSMs suportados](#supported-hsms). |
 | Versão Azure CLI 2.1.0 ou mais tarde | Consulte [a Instalação do Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).|
@@ -65,7 +66,7 @@ As seguintes listas de tabelas pré-requisitos para a utilização do BYOK no Co
 
 
 
-## <a name="supported-key-types"></a>Tipos-chave suportados
+## <a name="supported-key-types"></a>Supported key types (Tipos de chaves suportados)
 
 |Nome da chave|Tipo de chave|Tamanho da chave|Origem|Descrição|
 |---|---|---|---|---|
@@ -130,7 +131,7 @@ az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey
 
 Se o upload for bem sucedido, o Azure CLI exibe as propriedades da chave importada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora pode utilizar esta chave protegida pelo HSM no seu cofre de chaves. Para mais informações, consulte [este preço e comparação de recursos.](https://azure.microsoft.com/pricing/details/key-vault/)
 
