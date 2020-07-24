@@ -8,16 +8,17 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 314d7a4725709f00ba5cdbf54595857502bc5805
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 026b869556e1bd49018b2afce27e732a3109b9fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81865948"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999131"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>Migrar recursos IaaS do clássico para o Azure Resource Manager usando o PowerShell
 
 > [!IMPORTANT]
-> Hoje, cerca de 90% dos VMs da IaaS estão a usar [o Azure Resource Manager.](https://azure.microsoft.com/features/resource-manager/) A partir de 28 de fevereiro de 2020, os VM clássicos foram depreciados e serão totalmente retirados a 1 de março de 2023. [Saiba mais]( https://aka.ms/classicvmretirement) sobre esta depreciação e [como isso o afeta.](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me)
+> Hoje, cerca de 90% dos VMs da IaaS estão a usar [o Azure Resource Manager.](https://azure.microsoft.com/features/resource-manager/) A partir de 28 de fevereiro de 2020, os VM clássicos foram depreciados e serão totalmente retirados a 1 de março de 2023. [Saiba mais]( https://aka.ms/classicvmretirement) sobre esta depreciação e [como isso o afeta.](../classic-vm-deprecation.md#how-does-this-affect-me)
 
 Estes passos mostram-lhe como usar comandos Azure PowerShell para migrar a infraestrutura como um serviço (IaaS) recursos do modelo de implementação clássico para o modelo de implementação do Azure Resource Manager.
 
@@ -48,7 +49,7 @@ Aqui estão algumas boas práticas que recomendamos à medida que avalia se migr
 ## <a name="step-2-install-the-latest-version-of-powershell"></a>Passo 2: Instalar a versão mais recente do PowerShell
 Existem duas opções principais para instalar a Azure PowerShell: [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) ou [Web Platform Installer (WebPI)](https://aka.ms/webpi-azps). WebPI recebe atualizações mensais. A PowerShell Gallery recebe atualizações continuamente. Este artigo baseia-se na versão 2.1.0 da Azure PowerShell.
 
-Para obter instruções de instalação, consulte [como instalar e configurar a Azure PowerShell](/powershell/azure/overview).
+Para obter instruções de instalação, consulte [como instalar e configurar a Azure PowerShell](/powershell/azure/).
 
 ## <a name="step-3-ensure-that-youre-an-administrator-for-the-subscription"></a>Passo 3: Certifique-se de que é administrador da subscrição
 Para realizar esta migração, tem de ser adicionado como coadministrator para a subscrição no [portal Azure](https://portal.azure.com).
@@ -220,7 +221,7 @@ Se a configuração preparada parecer boa, pode avançar e comprometer os recurs
 
 Para migrar máquinas virtuais numa rede virtual, migra a rede virtual. As máquinas virtuais migram automaticamente com a rede virtual. Escolha a rede virtual que pretende migrar.
 > [!NOTE]
-> [Migrar uma única máquina virtual](migrate-single-classic-to-resource-manager.md) criada utilizando o modelo de implementação clássico, criando uma nova máquina virtual Do Gestor de Recursos com Discos Geridos utilizando os ficheiros VHD (OS e dados) da máquina virtual.
+> [Migrar uma única máquina virtual](./create-vm-specialized-portal.md) criada utilizando o modelo de implementação clássico, criando uma nova máquina virtual Do Gestor de Recursos com Discos Geridos utilizando os ficheiros VHD (OS e dados) da máquina virtual.
 <br>
 
 > [!NOTE]
@@ -335,7 +336,7 @@ Depois de ter acabado de migrar as máquinas virtuais, efetue as seguintes verif
         Move-AzureStorageAccount -Commit -StorageAccountName $storageAccountName
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Visão geral da migração suportada pela plataforma de recursos iaas do clássico para o Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Análise detalhada técnica sobre a migração suportada por plataforma da clássica para Azure Resource Manager)
 * [Planear a migração de recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

@@ -3,11 +3,12 @@ title: Exemplos de classe nos Serviços Azure Lab ! Microsoft Docs
 description: Fornece alguns tipos de aulas para as quais pode configurar laboratórios usando os Serviços Azure Lab.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8564f5ece9d6df7db852c5ac16f00f1455d013ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21159aacfcd87bb929eaeaf9884b0275c7005e1a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443762"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001628"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Visão geral dos tipos de classe - Azure Lab Services
 
@@ -45,11 +46,6 @@ Você pode configurar uma máquina de modelo nos Serviços de Laboratório Azure
 
 Para obter informações detalhadas sobre como configurar este tipo de laboratório, consulte [criar um laboratório para ensinar ciência de dados com os Cadernos Python e Jupyter.](class-type-jupyter-notebook.md)
 
-## <a name="mobile-app-development-with-android-studio"></a>Desenvolvimento de aplicações móveis com o Android Studio
-Você pode criar um laboratório em Azure Lab Services para ensinar uma aula de desenvolvimento de aplicações móveis introdutórias. Esta classe foca-se em aplicações móveis Android que podem ser publicadas na [Google Play Store.](https://play.google.com/store/apps)  Os alunos aprendem a usar o [Android Studio](https://developer.android.com/studio) para construir aplicações.  [O Emulador visual do Estúdio para Android](https://visualstudio.microsoft.com/vs/msft-android-emulator/) é utilizado para testar a aplicação localmente.
-
-Para obter informações detalhadas sobre como configurar este tipo de laboratório, consulte [configurar um laboratório para ensinar desenvolvimento de aplicações móveis com o Android Studio.](class-type-mobile-dev-android-studio.md)
-
 ## <a name="big-data-analytics"></a>Análise de macrodados
 Pode criar um laboratório de GPU para ensinar uma grande aula de análise de dados. Com este tipo de aula, os alunos aprendem a lidar com grandes volumes de dados, e aplicam algoritmos de aprendizagem automática e estatística para obter insights de dados. Um objetivo fundamental para os alunos é aprender a usar ferramentas de análise de dados, como o pacote de software de código aberto da Apache Hadoop que fornece ferramentas para armazenar, gerir e processar grandes dados. 
 
@@ -65,7 +61,7 @@ Você pode criar um laboratório de GPU que dá aos estudantes de engenharia ace
 
 Para obter informações detalhadas sobre como configurar este tipo de laboratório, consulte [configurar um laboratório para aulas de engenharia usando a SolidWorks](class-type-solidworks.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos:
 

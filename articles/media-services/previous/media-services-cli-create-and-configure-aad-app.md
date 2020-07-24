@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: juliako
-ms.openlocfilehash: f136fb666e93adc0fe92aee014e3da9a37bbd6aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82d5c605baf6f95df7fee62379772ce13d696ac6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70035801"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000810"
 ---
 # <a name="use-azure-cli-to-create-an-azure-ad-app-and-configure-it-to-access-media-services-api"></a>Use o Azure CLI para criar uma app AD Azure e configurá-la para aceder à API dos Media Services 
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Este tópico mostra-lhe como usar o CLI Azure para criar uma aplicação e um diretor de serviço Azure Ative (Azure AD) para aceder aos recursos da Azure Media Services. 
 
@@ -63,7 +63,7 @@ Por exemplo, pode ser um dos seguintes níveis:
 * O nível **do grupo de recursos.**
 * O nível **de recursos** (por exemplo, uma conta Media).
 
-Para mais informações, consulte [Criar um diretor de serviço Azure com o CLI Azure](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)
+Para mais informações, consulte [Criar um diretor de serviço Azure com o CLI Azure](/cli/azure/create-an-azure-service-principal-azure-cli)
 
 Consulte também [o Controlo de Acesso Baseado em Funções com a interface da linha de comando Azure.](../../role-based-access-control/role-assignments-cli.md) 
 

@@ -7,11 +7,12 @@ ms.date: 05/21/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 2d5009086a24a54c9a2ec4734d3c4dcbebb04475
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e90a4e9ec88e074ec7b30d78bc99cfa8bf39ba2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84418800"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002357"
 ---
 # <a name="what-are-device-templates"></a>O que são modelos de dispositivo?
 
@@ -28,7 +29,7 @@ Um modelo de dispositivo inclui as seguintes secções:
 - _Personalizações._ Esta parte do modelo do dispositivo permite que o desenvolvedor de solução substitua algumas das definições no DCM. As personalizações são úteis se o desenvolvedor de solução quiser refinar a forma como a aplicação lida com um valor, como alterar o nome de ecrã para uma propriedade ou a cor usada para exibir um valor de telemetria. As personalizações não afetam o código que um desenvolvedor de dispositivos escreve para implementar o DCM.
 - _Vistas._ Esta parte do modelo do dispositivo permite ao desenvolvedor de solução definir visualizações para visualizar dados do dispositivo, e formas para gerir e controlar um dispositivo. As vistas utilizam o DCM, propriedades em nuvem e personalizações. As vistas não afetam o código que um desenvolvedor de dispositivos escreve para implementar o DCM.
 
-## <a name="device-capability-models"></a>Modelos de capacidade do dispositivo
+## <a name="device-capability-models"></a>Modelos de função de dispositivo
 
 Um DCM define como um dispositivo interage com a sua aplicação IoT Central. O desenvolvedor do dispositivo deve certificar-se de que o dispositivo implementa os comportamentos definidos no DCM para que o IoT Central possa monitorizar e gerir o dispositivo. Um DCM é composto por uma ou mais _interfaces,_ e cada interface pode definir uma coleção de tipos de _telemetria,_ propriedades do _dispositivo,_ e _comandos_. Um desenvolvedor de solução pode importar um ficheiro JSON que define o DCM num modelo de dispositivo, ou usar a UI web no IoT Central para criar ou editar um DCM. As alterações a um DCM efetuadas através do UI web exigem que o modelo do [dispositivo seja versão](./howto-version-device-template.md).
 
@@ -193,7 +194,7 @@ Utilize comandos assíncronos para operações de longa duração. O dispositivo
  `iothub-interface-name`: o nome da instância desta interface, por exemplo `myAssetTracker` .
 - `iothub-command-statuscode`: o código de estado devolvido do dispositivo, por exemplo `202` .
 
-## <a name="cloud-properties"></a>Propriedades em nuvem
+## <a name="cloud-properties"></a>Propriedades da cloud
 
 As propriedades da nuvem fazem parte do modelo do dispositivo, mas não fazem parte do DCM. As propriedades da nuvem permitem ao desenvolvedor da solução especificar quaisquer metadados do dispositivo para armazenar na aplicação IoT Central. As propriedades da nuvem não afetam o código que um desenvolvedor de dispositivos escreve para implementar o DCM.
 
@@ -218,8 +219,8 @@ Um desenvolvedor de soluções cria pontos de vista que permitem aos operadores 
 
 A telemetria, propriedades e comandos que pode adicionar a uma vista são determinados pelo DCM, propriedades em nuvem e personalizações no modelo do dispositivo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Como desenvolvedor de dispositivos, agora que aprendeu sobre os modelos do dispositivo, um próximo passo sugerido é ler [Se conectar ao Azure IoT Central](./concepts-get-connected.md) para saber mais sobre como registar dispositivos com a IoT Central e como a IoT Central protege as ligações do dispositivo.
+Como desenvolvedor de dispositivos, agora que aprendeu sobre os modelos do dispositivo, um próximo passo sugerido é ler [telemetria, propriedade e cargas de comando](./concepts-telemetry-properties-commands.md) para saber mais sobre os dados que um dispositivo troca com a IoT Central.
 
 Como desenvolvedor de soluções, um próximo passo sugerido é ler [Definir um novo tipo de dispositivo IoT na sua aplicação Azure IoT Central](./howto-set-up-template.md) para saber mais sobre como criar um modelo de dispositivo.

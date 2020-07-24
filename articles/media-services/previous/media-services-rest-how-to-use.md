@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 288b7302b12d607c9090f699af83691b832256a3
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 83e945fccfbfbec207723d6c16f2a4dfc7290c52
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170824"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000052"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Operações de Serviços de Mídia REST Visão geral da API 
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
-A **API de Operações de Serviços de Mídia** É utilizada para a criação de Empregos, Ativos, Canais Ao Vivo e outros recursos numa conta dos Serviços de Comunicação Social. Para mais informações, consulte a [referência API de Operações de Serviços de Mídia](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)REST .
+A **API de Operações de Serviços de Mídia** É utilizada para a criação de Empregos, Ativos, Canais Ao Vivo e outros recursos numa conta dos Serviços de Comunicação Social. Para mais informações, consulte a [referência API de Operações de Serviços de Mídia](/rest/api/media/operations/azure-media-services-rest-api-reference)REST .
 
 Os Media Services fornecem uma API REST que aceita o formato JSON ou atom+pub XML. A API dos Serviços de Mídia REQUER cabeçalhos HTTP específicos que cada cliente deve enviar ao ligar-se aos Serviços de Comunicação Social, bem como um conjunto de cabeçalhos opcionais. As seguintes secções descrevem os cabeçalhos e verbos HTTP que pode utilizar ao criar pedidos e receber respostas dos Serviços de Comunicação Social.
 
@@ -64,8 +64,8 @@ Para cada chamada que fizer nos Serviços de Comunicação Social, há um conjun
 | --- | --- | --- |
 | Autorização |Portador |O portador é o único mecanismo de autorização aceite. O valor deve também incluir o token de acesso fornecido pela Azure Ative Directory. |
 | x-ms-versão |Decimal |2.17 (ou versão mais recente)|
-| DataServiceVersion |Decimal |3.0 |
-| MaxDataServiceVersion |Decimal |3.0 |
+| DataServiceVersion |Decimal |3,0 |
+| MaxDataServiceVersion |Decimal |3,0 |
 
 > [!NOTE]
 > Como os Serviços de Comunicação Social utilizam o OData para expor as suas APIs REST, os cabeçalhos DataServiceVersion e MaxDataServiceVersion devem ser incluídos em todos os pedidos; no entanto, se não forem, atualmente os Serviços de Mídia assumem que o valor de DataServiceVersion em uso é 3.0.
@@ -83,15 +83,15 @@ Segue-se um conjunto de cabeçalhos opcionais:
 | Aceitar-Charset |Tipo de charset como "UTF-8" |O padrão é UTF-8. |
 | Método X-HTTP |Método HTTP |Permite que clientes ou firewalls que não suportem métodos HTTP como PUT ou DELETE utilizem estes métodos, escavados através de uma chamada GET. |
 | Content-Type |Tipo do conteúdo |Tipo de conteúdo do organismo de pedido em pedidos PUT ou POST. |
-| cliente-pedido id |String |Um valor definido pelo chamador que identifica o pedido dado. Se especificado, este valor será incluído na mensagem de resposta como forma de mapear o pedido. <p><p>**Importante**<p>Os valores devem ser limitados a 2096b (2k). |
+| cliente-pedido id |Cadeia |Um valor definido pelo chamador que identifica o pedido dado. Se especificado, este valor será incluído na mensagem de resposta como forma de mapear o pedido. <p><p>**Importante**<p>Os valores devem ser limitados a 2096b (2k). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Cabeçalhos de resposta HTTP padrão suportados pelos Media Services
 Segue-se um conjunto de cabeçalhos que lhe podem ser devolvidos, dependendo do recurso que solicitou e da ação que pretendia realizar.
 
 | Cabeçalho | Tipo | Valor |
 | --- | --- | --- |
-| pedido id |String |Um identificador único para a operação atual, serviço gerado. |
-| cliente-pedido id |String |Um identificador especificado pelo autor da chamada no pedido original, se estiver presente. |
+| pedido id |Cadeia |Um identificador único para a operação atual, serviço gerado. |
+| cliente-pedido id |Cadeia |Um identificador especificado pelo autor da chamada no pedido original, se estiver presente. |
 | Data |Data RFC 1123 |A data/hora em que o pedido foi processado. |
 | Content-Type |Varia |O tipo de conteúdo do corpo de resposta. |
 | Codificação de conteúdos |Varia |Gzip ou esvazie, conforme apropriado. |
@@ -130,4 +130,3 @@ Para aprender a utilizar a autenticação AZure AD com serviços de mídia REST 
 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

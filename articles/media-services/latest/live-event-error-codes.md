@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/4/2020
 ms.author: inhenkel
-ms.openlocfilehash: e039a240465478e86ce816890219e5dfaa07dfbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f86c157652f6219afdf1df1da9b8ad385f059aa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82791056"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000956"
 ---
 # <a name="media-services-live-event-error-codes"></a>Códigos de erro do Evento Ao Vivo dos Serviços De Media
 
@@ -26,9 +26,9 @@ As tabelas desta secção listam os códigos de erro [do Evento Vivo.](live-even
 
 ## <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejected
 
-Ao subscrever os eventos [Da Grelha de Eventos](https://docs.microsoft.com/azure/event-grid/) para um evento ao vivo, poderá ver um dos seguintes erros do evento [LiveEventConnectionRejected.](media-services-event-schemas.md#liveeventconnectionrejected)
+Ao subscrever os eventos [Da Grelha de Eventos](../../event-grid/index.yml) para um evento ao vivo, poderá ver um dos seguintes erros do evento [LiveEventConnectionRejected.](media-services-event-schemas.md#liveeventconnectionrejected)
 
-| Código do resultado | Description |
+| Código do resultado | Descrição |
 | ----------- | ----------- |
 | MPE_RTMP_APPID_AUTH_FAILURE | URL de ingestão incorreta |
 | MPE_INGEST_ENCODER_CONNECTION_DENIED | O IP do codificante não está presente na lista de autorizações IP configuradas |
@@ -46,7 +46,7 @@ Ao subscrever os eventos [Da Grelha de Eventos](https://docs.microsoft.com/azure
 
 Pode ver um dos seguintes erros do [evento LiveEventEncoderDis.](media-services-event-schemas.md#liveeventencoderdisconnected)
 
-|Código do resultado|Description|
+|Código do resultado|Descrição|
 |---|---|
 |MPE_RTMP_SESSION_IDLE_TIMEOUT|A sessão de RTMP foi cronometrada depois de ter ficado inativa por um limite de tempo permitido.|
 |MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID|O tempotad para vídeo ou áudio FLVTag é inválido do codificader RTMP.|

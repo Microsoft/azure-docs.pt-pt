@@ -15,20 +15,21 @@ ms.topic: article
 ms.date: 05/07/2020
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: 618803e8e94f96a63e0c39c27b40a933acac7cb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eee718627f35154c878c717e02febe0ea7958fe6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82995517"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000555"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Offline FairPlay Streaming for iOS (Transmissão Offline do FairPlay para iOS) 
 
 > [!div class="op_single_selector" title1="Selecione a versão dos Serviços de Media que está a utilizar:"]
-> * [Versão 3](../latest/offline-fairplay-for-ios.md)
+> * [Versão 3](../latest/offline-fairplay-for-ios.md)
 > * [Versão 2](media-services-protect-hls-with-offline-fairplay.md)
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 A Azure Media Services fornece um conjunto de serviços de proteção de conteúdos bem [concebidos](https://azure.microsoft.com/services/media-services/content-protection/) que cobrem:
 
@@ -53,7 +54,7 @@ Antes de implementar DRM offline para FairPlay num dispositivo iOS 10+:
 * Familiarize-se com a proteção de conteúdos online para o FairPlay. Para obter mais informações, consulte os seguintes artigos e amostras:
 
     - [Apple FairPlay Streaming para Azure Media Services está geralmente disponível](https://azure.microsoft.com/blog/apple-FairPlay-streaming-for-azure-media-services-generally-available/)
-    - [Proteja o seu conteúdo HLS com Apple FairPlay ou Microsoft PlayReady](https://docs.microsoft.com/azure/media-services/media-services-protect-hls-with-FairPlay)
+    - [Proteja o seu conteúdo HLS com Apple FairPlay ou Microsoft PlayReady](./media-services-protect-hls-with-fairplay.md)
     - [Uma amostra para streaming de FPS on-line](https://azure.microsoft.com/resources/samples/media-services-dotnet-dynamic-encryption-with-FairPlay/)
 
 * Obtenha o FPS SDK da Rede de Desenvolvedores da Apple. O FPS SDK contém dois componentes:
@@ -205,12 +206,12 @@ As seguintes perguntas frequentes prestam assistência à resolução de problem
 
 - **Porque é que só o áudio reproduz, mas não o vídeo durante o modo offline?** Este comportamento parece ser por design da aplicação da amostra. Quando existe uma faixa de áudio alternativa (o que é o caso do HLS) durante o modo offline, tanto o iOS 10 como o iOS 11 estão por defeito na faixa de áudio alternativa. Para compensar este comportamento para o modo offline FPS, remova a faixa de áudio alternativa do fluxo. Para isso nos Serviços de Media, adicione o filtro manifesto dinâmico "audio-only=falso". Por outras palavras, um URL HLS termina com .ism/manifest (formato=m3u8-aapl,audio-only=falso). 
 - **Porque é que ainda reproduz áudio apenas sem vídeo durante o modo offline depois de eu adicionar áudio-only=falso?** Dependendo do design da chave de cache da rede de entrega de conteúdos (CDN), o conteúdo pode ser em cache. Purgue a cache.
-- **O modo offline FPS também é suportado no iOS 11, além do iOS 10?** Sim. O modo offline FPS é suportado para iOS 10 e iOS 11.
+- **O modo offline FPS também é suportado no iOS 11, além do iOS 10?** Yes. O modo offline FPS é suportado para iOS 10 e iOS 11.
 - **Por que não posso encontrar o documento "Offline Playback with FairPlay Streaming e HTTP Live Streaming" no FPS Server SDK?** Desde a versão 4 do FPS Server SDK, este documento foi fundido no "Guia de Programação de Streaming fairPlay".
 - **O que significa o último parâmetro no seguinte modo API para o modo offline FPS?**
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
-    Para obter a documentação para esta API, consulte [FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration Method](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). O parâmetro representa a duração do aluguer offline, com o segundo como unidade.
+    Para obter a documentação para esta API, consulte [FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration Method](/dotnet/api/microsoft.windowsazure.mediaservices.client.fairplay.fairplayconfiguration.createserializedfairplayoptionconfiguration?view=azure-dotnet). O parâmetro representa a duração do aluguer offline, com o segundo como unidade.
 - **O que é a estrutura de ficheiros descarregado/offline em dispositivos iOS?** A estrutura de ficheiros descarregada num dispositivo iOS parece a seguinte imagem. As `_keys` lojas de pasta descarregaram licenças de FPS, com um ficheiro de loja para cada anfitrião do serviço de licença. A `.movpkg` pasta armazena conteúdo sonoro e de vídeo. A primeira pasta com um nome que termina com um traço seguido de um numérico contém conteúdo de vídeo. O valor numérico é o PeakBandwidth das representações de vídeo. A segunda pasta com um nome que termina com um traço seguido de 0 contém conteúdo sonoro. A terceira pasta denominada "Data" contém a lista principal do conteúdo FPS. Finalmente, boot.xml fornece uma descrição completa do conteúdo da `.movpkg` pasta. 
 
 ![Estrutura de ficheiros de aplicativos de amostra de fairPlay offline FairPlay](media/media-services-protect-hls-with-offline-FairPlay/media-services-offline-FairPlay-file-structure.png)
@@ -256,6 +257,6 @@ Este documento inclui os seguintes passos e informações que pode utilizar para
 * Os vídeos FPS da amostra são utilizados para testar o modo offline e o streaming online.
 * Um FAQ responde a perguntas sobre o modo offline FPS.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

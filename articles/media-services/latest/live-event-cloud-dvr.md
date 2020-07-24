@@ -14,17 +14,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 05/07/2020
 ms.author: juliako
-ms.openlocfilehash: 231aeb210a7b97e8c0cfd0e21c48053c660b6128
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c5afe45ce864ba76d5d637df3534d426d39167a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82995811"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000997"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Utilize a mudança de tempo e as saídas ao vivo para criar reprodução de vídeo a pedido
 
-No Azure Media Services, um objeto [live output](https://docs.microsoft.com/rest/api/media/liveoutputs) é como um gravador de vídeo digital que irá capturar e gravar o seu live stream num ativo na sua conta de Media Services. O conteúdo registado é persistido no contentor definido pelo recurso [Ativo](https://docs.microsoft.com/rest/api/media/assets) (o contentor está na conta Azure Storage anexada à sua conta). A Saída Ao Vivo também permite controlar algumas propriedades do live stream de saída, como a quantidade de fluxo que é mantida na gravação de arquivo (por exemplo, a capacidade do DVR em nuvem) ou quando os espectadores podem começar a ver o live stream. O arquivo no disco é uma "janela" de arquivo circular que contém apenas a quantidade de conteúdo especificado no **arquivoWindowLength** propriedade da Saída Ao Vivo. O conteúdo que cai fora desta janela é automaticamente descartado do recipiente de armazenamento e não é recuperável. O valor de comprimento de arquivoWindowLength representa uma duração de períodos ISO-8601 (por exemplo, PTHH:MM:SS), que especifica a capacidade do DVR. O valor pode ser definido de um mínimo de um minuto para um máximo de 25 horas.
+No Azure Media Services, um objeto [live output](/rest/api/media/liveoutputs) é como um gravador de vídeo digital que irá capturar e gravar o seu live stream num ativo na sua conta de Media Services. O conteúdo registado é persistido no contentor definido pelo recurso [Ativo](/rest/api/media/assets) (o contentor está na conta Azure Storage anexada à sua conta). A Saída Ao Vivo também permite controlar algumas propriedades do live stream de saída, como a quantidade de fluxo que é mantida na gravação de arquivo (por exemplo, a capacidade do DVR em nuvem) ou quando os espectadores podem começar a ver o live stream. O arquivo no disco é uma "janela" de arquivo circular que contém apenas a quantidade de conteúdo especificado no **arquivoWindowLength** propriedade da Saída Ao Vivo. O conteúdo que cai fora desta janela é automaticamente descartado do recipiente de armazenamento e não é recuperável. O valor de comprimento de arquivoWindowLength representa uma duração de períodos ISO-8601 (por exemplo, PTHH:MM:SS), que especifica a capacidade do DVR. O valor pode ser definido de um mínimo de um minuto para um máximo de 25 horas.
 
-A relação entre um Live Event e as suas Saídas Ao Vivo é semelhante à emissão televisiva tradicional, na medida em que um canal (Live Event) representa um fluxo constante de vídeo e uma gravação (Live Output) é traçada para um segmento de tempo específico (por exemplo, notícias noturnas das 18h30 às 19h00). Assim que tiver o stream fluindo para o Live Event, pode iniciar o evento de streaming criando um ativo, Live Output e localizador de streaming. A Live Output irá arquivar o fluxo e disponibilizá-lo aos espectadores através do [Streaming Endpoint.](https://docs.microsoft.com/rest/api/media/streamingendpoints) Pode criar várias Saídas ao Vivo (até três no máximo) num Evento Ao Vivo com diferentes comprimentos e configurações de arquivo. Para obter informações sobre o fluxo de trabalho em streaming ao vivo, consulte a secção [de passos gerais.](live-streaming-overview.md#general-steps)
+A relação entre um Live Event e as suas Saídas Ao Vivo é semelhante à emissão televisiva tradicional, na medida em que um canal (Live Event) representa um fluxo constante de vídeo e uma gravação (Live Output) é traçada para um segmento de tempo específico (por exemplo, notícias noturnas das 18h30 às 19h00). Assim que tiver o stream fluindo para o Live Event, pode iniciar o evento de streaming criando um ativo, Live Output e localizador de streaming. A Live Output irá arquivar o fluxo e disponibilizá-lo aos espectadores através do [Streaming Endpoint.](/rest/api/media/streamingendpoints) Pode criar várias Saídas ao Vivo (até três no máximo) num Evento Ao Vivo com diferentes comprimentos e configurações de arquivo. Para obter informações sobre o fluxo de trabalho em streaming ao vivo, consulte a secção [de passos gerais.](live-streaming-overview.md#general-steps)
 
 ## <a name="using-a-dvr-during-an-event"></a>Usando um DVR durante um evento
 
@@ -38,13 +39,13 @@ Um Evento Ao Vivo suporta até três saídas ao vivo em simultâneo (pode criar 
 
 ## <a name="creating-an-archive-for-on-demand-playback"></a>Criação de um arquivo para reprodução a pedido
 
-O ativo a que a Saída Ao Vivo está a arquivar automaticamente torna-se um ativo a pedido quando a Saída Ao Vivo é eliminada. Tem de eliminar todas as saídas ao vivo antes de um Evento Ao Vivo poder ser interrompido. Pode utilizar uma proteção de bandeira [opcionalOutputsOnStop](https://docs.microsoft.com/rest/api/media/liveevents/stop#request-body) para remover automaticamente as saídas ao vivo no ponto de paragem.
+O ativo a que a Saída Ao Vivo está a arquivar automaticamente torna-se um ativo a pedido quando a Saída Ao Vivo é eliminada. Tem de eliminar todas as saídas ao vivo antes de um Evento Ao Vivo poder ser interrompido. Pode utilizar uma proteção de bandeira [opcionalOutputsOnStop](/rest/api/media/liveevents/stop#request-body) para remover automaticamente as saídas ao vivo no ponto de paragem.
 
 Mesmo depois de parar e apagar o evento, os utilizadores podem transmitir o seu conteúdo arquivado como um vídeo a pedido, desde que não apague o ativo. Um ativo não deve ser eliminado se for usado por um evento; o evento deve ser apagado primeiro.
 
 Se tiver publicado o ativo da sua Saída Ao Vivo utilizando um localizador de streaming, o Live Event (até ao comprimento da janela DVR) continuará a ser visível até ao termo ou supressão do localizador de streaming, o que vier primeiro.
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [Visão geral do streaming ao vivo](live-streaming-overview.md)
 - [Tutorial de streaming ao vivo](stream-live-tutorial-with-api.md)
@@ -52,7 +53,7 @@ Para obter mais informações, consulte:
 > [!NOTE]
 > Quando elimina a Saída Ao Vivo, não está a excluir o ativo e o conteúdo subjacentes no ativo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Subclip seus vídeos](subclip-video-rest-howto.md).
 * [Defina filtros para os seus ativos.](filters-dynamic-manifest-rest-howto.md)

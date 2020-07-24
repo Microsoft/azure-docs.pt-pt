@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f18885634503cc65a5bf78d93bd84afd018956bd
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0e79469aa0e405a0096d483ae290d10415fe74f3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170807"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000062"
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Entidades de Gestão de Serviços de Mídia com REST  
 
@@ -149,7 +149,7 @@ Host: media.windows.net
 ```
 
 ## <a name="updating-entities"></a>Atualizar entidades
-Dependendo do tipo de entidade e do estado em que se encontra, pode atualizar propriedades nessa entidade através de pedidos PATCH, PUT ou MERGE HTTP. Para obter mais informações sobre estas operações, consulte [PATCH/PUT/MERGE](https://msdn.microsoft.com/library/dd541276.aspx).
+Dependendo do tipo de entidade e do estado em que se encontra, pode atualizar propriedades nessa entidade através de pedidos PATCH, PUT ou MERGE HTTP. Para obter mais informações sobre estas operações, consulte [PATCH/PUT/MERGE](/openspecs/windows_protocols/ms-odata/59d5abd3-7b12-490a-a0e2-9d9324b91893).
 
 O exemplo de código que se segue mostra como atualizar a propriedade Nome numa entidade Do Ativo.
 
@@ -190,4 +190,3 @@ Content-Length: 0
 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

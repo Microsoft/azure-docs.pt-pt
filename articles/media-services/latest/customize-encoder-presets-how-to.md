@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/03/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2bcd5f0e6229c4130dddb48c1a20de1c711c6fcf
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 28525c198bb6863e942f5ff33d17226769efdc21
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519886"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001150"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>Como codificar com uma transformação personalizada - .NET
 
@@ -32,7 +32,7 @@ Ao criar predefinições personalizadas, aplicam-se as seguintes considerações
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-[Criar uma conta dos Media Services](create-account-cli-how-to.md)
+[Criar uma conta dos Media Services](./create-account-howto.md)
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
@@ -46,9 +46,9 @@ A amostra pré-configurada personalizada encontra-se na pasta [EncodeCustomTrans
 
 ## <a name="create-a-transform-with-a-custom-preset"></a>Criar uma transformação com uma predefinição personalizada 
 
-Ao criar uma nova [Transform,](https://docs.microsoft.com/rest/api/media/transforms)tem de especificar o que pretende que produza como saída. O parâmetro necessário é um objeto [TransformOutput](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#transformoutput), conforme apresentado no código abaixo. Cada **TransformOutput** contém uma **Predefinição**. O **Predefinição** descreve as instruções passo a passo das operações de processamento de vídeo e/ou áudio que devem ser utilizadas para gerar o **TransformOutput**desejado . O seguinte **TransformOutput** cria definições personalizadas de saída de codec e camada.
+Ao criar uma nova [Transform,](/rest/api/media/transforms)tem de especificar o que pretende que produza como saída. O parâmetro necessário é um objeto [TransformOutput](/rest/api/media/transforms/createorupdate#transformoutput), conforme apresentado no código abaixo. Cada **TransformOutput** contém uma **Predefinição**. O **Predefinição** descreve as instruções passo a passo das operações de processamento de vídeo e/ou áudio que devem ser utilizadas para gerar o **TransformOutput**desejado . O seguinte **TransformOutput** cria definições personalizadas de saída de codec e camada.
 
-Ao criar uma [Transformação](https://docs.microsoft.com/rest/api/media/transforms), primeiro deve verificar se já existe uma com o método **Get**, conforme apresentado no código que se segue. Nos Serviços de Comunicação Social v3, **Obtenha** métodos sobre entidades que **retornem nulos** se a entidade não existir (uma verificação caso-insensível no nome).
+Ao criar uma [Transformação](/rest/api/media/transforms), primeiro deve verificar se já existe uma com o método **Get**, conforme apresentado no código que se segue. Nos Serviços de Comunicação Social v3, **Obtenha** métodos sobre entidades que **retornem nulos** se a entidade não existir (uma verificação caso-insensível no nome).
 
 ### <a name="example"></a>Exemplo
 
@@ -56,6 +56,6 @@ O exemplo a seguir define um conjunto de saídas que queremos ser geradas quando
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/EncodeCustomTransform/MediaV3ConsoleApp/Program.cs#EnsureTransformExists)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Transmitir ficheiros em fluxo](stream-files-tutorial-with-api.md) 

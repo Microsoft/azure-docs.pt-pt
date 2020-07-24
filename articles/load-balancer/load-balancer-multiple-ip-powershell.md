@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 8f1273f1476ea7da03eb44b700519482deac3284
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8fedad40c18818932bf37dfe93c1b236357c30b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809166"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001610"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>Equilibrar a carga em várias configurações IP utilizando PowerShell
 
@@ -38,7 +38,7 @@ Este artigo descreve como utilizar o Azure Load Balancer com vários endereços 
 
 Siga os passos abaixo para alcançar o cenário delineado neste artigo:
 
-1. Instale o Azure PowerShell. Veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview) para obter informações sobre como instalar a versão mais recente do Azure PowerShell, selecionar a subscrição que quer utilizar e iniciar sessão na sua conta do Azure.
+1. Instale o Azure PowerShell. Veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/) para obter informações sobre como instalar a versão mais recente do Azure PowerShell, selecionar a subscrição que quer utilizar e iniciar sessão na sua conta do Azure.
 2. Criar um grupo de recursos utilizando as seguintes definições:
 
     ```powershell
@@ -46,7 +46,7 @@ Siga os passos abaixo para alcançar o cenário delineado neste artigo:
     $myResourceGroup = "contosofabrikam"
     ```
 
-    Para mais informações, consulte o passo 2 da [Create a Resource Group](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+    Para mais informações, consulte o passo 2 da [Create a Resource Group](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fload-balancer%2ftoc.json).
 
 3. [Crie um Conjunto de Disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md?toc=%2fazure%2fload-balancer%2ftoc.json) para conter os seus VMs. Para este cenário, utilize o seguinte comando:
 
@@ -54,14 +54,14 @@ Siga os passos abaixo para alcançar o cenário delineado neste artigo:
     New-AzAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset" -Location "West Central US"
     ```
 
-4. Siga os passos 3 a 5 em Criar um artigo [do Windows VM](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json) para preparar a criação de um VM com um único NIC. Executar o passo 6.1 e utilizar o seguinte em vez do passo 6.2:
+4. Siga os passos 3 a 5 em Criar um artigo [do Windows VM](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fload-balancer%2ftoc.json) para preparar a criação de um VM com um único NIC. Executar o passo 6.1 e utilizar o seguinte em vez do passo 6.2:
 
     ```powershell
     $availset = Get-AzAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset"
     New-AzVMConfig -VMName "VM1" -VMSize "Standard_DS1_v2" -AvailabilitySetId $availset.Id
     ```
 
-    Em [seguida,](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json) complete Criar um Windows VM passos 6.3 a 6.8.
+    Em [seguida,](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fload-balancer%2ftoc.json) complete Criar um Windows VM passos 6.3 a 6.8.
 
 5. Adicione uma segunda configuração IP a cada um dos VMs. Siga as instruções em [Atribuir vários endereços IP a artigos de máquinas virtuais.](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md#add) Utilize as seguintes definições de configuração:
 
@@ -141,6 +141,6 @@ Siga os passos abaixo para alcançar o cenário delineado neste artigo:
 
 13. Por fim, tem de configurar registos de recursos DNS para indicar o respetivo endereço IP frontal do Balanceador de Carga. Pode hospedar os seus domínios em Azure DNS. Para obter mais informações sobre a utilização do Azure DNS com balanceador de carga, consulte [utilizar o Azure DNS com outros serviços Azure](../dns/dns-for-azure-services.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre como combinar serviços de equilíbrio de carga em Azure em [Utilizar serviços de equilíbrio de carga em Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
 - Saiba como pode utilizar diferentes tipos de registos em Azure para gerir e resolver problemas nos [registos do Azure Monitor para o Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

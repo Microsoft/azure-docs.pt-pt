@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 03bedba280fca4c051685eabdfa47eaaf00f05d3
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: edc17b9636792ce00458716e3461077fa689b3ed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963330"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001578"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Criar um equilibrista de carga pública com IPv6 usando Azure CLI
 
@@ -268,7 +268,7 @@ Crie NICs e associe-os com regras NAT, regras de balançadores de carga e sondas
 
 ## <a name="create-the-back-end-vm-resources-and-attach-each-nic"></a>Crie os recursos VM back-end e anexe cada NIC
 
-Para criar VMs, você deve ter uma conta de armazenamento. Para o equilíbrio da carga, os VMs precisam de ser membros de um conjunto de disponibilidade. Para obter mais informações sobre a criação de VMs, consulte [Criar um VM Azure utilizando o PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+Para criar VMs, você deve ter uma conta de armazenamento. Para o equilíbrio da carga, os VMs precisam de ser membros de um conjunto de disponibilidade. Para obter mais informações sobre a criação de VMs, consulte [Criar um VM Azure utilizando o PowerShell](../virtual-machines/windows/quick-create-powershell.md?toc=%2fazure%2fload-balancer%2ftoc.json).
 
 1. Configurar as variáveis PowerShell:
 

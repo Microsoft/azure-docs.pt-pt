@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 7ccc2d5956b44a8cd85f19e0905539c32f58bc5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2989343a5cc9612ea0f4d3b177093fdef93f5d73
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78164003"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000675"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indexação de ficheiros de mídia com indexador de mídia Azure
 
 > [!NOTE]
-> O processador de mídia **Azure Media Indexer** será retirado. Para as datas de aposentadoria, consulte este tema [dos componentes do legado.](legacy-components.md) [O Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) substitui este processador de mídia legado. Para obter mais informações, consulte [Migrar do Azure Media Indexer e do Azure Media Indexer 2 para OZure Media Services Video Indexer](migrate-indexer-v1-v2.md).
+> O processador de mídia **Azure Media Indexer** será retirado. Para as datas de aposentadoria, consulte este tema [dos componentes do legado.](legacy-components.md) [O Azure Media Services Video Indexer](../video-indexer/index.yml) substitui este processador de mídia legado. Para obter mais informações, consulte [Migrar do Azure Media Indexer e do Azure Media Indexer 2 para OZure Media Services Video Indexer](migrate-indexer-v1-v2.md).
 
 O Azure Media Indexer permite-lhe tornar o conteúdo dos seus ficheiros de mídia pesjável e gerar uma transcrição de texto completo para legendas e palavras-chave fechadas. Pode processar um ficheiro de mídia ou vários ficheiros de mídia num lote.  
 
@@ -44,7 +45,7 @@ Pode especificar mais detalhes para as suas tarefas de indexação utilizando um
 
 Também pode processar vários ficheiros de mídia de uma só vez utilizando um ficheiro manifesto.
 
-Para obter mais informações, consulte [a Predefinição de Tarefa para Indexer Azure Media](https://msdn.microsoft.com/library/dn783454.aspx).
+Para obter mais informações, consulte [a Predefinição de Tarefa para Indexer Azure Media](/azure/media-services/previous/media-services-analytics-overview).
 
 ## <a name="index-an-asset"></a>Indexar um ativo
 O método seguinte carrega um ficheiro de media como um ativo e cria um trabalho para indexar o ativo.
@@ -157,7 +158,7 @@ Se nem todos os ficheiros de meios de entrada forem indexados com sucesso, o tra
 ## <a name="index-multiple-files"></a>Indexar vários ficheiros
 O método seguinte envia vários ficheiros de mídia como um ativo, e cria um trabalho para indexar todos estes ficheiros num lote.
 
-É criado um ficheiro manifesto com a extensão ".lst" e o upload para o ativo. O ficheiro manifesto contém a lista de todos os ficheiros de ativos. Para obter mais informações, consulte [a Predefinição de Tarefa para Indexer Azure Media](https://msdn.microsoft.com/library/dn783454.aspx).
+É criado um ficheiro manifesto com a extensão ".lst" e o upload para o ativo. O ficheiro manifesto contém a lista de todos os ficheiros de ativos. Para obter mais informações, consulte [a Predefinição de Tarefa para Indexer Azure Media](/azure/media-services/previous/media-services-analytics-overview).
 
 ```csharp
     static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
@@ -277,4 +278,3 @@ Atualmente, as línguas inglesa e espanhola são apoiadas.
 [Visão geral da Azure Media Services Analytics](media-services-analytics-overview.md)
 
 [Indexação de ficheiros de mídia com indexante de mídia Azure 2](media-services-process-content-with-indexer2.md)
-

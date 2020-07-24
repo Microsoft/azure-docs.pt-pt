@@ -9,17 +9,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 63dc18c522a1e2e3b03bdf806945e0be67774b18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 628824a3d303184e199452b0974c7f99d99a4933
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81870464"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998957"
 ---
 # <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Escalar privilégios private Cloud vCenter do portal CloudSimple
 
 Para acesso administrativo ao seu VCenter Private Cloud, pode aumentar temporariamente os seus privilégios CloudSimple.  Utilizando privilégios elevados, pode instalar soluções VMware, adicionar fontes de identidade e gerir os utilizadores.
 
-Novos utilizadores podem ser criados no domínio sSO vCenter e ter acesso ao vCenter.  Quando criar novos utilizadores, adicione-os aos grupos cloudSimple construídos para aceder ao vCenter.  Para obter mais informações, consulte [cloudSimple Private Cloud modelo de permissão VMware vCenter](https://docs.microsoft.com/azure/vmware-cloudsimple/learn-private-cloud-permissions/).
+Novos utilizadores podem ser criados no domínio sSO vCenter e ter acesso ao vCenter.  Quando criar novos utilizadores, adicione-os aos grupos cloudSimple construídos para aceder ao vCenter.  Para obter mais informações, consulte [cloudSimple Private Cloud modelo de permissão VMware vCenter](./learn-private-cloud-permissions.md).
 
 > [!CAUTION]
 > Não faça alterações de configuração para componentes de gestão. As ações tomadas durante o estado privilegiado escalonado podem afetar negativamente o seu sistema ou podem fazer com que o seu sistema fique indisponível.
@@ -85,7 +86,7 @@ Uma vez concluídas as suas tarefas administrativas, deverá desescalar os seus 
 > [!IMPORTANT]
 > Para evitar erros, assine o vCenter e inscreva-se novamente após a desescalar os privilégios.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Criar fontes de identidade vCenter para utilizar o Ative Directory](https://docs.microsoft.com/azure/vmware-cloudsimple/set-vcenter-identity/)
-* Instale solução de backup para [backup de máquinas virtuais de carga de trabalho](https://docs.microsoft.com/azure/vmware-cloudsimple/backup-workloads-veeam/)
+* [Criar fontes de identidade vCenter para utilizar o Ative Directory](./set-vcenter-identity.md)
+* Instale solução de backup para [backup de máquinas virtuais de carga de trabalho](./backup-workloads-veeam.md)

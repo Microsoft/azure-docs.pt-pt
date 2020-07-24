@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 373b863441eb21b52a18bbaece10779260eaeb7a
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 76717c580136d23030565c5476f8b282897784a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166201"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000419"
 ---
 # <a name="create-content-keys-with-rest"></a>Criar teclas de conteúdo com REST
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Seguem-se os passos gerais para gerar chaves de conteúdo que associa a ativos q
 1. Gerem aleatoriamente uma chave AES de 16 byte (para encriptação comum e envelope) ou uma chave AES de 32 byte (para encriptação de armazenamento). 
    
     Esta é a chave de conteúdo para o seu ativo, o que significa que todos os ficheiros associados a esse ativo precisam de usar a mesma chave de conteúdo durante a desencriptação. 
-2. Ligue para os métodos [GetProtectionKey e](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) para obter o Certificado X.509 correto que deve ser usado para encriptar a sua chave de conteúdo.
+2. Ligue para os métodos [GetProtectionKey e](/rest/api/media/operations/rest-api-functions#getprotectionkeyid) [GetProtectionKey](/rest/api/media/operations/rest-api-functions#getprotectionkey) para obter o Certificado X.509 correto que deve ser usado para encriptar a sua chave de conteúdo.
 3. Criptografe a chave de conteúdo com a chave pública do Certificado X.509. 
    
    Media Services .NET SDK utiliza RSA com OAEP ao fazer a encriptação.  Pode ver um exemplo na [função EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
@@ -187,7 +187,7 @@ public enum ContentKeyType
 
 O exemplo a seguir mostra como criar uma **ContentKey** com um **ContentKeyType** definido para encriptação de armazenamento ("1") e o **ProtectionKeyType** definido para "0" para indicar que o ID da chave de proteção é a impressão digital do certificado X.509.  
 
-Pedir
+Pedido
 
 ```console
 POST https://media.windows.net/api/ContentKeys HTTP/1.1
@@ -268,4 +268,3 @@ HTTP/1.1 204 No Content
 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: tracking-python
-ms.openlocfilehash: 3e6e421d346925f751595ce2fb2d0891e31dc108
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b283d04c7d9ddf7639c198625ea69ca958170210
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559625"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001184"
 ---
 # <a name="connect-to-media-services-v3-api---python"></a>Ligue-se aos Serviços de Mídia v3 API - Python
 
@@ -28,8 +29,8 @@ Este artigo mostra-lhe como ligar-se ao Azure Media Services v3 Python SDK usand
 
 - Baixar Python de [python.org](https://www.python.org/downloads/)
 - Certifique-se de definir a `PATH` variável ambiental
-- [Criar uma conta de Serviços de Comunicação](create-account-cli-how-to.md)Social. Lembre-se do nome do grupo de recursos e do nome da conta dos Serviços de Comunicação Social.
-- Siga os passos no tópico [das APIs de acesso.](access-api-cli-how-to.md) Grave o ID de assinatura, iD de aplicação (ID do cliente), a chave de autenticação (segredo) e a identificação do inquilino que você precisa no passo posterior.
+- [Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social. Lembre-se do nome do grupo de recursos e do nome da conta dos Serviços de Comunicação Social.
+- Siga os passos no tópico [das APIs de acesso.](./access-api-howto.md) Grave o ID de assinatura, iD de aplicação (ID do cliente), a chave de autenticação (segredo) e a identificação do inquilino que você precisa no passo posterior.
 
 > [!IMPORTANT]
 > Rever [convenções de nomeação](media-services-apis-overview.md#naming-conventions).
@@ -54,7 +55,7 @@ pip3 install azure-mgmt-media==1.1.1
 1. Abra o arquivo no seu editor favorito
 1. Adicione o código que se segue ao ficheiro. O código importa os módulos necessários e cria o objeto de credenciais ative directory que precisa para ligar aos Serviços de Media.
 
-      Desaperte os valores das variáveis para os valores que obteve das [APIs](access-api-cli-how-to.md) de acesso
+      Desaperte os valores das variáveis para os valores que obteve das [APIs](./access-api-howto.md) de acesso
 
       ```
       import adal
@@ -101,7 +102,7 @@ pip3 install azure-mgmt-media==1.1.1
 
 1. Executar o arquivo
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Use [o Python SDK.](https://aka.ms/ams-v3-python-sdk)
 - Reveja a documentação do árbitro media [python.](https://aka.ms/ams-v3-python-ref)

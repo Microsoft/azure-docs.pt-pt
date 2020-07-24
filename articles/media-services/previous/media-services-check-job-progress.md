@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: e787617ab6e04a5ff2e7f5d4921a5bf7a4a1eb5d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d00dd096bcfba32912337b122aefd0c00195ee8e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "64867103"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000861"
 ---
 # <a name="monitor-job-progress-using-net"></a>Monitorar o Progresso do Trabalho usando .NET 
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Quando se gere empregos, muitas vezes é preciso uma forma de acompanhar o progresso do emprego. Pode verificar o progresso definindo um manipulador de eventos StateChanged (conforme descrito neste tópico) ou usando o armazenamento da Fila Azure para monitorizar as notificações de emprego dos Media Services (conforme descrito [neste](media-services-dotnet-check-job-progress-with-queues.md) tópico).
 
@@ -117,4 +117,3 @@ Rever os percursos de aprendizagem dos Serviços de Multimédia
 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

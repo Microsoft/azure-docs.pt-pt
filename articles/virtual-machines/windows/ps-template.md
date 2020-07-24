@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cafe28be1d7c08c24b728de2476cb2210c6e5bd0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58b8a22ff36f85f25bb6a4b22617029fe3858660
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82098327"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998872"
 ---
-# <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Crie uma máquina virtual do Windows a partir de um modelo de Gestor de Recursos
+# <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Criar uma máquina virtual do Windows a partir de um modelo do Resource Manager
 
 Aprenda a criar uma máquina virtual do Windows utilizando um modelo de Gestor de Recursos Azure e Azure PowerShell a partir da concha da Cloud Azure. O modelo utilizado neste artigo implementa uma única máquina virtual que executa o Windows Server numa nova rede virtual com uma única sub-rede. Para criar uma máquina virtual Linux, consulte [Como criar uma máquina virtual Linux com modelos Azure Resource Manager](../linux/create-ssh-secured-vm-from-template.md).
 
@@ -56,7 +56,7 @@ No exemplo anterior, especificou um modelo armazenado no GitHub. Também pode de
 
 Seguem-se alguns recursos adicionais:
 
-- Para aprender a desenvolver modelos de Gestor de Recursos, consulte [a documentação do Gestor de Recursos Azure](/azure/azure-resource-manager/).
+- Para aprender a desenvolver modelos de Gestor de Recursos, consulte [a documentação do Gestor de Recursos Azure](../../azure-resource-manager/index.yml).
 - Para ver os esquemas de máquina virtual Azure, consulte [a referência do modelo Azure](/azure/templates/microsoft.compute/allversions).
 - Para ver mais amostras de modelos de máquinas virtuais, consulte [os modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
 
@@ -66,7 +66,7 @@ O último comando PowerShell do script anterior mostra o nome da máquina virtua
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Se houver problemas com a implementação, poderá dar uma olhada nos [erros comuns de implementação do Azure com o Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
+- Se houver problemas com a implementação, poderá dar uma olhada nos [erros comuns de implementação do Azure com o Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md).
 - Aprenda a criar e gerir uma máquina virtual em [Criar e gerir VMs do Windows com o módulo Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Para saber mais sobre a criação de modelos, consulte a sintaxe JSON e as propriedades para os tipos de recursos que implementou:

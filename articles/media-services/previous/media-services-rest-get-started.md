@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 258d91e763bd8e1507492109f9c01010f95b94c0
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 45a8a2e4df35b0ddbf3fe3e42308a3361e1c912e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170841"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000147"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Começar com a entrega de conteúdos a pedido usando REST  
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Este quickstart acompanha-o através dos passos de implementação de uma aplicação de entrega de conteúdos Video-on-Demand (VoD) utilizando APIs DE REST DO Azure Media Services (AMS).
 
@@ -56,7 +56,7 @@ As seguintes tarefas são mostradas neste arranque rápido.
 >[!NOTE]
 >Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Utilize o mesmo ID de política se estiver sempre a utilizar as mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que se destinam a permanecer no local por muito tempo (políticas de não carregamento). Para mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
 
-Para mais informações sobre as entidades AMS REST utilizadas neste artigo, consulte [Azure Media Services REST API Reference](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference). Consulte também os [conceitos Azure Media Services.](media-services-concepts.md)
+Para mais informações sobre as entidades AMS REST utilizadas neste artigo, consulte [Azure Media Services REST API Reference](/rest/api/media/operations/azure-media-services-rest-api-reference). Consulte também os [conceitos Azure Media Services.](media-services-concepts.md)
 
 >[!NOTE]
 >Ao aceder a entidades nos Serviços de Media, deve definir campos e valores específicos de cabeçalho nos seus pedidos HTTP. Para obter mais informações, consulte [Configuração para Serviços de Mídia REST Desenvolvimento da API](media-services-rest-how-to-use.md).
@@ -153,7 +153,7 @@ Date: Sun, 18 Jan 2015 22:06:40 GMT
 ```
 
 ### <a name="create-an-assetfile"></a>Criar um Ficheiro de Ativos
-A entidade [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) representa um ficheiro de vídeo ou áudio que é armazenado num recipiente de bolhas. Um ficheiro de ativos está sempre associado a um ativo, e um ativo pode conter um ou muitos Ficheiros De Ativos. A tarefa Media Services Encoder falha se um objeto de ficheiro de ativo não estiver associado a um ficheiro digital num recipiente de bolhas.
+A entidade [AssetFile](/rest/api/media/operations/assetfile) representa um ficheiro de vídeo ou áudio que é armazenado num recipiente de bolhas. Um ficheiro de ativos está sempre associado a um ativo, e um ativo pode conter um ou muitos Ficheiros De Ativos. A tarefa Media Services Encoder falha se um objeto de ficheiro de ativo não estiver associado a um ficheiro digital num recipiente de bolhas.
 
 Depois de fazer o upload do seu ficheiro de mídia digital para um recipiente blob, utilize o pedido **MERGE** HTTP para atualizar o AssetFile com informações sobre o seu ficheiro de media (como mostrado mais tarde no tópico).
 
@@ -217,7 +217,7 @@ Date: Mon, 19 Jan 2015 00:34:07 GMT
 ```
 
 ### <a name="creating-the-accesspolicy-with-write-permission"></a>Criar a AccessPolicy com permissão de escrita
-Antes de enviar quaisquer ficheiros para o armazenamento de bolhas, descreva os direitos de política de acesso para escrever a um ativo. Para isso, publique um pedido HTTP à entidade AccessPolicies. Defina um valor DurationInMinutes após a criação ou receberá uma mensagem de erro do Servidor Interno de 500 em resposta. Para mais informações sobre AccessPolicies, consulte [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
+Antes de enviar quaisquer ficheiros para o armazenamento de bolhas, descreva os direitos de política de acesso para escrever a um ativo. Para isso, publique um pedido HTTP à entidade AccessPolicies. Defina um valor DurationInMinutes após a criação ou receberá uma mensagem de erro do Servidor Interno de 500 em resposta. Para mais informações sobre AccessPolicies, consulte [AccessPolicy](/rest/api/media/operations/accesspolicy).
 
 O exemplo a seguir mostra como criar uma Política de Acesso:
 
@@ -270,7 +270,7 @@ Date: Sun, 18 Jan 2015 22:18:06 GMT
 
 ### <a name="get-the-upload-url"></a>Obtenha o URL de upload
 
-Para receber o URL de upload real, crie um localizador SAS. Os localizadores definem a hora de início e o tipo de ponto final de ligação para os clientes que pretendem aceder aos Ficheiros num Ativo. Pode criar várias entidades de Localizador para um dado par accessPolicy e Ativo para lidar com diferentes pedidos e necessidades do cliente. Cada um destes Localizadores utiliza o valor StartTime mais o valor DurationInMinutes da AccessPolicy para determinar o tempo de utilização de um URL. Para mais informações, consulte [o Localizador.](https://docs.microsoft.com/rest/api/media/operations/locator)
+Para receber o URL de upload real, crie um localizador SAS. Os localizadores definem a hora de início e o tipo de ponto final de ligação para os clientes que pretendem aceder aos Ficheiros num Ativo. Pode criar várias entidades de Localizador para um dado par accessPolicy e Ativo para lidar com diferentes pedidos e necessidades do cliente. Cada um destes Localizadores utiliza o valor StartTime mais o valor DurationInMinutes da AccessPolicy para determinar o tempo de utilização de um URL. Para mais informações, consulte [o Localizador.](/rest/api/media/operations/locator)
 
 Um URL SAS tem o seguinte formato:
 
@@ -280,7 +280,7 @@ São aplicáveis algumas considerações:
 
 * Não é possível ter mais de cinco localizadores únicos associados a um dado Ativo ao mesmo tempo. 
 * Se precisar de fazer o upload dos seus ficheiros imediatamente, deverá definir o valor startTime para cinco minutos antes da hora atual. Isto porque pode haver um desvio no relógio entre a máquina do seu cliente e os Serviços de Comunicação Social. Além disso, o seu valor StartTime deve estar no seguinte formato DateTime: YYYYY-MM-DDTHH:mm:ssZ (por exemplo, "2014-05-23T17:53:50Z").    
-* Pode haver um atraso de 30-40 segundos após a criação de um Localizador para quando estiver disponível para utilização. Esta questão aplica-se tanto aos localizadores [DE URL e](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) Origem SAS.
+* Pode haver um atraso de 30-40 segundos após a criação de um Localizador para quando estiver disponível para utilização. Esta questão aplica-se tanto aos localizadores [DE URL e](../../storage/common/storage-sas-overview.md) Origem SAS.
 
 O exemplo a seguir mostra como criar um localizador DE URL SAS, tal como definido pela propriedade Tipo no corpo de pedido ("1" para um localizador SAS e "2" para um localizador de origem on-demand). A propriedade **Path** devolvida contém o URL que deve usar para fazer o upload do seu ficheiro.
 
@@ -348,7 +348,7 @@ Uma vez definido o conjunto AccessPolicy e Localizador, o ficheiro real é envia
 >
 >
 
-Para obter mais informações sobre o trabalho com as bolhas de armazenamento Azure, consulte [a Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
+Para obter mais informações sobre o trabalho com as bolhas de armazenamento Azure, consulte [a Blob Service REST API](/rest/api/storageservices/blob-service-rest-api).
 
 ### <a name="update-the-assetfile"></a>Atualizar o AssetFile
 Agora que fez o upload do seu ficheiro, atualize as informações do tamanho (e outras) do tamanho do FileAsset. Por exemplo:
@@ -429,7 +429,7 @@ HTTP/1.1 204 No Content
 
 ## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a><a id="encode"></a>Codificar o ficheiro de origem para um conjunto de ficheiros MP4 de velocidade de transmissão adaptável
 
-Depois de ingerir Ativos nos Serviços de Media, os meios de comunicação podem ser codificados, transmuxados, marcados a água, e assim por diante, antes de serem entregues aos clientes. Estas atividades são agendadas e executadas em várias instâncias de função de segundo plano para assegurar um elevado desempenho e disponibilidade. Estas atividades são chamadas jobs e cada Job é composto por Tarefas atómicas que fazem o trabalho real no ficheiro Ativo (para mais informações, ver [Job](https://docs.microsoft.com/rest/api/media/operations/job), Descrições [de tarefas).](https://docs.microsoft.com/rest/api/media/operations/task)
+Depois de ingerir Ativos nos Serviços de Media, os meios de comunicação podem ser codificados, transmuxados, marcados a água, e assim por diante, antes de serem entregues aos clientes. Estas atividades são agendadas e executadas em várias instâncias de função de segundo plano para assegurar um elevado desempenho e disponibilidade. Estas atividades são chamadas jobs e cada Job é composto por Tarefas atómicas que fazem o trabalho real no ficheiro Ativo (para mais informações, ver [Job](/rest/api/media/operations/job), Descrições [de tarefas).](/rest/api/media/operations/task)
 
 Como já foi mencionado anteriormente, ao trabalhar com a Azure Media Services um dos cenários mais comuns é entregar o streaming de bitrate adaptativo aos seus clientes. Os Serviços de Mídia podem embalar dinamicamente um conjunto de ficheiros MP4 de bitrate adaptativo num dos seguintes formatos: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
 
@@ -484,10 +484,10 @@ Date: Mon, 19 Jan 2015 07:54:09 GMT
 }
 ```
 
-### <a name="create-a-job"></a>Criar uma tarefa
+### <a name="create-a-job"></a>Criar um trabalho
 Cada Trabalho pode ter uma ou mais Tarefas dependendo do tipo de processamento que pretende realizar. Através da API REST, pode criar Jobs e as suas tarefas conexas de uma de duas formas: As tarefas podem ser definidas em linha através da propriedade de navegação tasks em entidades job, ou através do processamento de lotes OData. O Media Services SDK utiliza o processamento de lote. No entanto, para a legibilidade dos exemplos de código neste artigo, as tarefas são definidas em linha. Para obter informações sobre o processamento de lotes, consulte [o processo de processamento do lote do Protocolo de Dados Abertos (OData).](https://www.odata.org/documentation/odata-version-3-0/batch-processing/)
 
-O exemplo a seguir mostra-lhe como criar e publicar um Job com um conjunto de Tarefas para codificar um vídeo numa resolução e qualidade específicas. A seguinte secção de documentação contém a lista de todas as [predefinições de tarefa](https://msdn.microsoft.com/library/mt269960) suportadas pelo processador Media Encoder Standard.  
+O exemplo a seguir mostra-lhe como criar e publicar um Job com um conjunto de Tarefas para codificar um vídeo numa resolução e qualidade específicas. A seguinte secção de documentação contém a lista de todas as [predefinições de tarefa](/azure/media-services/previous/media-services-mes-presets-overview) suportadas pelo processador Media Encoder Standard.  
 
 **Pedido de HTTP**
 
@@ -768,7 +768,7 @@ Esta secção mostra como executar as seguintes tarefas necessárias para "publi
 * Criar um URL de origem para streaming de conteúdos
 
 ### <a name="creating-the-accesspolicy-with-read-permission"></a>Criar a AccessPolicy com permissão de leitura
-Antes de descarregar ou transmitir qualquer conteúdo de mídia, primeiro defina uma AccessPolicy com permissões de leitura e crie a entidade localizadora adequada que especifica o tipo de mecanismo de entrega que pretende ativar para os seus clientes. Para obter mais informações sobre os imóveis disponíveis, consulte [AccessPolicy Entity Properties.](https://docs.microsoft.com/rest/api/media/operations/accesspolicy#accesspolicy_properties)
+Antes de descarregar ou transmitir qualquer conteúdo de mídia, primeiro defina uma AccessPolicy com permissões de leitura e crie a entidade localizadora adequada que especifica o tipo de mecanismo de entrega que pretende ativar para os seus clientes. Para obter mais informações sobre os imóveis disponíveis, consulte [AccessPolicy Entity Properties.](/rest/api/media/operations/accesspolicy#accesspolicy_properties)
 
 O exemplo a seguir mostra como especificar a AccessPolicy para obter permissões de leitura para um determinado Ativo.
 
@@ -869,7 +869,7 @@ Assim que tiver o conjunto AccessPolicy e Localizador, pode descarregar ficheiro
 > [!NOTE]
 > Tem de adicionar o nome do ficheiro para o ficheiro que pretende transferir para o valor **do Caminho** do Localizador recebido na secção anterior. Por exemplo, `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4` ? . . .
 
-Para obter mais informações sobre o trabalho com as bolhas de armazenamento Azure, consulte [a Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
+Para obter mais informações sobre o trabalho com as bolhas de armazenamento Azure, consulte [a Blob Service REST API](/rest/api/storageservices/blob-service-rest-api).
 
 Como resultado do trabalho de codificação que realizou anteriormente (codificando no conjunto MP4 adaptativo), tem vários ficheiros MP4 que pode descarregar progressivamente. Por exemplo:    
 

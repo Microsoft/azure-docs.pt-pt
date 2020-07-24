@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 6240b0813132f4a14dbe94b870774ebe7a0663aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ac35fde59479ffc13c17f8e63d6fccf65c3be27
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83714581"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001711"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Chamar as funções do Azure a partir do Azure Logic Apps
 
@@ -256,7 +257,7 @@ Antes de iniciar esta tarefa, encontre e coloque estes valores de lado para post
 
 * O diretório para o seu inquilino em Azure Ative Directory (Azure AD)
 
-  Para obter a identificação do diretório do seu inquilino, pode dirigir o [`Get-AzureAccount`](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureaccount) comando de Powershell. Ou, no portal Azure, siga estes passos:
+  Para obter a identificação do diretório do seu inquilino, pode dirigir o [`Get-AzureAccount`](/powershell/module/servicemanagement/azure.service/get-azureaccount) comando de Powershell. Ou, no portal Azure, siga estes passos:
 
   1. No [portal Azure,](https://portal.azure.com)encontre e selecione a sua aplicação de função.
 
@@ -311,6 +312,6 @@ Agora está pronto para configurar a autenticação Azure AD para a sua aplicaç
 
 1. Volte ao Designer de Aplicações Lógica e siga os [passos para autenticar o acesso com a identidade gerida.](../logic-apps/create-managed-service-identity.md#authenticate-access-with-identity)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais [sobre os conectores de Aplicações Lógicas](../connectors/apis-list.md)

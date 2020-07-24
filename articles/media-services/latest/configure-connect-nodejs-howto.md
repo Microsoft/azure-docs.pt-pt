@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 0381a2e2b8fd2a8b60e7cb702e0336a5678df057
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ac82687cb28344f682c58a132f04d71184d5d74
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74896106"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001201"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Ligue-se aos Serviços de Mídia v3 API - Node.js
 
@@ -26,7 +27,7 @@ Este artigo mostra-lhe como ligar-se ao Azure Media Services v3 node.js SDK util
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Instale [Node.js](https://nodejs.org/en/download/).
-- [Criar uma conta de Serviços de Comunicação](create-account-cli-how-to.md)Social. Lembre-se do nome do grupo de recursos e do nome da conta dos Serviços de Comunicação Social.
+- [Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social. Lembre-se do nome do grupo de recursos e do nome da conta dos Serviços de Comunicação Social.
 
 > [!IMPORTANT]
 > Rever [convenções de nomeação](media-services-apis-overview.md#naming-conventions).
@@ -69,7 +70,7 @@ npm install azure-arm-mediaservices
 
 1. Crie um ficheiro .js utilizando o seu editor favorito.
 1. Abra o ficheiro e cole o seguinte código.
-1. Desafie os valores na secção "endpoint config" aos valores que obteve a partir de [APIs](access-api-cli-how-to.md)de acesso .
+1. Desafie os valores na secção "endpoint config" aos valores que obteve a partir de [APIs](./access-api-howto.md)de acesso .
 
 ```js
 'use strict';
@@ -122,12 +123,11 @@ npm install
 node index.js
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Conceitos de Serviços de Mídia](concepts-overview.md)
 - [NPM install azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/) (Instalação de azure-arm-mediaservices do NPM)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Explore a documentação [Node.js ref](/javascript/api/overview/azure/mediaservices/management) dos Serviços de Comunicação Social e confira [amostras](https://github.com/Azure-Samples/media-services-v3-node-tutorials) que mostram como utilizar a API dos Serviços de Comunicação social com node.js.
-

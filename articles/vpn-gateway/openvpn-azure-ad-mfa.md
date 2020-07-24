@@ -2,16 +2,17 @@
 title: 'Ativar MFA para utilizadores VPN: Autenticação Azure AD'
 description: Ativar a autenticação de vários fatores para utilizadores VPN
 services: vpn-gateway
-author: anzaman
+author: kumudD
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: alzam
-ms.openlocfilehash: 80a6b342990100b3e79cc8194722a6eb84080ef6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6d3ff32d2daaf35ff00bd0ee1d8f42669683827
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987290"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998600"
 ---
 # <a name="enable-azure-multi-factor-authentication-mfa-for-vpn-users"></a>Ativar a autenticação multi-factor (MFA) para utilizadores VPN
 
@@ -33,6 +34,6 @@ ms.locfileid: "84987290"
 
 [!INCLUDE [conditional access](../../includes/vpn-gateway-vwan-openvpn-conditional.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para se ligar à sua rede virtual, tem de criar e configurar um perfil de cliente VPN. Consulte [configurar um cliente VPN para ligações P2S VPN](openvpn-azure-ad-client.md).

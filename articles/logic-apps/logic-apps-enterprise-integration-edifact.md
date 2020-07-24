@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: c9d80ccac311b02d8734663d99a37804f8280771
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfe48a1348929bbe8d4af6793d94d52514df9d74
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82115538"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001541"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens EDIFACT para a integração empresarial B2B no Azure Logic Apps com o Enterprise Integration Pack
 
@@ -63,7 +63,7 @@ Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-
 
    | Propriedade | Descrição |
    | --- | --- |
-   | Name |Nome do acordo |
+   | Nome |Nome do acordo |
    | Tipo de Acordo | Deve ser EDIFACT |
    | Parceiro anfitrião |Um acordo precisa tanto de um anfitrião como de um parceiro convidado. O parceiro anfitrião representa a organização que configura o acordo. |
    | Identidade do anfitrião |Um identificador para o parceiro anfitrião |
@@ -251,7 +251,7 @@ Quando se completa cada linha de validação, outra é automaticamente adicionad
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter mais detalhes técnicos sobre este conector, tais como ações e limites descritos pelo ficheiro Swagger do conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/edifact/).
+Para obter mais detalhes técnicos sobre este conector, tais como ações e limites descritos pelo ficheiro Swagger do conector, consulte a [página de referência do conector](/connectors/edifact/).
 
 > [!NOTE]
 > Para aplicações lógicas num ambiente de serviço de [integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)esta versão com rótulo ISE deste conector utiliza os limites de [mensagem B2B para ISE](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits).

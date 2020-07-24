@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga;cenkdin
-ms.openlocfilehash: 0ddf15ffad086bab5ed6c4e2508cd0874f6ee567
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: d0a449a84bebcc0a296bde51234b0ceb128b2d23
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166183"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000130"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Atualizar Serviços de Multimédia após a implementação de chaves de acesso ao armazenamento 
 
 Quando cria uma nova conta Azure Media Services (AMS), é-lhe também pedido que selecione uma conta de Armazenamento Azure que seja utilizada para armazenar o seu conteúdo de mídia. Pode adicionar mais de uma conta de armazenamento à sua conta de Media Services. Este artigo mostra como rodar as chaves de armazenamento. Também mostra como adicionar contas de armazenamento a uma conta de media. 
 
-Para executar as ações descritas neste artigo, deverá utilizar APIs e [Powershell](https://docs.microsoft.com/powershell/module/az.media) [do Gestor de Recursos Azure.](/rest/api/media/operations/azure-media-services-rest-api-reference)  Para mais informações, consulte [Como gerir os recursos da Azure com o PowerShell e o Resource Manager.](../../azure-resource-manager/management/manage-resource-groups-powershell.md)
+Para executar as ações descritas neste artigo, deverá utilizar APIs e [Powershell](/powershell/module/az.media) [do Gestor de Recursos Azure.](/rest/api/media/operations/azure-media-services-rest-api-reference)  Para mais informações, consulte [Como gerir os recursos da Azure com o PowerShell e o Resource Manager.](../../azure-resource-manager/management/manage-resource-groups-powershell.md)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -72,7 +72,7 @@ Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountNam
  
 ## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>Etapas para adicionar contas de armazenamento à sua conta AMS
 
-O seguinte artigo mostra como adicionar contas de armazenamento à sua conta AMS: [Anexar várias contas de armazenamento a uma conta de Serviços de Mídia](meda-services-managing-multiple-storage-accounts.md).
+O seguinte artigo mostra como adicionar contas de armazenamento à sua conta AMS: [Anexar várias contas de armazenamento a uma conta de Serviços de Mídia](./media-services-managing-multiple-storage-accounts.md).
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

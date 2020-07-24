@@ -7,18 +7,18 @@ ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2d9f7eccae6b87923b52119ded90ced5e4206d7b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe2bbc1d6f42819354f48812a34371a49e5acbac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510391"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999637"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Ativar a autenticação dos Serviços de Domínio do Diretório Ativo do Azure em Ficheiros Azure
 
-[!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
+Ficheiros Azure [Azure Files](storage-files-introduction.md)   suporta a autenticação baseada na identidade sobre o Bloco de Mensagens do Servidor (SMB) através de dois tipos de Serviços de Domínio: no local Serviços de Domínio de Diretório Ativo (AD DS) e Azure Ative Directory Domain Services (Azure AD DS). Recomendamos vivamente que reveja a [secção Como funciona](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview#how-it-works) para selecionar o serviço de domínio certo para a authentcation. A configuração é diferente depende do serviço de domínio que escolher. Estes artigos focam-se em ativar e configurar Azure AD DS para autenticação com ações de ficheiros Azure.
 
-Para obter uma visão geral da autenticação AZure AD sobre ações de ficheiros Azure, consulte [a visão geral da autenticação do Azure Ative Directory sobre a SMB para ficheiros Azure](storage-files-active-directory-overview.md). Este artigo está focado em como permitir a autenticação com a Azure Ative Directory Domain Services (Azure AD DS) em Ficheiros Azure.
+Se é novo nas ações de ficheiros Azure, recomendamos que leia o nosso [guia de planeamento](storage-files-planning.md) antes de ler a seguinte série de artigos.
 
 > [!NOTE]
 > A Azure Files suporta a autenticação Kerberos com Azure AD DS com encriptação RC4-HMAC. A encriptação AES Kerberos ainda não está suportada.
@@ -142,7 +142,7 @@ az storage account update -n <storage-account-name> -g <resource-group-name> --e
 
 Você agora ativou com sucesso a autenticação Azure AD DS sobre SMB e atribuiu uma função personalizada que fornece acesso a uma partilha de ficheiros Azure com uma identidade AD Azure. Para conceder aos utilizadores acesso adicionais à sua partilha de ficheiros, siga as instruções nas [permissões de acesso atribuir](#2-assign-access-permissions-to-an-identity) para utilizar uma identidade e [configurar permissões NTFS através das secções SMB](#3-configure-ntfs-permissions-over-smb).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre os Ficheiros Azure e como utilizar o Azure AD em SMB, consulte estes recursos:
 

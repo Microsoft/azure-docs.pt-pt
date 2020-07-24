@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 6e156af2d4805ba310443a2acf6cc47d06a735eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f919a4af85a15bbe80d7176c316100c3bad634a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84762331"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998923"
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Mover uma VM do Windows para outra subscrição ou grupo de recursos do Azure
 Este artigo explica-lhe como mover uma máquina virtual Do Windows (VM) entre grupos de recursos ou subscrições. Mover-se entre subscrições pode ser útil se originalmente criou um VM numa subscrição pessoal e agora quer movê-lo para a subscrição da sua empresa para continuar o seu trabalho. Não é necessário parar o VM para movê-lo e deve continuar a funcionar durante a mudança.
@@ -26,13 +26,13 @@ Este artigo explica-lhe como mover uma máquina virtual Do Windows (VM) entre gr
 
 ## <a name="use-powershell-to-move-a-vm"></a>Use Powershell para mover um VM
 
-Para mover uma máquina virtual para outro grupo de recursos, você precisa ter certeza de que você também move todos os recursos dependentes. Para obter uma lista com o ID de recursos de cada um destes recursos, use o [cmdlet Get-AzResource.](https://docs.microsoft.com/powershell/module/az.resources/get-azresource)
+Para mover uma máquina virtual para outro grupo de recursos, você precisa ter certeza de que você também move todos os recursos dependentes. Para obter uma lista com o ID de recursos de cada um destes recursos, use o [cmdlet Get-AzResource.](/powershell/module/az.resources/get-azresource)
 
 ```azurepowershell-interactive
  Get-AzResource -ResourceGroupName myResourceGroup | Format-table -wrap -Property ResourceId
 ```
 
-Pode utilizar a saída do comando anterior para criar uma lista separada por vírgula de IDs de recursos para [Move-AzResource](https://docs.microsoft.com/powershell/module/az.resources/move-azresource) para mover cada recurso para o destino.
+Pode utilizar a saída do comando anterior para criar uma lista separada por vírgula de IDs de recursos para [Move-AzResource](/powershell/module/az.resources/move-azresource) para mover cada recurso para o destino.
 
 ```azurepowershell-interactive
 Move-AzResource -DestinationResourceGroupName "myDestinationResourceGroup" `
@@ -50,5 +50,5 @@ Move-AzResource -DestinationSubscriptionId "<myDestinationSubscriptionID>" `
 
 Quando lhe for pedido que confirme que pretende mover os recursos especificados, insira **Y** para confirmar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Você pode mover vários tipos diferentes de recursos entre grupos de recursos e subscrições. Para obter mais informações, consulte [mover recursos para um novo grupo de recursos ou subscrição.](../../azure-resource-manager/management/move-resource-group-and-subscription.md)    

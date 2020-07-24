@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
-ms.openlocfilehash: 5e59872a4da0136232652008a2980601428eeab6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60f5813cf5ff0d52b57f7a4b55d86195051f217f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82796788"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999076"
 ---
 # <a name="create-a-vm-from-a-generalized-image-version-using-the-cli"></a>Criar um VM a partir de uma versão de imagem generalizada usando o CLI
 
-Crie um VM a partir de uma [versão de imagem generalizada](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) armazenada numa Galeria de Imagens Partilhadas. Se pretender criar um VM utilizando uma imagem especializada, consulte [Criar um VM a partir de uma imagem especializada.](vm-specialized-image-version-powershell.md) 
+Crie um VM a partir de uma [versão de imagem generalizada](./linux/shared-image-galleries.md#generalized-and-specialized-images) armazenada numa Galeria de Imagens Partilhadas. Se pretender criar um VM utilizando uma imagem especializada, consulte [Criar um VM a partir de uma imagem especializada.](vm-specialized-image-version-powershell.md) 
 
 
 ## <a name="get-the-image-id"></a>Obtenha a imagem ID
@@ -30,7 +30,7 @@ gallery=myGallery
 az sig image-definition list --resource-group $resourceGroup --gallery-name $gallery --query "[].[name, id]" --output tsv
 ```
 
-## <a name="create-the-vm"></a>Crie a VM
+## <a name="create-the-vm"></a>Criar a VM
 
 Crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). Para utilizar a versão mais recente da imagem, `--image` desafine-se no ID da definição de imagem. 
 

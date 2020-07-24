@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 05/29/2019
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: dcf86deda32069bf9711dbeb733dc9361e22a771
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d19cc4a474324ff3e88ec0c5353a47c157ec715
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80631776"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998481"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>How to validate VPN throughput to a virtual network (Como validar o débito da VPN para uma rede virtual)
 
@@ -26,7 +26,7 @@ Este artigo mostra como validar a produção da rede dos recursos no local para 
 > [!NOTE]
 > Este artigo destina-se a ajudar a diagnosticar e corrigir questões comuns. Se não conseguir resolver o problema utilizando as seguintes informações, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 A ligação de gateway VPN envolve os seguintes componentes:
 
@@ -43,11 +43,11 @@ O diagrama seguinte mostra a conectividade lógica de uma rede no local para uma
 
 1. Determine os requisitos de produção de base da sua aplicação.
 1. Determine os limites de entrada Azure VPN. Para obter ajuda, consulte a secção "Gateway SKUs" de [About VPN Gateway](vpn-gateway-about-vpngateways.md#gwsku).
-1. Determine a orientação de [produção de VM Azure](../virtual-machines/virtual-machines-windows-sizes.md) para o seu tamanho VM.
+1. Determine a orientação de [produção de VM Azure](../virtual-machines/sizes.md) para o seu tamanho VM.
 1. Determine a largura de banda do seu Fornecedor de Serviços de Internet (ISP).
 1. Calcular a sua produção esperada tomando a menor largura de banda do VM, VPN Gateway ou ISP; que é medido em Megabits-por-segundo (/) dividido por oito (8).
 
-Se a sua produção calculada não corresponder aos requisitos de produção de base da sua aplicação, deve aumentar a largura de banda do recurso que identificou como estrangulamento. Para redimensionar um Gateway Azure VPN, consulte [alterar um gateway SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku). Para redimensionar uma máquina virtual, consulte [Redimensionar um VM](../virtual-machines/virtual-machines-windows-resize-vm.md). Se não estiver a experimentar a largura de banda da Internet esperada, também poderá contactar o seu ISP.
+Se a sua produção calculada não corresponder aos requisitos de produção de base da sua aplicação, deve aumentar a largura de banda do recurso que identificou como estrangulamento. Para redimensionar um Gateway Azure VPN, consulte [alterar um gateway SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku). Para redimensionar uma máquina virtual, consulte [Redimensionar um VM](../virtual-machines/windows/resize-vm.md). Se não estiver a experimentar a largura de banda da Internet esperada, também poderá contactar o seu ISP.
 
 > [!NOTE]
 > O produção do Gateway VPN é um agregado de todas as ligações Site-to-Site\VNET-to-VNET ou ponto-a-local.

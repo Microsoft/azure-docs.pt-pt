@@ -6,11 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 97f354d0a313d58c671366dd0e5f485504823e13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c5941ec88cd793961ad66245d0dc0b5e0d7772f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76288936"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998940"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>Mover o computador principal para Azure
 
@@ -93,13 +94,13 @@ A abordagem é migrar LPARs para VMs individuais. Em seguida, o Azure facilmente
 
 Uma das vantagens de uma solução baseada no Azure é a capacidade de escalar. O dimensionamento disponibiliza capacidade de computação quase ilimitada a uma aplicação. O Azure suporta vários métodos para reduzir a potência de computação:
 
-- **Carga equilibrando-se através de um aglomerado.** Neste cenário, uma aplicação pode usar um [equilibrador](/azure/load-balancer/load-balancer-overview) de carga ou gestor de recursos para espalhar a carga de trabalho entre vários VMs num cluster. Se for necessária mais capacidade de cálculo, adicionam-se VM adicionais ao cluster.
+- **Carga equilibrando-se através de um aglomerado.** Neste cenário, uma aplicação pode usar um [equilibrador](../../../../load-balancer/load-balancer-overview.md) de carga ou gestor de recursos para espalhar a carga de trabalho entre vários VMs num cluster. Se for necessária mais capacidade de cálculo, adicionam-se VM adicionais ao cluster.
 
-- **Conjuntos de escala de máquina virtual.** Neste cenário de explosão, uma aplicação pode escalar para recursos adicionais [de computação](/azure/virtual-machine-scale-sets/overview) com base no uso de VM. Quando a procura diminui, o número de VMs num conjunto de escala também pode diminuir, garantindo uma utilização eficiente da potência de computação.
+- **Conjuntos de escala de máquina virtual.** Neste cenário de explosão, uma aplicação pode escalar para recursos adicionais [de computação](../../../../virtual-machine-scale-sets/overview.md) com base no uso de VM. Quando a procura diminui, o número de VMs num conjunto de escala também pode diminuir, garantindo uma utilização eficiente da potência de computação.
 
-- **Escala paaS.** Azure PaaS oferece recursos de computação em escala. Por exemplo, [a Azure Service Fabric](/azure/service-fabric/service-fabric-overview) aloca recursos de computação para responder a aumentos no volume de pedidos.
+- **Escala paaS.** Azure PaaS oferece recursos de computação em escala. Por exemplo, [a Azure Service Fabric](../../../../service-fabric/service-fabric-overview.md) aloca recursos de computação para responder a aumentos no volume de pedidos.
 
-- **Aglomerados de Kubernetes.** As aplicações no Azure podem utilizar [clusters Kubernetes](/azure/aks/concepts-clusters-workloads) para serviços de computação para recursos especificados. Azure Kubernetes Service (AKS) é um serviço gerido que orquestra nós, piscinas e clusters de Kubernetes em Azure.
+- **Aglomerados de Kubernetes.** As aplicações no Azure podem utilizar [clusters Kubernetes](../../../../aks/concepts-clusters-workloads.md) para serviços de computação para recursos especificados. Azure Kubernetes Service (AKS) é um serviço gerido que orquestra nós, piscinas e clusters de Kubernetes em Azure.
 
 Para escolher o método certo para escalonar os recursos computacional, é importante entender como o Azure e os mainframes diferem. A chave é como - ou se - os dados são partilhados por recursos compute. Em Azure, os dados (por padrão) não são normalmente partilhados por vários VMs. Se a partilha de dados for exigida por vários VMs num cluster de computação em escala, os dados partilhados devem residir num recurso que suporte esta funcionalidade. No Azure, a partilha de dados envolve armazenamento à medida que a secção seguinte discute.
 
@@ -111,10 +112,10 @@ Cada nível também pode fornecer serviços adequados de recuperação de desast
 
 ![Implantação altamente disponível que suporta a recuperação de desastres](media/mainframe-compute-dr.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Migração de mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Rehosagem de mainframe em Máquinas Virtuais Azure](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
+- [Rehosagem de mainframe em Máquinas Virtuais Azure](../overview.md)
 - [Mover o armazenamento do computador principal para Azure](mainframe-storage-Azure.md)
 
 ### <a name="ibm-resources"></a>Recursos IBM

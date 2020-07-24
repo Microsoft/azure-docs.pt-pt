@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 05/09/2020
-ms.openlocfilehash: 81c1c95e2af7b537a12c8c86245b009005aa0aa2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aebce8f284ed4bb21d99efffc8dd6d0c51b39533
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83005290"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001490"
 ---
 # <a name="encode-and-decode-flat-files-in-azure-logic-apps-by-using-the-enterprise-integration-pack"></a>Codificar e descodificar ficheiros simples no Azure Logic Apps através do Enterprise Integration Pack
 
@@ -24,7 +25,7 @@ Antes de enviar conteúdo XML a um parceiro de negócios num cenário de negóci
 
 * A aplicação lógica onde pretende utilizar o conector **De Ficheiro Plano** e um gatilho que inicia o fluxo de trabalho da sua aplicação lógica. O conector **De Ficheiro Plano** fornece apenas ações, não gatilhos. Pode utilizar o gatilho ou outra ação para alimentar o conteúdo XML na sua aplicação lógica para codificar ou descodimentar. Se é novo em aplicações lógicas, reveja [Quickstart: Crie a sua primeira aplicação lógica.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Uma conta de [integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) associada à sua subscrição Azure e [ligada à aplicação lógica](logic-apps-enterprise-integration-accounts.md#link-account) onde planeia utilizar o conector De Ficheiro **Plano.** Tanto a sua aplicação lógica como a sua conta de integração devem existir no mesmo local ou na região de Azure.
+* Uma conta de [integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) associada à sua subscrição Azure e [ligada à aplicação lógica](./logic-apps-enterprise-integration-create-integration-account.md#link-account) onde planeia utilizar o conector De Ficheiro **Plano.** Tanto a sua aplicação lógica como a sua conta de integração devem existir no mesmo local ou na região de Azure.
 
 * Um [esquema de](logic-apps-enterprise-integration-schemas.md) ficheiro plano que carregou na sua conta de integração para codificar ou descodibilar o conteúdo do XML
 
@@ -58,7 +59,7 @@ Antes de enviar conteúdo XML a um parceiro de negócios num cenário de negóci
    > [!NOTE]
    > Se não aparecer nenhum esquema na lista, a sua conta de integração não contém nenhum ficheiro de esquema para usar para codificação. Faça o upload do esquema que pretende utilizar na sua conta de integração.
 
-1. Guarde a aplicação lógica. Para testar o seu conector, faça um pedido ao ponto final HTTPS, que aparece na propriedade **HTTP POST URL** do pedido, e inclua o conteúdo XML que pretende codificar no organismo de pedido.
+1. Guarde a sua aplicação lógica. Para testar o seu conector, faça um pedido ao ponto final HTTPS, que aparece na propriedade **HTTP POST URL** do pedido, e inclua o conteúdo XML que pretende codificar no organismo de pedido.
 
 Já acabou de configurar a sua ação de codificação de ficheiros planos. Numa aplicação do mundo real, é possível que queira armazenar os dados codificados numa aplicação de linha de negócios (LOB), como a Salesforce. Ou pode enviar os dados codificados para um parceiro comercial. Para enviar a saída da ação de codificação para a Salesforce ou para o seu parceiro comercial, utilize os [outros conectores disponíveis nas Azure Logic Apps](../connectors/apis-list.md).
 
@@ -89,10 +90,10 @@ Já acabou de configurar a sua ação de codificação de ficheiros planos. Numa
    > [!NOTE]
    > Se não aparecer nenhum esquema na lista, a sua conta de integração não contém nenhum ficheiro de esquema para descodição. Faça o upload do esquema que pretende utilizar na sua conta de integração.
 
-1. Guarde a aplicação lógica. Para testar o seu conector, faça um pedido ao ponto final HTTPS, que aparece na propriedade **HTTP POST URL** do pedido, e inclua o conteúdo XML que pretende descodificar no organismo de pedido.
+1. Guarde a sua aplicação lógica. Para testar o seu conector, faça um pedido ao ponto final HTTPS, que aparece na propriedade **HTTP POST URL** do pedido, e inclua o conteúdo XML que pretende descodificar no organismo de pedido.
 
 Já acabou de configurar a sua ação de descodição de ficheiros planos. Numa aplicação do mundo real, é possível que queira armazenar os dados descodificados numa aplicação de linha de negócios (LOB), como a Salesforce. Ou pode enviar os dados descodificados a um parceiro comercial. Para enviar a saída da ação de descodição para a Salesforce ou para o seu parceiro comercial, utilize os [outros conectores disponíveis nas Azure Logic Apps](../connectors/apis-list.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre o [Pacote de Integração Empresarial](logic-apps-enterprise-integration-overview.md)

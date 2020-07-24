@@ -7,12 +7,12 @@ ms.subservice: monitoring
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
-ms.openlocfilehash: 3f3bf83d8155383757cc87749281c688bd281a4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0806c6e0ed89c2c0f4712ec985599810119fcf89
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82099602"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999025"
 ---
 # <a name="monitoring-scheduled-events"></a>Monitorização de Eventos Agendados
 
@@ -25,7 +25,7 @@ Neste artigo, mostraremos como você pode usar eventos programados para ser noti
 
 Eventos Agendados estão disponíveis como parte do Serviço de [Metadados Azure Instance,](instance-metadata-service.md)que está disponível em todas as máquinas virtuais Azure. Os clientes podem escrever automatização para consultar o ponto final das suas máquinas virtuais para encontrar notificações de manutenção programadas e realizar mitigações, como salvar o estado e tirar a máquina virtual da rotação. Recomendamos a automatização de edifícios para registar os Eventos Agendados para que possa ter um registo de auditoria de eventos de manutenção da Azure. 
 
-Neste artigo, vamos acompanhá-lo como capturar eventos programados de manutenção para registar analítica. Em seguida, vamos desencadear algumas ações básicas de notificação, como o envio de um e-mail para a sua equipa e obter uma visão histórica de todos os eventos que afetaram as suas máquinas virtuais. Para a agregação e automatização do evento utilizaremos [o Log Analytics,](/azure/azure-monitor/learn/quick-create-workspace)mas pode utilizar qualquer solução de monitorização para recolher estes registos e desencadear a automatização.
+Neste artigo, vamos acompanhá-lo como capturar eventos programados de manutenção para registar analítica. Em seguida, vamos desencadear algumas ações básicas de notificação, como o envio de um e-mail para a sua equipa e obter uma visão histórica de todos os eventos que afetaram as suas máquinas virtuais. Para a agregação e automatização do evento utilizaremos [o Log Analytics,](../../azure-monitor/learn/quick-create-workspace.md)mas pode utilizar qualquer solução de monitorização para recolher estes registos e desencadear a automatização.
 
 ![Diagrama mostrando o ciclo de vida do evento](./media/notifications/events.png)
 
@@ -35,7 +35,7 @@ Para este exemplo, terá de criar uma [máquina virtual do Windows num Conjunto 
 
 Não apague o grupo de recursos no final do tutorial.
 
-Também terá de [criar um espaço de trabalho Log Analytics](/azure/azure-monitor/learn/quick-create-workspace) que iremos utilizar para agregar informações dos VMs no conjunto de disponibilidade.
+Também terá de [criar um espaço de trabalho Log Analytics](../../azure-monitor/learn/quick-create-workspace.md) que iremos utilizar para agregar informações dos VMs no conjunto de disponibilidade.
 
 ## <a name="set-up-the-environment"></a>Configurar o ambiente
 
@@ -112,7 +112,7 @@ Queremos agora ligar um espaço de trabalho log analytics ao VM colecionador. O 
 1. Procure e selecione **myCollectorVM**. 
 1. Na nova página para **o myCollectorVM,** selecione **Connect**.
 
-Isto instalará o [agente microsoft monitor na](/azure/virtual-machines/extensions/oms-windows) sua máquina virtual. Levará alguns minutos para ligar o seu VM ao espaço de trabalho e instalar a extensão. 
+Isto instalará o [agente microsoft monitor na](../extensions/oms-windows.md) sua máquina virtual. Levará alguns minutos para ligar o seu VM ao espaço de trabalho e instalar a extensão. 
 
 ## <a name="configure-the-workspace"></a>Configure o espaço de trabalho
 
@@ -132,7 +132,7 @@ Isto instalará o [agente microsoft monitor na](/azure/virtual-machines/extensio
 ## <a name="creating-an-alert-rule-with-azure-monitor"></a>Criar uma regra de alerta com o Azure Monitor 
 
 
-Uma vez que os eventos são empurrados para Log Analytics, você pode executar a seguinte [consulta](/azure/azure-monitor/log-query/get-started-portal) para procurar o horário Eventos.
+Uma vez que os eventos são empurrados para Log Analytics, você pode executar a seguinte [consulta](../../azure-monitor/log-query/get-started-portal.md) para procurar o horário Eventos.
 
 1. No topo da página, selecione **Logs** e cole o seguinte na caixa de texto:
 

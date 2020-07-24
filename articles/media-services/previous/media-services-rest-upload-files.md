@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: fa7dca62ed51c52b704c199ca04eadb6306be4df
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c3d776362b0447b148c0b2bdedba1287fa56058b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170790"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000198"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carregar ficheiros para uma conta dos Serviços de Multimédia com REST  
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "86170790"
 > * [Portal](media-services-portal-upload-files.md)
 > 
 
-Nos Serviços de Multimédia, os ficheiros digitais são carregados para um elemento. A entidade [Do Ativo](https://docs.microsoft.com/rest/api/media/operations/asset) pode conter vídeo, áudio, imagens, recolhas de miniaturas, faixas de texto e ficheiros de legendas fechados (e os metadados sobre estes ficheiros.)  Uma vez que os ficheiros são enviados para o ativo, o seu conteúdo é armazenado de forma segura na nuvem para posterior processamento e streaming. 
+Nos Serviços de Multimédia, os ficheiros digitais são carregados para um elemento. A entidade [Do Ativo](/rest/api/media/operations/asset) pode conter vídeo, áudio, imagens, recolhas de miniaturas, faixas de texto e ficheiros de legendas fechados (e os metadados sobre estes ficheiros.)  Uma vez que os ficheiros são enviados para o ativo, o seu conteúdo é armazenado de forma segura na nuvem para posterior processamento e streaming. 
 
 Neste tutorial, aprende-se a fazer o upload de um ficheiro e de outras operações associadas:
 
@@ -45,7 +45,7 @@ Neste tutorial, aprende-se a fazer o upload de um ficheiro e de outras operaçõ
 - Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 - [Criar uma conta Azure Media Services utilizando o portal Azure](media-services-portal-create-account.md).
 - Reveja a API dos Serviços de Media de Acesso com o artigo [Visão Geral de autenticação da AAD.](media-services-use-aad-auth-to-access-ams-api.md)
-- Para mais informações Reveja a [autenticação Ad Use Azure para aceder à API dos Serviços de Mídia com](https://docs.microsoft.com/azure/media-services/previous/media-services-rest-connect-with-aad) artigo REST.
+- Para mais informações Reveja a [autenticação Ad Use Azure para aceder à API dos Serviços de Mídia com](./media-services-rest-connect-with-aad.md) artigo REST.
 - Configure **o Carteiro,** conforme descrito no [Configure Postman for Media Services REST API calls](media-rest-apis-with-postman.md).
 
 ## <a name="considerations"></a>Considerações
@@ -106,7 +106,7 @@ Para obter etapas sobre como configurar o Carteiro para este tutorial, consulte 
 >[!NOTE]
 >Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). Para mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
 
-Antes de enviar quaisquer ficheiros para o armazenamento de bolhas, descreva os direitos de política de acesso para escrever a um ativo. Para isso, publique um pedido HTTP à entidade AccessPolicies. Defina um valor DurationInMinutes após a criação ou receberá uma mensagem de erro do Servidor Interno de 500 em resposta. Para mais informações sobre AccessPolicies, consulte [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
+Antes de enviar quaisquer ficheiros para o armazenamento de bolhas, descreva os direitos de política de acesso para escrever a um ativo. Para isso, publique um pedido HTTP à entidade AccessPolicies. Defina um valor DurationInMinutes após a criação ou receberá uma mensagem de erro do Servidor Interno de 500 em resposta. Para mais informações sobre AccessPolicies, consulte [AccessPolicy](/rest/api/media/operations/accesspolicy).
 
 ### <a name="create-an-access-policy"></a>Criar uma política de acesso
 
@@ -121,7 +121,7 @@ Antes de enviar quaisquer ficheiros para o armazenamento de bolhas, descreva os 
 
 ### <a name="overview"></a>Descrição geral
 
-Um [ativo](https://docs.microsoft.com/rest/api/media/operations/asset) é um recipiente para vários tipos ou conjuntos de objetos em Serviços de Mídia, incluindo vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e ficheiros de legendas fechados. Na API REST, a criação de um Ativo requer o envio de um pedido de CORREIO aos Serviços de Comunicação Social e a colocação de qualquer informação de propriedade sobre o seu ativo no organismo de pedido.
+Um [ativo](/rest/api/media/operations/asset) é um recipiente para vários tipos ou conjuntos de objetos em Serviços de Mídia, incluindo vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e ficheiros de legendas fechados. Na API REST, a criação de um Ativo requer o envio de um pedido de CORREIO aos Serviços de Comunicação Social e a colocação de qualquer informação de propriedade sobre o seu ativo no organismo de pedido.
 
 Uma das propriedades que pode adicionar ao criar um ativo são **opções.** Pode especificar uma das seguintes opções de encriptação: **Nenhuma** (padrão, nenhuma encriptação é utilizada), **StorageEncrypted** (para conteúdos pré-encriptados com encriptação de armazenamento do lado do cliente), **CommonEncrypationProtegado,** ou **EnvelopeEncrypationProtetado**. Quando se tem um ativo encriptado, é necessário configurar uma política de entrega. Para obter mais informações, consulte [as políticas de entrega de ativos configuradas.](media-services-rest-configure-asset-delivery-policy.md)
 
@@ -144,9 +144,9 @@ Neste exemplo, estamos a criar um ativo não encriptado.
 
 Uma vez definido o conjunto AccessPolicy e Localizador, o ficheiro real é enviado para um recipiente de armazenamento Azure Blob usando as APIs de ARMAZENAMENTO Azure Storage REST. Tens de carregar os ficheiros como blocos. As bolhas de página não são suportadas pela Azure Media Services.  
 
-Para obter mais informações sobre o trabalho com as bolhas de armazenamento Azure, consulte [a Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
+Para obter mais informações sobre o trabalho com as bolhas de armazenamento Azure, consulte [a Blob Service REST API](/rest/api/storageservices/blob-service-rest-api).
 
-Para receber o URL de upload real, crie um localizador SAS (mostrado abaixo). Os localizadores definem a hora de início e o tipo de ponto final de ligação para os clientes que pretendem aceder aos Ficheiros num Ativo. Pode criar várias entidades de Localizador para um dado par accessPolicy e Ativo para lidar com diferentes pedidos e necessidades do cliente. Cada um destes Localizadores utiliza o valor StartTime mais o valor DurationInMinutes da AccessPolicy para determinar o tempo de utilização de um URL. Para mais informações, consulte [o Localizador.](https://docs.microsoft.com/rest/api/media/operations/locator)
+Para receber o URL de upload real, crie um localizador SAS (mostrado abaixo). Os localizadores definem a hora de início e o tipo de ponto final de ligação para os clientes que pretendem aceder aos Ficheiros num Ativo. Pode criar várias entidades de Localizador para um dado par accessPolicy e Ativo para lidar com diferentes pedidos e necessidades do cliente. Cada um destes Localizadores utiliza o valor StartTime mais o valor DurationInMinutes da AccessPolicy para determinar o tempo de utilização de um URL. Para mais informações, consulte [o Localizador.](/rest/api/media/operations/locator)
 
 Um URL SAS tem o seguinte formato:
 
@@ -173,11 +173,11 @@ São aplicáveis algumas considerações:
 
 ### <a name="overview"></a>Descrição geral
 
-Agora que tem o URL de upload, precisa de escrever algum código utilizando as APIs Azure Blob diretamente para fazer o upload do seu ficheiro para o contentor SAS. Para obter mais informações, veja os artigos seguintes:
+Agora que tem o URL de upload, precisa de escrever algum código utilizando as APIs Azure Blob diretamente para fazer o upload do seu ficheiro para o contentor SAS. Para obter mais informações, veja os seguintes artigos:
 
-- [Utilizar a API REST do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-rest-api-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-- [PUT Blob](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-- [Carregar bolhas para o armazenamento blob](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#upload-blobs-to-blob-storage)
+- [Utilizar a API REST do Armazenamento do Azure](../../storage/common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [PUT Blob](/rest/api/storageservices/put-blob)
+- [Carregar bolhas para o armazenamento blob](/previous-versions/azure/storage/storage-use-azcopy#upload-blobs-to-blob-storage)
 
 ### <a name="upload-a-file-with-postman"></a>Faça upload de um ficheiro com o Carteiro
 
@@ -209,7 +209,7 @@ O ficheiro deve ser carregado e o conjunto de metadados.
 
 ## <a name="validate"></a>Validação
 
-Para validar que o ficheiro foi carregado com sucesso, é melhor consultar o [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) e comparar o **ContentFileSize** (ou outros detalhes) com o que espera ver no novo ativo. 
+Para validar que o ficheiro foi carregado com sucesso, é melhor consultar o [AssetFile](/rest/api/media/operations/assetfile) e comparar o **ContentFileSize** (ou outros detalhes) com o que espera ver no novo ativo. 
 
 Por exemplo, a seguinte operação **GET** traz dados de ficheiro para o seu ficheiro de ativos (em caso ou caso, o ficheiro BigBuckBunny.mp4). A consulta está a usar as [variáveis ambientais](postman-environment.md) que definiu anteriormente.
 
@@ -229,4 +229,3 @@ A resposta conterá tamanho, nome e outras informações.
 Agora, pode codificar os elementos que carregar. Para obter mais informações, veja [Codificar elementos](media-services-portal-encode.md)
 
 Também pode utilizar as Funções do Azure para acionar uma tarefa de codificação num ficheiro que esteja a chegar ao contentor configurado. Para obter mais informações, veja [este exemplo](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ).
-

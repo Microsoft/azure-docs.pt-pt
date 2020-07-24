@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 621d657f527e5307ed3a0b583e4c9171005d4f8c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2c6c6b3fb4f863840b39de6f56fe473be693fe87
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121857"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001439"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Criar uma oferta do Dynamics 365 for Operations
 
@@ -128,7 +128,7 @@ Aqui está um exemplo de como a informação da oferta aparece no Microsoft AppS
 1. Logótipo
 2. Produtos
 3. Categorias
-4. Setores
+4. Indústrias
 5. Endereço de suporte (link)
 6. Termos de utilização
 7. Política de privacidade
@@ -136,7 +136,7 @@ Aqui está um exemplo de como a informação da oferta aparece no Microsoft AppS
 9. Screenshots/vídeos
 10. Descrição
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 
 O nome que introduzir aqui será mostrado aos clientes como o título da sua listagem de oferta. Este campo é pré-povoado com o texto que inseriu para **o pseudónimo Oferta** quando criou a oferta, mas pode alterar este valor. Este nome pode ser comercializado (e pode incluir símbolos de marca registada ou de direitos autorais). O nome não pode ter mais de 50 caracteres e não pode incluir emojis.
 
@@ -295,7 +295,7 @@ Se é a sua primeira vez publicando esta oferta, você pode:
     - **Não foi iniciado** – A secção não foi tocada e deve ser concluída.
     - **Incompleto** – A secção tem erros que precisam de ser corrigidos ou exigem mais informações a serem fornecidas. Volte para a secção(s) e atualize-a.
     - **Completo** – A secção está completa, todos os dados necessários foram fornecidos e não há erros. Todas as secções da oferta devem estar em estado completo antes de poder submeter a oferta.
-- Na secção **Notas para certificação,** forneça instruções de teste à equipa de certificação para garantir que a sua aplicação seja testada corretamente, além de quaisquer notas suplementares úteis para a compreensão da sua aplicação.
+- Na secção **Notas para certificação,** forneça instruções de teste à equipa de certificação para garantir que a sua aplicação seja testada corretamente, além de quaisquer notas suplementares úteis para a compreensão da sua aplicação. Para obter mais informações sobre instruções de teste e completar uma primeira publicação, consulte [a validação funcional de Finanças e Operações da AppSource Dynamics 365](https://docs.microsoft.com/azure/marketplace/dynamics-365-finance-operations-functional-validation).
 - Submeta a oferta de publicação selecionando Enviar por ela que **não se possa fazer uma publicação.** Enviaremos um e-mail para informá-lo quando uma versão de pré-visualização da oferta estiver disponível para que você reveja e aprove. Volte ao Partner Center e selecione **Go-live** para a oferta de publicar a sua oferta ao público.
 
 ## <a name="next-step"></a>Passo seguinte

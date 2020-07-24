@@ -12,11 +12,12 @@ ms.topic: article
 ms.date: 5/28/2020
 ms.author: inhenkel
 ms.custom: references_regions
-ms.openlocfilehash: cefd366e29fe1c6f68ec38816247f78bb53cd6e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ecc8cad4480528477f6bb470c7bc32ee2a20e11
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84196245"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001354"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Nuvens e regiões em que existem serviços de mídia azul v3
 
@@ -37,13 +38,13 @@ A Azure Media Services v3 está disponível através do manifesto Azure Resource
 
 [LiveTranscription](live-transcription.md) está disponível nas seguintes regiões:
 
-- Ásia Sudeste
+- Sudeste Asiático
 - Europa Ocidental
 - Europa do Norte
 - E.U.A. Leste
 - E.U.A. Central
 - E.U.A. Centro-Sul
-- E.U.A.Oeste 2
+- E.U.A. Oeste 2
 - Sul do Brasil
 
 ## <a name="regionsgeographieslocations"></a>Regiões/geografias/localizações
@@ -52,7 +53,7 @@ A Azure Media Services v3 está disponível através do manifesto Azure Resource
 
 ### <a name="region-code-name"></a>Nome do código da região
 
-Quando precisa fornecer o parâmetro de **localização,** precisa fornecer o nome de código da região como o valor de **localização.** Para obter o nome de código da região em que a sua conta está e que a sua chamada deve ser encaminhada para, pode executar a seguinte linha em [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
+Quando precisa fornecer o parâmetro de **localização,** precisa fornecer o nome de código da região como o valor de **localização.** Para obter o nome de código da região em que a sua conta está e que a sua chamada deve ser encaminhada para, pode executar a seguinte linha em [Azure CLI](/cli/azure/?view=azure-cli-latest)
 
 ```azurecli-interactive
 az account list-locations
@@ -79,42 +80,42 @@ Os seguintes pontos finais são importantes para saber ao ligar-se às contas do
 
 ### <a name="global-azure"></a>Global Azure
 
-|Pontos Finais||
-| --- | --- |
+| Serviço | Ponto final |
+| ------- | -------- |
 | Azure Resource Manager |  `https://management.azure.com/` |
 | Autenticação | `https://login.microsoftonline.com/` |
 | Público simbólico | `https://management.core.windows.net/` |
 
 ### <a name="azure-government"></a>Azure Government
 
-|Pontos Finais||
-| --- | --- |
+| Serviço | Ponto final |
+| ------- | -------- |
 | Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
 | Autenticação | `https://login.microsoftonline.us/` |
 | Público simbólico | `https://management.core.usgovcloudapi.net/` |
 
 ### <a name="azure-germany"></a>Azure Alemanha
 
-| Pontos Finais ||
-| --- | --- |  
+| Serviço | Ponto final |
+| ------- | -------- |
 | Azure Resource Manager | `https://management.cloudapi.de/` |
 | Autenticação | `https://login.microsoftonline.de/` |
 | Público simbólico | `https://management.core.cloudapi.de/`|
 
 ### <a name="azure-china-21vianet"></a>Azure China 21Vianet
 
-|Pontos Finais||
-| --- | --- |
+| Serviço | Ponto final |
+| ------- | -------- |
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
 | Autenticação | `https://login.chinacloudapi.cn/` |
 | Público simbólico |  `https://management.core.chinacloudapi.cn/` |
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/)
 * [Geografias do Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
 * [Locais azuis](https://azure.microsoft.com/global-infrastructure/locations/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Visão geral dos Serviços de Comunicação Social v3](media-services-overview.md)

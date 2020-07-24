@@ -9,11 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 539665c4756a7dc87078922421b45a88404f58f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ff057d99e29c7c6fe30e77f38a0bff265dbe7bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81868148"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998901"
 ---
 # <a name="accessing-your-cloudsimple-private-cloud-environment-and-applications-from-on-premises"></a>Aceder ao seu ambiente cloudsimple private cloud e aplicações a partir de instalações
 
@@ -34,7 +35,7 @@ Para aceder ao seu gestor Private Cloud vCenter e NSX-T, as portas definidas na 
 
 ## <a name="ports-required-for-using-on-premises-active-directory-as-an-identity-source"></a>Portos necessários para a utilização de diretório ativo no local como fonte de identidade
 
-Para configurar o diretório ativo no local como fonte de identidade no Private Cloud vCenter, devem ser abertas as portas definidas na tabela.  Consulte [o Azure AD como fornecedor de identidade para vCenter na CloudSimple Private Cloud](https://docs.microsoft.com/azure/vmware-cloudsimple/azure-ad/) para etapas de configuração.
+Para configurar o diretório ativo no local como fonte de identidade no Private Cloud vCenter, devem ser abertas as portas definidas na tabela.  Consulte [o Azure AD como fornecedor de identidade para vCenter na CloudSimple Private Cloud](./azure-ad.md) para etapas de configuração.
 
 | Porta         | Origem                           | Destino                                         | Objetivo                                                                                                                                          |
 |--------------|----------------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -57,8 +58,8 @@ Aceder a máquinas virtuais de carga de trabalho em funcionamento em Private Clo
 | 389 (TCP/UDP) | Rede privada de carga de trabalho em nuvem | Rede de diretórios ativos no local | Junte as máquinas virtuais de carga de trabalho do Windows ao domínio do diretório ativo no local.       |
 | 53 (UDP)      | Rede privada de carga de trabalho em nuvem | Rede no local                  | Acesso de serviço DNS para máquinas virtuais de carga de trabalho para servidores DNS no local.         |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Criar e gerir VLANs e Subnets](https://docs.microsoft.com/azure/vmware-cloudsimple/create-vlan-subnet/)
-* [Ligue-se à rede de instalações utilizando a Azure ExpressRoute](https://docs.microsoft.com/azure/vmware-cloudsimple/on-premises-connection/)
-* [Configuração VPN site-to-site a partir de instalações](https://docs.microsoft.com/azure/vmware-cloudsimple/vpn-gateway/)
+* [Criar e gerir VLANs e Subnets](./create-vlan-subnet.md)
+* [Ligue-se à rede de instalações utilizando a Azure ExpressRoute](./on-premises-connection.md)
+* [Configuração VPN site-to-site a partir de instalações](./vpn-gateway.md)

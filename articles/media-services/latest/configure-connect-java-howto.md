@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
-ms.openlocfilehash: 6b0f21c3fa7a9c827f7201f4b899a33ea77eaf08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2337a7543f84d7eba5f565d875129cf22e8b27ed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74888500"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001218"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Ligue-se aos Serviços de Mídia v3 API - Java
 
@@ -33,8 +34,8 @@ Neste artigo, o Código do Estúdio Visual é usado para desenvolver a aplicaç�
    - Apache Maven
    - Pacote de extensão Java
 - Certifique-se de definir `JAVA_HOME` e `PATH` de variáveis ambientais.
-- [Criar uma conta de Serviços de Comunicação](create-account-cli-how-to.md)Social. Lembre-se do nome do grupo de recursos e do nome da conta dos Serviços de Comunicação Social.
-- Siga os passos no tópico [das APIs de acesso.](access-api-cli-how-to.md) Grave o ID de assinatura, iD de aplicação (ID do cliente), a chave de autenticação (segredo) e a identificação do inquilino de que necessita num passo posterior.
+- [Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social. Lembre-se do nome do grupo de recursos e do nome da conta dos Serviços de Comunicação Social.
+- Siga os passos no tópico [das APIs de acesso.](./access-api-howto.md) Grave o ID de assinatura, iD de aplicação (ID do cliente), a chave de autenticação (segredo) e a identificação do inquilino de que necessita num passo posterior.
 
 Também revisão:
 
@@ -93,7 +94,7 @@ Quando executar o comando, os `pom.xml` `App.java` ficheiros , e outros são cri
    import com.microsoft.azure.management.mediaservices.v2018_07_01.implementation.MediaManager;
    import com.microsoft.rest.LogLevel;
    ```
-1. Para criar as credenciais de Diretório Ativo que precisa de fazer pedidos, adicione o código seguinte ao método principal da classe App e desaperte os valores que obteve a partir de APIs de [acesso:](access-api-cli-how-to.md)
+1. Para criar as credenciais de Diretório Ativo que precisa de fazer pedidos, adicione o código seguinte ao método principal da classe App e desaperte os valores que obteve a partir de APIs de [acesso:](./access-api-howto.md)
    
    ```java
    final String clientId = "00000000-0000-0000-0000-000000000000";
@@ -118,15 +119,15 @@ Quando executar o comando, os `pom.xml` `App.java` ficheiros , e outros são cri
    ```
 1. Execute a aplicação.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Conceitos de Serviços de Mídia](concepts-overview.md)
 - [SDK Java](https://aka.ms/ams-v3-java-sdk)
 - [Java reference](https://aka.ms/ams-v3-java-ref) (Referência de Java)
 - [com.microsoft.azure.mediaservices.v2018_07_01:azure-mgmt-media](https://search.maven.org/artifact/com.microsoft.azure.mediaservices.v2018_07_01/azure-mgmt-media/1.0.0-beta/jar)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora pode incluir `import com.microsoft.azure.management.mediaservices.v2018_07_01.*;` e começar a manipular entidades.
 
-Para mais exemplos de código, consulte as [amostras java SDK](https://docs.microsoft.com/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/) repo.
+Para mais exemplos de código, consulte as [amostras java SDK](/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/) repo.

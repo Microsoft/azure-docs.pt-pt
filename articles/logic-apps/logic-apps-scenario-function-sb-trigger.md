@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
-ms.openlocfilehash: afd2735bae2a79ad942c347219019ef200b61070
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec2225633e5621c51067b64af2968a0dc0f5da87
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75428714"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001422"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Ligue ou desencadeie aplicativos lógicos utilizando Azure Functions e Azure Service Bus
 
@@ -118,11 +119,11 @@ Em seguida, crie a função que funciona como o gatilho e ouve a fila.
 
    * Este exemplo utiliza o `application/json` tipo de conteúdo de mensagem, mas pode alterar este tipo conforme necessário.
    
-   * Devido a possíveis funções de funcionamento simultâneo, volumes elevados ou cargas pesadas, evite instantanear a [classe HTTPClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) com a `using` declaração e criar diretamente instâncias HTTPClient por pedido. Para obter mais informações, consulte [a HttpClientFactory para implementar pedidos HTTP resilientes.](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net-core)
+   * Devido a possíveis funções de funcionamento simultâneo, volumes elevados ou cargas pesadas, evite instantanear a [classe HTTPClient](/dotnet/api/system.net.http.httpclient) com a `using` declaração e criar diretamente instâncias HTTPClient por pedido. Para obter mais informações, consulte [a HttpClientFactory para implementar pedidos HTTP resilientes.](/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net-core)
    
    * Se possível, reutilizar a instância dos clientes HTTP. Para obter mais informações, consulte [Gerir as ligações em Funções Azure](../azure-functions/manage-connections.md).
 
-   Este exemplo utiliza o [ `Task.Run` método](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task.run) em modo [assíncronos.](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async) Para mais informações, consulte [a programação assíncronia com async e aguarde](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/).
+   Este exemplo utiliza o [ `Task.Run` método](/dotnet/api/system.threading.tasks.task.run) em modo [assíncronos.](/dotnet/csharp/language-reference/keywords/async) Para mais informações, consulte [a programação assíncronia com async e aguarde](/dotnet/csharp/programming-guide/concepts/async/).
 
    ```csharp
    using System;
@@ -147,6 +148,6 @@ Em seguida, crie a função que funciona como o gatilho e ouve a fila.
 
    A aplicação lógica ativa imediatamente após a função receber a mensagem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Rebome, desencadeie ou nestflows utilizando pontos finais HTTP](../logic-apps/logic-apps-http-endpoint.md)

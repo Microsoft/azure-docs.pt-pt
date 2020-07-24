@@ -4,13 +4,13 @@ description: Este artigo descreve os preços, a faturação, a faturação e as 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.openlocfilehash: 653c55fa7476fa5fed077002db226297a33dfef6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/22/2020
+ms.openlocfilehash: 29fa4126d8d0b4f3419c729ee3a73ae315b13122
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119434"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001371"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Capacidades de transação de mercado comercial
 
@@ -95,7 +95,7 @@ Neste cenário, a Microsoft fatura 1,14 dólares por hora para utilização da s
 |Microsoft mantém 100% do custo de utilização do Azure | $0,14 por hora |
 ||
 
-**Traga a sua própria licença (BYOL)**
+**Traga a Sua Própria Licença (BYOL)**
 
 A BYOL tem a seguinte estrutura de custos:
 
@@ -134,7 +134,7 @@ Neste cenário, a Microsoft fatura $100,00 pela sua licença de software e paga 
 |Microsoft paga-lhe 80% do custo da sua licença <br> \*A Microsoft paga-lhe 90% do custo da sua licença por quaisquer aplicações SaaS qualificadas   |   $80,00 por mês <br> \*$90,00 por mês    |
 |Microsoft mantém 20% do custo da sua licença <br> \*A Microsoft mantém 10% do custo da sua licença para quaisquer aplicações SaaS qualificadas.  |  $20,00 por mês <br> \*$10,00     |
 
-Para certos produtos SaaS que publica no mercado comercial, a Microsoft reduzirá a sua Taxa de **Serviço de Marketplace** de 20% (conforme descrito no Microsoft Publisher Agreement) para 10%. Para que a sua oferta se qualifique, pelo menos uma das suas ofertas deve ser designada pela Microsoft como co-venda IP pronta ou co-venda IP priorizada. Para receber esta taxa reduzida de serviço do Mercado para o mês, a elegibilidade deve ser cumprida pelo menos cinco dias úteis antes do final do mês civil anterior. A taxa reduzida do Serviço marketplace não se aplicará a VMs, apps geridas ou quaisquer outros produtos disponibilizados através do mercado comercial. Esta taxa reduzida estará disponível para ofertas qualificadas, com taxas de licença cobradas pela Microsoft entre 1 de maio de 2019 e 30 de junho de 2020. Após esse tempo, a taxa voltará ao seu valor normal.
+Para certas ofertas que publica no mercado comercial, a Microsoft reduzirá a sua Taxa de Serviço de Marketplace de 20% (conforme descrito no Microsoft Publisher Agreement) para 10%. Para que a sua(s) oferta(s) se qualifique, a sua(s) oferta(s) deve ter sido designada pela Microsoft como Azure IP Co-sell incetivizado. A elegibilidade deve ser cumprida pelo menos cinco (5) dias úteis antes do final de cada mês civil para receber a Taxa reduzida de Serviço do Mercado para o mês. A Taxa reduzida de Serviço de Marketplace aplica-se à Azure IP Co-vender SaaS, VMs, Apps Geridas e quaisquer outras ofertas de iass transacionáveis qualificadas disponibilizadas através do mercado comercial.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Faturação, pagamento, faturação e cobranças de clientes
 
@@ -180,13 +180,13 @@ Para obter mais informações sobre a configuração destas contas, consulte [Ge
 
 A opção de publicação de transações só está disponível para utilização com os seguintes tipos de oferta de mercado:
 
-- **Máquina virtual** – Selecione de modelos gratuitos, tragam a sua própria licença ou os modelos de preços pay-as-you-go e apresentem-se como SKUs definidos ao nível da oferta. Na conta Azure do cliente, a Microsoft apresenta as taxas de licença de software da editora separadamente das taxas de infraestrutura Azure subjacentes. As taxas de infraestrutura Azure são impulsionadas pelo uso do software da editora.
+- **Máquina virtual** – Selecione de modelos gratuitos, tragam a sua própria licença ou os modelos de preços pay-as-you-go e apresentem os planos definidos ao nível da oferta. Na conta Azure do cliente, a Microsoft apresenta as taxas de licença de software da editora separadamente das taxas de infraestrutura Azure subjacentes. As taxas de infraestrutura Azure são impulsionadas pelo uso do software da editora.
 
 - **Aplicação Azure: modelo de solução ou app gerida** – Deve providenciar uma ou mais máquinas virtuais e puxar através da soma do preço da máquina virtual. Para aplicações geridas num único plano, uma subscrição mensal forfecária pode ser selecionada como o modelo de preços em vez do preço da máquina virtual. Em alguns casos, as taxas de utilização da infraestrutura Azure são passadas ao cliente separadamente das taxas de licença de software, mas na mesma declaração de faturação. No entanto, se configurar uma oferta de aplicações geridas para taxas de infraestrutura ISV, os recursos do Azure são faturados à editora, e o cliente recebe uma taxa fixa que inclui o custo de infraestruturas, licenças de software e serviços de gestão.
 
 - **Aplicação SaaS** - Deve ser uma solução multitenante, utilizar [o Azure Ative Directory](https://azure.microsoft.com/services/active-directory/) para autenticação e integrar-se com as [APIs de Cumprimento do SaaS](partner-center-portal/pc-saas-fulfillment-api-v2.md). O uso da infraestrutura Azure é gerido e faturado diretamente para você (o parceiro), por isso você deve prestar contas das taxas de utilização da infraestrutura Azure e taxas de licenciamento de software como um item de custo único. Para obter orientações detalhadas, consulte [Criar uma nova oferta saaS no mercado comercial.](partner-center-portal/create-new-saas-offer.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja os requisitos de elegibilidade nas opções de publicação por secção de tipo oferta para finalizar a seleção e configuração da sua oferta.
 - Reveja os padrões de publicação por montra, por exemplo, sobre como a sua solução mapeia para um tipo de oferta e configuração.

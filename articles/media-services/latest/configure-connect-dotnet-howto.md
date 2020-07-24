@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
 ms.custom: has-adal-ref
-ms.openlocfilehash: 6dc05f225e3585b83bd6a57ca47bd5adf97934ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30c91b71b952bb68761015325a00ff6926c62dfe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83201122"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001320"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Ligar aos Serviços de Mídia v3 API - .NET
 
@@ -26,7 +27,7 @@ Este artigo mostra-lhe como ligar-se ao Azure Media Services v3 .NET SDK utiliza
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Criar uma conta de Serviços de Comunicação](create-account-cli-how-to.md)Social. Certifique-se de lembrar o nome do grupo de recursos e o nome da conta dos Serviços de Mídia
+- [Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social. Certifique-se de lembrar o nome do grupo de recursos e o nome da conta dos Serviços de Mídia
 - Instale uma ferramenta que pretende utilizar para o desenvolvimento de .NET. Os passos deste artigo mostram como usar o [Visual Studio 2019 Community Edition.](https://www.visualstudio.com/downloads/) Pode utilizar o Código do Estúdio Visual, ver [Trabalhar com C#](https://code.visualstudio.com/docs/languages/csharp). Ou podes usar um editor de código diferente.
 
 > [!IMPORTANT]
@@ -38,7 +39,7 @@ Este artigo mostra-lhe como ligar-se ao Azure Media Services v3 .NET SDK utiliza
 1. A partir do menu **'Ficheiro',** clique em **New**  >  **'Novo Projeto'.** 
 1. Crie uma aplicação de consola **.NET Core.**
 
-A aplicação de amostra neste tópico, `netcoreapp2.0` alvos. O código utiliza o 'async main', que está disponível a partir de C# 7.1. Consulte este [blog](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) para mais detalhes.
+A aplicação de amostra neste tópico, `netcoreapp2.0` alvos. O código utiliza o 'async main', que está disponível a partir de C# 7.1. Consulte este [blog](/archive/blogs/benwilli/async-main-is-available-but-hidden) para mais detalhes.
 
 ## <a name="add-required-nuget-packages"></a>Adicionar pacotes NuGet necessários
 
@@ -63,7 +64,7 @@ A aplicação de amostra neste tópico, `netcoreapp2.0` alvos. O código utiliza
 
 ### <a name="set-values-in-appsettingsjson"></a>Definir valores em appsettings.jsem
 
-Executar o `az ams account sp create` comando como descrito nas [APIs de acesso](access-api-cli-how-to.md). O comando devolve a json que deve copiar para o seu "appsettings.jsligado".
+Executar o `az ams account sp create` comando como descrito nas [APIs de acesso](./access-api-howto.md). O comando devolve a json que deve copiar para o seu "appsettings.jsligado".
  
 ## <a name="add-configuration-file"></a>Adicionar o ficheiro de configuração
 
@@ -226,7 +227,7 @@ namespace ConsoleApp1
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Tutorial: Carregar, codificar e transmitir vídeos - .NET](stream-files-tutorial-with-api.md) 
 - [Tutorial: Stream ao vivo com Serviços de Mídia v3 - .NET](stream-live-tutorial-with-api.md)
@@ -240,7 +241,7 @@ namespace ConsoleApp1
 - [Criar filtros com Serviços de Mídia - .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Exemplos avançados de vídeo a pedido de Azure Functions v2 com Media Services v3](https://aka.ms/ams3functions)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
-* [.NET reference](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet) (Referência de .NET)
+* [.NET reference](/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet) (Referência de .NET)
 * Para obter mais exemplos de código, consulte as [amostras .NET SDK.](https://github.com/Azure-Samples/media-services-v3-dotnet)
