@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ba6ceec3064c5c876ca899ab58881e23913b9701
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85b0137f8d89def2f38ffe82199950c9158888d0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81429021"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070055"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Decisões de design e técnicas de codificação para características do SQL da Sinapse no Azure Synapse Analytics
 Neste artigo, você encontrará uma lista de recursos para piscina SQL e sql on-demand (pré-visualização) funções de Synapse SQL. Os artigos recomendados dividem-se em duas secções: decisões de conceção chave e técnicas de desenvolvimento e codificação.
@@ -25,8 +25,8 @@ O objetivo destes artigos é ajudá-lo a desenvolver a abordagem técnica ideal 
 ## <a name="key-design-decisions"></a>Principais decisões de design
 Os artigos abaixo destacam conceitos e decisões de design para o desenvolvimento do SQL da Sinapse:
 
-|                                                          |   Conjunto de SQL   | SQL a pedido |
-| -----------------------------------------------------    | ---- | ---- |
+| Artigo | Conjunto de SQL | SQL a pedido |
+| ------- | -------- | ------------- |
 | [Ligações](connect-overview.md)                    | Yes | Sim |
 | [Classes de recursos e concuência](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Yes    | Não |
 | [Transações](develop-transactions.md)              | Yes | Não |
@@ -44,8 +44,8 @@ Os artigos abaixo destacam conceitos e decisões de design para o desenvolviment
 
 Abaixo encontrará artigos essenciais que enfatizam técnicas específicas de codificação, dicas e recomendações para o desenvolvimento:
 
-|                                            | Conjunto de SQL | SQL a pedido |
-| ------------------------------------------ | ------------------ | ----------------------- |
+| Artigo | Conjunto de SQL | SQL a pedido |
+| ------- | -------- | ------------- |
 | [Procedimentos armazenados](develop-stored-procedures.md)  | Yes                | Não                      |
 | [Etiquetas](develop-label.md)                           | Yes                | Não                      |
 | [Vistas](develop-views.md)                             | Yes                | Sim                     |

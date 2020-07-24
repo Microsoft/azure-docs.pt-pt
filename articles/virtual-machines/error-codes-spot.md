@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 4625a0fa75f992ac18eeb91629af373a426aa955
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5e621cc3763cfa7fe28790baf2f5d9866c8d618
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676578"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069797"
 ---
 # <a name="error-messages-for-spot-vms-and-scale-sets"></a>Mensagens de erro para VMs spot e conjuntos de escala
 
@@ -34,7 +35,6 @@ Aqui estão alguns possíveis códigos de erro que pode receber ao utilizar VMs 
 | MaxPriceIssupportedOnlyForAzurespotVirtualMachines  |  O preço máximo é suportado apenas para máquinas virtuais Azure Spot. | Para mais informações, consulte [as Máquinas Virtuais Spot.](./linux/spot-vms.md) |
 | MoveResourcesWithAzureSpotVMNotSupported  |  O pedido de recursos move contém uma máquina virtual Azure Spot. Atualmente, isto não é apoiado. Verifique os detalhes de erro para identificação de máquinas virtuais. | Não pode mover VMs spot. |
 | MoveResourcesWithAzureSpotVmssNotSupported  |  O pedido de recursos Move contém um conjunto de escala de máquina virtual Azure Spot. Atualmente, isto não é apoiado. Verifique os detalhes de erro para identificação de balança de máquina virtual. | Não é possível mover instâncias de escala spot. |
-| EphemeralOSDisksNotSupportedForSpotVMs | Os discos DE OS efémeros não são suportados para VMs spot. | Utilize um disco de oss regular para o seu Spot VM. |
 | AzureSpotVMNotSupportedInVmssWithVMOrchestrationMode | A máquina virtual Azure Spot não é suportada em Conjunto de Escala de Máquina Virtual com modo de Orquestração VM. | Desagrema o modo de orquestração à escala de máquina virtual definida para utilizar instâncias spot. |
 
 

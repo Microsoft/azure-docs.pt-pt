@@ -10,12 +10,12 @@ metadata:
   author: genlin
   ms.author: genli
   ms.date: 09/09/2019
-  ms.openlocfilehash: 4111df079f6e4c0d49ab1381add835d493b3540a
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 1b70dfb508ef00f370f0a6fa1456ab7178ec0eae
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77519245"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87069042"
 landingContent:
 - title: Resolver falhas de implementação
   linkLists:
@@ -28,65 +28,65 @@ landingContent:
     - text: Resolver erros de modelo inválido
       url: ../../azure-resource-manager/templates/error-invalid-template.md
     - text: Resolver erros de SKUs não disponíveis
-      url: https://docs.microsoft.com/azure/azure-resource-manager/templates/error-sku-not-available
+      url: ../../azure-resource-manager/templates/error-sku-not-available.md
 - title: Documentação de orientação de implementação de VMs
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Preparar um VHD ou um VHDX do Windows para carregamento para o Azure
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image
+      url: ../windows/prepare-for-upload-vhd-image.md
     - text: Implementar ou criar sistemas operativos cliente do Windows no Azure
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/client-images
+      url: ../windows/client-images.md
     - text: Resolver erros associados a quotas
-      url: https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors
+      url: ../../azure-resource-manager/templates/error-resource-quota.md
 - title: Não consigo ligar à minha VM
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Passos rápidos para resolver problemas de ligação de RDP comuns
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-rdp-connection
+      url: ./troubleshoot-rdp-connection.md
     - text: Resolver problemas de ligação de RDP da VM do Azure por ID de Evento
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/event-id-troubleshoot-vm-rdp-connecton
+      url: ./event-id-troubleshoot-vm-rdp-connecton.md
     - text: Resolver problemas de autenticação quando utiliza o protocolo RDP (Remote Desktop Protocol) para se ligar à VM do Azure
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-authentication-error-rdp-vm
+      url: ./troubleshoot-authentication-error-rdp-vm.md
     - text: A placa de rede de convidado da VM está desativada
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-nic-disabled
+      url: ./troubleshoot-rdp-nic-disabled.md
 - title: Reposição de palavras-passe
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Como repor o serviço Ambiente de Trabalho Remoto ou a respetiva palavra-passe de início de sessão numa VM do Windows
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/reset-rdp
+      url: ./reset-rdp.md
     - text: Repor uma palavra-passe do Windows local para a VM do Azure com o método offline
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/reset-local-password-without-agent
+      url: ./reset-local-password-without-agent.md
     - text: Resolver mensagens de erro do RDP específicas para uma VM do Windows no Azure
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-specific-rdp-errors
+      url: ./troubleshoot-specific-rdp-errors.md
     - text: Resolver problemas de ligações de ambiente de trabalho remoto a máquinas virtuais do Azure
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-connection
+      url: ./troubleshoot-rdp-connection.md
 - title: A VM não está a arrancar
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Consultar o erro de arranque do disco
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-check-disk-boot-error
+      url: ./troubleshoot-check-disk-boot-error.md
     - text: Erro de arranque do BitLocker
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-bitlocker-boot-error
+      url: ./troubleshoot-bitlocker-boot-error.md
     - text: Erro de atualização da configuração de arranque
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-vm-boot-configure-update
+      url: ./troubleshoot-vm-boot-configure-update.md
     - text: Erro de ecrã azul comum
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-common-blue-screen-error
+      url: ./troubleshoot-common-blue-screen-error.md
 - title: Não consigo iniciar ou parar a VM
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Resolver problemas de implementação de VMs
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/restart-resize-error-troubleshooting
+      url: ./restart-resize-error-troubleshooting.md
     - text: Resolver falhas de alocação (modelo de implementação Clássico)
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/allocation-failure-classic
+      url: ./allocation-failure-classic.md
     - text: Erro de atualização da configuração de arranque
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-vm-boot-configure-update
+      url: ./troubleshoot-vm-boot-configure-update.md
     - text: Ciclo de vida e estados da VM
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/states-lifecycle
+      url: ../windows/states-lifecycle.md
 - title: Reinício da VM inesperado
   linkLists:
   - linkListType: how-to-guide
@@ -96,50 +96,50 @@ landingContent:
     - text: Diagnosticar e recuperar de falhas de arranque após um reinício
       url: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
     - text: Compreender a manutenção planeada das máquinas virtuais no Azure
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates
+      url: ../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
     - text: O arranque da VM do Azure está bloqueado no Windows Update
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-stuck-updating-boot-error
+      url: ./troubleshoot-stuck-updating-boot-error.md
 - title: Problemas de gestão de Discos Virtuais
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: FAQ de Discos Virtuais
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/faq-for-disks
+      url: ../windows/faq-for-disks.md
     - text: Resolver falhas de alocação ao redimensionar uma VM
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/allocation-failure
+      url: ./allocation-failure.md
     - text: Compreender a unidade temporária na sua VM
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#temporary-disk
+      url: ../windows/managed-disks-overview.md#temporary-disk
     - text: Descrição geral do Azure Managed Disks
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview
+      url: ../windows/managed-disks-overview.md
 - title: Problemas de encriptação de discos
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Resolver problemas da encriptação de discos do Azure
-      url: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-tsg
+      url: ../../security/fundamentals/azure-disk-encryption-vms-vmss.md
     - text: FAQ da encriptação de discos do Azure
-      url: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq
+      url: ../../security/fundamentals/azure-disk-encryption-vms-vmss.md
     - text: Como resolver problemas relacionados com as Extensões do Azure
-      url: https://docs.microsoft.com/azure/virtual-machines/extensions/troubleshoot
+      url: ../extensions/troubleshoot.md
 - title: Problemas de desempenho da VM
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: 'Resolver problemas com galerias de imagens partilhadas: a replicação é lenta'
-      url: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/troubleshooting-shared-images#replication-is-slow
+      url: ../windows/troubleshooting-shared-images.md#replication-is-slow
 - title: Problemas da Extensão da VM
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Passos de resolução de problemas gerais de extensões
-      url: https://docs.microsoft.com/azure/virtual-machines/extensions/troubleshoot
+      url: ../extensions/troubleshoot.md
     - text: Instalar a extensão na sua VM
-      url: https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/diagnostics-windows
+      url: ../extensions/diagnostics-windows.md
     - text: Extensão de Script Personalizado para o Windows
-      url: https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows#tips-and-tricks
+      url: ../extensions/custom-script-windows.md#tips-and-tricks
 - title: Cópia de segurança e restauro
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Resolver problemas das cópias de segurança de máquinas virtuais do Azure no portal do Azure
-      url: https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot
+      url: ../../backup/backup-azure-vms-troubleshoot.md

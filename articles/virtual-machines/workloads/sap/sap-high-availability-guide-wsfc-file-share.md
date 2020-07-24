@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2019
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2df092d49f2dfe9153b52be677e8ee6314dd9b60
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf9e00e8acba241f1445977dcc53724b9981039f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82982977"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068687"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Cluster uma instância SAP ASCS/SCS num cluster de failover do Windows utilizando uma partilha de ficheiros no Azure
 
@@ -113,7 +114,7 @@ O Storage Spaces Direct é utilizado como um disco partilhado para uma partilha 
 Ao escolher os espaços de armazenamento direto, considere estes casos de utilização:
 
 - As máquinas virtuais utilizadas para construir o cluster de espaços de armazenamento Direct precisam de ser implantadas num conjunto de disponibilidades Azure.
-- Para a recuperação de desastres de um Cluster Direto de Espaços de Armazenamento, pode utilizar [os Serviços de Recuperação do Local Azure.](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#replicated-machines---storage)
+- Para a recuperação de desastres de um Cluster Direto de Espaços de Armazenamento, pode utilizar [os Serviços de Recuperação do Local Azure.](../../../site-recovery/azure-to-azure-support-matrix.md#replicated-machines---storage)
 - Não é suportado para esticar o Cluster Direto do Espaço de Armazenamento em diferentes Zonas de Disponibilidade de Azure.
 
 ### <a name="sap-prerequisites-for-scale-out-file-shares-in-azure"></a>Pré-requisitos da SAP para ações de ficheiros de escala na Azure
@@ -167,7 +168,7 @@ Uma partilha genérica de ficheiros é outra opção para obter uma partilha de 
 
 Neste caso, pode utilizar uma solução SIOS de terceiros como um disco partilhado de cluster.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Prepare a infraestrutura Azure para o SAP HA utilizando um cluster de failover do Windows e uma partilha de ficheiros para uma instância SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-file-share]
 * [Instale o SAP NetWeaver HA num cluster de falha do Windows e partilhe uma partilha de ficheiros para uma instância SAP ASCS/SCS][sap-high-availability-installation-wsfc-shared-disk]

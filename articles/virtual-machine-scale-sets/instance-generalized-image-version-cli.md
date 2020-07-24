@@ -1,5 +1,5 @@
 ---
-title: Criar um conjunto de escala a partir de uma imagem generalizada
+title: Crie um conjunto de escala a partir de uma imagem generalizada com Azure CLI
 description: Crie um conjunto de escala usando uma imagem generalizada numa Galeria de Imagens Partilhadas.
 author: cynthn
 ms.service: virtual-machine-scale-sets
@@ -9,13 +9,14 @@ ms.topic: how-to
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 59e29be2aade993c8aeae64b4aa4918b36a26b26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3cde06b652befa8fbb655273c19f65bd2f38e850
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82797139"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069843"
 ---
-# <a name="create-a-scale-set-from-a-generalized-image"></a>Criar um conjunto de escala a partir de uma imagem generalizada
+# <a name="create-a-scale-set-from-a-generalized-image-with-azure-cli"></a>Crie um conjunto de escala a partir de uma imagem generalizada com Azure CLI
 
 Crie um conjunto de escala a partir de uma versão de imagem generalizada armazenada numa [Galeria de Imagens Partilhadas](shared-image-galleries.md) utilizando o Azure CLI. Se pretender criar um conjunto de escala utilizando uma versão de imagem especializada, consulte [Configurar instâncias de escala a partir de uma imagem especializada](instance-specialized-image-version-cli.md).
 
@@ -53,7 +54,7 @@ az vmss create \
 
 A criação e configuração de todas as VMs e recursos do conjunto de dimensionamento demora alguns minutos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [O Azure Image Builder (pré-visualização)](../virtual-machines/linux/image-builder-overview.md) pode ajudar a automatizar a criação de versão de imagem, podendo até usá-la para atualizar e [criar uma nova versão de imagem a partir de uma versão de imagem existente.](../virtual-machines/linux/image-builder-gallery-update-image-version.md) 
 
 Também pode criar recursos da Galeria de Imagens Partilhadas utilizando modelos. Existem vários modelos Azure Quickstart disponíveis: 

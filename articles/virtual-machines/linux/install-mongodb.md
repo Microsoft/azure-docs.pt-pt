@@ -11,11 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: e1bc7c8a6f97d6dc6bb1d6cb54825425244b2158
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 953e474eb5d160b38981d61fbfda051f1da9f968
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78944877"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069576"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Como instalar e configurar o MongoDB num Linux VM
 
@@ -206,12 +207,11 @@ az group deployment show \
     --output tsv
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Nestes exemplos, liga-se ao caso MongoDB localmente a partir do VM. Se pretender ligar-se à instância MongoDB a partir de outra VM ou rede, certifique-se de que as regras adequadas [do Grupo de Segurança da Rede são criadas](nsg-quickstart.md).
 
 Estes exemplos implantam o ambiente mongoDB central para fins de desenvolvimento. Aplique as opções de configuração de segurança necessárias para o seu ambiente. Para mais informações, consulte os [documentos de segurança do MongoDB.](https://docs.mongodb.com/manual/security/)
 
 Para obter mais informações sobre a criação de modelos, consulte a [visão geral do Gestor de Recursos Azure](../../azure-resource-manager/management/overview.md).
 
-Os modelos do Gestor de Recursos Azure usam a Extensão de Script Personalizada para descarregar e executar scripts nos seus VMs. Para obter mais informações, consulte [utilizar a extensão de script personalizada Azure com máquinas virtuais Linux](extensions-customscript.md).
-
+Os modelos do Gestor de Recursos Azure usam a Extensão de Script Personalizada para descarregar e executar scripts nos seus VMs. Para obter mais informações, consulte [utilizar a extensão de script personalizada Azure com máquinas virtuais Linux](../extensions/custom-script-linux.md).

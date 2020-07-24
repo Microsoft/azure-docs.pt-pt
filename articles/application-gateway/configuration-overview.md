@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 0245a23e46770840295904685c913826950c0642
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 892ace66c4994f4c2e263d529d69e505ed9c1c1f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517859"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068024"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do Gateway de Aplicação
 
@@ -286,7 +286,7 @@ Ao utilizar regras de reescrita, pode adicionar, remover ou atualizar os cabeça
 Os cabeçalhos e parâmetros URL podem ser definidos para valores estáticos ou para outros cabeçalhos e variáveis do servidor. Isto ajuda com casos importantes de utilização, tais como a extração de endereços IP do cliente, a remoção de informações sensíveis sobre o backend, adicionando mais segurança, e assim por diante.
 Para obter mais informações, veja:
 
- - [Reescrever visão geral dos cabeçalhos HTTP](rewrite-http-headers-url.md)
+ - [Reescrever cabeçalhos HTTP e visão geral do URL](rewrite-http-headers-url.md)
  - [Configure HTTP reescrita cabeçalho HTTP](rewrite-http-headers-portal.md)
  - [Configure URL reescrever](rewrite-url-portal.md)
 
@@ -395,7 +395,7 @@ Uma porta de aplicação monitoriza a saúde de todos os recursos no seu final p
 > [!NOTE]
 > Depois de criar uma sonda de saúde personalizada, tem de a associar a uma definição HTTP de fundo. Uma sonda personalizada não monitorizará a saúde da piscina traseira a menos que a definição HTTP correspondente esteja explicitamente associada a um ouvinte usando uma regra.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que sabe sobre os componentes do Application Gateway, pode:
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
-ms.openlocfilehash: dc77f3267813bd049274f44e43c4d64b0eb3801e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 67b635f09cb9407279e89b5f7b8526dab3c08946
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120284"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068527"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Afinação do desempenho TCP/IP para VMs Azure
 
@@ -60,7 +60,7 @@ A fragmentação pode ser vista como uma operação negativa, mas o suporte à f
 
 De um modo geral, pode criar uma rede mais eficiente aumentando a MTU. Todos os pacotes que são transmitidos têm informações de cabeçalho que são adicionadas ao pacote original. Quando a fragmentação cria mais pacotes, há mais cabeçalho, e isso torna a rede menos eficiente.
 
-Veja a seguir um exemplo. O tamanho do cabeçalho Ethernet é de 14 bytes mais uma sequência de verificação de quadro de 4 bytes para garantir a consistência do quadro. Se um pacote de 2.000 bytes for enviado, 18 bytes de ethernet são adicionados na rede. Se o pacote for fragmentado num pacote de 1.500 bytes e num pacote de 500 bytes, cada pacote terá 18 bytes de cabeçalho Ethernet, num total de 36 bytes.
+Eis um exemplo. O tamanho do cabeçalho Ethernet é de 14 bytes mais uma sequência de verificação de quadro de 4 bytes para garantir a consistência do quadro. Se um pacote de 2.000 bytes for enviado, 18 bytes de ethernet são adicionados na rede. Se o pacote for fragmentado num pacote de 1.500 bytes e num pacote de 500 bytes, cada pacote terá 18 bytes de cabeçalho Ethernet, num total de 36 bytes.
 
 Tenha em mente que o aumento da MTU não criará necessariamente uma rede mais eficiente. Se uma aplicação enviar apenas 500 bytes, a mesma sobrecarga de cabeçada existirá se o MTU é de 1.500 bytes ou 9.000 bytes. A rede só se tornará mais eficiente se utilizar tamanhos de pacote maiores que são afetados pela MTU.
 
@@ -125,9 +125,8 @@ Para o Azure, recomendamos que coloque o GSSS A fixação de 1.350 bytes e inter
 
 A latência da rede é regida pela velocidade da luz sobre uma rede de fibra ótica. O rendimento da rede de TCP também é efetivamente regido pelo tempo de ida e volta (RTT) entre dois dispositivos de rede.
 
-| | | | |
-|-|-|-|-|
-|**Encaminhar**|**Distância**|**Tempo de ida**|**RTT**|
+| Rota | Distância | Tempo de ida | RTT |
+| ----- | -------- | ------------ | --- |
 |Nova Iorque para São Francisco|4.148 km|21 ms|42 ms|
 |Nova Iorque para Londres|5.585 km|28 ms|56 ms|
 |Nova Iorque para Sydney|15.993 km|80 ms|160 ms|
@@ -162,9 +161,8 @@ Aqui está a fórmula para calcular a produção máxima de uma única ligação
 
 Esta tabela mostra o limite máximo de megabytes/por segundo de uma única ligação TCP. (Para a legibilidade, os megabytes são utilizados para a unidade de medida.)
 
-| | | | |
-|-|-|-|-|
-|**Tamanho da janela TCP (bytes)**|**Latência RTT (ms)**|**Megabyte máximo/segundo rendimento**|**Megabit máximo/segundo rendimento**|
+| Tamanho da janela TCP (bytes) | Latência RTT (ms) | Megabyte máximo/segundo rendimento | Megabit máximo/segundo rendimento |
+| ----------------------- | ---------------- | ---------------------------------- | --------------------------------- |
 |65,535|1|65.54|524.29|
 |65,535|30|2.18|17.48|
 |65,535|60|1.09|8.74|
@@ -179,9 +177,8 @@ O dimensionamento da janela TCP é uma técnica que aumenta dinamicamente o tama
 
 Esta tabela ilustra essas relações:
 
-| | | | |
-|-|-|-|-|
-|**Tamanho da janela TCP (bytes)**|**Latência RTT (ms)**|**Megabyte máximo/segundo rendimento**|**Megabit máximo/segundo rendimento**|
+| Tamanho da janela TCP (bytes) | Latência RTT (ms) | Megabyte máximo/segundo rendimento | Megabit máximo/segundo rendimento |
+| ----------------------- | ---------------- | ---------------------------------- | --------------------------------- |
 |65,535|30|2.18|17.48|
 |131,070|30|4.37|34.95|
 |262,140|30|8.74|69.91|
@@ -221,11 +218,10 @@ Set-NetTCPSetting
 
 Estas são as definições eficazes de TCP `AutoTuningLevel` para:
 
-| | | | |
-|-|-|-|-|
-|**AutoTuningLevel**|**Fator de escala**|**Multiplicador de escalas**|**Fórmula para calcular o <br/> tamanho máximo da janela**|
-|Desativado|Nenhuma|Nenhuma|Tamanho da janela|
-|Restritos|4|2^4|Tamanho da janela * (2^4)|
+| AutoTuningLevel | Fator de escala | Multiplicador de escalas | Fórmula para<br/>calcular o tamanho máximo da janela |
+| --------------- | -------------- | ------------------ | -------------------------------------------- |
+|Desativado|Nenhum|Nenhum|Tamanho da janela|
+|Restrito|4|2^4|Tamanho da janela * (2^4)|
 |Altamente restrito|2|2^2|Tamanho da janela * (2^2)|
 |Normal|8|2^8|Tamanho da janela * (2^8)|
 |Experimental|14|2^14|Tamanho da janela * (2^14)|
@@ -373,6 +369,6 @@ Além disso, tenha em mente que alguma retransmissão e ACKs duplicados são nor
 
 Ainda assim, estes tipos de pacotes são indicações de que a produção da TCP não está a atingir o seu desempenho máximo, por razões discutidas noutras secções deste artigo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu sobre a afinação de desempenho da TCP/IP para VMs Azure, talvez queira ler sobre outras considerações para [planear redes virtuais](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) ou aprender mais sobre a [ligação e configuração de redes virtuais.](https://docs.microsoft.com/azure/virtual-network/)

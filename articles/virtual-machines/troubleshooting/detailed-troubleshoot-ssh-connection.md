@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: ee6d437915f6c87ce9ef5f9c711d90793a96048c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b4890181721d08b741d327adb74bd097be5c9f2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77920132"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069158"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Passos de resolução de problemas de SSH detalhados relacionados com a ligação a uma VM do Linux no Azure
 Existem muitas razões possíveis para que o cliente SSH possa não ser capaz de chegar ao serviço SSH no VM. Se tiver seguido os passos mais [gerais de resolução de problemas do SSH,](troubleshoot-ssh-connection.md)tem de resolver ainda mais o problema da ligação. Este artigo guia-o através de etapas detalhadas de resolução de problemas para determinar onde a ligação SSH está falhando e como resolvê-la.
@@ -105,9 +106,9 @@ Se não tiver outro VM na mesma rede virtual, pode facilmente criar um. Para obt
 Se conseguir criar uma ligação SSH com um VM na mesma rede virtual, verifique as seguintes áreas:
 
 * **A configuração do ponto final para o tráfego de SSH no VM alvo.** A porta TCP privada do ponto final deve coincidir com a porta TCP em que o serviço SSH do VM está a ouvir. (A porta predefinido é 22). Verifique o número da porta SSH TCP no portal Azure selecionando **máquinas virtuais**  >  *VM name*  >  **Setpoints**  >  **Endpoints**.
-* **O ACL para o ponto final de tráfego SSH na máquina virtual alvo.** Um ACL permite especificar tráfego permitido ou negado a partir da Internet, com base no seu endereço IP de origem. ACLs mal configurados podem impedir a entrada de tráfego SSH para o ponto final. Verifique os seus ACLs para garantir que o tráfego de entrada a partir dos endereços IP públicos do seu servidor de procuração ou de outra borda é permitido. Para obter mais informações, consulte [sobre as listas de controlo de acesso à rede (ACLs)](../../virtual-network/virtual-networks-acl.md).
+* **O ACL para o ponto final de tráfego SSH na máquina virtual alvo.** Um ACL permite especificar tráfego permitido ou negado a partir da Internet, com base no seu endereço IP de origem. ACLs mal configurados podem impedir a entrada de tráfego SSH para o ponto final. Verifique os seus ACLs para garantir que o tráfego de entrada a partir dos endereços IP públicos do seu servidor de procuração ou de outra borda é permitido. Para obter mais informações, consulte [sobre as listas de controlo de acesso à rede (ACLs)](/previous-versions/azure/virtual-network/virtual-networks-acl).
 
-Para eliminar o ponto final como fonte do problema, retire o ponto final atual, crie outro ponto final e especifique o nome SSH (porta TCP 22 para o número de porta pública e privada). Para obter mais informações, consulte [Configurar pontos finais numa máquina virtual em Azure](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Para eliminar o ponto final como fonte do problema, retire o ponto final atual, crie outro ponto final e especifique o nome SSH (porta TCP 22 para o número de porta pública e privada). Para obter mais informações, consulte [Configurar pontos finais numa máquina virtual em Azure](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=/azure/virtual-machines/windows/classic/toc.json).
 
 <a id="nsg"></a>
 
@@ -115,14 +116,14 @@ Para eliminar o ponto final como fonte do problema, retire o ponto final atual, 
 Os grupos de segurança da rede permitem-lhe ter mais controlo granular do tráfego permitido de entrada e saída. Pode criar regras que abrangem sub-redes e serviços em nuvem numa rede virtual Azure. Verifique as regras do seu grupo de segurança de rede para garantir que o tráfego SSH de e para a Internet é permitido.
 Para obter mais informações, consulte [sobre grupos de segurança de rede.](../../virtual-network/security-overview.md)
 
-Também pode utilizar IP Verifique para validar a configuração NSG. Para obter mais informações, consulte [a visão geral da monitorização da rede Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
+Também pode utilizar IP Verifique para validar a configuração NSG. Para obter mais informações, consulte [a visão geral da monitorização da rede Azure](../../network-watcher/network-watcher-monitoring-overview.md). 
 
 ## <a name="source-5-linux-based-azure-virtual-machine"></a>Fonte 5: Máquina virtual Azure baseada em Linux
 A última fonte de possíveis problemas é a própria máquina virtual Azure.
 
 ![Diagrama que destaca a máquina virtual Azure baseada em Linux](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)
 
-Se ainda não o fez, siga as instruções [para redefinir uma palavra-passe com máquinas virtuais baseadas em Linux](../linux/reset-password.md).
+Se ainda não o fez, siga as instruções [para redefinir uma palavra-passe com máquinas virtuais baseadas em Linux](./reset-password.md).
 
 Tente ligar-se do computador novamente. Se ainda falhar, são algumas das questões possíveis:
 
@@ -132,4 +133,4 @@ Tente ligar-se do computador novamente. Se ainda falhar, são algumas das quest�
 * O software de deteção de intrusões ou monitorização de rede que está a funcionar na máquina virtual Azure está a impedir ligações SSH.
 
 ## <a name="additional-resources"></a>Recursos adicionais
-Para obter mais informações sobre o acesso à aplicação de resolução de [problemas, consulte o acesso a uma aplicação em execução numa máquina virtual Azure](../linux/troubleshoot-app-connection.md)
+Para obter mais informações sobre o acesso à aplicação de resolução de [problemas, consulte o acesso a uma aplicação em execução numa máquina virtual Azure](./troubleshoot-app-connection.md)

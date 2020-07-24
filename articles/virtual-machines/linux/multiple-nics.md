@@ -8,11 +8,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: ecbff4beadd9d10a8489c89cc322c0bb67ec5f40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 054462834d2712b8db10b40f2d7befdf330eec48
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706686"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069499"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Como criar uma máquina virtual Linux em Azure com vários cartões de interface de rede
 
@@ -166,7 +167,7 @@ Os modelos do Gestor de Recursos Azure utilizam ficheiros JSON declarativos para
 }
 ```
 
-Leia mais sobre [a criação de múltiplas instâncias utilizando *a cópia.*](../../resource-group-create-multiple.md) 
+Leia mais sobre [a criação de múltiplas instâncias utilizando *a cópia.*](../../azure-resource-manager/templates/copy-resources.md) 
 
 Também pode utilizar um `copyIndex()` para anexar um número a um nome de recurso, que lhe permite `myNic1` `myNic2` criar, etc. O seguinte mostra um exemplo de anexação do valor do índice:
 
@@ -240,7 +241,7 @@ Confirme que a rota que adicionou persiste através de reboots, verificando nova
 ping bing.com -c 4 -I eth1
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Reveja [os tamanhos linux VM](sizes.md) ao tentar criar um VM com vários NICs. Preste atenção ao número máximo de NICs que cada tamanho VM suporta.
 
 Para proteger ainda mais os seus VMs, utilize o acesso vm mesmo a tempo. Esta funcionalidade abre as regras do grupo de segurança de rede para o tráfego de SSH quando necessário, e por um período de tempo definido. Para obter mais informações, veja [Manage virtual machine access using just in time](../../security-center/security-center-just-in-time.md) (Gerir o acesso da máquina virtual através do just in time).

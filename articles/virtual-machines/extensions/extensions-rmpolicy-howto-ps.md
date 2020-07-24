@@ -1,5 +1,5 @@
 ---
-title: Use a Política Azure para restringir a instalação de extensão VM
+title: Utilize a Política Azure para restringir a instalação de extensão VM (Windows)
 description: Utilize a Política Azure para restringir as implementações de extensão.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 96cd16c08421a4e365391c0db0b257f71a06551f
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: e4959c9dca909afde4bf6d351d79ecca1e4022a0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919804"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069765"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Utilize a Política Azure para restringir a instalação de extensões em VMs do Windows
 
@@ -98,7 +98,7 @@ Quando terminar, bata no **Ctrl + O** e, em seguida, **Insira** para guardar o f
 
 ## <a name="create-the-policy"></a>Criar a política
 
-Uma definição de política é um objeto usado para armazenar a configuração que gostaria de usar. A definição de política utiliza as regras e os ficheiros de parâmetros para definir a política. Crie uma definição de política utilizando o [cmdlet New-AzPolicyDefinition.](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicydefinition)
+Uma definição de política é um objeto usado para armazenar a configuração que gostaria de usar. A definição de política utiliza as regras e os ficheiros de parâmetros para definir a política. Crie uma definição de política utilizando o [cmdlet New-AzPolicyDefinition.](/powershell/module/az.resources/new-azpolicydefinition)
 
  As regras e parâmetros da política são os ficheiros que criou e guardou como ficheiros .json na sua concha de nuvem.
 
@@ -117,9 +117,9 @@ $definition = New-AzPolicyDefinition `
 
 ## <a name="assign-the-policy"></a>Atribuir a política
 
-Este exemplo atribui a política a um grupo de recursos que utiliza [o New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment). Qualquer VM criado no grupo de recursos **myResourceGroup** não será capaz de instalar o Agente de Acesso VM ou extensões de Script Personalizado. 
+Este exemplo atribui a política a um grupo de recursos que utiliza [o New-AzPolicyAssignment](/powershell/module/az.resources/new-azpolicyassignment). Qualquer VM criado no grupo de recursos **myResourceGroup** não será capaz de instalar o Agente de Acesso VM ou extensões de Script Personalizado. 
 
-Use a [subscrição get-AzSubscription / Cmdlet de tabela de formato](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription) para obter o seu ID de subscrição para usar no lugar do que está no exemplo.
+Use a [subscrição get-AzSubscription / Cmdlet de tabela de formato](/powershell/module/az.accounts/get-azsubscription) para obter o seu ID de subscrição para usar no lugar do que está no exemplo.
 
 ```azurepowershell-interactive
 $scope = "/subscriptions/<subscription id>/resourceGroups/myResourceGroup"
@@ -164,5 +164,5 @@ Remove-AzPolicyAssignment -Name not-allowed-vmextension-windows -Scope $scope
 Remove-AzPolicyDefinition -Name not-allowed-vmextension-windows
 ```
     
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações, veja [Azure Policy](../../governance/policy/overview.md).

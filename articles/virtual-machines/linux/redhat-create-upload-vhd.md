@@ -8,20 +8,20 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: guybo
-ms.openlocfilehash: 647171414bc667613dbaabdfeca6552b9444363b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 2e3fee3a37d22167a27b46a1fa7497ac2323eb6a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133054"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069411"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Prepare a Red Hat-based virtual machine for Azure (Preparar uma máquina virtual baseada em Red Hat para o Azure)
-Neste artigo, você aprenderá a preparar uma máquina virtual Red Hat Enterprise Linux (RHEL) para uso em Azure. As versões do RHEL que estão abrangidas por este artigo são 6.7+ e 7.1+. Os hipervisores para a preparação que estão cobertos neste artigo são Hyper-V, máquina virtual baseada em kernel (KVM) e VMware. Para obter mais informações sobre os requisitos de elegibilidade para participar no programa Red Hat's Cloud Access, consulte o [site do Red Hat's Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) e o Running [RHEL no Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). Para formas de automatizar a construção de imagens RHEL consulte o [Azure Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
+Neste artigo, você aprenderá a preparar uma máquina virtual Red Hat Enterprise Linux (RHEL) para uso em Azure. As versões do RHEL que estão abrangidas por este artigo são 6.7+ e 7.1+. Os hipervisores para a preparação que estão cobertos neste artigo são Hyper-V, máquina virtual baseada em kernel (KVM) e VMware. Para obter mais informações sobre os requisitos de elegibilidade para participar no programa Red Hat's Cloud Access, consulte o [site do Red Hat's Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) e o Running [RHEL no Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). Para formas de automatizar a construção de imagens RHEL consulte o [Azure Image Builder](./image-builder-overview.md).
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Prepare uma máquina virtual baseada em chapéu vermelho do Hyper-V Manager
 
 ### <a name="prerequisites"></a>Pré-requisitos
-Esta secção pressupõe que já obteve um ficheiro ISO do site do Red Hat e instalou a imagem RHEL num disco rígido virtual (VHD). Para obter mais detalhes sobre como utilizar o Hyper-V Manager para instalar uma imagem do sistema operativo, consulte [instalar a Função Hiper-V e configurar uma Máquina Virtual](https://technet.microsoft.com/library/hh846766.aspx).
+Esta secção pressupõe que já obteve um ficheiro ISO do site do Red Hat e instalou a imagem RHEL num disco rígido virtual (VHD). Para obter mais detalhes sobre como utilizar o Hyper-V Manager para instalar uma imagem do sistema operativo, consulte [instalar a Função Hiper-V e configurar uma Máquina Virtual](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
 **Notas de instalação DARL**
 
@@ -1151,7 +1151,7 @@ Reconstruir initramfs:
 
 Para mais detalhes, consulte as informações sobre [a reconstrução de initramfs.](https://access.redhat.com/solutions/1958)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Está agora pronto para usar o seu disco rígido virtual Red Hat Enterprise Linux para criar novas máquinas virtuais em Azure. Se esta for a primeira vez que está a enviar o ficheiro .vhd para a Azure, consulte [Create a Linux VM a partir de um disco personalizado](upload-vhd.md#option-1-upload-a-vhd).
 * Para mais detalhes sobre os hipervisores certificados para executar Red Hat Enterprise Linux, consulte [o site da Red Hat.](https://access.redhat.com/certified-hypervisors)
 * Para saber mais sobre a utilização de imagens RHEL BYOS prontas a produzir, aceda à página de documentação para [BYOS](../workloads/redhat/byos.md).

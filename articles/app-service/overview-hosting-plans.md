@@ -6,11 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 11/09/2017
 ms.custom: seodec18
-ms.openlocfilehash: b1c44fb9f44eb75e6d2a766213c5db094ebe79b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93f823a623145f8dd8bf5118de973dfbc095bfb4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537649"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068202"
 ---
 # <a name="azure-app-service-plan-overview"></a>Descrição Geral do plano do Serviço de Aplicações do Azure
 
@@ -78,8 +79,10 @@ Não é cobrado por usar as funcionalidades do Serviço de Aplicações que est�
 
 > [!NOTE]
 > Se integrar o Serviço de Aplicações com outro serviço Azure, poderá ter de considerar os custos destes outros serviços. Por exemplo, se utilizar o Azure Traffic Manager para escalar a sua aplicação geograficamente, o Azure Traffic Manager também o cobra com base no seu uso. Para estimar o custo dos seus serviços cruzados em Azure, consulte [a calculadora de preços.](https://azure.microsoft.com/pricing/calculator/) 
->
->
+
+Quer otimizar e economizar nos gastos na nuvem?
+
+[!INCLUDE [cost-management-horizontal](../../includes/cost-management-horizontal.md)]
 
 ## <a name="what-if-my-app-needs-more-capabilities-or-features"></a>E se a minha aplicação precisar de mais capacidades ou funcionalidades?
 

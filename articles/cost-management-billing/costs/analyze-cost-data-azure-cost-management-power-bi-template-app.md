@@ -3,24 +3,27 @@ title: Analisar custos com a Aplicação Power BI
 description: Este artigo explica como instalar e utilizar a Aplicação Power BI do Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/16/2020
+ms.date: 07/13/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: 53340c72a6456b24b52cff6d7eda9d4a34db6564
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: bd5e2c999df180c80c58711a6428678b2bb4fefa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888194"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537923"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analisar o custo com a Aplicação Power BI do Azure Cost Management para Contratos Enterprise (EA)
 
 Este artigo explica como instalar e utilizar a aplicação Power BI do Azure Cost Management. A aplicação ajuda-o a analisar e gerir os seus custos do Azure no Power BI. Pode utilizar a aplicação para monitorizar custos, tendências de utilização e identificar opções de otimização de custos para reduzir as suas despesas.
 
-Transfira a aplicação para o Power BI Desktop. Pode utilizar a aplicação tal como está ou modificá-la para expandir os filtros, as vistas e as visualizações predefinidos para personalizar de acordo com as suas necessidades. Em seguida, utilize-a para associar dados adicionais para criar relatórios personalizados para obter perspetivas holísticas do custo global do seu negócio.
+Pode utilizar a aplicação tal como está ou modificá-la para expandir os filtros, as vistas e as visualizações predefinidos para personalizar de acordo com as suas necessidades. Em seguida, utilize-a para associar dados adicionais para criar relatórios personalizados para obter perspetivas holísticas do custo global do seu negócio.
 
 Atualmente, a Aplicação Power BI do Azure Cost Management suporta apenas clientes com um [Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
+
+> [!NOTE]
+> As aplicações de modelo do Power BI não suportam a transferência do ficheiro PBIX.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -3,16 +3,16 @@ title: Desempenho dos serviços de aplicações Monitor Azure Microsoft Docs
 description: Monitorização do desempenho da aplicação para serviços de aplicações Azure. Cartografe o tempo de carga e resposta, informações de dependência e definir alertas sobre o desempenho.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 574aefa4d554be7b0027c921289d8d15cffb8e49
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 042dd67c0e1e5a0ba2f81d5678e191dbfdd60a43
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169940"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067892"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorizar o desempenho do Serviço de Aplicações do Azure
 
-Ativar a monitorização das suas aplicações web baseadas em ASP.NET e ASP.NET Core em execução nos [Serviços de Aplicações Azure](https://docs.microsoft.com/azure/app-service/) é agora mais fácil do que nunca. Enquanto que anteriormente era necessário instalar manualmente uma extensão do site, a mais recente extensão/agente está agora incorporada na imagem do serviço de aplicações por padrão. Este artigo irá acompanhá-lo através da monitorização de Insights de Aplicação, bem como fornecer orientações preliminares para automatizar o processo para implementações em larga escala.
+Ativar a monitorização das suas aplicações web baseadas em ASP.NET e ASP.NET Core em execução nos [Serviços de Aplicações Azure](../../app-service/index.yml) é agora mais fácil do que nunca. Enquanto que anteriormente era necessário instalar manualmente uma extensão do site, a mais recente extensão/agente está agora incorporada na imagem do serviço de aplicações por padrão. Este artigo irá acompanhá-lo através da monitorização de Insights de Aplicação, bem como fornecer orientações preliminares para automatizar o processo para implementações em larga escala.
 
 > [!NOTE]
 > A adição manual de uma extensão do site Application Insights através de extensões **de**  >  **ferramentas** de desenvolvimento é depreciada. Este método de instalação de extensão dependia de atualizações manuais para cada nova versão. A mais recente versão estável da extensão [encontra-se agora pré-instalada](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) como parte da imagem do Serviço de Aplicações. Os ficheiros `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` estão localizados e são automaticamente atualizados a cada libertação estável. Se seguir as instruções baseadas no agente para ativar a monitorização abaixo, removerá automaticamente a extensão prectada para si.
@@ -26,19 +26,19 @@ Existem duas formas de permitir a monitorização de aplicações para os Servi�
 
 * **Instrumentando manualmente a aplicação através de código** instalando o Application Insights SDK.
 
-    * Esta abordagem é muito mais personalizável, mas requer [a adição de uma dependência dos pacotes SDK NuGet da Aplicação Insights.](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) Este método também significa que você tem que gerir as atualizações para a versão mais recente dos pacotes por si mesmo.
+    * Esta abordagem é muito mais personalizável, mas requer [a adição de uma dependência dos pacotes SDK NuGet da Aplicação Insights.](./asp-net.md) Este método também significa que você tem que gerir as atualizações para a versão mais recente dos pacotes por si mesmo.
 
-    * Se precisar de fazer chamadas de API personalizadas para rastrear eventos/dependências não capturados por padrão com monitorização baseada em agentes, terá de utilizar este método. Confira a [API para obter eventos personalizados e artigo de métrica](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) para saber mais. Esta é também a única opção suportada para cargas de trabalho baseadas em Linux.
+    * Se precisar de fazer chamadas de API personalizadas para rastrear eventos/dependências não capturados por padrão com monitorização baseada em agentes, terá de utilizar este método. Confira a [API para obter eventos personalizados e artigo de métrica](./api-custom-events-metrics.md) para saber mais. Esta é também a única opção suportada para cargas de trabalho baseadas em Linux.
 
 > [!NOTE]
-> Se for detetada uma monitorização baseada em agentes e uma instrumentação manual baseada em SDK, apenas serão respeitadas as definições de instrumentação manual. Isto é para evitar que os dados duplicados sejam enviados. Para saber mais sobre isto, consulte a [secção de resolução de problemas abaixo.](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting)
+> Se for detetada uma monitorização baseada em agentes e uma instrumentação manual baseada em SDK, apenas serão respeitadas as definições de instrumentação manual. Isto é para evitar que os dados duplicados sejam enviados. Para saber mais sobre isto, consulte a [secção de resolução de problemas abaixo.](#troubleshooting)
 
 ## <a name="enable-agent-based-monitoring"></a>Permitir a monitorização baseada em agentes
 
 # <a name="net"></a>[.NET](#tab/net)
 
 > [!NOTE]
-> A combinação de APPINSIGHTS_JAVASCRIPT_ENABLED e urlCompression não é suportada. Para mais informações consulte a explicação na [secção de resolução de problemas.](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting)
+> A combinação de APPINSIGHTS_JAVASCRIPT_ENABLED e urlCompression não é suportada. Para mais informações consulte a explicação na [secção de resolução de problemas.](#troubleshooting)
 
 
 1. **Selecione Informações de aplicações** no painel de controlo Azure para o seu serviço de aplicações.
@@ -70,13 +70,13 @@ Existem duas formas de permitir a monitorização de aplicações para os Servi�
 
     * Por exemplo, para alterar a percentagem inicial de amostragem, pode criar uma definição de Aplicação de: `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_InitialSamplingPercentage` e um valor de `100` .
 
-    * Para a lista de definições de processador de telemetria adaptativa suportada, pode consultar o [código](https://github.com/microsoft/ApplicationInsights-dotnet/blob/master/BASE/Test/ServerTelemetryChannel.Test/TelemetryChannel.Tests/AdaptiveSamplingTelemetryProcessorTest.cs) e [a documentação associada](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
+    * Para a lista de definições de processador de telemetria adaptativa suportada, pode consultar o [código](https://github.com/microsoft/ApplicationInsights-dotnet/blob/master/BASE/Test/ServerTelemetryChannel.Test/TelemetryChannel.Tests/AdaptiveSamplingTelemetryProcessorTest.cs) e [a documentação associada](./sampling.md).
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
 As seguintes versões de .NET Core são suportadas: ASP.NET Core 2.0, ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0
 
-O quadro completo de aplicações baseadas em .NET Core, autossuficientes e linux não são atualmente **suportados** com monitorização baseada em agente/extensão. ([A instrumentação manual](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) via código funcionará em todos os cenários anteriores.)
+O quadro completo de aplicações baseadas em .NET Core, autossuficientes e linux não são atualmente **suportados** com monitorização baseada em agente/extensão. ([A instrumentação manual](./asp-net-core.md) via código funcionará em todos os cenários anteriores.)
 
 1. **Selecione Informações de aplicações** no painel de controlo Azure para o seu serviço de aplicações.
 
@@ -99,11 +99,11 @@ A partir da sua aplicação web do Serviço de Aplicações em **Definições** 
 
 # <a name="java"></a>[Java](#tab/java)
 
-As aplicações web baseadas no Java App Service não suportam atualmente a monitorização automática baseada em agente/extensão. Para ativar a monitorização da sua aplicação Java, é necessário [instrumentar manualmente a sua aplicação](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started).
+As aplicações web baseadas no Java App Service não suportam atualmente a monitorização automática baseada em agente/extensão. Para ativar a monitorização da sua aplicação Java, é necessário [instrumentar manualmente a sua aplicação](./java-get-started.md).
 
 # <a name="python"></a>[Python](#tab/python)
 
-As aplicações web baseadas no Python App Service não suportam atualmente a monitorização automática baseada em agente/extensão. Para ativar a monitorização da sua aplicação Python, é necessário [instrumentar manualmente a sua aplicação](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python).
+As aplicações web baseadas no Python App Service não suportam atualmente a monitorização automática baseada em agente/extensão. Para ativar a monitorização da sua aplicação Python, é necessário [instrumentar manualmente a sua aplicação](./opencensus-python.md).
 
 ---
 
@@ -145,15 +145,15 @@ Se por alguma razão pretender desativar a monitorização do lado do cliente:
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Para ativar a monitorização do lado do cliente para a sua aplicação Node.js, é necessário [adicionar manualmente o JavaScript SDK do lado do cliente à sua aplicação.](https://docs.microsoft.com/azure/azure-monitor/app/javascript)
+Para ativar a monitorização do lado do cliente para a sua aplicação Node.js, é necessário [adicionar manualmente o JavaScript SDK do lado do cliente à sua aplicação.](./javascript.md)
 
 # <a name="java"></a>[Java](#tab/java)
 
-Para ativar a monitorização do lado do cliente para a sua aplicação Java, é necessário [adicionar manualmente o JavaScript SDK do lado do cliente à sua aplicação.](https://docs.microsoft.com/azure/azure-monitor/app/javascript)
+Para ativar a monitorização do lado do cliente para a sua aplicação Java, é necessário [adicionar manualmente o JavaScript SDK do lado do cliente à sua aplicação.](./javascript.md)
 
 # <a name="python"></a>[Python](#tab/python)
 
-Para ativar a monitorização do lado do cliente para a sua aplicação Python, é necessário [adicionar manualmente o JavaScript SDK do lado do cliente à sua aplicação.](https://docs.microsoft.com/azure/azure-monitor/app/javascript)
+Para ativar a monitorização do lado do cliente para a sua aplicação Python, é necessário [adicionar manualmente o JavaScript SDK do lado do cliente à sua aplicação.](./javascript.md)
 
 ---
 
@@ -174,7 +174,7 @@ Para permitir a recolha de telemetria com Insights de Aplicação, apenas as def
 
 ### <a name="app-service-application-settings-with-azure-resource-manager"></a>Configurações de aplicações de serviço de aplicativo com gestor de recursos Azure
 
-As definições de aplicações para Serviços de Aplicações podem ser geridas e configuradas com [modelos do Gestor de Recursos Azure.](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) Este método pode ser utilizado ao implementar novos recursos do Serviço de Aplicações com automação do Azure Resource Manager ou para modificar as definições dos recursos existentes.
+As definições de aplicações para Serviços de Aplicações podem ser geridas e configuradas com [modelos do Gestor de Recursos Azure.](../../azure-resource-manager/templates/template-syntax.md) Este método pode ser utilizado ao implementar novos recursos do Serviço de Aplicações com automação do Azure Resource Manager ou para modificar as definições dos recursos existentes.
 
 A estrutura básica das definições de aplicação JSON para um serviço de aplicações é abaixo:
 
@@ -339,14 +339,14 @@ Para verificar qual a versão da extensão que está a executar visita`http://yo
 
 A partir da versão 2.8.9 é utilizada a extensão do local pré-instalada. Se for uma versão anterior, pode atualizar através de uma de duas formas:
 
-* [Upgrade ativando através do portal](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#enable-application-insights). (Mesmo que tenha a extensão De Insights de Aplicação para O Serviço de Aplicações Azure instalada, o UI mostra apenas o botão **Ativar.** Nos bastidores, a antiga extensão do site privado será removida.)
+* [Upgrade ativando através do portal](#enable-application-insights). (Mesmo que tenha a extensão De Insights de Aplicação para O Serviço de Aplicações Azure instalada, o UI mostra apenas o botão **Ativar.** Nos bastidores, a antiga extensão do site privado será removida.)
 
-* [Upgrade através do PowerShell:](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#enabling-through-powershell)
+* [Upgrade através do PowerShell:](#enabling-through-powershell)
 
-    1. Defina as definições de aplicação para ativar a extensão do site pré-instalada ApplicationSightsAgent. Ver [Habilitação através da powershell](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#enabling-through-powershell).
+    1. Defina as definições de aplicação para ativar a extensão do site pré-instalada ApplicationSightsAgent. Ver [Habilitação através da powershell](#enabling-through-powershell).
     2. Remova manualmente a extensão do site privado chamada Extensão de Insights de Aplicação para O Serviço de Aplicações Azure.
 
-Se a atualização for feita a partir de uma versão anterior ao 2.5.1, verifique se os dlls ApplicationInsigths são removidos da pasta do caixote do lixo da aplicação [ver etapas de resolução de problemas](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
+Se a atualização for feita a partir de uma versão anterior ao 2.5.1, verifique se os dlls ApplicationInsigths são removidos da pasta do caixote do lixo da aplicação [ver etapas de resolução de problemas](#troubleshooting).
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
@@ -363,7 +363,7 @@ Abaixo está o nosso guia de resolução de problemas passo a passo para monitor
     ![Screenshot da página de https://yoursitename.scm.azurewebsites/applicationinsights resultados](./media/azure-web-apps/app-insights-sdk-status.png)
 
     * Confirme que o `Application Insights Extension Status` é`Pre-Installed Site Extension, version 2.8.12.1527, is running.`
-        * Se não estiver em funcionamento, siga as [instruções de monitorização do Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#enable-application-insights)
+        * Se não estiver em funcionamento, siga as [instruções de monitorização do Application Insights](#enable-application-insights)
 
     * Confirme que a fonte de estado existe e parece:`Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
         * Se não houver um valor semelhante, significa que a aplicação não está atualmente em execução ou não está suportada. Para garantir que a aplicação está em execução, tente visitar manualmente os pontos finais url/aplicação da aplicação, o que permitirá que as informações de tempo de execução fiquem disponíveis.
@@ -398,7 +398,7 @@ Para obter as informações mais recentes sobre o agente/extensão application i
 
 ### <a name="php-and-wordpress-are-not-supported"></a>PHP e WordPress não são suportados
 
-Os sites PHP e WordPress não são suportados. Atualmente, não existe um SDK/agente suportado oficialmente para monitorização do lado do servidor destas cargas de trabalho. No entanto, instrumentar manualmente as transações do lado do cliente num site PHP ou WordPress adicionando o javascript do lado do cliente às suas páginas web pode ser realizado utilizando o [JavaScript SDK](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+Os sites PHP e WordPress não são suportados. Atualmente, não existe um SDK/agente suportado oficialmente para monitorização do lado do servidor destas cargas de trabalho. No entanto, instrumentar manualmente as transações do lado do cliente num site PHP ou WordPress adicionando o javascript do lado do cliente às suas páginas web pode ser realizado utilizando o [JavaScript SDK](./javascript.md).
 
 ### <a name="connection-string-and-instrumentation-key"></a>Chave de ligação e instrumentação
 

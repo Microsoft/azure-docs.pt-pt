@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: banders
-ms.openlocfilehash: cd6e075448c68b6d2c65832d128e14c016c69c7c
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 28080517a33f1bbf9bee3436493f178b60c0d161
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85601416"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523609"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obter a propriedade da faturação das subscrições do Azure da conta MPA
 
@@ -155,6 +155,12 @@ Alguns pedidos de transição de clientes podem exigir um processo adicional de 
 O diretório das subscrições do Azure que são transferidas tem de corresponder ao diretório do cliente que foi selecionado durante o estabelecimento da relação com o CSP.
 
 Se estes dois diretórios não corresponderem, as subscrições não poderão ser transferidas. Precisará de estabelecer uma nova relação de revendedor de CSP com o cliente ao selecionar o diretório das subscrições do Azure ou de alterar o diretório das subscrições do Azure para corresponder ao diretório da relação do CSP com o cliente. Para obter mais informações, veja [Associar uma subscrição existente ao diretório do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory#to-associate-an-existing-subscription-to-your-azure-ad-directory).
+
+### <a name="ea-subscription-in-the-non-orgnization-directory"></a>Subscrição EA no diretório de não organização
+
+As subscrições EA de diretórios de não organização podem ser transferidas desde que o diretório tenha uma relação de revendedor com o CSP. Se o diretório não tiver uma relação de revendedor, tem de se certificar de que tem o utilizador da organização no diretório como um *Administrador Global* que possa aceitar a relação com o parceiro. A parte do nome de domínio do nome de utilizador tem de ser o nome de domínio predefinido inicial "[nome de domínio]. onmicrosoft.com" ou um nome de domínio personalizado verificado e não federado como "contoso.com."  
+
+Para adicionar um novo utilizador ao diretório, veja [Início rápido: Adicionar novos utilizadores ao Azure Active Directory para adicionar o novo utilizador ao diretório do AAD](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
 ## <a name="check-access-to-a-microsoft-partner-agreement"></a>Verificar o acesso a um Contrato de Parceiro da Microsoft
 

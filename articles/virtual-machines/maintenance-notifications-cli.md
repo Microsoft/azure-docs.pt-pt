@@ -7,17 +7,18 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 289733c4cee23a37c26df0b613a470925756f0eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 633708219adaba2fb4c4889754b2112fbf3c4180
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84674844"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069349"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-azure-cli"></a>Tratamento de notificações de manutenção planeadas utilizando o Azure CLI
 
 **Este artigo aplica-se a máquinas virtuais que executam o Linux e o Windows.**
 
-Pode utilizar o CLI para ver quando estão programados VMs para [manutenção.](maintenance-notifications.md) Informações de manutenção planeadas estão disponíveis a partir de [az vm get-instance-view](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-get-instance-view).
+Pode utilizar o CLI para ver quando estão programados VMs para [manutenção.](maintenance-notifications.md) Informações de manutenção planeadas estão disponíveis a partir de [az vm get-instance-view](/cli/azure/vm?view=azure-cli-latest#az-vm-get-instance-view).
  
 As informações de manutenção só são devolvidas se houver manutenção planeada. 
 
@@ -57,6 +58,6 @@ Para iniciar a manutenção do seu VM clássico nomeado *myVM* no serviço *mySe
 azure compute virtual-machine initiate-maintenance --service-name myService --name myDeployment --virtual-machine-name myVM
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Também pode manusear a manutenção planeada utilizando o [Azure PowerShell](maintenance-notifications-powershell.md) ou [o portal](maintenance-notifications-portal.md).

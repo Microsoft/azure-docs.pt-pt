@@ -4,21 +4,23 @@ description: Este artigo fornece uma visão geral do suporte multi-site do Azure
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 03/11/2020
+ms.date: 07/20/2020
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: 4d945a255dacd35c61c3c80574b7d46b56de4aab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3e6bc6d2dd5568dcc11a37c6ab44bd3b4089c66
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80257415"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067962"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Alojamento de vários sites do Gateway de Aplicação
 
-O alojamento de vários sites permite-lhe configurar mais do que uma aplicação web na mesma porta de entrada de uma aplicação. Esta funcionalidade permite-lhe configurar uma topologia mais eficiente para as suas implementações, adicionando até 100 websites a um gateway de aplicações. Cada site pode ser direcionado para o seu próprio agrupamento de back-end. No exemplo seguinte, o gateway de aplicações serve tráfego para `contoso.com` e a partir de `fabrikam.com` duas piscinas de servidor back-end chamadas ContosoServerPool e FabrikamServerPool.
+O alojamento de vários sites permite-lhe configurar mais do que uma aplicação web na mesma porta de entrada de uma aplicação. Permite-lhe configurar uma topologia mais eficiente para as suas implementações, adicionando até 100 websites a um gateway de aplicações. Cada site pode ser direcionado para o seu próprio agrupamento de back-end. Por exemplo, três domínios, contoso.com, fabrikam.com e adatum.com, apontam para o endereço IP do gateway de aplicações. Criaria três ouvintes multi-locais e configuraria cada ouvinte para a respetiva definição de porta e protocolo. 
 
-![imageURLroute](./media/multiple-site-overview/multisite.png)
+Também pode definir nomes de anfitriões wildcard num ouvinte multi-site e até 5 nomes de anfitriões por ouvinte. Para saber mais, consulte [os nomes dos anfitriões wildcard no ouvinte.](#wildcard-host-names-in-listener-preview)
+
+:::image type="content" source="./media/multiple-site-overview/multisite.png" alt-text="Gateway de aplicação multi-site":::
 
 > [!IMPORTANT]
 > As regras são processadas na ordem em que estão listadas no portal para o V1 SKU. Para o V2 SKU, os jogos exatos têm maior precedência. Antes de configurar um serviço de escuta básico, recomenda-se vivamente que configure serviços de escuta de múltiplos sites.  Desta forma, assegura-se que o tráfego é encaminhado para o back-end certo. Se for apresentado primeiro um serviço de escuta básico e este corresponde a um pedido de entrada, o pedido é processado por esse serviço de escuta.
@@ -26,6 +28,56 @@ O alojamento de vários sites permite-lhe configurar mais do que uma aplicação
 Os pedidos de `http://contoso.com` são encaminhados para ContosoServerPool e os pedidos de `http://fabrikam.com` são encaminhados para FabrikamServerPool.
 
 Da mesma forma, pode hospedar vários subdomínios do mesmo domínio principal na mesma implementação do gateway de aplicação. Por exemplo, pode `http://blog.contoso.com` hospedar-se e `http://app.contoso.com` numa única implementação de gateway de aplicação.
+
+## <a name="wildcard-host-names-in-listener-preview"></a>Wildcard nomes de anfitriões no ouvinte (Pré-visualização)
+
+O Application Gateway permite o encaminhamento baseado no anfitrião utilizando o ouvinte HTTP(S) de vários locais. Agora, você tem a capacidade de usar caracteres wildcard como asterisco (*) e ponto de interrogação (?) no nome de anfitrião, e até 5 nomes de anfitrião por ouvinte HTTP(S) multi-site. Por exemplo, `*.contoso.com`.
+
+Utilizando um personagem wildcard no nome do anfitrião, pode combinar vários nomes de anfitriões num único ouvinte. Por exemplo, `*.contoso.com` pode combinar `ecom.contoso.com` com, assim como por `b2b.contoso.com` `customer1.b2b.contoso.com` diante. Usando uma variedade de nomes de anfitrião, você pode configurar mais do que um nome de anfitrião para um ouvinte, para encaminhar pedidos para uma piscina de backend. Por exemplo, um ouvinte pode conter `contoso.com, fabrikam.com` que aceitará pedidos para ambos os nomes dos anfitriões.
+
+:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Ouvinte wildcard":::
+
+>[!NOTE]
+> Esta funcionalidade está em pré-visualização e está disponível apenas para Standard_v2 e WAF_v2 SKU de Application Gateway. Para saber mais sobre pré-visualizações, consulte [os termos de utilização aqui.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+
+No [portal Azure,](create-multiple-sites-portal.md)pode defini-las em caixas de texto separadas, como mostrado na imagem abaixo.
+
+:::image type="content" source="./media/multiple-site-overview/wildcard-listener-example.png" alt-text="Configuração de exemplo do ouvinte wildcard":::
+
+>[!NOTE]
+>Se estiver a criar um novo ouvinte multi-site ou a adicionar mais de um nome de anfitrião ao seu ouvinte multi-site existente a partir do portal Azure, será adicionado, por predefinição, ao `HostNames` parâmetro da configuração do ouvinte, o que adiciona mais capacidade ao parâmetro existente `HostName` na configuração.
+
+Em [Azure PowerShell,](tutorial-multiple-sites-powershell.md)deve utilizar `-HostNames` em vez de `-HostName` . Com hostNames, pode mencionar até 5 nomes de anfitriões como valores separados por vírgula e usar caracteres wildcard. Por exemplo, `-HostNames "*.contoso.com,*.fabrikam.com"`
+
+Em [Azure CLI,](tutorial-multiple-sites-cli.md)deve utilizar `--host-names` em vez de `--host-name` . Com os nomes dos anfitriões, pode mencionar até 5 nomes de anfitriões como valores separados por vírgula e usar caracteres wildcard. Por exemplo, `--host-names "*.contoso.com,*.fabrikam.com"`
+
+### <a name="allowed-characters-in-the-host-names-field"></a>Personagens permitidos no campo dos nomes dos anfitriões:
+
+* `(A-Z,a-z,0-9)`- caracteres alfanuméricos
+* `-`- hífen ou menos
+* `.`- período como delimiter
+*   `*`- pode combinar com vários caracteres na gama permitida
+*   `?`- pode combinar com um único personagem na gama permitida
+
+### <a name="conditions-for-using-wildcard-characters-and-multiple-host-names-in-a-listener"></a>Condições para a utilização de caracteres wildcard e vários nomes de anfitriões num ouvinte:
+
+*   Só pode mencionar até 5 nomes de anfitriões num único ouvinte
+*   Asterisco `*` só pode ser mencionado uma vez num componente de um nome de estilo de domínio ou nome de anfitrião. Por exemplo, componente1 *.component2.component3.* `(*.contoso-*.com)`é válido.
+*   Só pode haver até dois asteriscos `*` num nome de hospedeiro. Por exemplo, `*.contoso.*` é válido e é `*.contoso.*.*.com` inválido.
+*   Só pode haver um máximo de 4 caracteres wildcard num nome de anfitrião. Por `????.contoso.com` exemplo, `w??.contoso*.edu.*` são válidos, mas `????.contoso.*` inválidos.
+*   A utilização de asterisco `*` e ponto de interrogação `?` juntos num componente de um nome de hospedeiro `*?` `?*` (ou ) é `**` inválida. Por exemplo, `*?.contoso.com` e `**.contoso.com` são inválidos.
+
+### <a name="considerations-and-limitations-of-using-wildcard-or-multiple-host-names-in-a-listener"></a>Considerações e limitações da utilização de nomes de anfitriões ou wildcard ou vários num ouvinte:
+
+*   [A rescisão SSL e a SSL de ponta a ponta](ssl-overview.md) requer que configurá o protocolo como HTTPS e faça o upload de um certificado a utilizar na configuração do ouvinte. Se for um ouvinte multi-site, também pode inserir o nome de anfitrião, normalmente este é o CN do certificado SSL. Quando estiver a especificar vários nomes de anfitriões no ouvinte ou utilizar caracteres wildcard, deve considerar o seguinte:
+    *   Se for um nome de anfitrião wildcard como *.contoso.com, você deve carregar um certificado wildcard com CN como *.contoso.com
+    *   Se vários nomes de anfitriões forem mencionados no mesmo ouvinte, deve carregar um certificado SAN (Nomes Alternativos Sujeitos) com os CNs correspondentes aos nomes dos anfitriões mencionados.
+*   Não pode usar uma expressão regular para mencionar o nome do anfitrião. Só pode usar caracteres wildcard como asterisco (*) e ponto de interrogação (?) para formar o padrão de nome do anfitrião.
+*   Para uma verificação de saúde de backend, não é possível associar [várias sondas personalizadas](application-gateway-probe-overview.md) por definições HTTP. Em vez disso, pode sondar um dos websites no backend ou usar "127.0.0.1" para sondar a 2ª localidade do servidor de backend. No entanto, quando estiver a utilizar um wildcard ou vários nomes de anfitriões num ouvinte, os pedidos de todos os padrões de domínio especificados serão encaminhados para o pool de backend, dependendo do tipo de regra (básico ou baseado em trajetória).
+*   As propriedades "hostname" têm uma corda como entrada, onde pode mencionar apenas um nome de domínio não wildcard e "hostnames" leva uma variedade de cordas como entrada, onde você pode mencionar até 5 nomes de domínio wildcard. Mas ambas as propriedades não podem ser usadas ao mesmo tempo.
+*   Não é possível criar uma regra [de redirecionamento](redirect-overview.md) com um ouvinte-alvo que usa nomes de wildcard ou vários anfitriões.
+
+Consulte [criar vários sites utilizando o portal Azure](create-multiple-sites-portal.md) ou [utilizando o Azure PowerShell](tutorial-multiple-sites-powershell.md) ou utilizando o [Azure CLI](tutorial-multiple-sites-cli.md) para o guia passo a passo sobre como configurar os nomes dos anfitriões wildcard num ouvinte multi-site.
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>Cabeçalhos de anfitrião e Indicação do Nome de Servidor (SNI)
 
@@ -41,92 +93,8 @@ O Application Gateway suporta múltiplas aplicações cada uma a ouvir em difere
 
 O Gateway de Aplicação conta com os cabeçalhos de anfitrião HTTP 1.1 para alojar mais do que um site no mesmo endereço IP público e porta. Os sites alojados no gateway de aplicações também podem suportar a descarga de TLS com a extensão TLS de Indicação de Nome do Servidor (SNI). Neste cenário, o browser cliente e o web farm de back-end têm de suportar HTTP/1.1 e a extensão TLS conforme definido em RFC 6066.
 
-## <a name="listener-configuration-element"></a>Elemento de configuração do serviço de escuta
-
-Os elementos de configuração httpListener existentes são melhorados para suportar elementos de indicação do nome do anfitrião e do servidor. É usado pela Application Gateway para encaminhar o tráfego para a piscina de backend apropriada. 
-
-O exemplo de código a seguir é o corte de um elemento httpListeners de um ficheiro de modelo:
-
-```json
-"httpListeners": [
-    {
-        "name": "appGatewayHttpsListener1",
-        "properties": {
-            "FrontendIPConfiguration": {
-                "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendIPConfigurations/DefaultFrontendPublicIP"
-            },
-            "FrontendPort": {
-                "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendPorts/appGatewayFrontendPort443'"
-            },
-            "Protocol": "Https",
-            "SslCertificate": {
-                "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/sslCertificates/appGatewaySslCert1'"
-            },
-            "HostName": "contoso.com",
-            "RequireServerNameIndication": "true"
-        }
-    },
-    {
-        "name": "appGatewayHttpListener2",
-        "properties": {
-            "FrontendIPConfiguration": {
-                "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendIPConfigurations/appGatewayFrontendIP'"
-            },
-            "FrontendPort": {
-                "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendPorts/appGatewayFrontendPort80'"
-            },
-            "Protocol": "Http",
-            "HostName": "fabrikam.com",
-            "RequireServerNameIndication": "false"
-        }
-    }
-],
-```
-
-Pode visitar o [modelo do Resource Manager através do alojamento de vários sites](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) para obter uma implementação baseada num modelo ponto a ponto.
-
-## <a name="routing-rule"></a>Regra de encaminhamento
-
-Não é necessária nenhuma alteração na regra do encaminhamento. Deve continuar a escolher a regra de encaminhamento “Básica” para associar o serviço de escuta de sites ao conjunto de endereços de back-end correspondente.
-
-```json
-"requestRoutingRules": [
-{
-    "name": "<ruleName1>",
-    "properties": {
-        "RuleType": "Basic",
-        "httpListener": {
-            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/httpListeners/appGatewayHttpsListener1')]"
-        },
-        "backendAddressPool": {
-            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendAddressPools/ContosoServerPool')]"
-        },
-        "backendHttpSettings": {
-            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendHttpSettingsCollection/appGatewayBackendHttpSettings')]"
-        }
-    }
-
-},
-{
-    "name": "<ruleName2>",
-    "properties": {
-        "RuleType": "Basic",
-        "httpListener": {
-            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/httpListeners/appGatewayHttpListener2')]"
-        },
-        "backendAddressPool": {
-            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendAddressPools/FabrikamServerPool')]"
-        },
-        "backendHttpSettings": {
-            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendHttpSettingsCollection/appGatewayBackendHttpSettings')]"
-        }
-    }
-
-}
-]
-```
-
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de saber mais sobre o alojamento de vários sites, veja o artigo [Criar um gateway de aplicação através do alojamento de vários sites](tutorial-multiple-sites-powershell.md) para criar um gateway de aplicação com capacidade para suportar mais do que uma aplicação Web.
+Depois de aprender sobre o alojamento de vários sites, vá [criar vários sites usando o portal Azure](create-multiple-sites-portal.md) ou [usando a Azure PowerShell](tutorial-multiple-sites-powershell.md) ou [usando o Azure CLI](tutorial-multiple-sites-cli.md) para o guia passo a passo sobre a criação de um Gateway de Aplicação para hospedar vários websites.
 
+Pode visitar o [modelo do Resource Manager através do alojamento de vários sites](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) para obter uma implementação baseada num modelo ponto a ponto.

@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: fdad2f7c2ce4f82529866b4235ebebab8da664d3
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 4fab75aef2a94ba7108085e9d5b5dbbf190342f6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054581"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068291"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Utilização de pontos finais privados para app Web Azure (pré-visualização)
 
@@ -70,7 +70,7 @@ Quando utilizar o Private Endpoint para a Web App, o URL solicitado deve corresp
 Por padrão, sem Private Endpoint, o nome público da sua aplicação web é um nome canónico para o cluster.
 Por exemplo, a resolução de nomes será:
 
-|Name |Tipo |Valor |
+|Nome |Tipo |Valor |
 |-----|-----|------|
 |mywebapp.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
 |clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
@@ -80,7 +80,7 @@ Por exemplo, a resolução de nomes será:
 Quando implementa um Ponto Final Privado, atualizamos a entrada de DNS para apontar para o nome canónico mywebapp.privatelink.azurewebsites.net.
 Por exemplo, a resolução de nomes será:
 
-|Name |Tipo |Valor |Observação |
+|Nome |Tipo |Valor |Observação |
 |-----|-----|------|-------|
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
 |mywebapp.privatelink.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
@@ -91,7 +91,7 @@ Tem de configurar um servidor DNS privado ou uma zona privada Azure DNS, para te
 A zona DE DNS que precisa de criar é: **privatelink.azurewebsites.net**. Registe o registo da sua Web App com um registo A e o Private Endpoint IP.
 Por exemplo, a resolução de nomes será:
 
-|Name |Tipo |Valor |Observação |
+|Nome |Tipo |Valor |Observação |
 |-----|-----|------|-------|
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
 |mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|<-- Gere esta entrada no seu sistema DNS para apontar para o seu endereço IP private endpoint|
@@ -103,7 +103,7 @@ Se precisar de usar um nome DNS personalizado, tem de adicionar o nome personali
 
 Para a consola Kudu, ou Kudu REST API (implementação com agentes auto-hospedados da Azure DevOps, por exemplo), deve criar dois registos na sua zona privada Azure DNS ou no seu servidor DNS personalizado. 
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 |-----|-----|-----|
 | mywebapp.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
 | mywebapp.scm.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
@@ -122,12 +122,12 @@ Durante a pré-visualização, apenas a ranhura de produção é exposta por tr�
 
 Estamos a melhorar regularmente o recurso Private Link e o Private Endpoint, consulte [este artigo][pllimitations] para obter informações atualizadas sobre limitações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para implementar o Private Endpoint para a sua Web App através do portal, consulte [como ligar-se privadamente a uma Aplicação Web com o Portal][howtoguide1]
 - Para implementar o Private Endpoint para a sua Web App utilizando o Azure CLI, consulte [como ligar-se privadamente a uma Aplicação Web com o Azure CLI][howtoguide2]
 - Para implementar o Ponto Final Privado para a sua Aplicação Web utilizando o PowerShell, consulte [como ligar-se privadamente a uma Aplicação Web com o PowerShell][howtoguide3]
-
+- Para implementar o Ponto Final Privado para a sua Aplicação Web utilizando o modelo Azure, consulte [como ligar-se privadamente a uma Aplicação Web com o modelo Azure][howtoguide4]
 
 
 <!--Links-->
@@ -143,3 +143,4 @@ Estamos a melhorar regularmente o recurso Private Link e o Private Endpoint, con
 [howtoguide1]: https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal
 [howtoguide2]: https://docs.microsoft.com/azure/app-service/scripts/cli-deploy-privateendpoint
 [howtoguide3]: https://docs.microsoft.com/azure/app-service/scripts/powershell-deploy-private-endpoint
+[howtoguide4]: https://docs.microsoft.com/azure/app-service/scripts/template-deploy-private-endpoint
