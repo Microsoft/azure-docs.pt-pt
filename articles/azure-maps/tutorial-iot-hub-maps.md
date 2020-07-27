@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Implementar análise espacial IoT / Microsoft Azure Maps'
 description: Integre o Hub IoT com apis do serviço Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 1f0668a897f5bc88fbaeb770bc045e56dae2d48f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2bb5876424730e55d15cc52aeb98aa04af040821
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075489"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133406"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Tutorial: Implementar análises espaciais IoT usando mapas Azure
 
@@ -298,7 +298,7 @@ O mapa abaixo mostra quatro pontos onde o veículo estava fora da geofence, regi
 
 ![mapa de violação](./media/tutorial-iot-hub-maps/violation-map.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para explorar as APIs do Azure Maps utilizadas neste tutorial, consulte:
 

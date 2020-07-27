@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/01/2019
+ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: b8935dd4138095aa9b8e84ddf75c06307f9ce00d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f14ac279f14feb3f83490ab96965d4355bed125
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483640"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169464"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Criar um volume NFS para o Azure NetApp Files
 
@@ -76,7 +76,7 @@ Uma sub-rede deve ser delegada nos Ficheiros Azure NetApp.
         O campo **Quota disponível** mostra a quantidade de espaço não utilizado no conjunto de capacidade escolhido que pode usar para criar um novo volume. O tamanho do novo volume não pode exceder a quota disponível.  
 
     * **Rede virtual**  
-        Especifique a rede virtual do Azure (Vnet) a partir da qual pretende aceder ao volume.  
+        Especifique a rede virtual Azure (VNet) a partir da qual pretende aceder ao volume.  
 
         O Vnet que especifica deve ter uma sub-rede delegada nos Ficheiros Azure NetApp. O serviço Azure NetApp Files só pode ser acedido a partir do mesmo Vnet ou de um Vnet que está na mesma região que o volume através do espreitamento Vnet. Também pode aceder ao volume a partir da sua rede no local através da Rota Expresso.   
 
@@ -89,6 +89,12 @@ Uma sub-rede deve ser delegada nos Ficheiros Azure NetApp.
         ![Criar um volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Criar sub-rede](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+
+    * Se pretender aplicar uma política de instantâneo existente no volume, clique em **Mostrar secção avançada** para expandi-la e selecione uma política de instantâneo no menu pull-down. 
+
+        Para obter informações sobre a criação de uma política de instantâneos, consulte [Gerir as imagens](azure-netapp-files-manage-snapshots.md).
+
+        ![Mostrar seleção avançada](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
 4. Clique **em Protocolo**e, em seguida, complete as seguintes ações:  
     * Selecione **NFS** como o tipo de protocolo para o volume.   

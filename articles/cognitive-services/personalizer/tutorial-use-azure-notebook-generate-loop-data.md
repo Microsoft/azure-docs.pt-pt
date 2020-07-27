@@ -3,20 +3,18 @@ title: 'Tutorial: Azure Notebook - Personalizer'
 titleSuffix: Azure Cognitive Services
 description: Este tutorial simula um loop personalizer _system num Caderno Azure, o que sugere que tipo de café um cliente deve encomendar. Os utilizadores e as suas preferências são armazenados num conjunto de dados do utilizador. A informação sobre o café também está disponível e armazenada num conjunto de dados de café.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 04/27/2020
-ms.author: diberry
 ms.custom: tracking-python
-ms.openlocfilehash: 30897e1bdd5d139d3a11980430cbcc6b10052ecc
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 62e9140a1bab44d913e164304af13204f375f461
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608490"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131978"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>Tutorial: Use personalizar em Azure Notebook
 
@@ -37,8 +35,8 @@ Para ajudar o Personaler a aprender, com o tempo, o _sistema_ também conhece de
 |Café - características de ação|Tipos de temperatura|Locais de origem|Tipos de assado|Orgânico|
 |--|--|--|--|--|
 |Cappacino|Acesso Frequente|Quénia|Escuro|Orgânico|
-|Cerveja fria|Cold|Brasil|Light|Orgânico|
-|Mocha gelada|Cold|Etiópia|Light|Não orgânico|
+|Cerveja fria|Cold|Brasil|Claro|Orgânico|
+|Mocha gelada|Cold|Etiópia|Claro|Não orgânico|
 |Latte|Acesso Frequente|Brasil|Escuro|Não orgânico|
 
 O **objetivo** do loop Personalizer é encontrar a melhor correspondência entre os utilizadores e o café o máximo de tempo possível.
@@ -654,7 +652,7 @@ O segundo gráfico deve mostrar um aumento visível das previsões do Rank alinh
 
 ![O segundo gráfico deve mostrar um aumento visível das previsões do Rank alinhando-se com as preferências dos utilizadores.](./media/tutorial-azure-notebook/azure-notebook-chart-results-happy-graph.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não pretende continuar a série tutorial, limpe os seguintes recursos:
 

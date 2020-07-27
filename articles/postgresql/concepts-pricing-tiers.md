@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: caa5c0178cda563650928be40d02716868255fb1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b99e5f7d079e580ad8fcd30a311c24a55ef7fc5b
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121627"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171140"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Escalões de preço na Base de Dados do Azure para PostgreSQL – Servidor Único
 
@@ -29,7 +29,7 @@ Para escolher um nível de preços, utilize a tabela seguinte como ponto de part
 
 | Escalão de preço | Cargas de trabalho de destino |
 |:-------------|:-----------------|
-| Básica | Cargas de trabalho que requerem computação leve e desempenho de I/O. Exemplos incluem servidores utilizados para desenvolvimento ou teste ou aplicações pouco utilizadas em pequena escala. |
+| Básico | Cargas de trabalho que requerem computação leve e desempenho de I/O. Exemplos incluem servidores utilizados para desenvolvimento ou teste ou aplicações pouco utilizadas em pequena escala. |
 | Fins Gerais | A maioria das cargas de trabalho do negócio que requerem cálculo equilibrado e memória com rendimento escalável de I/O. Exemplos incluem servidores para hospedar aplicações web e móveis e outras aplicações empresariais.|
 | Otimizada para Memória | Cargas de trabalho de base de dados de alto desempenho que requerem desempenho na memória para um processamento de transações mais rápido e maior conúcência. Exemplos incluem servidores para o processamento de dados em tempo real e aplicações transacionais ou analíticas de alto desempenho.|
 
@@ -85,9 +85,9 @@ Por exemplo, se tiver provisionado 1000 GB de armazenamento, e a utilização re
 
 Lembre-se que o armazenamento só pode ser aumentado, não para baixo.
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup-storage"></a>Armazenamento de backup
 
-O serviço retira automaticamente cópias de segurança do seu servidor. Pode selecionar um período de retenção de um intervalo de 7 a 35 dias. Os servidores otimizados para fins gerais e memória podem optar por ter armazenamento geo-redundante para cópias de segurança. Saiba mais sobre backups no [artigo de conceitos.](concepts-backup.md)
+A Azure Database for PostgreSQL fornece até 100% do armazenamento do servidor a provisionado como armazenamento de backup sem custos adicionais. Qualquer armazenamento de reserva que utilize acima deste valor é cobrado em GB por mês. Por exemplo, se fornecer um servidor com 250 GB de armazenamento, terá 250 GB de armazenamento adicional disponível para cópias de segurança do servidor sem custos. O armazenamento para cópias de segurança superiores aos 250 GB é cobrado de acordo com o [modelo de preços](https://azure.microsoft.com/pricing/details/postgresql/). Para compreender os fatores que influenciam o uso do armazenamento de backup, monitorizando e controlando o custo de armazenamento de backup, pode consultar a [documentação de backup](concepts-backup.md).
 
 ## <a name="scale-resources"></a>Dimensionar recursos
 

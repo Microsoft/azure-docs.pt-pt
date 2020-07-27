@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: b9cf070e1431c04a7e899a3b8875c8db796608d3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 163f440c9f98a1d53793fddab2590f7345944fda
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119893"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171006"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Base de Dados Azure para os níveis de preços do MySQL
 
@@ -29,7 +29,7 @@ Para escolher um nível de preços, utilize a tabela seguinte como ponto de part
 
 | Escalão de preço | Cargas de trabalho de destino |
 |:-------------|:-----------------|
-| Básica | Cargas de trabalho que requerem computação leve e desempenho de I/O. Exemplos incluem servidores utilizados para desenvolvimento ou teste ou aplicações pouco utilizadas em pequena escala. |
+| Básico | Cargas de trabalho que requerem computação leve e desempenho de I/O. Exemplos incluem servidores utilizados para desenvolvimento ou teste ou aplicações pouco utilizadas em pequena escala. |
 | Fins Gerais | A maioria das cargas de trabalho do negócio que requerem cálculo equilibrado e memória com rendimento escalável de I/O. Exemplos incluem servidores para hospedar aplicações web e móveis e outras aplicações empresariais.|
 | Otimizada para Memória | Cargas de trabalho de base de dados de alto desempenho que requerem desempenho na memória para um processamento de transações mais rápido e maior conúcência. Exemplos incluem servidores para o processamento de dados em tempo real e aplicações transacionais ou analíticas de alto desempenho.|
 
@@ -43,7 +43,7 @@ Os recursos compute são fornecidos como vCores, que representam o CPU lógico d
 
 O armazenamento que fornece é a quantidade de capacidade de armazenamento disponível para a sua Base de Dados Azure para o servidor MySQL. O armazenamento é utilizado para os ficheiros de base de dados, ficheiros temporários, registos de transações e registos de servidores MySQL. A quantidade total de armazenamento que fornece também define a capacidade de E/S disponível para o seu servidor.
 
-| Atributo de armazenamento   | Básica | Fins gerais | Com otimização de memória |
+| Atributo de armazenamento   | Básico | Fins gerais | Com otimização de memória |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo de armazenamento | Armazenamento básico | Armazenamento de Finalidade Geral | Armazenamento de Finalidade Geral |
 | Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 16 TB | 5 GB a 16 TB |
@@ -83,9 +83,9 @@ Por exemplo, se tiver provisionado 1000 GB de armazenamento, e a utilização re
 
 Lembre-se que o armazenamento só pode ser aumentado, não para baixo.
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup-storage"></a>Armazenamento de backup 
 
-O serviço retira automaticamente cópias de segurança do seu servidor. Pode selecionar um período de retenção de um intervalo de 7 a 35 dias. Os servidores otimizados para fins gerais e memória podem optar por ter armazenamento geo-redundante para cópias de segurança. Saiba mais sobre backups no [artigo de conceitos.](concepts-backup.md)
+A Azure Database for MySQL fornece até 100% do armazenamento do servidor a provisionado como armazenamento de backup sem custos adicionais. Qualquer armazenamento de reserva que utilize acima deste valor é cobrado em GB por mês. Por exemplo, se fornecer um servidor com 250 GB de armazenamento, terá 250 GB de armazenamento adicional disponível para cópias de segurança do servidor sem custos. O armazenamento para cópias de segurança superiores aos 250 GB é cobrado de acordo com o [modelo de preços](https://azure.microsoft.com/pricing/details/mysql/). Para compreender os fatores que influenciam o uso do armazenamento de backup, monitorizando e controlando o custo de armazenamento de backup, pode consultar a [documentação de backup](concepts-backup.md).
 
 ## <a name="scale-resources"></a>Dimensionar recursos
 

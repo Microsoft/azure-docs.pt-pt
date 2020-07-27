@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fd1b815a56a21e502decb440806040c626c13d2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a7153200bc80f6e27a99123a1bba676d0188f607
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019646"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129037"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure
 
@@ -87,9 +87,6 @@ Para ativar o TLS 1.2:
    ```
 
 1. Reinicie o servidor.
-
-> [!IMPORTANT]
-> Para fornecer a melhor encriptação em classe aos nossos clientes, o serviço Application Proxy limita o acesso a apenas protocolos TLS 1.2. Estas alterações foram gradualmente lançadas e eficazes desde 31 de agosto de 2019. Certifique-se de que todas as combinações de servidores de clientes e servidores de navegador são atualizadas para utilizar o TLS 1.2 para manter a ligação ao serviço De procuração de aplicações. Estes incluem clientes que os seus utilizadores estão a usar para aceder a aplicações publicadas através do Application Proxy. Consulte a preparação para [o TLS 1.2 no Office 365](https://support.microsoft.com/help/4057306/preparing-for-tls-1-2-in-office-365) para obter referências e recursos úteis.
 
 ## <a name="prepare-your-on-premises-environment"></a>Prepare o seu ambiente no local
 
@@ -238,7 +235,7 @@ Para testar o sinal de inscrição na aplicação:
 
 Para a resolução de problemas, consulte [problemas de procuração de aplicação de resolução de problemas e mensagens de erro](application-proxy-troubleshoot.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, preparou o seu ambiente no local para trabalhar com o Application Proxy e, em seguida, instalou e registou o conector Application Proxy. Em seguida, adicionou um pedido ao seu inquilino AZure AD. Verificou que um utilizador pode inscrever-se na aplicação utilizando uma conta AZure AD.
 

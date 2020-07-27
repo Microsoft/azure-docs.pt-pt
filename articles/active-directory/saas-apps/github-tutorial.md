@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ade9e3200909c781dc00cf4e3713395f55f173d
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 718d51c94d05e8e18f2b254b5e81e346a67205a1
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253749"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87170529"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Tutorial: Azure Ative Directory integração única (SSO) com GitHub
 
@@ -87,7 +87,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:`https://github.com/orgs/<Organization ID>`
 
-    c. No **URL textox de resposta,** digite um URL utilizando o seguinte padrão:`https://github.com/orgs/<Organization ID>/saml/consume`
+    c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://github.com/orgs/<Organization ID>/saml/consume`
 
 
     > [!NOTE]
@@ -121,7 +121,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar**.
+   1. Clique em **Create** (Criar).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -177,7 +177,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![Definições](./media/github-tutorial/tutorial_github_config_github_06.png)
 
-6. Clique **em Guardar**
+6. Clique em **Guardar**
 
 > [!NOTE]
 > O único sign-on no GitHub autentica-se a uma organização específica no GitHub e não substitui a autenticação do próprio GitHub. Portanto, se a sessão de github.com do utilizador tiver expirado, poderá ser-lhe pedido que autente para autenticar com o ID/password do GitHub durante o processo de inscrição única.

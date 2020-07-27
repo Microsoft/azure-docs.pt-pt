@@ -3,16 +3,16 @@ title: Automatizar tarefas com vários serviços Azure
 description: Tutorial - Criar fluxos de trabalho automatizados para processar e-mails com Apps Azure Logic, Azure Storage e Azure Functions
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/27/2020
-ms.openlocfilehash: 9835e4e65ba4bfce1b0f9f6dc74a944db4cdcb28
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 925759b63d1225c720ad439f15b82632a4921cbb
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048868"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132335"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Tutorial: Automatizar tarefas para processar e-mails utilizando apps Azure Logic, Funções Azure e Armazenamento Azure
 
@@ -47,13 +47,11 @@ Quando terminar, a aplicação lógica é semelhante a este fluxo de trabalho a 
 
 * Transferir e instalar o [Explorador de Armazenamento do Microsoft Azure](https://storageexplorer.com/) gratuito. Esta ferramenta ajuda-o a verificar se o seu contentor de armazenamento está configurado corretamente.
 
-## <a name="sign-in-to-azure-portal"></a>Iniciar sessão no portal do Azure
-
-Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais da sua conta do Azure.
-
 ## <a name="set-up-storage-to-save-attachments"></a>Configurar o armazenamento para guardar anexos
 
 Pode guardar os e-mails e anexos recebidos como blobs num [contentor de armazenamento do Azure](../storage/common/storage-introduction.md).
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais da sua conta do Azure.
 
 1. Antes de criar um recipiente de armazenamento, [crie uma conta de armazenamento](../storage/common/storage-account-create.md) com estas definições no **separador Básicos** no portal Azure:
 
@@ -280,8 +278,8 @@ Em seguida, adicione um [acionador](../logic-apps/logic-apps-overview.md#logic-a
       | Definição | Valor | Descrição |
       | ------- | ----- | ----------- |
       | **Pasta** | A Receber | A pasta de e-mail a verificar |
-      | **Tem Anexo** | Yes | Obter apenas os e-mails com anexos. <p>**Nota:** o acionador não remove e-mails da sua conta; verifica apenas as mensagens novas e só processa os e-mails que correspondam ao filtro do assunto. |
-      | **Incluir Anexos** | Yes | Obter os anexos como entrada para o seu fluxo de trabalho em vez de verificar apenas os anexos. |
+      | **Tem Anexo** | Sim | Obter apenas os e-mails com anexos. <p>**Nota:** o acionador não remove e-mails da sua conta; verifica apenas as mensagens novas e só processa os e-mails que correspondam ao filtro do assunto. |
+      | **Incluir Anexos** | Sim | Obter os anexos como entrada para o seu fluxo de trabalho em vez de verificar apenas os anexos. |
       | **Intervalo** | 1 | O número de intervalos de espera entre verificações |
       | **Frequência** | Minuto | A unidade de tempo para cada intervalo entre verificações |
       ||||
@@ -666,7 +664,7 @@ Teste a sua aplicação lógica, que é agora semelhante a este exemplo:
 
 Parabéns! Criou e executou uma aplicação lógica que automatiza tarefas em diferentes serviços do Azure e que chama um código personalizado.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar deste exemplo, elimine o grupo de recursos que contém a aplicação lógica e os recursos relacionados.
 
@@ -684,7 +682,7 @@ Quando já não precisar deste exemplo, elimine o grupo de recursos que contém 
 
 1. Quando o painel de confirmação aparecer, insira o nome do grupo de recursos e selecione **Delete**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, criou uma aplicação lógica que processa e armazena anexos de e-mail através da integração de serviços do Azure, como o Armazenamento do Azure e as Funções do Azure. Agora, saiba mais sobre outros conectores que pode utilizar para criar aplicações lógicas.
 

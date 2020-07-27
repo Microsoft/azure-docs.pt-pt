@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 442dfc1667027bd39b138d59a28542138cc4a1ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 690f59c643f1fe8c8cfc74758a0f8f13b129f78a
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085977"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87172073"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Anfitriões de sessão de escala usando Azure Automation
 
@@ -60,10 +60,10 @@ No entanto, a ferramenta também tem as seguintes limitações:
 
 - Esta solução aplica-se apenas aos VM do anfitrião de múltiplas sessões em conjunto.
 - Esta solução gere VMs em qualquer região, mas só pode ser usada na mesma subscrição que a sua conta Azure Automation e Azure Logic App.
-- O tempo máximo de funcionamento de um trabalho no livro de corridas é de 3 horas. Se começar ou parar os VMs na piscina de anfitrião demorar mais tempo do que isso, o trabalho falhará. Para mais detalhes, consulte [recursos partilhados](../../automation/automation-runbook-execution.md#fair-share)
+- O tempo máximo de funcionamento de um trabalho no livro de corridas é de 3 horas. Se começar ou parar os VMs na piscina de anfitrião demorar mais tempo do que isso, o trabalho falhará. Para mais detalhes, consulte [recursos partilhados.](../../automation/automation-runbook-execution.md#fair-share)
 
 >[!NOTE]
->A ferramenta de escalonamento controla o modo de equilíbrio de carga da piscina hospedeira que está a escalonar. Coloca-o no primeiro equilíbrio de carga para horas de pico e fora do pico.
+>A ferramenta de escala controla o modo de equilíbrio de carga da piscina hospedeira que está atualmente a escalonar. A ferramenta utiliza o modo de equilíbrio de primeira carga para horas de pico e de pico.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -140,7 +140,7 @@ Agora que tem uma conta Azure Automation, também terá de criar uma conta Azure
 
 Uma [Azure Automation Run Como conta](../../automation/manage-runas-account.md) fornece autenticação para gestão de recursos em Azure com cmdlets Azure. Quando cria uma conta Run As, cria um novo utilizador principal de serviço no Azure Ative Directory e atribui a função contribuinte ao utilizador principal do serviço ao nível da subscrição. Uma conta Azure Run As é uma ótima maneira de autenticar de forma segura com certificados e um nome principal de serviço sem precisar de armazenar um nome de utilizador e senha num objeto credencial. Para saber mais sobre a autenticação da conta Run As, consulte [Limite executar como permissões de conta](../../automation/manage-runas-account.md#limit-run-as-account-permissions).
 
-Qualquer utilizador que seja membro da função de Administrador de Subscrição e coadministrator da subscrição pode criar uma conta Run As seguindo as instruções da secção seguinte.
+Qualquer utilizador que seja membro da função de Administrador de Subscrição e coadministrator da subscrição pode criar uma conta Run As.
 
 Para criar uma conta Run As na sua conta Azure Automation:
 

@@ -6,11 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 3e6dfd5882e49ad903e8cff6f0ec7f3d6bd4a8b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92f35968156e787b844d28f866a832940cc8ef64
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77619632"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171608"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Backup e restauro na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -18,13 +19,32 @@ A Azure Database for PostgreSQL cria automaticamente cópias de segurança do se
 
 ## <a name="backups"></a>Cópias de segurança
 
-A Azure Database for PostgreSQL retira cópias dos ficheiros de dados e do registo de transações. Dependendo do tamanho máximo de armazenamento suportado, ou fazemos cópias de segurança completas e diferenciais (4 servidores de armazenamento máximo de TB) ou cópias de segurança instantâneas (até 16 servidores de armazenamento máximo de TB). Estas cópias de segurança permitem restaurar um servidor em qualquer ponto no tempo dentro do período de retenção de backup configurado. O período de retenção de backup predefinido é de sete dias. Pode configurar opcionalmente até 35 dias. Todas as cópias de segurança são encriptadas utilizando encriptação AES de 256 bits.
+A Azure Database for PostgreSQL retira cópias dos ficheiros de dados e do registo de transações. Dependendo do tamanho máximo de armazenamento suportado, ou fazemos cópias de segurança completas e diferenciais (servidores de armazenamento máximo de 4-TB) ou cópias de segurança instantâneas (até 16-TB máximo de armazenamento). Estas cópias de segurança permitem restaurar um servidor em qualquer ponto no tempo dentro do período de retenção de backup configurado. O período de retenção de backup predefinido é de sete dias. Pode configurar opcionalmente até 35 dias. Todas as cópias de segurança são encriptadas utilizando encriptação AES de 256 bits.
 
 Estes ficheiros de reserva não podem ser exportados. As cópias de segurança só podem ser utilizadas para operações de restauro na Base de Dados Azure para PostgreSQL. Pode usar [pg_dump](howto-migrate-using-dump-and-restore.md) para copiar uma base de dados.
 
 ### <a name="backup-frequency"></a>Frequência de cópia de segurança
 
-Geralmente, as cópias de segurança completas ocorrem semanalmente, as cópias de segurança diferenciais ocorrem duas vezes por dia para servidores com um armazenamento máximo suportado de 4 TB. As cópias de segurança de instantâneos ocorrem pelo menos uma vez por dia para os servidores que suportem até 16 TB de armazenamento. Em ambos os casos, as cópias de segurança de registo de transações ocorrem a cada cinco minutos. A primeira imagem de cópia de segurança completa é programada imediatamente após a criação de um servidor. A cópia de segurança inicial pode demorar mais tempo num grande servidor restaurado. O ponto mais antigo no tempo para que um novo servidor possa ser restaurado é o momento em que a cópia de segurança inicial está completa. Como as imagens instantâneas são instantâneas, os servidores com suporte até 16 TB de armazenamento podem ser restaurados até ao tempo de criação.
+#### <a name="servers-with-up-to-4-tb-storage"></a>Servidores com armazenamento até 4-TB
+
+Para os servidores que suportam até 4-TB de armazenamento máximo, as cópias de segurança completas ocorrem uma vez por semana. As cópias de segurança diferenciais ocorrem duas vezes por dia. As cópias de segurança do registo de transações ocorrem a cada cinco minutos.
+
+
+#### <a name="servers-with-up-to-16-tb-storage"></a>Servidores com armazenamento até 16-TB
+
+Num subconjunto de [regiões Azure,](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage)todos os servidores recém-abastados podem suportar até 16-TB de armazenamento. As cópias de segurança nestes grandes servidores de armazenamento são baseadas em instantâneos. A primeira cópia de segurança total do instantâneo é programada imediatamente após a criação de um servidor. A primeira cópia de segurança total do instantâneo é mantida como a cópia de segurança base do servidor. As cópias de segurança instantâneas subsequentes são apenas cópias de segurança diferenciais. 
+
+As cópias de segurança instantâneas diferenciais ocorrem pelo menos uma vez por dia. As cópias de segurança instantânea diferenciais não ocorrem num horário fixo. As cópias de segurança instantânea diferenciais ocorrem a cada 24 horas, a menos que o registo de transação (binlog no MySQL) exceda 50-GB desde a última cópia de segurança diferencial. Em um dia, um máximo de seis instantâneos diferenciais são permitidos. 
+
+As cópias de segurança do registo de transações ocorrem a cada cinco minutos. 
+
+### <a name="backup-retention"></a>Retenção da cópia de segurança
+
+As cópias de segurança são mantidas com base na definição do período de retenção de cópias de segurança no servidor. Pode selecionar um período de retenção de 7 a 35 dias. O período de retenção por defeito é de 7 dias. Pode definir o período de retenção durante a criação do servidor ou posteriormente atualizando a configuração de backup utilizando o [portal Azure](https://docs.microsoft.com/azure/postgresql/howto-restore-server-portal#set-backup-configuration) ou [O Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-restore-server-cli#set-backup-configuration). 
+
+O período de retenção de backups regula o quão longe no tempo um restauro de ponto no tempo pode ser recuperado, uma vez que é baseado em backups disponíveis. O período de retenção de backup também pode ser tratado como uma janela de recuperação de uma perspetiva de restauro. Todas as cópias de segurança necessárias para a restauração pontual dentro do período de retenção de backup são mantidas no armazenamento de backup. Por exemplo - se o período de retenção de backup estiver definido para 7 dias, a janela de recuperação é considerada dura 7 dias. Neste cenário, todas as cópias de segurança necessárias para restaurar o servidor nos últimos 7 dias são mantidas. Com uma janela de retenção de reserva de sete dias:
+- Servidores legados com armazenamento 4-TB irão reter até 2 cópias de dados completas, todas as cópias de segurança diferenciais e cópias de segurança de registo de transações realizadas desde a primeira cópia de segurança completa da base de dados.
+-   Os servidores com grande armazenamento (16-TB) conservam o instantâneo completo da base de dados, todos os instantâneos diferenciais e cópias de segurança de registo de transações nos últimos 8 dias.
 
 ### <a name="backup-redundancy-options"></a>Opções de redundância de backup
 
@@ -35,9 +55,11 @@ A Base de Dados Azure para PostgreSQL proporciona a flexibilidade para escolher 
 
 ### <a name="backup-storage-cost"></a>Custo de armazenamento de backup
 
-A Azure Database for PostgreSQL fornece até 100% do armazenamento do servidor a provisionado como armazenamento de backup sem custos adicionais. Normalmente, isto é adequado para uma retenção de reserva de sete dias. Qualquer armazenamento adicional de backup utilizado é cobrado no mês gB.
+A Azure Database for PostgreSQL fornece até 100% do armazenamento do servidor a provisionado como armazenamento de backup sem custos adicionais. Qualquer armazenamento adicional de backup utilizado é cobrado em GB por mês. Por exemplo, se tiver provisionado um servidor com 250 GB de armazenamento, tem 250 GB de armazenamento adicional disponível para cópias de segurança do servidor sem custo adicional. O armazenamento consumido para cópias de segurança superiores a 250 GB é cobrado de acordo com o [modelo de preços.](https://azure.microsoft.com/pricing/details/postgresql/)
 
-Por exemplo, se tiver provisionado um servidor com 250 GB, tem 250 GB de armazenamento de backup sem custos adicionais. É cobrado um armazenamento superior a 250 GB.
+Pode utilizar a métrica [de armazenamento de backup utilizada](concepts-monitoring.md) no Azure Monitor disponível no portal Azure para monitorizar o armazenamento de cópia de segurança consumido por um servidor. A métrica utilizada no Backup Storage representa a soma de armazenamento consumida por todas as cópias de segurança completas da base de dados, cópias de segurança diferenciais e cópias de segurança de registo mantidas com base no período de retenção de backup definido para o servidor. A frequência das cópias de segurança é gerida e explicada anteriormente. A atividade transacional pesada no servidor pode fazer com que o uso de armazenamento de cópias de segurança aumente independentemente do tamanho total da base de dados. Para o armazenamento geo-redundante, o uso de armazenamento de backup é o dobro do armazenamento localmente redundante. 
+
+O principal meio de controlar o custo de armazenamento de backup é definindo o período de retenção de backup adequado e escolhendo as opções de redundância de backup certas para cumprir os objetivos de recuperação pretendidos. Pode selecionar um período de retenção de um intervalo de 7 a 35 dias. Os servidores otimizados para fins gerais e memória podem optar por ter armazenamento geo-redundante para cópias de segurança.
 
 ## <a name="restore"></a>Restauro
 

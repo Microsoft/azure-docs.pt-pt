@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/29/2020
+ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 6bd6ddc8b75b83355f6761ef0567ea949c86b61a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 848a5779538f4754ef038a1e88be63c33177bc82
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483708"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169982"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
@@ -215,6 +215,12 @@ Esta definição está configurada nas Ligações de **Diretório Ativo** na **C
         ![Criar um volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Criar sub-rede](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+
+    * Se pretender aplicar uma política de instantâneo existente no volume, clique em **Mostrar secção avançada** para expandi-la e selecione uma política de instantâneo no menu pull-down. 
+
+        Para obter informações sobre a criação de uma política de instantâneos, consulte [Gerir as imagens](azure-netapp-files-manage-snapshots.md).
+
+        ![Mostrar seleção avançada](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
 4. Clique **em Protocolo** e complete as seguintes informações:  
     * Selecione **SMB** como o tipo de protocolo para o volume. 

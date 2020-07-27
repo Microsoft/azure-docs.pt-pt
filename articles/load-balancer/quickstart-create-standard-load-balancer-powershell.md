@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/23/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: e11113f34e7dbb9d659944bd29e101cee009668b
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 33c5db061860096b0411fbe91191f6c4a513e4c2
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133151"
+ms.locfileid: "87172138"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Quickstart: Criar um equilibrador de carga público para carregar VMs de equilíbrio usando Azure PowerShell
 
@@ -181,8 +181,6 @@ Crie uma regra de balançador de carga com [Add-AzLoadBalanceruleConfig](/powers
 * Envio de tráfego de rede equilibrado de carga para a piscina de endereço de backend **myBackEndPool** usando **a porta 80**. 
 * Utilizando a sonda de saúde **myHealthProbe**.
 * Protocolo **TCP**.
-* Ativar a tradução de endereços de rede de saída (SNAT) utilizando o endereço IP frontend.
-
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -193,11 +191,8 @@ $port = '80'
 ## $feip and $bePool are the variables from previous steps. ##
 
 $rule = 
-New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool
+New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool -DisableOutboundSNAT
 ```
-> [!NOTE]
-> O comando acima permite a conectividade de saída para os recursos no pool de backend do equilibrador de carga. Para uma configuração avançada de conectividade de saída, consulte **[as ligações de saída em Azure](load-balancer-outbound-connections.md)** e **[configurar regras de equilíbrio e saída de carga no Balancer de Carga Padrão utilizando o Azure CLI](configure-load-balancer-outbound-cli.md)**.
-
 
 ### <a name="create-load-balancer-resource"></a>Criar recurso de equilibrador de carga
 
@@ -313,7 +308,7 @@ $ip3 = 'myVMPubIP3'
 $sku = 'Standard'
 $all = 'static'
 
-$RdpPubIP2 = 
+$RdpPubIP3 = 
 New-AzPublicIpAddress -Name $ip3 -ResourceGroupName $rg -Location $loc -SKU $sku -AllocationMethod $all
 ```
 
@@ -638,6 +633,191 @@ New-AzVM -ResourceGroupName $rg -Zone $zn -Location $loc -VM $vmConfig
 ```
 
 Leva alguns minutos para criar e configurar os três VMs.
+
+## <a name="create-outbound-rule-configuration"></a>Criar configuração de regras de saída
+As regras de saída do balançador de carga configuram sNAT de saída para VMs na piscina de backend. 
+
+Para obter mais informações sobre as ligações de saída, consulte [as ligações de saída em Azure](load-balancer-outbound-connections.md).
+
+### <a name="create-outbound-public-ip-address"></a>Criar endereço IP público de saída
+
+Utilize [o New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) para:
+
+* Crie um endereço IP público redundante de zona padrão chamado **myPublicIPOutbound**.
+* No **myResourceGroupLB**.
+
+```azurepowershell-interactive
+## Variables for the command ##
+$rg = 'MyResourceGroupLB'
+$loc = 'eastus'
+$pubIP = 'myPublicIPOutbound'
+$sku = 'Standard'
+$all = 'static'
+
+$publicIp = 
+New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $all -SKU $sku
+```
+
+Para criar um endereço IP público zonal na zona 1, utilize o seguinte comando:
+
+```azurepowershell-interactive
+## Variables for the command ##
+$rg = 'MyResourceGroupLB'
+$loc = 'eastus'
+$pubIP = 'myPublicIPOutbound'
+$sku = 'Standard'
+$all = 'static'
+
+$publicIp = 
+New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $all -SKU $sku -zone 1
+```
+### <a name="create-outbound-frontend-ip-configuration"></a>Criar configuração IP frontend de saída
+
+Crie uma nova configuração IP frontal com [Add-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/add-azloadbalancerfrontendipconfig):
+
+* Chama-se **myFrontEndOutbound.**
+* Associado ao endereço IP público **myPublicIPOutbound**.
+
+```azurepowershell-interactive
+## Variables for the command ##
+$fen = 'myFrontEndOutbound'
+
+## Get the load balancer configuration  and apply the frontend config##
+Get-AzLoadBalancer -Name $lbn -ResourceGroupName $rg | Add-AzLoadBalancerFrontendIPConfig -Name $fen -PublicIpAddress $publicIP | Set-AzLoadBalancer
+```
+
+### <a name="create-outbound-pool"></a>Criar piscina de saída
+
+Crie uma nova piscina de saída com [Add-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/add-azloadbalancerbackendaddresspoolconfig). 
+
+Aplique o endereço IP da piscina e do frontend no equilibrador de carga com [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer)::
+
+* Denominado **myBackEndPoolOutbound**.
+
+```azurepowershell-interactive
+## Variables for the command ##
+$ben = 'myBackEndPoolOutbound'
+$lbn = 'myLoadBalancer'
+$rg = 'myResourceGroupLB'
+
+## Get the load balancer configuration and create the outbound backend address pool##
+Get-AzLoadBalancer -Name $lbn -ResourceGroupName $rg | Add-AzLoadBalancerBackendAddressPoolConfig -Name $ben | Set-AzLoadBalancer
+```
+### <a name="create-outbound-rule-and-apply-to-load-balancer"></a>Criar regra de saída e aplicar ao equilibrador de carga
+
+Crie uma nova regra de saída para a piscina de backend de saída com [Add-AzLoadBalancerOutboundRuleConfig](/powershell/module/az.network/new-azloadbalanceroutboundruleconfig). 
+
+Aplicar a regra no equilibrador de carga com [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer):
+
+* Chama-se **myOutboundRule.**
+* Associado ao balanceador de carga **myLoadBalancer**.
+* Associado com frontend **myFrontEndOutbound**.
+* Protocolo **Tudo**.
+* Intervalo de tempo de **15.**
+* **10.000** portos de saída.
+* Associado com backend pool **myBackEndPoolOutbound**.
+* No grupo de recursos **myResourceGroupLB**.
+
+```azurepowershell-interactive
+## Variables for the commands ##
+$rg = 'myResourceGroupLB'
+$lbn = 'myLoadBalancer'
+$brn = 'myOutboundRule'
+$pro = 'All'
+$idl = '15'
+$por = '10000'
+
+## Get the load balancer configuration ##
+$lb = 
+Get-AzLoadBalancer -Name $lbn -ResourceGroupName $rg 
+
+## Apply the outbound rule configuration to the load balancer. ##
+$lb | Add-AzLoadBalancerOutBoundRuleConfig -Name $brn -FrontendIPConfiguration $lb.FrontendIpConfigurations[1] -BackendAddressPool $lb.BackendAddressPools[1] -Protocol $pro -IdleTimeoutInMinutes $idl -AllocatedOutboundPort $por | Set-AzLoadBalancer
+```
+
+### <a name="add-virtual-machines-to-outbound-pool"></a>Adicione máquinas virtuais à piscina de saída
+
+Adicione as interfaces de rede de máquinas virtuais ao conjunto de saída do equilibrador de carga com [Add-AzNetworkInterfaceIpConfig:](/powershell/module/az.network/add-aznetworkinterfaceipconfig)
+
+
+#### <a name="vm1"></a>VM1
+* Na piscina de endereços **backend myEndEndPoolOutbound**.
+* No grupo de recursos **myResourceGroupLB**.
+* Associado à interface de rede **myNicVM1** e **ipconfig1**.
+* Associado ao balanceador de carga **myLoadBalancer**.
+
+```azurepowershell-interactive
+## Variables for the commands ##
+$rg = 'myResourceGroupLB'
+$lbn = 'myLoadBalancer'
+$bep = 'myBackEndPoolOutbound'
+$nic1 = 'myNicVM1'
+$ipc = 'ipconfig1'
+
+## Get the load balancer configuration ##
+$lb = 
+Get-AzLoadBalancer -Name $lbn -ResourceGroupName $rg
+
+## Get the network interface configuration ##
+$nic = 
+Get-AzNetworkInterface -Name $nic1 -ResourceGroupName $rg
+
+## Apply the backend to the network interface ##
+$nic | Set-AzNetworkInterfaceIpConfig -Name $ipc -LoadBalancerBackendAddressPoolId $lb.BackendAddressPools[1].id | Set-AzNetworkInterface
+```
+
+#### <a name="vm2"></a>VM2
+* Na piscina de endereços **backend myEndEndPoolOutbound**.
+* No grupo de recursos **myResourceGroupLB**.
+* Associado à interface de rede **myNicVM2** e **ipconfig1**.
+* Associado ao balanceador de carga **myLoadBalancer**.
+
+```azurepowershell-interactive
+## Variables for the commands ##
+$rg = 'myResourceGroupLB'
+$lbn = 'myLoadBalancer'
+$bep = 'myBackEndPoolOutbound'
+$nic2 = 'myNicVM2'
+$ipc = 'ipconfig1'
+
+## Get the load balancer configuration ##
+$lb = 
+Get-AzLoadBalancer -Name $lbn -ResourceGroupName $rg
+
+## Get the network interface configuration ##
+$nic = 
+Get-AzNetworkInterface -Name $nic2 -ResourceGroupName $rg
+
+## Apply the backend to the network interface ##
+$nic | Set-AzNetworkInterfaceIpConfig -Name $ipc -LoadBalancerBackendAddressPoolId $lb.BackendAddressPools[1].id | Set-AzNetworkInterface
+```
+
+#### <a name="vm3"></a>VM3
+* Na piscina de endereços **backend myEndEndPoolOutbound**.
+* No grupo de recursos **myResourceGroupLB**.
+* Associado à interface de rede **myNicVM3** e **ipconfig1**.
+* Associado ao balanceador de carga **myLoadBalancer**.
+
+```azurepowershell-interactive
+## Variables for the commands ##
+$rg = 'myResourceGroupLB'
+$lbn = 'myLoadBalancer'
+$bep = 'myBackEndPoolOutbound'
+$nic3 = 'myNicVM3'
+$ipc = 'ipconfig1'
+
+## Get the load balancer configuration ##
+$lb = 
+Get-AzLoadBalancer -Name $lbn -ResourceGroupName $rg
+
+## Get the network interface configuration ##
+$nic = 
+Get-AzNetworkInterface -Name $nic3 -ResourceGroupName $rg
+
+## Apply the backend to the network interface ##
+$nic | Set-AzNetworkInterfaceIpConfig -Name $ipc -LoadBalancerBackendAddressPoolId $lb.BackendAddressPools[1].id | Set-AzNetworkInterface
+
+```
 
 # <a name="option-2-create-a-load-balancer-basic-sku"></a>[Opção 2: Criar um equilibrador de carga (SKU Básico)](#tab/option-1-create-load-balancer-basic)
 
@@ -1268,7 +1448,7 @@ Instale o IIS com uma página web personalizada em ambos os VMs de back-end da s
 5. Fechar as ligações RDP com **o myVM1,** **myVM2**e **myVM3**.
 
 
-## <a name="test-load-balancer"></a>Testar o balanceador de carga
+## <a name="test-the-load-balancer"></a>Testar o balanceador de carga
 Para obter o endereço IP público do equilibrista de carga, utilize [o Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress):
 
 * Nomeado **myPublicIP**
@@ -1286,7 +1466,7 @@ Copie o endereço IP público e cole-o na barra de endereço do browser.
 
 ![Testar o balanceador de carga](media/quickstart-create-basic-load-balancer-powershell/load-balancer-test.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, o balançador de carga e tudo 
 
@@ -1297,7 +1477,7 @@ $rg = 'myResourceGroupLB'
 Remove-AzResourceGroup -Name $rg
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido
 

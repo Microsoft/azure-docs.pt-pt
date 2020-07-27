@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/01/2019
 ms.author: v-miegge
 ms.custom: mvc
-ms.openlocfilehash: 6b48334f1e7f2032216e1b058950c7ffc3cef70b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8d61da9c3a3d575fcbce0b77e1f8b2684df58106
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010160"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171693"
 ---
 # <a name="collect-details-about-all-vms-in-a-subscription-with-powershell"></a>Recolher detalhes sobre todas as VMs numa subscrição com o PowerShell
 
@@ -49,7 +49,7 @@ $vms = Get-AzVM
 $publicIps = Get-AzPublicIpAddress 
 $nics = Get-AzNetworkInterface | ?{ $_.VirtualMachine -NE $null} 
 foreach ($nic in $nics) { 
-    $info = "" | Select VmName, ResourceGroupName, Region, VmSize, VirturalNetwork, Subnet, PrivateIpAddress, OsType, PublicIPAddress 
+    $info = "" | Select VmName, ResourceGroupName, Region, VmSize, VirtualNetwork, Subnet, PrivateIpAddress, OsType, PublicIPAddress, NicName, ApplicationSecurityGroup 
     $vm = $vms | ? -Property Id -eq $nic.VirtualMachine.id 
     foreach($publicIp in $publicIps) { 
         if($nic.IpConfigurations.id -eq $publicIp.ipconfiguration.Id) {
@@ -61,12 +61,14 @@ foreach ($nic in $nics) {
         $info.ResourceGroupName = $vm.ResourceGroupName 
         $info.Region = $vm.Location 
         $info.VmSize = $vm.HardwareProfile.VmSize
-        $info.VirturalNetwork = $nic.IpConfigurations.subnet.Id.Split("/")[-3] 
+        $info.VirtualNetwork = $nic.IpConfigurations.subnet.Id.Split("/")[-3] 
         $info.Subnet = $nic.IpConfigurations.subnet.Id.Split("/")[-1] 
         $info.PrivateIpAddress = $nic.IpConfigurations.PrivateIpAddress 
+        $info.NicName = $nic.Name 
+        $info.ApplicationSecurityGroup = $nic.IpConfigurations.ApplicationSecurityGroups.Id 
         $report+=$info 
     } 
-$report | ft VmName, ResourceGroupName, Region, VmSize, VirturalNetwork, Subnet, PrivateIpAddress, OsType, PublicIPAddress 
+$report | ft VmName, ResourceGroupName, Region, VmSize, VirtualNetwork, Subnet, PrivateIpAddress, OsType, PublicIPAddress, NicName, ApplicationSecurityGroup 
 $report | Export-CSV "$home/$reportName"
 ```
 
@@ -80,7 +82,7 @@ Este script utiliza os seguintes comandos para criar uma exportação csv dos de
 |[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress)|Obtém um endereço IP público.|
 |[Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface)|Obtém uma interface de rede.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/).
 

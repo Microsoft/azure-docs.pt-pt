@@ -10,13 +10,14 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 07/24/2020
 ms.author: jingwang
-ms.openlocfilehash: a59d9291d1eaa4aa87d40914679e39c9cbf29cee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5d203664520aebadefd16c19813d7957dd37fc4
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84112647"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171251"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Obtenha atividade de metadados na Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -59,6 +60,7 @@ A atividade Get Metadados requer um conjunto de dados como uma entrada e devolve
 - Para o armazenamento Azure Blob, `lastModified` aplica-se ao recipiente e à bolha, mas não à pasta virtual.
 - `lastModified`O filtro aplica-se atualmente a itens de filtragem de crianças, mas não à pasta/ficheiro especificado.
 - O filtro Wildcard nas pastas/ficheiros não é suportado para a atividade Get Metadata.
+- `structure`e `columnCount` não são suportados ao obter metadados de ficheiros Binary, JSON ou XML.
 
 **Base de dados relacional**
 
@@ -92,7 +94,7 @@ Pode especificar os seguintes tipos de metadados na lista de atividades do Get M
 >[!NOTE]
 >Quando obtém metadados nas lojas de ficheiros e `modifiedDatetimeStart` configurar `modifiedDatetimeEnd` ou, a `childItems` saída in incluirá apenas ficheiros na via dada que tenham um último tempo modificado dentro do intervalo especificado. Não incluirá itens em sub-dobradeiras.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 **Obtenha atividade de metadados**
 
@@ -136,7 +138,7 @@ Pode especificar os seguintes tipos de metadados na lista de atividades do Get M
 
 Atualmente, a atividade Get Metadata pode devolver os seguintes tipos de informações de metadados:
 
-Propriedade | Descrição | Necessário
+Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
 fieldList | Os tipos de informação de metadados necessários. Para obter mais informações sobre metadados suportados, consulte a secção de opções de [metadados](#metadata-options) deste artigo. | Sim 
 conjunto de dados | O conjunto de dados de referência cujos metadados devem ser recuperados pela atividade Get Metadados. Consulte a secção [Capabilities](#capabilities) para obter informações sobre conectores suportados. Consulte os tópicos específicos do conector para obter detalhes da sintaxe do conjunto de dados. | Sim

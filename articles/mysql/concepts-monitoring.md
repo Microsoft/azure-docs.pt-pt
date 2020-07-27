@@ -6,11 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 803437cc45fce9ab850682cf4725c0bf0d21bed6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9bb4a6c0f37ceaf1e9fc6c28f08b98bb4449e65
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85414118"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171293"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitorização na Base de Dados Azure para o MySQL
 Monitorizar dados sobre os seus servidores ajuda-o a resolver problemas e a otimizar a sua carga de trabalho. A Azure Database for MySQL fornece várias métricas que dão uma visão do comportamento do seu servidor.
@@ -21,7 +22,7 @@ Todas as métricas Azure têm uma frequência de um minuto, e cada métrica forn
 ### <a name="list-of-metrics"></a>Lista de métricas
 Estas métricas estão disponíveis para Azure Database para MySQL:
 
-|Metric|Nome de exibição métrica|Unidade|Descrição|
+|Métrica|Nome de exibição métrica|Unidade|Descrição|
 |---|---|---|---|
 |cpu_percent|CPU por cento|Percentagem|A percentagem de CPU em uso.|
 |memory_percent|Por cento da memória|Percentagem|A percentagem de memória em uso.|
@@ -32,12 +33,12 @@ Estas métricas estão disponíveis para Azure Database para MySQL:
 |serverlog_storage_usage|Armazenamento de registo de servidor utilizado|Bytes|A quantidade de armazenamento de registo de servidor em uso.|
 |serverlog_storage_limit|Limite de armazenamento de registo de servidor|Bytes|O armazenamento máximo de registo de registo do servidor para este servidor.|
 |storage_limit|Limite de armazenamento|Bytes|O armazenamento máximo para este servidor.|
-|active_connections|Ligações Ativas|Contagem|O número de ligações ativas ao servidor.|
-|connections_failed|Ligações com Falhas|Contagem|O número de ligações falhadas ao servidor.|
-|seconds_behind_master|Atraso de replicação em segundos|Contagem|O número de segundos em que o servidor de réplica está a ficar contra o servidor principal.|
+|active_connections|Ligações Ativas|de palavras|O número de ligações ativas ao servidor.|
+|connections_failed|Ligações com Falhas|de palavras|O número de ligações falhadas ao servidor.|
+|seconds_behind_master|Atraso de replicação em segundos|de palavras|O número de segundos em que o servidor de réplica está a ficar contra o servidor principal.|
 |network_bytes_egress|Saída da Rede|Bytes|Rede para fora através de ligações ativas.|
 |network_bytes_ingress|Entrada na Rede|Bytes|Rede Em através de ligações ativas.|
-|backup_storage_used|Armazenamento de backup usado|Bytes|A quantidade de armazenamento de reserva usado.|
+|backup_storage_used|Armazenamento de backup usado|Bytes|A quantidade de armazenamento de reserva usado. Esta métrica representa a soma de armazenamento consumida por todas as cópias de segurança completas da base de dados, cópias de segurança diferenciais e cópias de segurança de registo mantidas com base no período de retenção de backup definido para o servidor. A frequência das cópias de segurança é gerida e explicada no [artigo de conceitos](concepts-backup.md). Para o armazenamento geo-redundante, o uso de armazenamento de backup é o dobro do armazenamento localmente redundante.|
 
 ## <a name="server-logs"></a>Registos do servidor
 Pode ativar consultas lentas e fazer login de auditoria no seu servidor. Estes registos também estão disponíveis através de Registos de Diagnóstico Azure em registos do Monitor Azure, Centros de Eventos e Conta de Armazenamento. Para saber mais sobre o registo madeireiros, visite os [registos](concepts-audit-logs.md) de auditoria e [artigos de registos de consultas lentas.](concepts-server-logs.md)

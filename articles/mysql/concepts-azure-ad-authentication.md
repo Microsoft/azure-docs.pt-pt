@@ -5,15 +5,15 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/22/2019
-ms.openlocfilehash: 12316abd4a738d54e01f88873498e4b299d6053d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/23/2020
+ms.openlocfilehash: 942789d5541e796247af2dbdf9371cce4701105e
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85556360"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171888"
 ---
-# <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Utilize o Azure Ative Directy para autenticar com o MySQL
+# <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Utilizar o Azure Ative Directory para a autenticação com o MySQL
 
 A autenticação do Microsoft Azure Ative Directory (Azure AD) é um mecanismo de ligação à Base de Dados Azure para o MySQL utilizando identidades definidas no Azure AD.
 Com a autenticação Azure AD, pode gerir identidades de utilizadores de bases de dados e outros serviços da Microsoft numa localização central, o que simplifica a gestão da permissão.

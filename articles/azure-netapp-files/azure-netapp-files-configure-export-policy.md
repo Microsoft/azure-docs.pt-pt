@@ -7,21 +7,25 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 10/18/2019
-ms.openlocfilehash: e59648ee76b6715029c690329cbf8f4f1eee7243
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/24/2020
+ms.openlocfilehash: 6d990b94210383ba4b30569693f4471f43306ed2
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483657"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169816"
 ---
 # <a name="configure-export-policy-for-an-nfs-volume"></a>Configurar a política de exportação para um volume NFS
 
-Pode optar por configurar a política de exportação para controlo de acesso a um volume do Azure NetApp Files. A política de exportação do Azure NetApp Files suporta apenas volumes NFS.  Tanto a NFSv3 como a NFSv4 são apoiadas. 
+Pode configurar a política de exportação para controlar o acesso a um volume de Ficheiros Azure NetApp. A política de exportação do Azure NetApp Files suporta volumes que utilizam o protocolo NFSv3 (NFSv3 e NFSv4.1) e o protocolo duplo (NFSv3 e SMB). 
+
+Pode criar até cinco regras de política de exportação.
 
 ## <a name="steps"></a>Passos 
 
-1.  Clique na política de **exportação** a partir do painel de navegação dos Ficheiros Azure NetApp. 
+1.  Na página Volumes, selecione o volume para o qual pretende configurar a política de exportação e clique na **política de exportação**. 
+
+    Pode também configurar a política de exportação durante a criação do volume.
 
 2.  Especifique informações para os seguintes campos para criar uma regra de política de exportação:   
     *  **Índice**   
@@ -39,7 +43,11 @@ Pode optar por configurar a política de exportação para controlo de acesso a 
         * Leitura e Escrita
         * Só de Leitura
 
-    ![Política de exportação](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
+    * **Acesso à Raiz**  
+        Especificar se a `root` conta pode aceder ao volume.  Por predefinição, o Root Access está definido para **On**, e a `root` conta tem acesso ao volume.
+
+        ![Política de exportação](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
+
 
 
 ## <a name="next-steps"></a>Próximos passos 

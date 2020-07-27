@@ -5,13 +5,13 @@ ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 05/04/2017
-ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 3a33065674f1acf43e276c5dc9d2a15cca52c9ef
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.custom: mvc, cli-validate, seodec18, devx-track-javascript
+ms.openlocfilehash: d7834f1c1723ef581f1ccf3c8cb0133c185734e5
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85208064"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87170424"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Tutorial: Construa uma aplicação Node.js e MongoDB em Azure
 
@@ -119,7 +119,7 @@ Para o MongoDB, este tutorial utiliza o [Azure Cosmos DB](/azure/documentdb/). O
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)] 
 
-### <a name="create-a-cosmos-db-account"></a>Criar uma conta do Cosmos DB
+### <a name="create-a-cosmos-db-account"></a>Criar uma conta do Cosmos DB
 
 > [!NOTE]
 > A criação das bases de dados do Azure Cosmos DB na sua própria subscrição do Azure neste tutorial não acarreta custos. Para utilizar uma conta gratuita do Azure Cosmos DB durante sete dias, pode utilizar a experiência [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/). Basta clicar no botão **Criar** no mosaico MongoDB para criar uma base de dados do MongoDB gratuita no Azure. Após a criação da base de dados, navegue para a **cadeia de ligação** no portal e obtenha a cadeia de ligação do Azure Cosmos DB para utilizar mais à frente no tutorial.
@@ -481,7 +481,7 @@ Por predefinição, o portal mostra a página **geral** da sua aplicação. Esta
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 <a name="next"></a>
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 O que aprendeu:
 

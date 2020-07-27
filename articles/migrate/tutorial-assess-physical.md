@@ -3,12 +3,12 @@ title: Avaliar servidores físicos para migração para Azure com avaliação do
 description: Descreve como avaliar servidores físicos no local para migração para Azure usando a Avaliação do Servidor Azure Migrate.
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 2c0662c6ccf66f09413891c99da789c50847277e
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 5b4d5241e4236d4c11f2e2a5a8feb7c73258cba0
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080761"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171387"
 ---
 # <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Avaliar servidores físicos com Azure Migrate:Avaliação do servidor
 
@@ -16,7 +16,7 @@ Este artigo mostra-lhe como avaliar servidores físicos no local, utilizando a f
 
 [A Azure Migrate](migrate-services-overview.md) fornece um centro de ferramentas que o ajudam a descobrir, avaliar e migrar aplicações, infraestruturas e cargas de trabalho para o Microsoft Azure. O hub inclui ferramentas Azure Migrate e ofertas de fornecedores de software independentes de terceiros (ISV).
 
-Este tutorial é o segundo de uma série que demonstra como avaliar e migrar servidores físicos para Azure. Neste tutorial, vai aprender a:
+Este tutorial é o segundo de uma série que demonstra como avaliar e migrar servidores físicos para Azure. Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Crie um projeto Azure Migrate.
 > * Crie um aparelho Azure Migrate que funciona no local para avaliar servidores físicos.
@@ -179,13 +179,14 @@ Coloque o aparelho pela primeira vez.
 Agora, ligue-se do aparelho aos servidores físicos a descobrir e inicie a descoberta.
 
 1. Clique **em Adicionar Credenciais** para especificar as credenciais de conta que o aparelho utilizará para descobrir servidores.  
-2. Especifique o **Sistema Operativo,** um nome amigável para as credenciais, e o nome de utilizador e senha. Em seguida, clique em **Adicionar**.
+2. Inscreva-se com nome de utilizador e senha. Assine com uma chave não é suportado. Também o Utilizador deve ser um login de raiz ou parte do grupo de administração local.
+3. Especifique o **Sistema Operativo,** um nome amigável para as credenciais, e o nome de utilizador e senha. Em seguida, clique em **Adicionar**.
 Pode adicionar várias credenciais para servidores Windows e Linux.
 4. Clique **em Adicionar servidor**e especifique detalhes do servidor- Endereço FQDN/IP e nome amigável de credenciais (uma entrada por linha) para ligar ao servidor.
-3. Clique em **Validar**. Após a validação, é mostrada a lista de servidores que podem ser descobertos.
+5. Clique em **Validar**. Após a validação, é mostrada a lista de servidores que podem ser descobertos.
     - Se a validação falhar para um servidor, reveja o erro pairando sobre o ícone na coluna **Status.** Corrija problemas e valide novamente.
     - Para remover um servidor, selecione > **Eliminar**.
-4. Após validação, clique em **Guardar e iniciar** a descoberta para iniciar o processo de descoberta.
+6. Após validação, clique em **Guardar e iniciar** a descoberta para iniciar o processo de descoberta.
 
 Isto começa a ser descoberto. Demora cerca de 1,5 minutos por servidor para que os metadados do servidor descoberto apareçam no portal Azure.
 
@@ -296,7 +297,7 @@ As classificações de confiança para uma avaliação são as seguintes.
 [Saiba mais](best-practices-assessment.md#best-practices-for-confidence-ratings) sobre as melhores práticas para as classificações de confiança.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial:
 

@@ -3,12 +3,12 @@ title: Analise o vídeo ao vivo usando o seu próprio modelo - Azure
 description: Neste arranque rápido, aplicará visão computacional para analisar o feed de vídeo ao vivo a partir de uma câmara IP (simulada).
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 2ff618e275624bc46c6fc3221507c5584047c51c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dc8c2d1f0620a92a13cb1f4c0b83c2452f964fd6
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043204"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87170621"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-model"></a>Quickstart: Analise o vídeo ao vivo usando o seu próprio modelo
 
@@ -278,11 +278,13 @@ Nas mensagens, note os seguintes detalhes:
 * A `body` secção contém dados sobre o evento de análise. Neste caso, o evento é um evento de inferência, pelo que o corpo contém `inferences` dados.
 * A `inferences` secção indica que o é `type` `entity` . Esta secção inclui dados adicionais sobre a entidade.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretende tentar outros quickstarts, mantenha os recursos que criou. Caso contrário, vá ao portal Azure, vá aos seus grupos de recursos, selecione o grupo de recursos onde executou este quickstart e elimine todos os recursos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
+
+* Experimente uma [versão segura do modelo YOLOv3](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/tls-yolov3-onnx/readme.md) e desloque-o para o dispositivo de borda IOT. 
 
 Rever desafios adicionais para utilizadores avançados:
 

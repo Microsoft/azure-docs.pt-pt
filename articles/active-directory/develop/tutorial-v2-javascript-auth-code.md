@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
-ms.custom: aaddev
-ms.openlocfilehash: b1b3815085524a3e96ad607ac0ea8efb2c2e92fb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: aaddev, devx-track-javascript
+ms.openlocfilehash: 63e94916232c4b3c7a275e51bdcde496b75ae913
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026208"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129105"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a API do Gráfico microsoft a partir de uma aplicação de página única JavaScript (SPA) usando fluxo de código auth
 
@@ -645,7 +645,7 @@ Se uma API de back-end não necessitar de um âmbito, o que não é recomendado,
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, criou uma aplicação de página única JavaScript (SPA) que utiliza a Biblioteca de Autenticação do Microsoft (MSAL) para JavaScript v2.0 para:
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/21/2020
 ms.author: jushiman
-ms.openlocfilehash: b964ea596f6cc2a86cfa9bbd5196ee6187c74b79
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 04f139e7e747d2c0566ffada9e080bf4abb1ac86
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098413"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171678"
 ---
 # <a name="sizes-for-virtual-machines-in-azure"></a>Tamanhos para máquinas virtuais em Azure
 
@@ -32,6 +32,8 @@ Este artigo descreve os tamanhos e opções disponíveis para as máquinas virtu
 - Para disponibilidade de tamanhos VM nas regiões de Azure, consulte [os produtos disponíveis por região.](https://azure.microsoft.com/regions/services/)
 - Para ver os limites gerais dos VMs Azure, consulte [os limites de subscrição e serviços da Azure, quotas e restrições.](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
+> [!NOTE]
+  > Para obter mais informações sobre como a Azure designa os seus VMs, consulte: [Tamanhos de máquina virtual Azure que nomeiam convenções.](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions)
 
 ## <a name="rest-api"></a>API REST
 
@@ -55,7 +57,7 @@ Saiba mais sobre o desempenho do cálculo dos VMs do Windows utilizando as [pont
 
 [!INCLUDE [cost-management-horizontal](../../includes/cost-management-horizontal.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre os diferentes tamanhos VM que estão disponíveis:
 

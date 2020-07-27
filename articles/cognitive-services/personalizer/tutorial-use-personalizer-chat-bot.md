@@ -3,13 +3,12 @@ title: Use Personalizar no chat bot - Personalizer
 description: Personalize um bot de chat C# .NET com um loop Personalizer para fornecer o conteúdo correto a um utilizador com base em ações (com funcionalidades) e funcionalidades de contexto.
 ms.topic: tutorial
 ms.date: 07/17/2020
-ms.author: diberry
-ms.openlocfilehash: d269dbf95356d1d8d0fb7c2f27e0828d016d0ac6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8e936b4017ad50434bc7d6b05b4217f82a9080e0
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101716"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131672"
 ---
 # <a name="tutorial-use-personalizer-in-net-chat-bot"></a>Tutorial: Use personalizar em .NET chat bot
 
@@ -423,14 +422,14 @@ Se pretender utilizar o Personalizer num bot de produção, planeie:
 * Cálculo baseado em caso de utilização da recompensa: Este exemplo mostrou duas recompensas de zero e uma sem intervalo entre e nenhum valor negativo para uma pontuação. O seu sistema fez de necessidade de mais pontuação granular.
 * Canais bot: Esta amostra utiliza um único canal mas se pretender utilizar mais do que um canal, ou variações de bots num único canal, isso poderá ter de ser considerado como parte das características de contexto do modelo Personalizer.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar este tutorial, limpe os seguintes recursos:
 
 * Apague o seu diretório de projeto de amostra.
 * Elimine o seu recurso Personalizer e LUIS no portal Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Como funciona o Personalizador](how-personalizer-works.md)
 * [Características](concepts-features.md): aprenda conceitos sobre funcionalidades usando com ações e contexto
 * [Recompensas](concept-rewards.md): conheça o cálculo das recompensas

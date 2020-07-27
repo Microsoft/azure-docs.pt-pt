@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: bd1c41f23164d8dda2712ef2c361498cdaed6105
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: aae1797f7f1a252a4f094ee9f1b079fb60ba72f3
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032306"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131757"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Construir uma solução de ponta a ponta
 
@@ -93,7 +93,7 @@ O próximo passo é criar uma [app Azure Functions](../azure-functions/functions
 * *ProcessHubToDTEvents*: processa a entrada de dados do IoT Hub e atualiza as Gémeas Digitais Azure em conformidade
 * *ProcessDTRoutedData:* processa dados de gémeos digitais e atualiza as gémeas-mãe em Azure Digital Twins em conformidade
 
-Nesta secção, publicará a aplicação de função pré-escrita e garantirá que a aplicação de função pode aceder a Azure Digital Twins atribuindo-lhe uma identidade de Diretório Ativo (AAD). O preenchimento destes passos permitirá que o resto do tutorial utilize as funções dentro da aplicação de função. 
+Nesta secção, publicará a aplicação de função pré-escrita e garantirá que a aplicação de função pode aceder a Azure Digital Twins atribuindo-lhe uma identidade de Azure Ative Directory (Azure AD). O preenchimento destes passos permitirá que o resto do tutorial utilize as funções dentro da aplicação de função. 
 
 ### <a name="publish-the-app"></a>Publicar a aplicação
 
@@ -141,7 +141,7 @@ No painel *publicar* que se abre de volta na janela principal do Estúdio Visual
 
 ### <a name="assign-permissions-to-the-function-app"></a>Atribuir permissões à aplicação de função
 
-Para permitir que a aplicação de função aceda a Azure Digital Twins, o próximo passo é configurar uma configuração de uma aplicação, atribuir à app uma identidade AAD gerida pelo sistema e dar a este *proprietário* de identidade permissões na instância Azure Digital Twins.
+Para permitir que a aplicação de função aceda a Azure Digital Twins, o próximo passo é configurar uma configuração de uma aplicação, atribuir à app uma identidade AD AD gerida pelo sistema e dar a este *proprietário* de identidade permissões na instância Azure Digital Twins.
 
 No Azure Cloud Shell, utilize o seguinte comando para definir uma definição de aplicação que a sua aplicação de função utilizará para fazer referência à sua instância de gémeos digitais.
 
@@ -410,7 +410,7 @@ Aqui está uma revisão do cenário que você construiu neste tutorial.
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario.png" alt-text="Gráfico do cenário de construção completo. Retrata dados que fluem de um dispositivo para o IoT Hub, através de uma função Azure (seta B) para uma instância Azure Digital Twins (secção A), em seguida, através da Grade de Evento para outra função Azure para o processamento (seta C)":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não necessitar dos recursos criados neste tutorial, siga estes passos para eliminá-los. 
 
@@ -423,7 +423,7 @@ Utilizando o Azure Cloud Shell, pode eliminar todos os recursos Azure num grupo 
 az group delete --name <your-resource-group>
 ```
 
-Em seguida, elimine o registo de aplicações AAD que criou para a aplicação do seu cliente com este comando:
+Em seguida, elimine o registo de aplicações AD AZure que criou para a sua aplicação cliente com este comando:
 
 ```azurecli
 az ad app delete --id <your-application-ID>
@@ -431,7 +431,7 @@ az ad app delete --id <your-application-ID>
 
 Por fim, elimine a pasta de amostras de projeto que descarregou da sua máquina local.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, criou um cenário de ponta a ponta que mostra as Gémeas Digitais Azure a serem impulsionadas por dados de dispositivos ao vivo.
 

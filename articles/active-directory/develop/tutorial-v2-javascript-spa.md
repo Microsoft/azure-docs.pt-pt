@@ -10,13 +10,13 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 03/20/2019
 ms.author: nacanuma
-ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 573aef4f0d340d0d32dc4977e0937bca9c6d3cef
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.custom: aaddev, identityplatformtop40, devx-track-javascript
+ms.openlocfilehash: 745132284ee48270b46b6bd2f785d8bec19404fb
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84338929"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129683"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Inscreva-se nos utilizadores e ligue para a API do Gráfico microsoft a partir de uma aplicação de página única JavaScript (SPA)
 
@@ -40,7 +40,7 @@ A aplicação de amostra criada por este guia permite a um JavaScript SPA consul
 
 Este guia utiliza a seguinte biblioteca:
 
-|Biblioteca|Description|
+|Biblioteca|Descrição|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Biblioteca de autenticação da Microsoft para JavaScript|
 
@@ -52,15 +52,15 @@ Este guia utiliza a seguinte biblioteca:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Para executar este tutorial, você precisa de um servidor web local, como [Node.js,](https://nodejs.org/en/download/) [.NET Core,](https://www.microsoft.com/net/core)ou iIS Express integração com [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Para executar este tutorial, você precisa de um servidor web local, como [Node.js](https://nodejs.org/en/download/), [.NET Core,](https://www.microsoft.com/net/core)ou iIS Express integração com [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 
-* As instruções deste guia baseiam-se num servidor web construído em Node.js. Recomendamos a utilização [do Código do Estúdio Visual](https://code.visualstudio.com/download) como ambiente de desenvolvimento integrado (IDE).
+* As instruções deste guia baseiam-se num servidor web incorporado em Node.js. Recomendamos a utilização [do Código do Estúdio Visual](https://code.visualstudio.com/download) como ambiente de desenvolvimento integrado (IDE).
 
 * Um navegador web moderno. Esta amostra JavaScript utiliza convenções [ES6](http://www.ecma-international.org/ecma-262/6.0/) e, como tal, **não** suporta o **Internet Explorer.**
 
-## <a name="create-your-project"></a>Crie o seu projeto
+## <a name="create-your-project"></a>Criar o seu projeto
 
-Certifique-se de que tem [Node.js instalados](https://nodejs.org/en/download/) e, em seguida, crie uma pasta para hospedar a sua aplicação. Lá, implementaremos um simples servidor web [Express](https://expressjs.com/) para servir o seu `index.html` ficheiro.
+Certifique-se de que [temNode.js](https://nodejs.org/en/download/) instalada e, em seguida, crie uma pasta para hospedar a sua aplicação. Lá, implementaremos um simples servidor web [Express](https://expressjs.com/) para servir o seu `index.html` ficheiro.
 
 1. Utilizando um terminal (como o terminal integrado do Código do Estúdio Visual), localize a pasta do projeto e escreva:
 
@@ -190,7 +190,7 @@ Tem agora um servidor simples para servir o seu SPA. A estrutura de pastas prete
    ```
 
    > [!TIP]
-   > Pode substituir a versão do MSAL.js no script anterior pela versão mais recente lançada nos [lançamentos do MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
+   > Pode substituir a versão de MSAL.js no script anterior pela versão mais recente lançada em [MSAL.js versões](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
 
 2. Agora, crie um ficheiro .js `ui.js` nomeado, que aceda e atualize elementos DOM, e adicione o seguinte código:
 
@@ -264,7 +264,7 @@ Tem agora um servidor simples para servir o seu SPA. A estrutura de pastas prete
    }
    ```
 
-## <a name="register-your-application"></a>Registar a sua aplicação
+## <a name="register-your-application"></a>Registar a aplicação
 
 Antes de prosseguir com a autenticação, registe o seu pedido no **Diretório Ativo Azure**.
 
@@ -280,7 +280,7 @@ Antes de prosseguir com a autenticação, registe o seu pedido no **Diretório A
 1. Nas **definições Avançadas**, sob **concessão implícita,** selecione as caixas de verificação **de fichas de identificação** e **de acesso.** São necessárias fichas de ID e fichas de acesso porque esta aplicação deve assinar nos utilizadores e chamar uma API.
 1. Selecione **Guardar**.
 
-> ### <a name="set-a-redirect-url-for-nodejs"></a>Desa um URL de redirecionamento para Node.js
+> ### <a name="set-a-redirect-url-for-nodejs"></a>Desa redirecione um URL de redirecionamento para Node.js
 >
 > Para Node.js, pode definir a porta do servidor web no ficheiro *index.js.* Este tutorial usa a porta 3000, mas pode usar qualquer outra porta disponível.
 >
@@ -409,7 +409,7 @@ Crie um novo ficheiro .js `authPopup.js` nomeado, que conterá a sua lógica de 
 
 ### <a name="more-information"></a>Mais informações
 
-Depois de um utilizador selecionar o botão **'Iniciar'** pela primeira vez, o `signIn` método chama para assinar no `loginPopup` utilizador. Este método abre uma janela pop-up com o ponto final da *plataforma de identidade da Microsoft* para solicitar e validar as credenciais do utilizador. Após um s-in bem sucedido, o utilizador é redirecionado de volta para a página original *index.html.* Um token é recebido, processado por `msal.js` , e a informação contida no token é em cache. Este token é conhecido como o *token de ID* e contém informações básicas sobre o utilizador, como o nome de exibição do utilizador. Se pretender utilizar quaisquer dados fornecidos por este token para qualquer finalidade, tem de se certificar de que este token é validado pelo seu servidor de backend para garantir que o token foi emitido a um utilizador válido para a sua aplicação.
+Depois de um utilizador selecionar o botão **'Iniciar'** pela primeira vez, o `signIn` método chama para assinar no `loginPopup` utilizador. Este método abre uma janela pop-up com o ponto final da *plataforma de identidade da Microsoft* para solicitar e validar as credenciais do utilizador. Após uma sincê-in bem sucedida, o utilizador é redirecionado de volta para a página original *index.html.* Um token é recebido, processado por `msal.js` , e a informação contida no token é em cache. Este token é conhecido como o *token de ID* e contém informações básicas sobre o utilizador, como o nome de exibição do utilizador. Se pretender utilizar quaisquer dados fornecidos por este token para qualquer finalidade, tem de se certificar de que este token é validado pelo seu servidor de backend para garantir que o token foi emitido a um utilizador válido para a sua aplicação.
 
 O SPA gerado por este guia chama `acquireTokenSilent` e/ou `acquireTokenPopup` para adquirir um *token de acesso* usado para consultar a API do Microsoft Graph para obter informações sobre o perfil do utilizador. Se precisar de uma amostra que valide o token de identificação, dê uma olhada [nesta](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "GitHub active-directório-javascript-singlepageapp-dotnet-webapi-v2") aplicação de amostra no GitHub. A amostra utiliza uma API web ASP.NET para validação de fichas.
 
@@ -477,17 +477,17 @@ Na aplicação de amostra criada por este guia, o `callMSGraph()` método é uti
 
 ## <a name="test-your-code"></a>Teste o seu código
 
-1. Configure o servidor para ouvir uma porta TCP que se baseia na localização do seu ficheiro *index.html.* Para o Node.js, inicie o servidor web para ouvir a porta executando os seguintes comandos num pedido de linha de comando da pasta de aplicação:
+1. Configure o servidor para ouvir uma porta TCP que se baseie na localização do seu *ficheiro Lindex.htm.* Para Node.js, inicie o servidor web para ouvir a porta executando os seguintes comandos num pedido de linha de comando da pasta de aplicação:
 
    ```bash
    npm install
    npm start
    ```
-1. No seu navegador, insira **http://localhost:3000** **http://localhost:{port}** ou, onde a *porta* é a porta que o seu servidor web está a ouvir. Deverá ver o conteúdo do seu ficheiro *index.html* e o botão **Iniciar.**
+1. No seu navegador, insira **http://localhost:3000** **http://localhost:{port}** ou, onde a *porta* é a porta que o seu servidor web está a ouvir. Deverá ver o conteúdo do seuindex.htmficheiro *L* e o botão **Iniciar.**
 
 ## <a name="test-your-application"></a>Teste a sua aplicação
 
-Depois de o navegador carregar o seu ficheiro *index.html,* selecione **Iniciar sação**. É-lhe pedido que assine com o ponto final da plataforma de identidade da Microsoft:
+Depois de o navegador carregar o ficheiro *index.html,* selecione **Iniciar Sôs.** É-lhe pedido que assine com o ponto final da plataforma de identidade da Microsoft:
 
 ![A janela de inscrição da conta JavaScript SPA](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
 

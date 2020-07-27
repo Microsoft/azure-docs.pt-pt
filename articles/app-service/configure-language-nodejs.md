@@ -1,15 +1,16 @@
 ---
 title: Configurar apps Node.js windows
 description: Saiba como configurar uma aplicação Node.js nas instâncias nativas do Windows do Serviço de Aplicações. Este artigo mostra as tarefas de configuração mais comuns.
+ms.custom: devx-track-javascript
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 9f4ccdd04b8d57784f452dc28fa4507fb7ea94c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0fc6ed5cb090653e381d82f484d355a514520c62
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84908145"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87170904"
 ---
 # <a name="configure-a-windows-nodejs-app-for-azure-app-service"></a>Configurar uma aplicação windows Node.js para o Azure App Service
 

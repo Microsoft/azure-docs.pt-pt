@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
-ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ee7c95cc25e911ba0ffe1e2815f219e040aaca31
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: aaddev, identityplatformtop40, devx-track-javascript
+ms.openlocfilehash: eefc8f1e9dcf6744e276d3cd911f325a8759fa30
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058257"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129122"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a Microsoft Graph API a partir de uma aplicação de página única angular
 
@@ -340,7 +340,7 @@ Se uma API de back-end não necessitar de um âmbito (não recomendado), pode ut
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se é novo na gestão de identidade e acesso, temos vários artigos para ajudá-lo a aprender conceitos modernos de autenticação, começando pela [autenticação vs. autorização.](authentication-vs-authorization.md)
 

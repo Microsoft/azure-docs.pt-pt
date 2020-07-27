@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Junte os dados do sensor com os dados da previsão meteorológica utilizando cadernos Azure (Python) Microsoft Azure Maps'
 description: Este tutorial mostra-lhe como juntar dados de sensores com dados de previsão meteorológica do Microsoft Azure Maps Weather Service usando Azure Notebooks (Python).
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/29/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: 9d35ed0ee657e90ebc77c16ed654d32975ed9580
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5a262c95328fef772c9158082f554de9f7ac5f81
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024848"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133236"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Tutorial: Junte os dados do sensor com os dados da previsão meteorológica utilizando cadernos Azure (Python)
 
@@ -183,7 +183,7 @@ Os gráficos abaixo visualizam os dados da previsão. Para a mudança da velocid
 ![Lote de velocidade do vento ](./media/weather-service-tutorial/speed-date-plot.png) ![ lote de direção do vento](./media/weather-service-tutorial/direction-date-plot.png)</center>
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial você aprendeu, como chamar Azure Maps REST APIs para obter dados de previsão do tempo. Também aprendeu a visualizar os dados em gráficos.
 

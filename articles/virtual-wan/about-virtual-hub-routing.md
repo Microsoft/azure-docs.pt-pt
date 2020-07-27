@@ -8,16 +8,17 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4949d5f2621957d6830625fe798601db4472a75d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 8c52b2141d2f29303939facf89d4a59fb3d333fd
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064913"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171886"
 ---
 # <a name="about-virtual-hub-routing"></a>Acerca do encaminhamento do hub virtual
 
-As capacidades de encaminhamento num hub virtual são fornecidas por um router que gere todo o encaminhamento entre gateways usando o Border Gateway Protocol (BGP). Um hub virtual pode conter vários gateways, tais como um gateway VPN local-para-local, gateway ExpressRoute, gateway ponto-a-local, Azure Firewall. Este router também fornece conectividade de trânsito entre redes virtuais que se conectam a um hub virtual e podem suportar até um rendimento agregado de 50 Gbps. Estas capacidades de encaminhamento aplicam-se aos clientes Standard Virtual WAN.
+As capacidades de encaminhamento num hub virtual são fornecidas por um router que gere todo o encaminhamento entre gateways usando o Border Gateway Protocol (BGP). Um hub virtual pode conter vários gateways, tais como um gateway VPN local-para-local, gateway ExpressRoute, gateway ponto-a-local, Azure Firewall. Este router também fornece conectividade de trânsito entre redes virtuais que se conectam a um hub virtual e podem suportar até um rendimento agregado de 50 Gbps. Estas capacidades de encaminhamento aplicam-se aos clientes Standard Virtual WAN. 
 
 Para configurar o encaminhamento, consulte [Como configurar o encaminhamento do hub virtual](how-to-virtual-hub-routing.md).
 
@@ -80,7 +81,16 @@ Para utilizar novas capacidades de tabela de rotas, por favor, espere até a sem
 
 * **Clientes Básicos de WAN Virtuais com rotas pré-existentes no hub virtual**: Para utilizar as novas capacidades de tabela de rotas, por favor, aguarde até a semana de 3 de agosto para que o lançamento em Azure esteja concluído. Se tiver rotas pré-existentes na secção de encaminhamento para o hub no portal Azure, terá de as eliminar primeiro e, em seguida, **atualize** o seu WAN Virtual Básico para O WAN Virtual Padrão. Consulte [a Atualização de um WAN virtual de Basic para Standard](upgrade-virtual-wan.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="virtual-wan-routing-considerations"></a><a name="considerations"></a>Considerações de encaminhamento de WAN virtual
+
+Por favor, considere o seguinte ao configurar o encaminhamento VIRTUAL WAN:
+
+* Todas as ligações de ramo (ponto a local, site-to-site e ExpressRoute) devem ser associadas à tabela de rotas predefinida. Assim, todos os ramos aprenderão os mesmos prefixos.
+* Todas as ligações de ramo precisam de propagar as suas rotas para o mesmo conjunto de tabelas de rotas. Por exemplo, se decidir que os ramos devem propagar-se à tabela de rotas Predefinidos, esta configuração deve ser consistente em todos os ramos. Como resultado, todas as ligações associadas à tabela de rotas Predefinidas poderão chegar a todos os ramos.
+* O ramo-a-ramo via Azure Firewall não é atualmente suportado.
+* Ao utilizar o Azure Firewall em várias regiões, todas as redes virtuais faladas devem estar associadas à mesma tabela de rotas. Por exemplo, não é possível ter um subconjunto dos VNets a passar pela Firewall do Azure, enquanto outros VNets contornam o Azure Firewall no mesmo hub virtual.
+
+## <a name="next-steps"></a>Próximos passos
 
 Para configurar o encaminhamento, consulte [Como configurar o encaminhamento do hub virtual](how-to-virtual-hub-routing.md).
 

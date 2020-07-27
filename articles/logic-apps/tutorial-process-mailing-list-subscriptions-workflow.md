@@ -3,16 +3,16 @@ title: Construir fluxos de trabalho automatizados baseados em aprovação
 description: Tutorial - Criar um fluxo de trabalho automatizado baseado em aprovação que processa subscrições de listas de correio através da utilização de Apps Azure Logic
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: c1ed32a95864c20690607912bc32c01e3e597a65
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d9d2f29ffc34c203e5f3b3ebf094e73fb9cdfb75
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048590"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132403"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Tutorial: Criar fluxos de trabalho automatizados baseados em aprovação utilizando apps Azure Logic
 
@@ -21,6 +21,7 @@ Este tutorial mostra como construir uma [aplicação lógica](../logic-apps/logi
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
+>
 > * Criar uma aplicação lógica em branco.
 > * Adicionar um acionador que monitoriza os e-mails quanto a pedidos de subscrição.
 > * Adicionar uma ação que envia e-mails para aprovar ou rejeitar esses pedidos.
@@ -41,11 +42,9 @@ Quando terminar, a aplicação lógica é semelhante a este fluxo de trabalho a 
 
 * Uma conta de e-mail no Office 365 Outlook ou Outlook.com, que suporta fluxos de trabalho de aprovação. Este artigo utiliza o Outlook do Office 365. Se utilizar outra conta de e-mail, os passos gerais são os mesmos, mas a IU poderá ser ligeiramente diferente.
 
-## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
-
-Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais da sua conta do Azure.
-
 ## <a name="create-your-logic-app"></a>Criar uma aplicação lógica
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais da sua conta do Azure.
 
 1. A partir do menu Azure principal, **selecione Criar uma**App lógica de  >  **integração**  >  **de**recursos.
 
@@ -205,9 +204,9 @@ Adicione agora uma ação que adicione o membro aprovado à sua lista de correio
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **ID da Lista** | Yes | `test-members-ML` | O nome da sua lista de correio mailChimp. Este exemplo utiliza "test-members-ML". |
-   | **Estado** | Yes | `subscribed` | Selecione o estado de subscrição do novo membro. Este exemplo utiliza "subscrito". <p>Para obter mais informações, veja [Manage subscribers with the MailChimp API](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/) (Grir subscritores com a API do MailChimp). |
-   | **Endereço de e-mail** | Yes | <*novo membro-endereço de e-mail*> | A partir da lista de conteúdos dinâmicos, selecione **Abaixo** **Quando chegar um novo e-mail**, que passa no endereço de e-mail para o novo membro. |
+   | **ID da Lista** | Sim | `test-members-ML` | O nome da sua lista de correio mailChimp. Este exemplo utiliza "test-members-ML". |
+   | **Estado** | Sim | `subscribed` | Selecione o estado de subscrição do novo membro. Este exemplo utiliza "subscrito". <p>Para obter mais informações, veja [Manage subscribers with the MailChimp API](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/) (Grir subscritores com a API do MailChimp). |
+   | **Endereço de e-mail** | Sim | <*novo membro-endereço de e-mail*> | A partir da lista de conteúdos dinâmicos, selecione **Abaixo** **Quando chegar um novo e-mail**, que passa no endereço de e-mail para o novo membro. |
    ||||
 
    Para obter mais informações sobre as propriedades desta ação, consulte a referência do [conector MailChimp](/connectors/mailchimp/).
@@ -260,9 +259,9 @@ Depois, configure os e-mails que vão ser enviados quando a associação do memb
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Para** | Yes | <*seu endereço de e-mail*> | O endereço de e-mail para onde enviar o e-mail de êxito. Para fins de teste, pode utilizar o seu próprio endereço de e-mail. |
-   | **Assunto** | Yes | <*assunto-para-sucesso-e-mail*> | O assunto do e-mail de êxito. Neste tutorial, introduza este texto: <p>`Success! Member added to "test-members-ML": ` <p>A partir da lista de conteúdos dinâmicos, em **adicionar membro à lista,** selecione a propriedade **Email Address.** |
-   | **Corpo** | Yes | <*corpo-para-sucesso-e-mail*> | O conteúdo do corpo do e-mail de êxito. Neste tutorial, introduza este texto: <p>`New member has joined "test-members-ML":` <p>A partir da lista de conteúdos dinâmicos, selecione a propriedade **'Endereço de E-mail'.** <p>Na linha seguinte, insira este texto:`Member opt-in status: ` <p> A partir da lista de conteúdos dinâmicos, em **adicionar membro à lista,** selecione a propriedade **Status.** |
+   | **Para** | Sim | <*seu endereço de e-mail*> | O endereço de e-mail para onde enviar o e-mail de êxito. Para fins de teste, pode utilizar o seu próprio endereço de e-mail. |
+   | **Assunto** | Sim | <*assunto-para-sucesso-e-mail*> | O assunto do e-mail de êxito. Neste tutorial, introduza este texto: <p>`Success! Member added to "test-members-ML": ` <p>A partir da lista de conteúdos dinâmicos, em **adicionar membro à lista,** selecione a propriedade **Email Address.** |
+   | **Corpo** | Sim | <*corpo-para-sucesso-e-mail*> | O conteúdo do corpo do e-mail de êxito. Neste tutorial, introduza este texto: <p>`New member has joined "test-members-ML":` <p>A partir da lista de conteúdos dinâmicos, selecione a propriedade **'Endereço de E-mail'.** <p>Na linha seguinte, insira este texto:`Member opt-in status: ` <p> A partir da lista de conteúdos dinâmicos, em **adicionar membro à lista,** selecione a propriedade **Status.** |
    |||||
 
 1. Guarde a sua aplicação lógica.
@@ -285,9 +284,9 @@ Depois, configure os e-mails que vão ser enviados quando a associação do memb
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Para** | Yes | <*seu endereço de e-mail*> | O endereço de e-mail para onde enviar o e-mail de falha. Para fins de teste, pode utilizar o seu próprio endereço de e-mail. |
-   | **Assunto** | Yes | <*assunto-para-falha-e-mail*> | O assunto do e-mail de falha. Neste tutorial, introduza este texto: <p>`Failed, member not added to "test-members-ML": ` <p>A partir da lista de conteúdos dinâmicos, em **adicionar membro à lista,** selecione a propriedade **Email Address.** |
-   | **Corpo** | Yes | <*corpo-para-falha-e-mail*> | O conteúdo do corpo do e-mail de falha. Neste tutorial, introduza este texto: <p>`Member might already exist. Check your MailChimp account.` |
+   | **Para** | Sim | <*seu endereço de e-mail*> | O endereço de e-mail para onde enviar o e-mail de falha. Para fins de teste, pode utilizar o seu próprio endereço de e-mail. |
+   | **Assunto** | Sim | <*assunto-para-falha-e-mail*> | O assunto do e-mail de falha. Neste tutorial, introduza este texto: <p>`Failed, member not added to "test-members-ML": ` <p>A partir da lista de conteúdos dinâmicos, em **adicionar membro à lista,** selecione a propriedade **Email Address.** |
+   | **Corpo** | Sim | <*corpo-para-falha-e-mail*> | O conteúdo do corpo do e-mail de falha. Neste tutorial, introduza este texto: <p>`Member might already exist. Check your MailChimp account.` |
    |||||
 
 1. Guarde a sua aplicação lógica. 
@@ -318,7 +317,7 @@ Em seguida, teste a sua aplicação lógica, que é agora semelhante a este exem
 
 Parabéns, acabou de criar e executar uma aplicação lógica que integra informações do Azure, dos serviços Microsoft e de outras aplicações SaaS.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar da aplicação lógica da amostra, elimine o grupo de recursos que contém a sua aplicação lógica e recursos relacionados. 
 
@@ -330,7 +329,7 @@ Quando já não precisar da aplicação lógica da amostra, elimine o grupo de r
 
 1. Introduza o nome do grupo de recursos como confirmação e selecione **Delete**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, criou uma aplicação lógica que gere aprovações para pedidos de listas de correio. Agora, aprenda a criar uma aplicação lógica que processa e armazena anexos de e-mail através da integração de serviços do Azure, como o Armazenamento do Azure e as Funções do Azure.
 

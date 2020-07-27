@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: f8da00e531a9712b7bbb459378e3c0448e3c028f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 40af7a7d3bcc4584260735ddbcbf84ac0936ce15
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131519"
+ms.locfileid: "87172104"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>Início Rápido: Criar um balanceador de carga público para fazer o balanceamento de carga das VMs com a CLI do Azure
 
@@ -504,14 +504,14 @@ Adicione as interfaces de rede de máquinas virtuais à piscina de saída do equ
 #### <a name="vm1"></a>VM1
 * Na piscina de endereços **backend myEndEndPoolOutbound**.
 * No grupo de recursos **myResourceGroupLB**.
-* Associado à interface de rede **myVMNic1** e **ipconfig1**.
+* Associado à interface de rede **myNicVM1** e **ipconfig1**.
 * Associado ao balanceador de carga **myLoadBalancer**.
 
 ```azurecli-interactive
   az network nic ip-config address-pool add \
    --address-pool myBackendPoolOutbound \
    --ip-config-name ipconfig1 \
-   --nic-name myVMNic1 \
+   --nic-name myNicVM1 \
    --resource-group myResourceGroupLB \
    --lb-name myLoadBalancer
 ```
@@ -519,14 +519,14 @@ Adicione as interfaces de rede de máquinas virtuais à piscina de saída do equ
 #### <a name="vm2"></a>VM2
 * Na piscina de endereços **backend myEndEndPoolOutbound**.
 * No grupo de recursos **myResourceGroupLB**.
-* Associado à interface de rede **myVMNic2** e **ipconfig1**.
+* Associado à interface de rede **myNicVM2** e **ipconfig1**.
 * Associado ao balanceador de carga **myLoadBalancer**.
 
 ```azurecli-interactive
   az network nic ip-config address-pool add \
    --address-pool myBackendPoolOutbound \
    --ip-config-name ipconfig1 \
-   --nic-name myVMNic2 \
+   --nic-name myNicVM2 \
    --resource-group myResourceGroupLB \
    --lb-name myLoadBalancer
 ```
@@ -534,14 +534,14 @@ Adicione as interfaces de rede de máquinas virtuais à piscina de saída do equ
 #### <a name="vm3"></a>VM3
 * Na piscina de endereços **backend myEndEndPoolOutbound**.
 * No grupo de recursos **myResourceGroupLB**.
-* Associado à interface de rede **myVMNic3** e **ipconfig1**.
+* Associado à interface de rede **myNicVM3** e **ipconfig1**.
 * Associado ao balanceador de carga **myLoadBalancer**.
 
 ```azurecli-interactive
   az network nic ip-config address-pool add \
    --address-pool myBackendPoolOutbound \
    --ip-config-name ipconfig1 \
-   --nic-name myVMNic3 \
+   --nic-name myNicVM3 \
    --resource-group myResourceGroupLB \
    --lb-name myLoadBalancer
 ```
@@ -932,7 +932,7 @@ Copie o endereço IP público e cole-o na barra de endereço do browser.
 ```
 :::image type="content" source="./media/load-balancer-standard-public-cli/running-nodejs-app.png" alt-text="Testar o balanceador de carga" border="true":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, utilize o comando de eliminação do [grupo AZ](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) para remover o grupo de recursos, o equilibrador de carga e todos os recursos relacionados.
 
@@ -941,7 +941,7 @@ Quando já não for necessário, utilize o comando de eliminação do [grupo AZ]
     --name myResourceGroupLB
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste arranque rápido
 
 * Criou um balanceador de carga padrão ou público
