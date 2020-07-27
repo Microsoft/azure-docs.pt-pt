@@ -10,13 +10,13 @@ metadata:
   ms.collection: M365-security-compliance
   author: mlottner
   ms.author: mlottner
-  ms.date: 09/23/2019
-  ms.openlocfilehash: 5a9f5c9d919c6c30c6318749ad2a62d40865e573
-  ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+  ms.date: 07/15/2020
+  ms.openlocfilehash: 6ffdfab3f5c29a21fb504fb8d7e5004dab1f57b1
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/07/2020
-  ms.locfileid: "82890911"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87046002"
 landingContent:
 - title: Acerca do Centro de Segurança do Azure para IoT
   linkLists:
@@ -24,6 +24,8 @@ landingContent:
     links:
     - text: O que é o Centro de Segurança do Azure para IoT?
       url: overview.md
+    - text: Solução de segurança Azure RTOS
+      url: iot-security-azure-rtos.md
     - text: Planear a sua solução
       url: service-prerequisites.md
   - linkListType: architecture

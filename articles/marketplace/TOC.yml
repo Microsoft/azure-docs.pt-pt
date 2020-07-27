@@ -60,6 +60,8 @@
         - name: Os seus benefícios do marketplace
           href: ./gtm-your-marketplace-benefits.md
           items:
+            - name: Benefício do compromisso de consumo do Azure
+              href: ./azure-consumption-commitment-benefit.md
             - name: Compromisso entre parceiros para venda conjunta
               href: ./marketplace-co-sell.md
             - name: Soluções preferenciais

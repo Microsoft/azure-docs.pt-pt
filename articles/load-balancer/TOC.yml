@@ -18,17 +18,19 @@
       href: quickstart-create-standard-load-balancer-powershell.md
     - name: Criar Balanceador de Carga - Modelo do Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
-    - name: Criar um Balanceador de Carga interno - Portal
-      href: tutorial-load-balancer-standard-internal-portal.md
-    - name: Criar um Balanceador de Carga interno - Azure CLI
-      href: load-balancer-get-started-ilb-arm-cli.md
-    - name: Criar um Balanceador de Carga interno - Azure PowerShell
-      href: load-balancer-get-started-ilb-arm-ps.md
-    - name: Criar um Balanceador de Carga interno - Modelo ARM
-      href: load-balancer-get-started-ilb-arm-template.md
   expanded: true
 - name: Tutoriais
   items:
+    - name: Balanceador de Carga Interno
+      items:
+        - name: Criar um Balanceador de Carga interno - Portal
+          href: tutorial-load-balancer-standard-internal-portal.md
+        - name: Criar um Balanceador de Carga interno - Azure CLI
+          href: load-balancer-get-started-ilb-arm-cli.md
+        - name: Criar um Balanceador de Carga interno - Azure PowerShell
+          href: load-balancer-get-started-ilb-arm-ps.md
+        - name: Criar um Balanceador de Carga interno - Modelo ARM
+          href: load-balancer-get-started-ilb-arm-template.md
     - name: Balancear carga de VMs por zonas de disponibilidade
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Balanceamento de carga de VM dentro de uma zona de disponibilidade específica
@@ -73,6 +75,8 @@
       href: load-balancer-security-controls.md
     - name: Gestão do Conjunto de Back-end
       href: backend-pool-management.md
+    - name: Balanceador de Carga Standard e Conjuntos de Dimensionamento de Máquinas Virtuais
+      href: load-balancer-standard-virtual-machine-scale-sets.md
 - name: Procedimento
   items:
     - name: Conjuntos de dimensionamento de máquinas virtuais

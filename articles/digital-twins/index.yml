@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/12/2020
-  ms.openlocfilehash: 105a9de63f13a7a6460638ad967be40edd0783a4
-  ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+  ms.openlocfilehash: e5c05e41ba209607649fbcffb8ee12d0dc66029e
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/26/2020
-  ms.locfileid: "85392153"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87079129"
 landingContent:
 - title: Acerca do Azure Digital Twins
   linkLists:
@@ -59,11 +59,11 @@ landingContent:
       url: how-to-use-cli.md
   - linkListType: how-to-guide
     links:
-    - text: Criar uma instância do Azure Digital Twins
-      url: how-to-set-up-instance.md
+    - text: Configurar uma instância e autenticação
+      url: how-to-set-up-instance-scripted.md
   - linkListType: how-to-guide
     links:
-    - text: Autenticar uma aplicação cliente
+    - text: Escrever o código de autenticação da aplicação
       url: how-to-authenticate-client.md
 - title: Referência da API
   linkLists:

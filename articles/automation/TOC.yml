@@ -6,7 +6,7 @@
       href: automation-intro.md
     - name: FAQ
       href: automation-faq.md
-- name: Guias de Início Rápido
+- name: Inícios rápidos
   items:
     - name: Criar uma conta de Automatização
       href: automation-quickstart-create-account.md
@@ -14,6 +14,9 @@
       href: automation-quickstart-create-runbook.md
     - name: Ativar o Desired State Configuration para um computador
       href: automation-quickstart-dsc-configuration.md
+    - name: Criar conta de automatização - modelo do Resource Manager
+      displayName: Resource Manager
+      href: quickstart-create-automation-account-template.md
 - name: Tutoriais
   items:
     - name: Criar um runbook gráfico
@@ -51,14 +54,14 @@
           href: automation-secure-asset-encryption.md
         - name: Gestão dos dados da Automatização do Azure
           href: automation-managing-data.md
-- name: Guias de procedimentos
+- name: Manuais de instruções
   items:
     - name: Conta de Automatização
       items:
         - name: Criar uma conta de Automatização com o portal do Azure
           href: automation-create-standalone-account.md
         - name: Criar uma conta de Automatização com o modelo do Resource Manager
-          href: automation-create-account-template.md
+          href: quickstart-create-automation-account-template.md
         - name: Configurar a autenticação com o Amazon Web Services
           href: automation-config-aws-account.md
         - name: Configurar a autenticação com o Azure Active Directory
@@ -177,6 +180,18 @@
               href: automation-dsc-extension-history.md
             - name: Resolver problemas do State Configuration
               href: troubleshoot/desired-state-configuration.md
+            - name: Cenários
+              items:
+                - name: Configurar dados baseados no STIG
+                  href: automation-dsc-configuration-based-on-stig.md
+                - name: Configurar dados em escala
+                  href: automation-dsc-config-data-at-scale.md
+                - name: Criar configuração a partir de servidores existentes
+                  href: automation-dsc-config-from-server.md
+                - name: Converter configurações em recursos compostos
+                  href: automation-dsc-create-composite.md
+                - name: Remediar servidores não compatíveis
+                  href: automation-dsc-remediate.md
         - name: Controlo de alterações e inventário
           items:
             - name: Descrição geral

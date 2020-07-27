@@ -7,7 +7,7 @@
       href: overview.md
     - name: Descrição geral técnica e das funcionalidades
       href: technical-overview.md
-- name: Guias de Início Rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Configurar o início de sessão - ASP.NET
@@ -369,10 +369,14 @@
           href: partner-gallery.md
         - name: Arkose Labs
           href: partner-arkose-labs.md
+        - name: Experian
+          href: partner-experian.md
         - name: IDology
           href: partner-idology.md
         - name: itsme
           href: partner-itsme.md
+        - name: LexisNexis
+          href: partner-lexisnexis.md
         - name: Trusona
           href: partner-trusona.md
         - name: Twilio

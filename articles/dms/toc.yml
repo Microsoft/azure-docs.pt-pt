@@ -59,6 +59,10 @@
           href: tutorial-postgresql-azure-postgresql-online-portal.md
         - name: para a Base de Dados do Azure para PostgreSQL (CLI do Az)
           href: tutorial-postgresql-azure-postgresql-online.md
+    - name: Migrar a BD do Azure para PostgreSQL - Servidor Único
+      items:
+        - name: para a Base de Dados do Azure para PostgreSQL (Portal)
+          href: tutorial-azure-postgresql-to-azure-postgresql-online-portal.md
     - name: Migrar o PostgreSQL de RDS
       items:
         - name: para a Base de Dados do Azure para PostgreSQL

@@ -54,18 +54,20 @@
       href: cache-best-practices.md
     - name: Melhores práticas de colocação em cache da arquitetura
       href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
-- name: Guias de procedimentos
+- name: Manuais de instruções
   items:
     - name: Planear
       items:
         - name: Escolher um escalão de cache
-          href: 'cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use'
+          href: cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use
         - name: Distribua a cache com clustering
           href: cache-how-to-premium-clustering.md
         - name: Mantenha a cache com a persistência de dados de Redis
           href: cache-how-to-premium-persistence.md
         - name: Protega a sua cache com uma rede virtual
           href: cache-how-to-premium-vnet.md
+        - name: Ligar de forma privada a uma cache
+          href: cache-private-link.md
         - name: Configurar a georreplicação
           href: cache-how-to-geo-replication.md
         - name: Poupar com a capacidade reservada
@@ -101,9 +103,9 @@
         - name: Importar/Exportar dados
           href: cache-how-to-import-export-data.md
         - name: Reiniciar
-          href: 'cache-administration.md#reboot'
+          href: cache-administration.md#reboot
         - name: Agendar atualizações
-          href: 'cache-administration.md#schedule-updates'
+          href: cache-administration.md#schedule-updates
         - name: Configurar o acesso redis-cli.exe
           href: cache-how-to-redis-cli-tool.md
         - name: "Remover TLS\_1.0 e 1.1"
@@ -113,7 +115,7 @@
         - name: Monitorizar no portal do Azure
           href: cache-how-to-monitor.md
         - name: Definir alertas para exceções
-          href: 'cache-how-to-monitor.md#operations-and-alerts'
+          href: cache-how-to-monitor.md#operations-and-alerts
     - name: Diagnosticar e resolver problemas
       items:
         - name: Resolução de problemas do servidor Redis

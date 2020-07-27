@@ -1,20 +1,28 @@
 - name: Geral
   href: index.yml
 - name: Descrição geral
-  expanded: true
   items:
     - name: Acerca do Azure Key Vault
       href: overview.md
     - name: 'Acerca de chaves, segredos e certificados'
       href: about-keys-secrets-certificates.md
+- name: Inícios rápidos
+  expanded: true
+  items:
+    - name: CLI
+      href: quick-create-cli.md
+    - name: PowerShell
+      href: quick-create-powershell.md
+    - name: Portal
+      href: quick-create-portal.md
 - name: Tutoriais
   items:
     - name: Máquina Virtual do Azure
       items:
-        - name: Utilizar o Azure Key Vault com uma máquina virtual do Windows em .NET
-          href: tutorial-net-windows-virtual-machine.md
-        - name: Utilizar o Azure Key Vault com uma máquina virtual do Windows em Python
-          href: tutorial-python-windows-virtual-machine.md
+        - name: Utilizar o Azure Key Vault com uma máquina virtual em .NET
+          href: tutorial-net-virtual-machine.md
+        - name: Utilizar o Azure Key Vault com uma máquina virtual em Python
+          href: tutorial-python-virtual-machine.md
     - name: Azure Kubernetes Service
       items:
         - name: Integrar o Azure Key Vault no Kubernetes
@@ -117,15 +125,11 @@
     - name: Mover o Key Vault
       items:
         - name: Mover o Key Vault para Outro Grupo de Recursos
-          href: keyvault-moveresourcegroup.md
+          href: move-resourcegroup.md
         - name: Mover o Key Vault para Outra Subscrição
-          href: keyvault-move-subscription.md
+          href: move-subscription.md
         - name: Mover o Key Vault para Outra Região
-          href: keyvault-moveregion.md
-    - name: Resolução de problemas
-      items:
-        - name: 'Alterar o ID do inquilino do cofre de chaves, após a movimentação de uma subscrição'
-          href: subscription-move-fix.md
+          href: move-region.md
 - name: Referência
   items:
     - name: Códigos de erro da API REST - Azure Key Vault

@@ -53,8 +53,10 @@
       href: ../../mysql/security-baseline.md
     - name: Linha de base de segurança do Azure Database for MariaDB
       href: ../../mariadb/security-baseline.md
-    - name: Linha de base de segurança da Base de Dados do Azure para PostgreSQL
+    - name: Base de Dados do Azure para PostgreSQL - Linha de base de segurança de Servidor Único
       href: ../../postgresql/security-baseline.md
+    - name: Base de Dados do Azure para PostgreSQL - Linha de base de segurança do Hyperscale
+      href: ../../postgresql/postgresql-hyperscale-security-baseline.md
     - name: Linha de base de segurança do Azure Databricks
       href: ../../azure-databricks/security-baseline.md
     - name: Linha de base de segurança das Funções do Azure
@@ -79,6 +81,8 @@
       href: ../../cosmos-db/security-baseline.md
     - name: Linha de base de segurança do Sistema de Proteção de Dados do Cliente
       href: ../fundamentals/customer-lockbox-security-baseline.md
+    - name: Linha de base de segurança do Data Lake Analytics
+      href: ../../data-lake-analytics/security-baseline.md
     - name: Linha de base de segurança dos Hubs de Eventos
       href: ../../event-hubs/security-baseline.md
     - name: Linha de base de segurança do ExpressRoute
@@ -91,7 +95,15 @@
       href: ../../logic-apps/security-baseline.md
     - name: Linha de base de segurança do Observador de Rede
       href: ../../network-watcher/security-baseline.md
+    - name: Linha de base do Service Fabric
+      href: ../../service-fabric/security-baseline.md
     - name: Linha de base de segurança do Stream Analytics
       href: ../../stream-analytics/security-baseline.md
     - name: Linha de base de segurança do Synapse Analytics
       href: ../../synapse-analytics/security-baseline.md
+    - name: Linha de base de segurança dos Conjuntos de Dimensionamento de Máquinas Virtuais
+      href: ../../virtual-machine-scale-sets/security-baseline.md
+    - name: Linha de base de segurança de Máquinas Virtuais do Linux
+      href: ../../virtual-machines/linux/security-baseline.md
+    - name: Linha de base de segurança de Máquinas Virtuais do Windows
+      href: ../../virtual-machines/windows/security-baseline.md

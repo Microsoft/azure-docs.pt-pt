@@ -32,6 +32,8 @@
       href: msi-authorization.md
     - name: Incorporar o Cloud Shell
       href: embed-cloud-shell.md
+    - name: Cloud Shell na Rede Virtual do Azure
+      href: private-vnet.md
 - name: Utilize o editor de Cloud Shell
   href: using-cloud-shell-editor.md
 - name: Resolução de problemas e limitações

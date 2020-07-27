@@ -40,7 +40,7 @@
               href: connect-aws.md
             - name: Azure Active Directory
               href: connect-azure-active-directory.md
-            - name: Microsoft 365
+            - name: Office 365
               href: connect-office-365.md
             - name: Cloud App Security
               href: connect-cloud-app-security.md
@@ -80,14 +80,34 @@
               href: connect-f5-big-ip.md
             - name: Forcepoint DLP
               href: connect-forcepoint-dlp.md
-            - name: Perimeter 81 logs
+            - name: Infoblox NIOS
+              href: connect-infoblox.md
+            - name: Okta SSO
+              href: connect-okta-single-sign-on.md
+            - name: Orca Security
+              href: connect-orca-security-alerts.md
+            - name: Perimeter 81
               href: connect-perimeter-81-logs.md
+            - name: Proofpoint TAP
+              href: connect-proofpoint-tap.md
+            - name: Pulse Connect Secure
+              href: connect-pulse-connect-secure.md
+            - name: Qualys VM
+              href: connect-qualys-vm.md
+            - name: Sophos XG Firewall
+              href: connect-sophos-xg-firewall.md
             - name: Squadra Technologies secRMM
               href: connect-squadra-secrmm.md
             - name: ICDX da Symantec
               href: connect-symantec.md
+            - name: Symantec Proxy SG
+              href: connect-symantec-proxy-sg.md
+            - name: Symantec VIP
+              href: connect-symantec-vip.md
             - name: Syslog
               href: connect-syslog.md
+            - name: Ponto Final da Cloud VMware Carbon Black Standard
+              href: connect-vmware-carbon-black.md
             - name: Defesa Contra Ameaças para Dispositivos Móveis da Zimperium
               href: connect-zimperium-mtd.md
             - name: Soluções baseadas em CEF
@@ -112,6 +132,8 @@
                       href: connect-forcepoint-casb-ngfw.md
                     - name: Fortinet
                       href: connect-fortinet.md
+                    - name: Illusive Networks AMS
+                      href: connect-illusive-attack-management-system.md
                     - name: One Identity Safeguard
                       href: connect-one-identity.md
                     - name: Palo Alto Networks

@@ -6,7 +6,7 @@
       href: overview-reports.md
     - name: O que é a monitorização do Azure AD?
       href: overview-monitoring.md
-- name: Guias de Início Rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Transferir um relatório de início de sessão
@@ -84,6 +84,8 @@
           href: troubleshoot-missing-data-download.md
         - name: Não pode aceder a Graph APIs para relatórios
           href: troubleshoot-graph-api.md
+        - name: Auditar dados num domínio verificado alterado
+          href: troubleshoot-audit-data-verified-domain.md
 - name: Referência
   expanded: true
   items:

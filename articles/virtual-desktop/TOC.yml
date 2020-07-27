@@ -46,6 +46,8 @@
           href: expand-existing-host-pool.md
         - name: Gerir grupos de aplicações com o PowerShell
           href: manage-app-groups-powershell.md
+    - name: Eliminar um conjunto de anfitriões
+      href: delete-host-pool.md
     - name: Criar um contentor de perfil
       items:
         - name: Utilizar uma partilha de ficheiros baseada em VM
@@ -72,6 +74,8 @@
           href: set-up-customize-master-image.md
         - name: Instalar o Office numa imagem principal de VHD
           href: install-office-on-wvd-master-image.md
+    - name: Dimensionar automaticamente os anfitriões de sessão
+      href: set-up-scaling-script.md
     - name: Personalizar o feed
       href: customize-feed-for-virtual-desktop-users.md
     - name: Utilizar o diagnóstico do serviço
@@ -108,6 +112,8 @@
       href: store-fslogix-profile.md
     - name: Integrações de parceiros
       href: partners.md
+    - name: FAQ do Windows Virtual Desktop
+      href: faq.md
     - name: FAQ de multissessões do Windows 10 Enterprise
       href: windows-10-multisession-faq.md
     - name: Localizações dos dados

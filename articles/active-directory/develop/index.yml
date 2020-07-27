@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentação da plataforma de identidade da Microsoft
-summary: A plataforma de identidades da Microsoft é um serviço de autenticação, bibliotecas open source e ferramentas de gestão de aplicações. Aprenda a criar soluções de autenticação modernas e baseadas em padrões com os nossos inícios rápidos, tutoriais e exemplos de código. Crie aplicações nas quais os seus utilizadores e clientes iniciam sessão para utilizarem as respetivas identidades da Microsoft ou contas de redes sociais e autorize o acesso às suas APIs ou APIs da Microsoft, como o Microsoft Graph.
+summary: A plataforma de identidades da Microsoft é um serviço de autenticação, bibliotecas open-source e ferramentas de gestão de aplicações. Aprenda a criar soluções de autenticação modernas e baseadas em padrões com os nossos inícios rápidos, tutoriais e exemplos de código. Crie aplicações nas quais os seus utilizadores e clientes iniciam sessão para utilizarem as respetivas identidades da Microsoft ou contas de redes sociais e autorize o acesso às suas APIs ou APIs da Microsoft, como o Microsoft Graph.
 metadata:
   ms.topic: landing-page
   ms.date: 07/13/2020
@@ -9,12 +9,12 @@ metadata:
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: 689fb9953f6de9c717d774e222824c5b3701527e
-  ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+  ms.openlocfilehash: e17e6195d629238c9c719d8e34780593129ae244
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/10/2020
-  ms.locfileid: "86230354"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87027075"
 landingContent:
 - title: Acerca da plataforma de identidade da Microsoft
   linkLists:
@@ -62,7 +62,7 @@ landingContent:
     links:
     - text: ASP.NET
       url: quickstart-v2-aspnet-webapp.md
-    - text: Núcleo de ASP.NET
+    - text: ASP.NET Core
       url: quickstart-v2-aspnet-core-webapp.md
     - text: Python
       url: quickstart-v2-python-webapp.md
@@ -76,7 +76,7 @@ landingContent:
       url: quickstart-v2-ios.md
     - text: Ambiente de trabalho do Windows (WPF)
       url: quickstart-v2-windows-desktop.md
-- title: API Web segura
+- title: API Web
   linkLists:
   - linkListType: get-started
     links:
@@ -92,11 +92,27 @@ landingContent:
       url: microsoft-graph-intro.md
     - text: Descrição geral de auth do Microsoft Graph
       url: https://docs.microsoft.com/graph/auth/
-- title: SAML 2.0
+- title: Protocolos
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: OAuth 2.0 e OpenID Connect
+      url: active-directory-v2-protocols.md
+    - text: SAML 2.0
+      url: active-directory-saml-protocol-reference.md
+- title: Empresa-cliente (B2C)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Azure AD B2C?
+      url: ../../active-directory-b2c/overview.md
+    - text: Descrição geral técnica e das funcionalidades
+      url: ../../active-directory-b2c/technical-overview.md
+- title: Identidades geridas
   linkLists:
   - linkListType: get-started
     links:
-    - text: Como o Azure AD utiliza o protocolo SAML
-      url: active-directory-saml-protocol-reference.md
-    - text: SSO SAML no Azure AD
-      url: single-sign-on-saml-protocol.md
+    - text: Acerca das identidades geridas para os recursos do Azure
+      url: ../managed-identities-azure-resources/overview.md
+    - text: Identidades geridas e VMs do Azure
+      url: ../managed-identities-azure-resources/how-managed-identities-work-vm.md

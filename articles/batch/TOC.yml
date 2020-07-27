@@ -51,6 +51,9 @@
   items:
     - name: Segurança
       items:
+        - name: Controlos de segurança do Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Linha de base de segurança
           href: security-baseline.md
     - name: Fluxo de trabalho e recursos do serviço Batch

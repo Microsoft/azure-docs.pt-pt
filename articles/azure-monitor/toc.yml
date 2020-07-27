@@ -157,6 +157,11 @@
       href: visualizations.md
     - name: Integrações de parceiros
       href: platform/partners.md
+    - name: Segurança
+      items:
+        - name: Controlos de segurança do Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./platform/security-controls-policy.md
 - name: Guias de procedimentos
   items:
     - name: Cenários
@@ -244,8 +249,6 @@
                       href: platform/diagnostics-extension-to-application-insights.md
                     - name: Histórico de versões
                       href: platform/diagnostics-extension-versions.md
-                    - name: Formato dos registos de recursos JSON Lines
-                      href: platform/resource-logs-append-blobs.md
                     - name: Resolução de problemas
                       href: platform/diagnostics-extension-troubleshooting.md
                 - name: Linux
@@ -264,9 +267,9 @@
                 - name: Agentes do Linux
                   href: platform/agent-linux.md
                 - name: Extensão da VM para Windows
-                  href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+                  href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
                 - name: Extensão da VM para Linux
-                  href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+                  href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
                 - name: Gateway do Log Analytics
                   href: platform/gateway.md
                 - name: Gestão de agente
@@ -430,7 +433,7 @@
         - name: Dimensionar com métricas personalizadas
           href: platform/autoscale-custom-metric.md
         - name: Dimensionar conjuntos de dimensionamento de VM
-          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
+          href: ../virtual-machine-scale-sets/tutorial-autoscale-powershell.md?toc=/azure/azure-monitor/toc.json
         - name: Dimensionar os conjuntos de dimensionamento de VMs com modelos do Resource Manager
           href: platform/autoscale-virtual-machine-scale-sets.md
         - name: Utilizar webhooks e notificações por e-mail
@@ -446,7 +449,7 @@
             - name: Disponibilidade
               href: app/monitor-web-app-availability.md
             - name: Alertas de métricas
-              href: app/alerts.md
+              href: ./platform/alerts-log.md
         - name: Regras de alerta de métricas
           items:
             - name: Gerir alertas de métrica
@@ -474,19 +477,20 @@
             - name: Alerta num evento de registo de atividades
               href: platform/alerts-activity-log.md
             - name: Migrar os eventos de gestão para os alertas de registo de atividades
-              href: platform/migrate-management-alerts.md
+              href: ./platform/activity-log-alerts.md
             - name: Esquema de webhook
               href: platform/activity-log-alerts-webhook.md
         - name: Alertas do estado de funcionamento dos serviços
           items:
             - name: Ver notificações
-              href: platform/service-notifications.md
+              href: ../service-health/service-notifications.md
             - name: Configurar alertas em eventos de notificações
               href: platform/alerts-activity-log-service-notifications.md
         - name: Notificações e ações
           items:
             - name: Regras de ação (Pré-visualização)
               href: platform/alerts-action-rules.md
+              displayName: 'Azure CLI, az monitor action rule'
             - name: Criar grupo de ações
               href: platform/action-groups.md
             - name: Esquema de alertas comuns
@@ -556,7 +560,7 @@
         - name: Descrição geral do Application Insights
           href: app/app-insights-overview.md
         - name: FAQ
-          href: app/troubleshoot-faq.md
+          href: ./faq.md
         - name: Monitorização baseada em código
           items:
             - name: Núcleo de ASP.NET
@@ -970,7 +974,11 @@
         - name: Analisar dados com consultas de registo
           href: insights/container-insights-log-search.md
         - name: Alertas
-          href: insights/container-insights-alerts.md
+          items:
+            - name: Criar regras de alerta de registo
+              href: insights/container-insights-log-alerts.md
+            - name: Criar regras de alerta de métrica
+              href: insights/container-insights-metric-alerts.md
         - name: Gestão de agente
           href: insights/container-insights-manage-agent.md
         - name: Configurar a métrica Prometheus
@@ -1016,6 +1024,7 @@
       items:
         - name: Descrição geral
           href: insights/solutions.md
+          displayName: 'Azure CLI, az monitor log-analytics'
         - name: Soluções de destino
           href: insights/solution-targeting.md
         - name: Soluções disponíveis
@@ -1028,8 +1037,6 @@
               href: insights/capacity-performance.md
             - name: Docker e monitorização do Contentor do Windows
               href: insights/containers.md
-            - name: Análise do Key Vault
-              href: insights/azure-key-vault.md
             - name: Redes
               items:
                 - name: Análise de Redes
@@ -1173,7 +1180,7 @@
     - name: Alterações de terminologia
       href: terminology.md
     - name: Referência de dados
-      href: 'https://docs.microsoft.com/azure/azure-monitor/reference/'
+      href: /azure/azure-monitor/reference/
     - name: Métricas suportadas
       items:
         - name: Métricas de plataforma
@@ -1288,6 +1295,8 @@
         - name: Alterar para o formato de armazenamento de blobs
           displayname: Diagnostic settings
           href: platform/resource-logs-blob-format.md
+        - name: Análise do Key Vault (preterido)
+          href: insights/azure-key-vault-deprecated.md
 - name: Recursos
   items:
     - name: Mapa do Azure

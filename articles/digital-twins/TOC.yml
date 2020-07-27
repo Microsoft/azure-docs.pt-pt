@@ -40,9 +40,11 @@
       items:
         - name: Utilizar a CLI do Azure Digital Twins
           href: how-to-use-cli.md
-        - name: Criar uma instância do Azure Digital Twins
-          href: how-to-set-up-instance.md
-        - name: Autenticar uma aplicação cliente
+        - name: Configurar uma instância e autenticação (com script)
+          href: how-to-set-up-instance-scripted.md
+        - name: Configurar uma instância e autenticação (manual)
+          href: how-to-set-up-instance-manual.md
+        - name: Escrever o código de autenticação da aplicação
           href: how-to-authenticate-client.md
     - name: Conceber modelos
       items:
@@ -50,6 +52,8 @@
           href: how-to-manage-model.md
         - name: Analisar e validar modelos
           href: how-to-use-parser.md
+        - name: Adicionar etiquetas
+          href: how-to-use-tags.md
     - name: Utilizar o ambiente de execução em direto
       items:
         - name: Gerir duplos digitais
@@ -72,10 +76,16 @@
           href: how-to-manage-routes.md
         - name: Integrar com o Azure Maps
           href: how-to-integrate-maps.md
+        - name: Integrar com o Azure Time Series Insights
+          href: how-to-integrate-time-series-insights.md
     - name: Resolução de problemas
       items:
         - name: Problemas conhecidos
           href: troubleshoot-known-issues.md
+        - name: Resolução do problema
+          items:
+            - name: 403 (Proibido)
+              href: troubleshoot-error-403.md
 - name: Referência
   items:
     - name: Limites de serviço do Digital Twins
@@ -145,7 +155,7 @@
         - name: Exemplos do Azure Digital Twins
           href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/'
         - name: Explorador do Azure Digital Twins (exemplo)
-          href: 'https://github.com/Azure-Samples/digital-twins-explorer'
+          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/'
         - name: Validador DTDL (exemplo)
           href: 'https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/'
     - name: Ferramentas do Azure

@@ -33,6 +33,8 @@
           href: storage-files-networking-overview.md
         - name: Impedir eliminações de dados acidentais
           href: storage-files-prevent-file-share-deletion.md
+        - name: Fazer cópia de segurança de partilhas de ficheiros
+          href: ../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Encriptação em inatividade
           href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Encriptação inativa com chaves geridas pelo cliente
@@ -83,6 +85,54 @@
           href: storage-files-how-to-create-large-file-share.md
         - name: Criar uma partilha de ficheiros premium
           href: storage-how-to-create-premium-fileshare.md
+    - name: Proteção de dados
+      items:
+        - name: Ativar a eliminação recuperável
+          href: storage-files-enable-soft-delete.md
+        - name: Alterar a forma como os dados são replicados
+          href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Gerir redundância de dados
+          items:
+            - name: Alterar a forma como os dados são replicados
+              href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Conceber aplicações Web de elevada disponibilidade
+              href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Gerir a recuperação após desastre
+          items:
+            - name: Consulte a propriedade Last Sync Time
+              href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Iniciar a ativação pós-falha da conta
+              href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Fazer cópia de segurança de partilhas de ficheiros
+          items:
+            - name: Portal
+              href: ../../backup/backup-afs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: CLI
+              href: ../../backup/backup-afs-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: PowerShell
+              href: ../../backup/backup-azure-afs-automation.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: API REST
+              href: ../../backup/backup-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Restaurar partilhas de ficheiros
+          items:
+            - name: Portal
+              href: ../../backup/restore-afs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: CLI
+              href: ../../backup/restore-afs-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: PowerShell
+              href: ../../backup/restore-afs-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: API REST
+              href: ../../backup/restore-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Gerir partilhas de ficheiros
+          items:
+            - name: Portal
+              href: ../../backup/manage-afs-backup.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: CLI
+              href: ../../backup/manage-afs-backup-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: PowerShell
+              href: ../../backup/manage-afs-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: API REST
+              href: ../../backup/manage-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Implementação
       items:
         - name: Implementar os Ficheiros do Azure
@@ -125,26 +175,10 @@
           href: storage-sync-files-server-registration.md
         - name: Adicionar um ponto final de servidor da Sincronização de Ficheiros do Azure
           href: storage-sync-files-server-endpoint.md
-        - name: Ativar a eliminação recuperável
-          href: storage-files-enable-soft-delete.md
         - name: Gerir o armazenamento nas clouds independentes do Azure
           href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Alterar a forma como os dados são replicados
-          href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Iniciar a ativação pós-falha de uma conta
           href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Gerir redundância de dados
-          items:
-            - name: Alterar a forma como os dados são replicados
-              href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: Conceber aplicações Web de elevada disponibilidade
-              href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Gerir a recuperação após desastre
-          items:
-            - name: Consulte a propriedade Last Sync Time
-              href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: Iniciar a ativação pós-falha da conta
-              href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Autenticar
       items:
         - name: Ativar a autenticação e autorização no local do AD DS
@@ -173,7 +207,7 @@
           href: storage-files-migration-overview.md
         - name: Definir o destino de uma implementação híbrida
           items:
-            - name: Migrar dados em massa para o Azure File Sync com o Azure DataBox
+            - name: Migrar dados em massa para o Azure File Sync com o Azure Data Box
               href: storage-sync-offline-data-transfer.md
             - name: Migrar do Linux para um servidor de ficheiros híbrido com o Azure File Sync
               href: storage-files-migration-linux-hybrid.md
@@ -243,9 +277,11 @@
           href: storage-sync-files-troubleshoot.md
         - name: Resolução de Problemas de Eliminação de Ficheiros do Azure
           href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
+        - name: Resolver problemas com a cópia de segurança de partilhas de ficheiros
+          href: ../../backup/troubleshoot-azure-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
 - name: Referência
   items:
-    - name: Referência de armazenamento das Partilhas de Ficheiros do Azure
+    - name: Referência dos Ficheiros do Azure
       href: ../files/reference.md
     - name: Modelo do Resource Manager
       displayName: arm

@@ -75,6 +75,8 @@
           href: enterprise-state-roaming-faqs.md
 - name: Referência
   items:
+    - name: Impor TLS 1.2
+      href: reference-device-registration-tls-1-2.md
     - name: Definições do GPO do roaming de estado empresarial
       href: enterprise-state-roaming-group-policy-settings.md
     - name: Definições de Windows do roaming de estado empresarial
