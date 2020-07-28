@@ -173,7 +173,7 @@ Crie uma zona de DNS privada para permitir que o fornecedor de Recuperação de 
 
    1. Procure "Zona privada de DNS" na barra de pesquisa **de todos os serviços** e selecione "Zonas PRIVADAs de DNS" a partir do drop-down.
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Mostra a procura de "zona privada de dns" na página de novos recursos no portal Azure.":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Mostra a procura de zona privada de dns na página de novos recursos no portal Azure.":::
 
    1. Uma vez na página "Zonas DNS Privadas", selecione o botão ** \+ Adicionar** para começar a criar uma nova zona.
 
