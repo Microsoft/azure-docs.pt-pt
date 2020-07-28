@@ -69,7 +69,7 @@ az notification-hub namespace show --resource-group ContosoNotificationsGroup --
 ---
 The output looks similar to: null
 ':::image type="content" source="media/create-notification-hub-template/verify-deploy.png" alt-text="Verify deployment"::': null
----
+
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
