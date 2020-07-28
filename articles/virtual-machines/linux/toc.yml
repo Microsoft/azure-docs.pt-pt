@@ -345,7 +345,7 @@
         - name: Discos partilhados
           href: disks-shared.md
         - name: Discos de SO Efémeros
-          href: ephemeral-os-disks.md
+          href: ../ephemeral-os-disks.md
     - name: Redes
       href: ../network-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Conjuntos de dimensionamento

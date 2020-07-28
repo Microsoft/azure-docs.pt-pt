@@ -468,10 +468,30 @@ groups:
     title: Kotlin (Android)
   - id: programming-language-swift
     title: Swift (iOS)
+- id: programming-languages-set-twenty-one
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+- id: programming-languages-set-twenty-two
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
 metadata:
-  ms.openlocfilehash: 1b217a4cece304da740c5402c8ae1665404a7d91
-  ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+  ms.openlocfilehash: ec7beebb81bf6a96912ff43a1e071f85d0d8a108
+  ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/07/2020
-  ms.locfileid: "86040542"
+  ms.lasthandoff: 07/28/2020
+  ms.locfileid: "87291847"

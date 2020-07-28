@@ -185,7 +185,7 @@
           href: ../virtual-machines/windows/premium-storage-performance.md
           maintainContext: true
         - name: Discos de SO Efémeros
-          href: ephemeral-os-disks.md
+          href: ../virtual-machines/ephemeral-os-disks.md
         - name: Destinos de escalabilidade para discos
           href: ../virtual-machines/windows/disk-scalability-targets.md
           maintainContext: true
