@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 013515e0608bf790ceef8dc13d9d547496306610
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ea060ec9ba755a197e2969c0bf58050eb1d62a03
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092852"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325972"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-environment"></a>Ativar o Monitor Azure para VMs para um ambiente híbrido
 
@@ -24,7 +24,7 @@ Antes de começar, certifique-se de rever os [pré-requisitos](vminsights-enable
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 >[!NOTE]
->O Azure Monitor para o agente VMs Map Dependency não transmite quaisquer dados em si, e não requer alterações em firewalls ou portas. Os dados do Mapa são sempre transmitidos pelo agente Log Analytics ao serviço Azure Monitor, quer diretamente quer através do [gateway da Suite de Gestão de Operações,](../../azure-monitor/platform/gateway.md) se as suas políticas de segurança de TI não permitirem que os computadores da rede se conectem à internet.
+>O Azure Monitor para o agente VMs Map Dependency não transmite quaisquer dados em si, e não requer alterações em firewalls ou portas. Os dados do Mapa são sempre transmitidos pelo agente Log Analytics ao serviço Azure Monitor, quer diretamente quer através do [gateway da Suite de Gestão de Operações,](../platform/gateway.md) se as suas políticas de segurança de TI não permitirem que os computadores da rede se conectem à internet.
 
 Os passos para completar esta tarefa são resumidos da seguinte forma:
 
@@ -145,7 +145,7 @@ configuration VMInsights {
 ## <a name="enable-performance-counters"></a>Ativar contadores de desempenho
 
 Se o espaço de trabalho Log Analytics que é referenciado pela solução ainda não estiver configurado para recolher os contadores de desempenho necessários pela solução, é necessário ativá-los. Pode fazê-lo de duas maneiras:
-* Manualmente, conforme descrito nas [fontes de dados de desempenho do Windows e Do Linux no Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
+* Manualmente, conforme descrito nas [fontes de dados de desempenho do Windows e Do Linux no Log Analytics](../platform/data-sources-performance-counters.md)
 * Ao descarregar e executar um script PowerShell que está disponível na [Galeria Azure PowerShell](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
 
 ## <a name="deploy-azure-monitor-for-vms"></a>Implementar monitor de Azure para VMs
@@ -259,3 +259,4 @@ Agora que a monitorização está ativada para as suas máquinas virtuais, esta 
 - Para ver as dependências de aplicações descobertas, consulte [o Monitor do Azure para o Mapa de VMs](vminsights-maps.md).
 
 - Para identificar estrangulamentos e utilização global com o desempenho do seu VM, consulte o desempenho do [See Azure VM](vminsights-performance.md).
+

@@ -11,11 +11,14 @@ ms.date: 08/29/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e9d5eae4ef926a5c05265b91526d03a17ca57781
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+ms.openlocfilehash: 675f25107a2e4f0ddedf468dc06afea36ffc6151
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84674959"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327757"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Compreenda o registo de identidade no seu hub IoT
 
@@ -109,7 +112,7 @@ Propriedades: As propriedades do sistema de mensagens estão prefixadas com o `$
 
 Mensagem de notificação para o dispositivo:
 
-| Name | Valor |
+| Nome | Valor |
 | --- | --- |
 |$content tipo | application/json |
 |$iothub-enquestime |  Hora em que a notificação foi enviada |
@@ -145,7 +148,7 @@ Corpo: Esta secção está no formato JSON e representa o gémeo da identidade d
 ```
 Mensagem de notificação para módulo:
 
-| Name | Valor |
+| Nome | Valor |
 | --- | --- |
 $content tipo | application/json |
 $iothub-enquestime |  Hora em que a notificação foi enviada |
@@ -241,7 +244,7 @@ Outros tópicos de referência no guia de desenvolvimento do IoT Hub incluem:
 
 * [O suporte do IoT Hub MQTT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a usar o registo de identidade do IoT Hub, poderá estar interessado nos seguintes tópicos de guia de desenvolvimento do IoT Hub:
 

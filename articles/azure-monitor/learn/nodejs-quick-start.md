@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 2e50daf3d94d30e4799bf7a645f46bb70fd6750c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f82eec5979bd1642e30e52bf6325f7b8f210371c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516503"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325666"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Quickstart: Comece a monitorizar a sua aplicação web Node.js com insights de aplicação Azure
 
@@ -112,13 +112,13 @@ O Application Insights pode recolher dados de telemetria a partir de qualquer ap
    </script>
    ```
 
-5. À esquerda, selecione **Métricas**. Utilize o explorador de métricas para investigar a saúde e utilização do seu recurso. Pode selecionar **Adicionar um novo gráfico** para criar vistas personalizadas adicionais ou selecionar **Editar** para modificar os tipos de gráficos existentes, altura, paleta de cores, agrupamentos e métricas. Por exemplo, pode fazer um gráfico que exibe o tempo médio de carregamento da página do navegador selecionando "Browser page load time" a partir das métricas que descem e "Avg" da agregação. Para saber mais sobre o Azure Metrics Explorer, visite [Começar com o Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
+5. À esquerda, selecione **Métricas**. Utilize o explorador de métricas para investigar a saúde e utilização do seu recurso. Pode selecionar **Adicionar um novo gráfico** para criar vistas personalizadas adicionais ou selecionar **Editar** para modificar os tipos de gráficos existentes, altura, paleta de cores, agrupamentos e métricas. Por exemplo, pode fazer um gráfico que exibe o tempo médio de carregamento da página do navegador selecionando "Browser page load time" a partir das métricas que descem e "Avg" da agregação. Para saber mais sobre o Azure Metrics Explorer, visite [Começar com o Azure Metrics Explorer](../platform/metrics-getting-started.md).
 
    ![Gráfico de métricas do Servidor de Insights de Aplicação](./media/nodejs-quick-start/azure-app-insights-server-metrics.png)
 
-Para saber mais sobre a monitorização Node.js, consulte os [AppInsights adicionais Node.js documentação.](../../azure-monitor/app/nodejs.md)
+Para saber mais sobre a monitorização Node.js, consulte os [AppInsights adicionais Node.js documentação.](../app/nodejs.md)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar os testes, pode eliminar o grupo de recursos e todos os recursos relacionados. Para fazê-lo siga os passos abaixo.
 
@@ -128,7 +128,8 @@ Quando terminar os testes, pode eliminar o grupo de recursos e todos os recursos
 1. A partir do menu à esquerda no portal Azure, selecione **grupos de Recursos** e, em seguida, selecione **myResourceGroup**.
 2. Na sua página de grupo de recursos, selecione **Delete**, insira o **myResourceGroup** na caixa de texto e, em seguida, selecione **Delete**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Encontrar e diagnosticar problemas de desempenho](../log-query/log-query-overview.md)
+

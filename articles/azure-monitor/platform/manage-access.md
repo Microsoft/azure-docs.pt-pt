@@ -6,14 +6,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 2fcf3b4c91e87453e2cf605eb717b75ed7d64d95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9ca2dc9d907e65b2679c08d8d2b6482f02ba53d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85105924"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327893"
 ---
-# <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gerir o acesso a dados de registo e espaços de trabalho no Azure Monitor
+# <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gerir o acesso a dados de registo e áreas de trabalho no Azure Monitor
 
 O Azure Monitor armazena [dados de registo](data-platform-logs.md) num espaço de trabalho do Log Analytics. Um espaço de trabalho é um recipiente que inclui informações de dados e configuração. Para gerir o acesso aos dados de registo, executa várias tarefas administrativas relacionadas com o seu espaço de trabalho.
 
@@ -308,8 +308,9 @@ Por vezes, os registos personalizados provêm de fontes que não estão diretame
 * Os proprietários do espaço de trabalho são tratados como qualquer outro utilizador para o controlo de acesso por mesa.
 * Recomendamos atribuir funções a grupos de segurança em vez de utilizadores individuais para reduzir o número de atribuições. Isto também o ajudará a usar as ferramentas de gestão do grupo existentes para configurar e verificar o acesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Consulte [a visão geral](../../azure-monitor/platform/log-analytics-agent.md) do agente Do Log Analytics para recolher dados de computadores no seu datacenter ou noutro ambiente em nuvem.
+* Consulte [a visão geral](./log-analytics-agent.md) do agente Do Log Analytics para recolher dados de computadores no seu datacenter ou noutro ambiente em nuvem.
 
-* Consulte [recolher dados sobre máquinas virtuais Azure](../../azure-monitor/learn/quick-collect-azurevm.md) para configurar a recolha de dados a partir de VMs Azure.
+* Consulte [recolher dados sobre máquinas virtuais Azure](../learn/quick-collect-azurevm.md) para configurar a recolha de dados a partir de VMs Azure.
+

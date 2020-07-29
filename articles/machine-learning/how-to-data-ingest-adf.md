@@ -5,18 +5,19 @@ description: Saiba como construir um pipeline de ingestão de dados com a Azure 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: iefedore
 author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 03/01/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 3e8d93c1f04dda9afbcfa0cab4e8fc9036ae7580
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: 80e912cb5d4cf428c406242b06c30ccf56ccd6ca
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84555669"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326329"
 ---
 # <a name="data-ingestion-with-azure-data-factory"></a>Ingestão de dados com o Azure Data Factory
 
@@ -26,7 +27,7 @@ A transformação simples de dados pode ser tratada com atividades autóctones d
 
 Existem várias técnicas comuns de utilização da Azure Data Factory para transformar dados durante a ingestão. Cada técnica tem prós e contras que determinam se é um bom ajuste para um caso de uso específico:
 
-| Técnica | Vantagens | Contras |
+| Técnica | Vantagens | Desvantagens |
 | ----- | ----- | ----- |
 | Funções ADF + Azure | Baixa latência, computação sem servidor</br>Funções imponentes</br>Funções reutilizáveis | Só é bom para o processamento de curto prazo |
 | Componente ADF + personalizado | Computação paralela em larga escala</br>Adequado para algoritmos pesados | Embrulhá-lo num executável</br>Complexidade do tratamento das dependências e IO |
@@ -94,7 +95,7 @@ Uma vez que os dados são acessíveis através de uma datastore ou conjunto de d
 
 Uma vez que os conjuntos de dados suportam a versão, e cada corrida a partir do pipeline cria uma nova versão, é fácil entender que versão dos dados foi usada para treinar um modelo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Executar um caderno Databricks na Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-databricks-notebook)
 * [Dados de acesso nos serviços de armazenamento Azure](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores)

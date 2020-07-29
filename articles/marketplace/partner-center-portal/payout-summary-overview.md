@@ -4,15 +4,15 @@ description: O resumo do pagamento mostra-lhe detalhes sobre o dinheiro que ganh
 ms.subservice: partnercenter-marketplace-publisher
 ms.service: marketplace
 ms.topic: article
-author: mingshen
+author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 087f7df8f8e3cc5e6e01ff023a88306d5fc4102d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0f19d63bd5f22dc7bc60ceb76ef5bdbeff717dbb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535965"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325734"
 ---
 # <a name="payout-summary-overview"></a>Descrição geral do resumo de dividendos
 

@@ -2,17 +2,18 @@
 title: Migrar a sua aplicação para utilizar o Azure Cosmos DB Java SDK v4 (com.azure.cosmos)
 description: Saiba como atualizar a sua aplicação Java existente de usar os antigos SDKs Azure Cosmos DB Java para o mais recente Java SDK 4.0 (pacote com.azure.cosmos)para Core (SQL) API.
 author: anfeldma-ms
+ms.custom: devx-track-java
 ms.author: anfeldma
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 29b3ca267e22c8d1f349cb127efb7d2fd71e1477
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24e9087a175385f8e5c347a1d2df3b2785868506
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263505"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327859"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>Migrar a sua aplicação para usar o Azure Cosmos DB Java SDK v4
 
@@ -32,7 +33,7 @@ A tabela a seguir lista diferentes SDKs Azure Cosmos DB Java, o nome do pacote e
 
 | SDK Java| Data de Lançamento | APIs agregados   | Jarro Maven  | Nome do pacote java  |Referência da API   | Notas de Versão  |
 |-------|------|-----------|-----------|--------------|-------------|---------------------------|
-| Async 2.x.x  | Junho de 2018    | Async (RxJava)  | `com.microsoft.azure::azure-cosmosdb` | `com.microsoft.azure.cosmosdb.rx` | [API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Notas de lançamento](sql-api-sdk-async-java.md) |
+| Async 2.x.x  | junho de 2018    | Async (RxJava)  | `com.microsoft.azure::azure-cosmosdb` | `com.microsoft.azure.cosmosdb.rx` | [API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Notas de lançamento](sql-api-sdk-async-java.md) |
 | Sincronização 2.x.x     | Setembro 2018    | Sync   | `com.microsoft.azure::azure-documentdb` | `com.microsoft.azure.cosmosdb` | [API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Notas de lançamento](sql-api-sdk-java.md)  |
 | 3.x.x    | Julho de 2019    | Async(Reator)/Sync  | `com.microsoft.azure::azure-cosmos`  | `com.azure.data.cosmos` | [API](https://azure.github.io/azure-cosmosdb-java/3.0.0/) | - |
 | 4,0   | Junho de 2020   | Async(Reator)/Sync  | `com.azure::azure-cosmos` | `com.azure.cosmos`   | -  | [API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-cosmos/4.0.1/index.html)  |
@@ -370,7 +371,7 @@ SalesOrder salesOrder = new SalesOrder(
 ```
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Construa uma aplicação Java](create-sql-api-java.md) para gerir dados API AZure Cosmos DB SQL usando o V4 SDK
 * Conheça os [SDKs Java baseados no reator](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md)

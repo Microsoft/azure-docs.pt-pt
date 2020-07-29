@@ -1,6 +1,6 @@
 ---
 title: Sincronizar estados de dispositivos a partir do Hub IoT do Azure | Microsoft Docs
-description: Aprenda a usar gémeos dispositivos para configurar os seus dispositivos a partir da nuvem e receba dados de estado e conformidade dos seus dispositivos.
+description: Saiba como usar os gémeos do dispositivo para configurar os seus dispositivos a partir da nuvem e receber dados de estado e conformidade dos seus dispositivos.
 services: iot-hub
 author: wesmc7777
 ms.author: wesmc
@@ -11,12 +11,14 @@ ms.date: 06/21/2019
 ms.custom:
 - mvc
 - mqtt
-ms.openlocfilehash: a7e68999bf516bffa08fb97eb8c88f2f8abb428d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+ms.openlocfilehash: fe93344005e2676046bd6b73f9d51b617100a961
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81767818"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325904"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -37,11 +39,11 @@ Neste tutorial, vai realizar as seguintes tarefas:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Node.js. Você precisa do Node.js v10.x.x ou mais tarde na sua máquina de desenvolvimento.
+As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Node.js. Precisa de Node.js v10.x.x ou mais tarde na sua máquina de desenvolvimento.
 
 Pode transferir o Node.js para múltiplas plataformas em [nodejs.org](https://nodejs.org).
 
@@ -53,7 +55,7 @@ node --version
 
 Transfira o projeto Node.js de exemplo de https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip e extraia o arquivo ZIP.
 
-Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste tutorial utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste tutorial utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode ser bloqueado em alguns ambientes de rede corporativa e educacional. Para obter mais informações e formas de contornar esta questão, consulte [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="set-up-azure-resources"></a>Configurar recursos do Azure
 
@@ -240,11 +242,11 @@ A seguinte captura de ecrã mostra os dados de saída da aplicação de disposit
 
 ![Dispositivo simulado](./media/tutorial-device-twins/SimulatedDevice2.png)
 
-A imagem seguinte mostra a saída da aplicação back-end e destaca como recebe e processa uma atualização de propriedade reportada a partir de um dispositivo:
+A imagem que se segue mostra a saída da aplicação back-end e realça como recebe e processa uma atualização de propriedade reportada a partir de um dispositivo:
 
 ![Aplicação de back-end](./media/tutorial-device-twins/BackEnd2.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se tenciona concluir o próximo tutorial, saia do grupo de recursos e do hub do IoT e reutilize-os mais tarde.
 

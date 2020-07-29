@@ -1,6 +1,5 @@
 ---
-title: Parâmetros de serviço web
-titleSuffix: ML Studio (classic) - Azure
+title: 'Estúdio ML (clássico): Parâmetros de serviço web - Azure'
 description: Como utilizar os parâmetros de serviço web de aprendizagem de máquinas Azure para modificar o comportamento do seu modelo quando o serviço web é acedido.
 services: machine-learning
 author: likebupt
@@ -12,13 +11,17 @@ ms.subservice: studio
 ms.workload: data-services
 ms.topic: how-to
 ms.date: 01/12/2017
-ms.openlocfilehash: c274579e756b3c22920023d68501981d5b4a8b01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de3fb4a0dab08a13327c910d1e09ecbf0afcec8c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705870"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326261"
 ---
 # <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Use parâmetros de serviço web Azure Machine Learning Studio (clássicos)
+
+**APLICA-SE A:** ![ no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) yes Machine Learning Studio ![ ](../../../includes/media/aml-applies-to-skus/yes.png) (clássico) 
+
 
 Um serviço web Azure Machine Learning é criado através da publicação de uma experiência que contém módulos com parâmetros configuráveis. Em alguns casos, pode querer alterar o comportamento do módulo enquanto o serviço web está em funcionamento. *Os Parâmetros do Serviço Web* permitem-lhe fazer esta tarefa. 
 
@@ -52,7 +55,7 @@ Como exemplo, vamos supor que temos uma experiência com um módulo [de Dados de
    * Por **favor, especifique o tipo de autenticação,** selecione "Conta".
    * Introduza as informações de conta para o armazenamento da bolha Azure. 
 
-3. Clique no ícone à direita do **Caminho para blob começando com o parâmetro do recipiente**. Tem o seguinte aspeto:
+3. Clique no ícone à direita do **Caminho para blob começando com o parâmetro do recipiente**. Esta secção tem o seguinte aspeto:
    
    ![Ícone do parâmetro do serviço web](./media/web-service-parameters/icon.png)
    
@@ -63,7 +66,7 @@ Como exemplo, vamos supor que temos uma experiência com um módulo [de Dados de
 5. Para fornecer um valor predefinido para o Parâmetro de Serviço Web, clique no ícone à direita do nome, selecione "Fornecer valor predefinido", introduza um valor (por exemplo, "contentor1/output1.csv"), e prima a tecla **'Inserir'.**
    
    ![Parâmetro de serviço web](./media/web-service-parameters/parameter.png)
-6. Clique **em Executar**. 
+6. Clique em **Run** (Executar). 
 7. Clique **em Implementar o Serviço Web** e selecione Implementar o Serviço Web **[Clássico]** ou implementar o Serviço Web **[Novo]** para implementar o serviço web.
 
 > [!NOTE] 

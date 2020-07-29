@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 727653314104ee1b2a27a1342de9824d8f303e23
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: de381b4200e2ec3381f452ac0ec32e61a055a6ec
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539742"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326176"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Monitorização dos recursos do Azure com o Azure Monitor
 Quando você tem aplicações críticas e processos de negócio contando com recursos Azure, você quer monitorizar esses recursos para sua disponibilidade, desempenho e funcionamento. Este artigo descreve os dados de monitorização gerados pelos recursos da Azure e como pode utilizar as funcionalidades do Azure Monitor para analisar e alertar sobre estes dados.
@@ -51,7 +51,7 @@ Pode haver custos do Azure Monitor associados com os seguintes. Ver [preços do 
 ## <a name="monitoring-data"></a>Monitorizar dados
 Os recursos em Azure geram [registos](../platform/data-platform-logs.md) e [métricas mostrados](../platform/data-platform-metrics.md) no diagrama seguinte. Consulte a documentação de cada serviço Azure para os dados específicos que geram e quaisquer soluções ou insights adicionais que forneçam.
 
-![Descrição Geral](media/monitor-azure-resource/logs-metrics.png)
+![Descrição geral](media/monitor-azure-resource/logs-metrics.png)
 
 
 
@@ -89,14 +89,14 @@ Siga o procedimento na [configuração de diagnóstico para recolher registos e 
 ## <a name="monitoring-in-the-azure-portal"></a>Monitorização no portal Azure
  Pode aceder aos dados de monitorização da maioria dos recursos Azure a partir do menu do recurso no portal Azure. Isto lhe dará acesso aos dados de um único recurso utilizando ferramentas padrão do Azure Monitor. Alguns serviços da Azure fornecerão diferentes opções, pelo que deverá fazer referência à documentação desse serviço para obter informações adicionais. Utilize o menu **Azure Monitor** para analisar dados de todos os recursos monitorizados. 
 
-### <a name="overview"></a>Descrição Geral
+### <a name="overview"></a>Descrição geral
 Muitos serviços incluirão a monitorização de dados na sua página **de Visão Geral** como um rápido olhar para o seu funcionamento. Isto será normalmente baseado num subconjunto de métricas de plataforma armazenadas em Métricas do Monitor Azure. Outras opções de monitorização estarão normalmente disponíveis numa secção de **monitorização** do menu do serviço.
 
 ![Página geral](media/monitor-azure-resource/overview-page.png)
 
 
 ### <a name="insights-and-solutions"></a>Insights e Soluções 
-Alguns serviços fornecerão ferramentas para além das características padrão do Azure Monitor. [Os Insights](../insights/insights-overview.md) fornecem uma experiência de monitorização personalizada construída na plataforma de dados do Azure Monitor e nas funcionalidades padrão. [As soluções](../insights/solutions.md) fornecem lógica de monitorização predefinida baseada em registos do Monitor Azure. 
+Alguns serviços fornecerão ferramentas para além das características padrão do Azure Monitor. [Os Insights](./insights-overview.md) fornecem uma experiência de monitorização personalizada construída na plataforma de dados do Azure Monitor e nas funcionalidades padrão. [As soluções](./solutions.md) fornecem lógica de monitorização predefinida baseada em registos do Monitor Azure. 
 
 Se um serviço tiver uma visão do Azure Monitor, pode aceder-lhe a partir da **Monitorização** no menu de cada recurso. Aceda a todos os insights e soluções do menu **Azure Monitor.**
 
@@ -161,6 +161,7 @@ Utilize **alertas** do menu de um recurso para visualizar alertas e gerir as reg
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Consulte [serviços, esquemas e categorias de Registos de Recursos Azure](../platform/resource-logs-schema.md) para obter detalhes de registos de recursos para diferentes serviços Azure.  
+

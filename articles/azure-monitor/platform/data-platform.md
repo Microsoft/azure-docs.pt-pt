@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 68e88ec90625f34e5bc8ae1b70c75e3cfe9a53ad
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e87ddd243aa248b896a26e6389ac1a219579a06d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515534"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325581"
 ---
 # <a name="azure-monitor-data-platform"></a>Plataforma de dados Azure Monitor
 
@@ -36,7 +36,7 @@ Os recursos azure geram uma quantidade significativa de dados de monitorização
 
 As métricas no Azure Monitor são armazenadas numa base de dados de séries temporais que é otimizada para analisar dados com carimbo temporal. Isto torna as métricas particularmente adequadas para alertar e detetar rapidamente problemas. Eles podem dizer-lhe como o seu sistema está a funcionar, mas normalmente precisam de ser combinados com registos para identificar a causa principal dos problemas.
 
-As métricas estão disponíveis para análise interativa no portal Azure com [o Azure Metrics Explorer.](../platform/metrics-getting-started.md) Podem ser adicionados a um [dashboard Azure](../learn/tutorial-app-dashboards.md) para visualização em combinação com outros dados e utilizados para [alertar](alerts-metric.md)em tempo real.
+As métricas estão disponíveis para análise interativa no portal Azure com [o Azure Metrics Explorer.](./metrics-getting-started.md) Podem ser adicionados a um [dashboard Azure](../learn/tutorial-app-dashboards.md) para visualização em combinação com outros dados e utilizados para [alertar](alerts-metric.md)em tempo real.
 
 Leia mais sobre as Métricas do Monitor Azure, incluindo as suas fontes de [dados em Métricas no Azure Monitor](data-platform-metrics.md).
 
@@ -85,8 +85,9 @@ Além de utilizar as ferramentas em Azure para analisar os dados de monitorizaç
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia mais sobre [Métricas no Monitor Azure.](data-platform-metrics.md)
 - Leia mais sobre [Registos no Monitor Azure](data-platform-logs.md).
 - Conheça os [dados de monitorização disponíveis](data-sources.md) para diferentes recursos em Azure.
+

@@ -6,12 +6,12 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 81e27c0f62e921eb468c78521e426c8917da250a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 56438389ea8a371335facd3cfd0b2d4161b421c3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014143"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326567"
 ---
 # <a name="connection-strings"></a>Cadeias de ligação
 
@@ -57,7 +57,7 @@ A ligação tem um comprimento máximo suportado de 4096 caracteres.
 
 A cadeia de ligação consiste numa lista de configurações representadas como pares de valor-chave separados por pontos e vírgulas:`key1=value1;key2=value2;key3=value3`
 
-#### <a name="syntax"></a>Syntax
+#### <a name="syntax"></a>Sintaxe
 
 - `InstrumentationKey`(ex: 00000000-0000-0000-0000-0000000000000000000000000000)  A cadeia de ligação é um campo **necessário.**
 - `Authorization`(ex: ikey) (Esta configuração é opcional porque hoje só apoiamos a autorização ikey.)
@@ -274,14 +274,15 @@ tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=000
 
 Introdução ao tempo de execução com:
 
-* [Azure VM e Azure série de máquinas virtuais definir aplicativos hospedados no IIS](../../azure-monitor/app/azure-vm-vmss-apps.md)
-* [Servidor do IIS](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Aplicações Web do Azure](../../azure-monitor/app/azure-web-apps.md)
+* [Azure VM e Azure série de máquinas virtuais definir aplicativos hospedados no IIS](./azure-vm-vmss-apps.md)
+* [Servidor do IIS](./monitor-performance-live-website-now.md)
+* [Aplicações Web do Azure](./azure-web-apps.md)
 
 Introdução no momento de programação com:
 
-* [ASP.NET](../../azure-monitor/app/asp-net.md)
-* [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
-* [Java](../../azure-monitor/app/java-get-started.md)
-* [Node.js](../../azure-monitor/app/nodejs.md)
-* [Python](../../azure-monitor/app/opencensus-python.md)
+* [ASP.NET](./asp-net.md)
+* [ASP.NET Core](./asp-net-core.md)
+* [Java](./java-get-started.md)
+* [Node.js](./nodejs.md)
+* [Python](./opencensus-python.md)
+

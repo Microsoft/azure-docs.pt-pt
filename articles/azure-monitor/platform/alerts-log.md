@@ -6,16 +6,16 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: 57cc3624a38fbec1e5bef7bb281363d34acef2b1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 25604bde3afbbef0d541bc21996b59e98b3090f4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505606"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327502"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, visualizar e gerir alertas de registo usando o Azure Monitor
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Este artigo mostra-lhe como criar e gerir alertas de registo usando a interface de alertas dentro do portal Azure. As regras de alerta são definidas por três componentes:
 - Alvo: Um recurso Azure específico para monitorizar
 - Critérios: Condição ou lógica para avaliar a verdade. Se for verdade, o alerta dispara.  
@@ -77,8 +77,8 @@ O termo **Alerta de Registo** descreve alertas onde é avaliada uma consulta de 
 1. Escolha a frequência com que o alerta é executado na **Frequência.** 
 
     **Os alertas de** registo podem basear-se em:
-    - [Número de Registos](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules): É criado um alerta se a contagem de registos devolvidos pela consulta for superior ou inferior ao valor fornecido.
-    - [Medição métrica](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules): É criado um alerta se cada *valor agregado* dos resultados exceder o valor limiar fornecido e for *agrupado pelo* valor escolhido. O número de infrações a um alerta é o número de vezes que o limiar é ultrapassado no período de tempo escolhido. Pode especificar as infrações totais para qualquer combinação de infrações através dos resultados definidos ou violações consecutivas para exigir que as infrações ocorram em amostras consecutivas.
+    - [Número de Registos](./alerts-unified-log.md#number-of-results-alert-rules): É criado um alerta se a contagem de registos devolvidos pela consulta for superior ou inferior ao valor fornecido.
+    - [Medição métrica](./alerts-unified-log.md#metric-measurement-alert-rules): É criado um alerta se cada *valor agregado* dos resultados exceder o valor limiar fornecido e for *agrupado pelo* valor escolhido. O número de infrações a um alerta é o número de vezes que o limiar é ultrapassado no período de tempo escolhido. Pode especificar as infrações totais para qualquer combinação de infrações através dos resultados definidos ou violações consecutivas para exigir que as infrações ocorram em amostras consecutivas.
 
 
 1. Clique em **Concluído**. 
@@ -100,7 +100,7 @@ O termo **Alerta de Registo** descreve alertas onde é avaliada uma consulta de 
     Algumas funcionalidades adicionais estão disponíveis para anular as ações predefinidos:
 
     - **Notificação por e-mail**: Substitui o *e-mail no* e-mail enviado através do Grupo de Ação. Não é possível modificar o corpo do correio e este campo **não** é para endereço de e-mail.
-    - **Inclua a carga útil personalizada Json**: Substitui o webhook JSON utilizado pelos Grupos de Ação assumindo que o grupo de ação contém um tipo webhook. Para obter mais informações sobre formatos webhook, consulte [a ação webhook para Alertas de Registo](../../azure-monitor/platform/alerts-log-webhook.md). A opção Ver Webhook é fornecida para verificar o formato utilizando dados JSON da amostra.
+    - **Inclua a carga útil personalizada Json**: Substitui o webhook JSON utilizado pelos Grupos de Ação assumindo que o grupo de ação contém um tipo webhook. Para obter mais informações sobre formatos webhook, consulte [a ação webhook para Alertas de Registo](./alerts-log-webhook.md). A opção Ver Webhook é fornecida para verificar o formato utilizando dados JSON da amostra.
 
         ![Ação sobrepõe-se a alertas de registo](media/alerts-log/AlertsPreviewOverrideLog.png)
 
@@ -212,7 +212,7 @@ A amostra json acima pode ser guardada como (digamos) sampleScheduledQueryRule.j
 
 ### <a name="log-alert-with-cross-resource-query-using-azure-resource-template"></a>Alerta de registo com consulta de recursos cruzados usando modelo de recursos Azure
 
-Segue-se a estrutura do modelo [de criação de regras](/rest/api/monitor/scheduledqueryrules/createorupdate) de consulta programadas utilizando [consulta de pesquisa de registo de registo de recursos cruzados](../../azure-monitor/log-query/cross-workspace-query.md) do alerta de [registo do tipo de medição métrica,](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules)com o conjunto de dados da amostra como variáveis.
+Segue-se a estrutura do modelo [de criação de regras](/rest/api/monitor/scheduledqueryrules/createorupdate) de consulta programadas utilizando [consulta de pesquisa de registo de registo de recursos cruzados](../log-query/cross-workspace-query.md) do alerta de [registo do tipo de medição métrica,](./alerts-unified-log.md#metric-measurement-alert-rules)com o conjunto de dados da amostra como variáveis.
 
 ```json
 
@@ -319,7 +319,7 @@ Azure Monitor - [Regras de Consulta ProgramadaS A API](/rest/api/monitor/schedul
 - [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) : PowerShell cmdlet para criar ou atualizar o objeto especificando parâmetros de ação para um alerta de registo. Usado como entrada por [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) e [Set-AzScheduledQueryRule](/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet.
 - [New-AzScheduledQueryRuleAznsActionGroup](/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup) : PowerShell cmdlet para criar ou atualizar objetos especificando parâmetros de grupos de ação para um alerta de registo. Usado como entrada por [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) cmdlet.
 - [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) : PowerShell cmdlet para criar ou atualizar o objeto especificando os parâmetros da condição do gatilho para o alerta de registo. Usado como entrada por [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) cmdlet.
-- [Novo-AzScheduledQueryRuleLogMetricTrigger](/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : PowerShell cmdlet para criar ou atualizar o objeto especificando parâmetros de condição de gatilho métrico para [o alerta de registo do tipo de medição métrica](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules). Usado como entrada por [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) cmdlet.
+- [Novo-AzScheduledQueryRuleLogMetricTrigger](/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : PowerShell cmdlet para criar ou atualizar o objeto especificando parâmetros de condição de gatilho métrico para [o alerta de registo do tipo de medição métrica](./alerts-unified-log.md#metric-measurement-alert-rules). Usado como entrada por [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) cmdlet.
 - [Get-AzScheduledQueryRule](/powershell/module/az.monitor/get-azscheduledqueryrule) : PowerShell cmdlet para listar as regras de alerta de registo existentes ou uma regra específica de alerta de registo
 - [Update-AzScheduledQueryRule](/powershell/module/az.monitor/update-azscheduledqueryrule) : PowerShell cmdlet para ativar ou desativar a regra de alerta de registo
 - [Remove-AzScheduledQueryRule](/powershell/module/az.monitor/remove-azscheduledqueryrule): PowerShell cmdlet para eliminar uma regra de alerta de registo existente
@@ -361,9 +361,10 @@ az group deployment create --resource-group contosoRG --template-file sampleSche
 
 Em funcionamento bem sucedido, 201 será devolvido ao estado de nova criação de regras de alerta ou 200 serão devolvidos se uma regra de alerta existente for alterada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais [sobre alertas de registo em alertas de Azure](../../azure-monitor/platform/alerts-unified-log.md)
-* Compreenda [as ações do Webhook para alertas de registo](../../azure-monitor/platform/alerts-log-webhook.md)
+* Saiba mais [sobre alertas de registo em alertas de Azure](./alerts-unified-log.md)
+* Compreenda [as ações do Webhook para alertas de registo](./alerts-log-webhook.md)
 * Saiba mais sobre [a Aplicação Insights](../log-query/log-query-overview.md)
 * Saiba mais sobre [consultas de registo.](../log-query/log-query-overview.md)
+

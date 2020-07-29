@@ -7,12 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/21/2020
 ms.author: robinsh
-ms.custom: amqp
-ms.openlocfilehash: d00e3dc5e43eb6978f6835ac4b7d101e4a42a226
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- amqp
+- 'Role: Cloud Development'
+- 'Role: Technical Support'
+ms.openlocfilehash: 140bbc698db773f851cf03d80e8e51be9c2a21c3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84792048"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327553"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorizar o estado de funcionamento do Hub IoT do Azure e diagnosticar problemas rapidamente
 
@@ -349,7 +353,7 @@ Aqui, `durationMs` não é calculado como o relógio do IoT Hub pode não estar 
 
 | Propriedade | Tipo | Descrição |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **mensagemSize** | Número inteiro | O tamanho da mensagem dispositivo-a-nuvem em bytes |
+| **mensagemSize** | Integer (Número inteiro) | O tamanho da mensagem dispositivo-a-nuvem em bytes |
 | **deviceId** | Cadeia de caracteres alfanuméricos ASCII de 7 bits | A identidade do dispositivo |
 | **chamadorLocalTimeUtc** | Calendário UTC | O tempo de criação da mensagem como relatado pelo relógio local do dispositivo |
 | **calleeLocalTimeUtc** | Calendário UTC | A hora da chegada da mensagem à porta de entrada do IoT Hub, conforme relatado pelo relógio lateral de serviço IoT Hub |
@@ -383,8 +387,8 @@ Na `properties` secção, este registo contém informações adicionais sobre a 
 
 | Propriedade | Tipo | Descrição |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **isRoutingEnabled** | String | Verdadeiro ou falso, indica se o encaminhamento de mensagens está ou não ativado no Hub IoT |
-| **parentSpanId** | String | O [span-id](https://w3c.github.io/trace-context/#parent-id) da mensagem principal, que seria o traço de mensagem D2C neste caso |
+| **isRoutingEnabled** | Cadeia | Verdadeiro ou falso, indica se o encaminhamento de mensagens está ou não ativado no Hub IoT |
+| **parentSpanId** | Cadeia | O [span-id](https://w3c.github.io/trace-context/#parent-id) da mensagem principal, que seria o traço de mensagem D2C neste caso |
 
 ##### <a name="iot-hub-egress-logs"></a>Troncos de saída do IoT Hub
 
@@ -415,9 +419,9 @@ Na `properties` secção, este registo contém informações adicionais sobre a 
 
 | Propriedade | Tipo | Descrição |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **endpointName** | String | O nome do ponto final de encaminhamento |
-| **endpointType** | String | O tipo de ponto final de encaminhamento |
-| **parentSpanId** | String | O [span-id](https://w3c.github.io/trace-context/#parent-id) da mensagem dos pais, que seria o traço de mensagem de entrada IoT Hub neste caso |
+| **endpointName** | Cadeia | O nome do ponto final de encaminhamento |
+| **endpointType** | Cadeia | O tipo de ponto final de encaminhamento |
+| **parentSpanId** | Cadeia | O [span-id](https://w3c.github.io/trace-context/#parent-id) da mensagem dos pais, que seria o traço de mensagem de entrada IoT Hub neste caso |
 
 #### <a name="configurations"></a>Configurações
 
@@ -552,7 +556,7 @@ Para verificar a saúde dos seus centros de IoT, siga estes passos:
 
 Para saber mais sobre como interpretar dados de saúde, consulte [a visão geral da saúde dos recursos Azure](../service-health/resource-health-overview.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Compreender as métricas do IoT Hub](iot-hub-metrics.md)
 * [Monitorização remota IoT e notificações com Azure Logic Apps que ligam o seu hub IoT e caixa de correio](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
