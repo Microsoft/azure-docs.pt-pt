@@ -10,6 +10,7 @@ ms.date: 05/06/2020
 ms.author: dayshen
 ms.openlocfilehash: 645b2c643c1c1d4fe82eb5998a35ccc48536603e
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84300205"

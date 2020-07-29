@@ -10,6 +10,7 @@ services: iot-dps
 manager: timlt
 ms.openlocfilehash: 8bd896573dbd0b24df11c0d66009098de19654ac
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "74974943"

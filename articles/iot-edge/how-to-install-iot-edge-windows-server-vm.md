@@ -11,6 +11,7 @@ ms.date: 06/12/2019
 ms.author: philmea
 ms.openlocfilehash: 380e354beb2f58b958e3c88d9f93ad0bda655971
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84266479"

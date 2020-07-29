@@ -11,6 +11,7 @@ ms.service: app-service
 ms.workload: web
 ms.openlocfilehash: 566307581b49922b9d47936f64beea73715f63ba
 ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/07/2020
 ms.locfileid: "86028412"

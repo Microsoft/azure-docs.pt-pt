@@ -16,6 +16,7 @@ ms.date: 11/03/2017
 ms.author: twooley
 ms.openlocfilehash: 4e57fffd2f74ae1b14f51537c92299607f193ad5
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "75934063"

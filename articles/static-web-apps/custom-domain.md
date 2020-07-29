@@ -9,6 +9,7 @@ ms.date: 05/08/2020
 ms.author: buhollan
 ms.openlocfilehash: 8e832f57053cb950f705875f2895a9197cc7c83e
 ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/05/2020
 ms.locfileid: "85960304"

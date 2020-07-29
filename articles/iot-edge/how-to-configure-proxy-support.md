@@ -10,6 +10,7 @@ services: iot-edge
 ms.custom: amqp
 ms.openlocfilehash: 270e6a0173ed0088ff5d37c989947f5272634200
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "81687186"

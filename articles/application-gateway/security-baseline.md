@@ -9,6 +9,7 @@ ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 562a0fbd64fca530598a58599160dbdd7e479557
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84485631"

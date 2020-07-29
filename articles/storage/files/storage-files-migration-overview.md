@@ -9,6 +9,7 @@ ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: 512688345c03ea9d5da0e4933cd6a794eaaf597b
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84660755"

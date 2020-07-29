@@ -13,6 +13,7 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: bce79b8e18b3ec6f1fd139af280086281bbdda98
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85213470"

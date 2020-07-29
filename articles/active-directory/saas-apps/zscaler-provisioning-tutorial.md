@@ -17,6 +17,7 @@ ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 8add1f57b566d746d464c1ca165938fc112a9784
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "77062715"

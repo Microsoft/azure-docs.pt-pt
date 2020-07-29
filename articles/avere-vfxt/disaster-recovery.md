@@ -8,6 +8,7 @@ ms.date: 12/10/2019
 ms.author: rohogue
 ms.openlocfilehash: 28278f76497d6e9d0fee221bb4ef32fe6d369db0
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "75966653"

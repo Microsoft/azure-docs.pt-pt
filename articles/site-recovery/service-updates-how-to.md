@@ -9,6 +9,7 @@ ms.date: 07/31/2019
 ms.author: rajanaki
 ms.openlocfilehash: 483d2152f3af13c82830528ea73e837fe3788ca4
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84629378"

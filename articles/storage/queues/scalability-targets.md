@@ -11,6 +11,7 @@ ms.author: tamram
 ms.subservice: queues
 ms.openlocfilehash: 464807a7bf4a20b540e2d5344b721c8844bd7bca
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "75750478"

@@ -9,6 +9,7 @@ ms.author: tisande
 ms.reviewer: sngun
 ms.openlocfilehash: 785c430347bc62a00eee80c977f2d6ce440c08db
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982280"
