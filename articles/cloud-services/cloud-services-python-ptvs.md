@@ -12,6 +12,7 @@ ms.author: tagore
 ms.custom: tracking-python
 ms.openlocfilehash: 93e120a0519e1fc61a716e606e088801fdf508dd
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84556368"

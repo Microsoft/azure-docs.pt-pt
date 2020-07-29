@@ -17,6 +17,7 @@ ms.author: kenwith
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 858e61c6371aac28d709a9016e4b9cbed6befe3f
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763606"

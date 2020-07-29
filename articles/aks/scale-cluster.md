@@ -8,6 +8,7 @@ ms.date: 05/31/2019
 ms.author: iainfou
 ms.openlocfilehash: 55d7a00a0a8c0b655f06810f8bcea7126bb9167f
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "79368422"

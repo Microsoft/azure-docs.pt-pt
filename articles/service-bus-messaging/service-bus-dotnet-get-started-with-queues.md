@@ -6,6 +6,7 @@ ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.openlocfilehash: 477d9d5a23e50d9b303d560b5530cbc22104c5cb
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85337544"

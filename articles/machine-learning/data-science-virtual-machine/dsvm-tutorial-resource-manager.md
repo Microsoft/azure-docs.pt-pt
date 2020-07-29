@@ -12,6 +12,7 @@ ms.subservice: data-science-vm
 ms.topic: quickstart
 ms.openlocfilehash: 675ddf073393afde6ac8d08a65b40da11d90d3ea
 ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/07/2020
 ms.locfileid: "86026666"

@@ -10,6 +10,7 @@ ms.date: 02/15/2019
 ms.author: menchi
 ms.openlocfilehash: 8fc12dde9f441a972efbc5d91ac53b5f9d738690
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "76547103"

@@ -16,6 +16,7 @@ ms.date: 02/06/2020
 ms.author: amsriva
 ms.openlocfilehash: b9154b124f89a8b672c58d5e7bce28c0833e8a8c
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84988043"

@@ -18,6 +18,7 @@ ms.author: gsilva
 ms.custom: ''
 ms.openlocfilehash: 1dc35b596d73f713aea99ea14ddb0ff8cbc8d203
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84688625"

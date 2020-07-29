@@ -8,6 +8,7 @@ ms.author: robb
 ms.date: 06/16/2020
 ms.openlocfilehash: 462358ab967d4ba26a265d7b5f401b995223815e
 ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/05/2020
 ms.locfileid: "85959847"

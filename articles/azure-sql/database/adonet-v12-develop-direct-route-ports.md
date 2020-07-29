@@ -13,6 +13,7 @@ ms.reviewer: genemi
 ms.date: 06/11/2020
 ms.openlocfilehash: 85d8d288a8b2d0f256294b0c8975afc367e6e381
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84736055"

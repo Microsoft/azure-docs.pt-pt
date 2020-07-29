@@ -15,6 +15,7 @@ ms.reviewer: negoe,celested
 ms.custom: aaddev,references_regions
 ms.openlocfilehash: 20a158aac6a03dfe0bd8929de9fa66ea215aa29c
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84194124"

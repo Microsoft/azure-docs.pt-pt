@@ -13,6 +13,7 @@ ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: c22168aade11bbba66682efea0e2f5a1fcc2ac1f
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84021505"

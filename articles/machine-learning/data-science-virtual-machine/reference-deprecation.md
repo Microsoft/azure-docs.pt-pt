@@ -10,6 +10,7 @@ ms.date: 04/03/2020
 ms.topic: reference
 ms.openlocfilehash: 6004ae0c1fd2fa25a07ab84776ab74789f6e7da9
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "80754763"

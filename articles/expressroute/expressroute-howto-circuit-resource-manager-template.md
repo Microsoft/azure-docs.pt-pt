@@ -9,6 +9,7 @@ ms.date: 11/13/2019
 ms.author: charwen
 ms.openlocfilehash: 336337c0860ba19095665310d2c797cf10ba183f
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84736310"

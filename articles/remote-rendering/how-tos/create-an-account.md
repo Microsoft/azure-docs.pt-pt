@@ -7,6 +7,7 @@ ms.date: 02/11/2020
 ms.topic: how-to
 ms.openlocfilehash: cf74322725c6e86ee455f83aadc4aade07000835
 ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/07/2020
 ms.locfileid: "86057675"

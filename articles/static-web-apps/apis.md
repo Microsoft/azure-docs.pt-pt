@@ -9,6 +9,7 @@ ms.date: 05/08/2020
 ms.author: cshoe
 ms.openlocfilehash: f5f40a615bc5faab6265f42d0728403e2735aa0f
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84791627"

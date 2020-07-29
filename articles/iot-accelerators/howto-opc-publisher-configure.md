@@ -10,6 +10,7 @@ services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 2128fee29e64c58a8066a681776fb509b3e31b6f
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85445700"

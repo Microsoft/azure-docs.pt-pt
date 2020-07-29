@@ -12,6 +12,7 @@ ms.custom: accessibility
 manager: mtillman
 ms.openlocfilehash: 7d17a956faf4080f419bc859c8259018b98626a5
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84764065"

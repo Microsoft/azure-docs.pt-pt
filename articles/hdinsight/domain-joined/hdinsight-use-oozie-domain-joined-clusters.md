@@ -10,6 +10,7 @@ ms.custom: hdinsightactive,seodec18,seoapr2020
 ms.date: 05/14/2020
 ms.openlocfilehash: 36c04480c46cea904b072c659c5c2642a28e1f27
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "83647570"

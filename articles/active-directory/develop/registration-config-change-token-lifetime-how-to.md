@@ -13,6 +13,7 @@ ms.author: ryanwi
 ms.custom: aaddev, seoapril2019
 ms.openlocfilehash: fc71ebe61fba8c1bdb6b7625b16a50d8995a581a
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "80883358"

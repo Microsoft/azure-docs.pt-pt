@@ -16,6 +16,7 @@ ms.date: 05/21/2020
 ms.author: arremana
 ms.openlocfilehash: 079574ab4c5846eae6266d1e13240baf99428a69
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84449248"

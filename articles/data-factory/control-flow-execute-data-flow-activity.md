@@ -11,6 +11,7 @@ ms.author: makromer
 ms.date: 04/30/2020
 ms.openlocfilehash: 1004f7fcc8ff93a170b724a6d8b1c2216b9c39b8
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84726978"
