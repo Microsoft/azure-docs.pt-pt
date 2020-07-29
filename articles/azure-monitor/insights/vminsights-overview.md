@@ -1,46 +1,62 @@
 ---
 title: O que é Azure Monitor para VMs?
-description: Visão geral do Azure Monitor para VMs que monitoriza a saúde e desempenho dos VMs Azure, além de descobrir e mapear automaticamente componentes de aplicações e suas dependências.
+description: Visão geral do Azure Monitor para VMs, que monitoriza a saúde e desempenho dos VMs Azure e descobre automaticamente e mapeia componentes de aplicação e suas dependências.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/25/2020
-ms.openlocfilehash: f058ce1ae5b7328c6864684994a74f2fd118ca6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/22/2020
+ms.openlocfilehash: f9ad39b88ad2212ea2cdceb40e61fbc0a2d1a764
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506995"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320498"
 ---
 # <a name="what-is-azure-monitor-for-vms"></a>O que é Azure Monitor para VMs?
 
-O Azure Monitor para VMs monitoriza as suas máquinas virtuais, conjuntos de balança de máquinas virtuais e máquinas Azure Arc em escala. Analisa o desempenho e o estado de funcionamento das suas VMs do Windows e do Linux e monitoriza os respetivos processos e dependências noutros recursos e processos externos. Inclui suporte para monitorizar o desempenho e as dependências da aplicação para VMs alojadas no local ou noutro fornecedor de cloud. As seguintes características-chave fornecem uma visão aprofundada:
+O Azure Monitor for VMs monitoriza o desempenho e a saúde das suas máquinas virtuais e conjuntos de escala de máquinas virtuais, incluindo os seus processos de funcionamento e dependências de outros recursos. Pode ajudar a fornecer desempenho previsível e disponibilidade de aplicações vitais, identificando estrangulamentos de desempenho e problemas de rede e também pode ajudá-lo a entender se um problema está relacionado com outras dependências.
 
-- **Gráficos de desempenho de tendência pré-definidos**: Mostrar métricas de desempenho do núcleo do sistema operativo VM convidado.
+O Azure Monitor para VMs suporta sistemas operativos Windows e Linux no seguinte:
 
-- **Mapa de dependência**: Exibe os componentes interligados com o VM de vários grupos de recursos e subscrições.  
+- Máquinas virtuais do Azure
+- Conjuntos de dimensionamento de máquinas virtuais do Azure
+- Máquinas virtuais híbridas ligadas ao Arco Azure
+- Máquinas virtuais no local
+- Máquinas virtuais hospedadas em outro ambiente de nuvem
+  
+
 
 >[!NOTE]
 >Recentemente [anunciamos alterações](https://azure.microsoft.com/updates/updates-to-azure-monitor-for-virtual-machines-preview-before-general-availability-release/
 ) que estamos a fazer à funcionalidade Saúde com base no feedback que recebemos dos nossos clientes de pré-visualização pública. Dado o número de mudanças que vamos fazer, vamos deixar de oferecer a funcionalidade Saúde para novos clientes. Os clientes existentes podem continuar a utilizar a funcionalidade de saúde. Para mais detalhes, consulte as [nossas FAQ de Disponibilidade Geral.](vminsights-ga-release-faq.md)  
 
-A integração com os Registos do Monitor Azure proporciona uma agregação e filtragem poderosas, permitindo ao Azure Monitor para VMs analisar as tendências dos dados ao longo do tempo. Pode ver estes dados num único VM a partir da máquina virtual diretamente, ou pode utilizar o Azure Monitor para fornecer uma visão agregada dos seus VMs onde a vista suporta o contexto de recursos Azure ou modos de contexto de espaço de trabalho. Para obter mais informações, consulte [a visão geral dos modos de acesso.](../platform/design-logs-deployment.md#access-mode)
+
+O Azure Monitor para VMs armazena os seus dados em Registos monitores Azure, o que lhe permite fornecer agregação e filtragem poderosas e analisar as tendências de dados ao longo do tempo. Pode ver estes dados num único VM a partir da máquina virtual diretamente, ou pode utilizar o Azure Monitor para fornecer uma visão agregada de vários VMs.
 
 ![Perspetiva de insights de máquina virtual no portal Azure](media/vminsights-overview/vminsights-azmon-directvm.png)
 
-O Azure Monitor para VMs pode fornecer desempenho previsível e disponibilidade de aplicações vitais. Identifica estrangulamentos de desempenho e problemas de rede e também pode ajudá-lo a entender se um problema está relacionado com outras dependências.  
 
-## <a name="data-usage"></a>Utilização de dados
+## <a name="pricing"></a>Preços
+Não há custos diretos para o Azure Monitor para VMs, mas é cobrado pela sua atividade no espaço de trabalho do Log Analytics. Com base nos preços publicados na página de preços do [Azure Monitor,](https://azure.microsoft.com/pricing/details/monitor/)o Azure Monitor para VMs é faturado para:
 
-Quando implementa o Azure Monitor para VMs, os dados recolhidos pelos seus VMs são ingeridos e armazenados no Azure Monitor. Os dados de desempenho e dependência recolhidos são armazenados num espaço de trabalho log analytics. Com base nos preços publicados na página de preços do [Azure Monitor,](https://azure.microsoft.com/pricing/details/monitor/)o Azure Monitor para VMs é faturado para:
+- Dados ingeridos de agentes e armazenados no espaço de trabalho.
+- Regras de alerta baseadas em dados de registo e saúde.
+- Notificações enviadas de regras de alerta.
 
-- Os dados que são ingeridos e armazenados.
-- As regras de alerta que são criadas.
-- As notificações que são enviadas. 
+O tamanho do tronco varia em função dos comprimentos de cadeia dos contadores de desempenho, e pode aumentar com o número de discos lógicos e adaptadores de rede atribuídos ao VM. Se já estiver a utilizar o Mapa de Serviços, a única alteração que verá são os dados de desempenho adicionais enviados para o tipo de dados do Azure `InsightsMetrics` Monitor.
 
-O tamanho do tronco varia em função dos comprimentos de cadeia dos contadores de desempenho, e pode aumentar com o número de discos lógicos e adaptadores de rede atribuídos ao VM. Se já tem um espaço de trabalho e está a recolher estes balcões, não são aplicadas cobranças duplicadas. Se já estiver a utilizar o Mapa de Serviços, a única alteração que verá são os dados adicionais de ligação enviados ao Azure Monitor.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="configuring-azure-monitor-for-vms"></a>Monitor Azure configurado para VMs
+Os passos para configurar o Monitor Azure para VMs são os seguintes. Siga cada link para obter orientações detalhadas em cada passo:
 
-Para compreender os requisitos e métodos que o ajudam a monitorizar as suas máquinas virtuais, [reveja o Monitor de Azure para VMs](vminsights-enable-overview.md).
+- [Criar espaço de trabalho Log Analytics.](vminsights-configure-workspace.md#create-log-analytics-workspace)
+- [Adicione a solução VMInsights ao espaço de trabalho.](vminsights-configure-workspace.md#add-vminsights-solution-to-workspace)
+- [Instale agentes na máquina virtual e na balança de máquinas virtual definida para ser monitorizada.](vminsights-enable-overview.md)
+
+
+
+## <a name="next-steps"></a>Passos seguintes
+
+- Consulte [o Monitor de Azure para os VMs](vminsights-enable-overview.md) para obter requisitos e métodos que permitam monitorizar as suas máquinas virtuais.
+

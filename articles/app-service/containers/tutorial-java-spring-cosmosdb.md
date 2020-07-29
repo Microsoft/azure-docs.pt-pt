@@ -6,13 +6,13 @@ ms.author: routlaw
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: d77b54d5dc20725ba93df82b0a475359c4dfa2b0
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.openlocfilehash: 760dcd4284ea1988f57b3f7913cbdc23c1415790
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84906382"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323252"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>Tutorial: Construa uma aplicação web Java Spring Boot com serviço de aplicações Azure em Linux e Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Este tutorial acompanha-o através do processo de construção, configuração, 
 
 ![Aplicação Boot de mola armazenando dados em Azure Cosmos DB](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Crie uma base de dados cosmos DB.
@@ -34,7 +34,7 @@ Neste tutorial, vai aprender a:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Azure CLI,](https://docs.microsoft.com/cli/azure/overview)instalado no seu próprio computador. 
-* [Git](https://git-scm.com/)
+* [Rio Git](https://git-scm.com/)
 * [Java JDK](https://aka.ms/azure-jdks)
 * [Maven](https://maven.apache.org)
 
@@ -85,7 +85,7 @@ Siga estes passos para criar uma base de dados DB Azure Cosmos na sua subscriç�
 
 ## <a name="configure-the-todo-app-properties"></a>Configure as propriedades da aplicação TODO
 
-Abra um terminal no seu computador. Copie o ficheiro de script de amostra no repo clonado para que possa personalizá-lo para a sua base de dados Cosmos DB que acabou de criar.
+Abra um terminal no computador. Copie o ficheiro de script de amostra no repo clonado para que possa personalizá-lo para a sua base de dados Cosmos DB que acabou de criar.
 
 ```bash
 cd initial/spring-todo-app
@@ -297,7 +297,7 @@ az appservice plan update --number-of-workers 2 \
    --resource-group <your-azure-group-name>
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não precisar destes recursos para outro tutorial (veja os [Passos seguintes](#next)), pode eliminá-los ao executar o seguinte comando no Cloud Shell: 
   

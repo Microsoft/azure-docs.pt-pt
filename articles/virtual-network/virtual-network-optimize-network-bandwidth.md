@@ -1,6 +1,6 @@
 ---
 title: Otimizar o rendimento da rede VM Microsoft Docs
-description: Saiba como otimizar o funcionamento da rede de máquinas virtuais Azure.
+description: Otimizar a produção de rede para o Microsoft Azure Windows e Linux VMs, incluindo grandes distribuições como Ubuntu, CentOS e Red Hat.
 services: virtual-network
 documentationcenter: na
 author: steveesp
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: 86785ada1d5b55a1eaa7c81243dd0b6c39087e1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b693d10b4e1925e9c07111982a616b56b77e5b6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695968"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87265148"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Otimizar a produção de rede para máquinas virtuais Azure
 
@@ -150,7 +151,7 @@ sudo ./install.sh #or upgrade.sh if prior LIS was previously installed
 
 Saiba mais sobre a Versão 4.2 dos Serviços de Integração Linux para Hiper-V visualizando a página de [descarregamento](https://www.microsoft.com/download/details.aspx?id=55106).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Consulte o resultado otimizado com [bandwidth/Throughput testando Azure VM](virtual-network-bandwidth-testing.md) para o seu cenário.
 * Leia sobre como [a largura de banda é atribuída a máquinas virtuais](virtual-machine-network-throughput.md)
 * Saiba mais com [a Azure Virtual Network perguntas frequentes (FAQ)](virtual-networks-faq.md)

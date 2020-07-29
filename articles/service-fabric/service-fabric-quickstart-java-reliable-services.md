@@ -5,13 +5,13 @@ author: suhuruli
 ms.topic: quickstart
 ms.date: 01/29/2019
 ms.author: suhuruli
-ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 833b8fff65de7e7fdfc36565e91d18a1644723d1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.openlocfilehash: ebed4ecd499702bae02a2b1891df15186c60b5b8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254321"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320430"
 ---
 # <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Quickstart: Implementar uma aplicação Java para o Azure Service Fabric no Linux
 
@@ -24,7 +24,7 @@ O Azure Service Fabric é uma plataforma de sistemas distribuídos par implement
 - [Ambiente java](./service-fabric-get-started-linux.md#set-up-java-development) e [Yeoman](./service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables)
 - [Eclipse Neon (4.6)+](https://www.eclipse.org/downloads/packages/) e [Eclipse plug-in para tecido de serviço](./service-fabric-get-started-linux.md#install-the-eclipse-plug-in-optional)
 - [Interface de linha de tecido de serviço SDK e comando (CLI)](./service-fabric-get-started-linux.md#installation-methods)
-- [Git](https://git-scm.com/downloads)
+- [Rio Git](https://git-scm.com/downloads)
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 

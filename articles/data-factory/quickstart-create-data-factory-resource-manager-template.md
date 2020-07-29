@@ -11,12 +11,12 @@ ms.reviewer: maghan, jingwang
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 07/16/2020
-ms.openlocfilehash: ee641840839772d858cea775acb23e375d6aadea
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: eb423ebd354adeb8273755d34323b283d53eb8b5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117410"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283899"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-arm-template"></a>Quickstart: Criar uma fábrica de dados Azure usando o modelo ARM
 
@@ -58,7 +58,7 @@ Guarde o ficheiro na pasta **C:\ADFv2QuickStartPSH.** (Se a pasta já não exist
 
 O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-data-factory-v2-blob-to-blob-copy/).
 
-:::code language="json" source="~/quickstart-templates/101-data-factory-v2-blob-to-blob-copy/azuredeploy.json" range="1-196" highlight="40-187":::
+:::code language="json" source="~/quickstart-templates/101-data-factory-v2-blob-to-blob-copy/azuredeploy.json":::
 
 Existem recursos Azure definidos no modelo:
 
@@ -170,7 +170,7 @@ O gasoduto cria automaticamente uma pasta de saída no recipiente blob. Em segui
 
     :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-output.png" alt-text="Saída":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Pode limpar os recursos que criou no Guia de Introdução de duas formas. Pode [eliminar o grupo de recursos Azure,](../azure-resource-manager/management/delete-resource-group.md)que inclui todos os recursos do grupo de recursos. Se quiser manter os outros recursos intactos, elimine apenas a fábrica de dados que criou neste tutorial.
 

@@ -180,11 +180,11 @@
               href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: Requer transferência segura
               href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-            - name: Configurar o Transport Layer Security (TLS)
+            - name: Gerir o Transport Layer Security (TLS)
               items:
-                - name: Configurar a versão mínima do TLS para uma conta de armazenamento
+                - name: Impor a versão mínima do TLS para pedidos recebidos
                   href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-                - name: Configurar o TLS para uma aplicação cliente
+                - name: Configurar a versão do TLS para uma aplicação cliente
                   href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Gerir redundância de dados
       items:

@@ -7,11 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.subservice: alerts
-ms.openlocfilehash: b75bda626f887f1224c1b0f18a80887983a2367d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff3d055840d69623234a799c62b1d8a6efd96ec5
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77665311"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327094"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Comportamento de alerta de SMS em grupos de ação
 
@@ -40,8 +41,8 @@ Um recetor SMS configurado como parte de um grupo de ação recebe um SMS quando
 >[!NOTE]
 >Se um utilizador não tiver sido subscrito a partir de alertas SMS, mas for adicionado a um novo grupo de ação; receberão alertas SMS para o novo grupo de ação, mas continuam sem ser subscritos de todos os grupos de ação anteriores.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Obtenha uma [visão geral dos alertas de registo de atividade e](alerts-overview.md) aprenda a ser alertado  
 Saiba mais sobre [a limitação da taxa de SMS](alerts-rate-limiting.md)  
-Saiba mais sobre [grupos de ação](../../azure-monitor/platform/action-groups.md)
+Saiba mais sobre [grupos de ação](./action-groups.md)
 

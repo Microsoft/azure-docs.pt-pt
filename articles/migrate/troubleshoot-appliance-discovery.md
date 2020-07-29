@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 40bd39299380c400f945585651a7ad99e3eb3fa7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: eafe13adb5b37de2de2bc4eb8bf15c775af0b039
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114062"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171866"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Resolução de problemas do aparelho Esmigósia Azure Migrar e descoberta
 
@@ -98,7 +98,7 @@ Erro 60028: "A descoberta não pôde ser iniciada por causa de um erro. A opera�
 - Se houver um erro de validação, reveja a orientação de remediação para corrigir os erros e, em seguida, tente a opção **Salvar e iniciar novamente** a opção de descoberta.
 
 ## <a name="error-60025-azure-ad-operation-failed"></a>Erro 60025: A operação AD Azure falhou 
-Erro 60025: "Uma operação AD Azure falhou. O erro ocorreu ao criar ou atualizar a aplicação AZure AD" ocorre quando a conta de utilizador Azure utilizada para iniciar a descoberta é diferente da conta utilizada para registar o aparelho. Execute um dos seguintes procedimentos:
+Erro 60025: "Uma operação AD Azure falhou. O erro ocorreu ao criar ou atualizar a aplicação AZure AD" ocorre quando a conta de utilizador Azure utilizada para iniciar a descoberta é diferente da conta utilizada para registar o aparelho. Faça um dos seguintes:
 
 - Certifique-se de que a conta de utilizador que inicia a descoberta é a mesma que foi utilizada para registar o aparelho.
 - Fornecer permissões de acesso à aplicação Azure Ative para a conta do utilizador para as quais a operação de descoberta está a falhar.
@@ -165,6 +165,9 @@ A descoberta da aplicação é uma vez a cada 24 horas. Se quiser ver os detalhe
 ## <a name="unable-to-export-application-inventory"></a>Inventário de pedidos de exportação incapaz de exportar
 Certifique-se de que o utilizador que descarrega o inventário do portal tem privilégios de Contribuinte na subscrição.
 
+## <a name="no-suitable-authentication-method-found-to-complete-authentication-publickey"></a>Não se encontra um método de autenticação adequado para a autenticação completa (publickey)
+A autenticação baseada em chaves não funcionará, utilize a autenticação de senha.
+
 ## <a name="common-app-discovery-errors"></a>Erros comuns de descoberta de aplicativos
 
 A Azure Migrate suporta a descoberta de aplicações, funções e funcionalidades, utilizando Azure Migrate: Server Assessment. A descoberta de aplicações é atualmente suportada apenas para VMware. [Saiba mais](how-to-discover-applications.md) sobre os requisitos e passos para a criação de apps.
@@ -223,5 +226,5 @@ Erros típicos de descoberta de aplicações são resumidos na tabela.
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Configurar um aparelho para [VMware,](how-to-set-up-appliance-vmware.md) [Hiper-V](how-to-set-up-appliance-hyper-v.md)ou [servidores físicos](how-to-set-up-appliance-physical.md).

@@ -4,16 +4,16 @@ description: Modelo de dados de Insights de Aplicação para telemetria métrica
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 44f0b070a7c0da416002d9bf7e509d643a96dc7a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f8e787b8a94987e7d68e12a0e4e69f4c63e21e19
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540014"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320583"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Telemetria métrica: Modelo de dados de Insights de Aplicação
 
-Existem dois tipos de telemetria métrica suportados pela [Application Insights](../../azure-monitor/app/app-insights-overview.md): medição única e métrica pré-agregada. Uma única medição é apenas um nome e um valor. A métrica pré-agregada especifica o valor mínimo e máximo da métrica no intervalo de agregação e desvio padrão da métrica.
+Existem dois tipos de telemetria métrica suportados pela [Application Insights](./app-insights-overview.md): medição única e métrica pré-agregada. Uma única medição é apenas um nome e um valor. A métrica pré-agregada especifica o valor mínimo e máximo da métrica no intervalo de agregação e desvio padrão da métrica.
 
 A telemetria métrica pré-agregada pressupõe que o período de agregação foi de um minuto.
 
@@ -33,7 +33,7 @@ Sistema de representação métrica e contadores de processos:
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time`   | Trabalho em progresso... | [solicitaçãoExecuçãoTime](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestExecutionTime) | tempo de execução de pedidos médios
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue` | Trabalho em progresso... | [pedidosInQueue](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsInQueue) | número de pedidos à espera do processamento em uma fila
 
-## <a name="name"></a>Name
+## <a name="name"></a>Nome
 
 Nome da métrica que gostaria de ver no portal Application Insights e UI. 
 
@@ -63,8 +63,9 @@ Métrica com a propriedade personalizada `CustomPerfCounter` definida para indic
 
 [!INCLUDE [application-insights-data-model-properties](../../../includes/application-insights-data-model-properties.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como utilizar a [App Insights API para eventos e métricas personalizados.](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric)
+- Saiba como utilizar a [App Insights API para eventos e métricas personalizados.](./api-custom-events-metrics.md#trackmetric)
 - Consulte [o modelo de dados](data-model.md) para os tipos de Insights de Aplicação e modelo de dados.
-- Confira as [plataformas](../../azure-monitor/app/platforms.md) suportadas pela Application Insights.
+- Confira as [plataformas](./platforms.md) suportadas pela Application Insights.
+

@@ -10,11 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 4b1abe8efb4baaf260005df1a4ee5b6d1645715a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9bd2db8bcc427118a76f87e49ade422a74a11c1
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84169224"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87276929"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Recuperação de desastres e falha na conta de armazenamento
 
@@ -131,7 +132,7 @@ Como o fornecedor de recursos de armazenamento Azure não falha, a propriedade [
 
 ### <a name="azure-virtual-machines"></a>Máquinas virtuais do Azure
 
-As máquinas virtuais Azure (VMs) não falham como parte de uma falha de conta. Se a região primária ficar indisponível, e você falhar na região secundária, então você precisará recriar quaisquer VMs após o failover. Além disso, existe uma potencial perda de dados associada à falha da conta. A Microsoft recomenda a seguinte [orientação de alta disponibilidade](../../virtual-machines/windows/manage-availability.md) e [recuperação de desastres](../../virtual-machines/virtual-machines-disaster-recovery-guidance.md) específica para máquinas virtuais em Azure.
+As máquinas virtuais Azure (VMs) não falham como parte de uma falha de conta. Se a região primária ficar indisponível, e você falhar na região secundária, então você precisará recriar quaisquer VMs após o failover. Além disso, existe uma potencial perda de dados associada à falha da conta. A Microsoft recomenda a seguinte [orientação de alta disponibilidade](../../virtual-machines/windows/manage-availability.md) e [recuperação de desastres](../../virtual-machines/windows/backup-recovery.md) específica para máquinas virtuais em Azure.
 
 ### <a name="azure-unmanaged-disks"></a>Discos não geridos de Azure
 
@@ -159,7 +160,7 @@ As seguintes funcionalidades e serviços não são suportados para a falta de co
 - Uma conta de armazenamento que contenha bolhas de bloco premium não pode ser chumbada. As contas de armazenamento que suportam bolhas de bloco premium não suportam atualmente o geo-redundância.
 - Uma conta de armazenamento que contenha qualquer [política de imutabilidade worm](../blobs/storage-blob-immutable-storage.md) habilitada a contentores não pode ser chumbada. As políticas de retenção ou detenção por tempo desbloqueado/bloqueados impedem a sua insusitada falha, a fim de manter o cumprimento.
 
-## <a name="copying-data-as-an-alternative-to-failover"></a>Copiar dados como alternativa ao failover
+## <a name="copying-data-as-an-alternative-to-failover"></a>Copiar dados como alternativa à ativação pós-falha
 
 Se a sua conta de armazenamento estiver configurada para ler o acesso ao secundário, então pode desenhar a sua aplicação para ler a partir do ponto final secundário. Se preferir não falhar em caso de paragem na região primária, pode utilizar ferramentas como [a AzCopy,](storage-use-azcopy.md) [Azure PowerShell](/powershell/module/az.storage/)ou a [biblioteca Azure Data Movement](../common/storage-use-data-movement-library.md) para copiar dados da sua conta de armazenamento na região secundária para outra conta de armazenamento numa região não afetada. Em seguida, pode apontar as suas aplicações para essa conta de armazenamento para ler e escrever disponibilidade.
 

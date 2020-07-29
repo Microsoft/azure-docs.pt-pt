@@ -10,11 +10,14 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: wesmc
-ms.openlocfilehash: 0c1e56eced3ed675a70cc1ec2461038c80cff233
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+ms.openlocfilehash: f7ef9ba6eed6a349272227e3893fc1717fb50a46
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449792"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322742"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Ligue o simulador on-line Raspberry Pi ao Azure IoT Hub (Node.js)
 
@@ -107,7 +110,7 @@ Uma forma de monitorizar as mensagens recebidas pelo seu hub IoT a partir do dis
 
 Para mais formas de processar os dados enviados pelo seu dispositivo, continue para a secção seguinte.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Executou uma aplicação de amostra para recolher dados de sensores e enviá-lo para o seu hub IoT.
 

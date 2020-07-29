@@ -1,6 +1,6 @@
 ---
-title: Criar um inquilino no Windows Virtual Desktop - Azure
-description: Descreve como configurar os inquilinos virtuais do Windows desktop no Azure Ative Directory.
+title: Criar um inquilino no Windows Virtual Desktop (clássico) - Azure
+description: Descreve como configurar inquilinos virtuais do Windows Desktop (clássico) no Azure Ative Directory.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6a1e301b63eee348f59a1b9570c2c3ffcd78ecef
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: a1f2dbf1f7cfc8fbb6a29129c7e445ffef87b070
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362395"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286364"
 ---
-# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Tutorial: Criar um inquilino no Windows Virtual Desktop
+# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-classic"></a>Tutorial: Criar um inquilino no Windows Virtual Desktop (clássico)
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure.
+>Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows.
 
 Criar um inquilino no Windows Virtual Desktop é o primeiro passo para a construção da sua solução de virtualização de desktop. Um inquilino é um grupo de uma ou mais piscinas hospedeiras. Cada piscina de anfitriões é composta por vários anfitriões de sessão, funcionando como máquinas virtuais em Azure e registados no serviço De Desktop Virtual do Windows. Cada pool de anfitriões também é composto por um ou mais grupos de aplicações que são usados para publicar recursos remotos de desktop e aplicações remotas para os utilizadores. Com um inquilino, você pode construir piscinas de anfitrião, criar grupos de aplicações, atribuir utilizadores e fazer ligações através do serviço.
 

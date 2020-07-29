@@ -8,13 +8,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/01/2020
-ms.custom: mqtt
-ms.openlocfilehash: 1f61748a0a0d3d999670b6129e0e58758715ba3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- mqtt
+- 'Role: Cloud Development'
+ms.openlocfilehash: 4887315ddef3f15ee3f6ef5ad80cf8df8b1dcd34
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601858"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327774"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Compreender e usar gémeos dispositivo no IoT Hub
 
@@ -183,7 +185,7 @@ A extremidade traseira da solução funciona no dispositivo twin utilizando as s
 
   - Propriedades
 
-    | Name | Valor |
+    | Nome | Valor |
     | --- | --- |
     $content tipo | application/json |
     $iothub-enquestime |  Hora em que a notificação foi enviada |
@@ -394,7 +396,7 @@ Outros tópicos de referência no guia de desenvolvimento do IoT Hub incluem:
 
 * O artigo [de suporte do IoT Hub MQTT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu sobre os gémeos do dispositivo, pode estar interessado nos seguintes tópicos de guia de desenvolvimento do IoT Hub:
 

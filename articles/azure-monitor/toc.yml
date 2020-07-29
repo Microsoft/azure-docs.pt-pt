@@ -1020,6 +1020,10 @@
           href: insights/resource-group-insights.md
         - name: Informações de resolução de problemas
           href: insights/troubleshoot-workbooks.md
+    - name: Alterar análise
+      items:
+        - name: Alterar análise
+          href: app/change-analysis.md
     - name: Soluções
       items:
         - name: Descrição geral
@@ -1073,30 +1077,6 @@
               href: insights/vmware.md
             - name: Solução Wire Data
               href: insights/wire-data.md
-        - name: Vistas
-          items:
-            - name: Converter visualizações para livros
-              items:
-                - name: Descrição geral da conversão
-                  href: platform/view-designer-conversion-overview.md
-                - name: Opções de conversão
-                  href: platform/view-designer-conversion-options.md
-                - name: Descrição geral e acesso
-                  href: platform/view-designer-conversion-access.md
-                - name: Tarefas comuns
-                  href: platform/view-designer-conversion-tasks.md
-                - name: Conversões de mosaico
-                  href: platform/view-designer-conversion-tiles.md
-                - name: Exemplos
-                  href: platform/view-designer-conversion-examples.md
-            - name: Estruturador de Vista
-              href: platform/view-designer.md
-            - name: Referência de mosaico
-              href: platform/view-designer-tiles.md
-            - name: Referência de parte da visualização
-              href: platform/view-designer-parts.md
-            - name: Filtros
-              href: platform/view-designer-filters.md
     - name: Livros
       items:
         - name: Descrição geral
@@ -1124,6 +1104,20 @@
                   href: platform/workbooks-time.md
                 - name: Parâmetros de texto
                   href: platform/workbooks-text.md
+        - name: Converter visualizações para livros
+          items:
+            - name: Descrição geral da conversão
+              href: platform/view-designer-conversion-overview.md
+            - name: Opções de conversão
+              href: platform/view-designer-conversion-options.md
+            - name: Descrição geral e acesso
+              href: platform/view-designer-conversion-access.md
+            - name: Tarefas comuns
+              href: platform/view-designer-conversion-tasks.md
+            - name: Conversões de mosaico
+              href: platform/view-designer-conversion-tiles.md
+            - name: Exemplos
+              href: platform/view-designer-conversion-examples.md
     - name: Outras visualizações
       items:
         - name: Power BI
@@ -1217,6 +1211,8 @@
           href: app/azure-functions-supported-features.md
         - name: Notas de versão
           items:
+            - name: SDKs de monitorização baseada em código
+              href: app/release-notes.md
             - name: Extensão de aplicação Web
               href: app/web-app-extension-release-notes.md
         - name: Modelo de dados
@@ -1297,6 +1293,16 @@
           href: platform/resource-logs-blob-format.md
         - name: Análise do Key Vault (preterido)
           href: insights/azure-key-vault-deprecated.md
+        - name: Vistas
+          items:
+            - name: Estruturador de Vista
+              href: platform/view-designer.md
+            - name: Referência de mosaico
+              href: platform/view-designer-tiles.md
+            - name: Referência de parte da visualização
+              href: platform/view-designer-parts.md
+            - name: Filtros
+              href: platform/view-designer-filters.md
 - name: Recursos
   items:
     - name: Mapa do Azure

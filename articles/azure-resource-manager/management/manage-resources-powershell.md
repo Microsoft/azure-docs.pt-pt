@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 2c14e8ae7de48752466cea43205445d5bb4856c9
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: ce3c0409ba077d81023188530b660eb210daf4d1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055364"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326805"
 ---
 # <a name="manage-azure-resources-by-using-azure-powershell"></a>Gerir os recursos da Azure utilizando a Azure PowerShell
 
@@ -59,7 +59,7 @@ Para obter mais informações, consulte [implementar recursos com modelos de Ges
 
 ## <a name="deploy-a-resource-group-and-resources"></a>Implementar um grupo de recursos e recursos
 
-Pode criar um grupo de recursos e mobilizar recursos para o grupo. Para obter mais informações, consulte [criar grupo de recursos e implementar recursos.](../templates/deploy-to-subscription.md#resource-group-and-resources)
+Pode criar um grupo de recursos e mobilizar recursos para o grupo. Para obter mais informações, consulte [criar grupo de recursos e implementar recursos.](../templates/deploy-to-subscription.md#resource-groups)
 
 ## <a name="deploy-resources-to-multiple-subscriptions-or-resource-groups"></a>Mobilizar recursos para várias subscrições ou grupos de recursos
 
@@ -135,7 +135,7 @@ A marcação ajuda a organizar logicamente o seu grupo de recursos e recursos. P
 
 [O controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md) é a forma como gere o acesso aos recursos em Azure. Para obter mais informações, consulte [Gerir o acesso utilizando o RBAC e o Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber o Gestor de Recursos Azure, consulte [a visão geral do Azure Resource Manager](overview.md).
 - Para aprender a sintaxe do modelo do Gestor de Recursos, consulte [compreender a estrutura e a sintaxe dos modelos do Gestor de Recursos Azure](../templates/template-syntax.md).

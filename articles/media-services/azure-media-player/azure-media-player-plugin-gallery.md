@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 4d3d522de84ebd019fd432f5c4e5d89ac5ef8bcf
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 6d592064729bbdd64e485e0bd0373b2d471597e0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263742"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282488"
 ---
 # <a name="azure-media-player-plugin-gallery"></a>Galeria Plugin Azure Media Player #
 
@@ -20,7 +20,7 @@ ms.locfileid: "84263742"
 | Nome plugin                         | URL de demonstração                    | Código fonte                | Descrição    |
 |-------------------------------------|-----------------------------|----------------------------|----------------|
 | Características adicionais                 | | | |
-| **Novo!** AMP360Video                | [Demonstração](http://www.babylonjs.com/demos/amp360video/)                        | [GitHub](https://github.com/BabylonJS/Extensions/tree/master/Amp360Video)                     | O plugin permite visualizar 360 vídeos em Amp, quer no seu ambiente de trabalho, quer em dispositivos compatíveis com VR. A documentação completa está disponível [aqui:](https://doc\.babylonjs\.com/extensions/amp360video) |
+| **Novo!** AMP360Video                | [Demonstração](http://www.babylonjs.com/demos/amp360video/)                        | [GitHub](https://github.com/BabylonJS/Extensions/tree/master/Amp360Video)                     | O plugin permite visualizar 360 vídeos em Amp, quer no seu ambiente de trabalho, quer em dispositivos compatíveis com VR. A documentação completa está disponível [aqui:](https://doc.babylonjs.com/extensions/amp360video) |
 |  Ponta sprite                         | [Demonstração](http://www.skymedia.tv/asset/sprite)                        | [GitHub](https://github.com/RickShahid/SpriteTip)                    | Plugin Azure Media Player (AMP) para renderização de linha do tempo de um sprite de imagem de miniatura de vídeo que é gerado a partir de Azure Media Services (AMS) Media Encoder Standard (MES). |
 | Sobreposição de Diagnósticos                 | [Demonstração](https://openidconnectweb.azurewebsites.net/Diagnoverlay.html)                        | [GitHub](https://github.com/willzhan/diagnoverlay)                     | Este plugin exibe: Todos os parâmetros-chave, estatísticas de vídeo, todos os eventos no ciclo de vida da reprodução de vídeo e informações de proteção drm, tais como ID chave, URLs de aquisição de licença, se protegidos.                                                                                                                                                                      |
 | Taxa de fotogramas e calculadora de código de tempo | Não há demonstração disponível | [GitHub](https://github.com/mconverti/media-services-javascript-azure-media-player-framerate-timecode-calculator-plugin)                     | Este plugin calcula a taxa de fotogramas de vídeo com base nas `tfhd` / `trun` caixas MP4 do primeiro fragmento de vídeo MPEG-DASH, analisa o valor da escala de tempo do manifesto do cliente MPEG-DASH, e também fornece uma forma de gerar o cronograma por um determinado tempo absoluto do jogador (bem como fornece ao jogador tempo absoluto dado o código de tempo) |
@@ -37,7 +37,7 @@ ms.locfileid: "84263742"
 | Zoom In                             | [Demonstração](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/zoom/example.html)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-zoom-plugin)                     | Este plugin exibe uma escala de zoom-in drag-able no ecrã dos jogadores para que os espectadores possam ampliar o seu conteúdo |
 | Legendas ao vivo                       | [Azure Blog Post](https://azure.microsoft.com/blog/live-real-time-captions-with-azure-media-services-and-player/),[SubPly Post](http://www.subply.com/en/Products/AzureLiveCaptions.htm) | N/D | *Consulte o post para mais informações.* Fluxo de trabalho de fim a fim projetado para legendas ao vivo plugin construído para Azure Media Player, clique no link mais à esquerda para ir ao site da SubPly e saber mais sobre a solução |
 | Chaves quentes                            | <strike>[Demonstração](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/hotkeys/example.html)</strike>                        | <strike>[GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-hot-keys-plugin)</strike>                     | O plugin de teclas quentes permite que os espectadores controlem vários aspetos do leitor com combinações genéricas de plugins como F para ecrã completo, M para teclas de silenciamento e seta para o controlo da barra de progresso. *Nota: Este plugin já foi integrado na AMP mas sinta-se livre para usá-lo como um recurso* |
-| Redes sociais                              | | | |
+| Social                              | | | |
 | Partilhar                               | [Demonstração](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/share/example.html)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-social-share-plugin)                     | Este plugin adiciona um botão de partilha à barra de controlo do jogador para que os seus espectadores possam partilhar o vídeo que estão a ver com os seus amigos através do Facebook, Twitter ou Linkedin. |
 
 ## <a name="next-steps"></a>Passos seguintes ##

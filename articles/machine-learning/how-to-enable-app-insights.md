@@ -5,18 +5,18 @@ description: Monitorize serviços web implementados com Azure Machine Learning u
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
-ms.date: 06/09/2020
-ms.custom: tracking-python
-ms.openlocfilehash: d28cd3b1d8722970505eb313bd8e80589ce9ff87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/23/2020
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: 2bc3eb72ff0c5d29fd72de848abf87dfe84e2a01
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743516"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320226"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorize e recolha dados dos pontos finais do serviço web ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -153,15 +153,20 @@ Também pode ativar o Azure Application Insights do estúdio Azure Machine Learn
 1. Selecione **Enable Application Insights diagnósticos e recolha de dados**
 
     ![Ativar insights de aplicativos](./media/how-to-enable-app-insights/enable-app-insights.png)
-## <a name="evaluate-data"></a>Avaliar dados
+
+## <a name="view-metrics-and-logs"></a>Ver métricas e registos
+
 Os dados do seu serviço são armazenados na sua conta Azure Application Insights, dentro do mesmo grupo de recursos que o Azure Machine Learning.
 Para vê-lo:
 
-1. Vá ao seu espaço de trabalho de aprendizagem de máquinas Azure no [portal Azure](https://ms.portal.azure.com/) e clique no link Application Insights
+1. Vá ao seu espaço de trabalho Azure Machine Learning no [estúdio.](https://ml.azure.com/)
+1. Selecione **Pontos de final**.
+1. Selecione o seu serviço implantado.
+1. Desloque-se para baixo para encontrar o **url 'Insights de Aplicação'** e clique no link.
 
-    [![AppInsightsLoc](./media/how-to-enable-app-insights/AppInsightsLoc.png)](././media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
+    [![Localizar insights de aplicação url](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 
-1. A partir do **separador Visão Geral** ou da secção __de Monitorização__ da lista à esquerda, selecione __Registos__.
+1. Nas Isights de Aplicação, a partir do **separador Visão Geral** ou na secção __de Monitorização__ na lista à esquerda, selecione __Registos__.
 
     [![Separador geral da monitorização](./media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
@@ -186,7 +191,7 @@ Pode utilizar a [exportação contínua](https://docs.microsoft.com/azure/azure-
 
 Azure Data Factory, Azure ML Pipelines ou outras ferramentas de processamento de dados podem ser usadas para transformar os dados conforme necessário. Quando tiver transformado os dados, pode registá-lo com o espaço de trabalho Azure Machine Learning como conjunto de dados. Para tal, consulte [Como criar e registar conjuntos de dados](how-to-create-register-datasets.md).
 
-   [![Exportação Contínua](./media/how-to-enable-app-insights/continuous-export-setup.png)](././media/how-to-enable-app-insights/continuous-export-setup.png)
+:::image type="content" source="media/how-to-enable-app-insights/continuous-export-setup.png" alt-text="Exportação contínua":::
 
 
 ## <a name="example-notebook"></a>Bloco de notas de exemplo
@@ -195,7 +200,7 @@ O notebook [enable-app-insights-in-production-service.ipynb](https://github.com/
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Veja [como implementar um modelo num cluster de serviços Azure Kubernetes](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service) ou como implementar um modelo para [Azure Container Instances](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-container-instance) para implementar os seus modelos em pontos finais de serviço web, e permitir que o Azure Application Insights aproveite a recolha de dados e a monitorização do ponto final
 * Consulte [MLOps: Gerir, implementar e monitorizar modelos com Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment) para saber mais sobre a alavancagem de dados recolhidos a partir de modelos em produção. Estes dados podem ajudar a melhorar continuamente o seu processo de aprendizagem automática

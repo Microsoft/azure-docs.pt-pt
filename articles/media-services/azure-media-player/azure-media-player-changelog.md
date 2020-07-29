@@ -5,15 +5,127 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
-ms.date: 04/20/2020
-ms.openlocfilehash: fc8304fb068152c800d7b71f77fb601956fb6510
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/27/2020
+ms.openlocfilehash: 113249f56c1f5f9c035ec2ff6ccb7309dd355763
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023404"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281349"
 ---
 # <a name="changelog"></a>Registo de alterações #
+
+## <a name="235-official-update-june-1-2020"></a>2.3.5 (Atualização Oficial 1 de junho de 2020)
+
+### <a name="bug-fixes-235"></a>Correções de Erros 2.3.5
+
+- [Acessibilidade] O ouvinte chave Esc no painel de opções é anexado ao documento
+- [Acessibilidade] Evite que a UI do jogador desapareça se a barra de controlo ou o menu de opções contiverem foco
+- A barra de controlo mostra o tempo do relógio de parede incorreto quando as definições do relógio de parede estão ativadas
+
+### <a name="changes-235"></a>Alterações 2.3.5
+
+- Mensagem de erro adicionada para código de erro 0x00400005 e documentada
+
+## <a name="234-official-update-march-4-2020"></a>2.3.4 (Atualização Oficial 4 de março de 2020)
+
+### <a name="bug-fixes-234"></a>Correções de Erros 2.3.4
+
+- Não é possível definir PlayReady overrideLicenseAcquistionUrl
+- Incapaz de reproduzir alguns conteúdos com descontinuidades
+- [Acessibilidade] Valor do atributo ID para alerta de leitor de ecrã deve ser único
+- [Acessibilidade] Enquanto navega na caixa de diálogo de definições de legendas fechadas, o foco sai da caixa de diálogo
+
+### <a name="changes-234"></a>Alterações 2.3.4
+
+- Log Content-Length após um download bem sucedido para ajudar a analisar erros de desencriptação 2.3.3 (Atualização Oficial 12 de novembro de 2019)
+
+### <a name="features-234"></a>Características 2.3.4
+
+- Suporte adicionado para exibir o relógio de parede do relógio de um vídeo como uma sobreposição, e na barra de controlo
+
+### <a name="bug-fixes-234"></a>Correções de Erros 2.3.4
+
+- O interruptor de faixa de áudio funciona mas o erro de saídas no IE11 e no Windows7 "O objeto não suporta propriedade ou método 'habilitado'"
+- O interruptor de faixa de áudio falha quando o tampão está totalmente carregado
+- O interruptor de faixa de áudio falha quando o utilizador faz uma pausa no vídeo e alterna entre faixas de áudio muito rapidamente
+- [Acessibilidade] Dicas de ferramentas não definidas para Controlo de Vídeo em Video Player
+- Botões de volume em falta no Html5 dependendo de quando 'loadstart' é recebido
+- [Acessibilidade] Não há como definir o texto alt para a imagem do cartaz
+- [Acessibilidade] Foco de aplicação perdido após selecionar 'Feito' na caixa de diálogo de definições de legendas
+- [Acessibilidade] Os atributos ARIA incorretos são definidos para 'vídeo' em 'pré-visualização de segmentos'
+
+### <a name="changes-234"></a>Alterações 2.3.4
+
+- Removido rótulo/faixa de legenda vazia ao reproduzir HLS no iOS e MacOS Safari
+- Reduziu o número de 412 s para legendas IMSC1
+- Aviso de saída na consola para 10 respostas de legendas IMSC1 vazias consecutivas para ajudar a depurar ao vivo
+
+## <a name="232-official-update-october-9-2019"></a>2.3.2 (Atualização Oficial 9 de outubro de 2019)
+
+### <a name="features"></a>Funcionalidades
+
+-Suporte PlayReady adicionado para reprodução DASH para navegador Chromium Edge
+
+### <a name="bug-fixes-232"></a>Correções de Erros 2.3.2
+
+- A velocidade de reprodução atual não é mostrada visualmente no menu de velocidade de reprodução, a menos que o utilizador o defina manualmente
+- [Acessibilidade] Painel de 'Definições' não está a entrar em colapso com a chave 'Esc'
+- [Acessibilidade] A chave de atalho amp 'M' não funciona quando o Narrador está ligado
+
+### <a name="changes-232"></a>Alterações 2.3.2
+
+- Para navegadores que não suportam código de áudio E-AC3, as faixas de áudio E-AC3 estão escondidas no menu da faixa de áudio
+- Para navegadores que suportam o codec de áudio E-AC3, uma faixa de áudio E-AC3 é selecionada por padrão
+- Para os navegadores que não suportam a comutação de códigos de áudio, as faixas de áudio com um código diferente da faixa selecionada estão escondidas no menu da faixa de áudio
+
+## <a name="231-official-update-august-12-2019"></a>2.3.1 (Atualização Oficial 12 de agosto de 2019)
+
+### <a name="features-231"></a>Características 2.3.1
+
+- Sinalizar um evento quando as caixas emsg são recebidas na reprodução do DASH -Suporte adicionado para mostrar faixas de áudio ec-3 no menu áudio nos navegadores que suportam ec-3 e permitem mudar a faixa de áudio de aac para ec3 e vice-versa apenas no navegador Edge baseado em Chromimum
+
+### <a name="bug-fixes-231"></a>Correções de Erros 2.3.1
+
+- O menu de faixa sonora é corrompido após a remoção das faixas ec-3
+- O tempo atual pode ser grande do que a duração do vídeo
+- Definir a velocidade de reprodução através da velocidade inicialS não funciona
+- Às vezes, depois de uma procura, o jogador parece preso
+- On Edge e IE em um ecrã tátil, depois de fazer zoom em uma página, pressionar ou pairar sobre a barra de busca não obter com precisão o segmento correto do vídeo
+- [Acessibilidade] A etiqueta Aria para Play/Pause não é descritiva para o segmento ao vivo do leitor de vídeo Map não encontrou erro para flashSS para o erro correto do amplificador
+- [Acessibilidade] As funções de Aria utilizadas para Play/Pause devem estar em conformidade com valores válidos (.vjs-text-track-display)
+- [Acessibilidade] Certos papéis da ARIA devem ser contidos por pais particulares
+- [Acessibilidade] Não existe uma ponta de ferramenta definida para o botão de reprodução/pausa das legendas IMSC1 do leitor de vídeo pode desaparecer depois de procurar dentro do atual tampão de vídeo/áudio
+
+### <a name="changes-231"></a>Alterações 2.3.1
+
+- Ao obter um segmentoDecryptError e o jogador já está na borda ao vivo, o jogador agora refresca o manifesto em vez de experimentar o próximo segmento
+- Adicione mais registos para diagnóstico
+- Documentação atualizada para inlcude suporte FairPlay para iOS Safari
+- Acrescentou um exemplo para o "srclang" da opção IMSC1
+- Acolchoamento adicionado, textPadding, boxShadow sobreposições para faixas de texto.
+- Adicionei um código de erro (0x00202025B) para diferenciar que o download do segmento falhou por não ter internet em vez de apenas lançar 0x00200259
+
+## <a name="230-official-release-april-30-2019"></a>2.3.0 (Lançamento Oficial 30 de abril de 2019)
+
+### <a name="features-230"></a>Características 2.3.0
+
+- Suporte adicional para legendas IMSC1 para DASH
+- Apoio adicional para ativos apenas em vídeo para o DASH
+- Apresentação APITimeOffsetInSec
+
+### <a name="bug-fixes-230"></a>Correções de Erros 2.3.0
+
+- O perfil de heurística da AMP LowLatency interfere com a reprodução de vídeo iOS "mudo" e "unmute" para algumas línguas têm traduções erradas
+- O valor aria-valornow do slider da barra de progresso é por vezes incorreto
+- O valor da função ária do ecrã da faixa de texto está incorreto
+
+### <a name="changes-230"></a>Alterações 2.3.0
+
+- Os registos agora incluem o tamanho de fragmentos de mídia descarregados
+- Suporte removido IE 9 e IE 10
+- Amostra cea708 atualizada para mostrar legendas alinhadas à esquerda
+- Incluir MediaError.message em registos para falhas de reprodução
 
 ## <a name="224-official-update-february-22-2019"></a>2.2.4 (Atualização Oficial 22 de fevereiro de 2019) ##
 
@@ -31,7 +143,7 @@ ms.locfileid: "87023404"
 
 ## <a name="223-official-update-january-9-2019"></a>2.2.3 (Atualização Oficial 9 janeiro 2019) ##
 
-### <a name="features"></a>Funcionalidades ###
+### <a name="features-223"></a>Características 2.2.3 ###
 
 - [Recurso] [HLS] Adicionei o menu de faixa sonora para a reprodução do Safari HLS
 

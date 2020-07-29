@@ -2,15 +2,15 @@
 title: Modelo ARM frequentemente fez perguntas
 description: Perguntas frequentes (FAQ) sobre modelos do Gestor de Recursos Azure.
 ms.topic: conceptual
-ms.date: 05/30/2020
+ms.date: 07/27/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: fb4bac00c4d971e7b056c18fe609d77b077dbcbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e23334daf0f4f6d5a6917af49c786d47c4557375
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85296870"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327264"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Perguntas frequentes sobre modelos ARM
 
@@ -48,7 +48,7 @@ Este artigo responde frequentemente a perguntas sobre os modelos Azure Resource 
 
   Para saber mais sobre o novo idioma do modelo, [inscreva-se para notificações](https://aka.ms/armLangUpdates).
 
-  Para a pré-visualização das especificações do modelo, [junte-se à lista de espera](https://aka.ms/templateSpecsWaitlist).
+  Para saber mais sobre as especificações do modelo, consulte [as especificações do modelo do Gestor de Recursos Azure (Preview)](template-specs.md).
 
 ## <a name="creating-and-testing-templates"></a>Criação e teste de modelos
 
@@ -64,7 +64,7 @@ Este artigo responde frequentemente a perguntas sobre os modelos Azure Resource 
 
 * **Posso criar um grupo de recursos num modelo ARM e distribuir recursos para ele?**
 
-  Sim, pode criar um grupo de recursos num modelo quando implementar o modelo ao nível da sua subscrição Azure. Para um exemplo de criação de um grupo de recursos e de implantação de recursos, consulte [o grupo de recursos e recursos.](deploy-to-subscription.md#resource-group-and-resources)
+  Sim, pode criar um grupo de recursos num modelo quando implementar o modelo ao nível da sua subscrição Azure. Para um exemplo de criação de um grupo de recursos e de implantação de recursos, consulte [o grupo de recursos e recursos.](deploy-to-subscription.md#resource-groups)
 
 * **Posso criar uma subscrição num modelo ARM?**
 
@@ -100,9 +100,9 @@ Este artigo responde frequentemente a perguntas sobre os modelos Azure Resource 
 
 * **Você vai oferecer uma ferramenta para converter os meus modelos JSON para a nova linguagem de modelo?**
 
-  Sim.
+  Yes.
 
-## <a name="template-specs"></a>Especificações de modelo
+## <a name="template-specs"></a>Especificações de Modelo
 
 * **Como posso envolver-me na versão de pré-visualização de Especificações de Modelos?**
 
@@ -182,12 +182,12 @@ Este artigo responde frequentemente a perguntas sobre os modelos Azure Resource 
 
 * **Posso integrar modelos ARM em Pipelines Azure?**
 
-  Sim. Para obter uma explicação de como utilizar modelos e oleodutos, consulte [Tutorial: Integração contínua de modelos de Gestor de Recursos Azure com Pipelines Azure](deployment-tutorial-pipeline.md) e [Integrar modelos ARM com Pipelines Azure](add-template-to-azure-pipelines.md).
+  Yes. Para obter uma explicação de como utilizar modelos e oleodutos, consulte [Tutorial: Integração contínua de modelos de Gestor de Recursos Azure com Pipelines Azure](deployment-tutorial-pipeline.md) e [Integrar modelos ARM com Pipelines Azure](add-template-to-azure-pipelines.md).
 
 * **Posso usar as ações do GitHub para implementar um modelo?**
 
   Sim, consulte [os modelos do Gestor de Recursos Azure utilizando as ações do GitHub](deploy-github-actions.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma introdução aos modelos ARM, veja [quais são os modelos ARM?](overview.md)

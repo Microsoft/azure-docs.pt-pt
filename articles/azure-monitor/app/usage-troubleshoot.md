@@ -6,11 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8d2e573f34895207a455838b5fc64f95560943d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 02d1bd9d204d88ba90218b1254c66ac0da80be85
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77670921"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323507"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Resolução de problemas ferramentas de análise de comportamento do utilizador em Insights de Aplicação
 Tem dúvidas sobre as ferramentas de análise de comportamento do [utilizador em Insights de Aplicação](usage-overview.md): [Utilizadores, Sessões,](usage-segmentation.md) [Eventos, Funis,](usage-funnels.md) [Fluxos de Utilizador,](usage-flows.md) [Retenção](usage-retention.md)ou Cohorts? Aqui estão algumas respostas.
@@ -18,13 +19,13 @@ Tem dúvidas sobre as ferramentas de análise de comportamento do [utilizador em
 ## <a name="counting-users"></a>Contando utilizadores
 **As ferramentas de análise de comportamento do utilizador mostram que a minha aplicação tem um utilizador/sessão, mas sei que a minha aplicação tem muitos utilizadores/sessões. Como posso corrigir estas contagens incorretas?**
 
-Todos os eventos de telemetria em Application Insights têm um [ID de utilizador anónimo](../../azure-monitor/app/data-model-context.md) e um ID de [sessão](../../azure-monitor/app/data-model-context.md) como duas das suas propriedades padrão. Por padrão, todas as ferramentas de análise de uso contam os utilizadores e sessões com base nestes IDs. Se estas propriedades padrão não estiverem a ser preenchidas com IDs únicos para cada utilizador e sessão da sua aplicação, verá uma contagem incorreta de utilizadores e sessões nas ferramentas de análise de uso.
+Todos os eventos de telemetria em Application Insights têm um [ID de utilizador anónimo](./data-model-context.md) e um ID de [sessão](./data-model-context.md) como duas das suas propriedades padrão. Por padrão, todas as ferramentas de análise de uso contam os utilizadores e sessões com base nestes IDs. Se estas propriedades padrão não estiverem a ser preenchidas com IDs únicos para cada utilizador e sessão da sua aplicação, verá uma contagem incorreta de utilizadores e sessões nas ferramentas de análise de uso.
 
-Se estiver a monitorizar uma aplicação web, a solução mais fácil é adicionar o [SDK JavaScript da aplicação](../../azure-monitor/app/javascript.md) e certificar-se de que o corte de script está carregado em cada página que pretende monitorizar. O JavaScript SDK gera automaticamente iDs de utilizador e de sessão anónimos, em seguida, povoa eventos de telemetria com estes IDs à medida que são enviados a partir da sua aplicação.
+Se estiver a monitorizar uma aplicação web, a solução mais fácil é adicionar o [SDK JavaScript da aplicação](./javascript.md) e certificar-se de que o corte de script está carregado em cada página que pretende monitorizar. O JavaScript SDK gera automaticamente iDs de utilizador e de sessão anónimos, em seguida, povoa eventos de telemetria com estes IDs à medida que são enviados a partir da sua aplicação.
 
 Se estiver a monitorizar um serviço web (sem interface de utilizador), [crie um inicializador de telemetria que povoa as propriedades anónimas do ID do utilizador e do ID](usage-send-user-context.md) de sessão de acordo com as noções do seu serviço de utilizadores e sessões únicas.
 
-Se a sua aplicação estiver a enviar [IDs de utilizador autenticados,](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)pode contar com base em IDs de utilizador autenticados na ferramenta Utilizadores. No dropdown "Show", escolha "utilizadores autenticados".
+Se a sua aplicação estiver a enviar [IDs de utilizador autenticados,](./api-custom-events-metrics.md#authenticated-users)pode contar com base em IDs de utilizador autenticados na ferramenta Utilizadores. No dropdown "Show", escolha "utilizadores autenticados".
 
 As ferramentas de análise de comportamento do utilizador não suportam atualmente a contagem de utilizadores ou sessões com base em propriedades que não o ID do utilizador anónimo, iD autenticado do utilizador ou ID de sessão.
 
@@ -43,7 +44,7 @@ Se a sua aplicação estiver a enviar demasiados nomes de visualização de pág
 
 Se a sua aplicação estiver a enviar demasiados nomes personalizados para eventos, altere o nome no código para ser menos específico. Mais uma vez, evite colocar URLs e outras informações por página ou informações dinâmicas nos nomes de eventos personalizados diretamente. Em vez disso, mova estes detalhes para propriedades personalizadas do evento personalizado com a `trackEvent` API. Por exemplo, em vez de `appInsights.trackEvent("Edit button clicked on http://www.contoso.com/index")` sugerirmos algo `appInsights.trackEvent("Edit button clicked", { "Source URL": "http://www.contoso.com/index" })` como.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral das ferramentas de análise de comportamento do utilizador](usage-overview.md)
 

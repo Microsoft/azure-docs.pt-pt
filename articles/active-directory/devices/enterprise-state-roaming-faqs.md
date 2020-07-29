@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ad76835b0c72b691e1ef8810f2c58dedb8f597d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35669a7d80907e2335c68b1da9010f5879aa6c7c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78672376"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87274090"
 ---
 # <a name="settings-and-data-roaming-faq"></a>FAQ de definições e roaming de dados
 
@@ -26,17 +27,17 @@ Este artigo responde a algumas perguntas que os administradores de TI podem ter 
 **Definições do Windows**: as definições para PC que são incorporadas no sistema operativo Windows. Geralmente, estas são configurações que personalizam o seu PC, e incluem as seguintes grandes categorias:
 
 * *Tema*, que inclui funcionalidades como o tema do ambiente de trabalho e as definições da barra de tarefas.
-* *Definições do Internet Explorer*, incluindo separadores e favoritos recentemente abertos.
+* *Definições do Internet Explorer*, que incluem os favoritos e os separadores recentemente abertos.
 * *Definições do navegador Microsoft Edge*, como favoritos e lista de leitura.
 * *Palavras-passe*, incluindo palavras-passe de Internet, perfis wi-fi, entre outros.
-* *Preferências linguísticas*, que incluem configurações para layouts de teclado, linguagem do sistema, data e hora, e muito mais.
-* *Facilidade de acesso ,* como tema de alto contraste, Narrador e Magnifier.
-* *Outras definições do Windows*, como as definições do rato.
+* *Preferências de idioma*, que incluem definições relativas a esquemas de teclado, ao idioma do sistema, à data e hora e mais.
+* *Funcionalidades de facilidade de acesso*, tais como o tema de alto contraste, o Narrador e a Lupa.
+* *Outras definições do Windows*, tais como as definições do rato.
 
 > [!NOTE]
 > Este artigo aplica-se ao navegador baseado em HTML do Microsoft Edge Legacy lançado com o Windows 10 em julho de 2015. O artigo não se aplica ao novo navegador baseado em Chromium microsoft Edge lançado a 15 de janeiro de 2020. Para obter mais informações sobre o comportamento do Sync para o novo Microsoft Edge, consulte o artigo [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
 
-**Dados da aplicação**: As aplicações universais do Windows podem escrever dados de definições para uma pasta de roaming, e quaisquer dados escritos nesta pasta serão automaticamente sincronizados. Cabe ao programador de aplicações individual conceber uma app para tirar partido desta capacidade. Para obter mais informações sobre como desenvolver uma aplicação Universal Windows que utiliza roaming, consulte a [API de armazenamento de dados de aplicações](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) e o [blog de desenvolvimento de roaming de aplicativos do Windows 8.](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx)
+**Dados da aplicação**: As aplicações universais do Windows podem escrever dados de definições para uma pasta de roaming, e quaisquer dados escritos nesta pasta serão automaticamente sincronizados. Cabe ao programador de aplicações individual conceber uma app para tirar partido desta capacidade. Para obter mais informações sobre como desenvolver uma aplicação Universal Windows que utiliza roaming, consulte a [API de armazenamento de dados de aplicações](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) e o [blog de desenvolvimento de roaming de aplicativos do Windows 8.](https://blogs.windows.com/windowsdeveloper/2016/05/04/roaming-app-data-and-the-user-experience/)
 
 ## <a name="what-account-is-used-for-settings-sync"></a>Que conta é utilizada para sincronização de definições?
 
@@ -134,6 +135,6 @@ Se a sua organização já estiver a utilizar o roaming no Windows 10 com a subs
 
 Consulte a documentação na secção [de resolução de problemas](enterprise-state-roaming-troubleshooting.md) para obter uma lista de questões conhecidas. 
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 
 Para uma visão geral, consulte [a visão geral do roaming do estado da empresa](enterprise-state-roaming-overview.md)

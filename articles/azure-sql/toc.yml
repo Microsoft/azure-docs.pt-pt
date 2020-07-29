@@ -78,6 +78,8 @@
                   href: database/authentication-mfa-ssms-configure.md
                 - name: Acesso Condicional
                   href: database/conditional-access-configure.md
+                - name: Principais de serviço (Aplicações)
+                  href: database/authentication-aad-service-principal.md
             - name: Encriptação de Dados Transparente (TDE)
               items:
                 - name: Descrição geral
@@ -141,6 +143,8 @@
               href: database/long-term-backup-retention-configure.md
         - name: Segurança
           items:
+            - name: Criar utilizadores convidados do Azure AD e definir como administrador do Azure AD
+              href: database/authentication-aad-guest-users.md
             - name: Configurar o TDE com o BYOK
               href: database/transparent-data-encryption-byok-configure.md
             - name: Armazenar análises de vulnerabilidades no armazenamento
@@ -277,6 +281,8 @@
               href: database/transparent-data-encryption-byok-key-rotation.md
             - name: Remover o protetor de TDE
               href: database/transparent-data-encryption-byok-remove-tde-protector.md
+            - name: Criar utilizadores com principais de serviço
+              href: database/authentication-aad-service-principal-tutorial.md
         - name: Mover dados
           items:
             - name: Migrar com o DMS

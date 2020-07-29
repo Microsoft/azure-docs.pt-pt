@@ -3,11 +3,12 @@ title: Explore registos de vestígios de Java em Azure Application Insights
 description: Pesquisa de registo4J ou rastreios de logback em Insights de Aplicações
 ms.topic: conceptual
 ms.date: 05/18/2019
-ms.openlocfilehash: da1b76d52ab93f4d1be7196d6eb7286579481119
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 417462da431d8fe2ba878c93c6f4b467bdde2670
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77657219"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324170"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Explore registos de vestígios de Java em Insights de Aplicação
 Se estiver a utilizar o Logback ou o Log4J (v1.2 ou v2.0) para rastreio, pode enviar automaticamente os seus registos de rastreios para o Application Insights, onde poderá explorar e pesquisar neles.
@@ -187,12 +188,11 @@ As exceções submetidas através de madeireiros serão apresentadas no portal c
 
 ![No portal Application Insights, abrir procura](./media/java-trace-logs/01-diagnostics.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Pesquisa de diagnóstico][diagnostic]
 
 <!--Link references-->
 
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[diagnostic]: ./diagnostic-search.md
 [java]: java-get-started.md
-
 

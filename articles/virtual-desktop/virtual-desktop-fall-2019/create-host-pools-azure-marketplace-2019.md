@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop host pool Azure Marketplace - Azure
-description: Como criar um pool de anfitriões virtual do Windows desktop utilizando o Azure Marketplace.
+title: Windows Virtual Desktop (clássico) anfitrião piscina Azure Marketplace - Azure
+description: Como criar uma piscina de anfitriões virtual do Windows Desktop (clássico) utilizando o Azure Marketplace.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b4472baa51bb0b8806c7ad617c0fc1001c800ff0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3f0db05459b8e81764915c5dffb373e7f19edbc4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256854"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291310"
 ---
-# <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutorial: Criar uma piscina de anfitriões utilizando o Azure Marketplace
+# <a name="tutorial-create-a-host-pool-in-windows-virtual-desktop-classic"></a>Tutorial: Criar uma piscina de anfitriões no Windows Virtual Desktop (clássico)
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../create-host-pools-azure-marketplace.md).
+>Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows. Se estiver a tentar gerir os objetos de ambiente de trabalho virtuais do Azure Resource Manager Windows, consulte [este artigo](../create-host-pools-azure-marketplace.md).
 
 Neste tutorial, você aprenderá a criar uma piscina de anfitriões dentro de um inquilino virtual do Windows desktop usando uma oferta do Microsoft Azure Marketplace.
 
@@ -58,7 +58,7 @@ Para executar o Azure Marketplace oferecendo uma nova piscina de anfitriões:
 
 Depois disso, siga as instruções na secção seguinte para introduzir as informações para os separadores apropriados.
 
-### <a name="basics"></a>Informações básicas
+### <a name="basics"></a>Noções básicas
 
 Aqui está o que se faz para o **separador Básico:**
 

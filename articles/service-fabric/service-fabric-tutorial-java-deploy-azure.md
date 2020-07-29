@@ -5,13 +5,13 @@ author: suhuruli
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: suhuruli
-ms.custom: mvc
-ms.openlocfilehash: 672f8916749362e7145799bdefa3bbd628fc9116
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: mvc, devx-track-java
+ms.openlocfilehash: 50ae4d34cd7b238403ee95bd36a97ac82392f3ba
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244825"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320736"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Tutorial: Implementar uma aplicação Java num cluster do Service Fabric no Azure
 
@@ -39,7 +39,7 @@ Antes de começar este tutorial:
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Instalar o SDK do Service Fabric para [Mac](service-fabric-get-started-mac.md) ou [Linux](service-fabric-get-started-linux.md)
-* [Instalar o Python 3](https://wiki.python.org/moin/BeginnersGuide/Download)
+* [Instalar o Python 3](https://wiki.python.org/moin/BeginnersGuide/Download)
 
 ## <a name="create-a-service-fabric-cluster-in-azure"></a>Criar um cluster do Service Fabric no Azure
 

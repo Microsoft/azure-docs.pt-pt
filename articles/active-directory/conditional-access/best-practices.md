@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d63cb1d7e2b0086a3d9ef6e3917ebefa11c7ccba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60d72a98a22fa85e87eb8560ad968415ca70f9a5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253380"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87275433"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Melhores práticas para acesso condicional no Diretório Ativo Azure
 
@@ -31,15 +31,15 @@ Este artigo assume que está familiarizado com os conceitos e a terminologia del
 
 Quando cria uma nova política, não existem utilizadores, grupos, apps ou controlos de acesso selecionados.
 
-![Aplicativos em nuvem](./media/best-practices/02.png)
+![Aplicações na cloud](./media/best-practices/02.png)
 
-Para que a sua política funcione, tem de configurar:
+Para que a política funcione, tem de configurar:
 
-| O quê           | Como                                  | Por que |
+| O quê           | Como                                  | Porquê |
 | :--            | :--                                  | :-- |
-| **Aplicativos em nuvem** |Selecione uma ou mais aplicações.  | O objetivo de uma política de Acesso Condicional é permitir-lhe controlar como os utilizadores autorizados podem aceder a aplicações na nuvem.|
-| **Utilizadores e grupos** | Selecione pelo menos um utilizador ou grupo que esteja autorizado a aceder às suas aplicações de nuvem selecionadas. | Uma política de Acesso Condicional que não tenha utilizadores e grupos atribuídos, nunca é ativada. |
-| **Controlos de acesso** | Selecione pelo menos um controlo de acesso. | Se as suas condições estiverem satisfeitas, o seu processador de política precisa de saber o que fazer. |
+| **Aplicações na cloud** |Selecione uma ou mais aplicações.  | O objetivo de uma política de Acesso Condicional é permitir-lhe controlar como os utilizadores autorizados podem aceder a aplicações na nuvem.|
+| **Utilizadores e grupos** | Selecione, pelo menos, um utilizador ou um grupo com autorização de acesso às aplicações na cloud selecionadas. | Uma política de Acesso Condicional que não tenha utilizadores e grupos atribuídos, nunca é ativada. |
+| **Controlos de acesso** | Selecione, pelo menos, um controlo de acesso. | Se as suas condições forem satisfeitas, o seu processador de políticas precisa de saber o que fazer. |
 
 ## <a name="what-you-should-know"></a>O que deve saber
 
@@ -49,14 +49,21 @@ Mais de uma política de Acesso Condicional pode aplicar-se quando aceder a uma 
 
 Todas as políticas são aplicadas em duas fases:
 
-- Fase 1: 
-   - Recolha de detalhes: Recolha de detalhes para identificar políticas que já estariam satisfeitas.
-   - Durante esta fase, os utilizadores poderão ver um certificado a solicitar se a conformidade do dispositivo fizer parte das suas políticas de Acesso Condicional. Esta solicitação pode ocorrer para aplicações de navegador quando o sistema operativo do dispositivo não é o Windows 10.
-   - A fase 1 da avaliação das políticas ocorre para todas as políticas e políticas ativadas no [modo apenas de relatório](concept-conditional-access-report-only.md).
-- Fase 2:
-   - Execução: Tendo em conta os detalhes recolhidos na fase 1, solicite ao utilizador que satisfaça quaisquer requisitos adicionais que não tenham sido cumpridos.
-   - Aplicar resultados à sessão. 
-   - A fase 2 da avaliação das políticas ocorre para todas as políticas ativadas.
+- Fase 1: Recolher detalhes da sessão 
+   - Recolha detalhes da sessão, como a localização do utilizador e a identidade do dispositivo que serão necessários para a avaliação de políticas. 
+   - Durante esta fase, os utilizadores poderão ver um certificado a solicitar se a conformidade do dispositivo fizer parte das suas políticas de Acesso Condicional. Esta solicitação pode ocorrer para aplicações de navegador quando o sistema operativo do dispositivo não é o Windows 10. 
+   - A fase 1 da avaliação das políticas ocorre para políticas e políticas ativadas [apenas](concept-conditional-access-report-only.md)no modo de relatório .
+- Fase 2: Execução 
+   - Utilize os detalhes da sessão recolhidos na fase 1 para identificar quaisquer requisitos que não tenham sido cumpridos. 
+   - Se houver uma política que esteja configurada para bloquear o acesso, com o controlo da subvenção por bloco, a aplicação da lei parará aqui e o utilizador será bloqueado. 
+   - O utilizador será então solicitado a completar requisitos adicionais de controlo de subvenções que não tenham sido satisfeitos durante a fase 1 na seguinte ordem, até que a política esteja satisfeita:  
+      - Multi-factor authentication 
+      - Política de proteção de aplicativos/aplicativos de cliente aprovado 
+      - Dispositivo gerido (junção AD AD compatível ou híbrido) 
+      - Termos de utilização 
+      - Controlos personalizados  
+      - Uma vez satisfeitos os controlos de subvenção, aplique controlos de sessão (App Enforcado, Microsoft Cloud App Security e Token Lifetime) 
+   - A fase 2 da avaliação das políticas ocorre para todas as políticas ativadas. 
 
 ### <a name="how-are-assignments-evaluated"></a>Como são avaliadas as atribuições?
 
@@ -71,7 +78,7 @@ Se precisar de configurar uma condição de localização que se aplique a todas
 
 Se estiver bloqueado fora do portal AD Azure devido a uma definição incorreta numa política de acesso condicional:
 
-- Verifique se há outros administradores na sua organização que ainda não estão bloqueados. Um administrador com acesso ao portal Azure pode desativar a política que está a afetar o seu sign-in. 
+- Verifique se há outros administradores na sua organização que ainda não estão bloqueados. Um administrador com acesso ao portal Azure pode desativar a política que está a afetar a sua inscrição. 
 - Se nenhum dos administradores da sua organização conseguir atualizar a política, tem de apresentar um pedido de apoio. O suporte da Microsoft pode rever e atualizar políticas de Acesso Condicional que estão a impedir o acesso.
 
 ### <a name="what-happens-if-you-have-policies-in-the-azure-classic-portal-and-azure-portal-configured"></a>O que acontece se tiver políticas no portal clássico do Azure e no portal Azure configurados?  
@@ -143,7 +150,7 @@ Considere migrar as políticas que não criou no portal Azure porque:
 
 Para obter mais informações, veja [Migrate classic policies in the Azure portal](policy-migration.md) (Migrar políticas clássicas no portal do Azure).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se quiser saber:
 

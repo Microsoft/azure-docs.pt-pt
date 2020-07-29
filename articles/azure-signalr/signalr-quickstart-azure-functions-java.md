@@ -1,5 +1,5 @@
 ---
-title: Use Java para criar uma sala de chat com Funções Azure e Serviço de Sinalizador
+title: Use Java para criar uma sala de chat com funções Azure e serviço SignalR
 description: Um início rápido para utilizar o Serviço Azure SignalR e as Funções do Azure para criar uma sala de chat.
 author: sffamily
 ms.service: signalr
@@ -7,28 +7,29 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: 890fc381afe0146e721e084e2dcd7eae9215d004
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-java
+ms.openlocfilehash: b67480f2b6de37822d74162f46caa4d7e50dc193
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77083213"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321790"
 ---
-# <a name="quickstart-use-java-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Quickstart: Use Java para criar uma sala de chat com funções Azure e serviço de sinalização
+# <a name="quickstart-use-java-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Quickstart: Use Java para criar uma sala de chat com funções Azure e serviço SignalR
 
-O Serviço De Sinalização Azure permite-lhe adicionar facilmente funcionalidadeem em tempo real à sua aplicação e o Azure Functions é uma plataforma sem servidores que permite executar o seu código sem gerir qualquer infraestrutura. Neste arranque rápido, você usa Java para construir uma aplicação de chat sem servidor, em tempo real, usando o Serviço e Funções SignalR.
+O Serviço Azure SignalR permite-lhe adicionar facilmente funcionalidades em tempo real à sua aplicação e o Azure Functions é uma plataforma sem servidor que lhe permite executar o seu código sem gerir qualquer infraestrutura. Neste arranque rápido, você usa Java para construir uma aplicação de chat sem servidor em tempo real usando o Serviço e Funções SignalR.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Um editor de código, como [Visual Studio Code](https://code.visualstudio.com/)
-- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- [Ferramentas nucleares de funções azure.](https://github.com/Azure/azure-functions-core-tools#installing) Usado para executar aplicativos Azure Function localmente.
+- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- [Azure Funções Core Tools](https://github.com/Azure/azure-functions-core-tools#installing). Costumava executar aplicativos Azure Function localmente.
 
    > [!NOTE]
-   > As ligações necessárias do Serviço SignalR em Java só são suportadas na versão 2.4.419 (versão anfitriã 2.0.12332) ou superior.
+   > As ligações necessárias para o Serviço SignalR em Java só são suportadas na versão 2.4.419 (versão de anfitrião 2.0.12332) ou superior.
 
    > [!NOTE]
-   > Para instalar extensões, as ferramentas core funções do Azure requerem o [SDK .NET Core](https://www.microsoft.com/net/download) instalado. No entanto, não precisa de estar familiarizado com o .NET para criar aplicações das Funções do Azure com JavaScript.
+   > Para instalar extensões, as Ferramentas Principais de Funções Azure requerem a instalação [do SDK .NET Core.](https://www.microsoft.com/net/download) No entanto, não precisa de estar familiarizado com o .NET para criar aplicações das Funções do Azure com JavaScript.
 
 - [Java Development Kit](https://www.azul.com/downloads/zulu/), versão 8
 - [Apache Maven](https://maven.apache.org), versão 3.0 ou superior
@@ -62,18 +63,18 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
 
 1. Em **local.settings.json**, cole a cadeia de ligação no valor da definição **AzureSignalRConnectionString**. Guarde o ficheiro.
 
-1. O ficheiro principal que contém as funções está em *src/chat/java/src/main/java/com/function/Functions.java:*
+1. O ficheiro principal que contém as funções está em *src/chat/java/src/main/java/com/function/Functions.java*:
 
     - **negociar** - Utiliza o enlace de entrada *SignalRConnectionInfo* para gerar e devolver informações de ligação válidas.
     - **sendMessage** - Recebe uma mensagem de chat no organismo de pedido e utiliza a ligação de saída *SignalR* para transmitir a mensagem a todas as aplicações de clientes conectadas.
 
-1. No terminal, certifique-se de que está na pasta *src/chat/java.* Construa a aplicação de funções.
+1. No terminal, certifique-se de que está na pasta *src/chat/java.* Construa o aplicativo de função.
 
     ```bash
     mvn clean package
     ```
 
-1. Executar a aplicação de funções localmente.
+1. Executar a aplicação de função localmente.
 
     ```bash
     mvn azure-functions:run
@@ -85,7 +86,7 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, construíste e executaste uma aplicação sem servidorem em tempo real usando o Maven. Em seguida, aprenda sobre como criar funções Java Azure do zero.
+Neste arranque rápido, construíste e executaste uma aplicação sem servidor em tempo real usando o Maven. Em seguida, aprenda sobre como criar Java Azure Functions do zero.
 
 > [!div class="nextstepaction"]
 > [Crie a sua primeira função com Java e Maven](../azure-functions/functions-create-first-java-maven.md)

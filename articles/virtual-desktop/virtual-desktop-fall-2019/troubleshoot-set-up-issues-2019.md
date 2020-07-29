@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop inquilino anfitrião criação de piscina - Azure
-description: Como resolver problemas e resolver problemas de inquilinos e piscinas de anfitrião durante a configuração de um ambiente de inquilino virtual windows desktop.
+title: Windows Virtual Desktop (clássico) inquilino anfitrião criação de piscina - Azure
+description: Como resolver problemas e resolver problemas de inquilino e piscina de anfitrião durante a configuração de um ambiente de inquilino virtual do Windows Desktop (clássico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: aad3bffeba4395ba415fb99a3667d04d18769a47
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: bd9a6dd5d11ab69635d610eee3f92a90e942b576
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026700"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87269602"
 ---
-# <a name="tenant-and-host-pool-creation"></a>Criação de inquilinos e conjuntos de anfitriões
+# <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Criação de piscina de inquilino e anfitrião no Windows Virtual Desktop (clássico)
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../troubleshoot-set-up-issues.md).
+>Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows. Se estiver a tentar gerir os objetos de ambiente de trabalho virtuais do Azure Resource Manager Windows, consulte [este artigo](../troubleshoot-set-up-issues.md).
 
 Este artigo cobre problemas durante a configuração inicial do inquilino virtual do Windows Desktop e da infraestrutura de piscina de anfitrião de sessão relacionada.
 
@@ -412,7 +412,7 @@ Se estiver a executar o modelo GitHub Azure Resource Manager, forneça valores p
 
 **Correção:** Pode especificar uma sub-rede com pelo menos tantos endereços IP disponíveis como o número de VMs adicionados não utilizando o Marketplace UI, isto pode ser feito especificando o nome da sub-rede no parâmetro "**existenteSSubnetName**" quando [recolocar uma implantação](expand-existing-host-pool-2019.md#redeploy-from-azure) ou [implantação existente usando o modelo ARM subjacente do GitHub](create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma visão geral sobre a resolução de problemas do Windows Virtual Desktop e as faixas de escalada, consulte [a visão geral da resolução de problemas, o feedback e o suporte](troubleshoot-set-up-overview-2019.md).
 - Para resolver problemas enquanto configura uma máquina virtual (VM) no Windows Virtual Desktop, consulte a [configuração da máquina virtual do anfitrião da Sessão](troubleshoot-vm-configuration-2019.md).

@@ -3,12 +3,12 @@ title: Perguntas comuns sobre migração de servidores Azure Migrate
 description: Obtenha respostas para perguntas comuns sobre a utilização da migração do servidor Azure Migrate para migrar máquinas.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 282f7ab27eead59fc87a95ea7d397268177f4f2c
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: af40aecaa1614542074cf87ce95eb81492233bdc
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224133"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321229"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migração do servidor Azure Migrate: Questões comuns
 
@@ -80,7 +80,7 @@ Não. A Azure Migrate suporta a migração apenas para discos geridos (Standard 
 
 ## <a name="how-many-vms-can-i-replicate-at-one-time-by-using-agentless-migration"></a>Quantos VMs posso replicar ao mesmo tempo usando migração sem agentes?
 
-Atualmente, pode migrar 100 VMs por exemplo do vCenter Server simultaneamente. Migrar em lotes de 10 VMs.
+Atualmente, pode migrar 300 VMs por exemplo do vCenter Server simultaneamente. Migrar em lotes de 10 VMs.
 
 ## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>Como posso acelerar a replicação na utilização do aparelho Azure Migrate para a replicação de VMware sem agente?  
 
@@ -106,7 +106,7 @@ As máquinas migratórias tratando-as como servidores físicos são úteis em v�
 
 ## <a name="i-deployed-two-or-more-appliances-to-discover-vms-in-my-vcenter-server-however-when-i-try-to-migrate-the-vms-i-only-see-vms-corresponding-to-one-of-the-appliance"></a>Implementei dois (ou mais) aparelhos para descobrir VMs no meu servidor vCenter. No entanto, quando tento migrar os VMs, só vejo VMs correspondentes a um dos aparelhos.
 
-Embora este possa ser um bom caso de uso, atualmente não o apoiamos. A colocação de dois (ou mais) aparelhos para descobrir o mesmo conjunto de VMs causa um problema de serviço em que a propriedade da VM continua a mexer entre os dois aparelhos. Esta é a razão pela qual vês os VM a aparecerem e a desaparecerem. Nesses casos, para resolver o problema, deve apagar um aparelho e fazer uma atualização difícil.
+Se houver vários aparelhos configurados, é necessário que não haja sobreposição entre os VMs nas contas vCenter fornecidas. Uma descoberta com tal sobreposição é um cenário não apoiado.
 
 ## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>Preciso de VMware vCenter para migrar VMware VMs?
 Para [migrar VMware VMs](server-migrate-overview.md) utilizando a migração baseada em agentes VMware ou sem agentes, os anfitriões ESXi nos quais estão localizados os VMs devem ser geridos pelo vCenter Server. Se não tiver vCenter Server, pode migrar VMware VMs migrando-os como servidores físicos. [Saiba mais](migrate-support-matrix-physical-migration.md).

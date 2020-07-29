@@ -7,14 +7,17 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: robinsh
-ms.openlocfilehash: 276f115f579fbd1ab077722b220a4a0c6c571850
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+ms.openlocfilehash: 6d3661128008c13e5d4d459f6f8e7925aa18a9a4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82025072"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322776"
 ---
-# <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Gestão automática de dispositivos ioT e módulos utilizando o portal Azure
+# <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Gestão automática de módulos e dispositivos IoT no portal do Azure
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
@@ -127,7 +130,7 @@ SELECT deviceId, moduleId FROM devices.modules
   WHERE properties.reported.lastDesiredStatus.code = 200
 ```
 
-### <a name="target-devices"></a>Dispositivos-alvo
+### <a name="target-devices"></a>Dispositivos de Destino
 
 Utilize a propriedade tags dos seus gémeos para direcionar os dispositivos ou módulos específicos que devem receber esta configuração. Também pode visar propriedades geminais reportadas.
 

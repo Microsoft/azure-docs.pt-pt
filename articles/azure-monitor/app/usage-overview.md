@@ -3,24 +3,24 @@ title: Análise de utilização com Azure Application Insights / Docs da Microso
 description: Compreenda os seus utilizadores e o que fazem com a sua aplicação.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 1acc803d66bef29a77266d4e38e1605ffd75f36f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bd0b95fe92171d2c5a1515941dbf86a0e31e04be
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014070"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323558"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análise de utilização com o Application Insights
 
-Quais as funcionalidades da sua web ou aplicação móvel mais populares? Os seus utilizadores alcançam os seus objetivos com a sua app? Desempatam em determinados pontos, e voltam mais tarde?  [O Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) ajuda-o a obter informações poderosas sobre como as pessoas usam a sua aplicação. Sempre que atualizar a sua aplicação, pode avaliar o quão bem funciona para os utilizadores. Com este conhecimento, pode tomar decisões orientadas para dados sobre os seus próximos ciclos de desenvolvimento.
+Quais as funcionalidades da sua web ou aplicação móvel mais populares? Os seus utilizadores alcançam os seus objetivos com a sua app? Desempatam em determinados pontos, e voltam mais tarde?  [O Azure Application Insights](./app-insights-overview.md) ajuda-o a obter informações poderosas sobre como as pessoas usam a sua aplicação. Sempre que atualizar a sua aplicação, pode avaliar o quão bem funciona para os utilizadores. Com este conhecimento, pode tomar decisões orientadas para dados sobre os seus próximos ciclos de desenvolvimento.
 
 ## <a name="send-telemetry-from-your-app"></a>Envie telemetria a partir da sua app
 
 A melhor experiência obtém-se através da instalação de Application Insights tanto no código do servidor da sua aplicação como nas suas páginas web. Os componentes do cliente e do servidor da sua aplicação enviam a telemetria de volta para o portal Azure para análise.
 
-1. **Código do servidor:** Instale o módulo apropriado para o seu [ASP.NET](../../azure-monitor/app/asp-net.md), [Azure,](../../azure-monitor/app/app-insights-overview.md) [Java,](../../azure-monitor/app/java-get-started.md) [Node.js](../../azure-monitor/app/nodejs.md)ou [outra](../../azure-monitor/app/platforms.md) aplicação.
+1. **Código do servidor:** Instale o módulo apropriado para o seu [ASP.NET](./asp-net.md), [Azure,](./app-insights-overview.md) [Java,](./java-get-started.md) [Node.js](./nodejs.md)ou [outra](./platforms.md) aplicação.
 
-    * *Não quer instalar o código do servidor? Basta [criar um recurso Azure Application Insights](../../azure-monitor/app/create-new-resource.md ).*
+    * *Não quer instalar o código do servidor? Basta [criar um recurso Azure Application Insights](./create-new-resource.md).*
 
 2. **Código da página web:** Adicione o seguinte script à sua página web antes do fecho ``</head>`` . Substitua a tecla de instrumentação pelo valor adequado para o seu recurso Application Insights:
     
@@ -36,7 +36,7 @@ A melhor experiência obtém-se através da instalação de Application Insights
 
     Para obter configurações mais avançadas para monitorizar websites, consulte o [artigo de referência javaScript SDK](./javascript.md).
 
-3. **Código de aplicativo móvel:** Utilize o App Center SDK para recolher eventos da sua aplicação e, em seguida, envie cópias destes eventos para a Aplicação Insights para [análise, seguindo este guia.](../../azure-monitor/learn/mobile-center-quickstart.md)
+3. **Código de aplicativo móvel:** Utilize o App Center SDK para recolher eventos da sua aplicação e, em seguida, envie cópias destes eventos para a Aplicação Insights para [análise, seguindo este guia.](../learn/mobile-center-quickstart.md)
 
 4. **Obter telemetria:** Execute o seu projeto em modo de depurar durante alguns minutos e, em seguida, procure resultados na lâmina de visão geral em Application Insights.
 
@@ -103,7 +103,7 @@ Ou do lado do servidor:
 
 Pode anexar valores de propriedade a estes eventos, para que possa filtrar ou dividir os eventos quando os inspeciona no portal. Além disso, um conjunto padrão de propriedades é anexado a cada evento, como iD de utilizador anónimo, que permite rastrear a sequência de atividades de um utilizador individual.
 
-Saiba mais sobre eventos e [propriedades](../../azure-monitor/app/api-custom-events-metrics.md#properties) [personalizadas.](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)
+Saiba mais sobre eventos e [propriedades](./api-custom-events-metrics.md#properties) [personalizadas.](./api-custom-events-metrics.md#trackevent)
 
 ### <a name="slice-and-dice-events"></a>Eventos de fatias e dados
 
@@ -121,7 +121,7 @@ Para esta técnica, você anexa valores de propriedade distintos a toda a teleme
 
 No portal Application Insights, filtre e divida os seus dados sobre os valores da propriedade, de modo a comparar as diferentes versões.
 
-Para tal, [crie um inicializador de telemetria:](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)
+Para tal, [crie um inicializador de telemetria:](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)
 
 **Aplicações ASP.NET**
 
@@ -175,5 +175,6 @@ Todos os novos TelemetriaClients adicionam automaticamente o valor da propriedad
    - [Funis](usage-funnels.md)
    - [Retenção](usage-retention.md)
    - [Fluxos do Utilizador](usage-flows.md)
-   - [Livros](../../azure-monitor/platform/workbooks-overview.md)
+   - [Livros](../platform/workbooks-overview.md)
    - [Adicionar contexto de utilizador](usage-send-user-context.md)
+

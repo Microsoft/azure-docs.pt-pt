@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 5a55d66bfed19f6d88d4ff13a9f59d7e791664cc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+author: parthpandyaMSFT
+ms.author: parthp
+ms.openlocfilehash: 862922ff3d0e09d1d1fdc864886852aed910c7df
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092189"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326652"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Criar uma conta de mercado comercial no Partner Center
 

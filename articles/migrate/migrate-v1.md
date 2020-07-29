@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5ea17edc61988f13df5137686d823a424f6752ce
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2defb00827e6f3ccf49c336007198b7d9ac176f6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080867"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87306116"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Trabalhar com a versão anterior de Azure Migrate
 
@@ -127,7 +127,7 @@ Windows Cliente 7, 8 e 10 | O Azure fornece suporte apenas com [subscrição do 
 Windows 10 Pro Desktop | A Azure fornece suporte com [direitos de hospedagem multitenant.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Condicionalmente preparado para o Azure
 Windows Vista, XP Professional | Sem apoio. A máquina pode arrancar em Azure, mas nenhum suporte de SO é fornecido pela Azure. | Sem condições para o Azure, recomenda-se atualizar o SO antes de migrar para Azure.
 Linux | O Azure apoia estes [sistemas operativos Linux.](../virtual-machines/linux/endorsed-distros.md) Outros sistemas operativos Linux podem arrancar em Azure, mas recomendamos o upgrade do SO para uma versão endossada, antes de migrar para Azure. | Pronto para o Azure se a versão for endossada.<br/><br/>Condicionalmente pronto se a versão não for endossada.
-Outros sistemas operativos<br/><br/> Por exemplo, Oracle Solaris, Apple Mac OS etc., FreeBSD, etc. | O Azure não apoia estes sistemas operativos. A máquina pode arrancar em Azure, mas nenhum suporte de SO é fornecido pela Azure. | Sem condições para o Azure, recomenda-se instalar um SISTEMA suportado antes de migrar para Azure.  
+Outros sistemas operativos<br/><br/> Por exemplo, Oracle Solaris, Apple macOS etc., FreeBSD, etc. | O Azure não apoia estes sistemas operativos. A máquina pode arrancar em Azure, mas nenhum suporte de SO é fornecido pela Azure. | Sem condições para o Azure, recomenda-se instalar um SISTEMA suportado antes de migrar para Azure.  
 OS especificado como **Outros** no servidor vCenter | Azure Migrate não pode identificar o SO neste caso. | Prontidão desconhecida. Certifique-se de que o SISTEMA que corre no interior do VM é suportado em Azure.
 Sistemas operativos de 32 bits | A máquina pode arrancar em Azure, mas a Azure pode não fornecer suporte total. | Condicionalmente pronto para o Azure, considere atualizar o SO da máquina de 32 bits de SO a 64-bit de SO antes de migrar para Azure.
 
@@ -210,7 +210,7 @@ Para utilizar a visualização da dependência, associa um espaço de trabalho l
 1. Para anexar um espaço de trabalho Log Analytics a um projeto, em **visão geral,**> **Essentials,** clique em **Requer a configuração**.
 2. Pode criar um novo espaço de trabalho ou anexar um existente:
   - Para criar um novo espaço de trabalho, especifique um nome. O espaço de trabalho é criado numa região da mesma [geografia azul que](https://azure.microsoft.com/global-infrastructure/geographies/) o projeto de migração.
-  - Quando anexar um espaço de trabalho existente, pode escolher entre todos os espaços de trabalho disponíveis na mesma subscrição que o projeto de migração. Apenas esses espaços de trabalho estão listados que foram criados numa [região de Mapa de Serviço suportado.](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites) Para anexar um espaço de trabalho, certifique-se de que tem acesso 'Reader' ao espaço de trabalho.
+  - Quando anexar um espaço de trabalho existente, pode escolher entre todos os espaços de trabalho disponíveis na mesma subscrição que o projeto de migração. Apenas esses espaços de trabalho estão listados que foram criados numa [região de Mapa de Serviço suportado.](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions) Para anexar um espaço de trabalho, certifique-se de que tem acesso 'Reader' ao espaço de trabalho.
 
 > [!NOTE]
 > Não se pode mudar o espaço de trabalho associado a um projeto de migração.

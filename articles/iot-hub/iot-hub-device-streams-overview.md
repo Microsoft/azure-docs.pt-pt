@@ -7,11 +7,16 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: robinsh
-ms.openlocfilehash: ff738e56226f7cbb720a754573a9d8607e0e3247
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+- 'Role: Technical Support'
+ms.openlocfilehash: 4a13d1ff030a63d3ccf33297f215909f5920e16a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73890455"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327689"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Streams de dispositivos do hub IoT (pré-visualização)
 
@@ -207,7 +212,7 @@ Utilize os links abaixo para obter instruções sobre como executar os programas
 
 * [Programa de dispositivos C](quickstart-device-streams-proxy-c.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Use os links abaixo para saber mais sobre os fluxos de dispositivos.
 

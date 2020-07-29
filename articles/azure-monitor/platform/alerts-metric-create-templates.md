@@ -7,21 +7,21 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 7/9/2020
 ms.subservice: alerts
-ms.openlocfilehash: 043ecc07c521f9c1c79835bcd67ff1d81cacfa34
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3b0215ea2f02441f93e6eb9b672744638ae93b11
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539470"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321144"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Este artigo mostra como pode usar um [modelo de Gestor de Recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para configurar novos [alertas métricos](../../azure-monitor/platform/alerts-metric-near-real-time.md) no Azure Monitor. Os modelos de Gestor de Recursos permitem-lhe configurar programáticamente alertas de forma consistente e reprodutível em todos os seus ambientes. Os alertas métricos mais recentes estão atualmente disponíveis [neste conjunto de tipos de recursos.](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)
+Este artigo mostra como pode usar um [modelo de Gestor de Recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para configurar novos [alertas métricos](./alerts-metric-near-real-time.md) no Azure Monitor. Os modelos de Gestor de Recursos permitem-lhe configurar programáticamente alertas de forma consistente e reprodutível em todos os seus ambientes. Os alertas métricos mais recentes estão atualmente disponíveis [neste conjunto de tipos de recursos.](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported)
 
 > [!IMPORTANT]
-> O modelo de recursos para a criação de alertas métricos para o tipo de recurso: Azure Log Analytics Workspace (i.e.) `Microsoft.OperationalInsights/workspaces` , requer passos adicionais. Para mais detalhes, consulte o artigo no [Alerta métrico para Registos - Modelo de Recursos](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+> O modelo de recursos para a criação de alertas métricos para o tipo de recurso: Azure Log Analytics Workspace (i.e.) `Microsoft.OperationalInsights/workspaces` , requer passos adicionais. Para mais detalhes, consulte o artigo no [Alerta métrico para Registos - Modelo de Recursos](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 Os passos básicos são os seguintes:
 
@@ -3464,7 +3464,7 @@ az group deployment create \
 
 ## <a name="template-for-an-availability-test-along-with-a-metric-alert"></a>Modelo para um teste de disponibilidade juntamente com um alerta métrico
 
-[Os testes de disponibilidade de Insights](../../azure-monitor/app/monitor-web-app-availability.md) de Aplicação ajudam-no a monitorizar a disponibilidade do seu site/aplicação de vários locais em todo o mundo. Os alertas de teste de disponibilidade notificam-no quando os testes de disponibilidade falham a partir de um determinado número de locais.
+[Os testes de disponibilidade de Insights](../app/monitor-web-app-availability.md) de Aplicação ajudam-no a monitorizar a disponibilidade do seu site/aplicação de vários locais em todo o mundo. Os alertas de teste de disponibilidade notificam-no quando os testes de disponibilidade falham a partir de um determinado número de locais.
 Alertas de teste de disponibilidade do mesmo tipo de recurso que os alertas métricos (Microsoft.Insights/metricAlerts). A amostra a seguir Modelo do Gestor de Recursos Azure pode ser usada para configurar um teste de disponibilidade simples e alerta associado.
 
 Guarde o json abaixo como availabilityalert.jspara o propósito desta passagem.
@@ -3623,8 +3623,9 @@ az group deployment create \
     --parameters @availabilityalert.parameters.json
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Ler mais sobre [alertas em Azure](alerts-overview.md)
 - Saiba como [criar um grupo de ação com modelos de Gestor de Recursos](action-groups-create-resource-manager-template.md)
 - Para a sintaxe e propriedades JSON, consulte a referência do modelo [Microsoft.Insights/metricAlerts.](/azure/templates/microsoft.insights/metricalerts)
+

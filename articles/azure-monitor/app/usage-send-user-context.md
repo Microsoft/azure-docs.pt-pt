@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
-ms.openlocfilehash: a3a59b6658e6ea0229f65492b20b5f5f2882d12a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 46b7479df6d087915cfe81895a786a528da6b9bb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499244"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327910"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Envie IDs de contexto de utilizador para permitir experiências de utilização em Azure Application Insights
 
@@ -30,7 +30,7 @@ Para acompanhar o que um utilizador faz ao longo do tempo, o Application Insight
 - Sessões: Incluir iD de sessão.
 
 > [!NOTE]
-> Este é um artigo avançado que descreve os passos manuais para rastrear a atividade do utilizador com o Application Insights. Com muitas aplicações **web, estes passos podem não ser necessários**, uma vez que os SDKs do lado do servidor padrão em conjunto com o [JavaScript SDK do lado do Cliente/Browser](../../azure-monitor/app/website-monitoring.md ), são muitas vezes suficientes para rastrear automaticamente a atividade do utilizador. Se ainda não configurar [a monitorização do lado](../../azure-monitor/app/website-monitoring.md ) do cliente para além do SDK do lado do servidor, faça-o primeiro e teste para ver se as ferramentas de análise de comportamento do utilizador estão a funcionar como esperado.
+> Este é um artigo avançado que descreve os passos manuais para rastrear a atividade do utilizador com o Application Insights. Com muitas aplicações **web, estes passos podem não ser necessários**, uma vez que os SDKs do lado do servidor padrão em conjunto com o [JavaScript SDK do lado do Cliente/Browser](./website-monitoring.md), são muitas vezes suficientes para rastrear automaticamente a atividade do utilizador. Se ainda não configurar [a monitorização do lado](./website-monitoring.md) do cliente para além do SDK do lado do servidor, faça-o primeiro e teste para ver se as ferramentas de análise de comportamento do utilizador estão a funcionar como esperado.
 
 ## <a name="choosing-user-ids"></a>Escolher iDs de utilizador
 
@@ -126,7 +126,7 @@ namespace MvcWebRole.Telemetry
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para ativar experiências de utilização, comece a enviar [eventos personalizados](./api-custom-events-metrics.md#trackevent) ou [vistas de página.](./api-custom-events-metrics.md#page-views)
 - Se já envia eventos personalizados ou vistas de página, explore as ferramentas de Utilização para saber como os utilizadores usam o seu serviço.
@@ -134,4 +134,5 @@ namespace MvcWebRole.Telemetry
     - [Users, Sessions, and Events](usage-segmentation.md) (Utilizadores, Sessões e Eventos)
     - [Funis](usage-funnels.md)
     - [Retenção](usage-retention.md)
-    - [Livros](../../azure-monitor/platform/workbooks-overview.md)
+    - [Livros](../platform/workbooks-overview.md)
+

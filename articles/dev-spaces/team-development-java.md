@@ -2,18 +2,19 @@
 title: Desenvolvimento de equipa usando Java e Visual Studio Code
 services: azure-dev-spaces
 author: stepro
+ms.custom: devx-track-java
 ms.author: stephpr
 ms.date: 08/01/2018
 ms.topic: tutorial
 description: Este tutorial mostra-lhe como usar Azure Dev Spaces e Visual Studio Code para fazer desenvolvimento de equipa numa aplicação Java no Serviço Azure Kubernetes
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s '
 manager: gwallace
-ms.openlocfilehash: 8bfcf16d3fcf685f946eb38b0b47fce4f2feba5b
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 80544b497caf39ee45acb82ff644a5c06ac3ff7e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220240"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327196"
 ---
 # <a name="team-development-using-java-and-visual-studio-code-with-azure-dev-spaces"></a>Desenvolvimento de equipas usando Java e Código de Estúdio Visual com Espaços Azure Dev
 
@@ -148,7 +149,7 @@ Agora, remova a parte do URL "scott.s." e atualize o browser. Você deve ver o c
 
 Uma vez que você tem um espaço _dev,_ que contém sempre as suas últimas alterações, e assumindo que a sua aplicação foi projetada para aproveitar o encaminhamento espacial da DevSpace como descrito nesta secção tutorial, espero que se torne fácil ver como dev Spaces pode ajudar muito a testar novas funcionalidades no contexto da aplicação maior. Em vez de ter de implantar _todos os_ serviços para o seu espaço privado, pode criar um espaço privado que deriva do _dev_, e apenas "up" dos serviços em que está realmente a trabalhar. A infraestrutura de encaminhamento Dev Spaces irá lidar com o resto utilizando o maior número de serviços fora do seu espaço privado que possa encontrar, enquanto está de volta à versão mais recente em execução no espaço _dev._ E melhor ainda, _vários_ desenvolvedores podem desenvolver ativamente diferentes serviços ao mesmo tempo no seu próprio espaço sem perturbar uns aos outros.
 
-### <a name="well-done"></a>Já está!
+### <a name="well-done"></a>Parabéns!
 Concluiu o guia de introdução! Aprendeu a:
 
 > [!div class="checklist"]

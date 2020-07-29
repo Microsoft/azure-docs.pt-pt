@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0814312bb12582dd9e9ebfafc60fba470f6a9a9
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: a3995395cfd6256689bedc7a4a3c83effc65c0b4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84905162"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87313545"
 ---
 # <a name="samples-for-external-identities-self-service-sign-up"></a>Amostras para inscrição de autosserviço de identidades externas
 
@@ -24,7 +24,7 @@ As tabelas que se seguem fornecem links para amostras de código para alavancar 
 
 ## <a name="api-connector-azure-function-quickstarts"></a>Inícios rápidos de função api azure
 
-| Sample                                                                                                                          | Description                                                                                                                                               |
+| Sample                                                                                                                          | Descrição                                                                                                                                               |
 | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-api-connector-azure-function-validate) | Esta amostra de Função .NET Core Azure demonstra como limitar as inscrições a domínios específicos do inquilino e validar informações fornecidas pelo utilizador. |
 | [Node.js](https://github.com/Azure-Samples/active-directory-nodejs-external-identities-api-connector-azure-function-validate)   | Esta amostra Node.js Azure Function demonstra como limitar as inscrições a domínios específicos do inquilino e validar informações fornecidas pelo utilizador.  |
@@ -34,14 +34,13 @@ As tabelas que se seguem fornecem links para amostras de código para alavancar 
 
 ## <a name="custom-approval-workflows"></a>Fluxos de trabalho de aprovação personalizadas
 
-| Sample | Description |
+| Sample | Descrição |
 |--------| ----------- |
 | [Fluxo de trabalho de aprovação manual](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-api-connectors-approvals) | Esta amostra demonstra um fluxo de trabalho de aprovação de ponta a ponta para gerir a criação de conta de utilizador convidado em inscrição de self-service |
 
 ## <a name="identity-verification"></a>Verificação de identidade
 
-| Sample                                                                                                            | Description                                                                                                                          |
+| Sample                                                                                                            | Descrição                                                                                                                          |
 | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | [IDology](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-idology-identity-verification) | Esta amostra mostra como verificar a identidade do utilizador como parte da sua inscrição de self-service utilizando um conector API para integrar com iDologia. |
-
-<!-- | [Experian](https://github.com/Azure-Samples/) | This sample shows how add identity verification to your self-service sign-up user flow by using an API connector to integrate with Experian. | -->
+| [Experian](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-experian-identity-verification) | Esta amostra mostra como verificar a identidade do utilizador como parte da sua inscrição de autosserviço utilizando um conector API para integrar com a Experian. |

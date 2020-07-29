@@ -4,12 +4,12 @@ description: Padrões de escala automática em Azure para aplicações web, conj
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 47da813498ef2cd4d16aeaa5ab31eff24b1db267
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 414716fbbb36167e52c4f3b98c70ae7696ffea8f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539538"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327060"
 ---
 # <a name="best-practices-for-autoscale"></a>Melhores práticas do Dimensionamento Automático
 A autoescala do Azure Monitor aplica-se apenas a [conjuntos de escalas de máquinas virtuais,](https://azure.microsoft.com/services/virtual-machine-scale-sets/) [serviços de nuvem,](https://azure.microsoft.com/services/cloud-services/) [serviço de aplicações - Web Apps](https://azure.microsoft.com/services/app-service/web/)e [serviços de Gestão API.](../../api-management/api-management-key-concepts.md)
@@ -22,7 +22,7 @@ A autoescala do Azure Monitor aplica-se apenas a [conjuntos de escalas de máqui
   Uma definição de autoescala tem um valor máximo, mínimo e predefinido de ocorrências.
 * Um trabalho de autoescala lê sempre a métrica associada à escala, verificando se ultrapassou o limiar configurado para a escala ou escala. Pode ver uma lista de métricas que a autoescalação pode escalar em [Azure Monitor autoscaling métricas comuns](autoscale-common-metrics.md).
 * Todos os limiares são calculados a um nível de instância. Por exemplo, "escala por um caso quando a CPU média > 80% quando a contagem de casos é de 2", significa escala quando a CPU média em todos os casos é superior a 80%.
-* Todas as falhas de autoescala estão registadas no Registo de Atividades. Em seguida, pode configurar um [alerta de registo de atividade](./../../azure-monitor/platform/activity-log-alerts.md) para que possa ser notificado por e-mail, SMS ou webhooks sempre que houver uma falha de autoescalação.
+* Todas as falhas de autoescala estão registadas no Registo de Atividades. Em seguida, pode configurar um [alerta de registo de atividade](./activity-log-alerts.md) para que possa ser notificado por e-mail, SMS ou webhooks sempre que houver uma falha de autoescalação.
 * Da mesma forma, todas as ações de escala bem sucedidas são publicadas no Registo de Atividade. Em seguida, pode configurar um alerta de registo de atividade para que possa ser notificado por e-mail, SMS ou webhooks sempre que houver uma ação de autoescala bem sucedida. Também pode configurar notificações de email ou webhook para ser notificado para ações de escala bem sucedidas através do separador de notificações na definição de escala automática.
 
 ## <a name="autoscale-best-practices"></a>Melhores práticas de autoescala
@@ -148,6 +148,7 @@ Também pode utilizar um alerta de Registo de Atividade para monitorizar a saúd
 
 Além de utilizar alertas de registo de atividade, também pode configurar notificações de email ou webhook para ser notificado para ações de escala bem sucedida através do separador de notificações na definição de escala automática.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 - [Crie um Alerta de Registo de Atividade para monitorizar todas as operações do motor de escala automática na sua subscrição.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Crie um Alerta de Registo de Atividade para monitorizar todas as operações falhadas de escala automática na sua subscrição](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+

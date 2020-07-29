@@ -3,12 +3,12 @@ title: Insights de Aplicação para aplicações de Serviço de Trabalhadores (a
 description: Monitorização de .NET Core/.NET Aplicações não-HTTP com Insights de Aplicação do Monitor Azure.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 7ae146c6c010f067973c9fbae4c90bd1116d7c21
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d429a1e0515d24d1c9953af7815dadf2488be302
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499210"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325411"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Pedidos de informação para aplicações de serviços de trabalhadores (aplicações não-HTTP)
 
@@ -491,7 +491,7 @@ Se pretender desativar a telemetria de forma condicional e dinâmica, poderá re
     }
 ```
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="how-can-i-track-telemetry-thats-not-automatically-collected"></a>Como posso rastrear a telemetria que não é recolhida automaticamente?
 
@@ -540,9 +540,10 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 [Leia e contribua para o código.](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Utilize a API](../../azure-monitor/app/api-custom-events-metrics.md) para enviar os seus próprios eventos e métricas para uma visão detalhada do desempenho e utilização da sua aplicação.
-* [Acompanhe as dependências adicionais não rastreadas automaticamente.](../../azure-monitor/app/auto-collect-dependencies.md)
-* [Enriqueça ou filtre a telemetria recolhida.](../../azure-monitor/app/api-filtering-sampling.md)
+* [Utilize a API](./api-custom-events-metrics.md) para enviar os seus próprios eventos e métricas para uma visão detalhada do desempenho e utilização da sua aplicação.
+* [Acompanhe as dependências adicionais não rastreadas automaticamente.](./auto-collect-dependencies.md)
+* [Enriqueça ou filtre a telemetria recolhida.](./api-filtering-sampling.md)
 * [Injeção de Dependência no Núcleo ASP.NET](/aspnet/core/fundamentals/dependency-injection).
+

@@ -4,15 +4,15 @@ description: Como criar uma nova oferta de Serviço Gerido para listagem no Azur
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: JnHs
-ms.author: jenhayes
+author: Microsoft-BradleyWright
+ms.author: brwrigh
 ms.date: 07/07/2020
-ms.openlocfilehash: 3bb663dcdf007bf77d1b9f2b46af532774af22e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 193781e078f12dec553d98c15699c7e665966a87
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086392"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326631"
 ---
 # <a name="create-a-managed-service-offer"></a>Criar uma oferta de Serviço Gerido
 
@@ -42,7 +42,7 @@ Introduza um **ID de oferta**. Este é um identificador único para cada oferta 
 Insira **um pseudónimo de Oferta.** Este é o nome usado para a oferta no Partner Center.
 
 * Este nome não é usado no mercado e é diferente do nome da oferta e outros valores mostrados aos clientes.
-* O pseudónimo Th Offer não pode ser alterado depois de selecionar **Criar**.
+* O pseudónimo Oferta não pode ser alterado depois de selecionar **Criar**.
 
 Selecione **Criar** para gerar a oferta e continuar.
 
@@ -90,7 +90,7 @@ Aqui está um exemplo de como a oferta de informação aparece no portal Azure:
 3. Ligações úteis
 4. Capturas de ecrã
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 
 O nome que introduzir aqui será mostrado aos clientes como o título da sua listagem de oferta. Este campo é pré-povoado com o texto que inseriu para **o pseudónimo Oferta** quando criou a oferta, mas pode alterar este valor. Este nome pode ser comercializado (e pode incluir símbolos de marca registada ou de direitos autorais). O nome não pode ter mais de 50 caracteres e não pode incluir emojis.
 

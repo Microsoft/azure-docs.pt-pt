@@ -3,19 +3,19 @@ title: Explore registos de traços .NET em Insights de Aplicação
 description: Registos de pesquisa gerados por Trace, NLog ou Log4Net.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: aad81855b58ee96789d097fbfbd3e7f9b17f6900
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c192ae8fad6cf463af892018fcac385b3bdcd345
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014580"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321331"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Explore registos de traços .NET/.NET e Python em Insights de Aplicação
 
 Envie registos de rastreio de diagnóstico para a sua aplicação core ASP.NET/ASP.NET a partir de ILogger, NLog, log4Net ou System.Diagnostics.Trace to [Azure Application Insights][start]. Para aplicações Python, envie registos de rastreio de diagnóstico utilizando AzureLogHandler em OpenCensus Python para Azure Monitor. Em seguida, pode explorá-los e revistá-los. Esses registos são fundidos com os outros ficheiros de registo da sua aplicação, para que possa identificar vestígios que estejam associados a cada pedido do utilizador e correlacioná-los com outros eventos e relatórios de exceção.
 
 > [!NOTE]
-> Precisa do módulo de captação de registos? É um adaptador útil para madeireiros de terceiros. Mas se ainda não estiver a utilizar NLog, log4Net ou System.Diagnostics.Trace, considere apenas ligar diretamente para [**o TrackTrace de Insights de Aplicação.).**](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)
+> Precisa do módulo de captação de registos? É um adaptador útil para madeireiros de terceiros. Mas se ainda não estiver a utilizar NLog, log4Net ou System.Diagnostics.Trace, considere apenas ligar diretamente para [**o TrackTrace de Insights de Aplicação.).**](./api-custom-events-metrics.md#tracktrace)
 >
 >
 ## <a name="install-logging-on-your-app"></a>Instale o registo registado na sua aplicação
@@ -34,7 +34,7 @@ Instale a estrutura de registo escolhida no seu projeto, o que deverá resultar 
 ```
 
 ## <a name="configure-application-insights-to-collect-logs"></a>Configurar insights de aplicações para recolher registos
-[Adicione Insights de Aplicação ao seu projeto](../../azure-monitor/app/asp-net.md) se ainda não o fez. Verá uma opção para incluir o colecionador de registos.
+[Adicione Insights de Aplicação ao seu projeto](./asp-net.md) se ainda não o fez. Verá uma opção para incluir o colecionador de registos.
 
 Ou clique com o botão direito no seu projeto no Solution Explorer para **configurar insights de aplicações.** Selecione a opção **de recolha de vestígios configurar.**
 
@@ -84,7 +84,7 @@ Se preferir log4net ou NLog, use:
 ```
 
 ## <a name="use-eventsource-events"></a>Use eventos EventSource
-Pode configurar [os eventos System.Diagnostics.Tracing.EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) a enviar para o Application Insights como vestígios. Primeiro, instale o `Microsoft.ApplicationInsights.EventSourceListener` pacote NuGet. Em seguida, edite a `TelemetryModules` secção do ficheiro [ApplicationInsights.config.](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
+Pode configurar [os eventos System.Diagnostics.Tracing.EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) a enviar para o Application Insights como vestígios. Primeiro, instale o `Microsoft.ApplicationInsights.EventSourceListener` pacote NuGet. Em seguida, edite a `TelemetryModules` secção do ficheiro [ApplicationInsights.config.](./configuration-with-applicationinsights-config.md)
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -100,7 +100,7 @@ Para cada fonte, pode definir os seguintes parâmetros:
  * **Palavras-chave** (opcional) especificam o valor inteiro das combinações de palavras-chave a utilizar.
 
 ## <a name="use-diagnosticsource-events"></a>Use eventos DiagnosticSource
-Pode configurar [os eventos System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) a serem enviados para o Application Insights como vestígios. Primeiro, instale o [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) pacote NuGet. Em seguida, edite a secção "TelemetriaModules" do ficheiro [ApplicationInsights.config.](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
+Pode configurar [os eventos System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) a serem enviados para o Application Insights como vestígios. Primeiro, instale o [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) pacote NuGet. Em seguida, edite a secção "TelemetriaModules" do ficheiro [ApplicationInsights.config.](./configuration-with-applicationinsights-config.md)
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.DiagnosticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
@@ -113,7 +113,7 @@ Pode configurar [os eventos System.Diagnostics.DiagnosticSource](https://github.
 Para cada DiagnosticSource que pretende localizar, adicione uma entrada com o atributo **Nome** definido para o nome do seu DiagnosticSource.
 
 ## <a name="use-etw-events"></a>Use eventos ETW
-Pode configurar o rastreio de eventos para eventos windows (ETW) a serem enviados para o Application Insights como vestígios. Primeiro, instale o `Microsoft.ApplicationInsights.EtwCollector` pacote NuGet. Em seguida, edite a secção "TelemetriaModules" do ficheiro [ApplicationInsights.config.](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
+Pode configurar o rastreio de eventos para eventos windows (ETW) a serem enviados para o Application Insights como vestígios. Primeiro, instale o `Microsoft.ApplicationInsights.EtwCollector` pacote NuGet. Em seguida, edite a secção "TelemetriaModules" do ficheiro [ApplicationInsights.config.](./configuration-with-applicationinsights-config.md)
 
 > [!NOTE] 
 > Os eventos da ETW só podem ser recolhidos se o processo que acolhe o SDK for executado sob uma identidade que seja membro de Utilizadores ou Administradores de Registos de Desempenho.
@@ -158,7 +158,7 @@ Isto permitir-lhe-ia filtrar facilmente em [Pesquisa de][diagnostic] todas as me
 ## <a name="azureloghandler-for-opencensus-python"></a>AzureLogHandler para OpenCensus Python
 O Azure Monitor Log Handler permite-lhe exportar registos Python para o Azure Monitor.
 
-Instrumento a sua aplicação com o [OpenCensus Python SDK](../../azure-monitor/app/opencensus-python.md) para O Monitor Azure.
+Instrumento a sua aplicação com o [OpenCensus Python SDK](./opencensus-python.md) para O Monitor Azure.
 
 Este exemplo mostra como enviar um registo de nível de aviso para o Monitor Azure.
 
@@ -185,14 +185,14 @@ Pode, por exemplo:
 * Guarde a configuração de uma página como favorita.
 
 > [!NOTE]
->Se a sua aplicação enviar muitos dados e estiver a utilizar o SDK Application Insights para ASP.NET versão 2.0.0-beta3 ou posterior, a *função de amostragem adaptativa* pode funcionar e enviar apenas uma parte da sua telemetria. [Saiba mais sobre amostragem.](../../azure-monitor/app/sampling.md)
+>Se a sua aplicação enviar muitos dados e estiver a utilizar o SDK Application Insights para ASP.NET versão 2.0.0-beta3 ou posterior, a *função de amostragem adaptativa* pode funcionar e enviar apenas uma parte da sua telemetria. [Saiba mais sobre amostragem.](./sampling.md)
 >
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 ### <a name="how-do-i-do-this-for-java"></a>Como faço isto pela Java?
 Na instrumentação sem código de Java (recomendada) os troncos são recolhidos fora da caixa, utilize o [agente Java 3.0](./java-in-process-agent.md).
 
-Se estiver a utilizar o Java SDK, utilize os [adaptadores de registo Java](../../azure-monitor/app/java-trace-logs.md).
+Se estiver a utilizar o Java SDK, utilize os [adaptadores de registo Java](./java-trace-logs.md).
 
 ### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>Não há opção Application Insights no menu de contexto do projeto
 * Certifique-se de que as Ferramentas de Análise do Desenvolvedor estão instaladas na máquina de desenvolvimento. Nas extensões e atualizações de **ferramentas**de estúdio  >  visual, procure**ferramentas** **de análise de desenvolvedores.** Se não estiver no separador **Instalado,** abra o separador **Online** e instale-o.
@@ -210,10 +210,10 @@ Provavelmente instalou o pacote Nuget do adaptador de registo sem instalar o App
 Pode levar algum tempo para todos os eventos e pedidos para passar pelo oleoduto.
 
 ### <a name="how-much-data-is-retained"></a><a name="limits"></a>Quantos dados são retidos?
-Vários fatores afetam a quantidade de dados que são retidos. Para mais informações, consulte a secção [limites](../../azure-monitor/app/api-custom-events-metrics.md#limits) da página de métricas do evento do cliente.
+Vários fatores afetam a quantidade de dados que são retidos. Para mais informações, consulte a secção [limites](./api-custom-events-metrics.md#limits) da página de métricas do evento do cliente.
 
 ### <a name="i-dont-see-some-log-entries-that-i-expected"></a>Não vejo algumas entradas de registo que esperava.
-Se a sua aplicação enviar quantidades volumosas de dados e estiver a utilizar o SDK Application Insights para ASP.NET versão 2.0.0-beta3 ou posterior, a função de amostragem adaptativa pode funcionar e enviar apenas uma parte da sua telemetria. [Saiba mais sobre amostragem.](../../azure-monitor/app/sampling.md)
+Se a sua aplicação enviar quantidades volumosas de dados e estiver a utilizar o SDK Application Insights para ASP.NET versão 2.0.0-beta3 ou posterior, a função de amostragem adaptativa pode funcionar e enviar apenas uma parte da sua telemetria. [Saiba mais sobre amostragem.](./sampling.md)
 
 ## <a name="next-steps"></a><a name="add"></a>Passos seguintes
 
@@ -224,9 +224,10 @@ Se a sua aplicação enviar quantidades volumosas de dados e estiver a utilizar 
 
 <!--Link references-->
 
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
 [exceptions]: asp-net-exceptions.md
 [portal]: https://portal.azure.com/
 [qna]: ../faq.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[start]: ./app-insights-overview.md
+

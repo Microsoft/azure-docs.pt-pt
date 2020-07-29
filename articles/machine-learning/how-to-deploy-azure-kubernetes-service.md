@@ -5,16 +5,18 @@ description: Saiba como implementar os seus modelos Azure Machine Learning como 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 16465ff823fab1b13f43aec33cb41f9b26b5c054
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c927015114bb0e7230dcb96cd16a81e7763f64d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392561"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325887"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implementar um modelo para um cluster de serviço Azure Kubernetes
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,6 +37,11 @@ Ao ser implantado no Serviço Azure Kubernetes, você implementa para um cluster
 
 > [!IMPORTANT]
 > O processo de criação ou anexo é uma tarefa única. Uma vez que um cluster AKS esteja ligado ao espaço de trabalho, você pode usá-lo para implementações. Pode desprender ou apagar o cluster AKS se já não precisar. Uma vez desligado ou apagado, deixará de poder implantar-se no cluster.
+
+> [!IMPORTANT]
+> É altamente aconselhável depurar localmente antes de implementar no serviço web, para mais informações ver [Debug Localmente](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
+>
+> Também pode consultar a Azure Machine Learning - [Implementar para o Caderno Local](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -373,7 +380,7 @@ print(token)
 
 [!INCLUDE [aml-update-web-service](../../includes/machine-learning-update-web-service.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Experiências e inferências seguras numa rede virtual](how-to-enable-virtual-network.md)
 * [Como implementar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)

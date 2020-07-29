@@ -8,19 +8,19 @@ ms.date: 10/28/2019
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 530ddf7af5b95cfec948270affbd13b6d61d08ff
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eb96537f67c61fb31759da020068f784d0e89993
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081445"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323405"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Monitorização da utilização e dos custos estimados no Azure Monitor
 
 > [!NOTE]
 > Este artigo descreve como visualizar o uso e os custos estimados em várias funcionalidades de monitorização do Azure. Os artigos relacionados para componentes específicos do Monitor Azure incluem:
 > - [Gerir o uso e os custos com os Registos do Monitor Azure](manage-cost-storage.md) descreve como controlar os seus custos alterando o período de retenção de dados e como analisar e alertar sobre a utilização dos seus dados.
-> - [Gerir o uso e os custos para a Application Insights](../../azure-monitor/app/pricing.md) descreve como analisar o uso de dados em Insights de Aplicação.
+> - [Gerir o uso e os custos para a Application Insights](../app/pricing.md) descreve como analisar o uso de dados em Insights de Aplicação.
 
 ## <a name="azure-monitor-pricing-model"></a>Modelo de preços do Azure Monitor
 
@@ -96,3 +96,4 @@ Dependendo do número de nós da suite que a sua organização adquiriu, mover a
 > [!WARNING]
 > Se a sua organização tem os atuais Microsoft Operations Management Suite E1 e E2, normalmente é melhor manter os seus espaços de trabalho Log Analytics no nível de preços "Per-node (OMS)" e os seus recursos de Insights de Aplicação no nível de preços "Enterprise". 
 >
+

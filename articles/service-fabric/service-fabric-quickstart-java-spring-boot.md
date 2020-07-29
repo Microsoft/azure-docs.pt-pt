@@ -5,13 +5,13 @@ author: suhuruli
 ms.topic: quickstart
 ms.date: 01/29/2019
 ms.author: suhuruli
-ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: e2e511a8c3cd9f474d3cfb71d9ebdee9cfc48826
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.openlocfilehash: 3fadd1fb4fdc12660b67d5d8bbb7b25251619cff
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253665"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320396"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Quickstart: Implementar uma aplicação Java Spring Boot no Tecido de Serviço Azure
 
@@ -23,13 +23,13 @@ Neste arranque rápido, você implementa uma aplicação Java Spring Boot para O
 
 - [Ambiente java](./service-fabric-get-started-linux.md#set-up-java-development) e [Yeoman](./service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables)
 - [Interface de linha de comando de tecido de tecido de tecido de tecido de serviço de tecido & de serviço de serviço de serviço de serviço de serviço (CLI)](./service-fabric-get-started-linux.md#installation-methods)
-- [Git](https://git-scm.com/downloads)
+- [Rio Git](https://git-scm.com/downloads)
 
 #### <a name="macos"></a>[MacOS](#tab/macos)
 
 - [Ambiente java e Yeoman](./service-fabric-get-started-mac.md#create-your-application-on-your-mac-by-using-yeoman)
 - [Interface de linha de comando de tecido de tecido de tecido de tecido de serviço de tecido & de serviço de serviço de serviço de serviço de serviço (CLI)](./service-fabric-cli.md#cli-mac)
-- [Git](https://git-scm.com/downloads)
+- [Rio Git](https://git-scm.com/downloads)
 
 --- 
 

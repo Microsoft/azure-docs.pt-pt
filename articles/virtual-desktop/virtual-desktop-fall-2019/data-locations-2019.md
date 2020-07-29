@@ -1,6 +1,6 @@
 ---
-title: Localizações de dados para Windows Virtual Desktop Fall 2019 - Azure
-description: Uma breve visão geral das localizações onde os dados e metadados do Windows Virtual Desktop são armazenados.
+title: Localizações de dados para Windows Virtual Desktop (clássico) - Azure
+description: Uma breve visão geral das localizações em que os dados e metadados virtuais do Windows Desktop (clássico) são armazenados.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fa998ddf8225475bbcf657ed9feee951263d2743
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0e12e17914374a64ecd2d17a8e73c6ebf20328d9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077576"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87270044"
 ---
-# <a name="data-locations-for-windows-virtual-desktop"></a>Localizações de dados para o Windows Virtual Desktop
+# <a name="data-locations-for-windows-virtual-desktop-classic"></a>Localizações de dados para Windows Virtual Desktop (clássico)
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../data-locations.md).
+>Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows. Se estiver a tentar gerir os objetos de ambiente de trabalho virtuais do Azure Resource Manager Windows, consulte [este artigo](../data-locations.md).
 
 O Windows Virtual Desktop está atualmente disponível para todas as localizações geográficas. Inicialmente, os metadados de serviço só podem ser armazenados na geografia dos Estados Unidos (EUA). Os administradores podem escolher a localização para armazenar os dados dos utilizadores quando criam as máquinas virtuais do pool anfitrião e os serviços associados, tais como servidores de ficheiros. Saiba mais sobre geografias Azure no mapa do [datacenter Azure.](https://azuredatacentermap.azurewebsites.net/)
 

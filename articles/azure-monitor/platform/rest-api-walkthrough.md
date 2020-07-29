@@ -5,12 +5,12 @@ ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.custom: has-adal-ref
-ms.openlocfilehash: e25e85f811d1c5d854b471bf0417e75ab1686d72
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 500d5242d5185a8014283918c1f3a22c5c22cf48
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505130"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325598"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST API walkthrough
 
@@ -731,9 +731,10 @@ Obtenha Registos de Atividade sem filtro ou selecione:
 GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Reveja a [visão geral da monitorização.](../../azure-monitor/overview.md)
+* Reveja a [visão geral da monitorização.](../overview.md)
 * Ver as [métricas suportadas com o Monitor Azure](metrics-supported.md).
 * Reveja a [referência API do Microsoft Azure Monitor REST](/rest/api/monitor/).
 * Reveja a [Biblioteca de Gestão Azure.](/previous-versions/azure/reference/mt417623(v=azure.100))
+

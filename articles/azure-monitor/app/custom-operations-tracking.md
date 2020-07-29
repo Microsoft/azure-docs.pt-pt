@@ -4,12 +4,12 @@ description: Rastreio de operações personalizadas com Azure Application Insigh
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 49c2ad44dab5e4f57db2f11c17c269289e56d2d5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bd30f60928df3644b215f185d620393d1edda8c7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540048"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320379"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Acompanhe as operações personalizadas com o Application Insights .NET SDK
 
@@ -23,7 +23,7 @@ Este documento fornece orientações sobre como rastrear as operações personal
 - Application Insights para aplicações web (executando ASP.NET) versão 2.4+.
 - Insights de aplicação para ASP.NET versão Core 2.1+.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Uma operação é uma peça lógica de trabalho gerida por uma aplicação. Tem um nome, hora de início, duração, resultado, e um contexto de execução como nome de utilizador, propriedades e resultado. Se a operação A foi iniciada pela operação B, então a operação B será definida como pai para A. Uma operação pode ter apenas um pai, mas pode ter muitas operações infantis. Para obter mais informações sobre operações e correlação de telemetria, consulte [a correlação de telemetria Azure Application Insights](correlation.md).
 
 No Application Insights .NET SDK, a operação é descrita pela classe abstrata [OperationTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/OperationTelemetry.cs) e seus descendentes [RequestTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/DataContracts/RequestTelemetry.cs) and [DependencyTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/DataContracts/DependencyTelemetry.cs).
@@ -206,7 +206,7 @@ public async Task Process(BrokeredMessage message)
 O exemplo a seguir mostra como rastrear as operações de fila do [Azure Storage](../../storage/queues/storage-dotnet-how-to-use-queues.md) e correlacionar a telemetria entre o produtor, o consumidor e o Azure Storage. 
 
 A fila de armazenamento tem uma API HTTP. Todas as chamadas para a fila são rastreadas pelo Colecionador de Dependência de Insights de Aplicação para pedidos HTTP.
-É configurado por padrão em aplicações ASP.NET e ASP.NET Core, com outros tipos de aplicação, pode consultar a documentação de aplicações de [consolas](../../azure-monitor/app/console.md)
+É configurado por padrão em aplicações ASP.NET e ASP.NET Core, com outros tipos de aplicação, pode consultar a documentação de aplicações de [consolas](./console.md)
 
 Também pode querer correlacionar o ID de operação Application Insights com o ID do pedido de armazenamento. Para obter informações sobre como definir e obter um cliente de pedido de armazenamento e um ID de pedido de servidor, consulte [Monitor, diagnóstico e resolução de problemas Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
 
@@ -475,11 +475,12 @@ As atividades são cidadãos de primeira classe em Application Insights e a depe
 
 Cada operação de Insights de Aplicação (pedido ou dependência) envolve `Activity` - quando `StartOperation` é chamado, cria Atividade por baixo. `StartOperation`é a forma recomendada de rastrear manualmente o pedido ou a dependência das telemetrias e garantir que tudo está correlacionado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Aprenda os fundamentos da correlação de [telemetria](correlation.md) em Insights de Aplicação.
-- Confira como os dados correlacionados conferem experiência e mapa de aplicações de diagnóstico [de transações.](../../azure-monitor/app/app-map.md) [Transaction Diagnostics Experience](../../azure-monitor/app/transaction-diagnostics.md)
-- Consulte o [modelo de dados](../../azure-monitor/app/data-model.md) para os tipos de Insights de Aplicação e modelo de dados.
-- Reporte [eventos personalizados e métricas](../../azure-monitor/app/api-custom-events-metrics.md) à Application Insights.
+- Confira como os dados correlacionados conferem experiência e mapa de aplicações de diagnóstico [de transações.](./app-map.md) [Transaction Diagnostics Experience](./transaction-diagnostics.md)
+- Consulte o [modelo de dados](./data-model.md) para os tipos de Insights de Aplicação e modelo de dados.
+- Reporte [eventos personalizados e métricas](./api-custom-events-metrics.md) à Application Insights.
 - Confira a [configuração](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) padrão para a recolha de propriedades de contexto.
 - Consulte o [System.Diagnostics.Activity User Guide](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) para ver como correlacionamos a telemetria.
+

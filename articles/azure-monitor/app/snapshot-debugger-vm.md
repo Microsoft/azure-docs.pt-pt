@@ -6,11 +6,12 @@ author: brahmnes
 ms.author: bfung
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 194a2da23c8fb405c492df8f6ee173cc97fde4ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1cc9893a309dcdf7ac575494d164052bb0c617c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671351"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325683"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Ativar o Snapshot Debugger para aplicações .NET em Azure Service Fabric, Cloud Service e Virtual Machines
 
@@ -20,11 +21,11 @@ Se a sua aplicação for executada em Azure Service Fabric, Cloud Service, Virtu
     
 ## <a name="configure-snapshot-collection-for-aspnet-applications"></a>Configurar a recolha de instantâneos para aplicações ASP.NET
 
-1. [Ativar o Application Insights na sua aplicação web,](../../azure-monitor/app/asp-net.md)se ainda não o fez.
+1. [Ativar o Application Insights na sua aplicação web,](./asp-net.md)se ainda não o fez.
 
 2. Inclua o pacote [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet na sua aplicação.
 
-3. Se necessário, personalizou a configuração Snapshot Debugger adicionada à [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). A configuração padrão do Snapshot Debugger está praticamente vazia e todas as definições são opcionais. Aqui está um exemplo que mostra uma configuração equivalente à configuração padrão:
+3. Se necessário, personalizou a configuração Snapshot Debugger adicionada à [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). A configuração padrão do Snapshot Debugger está praticamente vazia e todas as definições são opcionais. Aqui está um exemplo que mostra uma configuração equivalente à configuração padrão:
 
     ```xml
     <TelemetryProcessors>
@@ -58,12 +59,12 @@ Se a sua aplicação for executada em Azure Service Fabric, Cloud Service, Virtu
     </TelemetryProcessors>
     ```
 
-4. As imagens instantâneas são recolhidas apenas em exceções que são reportadas ao Application Insights. Em alguns casos (por exemplo, versões mais antigas da plataforma .NET), poderá ser necessário [configurar a coleção de exceções](../../azure-monitor/app/asp-net-exceptions.md#exceptions) para ver exceções com instantâneos no portal.
+4. As imagens instantâneas são recolhidas apenas em exceções que são reportadas ao Application Insights. Em alguns casos (por exemplo, versões mais antigas da plataforma .NET), poderá ser necessário [configurar a coleção de exceções](./asp-net-exceptions.md#exceptions) para ver exceções com instantâneos no portal.
 
 
 ## <a name="configure-snapshot-collection-for-applications-using-aspnet-core-20-or-above"></a>Configurar a recolha instantânea para aplicações que utilizem ASP.NET Core 2.0 ou superior
 
-1. [Ativar o Application Insights na sua aplicação web Core ASP.NET,](../../azure-monitor/app/asp-net-core.md)se ainda não o fez.
+1. [Ativar o Application Insights na sua aplicação web Core ASP.NET,](./asp-net-core.md)se ainda não o fez.
 
     > [!NOTE]
     > Certifique-se de que a sua aplicação faz referência à versão 2.1.1, ou mais recente, do pacote Microsoft.ApplicationInsights.AspNetCore.
@@ -150,7 +151,7 @@ Se a sua aplicação for executada em Azure Service Fabric, Cloud Service, Virtu
 
 ## <a name="configure-snapshot-collection-for-other-net-applications"></a>Configurar a recolha instantânea para outras aplicações .NET
 
-1. Se a sua aplicação ainda não estiver instrumentada com Insights de Aplicação, [inicie-se ativando insights de aplicação e definindo a chave de instrumentação](../../azure-monitor/app/windows-desktop.md).
+1. Se a sua aplicação ainda não estiver instrumentada com Insights de Aplicação, [inicie-se ativando insights de aplicação e definindo a chave de instrumentação](./windows-desktop.md).
 
 2. Adicione o pacote [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet na sua aplicação.
 
@@ -174,8 +175,9 @@ Se a sua aplicação for executada em Azure Service Fabric, Cloud Service, Virtu
    }
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Gere tráfego para a sua aplicação que pode desencadear uma exceção. Em seguida, aguarde 10 a 15 minutos para que as imagens sejam enviadas para a instância De Insights de Aplicação.
 - Veja [as fotos](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) no portal Azure.
 - Para obter ajuda para resolver problemas com o Snapshot Debugger, consulte [snapshot Debugger resolução de problemas](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
+

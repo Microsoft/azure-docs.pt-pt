@@ -3,19 +3,19 @@ title: Monitorização de utilização e desempenho de aplicações de ambiente 
 description: Analise a utilização e o desempenho da sua aplicação de ambiente de trabalho do Windows com o Application Insights.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: ddb602536e1b8bbc987c4ba366e2007163c814ec
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 17613fc6cea24643c2b88182e7e56a1d216b2da8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499193"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323422"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Monitorização de utilização e desempenho de aplicações de Ambiente de Trabalho do Windows Clássico
 
-As aplicações alojadas no local, no Azure e noutras clouds podem tirar todo o partido do Application Insights. A única limitação é a necessidade de [permitir a comunicação](../../azure-monitor/app/ip-addresses.md) ao serviço Application Insights. Para monitorizar aplicações da Plataforma Universal do Windows (UWP), recomendamos o [Visual Studio App Center](../../azure-monitor/learn/mobile-center-quickstart.md).
+As aplicações alojadas no local, no Azure e noutras clouds podem tirar todo o partido do Application Insights. A única limitação é a necessidade de [permitir a comunicação](./ip-addresses.md) ao serviço Application Insights. Para monitorizar aplicações da Plataforma Universal do Windows (UWP), recomendamos o [Visual Studio App Center](../learn/mobile-center-quickstart.md).
 
 ## <a name="to-send-telemetry-to-application-insights-from-a-classic-windows-application"></a>Para enviar a telemetria para o Application Insights a partir de uma aplicação do Windows Clássico
-1. No [portal do Azure](https://portal.azure.com), [crie um recurso do Application Insights](../../azure-monitor/app/create-new-resource.md ). 
+1. No [portal do Azure](https://portal.azure.com), [crie um recurso do Application Insights](./create-new-resource.md). 
 2. Faça uma cópia da Chave de Instrumentação.
 3. No Visual Studio, edite os pacotes NuGet do seu projeto da aplicação e adicione Microsoft.ApplicationInsights.WindowsServer. (Ou escolha Microsoft.ApplicationInsights se apenas quiser a API base, sem os módulos de recolha padrão de telemetria.)
 4. Defina a chave de instrumentação no seu código:
@@ -27,7 +27,7 @@ As aplicações alojadas no local, no Azure e noutras clouds podem tirar todo o 
     `<InstrumentationKey>`*a sua chave*`</InstrumentationKey>` 
    
     Se utilizar o ApplicationInsights.config, certifique-se de que as propriedades no Explorador de Soluções estão definidas para **Ação de Compilação = Conteúdo, Copiar para o Diretório de Saída = Copiar**.
-5. [Utilize a API](../../azure-monitor/app/api-custom-events-metrics.md) para enviar telemetria.
+5. [Utilize a API](./api-custom-events-metrics.md) para enviar telemetria.
 6. Execute a sua aplicação e veja a telemetria no recurso que criou no portal Azure.
 
 ## <a name="example-code"></a><a name="telemetry"></a>Código de exemplo
@@ -174,8 +174,9 @@ namespace WindowsFormsApp2
 > [!NOTE]
 > Embora possa utilizar tecnicamente um processador de telemetria como descrito acima, mesmo que esteja no [nível de preços da Legacy Enterprise (Per Node),](./pricing.md#legacy-enterprise-per-node-pricing-tier)isso resultará no potencial de faturação excessiva devido à incapacidade de distinguir adequadamente os nós para o preço por nó.
 
-## <a name="next-steps"></a>Próximos passos
-* [Criar um dashboard](../../azure-monitor/app/overview-dashboard.md)
-* [Pesquisa de Diagnóstico](../../azure-monitor/app/diagnostic-search.md)
-* [Explorar métricas](../../azure-monitor/platform/metrics-charts.md)
+## <a name="next-steps"></a>Passos seguintes
+* [Criar um dashboard](./overview-dashboard.md)
+* [Pesquisa de Diagnóstico](./diagnostic-search.md)
+* [Explorar métricas](../platform/metrics-charts.md)
 * [Escrever consultas da Análise](../log-query/log-query-overview.md)
+

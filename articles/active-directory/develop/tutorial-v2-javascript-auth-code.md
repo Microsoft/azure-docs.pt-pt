@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-javascript
-ms.openlocfilehash: 63e94916232c4b3c7a275e51bdcde496b75ae913
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 4613e22193de8dc374d1a9e1a293c317fb9c1b9b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129105"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87311552"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a API do Gráfico microsoft a partir de uma aplicação de página única JavaScript (SPA) usando fluxo de código auth
 
@@ -30,6 +30,8 @@ Este tutorial mostra-lhe como criar uma aplicação de página única JavaScript
 > * Ligue para o Microsoft Graph ou para a sua própria API que requer acesso a tokens obtidos a partir do ponto final da plataforma de identidade da Microsoft
 
 MSAL.js 2.0 melhora em MSAL.js 1.0, suportando o fluxo de código de autorização no navegador em vez do fluxo de concessão implícito. MSAL.js 2.0 **NÃO** suporta o fluxo implícito.
+
+[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
 ## <a name="how-the-tutorial-app-works"></a>Como funciona a aplicação tutorial
 
@@ -374,7 +376,7 @@ let username = "";
 
 function loadPage() {
     /**
-     * See here for more info on account retrieval: 
+     * See here for more info on account retrieval:
      * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-common/docs/Accounts.md
      */
     const currentAccounts = myMSALObj.getAllAccounts();
@@ -414,7 +416,7 @@ function signOut() {
 
 function getTokenPopup(request) {
     /**
-     * See here for more info on account retrieval: 
+     * See here for more info on account retrieval:
      * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-common/docs/Accounts.md
      */
     request.account = myMSALObj.getAccountByUsername(username);
@@ -424,13 +426,13 @@ function getTokenPopup(request) {
             // fallback to interaction when silent call fails
             return myMSALObj.acquireTokenPopup(request).then(tokenResponse => {
                 console.log(tokenResponse);
-                
+
                 return tokenResponse;
             }).catch(error => {
                 console.error(error);
             });
         } else {
-            console.warn(error);   
+            console.warn(error);
         }
     });
 }
@@ -479,7 +481,7 @@ function handleResponse(resp) {
         showWelcomeMessage(resp.account);
     } else {
         /**
-         * See here for more info on account retrieval: 
+         * See here for more info on account retrieval:
          * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-common/docs/Accounts.md
          */
         const currentAccounts = myMSALObj.getAllAccounts();
@@ -509,7 +511,7 @@ function signOut() {
 
 function getTokenRedirect(request) {
     /**
-     * See here for more info on account retrieval: 
+     * See here for more info on account retrieval:
      * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-common/docs/Accounts.md
      */
     request.account = myMSALObj.getAccountByUsername(username);
@@ -519,7 +521,7 @@ function getTokenRedirect(request) {
                 // fallback to interaction when silent call fails
                 return myMSALObj.acquireTokenRedirect(request);
             } else {
-                console.warn(error);   
+                console.warn(error);
             }
         });
 }
@@ -645,7 +647,7 @@ Se uma API de back-end não necessitar de um âmbito, o que não é recomendado,
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou uma aplicação de página única JavaScript (SPA) que utiliza a Biblioteca de Autenticação do Microsoft (MSAL) para JavaScript v2.0 para:
 

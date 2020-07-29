@@ -8,13 +8,13 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: lbosq
-ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 25a93377c1594fd1f45229ed2d837f02e9c0a46b
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.openlocfilehash: 05fc7a7a5bd7e045125cb303e1f5c29d550c58ef
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118300"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323677"
 ---
 # <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-gremlin-api"></a>Quickstart: Construir uma base de dados de gráficos com o Java SDK e o API API AZure Cosmos DB Gremlin
 
@@ -41,7 +41,7 @@ Antes de poder criar uma base de dados de gráficos, tem de criar uma conta de b
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## <a name="add-a-graph"></a>Adicionar um gráfico
+## <a name="add-a-graph"></a>Adicionar um grafo
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
@@ -183,7 +183,7 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
 
 5. **Selecione Adicionar propriedade** para adicionar cada uma das seguintes propriedades. Tenha em atenção que pode criar propriedades exclusivas para cada pessoa no seu gráfico. Só é necessária a chave de id.
 
-    chave|valor|Notas
+    key|valor|Notas
     ----|----|----
     ID|ashley|O identificador exclusivo do vértice. Se não especificar, é gerado um id automaticamente.
     género|feminino| 
@@ -200,7 +200,7 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
 
 9. **Selecione Adicionar propriedade** para adicionar cada uma das seguintes propriedades:
 
-    chave|valor|Notas
+    key|valor|Notas
     ----|----|----
     ID|rakesh|O identificador exclusivo do vértice. Se não especificar, é gerado um id automaticamente.
     género|masculino| 
@@ -230,7 +230,7 @@ Esta ação conclui a parte da criação de recursos deste tutorial. Pode contin
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

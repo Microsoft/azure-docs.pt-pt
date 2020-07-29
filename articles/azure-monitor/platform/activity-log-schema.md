@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/09/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 3d7085f54634ab1175fc0f916e24b7f03dc1bc9b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e50d6b6fe88cbad42d238ee2779abfe10e752f0e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073678"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327281"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de evento de registo de atividade azure
 O [registo de Atividades Azure](platform-logs-overview.md) fornece informações sobre quaisquer eventos de nível de subscrição que ocorreram em Azure. Este artigo descreve categorias de registo de atividade e o esquema para cada um. 
@@ -31,7 +31,7 @@ Cada evento no Registo de Atividades tem uma categoria específica que são desc
 |:---|:---|
 | [Administrativo](#administrative-category) | Contém o registo de todas as operações de criação, atualização, exclusão e ação realizadas através do Gestor de Recursos. Exemplos de eventos administrativos incluem _criar máquina virtual_ e eliminar o grupo de segurança da _rede._<br><br>Todas as ações tomadas por um utilizador ou aplicação utilizando o Gestor de Recursos são modeladas como uma operação num determinado tipo de recurso. Se o tipo de funcionamento for _Write_, _Delete_, ou _Action_, os registos do início e do sucesso ou falha dessa operação são registados na categoria Administrativa. Os eventos administrativos também incluem quaisquer alterações ao controlo de acesso baseado em funções numa subscrição. |
 | [Estado de funcionamento dos serviços](#service-health-category) | Contém o registo de quaisquer incidentes de saúde de serviço que ocorreram em Azure. Um exemplo de um evento de Saúde de Serviço _SQL Azure no Leste dos EUA está a passar por um tempo de inatividade._ <br><br>Os eventos de saúde de serviço vêm em seis variedades: _Ação necessária,_ _Recuperação Assistida,_ _Incidente,_ _Manutenção,_ _Informação_ou _Segurança_. Estes eventos só são criados se tiver um recurso na subscrição que seria impactado pelo evento.
-| [Saúde de Recursos](#resource-health-category) | Contém o registo de quaisquer eventos de saúde de recursos que tenham ocorrido aos seus recursos Azure. Um exemplo de um evento de Saúde de Recursos é _o estado de saúde da Máquina Virtual alterado para indisponível_.<br><br>Os eventos de saúde de recursos podem representar um dos quatro estados de saúde: _Disponível,_ _Indisponível,_ _Degradado_e _Desconhecido._ Além disso, os eventos de Saúde de Recursos podem ser categorizados como sendo _Iniciados_ pela Plataforma ou _Iniciados pelo Utilizador._ |
+| [Estado de Funcionamento de Recursos](#resource-health-category) | Contém o registo de quaisquer eventos de saúde de recursos que tenham ocorrido aos seus recursos Azure. Um exemplo de um evento de Saúde de Recursos é _o estado de saúde da Máquina Virtual alterado para indisponível_.<br><br>Os eventos de saúde de recursos podem representar um dos quatro estados de saúde: _Disponível,_ _Indisponível,_ _Degradado_e _Desconhecido._ Além disso, os eventos de Saúde de Recursos podem ser categorizados como sendo _Iniciados_ pela Plataforma ou _Iniciados pelo Utilizador._ |
 | [Alerta](#alert-category) | Contém o registo de ativações para alertas Azure. Um exemplo de um evento de alerta é _que o CPU % no myVM foi superior a 80 nos últimos 5 minutos_.|
 | [Dimensionamento Automático](#autoscale-category) | Contém o registo de quaisquer eventos relacionados com o funcionamento do motor de autoescala com base em quaisquer definições de autoescala que tenha definido na sua subscrição. Um exemplo de um evento de autoescala é a ação de _escala automática falhada._ |
 | [Recomendação](#recommendation-category) | Contém eventos de recomendação do Azure Advisor. |
@@ -796,7 +796,7 @@ Esta categoria contém registos de todas as operações de ação de efeito real
 Ao transmitir o registo de Atividade Azure para uma conta de armazenamento ou centro de eventos, os dados seguem o [esquema de registo de recursos](./resource-logs-schema.md). A tabela abaixo fornece um mapeamento de propriedades dos esquemas acima para o esquema de registos de recursos.
 
 > [!IMPORTANT]
-> O formato de dados de registo de atividades escritos numa conta de armazenamento alterado para JSON Lines em 1 de novembro de 2018. Consulte [Prepare-se para alterar o formato dos registos de recursos do Azure Monitor arquivados numa conta de armazenamento](./resource-logs-append-blobs.md) para obter detalhes sobre esta alteração de formato.
+> O formato de dados de registo de atividades escritos numa conta de armazenamento alterado para JSON Lines em 1 de novembro de 2018. Consulte [Prepare-se para alterar o formato dos registos de recursos do Azure Monitor arquivados numa conta de armazenamento](/azure/azure-monitor/platform/resource-logs-blob-format) para obter detalhes sobre esta alteração de formato.
 
 
 | Propriedade de esquema de registos de recursos | Atividade Log REST API schema propriedade | Notas |
@@ -885,3 +885,4 @@ Segue-se um exemplo de um evento que usa este esquema..
 ## <a name="next-steps"></a>Passos seguintes
 * [Saiba mais sobre o Registo de Atividades](platform-logs-overview.md)
 * [Crie uma definição de diagnóstico para enviar Log de Atividade para Log Analytics espaço de trabalho, armazenamento de Azure ou centros de eventos](diagnostic-settings.md)
+

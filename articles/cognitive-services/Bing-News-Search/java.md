@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Realizar uma pesquisa na Web com Java - Bing Web Search REST API'
+title: 'Quickstart: Realize uma pesquisa web com Java - Bing Web Search REST API'
 titleSuffix: Azure Cognitive Services
-description: Use este quickstart para enviar um pedido para a Bing News Search REST API usando Java, e receber uma resposta JSON.
+description: Utilize este quickstart para enviar um pedido para a Bing News Search REST API usando Java, e receba uma resposta JSON.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,25 +10,25 @@ ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: seodec2018
-ms.openlocfilehash: c3ce10b6d3acb947d3fde6e3c872a2c2a83ddb69
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.custom: seodec2018, devx-track-java
+ms.openlocfilehash: a1347364066f4b36256782dd8891390a47bae020
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871129"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326771"
 ---
-# <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>Quickstart: Realizar uma pesquisa de notícias usando Java e a Bing News Search REST API
+# <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>Quickstart: Realize uma pesquisa de notícias usando Java e a Bing News Search REST API
 
 Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa de Notícias Bing. Esta simples aplicação Java envia uma consulta de pesquisa de notícias para a API, e exibe a resposta JSON.
 
-Embora esta aplicação esteja escrita em Java, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação.
+Embora esta aplicação esteja escrita em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 O código fonte deste exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingNewsSearchv7.java). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* O Kit de [Desenvolvimento Java (JDK) 7 ou 8](https://aka.ms/azure-jdks).
+* O [Kit de Desenvolvimento de Java (JDK) 7 ou 8](https://aka.ms/azure-jdks).
 * A [biblioteca Gson.](https://github.com/google/gson)
 
 
@@ -49,7 +49,7 @@ O código fonte deste exemplo está disponível [no GitHub](https://github.com/A
     import com.google.gson.JsonParser;
     ```
 
-2. Criar uma nova classe. Adicione variáveis para o ponto final da API, a sua chave de subscrição e o termo de pesquisa. Pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+2. Criar uma nova classe. Adicione variáveis para o ponto final da API, a sua chave de subscrição e o termo de pesquisa. Pode utilizar o ponto final global no seguinte código ou utilizar o ponto final [de subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) apresentado no portal Azure para o seu recurso.
 
     ```java
     public static SearchResults SearchNews (String searchQuery) throws Exception {
@@ -63,7 +63,7 @@ O código fonte deste exemplo está disponível [no GitHub](https://github.com/A
 
 ## <a name="construct-the-search-request-and-receive-a-json-response"></a>Construa o pedido de pesquisa e receba uma resposta JSON
 
-1. Utilize as variáveis do passo anterior para formatar um URL de pesquisa para o pedido de API. Código url o seu termo de pesquisa antes de anexar ao pedido.
+1. Utilize as variáveis do passo anterior para formatar um URL de pesquisa para o pedido de API. URL codificar o seu termo de pesquisa antes de o anexar ao pedido.
 
     ```java
     public static SearchResults SearchNews (String searchQuery) throws Exception {
@@ -74,7 +74,7 @@ O código fonte deste exemplo está disponível [no GitHub](https://github.com/A
     }
     ```
 
-2. Receba a resposta da JSON da API de Pesquisa de Notícias bing e construa o objeto de resultados.
+2. Receba a resposta JSON da API de Pesquisa de Notícias Bing e construa o objeto de resultado.
 
     ```java
     // receive JSON body
@@ -84,9 +84,9 @@ O código fonte deste exemplo está disponível [no GitHub](https://github.com/A
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
     ```
 
-## <a name="process-the-json-response"></a>Processar a resposta da JSON
+## <a name="process-the-json-response"></a>Processar a resposta JSON
 
-1. Separe os cabeçalhos HTTP relacionados com bing do corpo JSON, em seguida, feche o fluxo e devolva a resposta API.
+1. Separe os cabeçalhos HTTP relacionados com bing do corpo JSON, feche o fluxo e retorna a resposta API.
 
     ```java
     // extract Bing-related HTTP headers
@@ -101,7 +101,7 @@ O código fonte deste exemplo está disponível [no GitHub](https://github.com/A
     return results;
     ```
 
-2. Crie um método para analisar e reserializar os resultados da JSON.
+2. Crie um método para analisar e reserializar os resultados do JSON.
 
     ```java
     // pretty-printer for JSON; uses GSON parser to parse and re-serialize
@@ -113,7 +113,7 @@ O código fonte deste exemplo está disponível [no GitHub](https://github.com/A
     }
     ```
 
-3. No método principal da sua aplicação, ligue para o método de pesquisa e exiba os resultados.
+3. No método principal da sua aplicação, ligue para o método de pesquisa e apresente os resultados.
 
     ```java
    public static void main (String[] args) {
@@ -128,7 +128,7 @@ O código fonte deste exemplo está disponível [no GitHub](https://github.com/A
     }
     ```
 
-## <a name="example-json-response"></a>Exemplo resposta JSON
+## <a name="example-json-response"></a>Exemplo JSON resposta
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 

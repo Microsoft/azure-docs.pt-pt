@@ -1,6 +1,5 @@
 ---
-title: Ativar a sessão de registo de serviços web
-titleSuffix: ML Studio (classic) - Azure
+title: 'Estúdio ML (clássico): Ativar a sessão de serviço web - Azure'
 description: Saiba como permitir a gravação de serviços web do Machine Learning Studio (clássico). O registo fornece informações adicionais para ajudar a resolver problemas nas APIs.
 services: machine-learning
 author: likebupt
@@ -11,13 +10,17 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 ms.date: 06/15/2017
-ms.openlocfilehash: 71516641ab5110511d58f7e453759271aff9885a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: baaad137e4a5bc5268642addb5779961b7be3b04
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705836"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326244"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Ativar o registo de serviços web do Azure Machine Learning Studio (clássico)
+
+**APLICA-SE A:** ![ no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) yes Machine Learning Studio ![ ](../../../includes/media/aml-applies-to-skus/yes.png) (clássico) 
+
 
 Este documento fornece informações sobre a capacidade de registo de serviços web do Machine Learning Studio (clássico). O registo fornece informações adicionais, para além de apenas um número de erro e uma mensagem, que podem ajudá-lo a resolver problemas nas suas chamadas para o Machine Learning Studio (clássico) APIs.  
 
@@ -41,7 +44,7 @@ Você permite iniciar sessão a partir do portal [Azure Machine Learning Studio 
 
    ![Selecione o nível de registo](./media/web-services-logging/enable-logging.png)
 
-6. Clique em **Guardar**.
+6. Clique em **Save** (Guardar).
 
 7. Para serviços web clássicos, crie o recipiente **ml-diagnóstico.**
 
@@ -49,7 +52,7 @@ Você permite iniciar sessão a partir do portal [Azure Machine Learning Studio 
 
    1. No [portal Azure,](https://portal.azure.com)aceda à conta de armazenamento associada ao serviço web.
 
-   2. Em **Serviço Blob**, clique em **Contentores**.
+   2. No **serviço Blob,** clique em **Recipientes**.
 
    3. Se o recipiente **ml-diagnóstico** não existir, clique **em +Recipiente,** dê ao recipiente o nome "diagnósticos ml", e selecione o **tipo de Acesso** como "Blob". Clique em **OK**.
 

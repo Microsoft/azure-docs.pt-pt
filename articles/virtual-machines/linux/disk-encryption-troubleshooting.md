@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: abd802f19917b048f6d006b8e3097b08efaf22e2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0e83d53122b3f80d73a573f0eff8c13888cbee11
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510485"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325207"
 ---
 # <a name="azure-disk-encryption-for-linux-vms-troubleshooting-guide"></a>Encriptação do disco Azure para guia de resolução de problemas de Linux VMs
 
@@ -70,30 +70,54 @@ Em alguns casos, a encriptação do disco Linux parece estar presa na "encripta�
 
 A sequência de encriptação do disco Linux OS desmonta temporariamente a unidade de SISTEMA. Em seguida, executa encriptação block-by-block de todo o disco DE, antes que ele o remonte no seu estado encriptado. A Encriptação do Disco Linux não permite o uso simultâneo do VM enquanto a encriptação estiver em andamento. As características de desempenho do VM podem fazer uma diferença significativa no tempo necessário para completar a encriptação. Estas características incluem o tamanho do disco e se a conta de armazenamento é de série ou de armazenamento premium (SSD).
 
-Para verificar o estado de encriptação, poll o campo **ProgressMessage** devolvido do comando [Get-AzVmDiskEncryptionStatus.](/powershell/module/az.compute/get-azvmdiskencryptionstatus) Enquanto a unidade de SO está a ser encriptada, o VM entra num estado de manutenção e desativa o SSH para evitar qualquer perturbação no processo em curso. A mensagem **EncryptionInProgress** reporta a maior parte do tempo enquanto a encriptação está em andamento. Algumas horas depois, uma mensagem **VMRestartPending** solicita-lhe que reinicie o VM. Por exemplo:
-
+Enquanto a unidade de SO está a ser encriptada, o VM entra num estado de manutenção e desativa o SSH para evitar qualquer perturbação no processo em curso.  Para verificar o estado de encriptação, utilize o comando Azure PowerShell [Get-AzVmDiskEncrypationStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) e verifique o campo **ProgressMessage.** **ProgressMessage** reportará uma série de statuses à medida que os dados e os discos de OS são encriptados:
 
 ```azurepowershell
-PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "VirtualMachineName"
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyResourceGroup" -VMName "myVM"
+
+OsVolumeEncrypted          : EncryptionInProgress
+DataVolumesEncrypted       : EncryptionInProgress
+OsVolumeEncryptionSettings :
+ProgressMessage            : Transitioning
+
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyResourceGroup" -VMName "myVM"
+
+OsVolumeEncrypted          : EncryptionInProgress
+DataVolumesEncrypted       : EncryptionInProgress
+OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
+ProgressMessage            : Encryption succeeded for data volumes
+
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyResourceGroup" -VMName "myVM"
+
+OsVolumeEncrypted          : EncryptionInProgress
+DataVolumesEncrypted       : EncryptionInProgress
+OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
+ProgressMessage            : Provisioning succeeded
+
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyResourceGroup" -VMName "myVM"
+
 OsVolumeEncrypted          : EncryptionInProgress
 DataVolumesEncrypted       : EncryptionInProgress
 OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
 ProgressMessage            : OS disk encryption started
-
-PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "VirtualMachineName"
-OsVolumeEncrypted          : VMRestartPending
-DataVolumesEncrypted       : Encrypted
-OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
-ProgressMessage            : OS disk successfully encrypted, please reboot the VM
 ```
 
-Depois de ser solicitado para reiniciar o VM, e depois do recomeço do VM, deve esperar 2-3 minutos para o reboot e para que os passos finais sejam executados no alvo. A mensagem de estado muda quando a encriptação está finalmente completa. Depois desta mensagem estar disponível, espera-se que a unidade de SISTEMA encriptada esteja pronta para ser utilizada e o VM está pronto para ser novamente utilizado.
+O **ProgressMessage** permanecerá na **encriptação do disco OS iniciada** durante a maior parte do processo de encriptação.  Quando a encriptação estiver completa e bem sucedida, **a ProgressMessage** regressará:
 
-Nos seguintes casos, recomendamos que volte a restaurar o VM na fotografia ou cópia de segurança tirada imediatamente antes da encriptação:
-   - Se a sequência de reinicialização, descrita anteriormente, não acontecer.
-   - Se as informações de arranque, mensagem de progresso ou outros indicadores de erro reportarem que a encriptação do SO falhou no meio deste processo. Um exemplo de uma mensagem é o erro "não desmontado" que é descrito neste guia.
+```azurepowershell
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyResourceGroup" -VMName "myVM"
 
-Antes da próxima tentativa, reavalie as características do VM e certifique-se de que todos os pré-requisitos estão satisfeitos.
+OsVolumeEncrypted          : Encrypted
+DataVolumesEncrypted       : NotMounted
+OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
+ProgressMessage            : Encryption succeeded for all volumes
+```
+
+Depois desta mensagem estar disponível, espera-se que a unidade de SISTEMA encriptada esteja pronta para ser utilizada e o VM está pronto para ser novamente utilizado.
+
+Se a informação de arranque, a mensagem de progresso ou um erro reportar que a encriptação do SO falhou no meio deste processo, restaurar o VM para o instantâneo ou cópia de segurança tirado imediatamente antes da encriptação. Um exemplo de uma mensagem é o erro "não desmontado" que é descrito neste guia.
+
+Antes de reatar a encriptação, reavalie as características do VM e certifique-se de que todos os pré-requisitos estão satisfeitos.
 
 ## <a name="troubleshooting-azure-disk-encryption-behind-a-firewall"></a>Resolução de problemas Azure Disk Encriptação atrás de uma firewall
 
@@ -101,13 +125,13 @@ Ver [Encriptação do Disco numa rede isolada](disk-encryption-isolated-network.
 
 ## <a name="troubleshooting-encryption-status"></a>Estado de encriptação de resolução de problemas 
 
-O portal pode apresentar um disco encriptado mesmo depois de ter sido desencriptado dentro do VM.  Isto pode ocorrer quando comandos de baixo nível são usados para desencriptar diretamente o disco a partir do VM, em vez de usar os comandos de gestão de encriptação de disco Azure de nível superior.  Os comandos de nível superior não só desencriptam o disco a partir do VM, mas também fora do VM, também atualizam importantes definições de encriptação de nível da plataforma e definições de extensão associadas ao VM.  Se estes não forem mantidos em alinhamento, a plataforma não será capaz de reportar o estado de encriptação ou a provisionação adequada do VM.   
+O portal pode apresentar um disco encriptado mesmo depois de ter sido desencriptado dentro do VM.  Isto pode ocorrer quando comandos de baixo nível são usados para desencriptar diretamente o disco a partir do VM, em vez de usar os comandos de gestão de encriptação de disco Azure de nível superior.  Os comandos de nível superior não só desencriptam o disco a partir do VM, mas também fora do VM, também atualizam importantes definições de encriptação de nível da plataforma e definições de extensão associadas ao VM.  Se estes não forem mantidos em alinhamento, a plataforma não será capaz de reportar o estado de encriptação ou a provisionação adequada do VM.
 
 Para desativar a encriptação do disco Azure com PowerShell, utilize [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) seguido por [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). Executar Remove-AzVMDiskEncryptionExtension antes de a encriptação ser desativada falhará.
 
-Para desativar a encriptação do disco Azure com O CLI, utilize [desativação de encriptação az vm](/cli/azure/vm/encryption). 
+Para desativar a encriptação do disco Azure com O CLI, utilize [desativação de encriptação az vm](/cli/azure/vm/encryption).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, aprendeu mais sobre alguns problemas comuns na Encriptação do Disco Azure e como resolver esses problemas. Para obter mais informações sobre este serviço e as suas capacidades, consulte os seguintes artigos:
 

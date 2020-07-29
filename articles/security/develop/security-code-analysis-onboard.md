@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: a7fab9515051180fdb1b894602478768a60177ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd0057c5f5e365d6c91ae221a7add813855bb1ec
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362062"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323592"
 ---
 # <a name="onboarding-and-installing"></a>Integração e instalação
 
@@ -42,7 +42,7 @@ Se tiver uma das seguintes ofertas de suporte, contacte o seu Gestor de Conta T�
 
 Se não tiver um dos acordos de apoio acima mencionados, pode adquirir a extensão a um dos nossos Parceiros.
 
-**Próximos passos:**
+**Passos Seguintes:**
 
 Se cumprir as qualificações acima, contacte um parceiro da lista abaixo para adquirir a extensão de Análise do Código de Segurança da Microsoft. Caso contrário, contacte [o Microsoft Security Code Analysis Support](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request).
 
@@ -50,9 +50,9 @@ Se cumprir as qualificações acima, contacte um parceiro da lista abaixo para a
 
 - Zonas – Detalhes de contacto:cloudsupport@zones.com
 - Wortell – Detalhes de contacto:info@wortell.nl
-- Logicalis – Detalhes de contacto:Matthew.Curtis@us.logicalis.com 
+- Logicalis – Detalhes de contacto:logicalisleads@us.logicalis.com
 
-### <a name="become-a-partner"></a>Torne-se um Parceiro
+### <a name="become-a-partner"></a>Tornar-se um Parceiro
 
 A equipa de Análise de Códigos de Segurança da Microsoft está à procura de parceiros a bordo com um acordo premier Support for Partners. Os parceiros ajudarão a capacitar os clientes da Azure DevOps a desenvolverem-se de forma mais segura, vendendo a extensão aos clientes que a desejem comprar, mas não têm um acordo de Apoio à Empresa com a Microsoft. Os parceiros interessados podem inscrever-se [aqui.](http://www.microsoftpartnersupport.com/msrd/opin)
 
@@ -63,7 +63,7 @@ A equipa de Análise de Códigos de Segurança da Microsoft está à procura de 
 1. Selecione **Compartilhado**.
 1. Selecione a extensão de Análise de Código de Segurança da Microsoft, selecione **instalar.**
 1. A partir da lista de drop-down, escolha a organização Azure DevOps para instalar a extensão.
-1. Selecione **Instalar**. Após a instalação estar concluída, pode começar a utilizar a extensão.
+1. Selecione **Install** (Instalar). Após a instalação estar concluída, pode começar a utilizar a extensão.
 
 >[!NOTE]
 > Mesmo que não tenha acesso para instalar a extensão, continue com os passos de instalação. Pode solicitar acesso à sua administração da organização Azure DevOps durante o processo de instalação.
@@ -92,7 +92,7 @@ Depois de instalar a extensão, as tarefas seguras de construção de desenvolvi
 > - Algumas tarefas de construção de Azure DevOps não são suportadas quando executadas através de um oleoduto de libertação. Mais especificamente, a Azure DevOps não suporta tarefas que publiquem artefactos dentro de um oleoduto de lançamento.
 > - Para obter uma lista de variáveis pré-finadas na Azure DevOps Team Build que pode especificar como parâmetros, consulte [Azure DevOps Build Variables](https://docs.microsoft.com/azure/devops/pipelines/build/variables?tabs=batch&view=vsts).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a configuração das tarefas de construção, consulte o nosso [guia de configuração](security-code-analysis-customize.md) ou [guia de configuração YAML](yaml-configuration.md).
 

@@ -4,15 +4,16 @@ description: Modelo de dados de Insights de Aplicação para telemetria de exce�
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: fa9bc4efd9549cbcb1d50439989c5dea79d9d60c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6732fb3dde79abd5c69e2b0a91710bdd2356d6aa
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671941"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320600"
 ---
 # <a name="exception-telemetry-application-insights-data-model"></a>Telemetria de exceção: Modelo de dados de Insights de Aplicação
 
-No [Application Insights](../../azure-monitor/app/app-insights-overview.md), uma instância de Exceção representa uma exceção manuseada ou não manipulada que ocorreu durante a execução da aplicação monitorizada.
+No [Application Insights](./app-insights-overview.md), uma instância de Exceção representa uma exceção manuseada ou não manipulada que ocorreu durante a execução da aplicação monitorizada.
 
 ## <a name="problem-id"></a>ID de problemas
 
@@ -36,8 +37,9 @@ O nível de gravidade do traço. O valor pode `Verbose` ser, `Information` , , ,
 
 [!INCLUDE [application-insights-data-model-measurements](../../../includes/application-insights-data-model-measurements.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte [o modelo de dados](data-model.md) para os tipos de Insights de Aplicação e modelo de dados.
-- Saiba como [diagnosticar exceções nas suas aplicações web com Application Insights](../../azure-monitor/app/asp-net-exceptions.md).
-- Confira as [plataformas](../../azure-monitor/app/platforms.md) suportadas pela Application Insights.
+- Saiba como [diagnosticar exceções nas suas aplicações web com Application Insights](./asp-net-exceptions.md).
+- Confira as [plataformas](./platforms.md) suportadas pela Application Insights.
+

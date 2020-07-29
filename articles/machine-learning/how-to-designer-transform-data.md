@@ -5,17 +5,17 @@ description: Aprenda a transformar dados em Azure Machine Learning designer (pr�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 06/28/2020
-ms.custom: designer
-ms.openlocfilehash: 68ed1b83b1e82daa9c4578a6b3bec24792a8268d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.topic: conceptual
+ms.custom: how-to, designer
+ms.openlocfilehash: 3858a5a3b39c7ecaaad17a6bb6c313caf7bbc0ae
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203787"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326992"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer-preview"></a>Transforme dados em Azure Machine Learning designer (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -31,6 +31,8 @@ Neste artigo, vai aprender a:
 1. Ver resultados.
 
 Este como-fazer é um pré-requisito para como reconverter o artigo [de modelos de designers.](how-to-retrain-designer.md) Nesse artigo, você aprenderá a usar os conjuntos de dados transformados para treinar vários modelos com parâmetros de pipeline.
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## <a name="transform-a-dataset"></a>Transformar um conjunto de dados
 

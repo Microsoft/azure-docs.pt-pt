@@ -6,16 +6,16 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 19a0e94206691dc741020374bf5c827ba423515d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c53b43d811e5e2b9cd8d70e3c8e05af444895154
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008358"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320651"
 ---
 # <a name="availability-alerts"></a>Alertas de disponibilidade
 
-O [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) envia regularmente pedidos Web para a sua aplicação a partir de pontos em todo o mundo. Pode alertá-lo se a sua aplicação não estiver a responder, ou se responder muito lentamente.
+O [Azure Application Insights](./app-insights-overview.md) envia regularmente pedidos Web para a sua aplicação a partir de pontos em todo o mundo. Pode alertá-lo se a sua aplicação não estiver a responder, ou se responder muito lentamente.
 
 ## <a name="enable-alerts"></a>Ativar alertas
 
@@ -65,7 +65,7 @@ Utilizando os [novos alertas unificados,](../platform/alerts-overview.md)pode al
 
 ## <a name="automate-alerts"></a>Automatize alertas
 
-Para automatizar este processo com os modelos do Gestor de Recursos Azure, consulte o [Alerta métrico criar um alerta métrico com](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert) documentação do modelo do Gestor de Recursos.
+Para automatizar este processo com os modelos do Gestor de Recursos Azure, consulte o [Alerta métrico criar um alerta métrico com](../platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert) documentação do modelo do Gestor de Recursos.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
@@ -75,3 +75,4 @@ Artigo dedicado [à resolução de problemas.](troubleshoot-availability.md)
 
 * [Testes Web com vários passos](availability-multistep.md)
 * [Testes web de url ping](monitor-web-app-availability.md)
+

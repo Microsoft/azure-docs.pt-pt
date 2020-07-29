@@ -9,21 +9,23 @@ ms.custom:
 - mvc
 - amqp
 - mqtt
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: e42b403717eb83db06a9f719a6451cbca74c2929
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e26c3fc9ec420596a4ec152f7f176e44acc7b4c3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81770048"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321671"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutorial: utilizar um dispositivo simulado para testar a conectividade com o seu hub do IoT
 
 Neste tutorial, irá utilizar ferramentas do portal do Hub IoT do Azure e comandos da CLI do Azure para testar a conectividade do dispositivo. Este tutorial também utiliza um simulador de dispositivos simples que executa no seu computador.
 
-Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
@@ -44,7 +46,7 @@ az extension add --name azure-iot
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-A aplicação de simulador de dispositivos que irá executar neste tutorial é escrita com Node.js. Você precisa do Node.js v10.x.x ou mais tarde na sua máquina de desenvolvimento.
+A aplicação de simulador de dispositivos que irá executar neste tutorial é escrita com Node.js. Precisa de Node.js v10.x.x ou mais tarde na sua máquina de desenvolvimento.
 
 Pode transferir o Node.js para múltiplas plataformas em [nodejs.org](https://nodejs.org).
 
@@ -56,7 +58,7 @@ node --version
 
 Transfira o projeto Node.js de simulador de dispositivos de exemplo em https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip e extraia o arquivo ZIP.
 
-Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste tutorial utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste tutorial utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode ser bloqueado em alguns ambientes de rede corporativa e educacional. Para obter mais informações e formas de contornar esta questão, consulte [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
@@ -82,9 +84,9 @@ Para obter a cadeia de ligação de **MyTestDevice**, clique na mesma na lista d
 
 Para simular o **MyTestDevice** a enviar dados telemétricos para o hub do IoT, execute a aplicação de dispositivo simulado Node.js que transferiu anteriormente.
 
-Numa janela de terminal no computador de desenvolvimento, navegue para a pasta raiz do projeto Node.js de exemplo que transferiu. Em seguida, navegue para a pasta **iot-hub\Tutorials\ConectividadeTests.**
+Numa janela de terminal no computador de desenvolvimento, navegue para a pasta raiz do projeto Node.js de exemplo que transferiu. Em seguida, navegue para a pasta **iot-hub\Tutorials\ConnectivityTests.**
 
-Na janela de terminal, execute os seguintes comandos para instalar as bibliotecas necessárias e execute a aplicação de dispositivo simulado. Utilize a cadeia de ligação do dispositivo de que tomou nota quando adicionou o dispositivo no portal.
+Na janela de terminal, execute os seguintes comandos para instalar as bibliotecas necessárias e execute a aplicação de dispositivo simulado. Utilize a cadeia de ligação do dispositivo de que fez uma nota de quando adicionou o dispositivo no portal.
 
 ```cmd/sh
 npm install
@@ -142,7 +144,7 @@ az iot hub generate-sas-token --device-id MyTestDevice --hub-name {YourIoTHubNam
 
 Tome nota do texto completo do token SAS gerado. Um token SAS tem o seguinte aspeto: `SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307`
 
-Numa janela de terminal no computador de desenvolvimento, navegue para a pasta raiz do projeto Node.js de exemplo que transferiu. Em seguida, navegue para a pasta **iot-hub\Tutorials\ConectividadeTests.**
+Numa janela de terminal no computador de desenvolvimento, navegue para a pasta raiz do projeto Node.js de exemplo que transferiu. Em seguida, navegue para a pasta **iot-hub\Tutorials\ConnectivityTests.**
 
 Na janela de terminal, execute os seguintes comandos para instalar as bibliotecas necessárias e executar a aplicação de dispositivo simulado:
 
@@ -183,7 +185,7 @@ Em primeiro lugar, obtenha a cadeia de ligação atual do dispositivo simulado a
 az iot hub device-identity show-connection-string --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
 ```
 
-Para executar um dispositivo simulado que envia mensagens, navegue para a pasta **iot-hub\Tutorials\ConnectivityTests** no código que descarregou.
+Para executar um dispositivo simulado que envia mensagens, navegue para a pasta **iot-hub\Tutorials\ConectividadeTestes** no código que descarregou.
 
 Na janela de terminal, execute os seguintes comandos para instalar as bibliotecas necessárias e executar a aplicação de dispositivo simulado:
 
@@ -196,7 +198,7 @@ A janela de terminal mostra informações à medida que envia dados telemétrico
 
 ![Dispositivo simulado a enviar mensagens](media/tutorial-connectivity/sim-3-sending.png)
 
-Pode utilizar **Métricas** no portal para verificar se as mensagens de telemetria estão a chegar ao seu centro IoT. Selecione o seu hub do IoT no menu pendente **Recurso**, selecione **Mensagens de telemetria enviadas** como a métrica e defina o intervalo de tempo para **Última hora**. O gráfico mostra a contagem agregada de mensagens enviadas pelo dispositivo simulado:
+Pode utilizar **métricas** no portal para verificar se as mensagens de telemetria estão a chegar ao seu hub IoT. Selecione o seu hub do IoT no menu pendente **Recurso**, selecione **Mensagens de telemetria enviadas** como a métrica e defina o intervalo de tempo para **Última hora**. O gráfico mostra a contagem agregada de mensagens enviadas pelo dispositivo simulado:
 
 ![Mostrar métricas do Hub IoT](media/tutorial-connectivity/metrics-portal.png)
 
@@ -260,7 +262,7 @@ O dispositivo simulado imprime uma mensagem quando recebe uma atualização de p
 
 Além de receber as alterações de propriedades pretendidas à medida que são feitas, o dispositivo simulado verifica automaticamente a existência de propriedades pretendidas quando é iniciado.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não precisar do Hub IoT, elimine-o, bem como ao grupo de recursos, no portal. Para tal, selecione o grupo de recursos **tutorial-iot-hub-rg** que contém o seu hub do IoT e clique em **Eliminar**.
 

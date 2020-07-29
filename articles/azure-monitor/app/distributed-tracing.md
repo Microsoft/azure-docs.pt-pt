@@ -6,12 +6,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9eb753981821a6b53d81b1d03e65abf68e0064dc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 142daec93724fe4c25fd5c65dd387856dfb582c3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539997"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324442"
 ---
 # <a name="what-is-distributed-tracing"></a>O que é Rastreio Distribuído?
 
@@ -52,8 +52,9 @@ Além dos SDKs de Insights de Aplicação, o Application Insights também suport
 
 O site OpenCensus mantém documentação de referência da API para [Python](https://opencensus.io/api/python/trace/usage.html) e [Go,](https://godoc.org/go.opencensus.io)bem como vários guias diferentes para a utilização do OpenCensus. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Guia de utilização do OpenCensus Python](https://opencensus.io/api/python/trace/usage.html)
-* [Mapa de aplicação](./../../azure-monitor/app/app-map.md)
-* [Monitorização de desempenho de ponta a ponta](./../../azure-monitor/learn/tutorial-performance.md)
+* [Mapa de aplicação](./app-map.md)
+* [Monitorização de desempenho de ponta a ponta](../learn/tutorial-performance.md)
+

@@ -8,15 +8,15 @@ ms.author: larryfr
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 06/17/2020
-ms.custom: has-adal-ref
-ms.openlocfilehash: 34641e7a883f6b07fe63595cf5750df2569640f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, has-adal-ref
+ms.openlocfilehash: 653ca578e9fafd245c22bcfd7db038d5c23da016
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84974692"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326958"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurar a autenticação para recursos de aprendizagem automática Azure e fluxos de trabalho
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -46,7 +46,7 @@ A maioria dos exemplos na documentação e amostras utilizam a autenticação in
     ws = Workspace.from_config()
     ```
 
-    A `from_config()` função procura um ficheiro JSON que contenha informações de ligação do seu espaço de trabalho.
+    A função `from_config()` procura um ficheiro JSON que contém as informações de ligação à área de trabalho.
 
 * A utilização do `Workspace` construtor para fornecer informações de subscrição, grupo de recursos e espaço de trabalho, também solicitará a autenticação interativa.
 
@@ -328,7 +328,7 @@ Para obter mais informações sobre a autenticação de um modelo implantado, co
 
 ### <a name="token-based-web-service-authentication"></a>Autenticação de serviço web baseado em token
 
-Quando ativa a autenticação simbólica de um serviço web, os utilizadores devem apresentar um Azure Machine Learning JSON Web Token ao serviço web para aceder ao mesmo. O token expira após um período de tempo especificado e precisa de ser atualizado para continuar a fazer chamadas.
+Quando ativa a autenticação simbólica de um serviço web, os utilizadores devem apresentar um Azure Machine Learning JSON Web Token ao serviço web para aceder ao mesmo. O token expira após um prazo especificado e precisa de ser atualizado para continuar a fazer chamadas.
 
 * A autenticação token é **desativada por padrão** quando implementa para o Serviço Azure Kubernetes.
 * A autenticação **token não é suportada** quando se implanta em Instâncias de Contentores Azure.
@@ -370,7 +370,7 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> Terá de pedir um novo símbolo depois da hora do `refresh_by` símbolo. Se precisar de atualizar fichas fora do Python SDK, uma opção é utilizar a API REST com autenticação principal de serviço para fazer a `service.get_token()` chamada periodicamente, como discutido anteriormente.
+> Precisará de pedir um novo token depois do prazo `refresh_by` do token. Se precisar de atualizar fichas fora do Python SDK, uma opção é utilizar a API REST com autenticação principal de serviço para fazer a `service.get_token()` chamada periodicamente, como discutido anteriormente.
 >
 > Recomendamos vivamente que crie o seu espaço de trabalho Azure Machine Learning na mesma região que o seu cluster de Serviço Azure Kubernetes.
 >
@@ -378,7 +378,7 @@ print(token)
 >
 > Além disso, quanto maior for a distância entre a região do seu aglomerado e a região do seu espaço de trabalho, mais tempo demorará a obter um símbolo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Como usar segredos no treino.](how-to-use-secrets-in-runs.md)
 * [Treine e implemente um modelo de classificação de imagem.](tutorial-train-models-with-aml.md)

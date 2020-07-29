@@ -3,15 +3,15 @@ title: Ativar a ligação do navegador em máquinas virtuais Azure DevTest Labs
 description: A DevTest Labs integra-se agora com o Azure Bastion, como proprietário do laboratório, podendo aceder a todas as máquinas virtuais de laboratório através de um browser.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 2ff55aa033ee9a024c8bc89cc9d39bc8d3ad25da
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8c78b872855b3fe21f2cb41d394c599aeca7a790
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537534"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87272356"
 ---
 # <a name="enable-browser-connection-on-azure-devtest-labs-virtual-machines"></a>Ativar a ligação do navegador em máquinas virtuais Azure DevTest Labs 
-A DevTest Labs integra-se com [o Azure Bastion,](https://docs.microsoft.com/azure/bastion/)que permite ligar-se às suas máquinas virtuais através de um browser. Primeiro, tem de ativar a ligação do navegador em máquinas virtuais de laboratório.
+A DevTest Labs integra-se com [o Azure Bastion,](../bastion/index.yml)que permite ligar-se às suas máquinas virtuais através de um browser. Primeiro, tem de ativar a ligação do navegador em máquinas virtuais de laboratório.
 
 Como proprietário de um laboratório, pode permitir o acesso a todas as máquinas virtuais de laboratório através de um browser. Não precisa de um cliente adicional, agente ou software. O Azure Bastion proporciona conectividade RDP/SSH segura e sem costura às suas máquinas virtuais diretamente no portal Azure sobre o TLS. Quando se conecta através do Azure Bastion, as suas máquinas virtuais não necessitam de um endereço IP público. Para mais informações, veja [o que é Azure Bastion?](../bastion/bastion-overview.md)
 
@@ -64,5 +64,5 @@ Para ativar a ligação do navegador em máquinas virtuais de laboratório, siga
 
     ![Ativar a ligação do navegador](./media/enable-browser-connection-lab-virtual-machines/browser-connect.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Consulte o seguinte artigo para saber como se conectar aos seus VMs utilizando um browser: [Conecte-se às suas máquinas virtuais através de um browser](connect-virtual-machine-through-browser.md)

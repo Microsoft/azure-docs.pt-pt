@@ -5,17 +5,18 @@ author: normesta
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: b1134f5538663f5b04e77270fee1a715b32a4f3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 061c7f6a45b8667b7fd03d62bee67c695bec5e68
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83675919"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87276793"
 ---
-# <a name="azure-storage-analytics-logging"></a>Azure Storage analytics logging (Registo de análise do Armazenamento do Azure)
+# <a name="azure-storage-analytics-logging"></a>Registo de análise de armazenamento Azure
 
 A Análise de Armazenamento regista informações detalhadas sobre os pedidos com êxito e com falha feitos a um serviço de armazenamento. Estas informações podem ser utilizadas para monitorizar os pedidos individuais e diagnosticar problemas num serviço de armazenamento. Os pedidos são registados numa base de melhor esforço.
 
@@ -63,7 +64,7 @@ Se tiver um grande volume de dados de registo com vários ficheiros para cada ho
 A maioria das ferramentas de navegação de armazenamento permitem-lhe visualizar os metadados das bolhas; também pode ler esta informação usando PowerShell ou programáticamente. O seguinte snippet PowerShell é um exemplo de filtragem da lista de bolhas de log pelo nome para especificar uma hora, e por metadados para identificar apenas os registos que contêm operações de **escrita.**  
 
  ```powershell
- Get-AzureStorageBlob -Container '$logs' |  
+ Get-AzStorageBlob -Container '$logs' |  
  Where-Object {  
      $_.Name -match 'table/2014/05/21/05' -and   
      $_.ICloudBlob.Metadata.LogType -match 'write'  
@@ -136,20 +137,20 @@ Pode especificar os serviços de armazenamento que pretende registar e o períod
 
 ### <a name="enable-storage-logging-using-powershell"></a>Ativar o registo de armazenamento utilizando o PowerShell  
 
- Pode utilizar o PowerShell na sua máquina local para configurar o registo de armazenamento na sua conta de armazenamento utilizando o cmdlet **Get-AzureStorageServiceLoggingProperty** para recuperar as definições atuais e o cmdlet **Set-AzureStorageServiceLoggingProperty** para alterar as definições atuais.  
+ Pode utilizar o PowerShell na sua máquina local para configurar o registo de armazenamento na sua conta de armazenamento utilizando o cmdlet Azure PowerShell **Get-AzStorageServiceLoggingProperty** para recuperar as definições atuais e o cmdlet **Set-AzStorageServiceLoggingProperty** para alterar as definições atuais.  
 
  Os cmdlets que controlam o registo de armazenamento utilizam um parâmetro **de Exploração de Exploração madeireira** que é uma cadeia que contém uma lista separada de vírgulas de tipos de pedido para registar. Os três tipos de pedidos possíveis são **lidos,** **escritos**e **apagados.** Para desligar o registo, utilize o valor **nenhum** para o parâmetro **'Operações de Registo'.**  
 
  O seguinte comando muda a sessão de registo para ler, escrever e apagar pedidos no serviço Queue na sua conta de armazenamento predefinida com retenção definida para cinco dias:  
 
 ```powershell
-Set-AzureStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
+Set-AzStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
 ```  
 
  O seguinte comando desliga a sessão de registo para o serviço de tabela na sua conta de armazenamento predefinido:  
 
 ```powershell
-Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
+Set-AzStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
 ```  
 
  Para obter informações sobre como configurar os cmdlets Azure PowerShell para trabalhar com a sua subscrição Azure e como selecionar a conta de armazenamento predefinida para utilizar, consulte: [Como instalar e configurar a Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
@@ -207,7 +208,7 @@ Para saber mais sobre como descarregar ficheiros específicos, consulte [Baixar 
 
 Quando tiver descarregado os seus dados de registo, pode visualizar as entradas de registo nos ficheiros. Estes ficheiros de registo utilizam um formato de texto delimitado que muitas ferramentas de leitura de registos são capazes de analisar, incluindo o Microsoft Message Analyzer (para mais informações, consulte o guia [Monitor, Diagnóstico e Resolução de Problemas do Microsoft Azure Storage).](storage-monitoring-diagnosing-troubleshooting.md) Diferentes ferramentas têm diferentes instalações para formatação, filtragem, triagem, anúncio de pesquisa do conteúdo dos seus ficheiros de registo. Para obter mais informações sobre o formato e conteúdo do ficheiro de registo de registo de registo de armazenamento, consulte o formato de registo de [armazenamento Analytics](/rest/api/storageservices/storage-analytics-log-format) e o armazenamento de [analítica operações registadas e mensagens de estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Formato de registo de analítica de armazenamento](/rest/api/storageservices/storage-analytics-log-format)
 * [Operações registadas e mensagens de estado de armazenamento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)

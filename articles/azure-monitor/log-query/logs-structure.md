@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/09/2020
-ms.openlocfilehash: b4882ec9eb8b81ae27a1e8eed2e5b4349fbeac3f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4e36a21e9dbab6f9bf814cdeb86f175ded38ea8e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516197"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327298"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Estrutura de Registos monitores Azure
 A capacidade de obter rapidamente informações sobre os seus dados usando uma consulta de [registo](log-query-overview.md) é uma característica poderosa do Azure Monitor. Para criar consultas eficientes e úteis, deve entender alguns conceitos básicos, como o local onde os dados que pretende e como está estruturado. Este artigo fornece os conceitos básicos que precisa para começar.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Os dados em Registos monitores Azure são armazenados num espaço de trabalho do Log Analytics ou numa aplicação Application Insights. Ambos são alimentados pelo [Azure Data Explorer,](/azure/data-explorer/) o que significa que eles alavancam o seu poderoso motor de dados e linguagem de consulta.
 
 > [!IMPORTANT]
@@ -87,6 +87,7 @@ Enquanto cada mesa em Azure Monitor Logs tem o seu próprio esquema, existem pro
 | _IsBillable   |            | Especifica se os dados ingeridos são faturados. |
 | _BilledSize   |            | Especifica o tamanho dos bytes de dados que serão faturados. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba como utilizar [o Log Analytics para criar e editar pesquisas de registos.](./log-query-overview.md)
-- Confira um [tutorial sobre consultas de escrita](../log-query/get-started-queries.md) usando a nova linguagem de consulta.
+- Confira um [tutorial sobre consultas de escrita](./get-started-queries.md) usando a nova linguagem de consulta.
+
