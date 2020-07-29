@@ -4,15 +4,15 @@ description: O AzCopy é um utilitário de linha de comando que pode usar para c
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/23/2019
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: bb18e2b0af6f04cee5b6be11afbb2d2aabdadb4b
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 08e70265399a67ee58ad66e06adffbfd30b20e10
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143005"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289239"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -57,7 +57,7 @@ Para encontrar documentação de referência detalhada para cada parâmetro de c
 > [!NOTE] 
 > Como proprietário da sua conta de Armazenamento Azure, não lhe são atribuídas automaticamente permissões de acesso aos dados. Antes de poder fazer algo significativo com a AzCopy, tem de decidir como irá fornecer credenciais de autorização ao serviço de armazenamento. 
 
-## <a name="choose-how-youll-provide-authorization-credentials"></a>Escolha como irá fornecer credenciais de autorização
+## <a name="choose-how-youll-provide-authorization-credentials"></a>Escolher como disponibilizar as credenciais de autorização
 
 Pode fornecer credenciais de autorização utilizando o Azure Ative Directory (AD), ou utilizando um token de Assinatura de Acesso Partilhado (SAS).
 
@@ -65,9 +65,9 @@ Use esta tabela como guia:
 
 | Tipo de armazenamento | Método de autorização atualmente suportado |
 |--|--|
-|**Armazenamento de blobs** | Azure AD & SAS |
-|**Armazenamento de bolhas (espaço hierárquico)** | Azure AD & SAS |
-|**Armazenamento de ficheiros** | APENAS SAS |
+|**Armazenamento de blobs** | Azure Active Directory e SAS |
+|**Armazenamento de bolhas (espaço hierárquico)** | Azure Active Directory e SAS |
+|**Armazenamento de ficheiros** | Apenas SAS |
 
 ### <a name="option-1-use-azure-active-directory"></a>Opção 1: Utilizar o Diretório Ativo Azure
 
@@ -111,7 +111,7 @@ Depois de verificar que a sua identidade de utilizador recebeu o nível de autor
 azcopy login
 ```
 
-Se pertencer a mais do que uma organização, inclua a identificação do inquilino da organização a que pertence a conta de armazenamento.
+Se receber um erro, tente incluir a identificação do inquilino da organização a que pertence a conta de armazenamento.
 
 ```azcopy
 azcopy login --tenant-id=<tenant-id>

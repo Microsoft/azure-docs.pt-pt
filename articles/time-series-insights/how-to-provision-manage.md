@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: d067d4a7fff385deea946ffa5475e1eb83548a50
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e71c426fee62187bb680c7b8bd1af92d87e85274
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098761"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288809"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-gen2"></a>Provisão e gestão da Azure Time Series Insights Gen2
 
@@ -93,7 +93,7 @@ Pode gerir o seu ambiente Azure Time Series Insights Gen2 utilizando o portal Az
 
 * A lâmina **de configuração** do portal Azure é removida porque as unidades de escala não se aplicam aos ambientes Azure Time Series Insights Gen2. No entanto, pode utilizar a **Configuração de Armazenamento** para configurar a loja quente recentemente introduzida.
 
-* A lâmina de **dados** de referência do portal Azure é removida no Azure Time Series Insights Gen2 porque o conceito de dados de referência foi substituído pelo [Modelo de Séries de Tempo (TSM)](./time-series-insights-update-how-to-tsm.md).
+* A lâmina de **dados** de referência do portal Azure é removida no Azure Time Series Insights Gen2 porque o conceito de dados de referência foi substituído pelo [Modelo de Séries de Tempo (TSM)](/azure/time-series-insights/concepts-model-overview).
 
 [![Azure Time Series Insights Gen2 ambiente no portal Azure](media/v2-update-manage/create-and-manage-overview-confirm.png)](media/v2-update-manage/create-and-manage-overview-confirm.png#lightbox)
 

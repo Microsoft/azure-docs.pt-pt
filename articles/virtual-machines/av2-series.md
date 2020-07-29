@@ -4,15 +4,15 @@ description: Especificações para os VMs da série Av2.
 author: migerdes
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 1b5b77bb9bdf679fe0fd8bf73966dd45acc80155
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cdcc26a8a22e9a1dc7af75667cdb33bb044c7858
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085780"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288583"
 ---
 # <a name="av2-series"></a>Série Av2
 
@@ -28,7 +28,6 @@ Migração ao Vivo: Suportado
 
 Atualizações de preservação da memória: Suportadas
 
-Calculadora de preços e informação sobre disponibilidade de regiões : <a href="https://azure.microsoft.com/en-us/pricing/calculator/">Calculadora de preços</a>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Produção de armazenamento temporário máximo: IOPS/Read MBps/Write MBps | Discos de dados/produção de dados máximos: IOPS | NICs máximos | Largura de banda de rede esperada (Mbps)
 |---|---|---|---|---|---|---|---|
@@ -47,13 +46,13 @@ Calculadora de preços e informação sobre disponibilidade de regiões : <a hre
 - [Fins gerais](sizes-general.md)
 - [Com otimização de memória](sizes-memory.md)
 - [Com otimização de armazenamento](sizes-storage.md)
-- [Otimizada para GPU](sizes-gpu.md)
+- [Com otimização de GPU](sizes-gpu.md)
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-Calculadora de preços e informação sobre disponibilidade de regiões : <a href="https://azure.microsoft.com/en-us/pricing/calculator/">Calculadora de preços</a>
+Calculadora de preços : [Calculadora de Preços](https://azure.microsoft.com/pricing/calculator/)
 
-Mais informações sobre tipos de discos : <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/">tipos de discos</a>
+Mais informações sobre tipos de discos : [tipos de discos](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 34d2d96e28f90249ad25788f6994dac63f83b1f6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 6a686f6915e332893f619e66944591999063a07c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261949"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288164"
 ---
-# <a name="add-a-bar-chart-layer"></a>Adicione uma camada de gráfico de barras
+# <a name="add-a-bar-chart-layer"></a>Adicionar uma camada de gráfico de barras
 
-A **camada de gráfico de Barras** é útil para levar dados para a dimensão seguinte, permitindo a visualização de dados de localização como barras 3D ou cilindros no mapa. Semelhante à camada de bolha, o gráfico de barras mais tarde pode facilmente visualizar duas métricas ao mesmo tempo usando cor e altura relativa. Para que as barras tenham altura, é necessário adicionar uma medida ao balde **tamanho** do painel **fields.** Se não for fornecida uma medida, as barras sem altura como quadrados planos ou círculos dependendo da opção de forma de **Barra.**
+A **camada de gráfico de Barras** é útil para levar dados para a dimensão seguinte, permitindo a visualização de dados de localização como barras 3D ou cilindros no mapa. Semelhante à camada de bolha, o gráfico de barras mais tarde pode facilmente visualizar duas métricas ao mesmo tempo usando cor e altura relativa. Para que as barras tenham altura, é necessário adicionar uma medida ao balde **tamanho** do painel **fields.** Se não for fornecida uma medida, as barras sem altura apresentam-se como quadrados planos ou círculos, dependendo da opção de forma de **Barra.**
 
 > [!div class="mx-imgBorder"]
 > ![Um mapa exibindo dados de ponto usando a camada de gráfico de barra](media/power-bi-visual/bar-chart-layer-styled.png)
@@ -39,7 +39,7 @@ O mapa pode ser rodado utilizando um dos seguintes métodos.
 
 Seguem-se todas as definições no painel **de formato** que estão disponíveis na secção de camadas de gráfico de **barras.**
 
-| Definição              | Descrição      |
+| Definições              | Descrição      |
 |----------------------|------------------|
 | Forma de barra            | A forma da barra 3D.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;• Caixa – Barras renderizadas como caixas retangulares.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Cilindro – Barras renderizadas como cilindros. |
 | Height               | A altura de cada barra. Se um campo for passado para o balde **tamanho** do painel **Fields,** as barras serão dimensionados em relação a este valor de altura. |
@@ -60,7 +60,7 @@ Seguem-se todas as definições no painel **de formato** que estão disponíveis
 Adicione mais contexto ao mapa:
 
 > [!div class="nextstepaction"]
-> [Adicione uma camada de referência](power-bi-visual-add-reference-layer.md)
+> [Adicionar uma camada de referência](power-bi-visual-add-reference-layer.md)
 
 > [!div class="nextstepaction"]
 > [Adicionar uma camada de mosaico](power-bi-visual-add-tile-layer.md)

@@ -3,12 +3,12 @@ title: Integre os Hubs de Eventos Azure com o Azure Private Link Service
 description: Saiba como integrar os Hubs de Eventos Azure com o Azure Private Link Service
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: bfed3f8e4c19463e10b721006d742726cf916900
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a07204615c4d81373d744e83862e6de14c7f8165
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512265"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287966"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link"></a>Integre os Hubs de Eventos Azure com Azure Private Link
 O Azure Private Link Service permite-lhe aceder aos Serviços Azure (por exemplo, Azure Event Hubs, Azure Storage e Azure Cosmos DB) e a Azure acolheu serviços de cliente/parceiro sobre um **ponto final privado** na sua rede virtual.
@@ -26,9 +26,7 @@ Para mais informações, consulte [o que é a Azure Private Link?](../private-li
 > Os serviços da Microsoft fidedignos não são suportados quando utilizam redes virtuais.
 >
 > Cenários de Azure comuns que não funcionam com redes virtuais (note que a lista **NÃO** é exaustiva) -
-> - Monitor Azure (definição de diagnóstico)
 > - Azure Stream Analytics
-> - Integração com a grelha de eventos Azure
 > - Rotas do Hub Azure IoT
 > - Explorador de dispositivos Azure IoT
 >
@@ -273,7 +271,7 @@ Aliases:  <event-hubs-namespace-name>.servicebus.windows.net
 
 Para mais informações, consulte [o serviço Azure Private Link: Limitações](../private-link/private-link-service-overview.md#limitations)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [o Azure Private Link](../private-link/private-link-service-overview.md)
 - Saiba mais sobre [os Azure Event Hubs](event-hubs-about.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Discurso sintetizador, Java - Serviço de fala'
+title: 'Quickstart: Sintetizar o discurso, Java - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -9,17 +9,18 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/28/2019
+ms.custom: devx-track-java
 ms.author: erhopf
-ms.openlocfilehash: a92858d2510a2951575160f64906824694e9c327
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 01eb3da7b6f77c2a182267d4c07f4028c9dcaecf
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74818416"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87375078"
 ---
-**Escolha o seu ambiente alvo**
+**Escolha o seu ambiente-alvo**
 
-#### <a name="java-runtime"></a>[Tempo de execução de Java](#tab/jre)
+#### <a name="java-runtime"></a>[Java Runtime](#tab/jre)
 [!INCLUDE [jre](./jre.md)]
 #### <a name="android"></a>[Android](#tab/android)
 [!INCLUDE [android](./android.md)]

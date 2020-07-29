@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: ce3c0409ba077d81023188530b660eb210daf4d1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9cb5a9aa782017075a58737f8cb94569c2cc6288
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326805"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373305"
 ---
 # <a name="manage-azure-resources-by-using-azure-powershell"></a>Gerir os recursos da Azure utilizando a Azure PowerShell
 
@@ -63,7 +63,7 @@ Pode criar um grupo de recursos e mobilizar recursos para o grupo. Para obter ma
 
 ## <a name="deploy-resources-to-multiple-subscriptions-or-resource-groups"></a>Mobilizar recursos para várias subscrições ou grupos de recursos
 
-Normalmente, você implanta todos os recursos no seu modelo para um único grupo de recursos. No entanto, existem cenários em que pretende implementar um conjunto de recursos em conjunto, mas colocá-los em diferentes grupos de recursos ou subscrições. Para obter mais informações, consulte [recursos do Deploy Azure para várias subscrições ou grupos de recursos.](../templates/cross-resource-group-deployment.md)
+Normalmente, você implanta todos os recursos no seu modelo para um único grupo de recursos. No entanto, existem cenários em que pretende implementar um conjunto de recursos em conjunto, mas colocá-los em diferentes grupos de recursos ou subscrições. Para obter mais informações, consulte [recursos do Deploy Azure para várias subscrições ou grupos de recursos.](../templates/cross-scope-deployment.md)
 
 ## <a name="delete-resources"></a>Eliminar recursos
 

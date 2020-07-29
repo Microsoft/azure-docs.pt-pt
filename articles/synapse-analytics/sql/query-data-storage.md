@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: a30874a14a1c2c44ec04b17b9ebddb52a9e9fb58
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8433242ffe44b8deab62314af386f1a82e2e0017
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020547"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374121"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Ficheiros de armazenamento de consultas utilizando recursos SQL on-demand (pré-visualização) dentro do Sinaapse SQL
 
@@ -54,7 +54,7 @@ Reveja o artigo [de ficheiros Query Parquet](query-parquet-files.md) para obter 
 
 ## <a name="query-csv-files"></a>Ficheiros CSV de consulta
 
-Para consultar os dados de origem do Parquet, utilize o FORMATO = 'CSV'. Pode especificar o esquema do ficheiro CSV como parte da `OPENROWSET` função quando consultar ficheiros CSV:
+Para consultar os dados de origem CSV, utilize o FORMATO = 'CSV'. Pode especificar o esquema do ficheiro CSV como parte da `OPENROWSET` função quando consultar ficheiros CSV:
 
 ```sql
 SELECT * FROM

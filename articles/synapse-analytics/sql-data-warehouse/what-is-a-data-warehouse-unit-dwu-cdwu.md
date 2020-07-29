@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e96fc9af0aa4f362256a5f0fee9465441a1c3928
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62b969ebde1ab5d52968189a6f0865fdb646f6b2
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210631"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374138"
 ---
 # <a name="data-warehouse-units-dwus"></a>Unidades de Armazém de Dados (DWUs)
 
@@ -100,7 +100,7 @@ Para ver as suas verdadeiras capacidades de dimensionamento, especialmente em DW
 
 A alteração das unidades de armazém de dados requer as permissões descritas na [BASE DE DADOS ALTER](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-As funções incorporadas para recursos Azure, tais como SQL DB Contributor e SQL Server Contributor podem alterar as definições de DWU.
+As funções incorporadas do Azure, tais como SQL DB Contributor e SQL Server Contributor podem alterar as definições de DWU.
 
 ## <a name="view-current-dwu-settings"></a>Ver as definições de DWU atuais
 
@@ -129,7 +129,7 @@ Para alterar DWUs:
 
 2. Em **Escala**, mova o deslizador para a esquerda ou para a direita para alterar a definição DWU.
 
-3. Clique em **Guardar**. É apresentada uma mensagem de confirmação. Clique em **sim** para confirmar ou **não** para cancelar.
+3. Clique em **Save** (Guardar). É apresentada uma mensagem de confirmação. Clique em **sim** para confirmar ou **não** para cancelar.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -213,6 +213,6 @@ Quando inicia uma operação em escala, o sistema primeiro elimina todas as sess
 - Para uma operação de escala, o sistema destaca todos os nós computacional, prevê os nós de computação adicionais e, em seguida, reata à camada de armazenamento.
 - Para uma operação de escala para baixo, o sistema destaca todos os nós computacional e, em seguida, reacagre apenas os nós necessários para a camada de armazenamento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a gestão do desempenho, consulte [as aulas de Recursos para gestão da carga de trabalho](resource-classes-for-workload-management.md) e memória e [limites de concordância.](memory-concurrency-limits.md)

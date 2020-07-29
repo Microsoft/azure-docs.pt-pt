@@ -3,12 +3,12 @@ title: Matriz de suporte DPM do MABS & System Center
 description: Este artigo resume o suporte de backup do Azure quando utiliza o Microsoft Azure Backup Server (MABS) ou o System Center DPM para fazer backup nas instalações e recursos VM Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 476f1523eaf042576d38f5d2db283b525721389c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 938fb751de90112dc206779a36b88f95f1d7d508
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538671"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289456"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de suporte para backup com o Microsoft Azure Backup Server ou System Center DPM
 
@@ -24,7 +24,7 @@ O MABS baseia-se no Sistema Center DPM e fornece funcionalidades semelhantes com
 
 - Nenhuma licença do System Center é necessária para executar mABS.
 - Tanto para o MABS como para o DPM, o Azure fornece armazenamento de backup a longo prazo. Além disso, o DPM permite-lhe fazer o back up dados para armazenamento a longo prazo em fita. O MABS não fornece esta funcionalidade.
-- Pode fazer o back up de um servidor DPM primário com um servidor DPM secundário. O servidor secundário irá proteger a base de dados do servidor principal e as réplicas das origens de dados armazenadas no servidor principal. Se o servidor principal falhar, o servidor secundário pode continuar a proteger as cargas de trabalho que estão protegidas pelo servidor principal até que este esteja novamente disponível.  O MABS não fornece esta funcionalidade.
+- [Pode fazer uma cópia de back up um servidor DPM primário com um servidor DPM secundário.](https://docs.microsoft.com/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019) O servidor secundário irá proteger a base de dados do servidor principal e as réplicas das origens de dados armazenadas no servidor principal. Se o servidor principal falhar, o servidor secundário pode continuar a proteger as cargas de trabalho que estão protegidas pelo servidor principal até que este esteja novamente disponível.  O MABS não fornece esta funcionalidade.
 
 Você descarrega MABS do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57520). Pode ser executado no local ou num VM Azure.
 
@@ -190,7 +190,7 @@ Para obter informações sobre os vários servidores e cargas de trabalho que po
 - As cargas de trabalho agrupadas apoiadas pelo DPM/MABS devem estar no mesmo domínio que o DPM/MABS ou num domínio infantil/fidedigno.
 - Pode utilizar a autenticação NTLM/certificado para fazer cópias de segurança em domínios não fidedvios ou grupos de trabalho.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais](backup-architecture.md#architecture-back-up-to-dpmmabs) sobre a arquitetura MABS.
 - [Reveja](backup-support-matrix-mars-agent.md) o que é apoiado para o agente MARS.

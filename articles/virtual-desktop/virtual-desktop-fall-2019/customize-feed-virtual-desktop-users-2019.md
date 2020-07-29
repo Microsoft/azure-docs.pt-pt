@@ -1,6 +1,6 @@
 ---
-title: Personalize o feed para utilizadores do Windows Virtual Desktop Fall 2019 - Azure
-description: Como personalizar o feed para utilizadores do Windows Virtual Desktop com cmdlets PowerShell.
+title: Personalize o feed para utilizadores do Windows Virtual Desktop (clássico) - Azure
+description: Como personalizar o feed para utilizadores do Windows Virtual Desktop (clássico) com cmdlets PowerShell.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9c573fc1aa220b9301e51ef0ccb1190d9243250e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ab1206a8963d9ba3b556a48b2e973eea663c9cb8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011231"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288663"
 ---
-# <a name="customize-feed-for-windows-virtual-desktop-users"></a>Personalizar o feed para utilizadores do Windows Virtual Desktop
+# <a name="customize-feed-for-windows-virtual-desktop-classic-users"></a>Personalize o feed para utilizadores do Windows Virtual Desktop (clássico)
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../customize-feed-for-virtual-desktop-users.md).
+>Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows. Se estiver a tentar gerir os objetos de ambiente de trabalho virtuais do Azure Resource Manager Windows, consulte [este artigo](../customize-feed-for-virtual-desktop-users.md).
 
 Pode personalizar o feed para que os recursos de ambiente de trabalho remoto e remoto apareçam de forma reconhecível para os seus utilizadores.
 

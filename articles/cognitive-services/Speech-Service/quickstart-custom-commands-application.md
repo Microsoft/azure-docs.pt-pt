@@ -10,26 +10,36 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 2ea850acf0ef581ea66733b0293ba044c87bb3a0
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 05b47a786fe845460177b66b5bd54cdb140c246e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362147"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289413"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Criar um assistente de voz com os Comandos Personalizados
 
 Neste arranque rápido, cria-se e testa uma aplicação básica de Comandos Personalizados utilizando o Speech Studio. Também poderá aceder a esta aplicação a partir de uma aplicação para clientes Windows. **Os Comandos Personalizados** facilitam a construção de aplicações de comando de voz ricas otimizadas para experiências de interação de voz. Proporciona uma experiência de autoria unificada, um modelo de hospedagem automática e uma complexidade relativamente menor, ajudando-o a concentrar-se na construção da melhor solução para os seus cenários de comando de voz.
 
+## <a name="region-availability"></a>Disponibilidade da Região
+Neste momento, os Comandos Personalizados suportam subscrições de discurso criadas nestas regiões:
+* E.U.A. Oeste
+* E.U.A. Oeste 2
+* E.U.A. Leste
+* E.U.A. Leste 2
+* Europa do Norte
+* Europa Ocidental
+* E.U.A. Centro-Oeste
+* Índia Central
+* Ásia Leste
+* Sudeste Asiático
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Crie um recurso de Discurso Azul numa região que suporte comandos personalizados.<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Crie um recurso de Discurso Azul numa região que suporte comandos personalizados.<span class="docon docon-navigate-external x-hidden-focus"></span></a> Consulte a secção **disponibilidade da região** acima para obter a lista de regiões apoiadas.
 > * Descarregue a amostra [smart room Lite](https://aka.ms/speech/cc-quickstart) json file.
 > * Descarregue a versão mais recente do [Cliente Assistente de Voz](https://aka.ms/speech/va-samples-wvac)do Windows .
-
-> [!NOTE]
-> Neste momento, os Comandos Personalizados apenas suportam subscrições de discurso nas regiões oeste, oeste e norte-americana.
 
 ## <a name="go-to-the-speech-studio-for-custom-commands"></a>Vá ao Estúdio de Fala para Comandos Personalizados
 
@@ -109,7 +119,7 @@ Em alternativa, também pode obter estes valores selecionando **definições**  
 
 ### <a name="access-application-from-client"></a>Pedido de acesso do cliente
 
-No âmbito deste artigo, utilizaremos o cliente Assistente de Voz do Windows que descarregou como parte dos requisitos prévios. Desaperte a pasta.
+No âmbito deste artigo, utilizaremos o cliente Assistente de Voz do Windows que descarregou como parte dos requisitos prévios. Deszipe a pasta.
 1. Lançamento **VoiceAssistantClient.exe. **
 1. Crie um novo perfil de publicação e introduza valor para **o Perfil de Ligação.** Na secção **Definições Gerais,** introduza valores **A Chave de Subscrição** (isto é o mesmo que o valor chave de **recurso do Discurso** que guardou ao publicar a aplicação), **região-chave de subscrição** e **ID de aplicação de comandos personalizados**.
     > [!div class="mx-imgBorder"]

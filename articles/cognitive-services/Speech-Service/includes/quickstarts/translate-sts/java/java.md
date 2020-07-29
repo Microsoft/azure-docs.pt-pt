@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Traduzir discurso-a-discurso, Java - Serviço de discurso'
+title: 'Quickstart: Traduzir discurso-a-discurso, Java - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -9,13 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
+ms.custom: devx-track-java
 ms.author: erhopf
-ms.openlocfilehash: 3cd0e3b6209a92315ea371dab3d64422bf5eea8f
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: e6ca1b124a87942200c8315ecdba800753908e0b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74980853"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87374904"
 ---
 [!INCLUDE [jre](./jre.md)]
 

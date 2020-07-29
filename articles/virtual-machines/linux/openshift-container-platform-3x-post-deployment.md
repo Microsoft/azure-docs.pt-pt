@@ -5,17 +5,17 @@ author: haroldwongms
 manager: mdotson
 ms.service: virtual-machines-linux
 ms.subservice: workloads
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.custom: devx-track-ansible
-ms.openlocfilehash: ba6fab2c2112c0e2c32e07965ededea817c37cbd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8e34f73f1c403e3a7d21c6c30844f8b9073b3113
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510604"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373577"
 ---
 # <a name="post-deployment-tasks"></a>Tarefas pós-implantação
 
@@ -202,6 +202,6 @@ Para instalar a OSBA no OpenShift, siga as instruções aqui localizadas: https:
 > [!NOTE]
 > Preencha apenas os passos na secção modelo do projeto OpenShift e não toda a secção de Instalação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Começando com plataforma de recipientes openshift](https://docs.openshift.com)

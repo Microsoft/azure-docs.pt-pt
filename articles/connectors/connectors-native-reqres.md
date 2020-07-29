@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
 tags: connectors
-ms.openlocfilehash: 25aafee59c7f5f7ae59aa2fd7871de8926907f68
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ae34840c04c3a1d2fb3646046792c97ed6f521a0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261385"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289435"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Receber e responder a pedidos HTTPS de entrada em Azure Logic Apps
 
@@ -24,7 +24,7 @@ Com [as Apps Azure Logic](../logic-apps/logic-apps-overview.md) e a ação incor
 
 * Receber e responder a uma chamada HTTPS de outra aplicação lógica.
 
-O gatilho request suporta [a autenticação aberta do Azure Ative](/azure/active-directory/develop/) (Azure AD OAuth) para autorizar chamadas de entrada na sua aplicação lógica. Para obter mais informações sobre como ativar esta autenticação, consulte [acesso seguro e dados em Azure Logic Apps - Enable Azure AD OAuth autenticação](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
+O gatilho request suporta [a autenticação aberta do Azure Ative](../active-directory/develop/index.yml) (Azure AD OAuth) para autorizar chamadas de entrada na sua aplicação lógica. Para obter mais informações sobre como ativar esta autenticação, consulte [acesso seguro e dados em Azure Logic Apps - Enable Azure AD OAuth autenticação](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,7 +36,7 @@ O gatilho request suporta [a autenticação aberta do Azure Ative](/azure/active
 
 ## <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
 
-* As chamadas de entrada *suportam apenas* a Segurança da Camada de Transporte (TLS) 1.2. Se tiver erros de aperto de mão TLS, certifique-se de que utiliza O TLS 1.2. Para obter mais informações, consulte [a resolução do problema TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem). As chamadas de saída suportam o suporte TLS 1.0, 1.1 e 1.2, com base na capacidade do ponto final do alvo.
+* As chamadas de entrada *suportam apenas* a Segurança da Camada de Transporte (TLS) 1.2. Se tiver erros de aperto de mão TLS, certifique-se de que utiliza O TLS 1.2. Para obter mais informações, consulte [a resolução do problema TLS 1.0](/security/solving-tls1-problem). As chamadas de saída suportam o suporte TLS 1.0, 1.1 e 1.2, com base na capacidade do ponto final do alvo.
 
 * As chamadas de entrada suportam estas suítes de cifra:
 
@@ -74,7 +74,7 @@ Este gatilho incorporado cria um ponto final HTTPS manualmente chamado que *só*
 
    | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Descrição |
    |---------------|--------------------|----------|-------------|
-   | **HTTP POST URL** | {nenhum} | Yes | O URL de ponto final que é gerado depois de salvar a aplicação lógica e é usado para chamar a sua app lógica |
+   | **HTTP POST URL** | {nenhum} | Sim | O URL de ponto final que é gerado depois de salvar a aplicação lógica e é usado para chamar a sua app lógica |
    | **Pedido corpo JSON Schema** | `schema` | Não | O esquema JSON que descreve as propriedades e valores no corpo de pedido de entrada |
    |||||
 
@@ -275,7 +275,7 @@ A sua aplicação lógica mantém o pedido de entrada aberto apenas por um [temp
 
    | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Descrição |
    |---------------|--------------------|----------|-------------|
-   | **Código de Estado** | `statusCode` | Yes | O código de estado para devolver na resposta |
+   | **Código de Estado** | `statusCode` | Sim | O código de estado para devolver na resposta |
    | **Cabeçalhos** | `headers` | Não | Um objeto JSON que descreve um ou mais cabeçalhos para incluir na resposta |
    | **Corpo** | `body` | Não | O corpo de resposta |
    |||||
@@ -287,3 +287,4 @@ A sua aplicação lógica mantém o pedido de entrada aberto apenas por um [temp
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Conectores para as Logic Apps](../connectors/apis-list.md)
+

@@ -4,23 +4,23 @@ description: incluir ficheiro
 services: cognitive-services
 author: diberry
 manager: nitinme
-ms.custom: include file
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.date: 02/14/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.author: diberry
-ms.openlocfilehash: 8fd7f23235dbd94ee8d20aa693ec5b659cb6d64d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b5486c8ad61a82696c9b4fb5b9a3475818390596
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77279487"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87375136"
 ---
 A gestão das contribuições dos colaboradores depende do estado atual da app.
 
-**Para a autoria de aplicações [migradas](../luis-migration-authoring.md) **por recursos : _os contribuintes_ são geridos no portal Azure para o recurso de autoria, utilizando a página de Controlo de **Acesso (IAM).** Adicione um utilizador, utilizando o endereço de e-mail do colaborador e a função _do colaborador._
+**Para a autoria de aplicações [migradas de recursos](../luis-migration-authoring.md) **: os contribuintes são _geridos_ no portal Azure para o recurso de autoria, utilizando a página access control **(IAM).** Adicione um utilizador, utilizando o endereço de e-mail do colaborador e a _função de contribuinte._
 
-**Para aplicações que ainda não tenham migrado**– todos os _colaboradores_ são geridos no portal LUIS a partir da página **'Gerir - > Colaboradores'** de cada aplicação. Nesta página, [adicione o endereço de e-mail de um utilizador](../luis-how-to-collaborate.md). Isto fornece apenas acesso de autoria a esta aplicação.
+**Para aplicações que ainda não migraram**: todos os colaboradores são _geridos_ no portal LUIS a partir da página **de Colaboradores gestão ->** de cada app. Nesta página, [adicione o endereço de e-mail de um utilizador.](../luis-how-to-collaborate.md) Isto proporciona apenas acesso à autoria desta aplicação.
 
 

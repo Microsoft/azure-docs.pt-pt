@@ -3,16 +3,16 @@ title: Conecte-se às suas máquinas virtuais através de um browser - Azure / M
 description: Saiba como se conectar às suas máquinas virtuais através de um browser.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b1e50a15673199a4bf95956ae66e6b58d6d41d0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 352fc5fd3ff53a00d9f62966ecf21417ad898706
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483742"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288058"
 ---
 # <a name="connect-to-your-virtual-machines-through-a-browser"></a>Conecte-se às suas máquinas virtuais através de um browser 
 
-A DevTest Labs integra-se com [o Azure Bastion,](https://docs.microsoft.com/azure/bastion/)que permite ligar-se às suas máquinas virtuais através de um browser. Para obter informações sobre como ativar esta funcionalidade em DevTest Labs, consulte [Ativar a ligação do navegador em máquinas virtuais de laboratório](enable-browser-connection-lab-virtual-machines.md).
+A DevTest Labs integra-se com [o Azure Bastion,](../bastion/index.yml)que permite ligar-se às suas máquinas virtuais através de um browser. Para obter informações sobre como ativar esta funcionalidade em DevTest Labs, consulte [Ativar a ligação do navegador em máquinas virtuais de laboratório](enable-browser-connection-lab-virtual-machines.md).
 
 Uma vez que o *browser connect* está ativado, os utilizadores de laboratório podem aceder a máquinas virtuais através de um navegador.  
 
@@ -28,6 +28,6 @@ Uma vez criada a máquina virtual, pode lançá-la num browser clicando no botã
 
 ![Lançamento em um navegador](./media/connect-virtual-machine-through-browser/browser-connect.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 [Adicione um VM a um laboratório em Azure DevTest Labs](devtest-lab-add-vm.md)

@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: storage
 author: roygara
 ms.service: storage
@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f30518c3bfc9876cbddaf8295ff9e8b667a70200
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0832672cc848495f3d95d308071e0a8359ae4f1
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74014538"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87375640"
 ---
 ## <a name="overview"></a>Descrição geral
-O Azure Storage fornece a capacidade de tirar fotos de bolhas. Os instantâneos captam o estado da bolha nessa altura. Neste artigo, descrevemos um cenário em que é possível manter cópias de segurança de discos de máquinas virtuais utilizando instantâneos. Pode utilizar esta metodologia quando optar por não utilizar o Serviço de Backup e Recuperação do Azure e pretende criar uma estratégia de backup personalizada para os seus discos de máquinas virtuais.
+O Azure Storage fornece a capacidade de tirar fotos de bolhas. Os instantâneos captam o estado da bolha nessa altura. Neste artigo, descrevemos um cenário em que é possível manter cópias de segurança de discos de máquinas virtuais utilizando instantâneos. Pode utilizar esta metodologia quando optar por não utilizar o Serviço de Backup e Recuperação do Azure e pretende criar uma estratégia de backup personalizada para os seus discos de máquinas virtuais. Para máquinas virtuais que executam cargas de trabalhos ou cargas de trabalho críticas de missão, é recomendado usar [o Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction) como parte da estratégia de backup.  
 
 Os discos de máquina virtual Azure são armazenados como bolhas de página no Azure Storage. Uma vez que estamos descrevendo uma estratégia de backup para discos de máquinas virtuais neste artigo, referimo-nos a instantâneos no contexto das bolhas de página. Para saber mais sobre instantâneos, consulte a [Criação de um Instantâneo de uma Bolha.](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)
 
@@ -57,7 +57,8 @@ Desde que sejam satisfeitas as seguintes condições,
 * A bolha foi criada em Jan-1-2016 ou mais tarde.
 * A bolha não foi substituída com [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) ou [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) entre duas imagens.
 
-**Nota:** Esta funcionalidade está disponível para Blobs de Página Premium e Standard Azure.
+>[!NOTE]
+>Esta funcionalidade está disponível para Premium e Standard Azure Page Blobs.
 
 Quando você tem uma estratégia de backup personalizada usando instantâneos, copiar os instantâneos de uma conta de armazenamento para outra pode ser lento e pode consumir muito espaço de armazenamento. Em vez de copiar todo o instantâneo para uma conta de armazenamento de reserva, pode escrever a diferença entre instantâneos consecutivos para uma bolha de página de reserva. Desta forma, o tempo de copiar e o espaço para armazenar backups é substancialmente reduzido.
 
@@ -73,7 +74,7 @@ Pode implementar uma cópia instantânea incremental fazendo o seguinte,
 
 Na secção seguinte, descreveremos com mais pormenor como pode manter cópias de segurança dos discos utilizando cópia snapshot incremental
 
-## <a name="scenario"></a>Scenario
+## <a name="scenario"></a>Cenário
 Nesta secção, descrevemos um cenário que envolve uma estratégia de backup personalizada para discos de máquinas virtuais usando instantâneos.
 
 Considere um Azure VM da série DS com um disco P30 de armazenamento premium ligado. O disco P30 chamado *mypremiumdisk* está guardado numa conta de armazenamento premium chamada *mypremiumaccount*. Uma conta de armazenamento padrão chamada *mybackupstdaccount* é usada para armazenar a cópia de segurança do *mypremiumdisk*. Gostaríamos de ter uma foto do *mypremiumdisk* a cada 12 horas.
@@ -108,7 +109,7 @@ Os seguintes passos, descreva como restaurar o disco premium, *mypremiumdisk* pa
 
 ![Restaurar o disco a partir de instantâneos](../articles/virtual-machines/windows/media/incremental-snapshots/storage-incremental-snapshots-2.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Use os seguintes links para saber mais sobre a criação de instantâneos de uma bolha e planejar a sua infraestrutura de backup VM.
 
 * [Criando um instantâneo de uma bolha](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)

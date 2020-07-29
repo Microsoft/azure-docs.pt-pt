@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: 04c31a12348fe0059bcfd417682647676dbc8948
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: abc9a42c7ced6a71f93c00968eb825f28f720843
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84637474"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87375424"
 ---
 Neste arranque rápido, você vai aprender a usar o SDK de Dispositivos de Fala para Android para construir um produto ativado por discurso ou usá-lo como um dispositivo [de transcrição de conversação.](../conversation-transcription-service.md)
 
@@ -35,7 +35,7 @@ Antes de começar a usar o SDK dos Dispositivos de Fala, terá de:
 
 - Se planeia utilizar o serviço Desemação para identificar intenções (ou ações) de declarações de utilizadores, precisará de uma subscrição do [Serviço de Compreensão de Línguas (LUIS).](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) Para saber mais sobre o LUIS e o reconhecimento de intenções, consulte [Reconhecer as intenções da fala com LUIS, C.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
 
-  Pode [criar um modelo LUIS simples](https://docs.microsoft.com/azure/cognitive-services/luis/) ou utilizar o modelo LUIS da amostra, LUIS-exemplo.json. O modelo LUIS da amostra está disponível no site de [descarregamento SDK dos Dispositivos de Fala.](https://aka.ms/sdsdk-luis) Para fazer o upload do ficheiro JSON do seu modelo para o [portal LUIS](https://www.luis.ai/home), selecione Import **new app**e, em seguida, selecione o ficheiro JSON.
+  Pode [criar um modelo LUIS simples](https://docs.microsoft.com/azure/cognitive-services/luis/) ou utilizar o modelo LUIS de amostra, LUIS-example.js. O modelo LUIS da amostra está disponível no site de [descarregamento SDK dos Dispositivos de Fala.](https://aka.ms/sdsdk-luis) Para fazer o upload do ficheiro JSON do seu modelo para o [portal LUIS](https://www.luis.ai/home), selecione Import **new app**e, em seguida, selecione o ficheiro JSON.
 
 - Instale [o Android Studio](https://developer.android.com/studio/) e o [Vysor](https://vysor.io/download/) no seu PC.
 
@@ -96,7 +96,7 @@ Para validar a configuração do seu kit de desenvolvimento, construa e instale 
     Atualize a **build.gradle (Módulo:app)** adicionando esta linha à secção de dependências. 
     
     ```xml
-    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.12.1'
+    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.13.0'
     ```
     
 1. Adicione a chave de subscrição de discurso ao código fonte. Se quiser tentar o reconhecimento de intenções, adicione também a chave de subscrição do [serviço de Compreensão linguística](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) e o ID da aplicação.
@@ -124,7 +124,7 @@ Para validar a configuração do seu kit de desenvolvimento, construa e instale 
    > [!TIP]
    > Também pode [criar uma palavra-chave personalizada.](../speech-devices-sdk-create-kws.md)
 
-   Para utilizar uma nova palavra-chave, atualize as duas linhas seguintes e `MainActivity.java` copie o pacote de palavras-chave para a sua aplicação. Por exemplo, para utilizar a palavra-chave 'Máquina' a partir do pacote de palavras-chave kws-machine.zip:
+   Para utilizar uma nova palavra-chave, atualize as duas linhas seguintes e `MainActivity.java` copie o pacote de palavras-chave para a sua aplicação. Por exemplo, utilizar a palavra-chave 'Máquina' a partir do pacote de palavras-chave kws-machine.zip:
 
    - Copie o pacote de palavras-chave na pasta "C:\SDSDK\Android-Sample-Release\exemplo\app\src\main\assets\".
    - Atualize a `MainActivity.java` palavra-chave e o nome do pacote:
@@ -177,6 +177,6 @@ Se não conseguir ligar-se ao Dispositivo de Fala. Digite o seguinte comando num
 ```
 
 > [!NOTE]
-> Este comando utiliza a Ponte Android Debug, `adb.exe` que faz parte da instalação do Android Studio. Esta ferramenta está localizada em C:\User \[ name]\AppData\Local\Android\Sdk\platform-tools. Pode adicionar este diretório ao seu caminho para que seja mais conveniente `adb` invocar. Caso contrário, deve especificar o caminho completo para a instalação do adb.exe em todos os comandos que `adb` invocarem .
+> Este comando utiliza a Ponte Android Debug, `adb.exe` que faz parte da instalação do Android Studio. Esta ferramenta está localizada em C:\User \[ name]\AppData\Local\Android\Sdk\platform-tools. Pode adicionar este diretório ao seu caminho para que seja mais conveniente `adb` invocar. Caso contrário, deve especificar o caminho completo para a instalação de adb.exe em todos os comandos que `adb` invocarem .
 >
 > Se vir um `no devices/emulators found` erro, verifique se o cabo USB está ligado e certifique-se de que é utilizado um cabo de alta qualidade.

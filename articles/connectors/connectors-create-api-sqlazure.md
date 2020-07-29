@@ -7,26 +7,26 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/06/2020
 tags: connectors
-ms.openlocfilehash: ba8a6e5b53634850670a7d6b2fb55ef0e7b18d09
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e500f678d2066d24de12a04f28ccbdb3f76eda3a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255506"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288176"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatizar fluxos de trabalho para uma base de dados SQL utilizando apps Azure Logic
 
-Este artigo mostra como pode aceder aos dados na sua base de dados SQL a partir de uma aplicação lógica com o conector SQL Server. Desta forma, pode automatizar tarefas, processos ou fluxos de trabalho que gerem os seus dados e recursos SQL criando aplicações lógicas. O conector SQL Server funciona para [o SQL Server,](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) bem como [para a Base de Dados SQL Azure](../azure-sql/database/sql-database-paas-overview.md) e [para a Azure SQL Gerenciada .](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)
+Este artigo mostra como pode aceder aos dados na sua base de dados SQL a partir de uma aplicação lógica com o conector SQL Server. Desta forma, pode automatizar tarefas, processos ou fluxos de trabalho que gerem os seus dados e recursos SQL criando aplicações lógicas. O conector SQL Server funciona para [o SQL Server,](/sql/sql-server/sql-server-technical-documentation) bem como [para a Base de Dados SQL Azure](../azure-sql/database/sql-database-paas-overview.md) e [para a Azure SQL Gerenciada .](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)
 
 Pode criar aplicações lógicas que são executadas quando desencadeadas por eventos na sua base de dados SQL ou em outros sistemas, como o Dynamics CRM Online. As suas aplicações lógicas também podem obter, inserir e eliminar dados juntamente com consultas SQL executando e procedimentos armazenados. Por exemplo, pode construir uma aplicação lógica que verifica automaticamente novos registos no Dynamics CRM Online, adiciona itens à sua base de dados SQL para quaisquer novos registos e, em seguida, envia alertas de e-mail sobre os itens adicionados.
 
-Se é novo em aplicações lógicas, [reveja o que é Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [Quickstart: Crie a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para obter informações técnicas específicas do conector, limitações e problemas conhecidos, consulte a página de referência do [conector SQL Server](https://docs.microsoft.com/connectors/sql/).
+Se é novo em aplicações lógicas, [reveja o que é Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [Quickstart: Crie a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para obter informações técnicas específicas do conector, limitações e problemas conhecidos, consulte a página de referência do [conector SQL Server](/connectors/sql/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição, [inscreva-se numa conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* Uma [base de dados sql server](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database), [Azure SQL Database,](../azure-sql/database/single-database-create-quickstart.md)ou [Azure SQL Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md).
+* Uma [base de dados sql server](/sql/relational-databases/databases/create-a-database), [Azure SQL Database,](../azure-sql/database/single-database-create-quickstart.md)ou [Azure SQL Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md).
 
   As suas tabelas devem ter dados para que a sua aplicação lógica possa devolver resultados ao ligar para as operações. Se utilizar a Base de Dados Azure SQL, pode utilizar bases de dados de amostras, que estão incluídas.
 
@@ -54,7 +54,7 @@ Se é novo em aplicações lógicas, [reveja o que é Azure Logic Apps](../logic
 
 <a name="create-connection"></a>
 
-## <a name="connect-to-your-database"></a>Ligar à base de dados
+## <a name="connect-to-your-database"></a>Ligar à sua base de dados
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
@@ -74,7 +74,7 @@ A primeira vez que adiciona um [gatilho SQL](#add-sql-trigger) ou [uma ação SQ
    | Autenticação | Descrição |
    |----------------|-------------|
    | [**Azure AD Integrado**](../azure-sql/database/authentication-aad-overview.md) | - Suporta tanto o conector não-ISE como o conector ISE SQL Server. <p><p>- Requer uma identidade válida no Azure Ative Directory (Azure AD) que tenha acesso à sua base de dados. <p>Para obter mais informações, veja estes tópicos: <p>- [Visão geral de segurança do Azure SQL - Autenticação](../azure-sql/database/security-overview.md#authentication) <br>- [Autorizar o acesso à base de dados a Azure SQL - Autenticação e autorização](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL - Autenticação Integrada AD AD](../azure-sql/database/authentication-aad-overview.md) |
-   | [**Autenticação do SQL Server**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Suporta tanto o conector não-ISE como o conector ISE SQL Server. <p><p>- Requer um nome de utilizador válido e uma senha forte que são criadas e armazenadas na sua base de dados. <p>Para obter mais informações, veja estes tópicos: <p>- [Visão geral de segurança do Azure SQL - Autenticação](../azure-sql/database/security-overview.md#authentication) <br>- [Autorizar o acesso à base de dados a Azure SQL - Autenticação e autorização](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
+   | [**Autenticação do SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Suporta tanto o conector não-ISE como o conector ISE SQL Server. <p><p>- Requer um nome de utilizador válido e uma senha forte que são criadas e armazenadas na sua base de dados. <p>Para obter mais informações, veja estes tópicos: <p>- [Visão geral de segurança do Azure SQL - Autenticação](../azure-sql/database/security-overview.md#authentication) <br>- [Autorizar o acesso à base de dados a Azure SQL - Autenticação e autorização](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
    |||
 
    Este exemplo continua com **a Azure AD Integrada:**
@@ -85,11 +85,11 @@ A primeira vez que adiciona um [gatilho SQL](#add-sql-trigger) ou [uma ação SQ
 
 1. Selecione estes valores para a sua base de dados:
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
    | **Nome do servidor** | Sim | O endereço do seu servidor SQL, por exemplo,`Fabrikam-Azure-SQL.database.windows.net` |
    | **Nome da base de dados** | Sim | O nome da sua base de dados SQL, por exemplo,`Fabrikam-Azure-SQL-DB` |
-   | **Nome da tabela** | Sim | A mesa que quer usar, por exemplo,`SalesLT.Customer` |
+   | **Nome da mesa** | Sim | A mesa que quer usar, por exemplo,`SalesLT.Customer` |
    ||||
 
    > [!TIP]
@@ -117,8 +117,8 @@ A primeira vez que adiciona um [gatilho SQL](#add-sql-trigger) ou [uma ação SQ
 
    | Autenticação | Descrição |
    |----------------|-------------|
-   | [**Autenticação do Windows**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | - Suporta apenas o conector não-ISE SQL Server, que requer um recurso de gateway de dados que foi previamente criado em Azure para a sua ligação, independentemente de utilizar o Azure multi-inquilino ou um ISE. <p><p>- Requer um nome de utilizador e senha válidos do Windows para confirmar a sua identidade através da sua conta Windows. <p>Para mais informações, consulte [a autenticação do Windows](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) |
-   | [**Autenticação do SQL Server**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Suporta tanto o conector não-ISE como o conector ISE SQL Server. <p><p>- Requer um nome de utilizador válido e uma palavra-passe forte que são criadas e armazenadas no seu SQL Server. <p>Para obter mais informações, consulte [a autenticação do servidor SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
+   | [**Autenticação do Windows**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | - Suporta apenas o conector não-ISE SQL Server, que requer um recurso de gateway de dados que foi previamente criado em Azure para a sua ligação, independentemente de utilizar o Azure multi-inquilino ou um ISE. <p><p>- Requer um nome de utilizador e senha válidos do Windows para confirmar a sua identidade através da sua conta Windows. <p>Para mais informações, consulte [a autenticação do Windows](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) |
+   | [**Autenticação do SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Suporta tanto o conector não-ISE como o conector ISE SQL Server. <p><p>- Requer um nome de utilizador válido e uma palavra-passe forte que são criadas e armazenadas no seu SQL Server. <p>Para obter mais informações, consulte [a autenticação do servidor SQL](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
    |||
 
    Este exemplo continua com **a Autenticação do Windows:**
@@ -127,14 +127,14 @@ A primeira vez que adiciona um [gatilho SQL](#add-sql-trigger) ou [uma ação SQ
 
 1. Selecione ou forneça os seguintes valores para a sua base de dados SQL:
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
    | **Nome do servidor SQL** | Sim | O endereço do seu servidor SQL, por exemplo,`Fabrikam-Azure-SQL.database.windows.net` |
    | **Nome da base de dados SQL** | Sim | O nome da sua base de dados SQL Server, por exemplo,`Fabrikam-Azure-SQL-DB` |
-   | **Nome de utilizador** | Sim | O seu nome de utilizador para o servidor e base de dados SQL |
+   | **Nome de Utilizador** | Sim | O seu nome de utilizador para o servidor e base de dados SQL |
    | **Palavra-passe** | Sim | A sua palavra-passe para o servidor e base de dados SQL |
    | **Subscrição** |  Sim, para a autenticação do Windows | A subscrição Azure para o recurso de gateway de dados que criou anteriormente no Azure |
-   | **Gateway de conexão** | Sim, para a autenticação do Windows | O nome do recurso data gateway que criou anteriormente em Azure <p><p>**Sugestão**: Se o seu portal não aparecer na lista, verifique se configura corretamente [o seu portal](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). |
+   | **Gateway de conexão** | Sim, para a autenticação do Windows | O nome do recurso data gateway que criou anteriormente em Azure <p><p>**Sugestão**: Se o seu portal não aparecer na lista, verifique se configura corretamente [o seu portal](../logic-apps/logic-apps-gateway-connection.md). |
    |||
 
    > [!TIP]
@@ -171,7 +171,7 @@ A primeira vez que adiciona um [gatilho SQL](#add-sql-trigger) ou [uma ação SQ
 
    Este gatilho retorna apenas uma linha da mesa selecionada, e nada mais. Para executar outras tarefas, continue adicionando uma [ação de conector SQL](#add-sql-action) ou [outra ação](../connectors/apis-list.md) que execute a próxima tarefa que deseja no fluxo de trabalho da aplicação lógica.
    
-   Por exemplo, para ver os dados nesta linha, pode adicionar outras ações que criam um ficheiro que inclui os campos da linha retornado e, em seguida, enviar alertas de e-mail. Para saber mais sobre outras ações disponíveis para este conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/sql/).
+   Por exemplo, para ver os dados nesta linha, pode adicionar outras ações que criam um ficheiro que inclui os campos da linha retornado e, em seguida, enviar alertas de e-mail. Para saber mais sobre outras ações disponíveis para este conector, consulte a [página de referência do conector](/connectors/sql/).
 
 1. Na barra de ferramentas do designer, **selecione Save**.
 
@@ -201,7 +201,7 @@ Neste exemplo, a aplicação lógica começa com o [gatilho de Recorrência](../
 
    ![Selecione o nome da tabela e especifique o ID da linha](./media/connectors-create-api-sqlazure/specify-table-row-id.png)
 
-   Esta ação retorna apenas uma linha da mesa selecionada, nada mais. Assim, para ver os dados nesta linha, pode adicionar outras ações que criam um ficheiro que inclui os campos da linha devolvida, e armazenar esse ficheiro numa conta de armazenamento em nuvem. Para saber mais sobre outras ações disponíveis para este conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/sql/).
+   Esta ação retorna apenas uma linha da mesa selecionada, nada mais. Assim, para ver os dados nesta linha, pode adicionar outras ações que criam um ficheiro que inclui os campos da linha devolvida, e armazenar esse ficheiro numa conta de armazenamento em nuvem. Para saber mais sobre outras ações disponíveis para este conector, consulte a [página de referência do conector](/connectors/sql/).
 
 1. Quando terminar, na barra de ferramentas do designer, **selecione Save**.
 
@@ -217,13 +217,13 @@ Por vezes, temos de trabalhar com conjuntos de resultados tão grandes que o con
 
   Ao obter ou inserir várias linhas, a sua aplicação lógica pode iterar através destas linhas utilizando um [*loop até*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) ao limite dentro [destes limites](../logic-apps/logic-apps-limits-and-config.md). No entanto, quando a sua aplicação lógica tem de funcionar com conjuntos de discos tão grandes, por exemplo, milhares ou milhões de linhas, que pretende minimizar os custos resultantes das chamadas para a base de dados.
 
-  Para organizar os resultados da forma que pretende, pode criar um [*procedimento armazenado*](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) que funciona na sua instância SQL e utiliza o SELECT - **ORDER BY** statement. Esta solução dá-lhe mais controlo sobre o tamanho e estrutura dos seus resultados. A sua aplicação lógica chama o procedimento armazenado utilizando a ação de **procedimento armazenada** do conector SQL Server.
+  Para organizar os resultados da forma que pretende, pode criar um [*procedimento armazenado*](/sql/relational-databases/stored-procedures/stored-procedures-database-engine) que funciona na sua instância SQL e utiliza o SELECT - **ORDER BY** statement. Esta solução dá-lhe mais controlo sobre o tamanho e estrutura dos seus resultados. A sua aplicação lógica chama o procedimento armazenado utilizando a ação de **procedimento armazenada** do conector SQL Server.
 
   Para mais detalhes sobre a solução, consulte estes artigos:
 
   * [Paginação SQL para transferência de dados em massa com Apps Lógicas](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx)
 
-  * [SELECIONE - ENCOMENDA POR CLÁUSULA](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql)
+  * [SELECIONE - ENCOMENDA POR CLÁUSULA](/sql/t-sql/queries/select-order-by-clause-transact-sql)
 
 ### <a name="handle-dynamic-bulk-data"></a>Lidar com dados dinâmicos a granel
 
@@ -250,8 +250,9 @@ Quando se chama um procedimento armazenado utilizando o conector SQL Server, a s
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Para obter informações técnicas sobre os gatilhos, ações e limites deste conector, consulte a [página de referência do conector,](https://docs.microsoft.com/connectors/sql/)que é gerada a partir da descrição do Swagger.
+Para obter informações técnicas sobre os gatilhos, ações e limites deste conector, consulte a [página de referência do conector,](/connectors/sql/)que é gerada a partir da descrição do Swagger.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [outros conectores para Apps Azure Logic](../connectors/apis-list.md)
+

@@ -1,23 +1,23 @@
 ---
-title: Configure GPU para Windows Virtual Desktop Fall 2019 - Azure
-description: Como permitir a renderização acelerada pela GPU e codificação no Windows Virtual Desktop.
+title: Configure GPU para Windows Virtual Desktop (clássico) - Azure
+description: Como permitir a renderização acelerada pela GPU e codificação no Windows Virtual Desktop (clássico).
 services: virtual-desktop
 author: gundarev
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: denisgun
-ms.openlocfilehash: bbb0985e309601562587f3f1b26427f46a4a8987
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e6c8fe95508937604c53d817d60dd637352fb6fa
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087174"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288691"
 ---
-# <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop-fall-2019"></a>Configure a aceleração da unidade de processamento de gráficos (GPU) para o Windows Virtual Desktop Fall 2019
+# <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop-classic"></a>Configure a aceleração da unidade de processamento de gráficos (GPU) para o Windows Virtual Desktop (clássico)
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../configure-vm-gpu.md).
+>Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows. Se estiver a tentar gerir os objetos de ambiente de trabalho virtuais do Azure Resource Manager Windows, consulte [este artigo](../configure-vm-gpu.md).
 
 O Windows Virtual Desktop suporta renderização acelerada por GPU e codificação para melhorar o desempenho e escalabilidade da aplicação. A aceleração da GPU é particularmente crucial para aplicações com gráficas intensivas.
 

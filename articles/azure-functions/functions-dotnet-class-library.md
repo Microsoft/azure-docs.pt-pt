@@ -2,13 +2,13 @@
 title: Referência do programador Azure Functions C#
 description: Entenda como desenvolver funções Azure usando C#.
 ms.topic: conceptual
-ms.date: 09/12/2018
-ms.openlocfilehash: 9ecc2dad8d1d520b44972022d47c312f495d5c38
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/24/2020
+ms.openlocfilehash: 7c00dcd3648ef175d4e834fceef3444f7943e70b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506521"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288195"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do programador Azure Functions C#
 
@@ -31,7 +31,7 @@ As versões do tempo de execução das Funções funcionam com versões específ
 | ---- | ---- |
 | Funções 3.x | .NET Core 3.1 |
 | Funções 2.x | .NET Core 2.2 |
-| Funções 1.x | .NET Framework 4.6 |
+| Funções 1.x | .Net Quadro 4.7 |
 
 Para saber mais, consulte [as versões de tempo de execução do Azure Functions](functions-versions.md)
 
@@ -429,7 +429,7 @@ public static class IBinderExampleMultipleAttributes
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre gatilhos e encadernações](functions-triggers-bindings.md)

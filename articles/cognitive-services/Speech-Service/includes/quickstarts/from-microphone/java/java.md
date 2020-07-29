@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Reconheça o discurso de um microfone, Java - Serviço de fala'
+title: 'Quickstart: Reconhecer a fala a partir de um microfone, Java - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -9,17 +9,18 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 11/07/2019
+ms.custom: devx-track-java
 ms.author: erhopf
-ms.openlocfilehash: 9b46bc070c7e3b9d88bb8aa3742623e62dff579b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2655635fccd619f4d8445bf3af23fba41cbb2a72
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74818926"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87375207"
 ---
-**Escolha o seu ambiente alvo**
+**Escolha o seu ambiente-alvo**
 
-# <a name="java-runtime"></a>[Tempo de execução de Java](#tab/java-runtime)
+# <a name="java-runtime"></a>[Java Runtime](#tab/java-runtime)
 
 [!INCLUDE [JRE](./jre.md)]
 

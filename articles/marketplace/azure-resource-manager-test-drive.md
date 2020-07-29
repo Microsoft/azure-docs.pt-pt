@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/19/2020
-ms.openlocfilehash: 401ffaaa0fa8c8e298a3a1891d93f2c9039d7820
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.author: keferna
+author: keferna
+ms.openlocfilehash: 92fd4d629585ed465e2891be2dce1c1bdc8c88e6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102944"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287934"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Unidade de teste do Gestor de Recursos Azure
 
@@ -70,10 +72,10 @@ Pode utilizar qualquer nome válido para os seus parâmetros; a unidade de teste
 
 | Tipo de metadados   | Tipo de parâmetro  | Descrição     | Valor da amostra    |
 |---|---|---|---|
-| **baseuri**     | string          | Base URI do seu pacote de implantação| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
-| **nome de utilizador**    | string          | Novo nome de utilizador aleatório.| administrador68876      |
+| **baseuri**     | cadeia          | Base URI do seu pacote de implantação| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
+| **nome de utilizador**    | cadeia          | Novo nome de utilizador aleatório.| administrador68876      |
 | **palavra-passe**    | cadeia segura    | Nova senha aleatória | Lp!ACS \^ 2kh     |
-| **id sessão**   | string          | ID de sessão de test drive único (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
+| **id sessão**   | cadeia          | ID de sessão de test drive único (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
 #### <a name="baseuri"></a>baseuri
 
@@ -102,7 +104,7 @@ Utilize este parâmetro dentro do seu modelo para construir um Uri de qualquer f
 }
 ```
 
-#### <a name="username"></a>o nome de utilizador
+#### <a name="username"></a>nome de utilizador
 
 A unidade de teste ini (test drive) inindo este parâmetro com um novo nome de utilizador aleatório:
 
@@ -349,7 +351,7 @@ Não elimine quaisquer instâncias de test drive previstas para os seus clientes
 
 Uma vez confortável com a sua oferta de pré-visualização, é hora de ir ao **vivo!** Há um processo de revisão final para verificar novamente toda a experiência de ponta a ponta. Se rejeitarmos a oferta, enviaremos um e-mail ao contacto de engenharia para a sua oferta explicando o que precisa de ser corrigido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Se seguia as instruções para criar a sua oferta no Partner Center, utilize a seta traseira para voltar a esse tópico.
 - Saiba mais sobre outros tipos de test drives no [What is a test drive?](what-is-test-drive.md)

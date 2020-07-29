@@ -1,6 +1,6 @@
 ---
-title: Sessão de escala acolhe Azure Automation - Azure
-description: Como escalar automaticamente os anfitriões da sessão virtual do Windows desktop com a Azure Automation.
+title: Sessão de escala acolhe Azure Automation Windows Virtual Desktop (clássico) - Azure
+description: Como escalar automaticamente os anfitriões de sessão virtual do Windows Desktop (clássico) com Azure Automation.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 690f59c643f1fe8c8cfc74758a0f8f13b129f78a
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 4c09ce867a7d4dbc11c42485c39c40bd427fa451
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172073"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288632"
 ---
-# <a name="scale-session-hosts-using-azure-automation"></a>Anfitriões de sessão de escala usando Azure Automation
+# <a name="scale-windows-virtual-desktop-classic-session-hosts-using-azure-automation"></a>Anfitriões de sessão de desktop virtual do Windows (clássico) usando Azure Automation
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure.
+>Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows.
 
 Pode reduzir o custo total de implementação do Ambiente de Trabalho Virtual do Windows escalando as suas máquinas virtuais (VMs). Isto significa desligar e lidar com vMs anfitriões de sessão durante as horas de utilização fora do pico, em seguida, ligá-los novamente e realocar-los durante as horas de ponta.
 

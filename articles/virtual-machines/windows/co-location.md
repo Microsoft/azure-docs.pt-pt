@@ -3,16 +3,16 @@ title: Co-localizar VMs para uma maior latência
 description: Saiba como a co-localização dos recursos Azure VM pode melhorar a latência.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: zivr
-ms.openlocfilehash: 85832fe56b064916b50a63bf4b399f0a21afaaac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b5a3c0a582b1e9dfbcf81968ebc9d0c7a0a4f75e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028162"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288321"
 ---
 # <a name="co-locate-resource-for-improved-latency"></a>Co-localizar recurso para uma maior latência
 

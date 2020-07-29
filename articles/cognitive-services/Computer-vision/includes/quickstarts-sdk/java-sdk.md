@@ -8,13 +8,14 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/19/2019
+ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 6506dd0a0aea1957db85658e4f70aed4df72d071
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 295b87a8aca2a46da77e3ddc51ca54a09c0c04d9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87102935"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87375580"
 ---
 <a name="HOLTop"></a>
 
@@ -140,7 +141,7 @@ Em seguida, especifique quais as funcionalidades visuais que gostaria de extrair
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_features)]
 
-### <a name="analyze"></a>Análise
+### <a name="analyze"></a>Analisar
 Este método imprime resultados detalhados na consola para cada âmbito de análise de imagem. Recomendamos que rodeie este método de chamada num bloco de tentativa/captura. O método **analyzeImageInStream** devolve um objeto **ImageAnalysis** que contém toda a informação extraída.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_analyze)]
@@ -238,7 +239,7 @@ Executar a aplicação com o `gradle run` comando:
 gradle run
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 

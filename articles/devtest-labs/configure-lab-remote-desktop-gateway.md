@@ -3,12 +3,12 @@ title: Configure um laboratório para usar o Gateway de Desktop Remoto em Azure 
 description: Aprenda a configurar um laboratório em Azure DevTest Labs com uma porta de entrada remota para garantir acesso seguro aos VMs de laboratório sem ter de expor a porta RDP.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 68cb830c765a71b06f9732c4062be23d9e7f67d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc45a0c2953f8f84289fa01d4af72bf98544bd7f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483844"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288079"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configure o seu laboratório em Azure DevTest Labs para usar um gateway remoto
 Em Azure DevTest Labs, pode configurar uma porta de entrada remota para o seu laboratório para garantir um acesso seguro às máquinas virtuais de laboratório (VMs) sem ter de expor a porta RDP. O laboratório fornece um lugar central para os utilizadores do laboratório verem e conectarem-se a todas as máquinas virtuais a que têm acesso. O botão **Ligar** na página **Máquina Virtual** cria um ficheiro RDP específico para máquinas que pode abrir para ligar à máquina. Pode personalizar e proteger ainda mais a ligação RDP ligando o seu laboratório a um gateway remoto de secretária. 
@@ -36,7 +36,7 @@ Para trabalhar com a funcionalidade de autenticação simbólica DevTest Labs, e
 ### <a name="requirements-for-remote-desktop-gateway-machines"></a>Requisitos para máquinas de gateway de ambiente de trabalho remoto
 - O certificado TLS/SSL deve ser instalado na máquina de porta de entrada para manusear o tráfego HTTPS. O certificado deve corresponder ao nome de domínio totalmente qualificado (FQDN) do equilibrador de carga para a fazenda gateway ou o FQDN da própria máquina se houver apenas uma máquina. Os certificados de wild-card TLS/SSL não funcionam.  
 - Um certificado de assinatura instalado na máquina de gateway(s). Crie um certificado de assinatura utilizando [Create-SigningCertificate.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1) script.
-- Instale o módulo [de autenticação pluggável](https://code.msdn.microsoft.com/windowsdesktop/Remote-Desktop-Gateway-517d6273) que suporta a autenticação simbólica para o gateway remoto do ambiente de trabalho. Um exemplo destes `RDGatewayFedAuth.msi` módulos é que vem com [imagens do System Center Virtual Machine Manager (VMM).](/system-center/vmm/install-console?view=sc-vmm-1807) Para obter mais informações sobre o System Center, consulte [a documentação](https://docs.microsoft.com/system-center/) do System Center e [detalhes sobre os preços.](https://www.microsoft.com/cloud-platform/system-center-pricing)  
+- Instale o módulo [de autenticação pluggável](https://code.msdn.microsoft.com/windowsdesktop/Remote-Desktop-Gateway-517d6273) que suporta a autenticação simbólica para o gateway remoto do ambiente de trabalho. Um exemplo destes `RDGatewayFedAuth.msi` módulos é que vem com [imagens do System Center Virtual Machine Manager (VMM).](/system-center/vmm/install-console?view=sc-vmm-1807) Para obter mais informações sobre o System Center, consulte [a documentação](/system-center/) do System Center e [detalhes sobre os preços.](https://www.microsoft.com/cloud-platform/system-center-pricing)  
 - O servidor gateway pode lidar com os pedidos feitos para `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` .
 
     O nome de gateway-hostname é o FQDN do equilibrador de carga da fazenda gateway ou o FQDN da própria máquina se houver apenas uma máquina. É `{lab-machine-name}` o nome da máquina de laboratório que está a tentar ligar, e a `{port-number}` porta é a porta na qual a ligação será feita.  Por predefinição, esta porta é 3389.  No entanto, se a máquina virtual estiver a utilizar a funcionalidade [IP partilhada](devtest-lab-shared-ip.md) nos Laboratórios DevTest, a porta será diferente.
@@ -157,7 +157,5 @@ Siga estes passos para configurar uma solução de amostra para a exploração r
 
     Uma vez configurados tanto o gateway como o laboratório, o ficheiro de ligação criado quando o utilizador do laboratório clica no **Connect** incluirá automaticamente as informações necessárias para se ligar utilizando a autenticação simbólica.     
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte o seguinte artigo para saber mais sobre Serviços remotos de desktop: [Documentação de Serviços de Ambiente de Trabalho Remoto](/windows-server/remote/remote-desktop-services/Welcome-to-rds)
-
-

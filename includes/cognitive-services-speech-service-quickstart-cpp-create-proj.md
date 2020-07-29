@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 53c9931e84a2338af2f51fc3a9937034e7f395a3
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 517b092f933bedae0f254461d9bfee4d4640db8b
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609324"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87375678"
 ---
 Para criar um projeto visual Studio para desenvolvimento de desktop C++, você precisa configurar opções de desenvolvimento do Visual Studio, criar o projeto, selecionar a arquitetura-alvo e instalar o Speech SDK.
 
@@ -29,7 +29,7 @@ Para começar, certifique-se de que está configurado corretamente no Estúdio V
 
 1. No **separador Workloads,** no **Windows,** encontre o desenvolvimento do Ambiente de Trabalho com carga de trabalho **C++.** Se a caixa de verificação ao lado da carga de trabalho ainda não estiver selecionada, selecione-a.
 
-1. No **separador Individual de Componentes,** encontre a caixa de verificação **do gestor do pacote Nuget.** Se a caixa de verificação ainda não estiver selecionada, selecione-a.
+1. No **separador De componentes Individuais,** encontre a caixa de verificação **do gestor de pacotes NuGet.** Se a caixa de verificação ainda não estiver selecionada, selecione-a.
 
 1. Selecione o botão no canto com a etiqueta **De perto** ou **modificar**. (O nome do botão varia consoante tenha selecionado quaisquer funcionalidades para a instalação.) Se selecionar **Modificar,** começa a instalação, o que pode demorar algum tempo.
 
@@ -59,7 +59,7 @@ Agora selecione a arquitetura da sua plataforma alvo. Na barra de ferramentas Vi
 
 Por fim, instale o [pacote Speech SDK NuGet](https://aka.ms/csspeech/nuget)e refira o SDK de discurso no seu projeto:
 
-1. No **Solution Explorer,** clique com o botão direito na sua solução e escolha **Gerir pacotes NuGet para solução** para ir à janela **Nuget - Solução.**
+1. No **Solution Explorer,** clique com o botão direito na sua solução e escolha **Gerir pacotes NuGet para solução** para ir à janela **NuGet - Solução.**
 
 1. Selecione **Procurar**.
 
@@ -73,8 +73,8 @@ Por fim, instale o [pacote Speech SDK NuGet](https://aka.ms/csspeech/nuget)e ref
 
 1. No painel de estado do pacote ao lado dos resultados da pesquisa, selecione o seu projeto **Helloworld.**
 
-1. Selecione **Instalar**.
+1. Selecione **Install** (Instalar).
 
 1. Na caixa de diálogo **'Alterações de pré-visualização',** selecione **OK**.
 
-1. Na caixa de diálogo **de aceitação da licença,** veja a licença e, em seguida, selecione **I Accept**. A instalação da embalagem começa e, quando a instalação estiver concluída, o painel **de saída** apresenta uma mensagem semelhante ao seguinte texto: `Successfully installed 'Microsoft.CognitiveServices.Speech 1.12.1' to helloworld` .
+1. Na caixa de diálogo **de aceitação da licença,** veja a licença e, em seguida, selecione **I Accept**. A instalação da embalagem começa e, quando a instalação estiver concluída, o painel **de saída** apresenta uma mensagem semelhante ao seguinte texto: `Successfully installed 'Microsoft.CognitiveServices.Speech 1.13.0' to helloworld` .

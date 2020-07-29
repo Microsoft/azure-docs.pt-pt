@@ -5,15 +5,16 @@ author: haroldwongms
 manager: joraio
 ms.service: virtual-machines-linux
 ms.subservice: workloads
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 51abfd1cbb438d0987554040867625f7fb71630b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3729dbbc54d15d4641f5e514582f1437e790ef19
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758232"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374049"
 ---
 # <a name="deploy-openshift-container-platform-or-okd-in-azure-stack"></a>Implementar plataforma de recipientes openshift ou OKD em Azure Stack
 
@@ -62,7 +63,7 @@ Algumas opções comuns de personalização incluem, mas não se limitam a:
 
 Para que os passos de implantação utilizem o CLI Azure, siga a secção apropriada na secção [Plataforma de Contentores Descodificada](./openshift-container-platform-3x.md) ou na secção [OKD.](./openshift-okd.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Tarefas pós-implantação](./openshift-container-platform-3x-post-deployment.md)
 - [Resolução de problemas OpenShift implantação em Azure](./openshift-container-platform-3x-troubleshooting.md)

@@ -7,17 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
+ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: c204f8482d46d6586d490cb2bd3dd1a4cddac682
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3723345b10524b2063b3ec8fe43608f49b5b279b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78925486"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87375200"
 ---
 A biblioteca de clientes Bing Web Search facilita a integração da Bing Web Search na sua aplicação Java. Neste início rápido, vai aprender como enviar um pedido, receber uma resposta JSON e filtrar e analisar os resultados.
 
-Quer ver o código imediatamente? As amostras para as [bibliotecas de clientes bing search para Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search) estão disponíveis no GitHub.
+Quer ver o código imediatamente? As amostras para as bibliotecas de [clientes Bing Search para Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search) estão disponíveis no GitHub.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,7 +32,7 @@ Aqui estão algumas coisas de que irá precisar antes de executar este início r
 
 ## <a name="create-a-project-and-set-up-your-pom-file"></a>Crie um projeto e crie o seu ficheiro POM
 
-Crie um novo projeto do Java com o Maven ou com a sua ferramenta de automatização de compilação favorita. Assumindo que está a usar a Maven, adicione as seguintes linhas ao ficheiro Project [Object Model (POM).](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) Substitua todas as instâncias de `mainClass` pela sua aplicação.
+Crie um novo projeto do Java com o Maven ou com a sua ferramenta de automatização de compilação favorita. Assumindo que está a usar o Maven, adicione as seguintes linhas ao seu ficheiro [Project Object Model (POM).](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) Substitua todas as instâncias de `mainClass` pela sua aplicação.
 
 ```xml
 <build>
@@ -275,7 +276,7 @@ public static void main(String[] args) {
 }
 ```
 
-## <a name="run-the-program"></a>Execute o programa
+## <a name="run-the-program"></a>Executar o programa
 
 O passo final é executar o programa!
 
@@ -283,7 +284,7 @@ O passo final é executar o programa!
 mvn compile exec:java
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando tiver terminado de fazer o que quer neste projeto, não se esqueça de remover a sua chave de subscrição do código do programa.
 
@@ -292,6 +293,6 @@ Quando tiver terminado de fazer o que quer neste projeto, não se esqueça de re
 > [!div class="nextstepaction"]
 > [Exemplos de SDK Java nos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 * [Referência a Java SDK do Azure](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-java-stable)

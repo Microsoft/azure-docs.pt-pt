@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.custom: codepen
-ms.openlocfilehash: fae7c2e24eb10ffb2a36a0af1052be2694b0693c
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: codepen, devx-track-javascript
+ms.openlocfilehash: 9b7156bf5c266ccbba926a22a4afe46129ee3f1e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126334"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286992"
 ---
 # <a name="add-html-markers-to-the-map"></a>Adicione marcadores HTML ao mapa
 

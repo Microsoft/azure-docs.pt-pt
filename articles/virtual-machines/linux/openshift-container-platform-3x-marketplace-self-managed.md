@@ -5,17 +5,17 @@ author: haroldwongms
 manager: mdotson
 ms.service: virtual-machines-linux
 ms.subservice: workloads
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 08d32e4b7806ec53f48389b127ab34371271cf07
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 36adf35c5fbfc3e88b7d9af425ebabc852707e69
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527239"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374104"
 ---
 # <a name="configure-prerequisites"></a>Configurar pré-requisitos
 
@@ -53,7 +53,7 @@ Clique na oferta para ver detalhes da oferta. Para implementar esta oferta, cliq
    ![Oferta página de título](media/openshift-marketplace-self-managed/ocp-titlepage.png)  
 <br>
 
-**Informações básicas**
+**Noções básicas**
 
 Para obter ajuda em qualquer um dos parâmetros de entrada, paire sobre o ***i*** ao lado do nome do parâmetro.
 
@@ -191,7 +191,7 @@ Quando a colocação terminar, recupere a ligação da secção de saída da imp
 $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Utilize o comando de eliminação do [grupo az](/cli/azure/group) para remover o grupo de recursos, o cluster OpenShift e todos os recursos relacionados quando já não são necessários.
 
@@ -199,7 +199,7 @@ Utilize o comando de eliminação do [grupo az](/cli/azure/group) para remover o
 az group delete --name openshiftrg
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Tarefas pós-implantação](./openshift-container-platform-3x-post-deployment.md)
 - [Resolução de problemas OpenShift implantação em Azure](./openshift-container-platform-3x-troubleshooting.md)

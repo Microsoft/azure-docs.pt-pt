@@ -3,12 +3,12 @@ title: Entregar uma prova de conceito - Azure DevTest Labs Microsoft Docs
 description: Aprenda a entregar uma prova de conceito para que a Azure DevTest Labs possa ser incorporada com sucesso num ambiente empresarial.
 ms.topic: article
 ms.date: 06/2/2020
-ms.openlocfilehash: b0178d412154de556f25ab71bb30eed7be5e9ba6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c28cf9eebd8a39a2edce48e4fb8b96dc7608d80
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481362"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288029"
 ---
 # <a name="deliver-a-proof-of-concept"></a>Entregar uma prova de conceito 
 
@@ -114,8 +114,8 @@ Esperamos que a solução tenha os seguintes componentes:
 
 Antes de lançar uma solução completa da DevTest Labs, tem de tomar decisões importantes de planeamento e design. A experiência de trabalhar numa prova de conceito pode ajudá-lo a tomar estas decisões. Outra consideração inclui: 
 
-* **Topologia de subscrição**: Os requisitos de nível empresarial para os recursos em Azure podem estender-se para além das [quotas disponíveis numa única subscrição.](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) Isto requer várias subscrições do Azure e/ou pedidos de serviço para aumentar os limites iniciais de subscrição. É importante decidir adiantadamente como distribuir recursos por subscrições. Um recurso valioso é o guia de decisão de [subscrição](https://docs.microsoft.com/azure/architecture/cloud-adoption/decision-guides/subscriptions/) porque é difícil mover recursos para outra subscrição mais tarde. Por exemplo, um laboratório não pode ser transferido para outra subscrição depois de ser criado.  
-* **Topologia da rede**: A [infraestrutura de rede padrão](../app-service/networking-features.md) que a DevTest Labs cria automaticamente pode não ser suficiente para satisfazer os requisitos e constrangimentos para os utilizadores da empresa. É comum ver [redes virtuais conectadas a Azure ExpressRoute](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/), [hub-and-spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) para conectividade entre subscrições, e até mesmo [o encaminhamento forçado](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) para garantir apenas conectividade no local. A DevTest Labs permite que as redes virtuais existentes sejam ligadas ao laboratório para permitir a sua utilização quando se está a criar novas máquinas virtuais em laboratório. 
+* **Topologia de subscrição**: Os requisitos de nível empresarial para os recursos em Azure podem estender-se para além das [quotas disponíveis numa única subscrição.](../azure-resource-manager/management/azure-subscription-service-limits.md) Isto requer várias subscrições do Azure e/ou pedidos de serviço para aumentar os limites iniciais de subscrição. É importante decidir adiantadamente como distribuir recursos por subscrições. Um recurso valioso é o guia de decisão de [subscrição](/azure/architecture/cloud-adoption/decision-guides/subscriptions/) porque é difícil mover recursos para outra subscrição mais tarde. Por exemplo, um laboratório não pode ser transferido para outra subscrição depois de ser criado.  
+* **Topologia da rede**: A [infraestrutura de rede padrão](../app-service/networking-features.md) que a DevTest Labs cria automaticamente pode não ser suficiente para satisfazer os requisitos e constrangimentos para os utilizadores da empresa. É comum ver [redes virtuais conectadas a Azure ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/), [hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) para conectividade entre subscrições, e até mesmo [o encaminhamento forçado](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) para garantir apenas conectividade no local. A DevTest Labs permite que as redes virtuais existentes sejam ligadas ao laboratório para permitir a sua utilização quando se está a criar novas máquinas virtuais em laboratório. 
 * **Acesso remoto a máquinas virtuais**: Existem muitas opções para aceder remotamente às máquinas virtuais localizadas em DevTest Labs. O mais fácil é usar iPs públicos ou iPs públicos partilhados. Estas são [as configurações disponíveis no laboratório.](devtest-lab-shared-ip.md) Se estas opções não forem suficientes, usar um gateway de acesso remoto também é uma opção. Esta opção é mostrada na [arquitetura de referência empresarial da DevTest Labs](devtest-lab-reference-architecture.md) e descrita mais adiante na [documentação de gateway de desktop remota da DevTest Labs](configure-lab-remote-desktop-gateway.md). As empresas também podem usar o ExpressRoute ou uma VPN local para ligar os seus laboratórios à sua rede no local. Esta opção permite ligações diretas de desktop remoto ou SSH às máquinas virtuais com base no seu endereço IP privado sem exposição à internet. 
 * **Permissões de manuseamento**: As duas permissões-chave geralmente utilizadas nos Laboratórios DevTest são [Proprietário e Utilizador de Laboratório.](devtest-lab-add-devtest-user.md) É importante decidir antes de lançar de laboratórios de devTest em geral quem será confiado a cada nível de acesso no laboratório. Um modelo comum é o proprietário do orçamento (líder da equipa, por exemplo) como o proprietário do laboratório e os membros da equipa como utilizadores de laboratório. Este modelo permite que a pessoa (team lead) responsável pelo orçamento ajuste as definições de política e mantenha a equipa dentro do orçamento.  
 
@@ -123,7 +123,7 @@ Antes de lançar uma solução completa da DevTest Labs, tem de tomar decisões 
 
 Depois das aprendizagens esperadas terem sido cobertas, é hora de completar o piloto. Este é o momento de recolher feedback dos utilizadores, determinar se o piloto foi bem sucedido, e decidir se a organização vai avançar com um lançamento em escala da DevTest Labs na empresa. É também um ótimo momento para considerar automatizar a implementação de DevTest Labs e recursos associados para garantir consistência em toda a escala. 
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 
 * [Documentação da empresa DevTest Labs](devtest-lab-guidance-prescriptive-adoption.md)
 * [Arquitetura de referência para uma empresa](devtest-lab-reference-architecture.md)

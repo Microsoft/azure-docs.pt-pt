@@ -3,12 +3,12 @@ title: Adicione etiquetas a um laboratório em Azure DevTest Labs Microsoft Docs
 description: Saiba como adicionar uma etiqueta a um laboratório em Azure DevTest Labs
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: bf835cee705012fd175a3132edde1d241311c576
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30f0f2ed4b8cc98985326db652371b8ceb16bfb4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483011"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287578"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Adicionar tags a um laboratório em Azure DevTest Labs
 
@@ -52,10 +52,10 @@ As seguintes limitações aplicam-se às etiquetas:
 * O nome de etiqueta está limitado a 512 caracteres e o valor a 256. Nas contas de armazenamento, o nome da etiqueta está limitado a 128 caracteres e o valor a 256.
 * As etiquetas aplicadas ao grupo de recursos não são herdadas pelos recursos nesse grupo de recursos.
 
-[Use tags para organizar os seus recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) fornece mais detalhes sobre a utilização de tags em Azure, incluindo como gerir tags usando PowerShell ou Azure CLI.
+[Use tags para organizar os seus recursos Azure](../azure-resource-manager/management/tag-resources.md) fornece mais detalhes sobre a utilização de tags em Azure, incluindo como gerir tags usando PowerShell ou Azure CLI.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Pode aplicar restrições e convenções em toda a sua subscrição utilizando políticas personalizadas. Uma política que você define pode exigir que todos os recursos têm um valor para uma determinada etiqueta. Para obter mais informações, consulte [Definir políticas e horários.](devtest-lab-set-lab-policy.md)
 * Explore a [galeria de modelos Quickstart DavTest Labs Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

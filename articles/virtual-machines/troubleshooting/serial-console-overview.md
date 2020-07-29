@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 65679c900baaf0f98a21e4b1f6b1d350c4b945c4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 28c5a3085d84b25deb7c5ee09a9c9cc4d7a06819
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074328"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374070"
 ---
 # <a name="azure-serial-console"></a>Consola em série Azure
 
@@ -27,8 +27,7 @@ A Consola em Série no portal Azure fornece acesso a uma consola baseada em text
 
 A Consola em Série funciona da mesma forma para VMs e instâncias de escala de máquinas virtuais. Neste doc, todas as menções aos VMs incluirão implicitamente instâncias de conjunto de escala de máquina virtual, salvo indicação em contrário.
 
-> [!NOTE]
-> A Consola Em Série está geralmente disponível nas regiões globais de Azure e em pré-visualização pública no Governo de Azure. Ainda não está disponível na nuvem Azure China.
+A Consola Em Série está geralmente disponível nas regiões globais do Azure e em pré-visualização pública no Governo de Azure. Ainda não está disponível na nuvem Azure China.
 
 ## <a name="prerequisites-to-access-the-azure-serial-console"></a>Pré-requisitos para aceder à Consola em Série Azure
 Para aceder à Consola em Série na sua instância de definição de escala de VM ou de máquina virtual, necessitará do seguinte:
@@ -36,9 +35,10 @@ Para aceder à Consola em Série na sua instância de definição de escala de V
 - Os diagnósticos de arranque devem ser ativados para o VM
 - Uma conta de utilizador que utilize a autenticação de palavra-passe deve existir dentro do VM. Pode criar um utilizador baseado em palavra-passe com a função de [senha de reset](../extensions/vmaccess.md#reset-password) da extensão de acesso VM. Selecione Redefinir a **palavra-passe** a partir da secção **'Suporte + resolução de problemas'.**
 - A conta Azure que acede à Consola em Série deve ter [papel de Contribuinte de Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) tanto para o VM como para a conta de armazenamento de diagnóstico de [arranque](boot-diagnostics.md)
+- As implantações clássicas não são suportadas. A sua instância de definição de escala de VM ou de máquina virtual deve utilizar o modelo de implementação do Gestor de Recursos Azure.
 
 > [!NOTE]
-> As implantações clássicas não são suportadas. A sua instância de definição de escala de VM ou de máquina virtual deve utilizar o modelo de implementação do Gestor de Recursos Azure.
+> A Consola em Série é atualmente incompatível com uma conta de armazenamento de diagnóstico de arranque gerida. Para utilizar a Consola em Série, certifique-se de que está a utilizar uma conta de armazenamento personalizada.
 
 ## <a name="get-started-with-the-serial-console"></a>Começar com a Consola em Série
 A Consola em Série para VMs e conjunto de escala de máquina virtual só está acessível através do portal Azure:
