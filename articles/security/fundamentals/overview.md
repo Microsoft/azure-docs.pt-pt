@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: e2113df2db89e204fd5d2c0a62234e0c1f7b16cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c107789fe4a88b3cd73a2f290871016b95cae19
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85125673"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371401"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 ## <a name="overview"></a>Descrição geral
@@ -49,7 +49,7 @@ As seguintes funcionalidades são as capacidades que pode rever para garantir qu
 
 | [Plataforma Segura](https://www.microsoft.com/trustcenter/Security/default.aspx)  | [Controlos de & de Privacidade](https://www.microsoft.com/trustcenter/Privacy/default.aspx)  |[Conformidade](https://www.microsoft.com/trustcenter/Compliance/default.aspx)   | [Transparência](https://www.microsoft.com/trustcenter/Transparency/default.aspx) |
 | :-- | :-- | :-- | :-- |
-| [Ciclo de Desenvolvimento de](https://www.microsoft.com/sdl/)Segurança, Auditorias Internas | [Gerencie os seus dados a toda a hora](https://www.microsoft.com/trustcenter/Privacy/You-own-your-data) | [Centro de Confiança](https://www.microsoft.com/trustcenter/default.aspx) |[Como a Microsoft protege os dados dos clientes nos serviços Azure](https://www.microsoft.com/trustcenter/Transparency/default.aspx) |
+| [Ciclo de Desenvolvimento de](https://www.microsoft.com/sdl/)Segurança, Auditorias Internas | [Gerencie os seus dados a toda a hora](https://www.microsoft.com/trustcenter/Privacy/You-own-your-data) | [Centro de Fidedignidade](https://www.microsoft.com/trustcenter/default.aspx) |[Como a Microsoft protege os dados dos clientes nos serviços Azure](https://www.microsoft.com/trustcenter/Transparency/default.aspx) |
 | [Formação obrigatória de segurança, verificação de antecedentes](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Controlo da localização dos dados](https://www.microsoft.com/trustcenter/Privacy/Where-your-data-is-located) |  [Centro de Controlos Comuns](https://www.microsoft.com/trustcenter/Common-Controls-Hub) |[Como a Microsoft gere a localização de dados nos serviços Azure](https://azuredatacentermap.azurewebsites.net/)|
 | [Testes de penetração,](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) [deteção de intrusões, DDoS,](https://www.microsoft.com/trustcenter/Security/ThreatManagement) [Auditorias & registo](https://www.microsoft.com/trustcenter/Security/AuditingAndLogging) | [Fornecer acesso de dados nos seus termos](https://www.microsoft.com/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [A Lista de Verificação de Diligências dos Serviços de Nuvem](https://www.microsoft.com/trustcenter/Compliance/Due-Diligence-Checklist) |[Quem na Microsoft pode aceder aos seus dados em que termos](https://www.microsoft.com/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
 | [Centro de dados de última geração,](https://www.microsoft.com/cloud-platform/global-datacenters)segurança física, [Rede Segura](network-overview.md) | [Respondendo à aplicação da lei](https://www.microsoft.com/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data) |  [Conformidade por serviço, localização & Indústria](https://www.microsoft.com/trustcenter/Compliance/default.aspx) |[Como a Microsoft protege os dados dos clientes nos serviços Azure](https://www.microsoft.com/trustcenter/Transparency/default.aspx)|
@@ -88,7 +88,7 @@ Se houver falhas, falhas ou problemas de desempenho, pode pesquisar em detalhe o
 
 Os registos do Azure Monitor podem ser uma ferramenta útil na análise forense e outras análises de segurança, uma vez que a ferramenta permite pesquisar rapidamente através de grandes quantidades de entradas relacionadas com segurança com uma abordagem de consulta flexível. Além disso, os registos de firewall e proxy no local [podem ser exportados para Azure e disponibilizados para análise utilizando registos do Azure Monitor.](../../log-analytics/log-analytics-agent-windows.md)
 
-### <a name="azure-advisor"></a>Assistente do Azure
+### <a name="azure-advisor"></a>Azure Advisor
 [O Azure Advisor](../../advisor/index.yml) é um consultor de nuvem personalizado que o ajuda a otimizar as suas implementações do Azure. Analisa a configuração do recurso e a telemetria de utilização. Em seguida, recomenda soluções para ajudar a melhorar o [desempenho,](../../advisor/advisor-performance-recommendations.md) [segurança](../../advisor/advisor-security-recommendations.md)e [alta disponibilidade](../../advisor/advisor-high-availability-recommendations.md) dos seus recursos, enquanto procura oportunidades para reduzir o seu gasto global [do Azure.](../../advisor/advisor-cost-recommendations.md) O Azure Advisor fornece recomendações de segurança, que podem melhorar significativamente a sua postura de segurança global para as soluções que implementa no Azure. Estas recomendações são retiradas da análise de segurança realizada pelo [Azure Security Center.](../../security-center/security-center-intro.md)
 
 ### <a name="azure-security-center"></a>Centro de Segurança do Azure
@@ -142,7 +142,7 @@ No Application Diagnostics é possível ver eventos agrupados nas seguintes form
 A secção fornece informações adicionais sobre as principais funcionalidades da segurança de armazenamento Azure e informações sumárias sobre estas capacidades.
 
 ### <a name="role-based-access-control-rbac"></a>Controlo de Acesso Baseado em Funções (RBAC)
-Pode proteger a sua conta de armazenamento com o Controlo de Acesso Baseado em Fun (RBAC). Restringir o acesso com base na [necessidade de conhecer](https://en.wikipedia.org/wiki/Need_to_know) e menos [privilégios](https://en.wikipedia.org/wiki/Principle_of_least_privilege) princípios de segurança é imperativo para as organizações que querem impor políticas de segurança para o acesso aos dados. Estes direitos de acesso são concedidos atribuindo o papel adequado da RBAC a grupos e aplicações num determinado âmbito. Pode utilizar [funções RBAC incorporadas,](../../role-based-access-control/built-in-roles.md)como o Colaborador de Conta de Armazenamento, para atribuir privilégios aos utilizadores. O acesso às teclas de armazenamento de uma conta de armazenamento utilizando o modelo [Azure Resource Manager](../../storage/blobs/security-recommendations.md) pode ser controlado através do Controlo de Acesso Baseado em Fun (RBAC).
+Pode proteger a sua conta de armazenamento com o Controlo de Acesso Baseado em Fun (RBAC). Restringir o acesso com base na [necessidade de conhecer](https://en.wikipedia.org/wiki/Need_to_know) e menos [privilégios](https://en.wikipedia.org/wiki/Principle_of_least_privilege) princípios de segurança é imperativo para as organizações que querem impor políticas de segurança para o acesso aos dados. Estes direitos de acesso são concedidos atribuindo o papel adequado da RBAC a grupos e aplicações num determinado âmbito. Pode utilizar [funções incorporadas do Azure,](../../role-based-access-control/built-in-roles.md)como o Storage Account Contributor, para atribuir privilégios aos utilizadores. O acesso às teclas de armazenamento de uma conta de armazenamento utilizando o modelo [Azure Resource Manager](../../storage/blobs/security-recommendations.md) pode ser controlado através do Controlo de Acesso Baseado em Fun (RBAC).
 
 ### <a name="shared-access-signature"></a>Assinatura de acesso compartilhado
 As [assinaturas de acesso partilhado (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) disponibilizam acesso delegado a recursos na sua conta de armazenamento. O SAS significa que pode conceder a um cliente permissões limitadas a objetos na sua conta de armazenamento por um período especificado e com um conjunto especificado de permissões. Pode conceder estas permissões limitadas sem ter de partilhar as chaves de acesso à sua conta.
@@ -155,7 +155,7 @@ A encriptação em trânsito é um mecanismo de proteção dos dados quando são
 
 -   Encriptação do lado do cliente, para encriptar os dados antes de serem transferidos para o armazenamento e para desencriptar os dados após a sua transferência para fora do armazenamento.
 
-### <a name="encryption-at-rest"></a>Encriptação inativa
+### <a name="encryption-at-rest"></a>Encriptação de dados inativos
 Para muitas organizações, a encriptação de dados em repouso é um passo obrigatório para a privacidade dos dados, conformidade e soberania de dados. Existem três funcionalidades de segurança de armazenamento Azure que fornecem encriptação de dados que estão "em repouso":
 
 -   [A Encriptação do Serviço de Armazenamento](../../storage/common/storage-service-encryption.md) permite-lhe solicitar que o serviço de armazenamento criptografe automaticamente os dados ao escrevê-lo para o Azure Storage.
@@ -239,10 +239,10 @@ Fornece ativação pós-falha, pedidos HTTP de encaminhamento de desempenho entr
 
 A aplicação fornece muitas funcionalidades do Controlador de Entrega de Aplicações (ADC), incluindo equilíbrio de carga HTTP, afinidade da sessão baseada em [cookies, descarregamento de TLS,](../../application-gateway/tutorial-restrict-web-traffic-powershell.md)sondas de saúde personalizadas, suporte para vários sites, e muitos outros.
 
-### <a name="web-application-firewall"></a>Firewall de Aplicações Web
+### <a name="web-application-firewall"></a>Firewall de Aplicação Web
 Web Application Firewall é uma característica do [Azure Application Gateway](../../application-gateway/overview.md) que fornece proteção para aplicações web que usam o gateway de aplicação para funções padrão de Controlo de Entrega de Aplicações (ADC). A Firewall de aplicações Web fá-lo ao protegê-las contra a maioria das 10 principais vulnerabilidades Web da OWASP.
 
-![Firewall de Aplicações Web](./media/overview/azure-security-fig1.png)
+![Firewall de Aplicação Web](./media/overview/azure-security-fig1.png)
 
 -   Proteção contra injeção de SQL
 
@@ -362,7 +362,7 @@ A Microsoft utiliza múltiplas práticas e tecnologias de segurança em todos os
 
 - [O Azure Ative Directory Application Proxy](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/) fornece SSO e acesso remoto seguro para aplicações web hospedadas no local.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 - Compreenda a sua [responsabilidade partilhada na nuvem.](shared-responsibility.md)
 

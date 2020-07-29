@@ -5,21 +5,22 @@ description: Configurar aplicações, processos ou fluxos de trabalho de aprendi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 5c4eae49b849b7dc5dbf7c27d50e241b2a4f36e4
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 3b6f115e27b5cf956a524bd1a610797c689b5d6c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135968"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319495"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Ativar aplicações, processos ou fluxos de trabalho ci/CD baseados em eventos de Aprendizagem automática Azure (pré-visualização)
 
-Neste artigo, aprende a configurar aplicações, processos ou fluxos de trabalho de CI/CD baseados em eventos de Aprendizagem automática Azure, tais como e-mails de notificação de falhas ou gasoduto ML, quando determinadas condições são detetadas pela [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/). 
+Neste artigo, aprende a configurar aplicações, processos ou fluxos de trabalho de CI/CD baseados em eventos de Aprendizagem automática Azure, tais como e-mails de notificação de falhas ou gasoduto ML, quando determinadas condições são detetadas pela [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/).
 
 A Azure Machine Learning gere todo o ciclo de vida do processo de aprendizagem automática, incluindo formação de modelos, implementação de modelos e monitorização. Você pode usar a Grade de Eventos para reagir a eventos de Azure Machine Learning, como a conclusão de corridas de treino, o registo e implementação de modelos, e a deteção de deriva de dados, utilizando arquiteturas modernas sem servidor. Em seguida, pode subscrever e consumir eventos como alterar o estado de execução, executar a conclusão, o registo do modelo, a implementação do modelo e a deteção de deriva de dados dentro de um espaço de trabalho.
 
@@ -243,7 +244,7 @@ Um objeto modelo Azure Machine Learning contém parâmetros que pode pivô imple
 
 Por exemplo, consulte o [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) repositório e siga os passos no ficheiro **readme.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a Grade de Eventos e experimente os eventos de Machine Learning da Azure:
 

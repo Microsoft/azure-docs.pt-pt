@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 142e03ab8ae66e210bf572a7c640e19d17c38901
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: 4a107b3175b7dddad3abb6401cbc12216ae843be
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109234"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87304195"
 ---
 # <a name="ratings--reviews-analytics-dashboard-in-partner-center"></a>Ratings & Avalia painel de análise no Partner Center
 
@@ -24,7 +26,7 @@ Este artigo fornece informações sobre o painel de avaliações & avaliações 
 
 ## <a name="access-the-dashboard"></a>Aceda ao painel de instrumentos
 
-No [painel de instrumentos](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview) do Mercado Comercial no Partner Center, expanda a secção **[De Análise](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** e selecione **Ratings & Reviews**.
+No [painel de instrumentos](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) do Mercado Comercial no Partner Center, expanda a secção **[De Análise](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** e selecione **Ratings & Reviews**.
 
 O painel de instrumentos apresenta uma representação gráfica da seguinte atividade do cliente:
 
@@ -50,7 +52,7 @@ As avaliações são apresentadas por ordem cronológica para quando foram publi
 
 ![Parceiro Center analisar comentários de revisão](./media/analyze-reviews.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma visão geral dos relatórios de análise disponíveis no mercado comercial do Partner Center, consulte [Analytics para o mercado comercial no Partner Center](./analytics.md).
 - Para gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para a sua oferta, consulte [o Painel De Resumo em análise de mercado comercial.](./summary-dashboard.md)

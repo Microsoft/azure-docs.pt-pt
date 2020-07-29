@@ -3,12 +3,12 @@ title: Visão geral das funcionalidades de segurança
 description: Saiba mais sobre as capacidades de segurança no Azure Backup que o ajudam a proteger os seus dados de backup e a satisfazer as necessidades de segurança do seu negócio.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 750ad7b10969ef5f83e0b5058e350066d3f97351
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 944ef2e86ad8e56501692b29d0958bc4fc19bf0a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87062603"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319308"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Visão geral das funcionalidades de segurança no Azure Backup
 
@@ -38,17 +38,21 @@ A cópia de segurança dos VMs Azure requer o movimento de dados do disco da sua
 
 ## <a name="private-endpoints-for-azure-backup"></a>Pontos finais privados para backup do Azure
 
-Agora pode utilizar [o Private Endpoints](../private-link/private-endpoint-overview.md) para fazer o back up de segurança dos seus dados de servidores dentro de uma rede virtual até ao cofre dos Serviços de Recuperação. O ponto final privado utiliza um IP do espaço de endereço VNET para o seu cofre, pelo que não precisa de expor as suas redes virtuais a quaisquer IPs públicos. Os pontos finais privados podem ser utilizados para fazer o backup e restaurar as bases de dados SQL e SAP HANA que funcionam dentro dos seus VMs Azure. Também pode ser usado para os seus servidores no local usando o agente MARS.
+Agora pode utilizar [o Private Endpoints](../private-link/private-endpoint-overview.md) para fazer o back up de segurança dos seus dados de servidores dentro de uma rede virtual até ao cofre dos Serviços de Recuperação. O ponto final privado utiliza um IP do espaço de endereço VNET para o seu cofre, por isso não precisa de expor as suas redes virtuais a quaisquer IPs públicos. Os pontos finais privados podem ser utilizados para fazer o backup e restaurar as bases de dados SQL e SAP HANA que funcionam dentro dos seus VMs Azure. Também pode ser usado para os seus servidores no local usando o agente MARS.
 
 Leia mais sobre os pontos finais privados para o Azure Backup [aqui](./private-endpoints.md).
 
-## <a name="encryption-of-data-in-transit-and-at-rest"></a>Encriptação de dados em trânsito e em repouso
+## <a name="encryption-of-data"></a>Encriptação de dados
 
-A encriptação protege os seus dados e ajuda-o a cumprir os seus compromissos de segurança organizacional e de conformidade. Dentro do Azure, os dados em trânsito entre o armazenamento Azure e o cofre estão protegidos por HTTPS. Estes dados permanecem na rede de espinha dorsal do Azure.
+A encriptação protege os seus dados e ajuda-o a cumprir os seus compromissos de segurança organizacional e de conformidade. A encriptação de dados ocorre em muitas fases no Azure Backup:
 
-* Os dados de backup são automaticamente encriptados utilizando as teclas geridas pela Microsoft. Também pode encriptar os VMs de disco geridos no Cofre de Serviços de Recuperação utilizando [chaves geridas pelo cliente armazenadas](backup-encryption.md#encryption-of-backup-data-using-customer-managed-keys) no Cofre da Chave Azure. Não precisa de tomar nenhuma ação explícita para ativar esta encriptação. Aplica-se a todas as cargas de trabalho que estão a ser apoiadas até ao cofre dos Serviços de Recuperação.
+* Dentro do Azure, os dados em trânsito entre o armazenamento Azure e o cofre estão [protegidos por HTTPS](backup-support-matrix.md#network-traffic-to-azure). Estes dados permanecem na rede de espinha dorsal do Azure.
 
-* O Azure Backup suporta a cópia de segurança e a restauração de VMs Azure que têm os seus discos DE/S/Data encriptados com Encriptação do Disco Azure (ADE). [Saiba mais sobre VMs Azure encriptados e Backup Azure](./backup-azure-vms-encryption.md).
+* Os dados de backup são automaticamente encriptados utilizando [as teclas geridas pela Microsoft](backup-encryption.md#encryption-of-backup-data-using-platform-managed-keys), e não é necessário tomar nenhuma ação explícita para os ativar. Também pode encriptar os seus dados de reserva utilizando [as teclas geridas pelo cliente armazenadas](encryption-at-rest-with-cmk.md) no Cofre de Chaves Azure. Aplica-se a todas as cargas de trabalho que estão a ser apoiadas até ao cofre dos Serviços de Recuperação.
+
+* O Azure Backup suporta a cópia de segurança e a restauração de VMs Azure que têm os seus discos DE/S/Dados encriptados com [Encriptação de Disco Azure (ADE)](backup-encryption.md#backup-of-vms-encrypted-using-ade) e [VMs com discos encriptados CMK](backup-encryption.md#backup-of-managed-disk-vms-encrypted-using-customer-managed-keys). Para mais informações, [saiba mais sobre VMs Azure encriptados e Backup Azure](./backup-azure-vms-encryption.md).
+
+* Quando os dados são cópias de segurança dos servidores no local com o agente MARS, os dados são encriptados com uma palavra-passe antes do upload para Azure Backup e desencriptados apenas depois de serem descarregados a partir do Azure Backup. Leia mais sobre [funcionalidades de segurança para ajudar a proteger as cópias de segurança híbridas.](#security-features-to-help-protect-hybrid-backups)
 
 ## <a name="protection-of-backup-data-from-unintentional-deletes"></a>Proteção de dados de backup de eliminações não intencionais
 

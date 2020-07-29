@@ -1,0 +1,340 @@
+---
+title: Ativar o Monitor Azure para VMs com PowerShell ou modelos
+description: Este artigo descreve como permite o Azure Monitor para VMs para uma ou mais máquinas virtuais Azure ou conjuntos de balanças de máquinas virtuais utilizando modelos Azure PowerShell ou Azure Resource Manager.
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
+ms.author: bwren
+ms.date: 10/14/2019
+ms.openlocfilehash: 021e5e8ee01745dd0b534e53dbb6d75b5b78c419
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87298486"
+---
+# <a name="enable-azure-monitor-for-vms-using-azure-powershell-or-resource-manager-templates"></a>Ativar o Monitor Azure para VMs utilizando modelos Azure PowerShell ou Resource Manager
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Este artigo explica como permitir o Azure Monitor para VMs para máquinas virtuais Azure ou conjuntos de balanças de máquinas virtuais utilizando modelos Azure PowerShell ou Azure Resource Manager. No final deste processo, terá começado com sucesso a monitorizar todas as suas máquinas virtuais e a saber se alguma delas está a ter problemas de desempenho ou disponibilidade.
+
+## <a name="set-up-a-log-analytics-workspace"></a>Criar um espaço de trabalho Log Analytics
+
+Se não tiver um espaço de trabalho log analytics, precisa de criar um. Reveja os métodos sugeridos na secção [Pré-Requisitos](vminsights-enable-overview.md#log-analytics) antes de continuar com os passos para o configurar. Em seguida, pode terminar a implementação do Azure Monitor para VMs utilizando o método do modelo Azure Resource Manager.
+
+### <a name="install-the-vminsights-solution"></a>Instale a solução VMInsights
+
+Este método inclui um modelo JSON que especifica a configuração para ativar os componentes da solução no seu espaço de trabalho Log Analytics.
+
+Se não souber como implementar recursos utilizando um modelo, consulte:
+* [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
+* [Implementar recursos com modelos de Gestor de Recursos e o CLI Azure](../../azure-resource-manager/templates/deploy-cli.md)
+
+Para utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI localmente. Deve estar a executar a versão Azure CLI 2.0.27 ou posterior. Para identificar a sua versão, corra `az --version` . Para instalar ou atualizar o Azure CLI, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
+
+1. Copie e cole a seguinte sintaxe JSON no seu ficheiro:
+
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "WorkspaceName": {
+                "type": "string"
+            },
+            "WorkspaceLocation": {
+                "type": "string"
+            }
+        },
+        "resources": [
+            {
+                "apiVersion": "2017-03-15-preview",
+                "type": "Microsoft.OperationalInsights/workspaces",
+                "name": "[parameters('WorkspaceName')]",
+                "location": "[parameters('WorkspaceLocation')]",
+                "resources": [
+                    {
+                        "apiVersion": "2015-11-01-preview",
+                        "location": "[parameters('WorkspaceLocation')]",
+                        "name": "[concat('VMInsights', '(', parameters('WorkspaceName'),')')]",
+                        "type": "Microsoft.OperationsManagement/solutions",
+                        "dependsOn": [
+                            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                        ],
+                        "properties": {
+                            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                        },
+
+                        "plan": {
+                            "name": "[concat('VMInsights', '(', parameters('WorkspaceName'),')')]",
+                            "publisher": "Microsoft",
+                            "product": "[Concat('OMSGallery/', 'VMInsights')]",
+                            "promotionCode": ""
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    ```
+
+1. Guarde este ficheiro à medida *queinstallsolutionsforvminsights.jsnuma* pasta local.
+
+1. Capture os valores para *WorkspaceName,* *ResourceGroupName*e *WorkspaceLocation*. O valor para *WorkspaceName* é o nome do seu espaço de trabalho Log Analytics. O valor para *workspaceLocation* é a região em que o espaço de trabalho é definido.
+
+1. Está pronto para implementar este modelo.
+
+    * Utilize os seguintes comandos PowerShell na pasta que contém o modelo:
+
+        ```powershell
+        New-AzResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName <ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
+        ```
+
+        A alteração de configuração pode demorar alguns minutos a terminar. Quando termina, uma mensagem mostra que é semelhante ao seguinte e inclui o resultado:
+
+        ```output
+        provisioningState       : Succeeded
+        ```
+
+    * Para executar o seguinte comando utilizando o Azure CLI:
+
+        ```azurecli
+        az login
+        az account set --subscription "Subscription Name"
+        az group deployment create --name DeploySolutions --resource-group <ResourceGroupName> --template-file InstallSolutionsForVMInsights.json --parameters WorkspaceName=<workspaceName> WorkspaceLocation=<WorkspaceLocation - example: eastus>
+        ```
+
+        A alteração de configuração pode demorar alguns minutos a terminar. Quando termina, é exibida uma mensagem semelhante à seguinte e inclui o resultado:
+
+        ```output
+        provisioningState       : Succeeded
+        ```
+
+## <a name="enable-with-azure-resource-manager-templates"></a>Ativar com modelos de Gestor de Recursos Azure
+
+Criámos modelos de gestores de recursos Azure para embarcar as suas máquinas virtuais e conjuntos de escala de máquinas virtuais. Estes modelos incluem cenários que pode utilizar para permitir a monitorização de um recurso existente e criar um novo recurso que tenha ativado a monitorização.
+
+>[!NOTE]
+>O modelo tem de ser implantado no mesmo grupo de recursos que o recurso a ser trazido a bordo.
+
+Se não souber como implementar recursos utilizando um modelo, consulte:
+* [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
+* [Implementar recursos com modelos de Gestor de Recursos e o CLI Azure](../../azure-resource-manager/templates/deploy-cli.md)
+
+Para utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI localmente. Deve estar a executar a versão Azure CLI 2.0.27 ou posterior. Para identificar a sua versão, corra `az --version` . Para instalar ou atualizar o Azure CLI, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
+
+### <a name="download-templates"></a>Modelos de descarregamento
+
+Os modelos Azure Resource Manager são fornecidos num ficheiro de arquivo (.zip) que pode [descarregar](https://aka.ms/VmInsightsARMTemplates) a partir do nosso repo GitHub. O conteúdo do ficheiro inclui pastas que representam cada cenário de implantação com um modelo e ficheiro de parâmetros. Antes de executá-los, modifique o ficheiro de parâmetros e especifique os valores necessários. Não modifique o ficheiro do modelo a menos que precise personalizá-lo para suportar os seus requisitos específicos. Depois de modificar o ficheiro de parâmetros, pode implantá-lo utilizando os seguintes métodos descritos mais tarde neste artigo.
+
+O ficheiro de descarregamento contém os seguintes modelos para diferentes cenários:
+
+- O modelo **de tabuleiro de marLM existente** permite o Monitor Azure para VMs se a máquina virtual já existir.
+- O modelo **newVmOnboarding** cria uma máquina virtual e permite ao Azure Monitor para VMs monitorizá-lo.
+- O modelo **de prancha de vídeoVmss existente** permite o Monitor Azure para VMs se o conjunto de escala de máquina virtual já existir.
+- O modelo **newVmssOnboarding** cria conjuntos de escala de máquina virtual e permite que o Monitor Azure para VMs os monitorize.
+- O modelo **ConfigureWorkspace** configura o seu espaço de trabalho Log Analytics para suportar o Azure Monitor para VMs, permitindo as soluções e a recolha de contadores de desempenho do sistema operativo Linux e Windows.
+
+>[!NOTE]
+>Se já estavam presentes conjuntos de escala de máquina virtual e a política de atualização está definida como **Manual,** o Azure Monitor para VMs não será ativado por defeito após a **execução** do modelo existente de Gestor de Recursos Azure. Tem que atualizar manualmente as ocorrências.
+
+### <a name="deploy-by-using-azure-powershell"></a>Implementar com o Azure PowerShell
+
+O passo seguinte permite a monitorização utilizando o Azure PowerShell.
+
+```powershell
+New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile <Template.json> -TemplateParameterFile <Parameters.json>
+```
+A alteração de configuração pode demorar alguns minutos a terminar. Quando termina, uma mensagem mostra que é semelhante ao seguinte e inclui o resultado:
+
+```output
+provisioningState       : Succeeded
+```
+
+### <a name="deploy-by-using-the-azure-cli"></a>Implementar utilizando o CLI Azure
+
+O passo seguinte permite a monitorização utilizando o Azure CLI.
+
+```azurecli
+az login
+az account set --subscription "Subscription Name"
+az group deployment create --resource-group <ResourceGroupName> --template-file <Template.json> --parameters <Parameters.json>
+```
+
+A saída assemelha-se ao seguinte:
+
+```output
+provisioningState       : Succeeded
+```
+
+## <a name="enable-with-powershell"></a>Ativar com PowerShell
+
+Para ativar o Monitor Azure para VMs para vários VMs ou conjuntos de balanças de máquinas virtuais, utilize o script PowerShell [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights). Está disponível na Galeria Azure PowerShell. Este guião itera através de:
+
+- Todas as máquinas virtuais e a escala de máquinas virtuais definidas na sua subscrição.
+- O grupo de recursos alargado especificado pelo *ResourceGroup*.
+- Um único conjunto de escala de VM ou máquina virtual especificado pelo *Nome*.
+
+Para cada conjunto de escala de VM ou máquina virtual, o script verifica se a extensão VM já está instalada. Se a extensão VM for instalada, o script tenta reinstalá-la. Se a extensão VM não for instalada, o script instala as extensões VM do agente Log Analytics e Dependency.
+
+Verifique se está a utilizar o módulo Azure PowerShell versão 1.0.0 ou posterior com `Enable-AzureRM` pseudónimos ativados. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar o PowerShell localmente, também precisa de correr `Connect-AzAccount` para criar uma ligação com o Azure.
+
+Para obter uma lista dos detalhes do argumento do script e da utilização de exemplo, corra `Get-Help` .
+
+```powershell
+Get-Help .\Install-VMInsights.ps1 -Detailed
+
+SYNOPSIS
+    This script installs VM extensions for Log Analytics and the Dependency agent as needed for VM Insights.
+
+
+SYNTAX
+    .\Install-VMInsights.ps1 [-WorkspaceId] <String> [-WorkspaceKey] <String> [-SubscriptionId] <String> [[-ResourceGroup]
+    <String>] [[-Name] <String>] [[-PolicyAssignmentName] <String>] [-ReInstall] [-TriggerVmssManualVMUpdate] [-Approve] [-WorkspaceRegion] <String>
+    [-WhatIf] [-Confirm] [<CommonParameters>]
+
+
+DESCRIPTION
+    This script installs or reconfigures the following on VMs and virtual machine scale sets:
+    - Log Analytics VM extension configured to supplied Log Analytics workspace
+    - Dependency agent VM extension
+
+    Can be applied to:
+    - Subscription
+    - Resource group in a subscription
+    - Specific VM or virtual machine scale set
+    - Compliance results of a policy for a VM or VM extension
+
+    Script will show you a list of VMs or virtual machine scale sets that will apply to and let you confirm to continue.
+    Use -Approve switch to run without prompting, if all required parameters are provided.
+
+    If the extensions are already installed, they will not install again.
+    Use -ReInstall switch if you need to, for example, update the workspace.
+
+    Use -WhatIf if you want to see what would happen in terms of installs, what workspace configured to, and status of the extension.
+
+
+PARAMETERS
+    -WorkspaceId <String>
+        Log Analytics WorkspaceID (GUID) for the data to be sent to
+
+    -WorkspaceKey <String>
+        Log Analytics Workspace primary or secondary key
+
+    -SubscriptionId <String>
+        SubscriptionId for the VMs/VM Scale Sets
+        If using PolicyAssignmentName parameter, subscription that VMs are in
+
+    -ResourceGroup <String>
+        <Optional> Resource Group to which the VMs or VM Scale Sets belong
+
+    -Name <String>
+        <Optional> To install to a single VM/VM Scale Set
+
+    -PolicyAssignmentName <String>
+        <Optional> Take the input VMs to operate on as the Compliance results from this Assignment
+        If specified will only take from this source.
+
+    -ReInstall [<SwitchParameter>]
+        <Optional> If VM/VM Scale Set is already configured for a different workspace, set this to change to the new workspace
+
+    -TriggerVmssManualVMUpdate [<SwitchParameter>]
+        <Optional> Set this flag to trigger update of VM instances in a scale set whose upgrade policy is set to Manual
+
+    -Approve [<SwitchParameter>]
+        <Optional> Gives the approval for the installation to start with no confirmation prompt for the listed VMs/VM Scale Sets
+
+    -WorkspaceRegion <String>
+        Region the Log Analytics Workspace is in
+        Supported values: "East US","eastus","Southeast Asia","southeastasia","West Central US","westcentralus","West Europe","westeurope"
+        For Health supported is: "East US","eastus","West Central US","westcentralus"
+
+    -WhatIf [<SwitchParameter>]
+        <Optional> See what would happen in terms of installs.
+        If extension is already installed will show what workspace is currently configured, and status of the VM extension
+
+    -Confirm [<SwitchParameter>]
+        <Optional> Confirm every action
+
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (https:/go.microsoft.com/fwlink/?LinkID=113216).
+
+    -------------------------- EXAMPLE 1 --------------------------
+    .\Install-VMInsights.ps1 -WorkspaceRegion eastus -WorkspaceId <WorkspaceId>-WorkspaceKey <WorkspaceKey> -SubscriptionId <SubscriptionId>
+    -ResourceGroup <ResourceGroup>
+
+    Install for all VMs in a resource group in a subscription
+
+    -------------------------- EXAMPLE 2 --------------------------
+    .\Install-VMInsights.ps1 -WorkspaceRegion eastus -WorkspaceId <WorkspaceId>-WorkspaceKey <WorkspaceKey> -SubscriptionId <SubscriptionId>
+    -ResourceGroup <ResourceGroup> -ReInstall
+
+    Specify to reinstall extensions even if already installed, for example, to update to a different workspace
+
+    -------------------------- EXAMPLE 3 --------------------------
+    .\Install-VMInsights.ps1 -WorkspaceRegion eastus -WorkspaceId <WorkspaceId>-WorkspaceKey <WorkspaceKey> -SubscriptionId <SubscriptionId>
+    -PolicyAssignmentName a4f79f8ce891455198c08736 -ReInstall
+
+    Specify to use a PolicyAssignmentName for source and to reinstall (move to a new workspace)
+```
+
+O exemplo a seguir demonstra a utilização dos comandos PowerShell na pasta para ativar o Monitor Azure para VMs e compreender a saída esperada:
+
+```powershell
+$WorkspaceId = "<GUID>"
+$WorkspaceKey = "<Key>"
+$SubscriptionId = "<GUID>"
+.\Install-VMInsights.ps1 -WorkspaceId $WorkspaceId -WorkspaceKey $WorkspaceKey -SubscriptionId $SubscriptionId -WorkspaceRegion eastus
+
+Getting list of VMs or virtual machine scale sets matching criteria specified
+
+VMs or virtual machine scale sets matching criteria:
+
+db-ws-1 VM running
+db-ws2012 VM running
+
+This operation will install the Log Analytics and Dependency agent extensions on the previous two VMs or virtual machine scale sets.
+VMs in a non-running state will be skipped.
+Extension will not be reinstalled if already installed. Use -ReInstall if desired, for example, to update workspace.
+
+Confirm
+Continue?
+[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
+
+db-ws-1 : Deploying DependencyAgentWindows with name DAExtension
+db-ws-1 : Successfully deployed DependencyAgentWindows
+db-ws-1 : Deploying MicrosoftMonitoringAgent with name MMAExtension
+db-ws-1 : Successfully deployed MicrosoftMonitoringAgent
+db-ws2012 : Deploying DependencyAgentWindows with name DAExtension
+db-ws2012 : Successfully deployed DependencyAgentWindows
+db-ws2012 : Deploying MicrosoftMonitoringAgent with name MMAExtension
+db-ws2012 : Successfully deployed MicrosoftMonitoringAgent
+
+Summary:
+
+Already onboarded: (0)
+
+Succeeded: (4)
+db-ws-1 : Successfully deployed DependencyAgentWindows
+db-ws-1 : Successfully deployed MicrosoftMonitoringAgent
+db-ws2012 : Successfully deployed DependencyAgentWindows
+db-ws2012 : Successfully deployed MicrosoftMonitoringAgent
+
+Connected to different workspace: (0)
+
+Not running - start VM to configure: (0)
+
+Failed: (0)
+```
+
+## <a name="next-steps"></a>Passos seguintes
+
+Agora que a monitorização está ativada para as suas máquinas virtuais, esta informação está disponível para análise com o Azure Monitor para VMs.
+
+- Para ver as dependências de aplicações descobertas, consulte [o Monitor do Azure para o Mapa de VMs](vminsights-maps.md).
+
+- Para identificar estrangulamentos e utilização global com o desempenho do seu VM, consulte [Ver Azure VM Performance](vminsights-performance.md).

@@ -3,12 +3,12 @@ title: Entrega de eventos com identidade de serviço gerido
 description: Este artigo descreve como permitir a identidade de serviço gerida para um tópico de grelha de eventos Azure. Use-o para encaminhar eventos para destinos apoiados.
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: 5138a89101a7e6c1770952028de9c3d478bc3852
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c05eb2e78595e962494a60b1ffa8ead899aa0109
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119196"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371265"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Entrega de eventos com identidade gerida
 Este artigo descreve como permitir uma [identidade de serviço gerida](../active-directory/managed-identities-azure-resources/overview.md) para tópicos ou domínios da grelha de eventos Azure. Use-o para encaminhar eventos para destinos apoiados, como filas e tópicos de Service Bus, centros de eventos e contas de armazenamento.
@@ -42,7 +42,7 @@ Na secção anterior, aprendeu a ativar uma identidade gerida pelo sistema enqua
 ### <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 O procedimento que se segue mostra como ativar a identidade gerida pelo sistema para um tópico. Os passos para permitir uma identidade para um domínio são semelhantes. 
 
-1. Vá ao [portal Azure.](https://portal.azure.com)
+1. Aceda ao [portal do Azure](https://portal.azure.com).
 2. Procure **tópicos de grelha de eventos** na barra de pesquisa no topo.
 3. Selecione o **tópico** para o qual deseja ativar a identidade gerida. 
 4. Mude para o **separador Identidade.** 
@@ -70,8 +70,8 @@ Atualmente, a grelha de eventos Azure suporta tópicos ou domínios configurados
 
 | Destino | Função RBAC | 
 | ----------- | --------- | 
-| Filas e tópicos de autocarro de serviço | [Remetente de dados de ônibus de serviço Azure](../service-bus-messaging/authenticate-application.md#built-in-rbac-roles-for-azure-service-bus) |
-| Azure Event Hubs | [Ender de dados do Azure Event Hubs](../event-hubs/authorize-access-azure-active-directory.md#built-in-rbac-roles-for-azure-event-hubs) | 
+| Filas e tópicos de autocarro de serviço | [Remetente de dados de ônibus de serviço Azure](../service-bus-messaging/authenticate-application.md#azure-built-in-roles-for-azure-service-bus) |
+| Azure Event Hubs | [Ender de dados do Azure Event Hubs](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
 | Armazenamento de Blobs do Azure | [Colaborador de dados blob de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) |
 | Armazenamento de Filas do Azure |[Remetente de mensagem de dados de fila de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) | 
 
@@ -281,5 +281,5 @@ az eventgrid event-subscription create
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre identidades de serviço geridas, consulte [quais são identidades geridas para recursos Azure](../active-directory/managed-identities-azure-resources/overview.md). 

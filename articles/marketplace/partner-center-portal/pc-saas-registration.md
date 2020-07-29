@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 85bd6f4192f5c1f47856851ab53521a101340007
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: 52427cbaa418e0335797fe0a98c26c3fb84cf670
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109268"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87304178"
 ---
 # <a name="register-a-saas-application"></a>Registar uma aplicação SaaS
 
@@ -85,9 +87,9 @@ Publicar<br>
 |  `client_secret`   |  Verdadeiro      |  Segredo associado à aplicação AZure AD. |
 |  `resource`        |  Verdadeiro      |  Recurso-alvo para o qual o símbolo é solicitado. Use `20e940b3-4c77-4b0b-9a53-9e16a1b010a7` porque marketplace SaaS API é sempre o recurso alvo neste caso. |
 
-##### <a name="response"></a>*Resposta*
+##### <a name="response"></a>*Response*
 
-|  Name     |  Tipo         |  Description |
+|  Nome     |  Tipo         |  Description |
 |  ------   |  ---------------  | ------------ |
 |  200 OK   |  TokenResponse    |  Pedido bem sucedido. |
 
@@ -109,6 +111,6 @@ Resposta da amostra:
 
 O `"access_token"` valor de campo na resposta é o que passará como parâmetro de autorização ao chamar todas as `<access_token>` APIs de realização de SaaS e de medição de mercado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 A sua aplicação Azure AD-secured pode agora usar a [Versão API da API de Cumprimento SaaS](./pc-saas-fulfillment-api-v2.md).

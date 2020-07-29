@@ -5,16 +5,18 @@ description: Como selecionar algoritmos de aprendizagem automática Azure para a
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.reviewer: cgronlun
 ms.date: 05/07/2020
-ms.openlocfilehash: 582d6077a4b84e5b2d8c0d69da7b00b807a355b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ad0d2c520d5347e36a9cead4ed6c5526d885ca4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433154"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319529"
 ---
 # <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Como selecionar algoritmos para Azure Machine Learning
 
@@ -145,7 +147,7 @@ A seleção de recursos refere-se ao processo de aplicação de testes estatíst
 
 Também pode utilizar o [módulo Permutaation Feature Importance](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/permutation-feature-importance?WT.mc_id=docs-article-lazzeri) para calcular um conjunto de pontuações de importância de característica para o seu conjunto de dados. Em seguida, pode aproveitar estas pontuações para ajudá-lo a determinar as melhores funcionalidades a utilizar num modelo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
  - [Saiba mais sobre o designer de Aprendizagem automática Azure](https://docs.microsoft.com/azure/machine-learning/concept-designer?WT.mc_id=docs-article-lazzeri)
  - Para descrições de todos os algoritmos de aprendizagem automática disponíveis no designer de Machine Learning Azure, consulte [algoritmo de designer de Machine Learning e referência de módulo](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference?WT.mc_id=docs-article-lazzeri)

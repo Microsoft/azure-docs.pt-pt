@@ -12,11 +12,13 @@ ms.date: 06/28/2017
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e16d0ed264f32746c11d89e88ea1e67f9383b773
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- devx-track-java
+ms.openlocfilehash: 7f04483415253145cd485ccf870160e83a6e0e4b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81732524"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319121"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Envie mensagens cloud-to-device com IoT Hub (Java)
 
@@ -208,7 +210,7 @@ Pode agora executar as aplicações.
 
     ![Executar o comando para enviar a mensagem nuvem-para-dispositivo](media/iot-hub-java-java-c2d/sendc2d.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a enviar e receber mensagens cloud-to-device.
 

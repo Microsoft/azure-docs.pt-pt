@@ -3,11 +3,12 @@ title: Restringir o acesso usando um ponto final de serviço
 description: Restringir o acesso a um registo de contentores Azure utilizando um ponto final de serviço numa rede virtual Azure. O acesso ao ponto final de serviço é uma característica do nível de serviço Premium.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 0f320bb86549c801711cafdbce4500ff7737cb89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6a0702019cd11f26ea9fcdba8a74bf3e71df94b
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84509292"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371435"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Restringir o acesso a um registo de contentores utilizando um ponto final de serviço numa rede virtual Azure
 
@@ -26,6 +27,7 @@ A configuração de um ponto final do serviço de registo está disponível no n
 * Não é possível utilizar o portal Azure para configurar os pontos finais de serviço num registo.
 * Apenas um cluster [de serviço Azure Kubernetes](../aks/intro-kubernetes.md) ou [uma máquina virtual](../virtual-machines/linux/overview.md) Azure podem ser usados como hospedeiro para aceder a um registo de contentores utilizando um ponto final de serviço. *Outros serviços da Azure, incluindo as instâncias do contentor Azure, não são suportados.*
 * Cada registo suporta um máximo de 100 regras de acesso à rede.
+* Os pontos finais de serviço para o Registo de Contentores Azure não são suportados na nuvem do Governo dos EUA ou na nuvem Azure China.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -169,7 +171,7 @@ Substitua o nome do seu registo no seguinte comando [de atualização az acr:][a
 az acr update --name myContainerRegistry --default-action Allow
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se criou todos os recursos Azure no mesmo grupo de recursos e já não precisa deles, pode eliminar opcionalmente os recursos utilizando um único comando [de eliminação do grupo AZ:](/cli/azure/group)
 
@@ -179,7 +181,7 @@ az group delete --name myResourceGroup
 
 Para limpar os seus recursos no portal, navegue para o grupo de recursos myResourceGroup. Assim que o grupo de recursos estiver carregado, clique no **grupo de recursos Delete** para remover o grupo de recursos e os recursos aí armazenados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para restringir o acesso a um registo utilizando um ponto final privado numa rede virtual, consulte o [Link Privado Configure Azure para um registo de contentores Azure](container-registry-private-link.md).
 * Se precisar de configurar regras de acesso ao registo por detrás de uma firewall do cliente, consulte [as regras de Configuração para aceder a um registo de contentores Azure atrás de uma firewall](container-registry-firewall-access-rules.md).

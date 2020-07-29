@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
-ms.custom: seodec18
-ms.openlocfilehash: aa6e3edf2c02cad34cbe9b1f9ac82517823caa8e
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.custom: seodec18, devx-track-java
+ms.openlocfilehash: d0850b2192df1392a245f27588ffcb8ddb337347
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130553"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319342"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configure uma aplicação Windows Java para o Azure App Service
 
@@ -342,7 +342,7 @@ O suporte do produto para o [Azul Zulu JDK suportado pelo Azure](https://www.azu
 
 Os desenvolvedores podem [abrir um problema](/azure/azure-portal/supportability/how-to-create-azure-support-request) com os JDKs Azul Zulu através do Suporte Azure se tiverem um plano de apoio [qualificado.](https://azure.microsoft.com/support/plans/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este tópico fornece a declaração de suporte do Java Runtime para o Serviço de Aplicações Azure no Windows.
 

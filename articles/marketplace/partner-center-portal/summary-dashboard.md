@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 39b963fe40d26d498e69b8fc9bbb62ce514bef39
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: 8e58de7975bc7f5de1fe2ad71f97c02c901c0c21
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109149"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87304127"
 ---
 # <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>Dashboard de resumo na análise do mercado comercial
 
@@ -111,7 +113,7 @@ As **encomendas por assento/por** gráfico do site apresentam a repartição de 
 
 O **gráfico de tendências de encomendas saas de teste gratuito** apresenta a tendência das encomendas para testes gratuitos que o SaaS oferece com um período experimental de 30 dias.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma visão geral dos relatórios de análise disponíveis no mercado comercial do Partner Center, consulte [Analytics para o mercado comercial no Partner Center](./analytics.md).
 - Para obter informações sobre as suas encomendas num formato gráfico e transferível, consulte [o Painel de Encomendas em análise de marketplace comercial.](./orders-dashboard.md)

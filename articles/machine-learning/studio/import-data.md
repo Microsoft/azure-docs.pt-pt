@@ -1,6 +1,5 @@
 ---
-title: Importar dados de formação
-titleSuffix: ML Studio (classic) - Azure
+title: 'Estúdio ML (clássico): Dados de formação de importação - Azure'
 description: Como importar os seus dados para o Azure Machine Learning Studio (clássico) de várias fontes de dados. Saiba quais os tipos de dados e formatos de dados suportados.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: fa031e6e23c218ff2ca8e2ef3e778768fabb1ebb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b04c9c1796491622a76e2c2a2fbfcdcc0c624dda
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321480"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318543"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>Importe os seus dados de formação em Azure Machine Learning Studio (clássico) de várias fontes de dados
+
+**APLICA-SE A:** ![ no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) yes Machine Learning Studio ![ ](../../../includes/media/aml-applies-to-skus/yes.png) (clássico) 
+
 
 Para utilizar os seus próprios dados no Machine Learning Studio (clássico) para desenvolver e formar uma solução de análise preditiva, pode utilizar dados a partir de: 
 
@@ -64,9 +66,9 @@ Pode especificar ou alterar explicitamente os títulos e tipos de dados para col
 
 Os seguintes tipos de dados são reconhecidos pelo Studio (clássico):
 
-* String
-* Número inteiro
-* Double
+* Cadeia
+* Integer (Número inteiro)
+* Double (Duplo)
 * Booleano
 * DateTime
 * TimeSpan
@@ -176,7 +178,7 @@ Haverá alturas em que vai querer tirar um resultado intermédio de uma experiê
 
 Quando a poupança terminar, o conjunto de dados estará disponível para utilização em qualquer experiência no seu espaço de trabalho. Pode encontrá-lo na lista **de conjuntos de dados guardados** na paleta de módulos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Implementação de serviços web Azure Machine Learning Studio que utilizam módulos de importação de dados e exportação de dados](web-services-that-use-import-export-modules.md)
 

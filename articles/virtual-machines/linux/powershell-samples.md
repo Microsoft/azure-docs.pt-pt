@@ -3,16 +3,16 @@ title: Amostras de powershell da máquina virtual Azure
 description: Amostras de powershell da máquina virtual Azure
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
-ms.openlocfilehash: a9d68527a44d78a702e00d3b6ce910c2e9473dac
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 23dd47df33ef6571fefbf1c1964324bea5ca4488
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527018"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369939"
 ---
 # <a name="azure-virtual-machine-powershell-samples-for-creating-and-managing-linux-vms"></a>Amostras Azure Virtual Machine PowerShell para criar e gerir VMs Linux
 

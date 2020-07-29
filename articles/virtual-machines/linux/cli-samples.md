@@ -3,15 +3,15 @@ title: Exemplos da CLI do Azure
 description: Exemplos da CLI do Azure
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 2d855a524129bb56248e270d43b300e5dfe97e27
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 977d67010f97b2cf29e6949b0e6fde1ac488f046
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207447"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87370143"
 ---
 # <a name="azure-cli-samples-for-linux-virtual-machines"></a>Exemplos da CLI do Azure para máquinas virtuais do Linux
 

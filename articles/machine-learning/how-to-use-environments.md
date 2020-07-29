@@ -8,15 +8,15 @@ ms.author: roastala
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 07/23/2020
-ms.custom: tracking-python
-ms.openlocfilehash: c7229aaeef8b756b244e55920263eb046ed87f13
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: c1c146783d54bf2df25a130b73ab430c6edeaef7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129496"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319461"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Crie & utilize ambientes de software em Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ Os exemplos deste artigo mostram como:
 * Use um ambiente para treinar.
 * Utilize um ambiente para implantação de serviço web.
 
-Para uma visão geral de alto nível de como os ambientes funcionam em Azure Machine Learning, veja [o que são ambientes ML?](concept-environments.md)
+Para uma visão geral de alto nível de como os ambientes funcionam em Azure Machine Learning, veja [o que são ambientes ML?](concept-environments.md) Para obter informações sobre a configuração de ambientes de desenvolvimento, consulte [aqui.](how-to-configure-environment.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

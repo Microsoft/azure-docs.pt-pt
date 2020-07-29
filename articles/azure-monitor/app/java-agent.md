@@ -3,12 +3,13 @@ title: Monitorização de desempenho de aplicativos web java - Azure Application
 description: Monitorização alargada de desempenho e utilização do seu website Java com Application Insights.
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.openlocfilehash: f2ce02c3ec9fbbc762b7919ee31d9b69306a008a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-java
+ms.openlocfilehash: 9cce87fa742df2e623217b5b0f72ad19814fd3b7
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322623"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371367"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorizar dependências, exceções capturadas e tempos de execução de métodos em aplicações web java
 

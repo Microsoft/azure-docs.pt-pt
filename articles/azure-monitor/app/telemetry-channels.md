@@ -4,16 +4,16 @@ description: Como personalizar canais de telemetria em Azure Application Insight
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6f9e93d477efeee7e1d8a0b0d8704f9c83d2a4f7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b5ae1ee1e4bf9f64eb4587f0ceb76972a4571b2e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539793"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318934"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Canais de telemetria em Insights de Aplicação
 
-Os canais de telemetria são parte integrante dos [SDKs Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). Gerem a buffering e a transmissão da telemetria para o serviço Application Insights. As versões .NET e .NET Core dos SDKs têm dois canais de telemetria incorporados: `InMemoryChannel` e `ServerTelemetryChannel` . Este artigo descreve cada canal em detalhe, incluindo como personalizar o comportamento do canal.
+Os canais de telemetria são parte integrante dos [SDKs Azure Application Insights](./app-insights-overview.md). Gerem a buffering e a transmissão da telemetria para o serviço Application Insights. As versões .NET e .NET Core dos SDKs têm dois canais de telemetria incorporados: `InMemoryChannel` e `ServerTelemetryChannel` . Este artigo descreve cada canal em detalhe, incluindo como personalizar o comportamento do canal.
 
 ## <a name="what-are-telemetry-channels"></a>O que são canais de telemetria?
 
@@ -39,7 +39,7 @@ O navio Application Insights .NET e .NET Core SDKs com dois canais incorporados:
 
 Configura um canal de telemetria definindo-o para a configuração de telemetria ativa. Para ASP.NET aplicações, a configuração envolve definir a instância do canal de telemetria para `TelemetryConfiguration.Active` , ou modificando `ApplicationInsights.config` . Para aplicações ASP.NET Core, a configuração envolve a adição do canal ao Recipiente de Injeção de Dependência.
 
-As secções seguintes mostram exemplos de configuração da `StorageFolder` definição do canal em vários tipos de aplicações. `StorageFolder`é apenas uma das configurações configuráveis. Para obter a lista completa das definições de configuração, consulte [a secção de definições](telemetry-channels.md#configurable-settings-in-channels) mais tarde neste artigo.
+As secções seguintes mostram exemplos de configuração da `StorageFolder` definição do canal em vários tipos de aplicações. `StorageFolder`é apenas uma das configurações configuráveis. Para obter a lista completa das definições de configuração, consulte [a secção de definições](#configurable-settings-in-channels) mais tarde neste artigo.
 
 ### <a name="configuration-by-using-applicationinsightsconfig-for-aspnet-applications"></a>Configuração utilizando ApplicationInsights.config para aplicações ASP.NET
 
@@ -134,7 +134,7 @@ Aqui estão as definições mais usadas `ServerTelemetryChannel` para:
 
 Se precisar de fazer um autoclismo sincronizado, recomendamos que utilize `InMemoryChannel` .
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost"></a>O canal Application Insights garante a entrega de telemetria? Caso contrário, quais são os cenários em que a telemetria pode ser perdida?
 
@@ -164,7 +164,8 @@ Leia mais sobre [proteção de dados e privacidade.](data-retention-privacy.md#d
 ## <a name="open-source-sdk"></a>SDK de código aberto
 Como todos os SDK para Insights de Aplicações, os canais são de código aberto. Leia e contribua para o código, ou reporte problemas, [no repo oficial do GitHub.](https://github.com/Microsoft/ApplicationInsights-dotnet)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Amostragem](../../azure-monitor/app/sampling.md)
-* [Resolução de problemas da SDK](../../azure-monitor/app/asp-net-troubleshoot-no-data.md)
+* [Amostragem](./sampling.md)
+* [Resolução de problemas da SDK](./asp-net-troubleshoot-no-data.md)
+

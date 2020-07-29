@@ -1,6 +1,5 @@
 ---
-title: Implantação e consumo
-titleSuffix: ML Studio (classic) - Azure
+title: 'Estúdio ML (clássico): Implantação e consumo - Azure'
 description: Você pode usar O Azure Machine Learning Studio (clássico) para implementar fluxos de trabalho de machine learning e modelos como serviços web. Estes serviços web podem então ser usados para chamar os modelos de machine learning de aplicações através da internet para fazer previsões em tempo real ou em modo de lote.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 5077e71eda42aa3b48cda2b39b60efc19bddd8a5
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 4c6c73d29e04889b390bc071511eef8591da1543
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985538"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318696"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio (clássico) Web Services: Implantação e consumo
+
+**APLICA-SE A:** ![ no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) yes Machine Learning Studio ![ ](../../../includes/media/aml-applies-to-skus/yes.png) (clássico) 
 
 Você pode usar O Azure Machine Learning Studio (clássico) para implementar fluxos de trabalho de machine learning e modelos como serviços web. Estes serviços web podem então ser usados para chamar os modelos de machine learning de aplicações através da Internet para fazer previsões em tempo real ou em modo de lote. Como os serviços web são RESTful, pode chamá-los de várias linguagens e plataformas de programação, tais como .NET e Java, e de aplicações, como o Excel.
 

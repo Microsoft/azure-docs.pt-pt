@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: 45f9c56fce0c843d9f1ed069abf7d1ed6e2fa604
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76eee4b0b029714a75b57e5d44e097a36de3181f
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565898"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371418"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administração de serviços para Azure Cognitive Search no portal Azure
 
@@ -123,7 +123,7 @@ Embora a produção de consulta suba à medida que adiciona réplicas, não prec
 
 É mais comum adicionar réplicas, mas quando o armazenamento é limitado, pode adicionar divisórias para obter mais capacidade. O nível a que adquirou o serviço determina se as divisórias podem ser adicionadas. O nível básico está bloqueado numa partição. Os níveis padrão e acima suportam divisórias adicionais.
 
-As divisórias são adicionadas em múltiplos de 12 (especificamente, 1, 2, 3, 4, 6 ou 12). Este é um artefacto de cacos. Um índice é criado em 12 fragmentos, que podem ser armazenados em 1 divisória ou igualmente divididos em 2, 3, 4, 6 ou 12 divisórias (um fragmento por partição).
+As divisórias são adicionadas em divisores de 12 (especificamente, 1, 2, 3, 4, 6 ou 12). Este é um artefacto de cacos. Um índice é criado em 12 fragmentos, que podem ser armazenados em 1 divisória ou igualmente divididos em 2, 3, 4, 6 ou 12 divisórias (um fragmento por partição).
 
 ### <a name="remove-replicas"></a>Remover réplicas
 
@@ -137,7 +137,7 @@ Não existe um método de deteção que lhe diga quais os fragmentos de índice 
 
 Para ajudar no planeamento futuro, pode querer verificar o armazenamento (usando [as estatísticas do Índice Get](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)) para ver quanto realmente utilizou. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Automatize com [PowerShell](search-manage-powershell.md)
 

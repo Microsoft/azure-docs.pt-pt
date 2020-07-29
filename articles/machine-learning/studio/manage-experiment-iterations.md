@@ -1,6 +1,5 @@
 ---
-title: Ver & refazer experiências
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clássico): Ver & refazer experiências - Azure'
 description: Gerir a experiência corre no Azure Machine Learning Studio (clássico). Pode rever as execuções anteriores das suas experiências a qualquer momento para desafiar, revisitar e, em última análise, confirmar ou aperfeiçoar pressupostos anteriores.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 0e6d4312850dc16b76e248c9bbceacd8b5311d5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc7858010ea43f676a43f8bf16e228c8248805bf
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687400"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318526"
 ---
 # <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Gerir a experiência corre no Azure Machine Learning Studio (clássico)
+
+**APLICA-SE A:** ![ no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) yes Machine Learning Studio ![ ](../../../includes/media/aml-applies-to-skus/yes.png) (clássico) 
+
 
 Desenvolver um modelo de análise preditiva é um processo iterativo - à medida que modifica as várias funções e parâmetros da sua experiência, os seus resultados convergem até que esteja convencido de que tem um modelo treinado e eficaz. A chave para este processo é rastrear as várias iterações dos seus parâmetros e configurações de experiência.
 

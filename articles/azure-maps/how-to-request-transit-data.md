@@ -1,24 +1,24 @@
 ---
-title: Solicitar dados de trânsito / Microsoft Azure Maps
-description: Neste artigo, você aprenderá a solicitar dados de trânsito público usando o Microsoft Azure Maps Mobility Service.
+title: Solicite dados de trânsito com o serviço de mobilidade microsoft Azure Maps
+description: Neste artigo, você vai aprender a solicitar dados de trânsito público usando o serviço microsoft Azure Maps Mobility.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/06/2019
+ms.date: 07/22/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: c50a3cee3cf4d0ac7aa55eb4e9d80e97e5248876
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 38fc6f213cbd58fc829a6605bdbed7d25e99bb8d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126555"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319019"
 ---
-# <a name="request-public-transit-data-using-the-azure-maps-mobility-service"></a>Solicite dados de trânsito público utilizando o Serviço de Mobilidade Azure Maps 
+# <a name="request-public-transit-data-using-the-azure-maps-mobility-service"></a>Solicite dados de trânsito público utilizando o serviço de mobilidade Azure Maps
 
-Este artigo mostra-lhe como usar o Serviço de [Mobilidade](https://aka.ms/AzureMapsMobilityService) Azure Maps para solicitar dados de trânsito público. Os dados de trânsito incluem paragens de trânsito, informações de rotas e estimativas do tempo de viagem.
+Este artigo mostra-lhe como utilizar o serviço de [mobilidade](https://aka.ms/AzureMapsMobilityService) Azure Maps para solicitar dados de trânsito público. Os dados de trânsito incluem paragens de trânsito, informações de rotas e estimativas do tempo de viagem.
 
 Neste artigo você vai aprender, como:
 
@@ -27,25 +27,23 @@ Neste artigo você vai aprender, como:
 * Consulta [Obter Rotas de Trânsito API](https://aka.ms/AzureMapsMobilityTransitRoute) para planear uma rota usando o trânsito público.
 * Solicite geometria da rota de trânsito e horário detalhado para a rota utilizando a [API do Itinerário de Trânsito.](https://aka.ms/https://azure.microsoft.com/services/azure-maps/)
 
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Primeiro precisa de ter uma conta Azure Maps e uma chave de subscrição para fazer quaisquer chamadas para as APIs de trânsito público do Azure Maps. Para obter informações, siga as instruções na [Criar uma conta](quick-demo-map-app.md#create-an-azure-maps-account) para criar uma conta Azure Maps. Siga os passos na [chave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave principal para a sua conta. Para obter mais informações sobre a autenticação no Azure Maps, consulte [a autenticação de gestão no Azure Maps.](./how-to-manage-authentication.md)
+1. [Faça uma conta Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Obtenha uma chave de subscrição primária,](quick-demo-map-app.md#get-the-primary-key-for-your-account)também conhecida como a chave primária ou a chave de subscrição. Para obter mais informações sobre a autenticação no Azure Maps, consulte [a autenticação de gestão no Azure Maps.](./how-to-manage-authentication.md)
 
-
-Este artigo utiliza a [aplicação Do Carteiro](https://www.getpostman.com/apps) para construir chamadas REST. Você pode usar qualquer ambiente de desenvolvimento da API que você preferir.
-
+Este tutorial usa a aplicação [Do Carteiro,](https://www.postman.com/) mas você pode escolher um ambiente de desenvolvimento de API diferente.
 
 ## <a name="get-a-metro-area-id"></a>Obtenha uma iD da área do metrô
 
-Para solicitar informações de trânsito para uma determinada área metropolitana, você precisará `metroId` da área. A [API get metro area](https://aka.ms/AzureMapsMobilityMetro) permite-lhe solicitar áreas de metrô, nas quais o Serviço de Mobilidade Azure Maps está disponível. A resposta inclui detalhes como o `metroId` `metroName` , e a representação da geometria da área metropolitana no formato GeoJSON.
+Para solicitar informações detalhadas sobre agências de trânsito e tipos de trânsito apoiados para uma determinada área metropolitana, você precisará `metroId` dessa área. A [API get metro area](https://aka.ms/AzureMapsMobilityMetro) permite-lhe solicitar áreas de metrô, nas quais o serviço de Mobilidade Azure Maps está disponível. A resposta inclui detalhes como o `metroId` `metroName` , e a representação da geometria da área metropolitana no formato GeoJSON.
 
 Vamos fazer um pedido para obter a área metropolitana para a área de Seattle-Tacoma. Para solicitar a iD para uma área de metrô, complete os seguintes passos:
 
 1. Abra a aplicação Do Carteiro e vamos criar uma coleção para armazenar os pedidos. Perto do topo da aplicação Postman, selecione **New**. Na janela **Criar Nova,** selecione **Coleção**.  Nomeie a coleção e selecione o botão **Criar.**
 
 2. Para criar o pedido, selecione **New** novamente. Na janela **Criar Novo,** selecione **Request**. Insira um **nome de Pedido** para o pedido. Selecione a coleção que criou no passo anterior como o local para guardar o pedido. Em seguida, **selecione Save**.
-    
+  
     ![Criar um pedido no Carteiro](./media/how-to-request-transit-data/postman-new.png)
 
 3. Selecione o método **GET** HTTP no separador construtor e introduza o seguinte URL para criar um pedido GET. `{subscription-key}`Substitua- se por a sua tecla primária Azure Maps.
@@ -111,11 +109,9 @@ Vamos fazer um pedido para obter a área metropolitana para a área de Seattle-T
     }
     ```
 
-5. Copie `metroId` o, precisamos usá-lo mais tarde.
-
 ## <a name="request-nearby-transit-stops"></a>Pedido de paragens de trânsito nas proximidades
 
-O serviço Azure Maps [Get Nearby Transit](https://aka.ms/AzureMapsMobilityNearbyTransit) permite-lhe pesquisar objetos de trânsito.  a API devolve os detalhes do objeto de trânsito, tais como paragens de trânsito público e bicicletas partilhadas em torno de um determinado local. Em seguida, faremos um pedido ao serviço para procurar paragens de trânsito público nas proximidades num raio de 300 metros em torno do local. No pedido, precisamos incluir o `metroId` recuperado mais cedo.
+O serviço Azure Maps [Get Nearby Transit](https://aka.ms/AzureMapsMobilityNearbyTransit) permite-lhe pesquisar objetos de trânsito. A API devolve os detalhes do objeto de trânsito, como paragens de trânsito público e bicicletas partilhadas em torno de um determinado local. Em seguida, faremos um pedido ao serviço para procurar paragens de trânsito público nas proximidades num raio de 300 metros em torno do local.
 
 Para fazer um pedido ao [Trânsito De proximidade,](https://aka.ms/AzureMapsMobilityNearbyTransit)siga os passos abaixo:
 
@@ -124,7 +120,7 @@ Para fazer um pedido ao [Trânsito De proximidade,](https://aka.ms/AzureMapsMobi
 2. No separador Construtor, selecione o método **GET** HTTP, introduza o seguinte URL de pedido para o seu ponto final da API e clique em **Enviar**.
 
     ```HTTP
-    https://atlas.microsoft.com/mobility/transit/nearby/json?subscription-key={subscription-key}&api-version=1.0&metroId=522&query=47.63096,-122.126&radius=300&objectType=stop
+    https://atlas.microsoft.com/mobility/transit/nearby/json?subscription-key={subscription-key}&api-version=1.0&query=47.63096,-122.126&radius=300&objectType=stop
     ```
 
 3. Após um pedido bem sucedido, a estrutura de resposta deve parecer a seguinte:
@@ -211,13 +207,12 @@ Para fazer um pedido ao [Trânsito De proximidade,](https://aka.ms/AzureMapsMobi
                 }
             }
         ]
-    }   
+    } 
     ```
 
 Se observar cuidadosamente a estrutura de resposta, verá que contém parâmetros para cada objeto de trânsito. Cada objeto de trânsito tem parâmetros `id` como, `type` , , , , e a `stopName` `mainTransitType` `mainAgencyName` posição, nas coordenadas, do objeto.
 
 Para aprender, usaremos uma `id` das paragens de autocarro como origem, para a nossa rota na próxima secção.  
-
 
 ## <a name="request-a-transit-route"></a>Solicite uma rota de trânsito
 
@@ -225,20 +220,20 @@ O Azure Maps [Get Transit Routes API](https://aka.ms/AzureMapsMobilityTransitRou
 
 ### <a name="get-location-coordinates-for-destination"></a>Obtenha coordenadas de localização para o destino
 
-Para obter as coordenadas de localização da torre space needle, permite utilizar o Serviço de [Pesquisa Fuzzy](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)Azure Maps.
+Para obter as coordenadas de localização da torre space needle, usaremos o serviço de [pesquisa fuzzy Azure](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)Maps.
 
 Para fazer um pedido ao serviço de pesquisa Fuzzy, siga os passos abaixo:
 
 1. No Carteiro, clique em **Novo**  |  **Pedido GET** e nomeie-o Obtenha as **coordenadas de localização**.
 
-2.  No separador Construtor, selecione o método **GET** HTTP, introduza o seguinte URL de pedido e clique em **Enviar**.
- 
+2. No separador Construtor, selecione o método **GET** HTTP, introduza o seguinte URL de pedido e clique em **Enviar**.
+
     ```HTTP
     https://atlas.microsoft.com/search/fuzzy/json?subscription-key={subscription-key}&api-version=1.0&query=space needle
     ```
-    
+
 3. Se olhar cuidadosamente para a resposta, contém vários locais nos resultados da pesquisa da Agulha Espacial. Cada resultado contém as coordenadas de localização sob a **posição**. Copie o `lat` e `lon` sob a **posição** do primeiro resultado.
-    
+
    ```JSON
    {
         "summary": {
@@ -330,8 +325,7 @@ Para fazer um pedido ao serviço de pesquisa Fuzzy, siga os passos abaixo:
             ...
         ]
     }
-    ``` 
-    
+    ```
 
 ### <a name="request-route"></a>Rota de pedido
 
@@ -343,10 +337,10 @@ Para fazer um pedido de rota, complete os passos abaixo:
 
     Vamos solicitar rotas de trânsito público para um autocarro especificando os `modeType` parâmetros e `transitType` parâmetros. O URL de pedido contém as localizações recuperadas nas secções anteriores. Para o `originType` , temos agora um **stopId**. E para `destionationType` o, temos a **posição.**
 
-    Consulte a [lista de parâmetros URI](https://aka.ms/AzureMapsMobilityTransitRoute#uri-parameters) que pode utilizar no seu pedido para a [API das Rotas de Trânsito.](https://aka.ms/AzureMapsMobilityTransitRoute) 
+    Consulte a [lista de parâmetros URI](https://aka.ms/AzureMapsMobilityTransitRoute#uri-parameters) que pode utilizar no seu pedido para a [API das Rotas de Trânsito.](https://aka.ms/AzureMapsMobilityTransitRoute)
   
     ```HTTP
-    https://atlas.microsoft.com/mobility/transit/route/json?subscription-key={subscription-key}&api-version=1.0&metroId=522&originType=stopId&origin=522---2060603&destionationType=position&destination=47.62039,-122.34928&modeType=publicTransit&transitType=bus
+    https://atlas.microsoft.com/mobility/transit/route/json?subscription-key={subscription-key}&api-version=1.0&originType=stopId&origin=522---2060603&destionationType=position&destination=47.62039,-122.34928&modeType=publicTransit&transitType=bus
     ```
 
 3. Após um pedido bem sucedido, a estrutura de resposta deve parecer a seguinte:
@@ -413,7 +407,23 @@ Para fazer um pedido de rota, complete os passos abaixo:
                         "legEndTime": "2019-09-07T02:16:33Z",
                         "lengthInMeters": 251
                     }
-                ]
+                ],
+                "itineraryFare": {
+                    "price": {
+                        "amount": 550,
+                        "currencyCode": "USD"
+                    },
+                    "tickets": [
+                        {
+                            "amount": 275,
+                            "currencyCode": "USD"
+                        },
+                        {
+                            "amount": 275,
+                            "currencyCode": "USD"
+                        }
+                    ]
+                }
             },
             ...,
             {
@@ -488,13 +498,29 @@ Para fazer um pedido de rota, complete os passos abaixo:
                         "legEndTime": "2019-09-07T02:20:06Z",
                         "lengthInMeters": 457
                     }
-                ]
+                ],
+                "itineraryFare": {
+                    "price": {
+                        "amount": 550,
+                        "currencyCode": "USD"
+                    },
+                    "tickets": [
+                        {
+                            "amount": 275,
+                            "currencyCode": "USD"
+                        },
+                        {
+                            "amount": 275,
+                            "currencyCode": "USD"
+                        }
+                    ]
+                }
             }
         ]
     }
     ```
 
-4. Se observar com atenção, existem várias rotas **de autocarro** na resposta. Cada rota tem um **ID de itinerário** único e um resumo que descreve cada etapa do percurso. Uma perna de rota é a parte da rota entre dois pontos de paragem. Em seguida, vamos pedir detalhes para a rota mais rápida usando a `itineraryId` resposta.
+4. Se observar com atenção, existem várias rotas **de autocarro** na resposta. Cada rota tem um **ID de itinerário**único, um resumo que descreve cada etapa da rota, e um `itineraryFare` que dá tanto o preço itemado como o preço total para as passagens de ônibus. Uma perna de rota é a parte da rota entre dois pontos de paragem. Em seguida, vamos pedir detalhes para a rota mais rápida usando a `itineraryId` resposta.
 
 ## <a name="request-fastest-route-itinerary"></a>Solicite o itinerário de rota mais rápido
 
@@ -509,35 +535,35 @@ O serviço Azure Maps [Get Transit Itinerário](https://aka.ms/AzureMapsMobility
     ```HTTP
     https://atlas.microsoft.com/mobility/transit/itinerary/json?api-version=1.0&subscription-key={subscription-key}&query={itineraryId}&detailType=geometry
     ```
-    
-3. Após um pedido bem sucedido, a estrutura de resposta deve parecer a seguinte:
+
+3. Após um pedido bem sucedido, a estrutura de resposta deve parecer a de baixo.  Se observar a resposta do JSON, notará que cada perna de autocarro contém um `legfare` elemento. O `legfare` elemento contém o custo, em cêntimos, de cada rota de autocarro que é comprada separadamente. No final da resposta, verá um `itineraryFare` elemento que contém o custo, em cêntimos, de toda a rota. Neste exemplo, há quatro rotas de autocarros em `$2.75` cada um. No entanto, se comprar um único bilhete para toda a rota, o custo `$5.50` é.
 
     ```JSON
-    {
-        "departureTime": "2019-09-07T01:01:50Z",
-        "arrivalTime": "2019-09-07T02:16:33Z",
+   {
+        "departureTime": "2020-07-22T19:54:47Z",
+        "arrivalTime": "2020-07-22T21:12:21Z",
         "legs": [
             {
                 "legType": "Wait",
-                "legStartTime": "2019-09-07T01:01:50Z",
-                "legEndTime": "2019-09-07T01:01:50Z",
+                "legStartTime": "2020-07-22T19:54:47Z",
+                "legEndTime": "2020-07-22T19:54:47Z",
                 "lineGroup": {
-                    "lineGroupId": "522---666077",
+                    "lineGroupId": "522---666063",
                     "agencyId": "522---5872",
                     "agencyName": "Metro Transit",
-                    "lineNumber": "249",
-                    "caption1": "Overlake TC - South Bellevue P&R",
-                    "caption2": "249 Overlake TC - South Bellevue P&R",
+                    "lineNumber": "226",
+                    "caption1": "Eastgate P&R-Crossroads-Overlake-Bellevue TC",
+                    "caption2": "226 Eastgate P&R-Crossroads-Overlake-Bellevue TC",
                     "color": "347E5D",
                     "transitType": "Bus"
                 },
                 "line": {
-                    "lineId": "522---3760143",
-                    "lineGroupId": "522---666077",
-                    "direction": "backward",
+                    "lineId": "522---2756599",
+                    "lineGroupId": "522---666063",
+                    "direction": "forward",
                     "agencyId": "522---5872",
-                    "lineNumber": "249",
-                    "lineDestination": "South Bellevue S Kirkland P&R"
+                    "lineNumber": "226",
+                    "lineDestination": "Bellevue Transit Center Crossroads"
                 },
                 "stops": [
                     {
@@ -550,244 +576,232 @@ O serviço Azure Maps [Get Transit Itinerário](https://aka.ms/AzureMapsMobility
                             "longitude": -122.125275
                         },
                         "mainTransitType": "Bus",
-                        "mainAgencyId": "522---5872"
+                        "mainAgencyId": "522---5872",
+                        "mainAgencyName": "Metro Transit"
                     },
                     {
-                        "stopId": "522---2061703",
-                        "stopKey": "74450",
-                        "stopName": "South Kirkland P&R & 108th Ave NE",
-                        "stopCode": "74450",
+                        "stopId": "522---2062263",
+                        "stopKey": "85630",
+                        "stopName": "Bellevue Tc",
+                        "stopCode": "85630",
                         "position": {
-                            "latitude": 47.643852,
-                            "longitude": -122.196693
+                            "latitude": 47.615591,
+                            "longitude": -122.196491
                         },
                         "mainTransitType": "Bus",
-                        "mainAgencyId": "522---5872"
+                        "mainAgencyId": "522---5872",
+                        "mainAgencyName": "Metro Transit"
                     }
                 ],
                 "waitOnVehicle": false
             },
             {
                 "legType": "Bus",
-                "legStartTime": "2019-09-07T01:01:50Z",
-                "legEndTime": "2019-09-07T01:26:00Z",
+                "legStartTime": "2020-07-22T19:54:47Z",
+                "legEndTime": "2020-07-22T20:15:00Z",
                 "lineGroup": {
-                    "lineGroupId": "522---666077",
+                    "lineGroupId": "522---666063",
                     "agencyId": "522---5872",
                     "agencyName": "Metro Transit",
-                    "lineNumber": "249",
-                    "caption1": "Overlake TC - South Bellevue P&R",
-                    "caption2": "249 Overlake TC - South Bellevue P&R",
+                    "lineNumber": "226",
+                    "caption1": "Eastgate P&R-Crossroads-Overlake-Bellevue TC",
+                    "caption2": "226 Eastgate P&R-Crossroads-Overlake-Bellevue TC",
                     "color": "347E5D",
                     "transitType": "Bus"
                 },
                 "line": {
-                    "lineId": "522---3760143",
-                    "lineGroupId": "522---666077",
-                    "direction": "backward",
+                    "lineId": "522---2756599",
+                    "lineGroupId": "522---666063",
+                    "direction": "forward",
                     "agencyId": "522---5872",
-                    "lineNumber": "249",
-                    "lineDestination": "South Bellevue S Kirkland P&R"
+                    "lineNumber": "226",
+                    "lineDestination": "Bellevue Transit Center Crossroads"
                 },
                 "stops": [
-                    {
-                        "stopId": "522---2060603",
-                        "stopKey": "71300",
-                        "stopName": "NE 24th St & 162nd Ave NE",
-                        "stopCode": "71300",
-                        "position": {
-                            "latitude": 47.631504,
-                            "longitude": -122.125275
-                        },
-                        "mainTransitType": "Bus",
-                        "mainAgencyId": "522---5872"
-                    },
-                    {
-                        "stopId": "522---2060604",
-                        "stopKey": "71310",
-                        "stopName": "NE 24th St & 160th Ave NE",
-                        "stopCode": "71310",
-                        "position": {
-                            "latitude": 47.631565,
-                            "longitude": -122.127808
-                        },
-                        "mainTransitType": "Bus",
-                        "mainAgencyId": "522---5872"
-                    },
-                    ...,
-                    ...,
-                    {
-                        "stopId": "522---2061704",
-                        "stopKey": "74451",
-                        "stopName": "Northup Way & NE 33rd Pl",
-                        "stopCode": "74451",
-                        "position": {
-                            "latitude": 47.640911,
-                            "longitude": -122.194443
-                        },
-                        "mainTransitType": "Bus",
-                        "mainAgencyId": "522---5872"
-                    },
-                    {
-                        "stopId": "522---2061703",
-                        "stopKey": "74450",
-                        "stopName": "South Kirkland P&R & 108th Ave NE",
-                        "stopCode": "74450",
-                        "position": {
-                            "latitude": 47.643852,
-                            "longitude": -122.196693
-                        },
-                        "mainTransitType": "Bus",
-                        "mainAgencyId": "522---5872"
-                    }
+                   ...
                 ],
                 "geometry": {
                     "type": "LineString",
                     "coordinates": [
-                        [
-                            -122.12527,
-                            47.63143
-                        ],
-                        [
-                            -122.12529,
-                            47.63143
-                        ],
-                        [
-                            -122.12561,
-                            47.63144
-                        ],
-                        [
-                            -122.12701,
-                            47.63148
-                        ],
-                        ...,
-                        ...,
-                        ...,
-                        [
-                            -122.19601,
-                            47.64304
-                        ],
-                        [
-                            -122.19584,
-                            47.64315
-                        ],
-                        [
-                            -122.19677,
-                            47.6438
-                        ]
+                       ...
+                    ]
+                },
+                "legFare": {
+                    "fares": [
+                        {
+                            "price": {
+                                "amount": 275,
+                                "currencyCode": "USD"
+                            },
+                            "usage": "pay"
+                        }
                     ]
                 }
             },
             ...,
             ...,
-            ...,
             {
-                "legType": "Walk",
-                "legStartTime": "2019-09-07T02:12:42Z",
-                "legEndTime": "2019-09-07T02:16:33Z",
-                "steps": [
-                    {
-                        "direction": {
-                            "relativeDirection": "depart"
-                        },
-                        "streetName": "Denny Way"
-                    },
-                    {
-                        "direction": {
-                            "relativeDirection": "right"
-                        },
-                        "streetName": "4th Avenue North"
-                    },
-                    {
-                        "direction": {
-                            "relativeDirection": "right"
-                        },
-                        "streetName": "Broad Street"
-                    }
+                "legType": "Bus",
+                "legStartTime": "2020-07-22T20:20:00Z",
+                "legEndTime": "2020-07-22T20:28:00Z",
+                "lineGroup": {
+                    "lineGroupId": "522---666071",
+                    "agencyId": "522---5872",
+                    "agencyName": "Metro Transit",
+                    "lineNumber": "241",
+                    "caption1": "Eastgate P&R - Bellevue Transit Center",
+                    "caption2": "241 Eastgate P&R - Bellevue Transit Center",
+                    "color": "347E5D",
+                    "transitType": "Bus"
+                },
+                "line": {
+                    "lineId": "522---2756619",
+                    "lineGroupId": "522---666071",
+                    "direction": "backward",
+                    "agencyId": "522---5872",
+                    "lineNumber": "241",
+                    "lineDestination": "Eastgate P&R Factoria"
+                },
+                "stops": [
+                ...
                 ],
-                "origin": {
-                    "position": {
-                        "latitude": 47.618578,
-                        "longitude": -122.348058
-                    }
-                },
-                "destination": {
-                    "position": {
-                        "latitude": 47.62039,
-                        "longitude": -122.34928
-                    }
-                },
                 "geometry": {
                     "type": "LineString",
                     "coordinates": [
-                        [
-                            -122.34806,
-                            47.61857
-                        ],
-                        [
-                            -122.3481,
-                            47.61857
-                        ],
-                        [
-                            -122.34894,
-                            47.61858
-                        ],
-                        [
-                            -122.34892,
-                            47.61964
-                        ],
-                        [
-                            -122.34877,
-                            47.61975
-                        ],
-                        [
-                            -122.3492,
-                            47.62001
-                        ],
-                        [
-                            -122.34918,
-                            47.62003
-                        ],
-                        [
-                            -122.34917,
-                            47.62006
-                        ],
-                        [
-                            -122.34916,
-                            47.62008
-                        ],
-                        [
-                            -122.34916,
-                            47.62008
-                        ],
-                        [
-                            -122.34916,
-                            47.62008
-                        ],
-                        [
-                            -122.34916,
-                            47.62008
-                        ],
-                        [
-                            -122.34928,
-                            47.62039
-                        ]
+                   ...
+                    ]
+                },
+                "legFare": {
+                    "fares": [
+                        {
+                            "price": {
+                                "amount": 275,
+                                "currencyCode": "USD"
+                            },
+                            "usage": "transfer"
+                        }
                     ]
                 }
-            }
-        ]
+            },
+            ...,
+            {
+                "legType": "Bus",
+                "legStartTime": "2020-07-22T20:31:00Z",
+                "legEndTime": "2020-07-22T20:54:13Z",
+                "lineGroup": {
+                    "lineGroupId": "522---312636",
+                    "agencyId": "522---854535",
+                    "agencyName": "Sound Transit",
+                    "lineNumber": "550",
+                    "caption1": "Bellevue - Seattle",
+                    "caption2": "550 Bellevue - Seattle",
+                    "color": "00008B",
+                    "transitType": "Bus"
+                },
+                "line": {
+                    "lineId": "522---962201",
+                    "lineGroupId": "522---312636",
+                    "direction": "backward",
+                    "agencyId": "522---854535",
+                    "lineNumber": "550",
+                    "lineDestination": "Seattle"
+                },
+                "stops": [
+                   ...
+                ],
+                "geometry": {
+                    "type": "LineString",
+                    "coordinates": [
+                 ...
+                    ]
+                },
+                "legFare": {
+                    "fares": [
+                        {
+                            "price": {
+                                "amount": 275,
+                                "currencyCode": "USD"
+                            },
+                            "usage": "pay"
+                        }
+                    ]
+                }
+            },
+            ...,
+            ...,
+            {
+                "legType": "Bus",
+                "legStartTime": "2020-07-22T20:57:00Z",
+                "legEndTime": "2020-07-22T21:06:00Z",
+                "lineGroup": {
+                    "lineGroupId": "522---480518",
+                    "agencyId": "522---5872",
+                    "agencyName": "Metro Transit",
+                    "lineNumber": "13",
+                    "caption1": "Seattle Pacific - Downtown Seattle",
+                    "caption2": "13 Seattle Pacific - Downtown Seattle",
+                    "color": "347E5D",
+                    "transitType": "Bus"
+                },
+                "line": {
+                    "lineId": "522---1744932",
+                    "lineGroupId": "522---480518",
+                    "direction": "forward",
+                    "agencyId": "522---5872",
+                    "lineNumber": "13",
+                    "lineDestination": "Seattle Pacific University Seattle Center W"
+                },
+                "stops": [
+                   ...
+                ],
+                "geometry": {
+                    "type": "LineString",
+                    "coordinates": [
+                      ...
+                    ]
+                },
+                "legFare": {
+                    "fares": [
+                        {
+                            "price": {
+                                "amount": 275,
+                                "currencyCode": "USD"
+                            },
+                            "usage": "transfer"
+                        }
+                    ]
+                }
+            },
+            ...,
+        ],
+        "itineraryFare": {
+            "price": {
+                "amount": 550,
+                "currencyCode": "USD"
+            },
+            "tickets": [
+                {
+                    "amount": 275,
+                    "currencyCode": "USD"
+                },
+                {
+                    "amount": 275,
+                    "currencyCode": "USD"
+                }
+            ]
+        }
     }
+
     ```
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como solicitar dados em tempo real utilizando o Serviço de Mobilidade:
+Saiba como solicitar dados em tempo real utilizando o serviço mobility:
 
 > [!div class="nextstepaction"]
 > [Como solicitar dados em tempo real](how-to-request-real-time-data.md)
 
-Explore a documentação da APC do Serviço de Mobilidade Azure Maps
+Explore a documentação do serviço de mobilidade AZure Maps
 
 > [!div class="nextstepaction"]
-> [Documentação da API do Serviço de Mobilidade](https://aka.ms/AzureMapsMobilityService)
-
+> [Documentação do serviço de mobilidade](https://aka.ms/AzureMapsMobilityService)

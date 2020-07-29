@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
-ms.openlocfilehash: 5984cbf8cf618a938ee85638d981f7867c6ec8b5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6d6431aa26637e4b956d5c334a2862f689f845bf
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539368"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319325"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Ligue o Gestor de Configuração ao Monitor Azure
 Pode ligar o ambiente do Microsoft Endpoint Configuration Manager ao Azure Monitor para sincronizar os dados de recolha de dispositivos e fazer referência a estas coleções no Azure Monitor e na Azure Automation.  
@@ -41,7 +41,7 @@ Os passos seguintes resumem os passos para configurar a integração do Gestor d
 
 ## <a name="grant-configuration-manager-with-permissions-to-log-analytics"></a>Grant Configuration Manager com permissões para Registar Analytics
 
-No procedimento seguinte, concede o papel *de Contribuinte* no seu espaço de trabalho Log Analytics ao responsável pela aplicação e serviço de AD que criou anteriormente para o Gestor de Configuração. Se ainda não tiver um espaço de trabalho, consulte [Criar um espaço de trabalho no Azure Monitor](../../azure-monitor/learn/quick-create-workspace.md) antes de prosseguir. Isto permite que o Gestor de Configuração autuça e ligue ao seu espaço de trabalho Log Analytics.  
+No procedimento seguinte, concede o papel *de Contribuinte* no seu espaço de trabalho Log Analytics ao responsável pela aplicação e serviço de AD que criou anteriormente para o Gestor de Configuração. Se ainda não tiver um espaço de trabalho, consulte [Criar um espaço de trabalho no Azure Monitor](../learn/quick-create-workspace.md) antes de prosseguir. Isto permite que o Gestor de Configuração autuça e ligue ao seu espaço de trabalho Log Analytics.  
 
 > [!NOTE]
 > Tem de especificar permissões no espaço de trabalho do Log Analytics para o Gestor de Configurações. Caso contrário, recebe uma mensagem de erro quando utiliza o assistente de configuração no Gestor de Configurações.
@@ -139,14 +139,15 @@ Depois de ter concluído a configuração inicial para importar coleções de di
 
 ## <a name="view-data-from-configuration-manager"></a>Ver dados do Gestor de Configuração
 
-Depois de ter adicionado uma ligação Log Analytics ao Gestor de Configuração e ter instalado o agente no computador que executa a função do sistema de sistema de ligação do conjunto de pontos de ligação do Gestor de Configuração, os dados do agente são enviados para o espaço de trabalho do Log Analytics no Azure Monitor. No Azure Monitor, as coleções do Gestor de Configuração aparecem como [grupos de computadores.](../../azure-monitor/platform/computer-groups.md) Pode ver os grupos a partir da página **'Gestor de Configurações'** em **Definições\Grupos de computador**.
+Depois de ter adicionado uma ligação Log Analytics ao Gestor de Configuração e ter instalado o agente no computador que executa a função do sistema de sistema de ligação do conjunto de pontos de ligação do Gestor de Configuração, os dados do agente são enviados para o espaço de trabalho do Log Analytics no Azure Monitor. No Azure Monitor, as coleções do Gestor de Configuração aparecem como [grupos de computadores.](./computer-groups.md) Pode ver os grupos a partir da página **'Gestor de Configurações'** em **Definições\Grupos de computador**.
 
 Depois de importadas as coleções, pode ver quantos computadores com membros de recolha foram detetados. Pode também ver o número de coleções que foram importadas.
 
 ![Grupos informáticos - separador SCCM](./media/collect-sccm/sccm-computer-groups02.png)
 
-Quando clica em qualquer um, o editor de consulta de registos abre a exibição de todos os grupos importados ou de todos os computadores que pertencem a cada grupo. Utilizando [a Pesquisa de Registo,](../../azure-monitor/log-query/log-query-overview.md)pode efetuar uma análise mais aprofundada dos dados de membros da recolha.
+Quando clica em qualquer um, o editor de consulta de registos abre a exibição de todos os grupos importados ou de todos os computadores que pertencem a cada grupo. Utilizando [a Pesquisa de Registo,](../log-query/log-query-overview.md)pode efetuar uma análise mais aprofundada dos dados de membros da recolha.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Utilize [a Pesquisa de Registo](../../azure-monitor/log-query/log-query-overview.md) para ver informações detalhadas sobre os dados do seu Gestor de Configuração.
+Utilize [a Pesquisa de Registo](../log-query/log-query-overview.md) para ver informações detalhadas sobre os dados do seu Gestor de Configuração.
+

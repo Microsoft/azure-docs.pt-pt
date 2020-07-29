@@ -5,16 +5,18 @@ description: Saiba o que é possível sem a aplicação Workbench e qual é a li
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 03/05/2020
-ms.openlocfilehash: 53f8fb79e965c09ad59ada085b9cfd27014bd140
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa9b99f1ad2a81e7edac4574324d9f883effe19c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433064"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318815"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>O que aconteceu ao Azure Machine Learning Workbench?
 
@@ -90,7 +92,7 @@ Saiba mais nestes artigos:
 + [Onde e como implementar modelos](how-to-deploy-and-where.md)
 + [Tutorial: Implementar modelos com aprendizagem automática Azure](tutorial-deploy-models-with-aml.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Conheça a [mais recente arquitetura para Azure Machine Learning.](concept-azure-machine-learning-architecture.md)
 

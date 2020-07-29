@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 218a0624f7e4adc1aa188dbd62db217bf79202f8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: d9413deb99ce938429d05f7c6348c5914e7dd2b1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109302"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87304144"
 ---
 # <a name="saas-fulfillment-apis-in-microsoft-commercial-marketplace"></a>APIs de cumprimento de SaaS no mercado comercial da Microsoft
 
@@ -45,7 +47,7 @@ No cenário do revendedor (CSP), a CSP está a adquirir a oferta saaS em nome do
 
 O Editor não é obrigado a implementar nenhum dos fluxos de chamada da API de forma diferente para este cenário.
 
-Para mais informações sobre a CSP, consulte https://partner.microsoft.com/en-us/licensing .
+Para mais informações sobre a CSP, consulte https://partner.microsoft.com/licensing .
 
 >[!Warning]
 >A versão atual desta API é a versão 2, que deve ser usada para todas as novas ofertas do SaaS. A versão 1 da API é depreciada e está a ser mantida para apoiar as ofertas existentes.
@@ -53,6 +55,6 @@ Para mais informações sobre a CSP, consulte https://partner.microsoft.com/en-u
 >[!Note]
 >As APIs de cumprimento saaS destinam-se apenas a ser chamadas de um serviço de backend da editora. A integração com as APIs diretamente da página web da editora não é suportada. Deve ser utilizado apenas o fluxo de autenticação de serviço-a-serviço.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se ainda não o fez, registe a sua aplicação SaaS no [portal Azure,](https://ms.portal.azure.com) conforme explicado no [Registo de uma Aplicação AD Azure.](./pc-saas-registration.md)  Em seguida, utilize a versão mais atual desta interface para desenvolvimento: [SaaS Fulfillment API Versão 2](./pc-saas-fulfillment-api-v2.md).

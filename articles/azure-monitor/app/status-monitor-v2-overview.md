@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 6a51da4f4685d7d7b1c597d8a9b9dd78270f29b1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0fa0b0d5e3620fc45a104ea31fd3bcbedd673da1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499278"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318951"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Implementar o Agente de Insights de Aplicação do Monitor Azure para servidores no local
 
@@ -72,17 +72,18 @@ Cada uma destas opções é descrita nas [instruções detalhadas](status-monito
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Ver a telemetria:
 
-* [Explore métricas](../../azure-monitor/platform/metrics-charts.md) para monitorizar o desempenho e a utilização.
-* [Pesquisar eventos e registos](../../azure-monitor/app/diagnostic-search.md) para diagnosticar problemas.
+* [Explore métricas](../platform/metrics-charts.md) para monitorizar o desempenho e a utilização.
+* [Pesquisar eventos e registos](./diagnostic-search.md) para diagnosticar problemas.
 * [Use Analytics](../log-query/log-query-overview.md) para consultas mais avançadas.
-* [Criar painéis de instrumentos.](../../azure-monitor/app/overview-dashboard.md)
+* [Criar painéis de instrumentos.](./overview-dashboard.md)
 
 Adicionar mais telemetria:
 
 * [Criar testes Web](monitor-web-app-availability.md) para se certificar de que mantém o seu site em direto.
-* [Adicione telemetria ao cliente web](../../azure-monitor/app/javascript.md) para ver exceções do código da página web e para ativar chamadas de rastreio.
-* [Adicione o SDK de Insights de Aplicação ao seu código para](../../azure-monitor/app/asp-net.md) que possa inserir rastreios e chamadas de registo.
+* [Adicione telemetria ao cliente web](./javascript.md) para ver exceções do código da página web e para ativar chamadas de rastreio.
+* [Adicione o SDK de Insights de Aplicação ao seu código para](./asp-net.md) que possa inserir rastreios e chamadas de registo.
+

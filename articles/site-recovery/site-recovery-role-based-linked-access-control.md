@@ -6,18 +6,18 @@ ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: ce389f9281b02662f87353f00c9bca92cdf86937
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 877545eb22331e724520102814ec8a00b2c205e5
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847911"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87370823"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Gerir o acesso à recuperação do local com controlo de acesso baseado em funções (RBAC)
 
 O Controlo de Acesso baseado em funções (RBAC) permite uma gestão de acesso de grãos finos para o Azure. Utilizando o RBAC, pode segregar responsabilidades dentro da sua equipa e conceder apenas permissões de acesso específicas aos utilizadores, conforme necessário para realizar trabalhos específicos.
 
-A Azure Site Recovery fornece 3 funções incorporadas para controlar as operações de gestão da Recuperação do Local. Obter mais informações sobre [Funções incorporadas do RBAC do Azure](../role-based-access-control/built-in-roles.md)
+A Azure Site Recovery fornece 3 funções incorporadas para controlar as operações de gestão da Recuperação do Local. Saiba mais sobre [os papéis embutidos no Azure](../role-based-access-control/built-in-roles.md)
 
 * [Contribuinte do Site Recovery](../role-based-access-control/built-in-roles.md#site-recovery-contributor) - esta função tem todas as permissões necessárias para gerir as operações do Azure Site Recovery num cofre dos Serviços de Recuperação. No entanto, um utilizador com esta função não consegue criar nem eliminar um cofre dos Serviços de Recuperação, nem atribuir direitos de acesso a outros utilizadores. Esta função é mais adequada para administradores de recuperação de desastres que podem permitir e gerir a recuperação de desastres para aplicações ou organizações inteiras, como pode ser o caso.
 * [Operador do Site Recovery](../role-based-access-control/built-in-roles.md#site-recovery-operator) - esta função tem permissões para executar e gerir operações de Ativação Pós-falha e Reativação Pós-falha. Um utilizador com esta função não pode ativar ou desativar a replicação, criar ou apagar cofres, registar novas infraestruturas ou atribuir direitos de acesso a outros utilizadores. Esta função é mais adequada para um operador de recuperação de desastres que pode falhar com máquinas virtuais ou aplicações quando instruído pelos proprietários de aplicações e administradores de TI em uma situação de desastre real ou simulado, como um broca DR. Após a resolução do desastre, o operador DR pode re-proteger e falhar as máquinas virtuais.
@@ -41,7 +41,7 @@ Um utilizador precisa das seguintes permissões para completar a replicação de
 > [!NOTE]
 > Se estiver a permitir a replicação de um VM Azure e pretender permitir a Recuperação do Site para gerir as atualizações, então, ao mesmo tempo que permite a replicação, poderá também querer criar uma nova conta Demôm, caso em que necessitaria de permissão para criar uma conta de automação na mesma subscrição que o cofre.
 
-| **Tipo de recurso** | **Modelo de implantação** | **Permissão** |
+| **Tipo de Recurso**: | **Modelo de implantação** | **Permissão** |
 | --- | --- | --- |
 | Computação | Resource Manager | Microsoft.Compute/availabilitySets/read |
 |  |  | Microsoft.Compute/virtualMachines/ler |
@@ -71,7 +71,7 @@ Um utilizador precisa das seguintes permissões para completar a replicação de
 
 Considere utilizar as [funções incorporadas](../role-based-access-control/built-in-roles.md) 'Virtual Machine Contributor' e 'Classic Virtual Machine Contributor' para o Gestor de Recursos e modelos de implantação Clássicos, respectivamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Controle de Acesso Baseado em Função](../role-based-access-control/role-assignments-portal.md): Começa com o RBAC no portal Azure.
 * Saiba como gerir o acesso com:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)

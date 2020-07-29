@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/22/2020
 ms.author: baanders
-ms.openlocfilehash: 3f19674c0e25ebf5cddc2dfb45580a15d04fad46
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dcc616dd8d30bfadb751df9ba24d71d72675428a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098094"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371464"
 ---
 >[!NOTE]
 >Estas operações destinam-se a ser concluídas por um utilizador com uma função *de Proprietário* na subscrição do Azure. Embora algumas peças possam ser concluídas sem esta autorização elevada, a cooperação do proprietário será necessária para configurar completamente um caso utilizável. Veja mais informações sobre esta informação na secção [*Pré-Requisitos: Permissões necessárias*](#prerequisites-permission-requirements) abaixo.
@@ -38,6 +38,6 @@ Se você é proprietário, o `roleDefinitionName` valor na saída é *Proprietá
 
 :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/owner-role.png" alt-text="Janela cloud Shell mostrando saída do comando da lista de atribuições de funções az":::
 
-Se descobrir que o valor é *Contribuinte* ou algo diferente do *Proprietário,* pode contactar o proprietário da sua subscrição e proceder de uma das seguintes formas:
-* Solicita ao Proprietário que complete os passos deste artigo em seu nome
-* Solicita ao Proprietário que o eleve também ao Proprietário na subscrição, para que tenha as permissões para proceder a si próprio. Se isso é apropriado depende da sua organização e do seu papel dentro dela.
+Se descobrir que o valor é *Contribuinte* ou algo diferente do *Proprietário,* pode proceder de uma das seguintes formas:
+* Contacte o proprietário da subscrição e solicite ao Proprietário que complete os passos deste artigo em seu nome
+* Contacte o Proprietário da sua subscrição ou alguém com função de Administração de Acesso ao Utilizador na subscrição e solicite que o eleve ao Proprietário na subscrição para que tenha as permissões para prosseguir. Se isso é apropriado depende da sua organização e do seu papel dentro dela.

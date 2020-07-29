@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 97359083698e92f39ca854972c864ef769bda730
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: 164a0e295179bb0c1e8d7da6b43d8e07a4e9f4e9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109251"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87304416"
 ---
 # <a name="common-questions-about-saas-fulfillment-apis"></a>Perguntas comuns sobre APIs de cumprimento de SaaS
 
@@ -81,6 +83,6 @@ A sequência abaixo captura o fluxo quando o utilizador Azure não se subscreve 
 
 ![Cliente desinscreve-se na montra da Microsoft](media/saas-metering-service-integration-flow-e.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [APIs do serviço de medição do Marketplace](./marketplace-metering-service-apis.md)

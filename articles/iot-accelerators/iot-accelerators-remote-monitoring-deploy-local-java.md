@@ -3,17 +3,18 @@ title: Implementar a solução de Monitorização Remota localmente - IntelliJ I
 description: Este guia de como fazer mostra-lhe como implantar o acelerador de solução de Monitorização Remota para a sua máquina local, utilizando o IntelliJ para testes e desenvolvimento.
 author: v-krghan
 manager: dominicbetts
+ms.custom: devx-track-java
 ms.author: v-krghan
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: b201200ebf6807d7301dfd8c52e3137a29784eb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7554843db247ade1cddff78902430a5d84debe1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82187216"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319172"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Implementar o acelerador de solução de monitorização remota localmente - IntelliJ
 
@@ -33,8 +34,8 @@ Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns
 
 Para completar a implantação local, necessita das seguintes ferramentas instaladas na sua máquina de desenvolvimento local:
 
-* [Git](https://git-scm.com/)
-* [Estivador](https://www.docker.com)
+* [Rio Git](https://git-scm.com/)
+* [Docker](https://www.docker.com)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Edição Comunitária intellij](https://www.jetbrains.com/idea/download/)
 * [Plugin IntelliJ Scala](https://plugins.jetbrains.com/plugin/1347-scala)
@@ -199,7 +200,7 @@ Para aceder ao estado dos serviços, aceda aos seguintes URLs:
 
 Siga estes passos para iniciar o trabalho stream Analytics:
 
-1. Vá ao [portal Azure.](https://portal.azure.com)
+1. Aceda ao [portal do Azure](https://portal.azure.com).
 1. Vá ao **grupo de Recursos** criado para a sua solução. O nome do grupo de recursos é o nome que escolheu para a sua solução quando executou o script **start.cmd.**
 1. Selecione o **trabalho stream Analytics** na lista de recursos.
 1. Na página **de visão geral** do trabalho stream Analytics, selecione o botão **Iniciar** e, em seguida, selecione **Iniciar** para iniciar o trabalho.

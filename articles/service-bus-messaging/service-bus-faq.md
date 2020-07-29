@@ -3,12 +3,12 @@ title: Azure Service Bus frequentemente fez perguntas (FAQ) Microsoft Docs
 description: Este artigo fornece respostas a algumas das perguntas frequentes (FAQ) sobre a Azure Service Bus.
 ms.topic: article
 ms.date: 07/15/2020
-ms.openlocfilehash: 01d7869a158a3c2b5418f38f2a5d88fc161796c4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 04ff12d28be1dd232c5666b17d8a121f8020ca89
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083859"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371248"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus - Perguntas frequentes (FAQ)
 
@@ -78,7 +78,7 @@ Se utilizar a redundância da zona para o seu espaço de nome, tem de fazer algu
 3. Executar nslookup para cada um com sufixos s1, s2 e s3 para obter os endereços IP dos três casos em execução em três zonas de disponibilidade, 
 
 ### <a name="where-can-i-find-the-ip-address-of-the-client-sendingreceiving-messages-tofrom-a-namespace"></a>Onde posso encontrar o endereço IP do cliente enviando/recebendo mensagens de/para um espaço de nome? 
-Não registamos os endereços IP dos clientes que enviam ou recebem mensagens de/para o seu espaço de nome. Regenerar as chaves para que todos os clientes existentes não autentiquem e revejam as definições de controlo de acesso baseado em funções[(RBAC)](authenticate-application.md#built-in-rbac-roles-for-azure-service-bus)para garantir que apenas os utilizadores ou aplicações autorizados tenham acesso ao espaço de nome. 
+Não registamos os endereços IP dos clientes que enviam ou recebem mensagens de/para o seu espaço de nome. Regenerar as chaves para que todos os clientes existentes não autentiquem e revejam as definições de controlo de acesso baseado em funções[(RBAC)](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)para garantir que apenas os utilizadores ou aplicações autorizados tenham acesso ao espaço de nome. 
 
 Se estiver a utilizar um espaço de nome **premium,** utilize [a filtragem IP,](service-bus-ip-filtering.md) [os pontos finais do serviço de rede virtual](service-bus-service-endpoints.md)e os [pontos finais privados](private-link-service.md) para limitar o acesso ao espaço de nomes. 
 

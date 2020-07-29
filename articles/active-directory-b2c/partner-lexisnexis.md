@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: fa4610c925429ea59eae7399094230c1370bf2a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f5b6bfdb523a22fc4dd9593bfec556da7493aa9
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098254"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371197"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Tutorial para configurar LexisNexis com Azure Ative Directory B2C
 
@@ -147,7 +147,7 @@ Consulte este [documento](https://docs.microsoft.com/azure/active-directory-b2c/
 
 6. Passar pelo fluxo de entrada  
 
-7. O puzzle CrossCore aparecerá depois de entrares **em continuação**.
+7. O puzzle ThreatMetrix aparecerá depois de **entrares.**
 
 ## <a name="next-steps"></a>Passos seguintes
 

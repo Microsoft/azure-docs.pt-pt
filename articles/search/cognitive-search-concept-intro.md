@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: cb9214dcd79e45b4c587c7ab47e425f2fdd8714c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6fbfc7dced59580e91c3beceb6054f223a0a17d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564421"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319053"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Enriquecimento de IA em Pesquisa Cognitiva Azure
 
@@ -59,7 +59,7 @@ Um [skillset](cognitive-search-defining-skillset.md) que é montado usando habil
 
 As habilidades personalizadas podem suportar cenários mais complexos, tais como reconhecer formulários ou deteção de entidades personalizadas usando um modelo que fornece e embrulha na [interface web de habilidades personalizadas.](cognitive-search-custom-skill-interface.md) Vários exemplos de competências personalizadas incluem [Formas Recogniser,](/azure/cognitive-services/form-recognizer/overview)integração da [API de Pesquisa de Entidade Bing,](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example)e [reconhecimento de entidades personalizadas.](https://github.com/Microsoft/SkillsExtractorCognitiveSearch)
 
-<a name="enrichment-steps">## Passos num oleoduto de enriquecimento</a>
+## <a name="steps-in-an-enrichment-pipeline"></a>Passos num oleoduto de enriquecimento<a name="enrichment-steps"></a>
 
 Um gasoduto de enriquecimento baseia-se em [*indexadores.*](search-indexer-overview.md) Os indexantes preenchem um índice baseado em mapeamentos campo-a-campo entre o índice e a sua fonte de dados para a quebra de documentos. Competências, agora ligadas a indexantes, intercetam e enriquecem documentos de acordo com as competências que define. Uma vez indexado, pode aceder ao conteúdo através de pedidos de pesquisa através de todos os [tipos de consulta suportados pela Azure Cognitive Search](search-query-overview.md).  Se você é novo em indexadores, esta secção leva você através dos degraus.
 
@@ -115,7 +115,7 @@ Os índices são gerados a partir de um esquema de índice que define os campos,
 
 1. [Reinicie o indexante](search-howto-reindex.md) antes de reconstruir o gasoduto.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 + [Ligações de documentação de enriquecimento de IA](cognitive-search-resources-documentation.md)
 + [Exemplo: Criar uma habilidade personalizada para enriquecimento de IA (C#)](cognitive-search-create-custom-skill-example.md)

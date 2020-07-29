@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 06/18/2020
-ms.openlocfilehash: 2fb1f22fd555e8ddbdc04842906cddb990956fb5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 6d0a778dee31d93244479c08c7bb7b6f37cf49cb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044520"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319359"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Resolução de problemas Azure Stream Analytics usando registos de recursos
 
@@ -59,13 +59,13 @@ Os registos de atividade estão ligados por padrão e dão informações de alto
 
 É altamente recomendado ligar os registos de recursos e enviá-los para os registos do Azure Monitor. Estão **fora** por defeito. Para ligá-los, complete estes passos:
 
-1.  [Crie um espaço de trabalho Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) se ainda não tiver um. Recomenda-se ter o seu espaço de trabalho Log Analytics na mesma região que o seu trabalho stream Analytics.
+1.  Crie um espaço de trabalho Log Analytics se ainda não tiver um. Recomenda-se ter o seu espaço de trabalho Log Analytics na mesma região que o seu trabalho stream Analytics.
 
 2.  Inscreva-se no portal Azure e navegue para o seu trabalho stream Analytics. Em **Monitorização**, selecione **registos de diagnóstico .** Em seguida, **selecione Ligue os diagnósticos**.
 
     ![Navegação de lâminas para registos de recursos](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Forneça um **Nome** no **Nome das definições de Diagnóstico** e verifique as caixas de **execução** e **autoria** sob **registo**, e **AllMetrics** sob **métrica**. Em seguida, **selecione Enviar para registar analítico** e escolher o seu espaço de trabalho. Clique em **Guardar**.
+2.  Forneça um **Nome** no **Nome das definições de Diagnóstico** e verifique as caixas de **execução** e **autoria** sob **registo**, e **AllMetrics** sob **métrica**. Em seguida, **selecione Enviar para registar analítico** e escolher o seu espaço de trabalho. Clique em **Save** (Guardar).
 
     ![Definições para registos de recursos](./media/stream-analytics-job-diagnostic-logs/logs-setup.png)
 
@@ -94,7 +94,7 @@ A Azure Stream Analytics captura duas categorias de registos de recursos:
 
 Todos os registos são armazenados no formato JSON. Cada entrada tem os seguintes campos de cordas comuns:
 
-Name | Descrição
+Nome | Descrição
 ------- | -------
 hora | Timetamp (em UTC) do registo.
 resourceId | Identificação do recurso em que a operação teve lugar, em maiúsão. Inclui o ID de assinatura, o grupo de recursos e o nome do trabalho. POR exemplo, **/SUBSCRIÇÕES/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT. STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
@@ -112,7 +112,7 @@ Os registos de execução têm informações sobre os eventos que ocorreram dura
 
 Qualquer erro que ocorra durante o processamento de dados está nesta categoria de registos. Estes registos são criados com mais frequência durante as operações de leitura, serialização e escrita de dados. Estes registos não incluem erros de conectividade. Os erros de conectividade são tratados como eventos genéricos. Pode saber mais sobre a causa de vários erros de dados de [entrada e saída diferentes](https://docs.microsoft.com/azure/stream-analytics/data-errors).
 
-Name | Descrição
+Nome | Descrição
 ------- | -------
 Origem | Nome da entrada ou saída do trabalho onde ocorreu o erro.
 Mensagem | Mensagem associada ao erro.
@@ -133,17 +133,14 @@ Dependendo do **valor da operaçãoName,** os erros de dados têm o seguinte esq
 
 Eventos genéricos cobrem todo o resto.
 
-Name | Descrição
+Nome | Descrição
 -------- | --------
 Erro | (opcional) Informação de erro. Normalmente, esta é uma informação de exceção se estiver disponível.
 Mensagem| Mensagem de registo.
 Tipo | Tipo de mensagem. Mapas para a categorização interna de erros. Por exemplo, **JobValidationError** ou **BlobOutputAdapterInitializationFailure**.
-ID de Correlação | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) que identifica exclusivamente a execução do trabalho. Todas as entradas de registo de execução a partir do momento em que o trabalho começa até que o trabalho pare têm o mesmo valor **de ID de correlação.**
+ID de Correlação | GUID que identifica exclusivamente a execução do trabalho. Todas as entradas de registo de execução a partir do momento em que o trabalho começa até que o trabalho pare têm o mesmo valor **de ID de correlação.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Introdução ao Stream Analytics](stream-analytics-introduction.md)
-* [Introdução ao Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Dimensionar tarefas do Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referência linguística de consulta de stream analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Erros de dados do Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/data-errors)
+* [Referência linguística de consulta de stream analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)

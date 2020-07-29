@@ -10,12 +10,13 @@ ms.subservice: ink-recognizer
 ms.topic: quickstart
 ms.date: 06/30/2020
 ms.author: aahi
-ms.openlocfilehash: bc7dfcef45917081ec9ea1e97f4c36e4348dd9e7
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.custom: devx-track-java
+ms.openlocfilehash: 902d8a592893a70b8a694ab888bb3c22c6c9670a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985280"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371554"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Quickstart: Reconhecer tinta digital com a API de Reconhecimento de Tinta e Java
 

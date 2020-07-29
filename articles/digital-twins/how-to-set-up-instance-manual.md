@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8d0e965360caab704bcf6c8f7d29e7bba421207e
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d2d5ce0bc988badc6f25726206a953d87de7eaa2
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125892"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371465"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-manual"></a>Configurar uma instância e autenticação Azure Digital Twins (manual)
 
@@ -35,7 +35,7 @@ Nesta secção, irá **criar uma nova instância de Azure Digital Twins** utiliz
     az group create --location <region> --name <name-for-your-resource-group>
     ```
 * Uma região para o destacamento. Para ver que regiões suportam a Azure Digital Twins, visite [*os produtos Azure disponíveis por região.*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins)
-* Um nome para o seu exemplo. O nome do novo caso deve ser único na região (o que significa que se outra instância Azure Digital Twins naquela região já estiver a usar o nome que escolher, será solicitado que escolha um nome diferente).
+* Um nome para o seu exemplo. O nome do novo caso deve ser único na região para a sua subscrição (o que significa que se a sua subscrição tiver outra instância Azure Digital Twins na região que já está a usar o nome que escolher, será solicitado que escolha um nome diferente).
 
 Utilize estes valores no seguinte comando para criar o caso:
 
@@ -68,11 +68,10 @@ Esta secção irá mostrar-lhe como criar uma atribuição de papel para um util
 
 Para dar permissão a um utilizador para gerir uma instância Azure Digital Twins, deve atribuir-lhes o papel _**de Azure Digital Twins Owner (Preview)**_ dentro do caso. 
 
-Note que este papel é diferente de...
-* a função *do Proprietário* em toda a subscrição do Azure. *Azure Digital Twins Owner (Preview)* é uma função dentro da Azure Digital Twins e é traçada para este exemplo individual de Azure Digital Twins.
-* o papel *de Proprietário* em Azure Digital Twins. Estes são dois papéis distintos de gestão da Azure Digital Twins, e *a Azure Digital Twins Owner (Preview)* é o papel que deve ser usado para a gestão durante a pré-visualização.
+> [!NOTE]
+> Note que esta função é diferente da função Azure AD *Owner,* que também pode ser atribuída no âmbito da instância Azure Digital Twins. Estas são duas funções de gestão distintas, e a Azure AD *Owner* não concede acesso a funcionalidades de plano de dados que são concedidas com *a Azure Digital Twins Owner (Preview)*.
 
-Utilize o seguinte comando para atribuir a função (deve ser gerido por um proprietário da assinatura Azure):
+Utilize o seguinte comando para atribuir a função (deve ser gerido por um Proprietário da assinatura Azure):
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-email-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
@@ -100,7 +99,7 @@ Uma vez configurado um exemplo de Azure Digital Twins, é comum interagir com es
 Este registo de aplicações é onde configura permissões de acesso às [APIs das Gémeas Digitais Azure.](how-to-use-apis-sdks.md) Posteriormente, a aplicação do cliente irá autenticar-se contra o registo da aplicação e, consequentemente, será-lhe concedidas as permissões de acesso configuradas às APIs.
 
 >[!TIP]
-> Como subscrição Proprietário, pode preferir configurar um novo registo de aplicações para cada nova instância Azure Digital Twins, *ou* fazê-lo apenas uma vez e estabelecer um registo de aplicações única que será partilhado entre todas as instâncias Azure Digital Twins na subscrição. É assim que se faz dentro do próprio inquilino da Microsoft.
+> Como subscrição Proprietário, pode preferir configurar um novo registo de aplicações para cada nova instância Azure Digital Twins, *ou* fazê-lo apenas uma vez e estabelecer um registo de aplicações única que será partilhado entre todas as instâncias Azure Digital Twins na subscrição.
 
 ### <a name="create-the-registration"></a>Criar o registo
 

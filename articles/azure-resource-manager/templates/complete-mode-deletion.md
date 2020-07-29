@@ -3,12 +3,12 @@ title: Eliminação completa de modo
 description: Mostra como os tipos de recursos lidam com a eliminação completa do modo nos modelos do Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.openlocfilehash: 5e247fc20a128b3dd8b3fe646ef956388e0d2c2d
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 48a7758ce706612607b97647bc88238957b118d3
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027840"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371350"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Supressão dos recursos da Azure para implementações completas do modo
 
@@ -18,7 +18,7 @@ Os tipos de recursos marcados com **Sim** são eliminados quando o tipo não est
 
 Os tipos de recursos marcados com **No** não são automaticamente eliminados quando não estão no modelo; no entanto, são eliminados se o recurso dos pais for eliminado. Para obter uma descrição completa do comportamento, consulte os modos de [implementação do Gestor de Recursos Azure](deployment-modes.md).
 
-Se implementar para [mais de um grupo de recursos num modelo,](cross-resource-group-deployment.md)os recursos do grupo de recursos especificados na operação de implantação podem ser eliminados. Os recursos nos grupos de recursos secundários não são eliminados.
+Se implementar para [mais de um grupo de recursos num modelo,](cross-scope-deployment.md)os recursos do grupo de recursos especificados na operação de implantação podem ser eliminados. Os recursos nos grupos de recursos secundários não são eliminados.
 
 Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="op_single_selector"]
@@ -1963,7 +1963,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | dataConnectorsCheckRequirements | Não |
 > | entidades | Não |
 > | entidadeQueries | Não |
-> | incidentes | Não |
+> | Incidentes | Não |
 > | escritórioConsents | Não |
 > | definições | Não |
 > | ameaçaIntelligence | Não |

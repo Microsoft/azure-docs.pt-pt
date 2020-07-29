@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 63225f6e6daa6b3cdde7aa505c117b43305a4867
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 921dcb05401c61a9fb581595c20112e67f696c5e
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82569085"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371312"
 ---
 # <a name="azure-stack-edge-system-requirements"></a>Requisitos do sistema Azure Stack Edge
 
@@ -58,9 +58,9 @@ O Azure IoT Edge permite a comunicação de saída de um dispositivo Edge no loc
 
 Utilize a seguinte tabela para configuração de porta para os servidores que hospedam o tempo de execução Azure IoT Edge:
 
-| Porto não. | Dentro ou fora | Âmbito portuário | Necessário | Orientação |
+| Porto não. | Dentro ou fora | Âmbito portuário | Obrigatório | Orientação |
 |----------|-----------|------------|----------|----------|
-| TCP 443 (HTTPS)| Saída       | WAN        | Yes      | Saída aberta para provisão IoT Edge. Esta configuração é necessária quando se utilizam scripts manuais ou serviço de provisionamento de dispositivos Azure IoT (DPS).|
+| TCP 443 (HTTPS)| Saída       | WAN        | Sim      | Saída aberta para provisão IoT Edge. Esta configuração é necessária quando se utilizam scripts manuais ou serviço de provisionamento de dispositivos Azure IoT (DPS).|
 
 Para obter informações completas, aceda às [regras de configuração de Firewall e porta para a implementação do IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
 

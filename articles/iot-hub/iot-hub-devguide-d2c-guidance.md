@@ -11,12 +11,14 @@ ms.date: 01/29/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: b86610910ed532e737720bb3b83e773596987aba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+ms.openlocfilehash: dd4f4ad7f84ebc1f5e254843e7afa4aa0f3f224f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074671"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319138"
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Orientação de comunicações dispositivo-nuvem
 

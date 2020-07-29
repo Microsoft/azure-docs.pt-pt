@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 05527ff456c70290a925befc9d30fb1eaf177199
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 66b0ba083dc05c10dbf001eebcbbdfa269285c2e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008239"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318968"
 ---
 # <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Começar com o Azure Monitor Application Insights Agent para servidores no local
 
@@ -71,18 +71,19 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 
  Ver a telemetria:
 
-- [Explore métricas](../../azure-monitor/platform/metrics-charts.md) para monitorizar o desempenho e a utilização.
-- [Pesquisar eventos e registos](../../azure-monitor/app/diagnostic-search.md) para diagnosticar problemas.
+- [Explore métricas](../platform/metrics-charts.md) para monitorizar o desempenho e a utilização.
+- [Pesquisar eventos e registos](./diagnostic-search.md) para diagnosticar problemas.
 - [Use Analytics](../log-query/log-query-overview.md) para consultas mais avançadas.
-- [Criar painéis de instrumentos.](../../azure-monitor/app/overview-dashboard.md)
+- [Criar painéis de instrumentos.](./overview-dashboard.md)
 
  Adicionar mais telemetria:
 
 - [Criar testes Web](monitor-web-app-availability.md) para se certificar de que mantém o seu site em direto.
-- [Adicione telemetria ao cliente web](../../azure-monitor/app/javascript.md) para ver exceções do código da página web e para ativar chamadas de rastreio.
-- [Adicione o SDK de Insights de Aplicação ao seu código para](../../azure-monitor/app/asp-net.md) que possa inserir rastreios e chamadas de registo.
+- [Adicione telemetria ao cliente web](./javascript.md) para ver exceções do código da página web e para ativar chamadas de rastreio.
+- [Adicione o SDK de Insights de Aplicação ao seu código para](./asp-net.md) que possa inserir rastreios e chamadas de registo.
 
 Faça mais com o Application Insights Agent:
 
 - Reveja as [instruções detalhadas](status-monitor-v2-detailed-instructions.md) para uma explicação dos comandos encontrados aqui.
 - Use o nosso guia para [resolver problemas](status-monitor-v2-troubleshoot.md) no Agente de Insights de Aplicação.
+

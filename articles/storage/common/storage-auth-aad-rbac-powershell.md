@@ -10,20 +10,20 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: dab10c8d7c93e130c707f6020309e5dd2440a028
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: c090343e6f63a71b639e5c2f0e9c9fbd0f3e0c2d
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124940"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87370483"
 ---
 # <a name="use-powershell-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Use o PowerShell para atribuir uma função RBAC para acesso a dados de bolhas e filas
 
-O Azure Ative Directory (Azure AD) autoriza os direitos de acesso a recursos seguros através [do controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md). O Azure Storage define um conjunto de funções RBAC incorporadas que englobam conjuntos comuns de permissões usadas para aceder a contentores ou filas.
+O Azure Ative Directory (Azure AD) autoriza os direitos de acesso a recursos seguros através [do controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md). O Azure Storage define um conjunto de funções incorporadas Azure que englobam conjuntos comuns de permissões usadas para aceder a contentores ou filas.
 
 Quando um papel rbac é atribuído a um diretor de segurança Azure, Azure concede acesso a esses recursos para esse chefe de segurança. O acesso pode ser alargado ao nível da subscrição, do grupo de recursos, da conta de armazenamento ou de um contentor ou fila individual. Um diretor de segurança Azure AD pode ser um utilizador, um grupo, um diretor de serviço de aplicação ou uma [identidade gerida para os recursos da Azure.](../../active-directory/managed-identities-azure-resources/overview.md)
 
-Este artigo descreve como usar a Azure PowerShell para listar funções RBAC incorporadas e atribuí-las aos utilizadores. Para obter mais informações sobre a utilização do Azure PowerShell, consulte [a visão geral da Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+Este artigo descreve como usar a Azure PowerShell para listar as funções incorporadas do Azure e atribuí-las aos utilizadores. Para obter mais informações sobre a utilização do Azure PowerShell, consulte [a visão geral da Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -37,7 +37,7 @@ Este artigo descreve como usar a Azure PowerShell para listar funções RBAC inc
 
 ## <a name="list-available-rbac-roles"></a>Lista de funções disponíveis no RBAC
 
-Para listar as funções RBAC incorporadas disponíveis com a Azure PowerShell, utilize o comando [Get-AzRoleDefinition:](/powershell/module/az.resources/get-azroledefinition)
+Para listar as funções disponíveis em incorporação do Azure com a Azure PowerShell, utilize o comando [Get-AzRoleDefinition:](/powershell/module/az.resources/get-azroledefinition)
 
 ```powershell
 Get-AzRoleDefinition | FT Name, Description

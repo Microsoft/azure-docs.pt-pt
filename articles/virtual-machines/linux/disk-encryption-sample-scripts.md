@@ -4,16 +4,16 @@ description: Este artigo é o apêndice da Encriptação do Disco Azure da Micro
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
-ms.topic: article
+ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5e7b22a8010d7dfbdeeaeae623a55c1aff9c006c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ab6ef302d2ac3cbca8bb91c05f994c1ddf19bd1e
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510502"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87370262"
 ---
 # <a name="azure-disk-encryption-sample-scripts-for-linux-vms"></a>Scripts de encriptação de disco Azure para VMs Linux
 
@@ -227,7 +227,7 @@ Configure a encriptação para trabalhar com o Azure, fazendo os seguintes passo
     fi
    ```
 
-2. Altere a cripta config em */etc/crypttab*. Deve ter o seguinte aspeto:
+2. Altere a cripta config em */etc/crypttab*. Deverá ter o seguinte aspeto:
    ```
     xxx_crypt uuid=xxxxxxxxxxxxxxxxxxxxx none luks,discard,keyscript=/usr/local/sbin/azure_crypt_key.sh
     ```

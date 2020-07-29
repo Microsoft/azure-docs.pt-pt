@@ -10,16 +10,16 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e0278329ff6b6946c4107ea048367753eaccbfd8
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 160833817150332b240ec17b2b700fbcb7a4456b
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124991"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87370653"
 ---
-# <a name="use-the-azure-portal-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Utilize o portal Azure para atribuir uma função RBAC para acesso a dados de bolhas e filas
+# <a name="use-the-azure-portal-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Utilizar o portal do Azure para atribuir uma função RBAC para aceder a dados de blobs e filas
 
-O Azure Ative Directory (Azure AD) autoriza os direitos de acesso a recursos seguros através [do controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md). O Azure Storage define um conjunto de funções RBAC incorporadas que englobam conjuntos comuns de permissões usadas para aceder a dados de bolhas ou filas.
+O Azure Ative Directory (Azure AD) autoriza os direitos de acesso a recursos seguros através [do controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md). O Azure Storage define um conjunto de funções incorporadas do Azure que englobam conjuntos comuns de permissões usadas para aceder a dados de bolhas ou filas.
 
 Quando um papel rbac é atribuído a um diretor de segurança Azure, Azure concede acesso a esses recursos para esse chefe de segurança. O acesso pode ser alargado ao nível da subscrição, do grupo de recursos, da conta de armazenamento ou de um contentor ou fila individual. Um diretor de segurança Azure AD pode ser um utilizador, um grupo, um diretor de serviço de aplicação ou uma [identidade gerida para os recursos da Azure.](../../active-directory/managed-identities-azure-resources/overview.md)
 
@@ -48,7 +48,7 @@ As seguintes secções descrevem cada um destes passos com mais detalhes.
 >
 > Não é possível atribuir uma função a um contentor ou fila se a sua conta de armazenamento tiver um espaço hierárquico ativado.
 
-### <a name="assign-a-built-in-rbac-role"></a>Atribuir um papel RBAC incorporado
+### <a name="assign-an-azure-built-in-role"></a>Atribuir um papel embutido Azure
 
 Antes de atribuir um papel a um diretor de segurança, não se esqueça de considerar o âmbito das permissões que está a conceder. Reveja a secção [de âmbito de recursos determine](#determine-resource-scope) para decidir o âmbito adequado.
 

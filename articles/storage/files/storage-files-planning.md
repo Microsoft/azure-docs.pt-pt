@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d1d36c6f6413a9438063c6fe30403af095ed9a6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e39ec197b0bbce5d963650abd5dc7811647fa01
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659630"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87370364"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 [Os Ficheiros Azure](storage-files-introduction.md) podem ser implementados de duas maneiras principais: montando diretamente as ações de ficheiros Azure sem servidor ou caching Azure file shares on-in usando Azure File Sync. Qual a opção de implementação que escolhe altera as coisas que precisa de considerar como planeia para a sua implantação. 
@@ -74,6 +75,30 @@ Para obter mais informações sobre encriptação em trânsito, consulte [a nece
 
 ### <a name="encryption-at-rest"></a>Encriptação inativa
 [!INCLUDE [storage-files-encryption-at-rest](../../../includes/storage-files-encryption-at-rest.md)]
+
+## <a name="data-protection"></a>Proteção de dados
+A Azure Files tem uma abordagem em várias camadas para garantir que os seus dados são apoiados, recuperáveis e protegidos contra ameaças à segurança.
+
+### <a name="soft-delete"></a>Eliminação recuperável
+A eliminação suave para ações de ficheiros (pré-visualização) é uma definição de nível de conta de armazenamento que lhe permite recuperar a sua parte do ficheiro quando esta é acidentalmente eliminada. Quando uma partilha de ficheiros é eliminada, passa para um estado apagado suave em vez de ser permanentemente apagada. Pode configurar a quantidade de tempo que os dados suaves eliminados são recuperáveis antes de serem permanentemente eliminados, e desembolsar a parte a qualquer momento durante este período de retenção. 
+
+Recomendamos que se apale a exclusão suave para a maioria das ações de ficheiros. Se tiver um fluxo de trabalho em que a eliminação de ações é comum e esperada, pode decidir ter um período de retenção muito curto ou não ter uma eliminação suave ativada.
+
+Para obter mais informações sobre a eliminação suave, consulte [Prevenir a eliminação acidental de dados](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion).
+
+### <a name="backup"></a>Backup
+Pode fazer cópias do seu ficheiro Azure através [de imagens de partilha,](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files)que são cópias pontuais e pontuais da sua parte. Os instantâneos são incrementais, o que significa que só contêm tantos dados como mudou desde o instantâneo anterior. Pode ter até 200 instantâneos por ação de ficheiro e retê-los até 10 anos. Pode tirar manualmente estas fotos no portal Azure, via PowerShell, ou interface de linha de comando (CLI), ou pode utilizar [a Azure Backup](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json). As imagens instantâneas são armazenadas dentro da sua parte do ficheiro, o que significa que se eliminar a sua parte do ficheiro, as suas imagens também serão eliminadas. Para proteger as cópias de segurança instantâneas da eliminação acidental, certifique-se de que a eliminação suave está ativada para a sua parte.
+
+[A Azure Backup para ações de ficheiros Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json) lida com o agendamento e retenção de instantâneos. As suas capacidades de avô-pai-filho (GFS) significam que você pode tomar fotos diárias, semanais, mensais e anualmente, cada uma com o seu próprio período de retenção distinto. O Azure Backup também orquestra a ativação de eliminação suave e recebe um bloqueio de eliminação numa conta de armazenamento assim que qualquer partilha de ficheiros dentro dela estiver configurada para cópia de segurança. Por último, o Azure Backup fornece determinadas capacidades de monitorização e alerta chave que permitem aos clientes ter uma visão consolidada do seu espólio de backup.
+
+Pode executar restauros de nível de item e de nível de partilha no portal Azure utilizando a Cópia de Segurança Azure. Tudo o que precisa de fazer é escolher o ponto de restauro (uma determinada imagem instantânea), o ficheiro ou diretório em particular, se relevante, e, em seguida, a localização (original ou alternativa) a que deseja restaurar. O serviço de cópias de segurança e mostra o progresso da restauração no portal.
+
+Para obter mais informações sobre a cópia de segurança, consulte [a cópia de segurança do ficheiro Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json).
+
+### <a name="advanced-threat-protection-for-azure-files-preview"></a>Proteção Avançada de Ameaças para Ficheiros Azure (pré-visualização)
+Advanced Threat Protection (ATP) for Azure Storage fornece uma camada adicional de inteligência de segurança que fornece alertas quando deteta atividade anómala na sua conta de armazenamento, por exemplo, tentativas incomuns de acesso à conta de armazenamento. O ATP também executa a análise de reputação de malware e irá alertar para malware conhecido. Pode configurar ATP num nível de subscrição ou conta de armazenamento através do Azure Security Center. 
+
+Para obter mais informações, consulte [a proteção contra ameaças avançadas para o armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection).
 
 ## <a name="storage-tiers"></a>Camadas de armazenamento
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
@@ -163,7 +188,7 @@ Em muitos casos, não irá estabelecer uma nova partilha de ficheiros net para a
 
 O [artigo de visão geral da migração](storage-files-migration-overview.md) cobre brevemente o básico e contém uma tabela que o leva a guias de migração que provavelmente cobrem o seu cenário.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Planeamento para uma implementação de sincronização de ficheiros Azure](storage-sync-files-planning.md)
 * [Implantação de ficheiros Azure](storage-files-deployment-guide.md)
 * [Implementação de sincronização de ficheiros Azure](storage-sync-files-deployment-guide.md)

@@ -5,13 +5,14 @@ author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
+ms.custom: devx-track-java
 ms.author: twooley
-ms.openlocfilehash: 777f2dfdf9e9e6d80814a47101730ccb3f5ece68
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a2c55a2d3277bbb6c3cf72f5ea703780d2a5e9bd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985962"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318849"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Operações de sistema de ficheiros em Azure Data Lake Storage Gen1 usando Java SDK
 > [!div class="op_single_selector"]
@@ -230,7 +231,7 @@ promptEnterKey();
 1. Para executar a partir de um IDE, localize e prima o botão **Executar**. Para executar a partir do Maven, utilize [exec:exec](https://www.mojohaus.org/exec-maven-plugin/exec-mojo.html).
 2. Para produzir um jar autónomo que pode executar a partir da linha de comandos, compile um jar com todas as dependências incluídas com o [plug-in de montagem do Maven](https://maven.apache.org/plugins/maven-assembly-plugin/usage.html). A pom.xml no [código-fonte de exemplo no GitHub](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) tem um exemplo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Explorar JavaDoc para o SDK Java](https://azure.github.io/azure-data-lake-store-java/javadoc/)
 * [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)
 

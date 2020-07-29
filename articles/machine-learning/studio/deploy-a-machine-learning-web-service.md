@@ -1,6 +1,5 @@
 ---
-title: Implementar serviços Web
-titleSuffix: ML Studio (classic) - Azure
+title: 'Estúdio ML (clássico): Implementar um serviço web - Azure'
 description: Como converter uma experiência de treino para uma experiência preditiva, prepará-la para a implementação e, em seguida, implantá-la como um serviço web Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 3fcf4e180233c6ceaa552b3505462639569ed974
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f85ef90520049aef2cb39da9c360013d6f11aca0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696393"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318713"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Implementar um serviço web Azure Machine Learning Studio (clássico)
+
+**APLICA-SE A:** ![ no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) yes Machine Learning Studio ![ ](../../../includes/media/aml-applies-to-skus/yes.png) (clássico) 
+
 
 O Azure Machine Learning Studio (clássico) permite-lhe construir e testar uma solução analítica preditiva. Em seguida, pode implementar a solução como um serviço web.
 
@@ -209,7 +212,7 @@ Os preços são específicos da região, pelo que é necessário definir um plan
 6. A partir do **dropdown do Grupo de Recursos,** selecione um grupo de recursos para o plano. De mais informações sobre grupos de recursos, consulte [a visão geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 7. No **Nome do Plano** escreva o nome do plano.
 8. Em **Opções de Plano,** clique no nível de faturação para o novo plano.
-9. Clique em **Criar**.
+9. Clique em **Create** (Criar).
 
 #### <a name="deploy-the-web-service-to-another-region"></a>Implementar o serviço web para outra região
 
@@ -281,7 +284,7 @@ Como já implementou esta experiência antes, é-lhe perguntado se pretende subs
 
 Uma opção para atualizar o seu serviço web é reforçá-lo programaticamente. Para obter mais informações, consulte [os modelos do Retrain Machine Learning Studio (clássico) programáticamente.](/azure/machine-learning/studio/retrain-machine-learning-model)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais detalhes técnicos sobre como funciona a implementação, consulte [como um modelo de Machine Learning Studio (clássico) progride de uma experiência para um serviço Web operacionalizado.](model-progression-experiment-to-web-service.md)
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/28/2020
 ms.author: aahi
-ms.openlocfilehash: 3d9fb7f3fa01c06cc778e4062dd1d136e9c6e342
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f2ce8f300ae7586fc16fd9170ec290b19875d01c
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103403"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371129"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
@@ -23,9 +23,9 @@ A API text Analytics é atualizada numa base contínua. Para se manter atualizad
 
 ## <a name="july-2020"></a>Julho de 2020
 
-### <a name="text-analytics-for-health-container-public-gated-preview"></a>Análise de texto para portaria do recipiente de saúde visualização do portão
+### <a name="text-analytics-for-health-container---public-gated-preview"></a>Texto Analytics para recipiente de saúde - Visualização fechada do público
 
-O recipiente Text Analytics for Health encontra-se agora em pré-visualização fechada pública, que permite extrair informações de textos não estruturados em língua inglesa em documentos clínicos como: formulários de admissão de pacientes, notas do médico, trabalhos de investigação e resumos de descarga. Atualmente, não será cobrado para text analytics para uso de recipientes de saúde. 
+O Texto Analytics para o recipiente de saúde está agora em pré-visualização fechada pública, que permite extrair informações de textos não estruturados em língua inglesa em documentos clínicos como: formulários de admissão de pacientes, notas do médico, trabalhos de investigação e resumos de descarga. Atualmente, não será cobrado para Text Analytics para uso de recipientes de saúde. 
 
 O recipiente oferece as seguintes características:
 
@@ -36,7 +36,7 @@ O recipiente oferece as seguintes características:
 
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre o texto Analytics for Health container](how-tos/text-analytics-for-health.md)
+> [Saiba mais sobre Text Analytics para recipiente de saúde](how-tos/text-analytics-for-health.md)
 
 ## <a name="may-2020"></a>Maio de 2020
 
@@ -149,7 +149,7 @@ Apoia o inglês ( ( ( ( japonês ), chinês simplificado ( , chinês tradicional
 > [!div class="nextstepaction"]
 > [Saiba mais sobre a Análise de Sentimento v3](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [O que é a API de Análise de Texto?](overview.md)  
 * [Cenários de utilizador acionáveis](text-analytics-user-scenarios.md)

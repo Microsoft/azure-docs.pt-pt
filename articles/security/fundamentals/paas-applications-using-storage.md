@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: da59c0d54fa08194f9d77fc79754cbfbaca1a1e8
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 645d92a214f88985e1427ab24d350a6f85c0a076
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128408"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371384"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Melhores práticas para garantir aplicações web e móveis PaaS usando O Azure Storage
 Neste artigo, discutimos uma coleção de boas práticas de segurança do Azure Storage para garantir as suas aplicações web e móveis de plataforma como serviço (PaaS). Estas boas práticas derivam da nossa experiência com o Azure e das experiências de clientes como você.
@@ -58,7 +58,7 @@ Para saber mais sobre a assinatura de acesso partilhado, consulte [Usando assina
 ## <a name="use-role-based-access-control"></a>Utilizar o controlo de acesso baseado em funções
 Outra forma de gerir o acesso é utilizar o [controlo de acesso baseado em funções](/azure/role-based-access-control/overview) (RBAC). Com o RBAC, concentra-se em dar aos colaboradores as permissões exatas de que necessitam, com base na necessidade de conhecer e menos privilégios de princípios de segurança. Demasiadas permissões podem expor uma conta aos agressores. Poucas permissões significam que os empregados não conseguem fazer o seu trabalho de forma eficiente. O RBAC ajuda a resolver este problema oferecendo uma gestão de acessos finos para o Azure. Isto é imperativo para as organizações que querem impor políticas de segurança para o acesso aos dados.
 
-Você pode usar funções RBAC incorporadas em Azure para atribuir privilégios aos utilizadores. Por exemplo, utilize o Storage Account Contributor para os operadores de nuvem que precisam de gerir as contas de armazenamento e a função de contribuinte clássico da conta de armazenamento para gerir contas clássicas de armazenamento. Para os operadores de nuvem que precisam de gerir VMs mas não a rede virtual ou conta de armazenamento a que estão conectados, pode adicioná-los à função De Contribuinte de Máquina Virtual.
+Você pode usar funções incorporadas Azure em Azure para atribuir privilégios aos utilizadores. Por exemplo, utilize o Storage Account Contributor para os operadores de nuvem que precisam de gerir as contas de armazenamento e a função de contribuinte clássico da conta de armazenamento para gerir contas clássicas de armazenamento. Para os operadores de nuvem que precisam de gerir VMs mas não a rede virtual ou conta de armazenamento a que estão conectados, pode adicioná-los à função De Contribuinte de Máquina Virtual.
 
 As organizações que não impõem o controlo do acesso aos dados utilizando capacidades como o RBAC podem estar a dar mais privilégios do que o necessário para os seus utilizadores. Isto pode levar a um compromisso de dados, permitindo a alguns utilizadores o acesso a dados que não deveriam ter em primeiro lugar.
 

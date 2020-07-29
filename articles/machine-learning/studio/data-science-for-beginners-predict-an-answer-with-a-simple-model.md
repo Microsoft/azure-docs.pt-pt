@@ -1,6 +1,5 @@
 ---
-title: Prever respostas com modelos de regressão
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clássico): Prever respostas com modelos de regressão - Azure'
 description: Como criar um modelo de regressão simples para prever um preço em Data Science para Principiantes vídeo 4. Inclui uma regressão linear com dados-alvo.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,16 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: ac9f4262d614b1e413f4283d3c459e60fc6634e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1cfe617ab424fbb29e2866cd98d4b8c390f306c9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82930238"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318747"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prever uma resposta com um modelo simples
+
+
 ## <a name="video-4-data-science-for-beginners-series"></a>Vídeo 4: Data Science for Beginners series
 Aprenda a criar um modelo simples de regressão para prever o preço de um diamante em Data Science para principiantes vídeo 4. Vamos desenhar um modelo de regressão com dados-alvo.
 
@@ -125,6 +127,6 @@ Hoje, falamos sobre como fazer regressão linear, e fizemos uma previsão usando
 
 Certifique-se de conferir mais vídeos em "Data Science for Beginners" do Microsoft Azure Machine Learning Studio (clássico).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Experimente uma primeira experiência de ciência de dados com o Machine Learning Studio (clássico)](create-experiment.md)
 * [Obtenha uma introdução ao Machine Learning no Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)

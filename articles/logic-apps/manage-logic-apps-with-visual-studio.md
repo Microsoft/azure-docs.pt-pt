@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.custom: mvc
 ms.date: 04/29/2020
-ms.openlocfilehash: 9cf964b8b5ebbfe5f790a1e325b48cd4179cf4ee
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: cde8db5310e3ede2721ba327b28c789ccd0b7dd0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127677"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280771"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gerir aplicações lógicas com o Visual Studio
 
@@ -100,7 +100,7 @@ No Visual Studio, pode abrir aplicações lógicas previamente criadas e impleme
 
 ## <a name="download-from-azure"></a>Download a partir de Azure
 
-Você pode baixar aplicativos lógicos a partir do [portal Azure](https://portal.azure.com) e guardá-los como modelos [Azure Resource Manager.](../azure-resource-manager/management/overview.md) Em seguida, pode editar os modelos localmente com o Visual Studio e personalizar aplicações lógicas para diferentes ambientes de implementação.  O download de aplicações *lógicas parametriza* automaticamente as suas definições dentro [dos modelos do Gestor de Recursos](../azure-resource-manager/templates/overview.md), que também utilizam a Notação de Objetos JavaScript (JSON).
+Você pode [baixar](../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource) aplicativos lógicos a partir do [portal Azure](https://portal.azure.com) e guardá-los como modelos [Azure Resource Manager.](../azure-resource-manager/management/overview.md) Em seguida, pode editar os modelos localmente com o Visual Studio e personalizar aplicações lógicas para diferentes ambientes de implementação.  O download de aplicações *lógicas parametriza* automaticamente as suas definições dentro [dos modelos do Gestor de Recursos](../azure-resource-manager/templates/overview.md), que também utilizam a Notação de Objetos JavaScript (JSON).
 
 1. No Visual Studio, utilizando o Cloud Explorer, [abra a aplicação lógica que pretende descarregar a partir do Azure.](#open-designer)
 

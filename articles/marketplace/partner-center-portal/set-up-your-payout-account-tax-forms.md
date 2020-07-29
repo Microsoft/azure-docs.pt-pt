@@ -4,12 +4,14 @@ Description: Para receber dinheiro das vendas de ofertas no mercado comercial, a
 ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: marketplace
-ms.openlocfilehash: 493043c43cf8dbac94bd33a907c91291fc51bf6c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: 9d75f210ed0547a001ad1dd35f8abfffd31c82a4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109132"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87304212"
 ---
 # <a name="set-up-your-payout-account-and-tax-forms"></a>Configurar a conta de dividendos e os formulários fiscais
 
@@ -201,6 +203,6 @@ Se optar por utilizar uma conta bancária para receber pagamentos, completará o
 5. Terá de selecionar um perfil de pagamento para cada programa em que participe, embora possa utilizar o mesmo perfil para vários programas.
 6. Clique em submeter-se para guardar as suas alterações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Faturação do marketplace comercial](billing-details.md)
