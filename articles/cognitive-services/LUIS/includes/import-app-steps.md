@@ -9,6 +9,7 @@ ms.date: 06/22/2020
 ms.author: diberry
 ms.openlocfilehash: 37f1b85b4ce8510d5e288df985a55dba659f0c9b
 ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/07/2020
 ms.locfileid: "86035557"

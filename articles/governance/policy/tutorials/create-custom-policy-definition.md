@@ -5,6 +5,7 @@ ms.date: 06/16/2020
 ms.topic: tutorial
 ms.openlocfilehash: 5eee969257f5cf640ce82fbda9877974207c87af
 ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/07/2020
 ms.locfileid: "86044622"

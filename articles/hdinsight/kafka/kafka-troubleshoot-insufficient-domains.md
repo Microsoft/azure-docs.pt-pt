@@ -9,6 +9,7 @@ ms.reviewer: jasonh
 ms.date: 08/09/2019
 ms.openlocfilehash: 8be7e05ac85ce0b1b10edf18d3885a07e016b9ae
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "75895033"

@@ -14,6 +14,7 @@ ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 73cdac1a372b42df5a8f52ea09f04ecc40031698
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "80885723"

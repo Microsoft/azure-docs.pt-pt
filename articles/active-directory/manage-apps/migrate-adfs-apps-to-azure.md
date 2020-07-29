@@ -16,6 +16,7 @@ ms.reviewer: baselden
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 33b67c836be3395061e33b5988a4bb06fa5ee20f
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85608556"

@@ -11,6 +11,7 @@ ms.topic: conceptual
 ms.custom: has-adal-ref
 ms.openlocfilehash: e41d3b47408d29a0463eed5f23117801be107c27
 ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85920719"

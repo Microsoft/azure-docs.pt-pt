@@ -8,6 +8,7 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.openlocfilehash: df30a0ddca58e6d7bd74184fa7287df6818cfc37
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84117152"

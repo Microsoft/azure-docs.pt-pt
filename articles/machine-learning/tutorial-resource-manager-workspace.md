@@ -11,6 +11,7 @@ ms.subservice: core
 ms.topic: tutorial
 ms.openlocfilehash: 098d82e6521a4a355ac31809937b589f984816f2
 ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/07/2020
 ms.locfileid: "86027176"

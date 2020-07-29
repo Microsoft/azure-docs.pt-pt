@@ -15,6 +15,7 @@ ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: a6af1a78582ebf62aed82bad8fa06cac37f511ea
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "80982587"

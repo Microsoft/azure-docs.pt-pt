@@ -15,6 +15,7 @@ ms.date: 05/11/2020
 ms.author: edburns
 ms.openlocfilehash: 9ba4e3a66ae8ef71b39aa26fd54048381237c2fa
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "83665216"

@@ -12,6 +12,7 @@ ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 85689661e7f0d170cd88edde8985f46285e679c6
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84987786"

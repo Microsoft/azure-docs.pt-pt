@@ -14,6 +14,7 @@ ms.custom: aaddev
 ms.reviewer: jesakowi
 ms.openlocfilehash: 73a96f295d5dfa74130927e5096e9278a0e348e8
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "83682436"

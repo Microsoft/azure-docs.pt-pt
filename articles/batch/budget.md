@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 07/19/2019
 ms.openlocfilehash: 13c8cc508a4940b5e21570104527c40988879919
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "83725776"

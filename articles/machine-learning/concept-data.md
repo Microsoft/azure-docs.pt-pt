@@ -13,6 +13,7 @@ ms.date: 04/24/2020
 ms.custom: tracking-python
 ms.openlocfilehash: 15cf4aa6adda26991e76ec8a5e7378766fe2a21f
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84552631"

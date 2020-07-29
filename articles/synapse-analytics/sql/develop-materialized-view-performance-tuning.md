@@ -12,6 +12,7 @@ ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.openlocfilehash: a3b012d86444ca2bb9b84af37aa17424221457d1
 ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/05/2020
 ms.locfileid: "85955068"

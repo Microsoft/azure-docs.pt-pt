@@ -8,6 +8,7 @@ ms.author: cshoe
 ms.custom: tracking-python
 ms.openlocfilehash: 1a7cc37f297f902fb5de473303f1dc260cbea9ca
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84559093"

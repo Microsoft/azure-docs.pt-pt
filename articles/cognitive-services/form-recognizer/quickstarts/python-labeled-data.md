@@ -12,6 +12,7 @@ ms.author: pafarley
 ms.custom: tracking-python
 ms.openlocfilehash: b177063d4e50a310534ffa4c04557543c3354249
 ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/07/2020
 ms.locfileid: "86028090"

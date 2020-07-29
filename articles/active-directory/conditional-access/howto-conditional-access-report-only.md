@@ -13,6 +13,7 @@ ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 46a00d55c58992be1009da1de5441ebe4e589a70
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "83994974"

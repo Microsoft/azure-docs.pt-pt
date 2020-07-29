@@ -11,6 +11,7 @@ ms.reviewer: dineshm
 ms.subservice: blobs
 ms.openlocfilehash: 95fd62584ef73f3f2f198c84913652f460fc5b1a
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84465546"

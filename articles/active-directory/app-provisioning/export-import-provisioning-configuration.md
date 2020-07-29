@@ -12,6 +12,7 @@ ms.date: 03/19/2020
 ms.author: kenwith
 ms.openlocfilehash: ef4fbf582baf1e4b81d49c81a8b0e16674e64841
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84781727"

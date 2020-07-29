@@ -14,6 +14,7 @@ ms.reviewer: luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2eeab9cbb68567b6af3b1381b8ec5e67e82461ec
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763742"

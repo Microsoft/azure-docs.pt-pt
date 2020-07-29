@@ -10,6 +10,7 @@ ms.date: 04/16/2020
 ms.author: v-grpr
 ms.openlocfilehash: 2fb28bcb1edb9a18b4d1628e211f87f2c772ef80
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "83664656"

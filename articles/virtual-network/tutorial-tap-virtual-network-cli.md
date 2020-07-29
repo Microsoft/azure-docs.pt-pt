@@ -17,6 +17,7 @@ ms.date: 03/18/2018
 ms.author: kaanan
 ms.openlocfilehash: 9460208d66e859f5fe1ce0e9ae4d62087ea3f4ff
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84696023"

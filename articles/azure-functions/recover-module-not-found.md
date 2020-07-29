@@ -8,6 +8,7 @@ ms.author: hazeng
 ms.custom: tracking-python
 ms.openlocfilehash: b2582caf407b3983b32c40482fa0f0275f00fb8d
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84554763"

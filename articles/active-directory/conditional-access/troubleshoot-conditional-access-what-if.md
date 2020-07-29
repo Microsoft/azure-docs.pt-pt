@@ -13,6 +13,7 @@ ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a9aaab58acb00305f76b10847a0417d91d724ba8
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "83737644"

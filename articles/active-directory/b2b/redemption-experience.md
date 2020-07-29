@@ -13,6 +13,7 @@ ms.reviewer: elisol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6bf5d40262c5991504d3dc62490fb50f6a20592
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "83826099"
