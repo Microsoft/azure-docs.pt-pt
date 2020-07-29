@@ -4,12 +4,12 @@ description: Fornece um resumo das configurações e limitações de suporte ao 
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: d0172ecab682b69f255eedb9270a6208b52dac45
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7d01f0f64fd183204fb7617040325e7d1b6e553e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514561"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289499"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matriz de suporte para cópia de segurança da partilha de ficheiros Azure
 
@@ -20,10 +20,6 @@ Pode utilizar o [serviço Azure Backup](./backup-overview.md) para fazer backup 
 ### <a name="ga-regions-for-azure-file-shares-backup"></a>Regiões de GA para ações de ficheiros Azure ações de backup
 
 A azure file shares backup está disponível em todas as **regiões, exceto:** Alemanha Central (Soberano), Alemanha Nordeste (Soberano), China Leste, China Leste 2, China Norte, China Norte 2, EUA Gov Iowa
-
-### <a name="supported-regions-for-accidental-delete-protection"></a>Regiões apoiadas para proteção acidental de eliminação
-
-Centro Oeste dos EUA, Austrália Sudeste, Canadá Central, Centro Ocidental DOS EUA, Índia Sul, Norte Central DOS EUA, Japão Leste, Brasil Sul, Centro Sul dos EUA, Austrália Leste, Leste dos EUA, Leste dos EUA 2
 
 ## <a name="supported-storage-accounts"></a>Contas de armazenamento do Azure
 
@@ -85,7 +81,7 @@ Centro Oeste dos EUA, Austrália Sudeste, Canadá Central, Centro Ocidental DOS 
 | Restauro de ações completas | Pode restaurar a partilha completa do ficheiro para a localização original ou alternativa |
 | Restauro do nível do item | Pode restaurar ficheiros e pastas individuais para a localização original ou alternativa |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [apoiar as ações de ficheiros da Azure](backup-afs.md)
 * Saiba como restaurar as [ações de ficheiros Azure](restore-afs.md)

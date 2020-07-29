@@ -3,15 +3,15 @@ title: Cenários de recuperação de desastres
 description: Saiba o que fazer no caso de uma rutura do serviço Azure afetar as máquinas virtuais Azure.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/31/2017
 ms.author: cynthn
-ms.openlocfilehash: 6481bfe265786ca8b79f96bbcac7fe4d58076911
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 43e7cb0906fc6008e8bdbfafec84ecfd8e8be6b6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525828"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289680"
 ---
 # <a name="what-if-an-azure-service-disruption-impacts-azure-vms"></a>E se uma rutura do serviço Azure impactar os VMs Azure
 Na Microsoft, trabalhamos arduamente para garantir que os nossos serviços estão sempre disponíveis para si quando precisa deles. Forças fora do nosso controlo, por vezes, afetam-nos de formas que causam perturbações não planeadas de serviços.
@@ -39,7 +39,7 @@ Esta é a melhor opção se não tiver configurado a Recuperação do Local de A
 >
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Comece [a proteger as suas aplicações em execução em máquinas virtuais Azure](https://aka.ms/a2a-getting-started) usando a recuperação do site Azure
 

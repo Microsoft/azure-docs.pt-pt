@@ -1,15 +1,15 @@
 ---
 title: Consórcio de tecido hiper-iniciante no Serviço Azure Kubernetes (AKS)
 description: Como implementar e configurar a rede de consórcios Hyperledger Fabric no Serviço Azure Kubernetes
-ms.date: 07/07/2020
+ms.date: 07/27/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 1e90eeccb015b4d5ef78b79297565ddde9cfa305
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fe06af9364ceb1d97588cac88335cb39c45f0e0f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081287"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286058"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Consórcio de tecido hiper-iniciante no Serviço Azure Kubernetes (AKS)
 
@@ -34,7 +34,9 @@ Modelos de solução | IaaS | Os modelos de solução são modelos de Gestor de 
 
 ## <a name="hyperledger-fabric-consortium-architecture"></a>Arquitetura do Consórcio de Tecidos Hiper-Ledger
 
-Para construir a rede Hyperledger Fabric no Azure, é necessário implementar o Serviço de Encomendas e organização com nós de pares. Os diferentes componentes fundamentais que são criados como parte da implementação do modelo são:
+Para construir a rede Hyperledger Fabric no Azure, é necessário implementar o Serviço de Encomendas e organização com nós de pares. Utilizando o tecido hiper-ledger no modelo de solução de serviço Azure Kubernetes, pode criar nós de encomenda ou pares. Tem de implementar o modelo para cada nó que pretende criar.
+
+Os diferentes componentes fundamentais que são criados como parte da implementação do modelo são:
 
 - **Nós de encomenda:** Um nó responsável pela encomenda de transações no livro-razão. Juntamente com outros nós, os nós ordenados formam o serviço de encomenda da rede Hyperledger Fabric.
 
@@ -58,22 +60,13 @@ O modelo na implementação gira vários recursos Azure na sua subscrição. Os 
 - **Disco gerido Azure**: O disco Azure Managed é para loja persistente para base de dados do estado do estado do livro de contabilidade e do nó de pares.
 - **IP público**: Um ponto final IP público do cluster AKS implantado para a inter-consulta com o cluster.
 
-## <a name="hyperledger-fabric-blockchain-network-setup"></a>Configuração da rede de blockchain de tecido hiper-iniciante
+## <a name="deploy-the-ordererpeer-organization"></a>Implementar a organização de encomendas/pares
 
 Para começar, precisa de uma subscrição do Azure que possa suportar a implementação de várias máquinas virtuais e contas de armazenamento padrão. Se não tiver uma subscrição do Azure, pode [criar uma conta Azure gratuita.](https://azure.microsoft.com/free/)
 
-Configurar a rede De Blockchain de Tecido Hiper-Iniciante utilizando os seguintes passos:
+Para começar com a implantação de componentes da rede HLF, navegue até ao [portal Azure](https://portal.azure.com).
 
-- [Implementar a organização de encomendas/pares](#deploy-the-ordererpeer-organization)
-- [Construir o consórcio](#build-the-consortium)
-
-## <a name="deploy-the-ordererpeer-organization"></a>Implementar a organização de encomendas/pares
-
-Para começar com a implantação de componentes da rede HLF, navegue até ao [portal Azure](https://portal.azure.com). Selecione **Criar um recurso > blockchain** > procurar tecido **hiper-ledger no serviço Azure Kubernetes**.
-
-1. Selecione **criar** para iniciar a implementação do modelo. O **tecido de hiper-ledger Create no Serviço Azure Kubernetes** exibe.
-
-    ![Tecido hiper-iniciante no modelo de serviço Azure Kubernetes](./media/hyperledger-fabric-consortium-azure-kubernetes-service/hyperledger-fabric-aks.png)
+1. Selecione **Criar um recurso > blockchain** > procurar tecido **hiper-ledger no serviço Azure Kubernetes (pré-visualização)**.
 
 2. Insira os detalhes do projeto na página **Basics.**
 
@@ -90,7 +83,7 @@ Para começar com a implantação de componentes da rede HLF, navegue até ao [p
 
 5. Introduza os seguintes detalhes:
     - **Nome da organização**: O nome da organização Fabric, que é necessária para várias operações de data plane. O nome da organização tem de ser único por implantação.
-    - **Componente de rede de**tecido : Escolha os nós de serviço de encomenda ou peer com base no componente da rede Blockchain que pretende configurar.
+    - **Componente de rede de**tecido : Escolha o Serviço de Encomenda ou os nós peer com base no componente da rede Blockchain que pretende configurar.
     - Número de nós - **Seguem-se** os dois tipos de nós:
         - Serviço de encomenda - selecione o número de nós para a tolerância a falhas fornecidas à rede. Apenas 3,5 e 7 são a contagem de nóleiro suportado.
         - Nómada de pares - pode escolher 1-10 nós com base na sua exigência.
@@ -103,7 +96,7 @@ Para começar com a implantação de componentes da rede HLF, navegue até ao [p
     - **Chave privada do Certificado de Raiz**: Carre faça o upload da chave privada do certificado raiz. Se tiver um certificado .pem, que tem chave pública e privada combinada, faça o upload aqui também.
 
 
-6. Selecione o **separador de configurações do cluster AKS** para definir a configuração do cluster Azure Kubernetes que é a infraestrutura subjacente na qual os componentes da rede Fabric serão configurados.
+6. Selecione o **separador de configurações do cluster AKS** para definir a configuração do cluster Azure Kubernetes que é a infraestrutura subjacente à qual os componentes da rede Fabric serão configurado.
 
     ![Tecido hiper-iniciante no modelo de serviço Azure Kubernetes](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-aks-cluster-settings-1.png)
 
@@ -136,7 +129,7 @@ Para construir o post do consórcio blockchain implantando o serviço de encomen
 > O script Azure HLF (azhlf) fornecido é para ajudar apenas com cenários demo/DevTest. O canal e o consórcio criados por este script têm políticas básicas de HLF para simplificar o cenário demo/DevTest. Para a configuração da produção, recomendamos atualizar as políticas HLF do canal/consórcio de acordo com as necessidades de conformidade da sua organização utilizando as APIs nativas do HLF.
 
 
-Todos os comandos para executar o script Azure HLF podem ser executados através da Linha de Comando Azure Bash. Interface (CLI). Você pode iniciar sessão na versão web da Azure shell através  ![Tecido hiper-iniciante no modelo de serviço Azure Kubernetes](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) opção no canto superior direito do portal Azure. No pedido de comando, escreva e entre para mudar para bater CLI.
+Todos os comandos para executar o script Azure HLF podem ser executados através da Linha de Comando Azure Bash. Interface (CLI). Pode iniciar seduca na versão web da Azure shell através do   ![ Hyperledger Fabric na opção Azure Kubernetes Service Template ](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) no canto superior direito do portal Azure. No pedido de comando, escreva e entre para trocar para bater no CLI ou escolha *Bash* na barra de ferramentas da concha.
 
 Consulte [a concha Azure](../../cloud-shell/overview.md) para mais informações.
 
@@ -147,17 +140,17 @@ A imagem a seguir mostra o processo passo-a-passo para construir um consórcio e
 
 ![Tecido hiper-iniciante no modelo de serviço Azure Kubernetes](./media/hyperledger-fabric-consortium-azure-kubernetes-service/process-to-build-consortium-flow-chart.png)
 
-Siga os comandos abaixo para a configuração inicial da aplicação do cliente: 
+Preencha as secções para a configuração inicial da aplicação do cliente: 
 
-1.  [Baixar ficheiros de aplicações de clientes](#download-client-application-files)
-2.  [Configurar variáveis de ambiente](#setup-environment-variables)
-3.  [Perfil de conexão da organização de importação, utilizador administrativo e MSP](#import-organization-connection-profile-admin-user-identity-and-msp)
+1. Baixar ficheiros de aplicações de clientes
+1. Configurar as variáveis de ambiente
+1. Perfil de conexão da organização de importação, utilizador administrativo e MSP
 
-Após completar a configuração inicial, pode utilizar a aplicação do cliente para obter as operações abaixo:  
+Após completar a configuração inicial, utilize a aplicação do cliente para realizar as seguintes operações:  
 
-- [Comandos de gestão de canais](#channel-management-commands)
-- [Comandos de gestão do consórcio](#consortium-management-commands)
-- [Comandos de gestão de códigos de corrente](#chaincode-management-commands)
+- Gestão de canais
+- Gestão do consórcio
+- Gestão de códigos de corrente
 
 ### <a name="download-client-application-files"></a>Baixar ficheiros de aplicações de clientes
 
@@ -168,19 +161,16 @@ curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kuberne
 cd azhlfTool
 npm install
 npm run setup
-
 ```
-Estes comandos clonarão o código de aplicação do cliente Azure HLF do repo público do GitHub, seguido de carregar todos os pacotes npm dependentes. Após a execução bem sucedida do comando, pode ver uma pasta node_modules no diretório atual. Todas as embalagens necessárias são carregadas na pasta node_modules.
 
+Estes comandos clonarão o código de aplicação do cliente Azure HLF do repo público do GitHub, seguido de carregar todos os pacotes npm dependentes. Após a execução bem sucedida do comando, pode ver uma pasta node_modules no diretório atual. Todas as embalagens necessárias são carregadas na pasta node_modules.
 
 ### <a name="setup-environment-variables"></a>Configurar variáveis de ambiente
 
 > [!NOTE]
 > Todas as variáveis ambientais seguem a convenção de nomeação de recursos Azure.
 
-
-**Definir abaixo variáveis ambientais para cliente de organização de encomendas**
-
+#### <a name="set-environment-variables-for-orderer-organization-client"></a>Definir variáveis ambientais para cliente de organização de encomendas
 
 ```bash
 ORDERER_ORG_SUBSCRIPTION=<ordererOrgSubscription>
@@ -189,7 +179,8 @@ ORDERER_ORG_NAME=<ordererOrgName>
 ORDERER_ADMIN_IDENTITY="admin.$ORDERER_ORG_NAME"
 CHANNEL_NAME=<channelName>
 ```
-**Definir as variáveis de ambiente abaixo para cliente de organização de pares**
+
+#### <a name="set-the-environment-variables-for-peer-organization-client"></a>Definir as variáveis ambientais para cliente de organização de pares
 
 ```bash
 PEER_ORG_SUBSCRIPTION=<peerOrgSubscritpion>
@@ -202,7 +193,7 @@ CHANNEL_NAME=<channelName>
 > [!NOTE]
 > Com base no número de Peer Orgs no seu consórcio, poderá ser-lhe exigido que repita os comandos Peer e desaprote o ambiente em conformidade.
 
-**Definir as variáveis ambientais abaixo para a criação da conta de armazenamento Azure**
+#### <a name="set-the-environment-variables-for-setting-up-azure-storage-account"></a>Definir as variáveis ambientais para a criação da conta de armazenamento Azure
 
 ```bash
 STORAGE_SUBSCRIPTION=<subscriptionId>
@@ -212,7 +203,7 @@ STORAGE_LOCATION=<azureStorageAccountLocation>
 STORAGE_FILE_SHARE=<azureFileShareName>
 ```
 
-Siga abaixo os passos para a criação de conta Azure Storage. Se já tem a conta Azure Storage criada, ignore estes passos
+Utilize os seguintes passos para a criação de conta Azure Storage. Se já tiver a conta Azure Storage criada, salte estes passos.
 
 ```bash
 az account set --subscription $STORAGE_SUBSCRIPTION
@@ -220,14 +211,14 @@ az group create -l $STORAGE_LOCATION -n $STORAGE_RESOURCE_GROUP
 az storage account create -n $STORAGE_ACCOUNT -g  $STORAGE_RESOURCE_GROUP -l $STORAGE_LOCATION --sku Standard_LRS
 ```
 
-Siga abaixo os passos para uma criação de ações de ficheiro na conta de Armazenamento Azure. Se já tem uma partilha de ficheiros criada, ignore estes passos
+Utilize os seguintes passos para uma criação de ações de ficheiro na conta Azure Storage. Se já tem uma partilha de ficheiros criada, ignore estes passos
 
 ```bash
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
 az storage share create  --account-name $STORAGE_ACCOUNT  --account-key $STORAGE_KEY  --name $STORAGE_FILE_SHARE
 ```
 
-Siga os passos abaixo para gerar a cadeia de ligação de partilha de ficheiros Azure
+Utilize os seguintes passos para gerar a cadeia de ligação de partilha de ficheiros Azure.
 
 ```bash
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
@@ -256,39 +247,13 @@ Para organização de pares:
 ./azhlf msp import fromAzure -g $PEER_ORG_RESOURCE_GROUP -s $PEER_ORG_SUBSCRIPTION -o $PEER_ORG_NAME
 ```
 
-### <a name="channel-management-commands"></a>Comandos de gestão de canais
-
-> [!NOTE]
-> Antes de iniciar qualquer operação de canal, certifique-se de que a configuração inicial da aplicação do cliente está feita.  
-
-Seguem-se os dois comandos de gestão de canais:
-
-1. [Criar comando de canal](#create-channel-command)
-2. [Definição do(s) comando de pares de âncora](#setting-anchor-peers-command)
-
-
-#### <a name="create-channel-command"></a>Criar comando de canal
+### <a name="create-channel-command"></a>Criar comando de canal
 
 Do cliente da organização de encomendas, emita comando para criar um novo canal. Este comando criará um canal com apenas organização de ordenados nele.  
 
 ```bash
 ./azhlf channel create -c $CHANNEL_NAME -u $ORDERER_ADMIN_IDENTITY -o $ORDERER_ORG_NAME
 ```
-
-#### <a name="setting-anchor-peers-command"></a>Definição do(s) comando de pares de âncora
-Do cliente da organização de pares, emita abaixo o comando para definir os pares de âncora para a organização de pares no canal especificado.
-
->[!NOTE]
-> Antes de executar este comando, certifique-se de que a organização de pares é adicionada no canal usando comandos de gestão do Consórcio.
-
-```bash
-./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY
-```
-
-`<anchorPeersList>`é uma lista de pares separados de espaço para ser definido como um par de âncora. Por exemplo,
-
-  - Desacordo `<anchorPeersList>` como "peer1" se quiser definir apenas o nó peer1 como par de âncora.
-  - Definir `<anchorPeersList>` como "peer1" "peer3" se quiser definir o nó peer1 e peer3 como par de âncora.
 
 ### <a name="consortium-management-commands"></a>Comandos de gestão do consórcio
 
@@ -324,6 +289,21 @@ Execute abaixo os comandos na ordem dada para adicionar uma organização de par
 
 Da mesma forma, para adicionar mais organizações de pares no canal, atualizar as variáveis do ambiente entre pares de acordo com a organização de pares necessária e executar os passos 1 a 4.
 
+### <a name="set-anchor-peers-command"></a>Definir o(s) comando de pares de âncora
+
+A partir do cliente da organização de pares, emita o comando para definir os pares de âncora(s) para a organização de pares no canal especificado.
+
+>[!NOTE]
+> Antes de executar este comando, certifique-se de que a organização de pares é adicionada no canal usando comandos de gestão do Consórcio.
+
+```bash
+./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY --ordererOrg $ORDERER_ORG_NAME
+```
+
+`<anchorPeersList>`é uma lista de pares separados de espaço para ser definido como um par de âncora. Por exemplo,
+
+  - Desacordo `<anchorPeersList>` como "peer1" se quiser definir apenas o nó peer1 como par de âncora.
+  - Definir `<anchorPeersList>` como "peer1" "peer3" se quiser definir o nó peer1 e peer3 como par de âncora.
 
 ### <a name="chaincode-management-commands"></a>Comandos de gestão de códigos de corrente
 
@@ -344,7 +324,7 @@ CC_VERSION=<chaincodeVersion>
 # Default value is 'golang'  
 CC_LANG=<chaincodeLanguage>  
 # CC_PATH contains the path where your chaincode is place.
-# If you are using chaincode_example02 to validate then CC_PATH=“/home/<username>/azhlfTool/chaincode/src/chaincode_example02/go”
+# If you are using chaincode_example02 to validate then CC_PATH=“/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/go”
 CC_PATH=<chaincodePath>  
 # Channel on which chaincode is to be instantiated/invoked/queried  
 CHANNEL_NAME=<channelName>  
@@ -409,7 +389,7 @@ Execute abaixo o comando para consultar o código de corrente:
 ```
 Passe nome da função de consulta e espaço separado lista de argumentos dentro  `<queryFunction>`   e  `<queryFuncArgs>`   respectivamente. Mais uma vez, tomando chaincode_example02.go chaincode como referência, ao valor de consulta de "a" no estado mundial definido  `<queryFunction>`   para e para  `query`  `<queryArgs>` "a".  
 
-## <a name="troubleshoot"></a>Resolução de Problemas
+## <a name="troubleshoot"></a>Resolução de problemas
 
 **Para verificar a versão do modelo de execução**
 

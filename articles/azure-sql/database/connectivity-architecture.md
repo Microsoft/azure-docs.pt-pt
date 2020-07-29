@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: 3d8bf23dcb9bfc390b9e165bcf38bf8feea5135f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc96cc704533c2b4fb5dc25b41a2440c66849b53
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833677"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289078"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Azure SQL Database e Azure Synapse Analytics arquitetura de conectividade
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -107,7 +107,7 @@ Os pormenores sobre a forma como o tráfego deve ser migrado para novos Gateways
 | Oeste da Noruega          | 51.120.216.0       |
 | África do Sul Norte   | 102.133.152.0      |
 | África do Sul    | 102.133.24.0       |
-| E.U.A. Centro-Sul     | 13.66.62.124, 23.98.162.75, 104.214.16.32   |
+| E.U.A. Centro-Sul     | 13.66.62.124, 23.98.162.75, 104.214.16.32, 20.45.121.1, 20.49.88.1   |
 | Ásia Sudeste      | 104.43.15.0, 23.100.117.95, 40.78.232.3   |
 | Suíça Norte    | 51.107.56.0, 51.107.57.0 |
 | Suíça Oeste     | 51.107.152.0, 51.107.153.0 |
@@ -116,12 +116,12 @@ Os pormenores sobre a forma como o tráfego deve ser migrado para novos Gateways
 | Sul do Reino Unido             | 51.140.184.11      |
 | Oeste do Reino Unido              | 51.141.8.11        |
 | E.U.A. Centro-Oeste      | 13.78.145.25       |
-| Europa Ocidental          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
+| Europa Ocidental          | 40.68.37.158, 191.237.232.75, 104.40.168.105, 52.236.184.163  |
 | E.U.A. Oeste              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
-| E.U.A.Oeste 2            | 13.66.226.202, 40.78.240.8  |
+| E.U.A. Oeste 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  |
 |                      |                    |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter informações sobre como alterar a política de ligação da Base de Dados Azure SQL para um servidor, consulte [a política de conn- policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
 - Para obter informações sobre o comportamento de ligação da Base de Dados Azure SQL para clientes que utilizem ADO.NET 4.5 ou uma versão posterior, consulte [portões para além de 1433 para ADO.NET 4.5](adonet-v12-develop-direct-route-ports.md).

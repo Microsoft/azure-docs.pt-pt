@@ -8,11 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7c83bc55a00774966681973b95d18cdc58dba19c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: ead175cbcaa9467cb5263ad95100facdda096991
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037210"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337811"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Resolução de problemas Azure Stream Análises
 
@@ -27,9 +28,9 @@ Este artigo descreve questões comuns com o desenvolvimento de consultas Azure S
     - No portal Azure, no **separador 'Consulta',** selecione **Teste**. Utilize os dados da amostra descarregados para [testar a consulta](stream-analytics-test-query.md). Examine quaisquer erros e tente corrigi-los.   
     - Também pode [testar a sua consulta localmente](stream-analytics-live-data-local-testing.md) utilizando ferramentas Azure Stream Analytics para Visual Studio ou Visual Studio [Code](visual-studio-code-local-run-live-input.md). 
 
-2.  [Consultas de depurg passo a passo localmente usando diagrama de trabalho](debug-locally-using-job-diagram.md) em ferramentas Azure Stream Analytics para Estúdio Visual. O diagrama de trabalho mostra como os dados fluem de fontes de entrada (Event Hub, IoT Hub, etc.) através de múltiplos passos de consulta e, finalmente, para os lavatórios de saída. Cada passo de consulta é mapeado para um conjunto de resultados temporário definido no script usando a declaração COM. Pode ver os dados, bem como as métricas, em cada conjunto de resultados intermédios para encontrar a origem da questão.
+2.  [Consultas de depuração passo a passo localmente usando diagrama de trabalho](debug-locally-using-job-diagram-vs-code.md) em ferramentas Azure Stream Analytics para Código de Estúdio Visual. O diagrama de trabalho mostra como os dados fluem de fontes de entrada (Event Hub, IoT Hub, etc.) através de múltiplos passos de consulta e, finalmente, para os lavatórios de saída. Cada passo de consulta é mapeado para um conjunto de resultados temporário definido no script usando a declaração COM. Pode ver os dados, bem como as métricas, em cada conjunto de resultados intermédios para encontrar a origem da questão.
 
-    ![Resultado da pré-visualização do diagrama de trabalho](./media/debug-locally-using-job-diagram/preview-result.png)
+    ![Resultado da pré-visualização do diagrama de trabalho](./media/debug-locally-using-job-diagram-vs-code/preview-result.png)
 
 3.  Se utilizar [**o Timetamp By,**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics)verifique se os eventos têm prazos superiores aos da [hora de início](stream-analytics-out-of-order-and-late-events.md)do trabalho .
 
@@ -104,7 +105,7 @@ Desta vez, os dados na saída são formatados e povoados como esperado.
 
 Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

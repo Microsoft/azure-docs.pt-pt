@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 11/07/2019
 ms.author: sagonzal
 ms.reviewer: navyasri.canumalla
-ms.custom: aaddev
-ms.openlocfilehash: 150708e7d54e456e1a4e35cfe381e5de5d0f1e8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: aaddev, devx-track-java
+ms.openlocfilehash: 6267c2118b7bac9befb42102d1118faac639bf49
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479356"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87312559"
 ---
 # <a name="get-and-remove-accounts-from-the-token-cache-using-msal-for-java"></a>Obtenha e remova as contas da cache simbólica usando MSAL para Java
 
@@ -51,6 +51,6 @@ IAccount accountToBeRemoved = accounts.stream().filter(
 pca.removeAccount(accountToBeRemoved).join();
 ```
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 
 Se estiver a utilizar o MSAL para Java, saiba mais sobre [a serialização de cache de ficha personalizada em MSAL para Java.](msal-java-token-cache-serialization.md)

@@ -5,11 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 63b7a8c58bb6d277233268ed4fc0bc870fdd337f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f41ad80e0e39d66020d039d6229a4b0fc62627f1
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443405"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286007"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Criar um laboratório com máquinas virtuais gpu
 
@@ -31,7 +32,7 @@ Tal como descrito na tabela seguinte, o tamanho da GPU *do cálculo* destina-se 
 | ---- | ----- | --- | ----------- | 
 | Pequena GPU (Computação) | -&nbsp;6 &nbsp; núcleos<br>-&nbsp;56 &nbsp; GB &nbsp; DE RAM  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Este tamanho é mais adequado para aplicações intensivas em computador, como inteligência artificial (IA) e aprendizagem profunda. |
 
-Os tamanhos de GPU *de visualização* destinam-se a aplicações com grande intensidade gráfica.  Por exemplo, o [tipo de classe de engenharia SolidWorks](./class-type-solidworks.md) mostra usando o tamanho de **GPU pequeno (Visualização).**  A GPU de visualização é adequada para este tipo de aula, porque os alunos interagem com o ambiente de design 3D assistido por computador SolidWorks (CAD) para modelar e visualizar objetos sólidos.
+Os tamanhos de GPU *de visualização* destinam-se a aplicações com grande intensidade gráfica.  Por exemplo, o tipo de [classe de engenharia SOLIDWORKS](./class-type-solidworks.md) mostra usando o tamanho **de GPU pequeno (Visualização).**  A GPU de visualização é adequada para este tipo de aula, porque os alunos interagem com o ambiente de design 3D assistido por computador SOLIDWORKS (CAD) para modelar e visualizar objetos sólidos.
 
 | Tamanho | Núcleos | RAM | Descrição | 
 | ---- | ----- | --- | ----------- | 
@@ -44,7 +45,7 @@ Para tirar partido das capacidades de GPU dos seus VMs de laboratório, certifiq
 ![Screenshot do "Novo laboratório" mostrando a opção "Instalar controladores GPU"](./media/how-to-setup-gpu/lab-gpu-drivers.png)
 
 Como mostrado na imagem anterior, esta opção é ativada por padrão, o que garante que os controladores *mais recentes* são instalados para o tipo de GPU e imagem que selecionou.
-- Quando seleciona um tamanho GPU *compute,* os seus VMs de laboratório são alimentados pelo [GPU NVIDIA Tesla K80.](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf)  Neste caso, são instalados os mais recentes controladores [compute Unified Device Architecture (CUDA),](https://www.nvidia.com/object/io_69526.html) o que permite a computação de alto desempenho.
+- Quando seleciona um tamanho GPU *compute,* os seus VMs de laboratório são alimentados pelo [GPU NVIDIA Tesla K80.](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf)  Neste caso, são instalados os mais recentes controladores [compute Unified Device Architecture (CUDA),](http://developer.download.nvidia.com/compute/cuda/2_0/docs/CudaReferenceManual_2.0.pdf) o que permite a computação de alto desempenho.
 - Ao selecionar um tamanho GPU *de visualização,* os seus VMs de laboratório são alimentados pela tecnologia [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU e [GRID](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/NVIDIA_GRID_vPC_Solution_Overview.pdf).  Neste caso, são instalados os mais recentes controladores GRID, o que permite a utilização de aplicações com grande intensidade gráfica.
 
 ### <a name="install-the-drivers-manually"></a>Instale os controladores manualmente
@@ -108,11 +109,11 @@ Esta secção descreve como validar que os seus controladores de GPU estão corr
 #### <a name="linux-images"></a>Imagens linux
 Siga as instruções na secção "Verificar a instalação do controlador" dos [controladores da Instalação NVIDIA GPU em VMs da série N que executam o Linux](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#verify-driver-installation).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 
 - [Criar e gerir laboratórios de sala de aula](how-to-manage-classroom-labs.md)
-- [Tipo de classe de design assistido por computador SolidWorks (CAD)](class-type-solidworks.md)
+- [Tipo de classe assistido por computador SOLIDWORKS (CAD)](class-type-solidworks.md)
 - [Tipo de classe MATLAB (laboratório de matriz)](class-type-matlab.md)
 
 

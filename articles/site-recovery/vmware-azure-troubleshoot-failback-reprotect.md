@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: a5b8ac3d46f21f299f3e56dab24a1b5f342fb4b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6640a6e807bdcc7a08476a18467745330742ee2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84309956"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289288"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Resolver problemas de reativação pós-falha no local a partir do Azure
 
@@ -28,7 +29,7 @@ O failback envolve essencialmente dois passos principais. Para o primeiro passo,
 - Se não conseguir alcançar o servidor de configuração a partir do servidor de processo, utilize a Telnet para verificar a conectividade do servidor de configuração na porta 443. Também pode tentar extrair o servidor de configuração do servidor de processo. Um servidor de processo também deve ter um batimento cardíaco quando está ligado ao servidor de configuração.
 - Um servidor R2 SP1 do Windows Server 2008 que esteja protegido como um servidor físico no local não pode ser falhado de volta do Azure para um site no local.
 - Não pode falhar nas seguintes circunstâncias:
-    - Emigrou as máquinas para Azure. [Saiba mais](migrate-overview.md#what-do-we-mean-by-migration).
+    - Emigrou as máquinas para Azure. 
     - Mudaste um VM para outro grupo de recursos.
     - Apagou o Azure VM.
     - Desativaste a proteção do VM.
@@ -63,7 +64,7 @@ Este problema pode acontecer se já houver um VM com o mesmo nome no servidor pr
 Para resolver este problema:
 
 * Selecione um servidor-alvo diferente num anfitrião diferente para que a reprotecção crie a máquina num anfitrião diferente, onde os nomes não colidem.
-* Você também pode usar vMotion para mover o alvo principal para um hospedeiro diferente onde a colisão de nome não vai acontecer. Se o VM existente for uma máquina desgarrada, rebatize-a para que o novo VM possa ser criado no mesmo anfitrião ESXi.
+* Também pode usar o VMotion para mover o alvo principal para um hospedeiro diferente, onde a colisão do nome não acontecerá. Se o VM existente for uma máquina desgarrada, rebatize-a para que o novo VM possa ser criado no mesmo anfitrião ESXi.
 
 
 ### <a name="error-code-78093"></a>Código de erro 78093
@@ -97,4 +98,4 @@ Esta questão acontece quando o VM no local é criado num hospedeiro que não te
 Para resolver este problema:
 
 * Fornecendo mais memória no anfitrião ESXi.
-* Além disso, pode utilizar o vMotion para mover o VM para outro anfitrião ESXi que tenha memória suficiente para iniciar o VM.
+* Além disso, pode utilizar o VMotion para mover o VM para outro anfitrião ESXi que tenha memória suficiente para iniciar o VM.

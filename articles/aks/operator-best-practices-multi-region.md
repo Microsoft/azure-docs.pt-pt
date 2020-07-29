@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e4e2a1fc08851e4e625bfc59419fc274ebbce1c8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 578560eccb13ff4b9169e11b0674859acc1fc901
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251201"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285871"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Melhores práticas para a continuidade do negócio e recuperação de desastres no Serviço Azure Kubernetes (AKS)
 
@@ -57,9 +57,9 @@ O Traffic Manager realiza pesquisas DNS e devolve o ponto final mais adequado de
 
 Para obter informações sobre como configurar pontos finais e encaminhamento, consulte [configurar o método de encaminhamento de tráfego geográfico utilizando o Gestor de Tráfego](../traffic-manager/traffic-manager-configure-geographic-routing-method.md).
 
-### <a name="layer-7-application-routing-with-azure-front-door-service"></a>Encaminhamento de aplicações da camada 7 com serviço de porta frontal Azure
+### <a name="application-routing-with-azure-front-door-service"></a>Encaminhamento de aplicações com serviço de porta frontal Azure
 
-O Gestor de Tráfego utiliza DNS (camada 3) para moldar o tráfego. [O Serviço de Porta Frontal Azure](../frontdoor/front-door-overview.md) fornece uma opção de encaminhamento HTTP/HTTPS (camada 7). As funcionalidades adicionais do Serviço de Porta Frontal Azure incluem a rescisão de TLS, domínio personalizado, firewall de aplicações web, REescrita de URL e afinidade da sessão. Reveja as necessidades do tráfego da sua aplicação para entender qual a solução mais adequada.
+Utilizando um protocolo de qualquercast baseado em TCP dividido, [o Serviço de Porta Frontal Azure](../frontdoor/front-door-overview.md) garante que os seus utilizadores finais se ligam prontamente ao POP da porta frontal mais próximo (Ponto de Presença). As funcionalidades adicionais do Serviço de Porta Frontal Azure incluem a rescisão de TLS, domínio personalizado, firewall de aplicações web, REescrita de URL e afinidade da sessão. Reveja as necessidades do tráfego da sua aplicação para entender qual a solução mais adequada.
 
 ### <a name="interconnect-regions-with-global-virtual-network-peering"></a>Interligar regiões com o espreitamento global da rede virtual
 

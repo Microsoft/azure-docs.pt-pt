@@ -3,12 +3,12 @@ title: Etiquetar recursos, grupos de recursos e subscrições para organização
 description: Mostra como aplicar tags para organizar recursos Azure para faturação e gestão.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: fa56fac79855b438a0cd1c10ed1008d69ca3e2fe
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 08612831007eeba781a473ca704d92a52ab0a638
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323881"
+ms.locfileid: "87337539"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Use etiquetas para organizar os seus recursos Azure e hierarquia de gestão
 

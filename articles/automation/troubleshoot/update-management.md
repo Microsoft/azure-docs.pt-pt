@@ -5,12 +5,12 @@ services: automation
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 74250a54d7b835ceb37614450de07e9e3baefd83
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 1ec2aed0a2cceebe4685cf75c7007d1ce0785615
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86183159"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87293096"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Resolver problemas da Gestão de Atualizações
 
@@ -387,7 +387,7 @@ Este erro pode ocorrer por um dos seguintes motivos:
 * A máquina está desligada e inacessível.
 * A máquina tem um problema de conectividade de rede e, portanto, o trabalhador híbrido na máquina é inacessível.
 * Houve uma atualização para o MMA que mudou a identificação do computador de origem.
-* A sua atualização foi acelerada se atingir o limite de 2000 empregos simultâneos numa conta de Automação. Cada implantação é considerada um trabalho, e cada máquina numa atualização conta como um trabalho. Qualquer outra tarefa de automatização ou atualização de implementação atualmente em execução na sua conta de Automação conta para o limite de trabalho simultâneo.
+* A sua atualização foi acelerada se atingir o limite de 200 postos de trabalho simultâneos numa conta de Automação. Cada implantação é considerada um trabalho, e cada máquina numa atualização conta como um trabalho. Qualquer outra tarefa de automatização ou atualização de implementação atualmente em execução na sua conta de Automação conta para o limite de trabalho simultâneo.
 
 ### <a name="resolution"></a>Resolução
 

@@ -10,12 +10,12 @@ ms.author: daperlov
 author: djpmsft
 manager: anandsub
 ms.date: 07/16/2020
-ms.openlocfilehash: 83a7f072af64b0fe8f7f3d7c982cf3466288f63e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7239c1516c4a04b57249ea4f39bff4aec9156d72
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007202"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337692"
 ---
 # <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Execute os oleodutos Azure Machine Learning na Azure Data Factory
 
@@ -27,7 +27,7 @@ O vídeo abaixo apresenta uma introdução de seis minutos e demonstração dest
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/How-to-execute-Azure-Machine-Learning-service-pipelines-in-Azure-Data-Factory/player]
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 ```json
 {
@@ -50,18 +50,21 @@ O vídeo abaixo apresenta uma introdução de seis minutos e demonstração dest
 
 ## <a name="type-properties"></a>Tipo de propriedades
 
-Propriedade | Descrição | Valores permitidos | Necessário
+Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-name | Nome da atividade no oleoduto | Cadeia | Yes
-tipo | Tipo de atividade é 'AzureMLExecutePipeline' | Cadeia | Yes
-linkedServiceName | Serviço ligado à aprendizagem automática Azure | Referência de serviço ligada | Yes
-mlPipelineId | ID do oleoduto de aprendizagem automática Azure publicado | Corda (ou expressão com resultadoType de corda) | Yes
-experimentName | Executar o nome da experiência de história do gasoduto Machine Learning | Corda (ou expressão com resultadoType de corda) | No
-mlPipelineParametros | Chave, pares de valor a serem passados para o ponto final do pipeline Azure Machine Learning publicado. As teclas devem corresponder aos nomes dos parâmetros do gasoduto definidos no pipeline de Machine Learning publicado | Objeto com pares de valor chave (ou Expressão com objeto de tipo resultado) | No
-mlParentRunId | O oleoduto de aprendizagem da máquina de azure pai executar iD | Corda (ou expressão com resultadoType de corda) | No
+name | Nome da atividade no oleoduto | Cadeia | Sim
+tipo | Tipo de atividade é 'AzureMLExecutePipeline' | Cadeia | Sim
+linkedServiceName | Serviço ligado à aprendizagem automática Azure | Referência de serviço ligada | Sim
+mlPipelineId | ID do oleoduto de aprendizagem automática Azure publicado | Corda (ou expressão com resultadoType de corda) | Sim
+experimentName | Executar o nome da experiência de história do gasoduto Machine Learning | Corda (ou expressão com resultadoType de corda) | Não
+mlPipelineParametros | Chave, pares de valor a serem passados para o ponto final do pipeline Azure Machine Learning publicado. As teclas devem corresponder aos nomes dos parâmetros do gasoduto definidos no pipeline de Machine Learning publicado | Objeto com pares de valor chave (ou Expressão com objeto de tipo resultado) | Não
+mlParentRunId | O oleoduto de aprendizagem da máquina de azure pai executar iD | Corda (ou expressão com resultadoType de corda) | Não
 continueOnStepFailure | Se continuar a execução de outros passos no gasoduto machine learning executado se um passo falhar | boolean | Não
 
-## <a name="next-steps"></a>Próximos passos
+> [!NOTE]
+> Para preencher os itens dropdown no nome do gasoduto Machine Learning e ID, o utilizador precisa de ter permissão para listar os gasodutos ML. A ADF UX chama APIs AzureMLService diretamente usando o registado nas credenciais do utilizador.  
+
+## <a name="next-steps"></a>Passos seguintes
 Veja os seguintes artigos que explicam como transformar dados de outras formas:
 
 * [Executar atividade de Fluxo de Dados](control-flow-execute-data-flow-activity.md)

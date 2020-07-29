@@ -6,18 +6,18 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 58f771120c5c81e27751af66b64e146c79bb6508
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 26b3b3bd061d3ec7c3efd5c613c5beec33867022
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81421833"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87298809"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar:
 
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java" target="_blank">Instale o SDK de Discurso para o<span class="docon docon-navigate-external x-hidden-focus"></span>seu ambiente de desenvolvimento e crie um projeto de amostra vazia.</a>
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java" target="_blank">Instale o Speech SDK para o seu <span class="docon docon-navigate-external x-hidden-focus"></span> ambiente de desenvolvimento e crie um projeto de amostra vazia.</a>
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Criar uma app LUIS para reconhecimento de intenções
 
@@ -26,52 +26,54 @@ Antes de começar:
 ## <a name="open-your-project"></a>Abra o seu projeto
 
 1. Abra o seu IDE preferido.
-2. Carregue o seu `Main.java`projeto e abra.
+2. Carregue o seu projeto e `Main.java` abra.
 
-## <a name="start-with-some-boilerplate-code"></a>Comece com um pouco de código de placa de caldeira
+## <a name="start-with-some-boilerplate-code"></a>Comece com um código de placa de caldeira
 
-Vamos adicionar um código que funciona como um esqueleto para o nosso projeto.
+Vamos adicionar um código que funcione como um esqueleto para o nosso projeto.
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=6-20,68-75)]
 
-## <a name="create-a-speech-configuration"></a>Criar uma configuração de Discurso
+## <a name="create-a-speech-configuration"></a>Criar uma configuração de discurso
 
-Antes de poder `IntentRecognizer` inicializar um objeto, precisa de criar uma configuração que utilize a chave e localização para o seu recurso de previsão LUIS.  
+Antes de poder inicializar um `IntentRecognizer` objeto, precisa de criar uma configuração que utilize a chave e a localização para o seu recurso de previsão LUIS.  
 
-Insira este código no `main()`bloco de tentativa /captura em . Certifique-se de atualizar estes valores:
+Insira este código no bloco de tentativa/captura `main()` em . Certifique-se de atualizar estes valores:
 
-* Substitua-a `"YourLanguageUnderstandingSubscriptionKey"` pela sua chave de previsão LUIS.
-* Substitua-a `"YourLanguageUnderstandingServiceRegion"` pela sua localização LUIS. Identificador da **região** de utilização da [região](https://aka.ms/speech/sdkregion)
+* `"YourLanguageUnderstandingSubscriptionKey"`Substitua-a pela sua chave de previsão LUIS.
+* `"YourLanguageUnderstandingServiceRegion"`Substitua-o pela sua localização LUIS. Utilização **do identificador** da [região](https://aka.ms/speech/sdkregion)
 
 >[!TIP]
-> Se precisar de ajuda para encontrar estes valores, consulte [Criar uma aplicação LUIS para reconhecimento de intenções.](#create-a-luis-app-for-intent-recognition)
+> Se precisar de ajuda para encontrar estes valores, consulte [criar uma aplicação LUIS para reconhecimento de intenções.](#create-a-luis-app-for-intent-recognition)
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=27)]
 
-Esta amostra `FromSubscription()` utiliza o `SpeechConfig`método para construir o . Para obter uma lista completa dos métodos disponíveis, consulte a [Aula de SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
+Esta amostra utiliza o `FromSubscription()` método para construir o `SpeechConfig` . Para obter uma lista completa dos métodos disponíveis, consulte [a Aula deConfig da Fala](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
 
-O SDK do Discurso não irá reconhecer o uso de en-us para a língua, consulte [especificar a linguagem fonte para a fala a texto](../../../../how-to-specify-source-language.md) para obter informações sobre a escolha da língua de origem.
+O SDK de discurso não reconhecerá a utilização do linguístico para a língua, consulte especificar a [língua de origem para falar para texto](../../../../how-to-specify-source-language.md) para obter informações sobre a escolha da língua de origem.
 
-## <a name="initialize-an-intentrecognizer"></a>Inicializar um IntençãoReconhecedor
+## <a name="initialize-an-intentrecognizer"></a>Inicializar um IntentRecognizer
 
-Agora, vamos criar `IntentRecognizer`um. Insira este código logo abaixo da configuração do Discurso.
+Agora, vamos criar `IntentRecognizer` um. Insira este código logo abaixo da configuração do Discurso.
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=30)]
 
-## <a name="add-a-languageunderstandingmodel-and-intents"></a>Adicione um Modelo e Intenções LanguageUnderstanding
+## <a name="add-a-languageunderstandingmodel-and-intents"></a>Adicione um Modelo e Intenções De LínguaUnderstanding
 
-Precisa associar um `LanguageUnderstandingModel` ao reconhecimento de intenções e adicionar as intenções que quer que seja reconhecida. Vamos usar as intenções do domínio pré-construído para a domótica.
+Precisa associar um `LanguageUnderstandingModel` ao reconhecimento de intenções, e adicionar as intenções que deseja ser reconhecido. Vamos usar as intenções do domínio pré-construído para a domótica.
 
-Insira este `IntentRecognizer`código abaixo do seu . Certifique-se de `"YourLanguageUnderstandingAppId"` que substitui o seu ID da aplicação LUIS.
+Insira este código abaixo do seu `IntentRecognizer` . Certifique-se de que substitui `"YourLanguageUnderstandingAppId"` pelo seu ID de aplicação LUIS.
 
 >[!TIP]
-> Se precisar de ajuda para encontrar este valor, consulte [Criar uma aplicação LUIS para reconhecimento de intenções.](#create-a-luis-app-for-intent-recognition)
+> Se precisar de ajuda para encontrar este valor, consulte [criar uma aplicação LUIS para reconhecimento de intenções.](#create-a-luis-app-for-intent-recognition)
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=33-35)]
 
+Este exemplo utiliza a `addIntent()` função para adicionar individualmente intenções. Se quiser adicionar todas as intenções de um modelo, use `addAllIntents(model)` e passe o modelo.
+
 ## <a name="recognize-an-intent"></a>Reconhecer uma intenção
 
-Pelo `IntentRecognizer` objeto, vais chamar o `recognizeOnceAsync()` método. Este método permite ao serviço da Fala saber que está a enviar uma única frase para reconhecimento, e que assim que a frase é identificada para parar de reconhecer o discurso.
+Pelo `IntentRecognizer` objeto, vais chamar o `recognizeOnceAsync()` método. Este método permite ao serviço de Discurso saber que está a enviar uma única frase para reconhecimento, e que uma vez que a frase é identificada para parar de reconhecer a fala.
 
 Insira este código abaixo do seu modelo:
 
@@ -81,13 +83,13 @@ Insira este código abaixo do seu modelo:
 
 Quando o resultado do reconhecimento for devolvido pelo serviço de Discurso, vai querer fazer algo com ele. Vamos mantê-lo simples e imprimir o resultado para consolar.
 
-Insira este código `recognizeOnceAsync()`abaixo da sua chamada para .
+Insira este código abaixo da sua chamada para `recognizeOnceAsync()` .
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=43-64)]
 
-## <a name="release-resources"></a>Recursos de Lançamento
+## <a name="release-resources"></a>Libertar Recursos
 
-É importante libertar os recursos da fala quando acabares de os usar. Insira este código no final do bloco de tentativa / captura:
+É importante libertar os recursos do discurso quando acabarmos de usá-los. Insira este código no final do bloco de tentativa/captura:
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=66-67)]
 
@@ -102,7 +104,7 @@ Neste ponto, o seu código deve ser assim:
 
 ## <a name="build-and-run-your-app"></a>Construa e execute a sua app
 
-Prima <kbd>F11</kbd>, ou selecione **Executar** > **Debug**.
+Prima <kbd>F11,</kbd>ou selecione **Run**  >  **Debug**.
 Os próximos 15 segundos de entrada de voz do microfone serão reconhecidos e registados na janela da consola.
 
 ## <a name="next-steps"></a>Passos seguintes

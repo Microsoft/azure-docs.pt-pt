@@ -1,7 +1,7 @@
 ---
-title: Criar um recurso de cluster azure Kubernetes Service
+title: Criar um recurso de cluster de serviço Azure Kubernetes
 titleSuffix: Azure Cognitive Services
-description: Aprenda a criar um recurso azure Kubernetes Service (AKS).
+description: Saiba como criar um recurso Azure Kubernetes Service (AKS).
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,43 +9,43 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: d01245a76c5210a1843307b543f98d4f1d59d2cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e7f5b6f3685a94b5497784360f8f12b22fb95012
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877851"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87298844"
 ---
-## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Criar um recurso de cluster azure Kubernetes Service
+## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Criar um recurso de cluster de serviço Azure Kubernetes
 
 1. Vá ao [Serviço Azure Kubernetes](https://ms.portal.azure.com/#create/microsoft.aks)e selecione **Criar**.
 
-1. No separador **Basics,** introduza as seguintes informações:
+1. No separador **Básicos,** introduza as seguintes informações:
 
     |Definição|Valor|
     |--|--|
     |Subscrição|Selecione uma subscrição adequada.|
-    |Grupo de recursos|Selecione um grupo de recursos disponíveis.|
-    |Nome do cluster kubernetes|Introduza um nome (minúscula).|
-    |Região|Selecione um local próximo.|
-    |Versão Kubernetes|Qualquer valor marcado como **(padrão)**.|
-    |Prefixo de nome DNS|Criado automaticamente, mas pode anular.|
+    |Grupo de recursos|Selecione um grupo de recursos disponível.|
+    |Nome do cluster Kubernetes|Introduza um nome (minúscula).|
+    |Região|Selecione uma localização próxima.|
+    |Versão Kubernetes|Qualquer valor é marcado como **(padrão)**.|
+    |Prefixo do nome DNS|Criado automaticamente, mas pode ser sobrepõe-se.|
     |Tamanho do nó|DS2 v2 padrão:<br>`2 vCPUs`, `7 GB`|
-    |Contagem de nó|Deixe o deslizador pelo valor padrão.|
+    |Contagem de nó|Deixe o deslizador pelo valor predefinido.|
 
-1. No separador **Escala,** deixe os nós virtuais e os **conjuntos** de **escala VM definidos** para os seus valores padrão.
-1. No separador **Autenticação,** deixe o **diretor de serviço** e ative o **RBAC** definido nos seus valores predefinidos.
-1. No separador **Networking,** introduza as seguintes seleções:
+1. No separador **agrupamento de piscinas Nó,** deixe os nós virtuais e **os conjuntos de escala VM** **definidos** para os seus valores predefinidos.
+1. No separador **Autenticação,** deixe **o principal de serviço** e ative o **RBAC** definido para os seus valores predefinidos.
+1. No **separador Networking,** insira as seguintes seleções:
 
     |Definição|Valor|
     |--|--|
     |Encaminhamento de aplicações de HTTP|Não|
     |Configuração de rede|Básico|
 
-1. No separador **Monitor,** certifique-se de que a **monitorização do recipiente ativação** está definida para **Sim**, e deixe o espaço de **trabalho do Log Analytics** como o valor predefinido.
-1. No separador **Tags,** deixe os pares de nome/valor em branco por enquanto.
-1. Selecione **Rever e Criar**.
-1. Depois dos passes de validação, selecione **Criar**.
+1. No separador **Integrações,** certifique-se de que **a monitorização do contentor** está definida como **Ativada**, e deixe o **espaço de trabalho do Log Analytics** como o valor predefinido.
+1. No **separador Tags,** deixe os pares de nome/valor em branco por enquanto.
+1. Selecione **'Rever e criar' ( Revisão e Criação).**
+1. Após os passes de validação, **selecione Criar**.
 
 > [!NOTE]
-> Se a validação falhar, pode ser devido a um erro de "diretor de serviço". Volte para o separador **Autenticação** e volte a **Rever + criar,** onde a validação deve ser executada e depois passar.
+> Se a validação falhar, pode ser devido a um erro de "Diretor de Serviço". Volte para o **separador Autenticação** e volte a **rever + criar,** onde a validação deve ser executada e depois passar.

@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 07/24/2020
 ms.author: jgao
-ms.openlocfilehash: fcdcf563cd88cbf6604877636432a406c1960cff
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 4094e610bb290fc11656dc192f3d0a495f679dc5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117050"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291806"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Utilize scripts de implementação em modelos (Pré-visualização)
 
@@ -556,48 +556,7 @@ A execução do script de implantação é uma operação idempotente. Se nenhum
 
 ## <a name="configure-development-environment"></a>Configurar o ambiente de desenvolvimento
 
-Você pode usar uma imagem de recipiente de estiva pré-configurado como o seu ambiente de desenvolvimento de scripts de implementação. Para instalar o Docker, consulte [get Docker.](https://docs.docker.com/get-docker/)
-Também é necessário configurar a partilha de ficheiros para montar o diretório que contém os scripts de implantação no contentor Docker.
-
-1. Puxe a imagem do contentor do script de implementação para o computador local:
-
-    ```command
-    docker pull mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
-    ```
-
-    O exemplo utiliza a versão PowerShell 2.7.0.
-
-    Para retirar uma imagem CLI de um registo de contentores da Microsoft (MCR):
-
-    ```command
-    docker pull mcr.microsoft.com/azure-cli:2.0.80
-    ```
-
-    Este exemplo utiliza a versão CLI 2.0.80. O script de implementação utiliza as imagens padrão dos recipientes CLI encontrados [aqui](https://hub.docker.com/_/microsoft-azure-cli).
-
-1. Executar a imagem do estivador localmente.
-
-    ```command
-    docker run -v <host drive letter>:/<host directory name>:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
-    ```
-
-    Substitua ** &lt; a carta do anfitrião>** e o nome do ** &lt; diretório de anfitriões>** por uma pasta existente na unidade partilhada.  Mapeia a pasta para a pasta **/dados** no recipiente. Por exemplo, para mapear D:\docker:
-
-    ```command
-    docker run -v d:/docker:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
-    ```
-
-    **-significa** manter a imagem do contentor viva.
-
-    Um exemplo CLI:
-
-    ```command
-    docker run -v d:/docker:/data -it mcr.microsoft.com/azure-cli:2.0.80
-    ```
-
-1. A imagem que se segue mostra como executar um script PowerShell, dado que tem um ficheiro helloworld.ps1 na unidade partilhada.
-
-    ![Modelo de implementação de modelo de gestor de recursos estivador cmd](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
+Pode utilizar uma imagem de recipiente pré-configurada como ambiente de desenvolvimento de scripts de implementação. Para obter mais informações, consulte [o ambiente de desenvolvimento configurar para scripts de implementação em modelos](./deployment-script-template-configure-dev.md).
 
 Depois de o script ser testado com sucesso, pode usá-lo como um script de implementação nos seus modelos.
 
@@ -606,7 +565,7 @@ Depois de o script ser testado com sucesso, pode usá-lo como um script de imple
 | Código de erro | Descrição |
 |------------|-------------|
 | ImplementaçãoScriptInvalidOperação | A definição de recursos de script de implementação no modelo contém nomes de propriedade inválidos. |
-| ImplementaçãoScriptResourceConflict | Não é possível eliminar um recurso de script de implantação que esteja em estado não terminal e a execução não tenha excedido 1 hora. Ou não pode re-executar o mesmo script de implementação com o mesmo identificador de recursos (mesma subscrição, nome de grupo de recursos e nome de recurso), mas diferentes conteúdos corporais de script ao mesmo tempo . |
+| ImplementaçãoScriptResourceConflict | Não é possível eliminar um recurso de script de implantação que esteja em estado não terminal e a execução não tenha excedido 1 hora. Ou não pode re-executar o mesmo script de implementação com o mesmo identificador de recursos (mesma subscrição, nome de grupo de recursos e nome de recurso), mas diferentes conteúdos corporais de script ao mesmo tempo. |
 | ImplementaçãoScriptOperationFailed | A operação do script de implantação falhou internamente. Por favor contacte o suporte da Microsoft. |
 | ImplementaçãoScriptStorageAccountAccessKeyNotSpecified | A chave de acesso não foi especificada para a conta de armazenamento existente.|
 | ImplementaçãoScriptContainerGroupContainsInvalidContainers | Um grupo de contentores criado pelo serviço de scripts de implantação foi modificado externamente, e os recipientes inválidos foram adicionados. |
@@ -618,7 +577,7 @@ Depois de o script ser testado com sucesso, pode usá-lo como um script de imple
 | ImplementaçãoScriptStorageAccountInvalidAccessKey | Chave de acesso inválida especificada para a conta de armazenamento existente. |
 | ImplementaçãoScriptStorageAccountInvalidAccessKeyFormat | Formato chave da conta de armazenamento inválido. Consulte [as teclas de acesso à conta de armazenamento](../../storage/common/storage-account-keys-manage.md). |
 | ImplementaçãoScriptExceededMaxAllowedTime | O tempo de execução do script de implementação excedeu o valor de tempo limite especificado na definição de recursos de script de implementação. |
-| ImplementaçãoScriptInvalidOutputs | As saídas de scripts de implementação não são um objeto JSON válido. |
+| ImplementaçãoScriptInvalidOutputs | A saída do script de implementação não é um objeto JSON válido. |
 | ImplementaçãoScriptContainerInstancesServiceLoginFailure | A identidade gerida atribuída pelo utilizador não foi capaz de iniciar sessão após 10 tentativas com intervalo de 1 minuto. |
 | ImplementaçãoScriptContainerGroupNotFound | Um grupo de contentores criado pelo serviço de scripts de implantação foi eliminado por uma ferramenta ou processo externo. |
 | ImplementaçãoScriptDownloadFailure | Falhou em descarregar um script de suporte. Ver [Utilizar o script de suporte .](#use-supporting-scripts)|

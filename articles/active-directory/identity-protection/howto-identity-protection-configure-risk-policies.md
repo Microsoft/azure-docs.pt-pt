@@ -11,17 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e134c2e49df5b53ed37acddd86e41af17f43a048
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54a6c455f3702433398035a2eb6398c39b609ce9
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84464169"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337454"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Como: Configurar e permitir políticas de risco
 
 Como aprendemos no artigo anterior, as [políticas de Proteção de Identidade](concept-identity-protection-policies.md) temos duas políticas de risco que podemos permitir no nosso diretório. 
 
-- Política de risco de inscrição
+- Política de risco do início de sessão
 - Política de risco do utilizador
 
 ![Página geral de segurança para permitir políticas de risco de utilizador e de inscrição](./media/howto-identity-protection-configure-risk-policies/identity-protection-security-overview.png)
@@ -54,7 +55,7 @@ Para permitir que as políticas de risco de utilização e de risco de inscriç�
 
 1. Navegue até ao [portal Azure.](https://portal.azure.com)
 1. Consulte a Visão Geral de Proteção de Identidade do **Diretório Ativo Azure**  >  **Security**  >  **Identity Protection**  >  **Overview**.
-1. Selecione **Configurar a política de risco do utilizador**.
+1. Selecione **a política de risco do utilizador**.
    1. Em **Atribuições**
       1. **Utilizadores** - Escolha **todos os utilizadores** ou **selecione indivíduos e grupos** se limitar o seu lançamento.
          1. Opcionalmente pode optar por excluir os utilizadores da apólice.
@@ -63,7 +64,7 @@ Para permitir que as políticas de risco de utilização e de risco de inscriç�
       1. **Acesso** - A recomendação da Microsoft é **permitir o acesso** e exigir a alteração da **palavra-passe.**
    1. **Fazer cumprir a política**  -  **Em**
    1. **Guardar** - Esta ação irá devolvê-lo à página **geral.**
-1. Selecione **Configurar a política de risco de inscrição**.
+1. Selecione **a política de risco de inscrição**.
    1. Em **Atribuições**
       1. **Utilizadores** - Escolha **todos os utilizadores** ou **selecione indivíduos e grupos** se limitar o seu lançamento.
          1. Opcionalmente pode optar por excluir os utilizadores da apólice.
@@ -73,7 +74,7 @@ Para permitir que as políticas de risco de utilização e de risco de inscriç�
    1. **Fazer cumprir a política**  -  **Em**
    1. **Guardar**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Ativar a política de registo de autenticação multi-factor Azure](howto-identity-protection-configure-mfa-policy.md)
 

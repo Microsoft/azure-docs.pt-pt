@@ -9,18 +9,26 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 10/03/2019
+ms.date: 07/20/2020
 ms.author: diberry
-ms.openlocfilehash: 831e766fbb10d616b3fbaf8f878228a9a51ece37
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7ec9cd8aade1edb7d2df2bab5cec8de445af7e44
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090948"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337981"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entidades por cultura no seu modelo LUIS
 
-A Compreensão linguística (LUIS) fornece entidades pré-construídas. Quando uma entidade pré-construída é incluída na sua aplicação, a LUIS inclui a previsão da entidade correspondente na resposta ao ponto final. Todas as expressões de exemplo também são rotuladas com a entidade. O comportamento das entidades pré-construídas **não pode** ser modificado. Salvo indicação em contrário, as entidades pré-construídas estão disponíveis em todos os locais de aplicação LUIS (culturas). A tabela a seguir mostra as entidades pré-construídas que são apoiadas para cada cultura.
+A Compreensão linguística (LUIS) fornece entidades pré-construídas.
+
+## <a name="entity-resolution"></a>Resolução de entidades
+Quando uma entidade pré-construída é incluída na sua aplicação, a LUIS inclui a resolução da entidade correspondente na resposta ao ponto final. Todas as expressões de exemplo também são rotuladas com a entidade.
+
+O comportamento das entidades pré-construídas não pode ser modificado, mas pode melhorar a resolução [adicionando a entidade pré-construída como característica a uma entidade ou entidade de aprendizagem automática.](luis-concept-entity-types.md#effective-prebuilt-entities)
+
+## <a name="availability"></a>Disponibilidade
+Salvo indicação em contrário, as entidades pré-construídas estão disponíveis em todos os locais de aplicação LUIS (culturas). A tabela a seguir mostra as entidades pré-construídas que são apoiadas para cada cultura.
 
 |Cultura|Subculturas|Notas|
 |--|--|--|
@@ -50,7 +58,7 @@ São apoiadas as seguintes entidades:
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
 [Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>data<br>encontro<br>hora<br>timerange   |    V2, V3   |
 [Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milha por hora)  |    V2, V3   |
-[E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase-chave](luis-reference-prebuilt-keyphrase.md)   |    -   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -72,7 +80,7 @@ São apoiadas as seguintes entidades:
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
 [Hora da data](luis-reference-prebuilt-deprecated.md)   |    -   |
 [Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milha por hora)  |    V2, V3   |
-[E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase-chave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -94,7 +102,7 @@ São apoiadas as seguintes entidades:
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
 [Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>data<br>encontro<br>hora<br>timerange   |    V2, V3   |
 [Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milha por hora)  |    V2, V3   |
-[E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    V2, V3   |
 [Frase-chave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -116,7 +124,7 @@ São apoiadas as seguintes entidades:
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
 [Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>data<br>encontro<br>hora<br>timerange   |    V2, V3   |
 [Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milha por hora)  |    V2, V3   |
-[E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase-chave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -138,7 +146,7 @@ São apoiadas as seguintes entidades:
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
 [Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>data<br>encontro<br>hora<br>timerange   |    V2, V3   |
 [Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milha por hora)  |    V2, V3   |
-[E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase-chave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -160,7 +168,7 @@ São apoiadas as seguintes entidades:
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
 [Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>data<br>encontro<br>hora<br>timerange   |    V2, V3   |
 [Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milha por hora)  |    V2, V3   |
-[E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase-chave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -184,7 +192,7 @@ São apoiadas as seguintes entidades:
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
 [Hora da data](luis-reference-prebuilt-deprecated.md)   |    -   |
 [Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milha por hora)  |    V2, V3   |
-[E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase-chave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -206,7 +214,7 @@ São apoiadas as seguintes entidades:
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, -   |
 [Hora da data](luis-reference-prebuilt-deprecated.md)   |    -   |
 [Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milha por hora)  |    V2, -   |
-[E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase-chave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, -   |
@@ -228,7 +236,7 @@ São apoiadas as seguintes entidades:
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    -   |
 [Hora da data](luis-reference-prebuilt-deprecated.md)   |    -   |
 [Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milha por hora)  |    -   |
-[E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase-chave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    -   |
@@ -250,7 +258,7 @@ São apoiadas as seguintes entidades:
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
 [Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>data<br>encontro<br>hora<br>timerange   |    V2, V3   |
 [Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milha por hora)  |    V2, V3   |
-[E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase-chave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -272,7 +280,7 @@ São apoiadas as seguintes entidades:
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
 [Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>data<br>encontro<br>hora<br>timerange   |    V2, V3   |
 [Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milha por hora)  |    V2, V3   |
-[E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase-chave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
@@ -294,7 +302,7 @@ São apoiadas as seguintes entidades:
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    -   |
 [Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>data<br>encontro<br>hora<br>timerange   |    -   |
 [Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milha por hora)  |    -   |
-[E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Frase-chave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |

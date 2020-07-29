@@ -5,14 +5,15 @@ author: cynthn
 ms.service: virtual-machines
 ms.subservice: networking
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/16/2017
 ms.author: cynthn
-ms.openlocfilehash: 07a78e4987a844627824ac5034046cf6a393ad8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38f231e63ad4974a23a1201aad4d290685860b50
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81757841"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292160"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Crie cartões de interface de rede virtual e utilize DNS internos para resolução de nome VM no Azure
 
@@ -155,6 +156,6 @@ az vm create \
 
 Ao usar as bandeiras do CLI para chamar a atenção para os recursos existentes, instruímos a Azure a implantar o VM dentro da rede existente. Para reiterar, uma vez que um VNet e sub-rede tenham sido implantados, eles podem ser deixados como recursos estáticos ou permanentes dentro da sua região de Azure.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Criar um ambiente personalizado para uma VM com Linux diretamente através dos comandos da CLI do Azure](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Crie um Linux VM em Azure usando modelos](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: how-to
 ms.date: 06/30/2017
-ms.openlocfilehash: 80edafb9cffa43f7163c1b75c9faaaefbb97c616
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 1c22aa9fb91b0a86704b95586afc1779023e85b6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127422"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288938"
 ---
 # <a name="u-sql-programmability-guide"></a>Guia de programabilidade U-SQL
 
 U-SQL é uma linguagem de consulta que é projetada para grandes cargas de trabalho tipo dado. Uma das características únicas do U-SQL é a combinação da linguagem declarativa semelhante ao SQL com a extensibilidade e programabilidade que é fornecida por C#. Neste guia, concentramo-nos na extensibilidade e programabilidade da linguagem U-SQL que é ativada por C#.
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 
 Descarregue e instale [ferramentas do Lago de Dados Azure para o Estúdio Visual.](https://www.microsoft.com/download/details.aspx?id=49504)
 
@@ -125,7 +125,7 @@ Consulte as [instruções de inscrição](https://blogs.msdn.microsoft.com/azure
 
 
 ### <a name="use-assembly-versioning"></a>Utilize a versão de montagem
-Atualmente, o U-SQL utiliza a versão .NET Framework 4.5. Por isso, certifique-se de que os seus próprios conjuntos são compatíveis com a versão do tempo de execução.
+Atualmente, o U-SQL utiliza a versão .NET Framework 4.7.2. Por isso, certifique-se de que os seus próprios conjuntos são compatíveis com a versão do tempo de execução.
 
 Como mencionado anteriormente, o U-SQL executa o código num formato de 64 bits (x64). Por isso, certifique-se de que o seu código é compilado para funcionar em x64. Caso contrário, obtém-se o erro de formato incorreto apresentado anteriormente.
 

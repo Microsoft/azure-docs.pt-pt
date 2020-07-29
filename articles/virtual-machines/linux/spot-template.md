@@ -4,15 +4,16 @@ description: Aprenda a usar um modelo para implementar VMs spot para economizar 
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 2d546e9154352ec90aa1b1a457eb5320979239d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e2810941248a7e1047aeac2fd6faf6ea08a5dda
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758343"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292216"
 ---
 # <a name="deploy-spot-vms-using-a-resource-manager-template"></a>Implementar VMs spot usando um modelo de gestor de recursos
 
@@ -172,7 +173,7 @@ Aqui está um modelo de amostra com as propriedades adicionadas para um Spot VM.
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Também pode criar um Spot VM utilizando [a Azure PowerShell](../windows/spot-powershell.md) ou o [Azure CLI](spot-cli.md).
 

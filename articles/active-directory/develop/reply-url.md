@@ -4,17 +4,18 @@ description: Resposta URLs/redirecionar restrições de RINS & limitações
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 06/29/2019
+ms.date: 07/17/2020
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: b7aefc54a20e23ae969750532e7e3bc824f69c56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4fdeb0018e27a2557161b2ec1c4794d975403523
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83725317"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87311624"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Redirecionar restrições e limitações de URI/URI de resposta
 
@@ -40,17 +41,34 @@ A tabela a seguir mostra o número máximo de URIs de redirecionamento que pode 
 Pode utilizar um máximo de 256 caracteres para cada URI de redirecionamento que adicionar a um registo de aplicações.
 
 ## <a name="supported-schemes"></a>Regimes apoiados
+
 O modelo de aplicação AZure AD suporta hoje esquemas HTTP e HTTPS para aplicações que assinam no trabalho da Microsoft ou contas escolares em qualquer inquilino do Azure Ative Directory (Azure AD) de qualquer organização. Isto `signInAudience` é, o campo no manifesto de aplicação está definido para *AzureADMyOrg* ou *AzureADMultipleOrgs*. Para as aplicações que assinam nas contas pessoais da Microsoft e contas de trabalho e escola (que está `signInAudience` definida para *AzureADandPersonalMicrosoftAccount),* apenas é permitido o esquema HTTPS.
 
 > [!NOTE]
 > A experiência dos novos [registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) não permite que os desenvolvedores adicione URIs com esquema HTTP na UI. Adicionar URIs HTTP para apps que assinam no trabalho ou contas escolares é suportado apenas através do editor manifesto da aplicação. Para a frente, as novas aplicações não poderão utilizar esquemas HTTP no URI de redirecionamento. No entanto, as aplicações mais antigas que contenham esquemas HTTP em URIs de redirecionamento continuarão a funcionar. Os desenvolvedores devem utilizar esquemas HTTPS nos URIs de redirecionamento.
 
+## <a name="localhost-exceptions"></a>Exceções locais
+
+Por [RFC 8252 secções 8.3](https://tools.ietf.org/html/rfc8252#section-8.3) e [7.3](https://tools.ietf.org/html/rfc8252#section-7.3), "loopback" ou "localhost" redireccionamento URIs vêm com duas considerações especiais:
+
+1. `http`Os esquemas URI são aceitáveis, uma vez que o redirecionamento nunca sai do dispositivo.  Isto significa que `http://127.0.0.1/myApp` é aceitável, bem como `https://127.0.0.1/myApp` . . 
+1. Devido às gamas portuárias efémeras frequentemente necessárias por aplicações nativas, o componente portuário (por `:5001` exemplo, ou `:443` ) é ignorado para efeitos de correspondência de um URI de redirecionamento.  Como resultado, `http://127.0.0.1:5000/MyApp` e ambos o `http://127.0.0.1:1234/MyApp` `http://127.0.0.1/MyApp` jogo, bem como`http://127.0.0.1:8080/MyApp`
+
+Do ponto de vista do desenvolvimento, isto significa algumas coisas:
+
+1. Não registe uris de resposta múltipla onde apenas a porta difere.  O servidor de login escolherá um arbitrariamente e utilizará o comportamento associado a essa resposta URI (por exemplo, se é um `web` `native` redirecionamento de tipo , e `spa` tipo de direcionamento.
+1. Se precisar de registar uris de redirecionamento múltiplo na localidade local para testar diferentes fluxos durante o desenvolvimento, diferenciá-los utilizando o componente de *caminho* do URI.  `http://127.0.0.1/MyWebApp`não corresponde `http://127.0.0.1/MyNativeApp` .  
+1. Por orientação RFC, não deve ser utilizado `localhost` no URI de redirecionamento.  Em vez disso, utilize o endereço IP de retorno real - `127.0.0.1` . Isto impede que a sua aplicação seja quebrada por firewalls mal configuradas ou interfaces de rede renomeadas.
+
+>[!NOTE]
+> Neste momento, o iPv6 loopback `[::1]` () não é suportado neste momento.  Isto será adicionado mais tarde.
+
 ## <a name="restrictions-using-a-wildcard-in-uris"></a>Restrições usando um wildcard em URIs
 
-Os URIs wildcard, tais `https://*.contoso.com` como, são convenientes, mas devem ser evitados. A utilização de wildcards no URI de redirecionamento tem implicações de segurança. De acordo com a especificação OAuth 2.0 ([secção 3.1.2 do RFC 6749),](https://tools.ietf.org/html/rfc6749#section-3.1.2)um ponto final de reorientação URI deve ser um URI absoluto. 
+Os URIs wildcard, tais `https://*.contoso.com` como, são convenientes, mas devem ser evitados. A utilização de wildcards no URI de redirecionamento tem implicações de segurança. De acordo com a especificação OAuth 2.0 ([secção 3.1.2 do RFC 6749),](https://tools.ietf.org/html/rfc6749#section-3.1.2)um ponto final de reorientação URI deve ser um URI absoluto.
 
-O modelo de aplicação AD AZure não suporta URIs wildcard para aplicações configuradas para assinar em contas pessoais da Microsoft e contas de trabalho ou escola. No entanto, os URIs wildcard são permitidos para apps configuradas para assinar em trabalho ou contas escolares no inquilino AZure AD de uma organização hoje. 
- 
+O modelo de aplicação AD AZure não suporta URIs wildcard para aplicações configuradas para assinar em contas pessoais da Microsoft e contas de trabalho ou escola. No entanto, os URIs wildcard são permitidos para apps configuradas para assinar em trabalho ou contas escolares no inquilino AZure AD de uma organização hoje.
+
 > [!NOTE]
 > A experiência dos novos [registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) não permite que os desenvolvedores adicionem URIs wildcard na UI. A adição de wilcard URI para apps que assinam no trabalho ou contas escolares é suportada apenas através do editor manifesto da app. Para a frente, as novas aplicações não poderão utilizar wildcards no URI de redirecionamento. No entanto, aplicações mais antigas que contenham wildcards em URIs de redirecionamento continuarão a funcionar.
 
@@ -58,7 +76,7 @@ Se o seu cenário requer mais URIs redirecionado do que o limite máximo permiti
 
 ### <a name="use-a-state-parameter"></a>Use um parâmetro de estado
 
-Se tiver vários sub-domínios, e se o seu cenário exigir que redirecione os utilizadores após a autenticação bem sucedida para a mesma página onde começaram, usar um parâmetro de estado pode ser útil. 
+Se tiver vários sub-domínios, e se o seu cenário exigir que redirecione os utilizadores após a autenticação bem sucedida para a mesma página onde começaram, usar um parâmetro de estado pode ser útil.
 
 Nesta abordagem:
 
@@ -71,6 +89,6 @@ Nesta abordagem:
 > [!NOTE]
 > Esta abordagem permite que um cliente comprometido modifique os parâmetros adicionais enviados no parâmetro do estado, redirecionando assim o utilizador para um URL diferente, que é a [ameaça de redirecionamento aberto](https://tools.ietf.org/html/rfc6819#section-4.2.4) descrita no RFC 6819. Portanto, o cliente deve proteger estes parâmetros encriptando o estado ou verificando-o por outros meios, tais como validar o nome de domínio no URI redirecionado contra o token.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça o [manifesto da Candidatura](reference-app-manifest.md)

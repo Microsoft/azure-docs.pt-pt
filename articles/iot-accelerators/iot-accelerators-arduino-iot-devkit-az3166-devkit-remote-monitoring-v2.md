@@ -9,11 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
-ms.openlocfilehash: 6e9f9c89cf2e5e40d37a1532e688490aae294181
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed14d4cb79cb5794fa666f1bb96e062d69128d0f
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73888870"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337675"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>Ligue um dispositivo IoT DevKit ao acelerador de solução de monitorização remota
 
@@ -108,7 +109,7 @@ Para alterar a cor de um dos LEDs DevKit, utilize o método **LedColor:**
 
     ![IoT DevKit vermelho led](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-devkit-led.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se planear avançar para os tutoriais, deixe o acelerador de soluções de Monitorização Remota implementado.
 
@@ -123,10 +124,9 @@ Se tiver algum problema, consulte [as FAQs IoT DevKit](https://microsoft.github.
 * [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a ligar um dispositivo DevKit ao seu acelerador de solução de monitorização remota, aqui estão alguns passos sugeridos:
 
 * [Visão geral dos aceleradores de solução Azure IoT](https://docs.microsoft.com/azure/iot-accelerators/)
 * [Personalizar a IU](iot-accelerators-remote-monitoring-customize.md)
-* [Ligue o IoT DevKit à sua aplicação Azure IoT Central](../iot-central/core/howto-connect-devkit.md)
