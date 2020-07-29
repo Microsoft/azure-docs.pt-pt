@@ -3,16 +3,16 @@ title: Criar um VM do Windows a partir de um modelo em Azure
 description: Utilize um modelo de Gestor de Recursos e PowerShell para criar facilmente um novo VM do Windows.
 author: cynthn
 ms.service: virtual-machines-windows
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 58b8a22ff36f85f25bb6a4b22617029fe3858660
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6d0d3e6836e2f87c503ac5154a54aeb0dd1c0e26
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86998872"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87266304"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Criar uma máquina virtual do Windows a partir de um modelo do Resource Manager
 
@@ -64,7 +64,7 @@ Seguem-se alguns recursos adicionais:
 
 O último comando PowerShell do script anterior mostra o nome da máquina virtual. Para ligar à máquina virtual, consulte [como ligar e iniciar sôm numa máquina virtual Azure que executa o Windows](./connect-logon.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 - Se houver problemas com a implementação, poderá dar uma olhada nos [erros comuns de implementação do Azure com o Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md).
 - Aprenda a criar e gerir uma máquina virtual em [Criar e gerir VMs do Windows com o módulo Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

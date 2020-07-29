@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
-ms.openlocfilehash: b0ec666f2cfadc3a1571f3ed1d26c92bcbbca3a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c7e6733a9149008f6ed98ae7a7e0103f92f79f5
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83196242"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325275"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Propriedades padrão em Registos monitores Azure
 Os dados em Registos monitores Azure são [armazenados como um conjunto de registos num espaço de trabalho do Log Analytics ou na aplicação Application Insights](../log-query/logs-structure.md), cada um com um determinado tipo de dados que tem um conjunto único de propriedades. Muitos tipos de dados terão propriedades padrão que são comuns em vários tipos. Este artigo descreve estas propriedades e fornece exemplos de como pode usá-las em consultas.
@@ -207,8 +208,9 @@ union withsource = tt *
 | summarize count() by tt | sort by count_ nulls last 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia mais sobre como [os dados de registo do Azure Monitor são armazenados](../log-query/log-query-overview.md).
-- Obtenha uma lição sobre [escrever consultas de registo](../../azure-monitor/log-query/get-started-queries.md).
-- Obtenha uma lição sobre [juntar mesas em consultas de log](../../azure-monitor/log-query/joins.md).
+- Obtenha uma lição sobre [escrever consultas de registo](../log-query/get-started-queries.md).
+- Obtenha uma lição sobre [juntar mesas em consultas de log](../log-query/joins.md).
+

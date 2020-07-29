@@ -4,13 +4,14 @@ description: Introdução à criação de uma aplicação Microsoft Azure Servic
 author: suhuruli
 ms.topic: conceptual
 ms.date: 11/02/2017
+ms.custom: devx-track-java
 ms.author: suhuruli
-ms.openlocfilehash: f4cab376318bec471fa59614e5bcc716a31dc333
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 30797e68081e346ee0f31f77da15f820776337a0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260940"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324510"
 ---
 # <a name="get-started-with-reliable-services-in-java"></a>Começar com serviços fiáveis em Java
 > [!div class="op_single_selector"]

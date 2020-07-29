@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: b6b32f9eadc6677bad591f4040981c4c95bf1f76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98caca31e172f54c3e37f33c5a463790d9d27032
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82871241"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325989"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Otimize o seu ambiente SQL com a solução SQL Server Health Check no Azure Monitor
 
@@ -43,9 +44,9 @@ Depois de ter adicionado a solução e de ter concluído uma avaliação, são m
 
 Para efetuar a verificação de saúde contra os seus servidores SQL Server, eles requerem um agente e conectividade ao Azure Monitor usando um dos seguintes métodos suportados:
 
-1. Instale o [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) se o servidor ainda não estiver monitorizado pelo System Center 2016 - Gestor de Operações ou Gestor de Operações 2012 R2.
+1. Instale o [Microsoft Monitoring Agent (MMA)](../platform/agent-windows.md) se o servidor ainda não estiver monitorizado pelo System Center 2016 - Gestor de Operações ou Gestor de Operações 2012 R2.
 2. Se for monitorizado com o System Center 2016 - Gestor de Operações ou Gestor de Operações 2012 R2 e o grupo de gestão não estiver integrado com o Azure Monitor, o servidor pode ser multi-acotado com o Log Analytics para recolher dados e encaminhar para o serviço e ainda ser monitorizado pelo Gestor de Operações.  
-3. Caso contrário, se o seu grupo de gestão de Gestor de Operações estiver integrado no serviço, tem de adicionar os controladores de domínio para recolha de dados pelo serviço seguindo os passos em [adicionar computadores geridos por agentes](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) depois de ativar a solução no seu espaço de trabalho.  
+3. Caso contrário, se o seu grupo de gestão de Gestor de Operações estiver integrado no serviço, tem de adicionar os controladores de domínio para recolha de dados pelo serviço seguindo os passos em [adicionar computadores geridos por agentes](../platform/om-agents.md#connecting-operations-manager-to-azure-monitor) depois de ativar a solução no seu espaço de trabalho.  
 
 O agente no seu SQL Server que reporta a um grupo de gestão de Gestores de Operações, recolhe dados, encaminha para o seu servidor de gestão atribuído e, em seguida, é enviado diretamente de um servidor de gestão para o Azure Monitor.  Os dados não são escritos nas bases de dados do Gestor de Operações.  
 
@@ -84,7 +85,7 @@ Utilize as seguintes informações para definir o Gestor de Operações executad
    > O tipo de conta Run As deve ser Windows. A conta Run As também deve fazer parte do grupo de Administradores Locais em todos os Servidores do Windows que hospedam as instâncias do servidor SQL.
    >
    >
-5. Clique em **Guardar**.
+5. Clique em **Save** (Guardar).
 6. Modifique e execute a seguinte amostra T-SQL em cada instância do SQL Server para conceder as permissões mínimas necessárias para a Conta Run As para realizar o exame de saúde. No entanto, não precisa de o fazer se uma Conta Run As já fizer parte da função do servidor Sysadmin em instâncias do SQL Server.
 
 ```
@@ -255,5 +256,6 @@ Os resultados podem então ser exportados para o Excel para posterior revisão.
 
 * Sim, consulte a secção [de recomendações ignore](#ignore-recommendations) acima.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Faça consultas](../log-query/log-query-overview.md) para aprender a analisar dados e recomendações detalhadas do SQL Health Check.
+

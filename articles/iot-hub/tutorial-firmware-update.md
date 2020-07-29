@@ -1,6 +1,6 @@
 ---
 title: Atualizar o firmware do dispositivo através do Hub IoT do Azure | Microsoft Docs
-description: Saiba como implementar um processo de atualização de firmware de dispositivo que pode ser desencadeado a partir de uma aplicação de back-end ligada ao seu hub IoT.
+description: Saiba como implementar um processo de atualização de firmware do dispositivo que pode ser desencadeado a partir de uma aplicação de back-end ligada ao seu hub IoT.
 services: iot-hub
 author: wesmc7777
 ms.author: wesmc
@@ -11,12 +11,14 @@ ms.date: 06/28/2019
 ms.custom:
 - mvc
 - mqtt
-ms.openlocfilehash: 2eec96eee943d6fe291d054e1d73876e38f61d6d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+ms.openlocfilehash: cc5c7193914f02cf52956481f22553dcabdd6520
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769966"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324527"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutorial: Implementar um processo de atualização de firmware do dispositivo
 
@@ -36,11 +38,11 @@ Neste tutorial, vai concluir as seguintes tarefas:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Node.js. Você precisa do Node.js v10.x.x ou mais tarde na sua máquina de desenvolvimento.
+As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Node.js. Precisa de Node.js v10.x.x ou mais tarde na sua máquina de desenvolvimento.
 
 Pode transferir o Node.js para múltiplas plataformas em [nodejs.org](https://nodejs.org).
 
@@ -52,7 +54,7 @@ node --version
 
 Transfira o projeto Node.js de exemplo de https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip e extraia o arquivo ZIP.
 
-Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste tutorial utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode estar bloqueado em alguns ambientes de rede corporativa e educativa. Para obter mais informações e formas de resolver este problema, consulte [A Ligação ao IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste tutorial utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode ser bloqueado em alguns ambientes de rede corporativa e educacional. Para obter mais informações e formas de contornar esta questão, consulte [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="set-up-azure-resources"></a>Configurar recursos do Azure
 
@@ -187,11 +189,11 @@ A captura de ecrã seguinte mostra o resultado da aplicação de back-end e real
 
 ![Aplicação de back-end](./media/tutorial-firmware-update/BackEnd2.png)
 
-Uma vez que as configurações automáticas do dispositivo funcionam no momento da criação e, em seguida, a cada cinco minutos, pode não ver todas as atualizações de estado enviadas para a aplicação back-end. Também pode ver as métricas no portal na secção **Gestão de dispositivos automática -> Configuração do dispositivo IoT** do seu hub IoT:
+Uma vez que as configurações automáticas do dispositivo são executadas na hora da criação e, em seguida, a cada cinco minutos, pode não ver todas as atualizações de estado enviadas para a aplicação back-end. Também pode ver as métricas no portal na secção **Gestão de dispositivos automática -> Configuração do dispositivo IoT** do seu hub IoT:
 
 ![Ver a configuração no portal](./media/tutorial-firmware-update/portalview.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se tenciona concluir o próximo tutorial, saia do grupo de recursos e do hub do IoT e reutilize-os mais tarde.
 
@@ -206,7 +208,7 @@ az group delete --name tutorial-iot-hub-rg
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a implementar um processo de atualização de firmware para os seus dispositivos ligados. Avance para o próximo tutorial para aprender a usar ferramentas do portal Azure IoT Hub e comandos Azure CLI para testar a conectividade do dispositivo.
+Neste tutorial, aprendeu a implementar um processo de atualização de firmware para os seus dispositivos ligados. Avance para o próximo tutorial para aprender a usar as ferramentas do portal Azure IoT Hub e os comandos Azure CLI para testar a conectividade do dispositivo.
 
 > [!div class="nextstepaction"]
 > [Utilize um dispositivo simulado para testar a conectividade com o seu hub IoT](tutorial-connectivity.md)

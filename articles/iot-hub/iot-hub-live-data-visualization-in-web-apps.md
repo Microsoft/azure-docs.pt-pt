@@ -8,11 +8,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 05/31/2019
 ms.author: robinsh
-ms.openlocfilehash: 5e27cf51d50b3094adca6ce8d3846ef358f78482
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+- 'Role: Data Analytics'
+ms.openlocfilehash: 6a8f39ae5d73bade2c86a7e15efe75956c2aed24
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83201530"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327570"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualize os dados do sensor em tempo real do seu hub Azure IoT numa aplicação web
 
@@ -34,11 +38,11 @@ Neste tutorial, aprende-se a visualizar dados de sensores em tempo real que o se
 * Abra uma página web para ver os dados de temperatura e humidade em tempo real do seu hub IoT
 * (Opcional) Utilize o Azure CLI para hospedar a sua aplicação web no Azure App Service
 
-## <a name="what-you-need"></a>Do que precisa
+## <a name="what-you-need"></a>O que precisa
 
 * Complete o tutorial [de simulador on-line Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou um dos tutoriais do dispositivo; por exemplo, [Raspberry Pi com node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Estes abrangem os seguintes requisitos:
 
-  * Uma subscrição do Azure ativa.
+  * Uma subscrição ativa do Azure
   * Um hub Iot sob a sua assinatura
   * Uma aplicação de cliente que envia mensagens para o seu centro de iot
 
@@ -254,7 +258,7 @@ Se encontrar algum problema com esta amostra, experimente os passos nas seguinte
 
 * Se vir um erro ao não encontrar um pacote, pode ter executado os passos fora de ordem. Quando o site é implantado `git push` (com) o serviço de aplicações é executado , que funciona com base na versão atual do nó que `npm install` configura. Se isso for alterado na configuração mais tarde, terá de fazer uma alteração sem sentido no código e voltar a empurrar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Utilizou com sucesso a sua aplicação web para visualizar dados de sensores em tempo real a partir do seu hub IoT.
 

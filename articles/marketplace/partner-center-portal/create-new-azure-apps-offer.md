@@ -4,15 +4,15 @@ description: Conheça os passos e considerações para a criação de uma nova o
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: qianw211
-ms.author: dsindona
+author: AarathiN
+ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 6789e32cbbb1257a668e7be87a8b73a0511b6fb0
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f9d7e88e78800df07dfe82d7336324eef38b92d5
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127439"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326682"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicações do Azure
 
@@ -202,7 +202,7 @@ Aqui está um exemplo de como a informação de oferta aparece no Azure Marketpl
 3. Ligações úteis
 4. Capturas de ecrã
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>Nome
 
 O nome que introduzir aqui será mostrado aos clientes como o título da sua listagem de oferta. Este campo é pré-povoado com o texto que inseriu para **o pseudónimo Oferta** quando criou a oferta, mas pode alterar este valor. Este nome pode ser comercializado (e pode incluir símbolos de marca registada ou de direitos autorais). O nome não pode ter mais de 50 caracteres e não pode incluir emojis.
 

@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2017
 ms.custom: mvc
-ms.openlocfilehash: ae4a7335394f0e2f0bd0e3ac47c36b1f61026428
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ce9bf6fe6d130cf8511db2b2351c0de01b753d81
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079592"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318407"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Utilize o Azure Application Insights para compreender de que forma os clientes estão a utilizar a sua aplicação
 
@@ -36,8 +36,8 @@ Para concluir este tutorial:
     - Desenvolvimento ASP.NET e Web
     - Desenvolvimento do Azure
 - Transfira e instale o [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
-- Implemente uma aplicação .NET no Azure e [ative o Application Insights SDK](../../azure-monitor/app/asp-net.md). 
-- [Envie telemetria da aplicação](../../azure-monitor/app/usage-overview.md#send-telemetry-from-your-app) para adicionar eventos personalizados/visualizações de páginas
+- Implemente uma aplicação .NET no Azure e [ative o Application Insights SDK](../app/asp-net.md). 
+- [Envie telemetria da aplicação](../app/usage-overview.md#send-telemetry-from-your-app) para adicionar eventos personalizados/visualizações de páginas
 - Envie [contexto do utilizador](../app/usage-send-user-context.md) para acompanhar o que um determinado utilizador faz ao longo do tempo e utilizar ao máximo as funcionalidades de utilização.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
@@ -164,4 +164,5 @@ Os **livros** combinam visualizações de dados, consultas do Analytics e textos
 Agora que já aprendeu a analisar os seus utilizadores, avance para o tutorial seguinte e aprenda a criar dashboards personalizados que combinam essas informações com outros dados úteis da aplicação.
 
 > [!div class="nextstepaction"]
-> [Criar dashboards personalizados](../../azure-monitor/learn/tutorial-app-dashboards.md)
+> [Criar dashboards personalizados](./tutorial-app-dashboards.md)
+

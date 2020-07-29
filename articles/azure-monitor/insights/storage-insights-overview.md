@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: d71201da0c4af35720a309fe0dfa068cd2c69630
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7daba35b9247443c84cedad03f252ea6858da236
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081615"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327349"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitorizar o seu serviço de armazenamento com o Azure Monitor para armazenamento
 
@@ -242,7 +242,7 @@ O número de contas de armazenamento selecionadas tem um limite de 200, independ
 
 ### <a name="how-to-change-the-coloring-and-threshold-for-availability"></a>Como alterar a coloração e o limiar de disponibilidade?
 
-Consulte a secção [de limiar de disponibilidade](storage-insights-overview.md#modify-the-availability-threshold) para os passos detalhados sobre como alterar a coloração e os limiares de disponibilidade.
+Consulte a secção [de limiar de disponibilidade](#modify-the-availability-threshold) para os passos detalhados sobre como alterar a coloração e os limiares de disponibilidade.
 
 ### <a name="how-to-analyze-and-troubleshoot-the-data-shown-in-azure-monitor-for-storage"></a>Como analisar e resolver os dados apresentados no Azure Monitor para armazenamento?
 
@@ -274,3 +274,4 @@ Cada livro é guardado na conta de armazenamento em que o guardou. Tente encontr
 * Saiba os cenários que os livros de trabalho são projetados para apoiar, como autorizar novos e personalizar relatórios existentes, e mais através da revisão [criar relatórios interativos com os livros de trabalho do Azure Monitor.](../platform/workbooks-overview.md)
 
 * Para obter um guia aprofundado sobre a utilização de Storage Analytics e outras ferramentas para identificar, diagnosticar e resolver problemas relacionados com o Armazenamento Azure, consulte [Monitor, diagnóstico e resolução de problemas do Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
+

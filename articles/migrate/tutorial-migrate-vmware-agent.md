@@ -4,12 +4,12 @@ description: Aprenda a executar uma migração baseada em agentes de VMware VMs 
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: ca06dc9d5de9853915e2aaa0d86c1a444dab415a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 707a74d0e993625d32c60f7120bf69055dc9e885
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119264"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290204"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrar VMware VMs para Azure (baseado em agente)
 
@@ -159,8 +159,8 @@ Se tiver um projeto, adicione a ferramenta da seguinte forma:
     ![Criar um projeto Azure Migrate](./media/tutorial-migrate-vmware-agent/migrate-project.png)
 
 
-4. Na **ferramenta de avaliação Select**, selecione Skip **adicionando uma ferramenta de avaliação por**  >  **enquanto Seguinte**.
-5. Na **ferramenta de migração Select**, selecione **Azure Migrate: Server Migration**  >  **Next**.
+4. Em **Selecionar ferramenta de avaliação**, selecione **Ignorar a adição de uma ferramenta de avaliação por enquanto** > **Seguinte**.
+5. Em **Selecionar ferramenta de migração**, selecione **Azure Migrate: Migração de Servidores** > **Seguinte**.
 6. Em **Analisar + adicionar ferramentas**, analise as definições e clique em **Adicionar ferramentas**
 7. Depois de adicionar a ferramenta, aparece no projeto Azure **Servers**Migrate >  >  **ferramentas de migração**de servidores .
 
@@ -177,7 +177,7 @@ Descarregue o modelo da seguinte forma:
 
     ![Detetar VMs](./media/tutorial-migrate-vmware-agent/migrate-discover.png)
 
-3. In **Discover machines**  >  **Are your machines virtualized?** **Yes, with VMWare vSphere hypervisor**
+3. In **Discover machines**  >  **Are your machines virtualized?** **Yes, with VMware vSphere hypervisor**
 4. Em **Como pretende migrar?** **Using agent-based replication**
 5. Na **região Alvo,** selecione a região de Azure para a qual pretende migrar as máquinas.
 6. **Selecione Confirme que a região-alvo para a migração é o nome da região.**
@@ -195,7 +195,7 @@ Descarregue o modelo da seguinte forma:
 
 Depois de descarregar o modelo OVF, importa-o em VMware para criar a aplicação de replicação num VMware VM que executa o Windows Server 2016.
 
-1. Inicie sessão no servidor VMware vCenter ou no anfitrião vSphere ESXi, com o VMWare vSphere Client.
+1. Inscreva-se no servidor VMware vCenter ou no vSphere ESXi com o VMware vSphere Client.
 2. No menu **'Ficheiro',** selecione **implementar o modelo OVF** para iniciar o **Assistente de Modelo de OVF**de implementação . 
 3. In **Select source**, insira a localização do OVF descarregado.
 4. Em **detalhes de revisão**, selecione **Next**.
@@ -209,7 +209,7 @@ Depois de descarregar o modelo OVF, importa-o em VMware para criar a aplicação
 
 ### <a name="start-appliance-setup"></a>Iniciar a configuração do aparelho
 
-1. Na consola VMWare vSphere Client, ligue o VM. A VM arranca para uma experiência de instalação do Windows Server 2016.
+1. Na consola VMware vSphere Client, ligue o VM. A VM arranca para uma experiência de instalação do Windows Server 2016.
 2. Aceite o contrato de licença e introduza uma palavra-passe de administrador.
 3. Após o fim da instalação, inscreva-se no VM como administrador, utilizando a palavra-passe de administração. A primeira vez que iniciar seduca, a ferramenta de configuração do aparelho de replicação (Ferramenta de Configuração de Recuperação do Local Azure) começa dentro de alguns segundos.
 5. Introduza um nome a utilizar para registar o aparelho com a Migração do Servidor. Em seguida, clique em **Seguinte**.
@@ -391,6 +391,6 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
 
 
 
- ## <a name="next-steps"></a>Próximos passos
+ ## <a name="next-steps"></a>Passos seguintes
 
 Investigue a [jornada de migração](/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Azure Cloud Adopt.

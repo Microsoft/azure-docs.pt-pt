@@ -4,12 +4,12 @@ description: Saiba como permitir a monitorização de um novo cluster do Serviç
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 86ace49ea60bf1bd11633b5a883401f678ecaf8d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7706df4f457167f5bb4d17f1d506594615364380
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516639"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320328"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Permitir a monitorização de um novo cluster Azure Kubernetes Service (AKS)
 
@@ -29,7 +29,7 @@ Para permitir a monitorização de um novo cluster AKS criado com O Azure CLI, s
 
 ## <a name="enable-using-terraform"></a>Ativar a utilização do Terraform
 
-Se estiver [a implementar um novo cluster AKS utilizando o Terraform,](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)especifique os argumentos necessários no perfil [para criar um espaço de trabalho Log Analytics](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_workspace.html) se não optar por especificar um existente. 
+Se estiver [a implementar um novo cluster AKS utilizando o Terraform,](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks)especifique os argumentos necessários no perfil [para criar um espaço de trabalho Log Analytics](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_workspace.html) se não optar por especificar um existente. 
 
 >[!NOTE]
 >Se optar por utilizar o Terraform, deve estar a executar a versão 1.17.0 ou superior do Fornecedor Terraform Azure RM.
@@ -113,8 +113,9 @@ Após alguns minutos, o comando completa e devolve informações formatadas com 
   }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Se sentir problemas ao tentar embarcar na solução, reveja o [guia de resolução de problemas](container-insights-troubleshoot.md)
 
 * Com a monitorização habilitada a recolher a saúde e a utilização de recursos do seu cluster AKS e cargas de trabalho que os executam, aprenda [a utilizar o](container-insights-analyze.md) Azure Monitor para recipientes.
+

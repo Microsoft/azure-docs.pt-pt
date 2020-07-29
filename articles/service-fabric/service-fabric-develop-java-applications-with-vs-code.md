@@ -4,12 +4,14 @@ description: Este artigo mostra como construir, implementar e depurar aplicaçõ
 author: peterpogorski
 ms.topic: article
 ms.date: 06/29/2018
+ms.custom: devx-track-java
 ms.author: pepogors
-ms.openlocfilehash: 999dbb8c36c4e0413f287b2a73cf39ab4acd15f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc65deb924a9f3367c2ea1d7c71544743ccf2697
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75610051"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327366"
 ---
 # <a name="develop-java-service-fabric-applications-with-visual-studio-code"></a>Desenvolver aplicações de tecido de serviço java com código de estúdio visual
 
@@ -119,6 +121,6 @@ Para definir um ponto de rutura, complete os seguintes passos:
        
 5. Quando terminar de depurar, pode utilizar o **comando De Serviço: Remover** o comando de Aplicação para remover a aplicação de votação do seu cluster local. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [desenvolver e depurar aplicações de tecido de serviço C# com código VS](./service-fabric-develop-csharp-applications-with-vs-code.md).

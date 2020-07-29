@@ -8,11 +8,15 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: asrastog
-ms.openlocfilehash: 3b32468c9795f603ac38854415bca9d653d7c101
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+ms.openlocfilehash: 4d33a47e0498c82dff967242cfbc12a89c94a3b5
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84674982"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327740"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Criar e ler mensagens do Hub IoT
 
@@ -118,7 +122,7 @@ A propriedade **iothub-connection-auth-method** contém um objeto serializado JS
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre os limites do tamanho da mensagem no IoT Hub, consulte [as quotas do IoT Hub e o estrangulamento.](iot-hub-devguide-quotas-throttling.md)
 

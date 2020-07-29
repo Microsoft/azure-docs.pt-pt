@@ -5,21 +5,23 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: c56295f1e56e4ba3b6af9caf8ba38ce1f0552eeb
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: 11c1c307d00b9347081a313308ad2467086ec208
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101713"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327400"
 ---
 # <a name="saas-offer-creation-checklist-in-partner-center"></a>SaaS oferecem lista de verificação de criação no Partner Center
 
-O processo de criação de oferta saaS irá levá-lo através de várias páginas.  Aqui estão os detalhes que pode fornecer em cada página, com links para saber mais sobre cada item.
+O processo de criação de oferta saaS leva-o através de várias páginas.  Este artigo descreve os detalhes que pode fornecer em cada página, com links para saber mais sobre cada item.
+
+> [!NOTE]
+> Se estiver a criar uma oferta de SaaS transacionável, certifique-se de que implementa a integração com [APIs de cumprimento saaS.](./pc-saas-fulfillment-apis.md)  A integração com as APIs é a única forma de a transação no Mercado funcionar corretamente. Também precisa de se certificar de que a sua aplicação utiliza a autenticação Azure AD com um único sinal (SSO). Consulte [a Azure AD e as ofertas transacionáveis da SaaS no mercado comercial.](../azure-ad-saas.md)
 
 Os itens que é obrigado a fornecer ou especificar são anotados abaixo.  Algumas áreas são opcionais ou têm valores predefinidos fornecidos, que pode alterar conforme desejado.  Não tens de trabalhar nestas secções na ordem aqui listada.
-
->[!Note]
->Se estiver a criar uma oferta de SaaS transacionável, certifique-se de que implementa a integração com [APIs de cumprimento saaS.](./pc-saas-fulfillment-apis.md)  A integração com as APIs é a única forma de a transação no Mercado funcionar corretamente.
 
 | **Item**    | **Objetivo**  |
 | :---------- | :-------------------|
@@ -28,7 +30,7 @@ Os itens que é obrigado a fornecer ou especificar são anotados abaixo.  Alguma
 | [Página de propriedades](#properties-page) | Defina as categorias e indústrias usadas para agrupar a sua oferta nos mercados, os contratos legais que suportam a sua oferta e a sua versão de aplicação. |
 | [Página de listagem de oferta](#offer-listing-page) | Defina os detalhes da oferta a serem exibidos no mercado, incluindo descrições da sua oferta e ativos de marketing.|
 | [Página de pré-visualização](#preview-page) | Defina um Público de pré-visualização limitado para lançar a sua oferta antes de publicar a sua oferta ao vivo para o público(s) mais amplo do mercado.|
-| [Oferta página de configuração técnica](#technical-configuration-page)  |  Só disponível se escolher para vender a oferta através da Microsoft.  Defina os detalhes técnicos (URL da página de aterragem, URL de webhook de ligação, ID do inquilino Azure AD e ID da aplicação AD Azure) usados pelo marketplace para se conectar à sua oferta.  Estes parâmetros são necessários para se integrar corretamente com a realização do SaaS e com as APIs de faturação medidos pelo Marketplace.|
+| [Página de configuração técnica](#technical-configuration-page)  |  Só disponível se escolher para vender a oferta através da Microsoft.  Defina os detalhes técnicos (URL da página de aterragem, URL de webhook de ligação, ID do inquilino Azure AD e ID da aplicação AD Azure) usados pelo marketplace para se conectar à sua oferta.  Estes parâmetros são necessários para se integrar corretamente com a realização do SaaS e com as APIs de faturação medidos pelo Marketplace.|
 | [**Novo Plano Modal**](#plan-identity-modal) | Recolhe informações de identidade do plano.  |
 | [Página de listagem de planos](#plan-listing-page)  | Só disponível se escolher para vender a oferta através da Microsoft. Defina os detalhes utilizados para listar o Plano no mercado.  |
 | [Página de disponibilidade de preços de plano &](#plan-pricing--availability-page)  | Só disponível se escolher para vender a oferta através da Microsoft.  Recolhe as características do negócio (modelo de preços), público e disponibilidade de mercado para cada plano (versão) da sua oferta.  |
@@ -36,10 +38,9 @@ Os itens que é obrigado a fornecer ou especificar são anotados abaixo.  Alguma
 | Página de configuração técnica do test drive  | Só disponível se escolher para oferecer um test drive para a sua oferta. Defina os detalhes técnicos para a demonstração (ou "test drive") que permitirá que os clientes experimentem a sua oferta antes de se comprometerem a comprá-la.  |
 | [Página de comentário e publicação](#review-and-publish-page)  | Selecione as alterações que pretende publicar, consulte o estado de cada página e forneça notas à equipa de certificação.  |
 
+## <a name="new-offer-modal"></a>Nova oferta modal
 
-## <a name="new-offer-modal"></a>Nova oferta modal 
-
-As primeiras informações que lhe serão solicitadas são um ID e um pseudónimo para a sua oferta. 
+As primeiras informações que lhe serão solicitadas são um ID e um pseudónimo para a sua oferta.
 
 | **Nome do campo**    | **Notas**   |  
 | :---------------- | :-----------| 
@@ -79,7 +80,7 @@ A página de listagem é onde fornece o texto e imagens que os clientes vêem ao
 
 | **Nome do campo**    | **Notas**   |
 | :---------------- | :-----------| 
-| Name  | Obrigatório, máximo 50 chars. |
+| Nome  | Obrigatório, máximo 50 chars. |
 | Resumo  | Obrigatório, máximo 100 chars. | 
 | Descrição  | Obrigatório, máximo 3000 chars. |
 | Instruções de início  | Obrigatório, máximo 3000 chars. |
@@ -106,6 +107,9 @@ A página de pré-visualização é onde especifica o público para ter acesso �
 ## <a name="technical-configuration-page"></a>Página de configuração técnica 
 
 A página de configuração técnica é onde especifica os detalhes técnicos utilizados pela Microsoft para se ligar à sua oferta. Esta página não é visível para si se decidiu não vender através da Microsoft.
+
+> [!NOTE]
+> Para ofertas transtáveis, você deve criar uma página de aterragem e sua aplicação deve usar a autenticação AD AZure com um único sinal em (SSO). Para mais informações, consulte [a Azure AD e as ofertas transacionáveis da SaaS no mercado comercial.](../azure-ad-saas.md)
 
 | **Nome do campo**    | **Notas**   |  
 | :---------------- | :-----------| 
@@ -161,6 +165,6 @@ Só disponível se escolher para oferecer um test drive para a sua oferta. Defin
 | :---------------- | :-----------| 
 | Notas para certificação  | Opcional. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma nova oferta SaaS](./create-new-saas-offer.md)

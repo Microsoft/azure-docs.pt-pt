@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: 07c38cbd2d77a3cca594acd974705af35d8189b9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7718bd5cbc3c3fc3c9632818f769c05cd1617361
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516350"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321875"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Colete os registos de atividades do Azure no Azure Monitor através dos inquilinos do Azure Ative Directory (legado)
 
@@ -23,7 +23,7 @@ Este artigo passa por um método para recolher registos de atividade do Azure nu
 
 Se o espaço de trabalho Log Analytics estiver na mesma subscrição do Azure, ou numa subscrição diferente, mas no mesmo Diretório Ativo Azure, utilize os passos no [Registo e analise os registos de atividade do Azure no log analytics do espaço de trabalho no Azure Monitor](./activity-log.md) para recolher registos de Atividade Azure.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 A estratégia utilizada neste cenário consiste em fazer com que o Azure Activity Log envie eventos para um [Hub de Eventos](../../event-hubs/event-hubs-about.md), onde uma [aplicação lógica](../../logic-apps/logic-apps-overview.md) os envia para a sua área de trabalho do Log Analytics. 
 
@@ -335,9 +335,10 @@ O último passo é verificar a área de trabalho do Log Analytics, para confirma
 
 ![testar a aplicação lógica](media/collect-activity-logs-subscriptions/log-analytics-results.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, criou uma aplicação lógica para ler Registos de Atividades Azure a partir de um Centro de Eventos e enviá-los para o espaço de trabalho Log Analytics para análise. Para saber mais sobre a visualização de dados num espaço de trabalho, incluindo a criação de dashboards, reveja o tutorial para visualizar dados.
 
 > [!div class="nextstepaction"]
-> [Visualize Log Search data tutorial](./../../azure-monitor/learn/tutorial-logs-dashboards.md) (Tutorial sobre como Visualizar dados da Pesquisa de Registos)
+> [Visualize Log Search data tutorial](../learn/tutorial-logs-dashboards.md) (Tutorial sobre como Visualizar dados da Pesquisa de Registos)
+

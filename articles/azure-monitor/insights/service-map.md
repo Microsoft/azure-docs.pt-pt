@@ -6,27 +6,27 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: bfd25c2572e91c2984f2845e08941614fff65570
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 77684ffef6be988dbb6b7057ba8c56f5227007b6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539776"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326074"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilizar a solução Mapa de Serviços no Azure
 
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Com o Mapa de Serviços, pode ver os seus servidores da mesma forma como os conceptualiza: como sistemas interligados que fornecem serviços críticos. O Mapa de Serviços mostra as ligações entre os servidores, os processos, a latência da ligação de entrada e de saída e as portas em qualquer arquitetura ligada por TCP, em que a única configuração necessária é a instalação de um agente.
 
-Este artigo descreve os detalhes do embarque e utilização do Mapa de Serviços. Para obter informações sobre a configuração dos pré-requisitos para esta solução, consulte [Ativar o Monitor Azure para a visão geral dos VMs](vminsights-enable-overview.md#prerequisites). Para resumir, precisa do seguinte:
+Este artigo descreve os detalhes do embarque e utilização do Mapa de Serviços. Os pré-requisitos da solução são os seguintes:
 
-* Um espaço de trabalho Log Analytics para permitir esta solução.
+* Um espaço de trabalho Log Analytics numa [região apoiada.](vminsights-configure-workspace.md#supported-regions)
 
-* O agente Log Analytics instalado no computador Windows ou servidor Linux configurado para reportar o mesmo espaço de trabalho com o quais ativou a solução.
+* O [agente Log Analytics](vminsights-enable-overview.md#agents) instalado no computador Windows ou servidor Linux ligado ao mesmo espaço de trabalho com o que ativou a solução.
 
-* O agente Desapeito instalado no computador Windows ou no servidor Linux.
+* O [agente Desapeito](vminsights-enable-overview.md#agents) instalado no computador Windows ou no servidor Linux.
 
 >[!NOTE]
->Se já implementou o Mapa de Serviços, pode agora também ver os seus mapas no Azure Monitor para VMs, que inclui funcionalidades adicionais para monitorizar a saúde e o desempenho do VM. Para saber mais, consulte [o Azure Monitor para obter uma visão geral dos VMs](../../azure-monitor/insights/vminsights-overview.md). Para saber mais sobre as diferenças entre a solução de Mapa de Serviço e o Monitor Azure para a funcionalidade mapa de VMs, consulte as seguintes [FAQ](../faq.md#azure-monitor-for-vms).
+>Se já implementou o Mapa de Serviços, pode agora também ver os seus mapas no Azure Monitor para VMs, que inclui funcionalidades adicionais para monitorizar a saúde e o desempenho do VM. Para saber mais, consulte [o Azure Monitor para obter uma visão geral dos VMs](./vminsights-overview.md). Para saber mais sobre as diferenças entre a solução de Mapa de Serviço e o Monitor Azure para a funcionalidade mapa de VMs, consulte as seguintes [FAQ](../faq.md#azure-monitor-for-vms).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -34,7 +34,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 ## <a name="enable-service-map"></a>Ativar mapa de serviço
 
-1. Ativar a solução de Mapa de Serviço a partir do [mercado Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) ou utilizando o processo descrito nas [soluções de monitorização Add da Galeria de Soluções.](solutions.md)
+1. Ativar a solução de Mapa de Serviços a partir do [Mercado Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) ou utilizando o processo descrito nas [soluções de monitorização Add da Galeria de Soluções.](solutions.md)
 1. [Instale o agente Desac dependência no Windows](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-windows) ou [instale o agente Desadependição no Linux](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-linux) em cada computador onde pretende obter dados. O Agente de Dependência pode monitorizar as ligações dos vizinhos imediatos, pelo que poderá não precisar de um agente em cada computador.
 
 Aceda ao Mapa de Serviços no portal Azure a partir do seu espaço de trabalho Log Analytics e selecione as **soluções** de opção a partir do painel esquerdo.<br><br> ![Selecione a opção Soluções no espaço de ](./media/service-map/select-solution-from-workspace.png) trabalho.<br> A partir da lista de soluções, selecione **ServiceMap (workspaceName)** e na página de visão geral do Mapa de Serviço clique no tile resumo do Mapa de Serviço.<br><br> ![Azulejo sumário do mapa de serviço ](./media/service-map/service-map-summary-tile.png) .
@@ -304,7 +304,7 @@ O **painel de atualizações** da máquina exibe dados da solução de Gestão d
 
 ## <a name="log-analytics-records"></a>Registos do Log Analytics
 
-O computador do Mapa de Serviço e os dados de inventário de processos estão disponíveis para [pesquisa](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics. Pode aplicar estes dados em cenários que incluem planeamento de migração, análise de capacidade, descoberta e resolução de problemas de desempenho a pedido.
+O computador do Mapa de Serviço e os dados de inventário de processos estão disponíveis para [pesquisa](../log-query/log-query-overview.md) no Log Analytics. Pode aplicar estes dados em cenários que incluem planeamento de migração, análise de capacidade, descoberta e resolução de problemas de desempenho a pedido.
 
 Um registo é gerado por hora para cada computador e processo único, além dos registos que são gerados quando um processo ou computador começa ou está a bordo do Mapa de Serviço. Estes registos têm as propriedades nas seguintes tabelas. Os campos e valores no mapa de eventos ServiceMapComputer_CL para os campos do recurso Máquina na API do ServiceMap Azure Resource Manager. Os campos e valores no mapa de eventos ServiceMapProcess_CL para os campos do recurso processuais na API do ServiceMap Azure Resource Manager. O campo ResourceName_s corresponde ao campo de nomes no recurso correspondente ao Gestor de Recursos. 
 
@@ -548,9 +548,9 @@ A Microsoft recolhe automaticamente dados de utilização e desempenho através 
 
 Para obter mais informações sobre a recolha e utilização de dados, consulte a [Declaração de Privacidade dos Serviços Online da Microsoft](https://go.microsoft.com/fwlink/?LinkId=512132).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [pesquisas de registo](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics para recuperar dados recolhidos pelo Mapa de Serviços.
+Saiba mais sobre [pesquisas de registo](../log-query/log-query-overview.md) no Log Analytics para recuperar dados recolhidos pelo Mapa de Serviços.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
@@ -603,3 +603,4 @@ Verifique o `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` 
 ## <a name="suggestions"></a>Sugestões
 
 Tem algum feedback sobre o Mapa de Serviços ou esta documentação?  Visite a nossa [página De Voz do Utilizador,](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map)onde pode sugerir funcionalidades ou votar as sugestões existentes.
+

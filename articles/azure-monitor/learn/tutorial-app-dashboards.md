@@ -7,12 +7,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/3/2019
 ms.custom: mvc
-ms.openlocfilehash: caf8b1899cad95ade6297e78e8f2cf35939ef189
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a08e00b2debce970bdbd385b785806c8636e5946
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77661639"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318424"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Criar dashboards de KPI personalizados com o Azure Application Insights
 
@@ -23,7 +23,7 @@ Pode criar múltiplos dashboards no portal do Azure em que cada um inclui mosaic
 > * Adicionar um mosaico a partir da Galeria de Mosaicos
 > * Adicionar métricas padrão no Application Insights ao dashboard
 > * Adicionar um gráfico de métricas personalizado no Application Insights ao dashboard
-> * Adicione os resultados de uma consulta de Registos (Analytics) ao painel de instrumentos
+> * Adicione os resultados de uma consulta de Logs (Analytics) ao painel de instrumentos
 
 
 
@@ -31,7 +31,7 @@ Pode criar múltiplos dashboards no portal do Azure em que cada um inclui mosaic
 
 Para concluir este tutorial:
 
-- Implemente uma aplicação .NET no Azure e [ative o Application Insights SDK](../../azure-monitor/app/asp-net.md).
+- Implemente uma aplicação .NET no Azure e [ative o Application Insights SDK](../app/asp-net.md).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
@@ -39,28 +39,28 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 ## <a name="create-a-new-dashboard"></a>Criar um novo dashboard
 Um único dashboard pode conter recursos de várias aplicações, grupos de recursos e subscrições.  Comece o tutorial ao criar um novo dashboard para a sua aplicação.  
 
-1. No painel do painel de instrumentos, selecione Novo painel de **instrumentos**.
+1. No painel de instrumentos, selecione Novo painel de **instrumentos**.
 
    ![Novo dashboard](media/tutorial-app-dashboards/1newdashboard.png)
 
 1. Escreva um nome para o dashboard.
-1. Veja a **Galeria de Mosaicos** para obter uma variedade de mosaicos que pode adicionar ao dashboard.  Além de adicionar azulejos da galeria, pode fixar gráficos e outras vistas diretamente de Application Insights para o dashboard.
+1. Veja a **Galeria de Mosaicos** para obter uma variedade de mosaicos que pode adicionar ao dashboard.  Além de adicionar azulejos da galeria, pode pin gráficos e outras vistas diretamente de Application Insights para o dashboard.
 1. Localize o mosaico **Markdown** e arraste-o para o dashboard.  Este azulejo permite-lhe adicionar texto formatado em marcação, o que é ideal para adicionar texto descritivo ao seu painel de instrumentos.
 1. Adicione texto às propriedades do mosaico e redimensione-o na tela do dashboard.
     
     ![Editar mosaico Markdown](media/tutorial-app-dashboards/2dashboard-text.png)
 
-1. Clique em **Personalizar na** parte superior do ecrã para sair do modo de personalização do azulejo.
+1. Clique em **personalizar** na parte superior do ecrã para sair do modo de personalização do azulejo.
 
 ## <a name="add-health-overview"></a>Adicionar descrição geral do estado de funcionamento
-Um dashboard com texto estático não é muito interessante, por isso adicione agora um azulejo da Application Insights para mostrar informações sobre a sua aplicação.  Pode adicionar mosaicos do Application Insights a partir da Galeria de Mosaicos ou afixá-los diretamente a partir dos ecrãs do Application Insights.  Isto permite-lhe configurar gráficos e vistas com os quais já está familiarizado antes de afixá-los ao dashboard.  Comece por adicionar a descrição geral do estado de funcionamento padrão para a sua aplicação.  Isto não requer nenhuma configuração e permite uma personalização mínima no dashboard.
+Um dashboard com texto estático não é muito interessante, por isso adicione agora um azulejo do Application Insights para mostrar informações sobre a sua aplicação.  Pode adicionar mosaicos do Application Insights a partir da Galeria de Mosaicos ou afixá-los diretamente a partir dos ecrãs do Application Insights.  Isto permite-lhe configurar gráficos e vistas com os quais já está familiarizado antes de afixá-los ao dashboard.  Comece por adicionar a descrição geral do estado de funcionamento padrão para a sua aplicação.  Isto não requer nenhuma configuração e permite uma personalização mínima no dashboard.
 
 
 1. Selecione o seu recurso **Application Insights** no ecrã principal.
-2. No painel **de visão geral,** ![clique](media/tutorial-app-dashboards/pushpin.png) no ícone do pino do pino para adicionar o azulejo ao último painel de instrumentos que estava a ver.  
+2. No **painel de visão geral,** clique no ícone do pino do pino do pino ![ para adicionar o azulejo ao último painel de ](media/tutorial-app-dashboards/pushpin.png) instrumentos que estava a ver.  
  
-3. Na parte superior direita, aparecerá uma notificação de que o seu azulejo estava preso no seu painel de instrumentos. Clique **em Pinned para dashboard** na notificação para voltar ao seu painel de instrumentos ou utilizar o painel do painel de instrumentos.
-4. O azulejo é agora adicionado ao seu painel. Selecione **Editar** para alterar o posicionamento do azulejo. Clique e arraste-o para a posição e, em seguida, clique em **Fazer personalizar**. O dashboard tem agora um mosaico algumas informações úteis.
+3. No topo direito, aparecerá uma notificação de que o seu azulejo estava preso ao seu painel de instrumentos. Clique em **Pinned to dashboard** na notificação para voltar ao seu painel de instrumentos ou utilizar o painel de instrumentos.
+4. Esse azulejo é agora adicionado ao seu painel. **Selecione Editar** para alterar o posicionamento do azulejo. Clique e arraste o mesmo para a posição e, em seguida, clique em **Fazer a personalização**. O dashboard tem agora um mosaico algumas informações úteis.
 
     ![Dashboard com linha cronológica de Descrição Geral](media/tutorial-app-dashboards/4dashboard-edit.png)
 
@@ -73,24 +73,24 @@ O painel **Métricas** permite-lhe criar um gráfico de uma métrica recolhida p
 
     ![Adicionar métrica](media/tutorial-app-dashboards/metrics.png)
 
-4. Selecione **Pin para painel risado** à direita. Esta ação adiciona o mosaico ao último dashboard em que estava a trabalhar.
+4. Selecione **Pin para painel** à direita. Esta ação adiciona o mosaico ao último dashboard em que estava a trabalhar.
 
-3.  Na parte superior direita, aparecerá uma notificação de que o seu azulejo estava preso no seu painel de instrumentos. Clique **em Pinned para dashboard** na notificação para voltar ao seu painel de instrumentos ou use a lâmina do painel de instrumentos.
+3.  No topo direito, aparecerá uma notificação de que o seu azulejo estava preso ao seu painel de instrumentos. Clique em **Pinned to dashboard** na notificação para voltar ao seu painel de instrumentos ou utilizar a lâmina do painel de instrumentos.
 
-4. O azulejo é agora adicionado ao seu painel. Selecione **Editar** para alterar o posicionamento do azulejo. Clique e arraste-o para a posição e, em seguida, clique em **Fazer personalizar**.
+4. Esse azulejo é agora adicionado ao seu painel. **Selecione Editar** para alterar o posicionamento do azulejo. Clique e arraste o mesmo para a posição e, em seguida, clique em **Fazer a personalização**.
 
-## <a name="add-logs-analytics-query"></a>Adicionar consulta de registos (Analytics)
-O Azure Application Insights Logs (Analytics) fornece uma linguagem de consulta rica que lhe permite analisar todos os dados recolhidos Insights de Aplicação. Tal como os gráficos e outras vistas, pode adicionar a saída de uma consulta de registos ao seu painel de instrumentos.
+## <a name="add-logs-analytics-query"></a>Adicionar consulta de Logs (Analytics)
+O Azure Application Insights Logs (Analytics) fornece uma linguagem de consulta rica que lhe permite analisar todos os dados recolhidos Insights de Aplicação. Tal como gráficos e outras vistas, pode adicionar a saída de uma consulta de registos ao seu painel de instrumentos.
 
-Uma vez que o Azure Applications Insights Logs (Analytics) é um serviço separado, precisa de partilhar o seu painel de instrumentos para que inclua uma consulta de registos. Quando partilha um dashboard Azure, publica-o como um recurso Azure, que pode disponibilizá-lo a outros utilizadores e recursos.  
+Uma vez que o Azure Applications Insights Logs (Analytics) é um serviço separado, precisa de partilhar o seu dashboard para que inclua uma consulta de registos. Quando partilha um dashboard Azure, publica-o como um recurso Azure, que pode disponibilizá-lo a outros utilizadores e recursos.  
 
 1. Na parte superior do ecrã do dashboard, clique em **Partilhar**.
 
     ![Publicar o dashboard](media/tutorial-app-dashboards/8dashboard-share.png)
 
-2. Mantenha o mesmo **Nome do dashboard** e selecione o **Nome da Subscrição** para partilhar o dashboard.  Clique em **Publicar**.  O dashboard está agora disponível para outros serviços e subscrições.  Opcionalmente, pode definir utilizadores específicos que devem ter acesso ao dashboard.
+2. Mantenha o mesmo **Nome do dashboard** e selecione o **Nome da Subscrição** para partilhar o dashboard.  Clique em **Publish** (Publicar).  O dashboard está agora disponível para outros serviços e subscrições.  Opcionalmente, pode definir utilizadores específicos que devem ter acesso ao dashboard.
 1. Selecione o seu recurso **Application Insights** no ecrã principal.
-2. Clique em **Registos (Analytics)** à esquerda sob monitorização para abrir o portal Registos (Analytics).
+2. Clique em **Registos (Analytics)** à esquerda sob monitorização para abrir o portal Logs (Analytics).
 3. Escreva a consulta seguinte, que devolve as 10 páginas mais pedidas e a respetiva contagem de pedidos:
 
     ``` Kusto
@@ -101,9 +101,9 @@ Uma vez que o Azure Applications Insights Logs (Analytics) é um serviço separa
     ```
 
 4. Clique em **Executar** para validar os resultados da consulta.
-5. Clique no ícone do pino ![Ícone de afixar](media/tutorial-app-dashboards/pushpin.png) e selecione o nome do seu painel de instrumentos. A razão pela qual esta opção tem seleciona um dashboard diferente dos passos anteriores onde o último dashboard foi utilizado é porque a consola Logs (Analytics) é um serviço separado e precisa selecionar de todos os dashboards partilhados disponíveis.
+5. Clique no ícone do pino ![Ícone de afixar](media/tutorial-app-dashboards/pushpin.png) e selecione o nome do seu painel de instrumentos. A razão pela qual esta opção tem que selecionar um dashboard diferente dos passos anteriores onde o último dashboard foi usado é porque a consola Logs (Analytics) é um serviço separado e precisa selecionar de todos os dashboards partilhados disponíveis.
 
-5. Antes de voltar ao painel de instrumentos, adicione outra consulta, mas desta vez torna-a como um gráfico para que veja as diferentes formas de visualizar uma consulta de logs num painel de instrumentos. Comece com a consulta seguinte que resume as 10 principais operações com a maioria das exceções.
+5. Antes de voltar ao painel, adicione outra consulta, mas desta vez torná-la como um gráfico para que veja as diferentes formas de visualizar uma consulta de registos num dashboard. Comece com a consulta seguinte que resume as 10 principais operações com a maioria das exceções.
 
     ``` Kusto
     exceptions
@@ -114,17 +114,18 @@ Uma vez que o Azure Applications Insights Logs (Analytics) é um serviço separa
 
 6. Selecione **Gráfico** e, em seguida, mude para **Anel** para visualizar os resultados.
 
-    ![Gráfico de logs (Analytics)](media/tutorial-app-dashboards/11querychart.png)
+    ![Gráfico de registos (Analytics)](media/tutorial-app-dashboards/11querychart.png)
 
-6. Clique no ícone do pino ![Ícone de afixar](media/tutorial-app-dashboards/pushpin.png) na parte superior direita para fixar o gráfico no seu painel de instrumentos e desta vez selecione o link para voltar ao seu painel de instrumentos.
-4. Os resultados das consultas estão agora adicionados ao dashboard no formato que selecionou.  Clique e arraste cada um para a posição e, em seguida, clique em **Fazer personalizar**.
+6. Clique no ícone do pino ![Ícone de afixar](media/tutorial-app-dashboards/pushpin.png) no topo direito para fixar a tabela no seu painel de instrumentos e desta vez selecione o link para voltar ao seu painel de instrumentos.
+4. Os resultados das consultas estão agora adicionados ao dashboard no formato que selecionou.  Clique e arraste cada um para a posição e, em seguida, clique em **Fazer a personalização**.
 5. Selecione o ícone do lápis ![Ícone de lápis](media/tutorial-app-dashboards/pencil.png) em cada título para dar-lhes um título descritivo.
 
-5. Selecione **Partilhar** para republicar as suas alterações no seu dashboard que agora inclui uma variedade de gráficos e visualizações a partir de Insights de Aplicação.
+5. Selecione **Partilhar** para republicar as suas alterações no seu painel de instrumentos que agora inclui uma variedade de gráficos e visualizações de Insights de Aplicação.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 Agora que aprendeu a criar dashboards personalizados, veja a restante documentação do Application Insights, incluindo um caso prático.
 
 > [!div class="nextstepaction"]
-> [Diagnósticos avançados](../../azure-monitor/app/devops.md)
+> [Diagnósticos avançados](../app/devops.md)
+

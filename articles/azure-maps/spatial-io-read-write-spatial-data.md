@@ -8,12 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 633af1475266e39e9c8dd278a018316c36e6491b
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: a482b860ae13e817727ca0c3848a598fe3632136
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124413"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87277592"
 ---
 # <a name="read-and-write-spatial-data"></a>Ler e escrever dados espaciais
 

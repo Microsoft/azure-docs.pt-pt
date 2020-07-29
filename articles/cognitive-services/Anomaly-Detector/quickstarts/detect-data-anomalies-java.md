@@ -9,13 +9,14 @@ ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 06/30/2020
+ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: 0021548779409272dee40021dc5f56eb76aa7d96
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 42edf9cd1687314f2ef168969791cb39f43851d3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985589"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323694"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Quickstart: Detete anomalias nos dados da sua série de tempo usando o Detetor de Anomalia REST API e Java
 

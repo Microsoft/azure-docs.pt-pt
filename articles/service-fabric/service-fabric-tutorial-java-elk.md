@@ -1,17 +1,17 @@
 ---
-title: Monitorize as suas aplicações em Tecido de Serviço utilizando ELK em Azure
+title: Monitorize as suas aplicações em Tecido de Serviço usando ELK in Azure
 description: Neste tutorial, saiba como configurar o ELK e monitorizar as suas aplicações do Service Fabric.
 author: suhuruli
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: suhuruli
-ms.custom: mvc
-ms.openlocfilehash: b283982e11449d234da966f15b86cc5b638a026c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-java
+ms.openlocfilehash: b27711158c10b0f7fa78875aec7f9c63c166258c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75376666"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327179"
 ---
 # <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>Tutorial: Monitorizar as aplicações do Service Fabric com o ELK
 
@@ -35,14 +35,14 @@ Nesta série de tutoriais, ficará a saber como:
 
 Antes de começar este tutorial:
 
-* Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Configure a sua aplicação para emitir os registos para a localização especificada na [segunda parte](service-fabric-tutorial-debug-log-local-cluster.md).
 * Conclua a [terceira parte](service-fabric-tutorial-java-deploy-azure.md) e tenha um cluster do Service Fabric em execução configurado para enviar registos para os Hubs de Eventos.
 * A política nos Hubs de Eventos com a permissão "Escutar" e a chave primária associada da terceira série.
 
 ## <a name="download-the-voting-sample-application"></a>Transferir a aplicação de votação de exemplo
 
-Se não construiu a aplicação da amostra de voto na [primeira parte desta série tutorial,](service-fabric-tutorial-create-java-app.md)pode descarregá-la. Numa janela do comando, execute o seguinte comando para clonar o repositório da aplicação de exemplo para o seu computador local.
+Se não tiver construído a aplicação da amostra de voto na [primeira parte desta série tutorial,](service-fabric-tutorial-create-java-app.md)pode descarregá-la. Numa janela do comando, execute o seguinte comando para clonar o repositório da aplicação de exemplo para o seu computador local.
 
 ```bash
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
@@ -140,7 +140,7 @@ Pode utilizar um ambiente ELK pré-configurado para este tutorial e, se já tive
     curl 'localhost:9200/_cat/indices?v'
     ```
 
-8. Aceda ao seu dashboard Kibana em **http:\//SERVER-IP** e introduza o nome de utilizador e a palavra-passe para kibana. Se utilizou a imagem do ELK no Azure, o nome de utilizador predefinido é "user" e a palavra-passe é a obtida nos **Diagnósticos de Arranque**.
+8. Aceda ao seu dashboard Kibana em **http: \/ /SERVER-IP** e introduza o nome de utilizador e a palavra-passe para Kibana. Se utilizou a imagem do ELK no Azure, o nome de utilizador predefinido é "user" e a palavra-passe é a obtida nos **Diagnósticos de Arranque**.
 
     ![Kibana](./media/service-fabric-tutorial-java-elk/kibana.png)
 

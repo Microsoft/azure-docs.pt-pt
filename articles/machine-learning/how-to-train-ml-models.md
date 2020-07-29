@@ -7,15 +7,16 @@ author: maxluk
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: sgilley
 ms.date: 03/09/2020
-ms.custom: seodec18
-ms.openlocfilehash: 53a5a78f776982ec9bf21e5e45e3e89eb93e5cce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to
+ms.openlocfilehash: 9f63b4215e9b4a67a439e47501876d237a6d3c3b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433846"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320923"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Modelos de trem com Azure Machine Learning usando estimador
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -151,7 +152,7 @@ Para cadernos sobre modelos de formação utilizando estimativas específicas de
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Métricas de corrida de pista durante o treino](how-to-track-experiments.md)
 * [Preparar modelos de PyTorch](how-to-train-pytorch.md)

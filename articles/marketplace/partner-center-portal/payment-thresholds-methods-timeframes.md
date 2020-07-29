@@ -1,17 +1,18 @@
 ---
 title: Detalhes do pagamento por região - Mercado comercial da Microsoft
 description: Saiba como o tempo estimado para transferir pagamentos, e as montras da Microsoft a partir das quais pode receber pagamentos, variar dependendo do seu país/região e do tipo de conta de pagamento.
-author: mingshen
+author: mingshen-ms
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 33c4286c5a3fa8be68c1e6ec3bd331aa1e804cb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44246fa122b7c602e47c44e48c43c2a42d01de77
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83745019"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327332"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Limiares, métodos e períodos de tempo de pagamento
 
@@ -74,7 +75,7 @@ Estes são os países e regiões em que os métodos de pagamento acima referidos
 | República Democrática do Congo | Sim | Sim | Sim | Não |
 | Congo, República da | Sim | Sim | Sim | Não |
 | Costa Rica | Sim | Sim | Sim | Sim |
-| Costa do Marfim | Sim | Sim | Sim | Não |
+| Costa do Marfim (Côte d’Ivoire) | Sim | Sim | Sim | Não |
 | Croácia | Sim | Sim | Sim | Não |
 | Chipre | Sim | Sim | Sim | Sim |
 | República Checa | Sim | Sim | Sim | Sim |

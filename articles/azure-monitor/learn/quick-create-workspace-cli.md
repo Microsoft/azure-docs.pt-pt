@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: d7c3613a0ddce217e9d07c3fc2eba55b78c53a1b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7421162ed68a879d9f935a3efd5c6267e159a648
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516554"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324306"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Criar um espaço de trabalho Log Analytics com Azure CLI 2.0
 
@@ -24,8 +24,8 @@ A CLI 2.0 do Azure é utilizada para criar e gerir recursos do Azure a partir da
 
 Para outras fontes, tais como VMs Azure e Windows ou VMs Linux no seu ambiente, consulte os seguintes tópicos:
 
-* [Recolher dados de máquinas virtuais Azure](../learn/quick-collect-azurevm.md)
-* [Recolher dados do computador híbrido Linux](../learn/quick-collect-linux-computer.md)
+* [Recolher dados de máquinas virtuais Azure](./quick-collect-azurevm.md)
+* [Recolher dados do computador híbrido Linux](./quick-collect-linux-computer.md)
 * [Recolher dados do computador híbrido Windows](quick-collect-windows-computer.md)
 
 Se não tiver uma subscrição do Azure, crie [uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -126,10 +126,11 @@ Quando cria um espaço de trabalho que foi eliminado nos últimos 14 dias e em [
    * [Elimine permanentemente](../platform/delete-workspace.md#permanent-workspace-delete) o seu espaço de trabalho
    * Criar um novo espaço de trabalho usando o mesmo nome do espaço de trabalho
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Agora que tem um espaço de trabalho disponível, pode configurar a recolha de telemetria de monitorização, executar pesquisas de registo para analisar esses dados e adicionar uma solução de gestão para fornecer dados adicionais e insights analíticos.  
 
 * Para permitir a recolha de dados a partir de recursos Azure com Azure Diagnostics ou armazenamento Azure, consulte [registos e métricas de serviço Da Recolha Azure para utilização no Log Analytics](../platform/resource-logs.md#send-to-log-analytics-workspace).  
 * Adicione [o Gestor de Operações do System Center como uma fonte de dados](../platform/om-agents.md) para recolher dados de agentes que reportam o seu grupo de gestão de Gestor de Operações e armazene-os no seu espaço de trabalho Log Analytics.  
 * Ligue [o Gestor de Configuração](../platform/collect-sccm.md) à importação de computadores que sejam membros de coleções na hierarquia.  
 * Reveja as [soluções de monitorização](../insights/solutions.md) disponíveis e como adicionar ou remover uma solução do seu espaço de trabalho.
+

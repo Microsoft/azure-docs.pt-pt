@@ -12,12 +12,12 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aae292d97457ebe1d36a839b779b9233037ea60
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 53c4e3e3e3b6aaca2f861a8c5aba528541dc4854
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055210"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322198"
 ---
 # <a name="what-is-application-management"></a>O que é a gestão de aplicações?
 
@@ -91,10 +91,8 @@ Ao migrar para o Microsoft Azure AD, pode reduzir os custos e remover a complic
 
 Para aplicações focadas em Recursos Humanos, ou outras aplicações com um grande conjunto de utilizadores, pode aproveitar o fornecimento de App para automatizar o processo de provisionamento e desprovisionamento de utilizadores, ver O que é o provisionamento de [aplicações?](../app-provisioning/user-provisioning.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Ver aplicações já configuradas no seu inquilino Azure AD](view-applications-portal.md)
-- [Quickstart: Adicione uma aplicação de galeria ao seu inquilino Azure AD](add-application-portal.md)
-- [Adicione uma aplicação de galeria à sua organização AZure AD](add-gallery-app.md)
+- [Quickstart Series on App Managemement in Azure AD](view-applications-portal.md)
 - [Começar com a integração de aplicações](plan-an-application-integration.md)
 - [Saiba como automatizar o provisionamento](../app-provisioning/user-provisioning.md)

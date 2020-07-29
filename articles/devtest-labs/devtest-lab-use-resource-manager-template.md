@@ -3,12 +3,12 @@ title: Ver e usar o modelo de gestor de recursos Azure de uma máquina virtual
 description: Saiba como usar o modelo Azure Resource Manager a partir de uma máquina virtual para criar outros VMs
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a53a6ad44cac59bd925e6d200ca50074a2fcd963
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e58b54d61653f1edba3c3893edb902a94fbf9f2b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476619"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87272696"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Criar máquinas virtuais usando um modelo de Gestor de Recursos Azure 
 
@@ -35,7 +35,7 @@ Existem duas formas de criar VMs em DevTest Labs usando um modelo de Gestor de R
 
 O restante deste artigo discute os modelos do Gestor de Recursos que utilizam o Microsoft.DevTestLab/labs/virtualmachines. Estes são usados por administradores de laboratório para automatizar a criação de VM de laboratório (por exemplo, VMs reivindicaíveis) ou geração de imagem dourada (por exemplo, fábrica de imagem).
 
-[As melhores práticas para criar modelos de Gestor de Recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices) oferecem muitas diretrizes e sugestões para ajudá-lo a criar modelos de Gestor de Recursos Azure que são fiáveis e fáceis de usar.
+[As melhores práticas para criar modelos de Gestor de Recursos Azure](../azure-resource-manager/templates/template-best-practices.md) oferecem muitas diretrizes e sugestões para ajudá-lo a criar modelos de Gestor de Recursos Azure que são fiáveis e fáceis de usar.
 
 ## <a name="view-and-save-a-virtual-machines-resource-manager-template"></a>Ver e guardar o modelo de Gestor de Recursos de uma máquina virtual
 1. Siga os passos na [Create your first VM in a lab](tutorial-create-custom-lab.md#add-a-vm-to-the-lab) para começar a criar uma máquina virtual.
@@ -57,7 +57,7 @@ Em cenários como treino, demonstrações e testes, pode querer criar máquinas 
 
 
 
-### <a name="next-steps"></a>Próximos passos
+### <a name="next-steps"></a>Passos seguintes
 * Saiba como [criar ambientes multi-VM com modelos de Gestor de Recursos.](devtest-lab-create-environment-from-arm.md)
 * [Implemente um modelo de Gestor de Recursos para criar um VM](devtest-lab-create-environment-from-arm.md#automate-deployment-of-environments)
 * Explore modelos mais rápidos de Gestor de Recursos para automação de DevTest Labs a partir do [repo de DevTest Labs GitHub](https://github.com/Azure/azure-quickstart-templates).

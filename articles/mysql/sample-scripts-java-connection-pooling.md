@@ -2,16 +2,17 @@
 title: Amostras de Java para ilustrar a conexão
 description: Este artigo lista amostras de java para ilustrar a ligação.
 author: ambhatna
+ms.custom: devx-track-java
 ms.author: ambhatna
 ms.service: mysql
 ms.topic: sample
 ms.date: 02/28/2018
-ms.openlocfilehash: ecb619e97fd62b4859e97f3fb691431d00264d6c
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: b108dc8a04825826d7e0887d8fd5884b122827f5
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84229550"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87314701"
 ---
 # <a name="java-sample-to-illustrate-connection-pooling"></a>Amostra de Java para ilustrar a ligação de pooling
 

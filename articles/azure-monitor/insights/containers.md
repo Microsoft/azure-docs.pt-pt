@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 07/06/2020
-ms.openlocfilehash: 14fa6859a16dc173e75091983abee717bf813220
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b681e3fa4963a8fe899ccbad8dbf1bbdfbe452ce
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499026"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326907"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Solução de monitorização de contentores no Monitor Azure
 
@@ -31,7 +31,7 @@ A solução mostra quais os contentores que estão a funcionar, que imagem de co
 
 Se tiver contentores implantados no [Azure Service Fabric,](../../service-fabric/service-fabric-overview.md)recomendamos que a [solução de Tecido de Serviço](../../service-fabric/service-fabric-diagnostics-oms-setup.md) e esta solução incluam a monitorização de eventos de cluster. Antes de ativar a solução De Tecido de Serviço, [reveja utilizando a solução De Tecido de Serviço](../../service-fabric/service-fabric-diagnostics-event-analysis-oms.md) para entender o que fornece e como usá-la.
 
-Se estiver interessado em monitorizar o desempenho das suas cargas de trabalho implantadas em ambientes Kubernetes hospedados no Serviço Azure Kubernetes (AKS), consulte [o Serviço Monitor Azure Kubernetes](../../azure-monitor/insights/container-insights-overview.md). A solução de monitorização do contentor não suporta a monitorização desta plataforma.  
+Se estiver interessado em monitorizar o desempenho das suas cargas de trabalho implantadas em ambientes Kubernetes hospedados no Serviço Azure Kubernetes (AKS), consulte [o Serviço Monitor Azure Kubernetes](./container-insights-overview.md). A solução de monitorização do contentor não suporta a monitorização desta plataforma.  
 
 O diagrama seguinte mostra as relações entre vários hospedeiros de contentores e agentes com o Azure Monitor.
 
@@ -92,11 +92,11 @@ O quadro que se segue descreve o suporte de monitorização do sistema de monito
 
 Utilize as seguintes informações para instalar e configurar a solução.
 
-1. Adicione a solução de monitorização do contentor ao seu espaço de trabalho Log Analytics a partir do [mercado Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) ou utilizando o processo descrito nas [soluções de monitorização add da Galeria solutions](../../azure-monitor/insights/solutions.md).
+1. Adicione a solução de monitorização do contentor ao seu espaço de trabalho Log Analytics a partir do [mercado Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) ou utilizando o processo descrito nas [soluções de monitorização add da Galeria solutions](./solutions.md).
 
 2. Instale e utilize o Docker com um agente Log Analytics. Com base no seu sistema operativo e no orquestrador Docker, pode utilizar os seguintes métodos para configurar o seu agente.
    - Para anfitriões autónomos:
-     - Nos sistemas operativos Linux suportados, instale e execute o Docker e, em seguida, instale e configuure o [agente Log Analytics para o Linux](../../azure-monitor/learn/quick-collect-linux-computer.md).  
+     - Nos sistemas operativos Linux suportados, instale e execute o Docker e, em seguida, instale e configuure o [agente Log Analytics para o Linux](../learn/quick-collect-linux-computer.md).  
      - No CoreOS, não é possível executar o agente Log Analytics para o Linux. Em vez disso, você tem uma versão contentorizada do agente Log Analytics para Linux. Reveja os anfitriões de contentores Linux, incluindo os anfitriões de contentores Do Governo de Azure, incluindo o CoreOS, se estiver a trabalhar com contentores na Nuvem do Governo de Azure.
      - No Windows Server 2016 e Windows 10, instale o Motor Docker e o cliente, em seguida, conecte um agente para recolher informações e enviá-la para o Azure Monitor. [Reveja instalar e configurar os anfitriões dos contentores do Windows](#install-and-configure-windows-container-hosts) se tiver um ambiente Windows.
    - Para a orquestração multi-anfitrião Docker:
@@ -112,7 +112,7 @@ Utilize as seguintes informações para instalar e configurar a solução.
 Reveja o [artigo do Docker Engine no Windows](/virtualization/windowscontainers/manage-docker/configure-docker-daemon) para obter informações adicionais sobre como instalar e configurar os seus Motores Docker em computadores que executam o Windows.
 
 > [!IMPORTANT]
-> O Docker deve estar a funcionar **antes** de instalar o [agente Log Analytics para o Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) nos anfitriões dos contentores. Se já instalou o agente antes de instalar o Docker, tem de reinstalar o agente Log Analytics para o Linux. Para mais informações sobre Docker, consulte o site do [Docker.](https://www.docker.com)
+> O Docker deve estar a funcionar **antes** de instalar o [agente Log Analytics para o Linux](../learn/quick-collect-linux-computer.md) nos anfitriões dos contentores. Se já instalou o agente antes de instalar o Docker, tem de reinstalar o agente Log Analytics para o Linux. Para mais informações sobre Docker, consulte o site do [Docker.](https://www.docker.com)
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Instalar e configurar os anfitriões dos contentores Linux
 
@@ -120,7 +120,7 @@ Depois de ter instalado o Docker, utilize as seguintes definições para o seu a
 
 **Para todos os anfitriões de contentores Linux, exceto CoreOS:**
 
-- Para obter mais informações e etapas sobre como instalar o agente Log Analytics para linux, consulte a [visão geral do agente Log Analytics](../../azure-monitor/platform/log-analytics-agent.md).
+- Para obter mais informações e etapas sobre como instalar o agente Log Analytics para linux, consulte a [visão geral do agente Log Analytics](../platform/log-analytics-agent.md).
 
 **Para todos os anfitriões de contentores Linux, incluindo CoreOS:**
 
@@ -140,7 +140,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 **Passar de usar um agente Linux instalado para um num recipiente**
 
-Se usou previamente o agente instalado diretamente e pretender utilizar um agente que esteja a funcionar num contentor, deve primeiro remover o agente Log Analytics para o Linux. Consulte [desinstalar o agente Log Analytics para](../../azure-monitor/learn/quick-collect-linux-computer.md) que o Linux compreenda como desinstalar o agente com sucesso.  
+Se usou previamente o agente instalado diretamente e pretender utilizar um agente que esteja a funcionar num contentor, deve primeiro remover o agente Log Analytics para o Linux. Consulte [desinstalar o agente Log Analytics para](../learn/quick-collect-linux-computer.md) que o Linux compreenda como desinstalar o agente com sucesso.  
 
 #### <a name="configure-a-log-analytics-agent-for-docker-swarm"></a>Configure um agente log analytics para Docker Swarm
 
@@ -185,8 +185,8 @@ Para Docker Swarm, uma vez criado o segredo para o Workspace ID e Key Primary, u
 
 Existem três formas de adicionar o agente Log Analytics ao Red Hat OpenShift para começar a recolher dados de monitorização de contentores.
 
-* [Instale o agente Log Analytics para o Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) diretamente em cada nó OpenShift  
-* [Ativar a extensão VM do Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md) em cada nó OpenShift que reside no Azure  
+* [Instale o agente Log Analytics para o Linux](../learn/quick-collect-linux-computer.md) diretamente em cada nó OpenShift  
+* [Ativar a extensão VM do Log Analytics](../learn/quick-collect-azurevm.md) em cada nó OpenShift que reside no Azure  
 * Instale o agente Log Analytics como um conjunto de daemon openshift  
 
 Nesta secção cobrimos os passos necessários para instalar o agente Log Analytics como um conjunto de daemon openShift.  
@@ -509,9 +509,9 @@ Para obter mais informações sobre a configuração do daemon do Docker utiliza
 
 #### <a name="install-windows-agents"></a>Instalar agentes do Windows
 
-Para ativar a monitorização do computador Windows e Hiper-V, instale o Microsoft Monitoring Agent (MMA) em computadores Windows que são anfitriões de contentores. Para computadores que executam o Windows no ambiente no local, consulte [os computadores Connect Windows ao Azure Monitor](../../azure-monitor/platform/agent-windows.md). Para máquinas virtuais em funcionamento em Azure, conecte-as ao Azure Monitor utilizando a [extensão da máquina virtual](../../azure-monitor/learn/quick-collect-azurevm.md).
+Para ativar a monitorização do computador Windows e Hiper-V, instale o Microsoft Monitoring Agent (MMA) em computadores Windows que são anfitriões de contentores. Para computadores que executam o Windows no ambiente no local, consulte [os computadores Connect Windows ao Azure Monitor](../platform/agent-windows.md). Para máquinas virtuais em funcionamento em Azure, conecte-as ao Azure Monitor utilizando a [extensão da máquina virtual](../learn/quick-collect-azurevm.md).
 
-Pode monitorizar os recipientes do Windows em funcionamento no Service Fabric. No entanto, [apenas máquinas virtuais que executam em Azure](../../azure-monitor/learn/quick-collect-azurevm.md) e [computadores que executam o Windows no seu ambiente no local](../../azure-monitor/platform/agent-windows.md) são atualmente suportados para o Service Fabric.
+Pode monitorizar os recipientes do Windows em funcionamento no Service Fabric. No entanto, [apenas máquinas virtuais que executam em Azure](../learn/quick-collect-azurevm.md) e [computadores que executam o Windows no seu ambiente no local](../platform/agent-windows.md) são atualmente suportados para o Service Fabric.
 
 Pode verificar se a solução de monitorização do contentor está corretamente definida para o Windows. Para verificar se o pacote de gestão foi descarregado corretamente, procure *ContainerManagement.xxx*. Os ficheiros devem estar na pasta C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs.
 
@@ -527,9 +527,9 @@ A solução de Monitorização do Contentor recolhe várias métricas de desempe
 
 Os dados são recolhidos a cada três minutos pelos seguintes tipos de agente.
 
-- [Agente de Log Analytics para Linux](../../azure-monitor/learn/quick-collect-linux-computer.md)
-- [Agente windows](../../azure-monitor/platform/agent-windows.md)
-- [Extensão VM do Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md)
+- [Agente de Log Analytics para Linux](../learn/quick-collect-linux-computer.md)
+- [Agente windows](../platform/agent-windows.md)
+- [Extensão VM do Log Analytics](../learn/quick-collect-azurevm.md)
 
 ### <a name="container-records"></a>Registos de contentores
 
@@ -637,6 +637,7 @@ As consultas de poupança são uma característica padrão no Azure Monitor. Ao 
 
 Depois de criar uma consulta que considera útil, guarde-a clicando em **Favoritos** no topo da página 'Procurar registo'. Em seguida, pode aceder-lhe facilmente mais tarde a partir da página **My Dashboard.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Registos de consulta](../log-query/log-query-overview.md) para visualizar registos de dados detalhados do contentor.
+

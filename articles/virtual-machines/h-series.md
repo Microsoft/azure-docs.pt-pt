@@ -4,14 +4,15 @@ description: Especificações para os VMs da série H.
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: jushiman
-ms.openlocfilehash: f79dcb8886985d60a1ed82e1a77d231cf7d3ad24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34f89656fc56b27edafeff0e60874a00139266dd
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678686"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87268956"
 ---
 # <a name="h-series"></a>Série H
 
@@ -95,6 +96,6 @@ O Azure Marketplace tem muitas distribuições Linux que suportam a conectividad
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

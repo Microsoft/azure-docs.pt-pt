@@ -8,11 +8,14 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: wesmc
-ms.openlocfilehash: 03f9d58cab725335b0f4090ac1a7289c32c0af7f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+ms.openlocfilehash: 5b86803b763039846e2101b9caf0232aafa4fa24
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81640552"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327468"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Ligue raspberry Pi ao Azure IoT Hub (C)
 
@@ -44,9 +47,9 @@ Ligue raspberry Pi a um hub IoT que você cria. Em seguida, você executar uma a
 
 * Como enviar dados de sensores para o seu hub IoT.
 
-## <a name="what-you-need"></a>Do que precisa
+## <a name="what-you-need"></a>O que precisa
 
-![Do que precisa](./media/iot-hub-raspberry-pi-kit-c-get-started/0-starter-kit.png)
+![O que precisa](./media/iot-hub-raspberry-pi-kit-c-get-started/0-starter-kit.png)
 
 * A placa Raspberry Pi 2 ou Raspberry Pi 3.
 
@@ -233,7 +236,7 @@ Uma forma de monitorizar as mensagens recebidas pelo seu hub IoT do seu disposit
 
 Para mais formas de processar os dados enviados pelo seu dispositivo, continue para a secção seguinte.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Executou uma aplicação de amostra para recolher dados de sensores e enviá-lo para o seu hub IoT.
 

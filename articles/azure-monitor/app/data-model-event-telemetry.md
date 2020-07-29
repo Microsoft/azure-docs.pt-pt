@@ -4,19 +4,20 @@ description: Modelo de dados de Insights de Aplicação para telemetria de event
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: bd8b2581f7642f6825aaf0d1b51c8e94d4333d33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69685afa14352a22b58bccbea342038e4273696e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671889"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320617"
 ---
 # <a name="event-telemetry-application-insights-data-model"></a>Telemetria de eventos: Modelo de dados de Insights de Aplicação
 
-Pode criar itens de telemetria de eventos (in [Application Insights)](../../azure-monitor/app/app-insights-overview.md)para representar um evento que ocorreu na sua aplicação. Normalmente é uma interação do utilizador, como clique de botão ou check-out de encomenda. Também pode ser um evento de ciclo de vida de aplicação como inicialização ou atualização de configuração. 
+Pode criar itens de telemetria de eventos (in [Application Insights)](./app-insights-overview.md)para representar um evento que ocorreu na sua aplicação. Normalmente é uma interação do utilizador, como clique de botão ou check-out de encomenda. Também pode ser um evento de ciclo de vida de aplicação como inicialização ou atualização de configuração. 
 
-Semântica, os acontecimentos podem ou não estar correlacionados com pedidos. No entanto, se for utilizada corretamente, a telemetria de eventos é mais importante do que pedidos ou vestígios. Os eventos representam a telemetria empresarial e devem ser sujeitos a [amostragem](../../azure-monitor/app/api-filtering-sampling.md)separada e menos agressiva.
+Semântica, os acontecimentos podem ou não estar correlacionados com pedidos. No entanto, se for utilizada corretamente, a telemetria de eventos é mais importante do que pedidos ou vestígios. Os eventos representam a telemetria empresarial e devem ser sujeitos a [amostragem](./api-filtering-sampling.md)separada e menos agressiva.
 
-## <a name="name"></a>Name
+## <a name="name"></a>Nome
 
 Nome do evento. Para permitir o agrupamento adequado e métricas úteis, restringir a sua aplicação de modo a gerar um pequeno número de nomes de eventos separados. Por exemplo, não use um nome separado para cada instância gerada de um evento.
 
@@ -30,8 +31,9 @@ Comprimento máximo: 512 caracteres
 
 [!INCLUDE [application-insights-data-model-measurements](../../../includes/application-insights-data-model-measurements.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte [o modelo de dados](data-model.md) para os tipos de Insights de Aplicação e modelo de dados.
-- [Escrever telemetria de evento personalizado](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)
-- Confira as [plataformas](../../azure-monitor/app/platforms.md) suportadas pela Application Insights.
+- [Escrever telemetria de evento personalizado](./api-custom-events-metrics.md#trackevent)
+- Confira as [plataformas](./platforms.md) suportadas pela Application Insights.
+

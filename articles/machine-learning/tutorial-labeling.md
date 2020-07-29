@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 1665bc42578c189ed27208eb31cc4bdb2e27bbb9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 60dd9631df0b997ce39134002bdb6ed9f69336ed
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536169"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319274"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutorial: Criar um projeto de rotulagem para classificação de imagem multi-classes 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -146,9 +146,7 @@ Nesta parte do tutorial, você mudará as funções do administrador do *projeto
 
 1. No [estúdio Machine Learning,](https://ml.azure.com)selecione **Data labeling** no lado esquerdo para encontrar o seu projeto.  
 
-1. Selecione o nome do projeto na lista.
-
-1. Abaixo do nome do projeto, **selecione Os dados do Rótulo**.
+1. Selecione **a ligação de etiqueta** para o projeto.
 
 1. Leia as instruções e, em seguida, selecione **Tarefas**.
 
@@ -202,12 +200,12 @@ As etiquetas de imagem podem ser exportadas em [formato COCO](http://cocodataset
 
 1. Uma vez exportadas com sucesso as etiquetas, selecione **Conjuntos de dados** do lado esquerdo para ver os resultados.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, rotulaste imagens.  Agora use os seus dados rotulados:
 

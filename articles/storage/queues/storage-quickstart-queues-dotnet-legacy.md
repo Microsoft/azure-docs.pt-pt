@@ -3,21 +3,24 @@ title: 'Quickstart: Use Azure Storage v11 para .NET para gerir uma fila'
 description: Neste arranque rápido, aprende-se a usar a biblioteca de clientes Azure Storage para .NET para criar uma fila e adicionar-lhe mensagens. Em seguida, aprende-se a ler e processar mensagens da fila.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 02/06/2018
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: dineshm
-ms.openlocfilehash: 807765aea66561abb5a8764f119d2be4632a56d5
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 71700efecfc173392562327f6d150d79d1a9c84f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84807550"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292692"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Quickstart: Use o Azure Storage SDK v11 para .NET para gerir uma fila
 
 Neste arranque rápido, aprende-se a usar a versão 11 da biblioteca do cliente do Azure Storage para .NET para criar uma fila e adicionar-lhe mensagens. Em seguida, aprende-se a ler e processar mensagens da fila. 
+
+> [!NOTE]
+> Este quickstart usa uma versão antiga da biblioteca do cliente de armazenamento Azure Queue. Para começar com a versão mais recente, consulte [Quickstart: Azure Queue storage client library v12 for.NET](storage-quickstart-queues-dotnet.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -241,7 +244,7 @@ Console.WriteLine("Processed and deleted message '{0}'", retrievedMessage.Id);
 Console.WriteLine();
 ```
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 
 A amostra limpa os recursos que criou eliminando a fila. A eliminação da fila também elimina todas as mensagens que contém.
 
@@ -277,6 +280,6 @@ Consulte estes recursos adicionais para o desenvolvimento de .NET com filas Azur
 Neste arranque rápido, aprendeu a adicionar mensagens a uma fila, a espreitar mensagens de uma fila e a descaitar e a processar mensagens usando .NET. 
 
 > [!div class="nextstepaction"]
-> [Comunicar entre aplicações com armazenamento da Fila Azure](https://docs.microsoft.com/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
+> [Comunicar entre aplicações com o armazenamento de Filas do Azure](https://docs.microsoft.com/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
 
 - Para saber mais sobre o .NET Core, veja [Introdução ao .NET em 10 minutos](https://www.microsoft.com/net/learn/get-started/).

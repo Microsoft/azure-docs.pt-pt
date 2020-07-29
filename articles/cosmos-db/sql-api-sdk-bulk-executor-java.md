@@ -8,11 +8,13 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 766981d355c5f24e817ea5d626aefd0d0e9bed05
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: 1a88e33c523ff3bcd9f23767597232af0319ab57
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392085"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323847"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Biblioteca de executor a granel java: Descarregar informações
 

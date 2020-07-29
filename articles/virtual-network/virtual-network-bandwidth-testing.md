@@ -1,7 +1,7 @@
 ---
 title: Teste de produção da rede Azure VM
 titlesuffix: Azure Virtual Network
-description: Saiba como testar o funcionamento da rede de máquinas virtuais Azure.
+description: Utilize o NTTTCP para direcionar a rede para testes e minimizar a utilização de outros recursos que possam ter impacto no desempenho.
 services: virtual-network
 documentationcenter: na
 author: steveesp
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: 964b0bd543e887cce304d785d18a651f50bd4c45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5aa2c1c51fccddc3fb62d7ebdbadee19a2b093e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708251"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87265182"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Testes de largura de banda/produção (NTTTCP)
 
@@ -164,7 +165,7 @@ Tem de adicionar a seguinte secção no seu ServiceDefinition.csdef
 </Endpoints> 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Dependendo dos resultados, pode haver espaço para [otimizar as máquinas de produção de rede](virtual-network-optimize-network-bandwidth.md) para o seu cenário.
 * Leia sobre como [a largura de banda é atribuída a máquinas virtuais](virtual-machine-network-throughput.md)
 * Saiba mais com [a Azure Virtual Network perguntas frequentes (FAQ)](virtual-networks-faq.md)

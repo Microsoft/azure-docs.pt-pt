@@ -4,19 +4,19 @@ description: Saiba mais sobre o esquema do JSON que é publicado num URL webhook
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: 1db12f352ec79a3112eada68d82279c9e0343a04
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 018bf7ac9c24669df798e9ba05c667dcb72d94a6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516163"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321841"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks para alertas de registo de atividades do Azure
 Como parte da definição de um grupo de ação, você pode configurar pontos finais webhook para receber notificações de alerta de registo de atividade. Com webhooks, pode encaminhar estas notificações para outros sistemas para ações pós-processamento ou personalizadas. Este artigo mostra como é a carga útil do HTTP POST para um webhook.
 
 Para obter mais informações sobre alertas de registo de atividade, consulte como [criar alertas de registo de atividades do Azure](activity-log-alerts.md).
 
-Para obter informações sobre grupos de ação, consulte como [criar grupos de ação.](../../azure-monitor/platform/action-groups.md)
+Para obter informações sobre grupos de ação, consulte como [criar grupos de ação.](./action-groups.md)
 
 > [!NOTE]
 > Também pode utilizar o [esquema de alerta comum,](https://aka.ms/commonAlertSchemaDocs)que proporciona a vantagem de ter uma única carga de alerta extensível e unificada em todos os serviços de alerta em Azure Monitor, para as suas integrações webhook. [Conheça as definições comuns de esquema de alerta.](https://aka.ms/commonAlertSchemaDefinitions)
@@ -284,11 +284,12 @@ Para obter detalhes específicos sobre os alertas de registo de atividades de no
 | status |Cadeia. Estado da operação. Os valores comuns incluem Iniciado, Em Progresso, Bem Sucedido, Falhado, Ativo e Resolvido. |
 | subStatus |Geralmente inclui o código de estado HTTP da chamada REST correspondente. Também pode incluir outras cordas que descrevem um substatus. Os valores comuns do substatus incluem OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (CÓDIGO DE Estado HTTP: 4), Não Encontrado (Código de Estado HTTP: 404), Conflito (Código de Estado HTTP: 409), Erro do Servidor Interno (Código de Estado HTTP: 500), Serviço Indisponível (Código de Estado HTTP: 503) e Prazo de Gateway (Código de Estado HTTP : 504). |
 
-Para obter detalhes específicos sobre todos os outros alertas de registo de atividade, consulte [a visão geral do registo de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md).
+Para obter detalhes específicos sobre todos os outros alertas de registo de atividade, consulte [a visão geral do registo de atividades do Azure](./platform-logs-overview.md).
 
-## <a name="next-steps"></a>Próximos passos
-* [Saiba mais sobre o registo de atividades.](../../azure-monitor/platform/platform-logs-overview.md)
+## <a name="next-steps"></a>Passos seguintes
+* [Saiba mais sobre o registo de atividades.](./platform-logs-overview.md)
 * [Execute scripts de automatização Azure (Runbooks) em alertas Azure](https://go.microsoft.com/fwlink/?LinkId=627081).
 * [Utilize uma aplicação lógica para enviar um SMS via Twilio a partir de um alerta Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Este exemplo é para alertas métricos, mas pode ser modificado para funcionar com um alerta de registo de atividade.
 * [Utilize uma aplicação lógica para enviar uma mensagem Slack a partir de um alerta Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Este exemplo é para alertas métricos, mas pode ser modificado para funcionar com um alerta de registo de atividade.
 * [Utilize uma aplicação lógica para enviar uma mensagem para uma fila Azure a partir de um alerta Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Este exemplo é para alertas métricos, mas pode ser modificado para funcionar com um alerta de registo de atividade.
+

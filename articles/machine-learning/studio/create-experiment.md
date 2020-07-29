@@ -1,6 +1,5 @@
 ---
-title: 'Quickstart: Criar uma experiência de ciência de dados'
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clássico): Quickstart: Criar uma experiência de ciência de dados - Azure'
 description: Este arranque rápido de aprendizagem automática acompanha-o através de uma experiência fácil de ciência de dados. Vamos prever o preço de um carro através de um algoritmo de regressão.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: f8984b3b712d591b64c383dabb723ba5afc61efc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 99332a8716ae137b8ea5fe69a53c7f8e4c46f095
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965149"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282556"
 ---
-# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Quickstart: Crie a sua primeira experiência de ciência de dados no Azure Machine Learning Studio (clássico)
+# <a name="quickstart-create-your-first-data-science-experiment-in-machine-learning-studio-classic"></a>Quickstart: Crie a sua primeira experiência de ciência de dados no Machine Learning Studio (clássico)
+
+**APLICA-SE A:** ![ no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) yes Machine Learning Studio ![ ](../../../includes/media/aml-applies-to-skus/yes.png) (clássico) 
+
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -31,7 +33,7 @@ Este arranque rápido segue o fluxo de trabalho padrão para uma experiência:
     - [Obter os dados]
     - [Preparar os dados]
     - [Definir características]
-1. **Dar formação sobre o modelo**
+1. **Preparar o modelo**
     - [Escolha e aplique um algoritmo]
 1. **Pontuar e testar o modelo**
     - [Prever novos preços de automóveis]
@@ -231,7 +233,7 @@ As estatísticas seguintes são apresentadas para o nosso modelo:
 
 Em cada uma das estatísticas de erros, quanto mais pequeno, melhor. Um valor mais pequeno indica que as predições mais detalhadas correspondem aos valores reais. No **Coeficiente de determinação**, quanto mais próximo for um valor de outro (1.0), melhores serão as predições.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [machine-learning-studio-clean-up](../../../includes/machine-learning-studio-clean-up.md)]
 

@@ -6,12 +6,13 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: ed09a72fd5eed72e7a07fefed53bf010a543b658
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.custom: devx-track-java
+ms.openlocfilehash: 26748b6847ab7061b0038ef9ca18f1b721d320e0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85337401"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320770"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Quickstart: Use o CLI Azure para criar uma fila de ônibus de serviço
 Este quickstart descreve como enviar e receber mensagens com o Service Bus utilizando o Azure CLI e a biblioteca Service Bus Java. Por fim, se estiver interessado em obter mais detalhes técnicos, pode [ler uma explicação](#understand-the-sample-code) dos elementos-chave do código de exemplo.
@@ -182,7 +183,7 @@ Depois de ter criado a fila e o espaço de nomes e se tiver as credenciais neces
                                                     Content: [ firstName = Isaac, name = Newton ]
     ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Na Azure Cloud Shell, executar o seguinte comando para remover o grupo de recursos, espaço de nome e todos os recursos relacionados:
 

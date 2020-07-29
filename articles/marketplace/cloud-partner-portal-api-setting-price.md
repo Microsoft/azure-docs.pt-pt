@@ -4,15 +4,15 @@ description: Explica os três métodos para especificar o preço das ofertas de 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: dsindona
-ms.author: dsindona
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 8d6dcd7f3f86e111cfb17fb08c4faadac1552b94
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d49f9df9fdc7dd8d2fb53b9ad6eb6eae64965fb7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87039127"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87271727"
 ---
 # <a name="pricing-for-virtual-machine-offers"></a>Preços das ofertas de máquina virtual
 

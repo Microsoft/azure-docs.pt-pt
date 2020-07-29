@@ -9,15 +9,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 94013a12e1cf48a8007fce2547c200d82a657b71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69ed934e97d2726995a7a5cd122fadbd4a791942
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671882"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320532"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Modelo de dados de telemetria de Insights de Aplicação
 
-[O Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) envia telemetria da sua aplicação web para o portal Azure, para que possa analisar o desempenho e utilização da sua aplicação. O modelo de telemetria é padronizado de modo a que seja possível criar plataforma e monitorização independente da linguagem. 
+[O Azure Application Insights](./app-insights-overview.md) envia telemetria da sua aplicação web para o portal Azure, para que possa analisar o desempenho e utilização da sua aplicação. O modelo de telemetria é padronizado de modo a que seja possível criar plataforma e monitorização independente da linguagem. 
 
 Dados recolhidos pela Application Insights modelam este padrão típico de execução de aplicações:
 
@@ -27,7 +28,7 @@ Os seguintes tipos de telemetria são utilizados para monitorizar a execução d
 
 * [**Pedido**](data-model-request-telemetry.md) - Gerado para registar um pedido recebido pela sua app. Por exemplo, a Web SDK do Application Insights gera automaticamente um item de telemetria Request para cada pedido HTTP que a sua aplicação web recebe. 
 
-    Uma **Operação** são os fios da execução que processa um pedido. Também pode [escrever código](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) para monitorizar outros tipos de operação, como um "despertar" numa função web ou uma função que processa periodicamente os dados.  Cada operação tem uma identificação. Este ID que pode ser usado para [agrupar](../../azure-monitor/app/correlation.md) toda a telemetria gerada enquanto a sua aplicação está a processar o pedido. Cada operação tem sucesso ou falha, e tem uma duração de tempo.
+    Uma **Operação** são os fios da execução que processa um pedido. Também pode [escrever código](./api-custom-events-metrics.md#trackrequest) para monitorizar outros tipos de operação, como um "despertar" numa função web ou uma função que processa periodicamente os dados.  Cada operação tem uma identificação. Este ID que pode ser usado para [agrupar](./correlation.md) toda a telemetria gerada enquanto a sua aplicação está a processar o pedido. Cada operação tem sucesso ou falha, e tem uma duração de tempo.
 * [**Exceção**](data-model-exception-telemetry.md) - Normalmente representa uma exceção que faz com que uma operação falhe.
 * [**Dependência**](data-model-dependency-telemetry.md) - Representa uma chamada da sua app para um serviço ou armazenamento externo, como um REST API ou SQL. Em ASP.NET, as chamadas de dependência para SQL são definidas por `System.Data` . As chamadas para pontos finais HTTP são definidas por `System.Net` . 
 
@@ -39,7 +40,7 @@ O Application Insights fornece três tipos de dados adicionais para telemetria p
 
 Cada item de telemetria pode definir as [informações](data-model-context.md) de contexto como versão de aplicação ou id de sessão de utilizador. O contexto é um conjunto de campos fortemente dactilografados que desbloqueiam certos cenários. Quando a versão da aplicação é devidamente inicializada, o Application Insights pode detetar novos padrões no comportamento da aplicação correlacionado com a redistribuição. O id de sessão pode ser usado para calcular a paralisação ou um impacto em questão nos utilizadores. Calcular valores de identificação de sessão distintos para determinada dependência falhada, traço de erro ou exceção crítica dá uma boa compreensão de um impacto.
 
-O modelo de telemetria Application Insights define uma forma de [correlacionar](../../azure-monitor/app/correlation.md) a telemetria com o funcionamento do qual faz parte. Por exemplo, um pedido pode fazer uma base de dados SQL e informações de diagnóstico gravadas. Pode definir o contexto de correlação para os itens de telemetria que o ligam à telemetria do pedido.
+O modelo de telemetria Application Insights define uma forma de [correlacionar](./correlation.md) a telemetria com o funcionamento do qual faz parte. Por exemplo, um pedido pode fazer uma base de dados SQL e informações de diagnóstico gravadas. Pode definir o contexto de correlação para os itens de telemetria que o ligam à telemetria do pedido.
 
 ## <a name="schema-improvements"></a>Melhorias do esquema
 
@@ -47,9 +48,10 @@ O modelo de dados Application Insights é uma forma simples e básica mas podero
 
 Para reportar problemas e sugestões de modelo de dados ou esquemas, utilize o repositório GitHub [ApplicationInsights-Home.](https://github.com/Microsoft/ApplicationInsights-Home/issues)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Escrever telemetria personalizada](../../azure-monitor/app/api-custom-events-metrics.md)
-- Saiba como [estender e filtrar a telemetria.](../../azure-monitor/app/api-filtering-sampling.md)
-- Utilize [amostras para](../../azure-monitor/app/sampling.md) minimizar a quantidade de telemetria com base no modelo de dados.
-- Confira as [plataformas](../../azure-monitor/app/platforms.md) suportadas pela Application Insights.
+- [Escrever telemetria personalizada](./api-custom-events-metrics.md)
+- Saiba como [estender e filtrar a telemetria.](./api-filtering-sampling.md)
+- Utilize [amostras para](./sampling.md) minimizar a quantidade de telemetria com base no modelo de dados.
+- Confira as [plataformas](./platforms.md) suportadas pela Application Insights.
+

@@ -11,15 +11,17 @@ ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: a67d90a0888c39938f07c294f8e161ce98fd945a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- 'Role: Cloud Development'
+ms.openlocfilehash: a5707ef266f3d49bdcbff9793a0b90e6c3f4cb68
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81732506"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327655"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagir aos eventos do IoT Hub usando a Grade de Eventos para desencadear ações
 
-O Azure IoT Hub integra-se com a Azure Event Grid para que possa enviar notificações de eventos para outros serviços e desencadear processos a jusante. Configure as suas aplicações de negócio para ouvir eventos IoT Hub para que possa reagir a eventos críticos de forma fiável, escalável e segura.Por exemplo, construa uma aplicação que atualize uma base de dados, crie um bilhete de trabalho e entregue uma notificação por e-mail sempre que um novo dispositivo IoT estiver registado no seu hub IoT.
+O Hub IoT do Azure integra-se no Azure Event Grid para que possa enviar notificações de eventos para outros serviços e acionar processos a jusante. Configure as aplicações empresariais para escutar eventos do Hub IoT para que possa reagir a eventos críticos de forma fiável, dimensionável e segura.Por exemplo, crie uma aplicação que atualiza uma base de dados, cria um pedido de trabalho e envia uma notificação por e-mail sempre que um novo dispositivo IoT é registado no hub IoT.
 
 [A azure Event Grid](../event-grid/overview.md) é um serviço de encaminhamento de eventos totalmente gerido que utiliza um modelo de subscrição de publicação. A Event Grid tem suporte integrado para serviços Azure, como [Azure Functions](../azure-functions/functions-overview.md) e [Azure Logic Apps,](../logic-apps/logic-apps-what-are-logic-apps.md)e pode fornecer alertas de eventos para serviços não-Azure usando webhooks. Para obter uma lista completa dos manipuladores de eventos que a Grade de Eventos suporta, consulte [uma introdução à Grelha de Eventos Azure](../event-grid/overview.md).
 
@@ -38,14 +40,14 @@ O IoT Hub publica os seguintes tipos de eventos:
 | Microsoft.Devices.DeviceCreated | Publicado quando um dispositivo está registado num hub IoT. |
 | Microsoft.Devices.DeviceDeleted | Publicado quando um dispositivo é eliminado de um hub IoT. |
 | Microsoft.Devices.DeviceConnected | Publicado quando um dispositivo está ligado a um hub IoT. |
-| Microsoft.DeviceDisconnected | Publicado quando um dispositivo é desligado de um hub IoT. |
-| Microsoft.Devices.DeviceTelemetry | Publicado quando uma mensagem de telemetria do dispositivo é enviada para um hub IoT |
+| Microsoft.Devices.DeviceDisconnected | Publicado quando um dispositivo é desligado de um hub IoT. |
+| Microsoft.Devices.DeviceTelemetry | Publicado quando uma mensagem de telemetria do dispositivo é enviada para um hub IoT |
 
 Utilize o portal Azure ou o Azure CLI para configurar quais os eventos a publicar a partir de cada hub IoT. Por exemplo, experimente o tutorial Enviar por email o [artigo Notificações sobre eventos Azure IoT Hub utilizando Aplicações Lógicas.](../event-grid/publish-iot-hub-events-to-logic-apps.md)
 
 ## <a name="event-schema"></a>Esquema de eventos
 
-Os eventos do IoT Hub contêm toda a informação necessária para responder às alterações no ciclo de vida do seu dispositivo. Pode identificar um evento IoT Hub verificando se a propriedade eventType começa com **Microsoft.Devices**. Para obter mais informações sobre como utilizar as propriedades do evento Event Grid, consulte o [esquema de eventos da Grade de Eventos.](../event-grid/event-schema.md)
+Os eventos do IoT Hub contêm toda a informação necessária para responder às alterações no ciclo de vida do seu dispositivo. Pode identificar um evento do Hub IoT ao verificar se a propriedade eventType começa com **Microsoft.Devices**. Para obter mais informações sobre como utilizar as propriedades do evento Event Grid, consulte o [esquema de eventos da Grade de Eventos.](../event-grid/event-schema.md)
 
 ### <a name="device-connected-schema"></a>Esquema ligado ao dispositivo
 
@@ -192,17 +194,17 @@ A ligação D2C está aberta se estiver a enviar telemetria.
 
 Se a ligação do dispositivo estiver a piscar, o que significa que o dispositivo liga e desliga frequentemente, não enviaremos todos os estados de ligação, mas publicaremos o estado de ligação atual tomado numa imagem periódica, até que o cintilar continue. Receber o mesmo evento de estado de ligação com diferentes números de sequência ou diferentes eventos estatais de ligação significa que houve uma alteração no estado de ligação do dispositivo.
 
-## <a name="tips-for-consuming-events"></a>Dicas para consumir eventos
+## <a name="tips-for-consuming-events"></a>Sugestões para consumir eventos
 
-As aplicações que lidam com eventos IoT Hub devem seguir estas práticas sugeridas:
+As aplicações que processam eventos do Hub IoT devem seguir estas práticas sugeridas:
 
-* Várias subscrições podem ser configuradas para encaminhar eventos para o mesmo manipulador de eventos, por isso não assuma que os eventos são de uma determinada fonte. Verifique sempre o tópico da mensagem para se certificar de que vem do hub IoT que espera.
+* Várias subscrições podem ser configuradas para direcionar eventos para o mesmo processador de eventos, por isso, não parta do princípio de que os eventos são de determinada origem. Verifique sempre o tópico da mensagem para garantir que é proveniente do hub IoT esperado.
 
-* Não assuma que todos os eventos que recebe são os tipos que espera. Verifique sempre o eventType antes de processar a mensagem.
+* Não assuma que todos os eventos que recebe são dos tipos esperados. Verifique sempre o eventType antes de processar a mensagem.
 
-* As mensagens podem chegar fora de ordem ou após um atraso. Utilize o campo etag para perceber se as suas informações sobre objetos estão atualizadas para eventos criados ou apagados do dispositivo.
+* As mensagens podem chegar desordenadas ou após um atraso. Utilize o campo etag para perceber se as suas informações sobre objetos estão atualizadas para eventos criados ou apagados do dispositivo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Experimente o tutorial de eventos IoT Hub](../event-grid/publish-iot-hub-events-to-logic-apps.md)
 

@@ -6,18 +6,18 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: tracking-python
-ms.openlocfilehash: e99ea1d5a90455a4c470346fbbe5d1095c426e81
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c5f78535a3bd5ab93d3020d14a6242257c492297
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499465"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321297"
 ---
 # <a name="track-dependencies-with-opencensus-python"></a>Dependências de pistas com OpenCensus Python
 
 Uma dependência é um componente externo chamado pela aplicação. Os dados de dependência são recolhidos usando o OpenCensus Python e as suas várias integrações. Os dados são então enviados para a Application Insights no Azure Monitor como `dependencies` telemetria.
 
-Em primeiro lugar, instrumento a sua aplicação Python com o mais recente [OpenCensus Python SDK](../../azure-monitor/app/opencensus-python.md).
+Em primeiro lugar, instrumento a sua aplicação Python com o mais recente [OpenCensus Python SDK](./opencensus-python.md).
 
 ## <a name="in-process-dependencies"></a>Dependências em processo
 
@@ -168,10 +168,11 @@ from opencensus.trace import config_integration
 config_integration.trace_integrations(['sqlalchemy'])
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Mapeamento de Aplicações](../../azure-monitor/app/app-map.md)
-* [Disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Pesquisa](../../azure-monitor/app/diagnostic-search.md)
-* [Consulta de log (Analytics)](../../azure-monitor/log-query/log-query-overview.md)
-* [Diagnóstico da transação](../../azure-monitor/app/transaction-diagnostics.md)
+* [Mapeamento de Aplicações](./app-map.md)
+* [Disponibilidade](./monitor-web-app-availability.md)
+* [Pesquisa](./diagnostic-search.md)
+* [Consulta de log (Analytics)](../log-query/log-query-overview.md)
+* [Diagnóstico da transação](./transaction-diagnostics.md)
+

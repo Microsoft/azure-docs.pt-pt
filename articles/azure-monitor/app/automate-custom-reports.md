@@ -4,12 +4,12 @@ description: Automatizar relatórios personalizados diários/semanais/mensais co
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 4eb580b90c0bf9acafc4e8f805c2eef7eaae06d3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: abd87af1a9cf61aba21e9231350aabc661e5091b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540082"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320413"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizar relatórios personalizados com dados da Azure Application Insights
 
@@ -148,9 +148,10 @@ Estes passos só se aplicam se ainda não tiver uma conta SendGrid configurada.
 
    ![Copy API key screenshot](./media/automate-custom-reports/function-app-17.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre a criação [de consultas analíticas.](../../azure-monitor/log-query/get-started-queries.md)
+* Saiba mais sobre a criação [de consultas analíticas.](../log-query/get-started-queries.md)
 * Saiba mais sobre [os dados programáticas de consultas de insights de aplicação](https://dev.applicationinsights.io/)
 * Saiba mais sobre o [Logic Apps](../../logic-apps/logic-apps-overview.md).
 * Saiba mais sobre [o Microsoft Flow.](https://ms.flow.microsoft.com)
+

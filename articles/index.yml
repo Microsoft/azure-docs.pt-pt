@@ -10,15 +10,15 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 02/27/2020
+  ms.date: 07/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: cddf39ee7b13b8af887ccb424d540cbf482040e9
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.openlocfilehash: 084dd49726dec837fc4135f272802b1023ba5aac
+  ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/23/2020
-  ms.locfileid: "87079077"
+  ms.lasthandoff: 07/28/2020
+  ms.locfileid: "87324068"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -53,6 +53,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/search.svg
     azureCategories:
     - ai-machine-learning
+    - mobile
     - web
     url: search/index.yml
   - title: Serviços Cognitivos do Azure
@@ -61,6 +62,7 @@ productDirectory:
     azureCategories:
     - featured
     - ai-machine-learning
+    - mobile
     url: cognitive-services/index.yml
   - title: Azure Databricks
     summary: Plataforma de análise baseada no Apache Spark rápida, fácil e colaborativa
@@ -394,7 +396,6 @@ productDirectory:
     azureCategories:
     - compute
     - containers
-    - mobile
     - web
     url: app-service/index.yml
   - title: Serviço de Aplicações
@@ -513,7 +514,6 @@ productDirectory:
     azureCategories:
     - compute
     - containers
-    - mobile
     - web
     url: app-service/index.yml
   - title: Windows Virtual Desktop
@@ -555,7 +555,6 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/web-apps-containers.svg
     azureCategories:
     - containers
-    - mobile
     - web
     url: app-service/containers/index.yml
   - title: API do Azure para FHIR
@@ -1059,6 +1058,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/spatial-anchor-accounts.svg
     azureCategories:
     - mixed-reality
+    - mobile
     url: spatial-anchors/index.yml
   - title: Remote Rendering (Pré-visualização)
     summary: Componha conteúdo 3D interativo de elevada qualidade e transmita-o em fluxo para os dispositivos em tempo real

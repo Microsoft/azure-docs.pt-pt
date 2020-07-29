@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Criar uma aplicação de localizador de loja usando Azure Maps Microsoft Azure Maps'
 description: Neste tutorial, você vai aprender como criar uma aplicação web localizador de loja usando microsoft Azure Maps web SDK.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc
-ms.openlocfilehash: 5caeb9ff5c289343e1869a55808bde7fbe035479
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: 4bb0a4a0a621881fe1d9a59585476baa2ce05f8e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517557"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289564"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutorial: Criar um localizador de loja usando Azure Maps
 
@@ -940,7 +940,7 @@ Se redimensionar a janela do navegador para menos de 700 pixels de largura ou ab
 
 ![Screenshot da versão de pequeno ecrã do localizador da loja](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprende-se a criar um localizador de lojas básicas utilizando o Azure Maps. O localizador de loja que cria neste tutorial pode ter toda a funcionalidade de que necessita. Pode adicionar funcionalidades ao localizador da sua loja ou utilizar funcionalidades mais avançadas para uma experiência mais personalizada do utilizador: 
 

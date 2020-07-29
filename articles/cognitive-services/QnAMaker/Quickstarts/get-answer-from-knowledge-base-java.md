@@ -3,14 +3,14 @@ title: 'Quickstart: Obtenha resposta da base de conhecimento - REST, Java - QnA 
 description: Este quickstart baseado em Java REST acompanha-o através de obter uma resposta de uma base de conhecimento, programáticamente.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27
+ms.custom: RESTCURL2020FEB27, devx-track-java
 ms.topic: how-to
-ms.openlocfilehash: f162276044e63c9deb46a60033ffe9904366f777
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 3b193473ea20880c4efcf8747a129680008e3c9f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342804"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325938"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-java"></a>Quickstart: Obtenha respostas para uma pergunta de uma base de conhecimento com Java
 
@@ -31,7 +31,7 @@ Este quickstart acompanha-o programáticamente recebendo uma resposta de uma bas
 
     As definições da página de publicação incluem o valor da rota POST, o valor do anfitrião e o valor endpointKey.
 
-    ![Publish settings (Definições de publicação)](../media/qnamaker-quickstart-get-answer/publish-settings.png)
+    ![Definições de publicação](../media/qnamaker-quickstart-get-answer/publish-settings.png)
 
 ## <a name="create-a-java-file"></a>Criar um ficheiro java
 
@@ -90,7 +90,7 @@ Construa e execute o programa a partir da linha de comando. Enviará automaticam
 
 [!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Referência à API REST do Criador de FAQ](https://go.microsoft.com/fwlink/?linkid=2092179)

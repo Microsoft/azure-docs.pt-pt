@@ -10,14 +10,15 @@ ms.topic: quickstart
 ms.custom:
 - mvc
 - mqtt
+- devx-track-java
 ms.date: 06/21/2019
 ms.author: wesmc
-ms.openlocfilehash: 3e5afae9421d13d986ad6c891c8e889f590f04a2
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2a12c916b6f81f21574c4b9dc748a279c22f199f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044724"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87315619"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Quickstart: Controle um dispositivo ligado a um hub IoT (Android)
 
@@ -43,7 +44,7 @@ Neste arranque rápido, utiliza-se um método direto para controlar um dispositi
 
 ### <a name="add-azure-iot-extension"></a>Adicionar extensão Azure IoT
 
-Executar o seguinte comando para adicionar a extensão IoT do Microsoft Azure para Azure CLI à sua instância Cloud Shell. A extensão IoT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) ao Azure CLI.
+Executar o seguinte comando para adicionar a extensão IoT do Microsoft Azure para Azure CLI à sua instância Cloud Shell. A Extensão IoT adiciona comandos específicos do Hub IoT, do IoT Edge e do Serviço Aprovisionamento de Dispositivos IoT (DPS) à CLI do Azure.
 
 ```azurecli-interactive
 az extension add --name azure-iot
@@ -85,7 +86,7 @@ Se tiver completado o [Quickstart anterior: Enviar telemetria de um dispositivo 
       --output table
     ```
 
-    Anote a cadeia de ligação do dispositivo, que se parece com:
+    Anote a cadeia de ligação do dispositivo, que se assemelha a:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyAndroidDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -192,11 +193,11 @@ Uma aplicação de serviço back-end IoT Hub normalmente funciona na nuvem, onde
 
     ![Reconhecimento do método direto](media/quickstart-control-device-android/direct-method-ack.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, chamou um método direto num dispositivo a partir de uma aplicação de back-end, e respondeu à chamada de método direto numa aplicação simulada do dispositivo.
 

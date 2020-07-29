@@ -9,14 +9,16 @@ ms.custom:
 - mvc
 - amqp
 - mqtt
+- 'role: Direction'
+- 'role: System Architecture'
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 06c0ff7060f4a9d71af11ae75d52ad7f4bf14c6b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b5b92de195e4ff4d5b00de041f5b021ee75f9800
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81730857"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87307697"
 ---
 # <a name="what-is-azure-iot-hub"></a>O que é o IoT Hub do Azure?
 
@@ -28,7 +30,7 @@ O Hub IoT ajuda-o a criar soluções de IoT dimensionáveis e com todas as funci
 
 ## <a name="scale-your-solution"></a>Dimensionar a sua solução
 
-O Hub IoT dimensiona milhões de dispositivos ligados em simultâneo e milhões de eventos por segundo para suportar as suas cargas de trabalho de IoT. Para obter mais informações sobre a escala do seu Hub IoT, consulte [o IoT Hub Scaling](iot-hub-scaling.md?branch=release-iotbasic). Para saber mais sobre os múltiplos níveis de serviço oferecidos pelo IoT Hub e como melhor se adequar às suas necessidades de escalabilidade, confira a página de [preços](https://azure.microsoft.com/pricing/details/iot-hub/).
+O Hub IoT dimensiona milhões de dispositivos ligados em simultâneo e milhões de eventos por segundo para suportar as suas cargas de trabalho de IoT. Para obter mais informações sobre o dimensionamento do seu Hub IoT, consulte [ioT Hub Scaling.](iot-hub-scaling.md?branch=release-iotbasic) Para saber mais sobre os múltiplos níveis de serviço oferecidos pelo IoT Hub e como melhor se adequa às suas necessidades de escalabilidade, consulte a [página de preços.](https://azure.microsoft.com/pricing/details/iot-hub/)
 
 ## <a name="secure-your-communications"></a>Comunicações protegidas
 
@@ -112,9 +114,9 @@ Se a sua solução não conseguir utilizar um dos protocolos suportados, pode ex
 
 ## <a name="quotas-and-limits"></a>Quotas e limites
 
-Cada subscrição do Azure tem limites de quota predefinidos para evitar o abuso do serviço, pelo que estes limites podem afetar o âmbito da sua solução de IoT. O limite atual numa base por subscrição é de 50 hubs IoT por subscrição. Pode contactar o suporte para pedir o aumento da quota. Para mais informações, consulte [IoT Hub Quotas e Throttling](iot-hub-devguide-quotas-throttling.md). Para obter mais informações sobre os limites das quotas, consulte um dos seguintes artigos:
+Cada subscrição do Azure tem limites de quota predefinidos para evitar o abuso do serviço, pelo que estes limites podem afetar o âmbito da sua solução de IoT. O limite atual numa base por subscrição é de 50 hubs IoT por subscrição. Pode contactar o suporte para pedir o aumento da quota. Para mais informações, consulte [IoT Hub Quotas e Throttling.](iot-hub-devguide-quotas-throttling.md) Para obter mais informações sobre os limites de quota, consulte um dos seguintes artigos:
 
-* [Limites do serviço de subscrição Azure](../azure-resource-manager/management/azure-subscription-service-limits.md)
+* [Limites de serviço de subscrição Azure](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 * [A limitação do Hub IoT e o que significa para si](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/)
 
@@ -124,6 +126,6 @@ Para experimentar uma solução de IoT ponto a ponto, veja os guias de início r
 
 * [Guia de Início Rápido: Enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-node.md)
 
-Para saber mais sobre as formas de construir e implementar soluções IoT com o Azure IoT, visite:
+Para saber mais sobre as formas de construir e implementar soluções IoT com Azure IoT, visite:
 
-* [Fundamentos: Tecnologias e soluções Azure IoT.](../iot-fundamentals/iot-services-and-technologies.md)
+* [Fundamentos: Tecnologias e soluções Azure IoT](../iot-fundamentals/iot-services-and-technologies.md).

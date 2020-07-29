@@ -5,18 +5,18 @@ description: Este artigo ensina-o a usar a Azure Machine Learning para implement
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 06/17/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 344112e19adbfaa1b06eebab309f31ed4e070c7d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: 5233850ef9656f225caebc10458218eede393ab3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077002"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325785"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implementar um modelo de aprendizagem profunda para inferência com GPU
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -288,7 +288,7 @@ aks_service.delete()
 aks_target.delete()
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Implementar modelo na FPGA](how-to-deploy-fpga-web-service.md)
 * [Implementar modelo com ONNX](concept-onnx.md#deploy-onnx-models-in-azure)

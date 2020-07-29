@@ -11,11 +11,14 @@ ms.author: kgremban
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 7aa59f8181ad60b3d43846a3f4f1f471a050b238
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- 'Role: Cloud Development'
+- 'Role: System Architecture'
+ms.openlocfilehash: 1b51e2338dabd34ec69d311a9eb1a5c4a644f628
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733446"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322759"
 ---
 # <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>Dispositivos IoT de ligação ao Azure: Hub IoT e Centros de Eventos
 
@@ -36,7 +39,7 @@ A tabela seguinte fornece detalhes sobre como os dois níveis de IoT Hub se comp
 | Protocolos: MQTT, MQTT sobre webSockets | ![Marcar][checkmark] | ![Marcar][checkmark] |  |
 | Identidade por dispositivo | ![Marcar][checkmark] | ![Marcar][checkmark] |  |
 | Upload de ficheiros a partir de dispositivos | ![Marcar][checkmark] | ![Marcar][checkmark] |  |
-| Serviço de Fornecimento de Dispositivos | ![Marcar][checkmark] | ![Marcar][checkmark] |  |
+| Serviço de Aprovisionamento do Dispositivos | ![Marcar][checkmark] | ![Marcar][checkmark] |  |
 | Mensagens nuvem-para-dispositivo | ![Marcar][checkmark] |  |  |
 | Gestão de dispositivos twin e dispositivo | ![Marcar][checkmark] |  |  |
 | Fluxos de dispositivos (pré-visualização) | ![Marcar][checkmark] |  |  |
@@ -44,7 +47,7 @@ A tabela seguinte fornece detalhes sobre como os dois níveis de IoT Hub se comp
 
 Mesmo que o único caso de utilização seja a ingestão de dados dispositivo-a-nuvem, recomendamos vivamente a utilização do IoT Hub, uma vez que fornece um serviço concebido para a conectividade do dispositivo IoT. 
 
-### <a name="next-steps"></a>Próximos passos
+### <a name="next-steps"></a>Passos seguintes
 
 Para explorar ainda mais as capacidades do IoT Hub, consulte o guia de desenvolvimento do [IoT Hub.](iot-hub-devguide.md)
 

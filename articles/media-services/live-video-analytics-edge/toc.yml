@@ -64,6 +64,8 @@
       href: manage-recording-policy-how-to.md
     - name: Analisar vídeo em direto com IA à sua escolha
       href: analyze-with-ai-your-choice-how-to.md
+    - name: Invocar métodos diretos com o portal
+      href: use-azure-portal-to-invoke-direct-methods.md
     - name: Resolução de problemas
       href: troubleshoot-how-to.md
 - name: Referência

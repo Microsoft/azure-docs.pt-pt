@@ -9,12 +9,13 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.custom: mqtt
-ms.openlocfilehash: 3ea2f0eec12d756a898f1761f6b22fd034c1bc3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mqtt, devx-track-java
+ms.openlocfilehash: c439f1a5aaa03774652dc815364c45633096f6de
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81732446"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327604"
 ---
 # <a name="get-started-with-device-twins-java"></a>Começar com os gémeos do dispositivo (Java)
 
@@ -401,7 +402,7 @@ Está agora pronto para executar as aplicações da consola.
 
     Agora que o seu dispositivo enviou a propriedade **de conectividadeType** para o IoT Hub, a segunda consulta devolve o seu dispositivo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, configurou um novo Hub IoT no portal do Azure e, em seguida, criou uma identidade de dispositivo no registo de identidades do Hub IoT. Adicionou metadados de dispositivo como tags de uma aplicação de back-end, e escreveu uma aplicação para reportar informações de conectividade do dispositivo no twin do dispositivo. Também aprendeu a consultar as informações gémeas do dispositivo utilizando a linguagem de consulta IoT Hub semelhante ao SQL.
 

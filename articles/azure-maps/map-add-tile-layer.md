@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.custom: codepen
-ms.openlocfilehash: 6bb3cfa7266688ac8973bd3838d0d03e9efe8d50
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: codepen, devx-track-javascript
+ms.openlocfilehash: bb277a3413a21011b537b47bdc8fc1979c8e81c5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242309"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87279564"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Adicionar uma camada de mosaico a um mapa
 

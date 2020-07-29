@@ -3,16 +3,16 @@ title: 'Quickstart: Azure Blob storage library v12 - JavaScript in a browser'
 description: Neste arranque rápido, você aprende a usar a versão 12 da biblioteca de clientes de armazenamento Azure Blob para JavaScript num browser. Você cria um recipiente e um objeto no armazenamento Blob. Em seguida, aprende-se a listar todas as bolhas num recipiente. Finalmente, aprende-se a apagar bolhas e a apagar um recipiente.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 04/18/2020
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: f884e6d3cbc2e1f3127b251818f4617fccb6a999
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 039aea76e5e59d43078c2fa884e192922ec50035
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011333"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87276997"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -26,9 +26,6 @@ Recursos adicionais:
 * [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
 * [Pacote (npm)](https://www.npmjs.com/package/@azure/storage-blob)
 * [Amostras](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
-
-> [!NOTE]
-> Para começar com a versão SDK anterior, consulte [Quickstart: Gerir blobs com JavaScript v10 SDK em Node.js](storage-quickstart-blobs-nodejs-legacy.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -294,7 +291,7 @@ No [portal Azure,](https://portal.azure.com)pode verificar os resultados das cha
 3. Selecione **Refresh**. O novo contentor desaparece.
 4. Feche a aplicação web.
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 
 Clique na consola **Terminal** no Código do Estúdio Visual e prima CTRL+C para parar o servidor web.
 

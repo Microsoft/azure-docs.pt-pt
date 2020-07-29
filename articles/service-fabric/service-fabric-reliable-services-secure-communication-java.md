@@ -4,12 +4,14 @@ description: Saiba como garantir a comunicação baseada em remoing de serviço 
 author: PavanKunapareddyMSFT
 ms.topic: conceptual
 ms.date: 06/30/2017
+ms.custom: devx-track-java
 ms.author: pakunapa
-ms.openlocfilehash: adefeadf939d398268624343d82c18cbf5ec87cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01a64fbcfef9f56abb0e1aa6cf7f5d821dd3763b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75609643"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325717"
 ---
 # <a name="secure-service-remoting-communications-in-a-java-service"></a>Comunicações de remoing de serviço seguro num serviço Java
 > [!div class="op_single_selector"]

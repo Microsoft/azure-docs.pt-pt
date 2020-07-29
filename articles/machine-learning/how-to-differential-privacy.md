@@ -5,17 +5,18 @@ description: Aprenda a aplicar as melhores práticas de privacidade diferenciais
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
 ms.date: 07/09/2020
-ms.openlocfilehash: 0ef20eee7e73c3a73a2f2e895242d7c1fce307c9
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 2182c9bc7588947ece5a309018359a8bcfa3ff41
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206339"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320209"
 ---
 # <a name="use-differential-privacy-in-azure-machine-learning-preview"></a>Use privacidade diferencial em Azure Machine Learning (pré-visualização)
 
@@ -148,11 +149,11 @@ Pode utilizar a biblioteca para compor gráficos de análise mais complexos, com
 
 | Estatísticas    | Mecanismos | Utilitários  |
 | ------------- |------------|------------|
-| Contagem         | Gaussiano   | Elenco       |
+| de palavras         | Gaussiano   | Elenco       |
 | Histograma     | Geométrico  | Aperto   |
 | Média          | Rio Laplace    | Digitalizar   |
 | Rio Quantiles     |            | Filtro     |
-| Soma           |            | Imputation |
+| Som           |            | Imputation |
 | Variação/Covariância |      | Transformação  |
 
 Consulte o [caderno de análise de dados básicos](https://github.com/opendifferentialprivacy/whitenoise-samples/blob/master/analysis/basic_data_analysis.ipynb) para obter mais detalhes.
@@ -248,6 +249,6 @@ with wn.Analysis() as analysis:
 Para mais informações, consulte o [caderno de covariance](
 https://github.com/opendifferentialprivacy/whitenoise-samples/blob/master/analysis/covariance.ipynb)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 - Explore [os cadernos de amostras whiteNoise.](https://github.com/opendifferentialprivacy/whitenoise-samples/tree/master/analysis)

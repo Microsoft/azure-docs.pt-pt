@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 07/07/2020
+ms.date: 07/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8db3a5292af2d53945c60a7b4ec1eb3c78381b9b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 83cf8ca47774713ca8dbfd493d7aa16bf65fb6b7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101854"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286466"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>Tutorial: Criar um ambiente Azure Time Series Insights Gen2
 
@@ -48,12 +48,12 @@ Nesta secção, irá criar três dispositivos simulados que enviam dados para um
 
    [![Página de aceleradores de solução Azure IoT.](media/v2-update-provision/iot-solution-accelerators-landing-page.png)](media/v2-update-provision/iot-solution-accelerators-landing-page.png#lightbox)
 
-1. Na página seguinte, selecione **Tente Agora**. Em seguida, introduza os parâmetros necessários na página **de solução de simulação** do dispositivo.
+1. Introduza a subscrição onde pretende criar a simulação do dispositivo.
 
    Parâmetro|Descrição
    ---|---
    **Nome de implantação** | Este valor único é usado para criar um novo grupo de recursos. Os recursos do Azure listados são criados e atribuídos ao grupo de recursos.
-   **Subscrição do Azure** | Especifique a mesma subscrição que foi usada para criar o seu ambiente Azure Time Series Insights Gen2 na secção anterior.
+   **Assinatura Azure** | Especifique a mesma subscrição que foi usada para criar o seu ambiente Azure Time Series Insights Gen2 na secção anterior.
    **Opções de implementação** | Selecione **Provision novo IoT Hub** para criar um novo hub IoT específico para este tutorial.
    **Local azul** | Especifique a mesma região que foi usada para criar o seu ambiente Azure Time Series Insights Gen2 na secção anterior.
 
@@ -61,7 +61,7 @@ Nesta secção, irá criar três dispositivos simulados que enviam dados para um
 
    [![Forrá a solução de simulação do dispositivo.](media/v2-update-provision/iot-solution-accelerators-configuration.png)](media/v2-update-provision/iot-solution-accelerators-configuration.png#lightbox)
 
-1. Após o fornecimento ter terminado, duas notificações aparecerão anunciando que o estado de implantação passou de **Provisioning** para **Ready**. 
+1. Após o fornecimento ter terminado, duas notificações aparecerão anunciando que o estado de implantação passou de **Provisioning** para **Ready**.
 
    >[!IMPORTANT]
    > Não entre no seu acelerador de solução ainda! Mantenha esta página web aberta porque voltará mais tarde.
@@ -76,9 +76,9 @@ Nesta secção, irá criar três dispositivos simulados que enviam dados para um
 
 Esta secção descreve como criar um ambiente Azure Time Series Insights Gen2 e conectá-lo ao hub IoT criado pelo Acelerador de Solução IoT utilizando o [portal Azure](https://portal.azure.com/).
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando a sua conta de subscrição Azure. 
-1. Selecione **+ Criar um recurso** no canto superior esquerdo. 
-1. Selecione a categoria **Internet of Things** e, em seguida, selecione Time Series **Insights**. 
+1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando a sua conta de subscrição Azure.
+1. Selecione **+ Criar um recurso** no canto superior esquerdo.
+1. Selecione a categoria **Internet of Things** e, em seguida, selecione Time Series **Insights**.
 
    [![Selecione o recurso ambiente Time Series Insights.](media/v2-update-provision/tsi-create-new-environment.png)](media/v2-update-provision/tsi-create-new-environment.png#lightbox)
 
@@ -91,14 +91,14 @@ Esta secção descreve como criar um ambiente Azure Time Series Insights Gen2 e 
     | **Grupo de recursos** | Selecione um grupo de recursos existente ou crie um novo grupo de recursos para o recurso ambiente Azure Time Series Insights Gen2. Um grupo de recursos é um contentor de recursos do Azure. Uma boa prática é utilizar o mesmo grupo de recursos que os outros recursos IoT que são criados pelo simulador do dispositivo. |
     | **Localização** | Selecione uma região de data center para o seu ambiente Azure Time Series Insights Gen2. Para evitar latência adicional, o melhor é criar o seu ambiente Azure Time Series Insights Gen2 na mesma região que o seu hub IoT criado pelo simulador de dispositivos. |
     | **Escalão de serviço** |  Selecione **Gen2(L1)**. Este é o SKU para o produto Azure Time Series Insights Gen2. |
-    | **Nome da propriedade** | Insira um valor que identifique exclusivamente a sua instância de séries temporize. O valor que introduz na caixa **de identificação** de propriedade não pode ser alterado mais tarde. Para este tutorial, insira ***id id id id id id id iothub-connection-connection-device***. Para saber mais sobre o ID da Série De Tempo, leia [as melhores práticas para escolher um ID da Série De Tempo.](./time-series-insights-update-how-to-id.md) |
+    | **Nome de propriedade de ID série de tempo** | Insira um nome de uma propriedade que contenha valores que identifiquem exclusivamente as suas instâncias de séries horárias. O valor que introduz na caixa **de nomes da Propriedade** como ID da Série De Tempo não pode ser alterado mais tarde. Para este tutorial, insira ***id id id id id id id iothub-connection-connection-device***. Para saber mais sobre o ID da Série De Tempo, incluindo o ID composto da Série De Tempo, leia [as melhores práticas para escolher um ID da Série De Tempo](./time-series-insights-update-how-to-id.md). |
     | **Nome da conta de armazenamento** | Insira um nome globalmente único para uma nova conta de armazenamento.|
     | **Tipo de conta de armazenamento** | Selecione o tipo de armazenamento para uma nova conta de armazenamento. Recomendamos armazenamentoV2|
-    | **Replicação da conta de armazenamento** | Selecione o tipo de armazenamento para uma nova conta de armazenamento. Com base na sua seleção de localização, pode escolher entre LRS, GRS e ZRS. Para este tuorial, você pode selecionar LRS|
-    | **Espaço de nome hierárquio** |Esta opção é selecionável, uma vez que selecione o tipo de armazenamento para ser StorageV2. Por predefinição, está desativado. Para este tutorial, pode deixá-lo no seu estado de *desativação* padrão|
-    |**Ativar loja quente**|Selecione **Sim** para ativar a loja quente. Pode voltar mais tarde e ativar ou desativar esta definição. |
+    | **Replicação da conta de armazenamento** | Selecione o tipo de armazenamento para uma nova conta de armazenamento. Com base na sua seleção de localização, pode escolher entre LRS, GRS e ZRS. Para este tutorial, pode selecionar LRS|
+    | **Espaço hierárquico de nomes** |Esta opção é selecionável, uma vez que selecione o tipo de armazenamento para ser StorageV2. Por predefinição, está desativado. Para este tutorial, pode deixá-lo no seu estado de *desativação* padrão|
+    |**Ativar loja quente**|Selecione **Sim** para ativar a loja quente. Esta definição pode ser desativada e reativada após a criação do ambiente. |
     |**Retenção de dados (em dias)**|Escolha a opção padrão de 7 dias. |
-    
+
     [![Nova configuração do ambiente da Série Temporal Insights.](media/v2-update-provision/tsi-environment-configuration.png)](media/v2-update-provision/tsi-environment-configuration.png#lightbox)
 
 1. Selecione **Seguinte: Fonte de eventos**.
@@ -133,7 +133,7 @@ Esta secção descreve como criar um ambiente Azure Time Series Insights Gen2 e 
 
 1. Tem acesso ao ambiente Azure Time Series Insights Gen2 por padrão se for proprietário da subscrição Azure. Verifique se tem acesso:
 
-   1. Procure o seu grupo de recursos e, em seguida, selecione o seu recém-criado ambiente Azure Time Series Insights Gen2. 
+   1. Procure o seu grupo de recursos e, em seguida, selecione o seu recém-criado ambiente Azure Time Series Insights Gen2.
 
       [![Selecione e veja o seu ambiente.](media/v2-update-provision/verify-tsi-resource-in-group.png)](media/v2-update-provision/verify-tsi-resource-in-group.png#lightbox)
 
@@ -157,7 +157,7 @@ Agora que implementou o seu ambiente Azure Time Series Insights Gen2, comece a t
 
    [![Simulação de dispositivo consentimento da aplicação web.](media/v2-update-provision/sawa-signin-consent.png)](media/v2-update-provision/sawa-signin-consent.png#lightbox)
 
-1. Selecione **+ Nova simulação**. 
+1. Selecione **+ Nova simulação**.
 
     1. Após as cargas da página **de configuração de Simulação,** introduza os parâmetros necessários.
 
@@ -222,7 +222,7 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
     | **Nome** | Entrar **elevador** |
     | **Descrição** | Insira **Esta é uma definição tipo para Elevador** |
 
-1. Em seguida, selecione o **separador Variáveis.** 
+1. Em seguida, selecione o **separador Variáveis.**
 
     1. **Selecione + Adicionar Variável** e preencha os seguintes valores para a primeira variável do tipo Elevador. Irás autorizar três variáveis no total.
 
@@ -260,19 +260,19 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
         [![Depois de adicionar o tipo, reveja-o na vista Modelo.](media/v2-update-provision/tsi-add-type-and-view.png)](media/v2-update-provision/tsi-add-type-and-view.png#lightbox)
 
 1. Selecione o separador **Hierarquias.** Em seguida, selecione **+ Adicionar**.
-   
+
    1. No painel **de hierarquia de edição,** definir os seguintes parâmetros:
 
         | Parâmetro | Ação |
         | --- | ---|
         | **Nome** | Insira **a Hierarquia de Localização**. |
-        |**Níveis**| Entre **no País** como o nome do primeiro nível <br> Selecione **+ Adicionar Nível** <br> Insira **o City** para o segundo nível e, em seguida, selecione **+ Adicionar Nível** <br> **Insira o Edifício** como o nome do terceiro e último nível |
+        |**Níveis**| Entre **no País** como o nome do primeiro nível <br /> Selecione **+ Adicionar Nível** <br /> Insira **o City** para o segundo nível e, em seguida, selecione **+ Adicionar Nível** <br /> **Insira o Edifício** como o nome do terceiro e último nível |
 
-    1. Selecione **Guardar**.
+   1. Selecione **Guardar**.
 
         [![Exiba a sua nova hierarquia na vista Modelo.](media/v2-update-provision/tsi-add-hierarchy-and-view.png)](media/v2-update-provision/tsi-add-hierarchy-and-view.png#lightbox)
 
-1. Navegar para **instâncias**. 
+1. Navegar para **instâncias**.
 
     1. Em **Ações** de extrema-direita, e selecione o ícone do lápis para editar a primeira instância com os seguintes valores:
 
@@ -333,7 +333,7 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
 
     [![Visualizar o Elevador 2 com hierarquia e dados.](media/v2-update-provision/iot-solution-accelerator-elevator-two.png)](media/v2-update-provision/iot-solution-accelerator-elevator-two.png#lightbox)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Agora que completou o tutorial, limpe os recursos que criou:
 

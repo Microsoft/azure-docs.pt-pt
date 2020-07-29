@@ -3,21 +3,22 @@ title: Monitor Java web app performance em Linux - Azure / Microsoft Docs
 description: Monitorização alargada do desempenho da aplicação do seu website Java com o plug-in CollectD para Insights de Aplicações.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 62a723dad7e9f6c2bfdabde159968d507d2d5d41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 648d0e5adc289dfeb83a54c3dcb9ab7d25fc1cc4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537530"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322606"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>recolhido: Métricas de desempenho do Linux em Insights de Aplicação
 
 
-Para explorar as métricas de desempenho do sistema Linux no [Application Insights,](../../azure-monitor/app/app-insights-overview.md)instale [colecionada,](https://collectd.org/)juntamente com o plug-in Application Insights. Esta solução de código aberto reúne várias estatísticas de sistema e rede.
+Para explorar as métricas de desempenho do sistema Linux no [Application Insights,](./app-insights-overview.md)instale [colecionada,](https://collectd.org/)juntamente com o plug-in Application Insights. Esta solução de código aberto reúne várias estatísticas de sistema e rede.
 
 Normalmente, utilizará a recolha se já tiver [instrumentado o seu serviço web Java com Application Insights][java]. Dá-lhe mais dados para o ajudar a melhorar o desempenho da sua aplicação ou a diagnosticar problemas. 
 
 ## <a name="get-your-instrumentation-key"></a>Obtenha a sua chave de instrumentação
-No [portal Microsoft Azure,](https://portal.azure.com)abra o recurso [Application Insights](../../azure-monitor/app/app-insights-overview.md) onde pretende que os dados apareçam. (Ou [criar um novo recurso](../../azure-monitor/app/create-new-resource.md ).)
+No [portal Microsoft Azure,](https://portal.azure.com)abra o recurso [Application Insights](./app-insights-overview.md) onde pretende que os dados apareçam. (Ou [criar um novo recurso](./create-new-resource.md).)
 
 Pegue uma cópia da chave de instrumentação, que identifica o recurso.
 
@@ -104,7 +105,7 @@ Diretivas separadas com uma nova linha.
 *Não vejo dados no portal.*
 
 * [Pesquisa][diagnostic] aberta para ver se os eventos crus chegaram. Às vezes demoram mais tempo a aparecer no explorador de métricas.
-* Pode ser necessário definir exceções de [firewall para dados de saída](../../azure-monitor/app/ip-addresses.md)
+* Pode ser necessário definir exceções de [firewall para dados de saída](./ip-addresses.md)
 * Ativar o rastreio no plugin Application Insights. Adicione esta linha dentro `<Plugin ApplicationInsightsWriter>` de:
   * `SDKLogger true`
 * Abra um terminal e comece a colecionar em modo verboso, para ver quaisquer problemas que esteja a relatar:
@@ -120,13 +121,12 @@ Solução alternativa: Excluir dados recolhidos pelo problema Escreva plugins.
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#track-exception
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[api]: ./api-custom-events-metrics.md
+[apiexceptions]: ./api-custom-events-metrics.md#track-exception
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../../azure-monitor/platform/metrics-charts.md
-
+[metrics]: ../platform/metrics-charts.md
 

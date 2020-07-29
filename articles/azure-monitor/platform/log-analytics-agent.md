@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: 9f8850b83b2af7f0d3007cd716f9e077361a02e2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 409a119804354b85e3af380d33a4801549ef8133
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091118"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325292"
 ---
 # <a name="log-analytics-agent-overview"></a>Visão geral do agente do Log Analytics
 O agente Azure Log Analytics foi desenvolvido para uma gestão abrangente através de máquinas virtuais em qualquer nuvem, máquinas no local, e as monitorizadas pelo [System Center Operations Manager](/system-center/scom/). Os agentes windows e Linux enviam dados recolhidos de diferentes fontes para o seu espaço de trabalho Log Analytics no Azure Monitor, bem como quaisquer registos ou métricas únicos definidos numa solução de monitorização. O agente Log Analytics também suporta insights e outros serviços no Azure Monitor, como [o Azure Monitor para VMs,](../insights/vminsights-enable-overview.md) [Azure Security Center,](../../security-center/index.yml)e [Azure Automation.](../../automation/automation-intro.md)
@@ -72,15 +72,15 @@ Existem vários métodos para instalar o agente Log Analytics e ligar a sua máq
 
 |Origem | Método | Descrição|
 |-------|-------------|-------------|
-|VM do Azure| [Manualmente a partir do portal Azure](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json) | Especifique os VMs para implantar a partir do espaço de trabalho Do Log Analytics. |
+|VM do Azure| [Manualmente a partir do portal Azure](../learn/quick-collect-azurevm.md?toc=%2fazure%2fazure-monitor%2ftoc.json) | Especifique os VMs para implantar a partir do espaço de trabalho Do Log Analytics. |
 | | Log Analytics VM extensão para [Windows](../../virtual-machines/extensions/oms-windows.md) ou [Linux](../../virtual-machines/extensions/oms-linux.md) usando Azure CLI ou com um modelo de Gestor de Recursos Azure | A extensão instala o agente Log Analytics em máquinas virtuais Azure e inscreve-as num espaço de trabalho existente do Azure Monitor. |
 | | [Azure Monitor para VMs](../insights/vminsights-enable-overview.md) | Quando ativa a monitorização com o Azure Monitor para VMs, instala a extensão e o agente Log Analytics. |
 | | [Azure Security Center Provisioning automático](../../security-center/security-center-enable-data-collection.md) | O Azure Security Center pode providenciar o agente Log Analytics em todos os VMs Azure suportados e quaisquer novos que sejam criados se lhe permitir monitorizar vulnerabilidades e ameaças de segurança. Se estiver ativado, qualquer VM novo ou existente sem um agente instalado será a provisionado. |
 | Computador híbrido com Windows| [Instalação manual](agent-windows.md) | Instale o agente de monitorização da Microsoft a partir da linha de comando. |
 | | [Azure Automation DSC](agent-windows.md#install-the-agent-using-dsc-in-azure-automation) | Automatizar a instalação com a Azure Automation DSC. |
 | | [Modelo de gestor de recursos com pilha de Azure](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) | Utilize um modelo de Gestor de Recursos Azure se tiver implementado o Microsoft Azure Stack no seu datacenter.| 
-| Computador híbrido com Linux| [Instalação manual](../../azure-monitor/learn/quick-collect-linux-computer.md)|Instale o agente para linux chamando um script de invólucro hospedado no GitHub. | 
-| System Center Operations Manager|[Integrar Gestor de Operações com Log Analytics](../../azure-monitor/platform/om-agents.md) | Configure a integração entre o Gestor de Operações e os registos do Azure Monitor para encaminhar dados recolhidos de computadores Windows reportando a um grupo de gestão.|  
+| Computador híbrido com Linux| [Instalação manual](../learn/quick-collect-linux-computer.md)|Instale o agente para linux chamando um script de invólucro hospedado no GitHub. | 
+| System Center Operations Manager|[Integrar Gestor de Operações com Log Analytics](./om-agents.md) | Configure a integração entre o Gestor de Operações e os registos do Azure Monitor para encaminhar dados recolhidos de computadores Windows reportando a um grupo de gestão.|  
 
 
 ## <a name="supported-windows-operating-systems"></a>Sistemas operativos Windows suportados
@@ -189,10 +189,10 @@ A tabela que se segue lista as informações de configuração de procuração e
 
 |Recursos do Agente|Portas |Direção |Inspeção de HTTPS direto|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Porto 443 |Saída|Yes |  
-|*.oms.opinsights.azure.com |Porto 443 |Saída|Yes |  
-|*.blob.core.windows.net |Porto 443 |Saída|Yes |
-|*.azure-automation.net |Porto 443 |Saída|Yes |
+|*.ods.opinsights.azure.com |Porto 443 |Saída|Sim |  
+|*.oms.opinsights.azure.com |Porto 443 |Saída|Sim |  
+|*.blob.core.windows.net |Porto 443 |Saída|Sim |
+|*.azure-automation.net |Porto 443 |Saída|Sim |
 
 Para obter informações sobre firewall necessárias para o Governo de Azure, consulte [a gestão do Governo Azure](../../azure-government/compare-azure-government-global-azure.md#azure-monitor-logs). 
 
@@ -229,3 +229,4 @@ Por exemplo: `https://user01:password@proxy01.contoso.com:30443`
 * Reveja [as fontes de dados](agent-data-sources.md) para entender as fontes de dados disponíveis para recolher dados do seu sistema Windows ou Linux. 
 * Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções. 
 * Saiba mais [sobre soluções de monitorização](../insights/solutions.md) que adicionam funcionalidade ao Azure Monitor e também recolha dados no espaço de trabalho do Log Analytics.
+

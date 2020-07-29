@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
-ms.custom: seodec18
-ms.openlocfilehash: 496f519ba5e4eb17060ee35ed86fba45c85336d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: seodec18, devx-track-java
+ms.openlocfilehash: 734f4d7bac8fc508031dc37d01b82d95d38ab7f6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84905736"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321161"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurar uma aplicação Java do Linux para o Serviço de Aplicações do Azure
 
@@ -651,7 +651,7 @@ Se um tempo de execução java suportado for retirado, os desenvolvedores Azure 
 
 [!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Visite o [centro de Azure para Java Developers](/java/azure/) para encontrar quickstarts, tutoriais e documentação de referência java.
 

@@ -2,13 +2,13 @@
 title: Etiquetar recursos, grupos de recursos e subscrições para organização lógica
 description: Mostra como aplicar tags para organizar recursos Azure para faturação e gestão.
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: 9dd025818a64a8ece1f4218a8341a40ecc617829
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.date: 07/27/2020
+ms.openlocfilehash: fa56fac79855b438a0cd1c10ed1008d69ca3e2fe
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056927"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323881"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Use etiquetas para organizar os seus recursos Azure e hierarquia de gestão
 
@@ -438,7 +438,7 @@ Para armazenar muitos valores numa única etiqueta, aplique uma cadeia JSON que 
 
 ### <a name="apply-tags-from-resource-group"></a>Aplicar tags do grupo de recursos
 
-Para aplicar tags de um grupo de recursos a um recurso, utilize a função [Grupo de Recursos.](../templates/template-functions-resource.md#resourcegroup) Ao obter o valor da etiqueta, use a `tags[tag-name]` sintaxe em vez da `tags.tag-name` sintaxe, porque alguns caracteres não são analisados corretamente na notação do ponto.
+Para aplicar tags de um grupo de recursos a um recurso, utilize a função [Grupo de Recursos()](../templates/template-functions-resource.md#resourcegroup) Ao obter o valor da etiqueta, use a `tags[tag-name]` sintaxe em vez da `tags.tag-name` sintaxe, porque alguns caracteres não são analisados corretamente na notação do ponto.
 
 ```json
 {
@@ -578,7 +578,7 @@ As etiquetas aplicadas ao grupo de recursos ou subscrição não são herdadas p
 
 Pode utilizar etiquetas para agrupar os seus dados de faturação. Por exemplo, se estiver a executar múltiplas VMs para organizações diferentes, utilize as etiquetas para agrupar a utilização por centro de custos. Também pode utilizar etiquetas para categorizar os custos por ambiente de runtime, tal como a utilização de faturação das VMs executadas no ambiente de produção.
 
-Pode obter informações sobre tags através do [ficheiro Azure Resource Use and RateCard APIs](../../cost-management-billing/manage/usage-rate-card-overview.md) ou o ficheiro de valores separados por vírgula (CSV). Descarregue o ficheiro de utilização do Centro de [Contas Azure](https://account.azure.com/Subscriptions) ou do portal Azure. Para mais informações, consulte [Download ou consulte a sua faturação Azure e dados de utilização diários.](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md) Ao descarregar o ficheiro de utilização do Centro de Conta Azure, selecione **a Versão 2**. Para serviços que suportam etiquetas com faturação, as etiquetas aparecem na coluna **Tags.**
+Pode obter informações sobre tags através das APIs de [Utilização de Recursos Azure e tarifas](../../cost-management-billing/manage/usage-rate-card-overview.md) ou do ficheiro valores separados por vírgulas de utilização (CSV). Descarregue o ficheiro de utilização do Centro de [Contas Azure](https://account.azure.com/Subscriptions) ou do portal Azure. Para mais informações, consulte [Download ou consulte a sua faturação Azure e dados de utilização diários.](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md) Ao descarregar o ficheiro de utilização do Centro de Conta Azure, selecione **a Versão 2**. Para serviços que suportam etiquetas com faturação, as etiquetas aparecem na coluna **Tags.**
 
 Para operações rest API, consulte [referência API API de Faturação AZure](/rest/api/billing/).
 
@@ -596,8 +596,10 @@ As seguintes limitações aplicam-se às etiquetas:
    > Atualmente, as zonas de DNS do Azure e os serviços de Gerente de Tráfego também não permitem a utilização de espaços na etiqueta.
    >
    > AZure Front Door não suporta o uso `#` do nome da etiqueta.
+   >
+   > A Azure Automation e a Azure CDN suportam apenas 15 tags em recursos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Nem todos os tipos de recursos suportam tags. Para determinar se pode aplicar uma etiqueta a um tipo de recurso, consulte [o suporte da Tag para os recursos do Azure.](tag-support.md)
 * Para obter recomendações sobre como implementar uma estratégia de marcação, consulte [o guia de decisão de nomeação de recursos e marcação.](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)

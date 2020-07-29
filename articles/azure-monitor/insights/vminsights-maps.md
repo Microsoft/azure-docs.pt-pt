@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2020
-ms.openlocfilehash: acb96984a49e4ad8535f87a41da11b3b63ae207b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3227585b62583d0a05f8dbc0444ee5bb4a27df77
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80283859"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320515"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-to-understand-application-components"></a>Utilize a funcionalidade Mapa do Monitor Azure para VMs para entender os componentes da aplicação
 No Azure Monitor para VMs, pode ver os componentes de aplicações descobertos nas máquinas virtuais Windows e Linux (VMs) que funcionam no Azure ou no seu ambiente. Pode observar os VMs de duas maneiras. Veja um mapa diretamente de um VM ou veja um mapa do Azure Monitor para ver os componentes em grupos de VMs. Este artigo irá ajudá-lo a entender estes dois métodos de visualização e como usar a funcionalidade Mapa. 
@@ -49,7 +49,7 @@ Para tornar a funcionalidade do Mapa apresentar alertas relevantes, crie uma reg
 - Incluir uma cláusula para agrupar alertas por computador (por exemplo, **por intervalo de computador 1 minuto).**
 - Baseie o alerta numa métrica.
 
-Para obter mais informações sobre alertas Azure e criar regras de alerta, consulte [alertas unificados no Azure Monitor](../../azure-monitor/platform/alerts-overview.md).
+Para obter mais informações sobre alertas Azure e criar regras de alerta, consulte [alertas unificados no Azure Monitor](../platform/alerts-overview.md).
 
 No canto superior direito, a opção **Legend** descreve os símbolos e papéis no mapa. Para olhar mais de perto o seu mapa e movê-lo ao redor, use os controlos de zoom no canto inferior direito. Pode definir o nível de zoom e encaixar o mapa no tamanho da página.  
 
@@ -128,10 +128,11 @@ No Azure Monitor, a funcionalidade Mapa proporciona uma visão global dos seus V
 
 Escolha um espaço de trabalho utilizando o seletor **workspace** no topo da página. Se tiver mais do que um espaço de trabalho log Analytics, escolha o espaço de trabalho que está habilitado com a solução e que tenha VMs a reportar-lhe. 
 
-O seletor **do Grupo** devolve subscrições, grupos de recursos, [grupos de computadores](../../azure-monitor/platform/computer-groups.md)e conjuntos de escala de máquinas virtuais de computadores relacionados com o espaço de trabalho selecionado. A sua seleção aplica-se apenas à funcionalidade Mapa e não transporta para Performance ou Saúde.
+O seletor **do Grupo** devolve subscrições, grupos de recursos, [grupos de computadores](../platform/computer-groups.md)e conjuntos de escala de máquinas virtuais de computadores relacionados com o espaço de trabalho selecionado. A sua seleção aplica-se apenas à funcionalidade Mapa e não transporta para Performance ou Saúde.
 
 Por predefinição, o mapa mostra os últimos 30 minutos. Se quiser ver como as dependências pareciam no passado, pode consultar intervalos históricos de tempo de até uma hora. Para executar a consulta, utilize o seletor **TimeRange.** Você pode fazer uma consulta, por exemplo, durante um incidente ou para ver o estado antes de uma mudança.  
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para identificar estrangulamentos, verifique o desempenho e compreenda a utilização global dos seus VMs, consulte o estado de desempenho do [Azure Monitor para VMs](vminsights-performance.md). 
+

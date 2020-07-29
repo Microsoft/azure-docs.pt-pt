@@ -10,12 +10,13 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: aahi
-ms.custom: seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: d6278452eda0a6a043654d90519374a741caf76a
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.custom: seo-java-july2019, seo-java-august2019, devx-track-java
+ms.openlocfilehash: f8f9d76e5f1584ce54897950d7e35e2b22ba958e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027990"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319784"
 ---
 # <a name="quickstart-use-java-to-call-the-azure-text-analytics-cognitive-service"></a>Quickstart: Use Java para chamar o Serviço Cognitivo Azure Text Analytics
 <a name="HOLTop"></a>
@@ -32,7 +33,7 @@ Também tem de ter a [chave de ponto final e acesso](../../cognitive-services-ap
 
 <a name="Detect"></a>
 
-## <a name="detect-language"></a>Detetar idioma
+## <a name="detect-language"></a>Detetar Idioma
 
 A API de Deteção de Idiomas deteta a linguagem de um documento de texto, utilizando o [método De deteção da linguagem.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)
 
@@ -381,7 +382,7 @@ O resultado é medido como positivo se tiver pontuado mais perto de 1.0 e negati
 
 <a name="KeyPhraseExtraction"></a>
 
-## <a name="extract-key-phrases"></a>Extrair expressões-chave
+## <a name="extract-key-phrases"></a>Extrair Expressões-Chave
 
 A API de Extração de Expressões-Chave extrai expressões-chave de um documento de texto através do [método Expressões-Chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). O seguinte exemplo extrai Expressões-chave para o documento em inglês e o documento em espanhol.
 
@@ -710,7 +711,7 @@ public class GetEntities {
 > [!div class="nextstepaction"]
 > [Análise de Texto com o Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
- [Descrição Geral da Análise de Texto](../overview.md)  
+ [Descrição geral da Análise de Texto](../overview.md)  
  [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)

@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 948de6968d336d16554fe0a0c2f7d0c5b7367f15
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e2e1d0479b8edacaae8816d74db061eeedb805a7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101841"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325224"
 ---
 # <a name="analyze-data-with-sql-pools"></a>Analisar dados com piscinas SQL
 

@@ -3,14 +3,15 @@ title: 'Quickstart: Java web app analytics with Azure Application Insights'
 description: 'Monitorização do Desempenho de Aplicações para aplicações Web Java com o Application Insights. '
 ms.topic: conceptual
 author: lgayhardt
+ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: d3835f88eb581693d10f68a9a495329466a657a2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 464bf650cbcaa99e947a21f5a87a5872f7b11178
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014495"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326924"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Quickstart: Começa com a Application Insights num projeto web da Java
 
@@ -131,7 +132,7 @@ O SDK do Application Insights procura a chave pela seguinte ordem:
 2. Variável do ambiente: APPINSIGHTS_INSTRUMENTATIONKEY
 3. Ficheiro de configuração: *ApplicationInsights.xml*
 
-Também pode [defini-lo no código](../../azure-monitor/app/api-custom-events-metrics.md#ikey):
+Também pode [defini-lo no código](./api-custom-events-metrics.md#ikey):
 
 ```java
     String instrumentationKey = "00000000-0000-0000-0000-000000000000";
@@ -307,16 +308,17 @@ O Application Insights pode testar o seu site em intervalos regulares para verif
 * [Chamadas de dependência do monitor](java-agent.md)
 * [Contadores de desempenho Unix do monitor](java-collectd.md)
 * Adicione [monitorização das suas páginas Web](javascript.md), para monitorizar os tempos de carregamento da página, as chamadas AJAX e as exceções de browser.
-* Escreva [telemetria personalizada](../../azure-monitor/app/api-custom-events-metrics.md) para controlar a utilização no browser ou no servidor.
+* Escreva [telemetria personalizada](./api-custom-events-metrics.md) para controlar a utilização no browser ou no servidor.
 * Use [Analytics](../log-query/log-query-overview.md) para consultas poderosas sobre telemetria a partir da sua app
 * Para obter mais informações, visite [Azure para programadores Java](/java/azure).
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#trackexception
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[api]: ./api-custom-events-metrics.md
+[apiexceptions]: ./api-custom-events-metrics.md#trackexception
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../../azure-monitor/platform/metrics-charts.md
+[metrics]: ../platform/metrics-charts.md
 [usage]: javascript.md
+

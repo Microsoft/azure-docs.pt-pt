@@ -5,20 +5,20 @@ description: Saiba como chamar um ponto final de serviço web que foi gerado qua
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/17/2020
-ms.custom: seodec18, tracking-python
-ms.openlocfilehash: ced9453982615485e25b56be9b7a36dc8f6ce988
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: 991ad3afc51cc2f6dc1853a6b26f53bcb2fd1503
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84974675"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326414"
 ---
-# <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo de Aprendizagem automática Azure implementado como um serviço web
+# <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo do Azure Machine Learning implementado como serviço Web
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 A implementação de um modelo Azure Machine Learning como um serviço web cria um ponto final rest API. Pode enviar dados para este ponto final e receber a previsão devolvida pelo modelo. Neste documento, aprenda a criar clientes para o serviço web utilizando C#, Go, Java e Python.
@@ -527,6 +527,6 @@ Para gerar um serviço web suportado para consumo em Power BI, o esquema deve su
 
 Uma vez que o serviço web é implementado, é consumível a partir de fluxos de dados Power BI. [Saiba como consumir um serviço web Azure Machine Learning da Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para ver uma arquitetura de referência para pontuação em tempo real de Python e modelos de deep learning, vá ao [centro de arquitetura Azure.](/azure/architecture/reference-architectures/ai/realtime-scoring-python)

@@ -7,12 +7,12 @@ ms.author: lechen
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
 ms.custom: tracking-python
-ms.openlocfilehash: 35d56c5318046a0f9ffc52f61fac886c473cf0bc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eec4a46596b9cd39a43b6bb1f8969d41e99916b6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024372"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322555"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Configurar o Azure Monitor para a sua aplicação Python
 
@@ -474,13 +474,14 @@ Para obter informações mais detalhadas sobre como utilizar consultas e registo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Rastreio de pedidos de entrada](./../../azure-monitor/app/opencensus-python-dependency.md)
-* [Rastreio de pedidos de saída](./../../azure-monitor/app/opencensus-python-request.md)
-* [Mapa de aplicação](./../../azure-monitor/app/app-map.md)
-* [Monitorização de desempenho de ponta a ponta](./../../azure-monitor/learn/tutorial-performance.md)
+* [Rastreio de pedidos de entrada](./opencensus-python-dependency.md)
+* [Rastreio de pedidos de saída](./opencensus-python-request.md)
+* [Mapa de aplicação](./app-map.md)
+* [Monitorização de desempenho de ponta a ponta](../learn/tutorial-performance.md)
 
 ### <a name="alerts"></a>Alertas
 
-* [Testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md): Crie testes para garantir que o seu site está visível na Web.
-* [Diagnóstico inteligente](../../azure-monitor/app/proactive-diagnostics.md): Estes testes são executados automaticamente, pelo que não precisa de fazer nada para os configurar. Estes indicam se a aplicação tem uma taxa de pedidos com falha fora do normal.
-* [Alertas métricos](../../azure-monitor/platform/alerts-log.md): Desave os alertas para o avisar se uma métrica atravessar um limiar. Pode defini-los em métricas personalizadas que introduz no código da sua aplicação.
+* [Testes de disponibilidade](./monitor-web-app-availability.md): Crie testes para garantir que o seu site está visível na Web.
+* [Diagnóstico inteligente](./proactive-diagnostics.md): Estes testes são executados automaticamente, pelo que não precisa de fazer nada para os configurar. Estes indicam se a aplicação tem uma taxa de pedidos com falha fora do normal.
+* [Alertas métricos](../platform/alerts-log.md): Desave os alertas para o avisar se uma métrica atravessar um limiar. Pode defini-los em métricas personalizadas que introduz no código da sua aplicação.
+

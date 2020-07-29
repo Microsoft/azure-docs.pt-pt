@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd66bc742d0832cba5d6f302bfe30c85e2d82716
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d3df4eee14e5ce2f0638058efde0f80d0e5b051
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253346"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87275484"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como: Bloquear a autenticação do legado para Azure AD com acesso condicional   
 
@@ -84,7 +85,7 @@ Antes de bloquear a autenticação do legado no seu diretório, tem de primeiro 
 
 1. Navegue para o **portal**  >  **Azure Ative Directory**  >  **Ins**.
 1. Adicione a coluna 'App' cliente se não for mostrada clicando na App do Cliente **das Colunas.**  >  **Client App**
-1. **Adicionar filtros**  >  **A App do Cliente** > selecione todos os protocolos de autenticação do legado e clique em **Aplicar**.
+1. **Adicionar filtros**  >  **A App do Cliente** > selecione todos os protocolos de autenticação do legado. Selecione fora do blox de diálogo de filtragem para aplicar as suas seleções e feche a caixa de diálogo.
 
 A filtragem só lhe mostrará as tentativas de inscrição que foram feitas por protocolos de autenticação de legados. Clicar em cada tentativa de inscrição individual irá mostrar-lhe detalhes adicionais. O campo **de Aplicação do Cliente** no separador **Informações Básicas** indicará qual o protocolo de autenticação legado utilizado.
 
@@ -149,7 +150,7 @@ Se bloquear a autenticação de legados utilizando a condição **de Outros clie
 
 ![Configuração de política não suportada](./media/block-legacy-authentication/06.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Determinar o impacto utilizando o modo de relatório de acesso condicional](howto-conditional-access-report-only.md)
 - Se ainda não está familiarizado com a configuração das políticas de Acesso Condicional, consulte [o MFA para aplicações específicas com acesso condicional do Azure Ative Directory,](app-based-mfa.md) por exemplo.

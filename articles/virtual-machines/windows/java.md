@@ -7,13 +7,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 07/17/2017
+ms.custom: devx-track-java
 ms.author: cynthn
-ms.openlocfilehash: 6f73abe108ca9c33a8ec6865a760400d16393e51
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d4ad1c46aa023f30a2d33ef11e576aa29607b273
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508496"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325428"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Criar e gerir VMs do Windows em Azure utilizando a Java
 
@@ -464,5 +465,5 @@ Deve levar cerca de cinco minutos para que esta aplicação da consola corra com
 2. Antes de pressionar **Enter** para começar a apagar recursos, pode demorar alguns minutos a verificar a criação dos recursos no portal Azure. Clique no estado de implementação para ver informações sobre a implementação.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre a utilização das [bibliotecas Azure para Java.](/java/azure/java-sdk-azure-overview)

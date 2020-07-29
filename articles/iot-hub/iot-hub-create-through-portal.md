@@ -7,11 +7,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
-ms.openlocfilehash: c43c142b22709d42416b2dd14dfc78812970916a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+ms.openlocfilehash: 8f7555129f5f514d1954ac56cf87872a85ca91d0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708115"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326737"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Criar um hub IoT utilizando o portal Azure
 
@@ -117,7 +120,7 @@ Aqui estão duas formas de encontrar um hub IoT específico na sua subscrição:
 
 Para eliminar um hub Iot, encontre o hub IoT que pretende eliminar e, em seguida, clique no botão **Delete** abaixo do nome do hub IoT.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Siga estes links para saber mais sobre a gestão do Azure IoT Hub:
 

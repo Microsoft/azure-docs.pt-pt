@@ -6,12 +6,12 @@ ms.author: dukek
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
-ms.openlocfilehash: f592c42bc06c6bcd33ce6e10c506f8af0d8e0cf2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f6d5cbfc8d781e96a4d348f31f4a5d175ebd5a3d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008392"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321892"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Como desencadear ações complexas com alertas do Azure Monitor
 
@@ -19,7 +19,7 @@ Este artigo mostra-lhe como configurar e desencadear uma aplicação lógica par
 
 ## <a name="overview"></a>Descrição geral
 
-Quando um alerta do Monitor Azure dispara, chama um [grupo de ação](../../azure-monitor/platform/action-groups.md). Os grupos de ação permitem-lhe desencadear uma ou mais ações para notificar os outros sobre um alerta e também remediar o mesmo.
+Quando um alerta do Monitor Azure dispara, chama um [grupo de ação](./action-groups.md). Os grupos de ação permitem-lhe desencadear uma ou mais ações para notificar os outros sobre um alerta e também remediar o mesmo.
 
 O processo geral é:
 
@@ -294,6 +294,7 @@ O processo de criação de um alerta métrico é semelhante à criação de [um 
 A Logic Apps tem uma série de conectores diferentes que permitem desencadear ações numa vasta gama de aplicações e bases de dados. Slack, SQL Server, Oracle, Salesforce, são apenas alguns exemplos. Para obter mais informações sobre conectores, consulte [os conectores Logic App](../../connectors/apis-list.md).  
 
 ## <a name="next-steps"></a>Passos seguintes
-* Obtenha uma [visão geral dos alertas de registo de atividades do Azure](../../azure-monitor/platform/alerts-overview.md) e aprenda a receber alertas.  
+* Obtenha uma [visão geral dos alertas de registo de atividades do Azure](./alerts-overview.md) e aprenda a receber alertas.  
 * Saiba como [configurar alertas quando for publicada uma notificação de Saúde do Serviço Azure](../../service-health/alerts-activity-log-service-notifications-portal.md).
-* Saiba mais sobre [grupos de ação.](../../azure-monitor/platform/action-groups.md)
+* Saiba mais sobre [grupos de ação.](./action-groups.md)
+

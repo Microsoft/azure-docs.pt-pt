@@ -2,13 +2,13 @@
 title: Mobilizar recursos para inquilino
 description: Descreve como implantar recursos no âmbito do inquilino num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
-ms.date: 05/08/2020
-ms.openlocfilehash: 45541bcbea5a80e55dbc9f80e1eae8e17189bf6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/27/2020
+ms.openlocfilehash: a6523ff70dc7307713bb6aecf90e2ea9f8e2bfdd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945448"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321756"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Criar recursos ao nível dos inquilinos
 
@@ -16,15 +16,32 @@ ms.locfileid: "84945448"
 
 ## <a name="supported-resources"></a>Recursos suportados
 
-Pode implementar os seguintes tipos de recursos ao nível do inquilino:
+Nem todos os tipos de recursos podem ser implantados ao nível do inquilino. Esta secção lista quais os tipos de recursos suportados.
 
-* [implementações](/azure/templates/microsoft.resources/deployments) - para modelos aninhados que se implantam em grupos de gestão ou subscrições.
-* [grupos de gestão](/azure/templates/microsoft.management/managementgroups)
+Para políticas de Azure, utilize:
+
 * [políticasAssinsagens](/azure/templates/microsoft.authorization/policyassignments)
 * [políticasDefinições](/azure/templates/microsoft.authorization/policydefinitions)
 * [políticasSetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
+
+Para o controlo de acesso baseado em funções, utilize:
+
 * [papéAs de assinaturas](/azure/templates/microsoft.authorization/roleassignments)
 * [funçõesDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
+
+Para modelos aninhados que se desdobram em grupos de gestão, subscrições ou grupos de recursos, utilize:
+
+* [implementações](/azure/templates/microsoft.resources/deployments)
+
+Para criar grupos de gestão, utilize:
+
+* [grupos de gestão](/azure/templates/microsoft.management/managementgroups)
+
+Para gerir custos, utilize:
+
+* [billingProfiles](/azure/templates/microsoft.billing/billingaccounts/billingprofiles)
+* [instruções](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
+* [faturaSecções](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
 
 ### <a name="schema"></a>Esquema
 
@@ -94,6 +111,56 @@ Pode fornecer um nome para a implementação ou utilizar o nome de implementaç�
 
 Para cada nome de implantação, a localização é imutável. Não é possível criar uma implantação num local quando há uma implantação existente com o mesmo nome num local diferente. Se obter o código de erro `InvalidDeploymentLocation` , utilize um nome diferente ou o mesmo local que a colocação anterior para esse nome.
 
+## <a name="deployment-scopes"></a>Âmbitos de implantação
+
+Ao ser destacado para um inquilino, pode direcionar o inquilino ou grupos de gestão, subscrições e grupos de recursos no arrendatário. O utilizador que implementa o modelo deve ter acesso ao âmbito especificado.
+
+Os recursos definidos na secção de recursos do modelo são aplicados ao arrendatário.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        tenant-level-resources
+    ],
+    "outputs": {}
+}
+```
+
+Para direcionar um grupo de gestão dentro do inquilino, adicione uma implantação aninhada e especifique o `scope` imóvel.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "mgName": {
+            "type": "string"
+        }
+    },
+    "variables": {
+        "mgId": "[concat('Microsoft.Management/managementGroups/', parameters('mgName'))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "nestedMG",
+            "scope": "[variables('mgId')]",
+            "location": "eastus",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    nested-template
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
 ## <a name="use-template-functions"></a>Use funções de modelo
 
 Para as implementações de inquilinos, existem algumas considerações importantes ao utilizar funções de modelo:
@@ -141,7 +208,7 @@ O [modelo a seguir](https://github.com/Azure/azure-quickstart-templates/tree/mas
 }
 ```
 
-## <a name="assign-role"></a>Atribuir papel
+## <a name="assign-role"></a>Atribuir função
 
 O [modelo a seguir](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/tenant-role-assignment) atribui uma função no âmbito do inquilino.
 
@@ -183,7 +250,7 @@ O [modelo a seguir](https://github.com/Azure/azure-quickstart-templates/tree/mas
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para aprender sobre a atribuição de funções, consulte [Gerir o acesso aos recursos do Azure utilizando modelos de Gestor de Recursos RBAC e Azure](../../role-based-access-control/role-assignments-template.md).
 * Também pode implementar modelos ao [nível de subscrição](deploy-to-subscription.md) ou [ao nível do grupo de gestão.](deploy-to-management-group.md)

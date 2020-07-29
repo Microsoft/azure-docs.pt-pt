@@ -7,13 +7,13 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 04/09/2020
-ms.openlocfilehash: a9c9dee94dd50462109a8864ffb413ce991c8dbd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/27/2020
+ms.openlocfilehash: a71b4096e791221057fdcc5d14351ceccab720fb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072395"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87307204"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Identifie imagens em um projeto de rotulagem 
 
@@ -37,11 +37,9 @@ Depois de o administrador do seu projeto [criar um projeto de rotulagem](https:/
 
 1. Selecione **data labeling** no lado esquerdo para encontrar o projeto.  
 
-1. Selecione o nome do projeto na lista.
-
 ## <a name="understand-the-labeling-task"></a>Compreender a tarefa de rotulagem
 
-Uma vez selecionado o projeto, no topo da página, selecione **Os dados do Rótulo**.
+Na tabela de projetos de rotulagem de dados, **selecione Label link** para o seu projeto.
 
 Você vê instruções específicas para o seu projeto. Eles explicam o tipo de dados que está a enfrentar, como deve tomar as suas decisões, e outras informações relevantes. Depois de ler esta informação, no topo da página selecione **Tarefas**.  Ou na parte inferior da página, selecione **Iniciar a rotulagem**.
 

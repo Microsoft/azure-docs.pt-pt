@@ -8,12 +8,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: 9a069c4e63abd5307c123799d92e656294045a65
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8a55ab9b6b87a379fbdebcead4467ec47507d67a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505861"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327519"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Criar uma Definição de Dimensionamento Automático para recursos do Azure com base nos dados de desempenho ou numa agenda
 
@@ -159,7 +159,7 @@ A condição de redução horizontal na definição de dimensionamento automáti
 
     ![Ver ações de redução horizontal](./media/tutorial-autoscale-performance-schedule/Scale-In-Chart.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 1. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione a Aplicação Web criada neste tutorial.
 
@@ -169,7 +169,7 @@ A condição de redução horizontal na definição de dimensionamento automáti
 
 4. Confirme a eliminação ao escrever **sim** na caixa de texto e, em seguida, clique em **Eliminar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial:  
 > [!div class="checklist"]
@@ -180,7 +180,8 @@ Neste tutorial:
 > * Limpou os recursos
 
 
-Para saber mais sobre as definições de dimensionamento automático, avance para [Autoscale overview](../../azure-monitor/platform/autoscale-overview.md) (descrição geral de dimensionamento automático).
+Para saber mais sobre as definições de dimensionamento automático, avance para [Autoscale overview](../platform/autoscale-overview.md) (descrição geral de dimensionamento automático).
 
 > [!div class="nextstepaction"]
 > [Archive your monitoring data](../platform/platform-logs-overview.md) (Arquivar os dados de monitorização)
+

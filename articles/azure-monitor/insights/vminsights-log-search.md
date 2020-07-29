@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 771cfa11375e97f2f6a94fc65cbd72306b12cd7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64884f07bc59e5ff2b29eac645ddb469ef3db465
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84803970"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325190"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Como consultar registos do Azure Monitor para VMs
 
-O Azure Monitor para VMs recolhe métricas de desempenho e conexão, dados de inventário de computador e processo, e informações do estado de saúde e reencaminha-os para o espaço de trabalho Log Analytics em Azure Monitor.  Estes dados estão disponíveis para [consulta](../../azure-monitor/log-query/log-query-overview.md) no Azure Monitor. Pode aplicar estes dados em cenários que incluem planeamento de migração, análise de capacidade, descoberta e resolução de problemas de desempenho a pedido.
+O Azure Monitor para VMs recolhe métricas de desempenho e conexão, dados de inventário de computador e processo, e informações do estado de saúde e reencaminha-os para o espaço de trabalho Log Analytics em Azure Monitor.  Estes dados estão disponíveis para [consulta](../log-query/log-query-overview.md) no Azure Monitor. Pode aplicar estes dados em cenários que incluem planeamento de migração, análise de capacidade, descoberta e resolução de problemas de desempenho a pedido.
 
 ## <a name="map-records"></a>Mapear registos
 
@@ -166,7 +166,7 @@ Os registos com um tipo de *VMComputer* têm dados de inventário para servidore
 |Máquina | Nome do recurso Azure Resource Manager para a máquina exposta pelo ServiceMap. É do formulário *m-{GUID}*, onde *guid* é o mesmo GUID que o AgentId. | 
 |DisplayName | Nome a apresentar | 
 |FullDisplayName | Nome de exibição completo | 
-|NomedeAnfitrião | O nome da máquina sem nome de domínio |
+|Nome do Anfitrião | O nome da máquina sem nome de domínio |
 |Horário de arranque | O tempo de arranque da máquina (UTC) |
 |TimeZone | O fuso horário normalizado |
 |Estado de Virtualização | *virtual,* *hipervisor,* *físico* |
@@ -243,7 +243,7 @@ Os registos com um tipo de *VMProcess* têm dados de inventário para processos 
 |Linha de Comando | A linha de comando |
 |WorkingDirectory | O diretório de trabalho |
 |Serviços | Uma série de serviços em que o processo está a executar |
-|UserName | A conta em que o processo está a executar |
+|Nome de Utilizador | A conta em que o processo está a executar |
 |UserDomain | O domínio sob o qual o processo está a executar |
 |_ResourceId | O identificador único para um processo dentro do espaço de trabalho |
 
@@ -442,7 +442,7 @@ Os registos com um tipo de *InsightsMetrics* têm dados de desempenho do sistema
 |Computador | O computador FQDN | 
 |Origem | *vm.azm.ms* |
 |Espaço de Nomes | Categoria do contador de desempenho | 
-|Name | Nome do balcão de performance |
+|Nome | Nome do balcão de performance |
 |Val | Valor recolhido | 
 |Etiquetas | Detalhes relacionados sobre o registo. Consulte a tabela abaixo para obter etiquetas utilizadas com diferentes tipos de registo.  |
 |AgentId | Identificador único para o agente de cada computador |
@@ -451,7 +451,7 @@ Os registos com um tipo de *InsightsMetrics* têm dados de desempenho do sistema
 
 Os contadores de desempenho atualmente recolhidos na tabela *InsightsMetrics* estão listados na tabela seguinte:
 
-| Espaço de Nomes | Name | Descrição | Unidade | Etiquetas |
+| Espaço de Nomes | Nome | Descrição | Unidade | Etiquetas |
 |:---|:---|:---|:---|:---|
 | Computador    | Heartbeat             | Batimento cardíaco do computador                        | | |
 | Memória      | DisponívelMB           | Bytes disponíveis para memória                    | Megabytes      | memorySizeMB - Tamanho total da memória|
@@ -471,8 +471,9 @@ Os contadores de desempenho atualmente recolhidos na tabela *InsightsMetrics* es
 | LógicaDisk | BytesPerSecond        | Bytes de disco lógico por segundo             | BytesPerSecond | mountId - ID do monte do dispositivo |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Se é novo a escrever consultas de registo no Azure Monitor, [reveja como utilizar](../../azure-monitor/log-query/get-started-portal.md) o Log Analytics no portal Azure para escrever consultas de registo.
+* Se é novo a escrever consultas de registo no Azure Monitor, [reveja como utilizar](../log-query/get-started-portal.md) o Log Analytics no portal Azure para escrever consultas de registo.
 
-* Saiba mais sobre [escrever consultas de pesquisa.](../../azure-monitor/log-query/search-queries.md)
+* Saiba mais sobre [escrever consultas de pesquisa.](../log-query/search-queries.md)
+

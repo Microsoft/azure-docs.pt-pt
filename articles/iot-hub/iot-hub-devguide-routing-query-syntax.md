@@ -7,11 +7,15 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: b76ef431e4c0ad63929378c1f48c6ab06776cb25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+- 'Role: Data Analytics'
+ms.openlocfilehash: 34ffa7a9fe9bd129fa3fd572bc8ef4d80b43ab9b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84688964"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322980"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintaxe de consulta do encaminhamento de mensagens do Hub IoT
 
@@ -51,11 +55,11 @@ As propriedades do sistema ajudam a identificar o conteúdo e a origem das mensa
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| conteúdoType | string | O utilizador especifica o tipo de conteúdo da mensagem. Para permitir a consulta no corpo da mensagem, este valor deve ser definido aplicação/JSON. |
-| contentEncoding | string | O utilizador especifica o tipo de codificação da mensagem. Os valores permitidos são UTF-8, UTF-16, UTF-32 se o conteúdoType estiver definido para aplicação/JSON. |
-| iothub-connection-device-id | string | Este valor é definido pelo IoT Hub e identifica o ID do dispositivo. Para consultar, use `$connectionDeviceId` . |
-| iothub-enqueuedtime | string | Este valor é definido pelo IoT Hub e representa o tempo real de mensagem na UTC. Para consultar, use `enqueuedTime` . |
-| nome iothub-interface | string | Este valor é definido pelo utilizador e representa o nome da interface digital twin que implementa a mensagem de telemetria. Para consultar, use `$interfaceName` . Esta funcionalidade está disponível como parte da [pré-visualização pública IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). |
+| conteúdoType | cadeia | O utilizador especifica o tipo de conteúdo da mensagem. Para permitir a consulta no corpo da mensagem, este valor deve ser definido aplicação/JSON. |
+| contentEncoding | cadeia | O utilizador especifica o tipo de codificação da mensagem. Os valores permitidos são UTF-8, UTF-16, UTF-32 se o conteúdoType estiver definido para aplicação/JSON. |
+| iothub-connection-device-id | cadeia | Este valor é definido pelo IoT Hub e identifica o ID do dispositivo. Para consultar, use `$connectionDeviceId` . |
+| iothub-enqueuedtime | cadeia | Este valor é definido pelo IoT Hub e representa o tempo real de mensagem na UTC. Para consultar, use `enqueuedTime` . |
+| nome iothub-interface | cadeia | Este valor é definido pelo utilizador e representa o nome da interface digital twin que implementa a mensagem de telemetria. Para consultar, use `$interfaceName` . Esta funcionalidade está disponível como parte da [pré-visualização pública IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). |
 
 Como descrito nas [Mensagens IoT Hub,](iot-hub-devguide-messages-construct.md)existem propriedades adicionais do sistema numa mensagem. Para além **do conteúdoType**, **contentEncoding**e **enqueuedTime,** a **ligaçãoDeviceId** e **conexãoModuleId** também pode ser consultada.
 
@@ -215,7 +219,7 @@ $twin.tags.deploymentLocation.floor = 1
 
 A consulta de encaminhamento no corpo ou no dispositivo twin com um período na carga útil ou no nome da propriedade não é suportada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [o encaminhamento de mensagens](iot-hub-devguide-messages-d2c.md).
 * Experimente o [tutorial de encaminhamento de mensagens](tutorial-routing.md).

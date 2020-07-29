@@ -9,12 +9,13 @@ ms.subservice: development
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 06/26/2020
-ms.openlocfilehash: 59124928e9bfb75265e3556e37d65a3b30c851d3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-java
+ms.openlocfilehash: 829a106a643c10626a65855152375c349cd76f9a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515080"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325139"
 ---
 # <a name="use-java-and-jdbc-with--azure-sql-database"></a>Use Java e JDBC com Base de Dados Azure SQL
 
@@ -493,7 +494,7 @@ az group delete \
     --yes
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Desenhe a sua primeira base de dados na Base de Dados Azure SQL](design-first-database-tutorial.md)  
 - [Controlador Microsoft JDBC para SQL Server](https://github.com/microsoft/mssql-jdbc)  

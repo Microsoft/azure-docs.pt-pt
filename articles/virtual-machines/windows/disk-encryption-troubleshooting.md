@@ -4,16 +4,16 @@ description: Este artigo fornece dicas de resolução de problemas para a Encrip
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
-ms.topic: article
+ms.topic: troubleshooting
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: a4d16edae3b41bc9c3b4a849935fe8c6f94504ae
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b3b83899ad21cf125105881a7ffb526f5c607c6d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088432"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322215"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guia de resolução de problemas de encriptação de disco Azure
 
@@ -24,8 +24,6 @@ Antes de tomar qualquer um dos passos abaixo, certifique-se primeiro de que os V
 - [Requisitos de rede](disk-encryption-overview.md#networking-requirements)
 - [Requisitos de política de grupo](disk-encryption-overview.md#group-policy-requirements)
 - [Requisitos de armazenamento de chaves de encriptação](disk-encryption-overview.md#encryption-key-storage-requirements)
-
- 
 
 ## <a name="troubleshooting-azure-disk-encryption-behind-a-firewall"></a>Resolução de problemas Azure Disk Encriptação atrás de uma firewall
 
@@ -78,11 +76,15 @@ DISKPART> list vol
 
 ## <a name="troubleshooting-encryption-status"></a>Estado de encriptação de resolução de problemas 
 
-O portal pode apresentar um disco encriptado mesmo depois de ter sido desencriptado dentro do VM.  Isto pode ocorrer quando comandos de baixo nível são usados para desencriptar diretamente o disco a partir do VM, em vez de usar os comandos de gestão de encriptação de disco Azure de nível superior.  Os comandos de nível superior não só desencriptam o disco a partir do VM, mas também fora do VM, também atualizam importantes definições de encriptação de nível da plataforma e definições de extensão associadas ao VM.  Se estes não forem mantidos em alinhamento, a plataforma não será capaz de reportar o estado de encriptação ou a provisionação adequada do VM.   
+O portal pode apresentar um disco encriptado mesmo depois de ter sido desencriptado dentro do VM.  Isto pode ocorrer quando comandos de baixo nível são usados para desencriptar diretamente o disco a partir do VM, em vez de usar os comandos de gestão de encriptação de disco Azure de nível superior.  Os comandos de nível superior não só desencriptam o disco a partir do VM, mas também fora do VM, também atualizam importantes definições de encriptação de nível da plataforma e definições de extensão associadas ao VM.  Se estes não forem mantidos em alinhamento, a plataforma não será capaz de reportar o estado de encriptação ou a provisionação adequada do VM.
 
 Para desativar a encriptação do disco Azure com PowerShell, utilize [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) seguido por [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). Executar Remove-AzVMDiskEncryptionExtension antes de a encriptação ser desativada falhará.
 
 Para desativar a encriptação do disco Azure com O CLI, utilize [desativação de encriptação az vm](/cli/azure/vm/encryption). 
+
+## 
+
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

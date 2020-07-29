@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop PowerShell (outono 2019) - Azure
-description: Como resolver problemas com o PowerShell quando configurar um ambiente de inquilino virtual do Windows Desktop (lançamento outono 2019).
+title: Windows Virtual Desktop (clássico) PowerShell - Azure
+description: Como resolver problemas com o PowerShell quando configurar um ambiente de inquilino virtual do Windows Desktop (clássico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3171cc54de57b70a18a3f1b9ee3317cf29f79d4b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 04ef12d6de8820740be687bd09ffaa5a8e69eb86
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085814"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87269619"
 ---
-# <a name="windows-virtual-desktop-powershell-fall-2019-release"></a>Windows Virtual Desktop PowerShell (lançamento outono 2019)
+# <a name="windows-virtual-desktop-classic-powershell"></a>Windows Virtual Desktop (clássico) PowerShell
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../troubleshoot-powershell.md).
+>Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows. Se estiver a tentar gerir os objetos de ambiente de trabalho virtuais do Azure Resource Manager Windows, consulte [este artigo](../troubleshoot-powershell.md).
 
 Utilize este artigo para resolver erros e problemas ao utilizar o PowerShell com o Windows Virtual Desktop. Para obter mais informações sobre o PowerShell dos Serviços de Ambiente de Trabalho Remoto, consulte [o Windows Virtual Desktop Powershell](/powershell/module/windowsvirtualdesktop/).
 
