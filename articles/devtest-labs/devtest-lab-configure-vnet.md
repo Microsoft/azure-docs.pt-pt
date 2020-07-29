@@ -3,12 +3,12 @@ title: Configure uma rede virtual em Azure DevTest Labs Microsoft Docs
 description: Aprenda a configurar uma rede virtual e sub-rede existentes, e use-as num VM com Azure DevTest Labs
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 0819527cfc2a9dfd4e93226542acb7cb0c6d7273
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21fe23b6be6fdc924c5502ff97f9c03a3f3e759d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482654"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283559"
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Configurar uma rede virtual em Azure DevTest Labs
 Como explicado no artigo [Adicionar um VM a um laboratório](devtest-lab-add-vm.md), quando criar um VM em um laboratório, você pode especificar uma rede virtual configurada. Por exemplo, poderá ter de aceder aos recursos da sua rede a partir dos seus VMs utilizando a rede virtual configurada com o ExpressRoute ou a VPN site-to-site.
@@ -53,10 +53,9 @@ Os passos seguintes acompanham-no através da adição de uma rede virtual exist
 
 Agora que a rede virtual está configurada, pode ser selecionada ao criar um VM. Para ver como criar um VM e especificar uma rede virtual, consulte o artigo, [Adicione um VM a um laboratório](devtest-lab-add-vm.md). 
 
-[A Documentação](https://docs.microsoft.com/azure/virtual-network) da Rede Virtual do Azure fornece mais informações sobre como usar VNets, incluindo como configurar e gerir um VNet e conectá-lo à sua rede no local.
+[A Documentação](../virtual-network/index.yml) da Rede Virtual do Azure fornece mais informações sobre como usar VNets, incluindo como configurar e gerir um VNet e conectá-lo à sua rede no local.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Depois de ter adicionado a rede virtual desejada ao seu laboratório, o próximo passo é [adicionar um VM ao seu laboratório.](devtest-lab-add-vm.md)
-

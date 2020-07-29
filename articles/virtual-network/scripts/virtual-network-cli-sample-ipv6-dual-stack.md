@@ -1,7 +1,7 @@
 ---
 title: Amostra de script Azure CLI - Configure IPv6 frontend
 titlesuffix: Azure Virtual Network
-description: Ativar pontos finais IPv6 usando O Azure CLI na Rede Virtual Azure
+description: Utilize uma amostra de script Azure CLI para configurar os pontos finais do IPv6 e implementar uma aplicação de pilha dupla (IPv4 + IPv6) em Azure.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/23/2019
 ms.author: kumud
-ms.openlocfilehash: 1ef8742bc4f8de2d08d9bb4fc98b3df6f9420737
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5f5e741e972015820af2e0e33372eb41c9e78210
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80235032"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281604"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Configurar pontos finais IPv6 na amostra de script de rede virtual (pré-visualização)
 

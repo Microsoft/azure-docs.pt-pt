@@ -3,7 +3,7 @@ title: Visão geral do SQL Server Sempre Em grupos de disponibilidade
 description: Este artigo introduz o SQL Server Always On availability groups em Azure Virtual Machines.
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.assetid: 601eebb1-fc2c-4f5b-9c05-0e6ffd0e5334
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
-ms.author: mikeray
+ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 50be33bf0cb89c7baff58e5f8e4a2a23b9a1ecef
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0e676e1c97c0039490137aa12b06fc88e457646f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073278"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286818"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Introduzindo o SQL Server Sempre em grupos de disponibilidade em Máquinas Virtuais Azure
 
@@ -41,8 +41,8 @@ Para aumentar a redundância e a elevada disponibilidade, os VMs do SQL Server d
 
 |  | Versão do Servidor do Windows | Versão do servidor SQL | Edição do Servidor SQL | WSFC Quorum Config | DR com Multi-região | Suporte multi-sub-redes | Apoio a um AD existente | DR com a mesma região de várias zonas | Suporte Dist-AG sem domínio AD | Suporte Dist-AG sem cluster |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
-| **[SQL VM CLI](availability-group-az-cli-configure.md)** | 2016 | 2017 </br>2016   | Ent | Testemunha de cloud | No | Sim | Sim | Sim | Não | Não |
-| **[Modelos de arranque rápido](availability-group-quickstart-template-configure.md)** | 2016 | 2017</br>2016  | Ent | Testemunha de cloud | No | Sim | Sim | Sim | Não | Não |
+| **[SQL VM CLI](availability-group-az-cli-configure.md)** | 2016 | 2017 </br>2016   | Ent | Testemunha de cloud | Não | Sim | Sim | Sim | Não | Não |
+| **[Modelos de arranque rápido](availability-group-quickstart-template-configure.md)** | 2016 | 2017</br>2016  | Ent | Testemunha de cloud | Não | Sim | Sim | Sim | Não | Não |
 | **[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | Todos | Todos | Todos | Todos | Sim | Sim | Sim | Sim | Sim | Sim |
 
 O modelo **SQL Server AlwaysOn Cluster (pré-visualização)** foi removido do Mercado Azure e já não está disponível. 

@@ -1,18 +1,20 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 documentationcenter: partner-center-commercial-marketplace
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 ms.date: 08/16/2019
 ms.custom: include file
-ms.openlocfilehash: 86b16c92f7a9bd3f594b01820db6cbf7ef5ecb6b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: b2d4ce0de130942ccd52dc2894d91a4e4f667c99
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104368"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326630"
 ---
 Ao publicar a sua oferta no mercado através do Partner Center, tem de ligar a sua oferta ao seu sistema CRM. Desta forma, pode receber informações de contacto do cliente imediatamente após um cliente expressar interesse ou implantar o seu produto.
 

@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop troubleshooting overview — Fall 2019 — Azure
-description: Uma visão geral para problemas de resolução de problemas ao configurar um ambiente de inquilino virtual do Windows Desktop.
+title: Windows Virtual Desktop (clássico) visão geral de resolução de problemas - Azure
+description: Uma visão geral para problemas de resolução de problemas ao configurar um ambiente de inquilino virtual do Windows Desktop (clássico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 82ac5a8178973396c4c1975cb1c84d23e61430f7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: efcdc203884a5aaff3b02e730f1dddb7fff66e95
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87069925"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289836"
 ---
-# <a name="troubleshooting-overview-feedback-and-support"></a>Descrição geral da resolução de problemas, comentários e suporte
+#  <a name="windows-virtual-desktop-classic-troubleshooting-overview-feedback-and-support"></a>Windows Virtual Desktop (clássico) resolução de problemas, feedback e suporte
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../troubleshoot-set-up-overview.md).
+>Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows. Se estiver a tentar gerir os objetos de ambiente de trabalho virtuais do Azure Resource Manager Windows, consulte [este artigo](../troubleshoot-set-up-overview.md).
 
 Este artigo fornece uma visão geral dos problemas que pode encontrar ao configurar um ambiente de inquilino virtual do Windows Desktop e fornece formas de resolver os problemas.
 

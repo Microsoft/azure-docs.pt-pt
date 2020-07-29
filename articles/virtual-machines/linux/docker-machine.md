@@ -4,14 +4,15 @@ description: Descreve como usar a Máquina Docker para criar anfitriões Docker 
 author: cynthn
 ms.service: virtual-machines-linux
 ms.devlang: multiple
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: c3165410809d98fd0ac4eeb515fbf30578633ef3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83799940f8c98952a435f582a9160585e9dbdfd4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78968807"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289799"
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Como usar a Máquina Docker para criar anfitriões em Azure
 Este artigo detalha como usar a [Máquina Docker](https://docs.docker.com/machine/) para criar anfitriões em Azure. O `docker-machine` comando cria uma máquina virtual Linux (VM) em Azure e depois instala Docker. Em seguida, pode gerir os seus anfitriões Docker em Azure usando as mesmas ferramentas locais e fluxos de trabalho. Para utilizar a máquina de estivar no Windows 10, tem de utilizar a bash Linux.
@@ -128,5 +129,5 @@ Para ver o contentor em ação, abra um navegador web e introduza o endereço IP
 
 ![Recipiente de ngnix de execução](./media/docker-machine/nginx.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Por exemplo, sobre a utilização de Docker Compose, consulte [Começar com Docker e Compose em Azure](docker-compose-quickstart.md).

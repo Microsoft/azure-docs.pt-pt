@@ -3,15 +3,15 @@ title: Utilizar o Docker Compose
 description: Como instalar e utilizar Docker e Compor em máquinas virtuais Linux com o Azure CLI.
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/14/2019
 ms.author: cynthn
-ms.openlocfilehash: a56ad3fd5999600dfc576f0a0e34ff7221267934
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1e28ea47f0f99d3690fdfcf8b5d4370fcbb334e0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502457"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289807"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Começa com o Docker e o Compose para definir e executar uma aplicação multi-contentor em Azure
 Com [a Compose,](https://github.com/docker/compose)utiliza-se um ficheiro de texto simples para definir uma aplicação composta por vários recipientes Docker. Em seguida, gira a sua aplicação num único comando que faz tudo para implantar o seu ambiente definido. Como exemplo, este artigo mostra-lhe como configurar rapidamente um blog WordPress com uma base de dados MariaDB SQL de backend num Ubuntu VM. Também pode usar o Compose para configurar aplicações mais complexas.
@@ -122,7 +122,7 @@ Agora pode ligar-se ao WordPress diretamente no VM na porta 80. Abra um navegado
 
 ![Ecrã de partida WordPress](./media/docker-compose-quickstart/wordpressstart.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Consulte a [referência da linha de comando Compose](https://docs.docker.com/compose/reference/) e o guia do [utilizador](https://docs.docker.com/compose/) para obter mais exemplos de construção e implementação de aplicações multi-contentores.
 * Use um modelo de Gestor de Recursos Azure, o seu próprio ou um contribuído da [comunidade,](https://azure.microsoft.com/documentation/templates/)para implementar um VM Azure com Docker e uma aplicação configurada com Compose. Por exemplo, o [blog Implementar um wordPress com](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql) o modelo Docker usa Docker e Compose para implementar rapidamente o WordPress com um backend MySQL num Ubuntu VM.
 * Tente integrar Docker Compose com um cluster Docker Swarm. Consulte [a Utilização de Compose com Enxame](https://docs.docker.com/compose/swarm/) para cenários.

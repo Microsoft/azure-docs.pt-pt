@@ -5,17 +5,17 @@ author: cynthn
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.subservice: imaging
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 28cdc96020d085c6f44c8b6818aa76dd7eb29891
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d49bbebe4d38783342170693bd06f0dfc645f34d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82789006"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288393"
 ---
 # <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Criar uma Galeria de Imagens Partilhadas Azure usando o portal
 
@@ -36,7 +36,7 @@ A funcionalidade Image Gallery partilhada tem vários tipos de recursos. Vamos u
 
 
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Para completar o exemplo neste artigo, você deve ter uma imagem gerida existente de um VM generalizado, ou uma foto de um VM especializado. Pode seguir [tutorial: Criar uma imagem personalizada de um Azure VM com Azure PowerShell](tutorial-custom-images.md) para criar uma imagem gerida, ou [criar um instantâneo](../windows/snapshot-copy-managed-disk.md) para um VM especializado. Tanto para imagens geridas como para instantâneos, o tamanho do disco de dados não pode ser superior a 1 TB.
 
@@ -63,7 +63,7 @@ Agora pode criar um ou mais VMs novos. Este exemplo cria um VM chamado *myVMfrom
 1. Depois da validação de passes VM, **selecione Criar** na parte inferior da página para iniciar a implementação.
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não forem necessários, pode eliminar o grupo de recursos, a máquina virtual e todos os recursos relacionados. Para tal, selecione o grupo de recursos para a máquina virtual, selecione **Eliminar** e confirme o nome do grupo de recursos a eliminar.
 

@@ -1,7 +1,7 @@
 ---
 title: Amostra de script Azure CLI - Configure IPv6 frontend - Standard Load Balancer
 titlesuffix: Azure Virtual Network
-description: Ativar pontos finais IPv6 usando O Azure CLI na Rede Virtual Azure
+description: Aprenda a configurar pontos finais do IPv6 numa amostra de script de rede virtual utilizando o Balancer de Carga Padrão.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 5f5856a89a04b58b138ee23a5f289ceff0915acf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2509034abb37c7dc90b65569d14f228eadb746c8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80235044"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281621"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-using-standard-load-balancerpreview"></a>Configurar pontos finais IPv6 na amostra de script de rede virtual utilizando o Balanceador de Carga Padrão (pré-visualização)
 

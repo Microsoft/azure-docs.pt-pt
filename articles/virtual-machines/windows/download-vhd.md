@@ -6,15 +6,15 @@ manager: gwallace
 ms.service: virtual-machines-windows
 ms.subservice: disks
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/13/2019
 ms.author: cynthn
-ms.openlocfilehash: 20236ccf1ec8e1f8d8113f0597d37c20e2788987
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5c57ac0fb0ab377f00770e3c9c03a413dcb345bc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500434"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291043"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Faça o download de um Windows VHD a partir de Azure
 
@@ -63,7 +63,7 @@ Para descarregar o ficheiro VHD, é necessário gerar um URL [de assinatura de a
 1. Sob o URL que foi gerado, clique em Baixar o ficheiro VHD.
 1. Pode ter de clicar em **Guardar** no seu browser para iniciar o download. O nome predefinido para o ficheiro VHD é *abcd*.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [enviar um ficheiro VHD para o Azure](upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 - [Criar discos geridos a partir de discos não geridos numa conta de armazenamento](attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
