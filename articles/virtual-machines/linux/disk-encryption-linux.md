@@ -4,16 +4,16 @@ description: Este artigo fornece instruções para permitir a Encriptação do D
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7664cebbd12e075e9b9ea7ea75021b61569a80cf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7452a08125008e3d25ffb7d0eff59f55ca9be0b1
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080289"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372659"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Cenários do Azure Disk Encryption em VMs com Linux
 
@@ -409,7 +409,7 @@ A Azure Disk Encryption não funciona para os seguintes cenários, funcionalidad
 - Lixeira de colisão de Kernel (kdump).
 - Oracle ACFS (sistema de ficheiros de cluster ASM).
 - Gen2 VMs (ver: [Suporte para a geração 2 VMs em Azure](generation-2.md#generation-1-vs-generation-2-capabilities)).
-- VMs da série Lsv2 (ver: [Série Lsv2](../lsv2-series.md)).
+- Os discos NVMe da série Lsv2 VMs (ver: [série Lsv2](../lsv2-series.md)).
 - Um VM com "pontos de montagem aninhados"; ou seja, múltiplos pontos de montagem num único caminho (como "/1stmountpoint/data/2stmountpoint").
 - Um VM com uma unidade de dados montada em cima de uma pasta de SO.
 - VMs da série M com discos de acelerador de escrita.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: 8cd189bf4037d42348d9a94c47cf0122e63af58f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b7ae2e3045b8f6e56b756ac1b2a4233ac8af9688
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089299"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373458"
 ---
 # <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Construa uma app de machine learning com Apache Spark MLlib e Azure Synapse Analytics
 
@@ -225,7 +225,7 @@ train_data_df, test_data_df = encoded_final_df.randomSplit([trainingFraction, te
 Agora que existem dois DataFrames, a próxima tarefa é criar a fórmula do modelo e executá-la contra o DataFrame de treino, e depois validar contra o DataFrame de teste. Deve experimentar diferentes versões da fórmula do modelo para ver o impacto de diferentes combinações.
 
 > [!Note]
-> Para salvar o modelo, você precisará da função RBAC do Contribuinte de Dados de Armazenamento de Azure. Na sua conta de armazenamento, navegue para Access Control (IAM) e selecione Adicionar a atribuição de funções. Atribua a função DE Colaborador de Dados blob de armazenamento ao seu servidor SQL Database. Só os membros com privilégio proprietário podem realizar este passo. Para várias funções incorporadas para recursos Azure, consulte este [guia.](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+> Para salvar o modelo, você precisará da função RBAC do Contribuinte de Dados de Armazenamento de Azure. Na sua conta de armazenamento, navegue para Access Control (IAM) e selecione Adicionar a atribuição de funções. Atribua a função DE Colaborador de Dados blob de armazenamento ao seu servidor SQL Database. Só os membros com privilégio proprietário podem realizar este passo. Para várias funções incorporadas do Azure, consulte este [guia.](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
 ```python
 ## Create a new LR object for the model
@@ -278,7 +278,7 @@ plt.show()
 
 Depois de ter terminado a execução da aplicação, desligue o portátil para libertar os recursos fechando o separador ou selecione **Sessão final** do painel de estado na parte inferior do portátil.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [Visão geral: Apache Spark on Azure Synapse Analytics](apache-spark-overview.md)
 

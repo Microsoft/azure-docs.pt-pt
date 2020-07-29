@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: cb57606259fe674519015fd2de741d6c1d08c5e9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 48441a48fe6f72e88e080967451d9904c3e586b2
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127201"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372331"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Visão geral das opções de autenticação baseadas na identidade do Azure Files para acesso AMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -123,7 +123,7 @@ Pode ativar a autenticação baseada em identidade com Azure AD DS ou no local A
 
 ### <a name="configure-share-level-permissions-for-azure-files"></a>Configure permissões de nível de partilha para ficheiros Azure
 
-Uma vez ativada a autenticação AZure AD DS ou no local, a autenticação AD DS está ativada, pode utilizar funções RBAC incorporadas ou configurar funções personalizadas para identidades AD Azure e atribuir direitos de acesso a quaisquer ações de ficheiros nas suas contas de armazenamento. A permissão atribuída permite que a identidade concedida tenha acesso apenas à parte, nada mais, nem mesmo o diretório de raiz. Você ainda precisa configurar separadamente diretório ou permissões de nível de arquivo para ações de ficheiros Azure.
+Uma vez ativada a autenticação AZure AD DS ou no local, a autenticação AD DS está ativada, pode utilizar funções incorporadas do Azure ou configurar funções personalizadas para identidades AD Azure e atribuir direitos de acesso a quaisquer ações de ficheiros nas suas contas de armazenamento. A permissão atribuída permite que a identidade concedida tenha acesso apenas à parte, nada mais, nem mesmo o diretório de raiz. Você ainda precisa configurar separadamente diretório ou permissões de nível de arquivo para ações de ficheiros Azure.
 
 ### <a name="configure-directory-or-file-level-permissions-for-azure-files"></a>Configure o diretório ou as permissões de nível de ficheiros para ficheiros Azure
 

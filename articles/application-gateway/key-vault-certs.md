@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 4/25/2019
+ms.date: 07/27/2020
 ms.author: victorh
-ms.openlocfilehash: a214dae7c80cbc520fc6aff5a492466a77261167
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1f6cc21c7a45dbc5c7be7e3f3cc46b4ec4e8c39
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255369"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282352"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Rescisão de TLS com certificados Key Vault
 
@@ -43,7 +43,7 @@ A integração do Gateway de Aplicação com o Key Vault requer um processo de c
 
 1. **Criar uma identidade gerida atribuída ao utilizador**
 
-   Cria ou reutiliza uma identidade gerida atribuída pelo utilizador, que o Application Gateway utiliza para obter certificados do Key Vault em seu nome. Para mais informações, veja [o que são identidades geridas para os recursos da Azure?](../active-directory/managed-identities-azure-resources/overview.md) Este passo cria uma nova identidade no inquilino do Azure Ative Directory. A identidade é confiável pela subscrição que é usada para criar a identidade.
+   Cria ou reutiliza uma identidade gerida atribuída pelo utilizador, que o Application Gateway utiliza para obter certificados do Key Vault em seu nome. Para obter mais informações, consulte [Criar, listar, excluir ou atribuir uma função a uma identidade gerida atribuída pelo utilizador utilizando o portal Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). Este passo cria uma nova identidade no inquilino do Azure Ative Directory. A identidade é confiável pela subscrição que é usada para criar a identidade.
 
 1. **Configure o seu cofre chave**
 
@@ -72,6 +72,6 @@ A integração do Gateway de Aplicação com o Key Vault requer um processo de c
 
    ![Certificados de cofre chave](media/key-vault-certs/ag-kv.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Configure a rescisão de TLS com certificados Key Vault utilizando a Azure PowerShell](configure-keyvault-ps.md)

@@ -11,20 +11,49 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: eceb34b57a0b2dd62f93f7732a6b93221e3ecb56
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 152907908f12a41679b3161e0c4b39348926399e
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512668"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373798"
 ---
 # <a name="speech-service-release-notes"></a>Notas de lançamento do Serviço de Fala
+
+## <a name="speech-sdk-1130-2020-july-release"></a>Discurso SDK 1.13.0: lançamento 2020-julho
+
+**Nota**: O Discurso SDK sobre o Windows depende do Microsoft Visual C++ Redistribuable partilhado para o Visual Studio 2015, 2017 e 2019. Faça o download e instale a partir [daqui.](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
+
+**Novas funcionalidades**
+- **C:** Apoio adicional à transcrição de conversação assíncrona. Consulte a documentação [aqui.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-async-conversation-transcription)  
+- **JavaScript**: Suporte adicional de reconhecimento de altifalantes tanto para [o navegador](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser/speaker-recognition) como [paranode.js](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition).
+- **JavaScript**: Suporte adicional para deteção automática de idiomas/ID de linguagem. Consulte a documentação [aqui.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-javascript)
+- **Objectivo-C**: Suporte adicional para conversação multi-dispositivo e transcrição de conversação. 
+- **Python**: Suporte áudio comprimido adicionado para Python em Windows e Linux. Consulte a documentação [aqui.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams) 
+
+**Correções de bugs**
+- **Tudo**: Corrigiu um problema que fez com que o KeywordRecognizer não avançasse os fluxos após um reconhecimento.
+- **Tudo**: Corrigiu um problema que fez com que o fluxo obtido a partir de um KeywordRecognitionResult não contivesse a palavra-chave.
+- **Tudo**: Corrigiu um problema que o SendMessageAsync não envia realmente a mensagem pelo fio depois de os utilizadores terminarem de esperar por ela.
+- **Tudo**: Fixo uma falha nas APIs de Reconhecimento de Altifalantes quando os utilizadores lançarem vários VoiceProfileClient::SpeakerRecEnrollProfileAsync e não esperou que acabassem.
+- **Tudo:** Ativar fixo o registo de ficheiros nas aulas VoiceProfileClient e SpeakerRecognizer.
+- **JavaScript**: Corrigi um [problema](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/74) com estrangulamento quando o navegador é minimizado.
+- **JavaScript**: Corrigiu um [problema](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/78) com uma fuga de memória nos fluxos.
+- **JavaScript**: Caching adicionado para respostas OCSP de NodeJS.
+- **Java**: Corrigiu um problema que estava a fazer com que os campos bigInteger voltassem sempre 0.
+- **iOS**: Fixo e [problema](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/702) com a publicação de aplicações baseadas em SDK na Loja de Aplicações iOS.
+
+**Amostras**
+- **C++**: Código de amostra adicionado para reconhecimento de [altifalantes aqui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/windows/console/samples/speaker_recognition_samples.cpp).
+
+**Testes abreviados COVID-19:** Devido ao trabalho remoto nas últimas semanas, não podíamos fazer tantos testes de verificação manual como normalmente fazemos. Não fizemos alterações que achamos que podem ter quebrado alguma coisa, e os nossos testes automatizados passaram. No caso improvável de termos perdido algo, por favor, avise-nos no [GitHub.](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen)<br>
+Mantenha-se saudável!
 
 ## <a name="text-to-speech-2020-july-release"></a>Lançamento de texto-a-discurso 2020-julho
 
 ### <a name="new-features"></a>Novas funcionalidades
 
-* **Neural TTS, 15 novas vozes neurais**: As novas vozes adicionadas ao portfólio neural TTS são Salma em `ar-EG` árabe (Egito), Zariyah em `ar-SA` árabe (Arábia Saudita), Alba em `ca-ES` catalão (Espanha), Christel em `da-DK` dinamarquês (Dinamarca), Neerja em `es-IN` inglês (Índia), Noora em `fi-FI` finlandês (Finlândia), Swara em `hi-IN` Hindi (Índia), Colette em `nl-NL` Holanda (Holanda), Zofia em `pl-PL` polaco (Polónia), Fernanda em `pt-PT` Português (Portugal), Dariya em `ru-RU` russo (Rússia), Hillevi em `sv-SE` sueco (Suécia), Achara em `th-TH` tailandês (Tailândia), HiuGaai em `zh-HK` chinês (cantonês, Tradicional) e HsiaoYu em `zh-TW` chinês (mandarim taiwanês). Verifique todas as [línguas suportadas.](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices)  
+* **Neural TTS, 15 novas vozes neurais**: As novas vozes adicionadas ao portfólio neural TTS são Salma em `ar-EG` árabe (Egito), Zariyah em `ar-SA` árabe (Arábia Saudita), Alba em `ca-ES` catalão (Espanha), Christel em `da-DK` dinamarquês (Dinamarca), Neerja em `es-IN` inglês (Índia), Noora em `fi-FI` finlandês (Finlândia).), Swara em `hi-IN` Hindi (Índia), Colette em `nl-NL` Holanda (Holanda), Zofia em `pl-PL` polaco (Polónia), Fernanda em `pt-PT` Português (Portugal), Dariya em `ru-RU` russo (Rússia), Hillevi em `sv-SE` sueco (Suécia), Achara em `th-TH` tailandês (Tailândia), HiuGaai em `zh-HK` chinês (cantonês, Tradicional) e HsiaoYu em `zh-TW` chinês (mandarim taiwanês). Verifique todas as [línguas suportadas.](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices)  
 
 * **Voz Personalizada, testes de voz simplificados com o fluxo de treino para simplificar a experiência**do utilizador : Com a nova funcionalidade de teste, cada voz será automaticamente testada com um conjunto de testes pré-definido otimizado para cada idioma para cobrir cenários gerais e assistentes de voz. Estes conjuntos de testes são cuidadosamente selecionados e testados para incluir casos de uso típicos e fones de telefone no idioma. Além disso, os utilizadores ainda podem selecionar para carregar os seus próprios scripts de teste ao treinar um modelo.
 
@@ -69,7 +98,7 @@ ms.locfileid: "86512668"
 * Leitura cambial
     * Corrigiu a questão com a leitura da moeda para `es-ES` e`es-MX`
      
-    | Linguagem | Entrada | Leitura após melhoria |
+    | Linguagem | Input | Leitura após melhoria |
     |---|---|---|
     | `es-MX` | $1,58 | un peso cincuenta y ocho centavos |
     | `es-ES` | $1,58 | un dólar cincuenta y ocho centavos |
@@ -85,7 +114,7 @@ ms.locfileid: "86512668"
 
 ### <a name="samplessdk"></a>Amostras/SDK
 
-* JavaScript: Corre o problema de reprodução no FireFox e o Safari no macOS e iOS. 
+* JavaScript: Corre o problema de reprodução no Firefox e o Safari no macOS e iOS. 
 
 ## <a name="speech-sdk-1121-2020-june-release"></a>Discurso SDK 1.12.1: Lançamento 2020-junho
 **Discurso CLI (também conhecido como SPX)**
@@ -101,7 +130,7 @@ ms.locfileid: "86512668"
 
 **Correções de bugs**
 -   **C \# , C++**: A gravação fixa do microfone não estava a funcionar em 1.12 no reconhecimento do altifalante.
--   **JavaScript**: Correções para texto-a-voz no FireFox e Safari em macOS e iOS.
+-   **JavaScript**: Correções para Texto-A-Falar no Firefox e Safari no macOS e iOS.
 -   Correção para falha de verificação de verificação de aplicações do Windows na transcrição da transcrição da conversação quando utilizar o fluxo de 8 canais.
 -   Correção para falha de violação de acesso a aplicações do Windows na tradução de conversação de vários dispositivos.
 
@@ -115,7 +144,7 @@ Mantenha-se saudável!
 
 
 ## <a name="speech-sdk-1120-2020-may-release"></a>Discurso SDK 1.12.0: Lançamento 2020-maio
-**Discurso CLI (também conhecido como SPX)**
+**Discurso CLI (Também Conhecido como SPX)**
 - **O SPX** é uma nova ferramenta de linha de comando que lhe permite realizar reconhecimento, síntese, tradução, transcrição de lote e gestão de fala personalizada a partir da linha de comando. Utilize-o para testar o Serviço de Fala ou para scriptar as tarefas do Serviço de Fala que precisa de executar. Descarregue a ferramenta e leia a documentação [aqui.](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-overview)
 
 **Novas funcionalidades**

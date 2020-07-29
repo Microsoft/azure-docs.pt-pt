@@ -3,12 +3,12 @@ title: Planeie uma implantação de cluster de tecido de serviço Azure
 description: Saiba mais sobre o planeamento e preparação para uma implantação de cluster de tecido de serviço de produção para a Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 462548d7f32a015701ef12e9777e8d9b1b1350f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1064e59491b7144aafade24bd50131478fe025eb
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610596"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281332"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planear e preparar uma implantação de clusters
 
@@ -51,7 +51,7 @@ Mais do que o número mínimo de nós deve basear-se no número de réplicas da 
 
 Os discos EFÉMER OS não são uma característica específica do Tecido de Serviço, mas sim uma característica dos *conjuntos de escala de máquina virtual* Azure que são mapeados para os tipos de nó de tecido de serviço. A sua utilização com tecido de serviço requer o seguinte no seu modelo de Cluster Azure Resource Manager:
 
-1. Certifique-se de que os seus tipos de nó especificam [tamanhos Azure VM suportados](../virtual-machines/windows/ephemeral-os-disks.md) para discos DESemestálricos e que o tamanho VM tem tamanho de cache suficiente para suportar o tamanho do disco de SO (ver *nota* abaixo).) Por exemplo:
+1. Certifique-se de que os seus tipos de nó especificam [tamanhos Azure VM suportados](../virtual-machines/ephemeral-os-disks.md) para discos DESemestálricos e que o tamanho VM tem tamanho de cache suficiente para suportar o tamanho do disco de SO (ver *nota* abaixo).) Por exemplo:
 
     ```xml
     "vmNodeType1Size": {
@@ -97,7 +97,7 @@ Os discos EFÉMER OS não são uma característica específica do Tecido de Serv
 > Para migrar, os utilizadores terão de [adicionar](./virtual-machine-scale-set-scale-node-type-scale-out.md) um novo nóType com discos efémeros, mover as cargas de trabalho para o novo nodeType & [remover](./service-fabric-how-to-remove-node-type.md) o nóType existente.
 >
 
-Para obter mais informações e mais opções de configuração, consulte [discos Efemérides DES para VMs Azure](../virtual-machines/windows/ephemeral-os-disks.md) 
+Para obter mais informações e mais opções de configuração, consulte [discos Efemérides DES para VMs Azure](../virtual-machines/ephemeral-os-disks.md) 
 
 
 ### <a name="select-the-durability-and-reliability-levels-for-the-cluster"></a>Selecione os níveis de durabilidade e fiabilidade para o cluster
@@ -118,7 +118,7 @@ Uma parte crítica da prestação de alta disponibilidade é garantir que os ser
 ## <a name="production-readiness-checklist"></a>Lista de verificação da preparação de produção
 A sua aplicação e cluster estão prontos para levar o tráfego de produção? Antes de colocar o seu cluster na produção, passe pela [lista de verificação de prontidão de produção](service-fabric-production-readiness-checklist.md). Mantenha a sua aplicação e cluster a funcionar sem problemas, utilizando os itens desta lista de verificação. Recomendamos vivamente que todos estes itens sejam verificados antes de entrarem em produção.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Criar um cluster de tecido de serviço executando janelas](service-fabric-best-practices-overview.md)
 * [Criar um cluster de tecido de serviço executando Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 

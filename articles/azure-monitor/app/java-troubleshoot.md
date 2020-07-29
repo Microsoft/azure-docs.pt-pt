@@ -3,12 +3,13 @@ title: Troubleshoot Application Insights em um projeto web java
 description: Guia de resolução de problemas - monitorizando aplicações java ao vivo com Insights de Aplicação.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 74b4bc009158d826955f851f22458e9570a58e7c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-java
+ms.openlocfilehash: 4b6a7070b6b1b76a3f763105f4dce795f3e5c4be
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324153"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372523"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Resolução de problemas e Perguntas e Respostas para o Application Insights para Java
 Perguntas ou problemas com [a Azure Application Insights em Java?][java] Abaixo temos algumas dicas.

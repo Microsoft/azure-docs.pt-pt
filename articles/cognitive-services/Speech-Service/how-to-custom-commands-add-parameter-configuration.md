@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: sausin
-ms.openlocfilehash: 5417ff3b53526adbaeba2b9df58694ad495475d3
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 45dba3b7f46ec558c46b8505da26fd3ef4de4cbc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307815"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284188"
 ---
-# <a name="add-configurations-to-commands-parameters"></a>Adicionar configurações aos parâmetros de comandos
+# <a name="add-configurations-to-commands-parameters"></a>Adicionar configurações aos parâmetros dos comandos
 
 Neste artigo, aprende-se mais sobre a configuração avançada dos parâmetros, incluindo:
 
@@ -43,7 +43,7 @@ Para isso, comece por adicionar um novo ponto final web. Vá à secção **de po
 
 | Definição | Valor sugerido |
 |----|----|
-| Name | `getDevices` |
+| Nome | `getDevices` |
 | URL | `https://aka.ms/speech/cc-sampledevices` |
 | Método | GET |
 
@@ -112,7 +112,7 @@ Teste as validações utilizando o comando **SetTemperature.** Utilize os seguin
     | ---- | ---- | ---- |
     | Valor Mínimo | `60` | Para os parâmetros número, o valor mínimo que este parâmetro pode assumir |
     | Valor Máximo | `80` | Para os parâmetros número, o valor máximo que este parâmetro pode assumir |
-    | Resposta de falha |  Editor simples > Primeira Variação >`Sorry, I can only set temperature between 60 and 80 degrees` | A prompt para pedir um novo valor se a validação falhar |
+    | Resposta de falha |  Editor simples > Primeira Variação >`Sorry, I can only set temperature between 60 and 80 degrees. What temperature do you want?` | A prompt para pedir um novo valor se a validação falhar |
 
     > [!div class="mx-imgBorder"]
     > ![Adicionar uma validação de gama](media/custom-commands/add-validations-temperature.png)

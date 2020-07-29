@@ -5,17 +5,18 @@ description: Saiba como ativar o HTTPS de forma a garantir um serviço web impla
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 03/05/2020
-ms.custom: seodec18
-ms.openlocfilehash: cb766a81cda822377eeda09cab75d19111523bef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to
+ms.openlocfilehash: 3e10841852b8a89b344d3bfd9311db8abe15642a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84432852"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319546"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Utilize o TLS para garantir um serviço web através do Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -51,7 +52,7 @@ Este é o processo geral para garantir um serviço web:
 
 Há pequenas diferenças quando se assegura os alvos de [implantação](how-to-deploy-and-where.md).
 
-## <a name="get-a-domain-name"></a>Obtenha um nome de domínio
+## <a name="get-a-domain-name"></a>Obter um nome de domínio
 
 Se já não possuir um nome de domínio, compre um de um registo de nome de *domínio.* O processo e o preço diferem entre os conservadores. O registrador fornece ferramentas para gerir o nome de domínio. Utiliza estas ferramentas para mapear um nome de domínio totalmente qualificado (FQDN) (como www \. contoso.com) para o endereço IP que acolhe o seu serviço web.
 
@@ -260,7 +261,7 @@ update_config = AksUpdateConfiguration(ssl_configuration)
 aks_target.update(update_config)
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Aprenda a:
 + [Consumir um modelo de aprendizagem automática implementado como um serviço web](how-to-consume-web-service.md)
 + [Executar de forma segura experiências e inferência dentro de uma rede virtual Azure](how-to-enable-virtual-network.md)

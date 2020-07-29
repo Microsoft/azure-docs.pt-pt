@@ -6,18 +6,15 @@ ms.author: lcozzens
 ms.date: 02/18/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 32c4fe3e542135201a7bf4a23aeff94a0e2f902e
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: bcafdbdfd07456a01d956b622d9c5e6ed4b0b6f2
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023572"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371860"
 ---
 # <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>Utilize chaves geridas pelo cliente para encriptar os dados de Configuração da Aplicação
 A Azure App Configuration [encripta informações sensíveis em repouso](../security/fundamentals/encryption-atrest.md). A utilização de chaves geridas pelo cliente proporciona uma melhor proteção de dados, permitindo-lhe gerir as suas chaves de encriptação.  Quando a encriptação de chave gerida é utilizada, todas as informações sensíveis na Configuração da Aplicação são encriptadas com uma chave Azure Key Vault fornecida pelo utilizador.  Isto proporciona a capacidade de rodar a chave de encriptação a pedido.  Também fornece a capacidade de revogar o acesso da Azure App Configuration a informações confidenciais, revogando o acesso da instância de Configuração da Aplicação à chave.
-
-> [!NOTE]
-> As chaves geridas pelo cliente estão agora geralmente disponíveis em todas as *regiões, exceto* na Índia Central. Na região da **Índia Central,** a Azure App Configuration oferece o uso de chaves geridas pelo cliente como pré-visualização pública. As ofertas de pré-visualização públicas permitem que os clientes experimentem novas funcionalidades antes do seu lançamento oficial.  As funcionalidades e serviços de pré-visualização do público não se destinam ao uso da produção.
 
 ## <a name="overview"></a>Descrição geral 
 A Azure App Configuration encripta informações sensíveis em repouso utilizando uma chave de encriptação AES de 256 bits fornecida pela Microsoft. Cada instância de Configuração de Aplicações tem a sua própria chave de encriptação gerida pelo serviço e usada para encriptar informações confidenciais. Informações sensíveis incluem os valores encontrados em pares de valor-chave.  Quando a capacidade de chave gerida pelo cliente está ativada, a Configuração de Aplicações utiliza uma identidade gerida atribuída à instância de Configuração da Aplicação para autenticar com o Azure Ative Directory. A identidade gerida chama então Azure Key Vault e envolve a chave de encriptação da configuração da aplicação. A chave de encriptação embrulhada é então armazenada e a chave de encriptação desembrulhada fica em cache na Configuração da Aplicação durante uma hora. A Configuração da Aplicação atualiza a versão desembrulhada da chave de encriptação da instância de configuração da aplicação de aplicação de hora a hora. Isto garante a disponibilidade em condições normais de funcionamento. 
@@ -81,7 +78,7 @@ Para começar, necessitará de uma configuração de configuração de aplicaç�
     az appconfig identity assign --name contoso-app-config --resource-group contoso-resource-group --identities [system]
     ```
     
-    A saída deste comando inclui o ID principal ("principalId") e o ID do inquilino ("tenandId") do sistema atribuído à identidade.  Isto será utilizado para conceder o acesso identitário à chave gerida.
+    A saída deste comando inclui o ID principal ("principalId") e o ID do inquilino ("tenandId") do sistema atribuído à identidade.  Estes IDs serão usados para conceder o acesso de identidade à chave gerida.
 
     ```json
     {
@@ -106,5 +103,5 @@ Para começar, necessitará de uma configuração de configuração de aplicaç�
 
 A sua instância de configuração da aplicação Azure está agora configurada para utilizar uma chave gerida pelo cliente armazenada no Cofre da Chave Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Neste artigo, configuraste a tua instância de Configuração de Aplicação Azure para usar uma chave gerida pelo cliente para encriptação.  Saiba como [integrar o seu serviço com identidades geridas Azure.](howto-integrate-azure-managed-service-identity.md)

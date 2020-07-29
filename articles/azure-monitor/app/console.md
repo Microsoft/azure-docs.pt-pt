@@ -4,25 +4,25 @@ description: Monitorize as aplicações web para disponibilidade, desempenho e u
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.reviewer: lmolkova
-ms.openlocfilehash: 955988cd16af5269c474061cf60fb18a040909e3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 28f86e32dd73e25079ca685538fd0cb6f351b2d9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091237"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87310468"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Insights de aplicação para aplicações de consola .NET
 
-[O Application Insights](../../azure-monitor/app/app-insights-overview.md) permite-lhe monitorizar a sua aplicação web para disponibilidade, desempenho e utilização.
+[O Application Insights](./app-insights-overview.md) permite-lhe monitorizar a sua aplicação web para disponibilidade, desempenho e utilização.
 
 Precisa de uma subscrição com [o Microsoft Azure](https://azure.com). Faça sômis com uma conta Microsoft, que poderá ter para Windows, Xbox Live ou outros serviços na nuvem da Microsoft. A sua equipa poderá ter uma subscrição organizacional do Azure: peça ao proprietário que lhe adicione usando a sua conta Microsoft.
 
 > [!NOTE]
-> É *altamente recomendado* utilizar o pacote [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) e instruções associadas a partir [daqui](../../azure-monitor/app/worker-service.md) para quaisquer aplicações de consola. Este pacote destina-se [`NetStandard2.0`](/dotnet/standard/net-standard) a ser utilizado em .NET Core 2.1 ou superior, e .NET Framework 4.7.2 ou superior.
+> É *altamente recomendado* utilizar o pacote [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) e instruções associadas a partir [daqui](./worker-service.md) para quaisquer aplicações de consola. Este pacote destina-se [`NetStandard2.0`](/dotnet/standard/net-standard) a ser utilizado em .NET Core 2.1 ou superior, e .NET Framework 4.7.2 ou superior.
 
 ## <a name="getting-started"></a>Introdução
 
-* No [portal do Azure](https://portal.azure.com), [crie um recurso do Application Insights](../../azure-monitor/app/create-new-resource.md). Para o tipo de aplicação, escolha **General.**
+* No [portal do Azure](https://portal.azure.com), [crie um recurso do Application Insights](./create-new-resource.md). Para o tipo de aplicação, escolha **General.**
 * Faça uma cópia da Chave de Instrumentação. Encontre a chave no **essencial** para deixar cair o novo recurso que criou.
 * Instale o mais recente pacote [Microsoft.ApplicationInsights.](https://www.nuget.org/packages/Microsoft.ApplicationInsights)
 * Desaprote a tecla de instrumentação no seu código antes de rastrear qualquer telemetria (ou definir APPINSIGHTS_INSTRUMENTATIONKEY variável ambiente). Depois disso, você deve ser capaz de rastrear manualmente a telemetria e vê-la no portal Azure
@@ -96,7 +96,7 @@ Pode obter um exemplo completo do ficheiro config instalando a versão mais rece
 
 ### <a name="configuring-telemetry-collection-from-code"></a>Configuração da coleção de telemetria a partir do código
 > [!NOTE]
-> Ler ficheiro config não é suportado em .NET Core. Pode considerar a utilização de [Insights de Aplicação SDK para ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
+> Ler ficheiro config não é suportado em .NET Core. Pode considerar a utilização de [Insights de Aplicação SDK para ASP.NET Core](./asp-net-core.md)
 
 * Durante o arranque da aplicação criar e configurar `DependencyTrackingTelemetryModule` a instância - deve ser singleton e deve ser preservado para o período de vida útil da aplicação.
 
@@ -207,5 +207,6 @@ namespace ConsoleApp
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Monitorize as dependências](../../azure-monitor/app/asp-net-dependencies.md) para ver se REST, SQL ou outros recursos externos estão a atrasá-lo.
-* [Utilize a API](../../azure-monitor/app/api-custom-events-metrics.md) para enviar os seus próprios eventos e métricas para uma visão mais detalhada do desempenho e utilização da sua aplicação.
+* [Monitorize as dependências](./asp-net-dependencies.md) para ver se REST, SQL ou outros recursos externos estão a atrasá-lo.
+* [Utilize a API](./api-custom-events-metrics.md) para enviar os seus próprios eventos e métricas para uma visão mais detalhada do desempenho e utilização da sua aplicação.
+

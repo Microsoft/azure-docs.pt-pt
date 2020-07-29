@@ -5,16 +5,17 @@ description: Aprenda a treinar um modelo e crie um pipeline de previsão de lote
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: peterlu
 author: peterclu
 ms.date: 02/24/2020
-ms.custom: Ignite2019, designer
-ms.openlocfilehash: a464ab001eec877ffc6dc0ab5e33e82493c226ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, designer
+ms.openlocfilehash: 61465210c9ad476c6d8d2987330498aa0efa39d4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84429941"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319614"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>Executar predições em lote com o Azure Machine Learning Designer (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -33,6 +34,8 @@ Para aprender a configurar serviços de pontuação de lotes utilizando o SDK, c
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este como assumir que já tem um oleoduto de treino. Para uma introdução guiada ao designer, complete [a primeira parte do tutorial do designer.](tutorial-designer-automobile-price-train-score.md) 
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## <a name="create-a-batch-inference-pipeline"></a>Criar um pipeline de inferência de lote
 
@@ -141,7 +144,7 @@ Também pode definir um novo pipeline padrão no **separador de gasodutos Public
 
 ![Definir o gasoduto predefinido](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Siga o [tutorial](tutorial-designer-automobile-price-train-score.md) do designer para treinar e implementar um modelo de regressão.
 ''

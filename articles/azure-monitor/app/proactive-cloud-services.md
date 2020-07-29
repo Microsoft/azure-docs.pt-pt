@@ -4,11 +4,12 @@ description: Monitorize para problemas como falhas de startups, falhas e ciclos 
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.reviewer: harelbr
-ms.openlocfilehash: 997c5e063c4181a597520e60e2a7669401b9677d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1cdfc6dc3ac74997743512ee07f9293699e3ad10
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669748"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87309295"
 ---
 # <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Alerta sobre problemas nos Serviços Azure Cloud usando a integração de diagnósticos Azure com Azure Application Insights
 
@@ -106,11 +107,11 @@ Pode optar por que o grupo de ação contenha múltiplas ações de vários tipo
 
 Uma vez definido o grupo Ação, confirme as alterações e clique em **Criar a regra de alerta**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 Saiba mais sobre a deteção automática:
 
-Anomalias de [falha](../../azure-monitor/app/proactive-failure-diagnostics.md) 
- [Fugas de](../../azure-monitor/app/proactive-potential-memory-leak.md) 
- memória [Anomalias de desempenho](../../azure-monitor/app/proactive-performance-diagnostics.md)
+Anomalias de [falha](./proactive-failure-diagnostics.md) 
+ [Fugas de](./proactive-potential-memory-leak.md) 
+ memória [Anomalias de desempenho](./proactive-performance-diagnostics.md)
 

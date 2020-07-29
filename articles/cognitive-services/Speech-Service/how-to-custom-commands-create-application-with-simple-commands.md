@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 6552d13ab68d8028cd95b18f2d0895d53bba462c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d166257dd28773d89a4f1fd56de3cb1a22242523
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090965"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284171"
 ---
 # <a name="create-application-with-simple-commands"></a>Criar uma aplicação com comandos simples
 
@@ -96,6 +96,7 @@ Em seguida, o comando precisa ter uma regra de conclusão. Esta regra diz ao uti
 1. **Selecione Guardar** para guardar a ação.
 1. De volta à secção **de regras de Conclusão,** selecione **Guardar** para guardar todas as alterações. 
 
+
     > [!NOTE]
     > Não é necessário usar a regra de conclusão padrão que vem com o comando. Se necessário, pode eliminar a regra de conclusão por defeito existente e adicionar a sua própria regra.
 
@@ -124,7 +125,7 @@ Em seguida, edite as regras de conclusão **existentes:**
 
 | Definição    | Valor sugerido                          |
 | ---------- | ---------------------------------------- |
-| Name  | ConfirmaçãoResponse                  |
+| Nome  | ConfirmaçãoResponse                  |
 | Condições | Nenhum                                     |
 | Ações    | Envie resposta de fala > editor simples > Primeira variação >`Ok, setting temperature to 40 degrees` |
 

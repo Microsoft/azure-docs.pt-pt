@@ -3,12 +3,12 @@ title: Modos de implementação
 description: Descreve como especificar se deve utilizar um modo de implementação completo ou incremental com o Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: f20f41e989e1a994b7806aecf6e7cee5a4c27014
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e584acd4af1dc6adb5f5d383acd5d16da0815f32
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040432"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371588"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implementação do Gestor de Recursos Azure
 
@@ -29,7 +29,7 @@ Se o seu modelo incluir um recurso que não é implementado porque [a condição
 
 Tenha cuidado ao utilizar o modo completo com [laços de cópia](copy-resources.md). Quaisquer recursos que não sejam especificados no modelo após a resolução do ciclo de cópia são eliminados.
 
-Se implementar para [mais de um grupo de recursos num modelo,](cross-resource-group-deployment.md)os recursos do grupo de recursos especificados na operação de implantação podem ser eliminados. Os recursos nos grupos de recursos secundários não são eliminados.
+Se implementar para [mais de um grupo de recursos num modelo,](cross-scope-deployment.md)os recursos do grupo de recursos especificados na operação de implantação podem ser eliminados. Os recursos nos grupos de recursos secundários não são eliminados.
 
 Existem algumas diferenças na forma como os tipos de recursos lidam com as eliminações completas do modo. Os recursos dos pais são automaticamente eliminados quando não estão num modelo que é implantado em modo completo. Alguns recursos infantis não são automaticamente eliminados quando não estão no modelo. No entanto, estes recursos para crianças são eliminados se o recurso dos pais for eliminado.
 

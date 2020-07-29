@@ -1,6 +1,5 @@
 ---
-title: Consumir serviço web
-titleSuffix: ML Studio (classic) - Azure
+title: 'Estúdio ML (clássico): Consumir serviços web - Azure'
 description: Uma vez que um serviço de machine learning é implantado a partir do Azure Machine Learning Studio (clássico), o serviço WEB RESTFul pode ser consumido quer como serviço de resposta a pedidos em tempo real, quer como um serviço de execução de lote.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, tracking-python
 ms.date: 05/29/2020
-ms.openlocfilehash: 8d78d26298790e033f006fd3f37567caf97f97ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec88d501fbc262275484f3abaeb7326d963a16e5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696631"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282522"
 ---
-# <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Como consumir um Azure Machine Learning Studio (clássico) serviço web
+# <a name="how-to-consume-a-machine-learning-studio-classic-web-service"></a>Como consumir um serviço web Machine Learning Studio (clássico)
+
+**APLICA-SE A:** ![ no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) yes Machine Learning Studio ![ ](../../../includes/media/aml-applies-to-skus/yes.png) (clássico) 
+
 
 Uma vez que você implemente um modelo preditivo Azure Machine Learning Studio (clássico) como um serviço Web, você pode usar uma API REST para enviar-lhe dados e obter previsões. Pode enviar os dados em tempo real ou em modo de lote.
 

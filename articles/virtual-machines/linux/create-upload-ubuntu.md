@@ -3,15 +3,15 @@ title: Criar e carregar um Ubuntu Linux VHD em Azure
 description: Aprenda a criar e carregar um disco rígido virtual Azure (VHD) que contenha um sistema operativo Ubuntu Linux.
 author: danielsollondon
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/06/2020
 ms.author: danis
-ms.openlocfilehash: 7a0d4d0a1c36f901ea38c5c73d3aa7a2cf49e02f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8b34e266214285f6483acca59050780810e62345
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502695"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373356"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Prepare an Ubuntu virtual machine for Azure (Preparar uma máquina virtual Ubuntu para o Azure)
 
@@ -179,5 +179,5 @@ Este artigo pressupõe que já instalou um sistema operativo Ubuntu Linux num di
 14. O Azure só aceita VHDs de tamanho fixo. Se o disco de oss do VM não for um VHD de tamanho fixo, utilize o `Convert-VHD` cmdlet PowerShell e especifique a `-VHDType Fixed` opção. Por favor, dê uma olhada nos docs para `Convert-VHD` aqui: [Converte-VHD](/powershell/module/hyper-v/convert-vhd?view=win10-ps).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Está agora pronto para usar o seu disco rígido virtual Ubuntu Linux para criar novas máquinas virtuais em Azure. Se esta for a primeira vez que está a enviar o ficheiro .vhd para a Azure, consulte [Create a Linux VM a partir de um disco personalizado](upload-vhd.md#option-1-upload-a-vhd).

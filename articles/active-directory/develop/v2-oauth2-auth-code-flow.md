@@ -13,12 +13,12 @@ ms.date: 07/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 0470ab635f34291b4c92259e556329d6b2f401c7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 42356ec4277c8441b4833560f431740e9e2f56c8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026089"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87311352"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plataforma de identidade da Microsoft e fluxo de código de autorização OAuth 2.0
 
@@ -34,9 +34,11 @@ A um nível elevado, todo o fluxo de autenticação para uma aplicação é um p
 
 ![Fluxo de código OAuth Auth](./media/v2-oauth2-auth-code-flow/convergence-scenarios-native.svg)
 
-## <a name="setup-required-for-single-page-apps"></a>Configuração necessária para aplicações de uma só página
+## <a name="redirect-uri-setup-required-for-single-page-apps"></a>Redirecionar configuração URI necessária para aplicações de uma só página
 
-O fluxo de código de autorização para aplicações de página única requer alguma configuração adicional.  Enquanto está [a criar a sua aplicação,](howto-create-service-principal-portal.md)tem de marcar o URI de redirecionamento para a sua aplicação como um `spa` URI de redirecionamento. Isto faz com que o servidor de login permita que o CORS (partilha de recursos de origem cruzada) para a sua aplicação.  Isto é necessário para resgatar o código usando XHR.
+O fluxo de código de autorização para aplicações de página única requer alguma configuração adicional.  Siga as instruções para [criar a sua aplicação de uma página](scenario-spa-app-registration.md#redirect-uri-msaljs-20-with-auth-code-flow) para marcar corretamente o seu URI de redirecionamento, conforme ativado para o CORS. Para atualizar um URI de redirecionamento existente para ativar o CORS, abra o editor manifesto e desabrove o `type` campo para o seu URI de redirecionamento para a `spa` `replyUrlsWithType` secção. Também pode clicar no URI de redirecionamento na secção "Web" do separador Autenticação e selecionar os URIs que pretende migrar para utilizar o fluxo de código de autorização.
+
+O `spa` tipo de redirecionamento é retrocompatível com o fluxo implícito. As aplicações que utilizam atualmente o fluxo implícito para obter fichas podem mover-se para o `spa` tipo URI de redirecionamento sem problemas e continuar a usar o fluxo implícito.
 
 Se tentar utilizar o fluxo de código de autorização e ver este erro:
 
@@ -229,7 +231,7 @@ As respostas de erro serão como:
 | `temporarily_unavailable` | O servidor está temporariamente demasiado ocupado para lidar com o pedido. | Recandidutar o pedido. A aplicação do cliente pode explicar ao utilizador que a sua resposta está atrasada devido a uma condição temporária. |
 
 > [!NOTE]
-> As aplicações de página única podem receber um `invalid_request` erro que indique que o resgate de token de origem cruzada só é permitido para o tipo de cliente 'Aplicação de página única'.  Isto indica que o reorientação uri utilizado para solicitar o token não foi marcado como um `spa` URI de redirecionamento.  Reveja as etapas de registo de [pedidos](#setup-required-for-single-page-apps) sobre como ativar este fluxo.
+> As aplicações de página única podem receber um `invalid_request` erro que indique que o resgate de token de origem cruzada só é permitido para o tipo de cliente 'Aplicação de página única'.  Isto indica que o reorientação uri utilizado para solicitar o token não foi marcado como um `spa` URI de redirecionamento.  Reveja as etapas de registo de [pedidos](#redirect-uri-setup-required-for-single-page-apps) sobre como ativar este fluxo.
 
 ## <a name="use-the-access-token"></a>Use o token de acesso
 

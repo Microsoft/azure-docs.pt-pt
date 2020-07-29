@@ -3,15 +3,15 @@ title: Passos detalhados para criar um par de chaves SSH
 description: Aprenda passos detalhados para criar e gerir um par de chaves SSH público e privado para Os VMs Linux em Azure.
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 8c826f5e0e36d693dd3ba98640bceae228ba34e8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ebce641aa7cb59deaf74490fb934b3f1536911a9
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119213"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372778"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Etapas detalhadas: Criar e gerir chaves SSH para autenticação num Linux VM em Azure 
 Com um par de chaves secure shell (SSH), pode criar uma máquina virtual Linux no Azure que predefine a utilização de chaves SSH para autenticação, eliminando a necessidade de senhas para iniciar sessão. Os VMs criados com o portal Azure CLI, modelos de Gestor de Recursos ou outras ferramentas podem incluir a sua chave pública SSH como parte da implementação, que configura a autenticação da chave SSH para ligações SSH. 
@@ -231,10 +231,10 @@ ssh myvm
 
 A primeira vez que iniciar súm na sômência de um servidor utilizando uma chave SSH, o comando indica-lhe a palavra-passe para o ficheiro de teclas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O passo seguinte consiste na criação de VMs com Linux do Azure utilizando a nova chave pública SSH. Os VMs Azure que são criados com uma chave pública SSH, uma vez que o sign-in é melhor seguro do que os VMs criados com o método de entrada padrão, palavras-passe.
 
-* [Criar uma máquina virtual Linux com o portal do Azure](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Criar uma máquina virtual do Linux com o portal do Azure](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Criar uma máquina virtual Linux com o Azure CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Criar uma VM com Linux utilizando um modelo do Azure](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

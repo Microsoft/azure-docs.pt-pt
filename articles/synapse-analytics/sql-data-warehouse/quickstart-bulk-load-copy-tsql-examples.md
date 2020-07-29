@@ -9,12 +9,12 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: f9aa0214712704c1a80f73ae3fd05929f7245eb3
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 1e44b58335bf90dbc0e97b58de7f878bc94c91c7
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274152"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371962"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Carregar de forma segura dados usando O SQL de Sinapse
 
@@ -28,7 +28,7 @@ A matriz a seguir descreve os métodos de autenticação suportados para cada ti
 |  **Armazenamento de bolhas Azure**  | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |              SAS/CHAVE              |              SAS/CHAVE              |
 | **Azure Data Lake Gen2** | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |
 
-## <a name="a-storage-account-key-with-lf-as-the-row-terminator-unix-style-new-line"></a>R. Chave de conta de armazenamento com LF como exterminador de linha (nova linha estilo Unix)
+## <a name="a-storage-account-key-with-lf-as-the-row-terminator-unix-style-new-line"></a>A. Chave de conta de armazenamento com LF como exterminador de linha (nova linha estilo Unix)
 
 
 ```sql
@@ -91,7 +91,7 @@ A autenticação de identidade gerida é necessária quando a sua conta de armaz
 3. Na sua conta de armazenamento, navegue para **Access Control (IAM)** e selecione **Adicionar a atribuição de funções**. Atribua o **papel de Proprietário de Dados Blob de Armazenamento, Colaborador ou Leitor** RBAC ao seu servidor SQL.
 
    > [!NOTE]
-   > Só os membros com privilégio proprietário podem realizar este passo. Para várias funções incorporadas para recursos Azure, consulte este [guia.](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+   > Só os membros com privilégio proprietário podem realizar este passo. Para várias funções incorporadas do Azure, consulte este [guia.](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
    
     > [!IMPORTANT]
     > Especifique a função de Proprietário de **Dados blob** **de armazenamento,** colaborador ou leitor RBAC. Estes papéis são diferentes dos papéis incorporados do Azure de Proprietário, Colaborador e Leitor. 

@@ -7,11 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 12/15/2019
 tags: connectors
-ms.openlocfilehash: 5b61b51e79c71736e18aaa63ab032c05c512c8d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4cad2b658547d56d00efdd5e1496110f8e4a5e6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80656339"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284018"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Criar, monitorizar e gerir ficheiros FTP com o Azure Logic Apps
 
@@ -112,7 +113,7 @@ Aqui está um exemplo que mostra como usar o gatilho **Quando um ficheiro é adi
 
    ![A pasta selecionada aparece na propriedade "Pasta"](./media/connectors-create-api-ftp/selected-folder-ftp-trigger.png)
 
-1. Guarde a aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
+1. Guarde a sua aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
 
 Agora que a sua aplicação lógica tem um gatilho, adicione as ações que pretende executar quando a sua aplicação lógica encontrar um ficheiro novo ou editado. Para este exemplo, pode adicionar uma ação FTP que obtém o conteúdo novo ou atualizado.
 
@@ -152,7 +153,7 @@ A ação **obter metadados de ficheiros** obtém as propriedades de um ficheiro 
 
    ![Propriedade "Id" selecionada](./media/connectors-create-api-ftp/selected-get-file-content-id-ftp-action.png)
 
-1. Guarde a aplicação lógica.
+1. Guarde a sua aplicação lógica.
 
 ## <a name="test-your-logic-app"></a>Teste o seu aplicativo de lógica
 
@@ -166,15 +167,16 @@ Para verificar se o seu fluxo de trabalho devolve o conteúdo que espera, adicio
 
    ![Fornecer informações sobre ação de e-mail](./media/connectors-create-api-ftp/selected-send-email-action.png)
 
-1. Guarde a aplicação lógica. Para executar e desencadear a aplicação lógica, na barra de ferramentas, selecione **Executar**e, em seguida, adicione um ficheiro à pasta FTP que a sua aplicação lógica agora monitoriza.
+1. Guarde a sua aplicação lógica. Para executar e desencadear a aplicação lógica, na barra de ferramentas, selecione **Executar**e, em seguida, adicione um ficheiro à pasta FTP que a sua aplicação lógica agora monitoriza.
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter mais detalhes técnicos sobre este conector, tais como gatilhos, ações e limites descritos pelo ficheiro Swagger do conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/ftpconnector/).
+Para obter mais detalhes técnicos sobre este conector, tais como gatilhos, ações e limites descritos pelo ficheiro Swagger do conector, consulte a [página de referência do conector](/connectors/ftpconnector/).
 
 > [!NOTE]
 > Para aplicações lógicas num ambiente de [serviço de integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão com rótulo ISE deste conector utiliza os limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [outros conectores de Apps Lógicas](../connectors/apis-list.md)
+

@@ -11,11 +11,14 @@ ms.author: wesmc
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 4b18878cfc5c75bf27fd46cbceaa06e0b6053ddd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- 'Role: Cloud Development'
+- 'Role: Operations'
+ms.openlocfilehash: bfd4f783c250a7bf0ec28cff903e4c59d8570d89
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759632"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87307527"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolher o direito de nível de Hub IoT para a sua solução
 
@@ -37,13 +40,13 @@ O nível padrão do IoT Hub permite todas as funcionalidades, e é necessário p
 
 Apenas um tipo de [edição](https://azure.microsoft.com/pricing/details/iot-hub/) dentro de um nível pode ser escolhido por IoT Hub. Por exemplo, pode criar um Hub IoT com múltiplas unidades de S1, mas não com uma mistura de unidades de diferentes edições, como S1 e S2.
 
-| Funcionalidade | Escalão Basic | Nível livre/standard |
+| Capacidade | Escalão básico | Nível livre/standard |
 | ---------- | ---------- | ------------- |
 | [Telemetria dispositivo-nuvem](iot-hub-devguide-messaging.md) | Sim | Sim |
 | [Identidade por dispositivo](iot-hub-devguide-identity-registry.md) | Sim | Sim |
 | [Encaminhamento de mensagens,](iot-hub-devguide-messages-read-custom.md) [enriquecimentos de mensagens](iot-hub-message-enrichments-overview.md)e [integração da Grade de Eventos](iot-hub-event-grid.md) | Sim | Sim |
 | [Protocolos HTTP, AMQP e MQTT](iot-hub-devguide-protocols.md) | Sim | Sim |
-| [Serviço de Fornecimento de Dispositivos](../iot-dps/about-iot-dps.md) | Sim | Sim |
+| [Serviço de Aprovisionamento do Dispositivos](../iot-dps/about-iot-dps.md) | Sim | Sim |
 | [Monitorização e diagnóstico](iot-hub-monitor-resource-health.md) | Sim | Sim |
 | [Mensagens nuvem-para-dispositivo](iot-hub-devguide-c2d-guidance.md) |   | Sim |
 | [Gémeos do dispositivo,](iot-hub-devguide-device-twins.md) [gémeos módulos](iot-hub-devguide-module-twins.md)e [gestão de dispositivos](iot-hub-device-management-overview.md) |   | Sim |
@@ -72,7 +75,7 @@ A configuração da partição permanece inalterada quando migra do nível bási
 
 A diferença de capacidades suportadas entre os níveis básico e padrão do IoT Hub significa que algumas chamadas API não funcionam com centros básicos de nível. O quadro a seguir mostra quais as APIs disponíveis:
 
-| API | Escalão Basic | Nível livre/standard |
+| API | Escalão básico | Nível livre/standard |
 | --- | ---------- | ------------- |
 | [Eliminar dispositivo](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/deletedevice) | Sim | Sim |
 | [Obter dispositivo](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/getdevice) | Sim | Sim |
@@ -102,7 +105,7 @@ A diferença de capacidades suportadas entre os níveis básico e padrão do IoT
 | [Abandone a notificação vinculada do dispositivo](https://docs.microsoft.com/rest/api/iothub/device/abandondeviceboundnotification) |   | Sim |
 | [Notificação completa do dispositivo](https://docs.microsoft.com/rest/api/iothub/device/completedeviceboundnotification) |   | Sim |
 | [Cancelar trabalho](https://docs.microsoft.com/rest/api/iothub/service/jobclient/canceljob) |   | Sim |
-| [Criar tarefa](https://docs.microsoft.com/rest/api/iothub/service/jobclient/createjob) |   | Sim |
+| [Criar a tarefa](https://docs.microsoft.com/rest/api/iothub/service/jobclient/createjob) |   | Sim |
 | [Conseguir emprego](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getjob) |   | Sim |
 | [Trabalhos de consulta](https://docs.microsoft.com/rest/api/iothub/service/jobclient/queryjobs) |   | Sim |
 
@@ -136,7 +139,7 @@ Para obter números específicos de desempenho de explosão, consulte [as quotas
 
 Se estiver a aproximar-se do limite de mensagem permitido no seu hub IoT, pode utilizar estes [passos para escalar automaticamente](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/) para incrementar uma unidade IoT Hub no mesmo nível IoT Hub.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre as capacidades do IoT Hub e detalhes de desempenho, consulte [os preços do IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub) ou as quotas e [aceleradores IoT Hub](iot-hub-devguide-quotas-throttling.md).
 

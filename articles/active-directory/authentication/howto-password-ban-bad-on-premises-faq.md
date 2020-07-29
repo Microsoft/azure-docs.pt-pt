@@ -11,11 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16537ba72eb9f11abd8de47256150818c121a140
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24db7981557cf76f9108a1dca37ea4c4c9f51951
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80652646"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283083"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Azure AD Password Protection no local frequentemente perguntas
 
@@ -57,7 +58,7 @@ O Ative Directory suporta a capacidade de testar uma palavra-passe para ver se p
 
 **P: É suportado para instalar a Proteção de PasswordS Azure AD lado a lado com outros produtos baseados em filtro de palavra-passe?**
 
-Sim. O suporte para vários dlls de filtro de senha registados é uma funcionalidade core do Windows e não é específico para a Proteção de Passwords AD AZure. Todos os filtros de senha registados devem concordar antes de uma palavra-passe ser aceite.
+Yes. O suporte para vários dlls de filtro de senha registados é uma funcionalidade core do Windows e não é específico para a Proteção de Passwords AD AZure. Todos os filtros de senha registados devem concordar antes de uma palavra-passe ser aceite.
 
 **P: Como posso implementar e configurar a Proteção de Passwords Azure AD no meu ambiente de Diretório Ativo sem usar o Azure?**
 
@@ -98,7 +99,7 @@ Não. Uma vez que o servidor proxy é apátrida, não é importante que servidor
 
 **P: Não há problema em implementar o serviço de proteção de senhas Azure AD, lado a lado com outros serviços, como o Azure AD Connect?**
 
-Sim. O serviço Azure AD Password Protection Proxy e o Azure AD Connect nunca devem entrar em conflito diretamente entre si.
+Yes. O serviço Azure AD Password Protection Proxy e o Azure AD Connect nunca devem entrar em conflito diretamente entre si.
 
 Infelizmente, foi encontrada uma incompatibilidade entre a versão do serviço Microsoft Azure AD Connect Agent Updater que é instalado pelo software Azure AD Password Protection Proxy e a versão do serviço que é instalado pelo software [Azure Ative Directory Application Proxy.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) Esta incompatibilidade pode resultar na incapacidade do serviço De Atualização do Agente para obter contacto com a Azure para atualizações de software. Não é aconselhável instalar o Proxy de Proteção de Passwords Azure AD e o Proxy de Aplicação de Diretório Ativo Azure na mesma máquina.
 
@@ -148,7 +149,7 @@ Os seguintes links não fazem parte da documentação de proteção de senha azu
 
 [A Azure AD Password Protection está disponível geralmente!](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-is-now-generally-available/ba-p/377487)
 
-[Guia de Proteção de Phishing por E-mail – Parte 15: Implementar o Serviço de Proteção de Passwords AD do Microsoft Azure (também para instalações)](https://blogs.technet.microsoft.com/cloudready/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/)
+[Guia de Proteção de Phishing por E-mail – Parte 15: Implementar o Serviço de Proteção de Passwords AD do Microsoft Azure (também para instalações)](http://kmartins.com/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/)
 
 [A azure AD Password Protection e Smart Lockout estão agora em visualização pública!](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-and-Smart-Lockout-are-now-in-Public/ba-p/245423#M529)
 
@@ -156,7 +157,7 @@ Os seguintes links não fazem parte da documentação de proteção de senha azu
 
 Se estiver interessado em saber mais sobre a Proteção de Passwords AZure AD e implementá-la no seu ambiente, pode aproveitar um serviço proativo da Microsoft disponível para os clientes com um contrato de apoio Premier ou Unificado. O serviço chama-se Azure Ative Directory: Password Protection. Contacte o seu Gestor técnico de conta para mais informações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver uma questão de Proteção de Password Azure AD que não seja respondida aqui, envie um item de Feedback abaixo - obrigado!
 

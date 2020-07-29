@@ -5,12 +5,13 @@ ms.topic: conceptual
 author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
-ms.openlocfilehash: a76ed65ebc1c56232d4fa42c6df20f619fe14ca3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 83f518326b38e9832c46997a0a2791eb9f35705e
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517064"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371639"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Falha de carga SDK na resolução de problemas para aplicações web JavaScript
 
@@ -206,6 +207,6 @@ Em vez de utilizar os pontos finais do Snippet e do CDN públicos, pode utilizar
 Tal como acontece com o snippet, também é possível que os seus próprios scripts (com ou sem utilização dos pacotes SDK NPM) possam ser afetados pelos mesmos problemas de bloqueio listados aqui, pelo que, dependendo da sua aplicação, dos seus utilizadores e da sua estrutura, poderá considerar a implementação de algo semelhante à lógica no corte para detetar e reportar estes problemas.
 
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 - [Obtenha ajuda adicional ao arquivar um problema no GitHub](https://github.com/Microsoft/ApplicationInsights-JS/issues)
 - [Monitorize o uso da página web](javascript.md)

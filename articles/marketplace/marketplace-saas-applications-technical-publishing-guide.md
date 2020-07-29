@@ -6,12 +6,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2020
-ms.openlocfilehash: c19799265679eeead96bf95943f274aa32c75ff2
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.author: mingshen
+author: mingshen-ms
+ms.openlocfilehash: 20d14d656132b2809fe5a79d909c27799438a247
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121576"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280941"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guia de publicação de ofertas de aplicações SaaS
 
@@ -36,7 +38,7 @@ A chamada à ação para uma listagem saas sem julgamento e sem funcionalidade d
 
 Não é necessário configurar o Azure Ative Directory para listar uma aplicação SaaS. 
 
-|Requisitos  |Detalhes  |
+|Requirements  |Detalhes  |
 |---------|---------|
 |A sua aplicação é uma oferta saaS  |   A sua solução é uma oferta SaaS e oferece um produto SaaS multitenant.      |
 
@@ -46,7 +48,7 @@ Não é necessário configurar o Azure Ative Directory para listar uma aplicaç�
 Você fornece uma solução ou app usando um teste baseado em software-as-a-service (SaaS). As ofertas de ensaio gratuito podem ser apresentadas como uma conta experimental de utilização limitada ou de duração limitada. 
 
 
-|Requisitos  |Detalhes  |
+|Requirements  |Detalhes  |
 |---------|---------|
 |A sua aplicação é uma oferta saaS  |   A sua solução é uma oferta SaaS e oferece um produto SaaS multitenant.      |
 |A sua aplicação está ativada pela AAD     |   O cliente será re-direcionado para o seu domínio e irá transagir diretamente com o cliente       |
@@ -132,7 +134,7 @@ A Microsoft acolhe a transação de comércio. A Microsoft cobra ao seu cliente 
 >[!Note]
 >O opt-in do canal parceiro Cloud Solution Providers (CSP) já está disponível.  Consulte os [Fornecedores de Soluções Cloud](./cloud-solution-providers.md) para obter mais informações sobre o marketing da sua oferta através dos canais parceiros da Microsoft CSP.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Se ainda não o fez,
 
 * [Conheça](https://azuremarketplace.microsoft.com/sell) o mercado.

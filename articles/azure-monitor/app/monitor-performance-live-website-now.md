@@ -3,12 +3,12 @@ title: Monitorizar uma aplicação Web ASP.NET com o Application Insights do Azu
 description: Monitorize o desempenho de um site sem o reimplementar. Funciona com ASP.NET aplicações web hospedadas no local ou em VMs.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 93b150b831a01989093fd916d17e31aee27beb3a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 70a405d2c32641be2ed4038fbffebce0e1340f83
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499533"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87310451"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Aplicações web de instrumentos em tempo de execução com App Insights Codeless Attach
 
@@ -22,7 +22,7 @@ O Status Monitor é utilizado para instrumentar uma aplicação .NET hospedada n
 - Se a sua aplicação for implantada no conjunto de escala de máquina virtual Azure VM ou Azure, siga [estas instruções](azure-vm-vmss-apps.md).
 - Se a sua aplicação for implantada nos serviços de aplicações Azure, siga [estas instruções.](azure-web-apps.md)
 - Se a sua aplicação for implantada num VM Azure, pode ligar a monitorização de Insights de Aplicação a partir do painel de controlo Azure.
-- (Existem também artigos separados sobre instrumentação dos [Serviços Azure Cloud](../../azure-monitor/app/cloudservices.md).)
+- (Existem também artigos separados sobre instrumentação dos [Serviços Azure Cloud](./cloudservices.md).)
 
 
 ![Screenshot de gráficos de visão geral do App Insights que contêm informações sobre pedidos falhados, tempo de resposta do servidor e pedidos de servidor](./media/monitor-performance-live-website-now/overview-graphs.png)
@@ -40,12 +40,12 @@ Segue-se um resumo do que pode usufruir:
 |  | Hora da compilação | Tempo de execução |
 | --- | --- | --- |
 | **Pedidos & exceções** |Sim |Sim |
-| **[Exceções mais detalhadas](../../azure-monitor/app/asp-net-exceptions.md)** | |Sim |
-| **[Diagnóstico de dependência](../../azure-monitor/app/asp-net-dependencies.md)** |Em .NET 4.6+, mas com menos detalhe |Sim, detalhe completo: códigos de resultado, texto do comando do SQL, verbo HTTP|
-| **[Contadores de desempenho do sistema](../../azure-monitor/app/performance-counters.md)** |Sim |Sim |
+| **[Exceções mais detalhadas](./asp-net-exceptions.md)** | |Sim |
+| **[Diagnóstico de dependência](./asp-net-dependencies.md)** |Em .NET 4.6+, mas com menos detalhe |Sim, detalhe completo: códigos de resultado, texto do comando do SQL, verbo HTTP|
+| **[Contadores de desempenho do sistema](./performance-counters.md)** |Sim |Sim |
 | **[API para telemetria personalizada][api]** |Sim |Não |
-| **[Integração de registo de rastreio](../../azure-monitor/app/asp-net-trace-logs.md)** |Sim |Não |
-| **[Visualização da página & dados do utilizador](../../azure-monitor/app/javascript.md)** |Sim |Não |
+| **[Integração de registo de rastreio](./asp-net-trace-logs.md)** |Sim |Não |
+| **[Visualização da página & dados do utilizador](./javascript.md)** |Sim |Não |
 | **É necessário reprogramar o código** |Sim | Não |
 
 
@@ -70,7 +70,7 @@ Se a aplicação estiver alojada num servidor de IIS, ative o Application Insigh
 
 ## <a name="customize-monitoring-options"></a>Personalizar opções de monitorização
 
-Ativar o Application Insights adiciona DLLs e o Applicationinsights.config à sua aplicação Web. Pode [editar o ficheiro .config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) para alterar algumas das opções.
+Ativar o Application Insights adiciona DLLs e o Applicationinsights.config à sua aplicação Web. Pode [editar o ficheiro .config](./configuration-with-applicationinsights-config.md) para alterar algumas das opções.
 
 ## <a name="when-you-re-publish-your-app-re-enable-application-insights"></a>Quando voltar a publicar a aplicação, volte a ativar o Application Insights
 
@@ -106,7 +106,7 @@ Estes são alguns passos que pode executar para confirmar que a sua instalação
 
 ### <a name="cant-connect-no-telemetry"></a>Não consegue ligar? Sem telemetria?
 
-* Abra [as portas de envio necessárias](../../azure-monitor/app/ip-addresses.md#outgoing-ports) na firewall do seu servidor para permitir que o Monitor de Estado funcione.
+* Abra [as portas de envio necessárias](./ip-addresses.md#outgoing-ports) na firewall do seu servidor para permitir que o Monitor de Estado funcione.
 
 ### <a name="unable-to-login"></a>Incapaz de iniciar sessão
 
@@ -261,7 +261,7 @@ Uma aplicação de ambiente de trabalho que instala no seu servidor Web do IIS. 
 ### <a name="when-do-i-use-status-monitor"></a>Quando utilizo o Monitor de Estado?
 
 * Para instrumentar qualquer aplicação Web que esteja em execução no seu servidor IIS - mesmo se já estiver em execução.
-* Para ativar telemetria adicional para aplicações Web que tenham sido [criadas com o SDK do Application Insights](../../azure-monitor/app/asp-net.md) no momento da compilação. 
+* Para ativar telemetria adicional para aplicações Web que tenham sido [criadas com o SDK do Application Insights](./asp-net.md) no momento da compilação. 
 
 ### <a name="can-i-close-it-after-it-runs"></a>Pode fechá-lo depois de a tarefa ser executada?
 
@@ -315,11 +315,11 @@ Para aplicações já instrumentadas no momento da compilação:
 - Descarregue e execute o [instalador status Monitor](https://go.microsoft.com/fwlink/?LinkId=506648)
 - Ou executar [o Instalador de Plataforma Web](https://www.microsoft.com/web/downloads/platform.aspx) e pesquisar nele para o Monitor de Estado de Insights de Aplicação.
 
-## <a name="next-steps"></a><a name="next"></a>Próximos passos
+## <a name="next-steps"></a><a name="next"></a>Passos seguintes
 
 Ver a telemetria:
 
-* [Explore as métricas](../../azure-monitor/platform/metrics-charts.md) para monitorizar o desempenho e a utilização
+* [Explore as métricas](../platform/metrics-charts.md) para monitorizar o desempenho e a utilização
 * [Pesquise eventos e registos][diagnostic] para diagnosticar problemas
 * [Análise](../log-query/log-query-overview.md) para obter mais informações avançadas consultas
 
@@ -331,11 +331,12 @@ Adicionar mais telemetria:
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
+[api]: ./api-custom-events-metrics.md
 [availability]: monitor-web-app-availability.md
-[client]: ../../azure-monitor/app/javascript.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[greenbrown]: ../../azure-monitor/app/asp-net.md
+[client]: ./javascript.md
+[diagnostic]: ./diagnostic-search.md
+[greenbrown]: ./asp-net.md
 [qna]: ../faq.md
-[roles]: ../../azure-monitor/app/resources-roles-access-control.md
-[usage]: ../../azure-monitor/app/javascript.md
+[roles]: ./resources-roles-access-control.md
+[usage]: ./javascript.md
+

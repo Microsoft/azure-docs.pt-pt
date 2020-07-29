@@ -15,11 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: 4877493982671b1b5db686715ef854f25c2966ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 31a3b0ef548067d8af45610355360860eaff8257
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81310983"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280890"
 ---
 # <a name="send-security-messages-sdk"></a>Enviar mensagens de segurança SDK
 
@@ -226,7 +228,7 @@ public void SendSecurityMessage(string message)
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia o Centro de Segurança Azure para o serviço IoT [Visão geral](overview.md)
 - Saiba mais sobre o Azure Security Center for IoT [Architecture](architecture.md)

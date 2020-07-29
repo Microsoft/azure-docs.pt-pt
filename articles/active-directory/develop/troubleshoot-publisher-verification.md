@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: dcdce6ee6683c5770f97f5f3dc20e1c9b409ead0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3069e3caf81d9bb2f809b21c88383c419e3b90b3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477044"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282981"
 ---
 # <a name="troubleshoot-publisher-verification-preview"></a>Resolver problemas da verificação do publicador (pré-visualização)
 Se não conseguir completar o processo ou estiver a experimentar comportamentos inesperados com [a verificação do editor (pré-visualização)](publisher-verification-overview.md), deve começar por fazer o seguinte se estiver a receber erros ou a ver comportamentos inesperados: 
@@ -37,7 +37,7 @@ Abaixo estão algumas questões comuns que podem ocorrer durante o processo.
     1. Navegue para a [página de inscrição mpn](https://partner.microsoft.com/dashboard/account/v3/enrollment/joinnow/basicpartnernetwork/new)
     1. Inscreva-se com uma conta de utilizador no inquilino principal da Azure AD da org 
     1. Se uma conta MPN já existir, esta será reconhecida e você será adicionado à conta 
-    1. Navegue para a página de perfil do [parceiro](https://partner.microsoft.com/en-us/pcv/accountsettings/connectedpartnerprofile) onde o ID MPN e o contacto de conta primária serão listados
+    1. Navegue para a página de perfil do [parceiro](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) onde o ID MPN e o contacto de conta primária serão listados
 
 - **Não sei quem é o meu administrador global da Azure AD (também conhecido como Administrador da Empresa ou Administrador Inquilino) como é que os encontro? E o Administrador da App, ou um papel de administração diferente?**
     1. Inscreva-se no [Portal AD Azure](https://aad.portal.azure.com) usando uma conta de utilizador no principal inquilino da sua organização
@@ -45,14 +45,14 @@ Abaixo estão algumas questões comuns que podem ocorrer durante o processo.
     1. Clique em "Administrador Global", ou no papel de administrador desejado
     1. A lista de utilizadores designados para que o papel será exibida
 
-- **Eu não sei quem são os administradores para a minha conta MPN** Vá à [página mpn User Management](https://partner.microsoft.com/en-us/pcv/users) e filtre a lista de utilizadores para ver quais os utilizadores em várias funções de administração.
+- **Eu não sei quem são os administradores para a minha conta MPN** Vá à [página mpn User Management](https://partner.microsoft.com/pcv/users) e filtre a lista de utilizadores para ver quais os utilizadores em várias funções de administração.
 
 - **Estou a receber um erro a dizer que o meu MPN ID é inválido ou que não tenho acesso a ele.**
-    1. Vá ao perfil do seu [parceiro](https://partner.microsoft.com/en-us/pcv/accountsettings/connectedpartnerprofile) e verifique se: 
+    1. Vá ao perfil do seu [parceiro](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) e verifique se: 
         - O ID da MPN está correto. 
         - Não há erros ou "ações pendentes" mostrados, e o estado de verificação no perfil de negócio legal e informações de Parceiro ambos dizem "autorizado" ou "sucesso".
-    1. Vá à [página de gestão](https://partner.microsoft.com/en-us/dashboard/account/v3/tenantmanagement) de inquilinos da MPN e confirme que o inquilino em que a app está registada e que está a assinar com uma conta de utilizador de que está na lista de inquilinos associados.
-    1. Vá à [página mpn User Management](https://partner.microsoft.com/en-us/pcv/users) e confirme o utilizador em que está a iniciar sessão, tal como é um Administrador Global, MPN Admin ou Administração de Contas.
+    1. Vá à [página de gestão](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) de inquilinos da MPN e confirme que o inquilino em que a app está registada e que está a assinar com uma conta de utilizador de que está na lista de inquilinos associados.
+    1. Vá à [página mpn User Management](https://partner.microsoft.com/pcv/users) e confirme o utilizador em que está a iniciar sessão, tal como é um Administrador Global, MPN Admin ou Administração de Contas.
 
 - **Quando assino no portal AD Azure, não vejo nenhuma aplicação registada. Porquê?** 
     Os registos da sua aplicação podem ter sido criados usando uma conta de utilizador diferente, ou num inquilino diferente. Certifique-se de que está inscrito com a conta correta no arrendatário onde foram criados os registos da sua aplicação.
@@ -205,11 +205,11 @@ O ID MPN não foi fornecido no órgão de pedido ou o tipo de conteúdo do pedid
 
 Esta funcionalidade não é suportada para contas de consumidores da Microsoft. Apenas as aplicações registadas no Azure AD por um utilizador AZure AD são suportadas. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver revisto todas as informações anteriores e ainda estiver a receber um erro do Microsoft Graph, recolha o máximo de informações possíveis relacionadas com o pedido de falha e contacte o suporte da [Microsoft.](developer-support-help-options.md#open-a-support-request)
 
-- Carimbo de data/hora 
+- Timestamp 
 - CorrelationId 
 - ObjectID ou UserPrincipalName assinado no utilizador 
 - ObjectId da aplicação-alvo

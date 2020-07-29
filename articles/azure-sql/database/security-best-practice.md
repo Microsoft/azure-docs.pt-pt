@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 00369ae45a13414ce46f324e37afe24be24a48e0
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 6a3a52c90187920be13628a6d2fa44159e1109d7
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132947"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371792"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Livro de jogadas para abordar requisitos comuns de segurança com base de dados Azure SQL e Azure SQL Gestão De Instância
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -112,7 +112,7 @@ A gestão central da identidade oferece os seguintes benefícios:
 > - O token de acesso Azure AD está em cache no lado do cliente e a sua vida útil depende da configuração simbólica. Veja o artigo, [Configurar vidas simbólicas no Azure Ative Directory](../../active-directory/develop/active-directory-configurable-token-lifetimes.md)
 > - Para obter orientações sobre problemas de resolução de problemas Azure AD Authentication, consulte o seguinte blog: [Troubleshooting Azure AD](https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991).
 
-### <a name="azure-multi-factor-authentication"></a>Autenticação Multifator do Azure
+### <a name="azure-multi-factor-authentication"></a>Multi-Factor Authentication do Azure
 
 > Mencionado em: Osa Practice #2, ISO Access Control (AC)
 
@@ -324,7 +324,7 @@ A Separação de Deveres, também denominada Segregação de Deveres, descreve a
 
 - Certifique-se sempre de ter um rasto de auditoria para ações relacionadas com a segurança.
 
-- Você pode recuperar a definição das funções RBAC incorporadas para ver as permissões usadas e criar um papel personalizado baseado em excertos e acumulações destes através do PowerShell.
+- Pode recuperar a definição das funções incorporadas do Azure para ver as permissões utilizadas e criar um papel personalizado baseado em excertos e acumulações destes através do PowerShell.
 
 - Como qualquer membro da função de base de dados db_owner pode alterar definições de segurança como a Encriptação de Dados Transparente (TDE), ou alterar a SLO, esta adesão deve ser concedida com cuidado. No entanto, há muitas tarefas que requerem privilégios db_owner. Tarefa como alterar qualquer definição de base de dados, como alterar opções de DB. A auditoria desempenha um papel fundamental em qualquer solução.
 

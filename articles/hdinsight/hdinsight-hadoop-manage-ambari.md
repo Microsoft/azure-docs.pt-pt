@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
-ms.openlocfilehash: f3244ec3f85d5085d3dbc2e503eab59af5572c56
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ce078a3dad645f592bb33ed55ce508f68ce8f30a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075761"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281396"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Manage HDInsight clusters by using the Apache Ambari Web UI (Gerir clusters do HDInsight através da IU da Web do Apache Ambari)
 
@@ -58,7 +58,7 @@ Quando a página abrir, note o bar no topo. Esta barra contém as seguintes info
 |Serviços|Definições de informação e configuração para os serviços no cluster.|
 |Anfitriões|Definições de informação e configuração para os nós no cluster.|
 |Alertas|Um registo de informações, avisos e alertas críticos.|
-|Administrador|Pilha de software/serviços instalados no cluster, informações de conta de serviço e segurança Kerberos.|
+|Admin|Pilha de software/serviços instalados no cluster, informações de conta de serviço e segurança Kerberos.|
 |Botão de administração|Gestão Ambari, configurações do utilizador e assine.|
 
 ## <a name="monitoring"></a>Monitorização
@@ -107,6 +107,7 @@ Para obter mais informações sobre os nós dentro do cluster, **selecione Hosts
 ### <a name="services"></a>Serviços
 
 A barra lateral **dos Serviços** no painel de instrumentos fornece uma visão rápida do estado dos serviços em funcionamento no cluster. Vários ícones são usados para indicar o estado ou as ações que devem ser tomadas. Por exemplo, é apresentado um símbolo de reciclagem amarelo se um serviço tiver de ser reciclado.
+
 
 ![Bar lateral de serviços Apache Ambari](./media/hdinsight-hadoop-manage-ambari/apache-ambari-service-bar.png)
 
@@ -170,10 +171,10 @@ A página **hostes** lista todos os anfitriões no cluster. Para gerir os anfitr
 
 Na página **Dashboard** ou **Serviços,** utilize o botão **Ações** na parte inferior da lista de serviços para parar e iniciar todos os serviços.
 
-![Lista de ações de serviço Apache Ambari](./media/hdinsight-hadoop-manage-ambari/ambari-service-actions.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/ambari-service-actions.png" alt-text="Lista de ações de serviço Apache Ambari." border="true":::
 
 > [!WARNING]  
-> Embora **o Add Service** esteja listado neste menu, este não deve ser utilizado para adicionar serviços ao cluster HDInsight. Os novos serviços devem ser adicionados utilizando uma Ação de Script durante o fornecimento de clusters. Para obter mais informações sobre a utilização de ações de script, consulte [os clusters HDInsight personalizados utilizando ações de script](hdinsight-hadoop-customize-cluster-linux.md).
+> Os novos serviços devem ser adicionados utilizando uma Ação de Script durante o fornecimento de clusters. Para obter mais informações sobre a utilização de ações de script, consulte [os clusters HDInsight personalizados utilizando ações de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 Enquanto o botão **Ações** pode reiniciar todos os serviços, muitas vezes pretende iniciar, parar ou reiniciar um serviço específico. Utilize os seguintes passos para fazer ações num serviço individual:
 
@@ -215,7 +216,7 @@ As seguintes operações de Ambari não são suportadas na HDInsight:
 
 * __Mover o serviço de Coletor Métricas__. Ao visualizar informações sobre o serviço Metrics Collector, uma das ações disponíveis no menu De ações de Serviço é o __coletor Move Metrics__. Esta ação não é apoiada com HDInsight.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) com HDInsight.
 * [Use Apache Ambari to optimize HDInsight cluster configurations](./hdinsight-changing-configs-via-ambari.md) (Utilizar o Apache Ambari para otimizar as configurações do cluster do HDInsight)

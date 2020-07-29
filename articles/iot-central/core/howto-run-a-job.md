@@ -7,11 +7,12 @@ author: sarahhubbard
 ms.author: sahubbar
 ms.date: 06/08/2020
 ms.topic: how-to
-ms.openlocfilehash: dec9abc38bc0354ef3d22994a7988bfb006f5769
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6073f71eb21ba4a6739647964d4888044d6ee59a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609747"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283727"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Crie e executar um emprego na sua aplicação Azure IoT Central
 
@@ -42,7 +43,11 @@ Esta secção mostra-lhe como criar e gerir um emprego. Mostra como definir o li
     > [!NOTE]
     > Pode ver 30 dias de história para os seus trabalhos anteriormente geridos.
 
-7. Para obter uma visão geral do seu trabalho, selecione o trabalho para ver na lista. Esta visão geral contém os dados do trabalho, dispositivos e valores de estado do dispositivo. A partir desta visão geral, também pode selecionar **Download Job Details** para descarregar um ficheiro CSV dos seus dados de trabalho, incluindo os dispositivos e os seus valores de estado. Estas informações podem ser úteis para a resolução de problemas:
+7. Clique no trabalho guardado e execute o trabalho clicando no botão Executar. Será exibido um pop-up de trabalho. Confirme clicando no botão Executar Trabalho. 
+
+    ![Executar um trabalho](./media/howto-run-a-job/run-job.png)
+
+8. O trabalho passa por diferentes fases de pendentes, corridas e conclusões. Os detalhes da execução do trabalho contêm métricas de resultados, detalhes de duração e grelha de lista de dispositivos. A partir desta visão geral, também pode selecionar **o registo de Resultados** para descarregar um ficheiro CSV dos seus dados de trabalho, incluindo os dispositivos e os seus valores de estado. Esta informação pode ser útil para a resolução de problemas.
 
     ![Ver o estado do dispositivo](./media/howto-run-a-job/download-details.png)
 
@@ -50,13 +55,23 @@ Esta secção mostra-lhe como criar e gerir um emprego. Mostra como definir o li
 
 Para parar um dos seus trabalhos de funcionamento, abra-o e **selecione Stop**. As alterações ao estatuto de trabalho para refletir o trabalho estão paradas. A secção **Resumo** mostra quais os dispositivos que completaram, falharam ou ainda estão pendentes.
 
-Para executar um trabalho que está parado, selecione-o e, em seguida, selecione **Run**. As alterações ao estatuto de trabalho para refletir o trabalho estão agora a funcionar novamente. A secção **Resumo** continua a atualizar-se com os últimos progressos.
-
 ![Gerir o trabalho](./media/howto-run-a-job/manage-job.png)
+
+Uma vez que Jó esteja em estado parado, pode clicar **em Continuar** a retomar a execução do trabalho. As alterações ao estatuto de trabalho para refletir o trabalho estão agora a funcionar novamente. A secção **Resumo** continua a atualizar-se com os últimos progressos.
+
+![Trabalho parado](./media/howto-run-a-job/stopped-job.png)
 
 ## <a name="copy-a-job"></a>Copiar um trabalho
 
-Para copiar um dos seus trabalhos existentes, selecione-o na página **Jobs** e selecione **Copy**. Uma cópia da configuração de trabalho abre para que você edite, e **Copy** é anexado ao nome do trabalho. Pode salvar ou gerir o novo emprego:
+Para copiar um dos seus trabalhos existentes, selecione-o na página **Jobs** e selecione **Detalhes de Emprego.** A página de Detalhes do Trabalho será exibida. 
+
+![Detalhes da Tarefa](./media/howto-run-a-job/job-details.png)
+
+Clique **em Copiar**
+
+![Detalhes da Tarefa](./media/howto-run-a-job/job-details-copy.png)
+
+Uma cópia da configuração de trabalho abre para que você edite, e **Copy** é anexado ao nome do trabalho. Pode salvar ou gerir o novo emprego:
 
 ![Trabalho de cópia](./media/howto-run-a-job/copy-job.png)
 
@@ -67,17 +82,17 @@ Após a criação de um trabalho, a coluna **Status** atualiza-se com a última 
 | Mensagem de estado       | Significado de estado                                          |
 | -------------------- | ------------------------------------------------------- |
 | Concluído            | Este trabalho foi executado em todos os dispositivos.              |
-| Falhou               | Este trabalho falhou e não foi executado totalmente em dispositivos.  |
+| Com falhas               | Este trabalho falhou e não foi executado totalmente em dispositivos.  |
 | Pendente              | Este trabalho ainda não começou a ser executado em dispositivos.         |
-| A executar              | Este trabalho está atualmente a ser executado em dispositivos.             |
+| Em Execução              | Este trabalho está atualmente a ser executado em dispositivos.             |
 | Parada              | Este trabalho foi interrompido manualmente por um utilizador.           |
 
 A mensagem de estado é seguida por uma visão geral dos dispositivos no trabalho. A tabela a seguir enumera os valores de estado possíveis do dispositivo:
 
 | Mensagem de estado       | Significado de estado                                                     |
 | -------------------- | ------------------------------------------------------------------ |
-| Bem-sucedido            | O número de dispositivos em que o trabalho foi executado com sucesso.       |
-| Falhou               | O número de dispositivos em que o trabalho falhou em executar.       |
+| Com êxito            | O número de dispositivos em que o trabalho foi executado com sucesso.       |
+| Com falhas               | O número de dispositivos em que o trabalho falhou em executar.       |
 
 ### <a name="view-the-device-status-values"></a>Ver os valores de estado do dispositivo
 
@@ -86,7 +101,7 @@ Para ver o estado do trabalho e todos os dispositivos afetados, abra o trabalho.
 | Mensagem de estado       | Significado de estado                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |
 | Concluído            | O trabalho executado neste dispositivo.                                     |
-| Falhou               | O trabalho falhou em executar neste dispositivo. A mensagem de erro mostra mais informações.  |
+| Com falhas               | O trabalho falhou em executar neste dispositivo. A mensagem de erro mostra mais informações.  |
 | Pendente              | O trabalho ainda não foi executado neste dispositivo.                                   |
 
 Para descarregar um ficheiro CSV que inclua os detalhes do trabalho e a lista de dispositivos e seus valores de estado, selecione **Download**.
@@ -129,7 +144,7 @@ Introduza um nome de trabalho e descrição e, em seguida, selecione **Rerun job
 > [!NOTE]
 > Quando um trabalho está concluído e elimina um dispositivo que está na lista de dispositivos do trabalho, a entrada do dispositivo mostra como eliminado no nome do dispositivo e a ligação de detalhes do dispositivo não está disponível para o dispositivo eliminado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a criar empregos na sua aplicação Azure IoT Central, eis alguns próximos passos:
 

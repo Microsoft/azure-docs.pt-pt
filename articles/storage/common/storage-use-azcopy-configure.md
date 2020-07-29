@@ -4,16 +4,16 @@ description: Configurar, otimizar e resolver problemas AzCopy.
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: acfe868f26d7509d1dd06554482b4fb3b29a5b22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e79f186688f3b6531ac24df4e3ae4201cf1903c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504360"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282437"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e resolver problemas AzCopy
 
@@ -23,12 +23,12 @@ O AzCopy é um utilitário da linha de comando que pode utilizar para copiar blo
 > Se procura conteúdo para ajudá-lo a começar com a AzCopy, consulte qualquer um dos seguintes artigos:
 > - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
 > - [Transferir dados com AzCopy e armazenamento de bolhas](storage-use-azcopy-blobs.md)
-> - [Transferir dados com a AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
+> - [Transferir dados com o AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
 > - [Transfira dados com baldes AzCopy e Amazon S3](storage-use-azcopy-s3.md)
 
 ## <a name="configure-proxy-settings"></a>Configurar definições de proxy
 
-Para configurar as definições de procuração para AzCopy, defina a `https_proxy` variável ambiental. Se executar a AzCopy no Windows, o AzCopy deteta automaticamente as definições de procuração, para que não tenha de utilizar esta definição no Windows. Se optar por utilizar esta definição no Windows, irá sobrepor-se à deteção automática.
+Para configurar as definições de procuração para AzCopy, defina a `https_proxy` variável ambiental. Se executar o AzCopy no Windows, o AzCopy detetará automaticamente as definições de proxy, para que não tenha de utilizar esta definição no Windows. Se optar por utilizar esta definição no Windows, sobrepor-se-á à deteção automática.
 
 | Sistema operativo | Comando  |
 |--------|-----------|
@@ -63,13 +63,13 @@ Esta secção ajuda-o a executar estas tarefas de otimização:
 
 ### <a name="run-benchmark-tests"></a>Executar testes de referência
 
-Pode executar um teste de referência de desempenho em recipientes de bolhas específicas ou ações de ficheiros para visualizar estatísticas gerais de desempenho e para estrangulamentos de desempenho de identidade. 
+Pode executar um teste de referência de desempenho em recipientes de bolhas específicas ou ações de ficheiros para visualizar estatísticas gerais de desempenho e para estrangulamentos de desempenho de identidade. Pode executar o teste carregando ou descarregando dados de teste gerados. 
 
 Utilize o seguinte comando para executar um teste de referência de desempenho.
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy benchmark 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
+| **Sintaxe** | `azcopy benchmark 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
 | **Exemplo** | `azcopy benchmark 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
 
 > [!TIP]
@@ -77,9 +77,7 @@ Utilize o seguinte comando para executar um teste de referência de desempenho.
 
 Este comando executa uma referência de desempenho enviando dados de teste para um destino especificado. Os dados do teste são gerados na memória, enviados para o destino e depois eliminados do destino após a conclusão do teste. Pode especificar quantos ficheiros gerar e qual o tamanho que pretende que sejam utilizando parâmetros de comando opcionais.
 
-Para obter documentos de referência detalhados, consulte [a referência de azcopia](storage-ref-azcopy-bench.md).
-
-Para visualizar orientações detalhadas de ajuda para este comando, `azcopy benchmark -h` escreva e, em seguida, prima a tecla ENTER.
+Se preferir realizar este teste descarregando dados, desfie o `mode` parâmetro para `download` . Para obter documentos de referência detalhados, consulte [a referência de azcopia](storage-ref-azcopy-bench.md). 
 
 ### <a name="optimize-throughput"></a>Otimizar a produção
 
@@ -89,9 +87,9 @@ Pode utilizar a `cap-mbps` bandeira nos seus comandos para colocar um teto na ta
 azcopy jobs resume <job-id> --cap-mbps 10
 ```
 
-A produção pode diminuir ao transferir ficheiros pequenos. Pode aumentar a produção definindo a `AZCOPY_CONCURRENCY_VALUE` variável ambiente. Esta variável especifica o número de pedidos simultâneos que podem ocorrer.  
+O débito pode diminuir ao transferir ficheiros pequenos. Pode aumentar a produção definindo a `AZCOPY_CONCURRENCY_VALUE` variável ambiente. Esta variável especifica o número de pedidos simultâneos que podem ocorrer.  
 
-Se o seu computador tiver menos de 5 CPUs, então o valor desta variável está definido para `32` . Caso contrário, o valor predefinido é igual a 16 multiplicados pelo número de CPUs. O valor predefinido máximo desta variável `3000` é, mas pode definir manualmente este valor mais ou menos. 
+Se o seu computador tiver menos de 5 CPUs, então o valor desta variável está definido para `32` . Caso contrário, o valor predefinido é igual a 16 vezes o número de CPUs. O valor predefinido máximo desta variável `3000` é, mas pode definir manualmente este valor mais ou menos. 
 
 | Sistema operativo | Comando  |
 |--------|-----------|

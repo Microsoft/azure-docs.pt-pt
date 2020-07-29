@@ -3,12 +3,12 @@ title: Autenticar uma aplicação para aceder a entidades de autocarros da Azure
 description: Este artigo fornece informações sobre a autenticação de uma aplicação com o Azure Ative Directory para aceder a entidades de autocarros de serviço da Azure (filas, tópicos, etc.)
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 371fa42420c2cc90a581b05ac47d7a65f28fc473
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 3f94f17a538fc86615f4ffeb8f351beb99e0cb33
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128493"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372353"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Autenticar e autorizar uma aplicação com a Azure Ative Directory para aceder a entidades do Azure Service Bus
 A Azure Service Bus suporta a utilização do Azure Ative Directory (Azure AD) para autorizar pedidos a entidades de Service Bus (filas, tópicos, subscrições ou filtros). Com o Azure AD, pode utilizar o controlo de acesso baseado em funções (RBAC) para conceder permissões a um principal de segurança, que pode ser um utilizador, grupo ou diretor de serviço de aplicação. Para saber mais sobre papéis e atribuições de papéis, consulte [compreender os diferentes papéis.](../role-based-access-control/overview.md)
@@ -21,18 +21,18 @@ Quando um principal de segurança (um utilizador, grupo ou aplicação) tenta ac
 
 O passo de autenticação requer que um pedido de candidatura contenha um token de acesso OAuth 2.0 no tempo de execução. Se uma aplicação estiver a ser executada dentro de uma entidade Azure, como um Azure VM, um conjunto de escala de máquina virtual ou uma aplicação Azure Function, pode usar uma identidade gerida para aceder aos recursos. Para aprender a autenticar pedidos feitos por uma identidade gerida para o serviço Service Bus, consulte [autenticar o acesso aos recursos da Azure Service Bus com o Azure Ative Directory e identidades geridas para a Azure Resources.](service-bus-managed-service-identity.md) 
 
-O passo de autorização requer que uma ou mais funções do RBAC sejam atribuídas ao diretor de segurança. A Azure Service Bus fornece funções RBAC que englobam conjuntos de permissões para recursos de Service Bus. As funções atribuídas a um diretor de segurança determinam as permissões que o diretor terá. Para saber mais sobre a atribuição de funções da RBAC à Azure Service Bus, consulte [as funções de RBAC incorporadas para o Azure Service Bus.](#built-in-rbac-roles-for-azure-service-bus) 
+O passo de autorização requer que uma ou mais funções do RBAC sejam atribuídas ao diretor de segurança. A Azure Service Bus fornece funções RBAC que englobam conjuntos de permissões para recursos de Service Bus. As funções atribuídas a um diretor de segurança determinam as permissões que o diretor terá. Para saber mais sobre a atribuição de papéis da RBAC à Azure Service Bus, consulte [as funções incorporadas da Azure Service Bus.](#azure-built-in-roles-for-azure-service-bus) 
 
 As aplicações nativas e aplicações web que fazem pedidos para Service Bus também podem autorizar com a Azure AD. Este artigo mostra-lhe como solicitar um token de acesso e usá-lo para autorizar pedidos de recursos de Service Bus. 
 
 
 ## <a name="assigning-rbac-roles-for-access-rights"></a>Atribuição de funções de RBAC para direitos de acesso
-O Azure Ative Directory (Azure AD) autoriza os direitos de acesso a recursos seguros através [do controlo de acesso baseado em funções (RBAC)](../role-based-access-control/overview.md). A Azure Service Bus define um conjunto de funções RBAC incorporadas que englobam conjuntos comuns de permissões usadas para aceder a entidades de Service Bus e também pode definir funções personalizadas para aceder aos dados.
+O Azure Ative Directory (Azure AD) autoriza os direitos de acesso a recursos seguros através [do controlo de acesso baseado em funções (RBAC)](../role-based-access-control/overview.md). A Azure Service Bus define um conjunto de funções incorporadas Azure que englobam conjuntos comuns de permissões usadas para aceder a entidades de Service Bus e também pode definir funções personalizadas para aceder aos dados.
 
 Quando um papel rbac é atribuído a um diretor de segurança Azure, Azure concede acesso a esses recursos para esse chefe de segurança. O acesso pode ser alargado ao nível de subscrição, ao grupo de recursos ou ao espaço de nomes do Service Bus. Um diretor de segurança Azure AD pode ser um utilizador, um grupo, um diretor de serviço de aplicação ou uma [identidade gerida para os recursos da Azure.](../active-directory/managed-identities-azure-resources/overview.md)
 
-## <a name="built-in-rbac-roles-for-azure-service-bus"></a>Papéis RBAC incorporados para Azure Service Bus
-Para a Azure Service Bus, a gestão de espaços de nome e todos os recursos relacionados através do portal Azure e da API de gestão de recursos Azure já está protegida utilizando o modelo *de controlo de acesso baseado em funções* (RBAC). A Azure fornece as funções RBAC abaixo incorporadas para autorizar o acesso a um espaço de nomes de Service Bus:
+## <a name="azure-built-in-roles-for-azure-service-bus"></a>Azure funções incorporadas para Azure Service Bus
+Para a Azure Service Bus, a gestão de espaços de nome e todos os recursos relacionados através do portal Azure e da API de gestão de recursos Azure já está protegida utilizando o modelo *de controlo de acesso baseado em funções* (RBAC). A Azure fornece as funções incorporadas abaixo do Azure para autorizar o acesso a um espaço de nomes de Autocarros de Serviço:
 
 - [Azure Service Bus Data Owner](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner): Permite o acesso de dados ao espaço de nomes do Service Bus e das suas entidades (filas, tópicos, subscrições e filtros)
 - [Azure Service Bus Data Sender](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender): Use esta função para dar acesso ao espaço de nomes do Service Bus e das suas entidades.

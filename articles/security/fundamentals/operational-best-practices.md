@@ -16,11 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 56132eae03a52af425e00bec93a63a697a2a55e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec4d91d90a952805781d6d38a0fc8a8fcef84f39
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84204740"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283474"
 ---
 # <a name="azure-operational-security-best-practices"></a>Melhores práticas de Segurança Operacional da Azure
 Este artigo fornece um conjunto de boas práticas operacionais para proteger os seus dados, aplicações e outros ativos em Azure.
@@ -181,7 +182,7 @@ Garantir que uma aplicação é resistente o suficiente para lidar com uma nega�
 
 Para a Azure Cloud Services, configuure cada um dos seus papéis para usar [várias instâncias](../../cloud-services/cloud-services-choose-me.md).
 
-Para [máquinas virtuais Azure](/azure/virtual-machines/windows/overview), certifique-se de que a sua arquitetura VM inclui mais de um VM e que cada VM está incluído num [conjunto de disponibilidade.](/azure/virtual-machines/virtual-machines-windows-manage-availability) Recomendamos a utilização de conjuntos de escala de máquina virtual para capacidades de autoscalagem.
+Para [máquinas virtuais Azure](../../virtual-machines/windows/overview.md), certifique-se de que a sua arquitetura VM inclui mais de um VM e que cada VM está incluído num [conjunto de disponibilidade.](../../virtual-machines/windows/tutorial-availability-sets.md) Recomendamos a utilização de conjuntos de escala de máquina virtual para capacidades de autoscalagem.
 
 **Boas práticas**: Camadas de defesas de segurança numa aplicação reduz a possibilidade de um ataque bem sucedido. Implemente designs seguros para as suas aplicações utilizando as capacidades incorporadas da plataforma Azure.  
 **Pormenor**: O risco de ataque aumenta com o tamanho (área de superfície) da aplicação. Pode reduzir a área de superfície utilizando a whitelisting para fechar o espaço de endereço IP exposto e portas de audição que não são necessárias nos equilibros de carga[(Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) e [Azure Application Gateway).](/azure/application-gateway/application-gateway-create-probe-portal)
@@ -220,7 +221,7 @@ Para obter mais informações, consulte [Criar e gerir políticas para impor o c
 ## <a name="monitor-azure-ad-risk-reports"></a>Monitor Azure Relatórios de risco AD
 A grande maioria das falhas de segurança ocorre quando os atacantes têm acesso a um ambiente roubando a identidade de um utilizador. Descobrir identidades comprometidas não é tarefa fácil. O Azure AD utiliza algoritmos de aprendizagem automática adaptativa e heurística para detetar ações suspeitas relacionadas com as suas contas de utilizador. Cada ação suspeita detetada é armazenada num registo chamado deteção de [risco.](../../active-directory/reports-monitoring/concept-risk-events.md) As deteções de risco são registadas nos relatórios de segurança da AZure. Para mais informações, leia sobre os [utilizadores em relatório](../../active-directory/reports-monitoring/concept-user-at-risk.md) de segurança de risco e o [relatório de segurança de entradas de risco](../../active-directory/reports-monitoring/concept-risky-sign-ins.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte as [melhores práticas e padrões](best-practices-and-patterns.md) de segurança da Azure para obter mais boas práticas de segurança quando estiver a desenhar, implementar e gerir as suas soluções em nuvem utilizando o Azure.
 
 Estão disponíveis os seguintes recursos para fornecer informações mais gerais sobre a segurança da Azure e serviços relacionados com a Microsoft:

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8c9fbf2d86c2e066566bab11b1701909be64a37
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 588e63e630caa4746b493d4530e301f72e5ccb5f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025851"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282947"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Iniciar sedutação na máquina virtual do Windows em Azure utilizando a autenticação do Azure Ative Directory (Preview)
 
@@ -39,7 +39,7 @@ Existem muitos benefícios em utilizar a autenticação AD AZure para iniciar se
 > [!NOTE]
 > Assim que ativar esta capacidade, os seus VMs windows em Azure serão aderidos ao Azure AD. Não pode junção a outros domínios, como AD ou AD DS Azure. Se precisar de o fazer, terá de desligar o VM do seu inquilino AZure AD desinstalando a extensão.
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 
 ### <a name="supported-azure-regions-and-windows-distributions"></a>Regiões de Azure apoiadas e distribuição do Windows
 
@@ -208,7 +208,7 @@ Pode impor políticas de Acesso Condicional, tais como autenticação de vários
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Faça login usando credenciais AZure AD para um Windows VM
 
 > [!IMPORTANT]
-> A ligação remota aos VMs aderidos ao Azure AD só é permitida a partir de PCs windows 10 que são Azure AD unidos ou híbrido Azure AD unidos ao **mesmo** diretório que o VM. Além disso, para RDP utilizando credenciais AZure AD, o utilizador deve pertencer a uma das duas funções RBAC, Login de Administrador de Máquina Virtual ou Login do Utilizador de Máquina Virtual. Neste momento, o Azure Bastion não pode ser utilizado para iniciar sessão utilizando a autenticação do Azure Ative Directory com a extensão AADLoginForWindows. Apenas o PDR direto é suportado.
+> A ligação remota aos VMs aderidos ao Azure AD só é permitida a partir de PCs windows 10 que estejam registados aZure AD (a construção mínima exigida é 20H1) ou a Azure AD unida ou híbrida Azure AD unida ao **mesmo** diretório que o VM. Além disso, para RDP utilizando credenciais AZure AD, o utilizador deve pertencer a uma das duas funções RBAC, Login de Administrador de Máquina Virtual ou Login do Utilizador de Máquina Virtual. Se utilizar um PC do Windows 10 registado no Azure AD, deve introduzir credenciais no formato AzureAD\UPN (por AzureAD\john@contoso.com exemplo). Neste momento, o Azure Bastion não pode ser utilizado para fazer login utilizando a autenticação do Azure Ative Directory com a extensão AADLoginForWindows; apenas é suportado RDP direto.
 
 Para iniciar sessão na sua máquina virtual Windows Server 2019 utilizando Azure AD: 
 
@@ -224,7 +224,7 @@ Está agora a fazer sessão no Windows Server 2019 Azure virtual machine com as 
 > [!NOTE]
 > Pode salvar o . O ficheiro RDP localmente no seu computador para lançar futuras ligações remotas de ambiente de trabalho à sua máquina virtual em vez de ter de navegar para a página geral da máquina virtual no portal Azure e utilizar a opção de ligação.
 
-## <a name="troubleshoot"></a>Resolução de Problemas
+## <a name="troubleshoot"></a>Resolução de problemas
 
 ### <a name="troubleshoot-deployment-issues"></a>Resolver problemas de implementação
 
@@ -342,7 +342,7 @@ Se vir a seguinte mensagem de erro quando iniciar uma ligação remota de ambien
 Verifique se o PC Windows 10 que está a utilizar para iniciar a ligação remota de ambiente de trabalho é aquele que está ligado ao Azure AD ou o AD híbrido Azure juntou-se ao mesmo diretório AD AD Azure onde o seu VM está ligado. Para obter mais informações sobre a identidade do dispositivo, consulte o artigo [O que é uma identidade do dispositivo](/azure/active-directory/devices/overview).
 
 > [!NOTE]
-> O Windows 10 20H1 irá adicionar suporte para pc registado em Azure AD para iniciar a ligação remota de desktop ao seu VM. Junte-se ao Programa Insider do Windows para experimentar este teste e explorar novas funcionalidades do Windows 10.
+> O Windows 10 Build 20H1 adicionou suporte para um PC AD registado no Azure para iniciar a ligação RDP ao seu VM. Ao utilizar um AD AZure registado (não a Azure AD ligado ou híbrido Azure AD) PC como cliente RDP para iniciar ligações ao seu VM, deve introduzir credenciais no formato AzureAD\UPn (por AzureAD\john@contoso.com exemplo).
 
 Além disso, verifique se a extensão AADLoginForWindows não foi desinstalada após a junção AD do Azure ter terminado.
  

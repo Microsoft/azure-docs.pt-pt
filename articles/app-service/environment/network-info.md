@@ -4,19 +4,19 @@ description: Conheça o tráfego da rede ASE e como definir grupos de segurança
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 06/29/2020
+ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 10cb1149880c70d991dd5ab49acceab3283372a7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6fde04be99eaa61287b486eaefdcb92d66d88bc7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517858"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280924"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre a rede para um Ambiente de Serviço de Aplicações #
 
-## <a name="overview"></a>Descrição Geral ##
+## <a name="overview"></a>Descrição geral ##
 
  Azure [App Service Environment][Intro] é uma implementação do Azure App Service numa sub-rede na sua rede virtual Azure (VNet). Existem dois tipos de implementação para um ambiente de Serviço de Aplicações (ASE):
 
@@ -158,13 +158,14 @@ As entradas necessárias num NSG, para que um ASE funcione, são para permitir o
 * da sub-rede ASE para a sub-rede ASE em todas as portas
 
 **Saída**
+* UDP a todos os IPs no porto 53
 * UDP a todos os IPs no porto 123
 * TCP para todos os IPs nos portos 80.443
 * TCP para a marca de serviço IP AzureSQL nas portas 1433
 * TCP para todos os IPs no porto 12000
 * para a sub-rede ASE em todas as portas
 
-Estas portas não incluem as portas que as suas aplicações necessitam para uma utilização bem sucedida. Como exemplo, a sua aplicação poderá ter de chamar um servidor MySQL na porta 3306 A porta DNS, porta 53, não precisa de ser adicionada, uma vez que o tráfego para DNS não é afetado pelas regras NSG. O Protocolo de Tempo de Rede (NTP) na porta 123 é o protocolo de sincronização de tempo utilizado pelo sistema operativo. Os pontos finais ntP não são específicos dos Serviços de Aplicação, podem variar com o sistema operativo, e não estão numa lista bem definida de endereços. Para evitar problemas de sincronização de tempo, é necessário permitir o tráfego da UDP a todos os endereços no porto 123. O tráfego TCP de saída para o porto 12000 destina-se ao apoio e análise do sistema. Os pontos finais são dinâmicos e não estão num conjunto bem definido de endereços.
+Estas portas não incluem as portas que as suas aplicações necessitam para uma utilização bem sucedida. Como exemplo, a sua aplicação poderá ter de chamar um servidor MySQL na porta 3306. O Protocolo de Tempo de Rede (NTP) na porta 123 é o protocolo de sincronização de tempo utilizado pelo sistema operativo. Os pontos finais ntP não são específicos dos Serviços de Aplicação, podem variar com o sistema operativo, e não estão numa lista bem definida de endereços. Para evitar problemas de sincronização de tempo, é necessário permitir o tráfego da UDP a todos os endereços no porto 123. O tráfego TCP de saída para o porto 12000 destina-se ao apoio e análise do sistema. Os pontos finais são dinâmicos e não estão num conjunto bem definido de endereços.
 
 As portas normais de acesso a aplicações são:
 

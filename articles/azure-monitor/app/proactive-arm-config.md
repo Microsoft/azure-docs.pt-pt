@@ -6,12 +6,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 5a4cb788a24252a2de7b9d669b166b25ed48be1c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: aa8529abf3d7eea7d413c59ce62c93c7eb6c76d1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081598"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87309346"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gerir regras de deteção inteligentes de deteção de aplicações usando modelos de Gestor de Recursos Azure
 
@@ -188,10 +188,11 @@ Este modelo de Gestor de Recursos Azure demonstra configurar uma regra de alerta
 > [!NOTE]
 > Este modelo de Gestor de Recursos Azure é exclusivo da regra de alerta de Anomalias de Falha e é diferente das outras regras clássicas de Deteção Inteligente descritas neste artigo. Se pretender gerir as Anomalias de Falha manualmente, isto é feito em Alertas monitores Azure, enquanto todas as outras regras de Deteção Inteligente são geridas no painel de Deteção Inteligente da UI.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 Saiba mais sobre a deteção automática:
 
-- [Anomalias de falhas](../../azure-monitor/app/proactive-failure-diagnostics.md)
-- [Fugas de memória](../../azure-monitor/app/proactive-potential-memory-leak.md)
-- [Anomalias de desempenho](../../azure-monitor/app/proactive-performance-diagnostics.md)
+- [Anomalias de falhas](./proactive-failure-diagnostics.md)
+- [Fugas de memória](./proactive-potential-memory-leak.md)
+- [Anomalias de desempenho](./proactive-performance-diagnostics.md)
+

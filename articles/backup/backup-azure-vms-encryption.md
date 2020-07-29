@@ -3,12 +3,12 @@ title: Fazer o back up e restaurar vMs Azure encriptados
 description: Descreve como fazer backup e restaurar VMs Azure encriptados com o serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 1689ff89f15248f6771ccdce525cc136221e5577
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 20310c6c51a2467e9389bc77dd9ada4848c69be4
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538909"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371758"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Fazer o back up e restaurar o Azure VM encriptado
 
@@ -47,16 +47,16 @@ Antes de começar, faça o seguinte:
 
 1. Certifique-se de que tem um ou mais [VMs Windows](../virtual-machines/linux/disk-encryption-overview.md) ou [Linux](../virtual-machines/linux/disk-encryption-overview.md) com ADE ativados.
 2. [Reveja a matriz](backup-support-matrix-iaas.md) de suporte para backup Azure VM
-3. [Crie](backup-azure-arm-vms-prepare.md#create-a-vault) um cofre de reserva dos Serviços de Recuperação se não tiver um.
+3. [Crie](backup-create-rs-vault.md) um cofre de reserva dos Serviços de Recuperação se não tiver um.
 4. Se ativar a encriptação de VMs que já estão ativados para cópia de segurança, basta fornecer ao Backup permissões para aceder ao Cofre de Chaves para que as cópias de segurança possam continuar sem interrupções. [Saiba mais](#provide-permissions) sobre a atribuição destas permissões.
 
 Além disso, há algumas coisas que pode precisar fazer em algumas circunstâncias:
 
-- **Instale o agente VM no VM**: Azure Backup apoia os VMs Azure instalando uma extensão ao agente Azure VM em funcionamento na máquina. Se o seu VM foi criado a partir de uma imagem de mercado Azure, o agente está instalado e em execução. Se criar um VM personalizado, ou migrar uma máquina no local, poderá ter de [instalar o agente manualmente](backup-azure-arm-vms-prepare.md#install-the-vm-agent).
+- **Instale o agente VM no VM**: Azure Backup apoia os VMs Azure instalando uma extensão ao agente Azure VM em funcionamento na máquina. Se o seu VM foi criado a partir de uma imagem do Azure Marketplace, o agente está instalado e em execução. Se criar um VM personalizado, ou migrar uma máquina no local, poderá ter de [instalar o agente manualmente](backup-azure-arm-vms-prepare.md#install-the-vm-agent).
 
 ## <a name="configure-a-backup-policy"></a>Configure uma política de backup
 
-1. Se ainda não criou um cofre de reserva dos Serviços de Recuperação, siga [estas instruções](backup-azure-arm-vms-prepare.md#create-a-vault)
+1. Se ainda não criou um cofre de reserva dos Serviços de Recuperação, siga [estas instruções](backup-create-rs-vault.md)
 2. Abra o cofre no portal e selecione **Backup** na secção **Iniciar.**
 
     ![Lâmina de reserva](./media/backup-azure-vms-encryption/select-backup.png)
@@ -142,7 +142,7 @@ Restaurar vMs encriptados da seguinte forma:
     2. Crie um novo VM a partir dos discos restaurados utilizando o PowerShell. [Saiba mais](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 3. Para os VMs Linux, reinstale a extensão ADE para que os discos de dados estejam abertos e montados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se encontrar algum problema, reveja estes artigos:
 

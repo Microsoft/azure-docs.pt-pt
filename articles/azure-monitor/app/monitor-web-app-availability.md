@@ -4,16 +4,16 @@ description: Configurar testes Web no Application Insights. Receber alertas se u
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 6daa2e4abb1b6580fd70f104e85f3a917f47dcdc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f9c5fa691456195943f97419c1175fd5b586878
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024593"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87310281"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorize a disponibilidade de qualquer website
 
-Depois de ter implementado a sua aplicação web/website, pode configurar testes recorrentes para monitorizar a disponibilidade e capacidade de resposta. O [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) envia regularmente pedidos Web para a sua aplicação a partir de pontos em todo o mundo. Pode alertá-lo se a sua aplicação não estiver a responder, ou se responder muito lentamente.
+Depois de ter implementado a sua aplicação web/website, pode configurar testes recorrentes para monitorizar a disponibilidade e capacidade de resposta. O [Azure Application Insights](./app-insights-overview.md) envia regularmente pedidos Web para a sua aplicação a partir de pontos em todo o mundo. Pode alertá-lo se a sua aplicação não estiver a responder, ou se responder muito lentamente.
 
 Pode configurar testes de disponibilidade para qualquer ponto final HTTP ou HTTPS que seja acessível a partir da Internet pública. Não tens de fazer alterações no website que estás a testar. Na verdade, nem sequer tem de ser um site que tens. Pode testar a disponibilidade de uma API REST de que o seu serviço depende.
 
@@ -107,9 +107,9 @@ A partir de um resultado de teste de disponibilidade, você pode ver os detalhes
 * Faça um sessão de problemas ou artigos de trabalho em Git ou Azure Boards para rastrear o problema. O erro irá conter uma ligação para este evento.
 * Abra o resultado do teste da Web no Visual Studio.
 
-Saiba mais sobre a [experiência](../../azure-monitor/app/transaction-diagnostics.md)de diagnóstico de transações final aqui.
+Saiba mais sobre a [experiência](./transaction-diagnostics.md)de diagnóstico de transações final aqui.
 
-Clique na linha de exceção para ver os detalhes da exceção do lado do servidor que fez com que o teste de disponibilidade sintética falhasse. Também pode obter o [instantâneo de depurg](../../azure-monitor/app/snapshot-debugger.md) para diagnósticos de código mais ricos.
+Clique na linha de exceção para ver os detalhes da exceção do lado do servidor que fez com que o teste de disponibilidade sintética falhasse. Também pode obter o [instantâneo de depurg](./snapshot-debugger.md) para diagnósticos de código mais ricos.
 
 ![Diagnósticos do lado do servidor](./media/monitor-web-app-availability/open-instance-4.png)
 
@@ -120,8 +120,8 @@ Além dos resultados brutos, pode também ver duas métricas chave de disponibil
 
 ## <a name="automation"></a>Automatização
 
-* [Utilize scripts do PowerShell para configurar um teste de disponibilidade](../../azure-monitor/app/powershell.md#add-an-availability-test) automaticamente.
-* Configure um [webhook](../../azure-monitor/platform/alerts-webhooks.md) que será chamado sempre que for gerado um alerta.
+* [Utilize scripts do PowerShell para configurar um teste de disponibilidade](./powershell.md#add-an-availability-test) automaticamente.
+* Configure um [webhook](../platform/alerts-webhooks.md) que será chamado sempre que for gerado um alerta.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
@@ -131,3 +131,4 @@ Artigo dedicado [à resolução de problemas.](troubleshoot-availability.md)
 
 * [Alertas de Disponibilidade](availability-alerts.md)
 * [Testes Web com vários passos](availability-multistep.md)
+

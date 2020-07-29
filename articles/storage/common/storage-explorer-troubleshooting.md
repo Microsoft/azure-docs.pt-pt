@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: a49e5fbe9eac689b630a0f3b443729faf29cdb0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 492f44353a9a43279afa4869640193f1baddd41c
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84974522"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372880"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas do Explorador de Armazenamento do Azure
 
@@ -67,9 +67,9 @@ Se quiser aceder a recipientes ou filas de bolhas, pode anexar esses recursos ut
 
 Para outros tipos de recursos, não temos atualmente uma solução relacionada com o RBAC. Como solução alternativa, pode solicitar a um SAS URI que [se anexe ao seu recurso.](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri)
 
-### <a name="recommended-built-in-rbac-roles"></a>Funções de RBAC incorporadas recomendadas
+### <a name="recommended-azure-built-in-roles"></a>Funções recomendadas do Azure
 
-Existem vários papéis RBAC incorporados que podem fornecer as permissões necessárias para usar o Storage Explorer. Alguns desses papéis são:
+Existem vários papéis incorporados Azure que podem fornecer as permissões necessárias para usar o Storage Explorer. Alguns desses papéis são:
 - [Proprietário](/azure/role-based-access-control/built-in-roles#owner): Gerir tudo, incluindo acesso a recursos. **Nota:** esta função lhe dará acesso à chave.
 - [Contribuinte](/azure/role-based-access-control/built-in-roles#contributor): Gerir tudo, excluindo o acesso aos recursos. **Nota:** esta função lhe dará acesso à chave.
 - [Leitor:](/azure/role-based-access-control/built-in-roles#reader)Leia e enuse os recursos.
@@ -243,10 +243,10 @@ Se receber esta mensagem de erro quando tentar adicionar uma ligação personali
 3. Dependendo do tipo de ligação com que está a ter problemas, procure a sua chave e, em seguida, copie o seu valor num editor de texto. O valor é uma variedade de nomes de conexão personalizados, como o seguinte:
     * Contas de armazenamento
         * `StorageExplorer_CustomConnections_Accounts_v1`
-    * Recipientes blob
+    * Contentores de blobs
         * `StorageExplorer_CustomConnections_Blobs_v1`
         * `StorageExplorer_CustomConnections_Blobs_v2`
-    * Partilhas de Ficheiros
+    * Partilhas de ficheiros
         * `StorageExplorer_CustomConnections_Files_v1`
     * Filas
         * `StorageExplorer_CustomConnections_Queues_v1`
@@ -405,7 +405,7 @@ Se o botão **Open In Explorer** no portal Azure não funcionar, certifique-se d
 * Google Chrome
 * Microsoft Internet Explorer
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se nenhuma destas soluções funcionar para si, [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). Também pode fazê-lo selecionando a **emissão 'Relatório' para** o botão GitHub no canto inferior esquerdo.
 

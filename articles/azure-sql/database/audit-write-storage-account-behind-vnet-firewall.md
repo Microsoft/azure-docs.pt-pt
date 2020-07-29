@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 7b8c6e09616f261c371b010b38d2c0f81376a6f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f6a64cf30ecc684e05675d366ff5c9fc6642126
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84944769"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372166"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Escreva auditoria a uma conta de armazenamento por trás do VNet e firewall
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -120,7 +120,7 @@ Para configurar a Auditoria SQL para escrever eventos numa conta de armazenament
 2. Abre o [Portal do Azure](https://portal.azure.com). Navegue até à sua conta de armazenamento. Localizar **controlo de acesso (IAM)** e clicar em adicionar a atribuição de **função**. Atribua o papel de Colaborador **de Dados blob de armazenamento** ao servidor que hospeda a base de dados que registou no Azure Ative Directory (Azure AD) como no passo anterior.
 
    > [!NOTE]
-   > Só os membros com privilégio proprietário podem realizar este passo. Para várias funções incorporadas para recursos Azure, consulte as [funções incorporadas do Azure.](../../role-based-access-control/built-in-roles.md)
+   > Só os membros com privilégio proprietário podem realizar este passo. Para vários papéis embutidos em Azure, consulte as [funções incorporadas do Azure.](../../role-based-access-control/built-in-roles.md)
 
 3. Configure a [política de auditoria do blob do servidor,](/rest/api/sql/server%20auditing%20settings/createorupdate)sem especificar um *armazenamentoAccountAccessKey*:
 
@@ -158,7 +158,7 @@ Pode configurar a auditoria para escrever eventos de base de dados numa conta de
 > [!NOTE]
 > A amostra ligada encontra-se num repositório público externo e é fornecida "como está", sem garantia, e não é suportada sob qualquer programa/serviço de suporte da Microsoft.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Utilize o PowerShell para criar um ponto final de serviço de rede virtual e, em seguida, uma regra de rede virtual para Azure SQL Database.](scripts/vnet-service-endpoint-rule-powershell-create.md)
 * [Regras de Rede Virtual: Operações com APIs REST](/rest/api/sql/virtualnetworkrules)

@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7af1347ac57e1a5c5ae99744924ea04fe9757581
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1e99556b0a0c5b7559cc03b152a19e78aeb58f6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83995353"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283049"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>Acesso Condicional: Requer MFA para todos os utilizadores
 
@@ -49,10 +50,10 @@ Os seguintes passos ajudarão a criar uma política de acesso condicional para e
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
    1. Em **Incluir**, selecione **Todos os utilizadores**
    1. Em **'Excluir',** selecione **Utilizadores e grupos** e escolha as contas de acesso de emergência ou break-glass da sua organização. 
-   1. Selecione **Done** (Concluído).
+   1. Selecione **Concluído**.
 1. No **âmbito de aplicações ou ações cloud**  >  **Inclua**, selecione todas as **aplicações em nuvem**.
    1. Em **'Excluir'** selecione quaisquer aplicações que não exijam autenticação multi-factor.
-1. Em **Condições**  >  **As aplicações do Cliente (Pré-visualização)**, definir **Configurar** para **Sim**. Em **Seleção das aplicações do cliente esta política aplicar-se-á para** deixar todos os predefinidos selecionados e selecionar **Feito**.
+1. **Em Condições As**  >  **aplicações do Cliente (Pré-visualização)**, em **Seleção das aplicações do cliente esta política será aplicável para** deixar todos os predefinidos selecionados e selecionar **Feito**.
 1. Sob **controlos de acesso**  >  **Grant**, selecione Grant **access**, **Require multi-factor authentication**, e selecione **Select**.
 1. Confirme as suas definições e defina **Ativar** a política para **on**.
 1. Selecione **Criar** para criar para ativar a sua política.
@@ -67,11 +68,11 @@ Na política de exemplo acima, uma organização pode optar por não exigir a au
    1. Configurar **Sim.**
    1. Incluir **qualquer localização.**
    1. Excluir **todos os locais fidedignos.**
-   1. Selecione **Done** (Concluído).
-1. Selecione **Done** (Concluído).
+   1. Selecione **Concluído**.
+1. Selecione **Concluído**.
 1. **Guarde** as suas mudanças de política.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 

@@ -3,14 +3,15 @@ title: Use cloud-init em um Linux VM em Azure
 description: Como utilizar o cloud-init para atualizar e instalar pacotes num VM Linux durante a criação com o Azure CLI
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/20/2018
 ms.author: cynthn
-ms.openlocfilehash: 7b7a03572a001fc6d5114635b33510f1a4b1bc70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98198a2eb2476138f7794b26c30397798ede32b1
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78969142"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373441"
 ---
 # <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>Use cloud-init para atualizar e instalar pacotes num Linux VM em Azure
 Este artigo mostra-lhe como utilizar [o cloud-init](https://cloudinit.readthedocs.io) para atualizar pacotes numa máquina virtual Linux (VM) ou na escala de máquina virtual em tempo de provisionamento em Azure. Estes scripts de nuvem funcionam na primeira bota uma vez que os recursos foram a provisionados pela Azure. Para obter mais informações sobre como o cloud-init funciona de forma nativa em Azure e os distros de Linux suportados, consulte [a visão geral de cloud-init](using-cloud-init.md)
@@ -67,7 +68,7 @@ ID     | Command line             | Date and time    | Action(s)      | Altered
      1 |                          | 2017-12-12 20:32 | Install        |  522
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para exemplos adicionais de alterações de configuração, consulte o seguinte:
  
 - [Adicione um utilizador Linux adicional a um VM](cloudinit-add-user.md)

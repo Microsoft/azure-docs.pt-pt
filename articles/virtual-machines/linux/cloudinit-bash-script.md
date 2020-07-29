@@ -3,14 +3,15 @@ title: Use cloud-init para executar um roteiro de bash em um Linux VM em Azure
 description: Como usar o cloud-init para executar um roteiro de bash em um Linux VM durante a criação com o CLI Azure
 author: rickstercdn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: e2f19ceb6c7f19ba749b46a3553036587be6a71a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0370ddeafd1f695292ba122bfebd6197a360f560
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78969223"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372812"
 ---
 # <a name="use-cloud-init-to-run-a-bash-script-in-a-linux-vm-in-azure"></a>Use cloud-init para executar um roteiro de bash em um Linux VM em Azure
 Este artigo [mostra-lhe](https://cloudinit.readthedocs.io) como usar o init cloud para executar um script de bash existente em uma máquina virtual Linux (VM) ou conjuntos de escala de máquina virtual (VMSS) em tempo de provisionamento em Azure. Estes scripts de nuvem funcionam na primeira bota uma vez que os recursos foram a provisionados pela Azure. Para obter mais informações sobre como o cloud-init funciona de forma nativa em Azure e os distros de Linux suportados, consulte [a visão geral de cloud-init](using-cloud-init.md)
@@ -56,7 +57,7 @@ Altere para o **diretório /tmp** e verifique se myScript.txt ficheiro existe e 
 Running config-scripts-user using lock Running command ['/var/lib/cloud/instance/scripts/part-001']
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para exemplos adicionais de alterações de configuração, consulte o seguinte:
  
 - [Adicione um utilizador Linux adicional a um VM](cloudinit-add-user.md)

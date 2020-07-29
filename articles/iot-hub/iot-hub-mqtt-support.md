@@ -10,12 +10,14 @@ ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 72c012ba9ce28c0ca5dd5a315cf94b8895558a0b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+- 'Role: IoT Device'
+- 'Role: Cloud Development'
+ms.openlocfilehash: df6de62eefc0971ece0e0035299425689af5f784
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001694"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87307629"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunique com o seu hub IoT usando o protocolo MQTT
 
@@ -76,11 +78,11 @@ De forma a garantir que uma ligação cliente/IoT Hub permanece viva, tanto o se
 
 |Linguagem  |Intervalo padrão de manter vivo  |Configurável  |
 |---------|---------|---------|
-|Node.js     |   180 segundos      |     No    |
-|Java     |    230 segundos     |     No    |
+|Node.js     |   180 segundos      |     Não    |
+|Java     |    230 segundos     |     Não    |
 |C     | 240 segundos |  [Sim](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
 |C#     | 300 segundos |  [Sim](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/Transport/Mqtt/MqttTransportSettings.cs#L89)   |
-|Python (V2)   | 60 segundos |  No   |
+|Python   | 60 segundos |  Não   |
 
 Seguindo a [especificação MQTT,](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081)o intervalo de ping do IoT Hub é 1,5 vezes o valor de manter vivo o cliente. No entanto, o IoT Hub limita o tempo limite máximo do servidor para 29,45 minutos (1767 segundos) porque todos os serviços Azure estão ligados ao tempo limite de marcha lenta TCP, que é de 29,45 minutos. 
 
@@ -439,7 +441,7 @@ Para saber mais sobre o protocolo MQTT, consulte a [documentação MQTT](https:/
 
 Para saber mais sobre o planeamento da sua implantação no IoT Hub, consulte:
 
-* [Catálogo de dispositivos do Azure Certified for IoT](https://catalog.azureiotsolutions.com/)
+* [Catálogo de dispositivos do Microsoft Azure Certified for IoT](https://catalog.azureiotsolutions.com/)
 * [Apoiar protocolos adicionais](iot-hub-protocol-gateway.md)
 * [Compare com centros de eventos](iot-hub-compare-event-hubs.md)
 * [Escala, HA e DR](iot-hub-scaling.md)

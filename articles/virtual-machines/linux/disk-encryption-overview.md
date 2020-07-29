@@ -4,16 +4,16 @@ description: Este artigo fornece instruções para permitir a encriptação do d
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6b0bc3af01c81cdf82da684653ef10099e57d9a8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1551bd3a6caedb61750b28120c222a57b491640e
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080272"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372625"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Encriptação do disco Azure para VMs Linux 
 
