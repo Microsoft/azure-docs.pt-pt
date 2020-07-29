@@ -13,12 +13,12 @@ ms.date: 07/16/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ea207a4584d9f4fad5dee45b3633c306a8d98b3d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c4274292dfbd53abed09dfeae77ec976afe9ebc0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025920"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282964"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plataforma de identidade da Microsoft e OAuth 2.0 Em nome do fluxo
 
@@ -64,11 +64,11 @@ Ao utilizar um segredo partilhado, um pedido de sinal de acesso de serviço cont
 | Parâmetro | Tipo | Descrição |
 | --- | --- | --- |
 | `grant_type` | Obrigatório | O tipo de pedido simbólico. Para um pedido de utilização de um JWT, o valor deve ser `urn:ietf:params:oauth:grant-type:jwt-bearer` . |
-| `client_id` | Necessário | A aplicação (cliente) ID que [o portal Azure - Página de registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) atribuiu à sua app. |
-| `client_secret` | Necessário | O segredo do cliente que gerou para a sua aplicação na página de registos do portal Azure - App. |
-| `assertion` | Necessário | O sinal de acesso que foi enviado para a API de nível médio.  Este token deve ter uma reivindicação de audiência `aud` () da aplicação que faz este pedido OBO (a app denotada pelo `client-id` campo). As aplicações não podem resgatar um símbolo para uma aplicação diferente (por exemplo, se um cliente enviar um token API destinado a MS Graph, a API não pode resgatá-la usando o OBO.  Deveria, em vez disso, rejeitar o símbolo).  |
-| `scope` | Necessário | Uma lista de âmbitos separados para o pedido simbólico. Para mais informações, consulte [os âmbitos.](v2-permissions-and-consent.md) |
-| `requested_token_use` | Necessário | Especifica como o pedido deve ser processado. No fluxo OBO, o valor deve ser definido para `on_behalf_of` . |
+| `client_id` | Obrigatório | A aplicação (cliente) ID que [o portal Azure - Página de registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) atribuiu à sua app. |
+| `client_secret` | Obrigatório | O segredo do cliente que gerou para a sua aplicação na página de registos do portal Azure - App. |
+| `assertion` | Obrigatório | O sinal de acesso que foi enviado para a API de nível médio.  Este token deve ter uma reivindicação de audiência `aud` () da aplicação que faz este pedido OBO (a app denotada pelo `client-id` campo). As aplicações não podem resgatar um símbolo para uma aplicação diferente (por exemplo, se um cliente enviar um token API destinado a MS Graph, a API não pode resgatá-la usando o OBO.  Deveria, em vez disso, rejeitar o símbolo).  |
+| `scope` | Obrigatório | Uma lista de âmbitos separados para o pedido simbólico. Para mais informações, consulte [os âmbitos.](v2-permissions-and-consent.md) |
+| `requested_token_use` | Obrigatório | Especifica como o pedido deve ser processado. No fluxo OBO, o valor deve ser definido para `on_behalf_of` . |
 
 #### <a name="example"></a>Exemplo
 
@@ -96,12 +96,12 @@ Um pedido de sinal de acesso de serviço ao serviço com um certificado contém 
 | Parâmetro | Tipo | Descrição |
 | --- | --- | --- |
 | `grant_type` | Obrigatório | O tipo de pedido simbólico. Para um pedido de utilização de um JWT, o valor deve ser `urn:ietf:params:oauth:grant-type:jwt-bearer` . |
-| `client_id` | Necessário |  A aplicação (cliente) ID que [o portal Azure - Página de registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) atribuiu à sua app. |
-| `client_assertion_type` | Necessário | O valor deve `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` ser. |
-| `client_assertion` | Necessário | Uma afirmação (um token web JSON) que precisa de criar e assinar com o certificado que registou como credenciais para a sua aplicação. Para saber como registar o seu certificado e o formato da afirmação, consulte [as credenciais](active-directory-certificate-credentials.md)de certificado. |
-| `assertion` | Necessário |  O sinal de acesso que foi enviado para a API de nível médio.  Este token deve ter uma reivindicação de audiência `aud` () da aplicação que faz este pedido OBO (a app denotada pelo `client-id` campo). As aplicações não podem resgatar um símbolo para uma aplicação diferente (por exemplo, se um cliente enviar um token API destinado a MS Graph, a API não pode resgatá-la usando o OBO.  Deveria, em vez disso, rejeitar o símbolo).  |
-| `requested_token_use` | Necessário | Especifica como o pedido deve ser processado. No fluxo OBO, o valor deve ser definido para `on_behalf_of` . |
-| `scope` | Necessário | Uma lista de âmbitos separados pelo espaço para o pedido simbólico. Para mais informações, consulte [os âmbitos.](v2-permissions-and-consent.md)|
+| `client_id` | Obrigatório |  A aplicação (cliente) ID que [o portal Azure - Página de registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) atribuiu à sua app. |
+| `client_assertion_type` | Obrigatório | O valor deve `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` ser. |
+| `client_assertion` | Obrigatório | Uma afirmação (um token web JSON) que precisa de criar e assinar com o certificado que registou como credenciais para a sua aplicação. Para saber como registar o seu certificado e o formato da afirmação, consulte [as credenciais](active-directory-certificate-credentials.md)de certificado. |
+| `assertion` | Obrigatório |  O sinal de acesso que foi enviado para a API de nível médio.  Este token deve ter uma reivindicação de audiência `aud` () da aplicação que faz este pedido OBO (a app denotada pelo `client-id` campo). As aplicações não podem resgatar um símbolo para uma aplicação diferente (por exemplo, se um cliente enviar um token API destinado a MS Graph, a API não pode resgatá-la usando o OBO.  Deveria, em vez disso, rejeitar o símbolo).  |
+| `requested_token_use` | Obrigatório | Especifica como o pedido deve ser processado. No fluxo OBO, o valor deve ser definido para `on_behalf_of` . |
+| `scope` | Obrigatório | Uma lista de âmbitos separados pelo espaço para o pedido simbólico. Para mais informações, consulte [os âmbitos.](v2-permissions-and-consent.md)|
 
 Note-se que os parâmetros são quase os mesmos que no caso do pedido por segredo partilhado, exceto que o `client_secret` parâmetro é substituído por dois parâmetros: a e `client_assertion_type` `client_assertion` .
 
@@ -184,6 +184,59 @@ GET /v1.0/me HTTP/1.1
 Host: graph.microsoft.com
 Authorization: Bearer eyJ0eXAiO ... 0X2tnSQLEANnSPHY0gKcgw
 ```
+
+## <a name="saml-assertions-obtained-with-an-oauth20-obo-flow"></a>Afirmações SAML obtidas com um fluxo OBO OBO OAU.0
+
+Alguns serviços web baseados em OAuth precisam de aceder a outros APIs de serviço web que aceitam afirmações DE SAML em fluxos não interativos. O Azure Ative Directory pode fornecer uma afirmação SAML em resposta a um fluxo On-Behalf-Of que utiliza um serviço web baseado em SAML como recurso alvo.
+
+>[!NOTE]
+>Trata-se de uma extensão não padrão do fluxo OAuth 2.0 On-Behalf-Of que permite a uma aplicação baseada em OAuth2 aceder a pontos finais de serviço web API que consomem fichas SAML.
+
+> [!TIP]
+> Quando você chama um serviço web protegido por SAML a partir de uma aplicação web frontal, você pode simplesmente ligar para a API e iniciar um fluxo de autenticação interativa normal com a sessão existente do utilizador. Só precisa de utilizar um fluxo OBO quando uma chamada de serviço para serviço requer um token SAML para fornecer o contexto do utilizador.
+
+### <a name="obtain-a-saml-token-by-using-an-obo-request-with-a-shared-secret"></a>Obtenha um símbolo SAML usando um pedido OBO com um segredo compartilhado
+
+Um pedido de serviço-a-serviço para uma afirmação SAML contém os seguintes parâmetros:
+
+| Parâmetro | Tipo | Description |
+| --- | --- | --- |
+| grant_type |obrigatório | O tipo de pedido simbólico. Para um pedido que utilize um JWT, o valor deve ser **urna:ietf:params:oauth:grant-type:jwt-bearer**. |
+| afirmação |obrigatório | O valor do token de acesso utilizado no pedido.|
+| client_id |obrigatório | O ID da aplicação atribuído ao serviço de chamadas durante o registo com a Azure AD. Para encontrar o ID da aplicação no portal Azure, selecione **Ative Directory**, escolha o diretório e, em seguida, selecione o nome da aplicação. |
+| client_secret |obrigatório | A chave registada para o serviço de chamadas em Azure AD. Este valor deveria ter sido anotado no momento da inscrição. |
+| recurso |obrigatório | A aplicação ID URI do serviço recetor (recurso seguro). Este é o recurso que será o Público do símbolo DA SAML. Para encontrar a aplicação ID URI no portal Azure, selecione **Ative Directory** e escolha o diretório. Selecione o nome da aplicação, escolha **Todas as definições**e, em seguida, selecione **Propriedades**. |
+| requested_token_use |obrigatório | Especifica como o pedido deve ser processado. No fluxo em nome do be, o valor deve ser **on_behalf_of**. |
+| requested_token_type | obrigatório | Especifica o tipo de ficha solicitada. O valor pode ser **urna:ietf:params:oauth:token-type:saml2** ou **urn:ietf:params:oauth:token-type:saml1** dependendo dos requisitos do recurso acedido. |
+
+A resposta contém um token SAML codificado em UTF8 e Base64url.
+
+- **AssuntoConfirmationData para uma afirmação SAML proveniente de uma chamada OBO**: Se a aplicação-alvo requer um valor do destinatário no **SubjectConfirmationData,** então o valor deve ser um URL de resposta não wildcard na configuração da aplicação de recurso.
+- **O nó SubjectConfirmationData**: O nó não pode conter um atributo **InResponseTo,** uma vez que não faz parte de uma resposta SAML. A aplicação que recebe o token SAML deve ser capaz de aceitar a afirmação SAML sem um atributo **InResponseTo.**
+
+- **Consentimento**: O consentimento deve ter sido concedido para receber um token SAML contendo dados do utilizador sobre um fluxo OAuth. Para obter informações sobre permissões e obter o consentimento do administrador, consulte [permissões e consentimento no ponto final do Azure Ative Directory v1.0](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent).
+
+### <a name="response-with-saml-assertion"></a>Resposta com afirmação SAML
+
+| Parâmetro | Descrição |
+| --- | --- |
+| token_type |Indica o valor do tipo símbolo. O único tipo que a Azure AD suporta é **o Portador.** Para obter mais informações sobre fichas ao portador, consulte [o Quadro de Autorização OAuth 2.0: Utilização do Token ao portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| scope |O âmbito de acesso concedido no token. |
+| expires_in |O tempo de duração do token de acesso é válido (em segundos). |
+| expires_on |O tempo em que o sinal de acesso expira. A data é representada como o número de segundos de 1970-01-01T0:0Z UTC até ao prazo de validade. Este valor é usado para determinar a vida útil de fichas em cache. |
+| recurso |A aplicação ID URI do serviço recetor (recurso seguro). |
+| access_token |O parâmetro que devolve a afirmação do SAML. |
+| refresh_token |O token refresh. O serviço de chamadas pode usar este token para solicitar outro token de acesso após a expiração da afirmação atual da SAML. |
+
+- token_type: Portador
+- expires_in: 3296
+- ext_expires_in: 0
+- expires_on: 1529627844
+- recurso:`https://api.contoso.com`
+- access_token:\<SAML assertion\>
+- issued_token_type: urna:ietf:params:oauth:token-type:saml2
+- refresh_token:\<Refresh token\>
+
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>Obtenção de consentimento para a aplicação de nível médio
 

@@ -1,6 +1,6 @@
 ---
-title: Problemas de diagnóstico de desktop virtual do Windows – outono 2019 – Azure
-description: Como utilizar a funcionalidade de diagnóstico virtual do Windows Desktop para diagnosticar problemas.
+title: Problemas de diagnóstico do Windows Virtual Desktop (clássico) - Azure
+description: Como utilizar a funcionalidade de diagnóstico virtual do Windows Desktop (clássico) para diagnosticar problemas.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0aad1c780c6695c771d3cfea04509acde65c051e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 257ad5aa11bfaece70f676b452119d7800e2d1e2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085865"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285055"
 ---
-# <a name="identify-and-diagnose-issues"></a>Identificar e diagnosticar problemas
+# <a name="identify-and-diagnose-issues-in-windows-virtual-desktop-classic"></a>Identificar e diagnosticar problemas no Windows Virtual Desktop (clássico)
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../diagnostics-role-service.md).
+>Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows. Se estiver a tentar gerir os objetos de ambiente de trabalho virtuais do Azure Resource Manager Windows, consulte [este artigo](../diagnostics-role-service.md).
 
 O Windows Virtual Desktop oferece uma funcionalidade de diagnóstico que permite ao administrador identificar problemas através de uma única interface. As funções de Desktop Virtual do Windows registam uma atividade de diagnóstico sempre que um utilizador interage com o sistema. Cada registo contém informações relevantes, tais como as funções de Desktop Virtual do Windows envolvidas na transação, mensagens de erro, informações do inquilino e informações do utilizador. As atividades de diagnóstico são criadas por ações administrativas e de utilizador final, e podem ser categorizadas em três baldes principais:
 

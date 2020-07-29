@@ -4,16 +4,16 @@ description: Este artigo fornece informações de referência para o comando de 
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 754baa66d79d169f830332f3c39660f1d71f608a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 98f8554d6313147c03d4a0bec74e36043cdce342
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527919"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285276"
 ---
 # <a name="azcopy-login"></a>azcopy login
 
@@ -23,11 +23,9 @@ Entra no Azure Ative Directory para aceder aos recursos de Armazenamento Azure.
 
 Faça login no Azure Ative Directory para aceder aos recursos de Armazenamento Azure.
 
-Para ser autorizado na sua conta de Armazenamento Azure, tem de atribuir a função **de Contribuinte de Dados do Armazenamento à** sua conta de utilizador no contexto da conta de Armazenamento, grupo de recursos-mãe ou subscrição dos pais.
+Para ser autorizado na sua conta de Armazenamento Azure, tem de atribuir a função **de Contribuinte de Dados do Armazenamento à** sua conta de utilizador no contexto da conta de Armazenamento, do grupo de recursos-mãe ou da subscrição dos pais.
 
 Este comando irá cache informações de login encriptadas para o utilizador atual utilizando os mecanismos incorporados do SISTEMA.
-
-Consulte os exemplos para mais informações.
 
 > [!IMPORTANT]
 > Se definir uma variável ambiental utilizando a linha de comando, essa variável será legível no histórico da sua linha de comando. Considere limpar variáveis que contenham credenciais do histórico da sua linha de comando. Para evitar que as variáveis apareçam na sua história, pode utilizar um script para solicitar ao utilizador as suas credenciais e definir a variável ambiental.
@@ -64,11 +62,11 @@ azcopy login --identity
 ```
 
 Faça login utilizando a identidade atribuída ao utilizador de um VM e um ID do Cliente da identidade do serviço:
-
+  
 ```azcopy
 azcopy login --identity --identity-client-id "[ServiceIdentityClientID]"
 ```
-
+ 
 Faça login utilizando a identidade atribuída pelo utilizador de um VM e um ID de objeto da identidade do serviço:
 
 ```azcopy
@@ -76,51 +74,59 @@ azcopy login --identity --identity-object-id "[ServiceIdentityObjectID]"
 ```
 
 Faça login utilizando a identidade atribuída pelo utilizador de um VM e um ID de recursos da identidade do serviço:
-
+ 
 ```azcopy
 azcopy login --identity --identity-resource-id "/subscriptions/<subscriptionId>/resourcegroups/myRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myID"
 ```
 
-Faça login como diretor de serviço usando um segredo de cliente. Desenteie a variável ambiental AZCOPY_SPA_CLIENT_SECRET ao segredo do cliente para o serviço secreto auth.
+Faça login como principal de serviço usando um segredo de cliente: Desementa a variável ambiental AZCOPY_SPA_CLIENT_SECRET ao segredo do cliente para o serviço secreto auth.
 
 ```azcopy
-azcopy login --service-principal --application-id "YOUR_APP_ID" --tenant-id "YOUR_TENANT_ID"
+azcopy login --service-principal --application-id <your service principal's application ID>
 ```
 
-Faça login como um principal de serviço usando um certificado e senha. Desente a variável ambiental AZCOPY_SPA_CERT_PASSWORD à palavra-passe do certificado para autorização principal do serviço baseado em cert.
+Faça login como um principal de serviço usando um certificado e sua senha:
+
+Desaprote a variável ambiental AZCOPY_SPA_CERT_PASSWORD à palavra-passe do certificado para o serviço principal baseado em cert:
 
 ```azcopy
-azcopy login --service-principal --certificate-path /path/to/my/cert
+azcopy login --service-principal --certificate-path /path/to/my/cert --application-id <your service principal's application ID>
 ```
 
-Certifique-se de tratar /caminho/para/meu/cert como um caminho para um ficheiro PEM ou PKCS12. A AzCopy não chega à loja de certificados do sistema para obter o seu certificado.
+Trate `/path/to/my/cert` como um caminho para um ficheiro PEM ou PKCS12. A AzCopy não chega à loja de certificados do sistema para obter o seu certificado.
 
---o percurso de certificado é obrigatório quando se faz o serviço principal de cert auth.
+`--certificate-path`é obrigatório quando se faz o serviço principal auth.
 
 ## <a name="options"></a>Opções
 
-|Opção|Descrição|
-|--|--|
-|--aad-endpoint|O ponto final do Diretório Ativo Azure para utilizar. O `https://login.microsoftonline.com` predefinimento () é correto para a nuvem pública Azure. Desave este parâmetro ao autenticar numa nuvem nacional. Consulte [os pontos finais de autenticação AZURE AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
-Esta bandeira não é necessária para a Identidade de Serviço Gerido.|
-|--cadeia de id aplicação|ID de aplicação de identidade atribuída ao utilizador. Obrigatório para o auth principal de serviço.|
-|--cadeia de percurso de certificado|Caminho para certificado para autenticação SPN. Obrigatório para o auth principal de serviço baseado em certificado.|
-|-h, -- ajuda|Mostrar conteúdo de ajuda para o comando de login.|
-|--identidade|iniciar sessão utilizando a identidade da máquina virtual, também conhecida como identidade de serviço gerida (MSI).|
-|--identidade-cliente-id cadeia|Identificação do cliente de identidade atribuída ao utilizador.|
-|--identidade-id-id corda|ID de objeto de identidade atribuída ao utilizador.|
-|--cadeia de identidade-id-id|Identificação de recursos da identidade atribuída pelo utilizador.|
-|---serviço-principal|Faça login via SPN (Nome Principal de Serviço) utilizando um certificado ou um segredo. A palavra-passe secreta ou de certificado do cliente deve ser colocada na variável ambiente apropriada. Escreva `AzCopy env` para ver nomes e descrições de variáveis ambientais.|
-|--corda de inquilino-id| o ID do inquilino de diretório ativo Azure para usar para o login interativo do dispositivo OAuth.|
+**--aad-endpoint** string O ponto final do Azure Ative Directory para usar. O padrão https://login.microsoftonline.com) (é correto para a nuvem Azure global. Desave este parâmetro ao autenticar numa nuvem nacional. Não é necessário para a identidade de serviço gerido.
+
+**...-id de aplicação id** ID ID de identidade atribuída ao utilizador. Obrigatório para o auth principal de serviço.
+
+**--percurso de cadeia de certificados** Caminho para certificado para autenticação SPN. Obrigatório para o auth principal de serviço baseado em certificado.
+
+**...ajuda** para o `azcopy login` comando.
+
+**--identidade**   Faça login utilizando a identidade da máquina virtual, também conhecida como identidade de serviço gerida (MSI).
+
+**...-identidade-cliente-id** ID identificação do cliente de identidade atribuída ao utilizador.
+
+**--ID** de id de identificação de identificação de identificação atribuída pelo utilizador.
+
+**--ID de id** de id de identidade de identidade atribuída pelo utilizador.
+
+**---serviço-principal**   Faça login através do Nome Principal de Serviço (SPN) utilizando um certificado ou um segredo. A palavra-passe secreta ou de certificado do cliente deve ser colocada na variável ambiente apropriada. Digite AzCopy env para ver nomes e descrições de variáveis ambientais.
+
+**--** cadeia de id inquilino O ID do inquilino Azure Ative Directory para usar para o login interativo do dispositivo OAuth.
 
 ## <a name="options-inherited-from-parent-commands"></a>Opções herdadas dos comandos dos pais
 
 |Opção|Descrição|
 |---|---|
-|--cap-mbps uint32|Reduz a taxa de transferência, em megabits por segundo. A produção momentesa pode variar ligeiramente da tampa. Se esta opção for definida para zero, ou for omitida, a produção não está limitada.|
+|---cap-mbps flutuar|Reduz a taxa de transferência, em megabits por segundo. A produção momentesa pode variar ligeiramente da tampa. Se esta opção for definida para zero, ou for omitida, a produção não está limitada.|
 |--cadeia do tipo de saída|Formato da saída do comando. As escolhas incluem: texto, json. O valor predefinido é "texto".|
 |--cadeia de sufixos de confiança da Microsoft-Sufixes   |Especifica sufixos de domínio adicionais onde podem ser enviados tokens de login do Azure Ative Directory.  O padrão é '*.core.windows.net;*. core.chinacloudapi.cn; *.core.cloudapi.de;* core.usgovcloudapi.net.' Qualquer listado aqui é adicionado ao padrão. Para a segurança, só deve colocar os domínios microsoft Azure aqui. Separe várias entradas com pontos e vírgulas.|
 
 ## <a name="see-also"></a>Veja também
 
-- [azcopia](storage-ref-azcopy.md)
+- [azcopy](storage-ref-azcopy.md)

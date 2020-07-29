@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 261bdedee56bb4de2dfbbef27358fae5ae8fdc3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15f4133b03c1fe77548425500445937e86ed5a8e
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416732"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372506"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>Copiar dados de Presto usando Azure Data Factory (Pré-visualização)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -47,22 +47,22 @@ As secções seguintes fornecem detalhes sobre propriedades que são usadas para
 
 As seguintes propriedades são suportadas para o serviço relacionado presto:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **Presto** | Yes |
-| anfitrião | O endereço IP ou o nome de anfitrião do servidor Presto. (ou seja, 192.168.222.160)  | Yes |
-| servidorVer | A versão do servidor Presto. (ou seja, 0.148-t)  | Yes |
-| catálogo | O contexto do catálogo para todos os pedidos contra o servidor.  | Yes |
-| porta | A porta TCP que o servidor Presto utiliza para ouvir as ligações do cliente. O valor predefinido é 8080.  | No |
-| authenticationType | O mecanismo de autenticação utilizado para ligar ao servidor Presto. <br/>Os valores permitidos são: **Anónimo,** **LDAP** | Yes |
-| o nome de utilizador | O nome de utilizador usado para ligar ao servidor Presto.  | No |
-| palavra-passe | A palavra-passe correspondente ao nome de utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | No |
-| ativarSl | Especifica se as ligações ao servidor são encriptadas utilizando O S.TLS. O valor predefinido é false.  | No |
-| trustedCertPath | O percurso completo do ficheiro .pem que contém certificados ca fidedignos para verificar o servidor ao ligar através de TLS. Esta propriedade só pode ser definida quando se utiliza TLS em IR auto-hospedado. O valor predefinido é o ficheiro cacerts.pem instalado com o IR.  | No |
-| useSystemTrustStore | Especifica se deve utilizar um certificado de CA da loja de fidedignidade do sistema ou de um ficheiro PEM especificado. O valor predefinido é false.  | No |
-| permitirHostNameCNMismatch | Especifica se deve exigir um nome de certificado TLS/SSL emitido pela CA para corresponder ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é false.  | No |
-| permitirSelfSignedServerCert | Especifica se permite certificados auto-assinados a partir do servidor. O valor predefinido é false.  | No |
-| timeZoneID | O fuso horário local usado pela ligação. Os valores válidos para esta opção estão especificados na Base de Dados do Fuso Horário IANA. O valor predefinido é o fuso horário do sistema.  | No |
+| tipo | A propriedade tipo deve ser definida para: **Presto** | Sim |
+| anfitrião | O endereço IP ou o nome de anfitrião do servidor Presto. (por exemplo, 192.168.222.160)  | Sim |
+| servidorVer | A versão do servidor Presto. (por exemplo, 0.148-t)  | Sim |
+| catálogo | O contexto do catálogo para todos os pedidos contra o servidor.  | Sim |
+| porta | A porta TCP que o servidor Presto utiliza para ouvir as ligações do cliente. O valor predefinido é 8080.  | Não |
+| authenticationType | O mecanismo de autenticação utilizado para ligar ao servidor Presto. <br/>Os valores permitidos são: **Anónimo,** **LDAP** | Sim |
+| nome de utilizador | O nome de utilizador usado para ligar ao servidor Presto.  | Não |
+| palavra-passe | A palavra-passe correspondente ao nome de utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Não |
+| ativarSl | Especifica se as ligações ao servidor são encriptadas utilizando O S.TLS. O valor predefinido é false.  | Não |
+| trustedCertPath | O percurso completo do ficheiro .pem que contém certificados ca fidedignos para verificar o servidor ao ligar através de TLS. Esta propriedade só pode ser definida quando se utiliza TLS em IR auto-hospedado. O valor predefinido é o ficheiro cacerts.pem instalado com o IR.  | Não |
+| useSystemTrustStore | Especifica se deve utilizar um certificado de CA da loja de fidedignidade do sistema ou de um ficheiro PEM especificado. O valor predefinido é false.  | Não |
+| permitirHostNameCNMismatch | Especifica se deve exigir um nome de certificado TLS/SSL emitido pela CA para corresponder ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é false.  | Não |
+| permitirSelfSignedServerCert | Especifica se permite certificados auto-assinados a partir do servidor. O valor predefinido é false.  | Não |
+| timeZoneID | O fuso horário local usado pela ligação. Os valores válidos para esta opção estão especificados na Base de Dados do Fuso Horário IANA. O valor predefinido é o fuso horário do sistema.  | Não |
 
 **Exemplo:**
 
@@ -94,11 +94,11 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Presto, defina a propriedade tipo do conjunto de dados para **o PrestoObject**. As seguintes propriedades são suportadas:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **PrestoObject** | Yes |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **PrestoObject** | Sim |
 | esquema | O nome do esquema. |Não (se for especificada "consulta" na fonte de atividade)  |
-| table | O nome da mesa. |Não (se for especificada "consulta" na fonte de atividade)  |
+| tabela | O nome da mesa. |Não (se for especificada "consulta" na fonte de atividade)  |
 | tableName | Nome da mesa com esquema. Esta propriedade é suportada para retrocompatibilidade. Uso `schema` e para nova carga de `table` trabalho. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
@@ -126,9 +126,9 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Presto, desagrafe o tipo de origem na atividade de cópia para **o PrestoSource**. As seguintes propriedades são suportadas na secção fonte de **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **PrestoSource** | Yes |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **PrestoSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

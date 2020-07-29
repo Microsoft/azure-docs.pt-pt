@@ -1,6 +1,6 @@
 ---
-title: Implementar máquina virtual Windows 7 Windows Virtual Desktop Fall 2019 - Azure
-description: Como configurar e implementar uma máquina virtual do Windows 7 no Windows Virtual Desktop.
+title: Implementar máquina virtual Windows 7 Windows Virtual Desktop (clássico) - Azure
+description: Como configurar e implementar uma máquina virtual do Windows 7 no Windows Virtual Desktop Virtual Desktop (clássico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3d8ce67f129844c09a93b29c8100fe28096c520c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 99c82f63e88815edba13bf88ba23c18493649dd9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085882"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285089"
 ---
-# <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop---fall-2019"></a>Implementar uma máquina virtual Do Windows 7 no Windows Virtual Desktop - outono 2019
+# <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop-classic"></a>Implementar uma máquina virtual do Windows 7 no Windows Virtual Desktop (clássico)
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../deploy-windows-7-virtual-machine.md).
+>Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows. Se estiver a tentar gerir os objetos virtuais do Windows Desktop do Azure Resource Manager introduzidos na versão atual do Windows Virtual Desktop, consulte [este artigo](../deploy-windows-7-virtual-machine.md).
 
 O processo de implantação de uma máquina virtual (VM) do Windows 7 no Windows Virtual Desktop é ligeiramente diferente do que para os VMs que executam versões posteriores do Windows. Este guia irá dizer-lhe como implementar o Windows 7.
 

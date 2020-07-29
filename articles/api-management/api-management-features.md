@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 7ec89d985c025814d903ae9a16f9b0f5123b3571
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ef16339d9a584eb12c611a25d636a9287265953a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056435"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284341"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Comparação baseada em recursos dos escalões de Gestão API da Azure
 
@@ -28,20 +28,20 @@ Cada [nível de preços da](https://aka.ms/apimpricing) API Management oferece u
 
 | Funcionalidade                                                                                      | Consumo | Programador | Básica | Standard | Premium |
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | ----- | -------- | ------- |
-| Integração AD AZure<sup>1</sup>                                                             | No          | Yes       | No    | Sim      | Sim     |
-| Suporte de Rede Virtual (VNet)                                                               | No          | Yes       | Não    | Não       | Yes     |
-| Implementação em várias regiões                                                                      | Não          | Não        | Não    | Não       | Yes     |
-| Vários nomes de domínio personalizado                                                                 | Não          | Não        | Não    | Não       | Yes     |
-| Portal do desenvolvedor<sup>2</sup>                                                                 | No          | Sim       | Sim   | Sim      | Sim     |
-| Cache embutido                                                                               | No          | Sim       | Sim   | Sim      | Sim     |
-| Análise incorporada                                                                           | No          | Sim       | Sim   | Sim      | Sim     |
-| [Gateway auto-hospedado](self-hosted-gateway-overview.md)<sup>3</sup>                           | No          | Yes       | Não    | Não       | Yes     |
+| Integração AD AZure<sup>1</sup>                                                             | Não          | Sim       | Não    | Sim      | Sim     |
+| Suporte de Rede Virtual (VNet)                                                               | Não          | Sim       | Não    | Não       | Sim     |
+| Implementação em várias regiões                                                                      | Não          | Não        | Não    | Não       | Sim     |
+| Vários nomes de domínio personalizado                                                                 | Não          | Sim        | Não    | Não       | Sim     |
+| Portal do desenvolvedor<sup>2</sup>                                                                 | Não          | Sim       | Sim   | Sim      | Sim     |
+| Cache embutido                                                                               | Não          | Sim       | Sim   | Sim      | Sim     |
+| Análise incorporada                                                                           | Não          | Sim       | Sim   | Sim      | Sim     |
+| [Gateway auto-hospedado](self-hosted-gateway-overview.md)<sup>3</sup>                           | Não          | Sim       | Não    | Não       | Sim     |
 | [Definições de TLS](api-management-howto-manage-protocols-ciphers.md)                             | Sim         | Sim       | Sim   | Sim      | Sim     |
 | [Cache externo](https://aka.ms/apimbyoc)                                                    | Sim         | Sim       | Sim   | Sim      | Sim     |
 | [Autenticação de certificado de cliente](api-management-howto-mutual-certificates-for-clients.md) | Sim         | Sim       | Sim   | Sim      | Sim     |
-| [Criar Cópias de Segurança e Restaurar](api-management-howto-disaster-recovery-backup-restore.md)               | No          | Sim       | Sim   | Sim      | Sim     |
-| [Gestão sobre Git](api-management-configuration-repository-git.md)                        | No          | Sim       | Sim   | Sim      | Sim     |
-| API de gestão direta                                                                        | No          | Sim       | Sim   | Sim      | Sim     |
+| [Criar Cópias de Segurança e Restaurar](api-management-howto-disaster-recovery-backup-restore.md)               | Não          | Sim       | Sim   | Sim      | Sim     |
+| [Gestão sobre Git](api-management-configuration-repository-git.md)                        | Não          | Sim       | Sim   | Sim      | Sim     |
+| API de gestão direta                                                                        | Não          | Sim       | Sim   | Sim      | Sim     |
 | Registos e métricas do Monitor Azure                                                               | Sim         | Sim       | Sim   | Sim      | Sim     |
 | IP estático                                                                                    | Não          | Sim       | Sim   | Sim      | Sim     |
 

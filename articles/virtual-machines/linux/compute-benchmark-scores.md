@@ -2,15 +2,15 @@
 title: Pontuações de referência do Cálculo para VMs Azure Linux
 description: Compare as pontuações de referência da computação CoreMark para VMs Azure com linux.
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/29/2020
 ms.reviewer: davberg
-ms.openlocfilehash: afe1bddd5822b506dcf2c177fc308b717ddc2129
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61deac4c94902dc392a23f05674e2b1fb3f3cf87
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82580456"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373424"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Pontuações de referência do Cálculo para Os VMs do Linux
 As seguintes pontuações de referência do CoreMark mostram o desempenho do computação para a linha VM de alto desempenho da Azure que executa ubuntu. As pontuações de referência do computo também estão disponíveis para [VMs do Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop host pool load-balance (outono 2019) - Azure
-description: Saiba mais sobre os métodos de equilíbrio de carga da piscina do anfitrião para um ambiente de desktop virtual do Windows (lançamento outono 2019).
+title: Windows Virtual Desktop (clássico) anfitrião de piscina de carga - Azure
+description: Hospedar métodos de equilíbrio de carga da piscina para um ambiente de ambiente de trabalho virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 50819fc6b1e13aeb1c0eddf306ecdfbe8147a44f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3854471b2e74bd7c3315ae622a36588af0270d8c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046261"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285004"
 ---
-# <a name="host-pool-load-balancing-methods-fall-2019-release"></a>Métodos de equilíbrio de piscinas anfitriões (lançamento outono 2019)
+# <a name="host-pool-load-balancing-methods-in-windows-virtual-desktop-classic"></a>Métodos de equilíbrio de carga de piscina de anfitrião no Windows Virtual Desktop (clássico)
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../host-pool-load-balancing.md).
+>Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows. Se estiver a tentar gerir os objetos de ambiente de trabalho virtuais do Azure Resource Manager Windows, consulte [este artigo](../host-pool-load-balancing.md).
 
 O Windows Virtual Desktop suporta dois métodos de equilíbrio de carga. Cada método determina qual o anfitrião da sessão que irá acolher uma sessão de utilizador quando se conecta a um recurso numa piscina hospedeira.
 

@@ -1,6 +1,6 @@
 ---
-title: Implemente a ferramenta de diagnóstico para Windows Virtual Desktop - Azure
-description: Como implementar a ferramenta UX de diagnóstico para o Windows Virtual Desktop.
+title: Implementar a ferramenta de diagnóstico para Windows Virtual Desktop (clássico) - Azure
+description: Como implementar a ferramenta UX de diagnóstico para o Windows Virtual Desktop (clássico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 544610f4011f7ad12d5b311aab3afd4bc1373ac5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf05d495442a39b42fddf5f373fb2616bf0c6fbe
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362344"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285106"
 ---
-# <a name="deploy-the-diagnostics-tool"></a>Implementar a ferramenta de diagnóstico
+# <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Implementar a ferramenta de diagnóstico virtual do Windows Desktop (clássico)
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure.
+>Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows.
 
 >[!IMPORTANT]
 >A partir de 16 de março de 2020, desativamos temporariamente as consultas de diagnóstico que impactaram a experiência do utilizador devido ao aumento da procura no serviço. Isto fará com que a ferramenta deixe de funcionar porque depende dessas consultas para funcionar. Atualizaremos este artigo quando as consultas de diagnóstico estiverem disponíveis novamente.
@@ -266,7 +266,7 @@ Também pode interagir com os utilizadores no anfitrião da sessão:
 
     - Limiar: Mais de 2000 ms é marcado como insalubre.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como monitorizar os registos de atividade no [Use diagnostics com Log Analytics](diagnostics-log-analytics-2019.md).
 - Leia sobre cenários de erro comuns e como corrigi-los em [Identificar e diagnosticar problemas](diagnostics-role-service-2019.md).

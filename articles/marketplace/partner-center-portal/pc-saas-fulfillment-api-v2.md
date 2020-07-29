@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 06/10/2020
-ms.openlocfilehash: f501e84e988d340ba710e49d30caddbe56006c8a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: f40da30ff0d702078861367dea810cc8ca1ab91b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109421"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305147"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-microsoft-commercial-marketplace"></a>SaaS cumpre APIs versão 2 no mercado comercial da Microsoft
 
@@ -313,7 +315,7 @@ Recupera uma lista de todas as subscrições saaS compradas para todas as oferta
 
 Esta API devolve resultados paginados. O tamanho da página é 100.
 
-##### <a name="gethttpsmarketplaceapimicrosoftcomapisaassubscriptionsapi-versionapiversion"></a>Obter`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=<ApiVersion>`
+##### <a name="gethttpsmarketplaceapimicrosoftcomapisaassubscriptionsapi-versionapiversion"></a>Get`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=<ApiVersion>`
 
 *Parâmetros de consulta:*
 
@@ -972,7 +974,7 @@ Um fluxo de compra pode ser desencadeado a partir do portal Azure ou dos sites M
 Consulte [o Suporte para o programa de marketplace comercial no Partner Center](support.md) para opções de suporte de editores.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [serviço de medição de](marketplace-metering-service-apis.md) marketplace APIs para mais opções para ofertas SaaS no mercado.
 

@@ -4,16 +4,16 @@ description: Saiba como usar o Packer para criar imagens de máquinas virtuais L
 author: cynthn
 ms.service: virtual-machines-linux
 ms.subservice: imaging
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/07/2019
 ms.author: cynthn
-ms.openlocfilehash: 587e339f2c2d91792ef1c342f7a1f8363da63626
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29a0c47bf24ecd916fb9402ffcb2a3ff13a36a84
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85106015"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372285"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Como usar o Packer para criar imagens de máquinas virtuais Linux em Azure
 Cada máquina virtual (VM) em Azure é criada a partir de uma imagem que define a distribuição Linux e a versão OS. As imagens podem incluir aplicações e configurações pré-instaladas. O Azure Marketplace fornece muitas imagens de primeira e de terceiros para a distribuição mais comum e ambientes de aplicações, ou pode criar as suas próprias imagens personalizadas adaptadas às suas necessidades. Este artigo detalha como usar a ferramenta de código aberto [Packer](https://www.packer.io/) para definir e construir imagens personalizadas em Azure.
@@ -227,5 +227,5 @@ Agora, pode abrir um browser e introduzir `http://publicIpAddress` na barra de e
 ![Site predefinido do NGINX](./media/build-image-with-packer/nginx.png) 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Também pode utilizar scripts de provisionadores Packer existentes com [O Azure Image Builder](image-builder.md).

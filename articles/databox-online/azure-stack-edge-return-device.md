@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 07/27/2020
 ms.author: alkohli
-ms.openlocfilehash: 29ecd2e90812da533eb59db71a876b6d23f20918
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 018fe9b97b343bc07cf3c04a1d0e84edaf6cc7ac
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067038"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283865"
 ---
 # <a name="return-your-azure-stack-edge-device"></a>Devolva o seu dispositivo Azure Stack Edge
 
@@ -117,14 +117,14 @@ Para agendar uma recolha, tome os seguintes passos.
 
 Depois de o dispositivo ser recebido no centro de dados Azure, o dispositivo é inspecionado para verificar se existem danos ou sinais de adulteração.
 
-- Se o dispositivo chegar intacto e estiver em bom estado, o medidor de faturação para para esse recurso. O Microsoft Support entrará em contacto consigo para confirmar que o dispositivo foi devolvido. Em seguida, pode eliminar o recurso associado ao dispositivo no portal Azure.
+- Se o dispositivo chegar intacto e estiver em bom estado, o medidor de faturação para para esse recurso. A equipa de operações da Azure Stack Edge entrará em contacto consigo para confirmar que o dispositivo foi devolvido. Em seguida, pode eliminar o recurso associado ao dispositivo no portal Azure.
 - Se o aparelho chegar significativamente danificado, podem ser aplicadas coimas. Para mais informações, consulte as [FAQ sobre](https://azure.microsoft.com/pricing/details/databox/edge/) o dispositivo perdido ou danificado e [os Termos de Serviço do Produto.](https://www.microsoft.com/licensing/product-licensing/products)  
 
 
 Pode eliminar o dispositivo no portal Azure:
 
 - Depois de ter feito a encomenda e antes de o dispositivo ser preparado pela Microsoft.
-- Depois de ter devolvido o dispositivo à Microsoft, passa a inspeção física no datacenter Azure e as chamadas do Microsoft Support para confirmar que o dispositivo foi devolvido.
+- Depois de ter devolvido o dispositivo à Microsoft, passa pela inspeção física no datacenter Azure, e a equipa de operações do Azure Stack Edge liga para confirmar que o dispositivo foi devolvido.
 
 Se ativou o dispositivo contra outra subscrição ou localização, a Microsoft irá mover a sua encomenda para a nova subscrição ou localização dentro de um dia útil. Depois de a encomenda ser movida, pode eliminar este recurso.
 

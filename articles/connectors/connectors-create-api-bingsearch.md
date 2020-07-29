@@ -7,11 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: e547ae59f7b3260f46756825bca2bef1c10bcc97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52bf42434640dc965999895549b4fa12a139dcce
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75665892"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284069"
 ---
 # <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>Encontre resultados em Bing Search utilizando aplicações Azure Logic
 
@@ -20,7 +21,7 @@ Este artigo mostra como pode encontrar notícias, vídeos e outros itens atravé
 Por exemplo, pode encontrar itens noticiosos baseados em critérios de pesquisa e ter o Twitter a publicar esses itens como tweets no seu feed do Twitter.
 
 Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/). Se é novo em aplicações lógicas, [reveja o que é Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [Quickstart: Crie a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-Para obter informações técnicas específicas do conector, consulte a referência do [conector Bing Search](https://docs.microsoft.com/connectors/bingsearch/).
+Para obter informações técnicas específicas do conector, consulte a referência do [conector Bing Search](/connectors/bingsearch/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -54,7 +55,7 @@ Ou, se a sua ligação já existe, forneça as informações necessárias para o
    | Consulta de pesquisa | Sim | <*palavras de pesquisa*> | Introduza as palavras-chave de pesquisa que pretende utilizar. |
    | Mercado | Sim | <*local*> | O local de busca. O padrão é "en-US", mas pode selecionar outro valor. |
    | Pesquisa segura | Sim | <*nível de pesquisa*> | O nível do filtro para excluir o conteúdo adulto. O padrão é "Moderado", mas seleciona outro nível. |
-   | Contagem | Não | <*contagem de resultados*> | Devolva o número especificado de resultados. O padrão é de 20, mas pode especificar outro valor. O número real de resultados devolvidos pode ser inferior ao número especificado. |
+   | de palavras | Não | <*contagem de resultados*> | Devolva o número especificado de resultados. O padrão é de 20, mas pode especificar outro valor. O número real de resultados devolvidos pode ser inferior ao número especificado. |
    | Desvio | Não | <*valor de salto*> | O número de resultados a saltar antes de devolver os resultados |
    |||||
 
@@ -105,7 +106,7 @@ Na lista de ações, selecione a ação desejada.
    | Consulta de pesquisa | Sim | <*expressão de pesquisa*> | Introduza uma expressão para consulta dos resultados do gatilho. Pode selecionar a partir dos campos na lista de conteúdos dinâmicos ou criar uma expressão com o construtor de expressão. |
    | Mercado | Sim | <*local*> | O local de busca. O padrão é "en-US", mas pode selecionar outro valor. |
    | Pesquisa segura | Sim | <*nível de pesquisa*> | O nível do filtro para excluir o conteúdo adulto. O padrão é "Moderado", mas seleciona outro nível. |
-   | Contagem | Não | <*contagem de resultados*> | Devolva o número especificado de resultados. O padrão é de 20, mas pode especificar outro valor. O número real de resultados devolvidos pode ser inferior ao número especificado. |
+   | de palavras | Não | <*contagem de resultados*> | Devolva o número especificado de resultados. O padrão é de 20, mas pode especificar outro valor. O número real de resultados devolvidos pode ser inferior ao número especificado. |
    | Desvio | Não | <*valor de salto*> | O número de resultados a saltar antes de devolver os resultados |
    |||||
 
@@ -164,6 +165,7 @@ Na lista de ações, selecione a ação desejada.
 
 Para obter detalhes técnicos, tais como gatilhos, ações e limites, conforme descrito pelo ficheiro Swagger do conector, consulte a [página de referência do conector](/connectors/bingsearch/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [outros conectores de Apps Lógicas](../connectors/apis-list.md)
+

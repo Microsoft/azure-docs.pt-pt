@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 238bcc6c706f2fab969c98b73ca879d064498693
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: efd51e90bb14f3d97b76eb6ac45b384192bb8da0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026514"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87311573"
 ---
 # <a name="single-page-application-app-registration"></a>Aplicação de uma página única: Registo de aplicações
 
 Para registar uma aplicação de uma página (SPA) na plataforma de identidade da Microsoft, complete os seguintes passos. As etapas de registo diferem entre MSAL.js 1.0, que suporta o fluxo implícito de subvenções, e MSAL.js 2.0, que suporta o fluxo de código de autorização com o PKCE.
+
+[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
 ## <a name="create-the-app-registration"></a>Criar o registo da aplicação
 
@@ -67,7 +69,7 @@ Siga estes passos para adicionar um URI de redirecionamento para uma aplicação
 
 Já concluiu o registo da sua aplicação de uma página única (SPA) e configura um URI de redirecionamento para o qual o cliente será redirecionado e quaisquer fichas de segurança serão enviadas. Ao selecionar um ou ambos os **tokens** de ID e **tokens de acesso,** você ativou o fluxo de subvenção implícita.
 
-Siga o [tutorial](tutorial-v2-javascript-spa.md) para mais orientação. 
+Siga o [tutorial](tutorial-v2-javascript-spa.md) para mais orientação.
 
 ## <a name="note-about-authorization-flows"></a>Nota sobre fluxos de autorização
 

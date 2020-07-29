@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: e8d90f5238ea312602d2142d25b9ae226aa34c84
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.author: mingshen
+author: mingshen-ms
+ms.openlocfilehash: aecc64c5fa923bc29d34efd3969c2c12f30153c4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119026"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320107"
 ---
 # <a name="handling-review-feedback-for-azure-application-offers"></a>Lidar com comentários de revisão para ofertas de aplicações da Azure
 
@@ -53,6 +55,6 @@ Utilize o seguinte procedimento para rever as questões documentadas no pedido d
 
    ![Primeira resposta de correção e comentário](./media/first-comment-reply.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de corrigir as questões críticas documentadas nas relações públicas de revisão, deve [republicar a sua oferta de aplicações Azure](./create-new-azure-apps-offer.md#publish).

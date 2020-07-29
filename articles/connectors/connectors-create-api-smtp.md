@@ -7,11 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
-ms.openlocfilehash: 1cfc53dcd730262101c0e879e0419ba3f2db4d38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9989d0ebd95bfe5ee49be2ba76b73e07630b519a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80656990"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283950"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Envie e-mail da sua conta SMTP com Azure Logic Apps
 
@@ -48,11 +49,11 @@ Com aplicações lógicas Azure e o conector Simple Mail Transfer Protocol (SMTP
 
 1. Quando solicitado, forneça esta informação de ligação:
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
    | **Nome de conexão** | Sim | Um nome para a ligação ao seu servidor SMTP | 
    | **Endereço do servidor SMTP** | Sim | O endereço do seu servidor SMTP | 
-   | **Nome do utilizador** | Sim | O seu nome de utilizador para a sua conta SMTP | 
+   | **Nome de Utilizador** | Sim | O seu nome de utilizador para a sua conta SMTP | 
    | **Palavra-passe** | Sim | A sua senha para a sua conta SMTP | 
    | **Porta de servidor SMTP** | Não | Uma porta específica no seu servidor SMTP que pretende utilizar | 
    | **Ativar o SSL?** | Não | Ligue ou desligue a encriptação TLS/SSL. | 
@@ -64,11 +65,11 @@ Com aplicações lógicas Azure e o conector Simple Mail Transfer Protocol (SMTP
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter mais detalhes técnicos sobre este conector, tais como gatilhos, ações e limites descritos pelo ficheiro Swagger do conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/smtpconnector/).
+Para obter mais detalhes técnicos sobre este conector, tais como gatilhos, ações e limites descritos pelo ficheiro Swagger do conector, consulte a [página de referência do conector](/connectors/smtpconnector/).
 
 > [!NOTE]
 > Para aplicações lógicas num ambiente de [serviço de integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão com rótulo ISE deste conector utiliza os limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [outros conectores de Apps Lógicas](../connectors/apis-list.md)

@@ -4,15 +4,15 @@ description: Saiba mais sobre como o recurso de máquina virtual é definido num
 author: cynthn
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 1ac2e94e9c0213f14999d730027e118df6584519
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cd96fe550a508e54c467ca52cd36322581029654
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020207"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283236"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuais num modelo do Azure Resource Manager
 
@@ -449,7 +449,7 @@ Se estiver curioso sobre o estado dos recursos na implantação, consulte o grup
     
 Não é um problema usar o mesmo modelo para criar recursos ou atualizar os recursos existentes. Quando utiliza comandos para implementar modelos, tem a oportunidade de dizer qual [o modo](../../azure-resource-manager/templates/deploy-powershell.md) que pretende utilizar. O modo pode ser definido para **Completo** ou **Incremental**. O padrão é fazer atualizações incrementais. Tenha cuidado ao utilizar o modo **Complete** porque pode eliminar acidentalmente os recursos. Quando define o modo para **Completar,** o Gestor de Recursos elimina quaisquer recursos do grupo de recursos que não estejam no modelo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 - Crie o seu próprio modelo utilizando [modelos de Gestor de Recursos Azure authoring](../../azure-resource-manager/templates/template-syntax.md).
 - Implemente o modelo que criou usando [Criar uma máquina virtual do Windows com um modelo de Gestor de Recursos](ps-template.md).

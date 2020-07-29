@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: surmb
-ms.openlocfilehash: 46cb4d0d099cd21db3ce51c337d3b059206bb425
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2ee34e1a7959aafa5db949b443fd58cca58719c6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099300"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281196"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Reescrever cabeçalhos HTTP e URL com Gateway de aplicação
 
@@ -109,25 +109,25 @@ O gateway de aplicações suporta as seguintes variáveis de servidor:
 | add_x_forwarded_for_proxy | O campo de cabeçalho de pedido de cliente X-Forwarded-For com a `client_ip` variável (ver explicação mais tarde nesta tabela) anexado a ele no formato IP1, IP2, IP3, e assim por diante. Se o campo X-Forwarded-For não estiver no cabeçalho de pedido do cliente, a `add_x_forwarded_for_proxy` variável é igual à `$client_ip` variável.   Esta variável é particularmente útil quando pretende reescrever o cabeçalho X-Forwarded-For definido pelo Application Gateway para que o cabeçalho contenha apenas o endereço IP sem a informação da porta. |
 | ciphers_supported         | Uma lista das cifras apoiadas pelo cliente.               |
 | ciphers_used              | A cadeia de cifras usada para uma ligação TLS estabelecida. |
-| client_ip                 | O endereço IP do cliente a partir do qual o gateway de aplicação recebeu o pedido. Se houver um representante inverso antes do gateway de aplicação e do cliente originário, *client_ip* devolverão o endereço IP do representante inverso. |
+| client_ip                 | O endereço IP do cliente a partir do qual o gateway de aplicação recebeu o pedido. Se houver um representante inverso antes do gateway de aplicação e do cliente originário, `client_ip` devolverá o endereço IP do representante inverso. |
 | client_port               | O porto do cliente.                                             |
 | client_tcp_rtt            | Informação sobre a ligação com a TCP do cliente. Disponível em sistemas que suportam a opção de tomada TCP_INFO. |
 | client_user               | Quando é utilizada a autenticação HTTP, o nome de utilizador fornecido para autenticação. |
-| anfitrião                      | Nesta ordem de precedência: o nome de anfitrião da linha de pedido, o nome de anfitrião do campo de cabeçalho de pedido do anfitrião ou o nome do servidor correspondente a um pedido. Exemplo: no *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* pedido, o valor do anfitrião será *contoso.com* |
+| anfitrião                      | Nesta ordem de precedência: o nome de anfitrião da linha de pedido, o nome de anfitrião do campo de cabeçalho de pedido do anfitrião ou o nome do servidor correspondente a um pedido. Exemplo: no pedido , o `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` valor do anfitrião será`contoso.com` |
 | cookie_*nome*             | O biscoito *de nome.*                                           |
 | http_method               | O método usado para fazer o pedido de URL. Por exemplo, GET ou POST. |
 | http_status               | O estado da sessão. Por exemplo, 200, 400 ou 403.           |
 | http_version              | O protocolo de pedido. Normalmente HTTP/1.0, HTTP/1.1 ou HTTP/2.0. |
-| query_string              | A lista de pares variáveis/valor que segue o "?" na URL solicitada. Exemplo: no pedido *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , query_string valor será *id=123&título=fabrikam* |
+| query_string              | A lista de pares variáveis/valor que segue o "?" na URL solicitada. Exemplo: no pedido `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` , query_string valor será`id=123&title=fabrikam` |
 | received_bytes            | A duração do pedido (incluindo a linha de pedido, cabeçalho e corpo de pedido). |
 | request_query             | Os argumentos na linha de pedido.                           |
 | request_scheme            | O sistema de pedidos: http ou https.                           |
-| request_uri               | O pedido original completo URI (com argumentos). Exemplo: no pedido *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , request_uri valor será */article.aspx?id=123&título=fabrikam* |
+| request_uri               | O pedido original completo URI (com argumentos). Exemplo: no pedido `http://contoso.com:8080/article.aspx?id=123&title=fabrikam*` , request_uri valor será`/article.aspx?id=123&title=fabrikam` |
 | sent_bytes                | O número de bytes enviados a um cliente.                        |
 | server_port               | A porta do servidor que aceitou um pedido.              |
 | ssl_connection_protocol   | O protocolo de uma ligação TLS estabelecida.               |
 | ssl_enabled               | "Ligado" se a ligação funcionar no modo TLS. Caso contrário, uma corda vazia. |
-| uri_path                  | Identifica o recurso específico no anfitrião a que o cliente web quer aceder. Esta é a parte do pedido URI sem os argumentos. Exemplo: no *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* pedido, uri_path valor será */article.aspx* |
+| uri_path                  | Identifica o recurso específico no anfitrião a que o cliente web quer aceder. Esta é a parte do pedido URI sem os argumentos. Exemplo: no pedido `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` , uri_path valor será`/article.aspx` |
 
  
 
@@ -230,7 +230,7 @@ Agora, se o utilizador solicitar *contoso.com/listing?category=any*, então ser�
 
 Considere um cenário de um site de compras onde o link visível do utilizador deve ser simples e legível, mas o servidor backend precisa dos parâmetros de cadeia de consulta para mostrar o conteúdo certo.
 
-Nesse caso, o Application Gateway pode capturar parâmetros a partir do URL e adicionar pares de valores-chave de ligação de consulta dos do URL. Por exemplo, digamos que o utilizador quer reescrever, https://www.contoso.com/fashion/shirts https://www.contoso.com/buy.aspx?category=fashion&product=shirts para, pode ser alcançado através da seguinte configuração de reescrita de URL.
+Nesse caso, o Application Gateway pode capturar parâmetros a partir do URL e adicionar pares de valores-chave de ligação de consulta dos do URL. Por exemplo, digamos que o utilizador quer reescrever, `https://www.contoso.com/fashion/shirts` `https://www.contoso.com/buy.aspx?category=fashion&product=shirts` para, pode ser alcançado através da seguinte configuração de reescrita de URL.
 
 **Condição** - Se a variável do servidor `uri_path` for igual ao padrão`/(.+)/(.+)`
 

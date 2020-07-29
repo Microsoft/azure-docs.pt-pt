@@ -9,12 +9,12 @@ ms.date: 03/20/2020
 author: timsander1
 ms.author: tisande
 ms.custom: seodec18
-ms.openlocfilehash: f5f321beb873ffcd6d120e94f8416a650d0de3cf
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6332e74ec46454a4df70c40f4b4dfbbc6260bc39
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523558"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281434"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Ligue uma aplicação Node.js Mongoose à Azure Cosmos DB
 
@@ -94,7 +94,10 @@ Depois de criar a base de dados, usará o nome na `COSMOSDB_DBNAME` variável am
       auth: {
         user: process.env.COSMODDB_USER,
         password: process.env.COSMOSDB_PASSWORD
-      }
+      },
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    retryWrites: false
     })
     .then(() => console.log('Connection to CosmosDB successful'))
     .catch((err) => console.error(err));
@@ -313,11 +316,11 @@ Aqui, vamos criar um modelo de objeto base, definir uma chave diferenciadora e a
 
 Como pode ver, é fácil trabalhar com os discriminadores do Mongoose. Portanto, se você tem uma aplicação que usa a estrutura mongoose, este tutorial é uma maneira de você colocar a sua aplicação em funcionamento usando a API de Azure Cosmos para MongoDB sem exigir muitas alterações.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Aprenda a usar o [Studio 3T](mongodb-mongochef.md) com a API da Azure Cosmos DB para a MongoDB.
 - Aprenda a [usar Robo 3T](mongodb-robomongo.md) com API da Azure Cosmos DB para a MongoDB.

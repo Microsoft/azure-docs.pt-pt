@@ -8,14 +8,14 @@ ms.date: 07/09/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-ms.custom: tracking-python
-ms.openlocfilehash: c67ddf2d82a1cebaaa43a90111f4a42edb20058e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: 7af69b90228514db14ce3feecd4ad5cc8a84f567
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206794"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87307085"
 ---
 # <a name="how-to-deploy-an-encrypted-inferencing-web-service-preview"></a>Como implementar um serviço web de inferenculação encriptado (pré-visualização)
 

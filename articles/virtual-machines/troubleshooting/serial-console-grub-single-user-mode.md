@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: alsin
-ms.openlocfilehash: e31a10b1086679b7c2493f5a6d6b62f75e363dd4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3b074bb1d439a6d20ac476f4e10b6a26b7107be8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036476"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284715"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Utilize a Consola Em Série para aceder ao modo GRUB e single-user
 GRand Unified Bootloader (GRUB) é provavelmente a primeira coisa que vê quando inicia uma máquina virtual (VM). Como é exibido antes do sistema operativo ter começado, o GRUB não é acessível via SSH. No GRUB, pode modificar a configuração da sua bota para iniciar o seu arranque no modo de utilizador único, entre outras coisas.
@@ -241,7 +241,7 @@ Para ativar o modo de utilizador único no Oracle Linux, siga as instruções an
 ## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre a Consola em Série, consulte:
 * [Documentação da consola em série do Linux](serial-console-linux.md)
-* [Utilize a Consola Em Série para permitir o GRUB em várias distribuições](/archive/blogs/linuxonazure/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time)
+* [Utilize a Consola Em Série para permitir o GRUB em várias distribuições](http://linuxonazure.azurewebsites.net/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
 * [Utilize consola em série para chamadas NMI e SysRq](serial-console-nmi-sysrq.md)
 * [Consola em série para VMs do Windows](serial-console-windows.md)
 * [Diagnósticos de arranque.](boot-diagnostics.md)

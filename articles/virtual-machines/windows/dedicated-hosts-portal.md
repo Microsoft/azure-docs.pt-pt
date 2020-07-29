@@ -3,17 +3,17 @@ title: Implementar anfitriões dedicados do Azure usando o portal
 description: Implemente VMs para anfitriões dedicados utilizando o portal.
 author: cynthn
 ms.service: virtual-machines-windows
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 03/10/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 444f7cd7094a688c43d9aedce67d293e3c32e273
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a4ce9d360e226a9934c30b749ea0284f5ace9cf0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508564"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284596"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Implementar VMs para anfitriões dedicados usando o portal
 
@@ -56,7 +56,7 @@ Mover o VM para um hospedeiro dedicado utilizando o [portal](https://portal.azur
 1. Depois de adicionar o VM ao anfitrião, selecione **a visão geral** do menu esquerdo.
 1. No topo da página, selecione **Iniciar** a reiniciar o VM.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para mais informações, consulte a visão geral dos [anfitriões dedicados.](dedicated-hosts.md) 
 

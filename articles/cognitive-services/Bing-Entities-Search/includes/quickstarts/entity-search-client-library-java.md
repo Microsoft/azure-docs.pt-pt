@@ -1,5 +1,5 @@
 ---
-title: Bing Entity Search Java client library quickstart
+title: Bing Entidade Pesquisar Java biblioteca de clientes quickstart
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -7,23 +7,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/06/2020
+ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: 8c987aa14e922573d01aa35fab609edf01e109b4
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: f69b9b989a93949f9a0441676c81af7480fb968f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79136775"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87375818"
 ---
-Use este quickstart para começar a procurar entidades com a biblioteca de clientes Bing Entity Search para Java. Embora a Bing Entity Search tenha uma API REST compatível com a maioria dos idiomas de programação, a biblioteca do cliente fornece uma forma fácil de integrar o serviço nas suas aplicações. O código fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch).
+Use este quickstart para começar a procurar entidades com a biblioteca de clientes Bing Entity Search para Java. Embora a Bing Entity Search tenha uma API REST compatível com a maioria das linguagens de programação, a biblioteca do cliente proporciona uma forma fácil de integrar o serviço nas suas aplicações. O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* O Kit de [Desenvolvimento de Java (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
+* O [Kit de Desenvolvimento de Java (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
 
-* A biblioteca de clientes Bing Entity Search para Java
+* A biblioteca de clientes de pesquisa de entidades Bing para Java
 
-Instale as dependências da biblioteca de clientes Bing Entity Search utilizando maven, Gradle ou outro sistema de gestão de dependência. O ficheiro POM do Maven requer a declaração:
+Instale as dependências da biblioteca de clientes Bing Entity Search utilizando Maven, Gradle ou outro sistema de gestão de dependência. O ficheiro POM do Maven requer a declaração:
 
 ```xml
 <dependency>
@@ -63,7 +64,7 @@ Instale as dependências da biblioteca de clientes Bing Entity Search utilizando
 
 ## <a name="create-a-search-client"></a>Criar um cliente de pesquisa
 
-1. Implementar `dominantEntityLookup` o cliente, que requer o seu ponto final `ServiceClientCredentials` da API, e uma instância da classe. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+1. Implemente o `dominantEntityLookup` cliente, que requer o seu ponto final da API, e uma instância da `ServiceClientCredentials` classe. Pode utilizar o ponto final global abaixo ou o ponto final [personalizado subdomínio](../../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
 
     ```java
     public static EntitySearchAPIImpl getClient(final String subscriptionKey) {
@@ -74,9 +75,9 @@ Instale as dependências da biblioteca de clientes Bing Entity Search utilizando
     )};
     ```
 
-    Para implementar `ServiceClientCredentials`o, siga estes passos:
+    Para implementar os `ServiceClientCredentials` passos, siga estes passos:
 
-   1. anular a `applyCredentialsFilter()` função, `OkHttpClient.Builder` com um objeto como parâmetro. 
+   1. sobrepor a `applyCredentialsFilter()` função, com um `OkHttpClient.Builder` objeto como parâmetro. 
         
        ```java
        //...
@@ -88,7 +89,7 @@ Instale as dependências da biblioteca de clientes Bing Entity Search utilizando
        //...
        ```
     
-   2. Dentro, `applyCredentialsFilter()` `builder.addNetworkInterceptor()`chamada. Crie `Interceptor` um novo objeto `intercept()` e anule `Chain` o seu método para pegar num objeto intercetor.
+   2. `applyCredentialsFilter()`Dentro, `builder.addNetworkInterceptor()` ligue. Crie um novo `Interceptor` objeto e substitua o seu `intercept()` método para pegar um objeto `Chain` intercetor.
 
        ```java
        //...
@@ -102,7 +103,7 @@ Instale as dependências da biblioteca de clientes Bing Entity Search utilizando
        ///...
        ```
 
-   3. Dentro `intercept` da função, crie variáveis para o seu pedido. Use `Request.Builder()` para construir o seu pedido. Adicione a sua `Ocp-Apim-Subscription-Key` chave de `chain.proceed()` subscrição ao cabeçalho e devolva o objeto de pedido.
+   3. Dentro da `intercept` função, crie variáveis para o seu pedido. Use `Request.Builder()` para construir o seu pedido. Adicione a chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho e `chain.proceed()` devolva no objeto pedido.
             
        ```java
        //...
@@ -118,7 +119,7 @@ Instale as dependências da biblioteca de clientes Bing Entity Search utilizando
        ```
 ## <a name="send-a-request-and-receive-a-response"></a>Enviar um pedido e receber uma resposta
 
-1. Crie uma nova instância do cliente de pesquisa com a sua chave de subscrição. usar `client.entities().search()` para enviar um pedido de `satya nadella`pesquisa para a consulta de pesquisa , e obter uma resposta. 
+1. Crie uma nova instância do cliente de pesquisa com a sua chave de subscrição. usar `client.entities().search()` para enviar um pedido de pesquisa para a consulta de pesquisa , e obter uma `satya nadella` resposta. 
     
     ```java
     EntitySearchAPIImpl client = getClient(subscriptionKey);
@@ -148,4 +149,4 @@ Instale as dependências da biblioteca de clientes Bing Entity Search utilizando
 > [!div class="nextstepaction"]
 > [Criar uma aplicação web de página única](../../tutorial-bing-entities-search-single-page-app.md)
 
-* [O que é a API de Pesquisa de Entidades Bing?](../../overview.md)
+* [O que é a API de Pesquisa de Entidade Bing?](../../overview.md)

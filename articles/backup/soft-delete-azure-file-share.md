@@ -4,18 +4,16 @@ description: Aprenda a eliminar suavemente pode proteger as suas Azure File Shar
 ms.topic: conceptual
 ms.date: 02/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7070cb1ee3881fbec2c6f44eae18f3bc51f8051d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0ec2d3bf84aed19b608a92b6f21cd1674ba5b7cf
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054374"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282709"
 ---
 # <a name="accidental-delete-protection-for-azure-file-shares-using-azure-backup"></a>Eliminar acidentalmente a proteção para ações de ficheiros Azure usando o Backup Azure
 
-Para fornecer proteção contra ciberataques ou eliminação acidental, [a eliminação suave](../storage/files/storage-files-prevent-file-share-deletion.md) é ativada para todas as ações de ficheiros numa conta de armazenamento quando configurar a cópia de segurança para qualquer partilha de ficheiros na respetiva conta de armazenamento. Com a eliminação suave, mesmo que um ator malicioso elimine a partilha de ficheiros, o conteúdo e pontos de recuperação da partilha de ficheiros (instantâneos) são retidos por um mínimo de 14 dias adicionais, permitindo a recuperação de partilhas de ficheiros sem perda de dados.  
-
-A eliminação suave é suportada apenas para contas de armazenamento standard e premium e é atualmente ativada a partir do lado Azure Backup [nestas regiões](azure-file-share-support-matrix.md).
+Para fornecer proteção contra ciberataques ou eliminação acidental, [a eliminação suave](../storage/files/storage-files-prevent-file-share-deletion.md) é ativada para todas as ações de ficheiros numa conta de armazenamento quando configurar a cópia de segurança para qualquer partilha de ficheiros na respetiva conta de armazenamento. Com a eliminação suave, mesmo que um ator malicioso elimine a partilha de ficheiros, o conteúdo e pontos de recuperação da partilha de ficheiros (instantâneos) são retidos por um mínimo de 14 dias adicionais, permitindo a recuperação de partilhas de ficheiros sem perda de dados.  A eliminação suave é suportada para contas de armazenamento standard e premium e a configuração é ativada pela Azure Backup para todas as contas de armazenamento que hospedam ações de ficheiros com suporte.
 
 O gráfico de fluxo a seguir mostra os diferentes passos e estados de um item de backup quando a eliminação suave é ativada para ações de ficheiros numa conta de armazenamento:
 

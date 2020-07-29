@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b431cee3b8e5fc168dec2766442d6f6b9869d1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 450f04c7de68bf6db282577fbc8e841f1f3c93fc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74900378"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284409"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identidade do dispositivo e virtualização do ambiente de trabalho
 
@@ -52,9 +53,9 @@ Antes de configurar as identidades do dispositivo em Azure AD para o seu ambient
 |   |   |   | Não Persistente | Não |
 |   | Gerido | Corrente do Windows | Persistente | Não |
 |   |   |   | Não Persistente | Não |
-| Azure AD registado | Federados | Corrente do Windows | Persistente | Não |
+| Azure AD registado | Federados | Corrente do Windows | Persistente | Não Aplicável |
 |   |   |   | Não Persistente | Não |
-|   | Gerido | Corrente do Windows | Persistente | Não |
+|   | Gerido | Corrente do Windows | Persistente | Não Aplicável |
 |   |   |   | Não Persistente | Não |
 
 \*Um ambiente de infraestrutura de identidade **federada** representa um ambiente com um fornecedor de identidade, como o AD FS ou outro IDP de terceiros.
@@ -84,6 +85,6 @@ Ao implementar vDI não persistente, os administradores de TI devem estar atento
 - Definir e implementar o processo de [gestão de dispositivos antigos.](manage-stale-devices.md)
    - Uma vez que tenha uma estratégia para identificar os dispositivos híbridos Azure AD não persistentes, pode ser mais agressivo na limpeza destes dispositivos para garantir que o seu diretório não seja consumido com muitos dispositivos antigos.
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Configurar o Azure Ative Directy híbrido junta-se ao ambiente federado](hybrid-azuread-join-federated-domains.md)

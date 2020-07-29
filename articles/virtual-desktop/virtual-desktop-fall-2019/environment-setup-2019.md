@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop environment (outono 2019) - Azure
-description: Conheça os elementos básicos de um ambiente de desktop virtual do Windows (lançamento de outono 2019), como inquilinos e piscinas de anfitriões.
+title: Ambiente de Desktop Virtual (clássico) do Windows - Azure
+description: Os elementos básicos de um ambiente de desktop virtual do Windows (clássico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8cb41b4f94b14a94c79b490e38889825fd9d8d1a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2c019dd187c0ccd7a63f71c0373a0388135afda9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082652"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285021"
 ---
-# <a name="windows-virtual-desktop-environment-fall-2019-release"></a>Windows Virtual Desktop environment (lançamento outono 2019)
+# <a name="windows-virtual-desktop-classic-environment"></a>Ambiente de desktop virtual do Windows (clássico)
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../environment-setup.md).
+>Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows. Se estiver a tentar gerir os objetos de ambiente de trabalho virtuais do Azure Resource Manager Windows, consulte [este artigo](../environment-setup.md).
 
 O Windows Virtual Desktop é um serviço que dá aos utilizadores um acesso fácil e seguro aos seus desktops virtualizados e RemoteApps. Este tópico irá dizer-lhe um pouco mais sobre a estrutura geral do ambiente de trabalho virtual do Windows.
 

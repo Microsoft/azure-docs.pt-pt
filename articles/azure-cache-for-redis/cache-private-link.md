@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: 59d5c6c4a9c3af70eb08e9d5a05d516f4b8b8bdd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d85fe36bb948ae9a0c81fa25f87450c7f5fe93b7
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099661"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337267"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-preview"></a>Cache Azure para Redis com Link Privado Azure (Pré-visualização)
 Azure Private Endpoint é uma interface de rede que o liga de forma privada e segura ao Azure Cache para Redis alimentado por Azure Private Link. 
@@ -73,7 +73,7 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | Subscrição     | Desça e selecione a sua subscrição.                                  |
     | Grupo de Recursos   | Desça e selecione um grupo de recursos. |
     | **Detalhes da instância** |                                                                 |
-    | Name             | Inserir**\<virtual-network-name>**                                    |
+    | Nome             | Inserir**\<virtual-network-name>**                                    |
     | Região           | Selecione**\<region-name>** |
 
 4. Selecione o separador **endereços IP** ou selecione o botão **Seguinte: Endereços IP** na parte inferior da página.
@@ -124,7 +124,7 @@ Nesta secção, irá criar um ponto final privado e conectá-lo à cache que cri
     | Subscrição | Desça e selecione a sua subscrição. |
     | Grupo de recursos | Desça e selecione um grupo de recursos. |
     | **DETALHES DE INSTÂNCIA** |  |
-    | Name |Insira um nome para o seu ponto final privado.  |
+    | Nome |Insira um nome para o seu ponto final privado.  |
     | Região |Desça e selecione um local. |
     |||
 
@@ -149,3 +149,9 @@ Nesta secção, irá criar um ponto final privado e conectá-lo à cache que cri
 11. Selecione **Review + criar**. É levado para o **separador 'Rever +' onde**o   Azure valida a sua configuração.
 
 12. Assim que aparecer a mensagem **verde da validação,** selecione **Criar**.
+
+
+## <a name="next-steps"></a>Próximos Passos
+
+Para saber mais sobre o Private Link, consulte a [documentação do Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview). 
+

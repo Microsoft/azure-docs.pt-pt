@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
-ms.openlocfilehash: cef0fcb990cd2c5c6583822d4dc4c6993c52eac2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 114b8b32d4abb1fd9b7e641625cd1b132470bafd
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75666793"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281451"
 ---
 # <a name="migrate-logic-apps-to-latest-schema-version"></a>Migrar aplicativos lógicos para a versão mais recente do esquema
 
@@ -37,6 +38,7 @@ Aqui estão algumas das melhores práticas para migrar as suas aplicações lóg
 
 * Depois de terminar a migração, comece a atualizar as suas aplicações lógicas para utilizar as [APIs geridas](../connectors/apis-list.md) sempre que possível. Por exemplo, comece a usar o Dropbox v2 em todos os lugares que utiliza o DropBox v1.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba como [migrar manualmente as suas aplicações Lógicas](../logic-apps/logic-apps-schema-2015-08-01.md)
+* Saiba como [migrar manualmente as suas aplicações Lógicas](../logic-apps/logic-apps-schema-2016-04-01.md)
+

@@ -3,12 +3,12 @@ title: Azure Event Hubs - Exceções do Gestor de Recursos Microsoft Docs
 description: A lista de exceções do Azure Event Hubs surgiu pelo Azure Resource Manager e sugeriu ações.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: d8d52f0a0c58ee756afa4d5d8599e2981edb9cdc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa1a3ca647bbf9e6590446549455a9853411fd7d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85312528"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281043"
 ---
 # <a name="azure-event-hubs---resource-manager-exceptions"></a>Azure Event Hubs - Exceções do Gestor de Recursos
 Este artigo lista exceções geradas ao interagir com os Azure Event Hubs usando o Azure Resource Manager - através de modelos ou chamadas diretas.
@@ -44,7 +44,7 @@ As seguintes secções fornecem várias exceções/erros que são surgidos atrav
 | BadRequest | nenhum | Não é possível atualizar um espaço de nome que seja secundário | O espaço de nome não pode ser atualizado porque é o espaço de nome secundário num [emparelhamento GeoDR.](event-hubs-geo-dr.md) | Se apropriado, faça a alteração para o espaço de nome primário neste emparelhamento. Caso contrário, quebre o emparelhamento geoDR para fazer a alteração. |
 | BadRequest | nenhum | Não pode definir Auto-Insuflado em SKU básico | O Auto-Inflate não pode ser ativado em espaços de nomes de centros de eventos de nível básico. | Para [ativar o Auto Inflate](event-hubs-auto-inflate.md) num espaço de nome, certifique-se de que é de nível padrão. |
 | BadRequest | nenhum | Não há capacidade suficiente para criar o espaço de nomes. Contacte o administrador do Event Hubs. | A região selecionada está na capacidade e mais espaços de nome não podem ser criados. | Selecione outra região para alojar o seu espaço de nome. |
-| BadRequest | nenhum | The operation can't be done on entity type 'ConsumerGroup' because the namespace 'namespace name' is using 'Basic' tier.  | Os espaços de nomes de eventos de nível básico têm um [quota](event-hubs-quotas.md#event-hubs-basic-and-standard---quotas-e-limites) de um grupo de consumidores (o padrão). Criar mais grupos de consumidores não é apoiado. | Continue a utilizar o grupo de consumidores predefinido ($Default), ou se forem necessários mais, considere a utilização de um espaço de nome de padrão tier Event Hubs. | 
+| BadRequest | nenhum | The operation can't be done on entity type 'ConsumerGroup' because the namespace 'namespace name' is using 'Basic' tier.  | Os espaços de nomes de eventos de nível básico têm uma [quota](event-hubs-quotas.md#event-hubs-basic-and-standard---quotas-and-limits) de um grupo de consumidores (o padrão). Criar mais grupos de consumidores não é apoiado. | Continue a utilizar o grupo de consumidores predefinido ($Default), ou se forem necessários mais, considere a utilização de um espaço de nome de padrão tier Event Hubs. | 
 | BadRequest | nenhum | O nome do "nome do espaço de nome" não existe. | O espaço de nome fornecido não foi encontrado. | Verifique duas vezes se o nome do espaço de nome está correto e pode ser encontrado na sua subscrição. Se não for, [crie um espaço de nomes de Event Hubs](event-hubs-create.md). | 
 | BadRequest | nenhum | A propriedade de localização do recurso não corresponde ao seu espaço de nome. | A criação de um centro de eventos numa região específica falhou porque não correspondia à região do espaço de nomes. | Tente criar o centro de eventos na mesma região que o espaço de nomes. | 
 

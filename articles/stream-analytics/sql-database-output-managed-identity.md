@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: 757dd7280867e9b31fdc0750fc0848de8f266770
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: fff44617a5621d4edd84bee8f9b1e6b6e6924cd8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045625"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305929"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>Utilize identidades geridas para aceder à Base de Dados Azure SQL a partir de um trabalho de Azure Stream Analytics (Preview)
 
@@ -102,7 +102,7 @@ Em seguida, cria um utilizador de base de dados contido na sua Base de Dados SQL
 
 ## <a name="grant-stream-analytics-job-permissions"></a>Permissões de emprego grant Stream Analytics
 
-Depois de ter criado um utilizador de base de dados contido e de ter acesso aos serviços Azure no portal, conforme descrito na secção anterior, o seu trabalho stream Analytics tem permissão da Managed Identity para **ligar** ao seu recurso SQL Database através de identidade gerida. Recomendamos que conceda as permissões SELECT e INSERT para o trabalho stream Analytics, uma vez que estas serão necessárias mais tarde no fluxo de trabalho Stream Analytics. A permissão **SELECT** permite que a função teste a sua ligação à tabela na Base de Dados SQL. A permissão **INSERT** permite testar consultas de stream analytics de ponta a ponta uma vez configurada uma entrada e a saída sql Database. Pode conceder essas permissões ao trabalho stream Analytics utilizando o SQL Server Management Studio. Para obter mais informações, consulte a referência [GRANT (Transact-SQL).](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql?view=sql-server-ver15)
+Depois de ter criado um utilizador de base de dados contido e de ter acesso aos serviços Azure no portal, conforme descrito na secção anterior, o seu trabalho stream Analytics tem permissão da Managed Identity para **ligar** ao seu recurso SQL Database através de identidade gerida. Recomendamos que conceda as permissões SELECT e INSERT para o trabalho stream Analytics, uma vez que estas serão necessárias mais tarde no fluxo de trabalho Stream Analytics. A permissão **SELECT** permite que a função teste a sua ligação à tabela na Base de Dados SQL. A permissão **INSERT** permite testar consultas de stream analytics de ponta a ponta uma vez configurada uma entrada e a saída sql Database. Pode conceder essas permissões ao trabalho stream Analytics utilizando o SQL Server Management Studio. Para mais informações, consulte a referência GRANT (Transact-SQL).
 
 Para conceder apenas permissão a uma determinada tabela ou objeto na base de dados, utilize a seguinte sintaxe T-SQL e execute a consulta. 
 
@@ -124,7 +124,7 @@ Certifique-se de que criou uma tabela na sua Base de Dados SQL com o esquema de 
 
 1. Preencha o resto das propriedades. Para saber mais sobre a criação de uma saída de Base de Dados SQL, consulte [Criar uma saída de Base de Dados SQL com Stream Analytics](stream-analytics-define-outputs.md#sql-database). Quando terminar, **selecione Save**. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Compreender as saídas do Azure Stream Analytics](stream-analytics-define-outputs.md)
 * [Saída Azure Stream Analytics para Azure SQL Database](stream-analytics-sql-output-perf.md)

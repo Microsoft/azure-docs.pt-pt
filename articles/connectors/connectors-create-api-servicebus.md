@@ -7,11 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/19/2019
 tags: connectors
-ms.openlocfilehash: 50f43283d1113a5beb05b5898514623be37e5de9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 870ec6997b0abf5afc1c1bfa788bbca18c08ead7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84141998"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284001"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Troque mensagens na nuvem usando Azure Logic Apps e Azure Service Bus
 
@@ -149,13 +150,13 @@ Confirme que a sua aplicação lógica tem permissões para aceder ao seu espaç
 
    Por exemplo, pode adicionar uma ação que envia e-mail para confirmar que a sua mensagem foi enviada.
 
-1. Guarde a aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
+1. Guarde a sua aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
 
 <a name="sequential-convoy"></a>
 
 ## <a name="send-correlated-messages-in-order"></a>Enviar mensagens correlacionadas por ordem
 
-Quando precisa enviar mensagens relacionadas numa ordem específica, pode utilizar o padrão do [ *comboio sequencial* ](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy) utilizando o [conector Azure Service Bus](../connectors/connectors-create-api-servicebus.md). As mensagens correlacionadas têm uma propriedade que define a relação entre essas mensagens, como o ID para a [sessão](../service-bus-messaging/message-sessions.md) em Service Bus.
+Quando precisa enviar mensagens relacionadas numa ordem específica, pode utilizar o padrão do [ *comboio sequencial* ](/azure/architecture/patterns/sequential-convoy) utilizando o [conector Azure Service Bus](../connectors/connectors-create-api-servicebus.md). As mensagens correlacionadas têm uma propriedade que define a relação entre essas mensagens, como o ID para a [sessão](../service-bus-messaging/message-sessions.md) em Service Bus.
 
 Ao criar uma aplicação lógica, pode selecionar a **entrega de encomenda correlacionada utilizando** o modelo de sessões de autocarro de serviço, que implementa o padrão de comboio sequencial. Para obter mais informações, consulte [Enviar mensagens relacionadas por ordem](../logic-apps/send-related-messages-sequential-convoy.md).
 
@@ -167,6 +168,7 @@ O conector Service Bus pode economizar até 1.500 sessões únicas de cada vez, 
 
 Para outros detalhes técnicos sobre gatilhos, ações e limites, descritos pela descrição do Conector Swagger, consulte a página de referência do [conector](/connectors/servicebus/). Para mais informações sobre a Azure Service Bus Messaging, veja [o que é o Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)?
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [outros conectores de Apps Lógicas](../connectors/apis-list.md)
+

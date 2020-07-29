@@ -3,12 +3,12 @@ title: Veja a tendência mensal estimada de custos de laboratório na Azure DevT
 description: Este artigo fornece informações sobre como rastrear o custo do seu laboratório (tabela mensal estimada de tendência de custos) em Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b8bf8b1db82983cd7e1ecc5a45bf2d47a2787cc2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 220cbd1bc793e4bcfdf03a184d7463114506e6e0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482773"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283831"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Custos de pista associados a um laboratório em Azure DevTest Labs
 Este artigo fornece informações sobre como rastrear o custo do seu laboratório. Mostra como ver a tendência de custos estimada para o mês civil em curso para o laboratório. O artigo também mostra como visualizar o custo mensal por recurso no laboratório.
@@ -69,7 +69,7 @@ A DevTest Labs permite-lhe gerir melhor os custos do seu laboratório, definindo
      - Da mesma forma, se definir um URL webhook, deve definir **a Notificação** para **On no** painel de limiar de custo.
      - Tem de criar um webhook antes de o introduzir aqui.  
 
-       Para obter mais informações sobre webhooks, consulte [Criar um webhook ou a API Azure Function](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+       Para obter mais informações sobre webhooks, consulte [Criar um webhook ou a API Azure Function](../azure-functions/functions-bindings-http-webhook.md). 
 
 ## <a name="view-cost-by-resource"></a>Ver custo por recurso 
 A funcionalidade de tendência mensal de custos em laboratório permite-lhe ver quanto gastou no mês civil em curso. Mostra também a projeção dos gastos até ao final do mês, com base nos seus gastos nos últimos sete dias. Para ajudá-lo a entender por que os gastos no laboratório estão a cumprir os limiares desde o início, você pode usar o **custo por** recurso que mostra o custo mensal **por recurso** em uma tabela.
@@ -86,11 +86,10 @@ Esta funcionalidade ajuda-o a identificar facilmente os recursos que mais custam
 
 [A política de paragem automática ajuda-o](devtest-lab-set-lab-policy.md?#set-auto-shutdown-policy) a reduzir o custo desligando os VMs de laboratório numa determinada hora do dia. No entanto, um utilizador de laboratório pode optar por não fazer a política de encerramento, o que aumenta o custo de funcionamento do VM. Pode selecionar um VM na tabela para ver se foi excluído da política de paragem automática. Se for esse o caso, pode falar com o proprietário da VM para descobrir porque é que o VM foi excluído da apólice.
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Aqui estão algumas coisas a seguir:
 
 * [Definir políticas de laboratório](devtest-lab-set-lab-policy.md) - Aprenda a definir as várias políticas usadas para governar a forma como o seu laboratório e os seus VMs são usados. 
 * [Crie uma imagem personalizada](devtest-lab-create-template.md) - Quando criar um VM, especifique uma base, que pode ser uma imagem personalizada ou uma imagem do Marketplace. Este artigo ilustra como criar uma imagem personalizada a partir de um ficheiro VHD.
 * [Configure imagens marketplace](devtest-lab-configure-marketplace-images.md) - A DevTest Labs suporta a criação de VMs com base em imagens do Azure Marketplace. Este artigo ilustra como especificar quais, se houver, imagens do Azure Marketplace podem ser usadas ao criar VMs em laboratório.
 * [Criar um VM em laboratório](devtest-lab-add-vm.md) - Ilustra como criar um VM a partir de uma imagem base (personalizada ou marketplace), e como trabalhar com artefactos no seu VM.
-

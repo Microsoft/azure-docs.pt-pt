@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/19/2016
-ms.openlocfilehash: 39f564bea8d300d2966afe27ff0239c527f038cf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5af0eb20f9766369caa7351719b63b213c394e5d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092818"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305810"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Enviar dados de diagnóstico de Cloud Service, Virtual Machine ou Service Fabric para Application Insights
 Serviços em nuvem, máquinas virtuais, conjuntos de balanças de máquinas virtuais e tecido de serviço todos usam a extensão Azure Diagnostics para recolher dados.  O diagnóstico Azure envia dados para as tabelas de armazenamento Azure.  No entanto, também pode canalizar a totalidade ou um subconjunto dos dados para outros locais utilizando a extensão Azure Diagnostics 1.5 ou posterior.
@@ -59,8 +59,8 @@ Configuração de exemplo de um lavatório para Insights de Aplicação:
 - O atributo *do nome* **Sink** é um valor de corda que identifica exclusivamente a pia.
 
 - O elemento **ApplicationInsights** especifica a chave de instrumentação do recurso de insights de aplicação onde os dados de diagnóstico do Azure são enviados.
-    - Se não tiver um recurso de Insights de Aplicação existente, consulte [criar um novo recurso Application Insights](../../azure-monitor/app/create-new-resource.md ) para obter mais informações sobre a criação de um recurso e obter a chave de instrumentação.
-    - Se estiver a desenvolver um Serviço cloud com Azure SDK 2.8 e mais tarde, esta chave de instrumentação é automaticamente povoada. O valor baseia-se na configuração da configuração do serviço **APPINSIGHTS_INSTRUMENTATIONKEY** ao embalar o projeto Cloud Service. Consulte [o Uso de Insights de Aplicações com Serviços na Nuvem](../../azure-monitor/app/cloudservices.md).
+    - Se não tiver um recurso de Insights de Aplicação existente, consulte [criar um novo recurso Application Insights](../app/create-new-resource.md) para obter mais informações sobre a criação de um recurso e obter a chave de instrumentação.
+    - Se estiver a desenvolver um Serviço cloud com Azure SDK 2.8 e mais tarde, esta chave de instrumentação é automaticamente povoada. O valor baseia-se na configuração da configuração do serviço **APPINSIGHTS_INSTRUMENTATIONKEY** ao embalar o projeto Cloud Service. Consulte [o Uso de Insights de Aplicações com Serviços na Nuvem](../app/cloudservices.md).
 
 - O elemento **Channels** contém um ou mais elementos **do Canal.**
     - O *atributo de nome* refere-se exclusivamente a esse canal.
@@ -212,7 +212,8 @@ Na configuração anterior, as seguintes linhas têm os seguintes significados:
 - **O nível de registo de um canal não pode exceder o nível de registo para o que está a ser recolhido pelos diagnósticos Azure.** Por exemplo, não é possível recolher erros de Registo de Aplicações no elemento Logs e tentar enviar registos Verbose para a pia 'Insight de aplicação'. O atributo *DesferrLogLevelFilter programado* deve sempre recolher registos iguais ou mais do que os registos que está a tentar enviar para uma pia.
 - **Não é possível enviar dados blob recolhidos pela extensão de diagnóstico da Azure para a Application Insights.** Por exemplo, qualquer coisa especificada no nó *de Diretórios.* Para crash dumps o depósito de colisão real é enviado para o armazenamento de bolhas e apenas uma notificação de que o depósito de colisão foi gerado é enviado para a Application Insights.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * Saiba como ver as informações de [diagnóstico do Azure](../app/cloudservices.md) em Application Insights.
 * Utilize [o PowerShell](../../cloud-services/cloud-services-diagnostics-powershell.md) para ativar a extensão de diagnóstico Azure para a sua aplicação.
 * Utilize o [Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) para ativar a extensão de diagnóstico Azure para a sua aplicação
+

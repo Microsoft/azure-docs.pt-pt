@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/26/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 28ea1e68441a57d67fef1e78153e00eb1bd09211
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: dececd066597682e240e737727d3bcaf8f8f3619
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143903"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87375804"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>O utilizador precisa de ter hub e falou com dispositivos SD-WAN/VPN para utilizar o Azure Virtual WAN?
 
@@ -233,9 +233,17 @@ Se um Virtual Hub aprender a mesma rota a partir de vários hubs remotos, a orde
 
 O trânsito entre o ER-ER é sempre via Alcance Global. Gateways de hub virtuais são implantados nas regiões de DC ou Azure. Quando dois circuitos ExpressRoute se ligam via Alcance Global, não há necessidade de o tráfego vir dos routers de borda para o centro virtual DC.
 
-### <a name="is-there-a-concept-of-weight-in-azure-virtual-wan-circuits-or-vpn-connections"></a>Existe um conceito de peso nos circuitos Azure Virtual WAN ou ligações VPN
+### <a name="is-there-a-concept-of-weight-in-azure-virtual-wan-expressroute-circuits-or-vpn-connections"></a>Existe um conceito de peso nos circuitos Azure Virtual WAN ExpressRoute ou ligações VPN
 
 Quando vários circuitos ExpressRoute estão ligados a um hub virtual, o peso do encaminhamento na ligação fornece um mecanismo para que o ExpressRoute no centro virtual prefira um circuito em vez do outro. Não há mecanismo para definir um peso numa ligação VPN. O Azure prefere sempre uma ligação ExpressRoute em vez de uma ligação VPN dentro de um único hub.
+
+### <a name="does-virtual-wan-prefer-expressroute-over-vpn-for-traffic-egressing-azure"></a>Será que a Virtual WAN prefere o ExpressRoute em vez da VPN para a saída de tráfego do Azure
+
+Sim 
+
+### <a name="when-a-virtual-wan-hub-has-an-expressroute-circuit-and-a-vpn-site-connected-to-it-what-would-cause-a-vpn-connection-route-to-be-prefered-over-expressroute"></a>Quando um hub Virtual WAN tem um circuito ExpressRoute e um Site VPN ligado a ele, o que faria com que uma rota de ligação VPN fosse preferida em vez do ExpressRoute?
+
+Quando um circuito ExpressRoute está ligado ao Virtual Hub, os routers de borda da Microsoft são o primeiro nó para a comunicação entre as instalações e o Azure. Estes routers de borda comunicam com os gateways Virtual WAN ExpressRoute que, por sua vez, aprendem rotas a partir do router Virtual Hub que controla todas as rotas entre quaisquer gateways em VIRTUAL WAN. Os routers de borda da Microsoft processam rotas Virtual Hub ExpressRoute com maior preferência pelas rotas aprendidas a partir das instalações. Devido a qualquer razão se a ligação VPN se tornar o meio principal para o hub Virtual aprender rotas (por exemplo, cenários de failover entre ExpressRoute e VPN) , a menos que o VPN Site tenha um comprimento de AS mais longo, o Virtual Hub continuará a partilhar rotas aprendidas VPN com o ExpressRoute Gateway, fazendo com que os Routers Microsoft Edge prefiram rotas VPN sobre rotas no local. 
 
 ### <a name="when-two-hubs-hub-1-and-2-are-connected-and-there-is-an-expressroute-circuit-connected-as-a-bow-tie-to-both-the-hubs-what-is-the-path-for-a-vnet-connected-to-hub-1-to-reach-a-vnet-connected-in-hub-2"></a>Quando dois hubs (hub 1 e 2) estão ligados e há um circuito ExpressRoute ligado como um laço a ambos os centros, qual é o caminho para um VNet ligado ao hub 1 alcançar um VNet ligado no centro 2?
 
@@ -244,6 +252,10 @@ O comportamento atual é preferir o caminho do circuito ExpressRoute em vez do h
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>Existe suporte para o IPv6 em VIRTUAL WAN?
 
 O IPv6 não é suportado no centro VIRTUAL WAN e nas suas portas de entrada. Se tem um VNet que tem suporte IPv6 e gostaria de ligar o VNet ao WAN Virtual, este cenário não está atualmente suportado.
+
+### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionality-"></a>Qual é a versão API recomendada para ser usada por scripts automatizando várias funcionalidades De WAN Virtual?
+
+É necessária uma versão mínima de 05-01-2020 (1 de maio de 2020). 
 
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Quais são as diferenças entre os tipos de WAN Virtual (Básico e Standard)?
 

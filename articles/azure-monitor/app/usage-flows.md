@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6583a2fe5abd0193f37502e07c7b3fa0ee58ba9d
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: a31ab24b96fa44787d08801a0680f94ff98bb5a2
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963451"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87309274"
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Analise os padrões de navegação dos utilizadores com fluxos de utilizador em insights de aplicação
 
@@ -27,7 +27,7 @@ A ferramenta User Flows visualiza como os utilizadores navegam entre as páginas
 A ferramenta Fluxos de Utilizador começa a partir de uma vista inicial de página, evento personalizado ou exceção que especifica. Dado este evento inicial, o User Flows mostra os eventos que aconteceram antes e depois durante as sessões do utilizador. Linhas de espessura variada mostram quantas vezes cada caminho foi seguido pelos utilizadores. Os nós da **Special Session Started** mostram onde os nós subsequentes começaram uma sessão. Os nós **terminados** mostram quantos utilizadores não enviaram visualizações de página ou eventos personalizados após o nó anterior, realçando onde os utilizadores provavelmente deixaram o seu site.
 
 > [!NOTE]
-> O seu recurso Application Insights deve conter visualizações de página ou eventos personalizados para utilizar a ferramenta Fluxos de Utilizador. [Saiba como configurar a sua aplicação para recolher as vistas da página automaticamente com o App Insights JavaScript SDK](../../azure-monitor/app/javascript.md).
+> O seu recurso Application Insights deve conter visualizações de página ou eventos personalizados para utilizar a ferramenta Fluxos de Utilizador. [Saiba como configurar a sua aplicação para recolher as vistas da página automaticamente com o App Insights JavaScript SDK](./javascript.md).
 >
 >
 
@@ -52,7 +52,7 @@ Se faltam visualizações de página ou eventos personalizados que espera ver na
 * Consulte a secção **de eventos excluídos** no menu **Editar.**
 * Utilize os botões plus em **Outros** nós para incluir eventos menos frequentes na visualização.
 * Se a visualização da página ou evento personalizado que espera for enviado com frequência pelos utilizadores, tente aumentar o intervalo de tempo da visualização no menu **Editar.**
-* Certifique-se de que a visualização da página, evento personalizado ou exceção que espera que seja configurada para ser recolhida pelo Application Insights SDK no código fonte do seu site. [Saiba mais sobre a recolha de eventos personalizados.](../../azure-monitor/app/api-custom-events-metrics.md)
+* Certifique-se de que a visualização da página, evento personalizado ou exceção que espera que seja configurada para ser recolhida pelo Application Insights SDK no código fonte do seu site. [Saiba mais sobre a recolha de eventos personalizados.](./api-custom-events-metrics.md)
 
 Se quiser ver mais passos na visualização, utilize os **passos anteriores** e **os próximos passos** para descer acima da visualização.
 
@@ -87,9 +87,10 @@ Utilize a **Divisão por** opções no menu **Editar:**
 1. Escolha o evento que pretende quebrar no menu **Evento.**
 2. Escolha uma dimensão no menu **Dimension.** Por exemplo, se tiver um evento chamado "Button Clicked", experimente uma propriedade personalizada chamada "Nome do botão".
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral do uso](usage-overview.md)
 * [Users, Sessions, and Events](usage-segmentation.md) (Utilizadores, Sessões e Eventos)
 * [Retenção](usage-retention.md)
-* [Adicionar eventos personalizados à sua app](../../azure-monitor/app/api-custom-events-metrics.md)
+* [Adicionar eventos personalizados à sua app](./api-custom-events-metrics.md)
+

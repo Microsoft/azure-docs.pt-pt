@@ -4,15 +4,15 @@ description: Aprenda a criar, configurar e publicar uma oferta de módulo IoT Ed
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: anbene
-ms.author: mingshen
+author: keferna
+ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: b2a1e523e2af8c0be9c4211dfc8a0ffd2a889ca0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5ead227d886805c0ed48ebb52c4c0e30ef13b851
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053666"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320039"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Criar uma oferta de módulo do IoT Edge
 
@@ -131,7 +131,7 @@ Aqui definirá os detalhes da oferta que são apresentados no mercado. Isto incl
 > [!NOTE]
 > Os detalhes da oferta não são necessários para estar em inglês se a descrição da oferta começar com a frase: "Esta aplicação está disponível apenas em [língua não inglesa]." Também é normal fornecer um Link Útil para oferecer conteúdo num idioma diferente do usado na listagem de detalhes da Oferta.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 
 O nome que aqui entra apresenta como título da sua oferta. Este campo está pré-preenchido com o texto que inseriu na caixa **de pseudónimos Oferta** quando criou a oferta. Pode alterar este nome posteriormente.
 
@@ -229,7 +229,7 @@ Aqui está um exemplo de como a oferta de informação aparece no Azure Marketpl
 3. Endereço de suporte (link)
 4. Termos e condições
 5. Endereço de política de privacidade (link)
-6. Name
+6. Nome
 7. Resumo
 8. Descrição
 9. Ligações úteis

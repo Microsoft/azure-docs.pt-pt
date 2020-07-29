@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 4fc411d3833fcd47477e7e0fe11c6da9e2114143
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4e47b303548707074f51e5f3dd5f8840b3e7b5ed
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502032"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372234"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Como utilizar as chaves SSH com Windows on Azure
 
@@ -117,7 +117,7 @@ Se instalou o [pacote de descarregamento PuTTY](https://www.chiark.greenend.org.
 
 4. Clique **em Aberto** para ligar ao seu VM.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para etapas detalhadas, opções e exemplos avançados de trabalhar com chaves SSH, consulte [passos detalhados para criar pares de chaves SSH](create-ssh-keys-detailed.md).
 

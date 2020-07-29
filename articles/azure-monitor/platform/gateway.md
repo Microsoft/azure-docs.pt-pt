@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 550b4fb7ba17d911618e0b60d16c0a9f9d1f2cfa
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 94c668e7ffaff81fed9c2e511bc38239069fa43e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077281"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305215"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Conecte computadores sem acesso à Internet utilizando o gateway Log Analytics no Azure Monitor
 
@@ -89,7 +89,7 @@ O gateway Log Analytics está disponível nestes idiomas:
 
 O gateway Log Analytics suporta apenas a Segurança da Camada de Transporte (TLS) 1.0, 1.1 e 1.2.  Não suporta a camada de tomadas seguras (SSL).  Para garantir a segurança dos dados em trânsito para o Log Analytics, configure o gateway para utilizar pelo menos TLS 1.2. As versões mais antigas de TLS ou SSL são vulneráveis. Embora atualmente permitam retrocompatibilidade, evite usá-las.  
 
-Para obter informações adicionais, [reveja o envio de dados de forma segura utilizando o TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
+Para obter informações adicionais, [reveja o envio de dados de forma segura utilizando o TLS 1.2](./data-security.md#sending-data-securely-using-tls-12). 
 
 ### <a name="supported-number-of-agent-connections"></a>Número suportado de ligações de agentes
 
@@ -388,4 +388,5 @@ Para obter ajuda, selecione o ícone de ponto de interrogação no canto superio
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Adicione fontes de dados](../../azure-monitor/platform/agent-data-sources.md) para recolher dados de fontes conectadas e armazenar os dados no seu espaço de trabalho Log Analytics.
+[Adicione fontes de dados](./agent-data-sources.md) para recolher dados de fontes conectadas e armazenar os dados no seu espaço de trabalho Log Analytics.
+

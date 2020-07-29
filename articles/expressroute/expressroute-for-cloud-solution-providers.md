@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: ricarlse
 ms.custom: seodec18
-ms.openlocfilehash: a3bd48f32dfcee1a666ff842cfcab2384a5459ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5bf7a1e3cc2bfa8ccf42d05e199c58b8c9314fce
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67849252"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281706"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute para Fornecedores de Soluções em Nuvem (CSP)
 A Microsoft fornece serviços de hiper escala para revendedores e distribuidores (CSP) tradicionais de forma a aprovisionar novos serviços e soluções para os seus clientes sem a necessidade de investir no desenvolvimento destes novos serviços. Para permitir que o Fornecedor de Soluções em Nuvem (CSP) possa gerir diretamente estes novos serviços, a Microsoft disponibiliza programas e APIs que permitem ao CSP gerir os recursos do Microsoft Azure em nome dos seus clientes. Um destes recursos é o ExpressRoute. O ExpressRoute permite ao CSP ligar os recursos existentes do cliente aos serviços do Azure. O ExpressRoute é uma ligação privada de comunicações de alta velocidade para serviços no Azure. 
@@ -130,5 +130,5 @@ O serviço do Fornecedor de Soluções em Nuvem permite-lhe aumentar o seu valor
 Pode encontrar informações adicionais nas seguintes ligações:
 
 [Programa do Fornecedor de Soluções do Azure na Cloud](https://docs.microsoft.com/azure/cloud-solution-provider).  
-[Preparar-se para transacionar como um Fornecedor de Solução em Nuvem](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch).  
-[Recursos do Fornecedor de Soluções do Microsoft Cloud](https://partner.microsoft.com/en-us/solutions/cloud-reseller-resources).
+[Preparar-se para transacionar como um Fornecedor de Solução em Nuvem](https://partner.microsoft.com/solutions/cloud-reseller-pre-launch).  
+[Recursos do Fornecedor de Soluções do Microsoft Cloud](https://partner.microsoft.com/solutions/cloud-reseller-resources).

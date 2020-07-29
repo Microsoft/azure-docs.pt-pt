@@ -1,6 +1,6 @@
 ---
-title: Expandir piscina de anfitriões existente com novos anfitriões de sessão outono 2019 - Azure
-description: Como expandir um pool de anfitriões existente com novos anfitriões de sessão no Windows Virtual Desktop.
+title: Expandir o pool de anfitriões virtual do Windows Virtual (clássico) com novos anfitriões de sessão - Azure
+description: Como expandir um pool de anfitriões existente com novos anfitriões de sessão no Windows Virtual Desktop (clássico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 291dc32453001dd1e188bacae8be372bb3645ece
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ecdd63b054fda7f973898b0b3a42a29fc94c03bb
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527545"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285038"
 ---
-# <a name="expand-an-existing-host-pool-with-new-session-hosts-fall-2019"></a>Expandir uma piscina de anfitriões existente com novos anfitriões de sessão (outono 2019)
+# <a name="expand-an-existing-host-pool-with-new-session-hosts-in-windows-virtual-desktop-classic"></a>Expandir uma piscina de anfitriões existente com novos anfitriões de sessão no Windows Virtual Desktop (clássico)
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../expand-existing-host-pool.md).
+>Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows. Se estiver a tentar gerir os objetos de ambiente de trabalho virtuais do Azure Resource Manager Windows, consulte [este artigo](../expand-existing-host-pool.md).
 
 À medida que aumenta a utilização dentro da sua piscina de anfitriões, poderá ter de expandir a sua piscina de anfitriões existente com novos anfitriões de sessão para lidar com a nova carga.
 
@@ -76,7 +76,7 @@ Aqui está como recolocar o modelo do Gestor de Recursos Azure para expandir uma
 
 Siga as instruções em [Criar uma piscina de anfitriões utilizando o Azure Marketplace](create-host-pools-azure-marketplace-2019.md) até chegar ao Run the [Azure Marketplace oferecendo uma nova piscina de anfitriões.](create-host-pools-azure-marketplace-2019.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool) Quando chegar a esse ponto, terá de introduzir as seguintes informações para cada separador:
 
-### <a name="basics"></a>Informações básicas
+### <a name="basics"></a>Noções básicas
 
 Todos os valores nesta secção devem corresponder ao que forneceu quando criou os VMs de anfitrião e de anfitrião de sessão, com exceção *dos utilizadores de ambientes de trabalho predefinidos:*
 
@@ -126,7 +126,7 @@ Todos os valores de parâmetros nesta secção devem corresponder ao que fornece
 
 Siga as instruções em [Executar o modelo Azure Resource Manager para o fornecimento de uma nova piscina de anfitriões](create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool) e fornecer todos os mesmos valores de parâmetro, com exceção do *Número de Ocorrências do Rdsh*. Introduza o número de VMs do anfitrião de sessão que deseja na piscina de anfitrião depois de executar o modelo. Por exemplo, se estiver a expandir o seu pool de anfitriões de cinco sessão para oito, insira **8**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que expandiu o seu pool de anfitriões existente, pode iniciar sessão num cliente do Windows Virtual Desktop para testá-los como parte de uma sessão de utilizador. Pode ligar-se a uma sessão com qualquer um dos seguintes clientes:
 

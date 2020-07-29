@@ -1,6 +1,6 @@
 ---
 title: Rede global da Microsoft - Azure
-description: Descreve como a Microsoft constrói a sua rede global rápida e fiável
+description: Saiba como a Microsoft constrói e opera uma das maiores redes de espinha dorsal do mundo, e por que é fundamental para oferecer uma grande experiência em nuvem.
 services: networking
 documentationcenter: ''
 author: KumudD
@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: 5028417758bb8be38505d27d3dfb5e2fc055c3ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9420d52cf7d88ff84fd23928f92cdc62e9627619
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85125826"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280907"
 ---
 # <a name="microsoft-global-network"></a>Rede global da Microsoft
 
@@ -70,5 +70,5 @@ Estes princípios aplicam-se a todas as camadas da rede: desde a Interface de Re
  
 O crescimento exponencial do Azure e da sua rede chegou a um ponto em que eventualmente percebemos que a intuição humana já não podia ser confiada para gerir as operações globais da rede. Para satisfazer a necessidade de validar alterações de longo, médio e curto prazo na rede, desenvolvemos uma plataforma para espelhar e imitar a nossa rede de produção sinteticamente. A capacidade de criar ambientes espelhados e executar milhões de simulações, permite-nos testar alterações de software e hardware e o seu impacto, antes de os comprometer com a nossa plataforma de produção e rede. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Saiba mais sobre os serviços de networking prestados em Azure](https://azure.microsoft.com/product-categories/networking/)

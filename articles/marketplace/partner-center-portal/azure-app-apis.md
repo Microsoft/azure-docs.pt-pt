@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: c8343f0954f02423fc48347911f10cf5b9ddee96
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.author: mingshen
+author: mingshen-ms
+ms.openlocfilehash: fec52caa3cb7565a86a6c50d300fe448b6518457
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122001"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320073"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>Parceiro Center submissão API para apps Azure a bordo no Partner Center
 
@@ -69,7 +71,7 @@ Depois de ter um token de acesso AD Azure, pode ligar para métodos na API de su
 
 https://apidocs.microsoft.com/services/partneringestion/
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como criar [um ativo técnico Azure VM](create-azure-container-technical-assets.md)
 * Saiba como criar uma oferta de [recipiente azure](create-azure-container-offer.md)

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
-ms.openlocfilehash: 7ca106e076bc789e8435b9e67d6bffa20af8a635
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 901ad08440cf1cfbbbab4779a08a87c89a72cc59
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539181"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281502"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Escalões de serviço no modelo de compra baseado em DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -59,7 +59,7 @@ A escolha de um nível de serviço depende principalmente da continuidade do neg
 
 Os tamanhos de cálculo são expressos em termos de Unidades de Transação de Dados de Base de Dados (DTUs) para bases de dados únicas e unidades elásticas de transação de bases de dados (eDTUs) para piscinas elásticas. Para mais informações sobre DTUs e eDTUs, consulte [o modelo de compra baseado em DTU.](purchasing-models.md#dtu-based-purchasing-model)
 
-|Básica|Standard|Premium|
+||Básica|Standard|Premium|
 | :-- | --: | --: | --: |
 | Tamanho máximo de armazenamento | 2 GB | 1 TB | 4 TB  |
 | DTUs máximos | 5 | 3.000 | 4000 | 
@@ -70,7 +70,7 @@ Os tamanhos de cálculo são expressos em termos de Unidades de Transação de D
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>EDTU elástico de piscina, armazenamento e limites de base de dados em conjunto
 
-| **Básica** | **Standard** | **Premium** |
+|| **Básica** | **Standard** | **Premium** |
 | :-- | --: | --: | --: |
 | Tamanho máximo de armazenamento por base de dados  | 2 GB | 1 TB | 1 TB |
 | Tamanho máximo de armazenamento por piscina | 156 GB | 4 TB | 4 TB |
@@ -177,7 +177,7 @@ As métricas-chave no benchmark são o tempo de produção e resposta.
 | Standard |Transações por minuto |Percentil 90 a 1,0 segundos |
 | Básico |Transações por hora |Percentil 80 a 2,0 segundos |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter informações sobre tamanhos específicos de cálculo e opções de tamanho de armazenamento disponíveis para bases de dados individuais, consulte [os limites de recursos baseados em DTU da Base de Dados SQL para bases de dados individuais.](resource-limits-dtu-single-databases.md#single-database-storage-sizes-and-compute-sizes)
 - Para obter detalhes sobre tamanhos específicos de computação e opções de tamanho de armazenamento disponíveis para piscinas elásticas, consulte [os limites de recursos baseados em DTU da Base de Dados SQL](resource-limits-dtu-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).

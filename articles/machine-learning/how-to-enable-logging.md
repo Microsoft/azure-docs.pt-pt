@@ -6,15 +6,15 @@ author: BlackMist
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 03/05/2020
-ms.custom: tracking-python
-ms.openlocfilehash: c8f9923f9a5c4954fbc4682f464100b18eb469eb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: d4fb08a618c6dfb35f3f8d154af6820c92d62781
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536203"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320141"
 ---
 # <a name="enable-logging-in-azure-machine-learning"></a>Ativar o registo em Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -112,6 +112,6 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Monitorize e recolha dados dos pontos finais do serviço web ML](how-to-enable-app-insights.md)
