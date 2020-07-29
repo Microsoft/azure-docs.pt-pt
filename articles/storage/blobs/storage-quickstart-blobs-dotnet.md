@@ -3,23 +3,20 @@ title: 'Quickstart: Biblioteca de armazenamento Azure Blob v12 - .NET'
 description: Neste arranque rápido, aprende-se a utilizar a versão 12 da biblioteca do cliente de armazenamento Azure Blob para .NET para criar um recipiente e uma bolha no armazenamento blob (objeto). Em seguida, vai aprender a transferir o blob para o computador local e a listar todos os blobs num contentor.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/05/2019
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 26594486e1d98c0349fd41470c749109faf71b0b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d142206a9640ce53ea7463a2c68c5d1c8f64c354
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011418"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287195"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Início Rápido: biblioteca de cliente do armazenamento de blobs do Azure v12 para .NET
 
 Começa com a biblioteca de clientes de armazenamento Azure Blob v12 para .NET. O Armazenamento de blobs do Azure é a solução de armazenamento de objetos da Microsoft para a cloud. Siga as medidas para instalar a embalagem e experimente o código de exemplo para tarefas básicas. O armazenamento de blobs está otimizado para armazenar quantidades em grande escala de dados não estruturados.
-
-> [!NOTE]
-> Para começar com a versão SDK anterior, consulte [a biblioteca de clientes de armazenamento Quickstart: Azure Blob para .NET](storage-quickstart-blobs-dotnet-legacy.md).
 
 Utilize a biblioteca de clientes de armazenamento Azure Blob v12 para .NET para:
 

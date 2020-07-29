@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: d13a7cf87ba22dce96992c362f8b800ba79f6976
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 12d87d6d458d6cda21ca581337012e800a3d4bce
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539640"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324323"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Recolher dados de um computador Windows em ambiente híbrido com o Azure Monitor
 
-[O Azure Monitor](../overview.md) pode recolher dados diretamente de si é o seu computador Windows físico ou virtual no seu ambiente num espaço de trabalho do Log Analytics para análise e correlação detalhadas. A instalação do [agente Log Analytics](../platform/log-analytics-agent.md) permite ao Azure Monitor recolher dados de um datacenter ou de outro ambiente em nuvem. Este início rápido mostra-lhe como configurar e recolher dados do seu computador Windows em alguns passos simples. Para obter informações sobre VMs do Azure Windows, consulte [recolher dados sobre máquinas virtuais Azure](../../azure-monitor/learn/quick-collect-azurevm.md).  
+[O Azure Monitor](../overview.md) pode recolher dados diretamente de si é o seu computador Windows físico ou virtual no seu ambiente num espaço de trabalho do Log Analytics para análise e correlação detalhadas. A instalação do [agente Log Analytics](../platform/log-analytics-agent.md) permite ao Azure Monitor recolher dados de um datacenter ou de outro ambiente em nuvem. Este início rápido mostra-lhe como configurar e recolher dados do seu computador Windows em alguns passos simples. Para obter informações sobre VMs do Azure Windows, consulte [recolher dados sobre máquinas virtuais Azure](./quick-collect-azurevm.md).  
 
-Para compreender a configuração suportada, consulte [sistemas operativos Windows suportados](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) e [configuração de firewall de rede](../../azure-monitor/platform/log-analytics-agent.md#network-requirements).
+Para compreender a configuração suportada, consulte [sistemas operativos Windows suportados](../platform/log-analytics-agent.md#supported-windows-operating-systems) e [configuração de firewall de rede](../platform/log-analytics-agent.md#network-requirements).
  
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -142,7 +142,7 @@ Agora que habilitou a recolha de dados, vamos fazer uma simples pesquisa de regi
 
     ![Resultado da pesquisa de registos do Log Analytics](media/quick-collect-azurevm/log-analytics-search-perf.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Pode remover o agente do seu computador e eliminar o espaço de trabalho Log Analytics se já não precisar deles.  
 
@@ -158,7 +158,7 @@ Para eliminar o espaço de trabalho Log Analytics que criou anteriormente, selec
 
 ![Excluir log analytics espaço de trabalho](media/quick-collect-azurevm/log-analytics-portal-delete-resource.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que está a recolher dados operacionais e de desempenho do seu computador Windows, pode facilmente começar a explorar, analisar e agir nos dados que recolhe, *gratuitamente.*  
 
@@ -166,3 +166,4 @@ Para aprender a ver e analisar os dados, continue ao tutorial:
 
 > [!div class="nextstepaction"]
 > [Ver ou analisar dados no Log Analytics](../log-query/get-started-portal.md)
+

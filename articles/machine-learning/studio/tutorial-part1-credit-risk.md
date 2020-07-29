@@ -1,6 +1,5 @@
 ---
-title: 'Tutorial 1: Prever o risco de crédito'
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clássico) tutorial: Prever risco de crédito - Azure'
 description: Um tutorial detalhado que mostra como criar uma solução de análise preditiva para a avaliação do risco de crédito no Azure Machine Learning Studio (clássico). Este tutorial é parte um de uma série tutorial em três partes.  Mostra como criar um espaço de trabalho, carregar dados e criar uma experiência.
 keywords: risco de crédito, solução de análise preditiva, avaliação de riscos
 author: sdgilley
@@ -10,14 +9,17 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 59874387b6dfc23fddbd6c6eed89263a54389649
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b8e2d0cd0d9aa567cfab9e2fef66ad6363e59d53
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048000"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324901"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Tutorial 1: Prever o risco de crédito - Azure Machine Learning Studio (clássico)
+
+**APLICA-SE A:** ![ no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) yes Machine Learning Studio ![ ](../../../includes/media/aml-applies-to-skus/yes.png) (clássico) 
+
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -292,7 +294,7 @@ A nossa experiência agora é mais ou menos assim:
 Para obter mais informações sobre a utilização de scripts R nas suas experiências, consulte [Extend your experiment with R](extend-your-experiment-with-r.md).
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [machine-learning-studio-clean-up](../../../includes/machine-learning-studio-clean-up.md)]
 

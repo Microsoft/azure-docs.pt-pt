@@ -2,27 +2,48 @@
 title: Mobilizar recursos para o grupo de gestão
 description: Descreve como implantar recursos no âmbito do grupo de gestão num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.openlocfilehash: 863d1330412fa238b820eb0f1f05351fc723de6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/27/2020
+ms.openlocfilehash: a17387aef4d35c042d1fe0b02f1c6fd447e4a918
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79460318"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321807"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Criar recursos ao nível do grupo de gestão
 
-À medida que a sua organização amadurece, poderá ter de definir e atribuir [políticas](../../governance/policy/overview.md) ou [controlos de acesso baseados em funções](../../role-based-access-control/overview.md) para um grupo de gestão. Com modelos de nível de grupo de gestão, pode aplicar declarativamente políticas e atribuir funções ao nível do grupo de gestão.
+À medida que a sua organização amadurece, pode implementar um modelo de Gestor de Recursos Azure (modelo ARM) para criar recursos ao nível do grupo de gestão. Por exemplo, poderá ser necessário definir e atribuir [políticas](../../governance/policy/overview.md) ou [controlos de acesso baseados em funções](../../role-based-access-control/overview.md) para um grupo de gestão. Com modelos de nível de grupo de gestão, pode aplicar declarativamente políticas e atribuir funções ao nível do grupo de gestão.
 
 ## <a name="supported-resources"></a>Recursos suportados
 
-Pode implementar os seguintes tipos de recursos ao nível do grupo de gestão:
+Nem todos os tipos de recursos podem ser implantados ao nível do grupo de gestão. Esta secção lista quais os tipos de recursos suportados.
 
-* [implementações](/azure/templates/microsoft.resources/deployments) - para modelos aninhados que se implantam em subscrições ou grupos de recursos.
+Para plantas Azure, utilize:
+
+* [artefactos](/azure/templates/microsoft.blueprint/blueprints/artifacts)
+* [plantas](/azure/templates/microsoft.blueprint/blueprints)
+* [blueprintAsignments](/azure/templates/microsoft.blueprint/blueprintassignments)
+* [versões](/azure/templates/microsoft.blueprint/blueprints/versions)
+
+Para políticas de Azure, utilize:
+
 * [políticasAssinsagens](/azure/templates/microsoft.authorization/policyassignments)
 * [políticasDefinições](/azure/templates/microsoft.authorization/policydefinitions)
 * [políticasSetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
+* [remediações](/azure/templates/microsoft.policyinsights/remediations)
+
+Para o controlo de acesso baseado em funções, utilize:
+
 * [papéAs de assinaturas](/azure/templates/microsoft.authorization/roleassignments)
 * [funçõesDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
+
+Para modelos aninhados que se implementem para subscrições ou grupos de recursos, utilize:
+
+* [implementações](/azure/templates/microsoft.resources/deployments)
+
+Para gerir os seus recursos, utilize:
+
+* [tags](/azure/templates/microsoft.resources/tags)
 
 ### <a name="schema"></a>Esquema
 
@@ -74,6 +95,95 @@ Pode fornecer um nome para a implementação ou utilizar o nome de implementaç�
 
 Para cada nome de implantação, a localização é imutável. Não é possível criar uma implantação num local quando há uma implantação existente com o mesmo nome num local diferente. Se obter o código de erro `InvalidDeploymentLocation` , utilize um nome diferente ou o mesmo local que a colocação anterior para esse nome.
 
+## <a name="deployment-scopes"></a>Âmbitos de implantação
+
+Ao ser destacado para um grupo de gestão, pode direcionar o grupo de gestão especificado no comando de implantação ou outros grupos de gestão no arrendatário. Também pode direcionar subscrições ou grupos de recursos dentro de um grupo de gestão. O utilizador que implementa o modelo deve ter acesso ao âmbito especificado.
+
+Os recursos definidos na secção de recursos do modelo são aplicados ao grupo de gestão a partir do comando de implantação.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        management-group-level-resources
+    ],
+    "outputs": {}
+}
+```
+
+Para direcionar outro grupo de gestão, adicione uma implantação aninhada e especifique a `scope` propriedade.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "mgName": {
+            "type": "string"
+        }
+    },
+    "variables": {
+        "mgId": "[concat('Microsoft.Management/managementGroups/', parameters('mgName'))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2019-10-01",
+            "name": "nestedDeployment",
+            "scope": "[variables('mgId')]",
+            "location": "eastus",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    nested-template
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Para direcionar uma subscrição dentro do grupo de gestão, utilize uma implantação aninhada e a `subscriptionId` propriedade. Para direcionar um grupo de recursos dentro dessa subscrição, adicione outra implantação aninhada e a `resourceGroup` propriedade.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-06-01",
+      "name": "nestedSub",
+      "location": "westus2",
+      "subscriptionId": "00000000-0000-0000-0000-000000000000",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "resources": [
+            {
+              "type": "Microsoft.Resources/deployments",
+              "apiVersion": "2020-06-01",
+              "name": "nestedRG",
+              "resourceGroup": "rg2",
+              "properties": {
+                "mode": "Incremental",
+                "template": {
+                  nested-template
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
 ## <a name="use-template-functions"></a>Use funções de modelo
 
 Para implementações de grupos de gestão, existem algumas considerações importantes ao utilizar funções de modelo:
@@ -95,7 +205,7 @@ Para implementações de grupos de gestão, existem algumas considerações impo
   /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
   ```
 
-## <a name="create-policies"></a>Criar políticas
+## <a name="azure-policy"></a>Azure Policy
 
 ### <a name="define-policy"></a>Definir política
 
@@ -165,11 +275,87 @@ O exemplo a seguir atribui uma definição de política existente ao grupo de ge
 }
 ```
 
-## <a name="template-sample"></a>Amostra de modelo
+## <a name="deploy-to-subscription-and-resource-group"></a>Implementar para grupo de subscrição e recursos
 
-* [Criar um grupo de recursos, uma política e uma atribuição de políticas.](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json)
+A partir de uma implementação de nível de grupo de gestão, você pode direcionar uma subscrição dentro do grupo de gestão. O exemplo a seguir cria um grupo de recursos dentro de uma subscrição e implementa uma conta de armazenamento para esse grupo de recursos.
 
-## <a name="next-steps"></a>Próximos passos
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "nestedsubId": {
+      "type": "string"
+    },
+    "nestedRG": {
+      "type": "string"
+    },
+    "storageAccountName": {
+      "type": "string"
+    },
+    "nestedLocation": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-06-01",
+      "name": "nestedSub",
+      "location": "[parameters('nestedLocation')]",
+      "subscriptionId": "[parameters('nestedSubId')]",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+          },
+          "variables": {
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Resources/resourceGroups",
+              "apiVersion": "2020-06-01",
+              "name": "[parameters('nestedRG')]",
+              "location": "[parameters('nestedLocation')]",
+            },
+            {
+              "type": "Microsoft.Resources/deployments",
+              "apiVersion": "2020-06-01",
+              "name": "nestedSubRG",
+              "resourceGroup": "[parameters('nestedRG')]",
+              "dependsOn": [
+                "[parameters('nestedRG')]"
+              ],
+              "properties": {
+                "mode": "Incremental",
+                "template": {
+                  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                  "contentVersion": "1.0.0.0",
+                  "resources": [
+                    {
+                      "type": "Microsoft.Storage/storageAccounts",
+                      "apiVersion": "2019-04-01",
+                      "name": "[parameters('storageAccountName')]",
+                      "location": "[parameters('nestedLocation')]",
+                      "sku": {
+                        "name": "Standard_LRS"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+## <a name="next-steps"></a>Passos seguintes
 
 * Para aprender sobre a atribuição de funções, consulte [Gerir o acesso aos recursos do Azure utilizando modelos de Gestor de Recursos RBAC e Azure](../../role-based-access-control/role-assignments-template.md).
 * Para um exemplo de implantação de configurações de espaço de trabalho para o Centro de Segurança Azure, consulte [deployASCwithWorkspaceSettings.jsem](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).

@@ -4,15 +4,15 @@ description: Saiba como criar uma oferta de máquina virtual no Azure Marketplac
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: emuench
-ms.author: mingshen
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 07/17/2020
-ms.openlocfilehash: 6df1620f2d1097ac23e5dfa3903fefc74d13fa65
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8da76650f9cc3da0ff8f79a9d3df7a00cdd01a24
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012030"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324697"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Crie uma oferta de máquina virtual Azure no Azure Marketplace
 
@@ -180,7 +180,7 @@ Na página de **listagem da Oferta,** define os detalhes da oferta, tais como no
 
 ### <a name="marketplace-details"></a>Detalhes do mercado
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>Nome
 
 O nome que aqui entra é mostrado aos clientes como o título da sua listagem de oferta. Este campo é preenchido automaticamente com o nome que inseriu na caixa **de pseudónimos Oferta** quando criou a oferta. Pode alterar este nome posteriormente. O nome:
 
@@ -226,7 +226,7 @@ Forneça o site de suporte onde os clientes podem chegar à sua equipa de apoio.
 
 Forneça informações de contacto para os parceiros da Microsoft utilizarem quando os seus clientes abrirem um bilhete de suporte. Esta informação não está listada no Azure Marketplace.
 
-- Name
+- Nome
 - E-mail
 - Telefone
 
@@ -234,7 +234,7 @@ Forneça informações de contacto para os parceiros da Microsoft utilizarem qua
 
 Forneça informações de contacto para que a Microsoft possa utilizar quando houver problemas com a sua oferta, incluindo problemas com a certificação. Esta informação não está listada no Azure Marketplace.
 
-- Name
+- Nome
 - E-mail
 - Telefone
 

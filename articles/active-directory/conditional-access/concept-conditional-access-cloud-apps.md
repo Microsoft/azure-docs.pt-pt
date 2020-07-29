@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfdfcda0ce466299d57f79ba1e60a96309078587
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be80ff95cc03f8cf2a08e9ce92146fe5028dcb9c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84014354"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87275277"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acesso Condicional: aplicativos ou ações na nuvem
 
@@ -34,7 +35,7 @@ Os administradores podem atribuir uma política de acesso condicional às seguin
 
 - [Escritório 365 (pré-visualização)](#office-365-preview)
 - Azure Analysis Services
-- Azure DevOps
+- DevOps do Azure
 - [Base de Dados SQL do Azure e Azure SQL Data Warehouse](../../azure-sql/database/conditional-access-configure.md)
 - Dynamics CRM Online
 - Microsoft Application Insights Analytics
@@ -53,7 +54,7 @@ Os administradores podem atribuir uma política de acesso condicional às seguin
 - Pesquisa da Microsoft em Bing
 - Microsoft StaffHub
 - Microsoft Stream
-- Microsoft Teams
+- Microsoft Stream
 - Bolsa de Escritório 365 Online
 - Office 365 SharePoint Online
 - Escritório 365 Yammer
@@ -80,7 +81,7 @@ Aplicações-chave incluídas na aplicação do cliente Office 365 (pré-visuali
    - Microsoft Forms
    - Microsoft Stream
    - Microsoft To-Do
-   - Microsoft Teams
+   - Microsoft Stream
    - Bolsa de Escritório 365 Online
    - Office 365 SharePoint Online
    - Serviço de Pesquisa do Office 365
@@ -102,7 +103,7 @@ A aplicação Microsoft Azure Management inclui vários serviços subjacentes.
    - APIs modelo de implementação clássico
    - Azure PowerShell
    - Portal de administrador de subscrições de Estúdio Visual
-   - Azure DevOps
+   - DevOps do Azure
    - Portal Azure Data Factory
 
 > [!NOTE]
@@ -116,6 +117,7 @@ Além das aplicações da Microsoft, os administradores podem adicionar qualquer
 - [Candidaturas adicionadas da galeria](../manage-apps/add-application-portal.md)
 - [Aplicações personalizadas não na galeria](../manage-apps/add-non-gallery-app.md)
 - [Aplicações legacy publicadas através de controladores e redes de entrega de aplicações](../manage-apps/secure-hybrid-access.md)
+- Aplicações que usam [palavra-passe com base em sing-on único](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
 > [!NOTE]
 > Uma vez que a política de acesso condicional define os requisitos para aceder a um serviço, não é possível aplicá-lo a uma aplicação de cliente (público/nativo). Outras palavras, a apólice não é definida diretamente numa aplicação de cliente (público/nativo), mas é aplicada quando um cliente chama um serviço. Por exemplo, uma política definida no serviço SharePoint aplica-se aos clientes que ligam para o SharePoint. Uma política definida no Exchange aplica-se à tentativa de aceder ao e-mail utilizando o cliente Outlook. É por isso que as aplicações de cliente (público/nativo) não estão disponíveis para seleção na opção Cloud Apps picker e Conditional Access não está disponível nas configurações de aplicação para o cliente (público/nativo) registada no seu inquilino. 
@@ -125,7 +127,7 @@ Além das aplicações da Microsoft, os administradores podem adicionar qualquer
 
 As ações do utilizador são tarefas que podem ser executadas por um utilizador. A única ação atualmente suportada é **registar informações de segurança,** que permite que a política de acesso condicional seja executada quando os utilizadores que estão habilitados para a tentativa de registo combinado de registo das suas informações de segurança. Mais informações podem ser encontradas no artigo, [registo combinado de informações de segurança.](../authentication/concept-registration-mfa-sspr-combined.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Acesso Condicional: Condições](concept-conditional-access-conditions.md)
 

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 0a82a35f1736aa7908928cbca3397cbe9c705e5b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f10bb1f4065f3bdb517fcad4f3eb6caa331c5233
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088111"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87273206"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Gateway de Aplicação com dimensionamento automático e redundância entre zonas v2 
 
-O Gateway de Aplicações e a Firewall de Aplicações Web (WAF) também estão disponíveis sob um Standard_v2 e WAF_v2 SKU. O V2 SKU oferece melhorias de desempenho e adiciona suporte para novas funcionalidades críticas como autoscaling, redundância de zona e suporte para VIPs estáticos. As funcionalidades existentes ao abrigo da Norma e da WAF SKU continuam a ser suportadas no novo V2 SKU, com algumas exceções enumeradas na secção [de comparação.](#differences-from-v1-sku)
+O Gateway de Aplicações está disponível sob um Standard_v2 SKU. Web Application Firewall (WAF) está disponível sob um WAF_v2 SKU. O V2 SKU oferece melhorias de desempenho e adiciona suporte para novas funcionalidades críticas como autoscaling, redundância de zona e suporte para VIPs estáticos. As funcionalidades existentes ao abrigo da Norma e da WAF SKU continuam a ser suportadas no novo V2 SKU, com algumas exceções enumeradas na secção [de comparação.](#differences-from-v1-sku)
 
 O novo V2 SKU inclui as seguintes melhorias:
 

@@ -1,6 +1,6 @@
 ---
-title: Ligue-se ao Windows Virtual Desktop Fall 2019 a partir do Android - Azure
-description: Como ligar-se ao Windows Virtual Desktop utilizando o cliente Android.
+title: Conecte-se ao Windows Virtual Desktop (clássico) do Android - Azure
+description: Como ligar-se ao Windows Virtual Desktop (clássico) utilizando o cliente Android.
 services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ccea4e39146500cb9d3796c4ca99725e2e2ac429
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fd319c7a6b356052f91e779e2f2a67eff4c4b6de
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087157"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87270758"
 ---
-# <a name="connect-with-the-android-client"></a>Ligar ao cliente Android
+# <a name="connect-to-windows-virtual-desktop-classic-with-the-android-client"></a>Conecte-se ao Windows Virtual Desktop (clássico) com o cliente Android
 
 > Aplica-se a: Android 4.1 e posteriormente, Chromebooks com ChromeOS 53 e mais tarde.
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../connect-android.md).
+>Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows. Se estiver a tentar gerir os objetos de ambiente de trabalho virtuais do Azure Resource Manager Windows, consulte [este artigo](../connect-android.md).
 
 >[!NOTE]
 > A capacidade de aceder aos recursos de Desktop Virtual do Windows a partir do cliente Android está atualmente disponível em pré-visualização.

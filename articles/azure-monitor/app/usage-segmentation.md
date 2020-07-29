@@ -6,16 +6,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0d605286df70988852d1650be58cfb2c395de814
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d11b12ba37d543ec21985c52c4ffb3399bfc56d1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539810"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323524"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Utilizadores, sessões e análise de eventos em Insights de Aplicações
 
-Descubra quando as pessoas usam a sua aplicação web, quais as páginas em que estão mais interessados, onde os seus utilizadores estão localizados, e quais os navegadores e sistemas operativos que utilizam. Analise a telemetria de negócios e de utilização utilizando [o Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
+Descubra quando as pessoas usam a sua aplicação web, quais as páginas em que estão mais interessados, onde os seus utilizadores estão localizados, e quais os navegadores e sistemas operativos que utilizam. Analise a telemetria de negócios e de utilização utilizando [o Azure Application Insights](./app-insights-overview.md).
 
 ![Screenshot dos utilizadores de insights de aplicações](./media/usage-segmentation/0001-users.png)
 
@@ -29,9 +29,9 @@ Três das lâminas de utilização usam a mesma ferramenta para cortar e picar t
 
 * **Ferramenta dos utilizadores**: Quantas pessoas utilizaram a sua aplicação e as suas funcionalidades.  Os utilizadores são contados usando IDs anónimos armazenados em cookies de navegador. Uma única pessoa que utilize diferentes navegadores ou máquinas será contada como mais do que um utilizador.
 * **Ferramenta de sessões**: Quantas sessões de atividade do utilizador incluíram certas páginas e funcionalidades da sua aplicação. Uma sessão é contada após meia hora de inatividade do utilizador, ou após 24 horas de utilização contínua.
-* **Ferramenta eventos**: Quantas vezes são utilizadas determinadas páginas e funcionalidades da sua aplicação. Uma vista de página é contada quando um navegador carrega uma página da sua aplicação, desde que a tenha [instrumentalizado](../../azure-monitor/app/javascript.md). 
+* **Ferramenta eventos**: Quantas vezes são utilizadas determinadas páginas e funcionalidades da sua aplicação. Uma vista de página é contada quando um navegador carrega uma página da sua aplicação, desde que a tenha [instrumentalizado](./javascript.md). 
 
-    Um evento personalizado representa uma ocorrência de algo acontecendo na sua app, muitas vezes uma interação do utilizador como um clique de botão ou a conclusão de alguma tarefa. Insere código na sua aplicação para [gerar eventos personalizados.](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)
+    Um evento personalizado representa uma ocorrência de algo acontecendo na sua app, muitas vezes uma interação do utilizador como um clique de botão ou a conclusão de alguma tarefa. Insere código na sua aplicação para [gerar eventos personalizados.](./api-custom-events-metrics.md#trackevent)
 
 ## <a name="querying-for-certain-users"></a>Consulta para determinados utilizadores
 
@@ -55,12 +55,13 @@ Para partilhar uma cópia dos dados num relatório de Utilizadores, Sessões ou 
 
 A secção **Meet, os seus utilizadores,** mostra informações sobre cinco utilizadores de amostras que correspondem à consulta atual. Considerar e explorar os comportamentos dos indivíduos, além de agregados, pode fornecer insights sobre como as pessoas realmente usam a sua app.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para ativar experiências de utilização, comece a enviar [eventos personalizados](./api-custom-events-metrics.md#trackevent) ou [vistas de página.](./api-custom-events-metrics.md#page-views)
 - Se já envia eventos personalizados ou vistas de página, explore as ferramentas de Utilização para saber como os utilizadores usam o seu serviço.
     - [Funis](usage-funnels.md)
     - [Retenção](usage-retention.md)
     - [Fluxos do Utilizador](usage-flows.md)
-    - [Livros](../../azure-monitor/platform/workbooks-overview.md)
+    - [Livros](../platform/workbooks-overview.md)
     - [Adicionar contexto de utilizador](usage-send-user-context.md)
+

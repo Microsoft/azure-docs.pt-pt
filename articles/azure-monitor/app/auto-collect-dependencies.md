@@ -5,12 +5,12 @@ ms.topic: reference
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/06/2020
-ms.openlocfilehash: ba7830cc1c0a3e6a563b4343b37ec07f7d508af4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2227facfcf469bc22034da0da504b390cc0deee1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087990"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324187"
 ---
 # <a name="dependency-auto-collection"></a>Coleção automática da dependência
 
@@ -23,7 +23,7 @@ Abaixo está a lista de chamadas de dependência atualmente suportadas que são 
 | formas web ASP.NET | 4.5+ |
 | ASP.NET MVC | 4+ |
 | ASP.NET WebAPI | 4.5+ |
-| ASP.NET Core | 1.1+ |
+| Núcleo de ASP.NET | 1.1+ |
 | <b>Bibliotecas de comunicação</b> |
 | [HttpClient](https://www.microsoft.com/net/) | 4.5+, .NET Core 1.1+ |
 | [SqlClient](https://www.nuget.org/packages/System.Data.SqlClient) | .NET Core 1.0+, NuGet 4.3.0 |
@@ -88,9 +88,10 @@ Abaixo está a lista de chamadas de dependência atualmente suportadas que são 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Configurar o rastreio de dependência personalizada para [.NET](../../azure-monitor/app/asp-net-dependencies.md).
-- Configurar o rastreio de dependência personalizada para [Java.](../../azure-monitor/app/java-agent.md)
-- Configurar rastreio de dependência personalizada para [o OpenCensus Python](../../azure-monitor/app/opencensus-python-dependency.md).
-- [Escrever telemetria de dependência personalizada](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
-- Consulte [o modelo de dados](../../azure-monitor/app/data-model.md) para os tipos de Insights de Aplicação e modelo de dados.
-- Confira as [plataformas](../../azure-monitor/app/platforms.md) suportadas pela Application Insights.
+- Configurar o rastreio de dependência personalizada para [.NET](./asp-net-dependencies.md).
+- Configurar o rastreio de dependência personalizada para [Java.](./java-agent.md)
+- Configurar rastreio de dependência personalizada para [o OpenCensus Python](./opencensus-python-dependency.md).
+- [Escrever telemetria de dependência personalizada](./api-custom-events-metrics.md#trackdependency)
+- Consulte [o modelo de dados](./data-model.md) para os tipos de Insights de Aplicação e modelo de dados.
+- Confira as [plataformas](./platforms.md) suportadas pela Application Insights.
+

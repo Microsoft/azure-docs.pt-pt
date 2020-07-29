@@ -8,16 +8,15 @@ ms.author: keli19
 ms.reviewer: peterlu
 ms.service: machine-learning
 ms.subservice: core
-ms.workload: data-services
-ms.topic: how-to
 ms.date: 07/14/2020
-ms.custom: seodec18
-ms.openlocfilehash: 8a4f58423206a812dd94cc14d32aa52114c147d1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.topic: conceptual
+ms.custom: how-to
+ms.openlocfilehash: 9833c0974af9a5bcc069ad41cfb57631dbed34dc
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536363"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320957"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Monitor Azure ML experimenta e métricas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -243,7 +242,7 @@ Os seguintes cadernos demonstram conceitos neste artigo:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Experimente estes passos seguintes para aprender a utilizar o SDK do Azure Machine Learning para Python:
 

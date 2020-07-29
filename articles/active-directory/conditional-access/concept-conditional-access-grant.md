@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85beb04e39c5c47b9ee71ee96c2dff8910766ea3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a59939fc7988e1a94bdfb9fac2d77011422e4983
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87009056"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87274685"
 ---
 # <a name="conditional-access-grant"></a>Acesso Condicional: Concessão
 
@@ -80,7 +80,7 @@ Esta definição aplica-se às seguintes aplicações iOS e Android:
 - Microsoft Dynamics 365
 - Microsoft Edge
 - Microsoft Excel
-- Microsoft Flow
+- Microsoft Power Automate
 - Faturação da Microsoft
 - Microsoft Kaizala
 - Microsoft Launcher

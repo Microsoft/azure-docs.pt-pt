@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/10/2019
 ms.custom: mvc
-ms.openlocfilehash: 1c39bfdbcfb924505473b20b3d56a28d54c84f93
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 706f3913e25eca6240c186e45709faf6c77620bf
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505878"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324578"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Monitore e alerte para a saúde da aplicação com insights de aplicação Azure
 
@@ -68,9 +68,10 @@ Os testes de disponibilidade em Application Insights permitem testar automaticam
 
     ![Resultado do teste](media/tutorial-alert/test-result-001.png)
   
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a alertar sobre problemas, avance para o próximo tutorial para aprender a analisar como os utilizadores estão a interagir com a sua aplicação.
 
 > [!div class="nextstepaction"]
-> [Compreender os utilizadores](../../azure-monitor/learn/tutorial-users.md)
+> [Compreender os utilizadores](./tutorial-users.md)
+

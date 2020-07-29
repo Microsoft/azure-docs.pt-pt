@@ -7,11 +7,12 @@ manager: craigg
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2018
-ms.openlocfilehash: f9b3cde8ff0f3a1b97d53a1de72cb6c5c48a800c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c2de10f5fbacd689a9ae92eb1f7295cccea3fb6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76289786"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87279266"
 ---
 # <a name="azure-database-for-postgresql-migration-partners"></a>Base de Dados Azure para parceiros de migração postgresQL
 Para apoiar amplamente a sua Solução Azure Database para a solução PostgreSQL, pode escolher entre uma grande variedade de parceiros e ferramentas líderes do setor. Este artigo destaca os parceiros da Microsoft com soluções de migração que suportam a Base de Dados Azure para PostgreSQL.
@@ -26,8 +27,8 @@ Para apoiar amplamente a sua Solução Azure Database para a solução PostgreSQ
 | ![credativ][5] |**credativ**<br>a credativ é uma empresa independente de consultoria e serviços. Desde 1999, têm oferecido serviços abrangentes e apoio técnico para a implementação e operação de software Open Source em aplicações empresariais. A sua vasta gama de serviços inclui consultoria estratégica, aconselhamento técnico sólido, formação qualificada e apoio personalizado até 24 horas por dia para todas as suas necessidades de TI.|[Marketplace][credativ_marketplace]<br>[Web site][credativ_website]<br>[Twitter][credative_twitter]<br>[YouTube][credativ_youtube]<br>[Contacto][credativ_contact] | |
 | ![Pactera][6] |**Pactera**<br>A Pactera é uma empresa global que oferece serviços de consultoria, digital, tecnologia e operações às principais empresas mundiais. Das suas raízes na engenharia às mais recentes na transformação digital, dão aos clientes uma vantagem competitiva. As suas metodologias e ferramentas comprovadas garantem que os seus dados são seguros, autênticos e precisos.|[Web site][pactera_website]<br>[Twitter][pactera_twitter]<br>[Contacto][pactera_contact] | |
 
-## <a name="next-steps"></a>Próximos passos
-Para saber mais sobre alguns dos outros parceiros da Microsoft, consulte o [site do Microsoft Partner](https://partner.microsoft.com/en-US/).
+## <a name="next-steps"></a>Passos seguintes
+Para saber mais sobre alguns dos outros parceiros da Microsoft, consulte o [site do Microsoft Partner](https://partner.microsoft.com/).
 
 <!--Image references-->
 [1]: ./media/partner-migration-postgresql/SNP_Logo.png

@@ -1,117 +1,117 @@
 ---
 title: O que é firewall de aplicação web Azure no Azure CDN?
-description: Saiba como a firewall de aplicação web Azure no serviço Azure CDN protege as suas aplicações web de ataques maliciosos.
+description: Saiba como a firewall da aplicação web Azure no serviço Azure CDN protege as suas aplicações web de ataques maliciosos.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: overview
 ms.date: 03/18/2020
 ms.author: victorh
-ms.openlocfilehash: 28cf8d9fd60cc6fc158812aa0a1dff3a4b0dced1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d56c57a12995e0ea94c10f371bf09a3b3f9733ba
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80754290"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87278629"
 ---
 # <a name="azure-web-application-firewall-on-azure-content-delivery-network"></a>Firewall de aplicação web Azure na rede de entrega de conteúdos Azure
 
-O Firewall de aplicações web Azure (WAF) na Rede de Entrega de Conteúdos Azure (CDN) da Microsoft fornece proteção centralizada para o seu conteúdo web. A WAF defende os seus serviços web contra explorações e vulnerabilidades comuns. Mantém o seu serviço altamente disponível para os seus utilizadores e ajuda-o a cumprir os requisitos de conformidade.
+A azure Web Application Firewall (WAF) na Azure Content Delivery Network (CDN) da Microsoft fornece proteção centralizada para o seu conteúdo web. A WAF defende os seus serviços web contra explorações e vulnerabilidades comuns. Mantém o seu serviço altamente disponível para os seus utilizadores e ajuda-o a cumprir os requisitos de conformidade.
 
 > [!IMPORTANT]
-> WaF em Azure CDN da Microsoft está atualmente em pré-visualização pública e é fornecido com um acordo de nível de serviço de pré-visualização. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.  Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
+> WAF on Azure CDN da Microsoft está atualmente em pré-visualização pública e é fornecido com um acordo de nível de serviço de pré-visualização. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.  Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
 
-WaF em Azure CDN é uma solução global e centralizada. Está implantado em localizações de borda de rede Azure em todo o mundo. A WAF para ataques maliciosos perto das fontes de ataque, antes de chegarem à sua origem. Obtém-se proteção global em escala sem sacrificar o desempenho. 
+A WAF on Azure CDN é uma solução global e centralizada. Está implantado em locais de ponta da rede Azure em todo o mundo. A WAF para ataques maliciosos perto das fontes de ataque, antes que atinjam a sua origem. Obtém-se proteção global à escala sem sacrificar o desempenho. 
 
-Uma política WAF liga-se facilmente a qualquer ponto final da CDN na sua subscrição. As novas regras podem ser implementadas em poucos minutos, para que possa responder rapidamente às mudanças nos padrões de ameaça.
+Uma política WAF liga-se facilmente a qualquer ponto final da CDN na sua subscrição. As novas regras podem ser implementadas em minutos, para que possa responder rapidamente à mudança de padrões de ameaça.
 
 ![Firewall de aplicação web Azure](../media/cdn-overview/waf-cdn-overview.png)
 
 ## <a name="waf-policy-and-rules"></a>Política e regras da WAF
 
-Pode configurar uma política waf e associar essa política a um ou mais pontos finais de CDN para proteção. Uma política de WAF consiste em dois tipos de regras de segurança:
+Pode configurar uma política da WAF e associar essa política a um ou mais pontos finais da CDN para proteção. Uma política da WAF consiste em dois tipos de regras de segurança:
 
 - regras personalizadas que pode criar.
 
-- conjuntos de regras geridos que são uma coleção de regras geridas pelo Azure pré-configuradas.
+- conjuntos de regras geridos que são uma coleção de regras pré-configuradas geridas Azure.
 
-Quando ambos estão presentes, as regras personalizadas são processadas antes de processar as regras num conjunto de regras gerido. Uma regra é feita de uma condição de jogo, uma prioridade, e uma ação. Os tipos de ação suportados são: *ALLOW,* *BLOCK,* *LOG*, e *REDIRECT*. Pode criar uma política totalmente personalizada que satisfaça os seus requisitos específicos de proteção de aplicações, combinando regras geridas e personalizadas.
+Quando ambas estão presentes, as regras personalizadas são processadas antes de processar as regras num conjunto de regras gerido. Uma regra é feita de uma condição de jogo, uma prioridade, e uma ação. Os tipos de ação suportados são: *PERMITIR,* *BLOQUEAR,* *LOG*e *REDIRECIONamento*. Pode criar uma política totalmente personalizada que satisfaça os seus requisitos específicos de proteção de aplicações, combinando regras geridas e personalizadas.
 
-As regras dentro de uma política são processadas por ordem prioritária. A prioridade é um número único que define a ordem das regras para processar. Os números mais pequenos são uma prioridade maior e essas regras são avaliadas antes de regras com um valor maior. Uma vez que uma regra é correspondida, a ação correspondente que foi definida na regra é aplicada ao pedido. Uma vez que tal jogo é processado, as regras com prioridades mais baixas não são processadas mais.
+As regras dentro de uma política são processadas por ordem prioritária. Prioridade é um número único que define a ordem das regras para processar. Os números mais pequenos são uma prioridade maior e essas regras são avaliadas antes de regras com um valor maior. Uma vez que uma regra é correspondida, a ação correspondente que foi definida na regra é aplicada ao pedido. Uma vez que tal jogo é processado, regras com prioridades mais baixas não são processadas mais longe.
 
-Uma aplicação web hospedada no Azure CDN pode ter apenas uma política waf associada a ela de cada vez. No entanto, pode ter um ponto final de CDN sem quaisquer políticas waf associadas a ele. Se uma política de WAF estiver presente, é replicada em todos os nossos locais de vantagem para garantir políticas de segurança consistentes em todo o mundo.
+Uma aplicação web hospedada no Azure CDN pode ter apenas uma política waf associada a ela de cada vez. No entanto, pode ter um ponto final cdn sem quaisquer políticas WAF associadas a ele. Se uma política da WAF estiver presente, é replicada em todas as nossas localizações de ponta para garantir políticas de segurança consistentes em todo o mundo.
 
 ## <a name="waf-modes"></a>Modos WAF
 
-A política waf pode ser configurada para ser executada nos dois modos seguintes:
+A política da WAF pode ser configurada para ser executada nos dois modos seguintes:
 
-- *Modo de deteção*: Quando executado no modo de deteção, o WAF não toma outras ações que não os monitores e regista o pedido e a sua regra WAF compatível com os registos WAF. Pode ligar o diagnóstico de registo para a Porta da Frente. Quando utilizar o portal, vá à secção **de Diagnósticos.**
+- *Modo de deteção*: Quando funciona no modo de deteção, a WAF não toma outras ações que não sejam monitores e regista o pedido e a sua regra WAF correspondida aos registos WAF. Pode ligar os diagnósticos de registo de registo sonoro para a CDN. Quando utilizar o portal, aceda à secção **de Diagnóstico.**
 
-- *Modo de prevenção*: No modo de prevenção, a WAF toma as medidas especificadas se um pedido corresponder a uma regra. Se for encontrado um jogo, não são avaliadas mais regras com menor prioridade. Quaisquer pedidos combinados também são registados nos registos waf.
+- *Modo de prevenção*: No modo de prevenção, a WAF toma a ação especificada se um pedido corresponder a uma regra. Se for encontrado um fósforo, não são avaliadas mais regras com uma prioridade inferior. Quaisquer pedidos combinados também estão registados nos registos da WAF.
 
-## <a name="waf-actions"></a>Ações waf
+## <a name="waf-actions"></a>Ações da WAF
 
 Pode escolher uma das seguintes ações quando um pedido corresponde às condições de uma regra:
 
-- *Permitir*: O pedido passa pela WAF e é encaminhado para trás. Nenhuma outra regra de prioridade inferior pode bloquear este pedido.
-- *Bloco*: O pedido está bloqueado e a WAF envia uma resposta ao cliente sem reencaminhar o pedido para o back-end.
-- *Log*: O pedido está registado nos registos waf e o WAF continua a avaliar regras de prioridade inferior.
-- *Redirecionamento*: WaF redireciona o pedido para o URI especificado. O URI especificado é uma definição de nível de política. Uma vez configurados, todos os pedidos que correspondam à ação *Redirecionamento* são enviados para esse URI.
+- *Permitir*: O pedido passa pela WAF e é encaminhado para o back-end. Nenhuma outra regra de prioridade inferior pode bloquear este pedido.
+- *Bloco*: O pedido está bloqueado e a WAF envia uma resposta ao cliente sem encaminhar o pedido para o back-end.
+- *Log*: O pedido está registado nos registos da WAF e a WAF continua a avaliar as regras de menor prioridade.
+- *Redirecionar*: WAF redireciona o pedido para o URI especificado. O URI especificado é uma definição de nível de política. Uma vez configurados, todos os pedidos que correspondam à ação *de redirecionamento* são enviados para esse URI.
 
-## <a name="waf-rules"></a>Regras waf
+## <a name="waf-rules"></a>Regras da WAF
 
-Uma política de WAF pode consistir em dois tipos de regras de segurança:
+Uma política da WAF pode consistir em dois tipos de regras de segurança:
 
 - *regras personalizadas*: regras que cria a si mesmo 
-- *conjuntos*de regras geridos : Azure gerido conjunto de regras pré-configuradas
+- *conjuntos de regras geridos*: Azure gerido conjunto de regras pré-configuradas
 
 ### <a name="custom-rules"></a>Regras personalizadas
 
-As regras personalizadas podem ter regras de correspondência e regras de controlo de tarifas.
+As regras personalizadas podem ter regras de controlo de correspondência e taxas de controlo.
 
-Pode configurar as seguintes regras de correspondência personalizadas:
+Pode configurar as seguintes regras de jogo personalizadas:
 
-- *IP permitir lista e lista de blocos*: Pode controlar o acesso às suas aplicações web com base numa lista de endereços IP do cliente ou intervalos de endereços IP. Tanto os tipos de endereços IPv4 como IPv6 são suportados. Esta lista pode ser configurada para bloquear ou permitir os pedidos em que o IP de origem corresponda a um IP na lista.
+- *Lista de autorizações IP e lista de blocos*: Pode controlar o acesso às suas aplicações web com base numa lista de endereços IP do cliente ou intervalos de endereços IP. Os tipos de endereços IPv4 e IPv6 são suportados. Esta lista pode ser configurada para bloquear ou permitir os pedidos em que o IP de origem corresponde a um IP na lista.
 
-- *Controlo de acesso baseado em geográficos:* Pode controlar o acesso às suas aplicações web com base no código do país que está associado ao endereço IP de um cliente.
+- *Controlo de acesso baseado em*geografia : Pode controlar o acesso às suas aplicações web com base no código de país que está associado ao endereço IP de um cliente.
 
-- *Controlo de acesso baseado em parâmetros HTTP:* Pode basear regras em correspondências de cordas em parâmetros de pedido HTTP/HTTPS.  Por exemplo, cordas de consulta, POST args, Request URI, Request Header e Request Body.
+- *Controlo de acesso baseado em parâmetros HTTP*: Pode basear as regras em combinações de cordas em parâmetros de pedido HTTP/HTTPS.  Por exemplo, cadeias de consulta, args POST, Request URI, Cabeçalho de Pedido e Corpo de Pedido.
 
-- *Solicite o controlo de acesso baseado no método do método:* Baseia as regras do método de pedido http do pedido. Por exemplo, GET, PUT ou HEAD.
+- *Solicitar controlo de acesso baseado em métodos:* Baseie as regras no método de pedido HTTP do pedido. Por exemplo, GET, PUT ou HEAD.
 
-- *Restrição de tamanho*: Pode basear regras nos comprimentos de partes específicas de um pedido, como corda de consulta, Uri ou solicitar corpo.
+- *Restrição de tamanho*: Pode basear as regras nos comprimentos de partes específicas de um pedido, tais como cadeia de consulta, Uri ou corpo de pedido.
 
-Uma regra de controlo de tarifas limita o tráfego anormalmente elevado de qualquer endereço IP do cliente.
+Uma regra de controlo de taxas limita o tráfego anormalmente elevado a partir de qualquer endereço IP do cliente.
 
-- Regras de *limitação de tarifas*: Pode configurar um limiar sobre o número de pedidos web permitidos a partir de um endereço IP do cliente durante um minuto de duração. Esta regra é distinta de uma regra personalizada baseada na lista IP que permite a toda ou bloqueia todo o pedido de um endereço IP do cliente. Os limites de tarifas podem ser combinados com condições adicionais de correspondência, tais como partidas de parâmetros HTTP(S) para o controlo da taxa granular.
+- *Regras limite de tarifas*: Pode configurar um limiar no número de pedidos web permitidos a partir de um endereço IP do cliente durante um minuto de duração. Esta regra é distinta de uma regra personalizada baseada em listas ip que permite a todos ou bloqueia todo o pedido a partir de um endereço IP do cliente. Os limites de tarifas podem ser combinados com condições adicionais de correspondência, tais como correspondências de parâmetros HTTP(S) para o controlo da taxa granular.
 
 ### <a name="azure-managed-rule-sets"></a>Conjuntos de regras geridos pelo Azure
 
-Os conjuntos de regras geridos pelo Azure proporcionam uma forma fácil de implementar proteção contra um conjunto comum de ameaças à segurança. Uma vez que estas regras são geridas pelo Azure, as regras são atualizadas conforme necessário para proteger contra novas assinaturas de ataque. O Conjunto de Regras de Padrão gerido pelo Azure inclui regras contra as seguintes categorias de ameaças:
+Os conjuntos de regras geridos pelo Azure fornecem uma forma fácil de implementar proteção contra um conjunto comum de ameaças à segurança. Uma vez que estas regras são geridas pelo Azure, as regras são atualizadas conforme necessário para proteger contra novas assinaturas de ataque. O Conjunto de Regras Por Defeito gerido pelo Azure inclui regras contra as seguintes categorias de ameaças:
 
 - Scripting entre sites
 - Ataques de Java
 - Inclusão de ficheiros locais
-- Ataques de injeção php
+- Ataques de injeção de PHP
 - Execução de comando remoto
 - Inclusão de ficheiros remotos
 - Fixação de sessão
 - Proteção contra injeção de SQL
-- Atacantes protocolares
+- Agressores de protocolo
 
-O número da versão do Conjunto de Regras Padrão aumenta quando novas assinaturas de ataque são adicionadas ao conjunto de regras.
-O conjunto de regras predefinidos é ativado por predefinição no modo *de deteção* nas suas políticas WAF. Pode desativar ou ativar regras individuais dentro do Conjunto de Regras Predefinidas para satisfazer os seus requisitos de aplicação. Também pode definir ações específicas (ALLOW/BLOCK/REDIRECT/LOG) por regra. A ação predefinida para o conjunto de regras predefinidas gerido é *block*.
+O número de versão do Conjunto de Regras Predefinidos incrementa quando novas assinaturas de ataque são adicionadas ao conjunto de regras.
+O Conjunto de Regras Predefinidos é ativado por padrão no modo *deteção* nas suas políticas WAF. Pode desativar ou ativar regras individuais dentro da Definição de Regras Predefinidoras para satisfazer os seus requisitos de aplicação. Também pode definir ações específicas (PERMITIR/BLOQUEAR/REDIRECIONAMENTO/LOG) por regra. A ação predefinitiva para o conjunto de regras por defeito gerido é *o Bloco*.
 
-As regras personalizadas são sempre aplicadas antes de serem avaliadas as regras do Conjunto de Regras predefinidas. Se um pedido corresponder a uma regra personalizada, a ação de regra correspondente é aplicada. O pedido está bloqueado ou passado para o fundo da questão. Nenhuma outra regra personalizada ou as regras do Conjunto de Regras Padrão são processadas. Também pode remover o conjunto de regras padrão das suas políticas WAF.
+As regras personalizadas são sempre aplicadas antes de serem avaliadas as regras do Conjunto de Regras Predefinidas. Se um pedido corresponder a uma regra personalizada, aplica-se a ação de regra correspondente. O pedido é bloqueado ou passado para o back-end. Não são processadas outras regras personalizadas ou as regras do Conjunto de Regras Predefinidas. Também pode remover o Conjunto de Regras Predefinidos das suas políticas WAF.
 
 ## <a name="configuration"></a>Configuração
 
-Pode configurar e implementar todos os tipos de regras WAF utilizando o portal Azure, OS MODELOS REST APIs, Azure Resource Manager e Azure PowerShell.
+Pode configurar e implementar todos os tipos de regras WAF utilizando o portal Azure, AS APIs DE REST, modelos Azure Resource Manager e Azure PowerShell.
 
 ## <a name="monitoring"></a>Monitorização
 
-A monitorização para WAF com CDN está integrada com o Azure Monitor para rastrear alertas e monitorizar facilmente as tendências de tráfego.
+A monitorização do WAF com CDN está integrada com o Azure Monitor para monitorizar os alertas e monitorizar facilmente as tendências de tráfego.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Tutorial: Criar uma política waf com o Azure CDN usando o portal Azure](waf-cdn-create-portal.md)
+- [Tutorial: Criar uma política de WAF com Azure CDN usando o portal Azure](waf-cdn-create-portal.md)

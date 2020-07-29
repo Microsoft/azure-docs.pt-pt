@@ -1,6 +1,5 @@
 ---
-title: Módulos do PowerShell
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clássico): Módulos PowerShell - Azure'
 description: Use o PowerShell para criar e gerir espaços de trabalho (clássicos) do Azure Machine Learning Studio (clássico), experiências, serviços web e muito mais.
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +8,17 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 04/25/2019
-ms.openlocfilehash: 3977bd13d0d3300126e06626e33fde753acc964f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 46f51a09a82d544a5940dfad69dc8e36d99a2f7a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065790"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324986"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio-classic"></a>Módulos PowerShell para Azure Machine Learning Studio (clássico)
+
+**APLICA-SE A:** ![ no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) yes Machine Learning Studio ![ ](../../../includes/media/aml-applies-to-skus/yes.png) (clássico) 
+
 
 Utilizando módulos PowerShell, pode gerir programáticamente os recursos e ativos do seu Estúdio (clássico), tais como espaços de trabalho, conjuntos de dados e serviços web.
 

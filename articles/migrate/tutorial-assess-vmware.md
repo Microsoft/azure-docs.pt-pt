@@ -4,12 +4,12 @@ description: Descreve como avaliar vMware VMware no local para migração para A
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 6c395d7e2be151e97808fa9601ff6001801d243b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: dd00f800003724b3a5c15d265a5428272e1762fb
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110356"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290218"
 ---
 # <a name="assess-vmware-vms-with-server-assessment"></a>Avaliar VMs VMware com Avaliação do Servidor
 
@@ -75,7 +75,7 @@ Depois de criar o aparelho, verifique se pode ligar-se ao Azure Migrate:Server A
 ### <a name="download-the-ova-template"></a>Descarregue o modelo OVA
 
 1. In **Migration Goals**  >  **Servers**  >  **Azure Migrate: Server Assessment**, select **Discover**.
-2. In **Discover machines**  >  **Are your machines virtualized?** **Yes, with VMWare vSphere hypervisor**
+2. In **Discover machines**  >  **Are your machines virtualized?** **Yes, with VMware vSphere hypervisor**
 3. Selecione **Baixar** para descarregar o ficheiro do modelo OVA.
 
    ![Seleções para descarregar um ficheiro OVA](./media/tutorial-assess-vmware/download-ova.png)
@@ -146,7 +146,7 @@ Coloque o aparelho pela primeira vez.
      - Apenas é suportado o proxy HTTP.
    - **Sincronização de tempo**: O tempo do aparelho deve estar sincronizado com o tempo de internet para que a descoberta funcione corretamente.
    - **Instalação de atualizações**: O aparelho assegura a instalação das atualizações mais recentes.
-   - **Instalação VDDK**: O aparelho verifica se o Kit de Desenvolvimento de Discos Virtuais VMWare vSphere (VDDK) está instalado. Se não estiver instalado, baixe o VDDK 6.7 da VMware e extraia o conteúdo zip descarregado para a localização especificada no aparelho.
+   - **Instalação VDDK**: O aparelho verifica se o Kit de Desenvolvimento de Discos Virtuais VMware vSphere (VDDK) está instalado. Se não estiver instalado, baixe o VDDK 6.7 da VMware e extraia o conteúdo zip descarregado para a localização especificada no aparelho.
 
      A migração do servidor Azure Migrate usa o VDDK para replicar máquinas durante a migração para Azure.       
 
@@ -292,7 +292,7 @@ A classificação de confiança ajuda-o a estimar a fiabilidade das recomendaç�
 
 [Saiba mais sobre as melhores práticas](best-practices-assessment.md#best-practices-for-confidence-ratings) para as classificações de confiança.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você configura um aparelho Azure Migrate. Também criou e reviu uma avaliação.
 

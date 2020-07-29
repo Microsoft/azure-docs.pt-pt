@@ -5,18 +5,18 @@ description: Controle o acesso a espaços de trabalho de aprendizagem automátic
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 10b9e055ce5b1e2ba27d942a987bf6b38291f094
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: 75e2ffcad4caeb6500f05ce3801797084c18a043
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87031427"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321654"
 ---
 # <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Use espaço de trabalho atrás do Azure Firewall para a aprendizagem de máquinas Azure
 

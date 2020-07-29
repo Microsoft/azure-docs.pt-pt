@@ -54,7 +54,7 @@
       href: cache-best-practices.md
     - name: Melhores práticas de colocação em cache da arquitetura
       href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
-- name: Manuais de instruções
+- name: Guias de procedimentos
   items:
     - name: Planear
       items:
@@ -72,7 +72,9 @@
           href: cache-how-to-geo-replication.md
         - name: Poupar com a capacidade reservada
           href: cache-reserved-pricing.md
-        - name: Migrar do Serviço de Cache Gerida
+        - name: Migrar para a Cache do Azure para Redis
+          href: cache-migration-guide.md
+        - name: Migrar do Serviço de Cache Gerida (preterido)
           href: cache-migrate-to-redis.md
     - name: Automatizar
       items:

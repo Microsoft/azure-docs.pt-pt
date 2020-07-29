@@ -3,18 +3,18 @@ title: Automatizar insights de aplicação Azure com PowerShell Microsoft Docs
 description: Automatizar a criação e gestão de recursos, alertas e testes de disponibilidade no PowerShell utilizando um modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: 1a0a3a5b186d57e8670201e601eee48ee858c976
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 53cdf338db5cc4ea359f729297fe57e63853aa5c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041630"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322487"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Gerir recursos de Insights de Aplicação utilizando o PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Este artigo mostra-lhe como automatizar a criação e atualização dos recursos de Insights de [Aplicação](../../azure-monitor/app/app-insights-overview.md) automaticamente utilizando a Azure Resource Management. Pode, por exemplo, fazê-lo como parte de um processo de construção. Juntamente com o recurso básico Application Insights, pode criar [testes web de disponibilidade,](../../azure-monitor/app/monitor-web-app-availability.md)configurar [alertas,](../../azure-monitor/platform/alerts-log.md)definir o [esquema de preços](pricing.md)e criar outros recursos Azure.
+Este artigo mostra-lhe como automatizar a criação e atualização dos recursos de Insights de [Aplicação](./app-insights-overview.md) automaticamente utilizando a Azure Resource Management. Pode, por exemplo, fazê-lo como parte de um processo de construção. Juntamente com o recurso básico Application Insights, pode criar [testes web de disponibilidade,](./monitor-web-app-availability.md)configurar [alertas,](../platform/alerts-log.md)definir o [esquema de preços](pricing.md)e criar outros recursos Azure.
 
 A chave para a criação destes recursos são os modelos JSON para [O Gestor de Recursos Azure.](../../azure-resource-manager/management/manage-resources-powershell.md) O procedimento básico é: descarregar as definições JSON dos recursos existentes; parametrizar certos valores, tais como nomes; e, em seguida, executar o modelo sempre que quiser criar um novo recurso. Você pode embalar vários recursos juntos, para criá-los todos de uma só vez - por exemplo, um monitor de aplicações com testes de disponibilidade, alertas e armazenamento para exportação contínua. Há algumas subtilezas em algumas das parametrizações, que vamos explicar aqui.
 
@@ -474,3 +474,4 @@ Outros artigos de automação:
 * [Criar testes Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Enviar o Diagnóstico do Azure ao Application Insights](powershell-azure-diagnostics.md)
 * [Criar anotações de libertação](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
+

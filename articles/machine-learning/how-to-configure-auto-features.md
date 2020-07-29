@@ -8,15 +8,15 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.date: 05/28/2020
-ms.custom: seodec18
-ms.openlocfilehash: 11bb692027d8a2e5033c7bdaf8eb2c565d1562b0
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 950f258e7380d7fbd25e1a5fe2dd4673ba122c52
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205690"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321594"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Caracterização na aprendizagem automática de máquinas
 
@@ -64,7 +64,7 @@ A tabela seguinte resume técnicas que são automaticamente aplicadas aos seus d
 | ------------- | ------------- |
 |**Largar altas características de cardinalidade ou nenhuma variação*** |Largue estas funcionalidades dos conjuntos de treino e validação. Aplica-se a características com todos os valores em falta, com o mesmo valor em todas as linhas, ou com elevado cardinalício (por exemplo, hashes, IDs ou GUIDs).|
 |**Imputar valores em falta*** |Para características numéricas, imputar com a média de valores na coluna.<br/><br/>Para características categóricas, imputar com o valor mais frequente.|
-|**Gerar funcionalidades adicionais*** |Para as características datetime: Ano, mês, dia, dia da semana, dia do ano, quarto, semana do ano, Hora, Minuto, Segundo.<br/><br/>Para funcionalidades de texto: Frequência de prazo baseada em unigramas, bigrams e trigramas.|
+|**Gerar funcionalidades adicionais*** |Para as características datetime: Ano, mês, dia, dia da semana, dia do ano, quarto, semana do ano, Hora, Minuto, Segundo.<br/><br/>Para funcionalidades de texto: Frequência de prazo baseada em unigramas, bigrams e trigramas. Saiba mais sobre [como isto é feito com o BERT.](#bert-integration)|
 |**Transformar e codificar***|Transforme características numéricas que têm poucos valores únicos em características categóricas.<br/><br/>A codificação de um só calor é usada para características categóricas de baixa cardinalidade. A codificação de haxixe é usada para características categóricas de alto cardeal.|
 |**Incorporações de palavras**|Um text featurizer converte vetores de fichas de texto em vetores de frase usando um modelo pré-treinado. O vetor incorporado de cada palavra em um documento é agregado com o resto para produzir um vetor de recursos documentais.|
 |**Codificações de alvos**|Para características categóricas, este passo mapeia cada categoria com um valor-alvo médio para problemas de regressão, e para a probabilidade de classe para cada classe para problemas de classificação. A ponderação baseada em frequências e a validação cruzada k-fold são aplicadas para reduzir a sobremontagem do mapeamento e do ruído causados por categorias de dados escassas.|
@@ -138,6 +138,50 @@ featurization_config.add_transformer_params('Imputer', ['engine-size'], {"strate
 featurization_config.add_transformer_params('Imputer', ['city-mpg'], {"strategy": "median"})
 featurization_config.add_transformer_params('Imputer', ['bore'], {"strategy": "most_frequent"})
 featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of_bits": 3})
+```
+
+## <a name="bert-integration"></a>Integração BERT 
+[BERT](https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657) é utilizado na camada de caracterização de ML automatizado. Nesta camada detetamos se uma coluna contém texto gratuito ou outros tipos de dados, como timetamps ou números simples, e nós apresentamos em conformidade. Para o BERT afinamos/treinamos o modelo utilizando as etiquetas fornecidas pelo utilizador, depois divulgamos incorporações de documentos de saída (para BERT estes são o estado escondido final associado ao token especial [CLS]) como funcionalidades ao lado de outras funcionalidades como funcionalidades baseadas em timetamp (por exemplo, dia da semana) ou números que muitos conjuntos de dados típicos têm. 
+
+Para ativar o BERT, deve utilizar o computamento da GPU para treinar. Se for utilizado um cálculo CPU, em vez de BERT, o AutoML ativará o ante-dissi de DNN BiLSTM. Para invocar o BERT, tem de definir "enable_dnn: Verdadeiro" em automl_settings e utilizar o cálculo da GPU (por exemplo, vm_size = "STANDARD_NC6", ou uma GPU superior). Por favor, veja [este caderno como exemplo.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb)
+
+A AutoML toma as seguintes medidas, para o caso do BERT (tenha de definir "enable_dnn: Verdadeiro" em automl_settings para que estes itens aconteçam):
+
+1. Pré-processamento incluindo tokenização de todas as colunas de texto (verá o transformador "StringCast" no resumo da caracterização do modelo final. Visite [este caderno](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb) para ver um exemplo de como produzir o resumo da caracterização do modelo utilizando o `get_featurization_summary()` método.
+
+```python
+text_transformations_used = []
+for column_group in fitted_model.named_steps['datatransformer'].get_featurization_summary():
+    text_transformations_used.extend(column_group['Transformations'])
+text_transformations_used
+```
+
+2. Concatenats todas as colunas de texto em uma única coluna de texto, daí ver "StringConcatTransformer" no modelo final. 
+
+> [!NOTE]
+> A nossa implementação do BERT limita o comprimento total do texto de uma amostra de formação a 128 fichas. Isto significa que todas as colunas de texto quando concatenadas, devem ser idealmente no máximo 128 fichas de comprimento. Idealmente, se várias colunas estiverem presentes, cada coluna deve ser podada de modo a que esta condição seja satisfeita. Por exemplo, se existirem duas colunas de texto nos dados, ambas as colunas de texto devem ser podadas a 64 fichas cada uma (assumindo que deseja que ambas as colunas estejam igualmente representadas na coluna de texto concatenated final) antes de fornecer os dados ao AutoML. Para colunas concatenadas de comprimento >128 fichas, a camada de tokenizer da BERT truncará esta entrada para 128 fichas.
+
+3. No passo de varrimento da funcionalidade, o AutoML compara o BERT com a linha de base (características do saco de palavras + incorporações de palavras pré-treinadas) numa amostra dos dados e determina se o BERT daria melhorias de precisão. Se determinar que o BERT tem um desempenho melhor do que a linha de base, a AutoML utiliza então o BERT para a caracterização de texto como a melhor estratégia de caracterização e procede com a adição de todos os dados. Nesse caso, verá o "PretreinadoTextDNNTransformer" no modelo final.
+
+A AutoML suporta atualmente cerca de 100 idiomas e, dependendo do idioma do conjunto de dados, o AutoML escolhe o modelo BERT apropriado. Para os dados alemães, utilizamos o modelo BERT alemão. Para inglês, usamos o modelo BERT inglês. Para todas as outras línguas, usamos o modelo BERT multilíngue.
+
+No código seguinte, é acionado o modelo BERT alemão, uma vez que a língua de conjunto de dados é especificada para 'deu', o código linguístico de 3 letras para alemão de acordo com a [classificação ISO](https://iso639-3.sil.org/code/hbs):
+
+```python
+from azureml.automl.core.featurization import FeaturizationConfig
+
+featurization_config = FeaturizationConfig(dataset_language='deu')
+
+automl_settings = {
+    "experiment_timeout_minutes": 120,
+    "primary_metric": 'accuracy', 
+# All other settings you want to use 
+    "featurization": featurization_config,
+    
+  "enable_dnn": True, # This enables BERT DNN featurizer
+    "enable_voting_ensemble": False,
+    "enable_stack_ensemble": False
+}
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

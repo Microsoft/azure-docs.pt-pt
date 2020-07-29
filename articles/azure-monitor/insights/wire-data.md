@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
-ms.openlocfilehash: afcad5df1072f2eb474e54aaeca866735a12c5c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 340eb1a983f074a5ab934a30c55649852ec08b62
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84424470"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325156"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Solução de Dados de Fio 2.0 (Pré-visualização) no Monitor Azure
 
@@ -166,7 +167,7 @@ As secções seguintes listam os sistemas operativos suportados para o agente de
 
 Execute os seguintes passos para configurar a solução Wire Data para as áreas de trabalho.
 
-1. Ativar a solução Activity Log Analytics a partir do [Mercado Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) ou utilizando o processo descrito em [soluções de monitorização adicionar a partir da Galeria de Soluções.](../../azure-monitor/insights/solutions.md)
+1. Ativar a solução Activity Log Analytics a partir do [Mercado Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) ou utilizando o processo descrito em [soluções de monitorização adicionar a partir da Galeria de Soluções.](./solutions.md)
 2. Instale o agente Desadependição em cada computador onde pretende obter dados. O agente da Dependência pode monitorizar as ligações com vizinhos imediatos, por isso pode não precisar de um agente em todos os computadores.
 
 > [!NOTE]
@@ -181,7 +182,7 @@ O agente Dependency está instalado em computadores que executam o Windows atrav
 
 Utilize os seguintes passos para instalar o agente Dependency em cada computador que executa o Windows:
 
-1. Instale o agente Log Analytics seguindo os passos na [Recolha de dados dos computadores Windows alojados no seu ambiente](../../azure-monitor/platform/agent-windows.md).
+1. Instale o agente Log Analytics seguindo os passos na [Recolha de dados dos computadores Windows alojados no seu ambiente](../platform/agent-windows.md).
 2. Descarregue o agente de dependência do Windows utilizando o link na secção anterior e, em seguida, execute-o utilizando o seguinte comando:`InstallDependencyAgent-Windows.exe`
 3. Siga o assistente para instalar o agente.
 4. Se o agente de dependência não arrancar, verifique se os registos são informativo de erro. Para agentes do Windows, o diretório do registo é %Programfiles%\Microsoft Dependency Agent\logs.
@@ -207,7 +208,7 @@ O agente De dependência é instalado em computadores Linux através do InstallD
 
 Utilize os seguintes passos para instalar o agente Desadependição em cada computador Linux:
 
-1. Instale o agente Log Analytics seguindo os passos na [Recolha de dados dos computadores Linux alojados no seu ambiente](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key).
+1. Instale o agente Log Analytics seguindo os passos na [Recolha de dados dos computadores Linux alojados no seu ambiente](../learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key).
 2. Descarregue o agente linux dependency usando o link na secção anterior e, em seguida, instale-o como raiz utilizando o seguinte comando: sh InstallDependencyAgent-Linux64.bin
 3. Se o agente de dependência não arrancar, verifique se os registos são informativo de erro. Para agentes do Linux, o diretório do registo é: /var/opt/microsoft/dependency-agent/log.
 
@@ -413,6 +414,7 @@ Os dados por fio recolhem metadados sobre o tráfego de rede com os agentes que 
 | RemoteIPLongitude | Valor da longitude do IP |
 | RemoteIPLatitude | Valor da latitude do IP |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Registos de pesquisa](../../azure-monitor/log-query/log-query-overview.md) para ver registos detalhados da pesquisa dos dados por fio.
+- [Registos de pesquisa](../log-query/log-query-overview.md) para ver registos detalhados da pesquisa dos dados por fio.
+

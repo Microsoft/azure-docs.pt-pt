@@ -109,11 +109,9 @@
       href: concept-recognizing-text.md
     - name: Deteção de conteúdo para adultos
       href: concept-detecting-adult-content.md
-- name: Guias de procedimentos
+- name: Contentores
   items:
-    - name: Chamar a API de Imagem Digitalizada
-      href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
-    - name: Utilizar contentores
+    - name: Contentor da API de leitura
       items:
         - name: Instalar e executar contentores
           href: computer-vision-how-to-install-containers.md
@@ -127,6 +125,10 @@
         - name: Utilizar instâncias de contentor
           href: deploy-computer-vision-on-container-instances.md
           displayName: 'container instances, container, containers, images'
+- name: Guias de procedimentos
+  items:
+    - name: Chamar a API de Imagem Digitalizada
+      href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
     - name: Analisar vídeos em tempo real
       href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
 - name: Referência
@@ -135,6 +137,8 @@
       href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
     - name: Azure PowerShell
       href: 'https://aka.ms/azure-powershell-cognitiveservices'
+    - name: API de Imagem Digitalizada v3.1-preview.1
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005'
     - name: API de Imagem Digitalizada v3.0
       href: 'https://aka.ms/computer-vision-v3-ref'
     - name: API de Imagem Digitalizada v2.1

@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c3d43bc20c31475a00a0ea81e4abdeb5405162a7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a1e72fba4ece24afffba573d954c7627af46a6cd
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081802"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87273378"
 ---
 # <a name="monitor-azure-functions"></a>Monitorizar as Funções do Azure
 
@@ -596,6 +596,9 @@ As funções v2 recolhem automaticamente dependências para pedidos HTTP, Servic
 Pode escrever código personalizado para mostrar as dependências. Por exemplo, consulte o código de amostra na [secção de telemetria personalizada C](#log-custom-telemetry-in-c-functions)# . O código de amostra resulta num *mapa de aplicações* em Application Insights que se parece com a seguinte imagem:
 
 ![Mapa da aplicação](./media/functions-monitoring/app-map.png)
+
+> [!NOTE]
+> As dependências são escritas ao nível da Informação. Se filtrar em Aviso ou acima, não verá nenhum destes dados. Além disso, a recolha automática de dependências ocorre no âmbito não-utilizador. Por isso, certifique-se de que o nível está definido para pelo menos **informações** fora do âmbito do utilizador no seu host.js(isto é, fora do <YOUR_FUNCTION_NAME>. Chave do utilizador) se quiser que essas dependências sejam capturadas.
 
 ## <a name="enable-application-insights-integration"></a>Ativar a integração do Application Insights
 

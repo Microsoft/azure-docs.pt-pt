@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 43f0dfa5fd413d201eb8c63aa752a6fd8db68f6c
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: ba6f79fffe5287be7574d422f026489d4da2795e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807881"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287493"
 ---
 # <a name="azure-synapse-analytics-workspaces-preview-frequently-asked-questions"></a>Azure Synapse Analytics (pré-visualização de espaços de trabalho) frequentemente perguntas
 
@@ -32,6 +32,8 @@ R: Azure Synapse é uma plataforma de dados integrada para BI, IA e inteligênci
 - Monitorize e otimize rapidamente, reaja e depure eventos que ocorram nas suas atividades no espaço de trabalho em qualquer camada.
 - Gerencie os seus metadados através dos motores. Crie uma tabela Spark e estará automaticamente disponível nas suas bases de dados Azure Synapse.
 - Interaja com os dados através de uma experiência unificada do utilizador. O Synapse Studio traz grandes desenvolvedores de dados, engenheiros de dados, DBAs, Analistas de Dados e Cientistas de Dados para a mesma plataforma.
+
+Para mais informações, consulte [O que é Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/overview-what-is).
 
 ### <a name="q-what-are-the-main-components-of-azure-synapse-analytics"></a>P: Quais são os principais componentes da Azure Synapse Analytics
 

@@ -1,47 +1,47 @@
 ---
-title: Conecte-se usando Java - Base de Dados Azure para MySQL
-description: Este quickstart fornece uma amostra de código Java que pode usar para ligar e consultar dados de uma base de dados Azure para base de dados MySQL.
+title: Conecte-se usando Java - Azure Database para MySQL
+description: Este quickstart fornece uma amostra de código Java que pode usar para ligar e consultar dados a partir de uma base de dados Azure para base de dados MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019
+ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, devx-track-java
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 5/26/2020
-ms.openlocfilehash: f23b926cf12dbda66bd5b409f5dfeec62ef9fcd5
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 4da7efc40177937aad8f1a97e909d90c4cf5f466
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870281"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322861"
 ---
-# <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-mysql"></a>Quickstart: Use Java para ligar e consultar dados na Base de Dados Azure para MySQL
+# <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-mysql"></a>Quickstart: Use Java para ligar e consultar dados na Base de Dados Azure para o MySQL
 
-Neste arranque rápido, liga-se a uma Base de Dados Azure para mySQL utilizando uma aplicação Java e o controlador JDBC MariaDB Connector/J. Em seguida, utiliza declarações SQL para consultar, inserir, atualizar e eliminar dados na base de dados das plataformas Mac, Ubuntu Linux e Windows. 
+Neste arranque rápido, você conecta-se a uma Base de Dados Azure para o MySQL usando uma aplicação Java e o condutor JDBC MariaDB Connector/J. Em seguida, utiliza declarações SQL para consultar, inserir, atualizar e eliminar dados na base de dados das plataformas Mac, Ubuntu Linux e Windows. 
 
-Este tópico pressupõe que está familiarizado com o desenvolvimento usando Java, mas é novo em trabalhar com a Base de Dados Azure para o MySQL.
+Este tópico pressupõe que está familiarizado com o desenvolvimento usando Java, mas é novo em trabalhar com a Azure Database para o MySQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- Uma base de dados Azure para servidor MySQL. [Crie uma base de dados Azure para servidor MySQL utilizando o portal Azure](quickstart-create-mysql-server-database-using-azure-portal.md) ou [crie uma base de dados Azure para o servidor MySQL utilizando o Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
-- A Base de Dados Azure para a segurança da ligação MySQL está configurada com as definições de ligação ssl abertas e ssl configuradas para a sua aplicação.
+- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- Uma base de dados Azure para o servidor MySQL. [Crie uma base de dados Azure para servidor MySQL utilizando o portal Azure](quickstart-create-mysql-server-database-using-azure-portal.md) ou [crie uma base de dados Azure para servidor MySQL utilizando O Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
+- A base de dados Azure para a segurança da ligação MySQL está configurada com as definições de ligação abertas e SSL configuradas para a sua aplicação.
 
 > [!IMPORTANT] 
-> Certifique-se de que o endereço IP a que está a ligar foi adicionado as regras de firewall do servidor utilizando o [portal Azure](./howto-manage-firewall-using-portal.md) ou [o Azure CLI](./howto-manage-firewall-using-cli.md)
+> Certifique-se de que o endereço IP de que está a ligar foi adicionado as regras de firewall do servidor utilizando o [portal Azure](./howto-manage-firewall-using-portal.md) ou [O CLI do Azure](./howto-manage-firewall-using-cli.md)
 
 ## <a name="obtain-the-mariadb-connector"></a>Obtenha o conector MariaDB
 
-Obtenha o [conector MariaDB/J](https://mariadb.com/kb/en/library/mariadb-connector-j/) utilizando uma das seguintes abordagens:
+Obtenha o conector [MariaDB/J](https://mariadb.com/kb/en/library/mariadb-connector-j/) utilizando uma das seguintes abordagens:
    - Utilize o pacote Maven [mariadb-java-cliente](https://search.maven.org/search?q=a:mariadb-java-client) para incluir a [dependência mariadb-java-cliente](https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client) no ficheiro POM para o seu projeto.
-   - Descarregue o controlador JDBC [MariaDB Connector/J](https://downloads.mariadb.org/connector-java/) e inclua o ficheiro jDBC (por exemplo, mariadb-java-cliente-2.4.3.jar) no seu percurso de classe de aplicação. Consulte a documentação do seu ambiente para especificidades do caminho de classe, tais como [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) ou [Java SE](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
+   - Descarregue o condutor JDBC [MariaDB Connector/J](https://downloads.mariadb.org/connector-java/) e inclua o ficheiro de frasco JDBC (por exemplo, mariadb-java-cliente-2.4.3.jar) no seu percurso de classe de aplicação. Consulte a documentação do seu ambiente para especificações de percursos de classe, tais como [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) ou [Java SE](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
 
 ## <a name="get-connection-information"></a>Obter informações da ligação
 
 Obtenha as informações de ligação necessárias para se ligar à Base de Dados do Azure para MySQL. Necessita do nome do servidor e das credenciais de início de sessão totalmente qualificados.
 
-1. Faça login no [portal Azure.](https://portal.azure.com/)
-2. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos**, e depois procure o servidor que criou (como o **mydemoserver).**
+1. Faça login no [portal Azure](https://portal.azure.com/).
+2. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos**e, em seguida, procure o servidor que criou (como o **mydemoserver).**
 3. Selecione o nome do servidor.
 4. No painel **Descrição geral** do servidor, tome nota do **Nome do servidor** e do **Nome de início de sessão de administrador do servidor**. Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.
  ![Nome do servidor da Base de Dados do Azure para o MySQL](./media/connect-java/azure-database-mysql-server-name.png)
@@ -139,7 +139,7 @@ public class CreateTableInsertRows {
 
 ## <a name="read-data"></a>Ler dados
 
-Utilize o código seguinte para ler os dados com a instrução SQL **SELECT**. O método [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) é utilizado para se ligar ao MySQL. Os métodos [criamStatement()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#creating-a-table-on-a-mariadb-or-mysql-server) e executoQuery() são utilizados para ligar e executar a declaração selecionada. Os resultados são processados através de um objeto ResultSet. 
+Utilize o código seguinte para ler os dados com a instrução SQL **SELECT**. O método [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) é utilizado para se ligar ao MySQL. Métodos [criamStatement()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#creating-a-table-on-a-mariadb-or-mysql-server) e executeQuery() são usados para ligar e executar a declaração selecionada. Os resultados são processados através de um objeto ResultSet. 
 
 Substitua os parâmetros do sistema anfitrião, da base de dados, do utilizador e da palavra-passe pelos valores que especificou ao criar o seu próprio servidor e base de dados.
 
@@ -286,7 +286,7 @@ public class UpdateTable {
 
 ## <a name="delete-data"></a>Eliminar dados
 
-Utilize o código seguinte para remover os dados com a instrução SQL **DELETE**. O método [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) é utilizado para se ligar ao MySQL.  Os métodos [de preparação DeStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) e executeUpdate() são utilizados para preparar e executar a declaração de exclusão. 
+Utilize o código seguinte para remover os dados com a instrução SQL **DELETE**. O método [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) é utilizado para se ligar ao MySQL.  Os métodos [preparam o Estado()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) e executarUpdate() são utilizados para preparar e executar a declaração de eliminação. 
 
 Substitua os parâmetros do sistema anfitrião, da base de dados, do utilizador e da palavra-passe pelos valores que especificou ao criar o seu próprio servidor e base de dados.
 

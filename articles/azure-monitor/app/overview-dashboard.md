@@ -3,11 +3,12 @@ title: Azure Application Insights Overview Dashboard [ Dashboard ] Microsoft Doc
 description: Monitorize as aplicações com insights de aplicação Azure e funcionalidade do Painel de Controlo Geral.
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: e5188972d9058b85a9765c7d33f6209b37245d7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c8aa4460a545f032eaa60560de00efff27ae1ef
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669901"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322538"
 ---
 # <a name="application-insights-overview-dashboard"></a>Painel de visão geral de insights de aplicação
 
@@ -54,8 +55,9 @@ Para navegar de volta para a experiência geral basta selecionar:
 
 Se selecionar configurações de **azulejos configurados** e definir um intervalo de tempo personalizado superior a 31 dias, o seu dashboard não apresentará mais de 31 dias de dados, mesmo com a retenção de dados predefinida de 90 dias. Atualmente, não há solução para este comportamento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Funis](../../azure-monitor/app/usage-funnels.md)
-- [Retenção](../../azure-monitor/app/usage-retention.md)
-- [Fluxos do Utilizador](../../azure-monitor/app/usage-flows.md)
+- [Funis](./usage-funnels.md)
+- [Retenção](./usage-retention.md)
+- [Fluxos do Utilizador](./usage-flows.md)
+

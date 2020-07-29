@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.topic: how-to
 ms.date: 03/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5213a13539ac028d3e2bfec3bc7476ac645f615b
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 136d0627e701104e9958d51b2e37256de5659f25
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043483"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87271421"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics no IoT Edge
  
@@ -43,19 +43,20 @@ A ASA utiliza o IoT Hub para implantar trabalhos de borda nos dispositivos. Mais
 
 ### <a name="installation-instructions"></a>Instruções de instalação
 Os passos de alto nível são descritos na tabela seguinte. Mais detalhes são dados nas seguintes secções.
-|Passo   | Notas   |
-| ---   |  ---      |
-| **Criar um recipiente de armazenamento**   | Os recipientes de armazenamento são utilizados para salvar a definição de trabalho onde podem ser acedidos pelos seus dispositivos IoT. <br>  Pode reutilizar qualquer recipiente de armazenamento existente.     |
-| **Criar um trabalho de borda ASA**   |  Crie um novo emprego, selecione **Edge** como **ambiente de hospedagem**. <br> Estes trabalhos são criados/geridos a partir da nuvem, e funcionam nos seus próprios dispositivos IoT Edge.     |
-| **Configurar o seu ambiente IoT Edge nos seus dispositivos(s)**   | Instruções para [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) ou [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
-| **Coloque a ASA no seu(s) dispositivo IoT Edge**   |  A definição de emprego asa é exportada para o recipiente de armazenamento criado anteriormente.       |
+
+| Passo | Notas |
+| --- | --- |
+| **Criar um contentor de armazenamento** | Os recipientes de armazenamento são utilizados para salvar a definição de trabalho onde podem ser acedidos pelos seus dispositivos IoT. <br>  Pode reutilizar qualquer recipiente de armazenamento existente. |
+| **Criar um trabalho de borda ASA** | Crie um novo emprego, selecione **Edge** como **ambiente de hospedagem**. <br> Estes trabalhos são criados/geridos a partir da nuvem, e funcionam nos seus próprios dispositivos IoT Edge. |
+| **Configurar o seu ambiente IoT Edge nos seus dispositivos(s)** | Instruções para [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) ou [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).|
+| **Coloque a ASA no seu(s) dispositivo IoT Edge** | A definição de emprego asa é exportada para o recipiente de armazenamento criado anteriormente. |
 
 Você pode seguir [este tutorial passo a passo](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) para implementar o seu primeiro trabalho ASA no IoT Edge. O vídeo a seguir deve ajudá-lo a entender o processo para executar um trabalho stream Analytics num dispositivo de borda IoT:  
 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157/player]
 
-#### <a name="create-a-storage-container"></a>Criar um recipiente de armazenamento
+#### <a name="create-a-storage-container"></a>Criar um contentor de armazenamento
 É necessário um recipiente de armazenamento para exportar a consulta compilada asa e a configuração do trabalho. É usado para configurar a imagem ASA Docker com a sua consulta específica. 
 1. Siga [estas instruções](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) para criar uma conta de armazenamento a partir do portal Azure. Pode manter todas as opções padrão para utilizar esta conta com ASA.
 2. Na conta de armazenamento recém-criada, crie um recipiente de armazenamento blob:
@@ -227,7 +228,7 @@ Esta informação foi atualizada pela última vez em 2019-06-27:
 ## <a name="get-help"></a>Obter ajuda
 Para obter mais assistência, experimente a [página de perguntas do Microsoft Q&A para o Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Mais informações sobre Azure Iot Edge](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
 * [ASA no tutorial IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)

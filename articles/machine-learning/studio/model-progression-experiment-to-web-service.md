@@ -1,6 +1,5 @@
 ---
-title: Como um modelo se torna um serviço web
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clássico): Como um modelo se torna um serviço web - Azure'
 description: Uma visão geral da mecânica de como o seu modelo Azure Machine Learning Studio (clássico) progride de uma experiência de desenvolvimento para um serviço Web.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: 4d7ab5cada77ccebc214e09b43fbb70b3ad8bb59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a02ac6db7e560fcb90a87b7bc96284c279c1654
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84117194"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325003"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Como um modelo de Machine Learning Studio (clássico) progride de uma experiência para um serviço Web
+
+**APLICA-SE A:** ![ no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) yes Machine Learning Studio ![ ](../../../includes/media/aml-applies-to-skus/yes.png) (clássico) 
+
 
 O Azure Machine Learning Studio (clássico) fornece uma tela interativa que permite desenvolver, executar, testar e iterar uma ***experiência*** que representa um modelo de análise preditiva. Há uma grande variedade de módulos disponíveis que podem:
 
@@ -104,7 +107,7 @@ Se quiser manter o seu modelo de aprendizagem automática, mas gostaria de o ret
 
 Se quiser fazer alterações na sua experiência preditiva original, como selecionar um algoritmo de aprendizagem automática diferente, experimentar um método de treino diferente, etc., então precisa seguir o segundo procedimento descrito acima para retreinar o seu modelo: abrir a experiência de treino, clicar **em Save As** para fazer uma cópia e, em seguida, iniciar o novo caminho de desenvolvimento do seu modelo, criar a experiência preditiva e implantar o serviço web. Isto irá criar um novo serviço Web não relacionado com o original - você pode decidir qual, ou ambos, para continuar a executar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais detalhes sobre o processo de desenvolvimento e experimentação, consulte os seguintes artigos:
 
 * converter a experiência - [Como preparar o seu modelo para implantação no Azure Machine Learning Studio (clássico)](convert-training-experiment-to-scoring-experiment.md)

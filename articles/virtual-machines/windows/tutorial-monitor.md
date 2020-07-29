@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: c60d27cb75526d801880658846a6b61760f4bf7e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 154e4c9421d1c0a54b3d9b5f53424e7640fe62d8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508088"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323575"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>Tutorial: Monitorize uma máquina virtual do Windows em Azure
 
@@ -93,7 +93,7 @@ Para permitir a monitorização do seu Azure VM com monitor Azure para VMs:
     A lista pré-seleciona o espaço de trabalho predefinido e o local onde o VM é implantado na subscrição. 
 
     >[!NOTE]
-    >Para criar um novo espaço de trabalho log Analytics para armazenar os dados de monitorização a partir do VM, consulte Criar um espaço de [trabalho Log Analytics](../../azure-monitor/learn/quick-create-workspace.md). O seu espaço de trabalho Log Analytics deve pertencer a uma das [regiões apoiadas.](../../azure-monitor/insights/vminsights-enable-overview.md#log-analytics)
+    >Para criar um novo espaço de trabalho log Analytics para armazenar os dados de monitorização a partir do VM, consulte Criar um espaço de [trabalho Log Analytics](../../azure-monitor/learn/quick-create-workspace.md). O espaço de trabalho deve pertencer a uma das [regiões apoiadas.](../../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions)
 
 Depois de ativar a monitorização, poderá ter de esperar alguns minutos antes de poder ver as métricas de desempenho do VM.
 
@@ -129,7 +129,7 @@ O exemplo seguinte cria um alerta para a utilização média da CPU.
 
 6. Clique no botão **OK.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, configuraste e viste o desempenho do teu VM. Aprendeu a:
 

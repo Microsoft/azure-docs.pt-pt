@@ -7,18 +7,19 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 84709c022631543101889f784231158ebb96b6f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c315cc8c9dfcfa66999ff263fab95f414061e54e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77662269"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321263"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Envie métricas personalizadas para um recurso Azure para a loja métrica Azure Monitor utilizando uma API REST
 
 Este artigo mostra-lhe como enviar métricas personalizadas para recursos Azure para a loja de métricas Azure Monitor através de uma API REST. Depois de as métricas estarem no Azure Monitor, podes fazer todas as coisas com eles que fazes com as métricas padrão. Exemplos são o gráfico, o alerta e o encaminhamento para outras ferramentas externas.  
 
 >[!NOTE]  
->A API REST apenas permite o envio de métricas personalizadas para recursos Azure. Para enviar métricas de recursos em diferentes ambientes ou no local, pode utilizar [o Application Insights](../../azure-monitor/app/api-custom-events-metrics.md).    
+>A API REST apenas permite o envio de métricas personalizadas para recursos Azure. Para enviar métricas de recursos em diferentes ambientes ou no local, pode utilizar [o Application Insights](../app/api-custom-events-metrics.md).    
 
 
 ## <a name="create-and-authorize-a-service-principal-to-emit-metrics"></a>Criar e autorizar um principal de serviço a emitir métricas 
@@ -92,13 +93,13 @@ Se receber uma mensagem de erro com alguma parte do processo, considere as segui
 1. Não pode emitir métricas contra uma subscrição ou grupo de recursos como o seu recurso Azure. 
 1. Não se pode pôr uma métrica na loja com mais de 20 minutos. A loja métrica está otimizada para alertar e fazer gráficos em tempo real. 
 2. O número de nomes de dimensão deve corresponder aos valores e vice-versa. Verifique os valores. 
-2. Pode estar a emitir métricas contra uma região que não suporta métricas personalizadas. Ver [regiões apoiadas.](../../azure-monitor/platform/metrics-custom-overview.md#supported-regions) 
+2. Pode estar a emitir métricas contra uma região que não suporta métricas personalizadas. Ver [regiões apoiadas.](./metrics-custom-overview.md#supported-regions) 
 
 
 
 ## <a name="view-your-metrics"></a>Veja as suas métricas 
 
-1. Inicie sessão no Portal do Azure. 
+1. Inicie sessão no portal do Azure. 
 
 1. No menu da esquerda, selecione **Monitor**. 
 
@@ -115,6 +116,6 @@ Se receber uma mensagem de erro com alguma parte do processo, considere as segui
 1. No menu suspenso de **métricas,** selecione **QueueDepth**.  
 
  
-## <a name="next-steps"></a>Próximos passos
-- Saiba mais sobre [métricas personalizadas.](../../azure-monitor/platform/metrics-custom-overview.md)
+## <a name="next-steps"></a>Passos seguintes
+- Saiba mais sobre [métricas personalizadas.](./metrics-custom-overview.md)
 

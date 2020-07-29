@@ -3,12 +3,12 @@ title: Criar ou modificar laboratórios usando modelos de Gestor de Recursos Azu
 description: Saiba como usar modelos do Gestor de Recursos Azure com o PowerShell para criar ou modificar laboratórios automaticamente num laboratório de DevTest
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: af225e8cfade30a64aa1f4cf747e2a4d8d3f895f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 645f1d0717514d2c7e7b16844513327127e4e1a8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483181"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87272645"
 ---
 # <a name="create-or-modify-labs-automatically-using-azure-resource-manager-templates-and-powershell"></a>Criar ou modificar laboratórios automaticamente utilizando modelos de Gestor de Recursos Azure e PowerShell
 
@@ -20,12 +20,12 @@ Este artigo ajuda a guiá-lo através do processo de utilização destes modelos
 Você pode encontrar [modelos pré-fabricados do Gestor de Recursos Azure](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates) e [scripts PowerShell](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts) no nosso [repositório](https://github.com/Azure/azure-devtestlab)público GitHub . Use-os como está, ou personalize-os para as suas necessidades e guarde-os no seu próprio [repo Git privado.](devtest-lab-add-artifact-repo.md)
 
 ## <a name="step-2-modify-your-azure-resource-manager-template"></a>Passo 2: Modificar o seu modelo de Gestor de Recursos Azure
-Pode seguir os passos no [Criar o seu primeiro modelo de Gestor de Recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template) se nunca tiver criado um modelo antes.
+Pode seguir os passos no [Criar o seu primeiro modelo de Gestor de Recursos Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) se nunca tiver criado um modelo antes.
 
-Além disso, [as melhores práticas para criar modelos de Gestor de Recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices) oferecem muitas diretrizes e sugestões para ajudá-lo a criar modelos de Gestor de Recursos Azure que são fiáveis e fáceis de usar. Normalmente, você usará uma variação de uma das abordagens ou exemplos fornecidos e modificará o seu modelo para as suas necessidades.
+Além disso, [as melhores práticas para criar modelos de Gestor de Recursos Azure](../azure-resource-manager/templates/template-best-practices.md) oferecem muitas diretrizes e sugestões para ajudá-lo a criar modelos de Gestor de Recursos Azure que são fiáveis e fáceis de usar. Normalmente, você usará uma variação de uma das abordagens ou exemplos fornecidos e modificará o seu modelo para as suas necessidades.
 
 ## <a name="step-3-deploy-resources-with-powershell"></a>Passo 3: Mobilizar recursos com PowerShell
-Depois de ter personalizado os seus modelos e scripts, siga os passos necessários para [implementar recursos com modelos de Gestor de Recursos e Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy). O artigo fornece informações gerais sobre a utilização do Azure PowerShell com modelos do Azure Resource Manager para implantar os seus recursos no Azure.
+Depois de ter personalizado os seus modelos e scripts, siga os passos necessários para [implementar recursos com modelos de Gestor de Recursos e Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md). O artigo fornece informações gerais sobre a utilização do Azure PowerShell com modelos do Azure Resource Manager para implantar os seus recursos no Azure.
 
 
 ## <a name="common-tasks-you-can-perform-in-devtest-labs-using-powershell"></a>Tarefas comuns que pode executar em laboratórios DevTest usando PowerShell
@@ -36,6 +36,6 @@ Existem muitas outras tarefas comuns que pode automatizar usando o PowerShell. A
 * [Adicione um utilizador externo a um laboratório usando o PowerShell](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell)
 * [Crie um papel personalizado de laboratório usando o PowerShell](devtest-lab-grant-user-permissions-to-specific-lab-policies.md#creating-a-lab-custom-role-using-powershell)
 
-### <a name="next-steps"></a>Próximos passos
+### <a name="next-steps"></a>Passos seguintes
 * Saiba como criar um [repositório privado de Git](devtest-lab-add-artifact-repo.md) onde armazenará os seus modelos ou scripts personalizados.
 * Explore os [modelos do Gestor de Recursos Azure da galeria de modelos Azure Quickstart.](https://github.com/Azure/azure-quickstart-templates)

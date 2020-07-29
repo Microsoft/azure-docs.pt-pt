@@ -4,12 +4,12 @@ description: Neste quickstart, aprenda a configurar a monitorização do site do
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.custom: mvc
-ms.openlocfilehash: fa2ecd5d953ec0411a122dc7107ce23de1ae5bc6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eb6c0a8319257949cee8f35be6cdfac22f1fe5d4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014053"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323439"
 ---
 # <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>Quickstart: Comece a monitorizar o seu website com insights de aplicação do Monitor Azure
 
@@ -105,21 +105,21 @@ O Application Insights pode recolher dados de telemetria a partir de qualquer ap
 
    ![Gráfico de análise de pedidos de utilizador durante um período de tempo](./media/website-monitoring/analytics-query.png)
 
-1. Volte à página **Descrição geral**. Sob o cabeçalho **Investigar,** selecione **Browser**e, em seguida, selecione **Performance**.  Métricas relacionadas com o desempenho do seu site aparecem. Existe uma visão correspondente para analisar falhas e exceções no seu website. Pode selecionar **amostras** para aceder [aos dados de transação de ponta a ponta.](../../azure-monitor/app/transaction-diagnostics.md)
+1. Volte à página **Descrição geral**. Sob o cabeçalho **Investigar,** selecione **Browser**e, em seguida, selecione **Performance**.  Métricas relacionadas com o desempenho do seu site aparecem. Existe uma visão correspondente para analisar falhas e exceções no seu website. Pode selecionar **amostras** para aceder [aos dados de transação de ponta a ponta.](./transaction-diagnostics.md)
 
    ![Gráficos de métricas de servidor](./media/website-monitoring/browser-performance.png)
 
-1. No menu principal de Insights de Aplicação, no cabeçalho **De Utilização,** selecione [**Utilizadores**](../../azure-monitor/app/usage-segmentation.md) para começar a explorar as [ferramentas de análise](../../azure-monitor/app/usage-overview.md)de comportamento do utilizador . Como estamos a testar a partir de uma única máquina, só veremos dados para um utilizador. Para um site ao vivo, a distribuição dos utilizadores pode ser assim:
+1. No menu principal de Insights de Aplicação, no cabeçalho **De Utilização,** selecione [**Utilizadores**](./usage-segmentation.md) para começar a explorar as [ferramentas de análise](./usage-overview.md)de comportamento do utilizador . Como estamos a testar a partir de uma única máquina, só veremos dados para um utilizador. Para um site ao vivo, a distribuição dos utilizadores pode ser assim:
 
      ![Gráfico de utilizadores](./media/website-monitoring/usage-users.png)
 
-1. Para um site mais complexo com várias páginas, pode utilizar a ferramenta Fluxos de Utilizador para rastrear o caminho que os [**visitantes**](../../azure-monitor/app/usage-flows.md) percorrem as várias partes do seu website.
+1. Para um site mais complexo com várias páginas, pode utilizar a ferramenta Fluxos de Utilizador para rastrear o caminho que os [**visitantes**](./usage-flows.md) percorrem as várias partes do seu website.
 
    ![Visualização dos Fluxos de Utilizador](./media/website-monitoring/user-flows.png)
 
 Para obter configurações mais avançadas para monitorizar websites, consulte a [referência API do JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se planeia continuar a trabalhar com quickstarts ou tutoriais adicionais, não limpe os recursos criados neste arranque rápido. Caso contrário, utilize os seguintes passos para eliminar todos os recursos criados por este quickstart no portal Azure.
 
@@ -133,3 +133,4 @@ Se planeia continuar a trabalhar com quickstarts ou tutoriais adicionais, não l
 
 > [!div class="nextstepaction"]
 > [Encontrar e diagnosticar problemas de desempenho](../log-query/log-query-overview.md)
+

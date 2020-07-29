@@ -3,12 +3,12 @@ title: Crie uma imagem personalizada da Azure DevTest Labs a partir de um VM Mic
 description: Saiba como criar uma imagem personalizada em Azure DevTest Labs a partir de um VM provisionado usando o portal Azure
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 597ef49b667cf613b721c645e09f8e6dcb157011
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad45ed6eb7f97e14ec0ca0bb89efb2967c90fc16
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476602"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87277032"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Criar uma imagem personalizada a partir de uma VM
 
@@ -43,9 +43,9 @@ Você pode criar uma imagem personalizada a partir de um VM provisionado, e depo
 
 ## <a name="related-blog-posts"></a>Publicações de blogs relacionadas
 
-- [Imagens ou fórmulas personalizadas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [Imagens ou fórmulas personalizadas?](./devtest-lab-faq.md#blog-post)
 - [Copiar imagens personalizadas entre Azure DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Adicione um VM ao seu laboratório](devtest-lab-add-vm.md)

@@ -3,24 +3,24 @@ title: Diagnosticar falhas e exceções com a Azure Application Insights
 description: Capture exceções de aplicações ASP.NET juntamente com a telemetria de pedido.
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 4d298b3b8541590387995898b0b9f067e8130c3d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c91ab4bcf8a0d2172c89fa04bd7a3b4999b2217e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517217"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321365"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticar exceções nas suas aplicações web com Insights de Aplicação
-As exceções na sua aplicação web ao vivo são reportadas pela [Application Insights](../../azure-monitor/app/app-insights-overview.md). Pode correlacionar pedidos falhados com exceções e outros eventos tanto no cliente como no servidor, para que possa diagnosticar rapidamente as causas.
+As exceções na sua aplicação web ao vivo são reportadas pela [Application Insights](./app-insights-overview.md). Pode correlacionar pedidos falhados com exceções e outros eventos tanto no cliente como no servidor, para que possa diagnosticar rapidamente as causas.
 
 ## <a name="set-up-exception-reporting"></a>Configurar relatórios de exceções
 * Para ter exceções reportadas a partir da sua aplicação de servidor:
-  * Aplicativos web Azure: Adicionar a [extensão de Insights de Aplicação](../../azure-monitor/app/azure-web-apps.md)
-  * Azure VM e Azure série de máquinas virtuais conjunto aplicativos hospedados no IIS: Adicionar a [extensão de monitorização de aplicações](../../azure-monitor/app/azure-vm-vmss-apps.md)
-  * Instale [o App Insights SDK](../../azure-monitor/app/asp-net.md) no seu código de aplicação, ou
-  * Servidores web IIS: Executar Agente [de Insights de Aplicações;](../../azure-monitor/app/monitor-performance-live-website-now.md) ou
+  * Aplicativos web Azure: Adicionar a [extensão de Insights de Aplicação](./azure-web-apps.md)
+  * Azure VM e Azure série de máquinas virtuais conjunto aplicativos hospedados no IIS: Adicionar a [extensão de monitorização de aplicações](./azure-vm-vmss-apps.md)
+  * Instale [o App Insights SDK](./asp-net.md) no seu código de aplicação, ou
+  * Servidores web IIS: Executar Agente [de Insights de Aplicações;](./monitor-performance-live-website-now.md) ou
   * Aplicativos java web: Ativar o [agente Java](./java-in-process-agent.md)
-* Instale o [snippet JavaScript](../../azure-monitor/app/javascript.md) nas suas páginas web para apanhar exceções ao navegador.
+* Instale o [snippet JavaScript](./javascript.md) nas suas páginas web para apanhar exceções ao navegador.
 * Em alguns quadros de aplicação ou com algumas configurações, você precisa tomar alguns passos adicionais para obter mais exceções:
   * [Formulários web](#web-forms)
   * [MVC](#mvc)
@@ -70,29 +70,29 @@ Para obter dados de diagnóstico específicos da sua app, pode inserir código p
 
 Tem várias opções:
 
-* [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent) é normalmente usado para monitorizar padrões de uso, mas os dados que envia também aparecem em Eventos Personalizados na pesquisa de diagnóstico. Os eventos são nomeados, e podem transportar propriedades de cordas e métricas numéricas nas quais você pode [filtrar as suas pesquisas de diagnóstico.](../../azure-monitor/app/diagnostic-search.md)
-* [TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) permite-lhe enviar dados mais longos, como informações POST.
+* [TrackEvent()](./api-custom-events-metrics.md#trackevent) é normalmente usado para monitorizar padrões de uso, mas os dados que envia também aparecem em Eventos Personalizados na pesquisa de diagnóstico. Os eventos são nomeados, e podem transportar propriedades de cordas e métricas numéricas nas quais você pode [filtrar as suas pesquisas de diagnóstico.](./diagnostic-search.md)
+* [TrackTrace()](./api-custom-events-metrics.md#tracktrace) permite-lhe enviar dados mais longos, como informações POST.
 * [TrackException()](#exceptions) envia traços de pilha. [Mais sobre exceções.](#exceptions)
 * Se já utilizar uma estrutura de registo como Log4Net ou NLog, pode [capturar esses registos](asp-net-trace-logs.md) e vê-los na pesquisa de diagnóstico juntamente com os dados de pedido e exceção.
 
-Para ver estes eventos, abra [a pesquisa](../../azure-monitor/app/diagnostic-search.md) a partir do menu esquerdo, selecione os **tipos**de eventos do menu suspenso e, em seguida, escolha Evento Personalizado, Trace ou Exceção.
+Para ver estes eventos, abra [a pesquisa](./diagnostic-search.md) a partir do menu esquerdo, selecione os **tipos**de eventos do menu suspenso e, em seguida, escolha Evento Personalizado, Trace ou Exceção.
 
 ![Pormenorizar](./media/asp-net-exceptions/customevents.png)
 
 > [!NOTE]
-> Se a sua aplicação gerar uma grande quantidade de telemetria, o módulo de amostragem adaptável irá reduzir automaticamente o volume que é enviado para o portal, enviando apenas uma fração representativa dos eventos. Eventos que fazem parte da mesma operação serão selecionados ou desescolados como um grupo, para que possa navegar entre eventos relacionados. [Aprenda a provar.](../../azure-monitor/app/sampling.md)
+> Se a sua aplicação gerar uma grande quantidade de telemetria, o módulo de amostragem adaptável irá reduzir automaticamente o volume que é enviado para o portal, enviando apenas uma fração representativa dos eventos. Eventos que fazem parte da mesma operação serão selecionados ou desescolados como um grupo, para que possa navegar entre eventos relacionados. [Aprenda a provar.](./sampling.md)
 >
 >
 
 ### <a name="how-to-see-request-post-data"></a>Como ver pedido dados POST
 Os dados do pedido não incluem os dados enviados para a sua aplicação numa chamada POST. Para ter estes dados relatados:
 
-* [Instale o SDK](../../azure-monitor/app/asp-net.md) no seu projeto de candidatura.
-* Insira código na sua aplicação para ligar para [Microsoft.ApplicationInsights.TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace). Envie os dados POST no parâmetro da mensagem. Existe um limite para o tamanho permitido, por isso deve tentar enviar apenas os dados essenciais.
+* [Instale o SDK](./asp-net.md) no seu projeto de candidatura.
+* Insira código na sua aplicação para ligar para [Microsoft.ApplicationInsights.TrackTrace()](./api-custom-events-metrics.md#tracktrace). Envie os dados POST no parâmetro da mensagem. Existe um limite para o tamanho permitido, por isso deve tentar enviar apenas os dados essenciais.
 * Quando investigar um pedido falhado, encontre os vestígios associados.
 
 ## <a name="capturing-exceptions-and-related-diagnostic-data"></a><a name="exceptions"></a>Captura de exceções e dados de diagnóstico conexos
-No início, não verá no portal todas as exceções que causam falhas na sua app. Verá quaisquer exceções ao navegador (se estiver a utilizar o [SDK JavaScript](../../azure-monitor/app/javascript.md) nas suas páginas web). Mas a maioria das exceções ao servidor são apanhadas pelo IIS e tens de escrever um código para as veres.
+No início, não verá no portal todas as exceções que causam falhas na sua app. Verá quaisquer exceções ao navegador (se estiver a utilizar o [SDK JavaScript](./javascript.md) nas suas páginas web). Mas a maioria das exceções ao servidor são apanhadas pelo IIS e tens de escrever um código para as veres.
 
 Pode:
 
@@ -152,7 +152,7 @@ A forma mais simples é inserir uma chamada para TrackException num manipulador 
     End Try
 ```
 
-Os parâmetros de propriedades e medições são opcionais, mas são úteis para [filtrar e adicionar](../../azure-monitor/app/diagnostic-search.md) informações extra. Por exemplo, se tiveres uma aplicação que pode executar vários jogos, podes encontrar todos os relatórios de exceção relacionados com um determinado jogo. Pode adicionar quantos itens quiser a cada dicionário.
+Os parâmetros de propriedades e medições são opcionais, mas são úteis para [filtrar e adicionar](./diagnostic-search.md) informações extra. Por exemplo, se tiveres uma aplicação que pode executar vários jogos, podes encontrar todos os relatórios de exceção relacionados com um determinado jogo. Pode adicionar quantos itens quiser a cada dicionário.
 
 ## <a name="browser-exceptions"></a>Exceções de browser
 A maioria das exceções ao navegador são reportadas.
@@ -201,12 +201,12 @@ Começando com a versão 2.6 da Web SDK da Aplicação Insights (beta3 e posteri
 
 Há uma série de casos que os filtros de exceção não conseguem lidar. Por exemplo:
 
-* Exceções lançadas dos construtores controladores.
-* Exceções lançadas dos manipuladores de mensagens.
-* Exceções lançadas durante o encaminhamento.
-* Exceções lançadas durante a serialização de conteúdos de resposta.
-* Exceção lançada durante o arranque da aplicação.
-* Exceção lançada em tarefas de fundo.
+* Exceções emitidas a partir dos construtores de controladores.
+* Exceções emitidas a partir dos processadores de mensagens.
+* Exceções emitidas durante o encaminhamento.
+* Exceções emitidas durante a serialização de conteúdos de resposta.
+* Exceção emitida durante o arranque da aplicação.
+* Exceção emitida em tarefas em segundo plano.
 
 Todas as exceções *tratadas* por aplicação ainda precisam de ser rastreadas manualmente.
 As exceções não tratadas originárias dos controladores resultam normalmente numa resposta de 500 "Erro interno do servidor". Se tal resposta for construída manualmente como resultado de uma exceção manuseada (ou nenhuma exceção) é rastreada na telemetria de pedido correspondente com `ResultCode` 500, no entanto a Application Insights SDK não consegue acompanhar a respetiva exceção.
@@ -293,12 +293,12 @@ Começando com a versão 2.6 da Web SDK da Aplicação Insights Web SDK (beta3 e
 
 Há uma série de casos que os filtros de exceção não conseguem lidar. Por exemplo:
 
-* Exceções lançadas dos construtores controladores.
-* Exceções lançadas dos manipuladores de mensagens.
-* Exceções lançadas durante o encaminhamento.
-* Exceções lançadas durante a serialização de conteúdos de resposta.
-* Exceção lançada durante o arranque da aplicação.
-* Exceção lançada em tarefas de fundo.
+* Exceções emitidas a partir dos construtores de controladores.
+* Exceções emitidas a partir dos processadores de mensagens.
+* Exceções emitidas durante o encaminhamento.
+* Exceções emitidas durante a serialização de conteúdos de resposta.
+* Exceção emitida durante o arranque da aplicação.
+* Exceção emitida em tarefas em segundo plano.
 
 Todas as exceções *tratadas* por aplicação ainda precisam de ser rastreadas manualmente.
 As exceções não tratadas originárias dos controladores resultam normalmente numa resposta de 500 "Erro interno do servidor". Se tal resposta for construída manualmente como resultado de uma exceção manuseada (ou nenhuma exceção) é rastreada numa telemetria de pedido correspondente com `ResultCode` 500, no entanto a Application Insights SDK não consegue acompanhar a respetiva exceção.
@@ -482,7 +482,7 @@ Add the attribute to the service implementations:
 [Sample](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
 ## <a name="exception-performance-counters"></a>Contadores de desempenho de exceção
-Se [tiver instalado o Application Insights Agent](../../azure-monitor/app/monitor-performance-live-website-now.md) no seu servidor, pode obter um gráfico da taxa de exceções, medido por .NET. Isto inclui exceções manuseadas e não manipuladas .NET.
+Se [tiver instalado o Application Insights Agent](./monitor-performance-live-website-now.md) no seu servidor, pode obter um gráfico da taxa de exceções, medido por .NET. Isto inclui exceções manuseadas e não manipuladas .NET.
 
 Abra um separador Metric Explorer, adicione um novo gráfico e selecione **taxa de exceção,** listada nos Contadores de Desempenho.
 
@@ -490,7 +490,8 @@ O quadro .NET calcula a taxa contando o número de exceções num intervalo e di
 
 Isto é diferente da contagem de 'Excepções' calculada pelo portal Application Insights contando relatórios TrackException. Os intervalos de amostragem são diferentes, e o SDK não envia relatórios TrackException para todas as exceções manuseadas e não manipuladas.
 
-## <a name="next-steps"></a>Próximos passos
-* [Monitor REST, SQL e outras chamadas para dependências](../../azure-monitor/app/asp-net-dependencies.md)
-* [Monitorizar os tempos de carregamento da página, exceções ao navegador e chamadas AJAX](../../azure-monitor/app/javascript.md)
-* [Monitorize balcões de desempenho](../../azure-monitor/app/performance-counters.md)
+## <a name="next-steps"></a>Passos seguintes
+* [Monitor REST, SQL e outras chamadas para dependências](./asp-net-dependencies.md)
+* [Monitorizar os tempos de carregamento da página, exceções ao navegador e chamadas AJAX](./javascript.md)
+* [Monitorize balcões de desempenho](./performance-counters.md)
+

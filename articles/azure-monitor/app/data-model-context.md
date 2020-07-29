@@ -4,11 +4,12 @@ description: Modelo de dados de contexto de telemetria de insights de aplicaçã
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 8a2e3296643b13a54c4fceb11f044a2808cf2877
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25ff7d92da5ea0a6aba84aad1cfc98e5295e151e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671868"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322674"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Contexto de telemetria: Modelo de dados de Insights de Aplicação
 
@@ -38,14 +39,14 @@ Comprimento máximo: 64
 
 ## <a name="operation-id"></a>Id de operação
 
-Um identificador único da operação raiz. Este identificador permite agrupar a telemetria em vários componentes. Consulte [a correlação de telemetria](../../azure-monitor/app/correlation.md) para mais detalhes. O id de operação é criado por um pedido ou uma visualização de página. Todas as outras telemetrias definem este campo ao valor para o pedido ou visualização da página. 
+Um identificador único da operação raiz. Este identificador permite agrupar a telemetria em vários componentes. Consulte [a correlação de telemetria](./correlation.md) para mais detalhes. O id de operação é criado por um pedido ou uma visualização de página. Todas as outras telemetrias definem este campo ao valor para o pedido ou visualização da página. 
 
 Comprimento máximo: 128
 
 
 ## <a name="parent-operation-id"></a>ID de operação dos pais
 
-O identificador único do pai imediato do artigo da telemetria. Consulte [a correlação de telemetria](../../azure-monitor/app/correlation.md) para mais detalhes.
+O identificador único do pai imediato do artigo da telemetria. Consulte [a correlação de telemetria](./correlation.md) para mais detalhes.
 
 Comprimento máximo: 128
 
@@ -75,7 +76,7 @@ Comprimento máximo: 64
 
 Identificação de utilizador anónimo. Representa o utilizador final da aplicação. Quando a telemetria é enviada de um serviço, o contexto do utilizador é sobre o utilizador que iniciou a operação no serviço.
 
-[A amostragem](../../azure-monitor/app/sampling.md) é uma das técnicas para minimizar a quantidade de telemetria recolhida. Algoritmo de amostragem tenta recolher amostras dentro ou fora de toda a telemetria correlacionada. O id de utilizador anónimo é usado para a geração de pontuação de amostragem. Assim, a identificação de um utilizador anónimo deve ser um valor aleatório o suficiente. 
+[A amostragem](./sampling.md) é uma das técnicas para minimizar a quantidade de telemetria recolhida. Algoritmo de amostragem tenta recolher amostras dentro ou fora de toda a telemetria correlacionada. O id de utilizador anónimo é usado para a geração de pontuação de amostragem. Assim, a identificação de um utilizador anónimo deve ser um valor aleatório o suficiente. 
 
 A utilização de id de utilizador anónimo para armazenar o nome de utilizador é uma utilização indevida do campo. Utilize id de utilizador autenticado.
 
@@ -124,8 +125,9 @@ Este campo representa o nome do nó utilizado para efeitos de faturação. Use-o
 Comprimento máximo: 256
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como [estender e filtrar a telemetria.](../../azure-monitor/app/api-filtering-sampling.md)
+- Saiba como [estender e filtrar a telemetria.](./api-filtering-sampling.md)
 - Consulte [o modelo de dados](data-model.md) para os tipos de Insights de Aplicação e modelo de dados.
-- Confira a [configuração](../../azure-monitor/app/configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet)padrão da recolha de propriedades de contexto.
+- Confira a [configuração](./configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet)padrão da recolha de propriedades de contexto.
+

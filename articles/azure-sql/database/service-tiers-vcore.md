@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 07/21/2020
-ms.openlocfilehash: c54979efbbd164a11614b92d9a337a86e2f221fd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 24c7e0a3c9a7d3c28823db0418e17cb94bc101ec
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007746"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325071"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>vCore model overview - Azure SQL Database e Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -83,7 +83,7 @@ Para as regiões onde a Gen4/Gen5 está disponível, consulte [a disponibilidade
 - Dependendo da carga de trabalho, a série Fsv2 pode oferecer mais desempenho cpU por vCore do que a Gen5, e o tamanho de 72 vCore pode fornecer mais desempenho cpU por menos custos do que 80 vCores na Gen5. 
 - O Fsv2 fornece menos memória e temperatura por vCore do que outros hardware, pelo que cargas de trabalho sensíveis a esses limites podem querer considerar a série Gen5 ou M.  
 
-Série Fsv2 apenas suportada no nível de Finalidade Geral. Para as regiões onde a série Fsv2 está disponível, consulte [a disponibilidade da série Fsv2](#fsv2-series).
+Série Fsv2 apenas suportada no nível de Finalidade Geral. Para as regiões onde a série Fsv2 está disponível, consulte [a disponibilidade da série Fsv2](#fsv2-series-1).
 
 
 ### <a name="m-series"></a>Série M
@@ -91,7 +91,7 @@ Série Fsv2 apenas suportada no nível de Finalidade Geral. Para as regiões ond
 - A série M é uma opção de hardware otimizada pela memória para cargas de trabalho que exigem mais memória e limites de computação mais elevados do que os fornecidos pela Gen5.
 - A série M fornece 29 GB por vCore e até 128 vCores, o que aumenta o limite de memória em relação à Gen5 em 8x para quase 4 TB.
 
-A série M só é suportada no nível Business Critical e não suporta o despedimento de zona.  A subscrição deve ser um tipo de oferta paga, incluindo Pay-As-You-Go ou Enterprise Agreement (EA). Para as regiões onde a série M está disponível, consulte [a disponibilidade da série M](#m-series).
+A série M só é suportada no nível Business Critical e não suporta o despedimento de zona.  A subscrição deve ser um tipo de oferta paga, incluindo Pay-As-You-Go ou Enterprise Agreement (EA). Para as regiões onde a série M está disponível, consulte [a disponibilidade da série M](#m-series-1).
 
 <!--
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).

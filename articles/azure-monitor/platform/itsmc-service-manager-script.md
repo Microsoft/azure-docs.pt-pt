@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: bb21bcefa0f9fb6f691ebfb578177c64543c1403
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46c219a82d45129ed0856d22d88be819938e5240
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549655"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325309"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Criar aplicativo Web do Gestor de Serviços utilizando o script automatizado
 
-Utilize o seguinte script para criar a aplicação Web para a sua instância de Gestor de Serviço. Mais informações sobre a ligação do Service Manager estão aqui: [App Web do Gestor de Serviços](../../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+Utilize o seguinte script para criar a aplicação Web para a sua instância de Gestor de Serviço. Mais informações sobre a ligação do Service Manager estão aqui: [App Web do Gestor de Serviços](./itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
 Execute o script fornecendo os seguintes detalhes necessários:
 
@@ -317,5 +317,6 @@ if(!$err)
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
-[Configure a ligação Híbrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).
+## <a name="next-steps"></a>Passos seguintes
+[Configure a ligação Híbrida](./itsmc-connections.md#configure-the-hybrid-connection).
+

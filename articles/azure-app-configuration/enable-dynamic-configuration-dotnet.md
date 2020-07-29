@@ -8,16 +8,16 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 7b6081e6bad1382ca2b3a8349036234c0c01cb13
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: e8bc1d2eb978e0685552ff9b86d70ea4731285cf
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856513"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87277745"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Tutorial: Use configuração dinâmica numa aplicação .NET Framework
 
-A biblioteca de clientes de Configuração de Aplicação .NET suporta a atualização de um conjunto de configurações a pedido sem causar o reinício de uma aplicação. Isto pode ser implementado primeiro obtendo uma instância `IConfigurationRefresher` das opções para o fornecedor de configuração e, em seguida, invocando `Refresh` esse caso em qualquer lugar do seu código.
+A biblioteca de clientes de Configuração de Aplicação .NET suporta a atualização de um conjunto de configurações a pedido sem causar o reinício de uma aplicação. Isto pode ser implementado primeiro obtendo uma instância `IConfigurationRefresher` das opções para o fornecedor de configuração e, em seguida, invocando `TryRefreshAsync` esse caso em qualquer lugar do seu código.
 
 Para manter as definições atualizadas e evitar demasiadas chamadas para a loja de configuração, é utilizado um cache para cada definição. Até que o valor em cache de uma definição tenha expirado, a operação de atualização não atualiza o valor, mesmo quando o valor foi alterado na loja de configuração. O tempo de validade padrão para cada pedido é de 30 segundos, mas pode ser ultrapassado se necessário.
 
@@ -54,7 +54,7 @@ Neste tutorial, ficará a saber como:
 
 1. In **Create a new project**, filter on the **Console** project type and click on Console **App (.NET Framework)**. Clique em **Seguinte**.
 
-1. Em **Configurar o seu novo projeto,** insira um nome de projeto. No **quadro,** selecione **o quadro .NET 4.7.1** ou superior. Clique em **Criar**.
+1. Em **Configurar o seu novo projeto,** insira um nome de projeto. No **quadro,** selecione **o quadro .NET 4.7.1** ou superior. Clique em **Create** (Criar).
 
 ## <a name="reload-data-from-app-configuration"></a>Recarregar dados da Configuração de Aplicações
 1. Clique com o botão direito no seu projeto e **selecione Gerir Pacotes NuGet**. No separador **Procurar,** procure e adicione a *Microsoft.Extensions.Configuration. Pacote NuGet AzureAppConfiguration* para o seu projeto. Se não conseguir encontrá-lo, selecione a caixa de verificação **de pré-escoam.**
@@ -95,7 +95,7 @@ Neste tutorial, ficará a saber como:
         PrintMessage().Wait();
     }
     ```
-    O `ConfigureRefresh` método é utilizado para especificar as definições utilizadas para atualizar os dados de configuração com a loja de Configuração de Aplicações quando uma operação de atualização é desencadeada. Um caso pode ser recuperado através do `IConfigurationRefresher` método de chamada sobre as `GetRefresher` opções fornecidas ao `AddAzureAppConfiguration` método, e o método neste caso `Refresh` pode ser usado para desencadear uma operação de atualização em qualquer lugar do seu código.
+    O `ConfigureRefresh` método é utilizado para especificar as definições utilizadas para atualizar os dados de configuração com a loja de Configuração de Aplicações quando uma operação de atualização é desencadeada. Um caso pode ser recuperado através do `IConfigurationRefresher` método de chamada sobre as `GetRefresher` opções fornecidas ao `AddAzureAppConfiguration` método, e o método neste caso `TryRefreshAsync` pode ser usado para desencadear uma operação de atualização em qualquer lugar do seu código.
 
     > [!NOTE]
     > O tempo de expiração da cache padrão para uma definição de configuração é de 30 segundos, mas pode ser ultrapassado chamando o `SetCacheExpiration` método sobre o inicializador de opções passado como um argumento para o `ConfigureRefresh` método.
@@ -110,7 +110,7 @@ Neste tutorial, ficará a saber como:
         // Wait for the user to press Enter
         Console.ReadLine();
 
-        await _refresher.Refresh();
+        await _refresher.TryRefreshAsync();
         Console.WriteLine(_configuration["TestApp:Settings:Message"] ?? "Hello world!");
     }
     ```
@@ -150,7 +150,7 @@ Neste tutorial, ficará a saber como:
     > [!NOTE]
     > Uma vez que o tempo de validade da cache foi definido para 10 segundos usando o `SetCacheExpiration` método enquanto especifica a configuração para a operação de atualização, o valor para a definição de configuração só será atualizado se pelo menos 10 segundos decorridos desde a última atualização para essa definição.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

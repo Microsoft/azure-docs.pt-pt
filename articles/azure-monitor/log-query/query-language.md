@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2019
-ms.openlocfilehash: 1dda2df64dc116a950498aaf581ec39a86db72bb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 080af271870362e6e0633aaf590820f2fadb6144
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505742"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325394"
 ---
 # <a name="azure-monitor-log-queries"></a>Consultas de registo do Azure Monitor
 
@@ -26,15 +26,15 @@ Os registos do Azure Monitor são construídos no Azure Data Explorer, e as cons
 
 ## <a name="concepts"></a>Conceitos
 
-- [Analisar os dados de registo no Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) dá uma breve visão geral das consultas de registo e descreve como os dados de registo do Azure Monitor são estruturados.
+- [Analisar os dados de registo no Azure Monitor](./log-query-overview.md) dá uma breve visão geral das consultas de registo e descreve como os dados de registo do Azure Monitor são estruturados.
 - [Visualizar e analisar dados de registo no Azure Monitor](./log-query-overview.md) explica os portais onde cria e executa consultas de registo.
 
 ## <a name="reference"></a>Referência
 
 - [A referência linguística](/azure/kusto/query) de consulta é a referência linguística completa para a língua de consulta kusto.
 - [As diferenças linguísticas de consulta de registo do Azure Monitor](data-explorer-difference.md) descrevem diferenças entre versões da língua de consulta de Kusto.
-- [Propriedades padrão nos registos de registo do Monitor Azure](../../azure-monitor/platform/log-standard-properties.md) descrevem propriedades que são padrão para todos os dados de registo do Azure Monitor.
-- [Realizar consultas de registo de recursos cruzados no Azure Monitor](../../azure-monitor/log-query/cross-workspace-query.md) descreve como escrever consultas de registo que utilizam dados de vários espaços de trabalho do Log Analytics e aplicações de Insights de Aplicações.
+- [Propriedades padrão nos registos de registo do Monitor Azure](../platform/log-standard-properties.md) descrevem propriedades que são padrão para todos os dados de registo do Azure Monitor.
+- [Realizar consultas de registo de recursos cruzados no Azure Monitor](./cross-workspace-query.md) descreve como escrever consultas de registo que utilizam dados de vários espaços de trabalho do Log Analytics e aplicações de Insights de Aplicações.
 
 ## <a name="examples"></a>Exemplos
 
@@ -55,6 +55,7 @@ Os registos do Azure Monitor são construídos no Azure Data Explorer, e as cons
 - [A consulta de registo sql-Azure Monitor](sql-cheatsheet.md) ajuda os utilizadores que já estão familiarizados com o SQL.
 - [A consulta de registo splunk para Azure Monitor](splunk-cheatsheet.md) ajuda os utilizadores que já estão familiarizados com o Splunk.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Aceda à documentação completa [de referência para o idioma de consulta kusto.](/azure/kusto/query/)
+

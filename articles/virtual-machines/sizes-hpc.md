@@ -4,17 +4,17 @@ description: Lista os diferentes tamanhos disponíveis para máquinas virtuais d
 author: vermagit
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 041300efd9d756f2ef8145adb23d745b2345c7eb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ffbe61cd84d2c543f0db97a5d70ad13193f2a68d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058786"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87267120"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Tamanhos de VM de computação de alto desempenho
 
@@ -96,7 +96,7 @@ O Azure oferece várias opções para criar clusters de VMs Windows HPC que pode
 
 - **Microsoft HPC Pack**  -  [O HPC Pack](/powershell/high-performance-computing/overview) inclui um ambiente de tempo de funcionamento para o MS-MPI que utiliza a rede Azure RDMA quando implantado em VMs Linux com capacidade RDMA. Por exemplo, consulte [Configurar um cluster Linux RDMA com o HPC Pack para executar aplicações MPI](/powershell/high-performance-computing/hpcpack-linux-openfoam).
 
-## <a name="deployment-considerations"></a>Considerações sobre a implementação
+## <a name="deployment-considerations"></a>Considerações sobre implementação
 
 - **Subscrição do Azure** – Para implementar mais do que alguns casos intensivos de computação, considere uma subscrição pay-as-you-go ou outras opções de compra. Se estiver a utilizar uma [conta gratuita do Azure](https://azure.microsoft.com/free/), pode utilizar apenas um número limitado de núcleos de computação do Azure.
 
@@ -118,7 +118,7 @@ O Azure oferece várias opções para criar clusters de VMs Windows HPC que pode
 - [Com otimização de computação](sizes-compute.md)
 - [Com otimização de memória](sizes-memory.md)
 - [Com otimização de armazenamento](sizes-storage.md)
-- [Otimizada para GPU](sizes-gpu.md)
+- [Com otimização de GPU](sizes-gpu.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Passos seguintes

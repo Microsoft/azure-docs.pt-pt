@@ -7,11 +7,16 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 71a5737434e78bc39bccdfeb950e0dbc32ed0052
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+- 'Role: Operations'
+- 'Role: Technical Support'
+ms.openlocfilehash: 675391a92c991f80faadf8b75abc79dcb4cd19d7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84688981"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322963"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - IoT Hub quotas e estrangulamento
 
@@ -126,7 +131,7 @@ Várias unidades IoT Hub afetam o estrangulamento como descrito anteriormente, m
 
 Se vir aumentos inesperados na latência da operação, contacte [o Microsoft Support](https://azure.microsoft.com/support/options/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma discussão aprofundada sobre o comportamento de estrangulamento do IoT Hub, consulte o blog post [IoT Hub throttling e você](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/).
 

@@ -1,6 +1,6 @@
 ---
-title: Ligue ao Windows Virtual Desktop Fall 2019 Windows 10 ou 7 - Azure
-description: Como ligar-se ao Windows Virtual Desktop utilizando o cliente Windows Desktop.
+title: Ligue ao Windows Virtual Desktop (clássico) Windows 10 ou 7 - Azure
+description: Como ligar-se ao Windows Virtual Desktop (clássico) utilizando o cliente Windows Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,24 +8,24 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3bddfe22f70c1044ca02fb41a1959884f41797bb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d420927727c2d2209c00f4852188c4a2d8e4342d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083553"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87270333"
 ---
-# <a name="connect-with-the-windows-desktop-client---fall-2019"></a>Conecte-se com o cliente Windows Desktop - outono 2019
+# <a name="connect-with-the-windows-desktop-classic-client"></a>Conecte-se com o cliente do Windows Desktop (clássico)
 
 > Aplica-se a: Windows 7, Windows 10 e Windows 10 IoT Enterprise
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../connect-windows-7-10.md).
+>Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows. Se estiver a tentar gerir os objetos de ambiente de trabalho virtuais do Azure Resource Manager Windows, consulte [este artigo](../connect-windows-7-10.md).
 
 Pode aceder aos recursos de Desktop Virtual do Windows em dispositivos com Windows 7, Windows 10 e Windows 10 IoT Enterprise utilizando o cliente Windows Desktop. O cliente não suporta o Windows 8 ou o Windows 8.1.
 
 >[!NOTE]
->O cliente Windows falha automaticamente na versão virtual do Windows Desktop Fall 2019. No entanto, se o cliente detetar que o utilizador também tem recursos Azure Resource Manager, adiciona automaticamente os recursos ou notifica o utilizador de que está disponível.
+>O cliente Do Windows falha automaticamente no Windows Virtual Desktop (clássico). No entanto, se o cliente detetar que o utilizador também tem recursos Azure Resource Manager, adiciona automaticamente os recursos ou notifica o utilizador de que está disponível.
 
 > [!IMPORTANT]
 > O Windows Virtual Desktop não suporta o cliente RemoteApp e Desktop Connections (RADC) ou o cliente Remote Desktop Connection (MSTSC).
@@ -63,8 +63,8 @@ Há duas formas de subscrever um Espaço de Trabalho. O cliente pode tentar desc
 1. A partir da página principal do cliente, **selecione Subscreva com URL**.
 2. Insira o URL do Espaço de Trabalho ou o seu endereço de e-mail:
    - Se utilizar o **URL workspace,** use o que o seu administrador lhe deu. Se aceder a recursos a partir do Windows Virtual Desktop, pode utilizar um dos seguintes URLs:
-     - Windows Virtual Desktop Fall 2019:`https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
-     - Windows Virtual Desktop Spring 2020:`https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
+     - Windows Virtual Desktop (clássico):`https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
+     - Windows Virtual Desktop:`https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
    - Se estiver a utilizar o campo **de e-mail,** insira o seu endereço de e-mail. Isto indica ao cliente para procurar um URL associado ao seu endereço de e-mail se o seu administrador tiver configurado a [descoberta de e-mail](/windows-server/remote/remote-desktop-services/rds-email-discovery).
 3. Selecione **Seguinte**.
 4. Inscreva-se na sua conta de utilizador quando solicitado.

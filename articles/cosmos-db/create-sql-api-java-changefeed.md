@@ -8,12 +8,13 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: ccbafcfcbf13809b84883352c5a31835c6988d51
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: devx-track-java
+ms.openlocfilehash: 3f2dcefa8ed2f4b80ec66851cdc67ee2283a6ac7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962701"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322827"
 ---
 # <a name="how-to-create-a-java-application-that-uses-azure-cosmos-db-sql-api-and-change-feed-processor"></a>Como criar uma aplicação Java que usa Azure Cosmos DB SQL API e alterar processador de feed
 
@@ -57,7 +58,7 @@ mvn clean package
 
 1. Como primeira verificação, deve ter uma conta DB Azure Cosmos. Abra o **portal Azure** no seu navegador, vá à sua conta DB Azure Cosmos e no painel esquerdo navegue para o **Data Explorer**.
 
-   :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_account_empty.JPG" alt-text="Conta DB de Azure Cosmos":::
+   :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_account_empty.JPG" alt-text="Conta do Azure Cosmos DB":::
 
 1. Executar a aplicação no terminal utilizando o seguinte comando:
 
@@ -95,7 +96,7 @@ mvn clean package
 
     Volte ao portal Azure Data Explorer no seu browser. No âmbito do contentor **Decontainer-leases,** clique em **itens** para ver o seu conteúdo. Verá que o Processador Change Feed povoou o recipiente de locação, ou seja, o processador atribuiu ao ```SampleHost_1``` trabalhador um arrendamento em algumas divisórias do **InventárioContainer**.
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_leases.JPG" alt-text="Concessões":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_leases.JPG" alt-text="Arrendamentos":::
 
 1. A imprensa volta a entrar no terminal. Isto irá desencadear 10 documentos a serem inseridos no **InventárioContainer**. Cada inserção de documento aparece no feed de alteração como JSON; o seguinte código de retorno trata estes eventos espelhando os documentos JSON numa visão materializada:
 

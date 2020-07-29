@@ -3,15 +3,15 @@ title: Fontes de dados de acesso às instalações
 description: Conecte-se a fontes de dados no local a partir de Azure Logic Apps criando um recurso de gateway de dados Azure no local
 services: logic-apps
 ms.suite: integration
-ms.reviewer: arthii, logicappspm
+ms.reviewer: arthii, divswa, logicappspm
 ms.topic: article
-ms.date: 02/14/2020
-ms.openlocfilehash: b216fa668483ef6fc30c1054dd4f65361ad17934
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/21/2020
+ms.openlocfilehash: 94fedc5dc6c9f420fbf14f80618a6daeefe908b2
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065955"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87172046"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Ligar a origens de dados no local a partir do Azure Logic Apps
 
@@ -56,9 +56,9 @@ A Azure Logic Apps suporta operações de leitura e escrita através do portal d
 
 * Está a utilizar a [mesma conta Estruz e subscrição](../logic-apps/logic-apps-gateway-install.md#requirements) que foi usada ao instalar o gateway de dados. Esta conta Azure deve pertencer a um único [inquilino ou diretório Azure Ative Directory (Azure AD).](../active-directory/fundamentals/active-directory-whatis.md#terminology)
 
-* A instalação do seu gateway ainda não está registada e reclamada por outro recurso de gateway Azure.
+* A instalação do gateway ainda não está registada e reclamada por outro recurso de gateway Azure existente no portal Azure.
 
-  Quando cria um recurso de gateway no portal Azure, seleciona uma instalação gateway, que se liga ao seu recurso gateway e apenas a esse recurso gateway. Nas Azure Logic Apps, os gatilhos e ações no local utilizam o recurso gateway para se conectarem a fontes de dados no local. Nestes gatilhos e ações, seleciona a subscrição do Azure e o recurso de gateway associado que pretende utilizar. Cada recurso de gateway liga-se a apenas uma instalação de gateway, que se liga a apenas uma conta Azure.
+  Quando criar um recurso de gateway no portal Azure, selecione uma instalação de gateway que se liga ao seu recurso gateway e apenas a esse recurso gateway. Cada recurso de gateway pode ligar-se a apenas uma instalação de gateway, que pode ligar-se a apenas uma conta Azure. Nas Aplicações Lógicas Azure, os gatilhos e as ações no local utilizam o recurso gateway ao ligar-se a fontes de dados no local. Desde que tenha acesso a subscrição, pode selecionar a partir de diferentes subscrições Azure que estão associadas a um recurso de gateway diferente. A sua aplicação lógica e recurso gateway não têm de usar a mesma subscrição do Azure.
 
   > [!NOTE]
   > Apenas o administrador de gateway pode criar o recurso gateway no portal Azure. Atualmente, os diretores de serviço não são apoiados. 
@@ -107,6 +107,8 @@ Depois de criar o seu recurso gateway e associar a sua subscrição Azure a este
 1. Selecione **Connect via gateway de dados no local.**
 
 1. Em **Gateways**, a partir da lista **de Subscrições,** selecione a sua subscrição Azure que tem o recurso gateway que deseja.
+
+   Desde que tenha acesso a subscrição, pode selecionar a partir de diferentes subscrições Azure que estão associadas a um recurso de gateway diferente. A sua aplicação lógica e recurso gateway não têm de usar a mesma subscrição do Azure.
 
 1. A partir da lista **Connection Gateway,** que mostra os recursos de gateway disponíveis na sua subscrição selecionada, selecione o recurso gateway que deseja. Cada recurso de gateway está ligado a uma instalação de um único gateway.
 

@@ -5,19 +5,19 @@ description: Aprenda a aplicar práticas de DevOps para construir um pipeline de
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
 ms.author: iefedore
 author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.custom: tracking-python
-ms.openlocfilehash: db263150905e59993a875df2f30fcebb8ca8087a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f101226040c6266a53e8c15697dccb7554e70a7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261499"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321535"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps para um oleoduto de ingestão de dados
 
@@ -478,7 +478,7 @@ stages:
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Controlo de Origem no Azure Data Factory](https://docs.microsoft.com/azure/data-factory/source-control)
 * [Integração contínua e entrega na Azure Data Factory](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment)

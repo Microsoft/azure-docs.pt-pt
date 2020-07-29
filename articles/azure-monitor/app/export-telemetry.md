@@ -3,18 +3,18 @@ title: Exportação contínua de telemetria a partir de Insights de Aplicação 
 description: Exporte dados de diagnóstico e utilização para armazenamento no Microsoft Azure, e descarregue-os a partir daí.
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 54cd6db6de4aa9c1b8f8894c03a8803ee4aa2b00
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f67a5c555c438298cee701ca065aaf8c01c6406e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014529"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324340"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar telemetria a partir do Application Insights
 Deseja manter a sua telemetria por mais tempo do que o período padrão de retenção? Ou processá-lo de uma forma especializada? Exportação Contínua é ideal para isso. Os eventos que vê no portal Application Insights podem ser exportados para armazenamento no Microsoft Azure em formato JSON. A partir daí, pode descarregar os seus dados e escrever qualquer código necessário para os processar.  
 
 > [!NOTE]
-> A exportação contínua só é suportada para os recursos clássicos da Application Insights. [Os recursos de Insights de Aplicação baseados no espaço de trabalho](./create-workspace-resource.md) devem utilizar [definições de diagnóstico](./create-workspace-resource.md#export-telemetry).
+> A Exportação contínua só é suportada para os recursos clássicos do Application Insights. [Os recursos do Application Insights baseados na área de trabalho](./create-workspace-resource.md) têm de utilizar [definições de diagnóstico](./create-workspace-resource.md#export-telemetry).
 >
 
 Antes de configurar a exportação contínua, há algumas alternativas que talvez desemosse:
@@ -22,11 +22,11 @@ Antes de configurar a exportação contínua, há algumas alternativas que talve
 * O botão Exportar no topo de uma métrica ou separador de pesquisa permite transferir tabelas e gráficos para uma folha de cálculo do Excel.
 
 * [A analytics](../log-query/log-query-overview.md) fornece uma poderosa linguagem de consulta para a telemetria. Também pode exportar resultados.
-* Se procura explorar [os seus dados no Power BI,](../../azure-monitor/app/export-power-bi.md )pode fazê-lo sem utilizar a Exportação Contínua.
+* Se procura explorar [os seus dados no Power BI,](./export-power-bi.md)pode fazê-lo sem utilizar a Exportação Contínua.
 * O [Acesso de Dados REST API](https://dev.applicationinsights.io/) permite-lhe aceder programaticamente à sua telemetria.
 * Também pode aceder à exportação contínua de configuração [via PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
 
-Depois de a Exportação Contínua copia os seus dados para armazenamento (onde pode ficar o tempo que quiser), ainda está disponível em Application Insights para o período de [retenção](../../azure-monitor/app/data-retention-privacy.md)habitual.
+Depois de a Exportação Contínua copia os seus dados para armazenamento (onde pode ficar o tempo que quiser), ainda está disponível em Application Insights para o período de [retenção](./data-retention-privacy.md)habitual.
 
 ## <a name="continuous-export-advanced-storage-configuration"></a>Configuração avançada de armazenamento de exportação contínua
 
@@ -52,7 +52,7 @@ A Exportação Contínua **não suporta** as seguintes funcionalidades/configura
 4. Criar ou selecionar um recipiente no armazenamento.
 
 > [!NOTE]
-> Uma vez criado a sua exportação, os dados recém-ingeridos começarão a fluir para o armazenamento da Azure Blob. A exportação contínua só transmitirá uma nova telemetria que seja criada/ingerida após a exportação contínua ter sido ativada. Os dados que existiram antes de permitir a exportação contínua não serão exportados, não existindo forma de exportar retroativamente dados previamente criados utilizando exportações contínuas.
+> Uma vez criado a sua exportação, os dados recém-ingeridos começarão a fluir para o armazenamento da Azure Blob. A exportação contínua só transmitirá uma nova telemetria que seja criada/ingerida após a exportação contínua ter sido ativada. Os dados que existiam antes de ativar a exportação contínua não serão exportados e não existe qualquer forma de exportar retroativamente dados previamente criados através da exportação contínua.
 
 Pode haver um atraso de cerca de uma hora antes que os dados apareçam no armazenamento.
 
@@ -60,13 +60,13 @@ Uma vez concluída a primeira exportação encontrará uma estrutura semelhante 
 
 |Nome | Descrição |
 |:----|:------|
-| [Disponibilidade](export-data-model.md#availability) | Relatórios [disponibilidade testes web](../../azure-monitor/app/monitor-web-app-availability.md).  |
-| [Evento](export-data-model.md#events) | Eventos personalizados gerados pelo [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent). 
-| [Exceções](export-data-model.md#exceptions) |Reporta [exceções](../../azure-monitor/app/asp-net-exceptions.md) no servidor e no navegador.
-| [Mensagens](export-data-model.md#trace-messages) | Enviado por [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace), e pelos [adaptadores de registo.](../../azure-monitor/app/asp-net-trace-logs.md)
+| [Disponibilidade](export-data-model.md#availability) | Relatórios [disponibilidade testes web](./monitor-web-app-availability.md).  |
+| [Evento](export-data-model.md#events) | Eventos personalizados gerados pelo [TrackEvent()](./api-custom-events-metrics.md#trackevent). 
+| [Exceções](export-data-model.md#exceptions) |Reporta [exceções](./asp-net-exceptions.md) no servidor e no navegador.
+| [Mensagens](export-data-model.md#trace-messages) | Enviado por [TrackTrace](./api-custom-events-metrics.md#tracktrace), e pelos [adaptadores de registo.](./asp-net-trace-logs.md)
 | [Métricas](export-data-model.md#metrics) | Gerado por chamadas métricas da API.
 | [PerformanceCounters](export-data-model.md) | Contadores de desempenho recolhidos pela Application Insights.
-| [Pedidos](export-data-model.md#requests)| Enviado por [TrackRequest.](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) Os módulos padrão usam isto para reportar o tempo de resposta do servidor, medido no servidor.| 
+| [Pedidos](export-data-model.md#requests)| Enviado por [TrackRequest.](./api-custom-events-metrics.md#trackrequest) Os módulos padrão usam isto para reportar o tempo de resposta do servidor, medido no servidor.| 
 
 ### <a name="to-edit-continuous-export"></a>Para editar a exportação contínua
 
@@ -79,19 +79,19 @@ Para parar a exportação, clique em Desativar. Quando clicar em Ativar novament
 Para parar a exportação permanentemente, elimine-a. Ao fazê-lo, não elimina os seus dados do armazenamento.
 
 ### <a name="cant-add-or-change-an-export"></a>Não pode adicionar ou mudar uma exportação?
-* Para adicionar ou alterar exportações, precisa dos direitos de acesso do Proprietário, Colaborador ou Dos Pedidos de Informação. [Conheça os papéis.][roles]
+* Para adicionar ou alterar exportações, precisa dos direitos de acesso de Proprietário, Contribuidor ou Contribuidor do Application Insights. [Conheça os papéis.][roles]
 
 ## <a name="what-events-do-you-get"></a><a name="analyze"></a>Que eventos obtém?
 Os dados exportados são a telemetria bruta que recebemos da sua aplicação, exceto que adicionamos dados de localização, que calculamos a partir do endereço IP do cliente.
 
-Os dados que tenham sido descartados por [amostragem](../../azure-monitor/app/sampling.md) não constam dos dados exportados.
+Os dados que tenham sido descartados por [amostragem](./sampling.md) não constam dos dados exportados.
 
 Outras métricas calculadas não estão incluídas. Por exemplo, não exportamos uma utilização média do CPU, mas exportamos a telemetria bruta a partir da qual a média é calculada.
 
-Os dados também incluem os resultados de quaisquer [testes web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) que tenha configurado.
+Os dados também incluem os resultados de quaisquer [testes web de disponibilidade](./monitor-web-app-availability.md) que tenha configurado.
 
 > [!NOTE]
-> **A provar.** Se a sua aplicação enviar muitos dados, a função de amostragem pode funcionar e enviar apenas uma fração da telemetria gerada. [Saiba mais sobre amostragem.](../../azure-monitor/app/sampling.md)
+> **A provar.** Se a aplicação enviar muitos dados, a funcionalidade de amostragem poderá funcionar e enviar apenas uma fração da telemetria gerada. [Saiba mais sobre amostragem.](./sampling.md)
 >
 >
 
@@ -162,11 +162,11 @@ Para obter uma amostra de código maior, consulte [utilizando uma função de tr
 É responsável pela gestão da sua capacidade de armazenamento e pela eliminação dos dados antigos, se necessário.
 
 ## <a name="if-you-regenerate-your-storage-key"></a>Se regenerar a sua chave de armazenamento...
-Se alterar a chave do seu armazenamento, a exportação contínua deixará de funcionar. Verá uma notificação na sua conta Azure.
+Se alterar a chave do armazenamento, a Exportação contínua deixará de funcionar. Verá uma notificação na conta do Azure.
 
-Abra o separador Exportação Contínua e edite a sua exportação. Editar o Destino de Exportação, mas deixe o mesmo armazenamento selecionado. Clique em OK para confirmar.
+Abra o separador Exportação Contínua e edite a exportação. Edite o Destino de Exportação, mas deixe o mesmo armazenamento selecionado. Clique em OK para confirmar.
 
-A exportação contínua recomeçará.
+A exportação contínua será reiniciada.
 
 ## <a name="export-samples"></a>Amostras de exportação
 
@@ -210,5 +210,6 @@ Em escalas maiores, considere [hdInsight](https://azure.microsoft.com/services/h
 
 <!--Link references-->
 
-[exportasa]: ../../azure-monitor/app/code-sample-export-sql-stream-analytics.md
-[roles]: ../../azure-monitor/app/resources-roles-access-control.md
+[exportasa]: ./code-sample-export-sql-stream-analytics.md
+[roles]: ./resources-roles-access-control.md
+

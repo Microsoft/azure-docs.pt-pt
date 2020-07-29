@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.subservice: alerts
-ms.openlocfilehash: b535cda8fe7d98748eb0657a599a61ed1f8549d2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c040958d9518485bc5d583fc01aedd50d5c6e57a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045359"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321127"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de métricas com o Azure Monitor
 
@@ -32,7 +32,7 @@ O procedimento que se segue descreve como criar uma regra de alerta métrico no 
 
 3. Clique em **Selecionar o alvo,** no painel de contexto que carrega, selecione um recurso-alvo que pretende alertar. Utilize as reduções do tipo de **subscrição** e **do tipo de recurso** para encontrar o recurso que pretende monitorizar. Também pode utilizar a barra de pesquisa para encontrar o seu recurso.
 
-4. Se o recurso selecionado tiver métricas, pode criar alertas, os **sinais disponíveis** no canto inferior direito incluirão métricas. Pode ver a lista completa de tipos de recursos suportados para alertas métricos neste [artigo](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+4. Se o recurso selecionado tiver métricas, pode criar alertas, os **sinais disponíveis** no canto inferior direito incluirão métricas. Pode ver a lista completa de tipos de recursos suportados para alertas métricos neste [artigo](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 5. Uma vez selecionado um recurso-alvo, clique na **condição de Adicionar**.
 
@@ -136,7 +136,8 @@ As secções anteriores descreveram como criar, visualizar e gerir regras de ale
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Crie alertas métricos utilizando modelos de gestor de recursos Azure](../../azure-monitor/platform/alerts-metric-create-templates.md).
+- [Crie alertas métricos utilizando modelos de gestor de recursos Azure](./alerts-metric-create-templates.md).
 - [Entenda como funcionam os alertas métricos.](alerts-metric-overview.md)
 - [Entenda como os alertas métricos com limiares dinâmicos condicionam o funcionamento.](alerts-dynamic-thresholds.md)
-- [Compreenda o esquema do gancho web para alertas métricos](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)
+- [Compreenda o esquema do gancho web para alertas métricos](./alerts-metric-near-real-time.md#payload-schema)
+

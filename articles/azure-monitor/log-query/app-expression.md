@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/09/2019
-ms.openlocfilehash: 5d31c829487400f8eb239c0b837e53eecafeb900
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7cb8073d048118e704dafb0c70fe7cdb6774344a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83201110"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324544"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>() expressão na consulta do Monitor de Azure
 
@@ -19,7 +20,7 @@ A `app` expressão é usada numa consulta do Azure Monitor para obter dados de u
 > [!IMPORTANT]
 > A expressão da aplicação não é utilizada se estiver a utilizar um [recurso de Insights de Aplicação baseado no espaço de trabalho,](../app/create-workspace-resource.md) uma vez que os dados de registo são armazenados num espaço de trabalho do Log Analytics. Utilize a expressão log() para escrever uma consulta que inclua aplicação em vários espaços de trabalho. Para várias aplicações no mesmo espaço de trabalho, você não precisa de uma consulta de espaço de trabalho transversal.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 `app(`*Identificador*`)`
 
@@ -69,8 +70,9 @@ union
 | where TimeGenerated between(todatetime("2018-02-08 15:00:00") .. todatetime("2018-12-08 15:05:00"))
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [expressão do espaço de trabalho](workspace-expression.md) para se referir a um espaço de trabalho Log Analytics.
-- Leia sobre como [os dados do Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) são armazenados.
+- Leia sobre como [os dados do Azure Monitor](./log-query-overview.md) são armazenados.
 - Aceda à documentação completa para a [língua de consulta kusto.](/azure/kusto/query/)
+

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 121b3ced2e021f3907983623ea60185286797670
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: a74fe2bf6b326dac782ac75418a7f4960e66501a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024462"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87275008"
 ---
 # <a name="conditional-access-conditions"></a>Acesso Condicional: Condições
 
@@ -28,7 +28,7 @@ Podem ser combinadas múltiplas condições para criar políticas de acesso cond
 
 Por exemplo, ao aceder a uma aplicação sensível, um administrador pode ter informações de risco de entrada na Proteção de Identidade e localização na sua decisão de acesso, além de outros controlos como a autenticação de vários fatores.
 
-## <a name="sign-in-risk"></a>Risco de inscrição
+## <a name="sign-in-risk"></a>Risco de início de sessão
 
 Para clientes com acesso à Proteção de [Identidade,](../identity-protection/overview-identity-protection.md)o risco de inscrição pode ser avaliado como parte de uma política de Acesso Condicional. O risco de entrada representa a probabilidade de um dado pedido de autenticação não ser autorizado pelo proprietário da identidade. Mais informações sobre o risco de inscrição podem ser encontradas nos artigos, [O que é risco](../identity-protection/concept-identity-protection-risks.md#sign-in-risk) e [como: Configurar e permitir políticas](../identity-protection/howto-identity-protection-configure-risk-policies.md)de risco .
 
@@ -63,6 +63,9 @@ Mais informações sobre as localizações podem ser encontradas no artigo, [Qua
 ## <a name="client-apps-preview"></a>Aplicativos de cliente (pré-visualização)
 
 As políticas de Acesso Condicional por padrão aplicam-se a aplicações e aplicações baseadas no navegador que utilizam protocolos de autenticação modernos. Além destas aplicações, os administradores podem optar por incluir clientes Exchange ActiveSync e outros clientes que utilizam protocolos legados.
+
+> [!NOTE]
+> O Configure Sim/Não alternar na condição de aplicações do cliente foi removido para facilitar a mente de ver quais as aplicações do cliente selecionadas. Isto não afeta quais as aplicações de clientes a que uma política existente se aplica.
 
 - Browser
    - Estas incluem aplicações baseadas na Web que usam protocolos como SAML, WS-Federation, OpenID Connect, ou serviços registados como um cliente confidencial da OAuth.
@@ -141,7 +144,7 @@ Esta definição tem impacto nas tentativas de acesso feitas a partir das seguin
 | Aplicativo Dynamics CRM | Dynamics CRM | Windows 10, Windows 8.1, iOS e Android |
 | Mail/Calendar/People app, Outlook 2016, Outlook 2013 (com autenticação moderna)| Bolsa de Escritório 365 Online | Windows 10 |
 | MFA e política de localização para aplicações. As políticas baseadas em dispositivos não são apoiadas.| Qualquer serviço de aplicativo My Apps | Android e iOS |
-| Microsoft Teams Services - isto controla todos os serviços que suportam as Equipas microsoft e todas as suas aplicações de clientes - Windows Desktop, iOS, Android, WP e cliente web | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android e macOS |
+| Microsoft Teams Services - isto controla todos os serviços que suportam as Equipas microsoft e todas as suas aplicações de clientes - Windows Desktop, iOS, Android, WP e cliente web | Microsoft Stream | Windows 10, Windows 8.1, Windows 7, iOS, Android e macOS |
 | Aplicativos Office 2016, Office 2013 (com autenticação moderna), [cliente sincronizado OneDrive](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 8.1, Windows 7 |
 | Aplicativos office 2016, aplicativos Universal Office, Office 2013 (com autenticação moderna), [cliente sincronizado OneDrive](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 10 |
 | Office 2016 (Word, Excel, PowerPoint, OneNote only). | Office 365 SharePoint Online | macOS |
@@ -180,7 +183,7 @@ A condição do estado do dispositivo pode ser usada para excluir dispositivos q
 Por exemplo, *todos os utilizadores* que acedam à aplicação cloud *da Microsoft Azure Management,* incluindo **todos os dispositivos,** excluindo a **adada híbrida híbrida** do dispositivo, e dispositivo marcado como **conforme** e para *controlos de acesso*, **Bloco**. 
    - Este exemplo criaria uma política que apenas permite o acesso à Microsoft Azure Management a partir de dispositivos que são híbridos Azure AD unidos e/ou dispositivos marcados como conformes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Acesso Condicional: Concessão](concept-conditional-access-grant.md)
 

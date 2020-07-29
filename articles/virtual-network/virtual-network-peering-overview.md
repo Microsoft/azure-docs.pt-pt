@@ -1,7 +1,7 @@
 ---
-title: Observação da rede virtual Azure
+title: Peering de Rede Virtual do Azure
 titlesuffix: Azure Virtual Network
-description: Saiba mais sobre o peering de rede virtual no Azure.
+description: Saiba mais sobre o espreitamento de rede virtual no Azure, incluindo como lhe permite ligar redes na Rede Virtual Azure.
 services: virtual-network
 documentationcenter: na
 author: altambaw
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
-ms.openlocfilehash: e1a2babef17e23457e1f41d8ec0a20a442452c23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ba0caa2546fdb9d4845e2c7adf87a06d906dd12
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84232960"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87265165"
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual
 
@@ -105,7 +106,7 @@ Gateway Transit é uma propriedade que permite a uma rede virtual utilizar uma p
 >[!NOTE]
 > Uma versão anterior deste documento declarou que as taxas de observação da rede virtual não seriam aplicadas no VNet falado (ou VNet não de gateway) com o Gateway Transit. Reflete agora preços precisos na página de preços.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Pode criar um espreitamento entre duas redes virtuais. As redes podem pertencer à mesma subscrição, diferentes modelos de implementação na mesma subscrição ou subscrições diferentes. Conclua um tutorial para um dos cenários seguintes:
 

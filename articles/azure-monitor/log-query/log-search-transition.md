@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2019
-ms.openlocfilehash: f34389785c0f4a43bfcab3e50f2dcd132b2cb629
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8abd9d7f33a07141418ad67cc2128af40ad0bd51
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505810"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324765"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Transição da pesquisa de log Analytics para registos do Monitor Azure
 A pesquisa de registo no Log Analytics foi recentemente substituída por uma nova experiência para analisar registos do Azure Monitor. A página de pesquisa do Log ainda está acessível através do item do menu **Logs (clássico)** na página **de espaços de trabalho Do Log Analytics** no portal Azure, mas será removido a 15 de fevereiro de 2019. Este artigo descreve diferenças entre as duas experiências para ajudá-lo a transitar da pesquisa de registo. 
@@ -44,7 +44,7 @@ Para guardar a consulta atual nos registos do Azure Monitor, **selecione Save**.
 ![Guardar consulta de registo](media/log-search-transition/save-query-logs.png)
 
 ## <a name="saved-queries"></a>Consultas salvas
-Na Pesquisa de Registo, as suas consultas guardadas estão disponíveis através do item da barra de ação **Pesquisas guardadas.** Nos registos do Azure Monitor, aceda a consultas guardadas do [Explorador de Consultas](../log-query/get-started-portal.md#save-queries).
+Na Pesquisa de Registo, as suas consultas guardadas estão disponíveis através do item da barra de ação **Pesquisas guardadas.** Nos registos do Azure Monitor, aceda a consultas guardadas do [Explorador de Consultas](./get-started-portal.md#save-queries).
 
 ![Explorador de consultas](media/log-search-transition/query-explorer.png)
 
@@ -66,6 +66,7 @@ Nos registos do Azure Monitor, [crie um alerta a partir da consulta de registo](
 
 ![Grupo de ações](media/log-search-transition/action-group.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a nova experiência de [registos do Azure Monitor](get-started-portal.md).
+

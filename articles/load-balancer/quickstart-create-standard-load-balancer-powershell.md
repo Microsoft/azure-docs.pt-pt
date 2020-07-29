@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/23/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 33c5db061860096b0411fbe91191f6c4a513e4c2
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: b8a95687b1567eb6e063ccc871a4a130c5f2db69
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172138"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290349"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Quickstart: Criar um equilibrador de carga público para carregar VMs de equilíbrio usando Azure PowerShell
 
@@ -635,7 +635,7 @@ New-AzVM -ResourceGroupName $rg -Zone $zn -Location $loc -VM $vmConfig
 Leva alguns minutos para criar e configurar os três VMs.
 
 ## <a name="create-outbound-rule-configuration"></a>Criar configuração de regras de saída
-As regras de saída do balançador de carga configuram sNAT de saída para VMs na piscina de backend. 
+As regras de saída do balançador de carga configuram a tradução de endereço de rede de saída (SNAT) para VMs no pool de backend. 
 
 Para obter mais informações sobre as ligações de saída, consulte [as ligações de saída em Azure](load-balancer-outbound-connections.md).
 
@@ -690,7 +690,7 @@ Get-AzLoadBalancer -Name $lbn -ResourceGroupName $rg | Add-AzLoadBalancerFronten
 
 Crie uma nova piscina de saída com [Add-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/add-azloadbalancerbackendaddresspoolconfig). 
 
-Aplique o endereço IP da piscina e do frontend no equilibrador de carga com [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer)::
+Aplique o endereço IP da piscina e do frontend no equilibrador de carga com [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer):
 
 * Denominado **myBackEndPoolOutbound**.
 
@@ -1409,7 +1409,7 @@ Leva alguns minutos para criar e configurar os três VMs.
 
 Instale o IIS com uma página web personalizada em ambos os VMs de back-end da seguinte forma:
 
-1. Obtenha os endereços IP públicos dos três VMs usando [Get-AzPublicIPAddress](/powershell/module/az.compute/get-azpublicipaddress).
+1. Obtenha os endereços IP públicos dos três VMs usando [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress).
 
    ```azurepowershell-interactive
    ## Variables for commands. ##
@@ -1477,7 +1477,7 @@ $rg = 'myResourceGroupLB'
 Remove-AzResourceGroup -Name $rg
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido
 
