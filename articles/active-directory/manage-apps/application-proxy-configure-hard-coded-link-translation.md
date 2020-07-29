@@ -16,13 +16,14 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e8d6f97870699cea7f55abe42290acdc82c385e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 563e5e811eec907ba286bdfb264fc51d32137e96
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764847"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282930"
 ---
-# <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirecione links codificados para apps publicadas com Proxy de aplicações AD AZure
+# <a name="redirect-hard-coded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirecione links codificados para apps publicadas com Proxy de aplicações AD AZure
 
 O Azure AD Application Proxy disponibiliza as suas aplicações no local para utilizadores que sejam remotos ou nos seus próprios dispositivos. Algumas aplicações, no entanto, foram desenvolvidas com ligações locais incorporadas no HTML. Estas ligações não funcionam corretamente quando a aplicação é utilizada remotamente. Quando tem várias aplicações no local que apontam umas para as outras, os seus utilizadores esperam que os links continuem a funcionar quando não estão no escritório. 
 
@@ -32,9 +33,9 @@ A melhor maneira de garantir que as ligações funcionam da mesma forma dentro e
 Se não puder utilizar domínios personalizados no seu inquilino, existem várias outras opções para fornecer esta funcionalidade. Todos estes são também compatíveis com domínios personalizados e uns aos outros, para que possa configurar domínios personalizados e outras soluções, se necessário.
 
 > [!NOTE]
-> A tradução de ligação não é suportada para URLs internos codificados gerados através do Javascript.
+> A tradução de link não é suportada para URLs internos codificados gerados através do JavaScript.
 
-**Opção 1: Utilize o Navegador Gerido ou o Microsoft Edge** – Esta solução só é aplicável se pretender recomendar ou exigir que os utilizadores acedam à aplicação através do Navegador Gerido Intune ou do Microsoft Edge Browser. Vai lidar com todos os URLs publicados. 
+**Opção 1: Utilizar o Microsoft Edge** – Esta solução só é aplicável se pretender recomendar ou exigir que os utilizadores acedam à aplicação através do navegador Microsoft Edge. Vai lidar com todos os URLs publicados. 
 
 **Opção 2: Utilizar a Extensão do MyApps** – Esta solução requer que os utilizadores instalem uma extensão do navegador do lado do cliente, mas irá lidar com todos os URLs publicados e funciona com os navegadores mais populares. 
 
@@ -49,11 +50,11 @@ Estas três funcionalidades mantêm as suas ligações a funcionar independentem
 > Ou, se a aplicação que precisa de configurar com a tradução de links for o SharePoint, consulte [os mapeamentos de acesso alternativos Configure para o SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) para outra abordagem às ligações de mapeamento. 
 
  
-### <a name="option-1-intune-managed-browser-and-microsoft-edge-integration"></a>Opção 1: Navegador Gerido intune e integração microsoft edge 
+### <a name="option-1-microsoft-edge-integration"></a>Opção 1: Integração microsoft edge 
 
-Pode utilizar o Navegador Gerido Intune ou o Microsoft Edge para proteger ainda mais a sua aplicação e conteúdo. Para utilizar esta solução, é necessário exigir/recomendar aos utilizadores o acesso à aplicação através do Navegador Gerido Intune. Todos os URLs internos publicados com Application Proxy serão reconhecidos pelo Navegador Gerido e redirecionados para o URL externo correspondente. Isto garante que todos os URLs internos codificados funcionam, e se um utilizador for para o navegador e apresentar diretamente o URL interno, funciona mesmo que o utilizador seja remoto.  
+Pode utilizar o Microsoft Edge para proteger ainda mais a sua aplicação e conteúdo. Para utilizar esta solução, é necessário exigir/recomendar aos utilizadores o acesso à aplicação através do Microsoft Edge. Todos os URLs internos publicados com Application Proxy serão reconhecidos pela Edge e redirecionados para o URL externo correspondente. Isto garante que todos os URLs internos codificados funcionam, e se um utilizador for para o navegador e apresentar diretamente o URL interno, funciona mesmo que o utilizador seja remoto.  
 
-Para saber mais, incluindo como configurar esta opção, consulte a documentação do [Navegador Gerido.](https://docs.microsoft.com/intune/app-configuration-managed-browser)  
+Para saber mais, incluindo como configurar esta opção, consulte o [acesso web Manage usando o Edge para iOS e Android com documentação Microsoft Intune.](https://docs.microsoft.com/mem/intune/apps/manage-microsoft-edge)  
 
 ### <a name="option-2-myapps-browser-extension"></a>Opção 2: Extensão do navegador MyApps 
 
@@ -74,7 +75,7 @@ Quando a tradução de links está ativada, o serviço Application Proxy procura
 
 Após a autenticação, quando o servidor proxy passa os dados da aplicação para o utilizador, o Application Proxy verifica a aplicação de links codificados e substitui-os pelos respetivos URLs externos publicados.
 
-O Application Proxy assume que as aplicações estão codificadas na UTF-8. Se não for esse o caso, especifique o tipo de codificação num cabeçalho de resposta http, como `Content-Type:text/html;charset=utf-8` .
+O Application Proxy assume que as aplicações estão codificadas na UTF-8. Se não for esse o caso, especifique o tipo de codificação num cabeçalho de resposta HTTP, como `Content-Type:text/html;charset=utf-8` .
 
 ### <a name="which-links-are-affected"></a>Que ligações são afetadas?
 
@@ -83,10 +84,10 @@ A funcionalidade de tradução de links procura apenas links que estejam em etiq
 Existem dois tipos comuns de ligações internas em aplicações no local:
 
 - **Ligações internas relativas** que apontam para um recurso partilhado numa estrutura de ficheiros local como `/claims/claims.html` . Estes links funcionam automaticamente em aplicações que são publicadas através do Application Proxy, e continuam a trabalhar com ou sem tradução de links. 
-- **Ligações internas codificadas** a outras aplicações no local, como `http://expenses` ou ficheiros publicados como `http://expenses/logo.jpg` . A funcionalidade de tradução de links funciona em ligações internas codificadas e altera-as para apontar para os URLs externos que os utilizadores remotos precisam de passar.
+- **Ligações internas codificadas com códigos rígidos** para outras aplicações no local, como `http://expenses` ou ficheiros publicados como `http://expenses/logo.jpg` . A funcionalidade de tradução de links funciona em ligações internas codificadas e altera-as para apontar para os URLs externos que os utilizadores remotos precisam de passar.
 
 A lista completa de etiquetas de código HTML que o Application Proxy suporta a tradução de ligação para:
-* a
+* um
 * áudio
 * base
 * .
@@ -148,7 +149,7 @@ Agora, quando os seus utilizadores acederem a esta aplicação, o proxy irá aut
 
 Queremos que a sua ajuda faça com que esta funcionalidade funcione para todas as suas aplicações. Procuramos mais de 30 tags em HTML e CSS. Se tiver um exemplo de links gerados que não estão a ser traduzidos, envie um código para [o Feedback do Procuração de Aplicações](mailto:aadapfeedback@microsoft.com). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Utilize domínios personalizados com Proxy de aplicação AD Azure](application-proxy-configure-custom-domain.md) para ter o mesmo URL interno e externo
 
 [Configurar mapeamentos de acesso alternativo para SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)

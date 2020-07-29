@@ -4,12 +4,12 @@ description: Visão geral do alerta em Azure. Alertas, alertas clássicos e a in
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: 37980f3cebdee2754a9741a8a45ec6932e7e98ce
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e0741a23d7e5ece0898d83c53782afc353d9a7e5
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327128"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371605"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Descrição geral dos alertas no Microsoft Azure 
 
@@ -178,7 +178,7 @@ A página de detalhes do alerta inclui as seguintes secções:
 
 ## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Controlo de acesso baseado em funções (RBAC) para os seus casos de alerta
 
-O consumo e a gestão de casos de alerta requerem que o utilizador tenha as funções de RBAC incorporadas, quer de [monitorização do contribuinte,](../../role-based-access-control/built-in-roles.md#monitoring-contributor) quer do [leitor de monitorização.](../../role-based-access-control/built-in-roles.md#monitoring-reader) Estas funções são suportadas em qualquer âmbito do Azure Resource Manager, desde o nível de subscrição até atribuições granulares a nível de recursos. Por exemplo, se um utilizador tiver apenas acesso de colaborador a máquina `ContosoVM1` virtual, esse utilizador pode consumir e gerir apenas os alertas gerados em `ContosoVM1` .
+O consumo e a gestão de casos de alerta exigem que o utilizador tenha as funções de Azure incorporadas quer do [colaborador de monitorização](../../role-based-access-control/built-in-roles.md#monitoring-contributor) quer do [leitor de monitorização.](../../role-based-access-control/built-in-roles.md#monitoring-reader) Estas funções são suportadas em qualquer âmbito do Azure Resource Manager, desde o nível de subscrição até atribuições granulares a nível de recursos. Por exemplo, se um utilizador tiver apenas acesso de colaborador a máquina `ContosoVM1` virtual, esse utilizador pode consumir e gerir apenas os alertas gerados em `ContosoVM1` .
 
 ## <a name="manage-your-alert-instances-programmatically"></a>Gerencie os seus casos de alerta programáticamente
 
@@ -212,4 +212,3 @@ Utilize a [API de Gestão de Alertas](https://aka.ms/alert-management-api) PARA 
 - [Gerir as suas instâncias de alerta em Azure](https://aka.ms/managing-alert-instances)
 - [Gestão de Grupos Inteligentes](https://aka.ms/managing-smart-groups)
 - [Saiba mais sobre os preços dos alertas do Azure](https://azure.microsoft.com/pricing/details/monitor/)
-

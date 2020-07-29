@@ -4,15 +4,15 @@ description: Este artigo explica mensagens de erro comuns para imagens VM. Tamb�
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
-author: v-miegge
-ms.author: v-krmall
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: e73ff612aa07016f69c717a74678d5d1923e87b8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 594a47f397ca78476ed987ac0e06a3cacc79ec3b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120658"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319903"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problemas e soluções durante a certificação de máquinas virtuais 
 
@@ -63,7 +63,7 @@ Verifique se seguiu rigorosamente o processo de provisionamento de VM antes de s
 
 As questões de provisionamento podem incluir os seguintes cenários de falha:
 
-|Scenario|Erro|Razão|Solução|
+|Cenário|Erro|Razão|Solução|
 |---|---|---|---|
 |1|Disco rígido virtual inválido (VHD)|Se o valor de cookie especificado no rodapé VHD estiver incorreto, o VHD será considerado inválido.|Re-crie a imagem e envie o pedido.|
 |2|Tipo de bolha inválida|O fornecimento de VM falhou porque o bloco usado é um tipo de bolha em vez de um tipo de página.|Re-crie a imagem e envie o pedido.|
@@ -94,7 +94,7 @@ Descarregue o [kit de ferramentas da Microsoft Certification](azure-vm-image-cer
 
 A tabela que se segue lista os casos de teste Linux que o conjunto de ferramentas irá executar. A validação do teste está indicada na descrição.
 
-|Scenario|Caso de teste|Descrição|
+|Cenário|Caso de teste|Descrição|
 |---|---|---|
 |1|História da bash|Os ficheiros de histórico de bash devem ser limpos antes de criar a imagem VM.|
 |2|Versão linux agent|O Agente Azure Linux 2.2.41 ou mais tarde deve ser instalado.|
@@ -111,7 +111,7 @@ A tabela que se segue lista os casos de teste Linux que o conjunto de ferramenta
 
 A tabela que se segue enumera erros comuns que são encontrados durante a execução de casos de teste anteriores:
  
-|Scenario|Caso de teste|Erro|Solução|
+|Cenário|Caso de teste|Erro|Solução|
 |---|---|---|---|
 |1|Caso de teste de versão linux agente|A versão mínima do agente Linux é 2.241 ou mais tarde. Esta exigência é obrigatória desde 1 de maio de 2020.|A imagem deve ser atualizada com a versão requerida para [apresentar o pedido](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
 |2|Caso de teste de história de bash|Verá um erro se o tamanho do histórico de bash na sua imagem submetida for superior a 1 quilobyte (KB). O tamanho é restrito a 1 KB para garantir que qualquer informação potencialmente sensível não seja capturada no seu ficheiro histórico de bash.|Para resolver este problema, monte o VHD em qualquer outro VM de trabalho e faça quaisquer alterações que pretenda (por exemplo, eliminar os ficheiros *históricos .bash)* para reduzir o tamanho para menos ou igual a 1 KB.|
@@ -122,7 +122,7 @@ A tabela que se segue enumera erros comuns que são encontrados durante a execu�
 
 A tabela que se segue lista os casos de teste do Windows que o conjunto de ferramentas irá executar, juntamente com uma descrição da validação do teste:
 
-|Scenario |Casos de teste|Descrição|
+|Cenário |Casos de teste|Descrição|
 |---|---|---|---|
 |1|Arquitetura de OS|O Azure suporta apenas sistemas operativos de 64 bits.|
 |2|Dependência da conta do utilizador|A execução da aplicação não deve depender da conta do administrador.|
@@ -261,7 +261,7 @@ Verifique se o acesso adequado está ativado para a conta em que os casos de aut
     
 Consulte a tabela seguinte para quaisquer problemas que surjam quando descarrega a imagem VM utilizando um URL de assinatura de acesso partilhado (SAS).
 
-|Scenario|Erro|Razão|Solução|
+|Cenário|Erro|Razão|Solução|
 |---|---|---|---|
 |1|Blob não encontrado|O VHD pode ser eliminado ou deslocado do local especificado.|| 
 |2|Bolha em uso|O VHD é utilizado por outro processo interno.|O VHD deve estar num estado usado quando o descarrega utilizando um URL SAS.|
@@ -315,6 +315,6 @@ Se a opção "Remote Desktop Protocol" (RDP) não estiver ativada para a imagem 
 
 Ativar o acesso rdp às imagens do Windows antes de as submeter.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver dúvidas ou feedback para melhorar, contacte [o Partner Center Support](https://partner.microsoft.com/support/v2/?stage=1).

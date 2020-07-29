@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: cd7e7df5c789743cf6bd84c6150fd901490bdedd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e10843eab8ac2ccbda3d6876f51c88a598d7139
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751639"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371690"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Linha de base de segurança Azure para armazenamento Azure
 
@@ -240,7 +240,7 @@ Além disso, Ative a Proteção Avançada de Ameaças para a sua conta de Armaze
 
 - [Como alertar nos dados de registo de registo de registos de registos](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
 
-- [Azure Storage analytics logging](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging) (Registo de análise do Armazenamento do Azure)
+- [Registo da análise de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -428,7 +428,7 @@ Uma forma eficaz de reduzir o risco de acesso insuspeito à conta de utilizador 
 
 Criar Definições de Diagnóstico para contas de utilizadores do Azure Ative Directory, enviar os registos de auditoria e registos de login para um espaço de trabalho do Log Analytics. Pode configurar os alertas desejados dentro do log analytics workspace. Para monitorizar falhas de autenticação contra contas de armazenamento Azure, pode criar alertas para o notificar quando determinados limiares tiverem sido atingidos para métricas de recursos de armazenamento. Além disso, utilize o Azure Monitor para alertar sobre o acesso anónimo às contas de Armazenamento utilizando a condição de autenticação anónima.
 
-- [Azure Storage analytics logging](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging) (Registo de análise do Armazenamento do Azure)
+- [Registo da análise de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
 
 - [Como integrar os Registos de Atividades do Azure no Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
@@ -534,7 +534,7 @@ Além disso, utilize políticas de ponto final do serviço de rede virtual para 
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos
 
-**Orientação**: O Azure Ative Directory (Azure AD) autoriza os direitos de acesso a recursos seguros através do controlo de acesso baseado em funções (RBAC). O Azure Storage define um conjunto de funções RBAC incorporadas que englobam conjuntos comuns de permissões usadas para aceder a dados de bolhas ou filas. 
+**Orientação**: O Azure Ative Directory (Azure AD) autoriza os direitos de acesso a recursos seguros através do controlo de acesso baseado em funções (RBAC). O Azure Storage define um conjunto de funções incorporadas do Azure que englobam conjuntos comuns de permissões usadas para aceder a dados de bolhas ou filas. 
 
 - [Como atribuir funções de RBAC para conta de armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-rbac-roles-using-the-azure-portal)
 
@@ -574,7 +574,7 @@ Além disso, utilize políticas de ponto final do serviço de rede virtual para 
 
 - [Como criar alertas para eventos de Registo de Atividades Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
-- [Azure Storage analytics logging](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging) (Registo de análise do Armazenamento do Azure)
+- [Registo da análise de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
 
 - [Como configurar alertas de métricas para contas de armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account)
 
@@ -1049,7 +1049,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 - [Alertas de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
 
-- [Use etiquetas para organizar os seus recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Utilizar etiquetas para organizar os seus recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -1113,7 +1113,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte o [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
 - Saiba mais sobre [as Linhas de Base de Segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

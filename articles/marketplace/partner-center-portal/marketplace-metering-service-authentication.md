@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: e24dcdc2de94fe73f6bb83dcc03bbd1139503784
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: 42a76a2cf583a57ae5b38fe051ee48d16d705dd2
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120760"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319971"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Estratégias de autenticação do serviço de medição do mercado
 
@@ -72,7 +74,7 @@ Para obter mais informações sobre estes tokens, consulte [os tokens de acesso 
 |  `Resource`         |   Verdadeiro         | Recurso-alvo para o qual o símbolo é solicitado. Utilize`20e940b3-4c77-4b0b-9a53-9e16a1b010a7`. |
 | | | |
 
-#### <a name="response"></a>*Resposta*
+#### <a name="response"></a>*Response*
 
 |  **Nome**    |  **Tipo**  |  **Descrição**          |
 |  ------------------ |--------------- | ----------------------  |
@@ -151,7 +153,7 @@ Por exemplo, siga os passos abaixo para autenticar usando um VM do Windows,
 
 1. Utilize o [serviço de medição marketplace API](./marketplace-metering-service-apis.md) para emitir o uso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar uma oferta de aplicações do Azure](./create-new-azure-apps-offer.md)
 * [Criar uma oferta de SaaS transacionável](./offer-creation-checklist.md)

@@ -7,15 +7,16 @@ ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
 ms.date: 05/08/2020
 tags: connectors
-ms.openlocfilehash: 98da7e959e4b59ad2d0f3f3f79364391b4ceddbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8cce90a8a65a7f070459e220e6d92ef0be57e909
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82997103"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284120"
 ---
 # <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Criar e gerir registos no Serviço Comum de Dados utilizando aplicações lógicas Azure
 
-Com [as Apps Azure Logic](../logic-apps/logic-apps-overview.md) e o [conector Common Data Service,](https://docs.microsoft.com/connectors/commondataservice/)pode construir fluxos de trabalho automatizados que gerem registos na sua base de dados [Common Data Service.](https://docs.microsoft.com/powerapps/maker/common-data-service/data-platform-intro) Estes fluxos de trabalho podem criar registos, atualizar registos e realizar outras operações. Também pode obter informações a partir da sua base de dados do Serviço de Dados Comuns e disponibilizar a saída para outras ações a utilizar na sua aplicação lógica. Por exemplo, quando um registo é atualizado na sua base de dados do Serviço de Dados Comum, pode enviar um e-mail utilizando o conector Office 365 Outlook.
+Com [as Apps Azure Logic](../logic-apps/logic-apps-overview.md) e o [conector Common Data Service,](/connectors/commondataservice/)pode construir fluxos de trabalho automatizados que gerem registos na sua base de dados [Common Data Service.](/powerapps/maker/common-data-service/data-platform-intro) Estes fluxos de trabalho podem criar registos, atualizar registos e realizar outras operações. Também pode obter informações a partir da sua base de dados do Serviço de Dados Comuns e disponibilizar a saída para outras ações a utilizar na sua aplicação lógica. Por exemplo, quando um registo é atualizado na sua base de dados do Serviço de Dados Comum, pode enviar um e-mail utilizando o conector Office 365 Outlook.
 
 Este artigo mostra como pode construir uma aplicação lógica que cria um registo de tarefas sempre que um novo registo de chumbo é criado.
 
@@ -23,10 +24,10 @@ Este artigo mostra como pode construir uma aplicação lógica que cria um regis
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* Um [ambiente comum de Serviço de Dados,](https://docs.microsoft.com/power-platform/admin/environments-overview)que é um espaço onde a sua organização armazena, gere e partilha dados de negócios e uma base de dados do Common Data Service. Para mais informações, consulte estes recursos:<p>
+* Um [ambiente comum de Serviço de Dados,](/power-platform/admin/environments-overview)que é um espaço onde a sua organização armazena, gere e partilha dados de negócios e uma base de dados do Common Data Service. Para mais informações, consulte estes recursos:<p>
 
-  * [Saiba: Começar com o Serviço Comum de Dados](https://docs.microsoft.com/learn/modules/get-started-with-powerapps-common-data-service/)
-  * [Plataforma de Energia - Visão geral dos ambientes](https://docs.microsoft.com/power-platform/admin/environments-overview)
+  * [Saiba: Começar com o Serviço Comum de Dados](/learn/modules/get-started-with-powerapps-common-data-service/)
+  * [Plataforma de Energia - Visão geral dos ambientes](/power-platform/admin/environments-overview)
 
 * Conhecimentos [básicos sobre como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md) e a aplicação lógica de onde pretende aceder aos registos na sua base de dados do Common Data Service. Para iniciar a sua aplicação lógica com um gatilho do Serviço de Dados Comum, precisa de uma aplicação lógica em branco. Se é novo em Azure Logic Apps, reveja [Quickstart: Crie o seu primeiro fluxo de trabalho utilizando apps Azure Logic](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -48,9 +49,9 @@ Para este exemplo, adicione o gatilho do Serviço Comum de Dados que dispara qua
 
    ![Detonar informações para o ambiente monitorizar](./media/connect-common-data-service/when-record-created-trigger-details.png)
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
-   | **Ambiente** | Sim | O ambiente para monitorizar, por exemplo, "Fabrikam Sales Production". Para mais informações, consulte [a Plataforma de Energia - Visão geral dos Ambientes.](https://docs.microsoft.com/power-platform/admin/environments-overview) |
+   | **Ambiente** | Sim | O ambiente para monitorizar, por exemplo, "Fabrikam Sales Production". Para mais informações, consulte [a Plataforma de Energia - Visão geral dos Ambientes.](/power-platform/admin/environments-overview) |
    | **Nome da entidade** | Sim | A entidade para monitorizar, por exemplo, "Leads" |
    | **Âmbito** | Sim | A fonte que criou o novo registo, por exemplo, um utilizador na sua unidade de negócio ou qualquer utilizador da sua organização. Este exemplo utiliza "Unidade de Negócio". |
    ||||
@@ -69,7 +70,7 @@ Adicione agora uma ação do Serviço de Dados Comum que cria um registo de tare
 
    ![Informação de ação para o ambiente onde criar o registo](./media/connect-common-data-service/create-new-record-action-details.png)
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
    | **Nome da Organização** | Sim | O ambiente onde se quer criar o disco, que não tem de ser o mesmo ambiente no seu gatilho, mas é a "Fabrikam Sales Production" neste exemplo. |
    | **Nome da entidade** | Sim | A entidade onde pretende criar o registo, por exemplo, "Tarefas" |
@@ -97,7 +98,7 @@ Adicione agora uma ação do Serviço de Dados Comum que cria um registo de tare
 
    ![Termine a ação "Criar um novo recorde"](./media/connect-common-data-service/finished-create-record-action-details.png)
 
-1. Guarde a aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
+1. Guarde a sua aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
 
 1. Para iniciar manualmente a aplicação lógica, na barra de ferramentas do designer, selecione **Run**. Para testar a sua aplicação lógica, crie um novo registo "Leads".
 
@@ -125,7 +126,7 @@ Para ações que devolvam registos, como a ação **de registos da Lista,** pode
 
    ![Introduza a consulta do filtro ODATA para registos de filtragem](./media/connect-common-data-service/list-records-action-filter-query-value.png)
 
-Para obter mais informações sobre `$filter` as opções de consulta do sistema, consulte [o Common Data Service - Filter results](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results).
+Para obter mais informações sobre `$filter` as opções de consulta do sistema, consulte [o Common Data Service - Filter results](/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results).
 
 ## <a name="list-records-based-on-an-order"></a>Listar registos com base numa encomenda
 
@@ -139,7 +140,7 @@ Para ações que devolvam registos, como a ação **de registos da Lista,** pode
 
    ![Introduza a consulta do filtro ODATA para encomendar registos](./media/connect-common-data-service/list-records-action-order-by-value.png)
 
-Para obter mais informações sobre `$orderby` as opções de consulta do sistema, consulte [o Serviço Comum de Dados - Resultados da encomenda](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results).
+Para obter mais informações sobre `$orderby` as opções de consulta do sistema, consulte [o Serviço Comum de Dados - Resultados da encomenda](/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results).
 
 ## <a name="field-data-types"></a>Tipos de dados de campo
 
@@ -165,8 +166,8 @@ Este exemplo mostra como a **criação de uma nova** ação de gravação cria u
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter informações técnicas com base na descrição do Swagger do conector, tais como gatilhos, ações, limites e outros detalhes, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/commondataservice/).
+Para obter informações técnicas com base na descrição do Swagger do conector, tais como gatilhos, ações, limites e outros detalhes, consulte a [página de referência do conector](/connectors/commondataservice/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [outros conectores para Apps Azure Logic](../connectors/apis-list.md)

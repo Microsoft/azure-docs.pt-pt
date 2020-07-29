@@ -4,15 +4,15 @@ description: Conheça as regiões para executar máquinas virtuais em Azure.
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/28/2019
-ms.openlocfilehash: 5cff97e7fea2cf9ef4da87e2d2ec700678d1d39b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 44370b378899228949aa1bddcc92570ad282fe92
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532160"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284732"
 ---
 # <a name="regions-for-virtual-machines-in-azure"></a>Regiões das máquinas virtuais no Azure
 
@@ -94,6 +94,6 @@ Os preços podem variar consoante o tipo de armazenamento e disponibilidade que 
 
 Veja [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) para obter informações sobre os preços para tipos de armazenamento e opções de disponibilidade diferentes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações, consulte [as regiões de Azure.](https://azure.microsoft.com/global-infrastructure/regions/)

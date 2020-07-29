@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
-ms.openlocfilehash: b71c6d8e0890bde377fae761f4486803229ceff4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 97d7d21374062462248e1b86f2bde2fef2d25331
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045696"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326057"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimize your environment with the System Center Operations Manager Health Check (Preview) solution (Otimizar o ambiente com a solução Verificação de Estado de Funcionamento do System Center Operations Manager [Pré-visualização])
 
@@ -203,7 +203,7 @@ Todas as recomendações incluem orientações sobre o porquê de ser importante
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Use recomendações de área de foco de verificação de saúde
 
-Antes de utilizar uma solução de verificação de saúde no Log Analytics, tem de ter a solução instalada. Para ler mais sobre a instalação de soluções, consulte [instalar uma solução de gestão.](../../azure-monitor/insights/solutions.md) Depois de instalado, pode ver o resumo das recomendações utilizando o azulejo do System Center Operations Check na página **'Visão Geral'** para o seu espaço de trabalho no portal Azure.
+Antes de utilizar uma solução de verificação de saúde no Log Analytics, tem de ter a solução instalada. Para ler mais sobre a instalação de soluções, consulte [instalar uma solução de gestão.](./solutions.md) Depois de instalado, pode ver o resumo das recomendações utilizando o azulejo do System Center Operations Check na página **'Visão Geral'** para o seu espaço de trabalho no portal Azure.
 
 Veja as avaliações de conformidade resumidas para a sua infraestrutura e, em seguida, faça recomendações.
 
@@ -229,7 +229,7 @@ Se tiver recomendações que pretende ignorar, pode criar um ficheiro de texto q
     ```
 
     >[!NOTE]
-    > Se o seu espaço de trabalho foi atualizado para o [novo idioma de consulta log analytics,](../../azure-monitor/log-query/log-query-overview.md)então a consulta acima mudaria para o seguinte.
+    > Se o seu espaço de trabalho foi atualizado para o [novo idioma de consulta log analytics,](../log-query/log-query-overview.md)então a consulta acima mudaria para o seguinte.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -254,7 +254,7 @@ Se tiver recomendações que pretende ignorar, pode criar um ficheiro de texto q
     ```
 
     >[!NOTE]
-    > Se o seu espaço de trabalho foi atualizado para o [novo idioma de consulta log analytics,](../../azure-monitor/log-query/log-query-overview.md)então a consulta acima mudaria para o seguinte.
+    > Se o seu espaço de trabalho foi atualizado para o [novo idioma de consulta log analytics,](../log-query/log-query-overview.md)então a consulta acima mudaria para o seguinte.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -295,4 +295,5 @@ Se tiver recomendações que pretende ignorar, pode criar um ficheiro de texto q
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Pesquisa de registos](../../azure-monitor/log-query/log-query-overview.md) para aprender a analisar dados e recomendações detalhadas do System Center Operations Manager Health Check.
+- [Pesquisa de registos](../log-query/log-query-overview.md) para aprender a analisar dados e recomendações detalhadas do System Center Operations Manager Health Check.
+
