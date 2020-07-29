@@ -3,11 +3,12 @@ title: Troubleshoot Application Insights em um projeto web java
 description: Guia de resolução de problemas - monitorizando aplicações java ao vivo com Insights de Aplicação.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: ecc9a298d122919138683b48527574a1ff3e5edc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74b4bc009158d826955f851f22458e9570a58e7c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484785"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324153"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Resolução de problemas e Perguntas e Respostas para o Application Insights para Java
 Perguntas ou problemas com [a Azure Application Insights em Java?][java] Abaixo temos algumas dicas.
@@ -23,7 +24,7 @@ Perguntas ou problemas com [a Azure Application Insights em Java?][java] Abaixo 
 * Aguarde um minuto e clique em Refresh. Os gráficos refrescam-se periodicamente, mas também pode refrescar-se manualmente. O intervalo de atualização depende do intervalo de tempo do gráfico.
 * Verifique se tem uma chave de instrumentação definida no ficheiro ApplicationInsights.xml (na pasta de recursos do seu projeto) ou configurada como variável Ambiente.
 * Verifique se não há `<DisableTelemetry>true</DisableTelemetry>` nó no ficheiro xml.
-* Na sua firewall, poderá ter de abrir as portas 80 e 443 para o tráfego de saída para dc.services.visualstudio.com. Veja a [lista completa de exceções de firewall](../../azure-monitor/app/ip-addresses.md)
+* Na sua firewall, poderá ter de abrir as portas 80 e 443 para o tráfego de saída para dc.services.visualstudio.com. Veja a [lista completa de exceções de firewall](./ip-addresses.md)
 * No tabuleiro inicial do Microsoft Azure, veja o mapa do estado do serviço. Se houver algumas indicações de alerta, aguarde até que voltem a OK e, em seguida, feche e volte a abrir a sua lâmina de aplicação Application Insights.
 * [Ligue o registo](#debug-data-from-the-sdk) adicionando um `<SDKLogger />` elemento sob o nó raiz no ficheiro ApplicationInsights.xml (na pasta de recursos do seu projeto) e verifique se há entradas pré-atuais com IA: INFO/WARN/ERROR para quaisquer registos suspeitos. 
 * Certifique-se de que o ficheiro ApplicationInsights.xml correto foi carregado com sucesso pelo SDK Java, olhando para as mensagens de saída da consola para uma declaração de "Configuração foi encontrado com sucesso".
@@ -37,7 +38,7 @@ Perguntas ou problemas com [a Azure Application Insights em Java?][java] Abaixo 
 * Está a olhar para o recurso correto da IA? Por favor, combine o iKey da sua aplicação com o recurso onde está à espera de telemetria. Deviam ser os mesmos.
 
 #### <a name="i-dont-see-all-the-data-im-expecting"></a>Não vejo todos os dados que espero.
-* Abra a página de utilização e o custo estimado e verifique se [a amostragem](../../azure-monitor/app/sampling.md) está em funcionamento. (Transmissão a 100% significa que a amostragem não está em funcionamento.) O serviço Application Insights pode ser definido para aceitar apenas uma fração da telemetria que chega da sua aplicação. Isto ajuda-o a manter dentro da sua quota mensal de telemetria.
+* Abra a página de utilização e o custo estimado e verifique se [a amostragem](./sampling.md) está em funcionamento. (Transmissão a 100% significa que a amostragem não está em funcionamento.) O serviço Application Insights pode ser definido para aceitar apenas uma fração da telemetria que chega da sua aplicação. Isto ajuda-o a manter dentro da sua quota mensal de telemetria.
 * Tem a Amostra SDK ligada? Se sim, os dados serão amostrados à taxa especificada para todos os tipos aplicáveis.
 * Estás a publicar uma versão mais antiga da Java SDK? A partir da versão 2.0.1, introduzimos um mecanismo de tolerância a falhas para lidar com falhas intermitentes de rede e backend, bem como persistência de dados em unidades locais.
 * Estás a ser estrangulado devido à telemetria excessiva? Se ligar o registo INFO, verá uma mensagem de registo "App está estrangulada". O nosso limite atual é 32k artigos de telemetria/segundo.
@@ -177,7 +178,7 @@ O Application Insights utiliza `org.apache.http` . Isto é relocalizado dentro d
 >Se ativar a marcação de nível DEBUG para todos os espaços de nome na aplicação, será honrada por todos os módulos de execução, incluindo `org.apache.http` renomeado como `com.microsoft.applicationinsights.core.dependencies.http` . O Application Insights não poderá aplicar a filtragem destas chamadas porque a chamada de registo está a ser feita pela biblioteca Apache. A exploração madeireira de nível DEBUG produz uma quantidade considerável de dados de registo e não é recomendada para casos de produção ao vivo.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 **Criei insights de aplicação para a minha aplicação de servidor Java. O que mais posso fazer?**
 
 * [Monitorize a disponibilidade das suas páginas web][availability]
@@ -192,11 +193,11 @@ O Application Insights utiliza `org.apache.http` . Isto é relocalizado dentro d
 
 <!--Link references-->
 
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[data]: ../../azure-monitor/app/data-retention-privacy.md
+[availability]: ./monitor-web-app-availability.md
+[data]: ./data-retention-privacy.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[platforms]: ../../azure-monitor/app/platforms.md
-[track]: ../../azure-monitor/app/api-custom-events-metrics.md
+[platforms]: ./platforms.md
+[track]: ./api-custom-events-metrics.md
 [usage]: javascript.md
 

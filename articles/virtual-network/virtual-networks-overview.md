@@ -1,6 +1,6 @@
 ---
 title: Rede Virtual do Azure | Microsoft Docs
-description: Saiba mais sobre os conceitos e as funcionalidades da Rede Virtual do Azure.
+description: Conheça os conceitos e funcionalidades da Rede Virtual Azure, incluindo espaço de endereço, sub-redes, regiões e subscrições.
 services: virtual-network
 documentationcenter: na
 author: anavinahar
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 3fd958ba1ef4ec4b8a198bcd5da497dc191be73d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 237361c6a519fea4dde7f1fe85f91d97ce0365b1
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040610"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281587"
 ---
 # <a name="what-is-azure-virtual-network"></a>O que é a Rede Virtual do Azure?
 
@@ -46,7 +47,7 @@ Todos os recursos num VNet podem comunicar-se à internet, por padrão. Pode com
 >[!NOTE]
 >Ao utilizar apenas um [Balanceador de Carga Standard](../load-balancer/load-balancer-standard-overview.md) interno, a conectividade de saída não está disponível até definir como pretende que as [ligações de saída](../load-balancer/load-balancer-outbound-connections.md) trabalhem com um IP público de nível de instância ou um Balanceador de Carga público.
 
-## <a name="communicate-between-azure-resources"></a>Comunicar entre os recursos do Azure
+## <a name="communicate-between-azure-resources"></a>Comunicação entre os recursos do Azure
 
 Os recursos do Azure comunicam de forma segura entre si, de uma das seguintes formas:
 
@@ -54,7 +55,7 @@ Os recursos do Azure comunicam de forma segura entre si, de uma das seguintes fo
 - **Através de um ponto final de serviço de rede virtual**: Estenda o espaço de endereço privado da sua rede virtual e a identidade da sua rede virtual para recursos de serviço Azure, tais como contas de Armazenamento Azure e Base de Dados Azure SQL, através de uma ligação direta. Os pontos finais de serviço permitem-lhe obter os seus recursos críticos de serviço do Azure para apenas uma rede virtual. Para obter mais informações, veja [Descrição geral de pontos finais de serviço de rede virtual](virtual-network-service-endpoints-overview.md).
 - **Através do VNet Peering:** Pode ligar redes virtuais entre si, permitindo que os recursos em qualquer uma das redes virtuais se comuniquem entre si, utilizando o olhar de rede virtual. As redes virtuais a que liga podem estar nas mesmas regiões ou em regiões diferentes do Azure. Para obter mais informações, veja [Peering de rede virtual](virtual-network-peering-overview.md).
 
-## <a name="communicate-with-on-premises-resources"></a>Comunicar com os recursos no local
+## <a name="communicate-with-on-premises-resources"></a>Comunicação com os recursos no local
 
 Pode ligar os computadores e redes no local a uma rede virtual, com qualquer combinação das seguintes opções:
 
@@ -62,14 +63,14 @@ Pode ligar os computadores e redes no local a uma rede virtual, com qualquer com
 - **Rede de VPNs:** estabelecida entre o dispositivo VPN no local e um Gateway de VPN do Azure que é implementado numa rede virtual. Este tipo de ligação permite a qualquer recurso no local, que esteja autorizado por si, a aceder a uma rede virtual. A comunicação entre o dispositivo VPN no local e um gateway de VPN do Azure é enviada por um túnel encriptado através da Internet. Para obter mais informações, veja [Rede de VPNs](../vpn-gateway/design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#s2smulti).
 - **Azure ExpressRoute:** estabelecida entre a rede e o Azure, através de um parceiro do ExpressRoute. Esta ligação é privada. O tráfego não é transmitido pela Internet. Para saber mais, veja [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## <a name="filter-network-traffic"></a>Filtre o tráfego de rede
+## <a name="filter-network-traffic"></a>Filtrar o tráfego de rede
 
 Pode filtrar o tráfego de rede entre as sub-redes com uma ou ambas das seguintes opções:
 
 - **Grupos de segurança:** Os grupos de segurança da rede e os grupos de segurança de aplicações podem conter várias regras de segurança de entrada e saída que lhe permitem filtrar o tráfego de e para os recursos através do endereço IP de origem e destino, porto e protocolo. Para saber mais, consulte [grupos de segurança da Rede](security-overview.md#network-security-groups) ou [grupos de segurança de aplicações.](security-overview.md#application-security-groups)
 - **Aplicações virtuais de rede:** uma aplicação virtual de rede é uma VM que executa uma função de rede, como uma firewall, otimização de rede alargada ou outra função de rede. Para ver uma lista das aplicações virtuais de rede disponíveis que pode implementar numa rede virtual, veja [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances).
 
-## <a name="route-network-traffic"></a>Encaminhe o tráfego de rede
+## <a name="route-network-traffic"></a>Encaminhar o tráfego de rede
 
 O Azure encaminha tráfego entre sub-redes, redes virtuais ligadas, redes no local e na Internet, por predefinição. Pode implementar uma ou ambas das seguintes opções para substituir as rotas predefinidas que o Azure cria:
 
@@ -93,6 +94,6 @@ Existem certos limites em torno do número de recursos Azure que pode implementa
 
 Não há qualquer custo para a utilização do Azure VNet, é livre de custos. Os encargos padrão são aplicáveis para recursos, tais como Máquinas Virtuais (VMs) e outros produtos. Para saber mais, consulte [os preços da VNet](https://azure.microsoft.com/pricing/details/virtual-network/) e a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/)da Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
  Para começar a utilizar uma rede virtual, crie uma, implemente algumas VMs na mesma e comunique entre as VMs. Para saber como, veja o início rápido [Criar uma rede virtual](quick-create-portal.md).

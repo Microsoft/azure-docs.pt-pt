@@ -3,23 +3,23 @@ title: 'Quickstart: Biblioteca de clientes de armazenamento Azure Blob para .NET
 description: Neste arranque rápido, aprende-se a utilizar a biblioteca de clientes de armazenamento Azure Blob para .NET para criar um recipiente e uma bolha no armazenamento blob (objeto). Em seguida, vai aprender a transferir o blob para o computador local e a listar todos os blobs num contentor.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 07/20/2019
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 5205506e3e7a32423dd9b438b648ff4af5136caa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4fa2d7f3884a30e60ce703dd45b295a85722fe67
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528558"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285293"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>Quickstart: Azure Blob storage client library v11 for .NET
 
 Começa com a biblioteca de clientes Azure Blob Storage v11 para .NET. Azure Blob Storage é a solução de armazenamento de objetos da Microsoft para a nuvem. Siga as medidas para instalar a embalagem e experimente o código de exemplo para tarefas básicas. O armazenamento de blobs está otimizado para armazenar quantidades em grande escala de dados não estruturados.
 
 > [!NOTE]
-> Este quickstart usa uma versão antiga da biblioteca de clientes de armazenamento Azure Blob. Para começar com a versão mais recente, consulte [a biblioteca de clientes de armazenamento Quickstart: Azure Blob para .NET](storage-quickstart-blobs-dotnet.md).
+> Este quickstart usa uma versão antiga da biblioteca de clientes de armazenamento Azure Blob. Para começar com a versão mais recente, consulte [Quickstart: Azure Blob storage client library v12 for.NET](storage-quickstart-blobs-dotnet.md).
 
 Utilize a biblioteca do cliente de armazenamento Azure Blob para .NET para:
 
@@ -391,7 +391,7 @@ Quando premir a tecla **Enter**, a aplicação elimina o contentor de armazename
 
 Depois de verificar os ficheiros, prima qualquer tecla para concluir a demonstração e eliminar os ficheiros de teste.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, aprendeu a carregar, transferir e listar blobs com o .NET.
 

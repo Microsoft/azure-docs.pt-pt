@@ -5,13 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 05/21/2019
+ms.date: 07/27/2020
 ms.author: cherylmc
-ms.openlocfilehash: 133a586612f8a5b864c84400ece63d9ba6ccb150
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d51409baf9d5ca6ce90f1367ac128d7d47a9757
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84729247"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325258"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Ligue uma rede virtual a um circuito ExpressRoute utilizando o CLI
 
@@ -152,7 +153,7 @@ az network vpn-connection update --name ERConnection --resource-group ExpressRou
 O intervalo de *RoutingWeight* é de 0 a 32000. O valor predefinido é 0.
 
 ## <a name="configure-expressroute-fastpath"></a>Configurar ExpressRoute FastPath 
-Pode ativar [o ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) se o seu circuito ExpressRoute estiver no [ExpressRoute Direct](expressroute-erdirect-about.md) e o seu gateway virtual newtork for Ultra Performance ou ErGw3AZ. O FastPath melhora a pré-formação do caminho dos dados, como pacotes por segundo e as ligações por segundo entre a sua rede no local e a sua rede virtual. 
+Pode ativar [o ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) se o seu gateway de rede virtual for Ultra Performance ou ErGw3AZ. O FastPath melhora a pré-formação do caminho dos dados, como pacotes por segundo e as ligações por segundo entre a sua rede no local e a sua rede virtual. 
 
 **Configure fastPath em uma nova ligação**
 
@@ -166,6 +167,6 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o ExpressRoute, consulte as [FAQ ExpressRoute.](expressroute-faqs.md)

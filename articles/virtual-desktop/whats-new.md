@@ -9,12 +9,12 @@ ms.date: 06/15/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
-ms.openlocfilehash: 7052e9203532320a7de5197e983d40cb0a34b50d
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 9be1053600ab89a7879a04a7c08a44ddf3bc862a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374785"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291237"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Quais as novidades no Windows Virtual Desktop?
 
@@ -29,7 +29,7 @@ Este artigo é atualizado mensalmente. Certifique-se de voltar aqui muitas vezes
 
 ## <a name="june-2020"></a>Junho de 2020
 
-No mês passado, introduzimos a atualização virtual do Windows Desktop Spring 2020 na pré-visualização. Esta atualização tem muitas novidades interessantes que gostaríamos de lhe contar. Eis as novidades para a atualização da primavera de 2020.
+No mês passado, introduzimos o Windows Virtual Desktop com integração do Azure Resource Manager na pré-visualização. Esta atualização tem muitas novidades interessantes que gostaríamos de lhe contar. Eis as novidades para esta versão do Windows Virtual Desktop.
 
 ### <a name="windows-virtual-desktop-is-now-integrated-with-azure-resource-manager-preview"></a>O Windows Virtual Desktop está agora integrado com o Azure Resource Manager (Preview)
 
@@ -39,22 +39,22 @@ Eis o que esta mudança faz por si:
 
 - O Windows Virtual Desktop está agora integrado com o portal Azure. Isto significa que você pode gerir tudo diretamente no portal, sem PowerShell, aplicações web ou ferramentas de terceiros necessárias. Para começar, confira o nosso tutorial na [Create a host pool com o portal Azure.](create-host-pools-azure-marketplace.md)
 
-- Antes da atualização da primavera de 2020, só poderia publicar RemoteApps e Desktops para utilizadores individuais. Com o Azure Resource Manager, já pode publicar recursos para os grupos Azure Ative Directory.
+- Antes desta atualização, só era possível publicar RemoteApps e Desktops para utilizadores individuais. Com o Azure Resource Manager, já pode publicar recursos para os grupos Azure Ative Directory.
 
 - A versão anterior do Windows Virtual Desktop tinha quatro funções de administração incorporadas que você poderia atribuir a um inquilino ou piscina de anfitrião. Estas funções estão agora no controlo de acesso baseado em [funções do](../role-based-access-control/overview.md)Azure. Pode aplicar estas funções em todos os objetos do Windows Virtual Desktop Azure Resource Manager, o que lhe permite ter um modelo de delegação completo e rico.
 
-- Na atualização da primavera de 2020, já não precisa de executar o Azure Marketplace ou o modelo GitHub repetidamente para expandir uma piscina de anfitriões. Tudo o que precisa para expandir uma piscina de anfitriões é ir à sua piscina de anfitriões no portal Azure e selecionar **+ Adicionar** para implementar anfitriões de sessão adicionais.
+- Nesta atualização, já não precisa de executar o Azure Marketplace ou o modelo GitHub repetidamente para expandir uma piscina de anfitriões. Tudo o que precisa para expandir uma piscina de anfitriões é ir à sua piscina de anfitriões no portal Azure e selecionar **+ Adicionar** para implementar anfitriões de sessão adicionais.
 
 - A implementação da piscina de anfitriões está agora totalmente integrada com a [Galeria de Imagem Partilhada Azure.](../virtual-machines/windows/shared-image-galleries.md) Shared Image Gallery é um serviço Azure separado que armazena definições de imagem de máquina virtual (VM), incluindo a versão de imagem. Também pode usar a replicação global para copiar e enviar as suas imagens para outras regiões do Azure para implantação local.
 
 - As funções de monitorização que costumavam ser feitas através do PowerShell ou da aplicação web do Serviço de Diagnóstico mudaram-se agora para Log Analytics no portal Azure. Também tem agora duas opções para visualizar os seus relatórios. Pode executar consultas kusto e usar livros de trabalho para criar relatórios visuais.
 
-- Já não é obrigado a concluir o consentimento do Azure Ative Directory (Azure AD) para utilizar o Windows Virtual Desktop. Na atualização da primavera de 2020, o inquilino AZure AD na sua subscrição Azure autentica os seus utilizadores e fornece controlos RBAC para os seus administradores.
+- Já não é obrigado a concluir o consentimento do Azure Ative Directory (Azure AD) para utilizar o Windows Virtual Desktop. Nesta atualização, o inquilino AZure AD na sua assinatura Azure autentica os seus utilizadores e fornece controlos RBAC para os seus administradores.
 
 
 ### <a name="powershell-support"></a>Suporte do PowerShell
 
-Adicionámos novos cmdlets AzWvd ao Módulo Azure PowerShell Az com a atualização primavera de 2020. Este novo módulo é suportado no PowerShell Core, que funciona em .NET Core.
+Adicionámos novos cmdlets AzWvd ao Módulo Azure PowerShell Az com esta atualização. Este novo módulo é suportado no PowerShell Core, que funciona em .NET Core.
 
 Para instalar o módulo, siga as instruções em [Configurar o módulo PowerShell para Windows Virtual Desktop](powershell-module.md).
 

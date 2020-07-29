@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Procure vídeos usando a REST API e Java - Bing Video Search'
+title: 'Quickstart: Procure vídeos usando a API REST e Java - Bing Video Search'
 titleSuffix: Azure Cognitive Services
-description: Use este quickstart para enviar pedidos de pesquisa de vídeo para a API de pesquisa de vídeo bing usando Java.
+description: Utilize este quickstart para enviar pedidos de pesquisa de vídeo para a API Bing Video Search REST usando Java.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,23 +9,24 @@ ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 05/22/2020
+ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: 0728aa84447573bd8d335daf84c01138c627ecb5
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: b03dd9140ef49d34ba0303742aa4961a9f313cc9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848671"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323371"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-java"></a>Quickstart: Procure vídeos usando a API e Java de Pesquisa de Vídeo Bing
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-java"></a>Quickstart: Procure vídeos utilizando a API e Java de pesquisa de vídeo Bing
 
-Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa de Vídeo Bing. Esta simples aplicação Java envia uma consulta de pesquisa de vídeo HTTP para a API e exibe a resposta JSON. Embora esta aplicação esteja escrita em Java, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação. 
+Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa de Vídeo Bing. Esta simples aplicação Java envia uma consulta de pesquisa de vídeo HTTP para a API e exibe a resposta JSON. Embora esta aplicação esteja escrita em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. 
 
-O código fonte desta amostra está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingVideoSearchv7.java) com manipulação adicional de erros, funcionalidades e anotações de código.
+O código-fonte desta amostra está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingVideoSearchv7.java) com tratamento adicional de erros, funcionalidades e anotações de código.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* O Kit de [Desenvolvimento de Java (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
+* O [Kit de Desenvolvimento java (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
 
 * A [Biblioteca de Gson](https://github.com/google/gson)
 
@@ -47,7 +48,7 @@ O código fonte desta amostra está disponível [no GitHub](https://github.com/A
     import com.google.gson.JsonParser;
     ```
 
-2. Crie uma nova classe com o nome `SearchResults` de armazenar os cabeçalhos e a resposta JSON da API.
+2. Crie uma nova classe nomeada `SearchResults` para armazenar os cabeçalhos e a resposta JSON da API.
 
     ```java
     // Container class for search results encapsulates relevant headers and JSON data
@@ -61,7 +62,7 @@ O código fonte desta amostra está disponível [no GitHub](https://github.com/A
     }
     ```
 
-3. Crie um novo método nomeado `SearchVideos()` com variáveis para o seu anfitrião e caminho de ponto final da API, a sua chave de subscrição e termo de pesquisa. Este método devolve um `SearchResults` objeto. Para o `host` valor, pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+3. Crie um novo método nomeado `SearchVideos()` com variáveis para o seu anfitrião e caminho de ponto final da API, a sua chave de subscrição e o termo de pesquisa. Este método devolve um `SearchResults` objeto. Pelo `host` valor, pode utilizar o ponto final global no seguinte código ou utilizar o ponto final [de subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) apresentado no portal Azure para o seu recurso.
 
     ```java
     public static SearchResults SearchVideos (String searchQuery) throws Exception {
@@ -72,11 +73,11 @@ O código fonte desta amostra está disponível [no GitHub](https://github.com/A
     }
     ```
 
-## <a name="construct-and-send-the-search-request"></a>Construir e enviar o pedido de pesquisa
+## <a name="construct-and-send-the-search-request"></a>Construa e envie o pedido de pesquisa
 
 No `SearchVideos()` método, execute os seguintes passos:
 
-1. Construa o URL para o seu pedido combinando o seu anfitrião, caminho e consulta de pesquisa codificada. Utilize `openConnection()` para criar uma ligação e, em seguida, adicione a sua chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho.
+1. Construa o URL para o seu pedido combinando o seu anfitrião API, caminho e consulta de pesquisa codificada. Utilize `openConnection()` para criar uma ligação e, em seguida, adicione a chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho.
 
      ```java
      URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
@@ -84,14 +85,14 @@ No `SearchVideos()` método, execute os seguintes passos:
      connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
      ```
 
-2. Obtenha a resposta da API e guarde a corda JSON.
+2. Obtenha a resposta da API e guarde a cadeia JSON.
 
      ```java
      InputStream stream = connection.getInputStream();
      String response = new Scanner(stream).useDelimiter("\\A").next();
      ```
 
- 3. Utilize `getHeaderFields()` para extrair os cabeçalhos HTTP da resposta e guarde os relacionados com bing no `results` objeto. Em seguida, feche o riacho e devolva o resultado.
+ 3. Utilize `getHeaderFields()` para extrair os cabeçalhos HTTP da resposta e guarde os relacionados com bing no `results` objeto. Em seguida, feche o fluxo e devolva o resultado.
 
      ```java
      // extract Bing-related HTTP headers
@@ -108,7 +109,7 @@ No `SearchVideos()` método, execute os seguintes passos:
 
 ## <a name="format-the-response"></a>Formatar a resposta
 
-Crie um método nomeado `prettify()` para formatar a resposta devolvida da API bing video. Use a biblioteca Gson `JsonParser` para converter uma corda JSON num objeto. Em seguida, use `GsonBuilder()` e `toJson()` crie a corda formatada.
+Crie um método nomeado `prettify()` para formatar a resposta devolvida da API de Vídeo Bing. Use a biblioteca Gson `JsonParser` para converter uma corda JSON num objeto. Em seguida, use `GsonBuilder()` e crie a cadeia `toJson()` formatada.
 
 ```java
 // pretty-printer for JSON; uses GSON parser to parse and re-serialize
@@ -120,9 +121,9 @@ public static String prettify(String json_text) {
 }
 ```
 
-## <a name="send-the-request-and-print-the-response"></a>Enviar o pedido e imprimir a resposta
+## <a name="send-the-request-and-print-the-response"></a>Envie o pedido e imprima a resposta
 
-No método principal da sua aplicação, ligue com o seu termo de `SearchVideos` pesquisa. Em seguida, imprima os cabeçalhos HTTP armazenados na resposta e a corda JSON devolvida pela API.
+No método principal da sua aplicação, ligue `SearchVideos` com o seu termo de pesquisa. Em seguida, imprima os cabeçalhos HTTP armazenados na resposta e a cadeia JSON devolvida pela API.
 
  ```java
  public static void main (String[] args) {
@@ -250,6 +251,6 @@ No método principal da sua aplicação, ligue com o seu termo de `SearchVideos`
 > [!div class="nextstepaction"]
 > [Criar uma aplicação web de página única](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Veja também 
 
  [O que é a API de Pesquisa de Vídeos do Bing?](../overview.md)

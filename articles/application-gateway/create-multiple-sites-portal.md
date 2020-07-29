@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: victorh
-ms.openlocfilehash: 2f1501438c5fde5be401411ee51b212323427761
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0c5302f35665b034bffa343ee90fd4fd609f56e5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068103"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290159"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Tutorial: Criar e configurar uma porta de aplicação para hospedar vários web sites usando o portal Azure
 
@@ -116,9 +116,6 @@ No separador **Configuração,** irá ligar as piscinas fronte e backend criadas
    Em **definições adicionais:**
    - **Tipo de ouvinte**: Vários sites
    - **Nome do anfitrião**: **www.contoso.com**
-
->[!NOTE]
-> Com o Application Gateway ou WAF v2 SKU, também pode configurar até 5 nomes de anfitriões por ouvinte e pode utilizar caracteres wildcard no nome do anfitrião. Consulte [os nomes dos anfitriões wildcard no ouvinte](multiple-site-overview.md#wildcard-host-names-in-listener-preview) para obter mais informações. No portal Azure, pode defini-las em caixas de texto separadas no campo de nome anfitrião.
 
    Aceite os valores predefinidos para as outras definições no **separador Listener** e, em seguida, selecione o separador **alvos de Backend** para configurar o resto da regra de encaminhamento.
 
@@ -231,7 +228,7 @@ Após a criação do gateway de aplicações com o seu endereço IP público, po
 
     ![Testar o site fabrikam no gateway de aplicação](./media/create-multiple-sites-portal/application-gateway-iistest2.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar dos recursos que criou com o gateway de aplicação, remova o grupo de recursos. Quando remove o grupo de recursos, também remove o gateway de aplicação e todos os seus recursos relacionados.
 

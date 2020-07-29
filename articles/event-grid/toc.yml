@@ -8,6 +8,8 @@
       href: overview.md
     - name: Comparar serviços de mensagens
       href: compare-messaging-services.md
+    - name: Notas de versão
+      href: whats-new.md
 - name: Guias de Início Rápido
   expanded: true
   items:
@@ -236,7 +238,7 @@
           href: configure-private-endpoints.md
         - name: Configurar firewall do IP (pré-visualização)
           href: configure-firewall.md
-        - name: Proteger o WebHook com o AAD
+        - name: Proteger o Webhook com o AAD
           href: secure-webhook-delivery.md
         - name: Entrega de eventos com identidade gerida
           href: managed-service-identity.md

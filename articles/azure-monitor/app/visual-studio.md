@@ -7,16 +7,17 @@ ms.author: daviste
 ms.date: 07/07/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
-ms.openlocfilehash: 8905222214d58eeba24ecf50da768ffa1d65c39d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1bb18cc43ef306a208500ff49ec41dbfb74b788e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77670887"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323473"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Depurar as suas aplicações com a Azure Application Insights no Visual Studio
-No Visual Studio (versão 2015 e posterior), pode analisar o desempenho e diagnosticar problemas de depuração e produção na sua aplicação Web ASP.NET, com a telemetria do [Application Insights do Azure](../../azure-monitor/app/app-insights-overview.md).
+No Visual Studio (versão 2015 e posterior), pode analisar o desempenho e diagnosticar problemas de depuração e produção na sua aplicação Web ASP.NET, com a telemetria do [Application Insights do Azure](./app-insights-overview.md).
 
-Se criou a aplicação Web ASP.NET com o Visual Studio 2017 ou posterior, já tem o SDK do Application Insights. Caso contrário, se ainda não o tiver feito, [adicione o Application Insights à sua aplicação](../../azure-monitor/app/asp-net.md).
+Se criou a aplicação Web ASP.NET com o Visual Studio 2017 ou posterior, já tem o SDK do Application Insights. Caso contrário, se ainda não o tiver feito, [adicione o Application Insights à sua aplicação](./asp-net.md).
 
 Para monitorizar a aplicação quando estiver a ser produzida, vê normalmente a telemetria do Application Insights no [portal do Azure](https://portal.azure.com), onde pode definir alertas e aplicar ferramentas de monitorização poderosas. Mas, para a depuração, também pode procurar e analisar a telemetria no Visual Studio. Pode utilizar o Visual Studio para analisar a telemetria tanto a partir do seu local de produção como a partir de depurar corridas na sua máquina de desenvolvimento. Em último caso, pode analisar as execuções das depurações, mesmo que ainda não tenha configurado o SDK para enviar telemetria para o portal do Azure. 
 
@@ -51,7 +52,7 @@ Pode ainda abrir os itens relacionados para ajudar a diagnosticar os pedidos fal
 ![Em Detalhes do Pedido, desloque para baixo para itens relacionados](./media/visual-studio/41.png)
 
 ## <a name="view-exceptions-and-failed-requests"></a>Ver exceções e pedidos falhados
-Apresentação de relatórios de exceção na janela de Pesquisa. (Em alguns tipos mais antigos da aplicação ASP.NET, tem de [configurar a monitorização de exceção](../../azure-monitor/app/asp-net-exceptions.md) para ver as exceções que são processadas pelo framework.)
+Apresentação de relatórios de exceção na janela de Pesquisa. (Em alguns tipos mais antigos da aplicação ASP.NET, tem de [configurar a monitorização de exceção](./asp-net-exceptions.md) para ver as exceções que são processadas pelo framework.)
 
 Clique numa exceção para obter um rastreio de pilha. Se abrir o código da aplicação no Visual Studio, pode clicar no rastreio de pilha para a linha relevante do código.
 
@@ -63,10 +64,10 @@ Na linha De Lente de Código acima de cada método de manipulador, vê uma conta
 ![Rastreio de pilha de exceção](./media/visual-studio/21.png)
 
 > [!NOTE] 
-> O Código Lente mostra os dados do Application Insights apenas se tiver [configurado a sua aplicação para enviar telemetria para o portal do Application Insights](../../azure-monitor/app/asp-net.md).
+> O Código Lente mostra os dados do Application Insights apenas se tiver [configurado a sua aplicação para enviar telemetria para o portal do Application Insights](./asp-net.md).
 >
 
-[Saiba mais sobre o Application Insights no Código Lente](../../azure-monitor/app/visual-studio-codelens.md)
+[Saiba mais sobre o Application Insights no Código Lente](./visual-studio-codelens.md)
 
 ## <a name="trends"></a>Tendências
 Tendências é uma ferramenta para visualizar a forma como a aplicação se comporta ao longo do tempo. 
@@ -77,14 +78,14 @@ Para localizar anomalias nos seus dados, escolha uma das opções anómalas na l
 
 ![Tendências](./media/visual-studio/51.png)
 
-[Mais informações sobre as Tendências](../../azure-monitor/app/visual-studio-trends.md).
+[Mais informações sobre as Tendências](./visual-studio-trends.md).
 
 ## <a name="local-monitoring"></a>Monitorização local
 (A partir do Visual Studio 2015 Update 2) Se ainda não configurar o SDK para enviar telemetria para o portal Application Insights (de modo a que não haja uma chave de instrumentação no ApplicationInsights.config) então a janela de diagnóstico exibe telemetria a partir da sua última sessão de depuração. 
 
 Esta ação é desejável se já tiver publicado uma versão anterior da aplicação. De certeza que não quer que a telemetria das suas sessões de depuração seja misturada com a telemetria no portal do Application Insights da aplicação publicada.
 
-Também poderá ser útil se tiver alguma [telemetria personalizada](../../azure-monitor/app/api-custom-events-metrics.md) que pretende depurar antes de enviar a telemetria ao portal.
+Também poderá ser útil se tiver alguma [telemetria personalizada](./api-custom-events-metrics.md) que pretende depurar antes de enviar a telemetria ao portal.
 
 * *No início, configurei completamente os Insights de Aplicação para enviar telemetria para o portal. Mas agora gostaria de ver a telemetria apenas no Estúdio Visual.*
   
@@ -92,9 +93,9 @@ Também poderá ser útil se tiver alguma [telemetria personalizada](../../azure
   * Para impedir que a telemetria seja enviada para o portal, comente a linha `<instrumentationkey>...` a partir de ApplicationInsights.config. Quando estiver pronto para enviar telemetria para o portal de novo, desconseça-la.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 |  |  |
 | --- | --- |
-| **[Adicionar mais dados](../../azure-monitor/app/asp-net-more.md)**<br/>Monitorize a utilização, a disponibilidade, as dependências e as exceções. Integre rastreios a partir de arquiteturas de registo. Grave a telemetria personalizada. |![Visual Studio](./media/visual-studio/64.png) |
-| **[Trabalhar com o portal do Application Insights](../../azure-monitor/app/overview-dashboard.md)**<br/>Veja dashboards, ferramentas de diagnóstico e analítica poderosas, alertas, um mapa de dependência ao vivo da sua aplicação e dados de telemetria exportados. |![Visual Studio](./media/visual-studio/62.png) |
+| **[Adicionar mais dados](./asp-net-more.md)**<br/>Monitorize a utilização, a disponibilidade, as dependências e as exceções. Integre rastreios a partir de arquiteturas de registo. Grave a telemetria personalizada. |![Visual Studio](./media/visual-studio/64.png) |
+| **[Trabalhar com o portal do Application Insights](./overview-dashboard.md)**<br/>Veja dashboards, ferramentas de diagnóstico e analítica poderosas, alertas, um mapa de dependência ao vivo da sua aplicação e dados de telemetria exportados. |![Visual Studio](./media/visual-studio/62.png) |
 

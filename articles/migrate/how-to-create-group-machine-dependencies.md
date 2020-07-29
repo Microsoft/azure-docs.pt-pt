@@ -3,12 +3,12 @@ title: Configurar a análise de dependência baseada em agentes na avaliação d
 description: Este artigo descreve como configurar a análise de dependência baseada em agentes na Avaliação do Servidor migratório Azure.
 ms.topic: how-to
 ms.date: 6/09/2020
-ms.openlocfilehash: 1a656ec734ff098dd5835f653010c7f298c13b38
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 50061bead9b00ade0defba45691ea8a7c84625dd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109999"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321212"
 ---
 # <a name="set-up-dependency-visualization"></a>Configurar visualização de dependência
 
@@ -31,7 +31,7 @@ Este artigo descreve como configurar uma análise de dependência sem agente no 
     - Só pode anexar um espaço de trabalho depois de configurar o aparelho Azure Migrate e descobrir máquinas no projeto Azure Migrate.
     - Certifique-se de que tem um espaço de trabalho na subscrição que contém o projeto Azure Migrate.
     - O espaço de trabalho deve residir nas regiões do Leste dos EUA, Sudeste Asiático ou Europa Ocidental. Espaços de trabalho noutras regiões não podem ser associados a um projeto.
-    - O espaço de trabalho deve estar numa região em que [o Mapa de Serviços é suportado.](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites)
+    - O espaço de trabalho deve estar numa região em que [o Mapa de Serviços é suportado.](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions)
     - Pode associar um novo ou existente espaço de trabalho log analytics a um projeto Azure Migrate.
     - Liga-se o espaço de trabalho da primeira vez que configura a visualização de dependência para uma máquina. O espaço de trabalho para um projeto Azure Migrate não pode ser modificado depois de ser adicionado.
     - No Log Analytics, o espaço de trabalho associado ao Azure Migrate está marcado com a chave do Projeto migratório e o nome do projeto.
@@ -205,7 +205,7 @@ VMConnection
 | summarize sum(BytesSent), sum(BytesReceived) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar uma avaliação](how-to-create-assessment.md) para um grupo.
 

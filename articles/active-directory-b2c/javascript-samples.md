@@ -5,18 +5,19 @@ description: Saiba como utilizar o JavaScript no Azure Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
+ms.custom: devx-track-javascript
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a92810841ee5d656b23105d6f40c763847971c4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 947111edf7741f78a40b7d3e77a1dfae22383500
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85387801"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169565"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Amostras javaScript para utilização no Azure Ative Directory B2C
 
@@ -140,6 +141,6 @@ function addTermsOfUseLink() {
 
 No código, `termsOfUseUrl` substitua-o pelo link para os seus termos de utilização. Para o seu diretório, crie um novo atributo de utilizador chamado **termosOfUse** e, em seguida, inclua **os termosOfUse** como atributo do utilizador.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Encontre mais informações sobre como pode personalizar a interface do utilizador das suas aplicações em [Personalizar a interface de utilizador da sua aplicação utilizando uma política personalizada no Azure Ative Directory B2C](custom-policy-ui-customization.md).

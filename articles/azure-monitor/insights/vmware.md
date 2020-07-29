@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: bda1acde914aa068fe3a87d307a29583f87af34f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b9d27e602062ff2638d8eea23fe64497fd66512d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091186"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322912"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Solução de Monitorização VMware (Preprecada) no Azure Monitor
 
@@ -27,7 +27,7 @@ A solução utiliza a funcionalidade syslog nativa do anfitrião ESXi para empur
 ## <a name="install-and-configure-the-solution"></a>Instale e configuure a solução
 Utilize as seguintes informações para instalar e configurar a solução.
 
-* Adicione a solução de monitorização VMware à sua subscrição utilizando o processo descrito na [Instalação de uma solução de monitorização](../insights/solutions.md#install-a-monitoring-solution).
+* Adicione a solução de monitorização VMware à sua subscrição utilizando o processo descrito na [Instalação de uma solução de monitorização](./solutions.md#install-a-monitoring-solution).
 
 #### <a name="supported-vmware-esxi-hosts"></a>Anfitriões VMware ESXi apoiados
 vSphere ESXi Host 5.5, 6.0 e 6.5
@@ -202,3 +202,4 @@ Pode haver várias razões:
 * Utilize [consultas de registo](../log-query/log-query-overview.md) no Log Analytics para ver dados detalhados do anfitrião VMware.
 * [Crie os seus próprios dashboards](../learn/tutorial-logs-dashboards.md) mostrando dados do anfitrião VMware.
 * [Crie alertas](../platform/alerts-overview.md) quando ocorrerem eventos específicos de anfitrião VMware.
+

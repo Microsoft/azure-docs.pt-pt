@@ -11,12 +11,15 @@ ms.date: 07/18/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 2e1167c92dccdfa7600a4827c0081647c190d7d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+- 'Role: Operations'
+ms.openlocfilehash: be63cc2280691e85584ba4d6dd30fe751505a672
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252139"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325462"
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
 
@@ -244,7 +247,7 @@ Lembre-se de que todas as funcionalidades acessíveis a partir de dispositivos s
 
 Os pontos finais voltados para o dispositivo são (independentemente do protocolo):
 
-| Ponto Final | Funcionalidade |
+| Ponto final | Funcionalidade |
 | --- | --- |
 | `{iot hub host name}/devices/{deviceId}/messages/events` |Envie mensagens dispositivo-a-nuvem. |
 | `{iot hub host name}/devices/{deviceId}/messages/devicebound` |Receba mensagens nuvem-dispositivo. |
@@ -316,7 +319,7 @@ Os componentes de serviço só podem gerar fichas de segurança utilizando polí
 
 Aqui estão as funções de serviço expostas nos pontos finais:
 
-| Ponto Final | Funcionalidade |
+| Ponto final | Funcionalidade |
 | --- | --- |
 | `{iot hub host name}/devices` |Criar, atualizar, recuperar e eliminar identidades do dispositivo. |
 | `{iot hub host name}/messages/events` |Receba mensagens de dispositivo para nuvem. |
@@ -461,7 +464,7 @@ Outros tópicos de referência no guia de desenvolvimento do IoT Hub incluem:
 
 * [RFC 5246 - A versão 1.2 do Protocolo de Segurança da Camada de Transporte (TLS)](https://tools.ietf.org/html/rfc5246/) fornece mais informações sobre a autenticação TLS.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a controlar o acesso ao IoT Hub, poderá estar interessado nos seguintes tópicos de guia de desenvolvimento do IoT Hub:
 

@@ -4,12 +4,13 @@ description: Aprenda a criar o seu primeiro modelo de Gestor de Recursos Azure u
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
-ms.openlocfilehash: bce3d8ff2662ff62e1493cb26d797619b65c2762
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-java
+ms.openlocfilehash: 4039a70bf90bc8f4b7932dbf40d8369e9773abf3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040734"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321824"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Criar e implementar modelos ARM utilizando o IntelliJ IDEA
 
@@ -69,7 +70,7 @@ Em vez de criar um modelo de raiz, pode abrir um modelo dos [Modelos de Início 
 
 1. Após a implementação da atualização concluída, pode verificar no portal que a conta de armazenamento criada é alterada para `Standard_GRS` .
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 1. Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos. Pode fazê-lo a partir do portal Azure ou do Azure CLI. No Azure Explorer de IntelliJ IDEA, clique em clique no seu **grupo de recursos** criado e selecione excluir.
 

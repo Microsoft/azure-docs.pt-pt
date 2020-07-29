@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 04/15/2020
-ms.openlocfilehash: eab7b556dc45d03bf440a3bc63aa6bf2d799face
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/24/2020
+ms.openlocfilehash: 4c700a61de80968b17585faf92e268fef8d86f0e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103628"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323269"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Integre a sua listagem de marketplace comercial com o Azure Ative Directory
 
@@ -40,10 +40,11 @@ As várias [opções de listagem de](determine-your-listing-type.md) mercado com
 | Contentores  | N/D | N/D | N/D | Não |
 | Serviços de Consultoria  | Não | N/D | N/D | N/D |
 
-Para obter mais informações sobre os requisitos técnicos do SaaS, consulte [o Guia de Publicação de Ofertas de Aplicações SaaS.](marketplace-saas-applications-technical-publishing-guide.md)
+Para obter mais informações sobre os requisitos técnicos da SaaS, consulte [a Azure AD e as ofertas transacionáveis da SaaS no mercado comercial.](./azure-ad-saas.md)
 
 ## <a name="azure-ad-integration"></a>Integração AD AZure
 
+- Para mais detalhes sobre como integrar o Azure AD para o seu software transacionável como um serviço (SaaS) oferece, consulte [a AZure AD e as ofertas transacionáveis saaS no mercado comercial.](./azure-ad-saas.md)
 - Para obter informações sobre como permitir um único sing-on integrando o Azure AD na sua listagem, consulte [o Azure Ative Directory para programadores](../active-directory/develop/index.yml).
 - Para obter detalhes sobre o Azure AD single sign-on, veja [o que é o acesso à aplicação e um único acesso com o Azure Ative Directory?](../active-directory/manage-apps/what-is-single-sign-on.md)
 
@@ -84,7 +85,7 @@ Utilize a Azure AD para apoiar uma das seguintes ações:
 - Desenvolver um test drive por cliente.
 - Construa uma app de demonstração de amostras multi-inquilino que usa SSO.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se ainda não o fez, 
 

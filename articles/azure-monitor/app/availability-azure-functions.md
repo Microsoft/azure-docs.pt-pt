@@ -5,16 +5,16 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/04/2020
-ms.openlocfilehash: 1808623821d71169ec35beab1d33d4eb2c32c189
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e2603d921973aefdcc1a6f4a76bdf70d69dcb68f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008409"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320634"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Criar e executar testes de disponibilidade personalizados usando funções Azure
 
-Este artigo cobrirá como criar uma Função Azure com TrackAvailability() que será executada periodicamente de acordo com a configuração dada na função TimerTrigger com a sua própria lógica de negócio. Os resultados deste teste serão enviados para o seu recurso Application Insights, onde poderá consultar e alertar sobre os dados dos resultados da disponibilidade. Isto permite-lhe criar testes personalizados semelhantes ao que pode fazer através [do Availability Monitoring](../../azure-monitor/app/monitor-web-app-availability.md) no portal. Os testes personalizados permitir-lhe-ão escrever testes de disponibilidade mais complexos do que é possível utilizando o portal UI, monitorizar uma aplicação dentro do seu Azure VNET, alterar o endereço de ponto final ou criar um teste de disponibilidade mesmo que esta funcionalidade não esteja disponível na sua região.
+Este artigo cobrirá como criar uma Função Azure com TrackAvailability() que será executada periodicamente de acordo com a configuração dada na função TimerTrigger com a sua própria lógica de negócio. Os resultados deste teste serão enviados para o seu recurso Application Insights, onde poderá consultar e alertar sobre os dados dos resultados da disponibilidade. Isto permite-lhe criar testes personalizados semelhantes ao que pode fazer através [do Availability Monitoring](./monitor-web-app-availability.md) no portal. Os testes personalizados permitir-lhe-ão escrever testes de disponibilidade mais complexos do que é possível utilizando o portal UI, monitorizar uma aplicação dentro do seu Azure VNET, alterar o endereço de ponto final ou criar um teste de disponibilidade mesmo que esta funcionalidade não esteja disponível na sua região.
 
 > [!NOTE]
 > Este exemplo é projetado exclusivamente para mostrar-lhe a mecânica de como a chamada API trackAvailability funciona dentro de uma Função Azure. Não como escrever a lógica de código/negócio http subjacente que seria necessária para transformá-lo num teste de disponibilidade totalmente funcional. Por padrão, se passar por este exemplo, estará a criar um teste de disponibilidade que irá sempre gerar uma falha.
@@ -177,7 +177,7 @@ Se executou tudo como está (sem adicionar lógica de negócio), verá que o tes
 
 ## <a name="query-in-logs-analytics"></a>Consulta em Registos (Analytics)
 
-Pode utilizar Logs (analytics) para visualizar os resultados da disponibilidade, dependências e muito mais. Para saber mais sobre Os Registos, visite [a visão geral da consulta de registo.](../../azure-monitor/log-query/log-query-overview.md)
+Pode utilizar Logs (analytics) para visualizar os resultados da disponibilidade, dependências e muito mais. Para saber mais sobre Os Registos, visite [a visão geral da consulta de registo.](../log-query/log-query-overview.md)
 
 >[!div class="mx-imgBorder"]
 >![Resultados da disponibilidade](media/availability-azure-functions/availabilityresults.png)
@@ -187,5 +187,6 @@ Pode utilizar Logs (analytics) para visualizar os resultados da disponibilidade,
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Mapeamento de Aplicações](../../azure-monitor/app/app-map.md)
-- [Diagnóstico da transação](../../azure-monitor/app/transaction-diagnostics.md)
+- [Mapeamento de Aplicações](./app-map.md)
+- [Diagnóstico da transação](./transaction-diagnostics.md)
+

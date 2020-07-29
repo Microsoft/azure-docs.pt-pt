@@ -3,12 +3,12 @@ title: Azure Application Insights for ASP.NET Core applications [ Microsoft Docs
 description: Monitorize ASP.NET aplicações web Core para disponibilidade, desempenho e utilização.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 1d5ce4fe2a3ceb3235b77916aa408c681f81b0de
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 770cc3f34487f837631a98c6f652d8746ae2c2df
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517234"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321399"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Insights de Aplicação para aplicações core ASP.NET
 
@@ -221,7 +221,7 @@ Consulte as [definições `ApplicationInsightsServiceOptions` configuráveis](ht
 
 O Application Insights SDK for ASP.NET Core suporta a amostragem de taxa fixa e adaptativa. A amostragem adaptativa é ativada por defeito. 
 
-Para obter mais informações, consulte [a amostragem adaptativa configure para aplicações ASP.NET Core](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications).
+Para obter mais informações, consulte [a amostragem adaptativa configure para aplicações ASP.NET Core](./sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications).
 
 ### <a name="adding-telemetryinitializers"></a>Adicionar TelemetriaInitializers
 
@@ -363,7 +363,7 @@ Se pretender desativar a telemetria de forma condicional e dinâmica, poderá re
 
 O acima referido não impede que quaisquer módulos de recolha de automóveis recolham telemetria. Apenas o envio de telemetria para Application Insights é desativado com a abordagem acima. Se não for desejado um determinado módulo de recolha de automóveis, o melhor é [remover o módulo de telemetria](#configuring-or-removing-default-telemetrymodules)
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="does-application-insights-support-aspnet-core-3x"></a>O Application Insights suporta ASP.NET Core 3.X?
 
@@ -457,10 +457,11 @@ Este SDK requer `HttpContext` , e, portanto, não funciona em nenhuma aplicaçã
 
 [Leia e contribua para o código.](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Explore os fluxos dos utilizadores](../../azure-monitor/app/usage-flows.md) para entender como os utilizadores navegam através da sua aplicação.
+* [Explore os fluxos dos utilizadores](./usage-flows.md) para entender como os utilizadores navegam através da sua aplicação.
 * [Configure uma coleção instantânea](./snapshot-debugger.md) para ver o estado do código fonte e as variáveis no momento em que uma exceção é lançada.
-* [Utilize a API](../../azure-monitor/app/api-custom-events-metrics.md) para enviar os seus próprios eventos e métricas para uma visão detalhada do desempenho e utilização da sua aplicação.
-* Utilize [testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) para verificar a sua aplicação constantemente de todo o mundo.
+* [Utilize a API](./api-custom-events-metrics.md) para enviar os seus próprios eventos e métricas para uma visão detalhada do desempenho e utilização da sua aplicação.
+* Utilize [testes de disponibilidade](./monitor-web-app-availability.md) para verificar a sua aplicação constantemente de todo o mundo.
 * [Injeção de dependência no núcleo ASP.NET](/aspnet/core/fundamentals/dependency-injection)
+

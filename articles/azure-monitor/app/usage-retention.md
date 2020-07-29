@@ -6,16 +6,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 05/03/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 25d1cccdbd56db397fc444d1488c773515ad6553
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f7f6155d3230d234e1163ee12cd7685817331b93
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499312"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323541"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Análise de retenção de utilizadores para aplicações web com Insights de Aplicações
 
-A funcionalidade de retenção no [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) ajuda-o a analisar quantos utilizadores regressam à sua aplicação e com que frequência executam tarefas específicas ou alcançam objetivos. Por exemplo, se executares um site de jogo, podes comparar os números de utilizadores que regressam ao site depois de perderes um jogo com o número que regressa depois de ganhares. Este conhecimento pode ajudá-lo a melhorar tanto a sua experiência de utilizador como a sua estratégia de negócio.
+A funcionalidade de retenção no [Azure Application Insights](./app-insights-overview.md) ajuda-o a analisar quantos utilizadores regressam à sua aplicação e com que frequência executam tarefas específicas ou alcançam objetivos. Por exemplo, se executares um site de jogo, podes comparar os números de utilizadores que regressam ao site depois de perderes um jogo com o número que regressa depois de ganhares. Este conhecimento pode ajudá-lo a melhorar tanto a sua experiência de utilizador como a sua estratégia de negócio.
 
 ## <a name="get-started"></a>Introdução
 
@@ -54,14 +54,15 @@ Ou no código do servidor ASP.NET:
    telemetry.TrackEvent("won game");
 ```
 
-[Saiba mais sobre a escrita de eventos personalizados.](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)
+[Saiba mais sobre a escrita de eventos personalizados.](./api-custom-events-metrics.md#trackevent)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Para ativar experiências de utilização, comece a enviar [eventos personalizados](./api-custom-events-metrics.md#trackevent) ou [vistas de página.](./api-custom-events-metrics.md#page-views)
 - Se já envia eventos personalizados ou vistas de página, explore as ferramentas de Utilização para saber como os utilizadores usam o seu serviço.
     - [Utilizadores, Sessões, Eventos](usage-segmentation.md)
     - [Funis](usage-funnels.md)
     - [Fluxos do Utilizador](usage-flows.md)
-    - [Livros](../../azure-monitor/platform/workbooks-overview.md)
+    - [Livros](../platform/workbooks-overview.md)
     - [Adicionar contexto de utilizador](usage-send-user-context.md)
+

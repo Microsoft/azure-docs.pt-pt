@@ -6,18 +6,18 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: tracking-python
-ms.openlocfilehash: c9d69c0f39d9cad52dc86c3ab33d202c88131ab0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6eae11e2157904b47582f78a601c8d2900e61247
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753214"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324595"
 ---
 # <a name="track-incoming-requests-with-opencensus-python"></a>Acompanhe os pedidos de entrada com o OpenCensus Python
 
 Os dados de pedido de entrada são recolhidos utilizando o OpenCensus Python e as suas várias integrações. Acompanhe os dados de pedido de entrada enviados para as suas aplicações web construídas em cima das populares estruturas web `django` , `flask` e `pyramid` . Os dados são então enviados para a Application Insights no Azure Monitor como `requests` telemetria.
 
-Em primeiro lugar, instrumento a sua aplicação Python com o mais recente [OpenCensus Python SDK](../../azure-monitor/app/opencensus-python.md).
+Em primeiro lugar, instrumento a sua aplicação Python com o mais recente [OpenCensus Python SDK](./opencensus-python.md).
 
 ## <a name="tracking-django-applications"></a>Rastreio de aplicações de Django
 
@@ -117,10 +117,11 @@ Em primeiro lugar, instrumento a sua aplicação Python com o mais recente [Open
     config = Configurator(settings=settings)
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Mapeamento de Aplicações](../../azure-monitor/app/app-map.md)
-* [Disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Pesquisa](../../azure-monitor/app/diagnostic-search.md)
-* [Consulta de log (Analytics)](../../azure-monitor/log-query/log-query-overview.md)
-* [Diagnóstico da transação](../../azure-monitor/app/transaction-diagnostics.md)
+* [Mapeamento de Aplicações](./app-map.md)
+* [Disponibilidade](./monitor-web-app-availability.md)
+* [Pesquisa](./diagnostic-search.md)
+* [Consulta de log (Analytics)](../log-query/log-query-overview.md)
+* [Diagnóstico da transação](./transaction-diagnostics.md)
+

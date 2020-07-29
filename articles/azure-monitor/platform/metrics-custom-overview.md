@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.subservice: metrics
-ms.openlocfilehash: 9581bb17e29a25b618a90aece5675d132c14a97c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ca697fe0174a62532f3fa9ffbc5b3fcfc0c06ad7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081496"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321280"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métricas personalizadas no Monitor Azure (Pré-visualização)
 
@@ -28,7 +28,7 @@ As métricas personalizadas podem ser enviadas para o Azure Monitor através de 
 - Instrumente a sua aplicação utilizando o Azure Application Insights SDK e envie telemetria personalizada para o Azure Monitor. 
 - Instale a extensão do Windows Azure Diagnostics (WAD) no seu [Azure VM,](collect-custom-metrics-guestos-resource-manager-vm.md) [conjunto de balanças de máquinas virtuais,](collect-custom-metrics-guestos-resource-manager-vmss.md) [VM clássico](collect-custom-metrics-guestos-vm-classic.md)ou [serviços clássicos da Cloud](collect-custom-metrics-guestos-vm-cloud-service-classic.md) e envie contadores de desempenho para o Azure Monitor. 
 - Instale o [agente InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md) no seu Azure Linux VM e envie métricas utilizando o plug-in de saída do Azure Monitor.
-- Envie métricas personalizadas [diretamente para a API do Monitor Azure,](../../azure-monitor/platform/metrics-store-custom-rest-api.md) `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics` .
+- Envie métricas personalizadas [diretamente para a API do Monitor Azure,](./metrics-store-custom-rest-api.md) `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics` .
 
 ## <a name="pricing-model-and-retention"></a>Modelo de preços e retenção
 
@@ -74,7 +74,7 @@ Cada ponto de dados enviado ao Monitor Azure deve ser marcado com uma marca de t
 ### <a name="namespace"></a>Espaço de Nomes
 Os espaços de nome são uma forma de categorizar ou agrupar métricas semelhantes em conjunto. Ao utilizar espaços de nome, pode alcançar o isolamento entre grupos de métricas que podem recolher diferentes insights ou indicadores de desempenho. Por exemplo, você pode ter um espaço de nome chamado **contosomemorymetrics** que rastreia métricas de uso de memória que perfilam a sua aplicação. Outro espaço de nome chamado **contosoapptransaction** pode rastrear todas as métricas sobre transações de utilizadores na sua aplicação.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 **O** nome é o nome da métrica que está a ser reportada. Normalmente, o nome é descritivo o suficiente para ajudar a identificar o que é medido. Um exemplo é uma métrica que mede o número de bytes de memória usados num determinado VM. Pode ter um nome métrico como **Memory Bytes In Use**.
 
 ### <a name="dimension-keys"></a>Chaves de dimensão
@@ -235,6 +235,7 @@ Utilize métricas personalizadas de diferentes serviços:
  - [Conjuntos de dimensionamento de máquinas virtuais](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Máquinas Virtuais Azure (clássico)](collect-custom-metrics-guestos-vm-classic.md)
  - [Máquina virtual Linux usando o agente Telegraf](collect-custom-metrics-linux-telegraf.md)
- - [API REST](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
+ - [API REST](./metrics-store-custom-rest-api.md)
  - [Serviços clássicos da nuvem](collect-custom-metrics-guestos-vm-cloud-service-classic.md)
  
+

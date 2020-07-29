@@ -1,6 +1,5 @@
 ---
-title: Retreine um serviço web clássico
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clássico): retrainte o serviço web clássico - Azure'
 description: Aprenda a treinar um modelo e a atualizar um serviço web clássico para utilizar o modelo recém-treinado no Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: c1dd91a800c8e807d527f24a381262bde97d792c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d24449f942a8c0da6774ebb2aa85f94a3088b36c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080317"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324952"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Retreine e implemente um serviço web clássico do Studio (clássico)
+
+**APLICA-SE A:** ![ no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) yes Machine Learning Studio ![ ](../../../includes/media/aml-applies-to-skus/yes.png) (clássico) 
+
 
 A reconversão de modelos de aprendizagem automática é uma forma de garantir que se mantêm precisas e com base nos dados mais relevantes disponíveis. Este artigo irá mostrar-lhe como treinar um serviço web clássico do Studio (clássico). Para um guia sobre como treinar um novo serviço web Studio (clássico), [veja este artigo como-a-dia.](retrain-machine-learning-model.md)
 
@@ -132,7 +134,7 @@ Se o seu token SAS expirar antes de terminar de atualizar o ponto final, tem de 
 
 Quando o código tiver sido executado com sucesso, o novo ponto final deve começar a utilizar o modelo retreinado em aproximadamente 30 segundos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como gerir serviços web ou acompanhar várias experiências, consulte os seguintes artigos:
 

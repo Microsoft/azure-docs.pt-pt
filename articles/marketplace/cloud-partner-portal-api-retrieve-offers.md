@@ -4,15 +4,15 @@ description: API para recuperar uma lista resumida de ofertas sob um espaço de 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: dsindona
-ms.author: dsindona
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 22d22feb3931f466647c2c4d94bdf924568f2dc5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 39d07751c708d5555799ecbb3b3bc66d3f44f43a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535897"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87271965"
 ---
 # <a name="retrieve-offers"></a>Obter ofertas
 
@@ -28,7 +28,7 @@ Recupera uma lista resumida de ofertas sob um espaço de nome de editor.
 | **Nome**         |  **Descrição**                         |  **Tipo de dados** |
 | -------------    |  ------------------------------------    |  -----------   |
 |  publisherId     | Identificador de editor, por exemplo`contoso` |   Cadeia    |
-|  api-version     | Última versão da API                    |    Data        |
+|  api-version     | Última versão da API                    |    Date        |
 |  |  |
 
 ## <a name="header"></a>Cabeçalho

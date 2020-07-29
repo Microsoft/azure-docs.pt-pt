@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 07/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 473e3d52b1757faebd60c14966b425e9390a2685
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 26be41361a861795a9897442d9a0cc8bb14c1450
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248616"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292582"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é o Windows Virtual Desktop? 
 
@@ -59,7 +59,7 @@ Também pode atribuir e ligar os utilizadores aos seus ambientes de trabalho vir
 * Uma vez atribuídos, os utilizadores podem lançar qualquer cliente virtual do Windows desktop para ligar os utilizadores aos seus desktops e aplicações do Windows publicados. Conecte-se a partir de qualquer dispositivo através de uma aplicação nativa no seu dispositivo ou do cliente web VIRTUAL Desktop HTML5 do Windows.
 * Estabeleça de forma segura os utilizadores através de ligações inversas ao serviço, para que nunca tenha de deixar portas de entrada abertas.
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 
 Há algumas coisas que precisa para configurar o Windows Virtual Desktop e ligar com sucesso os seus utilizadores aos seus desktops e aplicações windows.
 
@@ -143,9 +143,9 @@ As opções de automação e implantação disponíveis dependem do sistema oper
 
 ## <a name="next-steps"></a>Próximos passos
 
-Se estiver a utilizar o lançamento virtual do Windows Desktop Fall 2019, pode começar com o nosso tutorial na [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
+Se estiver a utilizar o Windows Virtual Desktop (clássico), pode começar com o nosso tutorial na [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
 
-Se estiver a utilizar o desbloqueio Virtual Desktop Spring 2020 do Windows, terá de criar uma piscina de anfitriões. Dirija-se ao seguinte tutorial para começar.
+Se estiver a utilizar o Ambiente de Trabalho Virtual do Windows com integração do Azure Resource Manager, terá de criar uma piscina de anfitriões. Dirija-se ao seguinte tutorial para começar.
 
 > [!div class="nextstepaction"]
 > [Criar um conjunto de anfitriões com o portal do Azure](create-host-pools-azure-marketplace.md)

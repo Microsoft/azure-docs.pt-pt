@@ -1,26 +1,19 @@
 ---
 title: Visão geral do agente Azure Linux VM
 description: Aprenda a instalar e configurar o Agente Linux (waagent) para gerir a interação da sua máquina virtual com o Controlador de TecidoS Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: axayjo
-manager: gwallace
-editor: ''
-tags: azure-service-management,azure-resource-manager
-ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 560ae8d837cf57e471a9f39d5ccdcf152a156b1e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fda228f6a24e981bb848fbb106709aaa3d8e8613
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029081"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87269126"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Compreensão e utilização do Agente Azure Linux
 
@@ -68,11 +61,11 @@ O fluxo de informação da plataforma para o agente ocorre através de dois cana
 * Um DVD anexado para implantações iaaS. Este DVD inclui um ficheiro de configuração compatível com OVF que inclui todas as informações de fornecimento que não os elementos-chave SSH reais.
 * Um ponto final TCP expondo uma API REST usada para obter configuração de implantação e topologia.
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 Os seguintes sistemas foram testados e são conhecidos por trabalhar com o Agente Azure Linux:
 
 > [!NOTE]
-> Esta lista pode diferir da lista oficial de sistemas suportados na Plataforma Microsoft Azure, tal como descrito aqui:[https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
+> Esta lista pode diferir da lista oficial de [distros suportados](../linux/endorsed-distros.md).
 > 
 > 
 

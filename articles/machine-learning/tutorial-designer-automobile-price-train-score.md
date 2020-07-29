@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 2922b5d3aa6cee0f1222c041a0e9728936754c21
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 4a925fb4352ac81e5879bb925ee1d743a77ffd5c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200034"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290284"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Prever preço do automóvel com o designer (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -27,7 +27,7 @@ Na primeira parte do tutorial, vais aprender a:
 > [!div class="checklist"]
 > * Criar um novo oleoduto.
 > * Dados de importação.
-> * Prepare os dados.
+> * Preparar dados.
 > * Treine um modelo de aprendizagem automática.
 > * Avaliar um modelo de aprendizagem automática.
 
@@ -38,13 +38,15 @@ Na [segunda parte](tutorial-designer-automobile-price-deploy.md) do tutorial, ir
 >
 >Para encontrá-lo, vá ao designer no seu espaço de trabalho. Na secção **Novo pipeline,** selecione **Sample 1 - Regression: Automobile Price Prediction (Basic)**.
 
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
+
 ## <a name="create-a-new-pipeline"></a>Criar um novo oleoduto
 
 Os oleodutos Azure Machine Learning organizam múltiplas etapas de aprendizagem automática e processamento de dados num único recurso. Os oleodutos permitem organizar, gerir e reutilizar fluxos complexos de aprendizagem automática em projetos e utilizadores.
 
 Para criar um oleoduto Azure Machine Learning, precisa de um espaço de trabalho para aprendizagem automática Azure. Nesta secção, aprende-se a criar estes dois recursos.
 
-### <a name="create-a-new-workspace"></a>Crie uma nova área de trabalho
+### <a name="create-a-new-workspace"></a>Criar uma nova área de trabalho
 
 Para utilizar o designer, primeiro precisa de um espaço de trabalho para aprendizagem automática Azure. O espaço de trabalho é o recurso de alto nível para a Azure Machine Learning, fornece um lugar centralizado para trabalhar com todos os artefactos que você cria em Azure Machine Learning.
 

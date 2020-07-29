@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
-ms.openlocfilehash: 5d16c62c14ff6f24e519173b979e11d21d997927
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7cfa3d5652e13ddc88db70674049069a5b391297
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505793"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322130"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Realize consultas de registo de recursos cruzados no Azure Monitor  
 
@@ -120,7 +120,7 @@ app('Contoso-app5').requests
 
 
 
-Pode agora [utilizar esta função](../../azure-monitor/log-query/functions.md#use-a-function) numa consulta de recursos cruzados como as seguintes. As aplicações de _alias funçãoScoping_ devolve a união da tabela de pedidos de todas as candidaturas definidas. A consulta então filtra para pedidos falhados e visualiza as tendências por aplicação. O operador _de parse_ é opcional neste exemplo. Extrai o nome da aplicação da propriedade _SourceApp._
+Pode agora [utilizar esta função](./functions.md#use-a-function) numa consulta de recursos cruzados como as seguintes. As aplicações de _alias funçãoScoping_ devolve a união da tabela de pedidos de todas as candidaturas definidas. A consulta então filtra para pedidos falhados e visualiza as tendências por aplicação. O operador _de parse_ é opcional neste exemplo. Extrai o nome da aplicação da propriedade _SourceApp._
 
 ```Kusto
 applicationsScoping 
@@ -137,7 +137,8 @@ applicationsScoping
 
 ![Timechart](media/cross-workspace-query/chart.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Analise os dados de registo no Azure Monitor](log-query-overview.md) para obter uma visão geral das consultas de registo e como os dados de registo do Azure Monitor são estruturados.
 - Reveja as consultas de registo do [Azure Monitor](query-language.md) para visualizar todos os recursos para consultas de registo do Azure Monitor.
+

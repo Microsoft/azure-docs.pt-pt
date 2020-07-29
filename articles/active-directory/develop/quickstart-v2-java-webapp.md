@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
-ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: e13d5f3421f3c0d4f3e14da29581ca585e7f9438
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
+ms.openlocfilehash: 1474a8ad73f7deb9a7c321f7d7994a7b2b73d624
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145856"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87312406"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Quickstart: Adicione o início de sôs com a Microsoft a uma aplicação web java
 
@@ -57,7 +57,7 @@ Para executar esta amostra, você precisará:
 > 1. Na página **geral,** encontre o **ID da Aplicação (cliente)** e os valores de ID do **Diretório (inquilino)** da aplicação. Copie estes valores para mais tarde.
 > 1. Selecione a **Autenticação** do menu e, em seguida, adicione as seguintes informações:
 >    - Adicione a configuração da plataforma **Web.**  Adicione estes `https://localhost:8443/msal4jsample/secure/aad` e `https://localhost:8443/msal4jsample/graph/me` como **URIs redirecionado**..
->    - Selecione **Save** (Guardar).
+>    - Selecione **Guardar**.
 > 1. Selecione os **Certificados & segredos** do menu e na secção segredos do **Cliente,** clique em **Novo segredo de cliente:**
 >
 >    - Digite uma descrição chave (por exemplo, segredo de aplicações).
@@ -249,7 +249,7 @@ Adicione uma referência ao MSAL para a Java adicionando o seguinte código à p
 import com.microsoft.aad.msal4j.*;
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 Saiba mais sobre permissões e consentimento:
 

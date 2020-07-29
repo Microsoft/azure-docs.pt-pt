@@ -2,21 +2,22 @@
 title: Como o Azure AD utiliza o protocolo SAML
 description: Este artigo fornece uma visão geral dos perfis SAML de assinatura única e única sinalização no Diretório Ativo Azure.
 services: active-directory
-author: rwike77
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/05/2018
-ms.author: ryanwi
+ms.author: kenwith
 ms.custom: aaddev
-ms.reviewer: hirsin
-ms.openlocfilehash: 44d06030d8015d2df9499ce903eb9cb06e1ef27a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.reviewer: paulgarn
+ms.openlocfilehash: 54d8278a93bfd2d6009422a5c105be14a7bc3c80
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885655"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87274328"
 ---
 # <a name="how-azure-ad-uses-the-saml-protocol"></a>Como o Azure AD utiliza o protocolo SAML
 

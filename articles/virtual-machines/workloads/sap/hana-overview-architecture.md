@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d413b2babda4c73f9f29ce3750bf7d0461db43c1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e1575ee02a520fd39a1c659eadaeda5822207539
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065098"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171126"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>O que é SAP HANA nas Instâncias Grandes do Azure?
 
@@ -56,6 +56,7 @@ Os diferentes documentos da orientação hana large instance abrangem as seguint
 - [SAP HANA (Grandes Instâncias) resolução de problemas e monitorização em Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Alta disponibilidade configurada em SUSE utilizando o STONITH](./ha-setup-with-stonith.md)
 - [Backup de SO e restauro para SKUs tipo II de revisão 3 selos](./os-backup-type-ii-skus.md)
+- [Poupe em SAP HANA Grandes Instâncias com reserva Azure](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md)
 
 **Próximos passos**
 - Consulte [Conheça os termos](hana-know-terms.md)

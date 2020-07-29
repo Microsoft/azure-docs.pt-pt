@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: 317d5681ac3b09cb433cdc2bc3c83b6b1c8d37dc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b656774762f5930c5665166a701bda7333940307
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516367"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322436"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Localizar e diagnosticar exceções de runtime com o Azure Application Insights
 
@@ -36,7 +36,7 @@ Para concluir este tutorial:
     - Desenvolvimento do Azure
 - Transfira e instale o [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
 - Ative o [Visual Studio Snapshot Debugger](../app/snapshot-debugger.md).
-- Implemente uma aplicação .NET no Azure e [ative o Application Insights SDK](../../azure-monitor/app/asp-net.md). 
+- Implemente uma aplicação .NET no Azure e [ative o Application Insights SDK](../app/asp-net.md). 
 - O tutorial controla a identificação de uma exceção na sua aplicação, por isso, modifique o código no seu ambiente de desenvolvimento ou de teste para gerar uma exceção. 
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
@@ -63,7 +63,7 @@ O Application Insights recolhe as falhas ocorridas na sua aplicação e permite-
 
     ![Amostras dos pedidos com falhas](media/tutorial-runtime-exceptions/failed-requests-search.png)
 
-6. Os detalhes dos pedidos com falha mostram o gráfico de Gantt que mostra que ocorreram duas falhas de dependência nesta transação, o que também é atribuído a mais de 50% da duração total da transação. Esta experiência apresenta toda a telemetria, através de componentes de uma aplicação distribuída que estão relacionadas com este ID de operação. [Saiba mais sobre a nova experiência.](../../azure-monitor/app/transaction-diagnostics.md) Pode selecionar qualquer um dos itens para ver os respetivos detalhes no lado direito. 
+6. Os detalhes dos pedidos com falha mostram o gráfico de Gantt que mostra que ocorreram duas falhas de dependência nesta transação, o que também é atribuído a mais de 50% da duração total da transação. Esta experiência apresenta toda a telemetria, através de componentes de uma aplicação distribuída que estão relacionadas com este ID de operação. [Saiba mais sobre a nova experiência.](../app/transaction-diagnostics.md) Pode selecionar qualquer um dos itens para ver os respetivos detalhes no lado direito. 
 
     ![Detalhes dos pedidos com falhas](media/tutorial-runtime-exceptions/failed-request-details.png)
 
@@ -108,8 +108,9 @@ Se ligar o Application Insights a um sistema de controlo, como o Azure DevOps ou
 
     ![Novo Item de Trabalho](media/tutorial-runtime-exceptions/new-work-item.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Agora que aprendeu a identificar exceções de runtime, avance para o próximo tutorial para saber como identificar e diagnosticar problemas de desempenho.
 
 > [!div class="nextstepaction"]
-> [Identificar problemas de desempenho](../../azure-monitor/learn/tutorial-performance.md)
+> [Identificar problemas de desempenho](./tutorial-performance.md)
+

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2ad06a7583789a9f4db974251e7c2e7387b72549
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 317cc5222b3444ae2ed242df694d317503c72a87
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076085"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290669"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar a recuperação após desastre para o Azure das VMs VMware no local
 
@@ -84,7 +84,7 @@ Todos estes componentes são instalados em conjunto nas máquinas únicas no loc
 ## <a name="import-the-template-in-vmware"></a>Importar o modelo no VMware
 
 
-1. Inicie sessão no servidor VMware vCenter ou no anfitrião vSphere ESXi, com o VMWare vSphere Client.
+1. Inscreva-se no servidor VMware vCenter ou no vSphere ESXi com o VMware vSphere Client.
 2. No menu **'Ficheiro',** selecione **implementar o modelo OVF** para iniciar o **Assistente de Modelo de OVF**de implementação .
 
      ![Modelo OVF](./media/vmware-azure-tutorial/vcenter-wizard.png)
@@ -113,7 +113,7 @@ Se pretender adicionar um NIC adicional ao servidor de configuração, adicione-
 
 Depois de configurar o servidor de configuração, regista-o no cofre.
 
-1. A partir da consola do VMWare vSphere Client, ligue a VM.
+1. A partir da consola VMware vSphere Client, ligue o VM.
 2. A VM arranca para uma experiência de instalação do Windows Server 2016. Aceite o contrato de licença e introduza uma palavra-passe de administrador.
 3. Após a conclusão da instalação, inicie sessão na VM como administrador.
 4. Da primeira vez que iniciar sessão, a Ferramenta de Configuração do Azure Site Recovery é iniciada em poucos segundos.

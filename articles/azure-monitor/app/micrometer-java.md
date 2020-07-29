@@ -3,14 +3,15 @@ title: Como utilizar o Micrometro com Azure Application Insights Java SDK
 description: Um guia passo a passo sobre a utilização do Micrometro com as aplicações De Mola Insights de Aplicação e aplicações de arranque não-Mola.
 ms.topic: conceptual
 author: lgayhardt
+ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 11/01/2018
-ms.openlocfilehash: da75498d6e4616b287ddb11c69df2469baaf2655
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2fbdf4e267e0f9a479a89d6f31e72f09d9e11bb0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067642"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322572"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Como utilizar o Micrometro com Azure Application Insights Java SDK
 A monitorização da aplicação de micrometros mede as métricas do código de aplicação baseado em JVM e permite exportar os dados para os seus sistemas de monitorização favoritos. Este artigo irá ensiná-lo a usar o Micrometro com Insights de Aplicação para aplicações de Boot de primavera e não-Spring Boot.
@@ -20,7 +21,7 @@ Adicione as seguintes dependências ao seu ficheiro pom.xml ou build.gradle:
 * [Application Insights início de arranque](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter) 2.5.0 ou mais tarde
 * Micrometro Registo Azure 1.1.0 ou superior
 * [Micrometro Spring Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 ou superior (isto retroporta o código autoconfig na estrutura da Mola).
-* [Recurso ApplicationInsights](../../azure-monitor/app/create-new-resource.md )
+* [Recurso ApplicationInsights](./create-new-resource.md)
 
 Passos
 
@@ -58,7 +59,7 @@ Adicione as seguintes dependências ao seu ficheiro pom.xml ou build.gradle:
 
 * Insights de aplicação Início de arranque 2.1.2 ou superior
 * Azure-spring-boot-métricas-arranques 2.0.7 ou mais tarde
-* [Insights de Aplicação](../../azure-monitor/app/create-new-resource.md )
+* [Insights de Aplicação](./create-new-resource.md)
 
 Passos:
 
@@ -117,7 +118,7 @@ Adicione as seguintes dependências ao seu ficheiro pom.xml ou build.gradle:
 
 * Insights de Aplicação Web Auto 2.5.0 ou posterior
 * Micrometro Registo Azure 1.1.0 ou superior
-* [Insights de Aplicação](../../azure-monitor/app/create-new-resource.md )
+* [Insights de Aplicação](./create-new-resource.md)
 
 Passos:
 
@@ -272,3 +273,4 @@ Adicione o seguinte código de ligação ao ficheiro de configuração:
 
 * Para saber mais sobre o Micrometro, consulte a documentação oficial do [Micrometro.](https://micrometer.io/docs)
 * Para saber mais sobre a primavera em Azure, consulte a documentação oficial [da primavera sobre Azure.](/java/azure/spring-framework/?view=azure-java-stable)
+

@@ -8,14 +8,18 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.custom: mqtt
-ms.openlocfilehash: 71ef7a8da6e575e995696ebaf14b265babf9aecf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- mqtt
+- 'Role: IoT Device'
+- 'Role: Cloud Development'
+ms.openlocfilehash: 1933a53b6e69a6179faaa0bd6b86619478159b3b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984929"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322929"
 ---
-# <a name="understand-and-use-azure-iot-hub-sdks"></a>Compreender e usar SDKs hub Azure IoT
+# <a name="understand-and-use-azure-iot-hub-sdks"></a>Compreender e utilizar os SDKs do Hub IoT do Azure
 
 Existem duas categorias de kits de desenvolvimento de software (SDKs) para trabalhar com o IoT Hub:
 
@@ -166,7 +170,7 @@ Dispositivo de provisão Azure e SDKs de serviço para Python:
 * [Código de origem](https://github.com/Azure/azure-iot-sdk-python)
 * [Descarregar dispositivo SDK](https://pypi.org/project/azure-iot-device/) e [Serviço SDK](https://pypi.org/project/azure-iothub-provisioningserviceclient/) do pip
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os Azure IoT SDKs também fornecem um conjunto de ferramentas para ajudar no desenvolvimento:
 

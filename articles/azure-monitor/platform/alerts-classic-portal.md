@@ -5,16 +5,16 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.openlocfilehash: 97c1819d665e6964343e853249a0d22aa07c3588
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 93a86bc035803517ff61c79ae4b8a7fc46dd811f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045582"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322385"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas métricos clássicos usando o Azure Monitor
 
-Os alertas métricos clássicos no Azure Monitor fornecem uma forma de ser notificado quando uma das suas métricas cruza um limiar. Os alertas métricos clássicos são uma funcionalidade mais antiga que permite alertar apenas em métricas não dimensionais. Existe uma funcionalidade mais recente existente chamada alertas métricos que tem melhorado a funcionalidade em relação aos alertas métricos clássicos. Pode saber mais sobre a nova funcionalidade de alertas métricos na [visão geral dos alertas métricos.](../../azure-monitor/platform/alerts-metric-overview.md) Neste artigo, descreveremos como criar, ver e gerir regras clássicas de alerta métrico através do portal Azure, Azure CLI e Powershell.
+Os alertas métricos clássicos no Azure Monitor fornecem uma forma de ser notificado quando uma das suas métricas cruza um limiar. Os alertas métricos clássicos são uma funcionalidade mais antiga que permite alertar apenas em métricas não dimensionais. Existe uma funcionalidade mais recente existente chamada alertas métricos que tem melhorado a funcionalidade em relação aos alertas métricos clássicos. Pode saber mais sobre a nova funcionalidade de alertas métricos na [visão geral dos alertas métricos.](./alerts-metric-overview.md) Neste artigo, descreveremos como criar, ver e gerir regras clássicas de alerta métrico através do portal Azure, Azure CLI e Powershell.
 
 ## <a name="with-azure-portal"></a>Com portal Azure
 
@@ -130,5 +130,6 @@ Estas secções mostram como usar os comandos PowerShell criam, vêem e gerem al
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Crie um alerta métrico clássico com um modelo de Gestor de Recursos.](../../azure-monitor/platform/alerts-enable-template.md)
-- [Tenha um alerta métrico clássico que notifique um sistema não-Azure utilizando um webhook](../../azure-monitor/platform/alerts-webhooks.md).
+- [Crie um alerta métrico clássico com um modelo de Gestor de Recursos.](./alerts-enable-template.md)
+- [Tenha um alerta métrico clássico que notifique um sistema não-Azure utilizando um webhook](./alerts-webhooks.md).
+

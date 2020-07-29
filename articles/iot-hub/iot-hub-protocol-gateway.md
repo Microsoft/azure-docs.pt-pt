@@ -11,11 +11,14 @@ ms.date: 07/11/2017
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: bfd000e2b69f052e25f0ea6cd286b0ca3aef7519
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+ms.openlocfilehash: 315d76715973b79a971f3ca15bcc5186d20135a2
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759719"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325037"
 ---
 # <a name="support-additional-protocols-for-iot-hub"></a>Apoiar protocolos adicionais para o IoT Hub
 
@@ -33,7 +36,7 @@ O adaptador MQTT também demonstra o modelo de programação para a construção
 
 Para flexibilidade, o gateway de protocolo Azure IoT e a implementação de MQTT são fornecidos num projeto de software de código aberto. Pode utilizar o projeto de código aberto para adicionar suporte a vários protocolos e versões protocolares ou personalizar a implementação para o seu cenário. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o portal de protocolo Azure IoT e como usá-lo e implantá-lo como parte da sua solução IoT, consulte:
 

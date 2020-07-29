@@ -1,7 +1,7 @@
 ---
 title: Associar um endereço IP público a uma máquina virtual
 titlesuffix: Azure Virtual Network
-description: Saiba como associar um endereço IP público a uma máquina virtual.
+description: Associar um endereço IP público a uma máquina virtual (VM) utilizando o portal Azure ou o Azure CLI.
 services: virtual-network
 documentationcenter: ''
 author: asudbring
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: allensu
-ms.openlocfilehash: cc09cec1e6df9ec671fa98ae35562a639dce4cd8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d4ca5b067a1afe4225fe0e2e4c42c827e1eaedf6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707621"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87265233"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>Associar um endereço IP público a uma máquina virtual
 
@@ -211,6 +212,6 @@ Instale [PowerShell,](/powershell/azure/install-az-ps)ou utilize a Concha da Nuv
 
 Antes de poder ligar ao endereço IP público a partir da internet, certifique-se de que tem as portas necessárias abertas em qualquer grupo de segurança de rede que possa ter associado à interface de rede, a sub-rede em que a interface de rede está, ou ambas. Embora os grupos de segurança filtrem o tráfego para o endereço IP privado da interface de rede, uma vez que o tráfego de internet de entrada chega ao endereço IP público, Azure traduz o endereço público para o endereço IP privado, então se um grupo de segurança de rede impedir o fluxo de tráfego, a comunicação com o endereço IP público falha. Pode ver as regras de segurança eficazes para uma interface de rede e a sua sub-rede utilizando o [Portal](diagnose-network-traffic-filter-problem.md#diagnose-using-azure-portal), [CLI](diagnose-network-traffic-filter-problem.md#diagnose-using-azure-cli)ou [PowerShell](diagnose-network-traffic-filter-problem.md#diagnose-using-powershell).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Permitir o tráfego de acesso à internet para o seu VM com um grupo de segurança de rede. Para aprender a criar um grupo de segurança de rede, consulte [Trabalhar com grupos de segurança de rede.](manage-network-security-group.md#work-with-network-security-groups) Para saber mais sobre grupos de segurança de rede, consulte [os grupos de segurança.](security-overview.md)

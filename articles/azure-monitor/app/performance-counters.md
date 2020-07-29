@@ -3,12 +3,12 @@ title: Contadores de desempenho em Insights de Aplicação / Microsoft Docs
 description: Monitorar o sistema e os contadores de desempenho .NET personalizados em Application Insights.
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.openlocfilehash: e60663d9e767db020fc93eba1f4c1c6babb32294
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eb5e20403cc826619eb1f67de2fc4179e17b5aa4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024423"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322521"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de desempenho do sistema em Insights de Aplicações
 
@@ -131,7 +131,7 @@ Tal como outras telemetrias, **o PerformanceCounters** também tem uma coluna `c
 
 * *A taxa de exceção* é um contador de desempenho do sistema. O CLR conta todas as exceções manuseadas e não manipuladas que são lançadas, e divide o total num intervalo de amostragem pelo comprimento do intervalo. O Application Insights SDK recolhe este resultado e envia-o para o portal.
 
-* *Exceções* é uma contagem dos relatórios TrackException recebidos pelo portal no intervalo de amostragem do gráfico. Inclui apenas as exceções manuseadas onde escreveu chamadas TrackException no seu código, e não inclui todas as [exceções não manipuladas](../../azure-monitor/app/asp-net-exceptions.md). 
+* *Exceções* é uma contagem dos relatórios TrackException recebidos pelo portal no intervalo de amostragem do gráfico. Inclui apenas as exceções manuseadas onde escreveu chamadas TrackException no seu código, e não inclui todas as [exceções não manipuladas](./asp-net-exceptions.md). 
 
 ## <a name="performance-counters-for-applications-running-in-azure-web-apps"></a>Contadores de desempenho para aplicações em execução em Azure Web Apps
 
@@ -147,9 +147,10 @@ Suporte para contadores de desempenho em ASP.NET Core é limitado:
 * Versões SDK 2.8.0 e posterior suporte cpu/contador de memória em Linux. Nenhum outro contador é apoiado em Linux. A forma recomendada de obter contadores de sistema em Linux (e outros ambientes não-Windows) é usando [EventCounters](eventcounters.md)
 
 ## <a name="alerts"></a>Alertas
-Tal como outras métricas, pode [definir um alerta](../../azure-monitor/platform/alerts-log.md) para o avisar se um contador de desempenho sair do limite especificado. Abra o painel de alertas e clique em Adicionar Alerta.
+Tal como outras métricas, pode [definir um alerta](../platform/alerts-log.md) para o avisar se um contador de desempenho sair do limite especificado. Abra o painel de alertas e clique em Adicionar Alerta.
 
 ## <a name="next-steps"></a><a name="next"></a>Passos seguintes
 
-* [Rastreio de dependência](../../azure-monitor/app/asp-net-dependencies.md)
-* [Rastreio de exceções](../../azure-monitor/app/asp-net-exceptions.md)
+* [Rastreio de dependência](./asp-net-dependencies.md)
+* [Rastreio de exceções](./asp-net-exceptions.md)
+

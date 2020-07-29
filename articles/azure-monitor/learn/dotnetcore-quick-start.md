@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: e066ef1910373734d9a6607500e45e8a9ccc80b2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c9787a88cba051dcfaa58a188bf43fb03cafe70a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539759"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325173"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Iniciar a Monitorização de uma Aplicação Web ASP.NET Core
 
@@ -30,7 +30,7 @@ Para concluir este guia de início rápido:
 - [Instale o SDK .NET Core 2.0](https://dotnet.microsoft.com/download)
 - Irá precisar de uma subscrição do Azure e de uma aplicação Web .NET Core existente.
 
-Se não tiver uma aplicação web Core ASP.NET, pode usar o nosso guia passo a passo para [criar uma aplicação Core ASP.NET e adicionar Insights de Aplicação.](../../azure-monitor/app/asp-net-core.md)
+Se não tiver uma aplicação web Core ASP.NET, pode usar o nosso guia passo a passo para [criar uma aplicação Core ASP.NET e adicionar Insights de Aplicação.](../app/asp-net-core.md)
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -96,11 +96,11 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
    ![Gráficos de linha cronológica de Descrição Geral do Estado de Funcionamento](./media/dotnetcore-quick-start/7kpidashboards.png)
 
-5. À esquerda clique em **Métricas.** Utilize o explorador de métricas para investigar a saúde e utilização do seu recurso. Pode clicar em **Adicionar novo gráfico** criar vistas personalizadas adicionais ou selecionar **Editar** para modificar os tipos de gráficos existentes, a altura, a paleta de cores, os agrupamentos e as métricas. Por exemplo, pode fazer um gráfico que exibe o tempo médio de carregamento da página do navegador, escolhendo "Browser page load time" a partir das métricas que descem e "Avg" da agregação. Para saber mais sobre a visita do Azure Metrics Explorer [Começando com o Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
+5. À esquerda clique em **Métricas.** Utilize o explorador de métricas para investigar a saúde e utilização do seu recurso. Pode clicar em **Adicionar novo gráfico** criar vistas personalizadas adicionais ou selecionar **Editar** para modificar os tipos de gráficos existentes, a altura, a paleta de cores, os agrupamentos e as métricas. Por exemplo, pode fazer um gráfico que exibe o tempo médio de carregamento da página do navegador, escolhendo "Browser page load time" a partir das métricas que descem e "Avg" da agregação. Para saber mais sobre a visita do Azure Metrics Explorer [Começando com o Azure Metrics Explorer](../platform/metrics-getting-started.md).
 
      ![Separador de métricas: Gráfico médio de tempo de carga da página do navegador](./media/dotnetcore-quick-start/8metrics.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando terminar os testes, pode eliminar o grupo de recursos e todos os recursos relacionados. Para fazê-lo siga os passos abaixo.
 
 > [!NOTE]
@@ -109,7 +109,8 @@ Quando terminar os testes, pode eliminar o grupo de recursos e todos os recursos
 1. No menu do lado esquerdo no portal do Azure, clique em **Grupos de recursos** e, em seguida, clique em **myResourceGroup**.
 2. Na página do grupo de recursos, clique em **Eliminar**, escreva **myResourceGroup** na caixa de texto e, em seguida, clique em **Eliminar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Encontrar e diagnosticar exceções de runtime](./tutorial-runtime-exceptions.md)
+

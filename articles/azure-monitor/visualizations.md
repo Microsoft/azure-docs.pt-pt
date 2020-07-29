@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 4c5290d9f5ec47969ae43e5986d31484927a0ac5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 195e606a66b1b49821fc1b46381fdc551f142a6a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081360"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325530"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizar dados do Azure Monitor
 Este artigo fornece um resumo dos métodos disponíveis para visualizar os dados de registo e métrica armazenados no Azure Monitor.
@@ -19,7 +19,7 @@ Este artigo fornece um resumo dos métodos disponíveis para visualizar os dados
 Visualizações como gráficos e gráficos podem ajudá-lo a analisar os seus dados de monitorização para aprofundar questões e identificar padrões. Dependendo da ferramenta que utiliza, poderá também ter a opção de partilhar visualizações com outros utilizadores dentro e fora da sua organização.
 
 ## <a name="workbooks"></a>Livros
-Os livros de trabalho são [documentos](../azure-monitor/platform/workbooks-overview.md) interativos que fornecem informações profundas sobre os seus dados, investigação e colaboração dentro da equipa. Exemplos específicos onde os livros são úteis são guias de resolução de problemas e autópsias de incidentes.
+Os livros de trabalho são [documentos](./platform/workbooks-overview.md) interativos que fornecem informações profundas sobre os seus dados, investigação e colaboração dentro da equipa. Exemplos específicos onde os livros são úteis são guias de resolução de problemas e autópsias de incidentes.
 
 ![Livro](media/visualizations/workbook.png)
 
@@ -141,7 +141,7 @@ Pode aceder aos dados em registo e dados métricos no Azure Monitor através da 
 - Conheça os [dados recolhidos pelo Azure Monitor.](platform/data-platform.md)
 - Saiba mais [sobre os dashboards Azure](../azure-portal/azure-portal-dashboards.md).
 - Saiba mais [sobre as vistas no Azure Monitor](platform/view-designer.md).
-- Conheça [os Livros de Trabalho.](../azure-monitor/platform/workbooks-overview.md)
-- Saiba mais sobre [os dados de registo de importação no Power BI](../azure-monitor/platform/powerbi.md).
-- Saiba mais sobre o [plugin de fonte de dados do Grafana Azure Monitor](../azure-monitor/platform/grafana-plugin.md).
+- Conheça [os Livros de Trabalho.](./platform/workbooks-overview.md)
+- Saiba mais sobre [os dados de registo de importação no Power BI](./platform/powerbi.md).
+- Saiba mais sobre o [plugin de fonte de dados do Grafana Azure Monitor](./platform/grafana-plugin.md).
 

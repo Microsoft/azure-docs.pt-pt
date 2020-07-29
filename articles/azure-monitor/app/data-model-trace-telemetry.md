@@ -4,15 +4,16 @@ description: Modelo de dados de Insights de Aplicação para telemetria de traç
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 31958b26cdb8a7897cf0051af6600014c07949fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8fea4bbf590816b2ef168a2ed16f197389ee282e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671958"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320549"
 ---
 # <a name="trace-telemetry-application-insights-data-model"></a>Telemetria de traços: Modelo de dados de Insights de Aplicação
 
-A telemetria trace (in [Application Insights)](../../azure-monitor/app/app-insights-overview.md)representa `printf` declarações de traços de estilo que são pesquisadas por texto. `Log4Net`, `NLog` e outras entradas de ficheiros de registo baseados em texto são traduzidas em instâncias deste tipo. O vestígio não tem medidas como extensibilidade.
+A telemetria trace (in [Application Insights)](./app-insights-overview.md)representa `printf` declarações de traços de estilo que são pesquisadas por texto. `Log4Net`, `NLog` e outras entradas de ficheiros de registo baseados em texto são traduzidas em instâncias deste tipo. O vestígio não tem medidas como extensibilidade.
 
 ## <a name="message"></a>Mensagem
 
@@ -28,10 +29,11 @@ O nível de gravidade do traço. O valor pode `Verbose` ser, `Information` , , ,
 
 [!INCLUDE [application-insights-data-model-properties](../../../includes/application-insights-data-model-properties.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Explore registos de traços .NET em Insights de Aplicação](../../azure-monitor/app/asp-net-trace-logs.md).
-- [Explore os registos de vestígios de Java em Application Insights](../../azure-monitor/app/java-trace-logs.md).
+- [Explore registos de traços .NET em Insights de Aplicação](./asp-net-trace-logs.md).
+- [Explore os registos de vestígios de Java em Application Insights](./java-trace-logs.md).
 - Consulte [o modelo de dados](data-model.md) para os tipos de Insights de Aplicação e modelo de dados.
-- [Escreva telemetria de traços personalizados](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)
-- Confira as [plataformas](../../azure-monitor/app/platforms.md) suportadas pela Application Insights.
+- [Escreva telemetria de traços personalizados](./api-custom-events-metrics.md#tracktrace)
+- Confira as [plataformas](./platforms.md) suportadas pela Application Insights.
+

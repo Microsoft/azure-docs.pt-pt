@@ -1,21 +1,21 @@
 ---
-title: Configure Jenkins para uma aplicação Java no Service Fabric em Azure
+title: Configuure Jenkins para uma aplicação Java em Tecido de Serviço em Azure
 description: Neste tutorial, saiba como configurar a integração contínua com Jenkins para implementar uma aplicação Java Service Fabric.
 author: suhuruli
 ms.topic: tutorial
 ms.date: 08/27/2018
 ms.author: suhuruli
-ms.custom: mvc
-ms.openlocfilehash: 74c412ad4c62a5821890aa5602b521f3f63da925
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.custom: mvc, devx-track-java
+ms.openlocfilehash: 42efc13d37ccfdaf60896f338b1a38384ef06568
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594768"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320719"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Tutorial: Configurar um ambiente Jenkins para ativar o CI/CD para uma aplicação Java no Service Fabric
 
-Este tutorial é a quinta parte de uma série. Mostra como utilizar o Jenkins para implementar atualizações na sua aplicação. Neste tutorial, o plugin De Tecido de Serviço Jenkins é usado em combinação com um repositório GitHub que acolhe a aplicação De Voto para implementar a aplicação para um cluster.
+Este tutorial é a quinta parte de uma série. Mostra como utilizar o Jenkins para implementar atualizações na sua aplicação. Neste tutorial, o plugin de Tecido de Serviço Jenkins é usado em combinação com um repositório GitHub que hospeda a aplicação de Votação para implementar a aplicação num cluster.
 
 Na quinta parte da série, ficará a saber como:
 > [!div class="checklist"]
@@ -75,7 +75,7 @@ Pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. As ins
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Criar e configurar uma tarefa do Jenkins
 
-1. Primeiro, se não tiver um repositório que possa usar para acolher o projeto de votação no GitHub, crie um. O repositório é denominado **dev_test** no restante tutorial.
+1. Em primeiro lugar, se não tiver um repositório que possa utilizar para acolher o projeto de votação no GitHub, crie um. O repositório é denominado **dev_test** no restante tutorial.
 
 1. Crie um **novo item** no dashboard do Jenkins em ``http://<HOST-IP>:8080``.
 
@@ -85,11 +85,11 @@ Pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. As ins
 
    a. Na secção geral, selecione a caixa de verificação de **Projeto do GitHub** e especifique o URL do seu projeto do GitHub. Este URL aloja a aplicação Java do Service Fabric que pretende integrar no fluxo de integração contínua do Jenkins e implementação contínua (CI/CD) (por exemplo, ``https://github.com/testaccount/dev_test``).
 
-   b. Na secção **Gestão de Código Fonte**, selecione **Git**. Especifique o URL de repositório que acolhe a aplicação Service Fabric Java *`https://github.com/testaccount/dev_test.git`* que pretende integrar com o fluxo de CI/CD Jenkins (por exemplo, ). Também pode especificar aqui o ramo a compilar, (por exemplo, **/master**).
+   b. Na secção **Gestão de Código Fonte**, selecione **Git**. Especifique o URL repositório que acolhe a aplicação Service Fabric Java que pretende integrar com o fluxo Jenkins CI/CD (por exemplo, *`https://github.com/testaccount/dev_test.git`* ). Também pode especificar aqui o ramo a compilar, (por exemplo, **/master**).
 
 1. Configure o seu *GitHub* (o que está a alojar o repositório) para que seja capaz de comunicar com o Jenkins. Utilize os passos seguintes:
 
-   a. Aceda à sua página de repositório do GitHub. Ir a **Definições** > **Integrações e Serviços.**
+   a. Aceda à sua página de repositório do GitHub. Ir para **Configurações**  >  **Integrações e Serviços**.
 
    b. Selecione **Add Service** (Adicionar Serviço), escreva **Jenkins** e selecione **Jenkins-GitHub plugin** (Plug-in Jenkins-GitHub).
 
@@ -115,7 +115,7 @@ Pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. As ins
     > Este cluster seria igual ao que aloja a aplicação de contentor do Jenkins, no caso de estar a utilizar o Service Fabric para implementar a imagem de contentor do Jenkins.
     >
 
-1. Clique em **Guardar**.
+1. Clique em **Save** (Guardar).
 
 ## <a name="update-your-existing-application"></a>Atualizar a aplicação existente
 
@@ -172,13 +172,13 @@ Pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. As ins
     </CodePackage>
     ```
 
-1. Para inicializar um trabalho da Jenkins que executa uma atualização de aplicação, empurre as suas novas alterações para o seu repositório GitHub.
+1. Para rubricar um trabalho da Jenkins que executa uma atualização de aplicações, empurre as suas novas alterações para o seu repositório GitHub.
 
 1. No Service Fabric Explorer, clique no menu pendente **Aplicações**. Para ver o estado da atualização, clique no separador **Atualizações em Curso**.
 
     ![Atualização em curso](./media/service-fabric-tutorial-create-java-app/upgradejava.png)
 
-1. Se aceder a **http://\<Host-IP>:8080**, a aplicação de Voto com funcionalidade completa está agora a funcionar.
+1. Se tiver acesso **http:// \<Host-IP> :8080,** a aplicação de voto com funcionalidade completa está agora em funcionamento.
 
     ![Aplicação de Voto Local](./media/service-fabric-tutorial-java-jenkins/votingv2.png)
 

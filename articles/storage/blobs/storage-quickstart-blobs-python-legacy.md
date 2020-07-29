@@ -3,21 +3,24 @@ title: 'Quickstart: Azure Blob storage client library v2.1 for Python'
 description: Neste início rápido, crie uma conta de armazenamento e um contentor no armazenamento de objetos (Blobs). Em seguida, você usa a biblioteca de clientes de armazenamento v2.1 para Python para carregar uma bolha para Azure Storage, baixar uma bolha e listar as bolhas em um recipiente.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 01/24/2020
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: seo-python-october2019, tracking-python
-ms.openlocfilehash: 513e3bc2e8625f8ce255f479301b2ed5115708bb
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 47ead1be1a81c59da148ea829b61b608a35c45ef
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561347"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292757"
 ---
 # <a name="quickstart-manage-blobs-with-python-v21-sdk"></a>Quickstart: Gerir bolhas com Python v2.1 SDK
 
 Neste arranque rápido, aprende-se a gerir as bolhas usando python. As bolhas são objetos que podem conter grandes quantidades de texto ou dados binários, incluindo imagens, documentos, streaming de meios e dados de arquivo. Você vai carregar, baixar e listar bolhas, e você vai criar e apagar recipientes.
+
+> [!NOTE]
+> Este quickstart usa uma versão antiga da biblioteca de clientes de armazenamento Azure Blob. Para começar com a versão mais recente, consulte [Quickstart: Gerencie as bolhas com Python v12 SDK](storage-quickstart-blobs-python.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -193,7 +196,7 @@ block_blob_service.get_blob_to_path(
     container_name, local_file_name, full_path_to_file2)
 ```
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 Se já não precisar dos blobs carregados neste início rápido, pode eliminar o contentor inteiro com o método `delete_container`. Se pretender eliminar ficheiros individuais, utilize o método `delete_blob`.
 
 ```python

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 75394768cc41d3ca73398c2691b9ec0feb8c17f8
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a9786c1f596a9f59e63886fa503bddac58ee7a8e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202573"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325343"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Visão geral dos agentes do Monitor Azure
 
@@ -31,20 +31,20 @@ As tabelas seguintes proporcionam uma comparação rápida dos agentes do Monito
 
 | | Diagnóstico<br>extensão (WAD) | Log Analytics<br>agente | Dependência<br>agente |
 |:---|:---|:---|:---|
-| **Ambientes apoiados** | Azure | Azure<br>Outra nuvem<br>No local | Azure<br>Outra nuvem<br>No local | 
+| **Ambientes apoiados** | Azure | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>No local | 
 | **Requisitos do agente**  | Nenhum | Nenhum | Requer agente log analytics |
 | **Dados recolhidos** | Registos de Eventos<br>Eventos da ETW<br>Desempenho<br>Registos baseados em ficheiros<br>Registos do IIS<br>Registos de aplicações .NET<br>Informações de falha de sistema<br>Registos de diagnóstico de agentes | Registos de Eventos<br>Desempenho<IIS logs><br>Registos baseados em ficheiros<br>Insights e soluções<br>Outros serviços | Detalhes e dependências do processo<br>Métricas de ligação de rede |
-| **Dados enviados para** | Armazenamento do Azure<br>Métricas do Monitor Azure<br>Hub de Eventos | Registos do Azure Monitor | Registos do Azure Monitor |
+| **Dados enviados para** | Storage do Azure<br>Métricas do Monitor Azure<br>Hub de Eventos | Registos do Azure Monitor | Registos do Azure Monitor |
 
 
 ### <a name="linux-agents"></a>Agentes do Linux
 
 | | Diagnóstico<br>extensão (LAD) | Telegrafa<br>agente | Log Analytics<br>agente | Dependência<br>agente |
 |:---|:---|:---|:---|:---|
-| **Ambientes apoiados** | Azure | Azure<br>Outra nuvem<br>No local | Azure<br>Outra nuvem<br>No local | Azure<br>Outra nuvem<br>No local |
+| **Ambientes apoiados** | Azure | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>No local |
 | **Requisitos do agente**  | Nenhum | Nenhum | Nenhum | Requer agente log analytics |
 | **Dados recolhidos** | Syslog<br>Desempenho | Desempenho | Syslog<br>Desempenho| Detalhes e dependências do processo<br>Métricas de ligação de rede |
-| **Dados enviados para** | Armazenamento do Azure<br>Hub de Eventos | Métricas do Monitor Azure | Registos do Azure Monitor | Registos do Azure Monitor |
+| **Dados enviados para** | Storage do Azure<br>Hub de Eventos | Métricas do Monitor Azure | Registos do Azure Monitor | Registos do Azure Monitor |
 
 ## <a name="log-analytics-agent"></a>Agente do Log Analytics
 
@@ -76,7 +76,7 @@ A [extensão Azure Diagnostics](diagnostics-extension-overview.md) recolhe dados
 Utilize a extensão de diagnóstico Azure se for necessário:
 
 - Envie dados para o Azure Storage para arquivar ou analisá-los com ferramentas como [o Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
-- Envie dados para [a Azure Monitor Metrics](data-platform-metrics.md) para analisá-lo com o explorador de [métricas](metrics-getting-started.md) e para tirar partido de funcionalidades como [alertas métricos próximos](../../azure-monitor/platform/alerts-metric-overview.md) em tempo real e [autoescalação](autoscale-overview.md) (apenas Windows).
+- Envie dados para [a Azure Monitor Metrics](data-platform-metrics.md) para analisá-lo com o explorador de [métricas](metrics-getting-started.md) e para tirar partido de funcionalidades como [alertas métricos próximos](./alerts-metric-overview.md) em tempo real e [autoescalação](autoscale-overview.md) (apenas Windows).
 - Enviar dados para ferramentas de terceiros utilizando [hubs de eventos Azure](diagnostics-extension-stream-event-hubs.md).
 - Colete [o Boot Diagnostics](../../virtual-machines/troubleshooting/boot-diagnostics.md) para investigar problemas de arranque VM.
 
@@ -91,7 +91,7 @@ O [agente InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md) é util
 
 Utilize o agente Telegraf se for necessário:
 
-* Envie dados para [a Azure Monitor Metrics](data-platform-metrics.md) para analisá-lo com o explorador de [métricas](metrics-getting-started.md) e para tirar partido de funcionalidades como [alertas métricos próximos](../../azure-monitor/platform/alerts-metric-overview.md) em tempo real e [autoescalação](autoscale-overview.md) (apenas Linux). 
+* Envie dados para [a Azure Monitor Metrics](data-platform-metrics.md) para analisá-lo com o explorador de [métricas](metrics-getting-started.md) e para tirar partido de funcionalidades como [alertas métricos próximos](./alerts-metric-overview.md) em tempo real e [autoescalação](autoscale-overview.md) (apenas Linux). 
 
 
 
@@ -120,3 +120,4 @@ Obtenha mais detalhes sobre cada um dos agentes no seguinte:
 - [Visão geral do agente Log Analytics](log-analytics-agent.md)
 - [Visão geral da extensão do Azure Diagnostics](diagnostics-extension-overview.md)
 - [Colete métricas personalizadas para um Linux VM com o agente InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md)
+

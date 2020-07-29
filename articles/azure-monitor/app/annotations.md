@@ -3,12 +3,12 @@ title: Lançar anotações para Insights de Aplicações / Microsoft Docs
 description: Adicione marcadores de implementação ou construção aos gráficos de exploradores de métricas em Application Insights.
 ms.topic: conceptual
 ms.date: 07/01/2019
-ms.openlocfilehash: 8f6ffed8ae2039ec36ec8bd86518e6b359da65ec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8e9e0cb49343524e8a45831566cf802b1c8c5d9b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093039"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320668"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anotações em gráficos métricos em Insights de Aplicação
 
@@ -34,7 +34,7 @@ Só precisa de instalar a extensão uma vez para a sua organização Azure DevOp
 
 Crie uma chave API separada para cada um dos seus modelos de libertação de Azure Pipelines.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) e abra o recurso Application Insights que monitoriza a sua aplicação. Ou se não tiver um, [crie um novo recurso Application Insights](../../azure-monitor/app/app-insights-overview.md).
+1. Inscreva-se no [portal Azure](https://portal.azure.com) e abra o recurso Application Insights que monitoriza a sua aplicação. Ou se não tiver um, [crie um novo recurso Application Insights](./app-insights-overview.md).
    
 1. Abra o separador acesso a **API** e copie o **ID de Insights de Aplicação**.
    
@@ -115,5 +115,6 @@ Pode modificar o script, por exemplo, para criar anotações para o passado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Criar itens de trabalho](../../azure-monitor/app/diagnostic-search.md#create-work-item)
-* [Automatização com o PowerShell](../../azure-monitor/app/powershell.md)
+* [Criar itens de trabalho](./diagnostic-search.md#create-work-item)
+* [Automatização com o PowerShell](./powershell.md)
+

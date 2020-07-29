@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop host pool Azure Resource Manager - Azure
-description: Como criar uma piscina de anfitriões no Windows Virtual Desktop com um modelo de Gestor de Recursos Azure.
+title: Windows Virtual Desktop (clássico) anfitrião piscina Azure Resource Manager - Azure
+description: Como criar uma piscina de anfitriões no Windows Virtual Desktop (clássico) com um modelo de Gestor de Recursos Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 925d3ab7c01ef8dc4a2c5d590a56b4d558170472
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88027db54f9b7d4a7ef2ef32d4ea0434d8a26a10
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204766"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87270265"
 ---
-# <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Criar um conjunto de anfitriões com um modelo do Azure Resource Manager
+# <a name="create-a-host-pool-in-windows-virtual-desktop-classic-with-an-azure-resource-manager-template"></a>Crie uma piscina de anfitriões no Windows Virtual Desktop (clássico) com um modelo de Gestor de Recursos Azure
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure.
+>Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows.
 
 As piscinas hospedeiras são uma coleção de uma ou mais máquinas virtuais idênticas dentro dos ambientes de inquilinos do Windows Virtual Desktop. Cada piscina de anfitriões pode conter um grupo de aplicações com o quais os utilizadores podem interagir como fariam num ambiente de trabalho físico.
 
@@ -38,7 +38,7 @@ Quando criar uma piscina de anfitriões virtual do Windows com o modelo Azure Re
 
 Para começar, vá a [este URL GitHub.](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/Create%20and%20provision%20WVD%20host%20pool)
 
-### <a name="deploy-the-template-to-azure"></a>Implemente o modelo para Azure
+### <a name="deploy-the-template-to-azure"></a>Implementar o modelo no Azure
 
 Se estiver a implementar uma subscrição da Enterprise, desloque-se para baixo e selecione **Implementar para Azure,** então preencha os parâmetros com base na sua fonte de imagem.
 

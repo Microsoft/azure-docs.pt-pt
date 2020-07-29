@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17312e44714c8bdb20e22ad9aeb950e46eb71e3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 127d76bedafd4c857686e93f21d3cccdc36b98dd
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80755281"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87274668"
 ---
 # <a name="conditional-access-users-and-groups"></a>Acesso Condicional: Utilizadores e grupos
 
@@ -29,7 +30,7 @@ Esta lista de utilizadores normalmente inclui todos os utilizadores que uma orga
 
 As seguintes opções estão disponíveis para incluir ao criar uma política de acesso condicional.
 
-- Nenhuma
+- Nenhum
    - Nenhum utilizadores selecionados
 - Todos os utilizadores
    - Todos os utilizadores que existam no diretório, incluindo os hóspedes B2B.
@@ -39,7 +40,10 @@ As seguintes opções estão disponíveis para incluir ao criar uma política de
    - Funções de diretório
       - Permite que os administradores selecionem funções específicas de diretório Azure AD usados para determinar a atribuição. Por exemplo, as organizações podem criar uma política mais restritiva para os utilizadores atribuídos ao papel de administrador global.
    - Utilizadores e grupos
-      - Permite direcionar conjuntos específicos de utilizadores. Por exemplo, as organizações podem selecionar um grupo que contenha todos os membros do departamento de RH quando uma aplicação HR é selecionada como a aplicação cloud. Um grupo pode ser qualquer tipo de grupo em Azure AD, incluindo grupos dinâmicos ou atribuídos de segurança e distribuição.
+      - Permite direcionar conjuntos específicos de utilizadores. Por exemplo, as organizações podem selecionar um grupo que contenha todos os membros do departamento de RH quando uma aplicação HR é selecionada como a aplicação cloud. Um grupo pode ser qualquer tipo de grupo em Azure AD, incluindo grupos dinâmicos ou atribuídos de segurança e distribuição. A política será aplicada aos utilizadores e grupos aninhados.
+
+> [!WARNING]
+> Se os utilizadores ou grupos forem membros de mais de 2048 grupos, o seu acesso pode ser bloqueado. Este limite aplica-se tanto à adesão direta como a um grupo aninhado.
 
 ## <a name="exclude-users"></a>Excluir utilizadores
 
@@ -67,7 +71,7 @@ Por predefinição, a política fornecerá uma opção para excluir o utilizador
 
 ![Aviso, não se tranque fora!](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups-lockout-warning.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Acesso Condicional: aplicativos ou ações na nuvem](concept-conditional-access-cloud-apps.md)
 

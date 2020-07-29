@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: d90f38f83bd4d2d5311f277fcc928e442d7ea793
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4680d989cc1befe50955af408aec79a14031481e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416386"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321246"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Atividade de Eliminação no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -46,16 +46,13 @@ Aqui ficam algumas recomendações para a utilização da atividade Eliminar:
 -   [Armazenamento do Azure Data Lake Ger1](connector-azure-data-lake-store.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) (Armazenamento do Azure Data Lake Gen2)
 -   [Armazenamento de Ficheiros do Azure](connector-azure-file-storage.md)
-
-### <a name="file-system-data-stores"></a>Lojas de dados do sistema de ficheiros
-
 -   [Sistema de Ficheiros](connector-file-system.md)
 -   [FTP](connector-ftp.md)
 -   [SFTP](connector-sftp.md)
 -   [Amazon S3](connector-amazon-simple-storage-service.md)
 -   [Google Cloud Storage](connector-google-cloud-storage.md)
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 ```json
 {
@@ -82,15 +79,15 @@ Aqui ficam algumas recomendações para a utilização da atividade Eliminar:
 
 ## <a name="type-properties"></a>Tipo de propriedades
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| conjunto de dados | Fornece a referência do conjunto de dados para determinar quais os ficheiros ou pasta a eliminar | Yes |
+| conjunto de dados | Fornece a referência do conjunto de dados para determinar quais os ficheiros ou pasta a eliminar | Sim |
 | recursivo | Indica se os ficheiros são eliminados novamente das sub-dobradeiras ou apenas a partir da pasta especificada.  | Não. A predefinição é `false`. |
 | maxConcurrentConnections | O número de ligações a ligar ao armazenamento simultaneamente para eliminar pastas ou ficheiros.   |  Não. A predefinição é `1`. |
-| enableloging | Indica se precisa de gravar a pasta ou os nomes dos ficheiros que foram eliminados. Se for verdade, precisa de fornecer ainda mais uma conta de armazenamento para guardar o ficheiro de registo, para que possa rastrear os comportamentos da atividade Eliminar, lendo o ficheiro de registo. | No |
-| logStorageSettings | Só aplicável quando se ativar = verdadeiro.<br/><br/>Um grupo de propriedades de armazenamento que podem ser especificadas onde pretende guardar o ficheiro de registo contendo a pasta ou nomes de ficheiros que foram eliminados pela atividade Eliminar. | No |
-| linkedServiceName | Só aplicável quando se ativar = verdadeiro.<br/><br/>O serviço ligado do [Azure Storage](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties), ou [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para armazenar o ficheiro de registo que contém as pastas ou nomes de ficheiros que foram eliminados pela atividade Delete. Tenha em atenção que deve ser configurado com o mesmo tipo de Tempo de Execução de Integração do utilizado pela atividade de exclusão para eliminar ficheiros. | No |
-| path | Só aplicável quando se ativar = verdadeiro.<br/><br/>O caminho para guardar o ficheiro de registo na sua conta de armazenamento. Se não providenciar um caminho, o serviço cria um recipiente para si. | No |
+| enableloging | Indica se precisa de gravar a pasta ou os nomes dos ficheiros que foram eliminados. Se for verdade, precisa de fornecer ainda mais uma conta de armazenamento para guardar o ficheiro de registo, para que possa rastrear os comportamentos da atividade Eliminar, lendo o ficheiro de registo. | Não |
+| logStorageSettings | Só aplicável quando se ativar = verdadeiro.<br/><br/>Um grupo de propriedades de armazenamento que podem ser especificadas onde pretende guardar o ficheiro de registo contendo a pasta ou nomes de ficheiros que foram eliminados pela atividade Eliminar. | Não |
+| linkedServiceName | Só aplicável quando se ativar = verdadeiro.<br/><br/>O serviço ligado do [Azure Storage](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties), ou [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para armazenar o ficheiro de registo que contém as pastas ou nomes de ficheiros que foram eliminados pela atividade Delete. Tenha em atenção que deve ser configurado com o mesmo tipo de Tempo de Execução de Integração do utilizado pela atividade de exclusão para eliminar ficheiros. | Não |
+| caminho | Só aplicável quando se ativar = verdadeiro.<br/><br/>O caminho para guardar o ficheiro de registo na sua conta de armazenamento. Se não providenciar um caminho, o serviço cria um recipiente para si. | Não |
 
 ## <a name="monitoring"></a>Monitorização
 
@@ -118,7 +115,7 @@ Existem dois locais onde pode ver e monitorizar os resultados da atividade Elimi
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>Arquivo de registo de amostra da atividade eliminar
 
-| Name | Categoria | Estado | Erro |
+| Nome | Categoria | Estado | Erro |
 |:--- |:--- |:--- |:--- |
 | test1/yyy.jsem | Ficheiro | Eliminado |  |
 | test2/hello789.txt | Ficheiro | Eliminado |  |

@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/01/2019
-  ms.openlocfilehash: 5e5fe7f2175db8990a7030284a9ede14b1f55d3a
-  ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+  ms.openlocfilehash: c2f0e0ce24b6835a3c4da7dd73581b76836334bc
+  ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/02/2020
-  ms.locfileid: "85920946"
+  ms.lasthandoff: 07/28/2020
+  ms.locfileid: "87281128"
 landingContent:
 - title: Sobre a Imagem Digitalizada
   linkLists:
@@ -124,12 +124,12 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
+    - text: API de Imagem Digitalizada v3.1 preview.1
+      url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005
     - text: API de Imagem Digitalizada v3.0
       url: https://aka.ms/computer-vision-v3-ref
     - text: API de Imagem Digitalizada v2.1
       url: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641/operations/56f91f2e778daf14a499f21b
-    - text: API de Imagem Digitalizada v2.0
-      url: https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44
     - text: SDK .NET
       url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
     - text: SDK Python

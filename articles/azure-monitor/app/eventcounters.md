@@ -3,12 +3,12 @@ title: Contadores de eventos em Application Insights / Microsoft Docs
 description: Monitor e personalizado .NET/.NET Core EventCounters in Application Insights.
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 06bf15bf60b1ee5e2c301935a30b3981d5233a08
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 42140f68a5f383a2a60fe8327f5023754366e6b7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539946"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324408"
 ---
 # <a name="eventcounters-introduction"></a>Introdução do EventCounters
 
@@ -124,9 +124,9 @@ customMetrics
 Tal como outras **telemetrias, a customMetrics** também tem uma coluna `cloud_RoleInstance` que indica a identidade da instância do servidor anfitrião em que a sua aplicação está a ser executada. A consulta acima mostra o valor de contador por instância, e pode ser usada para comparar desempenho de diferentes instâncias do servidor.
 
 ## <a name="alerts"></a>Alertas
-Tal como outras métricas, pode [definir um alerta](../../azure-monitor/platform/alerts-log.md) para o avisar se um contador de eventos não for um limite especificado. Abra o painel de alertas e clique em Adicionar Alerta.
+Tal como outras métricas, pode [definir um alerta](../platform/alerts-log.md) para o avisar se um contador de eventos não for um limite especificado. Abra o painel de alertas e clique em Adicionar Alerta.
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="can-i-see-eventcounters-in-live-metrics"></a>Posso ver o EventCounters em Métricas Ao Vivo?
 
@@ -146,6 +146,7 @@ O EventCounter não necessita de permissões especiais e é suportado em todas a
 
  [A extensão de Insights de Aplicação](./azure-web-apps.md) para ASP.NET Core ainda não suporta esta funcionalidade. Este documento será atualizado quando esta funcionalidade for suportada.
 
-## <a name="next-steps"></a><a name="next"></a>Próximos passos
+## <a name="next-steps"></a><a name="next"></a>Passos seguintes
 
-* [Rastreio de dependência](../../azure-monitor/app/asp-net-dependencies.md)
+* [Rastreio de dependência](./asp-net-dependencies.md)
+

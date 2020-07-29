@@ -3,12 +3,12 @@ title: Exportação com Stream Analytics da Azure Application Insights / Microso
 description: O Stream Analytics pode transformar, filtrar e encaminhar continuamente os dados que exporta do Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 70f952dcd6f8d942ac272afed58a7fe0f47d8a6e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d90b965ca65af0acf7032067c77591a2ac4d4b02
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539963"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324357"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Utilize o Stream Analytics para processar dados exportados a partir de Insights de Aplicação
 [O Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) é a ferramenta ideal para o processamento de dados [exportados do Application Insights](export-telemetry.md). Stream Analytics pode extrair dados de uma variedade de fontes. Pode transformar e filtrar os dados, e depois encaminhá-lo para uma variedade de pias.
@@ -16,7 +16,7 @@ ms.locfileid: "86539963"
 Neste exemplo, vamos criar um adaptador que retira dados da Application Insights, renomeia e processa alguns dos campos, e canaliza-os para o Power BI.
 
 > [!WARNING]
-> Existem formas muito melhores e mais fáceis [de exibir dados de Insights de Aplicação no Power BI](../../azure-monitor/app/export-power-bi.md ). O caminho aqui ilustrado é apenas um exemplo para ilustrar como processar dados exportados.
+> Existem formas muito melhores e mais fáceis [de exibir dados de Insights de Aplicação no Power BI](./export-power-bi.md). O caminho aqui ilustrado é apenas um exemplo para ilustrar como processar dados exportados.
 > 
 > 
 
@@ -55,7 +55,7 @@ A exportação contínua produz sempre dados para uma conta de Armazenamento Azu
 
     ![Escolha tipos de eventos](./media/export-stream-analytics/080.png)
 
-1. Deixe alguns dados acumularem-se. Sente-se e deixe as pessoas usarem a sua aplicação por um tempo. A telemetria chegará e verá gráficos estatísticos em [exploradores métricos](../../azure-monitor/platform/metrics-charts.md) e eventos individuais em [pesquisa de diagnóstico.](../../azure-monitor/app/diagnostic-search.md) 
+1. Deixe alguns dados acumularem-se. Sente-se e deixe as pessoas usarem a sua aplicação por um tempo. A telemetria chegará e verá gráficos estatísticos em [exploradores métricos](../platform/metrics-charts.md) e eventos individuais em [pesquisa de diagnóstico.](./diagnostic-search.md) 
    
     Além disso, os dados serão exportadas para o seu armazenamento. 
 2. Inspecione os dados exportados. No Estúdio Visual, escolha **View / Cloud Explorer,** e abra O Azure / Storage. (Se não tiver esta opção de menu, tem de instalar o Azure SDK: Abra o diálogo do Novo Projeto e abra o Visual C# / Cloud / Obtenha o Microsoft Azure SDK para .NET.)
@@ -186,7 +186,7 @@ Espera até o trabalho estar a correr.
 
 ## <a name="see-results-in-power-bi"></a>Ver resultados em Power BI
 > [!WARNING]
-> Existem formas muito melhores e mais fáceis [de exibir dados de Insights de Aplicação no Power BI](../../azure-monitor/app/export-power-bi.md ). O caminho aqui ilustrado é apenas um exemplo para ilustrar como processar dados exportados.
+> Existem formas muito melhores e mais fáceis [de exibir dados de Insights de Aplicação no Power BI](./export-power-bi.md). O caminho aqui ilustrado é apenas um exemplo para ilustrar como processar dados exportados.
 > 
 > 
 
@@ -208,7 +208,8 @@ Noam Ben Zeev mostra como processar dados exportados usando o Stream Analytics.
 > 
 > 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Exportação contínua](export-telemetry.md)
 * [Referência detalhada do modelo de dados para os tipos e valores da propriedade.](export-data-model.md)
-* [Application Insights](../../azure-monitor/app/app-insights-overview.md)
+* [Application Insights](./app-insights-overview.md)
+

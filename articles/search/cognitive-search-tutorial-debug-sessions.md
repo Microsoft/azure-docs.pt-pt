@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 35590fd8aefb8b6a90adeef52fabe773663403c2
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 2f25cab211d24facea7863c15b6d7671a9657ae9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85510993"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290680"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Tutorial: Diagnosticar, reparar e comprometer alterações na sua habilidade
 
@@ -73,7 +73,7 @@ Nesta secção, o Carteiro e uma recolha fornecida são utilizados para criar a 
 1. Under **Files**  >  **New**, selecione a coleção para importar.
 1. Após a importação da coleção, aumente a lista de ações (...).
 1. Clique em **Editar**.
-1. Insira o nome do seu serviço de pesquisa (por exemplo, se o ponto final for https://mydemo.search.windows.net , então o nome de serviço é "mydemo").
+1. Insira o nome do seu serviço de pesquisa (por exemplo, se o ponto final for `https://mydemo.search.windows.net` , então o nome de serviço é " `mydemo` ").
 1. Introduza o apiKey com a chave primária ou secundária do seu serviço de pesquisa.
 1. Introduza o armazenamentoConnectionString a partir da página de chaves da sua conta de Armazenamento Azure.
 1. Introduza o recipienteName para o recipiente que criou na conta de armazenamento.
@@ -239,7 +239,7 @@ Quando a sessão de depuração foi iniciada, o serviço de pesquisa criou uma c
 1. Feche a sessão de Depurrão e selecione o **separador Indexadores.**
 1. Abra o seu "clínico-idxr".
 1. Clique **em Reiniciar**.
-1. Clique **em Executar**. Clique **em OK** para confirmar.
+1. Clique em **Run** (Executar). Clique **em OK** para confirmar.
 
 Quando o indexante terminar de funcionar, deve haver uma marca de verificação verde e a palavra Sucesso ao lado do carimbo de tempo para a última execução no separador histórico de execução. Para garantir a aplicação das alterações:
 
@@ -247,7 +247,7 @@ Quando o indexante terminar de funcionar, deve haver uma marca de verificação 
 1. Abra o índice 'ensaios clínicos' e no separador Explorador de Pesquisa, clique em **Procurar**.
 1. A janela de resultados deve mostrar que as entidades de organizações e locais estão agora povoadas com os valores esperados.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 

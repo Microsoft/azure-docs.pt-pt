@@ -10,12 +10,12 @@ ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d6fa4bbaf9b37c93ef4efbe405087c39395df63d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4d54a8bf9fb5a1f31a29e41ecea545b43dbe58cf
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086018"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87276691"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Configure as chaves geridas pelo cliente com o Azure Key Vault utilizando o Azure CLI
 
@@ -97,7 +97,7 @@ Ao configurar a encriptação com as teclas geridas pelo cliente, pode optar por
 
 ### <a name="configure-encryption-for-automatic-rotation-of-customer-managed-keys"></a>Encriptação configurada para rotação automática de chaves geridas pelo cliente
 
-Para configurar a encriptação para a rotação automática das teclas geridas pelo cliente, instale [a versão 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) ou posterior do Azure CLI. Para mais informações, consulte [instalar o Azure CLI](/azure/install-azure-cli).
+Para configurar a encriptação para a rotação automática das teclas geridas pelo cliente, instale [a versão 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) ou posterior do Azure CLI. Para mais informações, consulte [instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 Para rodar automaticamente as teclas geridas pelo cliente, omita a versão chave quando configurar as chaves geridas pelo cliente para a conta de armazenamento. Ligue para a atualização da [conta de armazenamento AZ](/cli/azure/storage/account#az-storage-account-update) para atualizar as definições de encriptação da conta de armazenamento, como mostrado no exemplo seguinte. Inclua o `--encryption-key-source` parâmetro e desa cose para `Microsoft.Keyvault` ativar as chaves geridas pelo cliente para a conta. Lembre-se de substituir os valores do espaço reservado nos parênteses pelos seus próprios valores.
 

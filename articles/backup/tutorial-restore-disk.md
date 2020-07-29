@@ -4,12 +4,12 @@ description: Saiba como restaurar um disco e criar e recuperar uma VM no Azure c
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 75aa06d4c99c2b9c99015acfae98c30e75209f64
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: efad97c3668c50669be89e6eccaadb26cb313e81
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503528"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289464"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Restaurar um disco e criar uma VM recuperada no Azure
 
@@ -83,7 +83,7 @@ Se o VM de back up tiver gerido discos e se a intenção é restaurar os discos 
         --container-name myVM \
         --item-name myVM \
         --storage-account mystorageaccount \
-        --rp-name myRecoveryPointName
+        --rp-name myRecoveryPointName \
         --target-resource-group targetRG
     ```
 
@@ -97,7 +97,7 @@ Se o VM de back up tiver gerido discos e se a intenção é restaurar os discos 
     --container-name myVM \
     --item-name myVM \
     --storage-account mystorageaccount \
-    --rp-name myRecoveryPointName
+    --rp-name myRecoveryPointName \
     --restore-as-unmanaged-disk
     ```
 
@@ -139,7 +139,7 @@ Como mencionado acima, os discos não geridos serão restaurados na sua conta de
         --container-name myVM \
         --item-name myVM \
         --storage-account mystorageaccount \
-        --rp-name myRecoveryPointName
+        --rp-name myRecoveryPointName \
         --restore-to-staging-storage-account
     ```
 
@@ -264,7 +264,7 @@ Para confirmar que a VM foi criada a partir do disco recuperado, liste as VMs no
 az vm list --resource-group myResourceGroup --output table
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, restaurou um disco a partir de um ponto de recuperação e, em seguida, criou uma VM a partir do disco. Aprendeu a:
 

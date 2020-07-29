@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 06/10/2020
 ms.author: victorh
-ms.openlocfilehash: a98a06dedf1d0ed9b92cc2028dfc208ff26df056
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6ea0b28f5e0f23e0f8bb30e8fe2b0f792bce0709
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517625"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287442"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Quais as novidades no Azure Application Gateway?
 
@@ -27,7 +27,7 @@ O Azure Application Gateway é atualizado de forma contínua. Para se manter atu
 
 |Funcionalidade  |Descrição  |Data adicionada  |
 |---------|---------|---------|
-| Wildcard nomes de anfitriões em ouvintes (Pré-visualização) | Agora pode definir nomes de anfitriões wildcard num ouvinte multi-site e até 5 nomes de anfitriões por ouvinte. Para saber mais, consulte [os nomes dos anfitriões wildcard no ouvinte (pré-visualização)](multiple-site-overview.md#wildcard-host-names-in-listener-preview) e [aloja vários sites num Gateway de Aplicações utilizando o portal Azure](create-multiple-sites-portal.md) para o guia ste-by-step. | Julho de 2020 |
+| Wildcard nomes de anfitriões em ouvintes (Pré-visualização) | Agora pode definir nomes de anfitriões wildcard num ouvinte multi-site e até 5 nomes de anfitriões por ouvinte. Para saber mais, consulte [os nomes dos anfitriões wildcard no ouvinte (pré-visualização)](multiple-site-overview.md#wildcard-host-names-in-listener-preview) | Julho de 2020 |
 | Reescrita de URL (Pré-visualização) | Agora pode reescrever o caminho do URL e os parâmetros de cadeia de consulta usando a reescrita de URL. Consulte [os cabeçalhos HTTP e URL](rewrite-http-headers-url.md) para saber mais e ver Rewrite URL em Application Gateway usando o portal [Azure](rewrite-url-portal.md) para o guia passo a passo. | Julho de 2020 |
 | Porto personalizado para sondas de saúde | Application Gateway v2 SKU agora dá a capacidade de fornecer uma porta personalizada na configuração da sonda de saúde. Para mais informações, consulte a [visão geral da sonda de saúde](application-gateway-probe-overview.md) | Julho de 2020 |
 | Controlador de entrada de entrada de aplicação (AGIC) Addon AKS (Pré-visualização) |O Controlador de Entrada de Gateway de Aplicação pode agora ser implantado como um addon AKS nativo numa linha através do Azure CLI. Ser um addon AKS permite que a AGIC se torne um serviço totalmente gerido, enquanto ainda está em execução no cluster AKS do cliente. Para obter mais informações, consulte [as diferenças adicionais da AGIC](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on). |Junho de 2020 |
@@ -43,8 +43,8 @@ O Azure Application Gateway é atualizado de forma contínua. Para se manter atu
 |Autoscalagem, redundância de zona, suporte VIP estático      |Com o V2 SKU, existem muitas melhorias como Autoscaling, melhor desempenho, e muito mais. Veja [o que é Azure Application Gateway?](overview.md)|Setembro de 2018|
 |Drenagem de ligação     |A drenagem de ligação permite-lhe remover graciosamente os membros das suas piscinas de backend. Para obter mais informações, consulte [a drenagem de ligação.](features.md#connection-draining)|Setembro de 2018|
 |Páginas de erro personalizadas     |Com páginas de erro personalizadas, pode criar uma página de erro dentro do formato do resto dos seus websites. Para ativar isto, consulte [as páginas de erro personalizadas Do Portal da Aplicação.](custom-error.md)|Setembro de 2018|
-|Melhorias métricas     |Pode ter uma melhor visão do estado do seu Gateway de aplicação com métricas melhoradas. Para ativar métricas no seu Gateway de aplicação, consulte [saúde back-end, registos de diagnóstico e métricas para o Gateway de Aplicações](application-gateway-diagnostics.md).|Junho de 2018|
+|Melhorias métricas     |Pode ter uma melhor visão do estado do seu Gateway de aplicação com métricas melhoradas. Para ativar métricas no seu Gateway de aplicação, consulte [saúde back-end, registos de diagnóstico e métricas para o Gateway de Aplicações](application-gateway-diagnostics.md).|junho de 2018|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre o Gateway de Aplicações Azure, veja [o que é O Gateway de Aplicação Azure?](overview.md)

@@ -1,6 +1,5 @@
 ---
-title: Retreine um serviço web
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clássico): retreine um serviço web - Azure'
 description: Saiba como atualizar um serviço web para utilizar um modelo de aprendizagem automática recentemente treinado no Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: ee2a830d8d87ff2d82825791cb4d3554232cfa12
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c86612e41dfb6d1460306fba8c89e579b1023581
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086165"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324969"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Retreine e implemente um modelo de aprendizagem automática
+
+**APLICA-SE A:** ![ no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) yes Machine Learning Studio ![ ](../../../includes/media/aml-applies-to-skus/yes.png) (clássico) 
+
 
 A reconversão é uma forma de garantir que os modelos de machine learning se mantenham precisos e com base nos dados mais relevantes disponíveis. Este artigo mostra como retreinar e implementar um modelo de machine learning como um novo serviço web em Studio (clássico). Se procura retreinar um serviço web clássico, [veja este artigo de como fazer.](retrain-classic-web-service.md)
 
@@ -206,7 +208,7 @@ Por fim, utilize o [cmdlet Update-AzMlWebService](https://docs.microsoft.com/pow
 Update-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como gerir serviços web ou acompanhar várias experiências, consulte os seguintes artigos:
 

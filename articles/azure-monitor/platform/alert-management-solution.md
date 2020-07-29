@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2018
-ms.openlocfilehash: 48a825f31a1c5f2eab2fbb71b6f030b8acb5617d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd30a840327eaf338aec89c12ff8eb5d87c60c56
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77668388"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322402"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solução de Gestão de Alerta em Azure Log Analytics
 
@@ -21,24 +22,24 @@ ms.locfileid: "77668388"
 >  
 
 
-A solução Gestão de Alerta ajuda-o a analisar todos os alertas no seu repositório Log Analytics.  Estes alertas podem ter vindo de uma variedade de fontes, incluindo as fontes [criadas pela Log Analytics](../../azure-monitor/platform/alerts-overview.md) ou [importadas de Nagios ou Zabbix.](../../azure-monitor/learn/quick-collect-linux-computer.md) A solução também importa alertas de quaisquer [grupos de gestão de gestores](../../azure-monitor/platform/om-agents.md)de operações do System Center ligados.
+A solução Gestão de Alerta ajuda-o a analisar todos os alertas no seu repositório Log Analytics.  Estes alertas podem ter vindo de uma variedade de fontes, incluindo as fontes [criadas pela Log Analytics](./alerts-overview.md) ou [importadas de Nagios ou Zabbix.](../learn/quick-collect-linux-computer.md) A solução também importa alertas de quaisquer [grupos de gestão de gestores](./om-agents.md)de operações do System Center ligados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 A solução funciona com quaisquer registos no repositório Log Analytics com um tipo de **Alerta,** pelo que deve realizar qualquer configuração necessária para recolher estes registos.
 
-- Para alertas de Log Analytics, [crie regras de alerta](../../azure-monitor/platform/alerts-overview.md) para criar registos de alerta diretamente no repositório.
-- Para alertas de Nagios e Zabbix, [configuure esses servidores](../../azure-monitor/learn/quick-collect-linux-computer.md) para enviar alertas para o Log Analytics.
-- Para alertas do Gestor de Operações do Centro de Sistema, [ligue o seu grupo de gestão de Gestor de Operações ao seu espaço de trabalho Log Analytics.](../../azure-monitor/platform/om-agents.md)  Quaisquer alertas criados no Gestor de Operações do Centro de Sistema são importados para o Log Analytics.  
+- Para alertas de Log Analytics, [crie regras de alerta](./alerts-overview.md) para criar registos de alerta diretamente no repositório.
+- Para alertas de Nagios e Zabbix, [configuure esses servidores](../learn/quick-collect-linux-computer.md) para enviar alertas para o Log Analytics.
+- Para alertas do Gestor de Operações do Centro de Sistema, [ligue o seu grupo de gestão de Gestor de Operações ao seu espaço de trabalho Log Analytics.](./om-agents.md)  Quaisquer alertas criados no Gestor de Operações do Centro de Sistema são importados para o Log Analytics.  
 
 ## <a name="configuration"></a>Configuração
-Adicione a solução de Gestão de Alerta ao seu espaço de trabalho Log Analytics utilizando o processo descrito em [soluções Add](../../azure-monitor/insights/solutions.md). Não há nenhuma configuração adicional.
+Adicione a solução de Gestão de Alerta ao seu espaço de trabalho Log Analytics utilizando o processo descrito em [soluções Add](../insights/solutions.md). Não há nenhuma configuração adicional.
 
 ## <a name="management-packs"></a>Pacotes de gestão
 Se o seu grupo de gestão de operações do System Center Operations Manager estiver ligado ao seu espaço de trabalho Log Analytics, então os seguintes pacotes de gestão são instalados no Gestor de Operações do System Center quando adicionar esta solução.  Não existe configuração ou manutenção dos pacotes de gestão necessários.
 
 * Microsoft System Center Advisor Alert Management (Microsoft.IntelligencePacks.AlertManagement)
 
-Para obter mais informações sobre como são atualizados os pacotes de gestão da solução, veja [Connect Operations Manager to Log Analytics (Ligar o Operations Manager ao Log Analytics)](../../azure-monitor/platform/om-agents.md).
+Para obter mais informações sobre como são atualizados os pacotes de gestão da solução, veja [Connect Operations Manager to Log Analytics (Ligar o Operations Manager ao Log Analytics)](./om-agents.md).
 
 ## <a name="data-collection"></a>Recolha de dados
 ### <a name="agents"></a>Agentes
@@ -47,8 +48,8 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 | Origem Ligada | Suporte | Descrição |
 |:--- |:--- |:--- |
 | [Agentes do Windows](agent-windows.md) | Não |Os agentes do Windows diretos não geram alertas.  Os alertas do Log Analytics podem ser criados a partir de eventos e dados de desempenho recolhidos a partir de agentes do Windows. |
-| [Agentes do Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Não |Os agentes Linux diretos não geram alertas.  Os alertas do Log Analytics podem ser criados a partir de eventos e dados de desempenho recolhidos a partir de agentes Linux.  Os alertas de Nagios e Zabbix são recolhidos dos servidores que requerem o agente Linux. |
-| [Grupo de gestão do System Center Operations Manager](../../azure-monitor/platform/om-agents.md) |Sim |Os alertas gerados pelos agentes do Gestor de Operações são entregues ao grupo de gestão e depois encaminhados para o Log Analytics.<br><br>Não é necessária uma ligação direta dos agentes do Gestor de Operações ao Log Analytics. Os dados de alerta são reencaminhados do grupo de gestão para o repositório Log Analytics. |
+| [Agentes do Linux](../learn/quick-collect-linux-computer.md) | Não |Os agentes Linux diretos não geram alertas.  Os alertas do Log Analytics podem ser criados a partir de eventos e dados de desempenho recolhidos a partir de agentes Linux.  Os alertas de Nagios e Zabbix são recolhidos dos servidores que requerem o agente Linux. |
+| [Grupo de gestão do System Center Operations Manager](./om-agents.md) |Sim |Os alertas gerados pelos agentes do Gestor de Operações são entregues ao grupo de gestão e depois encaminhados para o Log Analytics.<br><br>Não é necessária uma ligação direta dos agentes do Gestor de Operações ao Log Analytics. Os dados de alerta são reencaminhados do grupo de gestão para o repositório Log Analytics. |
 
 
 ### <a name="collection-frequency"></a>Frequência da recolha
@@ -69,7 +70,7 @@ Clique no azulejo de **Gestão** de Alerta para abrir o painel **de gestão** de
 | Alertas de gestores de operações do Centro de Sistema Ativo |Todos os alertas recolhidos do Gestor de Operações com qualquer outro estado que não *o Fechado* agrupados por fonte que gerou o alerta. |
 | Todos os alertas ativos |Todos os alertas com qualquer gravidade agrupada pelo nome de alerta. Inclui apenas alertas do Gestor de Operações com qualquer estado que não *o Fechado.* |
 
-Se deslocar para a direita, o painel de instrumentos lista várias consultas comuns em que pode clicar para realizar uma [pesquisa de registo](../../azure-monitor/log-query/log-query-overview.md) de dados de alerta.
+Se deslocar para a direita, o painel de instrumentos lista várias consultas comuns em que pode clicar para realizar uma [pesquisa de registo](../log-query/log-query-overview.md) de dados de alerta.
 
 ![Painel de gestão de alerta](media/alert-management-solution/dashboard.png)
 
@@ -117,5 +118,6 @@ A tabela a seguir fornece pesquisas de registo de amostras para registos de aler
 
 
 
-## <a name="next-steps"></a>Próximos passos
-* Veja o artigo [Alerts in Log Analytics](../../azure-monitor/platform/alerts-overview.md) (Alertas no Log Analytics) para obter detalhes sobre a geração de alertas do Log Analytics.
+## <a name="next-steps"></a>Passos seguintes
+* Veja o artigo [Alerts in Log Analytics](./alerts-overview.md) (Alertas no Log Analytics) para obter detalhes sobre a geração de alertas do Log Analytics.
+

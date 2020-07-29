@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 40af7a7d3bcc4584260735ddbcbf84ac0936ce15
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: aa0d29c5c2a4cf8eebbf530b42a25d8924e031bc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172104"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290276"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>Início Rápido: Criar um balanceador de carga público para fazer o balanceamento de carga das VMs com a CLI do Azure
 
@@ -418,11 +418,17 @@ As regras de saída do balançador de carga configuram sNAT de saída para VMs n
 
 Para obter mais informações sobre as ligações de saída, consulte [as ligações de saída em Azure](load-balancer-outbound-connections.md).
 
-### <a name="create-outbound-public-ip-address"></a>Criar endereço IP público de saída
+### <a name="create-outbound-public-ip-address-or-public-ip-prefix"></a>Crie um endereço IP público de saída ou prefixo IP público.
 
-Utilizar [a rede az public-ip criar](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) para:
+Utilize [a rede az public-ip criar](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) para criar um único IP para a conectividade de saída.  
 
-* Crie um endereço IP público redundante de zona padrão chamado **myPublicIPOutbound**.
+Utilize [o prefixo ip da rede az](https://docs.microsoft.com/cli/azure/network/public-ip/prefix?view=azure-cli-latest#az-network-public-ip-prefix-create) para criar um prefixo IP público para a conectividade de saída.
+
+Para obter mais informações sobre a escala de ACESSO NAT e conectividade de saída, consulte [o SCALE Outbound NAT com vários endereços IP](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#scale).
+
+#### <a name="public-ip"></a>IP público
+
+* Denominado **myPublicIPOutbound.**
 * No **myResourceGroupLB**.
 
 ```azurecli-interactive
@@ -441,9 +447,35 @@ Para criar um endereço IP público redundante zonal na Zona 1:
     --sku Standard \
     --zone 1
 ```
+#### <a name="public-ip-prefix"></a>Prefixo de IP público
+
+* Denominado **myPublicIPPrefixOutbound**.
+* No **myResourceGroupLB**.
+* Comprimento do prefixo de **28**.
+
+```azurecli-interactive
+  az network public-ip prefix create \
+    --resource-group myResourceGroupLB \
+    --name myPublicIPPrefixOutbound \
+    --length 28
+```
+Para criar um prefixo IP público redundante zonal na Zona 1:
+
+```azurecli-interactive
+  az network public-ip prefix create \
+    --resource-group myResourceGroupLB \
+    --name myPublicIPPrefixOutbound \
+    --length 28 \
+    --zone 1
+```
+
 ### <a name="create-outbound-frontend-ip-configuration"></a>Criar configuração IP frontend de saída
 
 Crie uma nova configuração IP frontend com [a criação de frontend-ip da rede Az ](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create)lb :
+
+Selecione os comandos de prefixo IP públicos ou ip com base na decisão em passo anterior.
+
+#### <a name="public-ip"></a>IP público
 
 * Chama-se **myFrontEndOutbound.**
 * No grupo de recursos **myResourceGroupLB**.
@@ -456,6 +488,21 @@ Crie uma nova configuração IP frontend com [a criação de frontend-ip da rede
     --name myFrontEndOutbound \
     --lb-name myLoadBalancer \
     --public-ip-address myPublicIPOutbound 
+```
+
+#### <a name="public-ip-prefix"></a>Prefixo de IP público
+
+* Chama-se **myFrontEndOutbound.**
+* No grupo de recursos **myResourceGroupLB**.
+* Associado ao prefixo IP público **myPublicIPPrefixOutbound**.
+* Associado ao balanceador de carga **myLoadBalancer**.
+
+```azurecli-interactive
+  az network lb frontend-ip create \
+    --resource-group myResourceGroupLB \
+    --name myFrontEndOutbound \
+    --lb-name myLoadBalancer \
+    --public-ip-prefix myPublicIPPrefixOutbound 
 ```
 
 ### <a name="create-outbound-pool"></a>Criar piscina de saída
@@ -498,7 +545,7 @@ Crie uma nova regra de saída para a piscina de backend de saída com [a az rede
 ```
 ### <a name="add-virtual-machines-to-outbound-pool"></a>Adicione máquinas virtuais à piscina de saída
 
-Adicione as interfaces de rede de máquinas virtuais à piscina de saída do equilibrador de carga com [a az rede nic ip-config endereço-pool adicionar:](https://docs.microsoft.com/cli/azure/network/nic/ip-config/address-pool?view=azure-cli-latest#az-network-nic-ip-config-address-pool-add)
+Adicione as máquinas virtuais à piscina de saída com [a az network nic ip-config endereço-pool add:](https://docs.microsoft.com/cli/azure/network/nic/ip-config/address-pool?view=azure-cli-latest#az-network-nic-ip-config-address-pool-add)
 
 
 #### <a name="vm1"></a>VM1
@@ -941,7 +988,7 @@ Quando já não for necessário, utilize o comando de eliminação do [grupo AZ]
     --name myResourceGroupLB
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste arranque rápido
 
 * Criou um balanceador de carga padrão ou público

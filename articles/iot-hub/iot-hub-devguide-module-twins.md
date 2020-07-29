@@ -7,12 +7,15 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: asrastog
-ms.openlocfilehash: ef622d950595752e616608ef56d8df66b8a9813f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+ms.openlocfilehash: 81c5d410599edcbbb4e216b630709541be02c9fb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610154"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323014"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Compreender e usar gémeos módulos no IoT Hub
 
@@ -176,7 +179,7 @@ A extremidade traseira da solução funciona no módulo twin utilizando as segui
 
   - Propriedades
 
-    | Name | Valor |
+    | Nome | Valor |
     | --- | --- |
     $content tipo | application/json |
     $iothub-enquestime |  Hora em que a notificação foi enviada |
@@ -355,7 +358,7 @@ As propriedades do módulo twin desejadas e reportadas não têm ETags, mas têm
 
 As versões também são úteis quando um agente de observação (como a app do módulo que observa as propriedades desejadas) deve conciliar as corridas entre o resultado de uma operação de recuperação e uma notificação de atualização. A secção [Fluxo de reconexão do dispositivo](iot-hub-devguide-device-twins.md#device-reconnection-flow) fornece mais informações. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para experimentar alguns dos conceitos descritos neste artigo, consulte os seguintes tutoriais do IoT Hub:
 

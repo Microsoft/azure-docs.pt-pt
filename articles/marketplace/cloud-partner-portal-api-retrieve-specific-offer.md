@@ -4,15 +4,15 @@ description: API para recuperar a oferta especificada dentro do espaço de nomes
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: dsindona
-ms.author: dsindona
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: bf64645f672e54849064d86f9250a62efeac8d66
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9f3ba6b2f13b9f2bb1d538db84723e3a9baaef12
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087412"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87271846"
 ---
 # <a name="retrieve-a-specific-offer"></a>Recupere uma oferta específica
 
@@ -43,7 +43,7 @@ Também pode recuperar uma versão específica da oferta, ou recuperar a oferta 
 | offerId     | Guid que identifica exclusivamente a oferta.                                                 | Cadeia        |
 | versão     | Versão da oferta a ser recuperada. Por padrão, a versão mais recente da oferta é recuperada. | Integer (Número inteiro)       |
 | slotId      | A ranhura a partir da qual a oferta deve ser recuperada, pode ser uma das:      <br/>  - `Draft`(predefinido) recupera a versão da oferta atualmente em projeto.  <br/>  -  `Preview`recupera a versão oferta atualmente em pré-visualização.     <br/>  -  `Production`recupera a versão de oferta atualmente em produção.          |      enum |
-| api-version | Última versão da API                                                                    | Data          |
+| api-version | Última versão da API                                                                    | Date          |
 |  |  |  |
 
 ## <a name="header"></a>Cabeçalho

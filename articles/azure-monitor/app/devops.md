@@ -3,12 +3,12 @@ title: Monitorização do desempenho da aplicação web - Azure Application Insi
 description: Como os Insights de Aplicação se enquadram no ciclo de devOps
 ms.topic: conceptual
 ms.date: 12/21/2018
-ms.openlocfilehash: fa62e8840c14e87d24db029d6bb7a215124a0511
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d2c3326c3f655d4bdfeaa42ac272658b251b7f82
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033687"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324493"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnósticos avançados de aplicações Web e serviços com o Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Por que preciso de Insights de Aplicação?
@@ -85,7 +85,7 @@ O Real Madrid usa o módulo Power BI para ver a sua telemetria.
 ![Vista de Power BI da telemetria Application Insights](./media/devops/080.png)
 
 ## <a name="smart-detection"></a>Deteção inteligente
-[O diagnóstico proactivo](../../azure-monitor/app/proactive-diagnostics.md) é uma característica recente. Sem qualquer configuração especial por si, o Application Insights deteta e alerta automaticamente sobre aumentos incomuns nas taxas de falha na sua aplicação. É inteligente o suficiente para ignorar um fundo de falhas ocasionais, e também aumentos que são simplesmente proporcionais a um aumento de pedidos. Assim, por exemplo, se houver uma falha num dos serviços de que depende, ou se a nova construção que acabou de implantar não estiver a funcionar tão bem, então saberá disso assim que olhar para o seu e-mail. (E existem webhooks para que possa desencadear outras aplicações.)
+[O diagnóstico proactivo](./proactive-diagnostics.md) é uma característica recente. Sem qualquer configuração especial por si, o Application Insights deteta e alerta automaticamente sobre aumentos incomuns nas taxas de falha na sua aplicação. É inteligente o suficiente para ignorar um fundo de falhas ocasionais, e também aumentos que são simplesmente proporcionais a um aumento de pedidos. Assim, por exemplo, se houver uma falha num dos serviços de que depende, ou se a nova construção que acabou de implantar não estiver a funcionar tão bem, então saberá disso assim que olhar para o seu e-mail. (E existem webhooks para que possa desencadear outras aplicações.)
 
 Outro aspeto desta funcionalidade realiza uma análise diária aprofundada da sua telemetria, procurando padrões de desempenho incomuns que são difíceis de descobrir. Por exemplo, pode encontrar um desempenho lento associado a uma determinada área geográfica, ou a uma determinada versão do navegador.
 
@@ -145,9 +145,9 @@ Durante a depuragem, tem a opção de manter a telemetria na sua máquina de des
 Quando um alerta é levantado, o Application Insights pode criar automaticamente um item de trabalho no seu sistema de rastreio de trabalho.
 
 ## <a name="but-what-about"></a>Mas e...?
-* [Privacidade e armazenamento](../../azure-monitor/app/data-retention-privacy.md) - A sua telemetria é mantida nos servidores seguros Azure.
+* [Privacidade e armazenamento](./data-retention-privacy.md) - A sua telemetria é mantida nos servidores seguros Azure.
 * Desempenho - o impacto é muito baixo. A telemetria está em lotada.
-* [Preços](../../azure-monitor/app/pricing.md) - Pode começar de graça, e isso continua enquanto está em baixo volume.
+* [Preços](./pricing.md) - Pode começar de graça, e isso continua enquanto está em baixo volume.
 
 
 ## <a name="video"></a>Vídeo
@@ -157,6 +157,7 @@ Quando um alerta é levantado, o Application Insights pode criar automaticamente
 ## <a name="next-steps"></a>Passos seguintes
 Começar com a Application Insights é fácil. As principais opções são:
 
-* [Servidores IIS](../../azure-monitor/app/monitor-performance-live-website-now.md), e também para [o Azure App Service](../../azure-monitor/app/app-insights-overview.md).
-* Instrumento o seu projeto durante o desenvolvimento. Pode [fazê-lo](../../azure-monitor/app/asp-net.md) para aplicações ASP.NET ou [Java,](../../azure-monitor/app/java-get-started.md) bem como [Node.js](../../azure-monitor/app/nodejs.md) e uma série de [outros tipos.](../../azure-monitor/app/platforms.md) 
-* Instrumento [qualquer página web](../../azure-monitor/app/javascript.md) adicionando um pequeno corte de código.
+* [Servidores IIS](./monitor-performance-live-website-now.md), e também para [o Azure App Service](./app-insights-overview.md).
+* Instrumento o seu projeto durante o desenvolvimento. Pode [fazê-lo](./asp-net.md) para aplicações ASP.NET ou [Java,](./java-get-started.md) bem como [Node.js](./nodejs.md) e uma série de [outros tipos.](./platforms.md) 
+* Instrumento [qualquer página web](./javascript.md) adicionando um pequeno corte de código.
+

@@ -4,19 +4,20 @@ description: Modelo de dados de Insights de Aplicação para telemetria de pedid
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 57cc9c95137facaaf2ddf5bb212121f88e150f5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a352f4ce3528d395599a91b53031c74b0873152
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807660"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320566"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetria de pedido: Modelo de dados de Insights de Aplicação
 
-Um item de telemetria de pedido (in [Application Insights)](../../azure-monitor/app/app-insights-overview.md)representa a sequência lógica de execução desencadeada por um pedido externo à sua aplicação. Cada execução de pedido é identificada por parâmetros únicos `ID` e contendo todos os `url` parâmetros de execução. Pode agrupar os pedidos por lógica `name` e definir o presente `source` pedido. A execução de código pode resultar em `success` ou e tem um certo `fail` `duration` . Tanto as execuções de sucesso como as execuções falhadas podem ser agrupadas por `resultCode` . Hora de início para a telemetria de pedido definida no nível do envelope.
+Um item de telemetria de pedido (in [Application Insights)](./app-insights-overview.md)representa a sequência lógica de execução desencadeada por um pedido externo à sua aplicação. Cada execução de pedido é identificada por parâmetros únicos `ID` e contendo todos os `url` parâmetros de execução. Pode agrupar os pedidos por lógica `name` e definir o presente `source` pedido. A execução de código pode resultar em `success` ou e tem um certo `fail` `duration` . Tanto as execuções de sucesso como as execuções falhadas podem ser agrupadas por `resultCode` . Hora de início para a telemetria de pedido definida no nível do envelope.
 
 A telemetria solicite suporte o modelo de extensibilidade padrão utilizando o costume `properties` e `measurements` .
 
-## <a name="name"></a>Name
+## <a name="name"></a>Nome
 
 O nome do pedido representa o caminho de código tomado para processar o pedido. Baixo valor cardinalício para permitir um melhor agrupamento de pedidos. Para pedidos HTTP representa o método HTTP e o modelo de caminho URL como `GET /values/{id}` sem o `id` valor real.
 
@@ -26,7 +27,7 @@ Comprimento máximo: 1024 caracteres
 
 ## <a name="id"></a>ID
 
-Identificador de uma instância de chamada de pedido. Utilizado para a correlação entre pedido e outros itens de telemetria. A identificação deve ser globalmente única. Para mais informações, consulte a página [de correlação.](../../azure-monitor/app/correlation.md)
+Identificador de uma instância de chamada de pedido. Utilizado para a correlação entre pedido e outros itens de telemetria. A identificação deve ser globalmente única. Para mais informações, consulte a página [de correlação.](./correlation.md)
 
 Comprimento máximo: 128 caracteres
 
@@ -38,7 +39,7 @@ Comprimento máximo: 2048 caracteres
 
 ## <a name="source"></a>Origem
 
-Fonte do pedido. Exemplos são a chave de instrumentação do chamador ou o endereço IP do chamador. Para mais informações, consulte a página [de correlação.](../../azure-monitor/app/correlation.md)
+Fonte do pedido. Exemplos são a chave de instrumentação do chamador ou o endereço IP do chamador. Para mais informações, consulte a página [de correlação.](./correlation.md)
 
 Comprimento máximo: 1024 caracteres
 
@@ -52,7 +53,7 @@ Resultado de um pedido de execução. Código de estado HTTP para pedidos HTTP. 
 
 Comprimento máximo: 1024 caracteres
 
-## <a name="success"></a>Êxito
+## <a name="success"></a>Success
 
 Indicação de chamada bem sucedida ou mal sucedida. Este campo é obrigatório. Quando não for explicitamente definido `false` - um pedido é considerado como um sucesso. Desagre este valor para `false` se a operação foi interrompida por exceção ou código de resultado de erro devolvido.
 
@@ -70,9 +71,10 @@ Pode ler mais sobre o código de resultados do pedido e o código de estado no p
 
 [!INCLUDE [application-insights-data-model-measurements](../../../includes/application-insights-data-model-measurements.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Escreva telemetria de pedido personalizado](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)
+- [Escreva telemetria de pedido personalizado](./api-custom-events-metrics.md#trackrequest)
 - Consulte [o modelo de dados](data-model.md) para os tipos de Insights de Aplicação e modelo de dados.
-- Saiba como [configurar ASP.NET](../../azure-monitor/app/asp-net.md) aplicação Core com Insights de Aplicação.
-- Confira as [plataformas](../../azure-monitor/app/platforms.md) suportadas pela Application Insights.
+- Saiba como [configurar ASP.NET](./asp-net.md) aplicação Core com Insights de Aplicação.
+- Confira as [plataformas](./platforms.md) suportadas pela Application Insights.
+

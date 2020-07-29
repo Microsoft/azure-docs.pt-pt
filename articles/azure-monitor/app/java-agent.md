@@ -3,11 +3,12 @@ title: Monitorização de desempenho de aplicativos web java - Azure Application
 description: Monitorização alargada de desempenho e utilização do seu website Java com Application Insights.
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.openlocfilehash: b047a8dd8c67679a5cc8a45e8be82f9ab5227aa4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2ce02c3ec9fbbc762b7919ee31d9b69306a008a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537547"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322623"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorizar dependências, exceções capturadas e tempos de execução de métodos em aplicações web java
 
@@ -119,19 +120,20 @@ No recurso Application Insights, os tempos de dependência remota agregados e te
 
 Para procurar casos individuais de dependência, exceção e relatórios de métodos, abra [a Pesquisa.][diagnostic]
 
-[Diagnosticar questões de dependência - saiba mais.](../../azure-monitor/app/asp-net-dependencies.md#diagnosis)
+[Diagnosticar questões de dependência - saiba mais.](./asp-net-dependencies.md#diagnosis)
 
 ## <a name="questions-problems"></a>Perguntas? Problemas?
-* Não existem dados? [Definir exceções de firewall](../../azure-monitor/app/ip-addresses.md)
+* Não existem dados? [Definir exceções de firewall](./ip-addresses.md)
 * [Resolução de problemas de Java](java-troubleshoot.md)
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#track-exception
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[api]: ./api-custom-events-metrics.md
+[apiexceptions]: ./api-custom-events-metrics.md#track-exception
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../../azure-monitor/platform/metrics-charts.md
+[metrics]: ../platform/metrics-charts.md
+

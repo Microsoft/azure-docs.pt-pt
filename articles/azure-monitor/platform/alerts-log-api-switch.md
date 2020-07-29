@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.subservice: alerts
-ms.openlocfilehash: a5613198b404f629727f3040b308c030763a10b2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7e1073817013d45558a9679a4f70db0c002cfaa9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515806"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324085"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Preferência da API para alertas de registo
 
@@ -111,8 +111,9 @@ Caso contrário, se o espaço de trabalho especificado de Log Analytic ainda nã
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre o [Monitor Azure - Alertas de Registo](alerts-unified-log.md).
 - Saiba como criar [alertas de registo em Alertas Azure](alerts-log.md).
-- Saiba mais sobre a [experiência Azure Alerts.](../../azure-monitor/platform/alerts-overview.md)
+- Saiba mais sobre a [experiência Azure Alerts.](./alerts-overview.md)
+
