@@ -1,20 +1,20 @@
 ---
-title: 'Quickstart: Text Analytics v3 biblioteca de clientes para Node.js / Microsoft Docs'
+title: 'Quickstart: Text Analytics v3 biblioteca de clientes para Node.js Microsoft Docs'
 description: Começa com a biblioteca de clientes V3 Text Analytics para Node.js.
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 03/12/2020
+ms.date: 07/27/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
-ms.openlocfilehash: 0d2a4a8338880dc8063d6a3f088c0cd44e314e43
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: cc5db825771369d35b447232b58a9e42b14efb4f
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140750"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87375742"
 ---
 <a name="HOLTop"></a>
 
@@ -31,8 +31,8 @@ ms.locfileid: "84140750"
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/)
-* A versão atual do [Node.js.](https://nodejs.org/)
+* Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
+* A versão atual de [Node.js. ](https://nodejs.org/)
 * Assim que tiver a subscrição do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title=" Crie um recurso Text Analytics crie um recurso Text Analytics no portal "  target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
     * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação à API de Análise de Texto. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
     * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
@@ -61,7 +61,7 @@ npm init
 Instale os `@azure/ai-text-analytics` pacotes NPM:
 
 ```console
-npm install --save @azure/ai-text-analytics@1.0.0-preview.5
+npm install --save @azure/ai-text-analytics@5.0.0
 ```
 
 > [!TIP]

@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: b5d23442af5afb90071dbf9e3c50d42b91d195d1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9f9297673d0787f396fb83ef00f35363d45c6377
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494841"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291216"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Séries Ddv4 e Ddsv4
 
@@ -38,15 +38,15 @@ Migração ao Vivo: Suportado
 
 Atualizações de preservação da memória: Suportadas
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Produção de armazenamento em cache máximo e temporário: IOPS/MBps | Largura de banda max NICs/Rede Esperada (Mbps) |
-|---|---|---|---|---|---|---|
-| Standard_D2d_v4 | 2 | 8 | 75 | 4 | 19000/120 | 2/1000 |
-| Standard_D4d_v4 | 4 | 16 | 150 | 8 | 38500/242 | 2/2000 |
-| Standard_D8d_v4 | 8 | 32 | 300 | 16 | 77000/485 | 4/4000 |
-| Standard_D16d_v4 | 16 | 64 | 600 | 32 | 154000/968 | 8/8000 |
-| Standard_D32d_v4 | 32 | 128 | 1200 | 32 | 308000/1936 | 8/16000 |
-| Standard_D48d_v4 | 48 | 192 | 1800 | 32 | 462000/2904 | 8/24000 |
-| Standard_D64d_v4 | 64 | 256 | 2400 | 32 | 615000/3872 | 8/30000 |
+| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Produção de armazenamento em cache máximo e temporário: IOPS/MBps | NICs máximos|Largura de banda esperada da rede (Mbps) |
+|---|---|---|---|---|---|---|---|
+| Standard_D2d_v4 | 2 | 8 | 75 | 4 | 19000/120 | 2|1000 |
+| Standard_D4d_v4 | 4 | 16 | 150 | 8 | 38500/242 | 2|2000 |
+| Standard_D8d_v4 | 8 | 32 | 300 | 16 | 77000/485 | 4|4000 |
+| Standard_D16d_v4 | 16 | 64 | 600 | 32 | 154000/968 | 8|8000 |
+| Standard_D32d_v4 | 32 | 128 | 1200 | 32 | 308000/1936 | 8|16000 |
+| Standard_D48d_v4 | 48 | 192 | 1800 | 32 | 462000/2904 | 8|24000 |
+| Standard_D64d_v4 | 64 | 256 | 2400 | 32 | 615000/3872 | 8|30000 |
 
 ## <a name="ddsv4-series"></a>Série Ddsv4
 
@@ -67,27 +67,32 @@ Migração ao Vivo: Suportado
 
 Atualizações de preservação da memória: Suportadas
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Produção de armazenamento em cache máximo e temporário: IOPS/MBps (tamanho da cache em GiB) | Produção de disco não-abacatado por maxilar: IOPS/MBps | Largura de banda max NICs/Rede Esperada (Mbps) |
-|---|---|---|---|---|---|---|---|
-| Standard_D2ds_v4 | 2 | 8 | 75 | 4 | 19000/120(50) | 3000/48 | 2/1000 |
-| Standard_D4ds_v4 | 4 | 16 | 150 | 8 | 38500/242(100) | 6400/96 | 2/2000 |
-| Standard_D8ds_v4 | 8 | 32 | 300 | 16 | 77000/485(200) | 12800/192 | 4/4000 |
-| Standard_D16ds_v4 | 16 | 64 | 600 | 32 | 154000/968(400) | 25600/384 | 8/8000 |
-| Standard_D32ds_v4 | 32 | 128 | 1200 | 32 | 308000/1936(800) | 51200/768 | 8/16000 |
-| Standard_D48ds_v4 | 48 | 192 | 1800 | 32 | 462000/2904(1200) | 76800/1152 | 8/24000 |
-| Standard_D64ds_v4 | 64 | 256 | 2400 | 32 | 615000/3872(1600) | 80000/1200 | 8/30000 |
+| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Produção de armazenamento em cache máximo e temporário: IOPS/MBps (tamanho da cache em GiB) | Produção de disco não-abacatado por maxilar: IOPS/MBps | NICs máximos|Largura de banda esperada da rede (Mbps) |
+|---|---|---|---|---|---|---|---|---|
+| Standard_D2ds_v4 | 2 | 8 | 75 | 4 | 19000/120(50) | 3000/48 | 2|1000 |
+| Standard_D4ds_v4 | 4 | 16 | 150 | 8 | 38500/242(100) | 6400/96 | 2|2000 |
+| Standard_D8ds_v4 | 8 | 32 | 300 | 16 | 77000/485(200) | 12800/192 | 4|4000 |
+| Standard_D16ds_v4 | 16 | 64 | 600 | 32 | 154000/968(400) | 25600/384 | 8|8000 |
+| Standard_D32ds_v4 | 32 | 128 | 1200 | 32 | 308000/1936(800) | 51200/768 | 8|16000 |
+| Standard_D48ds_v4 | 48 | 192 | 1800 | 32 | 462000/2904(1200) | 76800/1152 | 8|24000 |
+| Standard_D64ds_v4 | 64 | 256 | 2400 | 32 | 615000/3872(1600) | 80000/1200 | 8|30000 |
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## <a name="other-sizes"></a>Outros tamanhos
+## <a name="other-sizes-and-information"></a>Outros tamanhos e informações
 
 - [Fins gerais](sizes-general.md)
 - [Com otimização de memória](sizes-memory.md)
 - [Com otimização de armazenamento](sizes-storage.md)
-- [Otimizada para GPU](sizes-gpu.md)
+- [Com otimização de GPU](sizes-gpu.md)
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Próximos passos
+Calculadora de preços: [Calculadora de Preços](https://azure.microsoft.com/pricing/calculator/)
+
+Mais informações sobre tipos de discos : [tipos de discos](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
+
+
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

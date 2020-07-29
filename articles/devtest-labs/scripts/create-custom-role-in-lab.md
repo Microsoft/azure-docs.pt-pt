@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: spelluru
-ms.openlocfilehash: a7822d6ea46b7efc21f43e944d0a96f609df389a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 242e2a2bf743777dd43a4c84194ebd894b5edd3c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84897412"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290411"
 ---
 # <a name="use-powershell-to-create-a-custom-role-in-a-lab-in-azure-devtest-labs"></a>Use o PowerShell para criar um papel personalizado num laboratório em Azure DevTest Labs
 
@@ -44,8 +44,8 @@ Este script utiliza os seguintes comandos:
 | [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) | Lista todas as funções Azure RBAC que estão disponíveis para atribuição. |
 | [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) | Cria um papel personalizado. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
+Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/).
 
 Amostras adicionais de scripts powerShell do Azure Lab Services podem ser encontradas nas [amostras powerShell dos Serviços do Laboratório Azure](../samples-powershell.md).

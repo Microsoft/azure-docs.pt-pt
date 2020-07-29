@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/23/2020
-ms.openlocfilehash: fbcec1ace45927561c56449cd8ca0c8d3306b3bd
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 8408025478e2776423b0d1f10cc70828e408f87e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986288"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290093"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autorizar o acesso à base de dados SQL, à SqL Managed Instance e ao Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -42,7 +42,7 @@ Quando um utilizador tenta ligar-se a uma base de dados, fornece uma conta de ut
 - [Autenticação SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).
 
   Com este método de autenticação, o utilizador submete um nome de conta de utilizador e senha associada para estabelecer uma ligação. Esta palavra-passe é armazenada na base de dados principal para contas de utilizador ligadas a um login ou armazenadas na base de dados que contém as contas de utilizador *não* ligadas a um login.
-- [Autenticação do Azure Active Directory](authentication-aad-overview.md)
+- [Autenticação do Diretório Ativo Azure](authentication-aad-overview.md)
 
   Com este método de autenticação, o utilizador submete um nome de conta de utilizador e solicita que o serviço utilize as informações credenciais armazenadas no Diretório Azure Ative (Azure AD).
 
@@ -110,7 +110,7 @@ Pode criar contas para utilizadores não administrativos utilizando um de dois m
   Crie um login SQL na base de dados principal. Em seguida, crie uma conta de utilizador em cada base de dados à qual esse utilizador precise de acesso e associe a conta de utilizador a esse login. Esta abordagem é preferida quando o utilizador tem de aceder a várias bases de dados e deseja manter as palavras-passe sincronizadas. No entanto, esta abordagem tem complexidades quando usada com geo-replicação, uma vez que o login deve ser criado tanto no servidor primário como nos servidores secundários. Para obter mais informações, consulte [a Configuração e gerencie a segurança da Base de Dados Azure SQL para geo-restauro ou falha.](active-geo-replication-security-configure.md)
 - **Criar uma conta de utilizador**
 
-  Crie uma conta de utilizador na base de dados à qual um utilizador precisa de acesso (também chamado de [utilizador contido](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
+  Criar uma conta de utilizador na base de dados à qual um utilizador precisa de acesso (também chamado de [utilizador contido).](/sql/relational-databases/security/contained-database-users-making-your-database-portable)
 
   - Com a BASE de Dados SQL, pode sempre criar este tipo de conta de utilizador.
   - Com a SQL Managed Instance a suportar [os principais servidores Azure AD,](authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)pode criar contas de utilizador para autenticar para a SQL Managed Instance sem exigir que os utilizadores da base de dados sejam criados como um utilizador de base de dados contido.
@@ -169,6 +169,6 @@ Deverá familiarizar-se com as seguintes funcionalidades que podem ser utilizada
 - A [Máscara de Dados](dynamic-data-masking-overview.md) pode ser utilizada para limitar a exposição de dados confidenciais.
 - Os [Procedimentos armazenados](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) podem ser utilizados para limitar as ações que podem ser realizadas na base de dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma visão geral de todas as funcionalidades de segurança da Azure SQL Database e sql Managed Instance, consulte [a visão geral de Segurança](security-overview.md).

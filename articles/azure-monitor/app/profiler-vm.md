@@ -6,21 +6,21 @@ author: cweining
 ms.author: cweining
 ms.date: 11/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8beb1d60ca8dcc18978ffeb523a7d63f90ca6c01
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f514dd7b54ac091535aeab43a8a7d2a645b50a09
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049803"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87315840"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Aplicativos web de perfil em execução em uma máquina virtual Azure ou uma escala de máquina virtual definida usando o Perfil de Insights de Aplicação
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Também pode implementar o Azure Application Insights Profiler nestes serviços:
-* [Serviço de Aplicações do Azure](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Serviço de Aplicações do Azure](./profiler.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 * [Cloud Services do Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Service Fabric](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Service Fabric](?toc=%2fazure%2fazure-monitor%2ftoc.json)
 
 ## <a name="deploy-profiler-on-a-virtual-machine-or-a-virtual-machine-scale-set"></a>Implementar profiler em uma máquina virtual ou um conjunto de escala de máquina virtual
 Este artigo mostra-lhe como obter o Profiler Application Insights a funcionar na sua máquina virtual Azure (VM) ou no conjunto de escala de máquina virtual Azure. O profiler é instalado com a extensão Azure Diagnostics para VMs. Configure a extensão para executar profiler e construa o Application Insights SDK na sua aplicação.
@@ -67,7 +67,7 @@ Este artigo mostra-lhe como obter o Profiler Application Insights a funcionar na
 
 1. Se a aplicação pretendida estiver a ser executada através do [IIS,](https://www.microsoft.com/web/downloads/platform.aspx)ative a `IIS Http Tracing` funcionalidade Windows.
 
-   a. Estabeleça o acesso remoto ao ambiente e, em seguida, utilize a janela [de funcionalidades Add Windows.]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) Ou executar o seguinte comando em PowerShell (como administrador):  
+   a. Estabeleça o acesso remoto ao ambiente e, em seguida, utilize a janela [de funcionalidades Add Windows.](/iis/configuration/system.webserver/tracing/) Ou executar o seguinte comando em PowerShell (como administrador):  
 
     ```powershell
     Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
@@ -117,3 +117,4 @@ Não temos nenhum plano para suportar o Profiler Application Insights para servi
 [resourceexplorerput]: ./media/profiler-vm/resource-explorer-put.png
 [resourceexplorersinksconfig]: ./media/profiler-vm/resource-explorer-sinks-config.png
 [wadextension]: ./media/profiler-vm/wad-extension.png
+

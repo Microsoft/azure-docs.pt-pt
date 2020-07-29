@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d53818c91d32bc7435d1328c2ae73a8eb3172cd4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: af70b1746b2ac847d964975aaf1b2186aa89be01
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029795"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292740"
 ---
 # <a name="use-customer-managed-keys-with-azure-key-vault-to-manage-azure-storage-encryption"></a>Utilize chaves geridas pelo cliente com cofre de chaves Azure para gerir a encriptação de armazenamento Azure
 
@@ -70,7 +70,7 @@ Para ativar as chaves geridas pelo cliente numa conta de armazenamento, tem de u
 
 A encriptação de armazenamento Azure suporta chaves RSA e RSA-HSM dos tamanhos 2048, 3072 e 4096. Para obter mais informações sobre as chaves, consulte **as chaves do Cofre chave** em chaves [Azure Key Vault, segredos e certificados](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
-A utilização do Cofre da Chave Azure tem custos associados. Para obter mais informações, consulte [os preços do Key Vault](/pricing/details/key-vault/).
+A utilização do Cofre da Chave Azure tem custos associados. Para obter mais informações, consulte [os preços do Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## <a name="rotate-customer-managed-keys"></a>Rode as teclas geridas pelo cliente
 

@@ -7,25 +7,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/19/2020
+ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: 8124afef1aa12dbf3ec51e10597cb1567fc85551
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2b3d4993406f150b2983d4d820f7d070b5de1e96
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80289771"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87375796"
 ---
-Use este quickstart para começar a procurar notícias com a biblioteca de clientes bing video search para Java. Enquanto o Bing Video Search tem uma API REST compatível com a maioria dos idiomas de programação, a biblioteca do cliente fornece uma forma fácil de integrar o serviço nas suas aplicações. O código fonte desta amostra pode ser encontrado no [GitHub,](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch)com anotações adicionais e funcionalidades.
+Use este quickstart para começar a procurar notícias com a biblioteca de clientes Bing Video Search para Java. Enquanto a Bing Video Search tem uma API REST compatível com a maioria das linguagens de programação, a biblioteca do cliente fornece uma maneira fácil de integrar o serviço nas suas aplicações. O código-fonte desta amostra pode ser encontrado no [GitHub,](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch)com anotações adicionais e características.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* O Kit de [Desenvolvimento de Java (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
+* O [Kit de Desenvolvimento de Java (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
 
 * A [Biblioteca de Gson](https://github.com/google/gson)
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](~/includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
-Instale as dependências da biblioteca de clientes bing Video Search utilizando Maven, Gradle ou outro sistema de gestão de dependência. O ficheiro POM do Maven necessita da seguinte declaração:
+Instale as dependências da biblioteca do cliente Bing Video Search utilizando Maven, Gradle ou outro sistema de gestão de dependência. O ficheiro POM do Maven necessita da seguinte declaração:
 
 ```xml
   <dependencies>
@@ -57,7 +58,7 @@ Crie um novo projeto Java no seu IDE ou editor favorito e importe as seguintes b
 
 ## <a name="create-a-search-client"></a>Criar um cliente de pesquisa
 
-1. Implementar `VideoSearchAPIImpl` o cliente, que requer o seu ponto final `ServiceClientCredentials` da API, e uma instância da classe.
+1. Implemente o `VideoSearchAPIImpl` cliente, que requer o seu ponto final da API, e uma instância da `ServiceClientCredentials` classe.
 
     ```java
     public static VideoSearchAPIImpl getClient(final String subscriptionKey) {
@@ -68,9 +69,9 @@ Crie um novo projeto Java no seu IDE ou editor favorito e importe as seguintes b
     )};
     ```
 
-    Para `ServiceClientCredentials`implementar, siga estes passos:
+    Para `ServiceClientCredentials` implementar, siga estes passos:
 
-    1. anular a `applyCredentialsFilter()` função, `OkHttpClient.Builder` com um objeto como parâmetro. 
+    1. sobrepor a `applyCredentialsFilter()` função, com um `OkHttpClient.Builder` objeto como parâmetro. 
         
         ```java
         //...
@@ -82,7 +83,7 @@ Crie um novo projeto Java no seu IDE ou editor favorito e importe as seguintes b
         //...
         ```
     
-    2. Dentro, `applyCredentialsFilter()` `builder.addNetworkInterceptor()`chamada. Crie `Interceptor` um novo objeto `intercept()` e anule `Chain` o seu método para pegar num objeto intercetor.
+    2. `applyCredentialsFilter()`Dentro, `builder.addNetworkInterceptor()` ligue. Crie um novo `Interceptor` objeto e substitua o seu `intercept()` método para pegar um objeto `Chain` intercetor.
 
         ```java
         //...
@@ -96,7 +97,7 @@ Crie um novo projeto Java no seu IDE ou editor favorito e importe as seguintes b
         ///...
         ```
 
-    3. Dentro `intercept` da função, crie variáveis para o seu pedido. Use `Request.Builder()` para construir o seu pedido. Adicione a sua `Ocp-Apim-Subscription-Key` chave de `chain.proceed()` subscrição ao cabeçalho e devolva o objeto de pedido.
+    3. Dentro da `intercept` função, crie variáveis para o seu pedido. Use `Request.Builder()` para construir o seu pedido. Adicione a chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho e `chain.proceed()` devolva no objeto pedido.
             
         ```java
         //...
@@ -113,7 +114,7 @@ Crie um novo projeto Java no seu IDE ou editor favorito e importe as seguintes b
 
 ## <a name="send-a-search-request-and-receive-the-response"></a>Envie um pedido de pesquisa e receba a resposta 
 
-1. Crie uma `VideoSearch()` função chamada que leve a sua chave de subscrição como uma corda. Instantiate o cliente de pesquisa criado mais cedo.
+1. Crie uma função chamada `VideoSearch()` que leva a sua chave de subscrição como uma corda. Instantiizar o cliente de pesquisa criado anteriormente.
     
     ```java
     public static void VideoSearch(String subscriptionKey){
@@ -121,7 +122,7 @@ Crie um novo projeto Java no seu IDE ou editor favorito e importe as seguintes b
         //...
     }
     ```
-2. Dentro `VideoSearch()`, Envie um pedido de `SwiftKey` pesquisa de vídeo utilizando o cliente, com o termo de pesquisa. Se a API de pesquisa de vídeo devolver um resultado, obtenha o primeiro resultado e imprima o seu id, nome e URL, juntamente com o número total de vídeos devolvidos. 
+2. Dentro `VideoSearch()` , Envie um pedido de pesquisa de vídeo usando o cliente, com o termo de `SwiftKey` pesquisa. Se a API de Pesquisa de Vídeo devolveu um resultado, obtenha o primeiro resultado e imprima o seu id, nome e URL, juntamente com o número total de vídeos devolvidos. 
     
     ```java
     VideosInner videoResults = client.searchs().list("SwiftKey");
@@ -144,7 +145,7 @@ Crie um novo projeto Java no seu IDE ou editor favorito e importe as seguintes b
     }
     ```
 
-3. Ligue para o método de pesquisa do seu método principal.
+3. Ligue para o método de pesquisa a partir do seu método principal.
 
     ```java
     public static void main(String[] args) {
@@ -155,9 +156,9 @@ Crie um novo projeto Java no seu IDE ou editor favorito e importe as seguintes b
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma única página web app](../../tutorial-bing-video-search-single-page-app.md)
+> [Criar uma aplicação web de uma página única](../../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Veja também 
 
 * [O que é a API de Pesquisa de Vídeos do Bing?](../../overview.md)
-* [Serviços cognitivos .NET Amostras SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+* [Serviços cognitivos .NET SDK amostras](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

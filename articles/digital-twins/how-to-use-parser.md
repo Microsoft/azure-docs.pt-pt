@@ -7,41 +7,24 @@ ms.author: cschorm
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5a6f05835362dbcde36b1ab9cc3782b172b43f7c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5245e3740773c2be7973b26a4785982e0daa56c9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079149"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291637"
 ---
-# <a name="dtdl-client-side-parser-library"></a>Biblioteca de parser do lado do cliente DTDL
+# <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>Parse e valide modelos com a biblioteca de parser DTDL
 
-[Os modelos](concepts-models.md) em Azure Digital Twins são definidos usando a linguagem de definição de gémeos digitais baseada em JSON-LD (DTDL). Para os casos em que é útil analisar os seus modelos, uma biblioteca de análise DTDL é fornecida em NuGet.org como uma biblioteca do lado do cliente: [Microsoft.Azure.DigitalTwins.Parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/).
+[Os modelos](concepts-models.md) em Azure Digital Twins são definidos usando a linguagem de definição de gémeos digitais baseada em JSON-LD (DTDL). **É aconselhável validar os seus modelos offline antes de os enviar para a sua instância Azure Digital Twins.**
 
-Esta biblioteca proporciona acesso de modelo às definições de DTDL, atuando essencialmente como o equivalente à reflexão C# para dTDL. Esta biblioteca pode ser utilizada independentemente de qualquer [SDK Azure Digital Twins](how-to-use-apis-sdks.md), especialmente para validação DTDL num editor visual ou de texto. É útil para garantir que os ficheiros de definição do seu modelo são válidos antes de tentar enviá-los para o serviço.
-
-Para utilizar a biblioteca de parser, fornece-lhe um conjunto de documentos DTDL. Normalmente, você recuperaria estes documentos de modelo do serviço, mas também poderia tê-los disponíveis localmente, se o seu cliente fosse responsável pelo upload do serviço em primeiro lugar. 
-
-Aqui está o fluxo de trabalho geral para a utilização do parser:
-1. Recupere alguns ou todos os documentos DTDL do serviço.
-2. Passe os documentos DTDL devolvidos e na memória para o analisador.
-3. O parser validará o conjunto de documentos que lhe foram transmitidos e devolverá informações detalhadas sobre erros. Esta capacidade é útil em cenários de editores.
-4. Utilize as APIs do parser para continuar a analisar os modelos incluídos no conjunto de documentos. 
-
-As capacidades do parser incluem:
-* Obtenha todas as interfaces de modelo implementadas (o conteúdo da secção da `extends` interface).
-* Obtenha todas as propriedades, telemetria, comandos, componentes e relacionamentos declarados no modelo. Este comando também recebe todos os metadados incluídos nestas definições, e tem em conta a herança `extends` (secções).
-* Obtenha todas as definições de modelos complexas.
-* Determine se um modelo é atribuível a partir de outro modelo.
-
-> [!NOTE]
-> Os dispositivos [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) utilizam uma pequena variante de sintaxe para descrever a sua funcionalidade. Esta variante de sintaxe é um subconjunto semânticamente compatível do DTDL que é usado em Azure Digital Twins. Ao utilizar a biblioteca parser, não precisa de saber qual variante de sintaxe foi usada para criar o DTDL para o seu gémeo digital. O parser irá sempre, por defeito, devolver o mesmo modelo para a sintaxe PnP e Azure Digital Twins.
+Para o ajudar a fazê-lo, uma biblioteca de análise DTDL do lado do cliente .NET é fornecida no NuGet: [**Microsoft.Azure.DigitalTwins.Parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). Pode utilizar a biblioteca parser diretamente no seu código C# ou utilizar o projeto de amostra de código agnóstico linguístico que é construído na biblioteca de parser: [**amostra de validador DTDL**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
 
 ## <a name="use-the-dtdl-validator-sample"></a>Utilize a amostra de validador DTDL
 
-Existe um código de amostra disponível que pode validar documentos de modelo para garantir que o DTDL é válido. É construído na biblioteca de parser DTDL e é agnóstico linguístico. Encontre-o aqui: [Amostra de Validador DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
+O [**DTDL Validator**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) é um projeto de amostra que pode validar documentos de modelo para garantir que o DTDL é válido. É construído na biblioteca .NET parser e é linguagem-agnóstico. Pode obtê-lo com o botão *Download ZIP* no link da amostra.
 
-A amostra validador pode ser usada como um utilitário de linha de comando para validar uma árvore de diretório de ficheiros DTDL. Também fornece um modo interativo. O código de origem mostra exemplos de como utilizar a biblioteca de parser.
+O código de origem mostra exemplos de como utilizar a biblioteca de parser. Pode utilizar a amostra validador como utilitário de linha de comando para validar uma árvore de diretório de ficheiros DTDL. Também fornece um modo interativo.
 
 Na pasta para a amostra DTDL Validador, consulte o ficheiro *readme.md* para obter instruções sobre como embalar a amostra numa execução autossuficiente.
 
@@ -65,9 +48,30 @@ DTDLValidator -i
 
 Para obter mais informações sobre esta amostra, consulte o código de origem ou corra `DTDLValidator --help` .
 
-## <a name="use-the-parser-library-in-code"></a>Use a biblioteca parser em código
+## <a name="use-the-net-parser-library"></a>Utilize a biblioteca .NET parser 
 
-Também pode utilizar a biblioteca parser diretamente, para coisas como validar modelos na sua própria aplicação ou para gerar UI dinâmicos, orientados por modelos, dashboards e relatórios.
+A biblioteca [**Microsoft.Azure.DigitalTwins.Parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) proporciona acesso de modelo às definições de DTDL, atuando essencialmente como o equivalente à reflexão C# para dTDL. Esta biblioteca pode ser utilizada independentemente de qualquer [SDK Azure Digital Twins](how-to-use-apis-sdks.md), especialmente para validação DTDL num editor visual ou de texto. É útil para garantir que os ficheiros de definição do seu modelo são válidos antes de tentar enviá-los para o serviço.
+
+Para utilizar a biblioteca de parser, fornece-lhe um conjunto de documentos DTDL. Normalmente, você recuperaria estes documentos de modelo do serviço, mas também poderia tê-los disponíveis localmente, se o seu cliente fosse responsável pelo upload do serviço em primeiro lugar. 
+
+Aqui está o fluxo de trabalho geral para a utilização do parser:
+1. Recupere alguns ou todos os documentos DTDL do serviço.
+2. Passe os documentos DTDL devolvidos e na memória para o analisador.
+3. O parser validará o conjunto de documentos que lhe foram transmitidos e devolverá informações detalhadas sobre erros. Esta capacidade é útil em cenários de editores.
+4. Utilize as APIs do parser para continuar a analisar os modelos incluídos no conjunto de documentos. 
+
+As capacidades do parser incluem:
+* Obtenha todas as interfaces de modelo implementadas (o conteúdo da secção da `extends` interface).
+* Obtenha todas as propriedades, telemetria, comandos, componentes e relacionamentos declarados no modelo. Este comando também recebe todos os metadados incluídos nestas definições, e tem em conta a herança `extends` (secções).
+* Obtenha todas as definições de modelos complexas.
+* Determine se um modelo é atribuível a partir de outro modelo.
+
+> [!NOTE]
+> Os dispositivos [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) utilizam uma pequena variante de sintaxe para descrever a sua funcionalidade. Esta variante de sintaxe é um subconjunto semânticamente compatível do DTDL que é usado em Azure Digital Twins. Ao utilizar a biblioteca parser, não precisa de saber qual variante de sintaxe foi usada para criar o DTDL para o seu gémeo digital. O parser irá sempre, por defeito, devolver o mesmo modelo para a sintaxe PnP e Azure Digital Twins.
+
+### <a name="code-with-the-parser-library"></a>Código com a biblioteca parser
+
+Pode utilizar a biblioteca parser diretamente, para coisas como validar modelos na sua própria aplicação ou para gerar UI dinâmicos, orientados por modelos, dashboards e relatórios.
 
 Para suportar o exemplo de código parser abaixo, considere vários modelos definidos numa instância Azure Digital Twins:
 

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0efff05f84bf02908dfc8b966b80539d309f491d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f91e68ec2bd4b0b5400ee3e8e380d91ea6f31f36
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87059129"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291324"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Resolução de problemas do cliente de ambiente de trabalho remoto
 
@@ -64,7 +64,7 @@ Se o seu navegador começar a agir ou deixar de funcionar enquanto estiver a uti
 
 Primeiro, verifique a conta Azure Ative Directory que está a usar. Se já assinou com uma conta de Diretório Azure Ative diferente da que pretende utilizar para o Windows Virtual Desktop, deve assinar a nossa ou utilizar uma janela de navegador privada.
 
-Se estiver a utilizar a versão Virtual Desktop Fall 2019 do Windows, utilize o link do cliente web [neste artigo](./virtual-desktop-fall-2019/connect-web-2019.md) para se ligar aos seus recursos.
+Se estiver a utilizar o Windows Virtual Desktop (clássico), utilize o link do cliente web [neste artigo](./virtual-desktop-fall-2019/connect-web-2019.md) para se ligar aos seus recursos.
 
 ## <a name="web-client-stops-responding-or-disconnects"></a>Cliente web deixa de responder ou desconecta
 

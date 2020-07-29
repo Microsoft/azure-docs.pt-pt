@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 04a25b6b0b243744cc81c8b71a1f03e7c7375a68
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4ad0cdedfa28e5b46f77d5e87f5bd48e25f11cc4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87102913"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292389"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Compreender os Reinícios da VM - manutenção vs. período de indisponibilidade
 Existem três cenários que podem levar a que a máquina virtual em Azure seja afetada: manutenção de hardware não planeada, tempo de paragem inesperado e manutenção planeada.
@@ -32,7 +32,7 @@ Para reduzir o impacto do período de indisponibilidade devido a um ou mais dest
 
 * [Configurar várias máquinas virtuais num conjunto de disponibilidade para redundância]
 * [Utilizar discos geridos para VMs num conjunto de disponibilidade]
-* [Use eventos programados para responder proativamente aos eventos com impacto em VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
+* [Use eventos programados para responder proativamente aos eventos com impacto em VM](../articles/virtual-machines/linux/scheduled-events.md)
 * [Configure cada nível de aplicação em conjuntos de disponibilidade separados]
 * [Combinar um Balanceador de Carga com conjuntos de disponibilidade]
 * [Utilize zonas de disponibilidade para proteger contra falhas no nível do datacenter]
@@ -95,7 +95,7 @@ Se planeia utilizar VMs com discos não geridos, siga abaixo as melhores prátic
 
 ## <a name="use-scheduled-events-to-proactively-respond-to-vm-impacting-events"></a>Use eventos programados para responder proativamente aos eventos com impacto em VM
 
-Quando subscreve [eventos agendados,](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)o seu VM é notificado sobre os próximos eventos de manutenção que podem ter impacto no seu VM. Quando os eventos programados estiverem ativados, a sua máquina virtual recebe um mínimo de tempo antes da atividade de manutenção ser executada. Por exemplo, as atualizações do Host OS que podem ter impacto no seu VM são feitas em fila como eventos que especificam o impacto, bem como um momento em que a manutenção será realizada se não forem tomadas medidas. Os eventos de agenda também são feitos quando o Azure deteta uma falha de hardware iminente que pode afetar o seu VM, o que lhe permite decidir quando a cura deve ser realizada. Os clientes podem usar o evento para executar tarefas antes da manutenção, como o estado de poupança, falhando no secundário, e assim por diante. Depois de completar a sua lógica para lidar graciosamente com o evento de manutenção, pode aprovar o evento agendado pendente para permitir que a plataforma prossiga com a manutenção.
+Quando subscreve [eventos agendados,](../articles/virtual-machines/linux/scheduled-events.md)o seu VM é notificado sobre os próximos eventos de manutenção que podem ter impacto no seu VM. Quando os eventos programados estiverem ativados, a sua máquina virtual recebe um mínimo de tempo antes da atividade de manutenção ser executada. Por exemplo, as atualizações do Host OS que podem ter impacto no seu VM são feitas em fila como eventos que especificam o impacto, bem como um momento em que a manutenção será realizada se não forem tomadas medidas. Os eventos de agenda também são feitos quando o Azure deteta uma falha de hardware iminente que pode afetar o seu VM, o que lhe permite decidir quando a cura deve ser realizada. Os clientes podem usar o evento para executar tarefas antes da manutenção, como o estado de poupança, falhando no secundário, e assim por diante. Depois de completar a sua lógica para lidar graciosamente com o evento de manutenção, pode aprovar o evento agendado pendente para permitir que a plataforma prossiga com a manutenção.
 
 
 ## <a name="combine-a-load-balancer-with-availability-zones-or-sets"></a>Combine um equilibrador de carga com zonas de disponibilidade ou conjuntos

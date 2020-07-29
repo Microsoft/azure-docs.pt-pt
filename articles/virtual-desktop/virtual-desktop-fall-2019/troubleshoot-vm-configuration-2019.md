@@ -1,6 +1,6 @@
 ---
-title: Resolução de problemas Windows Virtual Desktop host Fall 2019 - Azure
-description: Como resolver problemas quando está a configurar a sessão virtual do Windows Desktop acolhe máquinas virtuais.
+title: Resolução de problemas Windows Virtual Desktop (clássico) anfitrião da sessão - Azure
+description: Como resolver problemas quando está a configurar o Windows Virtual Desktop (clássico) hospeda máquinas virtuais.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b2f4a288ab83ca9f20434c55a180c2d9b30be5d4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0155c9cf6b5d9df8a6a8831896093c4c6b074cd6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527664"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291260"
 ---
-# <a name="troubleshoot-session-host-virtual-machine-configuration"></a>Sessão de resolução de problemas host configuração de máquina virtual
+# <a name="windows-virtual-desktop-classic-session-host-virtual-machine-configuration"></a>Windows Virtual Desktop (clássico) sessão anfitrião configuração de máquina virtual
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../troubleshoot-vm-configuration.md).
+>Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows. Se estiver a tentar gerir os objetos de ambiente de trabalho virtuais do Azure Resource Manager Windows, consulte [este artigo](../troubleshoot-vm-configuration.md).
 
 Utilize este artigo para resolver problemas que está a ter ao configurar as máquinas virtuais de sessão de desktop virtual do Windows (VMs).
 
@@ -351,7 +351,7 @@ Se os seus utilizadores virem um erro que diga: "Não conseguimos ligar-nos ao P
 
 Para saber mais sobre esta política, consulte [Iniciar sessão através de Serviços de Ambiente de Trabalho Remoto](/windows/security/threat-protection/security-policy-settings/allow-log-on-through-remote-desktop-services).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma visão geral sobre a resolução de problemas do Windows Virtual Desktop e as faixas de escalada, consulte [a visão geral da resolução de problemas, o feedback e o suporte](troubleshoot-set-up-overview-2019.md).
 - Para resolver problemas enquanto cria um inquilino e piscina de hospedagem em um ambiente de desktop virtual windows, consulte [o Inquilino e a criação de piscina de anfitrião.](troubleshoot-set-up-issues-2019.md)

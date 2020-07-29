@@ -7,12 +7,12 @@ ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 108a7940084e99348dc8fdfa0143d5c6855599df
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 554079ddec3332ced2817d18ea55ce1260d68817
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099211"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291621"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Cargas de telemetria, propriedade e comando
 
@@ -30,6 +30,9 @@ O artigo não descreve todos os tipos possíveis de telemetria, propriedade e ca
 
 Cada exemplo mostra um corte do modelo de capacidade do dispositivo (DCM) que define o tipo e exemplo de cargas JSON para ilustrar como o dispositivo deve interagir com a aplicação IoT Central.
 
+> [!NOTE]
+> A IoT Central aceita qualquer JSON válido, mas só pode ser usado para visualizações se corresponder a uma definição no DCM. Pode exportar dados que não correspondam a uma definição, consulte [os dados do Export IoT para destinos em Azure.](howto-export-data.md)
+
 O ficheiro JSON que define o DCM utiliza a [Linguagem de Definição Digital Twin (DTDL) V1](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v1-preview/dtdlv1.md). Esta especificação inclui a definição do `@id` formato de propriedade.
 
 Para o código do dispositivo de amostra que mostra algumas destas cargas em uso, consulte a [Create e ligue uma aplicação do cliente à sua aplicação Azure IoT Central (Node.js)](tutorial-connect-device-nodejs.md) e Crie e [conecte uma aplicação do cliente aos tutoriais da aplicação Azure IoT Central (Python).](tutorial-connect-device-python.md)
@@ -43,9 +46,8 @@ A IoT Central permite-lhe visualizar os dados brutos que um dispositivo envia pa
 1. Selecione o **separador de dados Raw:**
 
     :::image type="content" source="media/concepts-telemetry-properties-commands/raw-data.png" alt-text="Vista de dados brutos":::
-    
-    Nesta vista, pode selecionar as colunas para visualizar e definir um intervalo de tempo para visualizar. A coluna **de dados não modelo** mostra dados do dispositivo que não correspondem a nenhuma definição de propriedade ou telemetria no modelo do dispositivo.
 
+    Nesta vista, pode selecionar as colunas para visualizar e definir um intervalo de tempo para visualizar. A coluna **de dados não modelo** mostra dados do dispositivo que não correspondem a nenhuma definição de propriedade ou telemetria no modelo do dispositivo.
 
 ## <a name="telemetry"></a>Telemetria
 

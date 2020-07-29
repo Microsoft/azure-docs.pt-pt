@@ -13,18 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/14/2019
 ms.author: kumud
-ms.openlocfilehash: 67bc7994d2628790e84d3b3752f894a36486ca86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c224332eec31b343bdc53564ef4075a0620ac340
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707519"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289568"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-standard-internal-load-balancer-in-azure---powershell-preview"></a>Implementar uma aplicação de pilha dupla IPv6 utilizando o Balancer de Carga Interna Padrão em Azure - PowerShell (Pré-visualização)
 
 Este artigo mostra-lhe como implementar uma aplicação dual stack (IPv4 + IPv6) em Azure que inclui uma rede virtual de dupla pilha e sub-rede, um Balanceador de Carga Interna Padrão com configurações frontais duplas (IPv4 + IPv6), VMs com NICs que têm uma configuração IP dupla, grupo de segurança de rede e IPs públicos.
-
-> [!Important]
-> O suporte do IPv6 para a Rede Virtual Azure encontra-se atualmente em pré-visualização pública. Esta pré-visualização é disponibilizada sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
 
 O procedimento para criar um Balanceador de Carga Interno com capacidade IPv6 é quase idêntico ao processo de criação de um Balançador de Carga IPv6 virado para a Internet descrito [aqui](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md). As únicas diferenças para a criação de um equilibrador de carga interno estão na configuração frontal, conforme ilustrado no exemplo PowerShell abaixo:
 
@@ -338,7 +336,7 @@ Pode ver a rede virtual de pilha dupla IPv6 no portal Azure da seguinte forma:
 > [!NOTE]
 > A rede virtual IPv6 para Azure está disponível no portal Azure apenas para este lançamento de pré-visualização.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, VM e todos os recursos relacionados.
 
@@ -346,6 +344,6 @@ Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup]
 Remove-AzResourceGroup -Name dsStd_ILB_RG
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, criou um Balanceador de Carga Standard com uma configuração IP de dois frontend (IPv4 e IPv6). Também criou duas máquinas virtuais que incluíam NICs com configurações IP duplas (IPV4 + IPv6) que foram adicionadas ao pool back-end do equilibrista de carga. Para saber mais sobre o suporte do IPv6 nas redes virtuais Azure, veja [o que é o IPv6 para a Rede Virtual Azure?](ipv6-overview.md)

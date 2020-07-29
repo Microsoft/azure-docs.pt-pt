@@ -7,15 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/12/2020
+ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: 76a752bc108158c998d13a548da535d5fb1d5ee2
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2edf5634b56fdfa6e1ed7dad9ee443ca588db583
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79503875"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87375750"
 ---
-Use este quickstart para começar a procurar notícias com a biblioteca de clientes bing news search para Java. Embora a Bing News Search tenha uma API REST compatível com a maioria dos idiomas de programação, a biblioteca do cliente fornece uma forma fácil de integrar o serviço nas suas aplicações. O código fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch).
+Use este quickstart para começar a procurar notícias com a biblioteca de clientes Bing News Search para Java. Embora a Bing News Search tenha uma API REST compatível com a maioria das linguagens de programação, a biblioteca do cliente proporciona uma forma fácil de integrar o serviço nas suas aplicações. O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,7 +53,7 @@ import java.io.IOException;
 
 ## <a name="create-a-search-client-and-store-credentials"></a>Criar um cliente de pesquisa e armazenar credenciais
 
-1. Crie um `getClient()` método chamado `NewsSearchAPIImpl` que retorne um novo cliente de pesquisa. Adicione o seu ponto final como`NewsSearchAPIImpl` o primeiro parâmetro `ServiceClientCredentials` para o novo objeto e um novo objeto para armazenar as suas credenciais. 
+1. Crie um método chamado `getClient()` que devolve um novo cliente de `NewsSearchAPIImpl` pesquisa. Adicione o seu ponto final como o primeiro parâmetro para o novo `NewsSearchAPIImpl` objeto, e um novo `ServiceClientCredentials` objeto para armazenar as suas credenciais. 
 
     ```java
     public static NewsSearchAPIImpl getClient(final String subscriptionKey) {
@@ -62,7 +63,7 @@ import java.io.IOException;
     }
     ```
 
-2. Para criar `ServiceClientCredentials` o objeto, `applyCredentialsFilter()` sobreponha a função. Passe `OkHttpClient.Builder` um ao método e use `addNetworkInterceptor()` o método do construtor para criar as suas credenciais para a chamada da biblioteca do cliente.
+2. Para criar o `ServiceClientCredentials` objeto, substitua a `applyCredentialsFilter()` função. Passe um `OkHttpClient.Builder` para o método, e use o método do construtor `addNetworkInterceptor()` para criar as suas credenciais para a chamada da biblioteca do cliente.
 
     ```java
     new ServiceClientCredentials() {
@@ -87,7 +88,7 @@ import java.io.IOException;
 
 ## <a name="send-and-receive-a-search-request"></a>Enviar e receber um pedido de pesquisa
 
-1. Crie um `getClient()` método que ligue e envie um pedido de pesquisa para o serviço de Pesquisa de Notícias Bing. Filtre a pesquisa com o *mercado* e *conte* os parâmetros, em seguida, imprima informações sobre o resultado da primeira notícia: nome, URL, data de publicação, descrição, nome do fornecedor e número total de correspondências estimadas para a sua pesquisa.
+1. Crie um método que ligue `getClient()` e envie um pedido de pesquisa para o serviço de Pesquisa de Notícias Bing. Filtrar a pesquisa com o *mercado* e *contar* parâmetros, em seguida, imprimir informações sobre o resultado das primeiras notícias: nome, URL, data de publicação, descrição, nome do fornecedor e número total de correspondências estimadas para a sua pesquisa.
 
     ```java
     public static void newsSearch(String subscriptionKey)
@@ -121,7 +122,7 @@ import java.io.IOException;
     
     ```
 
-2. Adicione o seu `main()` método de pesquisa a um método para executar o código.
+2. Adicione o seu método de pesquisa a um `main()` método para executar o código.
 
     ```java 
     public static void main(String[] args) {

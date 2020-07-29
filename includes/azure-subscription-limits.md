@@ -1,7 +1,19 @@
 ---
- título: incluir descrição do ficheiro: inclua autor de ficheiros: rothja ms.service: azure-resource-manager ms.topic: include ms.date: 05/18/2018 ms.author: jroth ms.custom: include file
+title: incluir ficheiro
+description: incluir ficheiro
+author: rothja
+ms.service: azure-resource-manager
+ms.topic: include
+ms.date: 05/18/2018
+ms.author: jroth
+ms.custom: include file
+ms.openlocfilehash: db822722b12921ab98b3e5cae67e28f4ca7ede04
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87298704"
 ---
-
 | Recurso | Limite predefinido | Limite máximo |
 | --- | --- | --- |
 | vCPUs por [subscrição](../articles/billing-buy-sign-up-azure-subscription.md)<sup>1</sup> |20 |10,000 |

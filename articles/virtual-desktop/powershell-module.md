@@ -8,20 +8,17 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 67276f7dedccc20fb768e717c237d04aa4b4a1cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d5193cbaf759e513eb8d6e88e70abc74a2dd30d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212756"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291403"
 ---
 # <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Configurar o módulo PowerShell para o Windows Virtual Desktop
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à atualização primavera 2020 com objetos de desktop virtual do Windows Manager do Azure.
->
-> A atualização Virtual Desktop Spring 2020 do Windows está atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos a sua utilização para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Este conteúdo aplica-se ao Windows Virtual Desktop com integração do Azure Resource Manager.
 
 O módulo Virtual Desktop PowerShell do Windows está integrado no módulo Azure PowerShell. Este artigo dir-lhe-á como configurar o módulo PowerShell para que possa executar cmdlets para o Windows Virtual Desktop.
 
@@ -132,7 +129,7 @@ Assim que souber a localização da sua conta, pode usá-la num cmdlet. Por exem
 New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -WorkspaceName <workspacename> -Location “southeastasia”
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que configuraste o teu módulo PowerShell, podes executar cmdlets para fazer todo o tipo de coisas no Windows Virtual Desktop. Aqui estão alguns dos locais onde pode utilizar o seu módulo:
 

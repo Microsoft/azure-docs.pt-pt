@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 76edc88f127d7e52514ab72539f7212ac982b5e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f8e20f97ae19a33674631e4dee18901d54462b3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204478"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291519"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurar a anexação da aplicação MSIX
 
@@ -29,7 +29,7 @@ Este tópico irá acompanhá-lo como configurar a aplicação MSIX anexar num am
 Antes de começar, eis o que precisa para configurar o anexo da app MSIX:
 
 - Acesso ao portal Insider do Windows Para obter a versão do Windows 10 com suporte para a aplicação MSIX anexar APIs.
-- Uma implementação de ambiente de trabalho virtual do Windows em funcionamento. Para aprender a implementar a versão Virtual Desktop Fall 2019 do Windows, consulte [Criar um inquilino no Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Para aprender a implementar o lançamento virtual do Windows Desktop Spring 2020, consulte [Criar uma piscina de anfitriões com o portal Azure](./create-host-pools-azure-marketplace.md).
+- Uma implementação de ambiente de trabalho virtual do Windows em funcionamento. Para aprender a implementar o Windows Virtual Desktop (clássico), consulte [Criar um inquilino no Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Para aprender a implementar o Windows Virtual Desktop com integração do Azure Resource Manager, consulte [Criar uma piscina de anfitriões com o portal Azure](./create-host-pools-azure-marketplace.md).
 - A ferramenta de embalagem MSIX.
 - Uma partilha de rede na sua implementação virtual do Windows Desktop onde o pacote MSIX será armazenado.
 
@@ -476,7 +476,7 @@ catch [Exception]
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Esta funcionalidade não é suportada atualmente, mas pode fazer perguntas à comunidade no [Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 

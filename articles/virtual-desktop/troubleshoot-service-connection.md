@@ -1,5 +1,5 @@
 ---
-title: Conexão de serviço de resolução de problemas Windows Virtual Desktop Spring 2020 - Azure
+title: Conexão de serviço de resolução de problemas Windows Virtual Desktop - Azure
 description: Como resolver problemas quando configura as ligações com o cliente num ambiente de inquilino virtual do Windows Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -8,20 +8,17 @@ ms.topic: troubleshooting
 ms.date: 06/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9aced0e420826cd73526a54da728c20d8d8e0142
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 875f39653c5240e3a1b571b531eb2bb08c4811d0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020428"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289848"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Conexões de serviço de desktop virtual do Windows
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à atualização primavera 2020 com objetos de desktop virtual do Windows Manager do Azure. Se estiver a utilizar o desbloqueio virtual do Windows Desktop Fall 2019 sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/troubleshoot-service-connection-2019.md).
->
-> A atualização Virtual Desktop Spring 2020 do Windows está atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos a sua utilização para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Este conteúdo aplica-se ao Windows Virtual Desktop com objetos de ambiente de trabalho virtuais do Windows, gestor de recursos do Azure. Se estiver a utilizar o Windows Virtual Desktop (clássico) sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/troubleshoot-service-connection-2019.md).
 
 Utilize este artigo para resolver problemas com as ligações do cliente virtual do Windows Desktop.
 

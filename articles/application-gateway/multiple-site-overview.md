@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 07/20/2020
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: b3e6bc6d2dd5568dcc11a37c6ab44bd3b4089c66
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 23f76f18256ecadcbef59a498292222ea358008f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067962"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290978"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Alojamento de vários sites do Gateway de Aplicação
 
@@ -40,12 +40,8 @@ Utilizando um personagem wildcard no nome do anfitrião, pode combinar vários n
 >[!NOTE]
 > Esta funcionalidade está em pré-visualização e está disponível apenas para Standard_v2 e WAF_v2 SKU de Application Gateway. Para saber mais sobre pré-visualizações, consulte [os termos de utilização aqui.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-No [portal Azure,](create-multiple-sites-portal.md)pode defini-las em caixas de texto separadas, como mostrado na imagem abaixo.
-
-:::image type="content" source="./media/multiple-site-overview/wildcard-listener-example.png" alt-text="Configuração de exemplo do ouvinte wildcard":::
-
 >[!NOTE]
->Se estiver a criar um novo ouvinte multi-site ou a adicionar mais de um nome de anfitrião ao seu ouvinte multi-site existente a partir do portal Azure, será adicionado, por predefinição, ao `HostNames` parâmetro da configuração do ouvinte, o que adiciona mais capacidade ao parâmetro existente `HostName` na configuração.
+>Esta funcionalidade está atualmente disponível apenas através do [Azure PowerShell](tutorial-multiple-sites-powershell.md) e [do Azure CLI.](tutorial-multiple-sites-cli.md) O apoio ao portal está para breve.
 
 Em [Azure PowerShell,](tutorial-multiple-sites-powershell.md)deve utilizar `-HostNames` em vez de `-HostName` . Com hostNames, pode mencionar até 5 nomes de anfitriões como valores separados por vírgula e usar caracteres wildcard. Por exemplo, `-HostNames "*.contoso.com,*.fabrikam.com"`
 
@@ -77,7 +73,7 @@ Em [Azure CLI,](tutorial-multiple-sites-cli.md)deve utilizar `--host-names` em v
 *   As propriedades "hostname" têm uma corda como entrada, onde pode mencionar apenas um nome de domínio não wildcard e "hostnames" leva uma variedade de cordas como entrada, onde você pode mencionar até 5 nomes de domínio wildcard. Mas ambas as propriedades não podem ser usadas ao mesmo tempo.
 *   Não é possível criar uma regra [de redirecionamento](redirect-overview.md) com um ouvinte-alvo que usa nomes de wildcard ou vários anfitriões.
 
-Consulte [criar vários sites utilizando o portal Azure](create-multiple-sites-portal.md) ou [utilizando o Azure PowerShell](tutorial-multiple-sites-powershell.md) ou utilizando o [Azure CLI](tutorial-multiple-sites-cli.md) para o guia passo a passo sobre como configurar os nomes dos anfitriões wildcard num ouvinte multi-site.
+Consulte [criar vários sites utilizando o Azure PowerShell](tutorial-multiple-sites-powershell.md) ou utilizando o [Azure CLI](tutorial-multiple-sites-cli.md) para o guia passo a passo sobre como configurar os nomes dos anfitriões wildcard num ouvinte multi-site.
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>Cabeçalhos de anfitrião e Indicação do Nome de Servidor (SNI)
 
@@ -95,6 +91,9 @@ O Gateway de Aplicação conta com os cabeçalhos de anfitrião HTTP 1.1 para al
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de aprender sobre o alojamento de vários sites, vá [criar vários sites usando o portal Azure](create-multiple-sites-portal.md) ou [usando a Azure PowerShell](tutorial-multiple-sites-powershell.md) ou [usando o Azure CLI](tutorial-multiple-sites-cli.md) para o guia passo a passo sobre a criação de um Gateway de Aplicação para hospedar vários websites.
+Saiba como configurar vários locais hospedados em Application Gateway
+* [Com o Portal do Azure](create-multiple-sites-portal.md)
+* [Utilizar o Azure PowerShell](tutorial-multiple-sites-powershell.md) 
+* [Utilizar a CLI do Azure](tutorial-multiple-sites-cli.md)
 
 Pode visitar o [modelo do Resource Manager através do alojamento de vários sites](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) para obter uma implementação baseada num modelo ponto a ponto.

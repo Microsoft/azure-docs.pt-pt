@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 9d6b912229b1365dd7bd8d466af18d1e81b5aa8e
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: f6c47d4cbfe6311333d95b07c0553afa2b3bb15c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132153"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287736"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar um servidor de configuração
 
@@ -42,7 +42,7 @@ Deve ter um utilizador com uma das seguintes permissões definidas no Azure Ativ
     - Verifique se a função de desenvolvedor de aplicações é atribuída ao utilizador. Caso contrário, utilize um utilizador com esta permissão ou contacte um [administrador para ativar a permissão](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md#assign-roles).
     
 2. Se a função de desenvolvedor de aplicações não puder ser atribuída, certifique-se de que o registo da bandeira das **aplicações** é definido como **verdadeiro** para o utilizador criar uma identidade. Para ativar estas permissões:
-    - Inicie sessão no Portal do Azure.
+    - Inicie sessão no portal do Azure.
     - Aceda às definições do Utilizador **do Diretório Ativo Azure**  >  **User settings**.
     - Nos **registos da App,** **os utilizadores podem registar aplicações,** selecione **Sim.**
 
@@ -66,7 +66,7 @@ Deve ter um utilizador com uma das seguintes permissões definidas no Azure Ativ
 
 ## <a name="import-the-template-in-vmware"></a>Importar o modelo no VMware
 
-1. Inicie sessão no servidor VMware vCenter ou no anfitrião vSphere ESXi, utilizando o VMWare vSphere Client.
+1. Inscreva-se no servidor VMware vCenter ou no vSphere ESXi, utilizando o VMware vSphere Client.
 2. No menu **'Ficheiro',** selecione **implementar o modelo OVF** para iniciar o assistente **de modelo de implementação OVF.**
 
      ![Implementar modelo de OVF](./media/vmware-azure-deploy-configuration-server/vcenter-wizard.png)
@@ -98,7 +98,7 @@ Se pretender adicionar um NIC adicional ao servidor de configuração, adicione-
 
 ## <a name="register-the-configuration-server-with-azure-site-recovery-services"></a>Registar o servidor de configuração com os serviços de Recuperação do Site Azure
 
-1. A partir da consola do VMWare vSphere Client, ligue a VM.
+1. A partir da consola VMware vSphere Client, ligue o VM.
 2. A VM arranca para uma experiência de instalação do Windows Server 2016. Aceite o contrato de licença e introduza uma palavra-passe de administrador.
 3. Após a conclusão da instalação, inicie sessão na VM como administrador.
 4. A primeira vez que iniciar seduca, dentro de poucos segundos, a ferramenta de configuração de recuperação do local Azure começa.
@@ -121,10 +121,10 @@ Se pretender adicionar um NIC adicional ao servidor de configuração, adicione-
 
 4. Na **Instalação de software de terceiros:**
 
-    |Scenario   |Passos a seguir  |
+    |Cenário   |Passos a seguir  |
     |---------|---------|
-    |Posso descarregar e instalar o MySQL manualmente?     |  Sim. Descarregue a aplicação MySQL, coloque-a na pasta **C:\Temp\ASRSetup**e, em seguida, instale manualmente. Depois de aceitar os termos e selecionar **Descarregar e instalar,** o portal diz *que já está instalado.* Pode passar ao próximo passo.       |
-    |Posso evitar o download do MySQL online?     |   Sim. Coloque a aplicação do instalador MySQL na pasta **C:\Temp\ASRSetup**. Aceite os termos, selecione **Descarregar e instalar,** e o portal utiliza o instalador que adicionou para instalar a aplicação. Após o fim da instalação, proceda ao passo seguinte.    |
+    |Posso descarregar e instalar o MySQL manualmente?     |  Yes. Descarregue a aplicação MySQL, coloque-a na pasta **C:\Temp\ASRSetup**e, em seguida, instale manualmente. Depois de aceitar os termos e selecionar **Descarregar e instalar,** o portal diz *que já está instalado.* Pode passar ao próximo passo.       |
+    |Posso evitar o download do MySQL online?     |   Yes. Coloque a aplicação do instalador MySQL na pasta **C:\Temp\ASRSetup**. Aceite os termos, selecione **Descarregar e instalar,** e o portal utiliza o instalador que adicionou para instalar a aplicação. Após o fim da instalação, proceda ao passo seguinte.    |
     |Quero descarregar e instalar o MySQL através da Recuperação do Site Azure.    |  Aceite o contrato de licença e selecione **Baixar e instalar.** Após o fim da instalação, proceda ao passo seguinte.       |
 
 5. Na **configuração do aparelho validado,** os pré-requisitos são verificados antes de continuar.
@@ -160,7 +160,7 @@ Consulte o nosso [artigo de resolução de problemas](vmware-azure-troubleshoot-
     Não. Depois de um cofre ser registado no servidor de configuração, não pode ser alterado.
 * Posso usar o mesmo servidor de configuração para proteger máquinas físicas e virtuais?
 
-    Sim. O mesmo servidor de configuração pode ser usado para replicar máquinas físicas e virtuais. No entanto, a máquina física só pode ser ressartada para um VMware VM.
+    Yes. O mesmo servidor de configuração pode ser usado para replicar máquinas físicas e virtuais. No entanto, a máquina física só pode ser ressartada para um VMware VM.
 * Qual é o propósito de um servidor de configuração e onde é usado?
 
     Para saber mais sobre o servidor de configuração e as suas funcionalidades, consulte [a arquitetura de replicação VMware para Azure](vmware-azure-architecture.md).
@@ -193,6 +193,6 @@ Consulte o nosso [artigo de resolução de problemas](vmware-azure-troubleshoot-
 
 Para obter mais PERGUNTAS Frequentes nos servidores de [configuração, consulte as perguntas comuns do servidor de configuração](vmware-azure-common-questions.md#configuration-server).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Confiúdo de recuperação de [VMware VMs](vmware-azure-tutorial.md) para Azure.

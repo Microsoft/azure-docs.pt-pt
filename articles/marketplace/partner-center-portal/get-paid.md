@@ -4,12 +4,14 @@ description: Saiba mais sobre receber pagamentos pelos seus ganhos no mercado co
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 604d5c93ca87831b1feb76095da694b4be402ad9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: eunjkim520
+ms.author: eunjkim
+ms.openlocfilehash: ab10e1f601afd1f96f1c7abf04b1fa9f88915bf8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121695"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317540"
 ---
 # <a name="getting-paid-in-the-commercial-marketplace"></a>Ser pago no mercado comercial
 

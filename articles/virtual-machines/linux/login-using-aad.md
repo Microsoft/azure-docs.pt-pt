@@ -3,16 +3,16 @@ title: Faça login num Linux VM com credenciais de Diretório Ativo Azure
 description: Aprenda a criar e configurar um Linux VM para iniciar sessão com a autenticação do Azure Ative Directory.
 author: SanDeo-MSFT
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: sandeo
-ms.openlocfilehash: 89b89d30de46727f4d5b52a236a4b0133e663bb9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fe9d4e5a981f9d626bb6086659593e1c3ce06469
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088772"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291140"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Pré-visualização: Inicie sessão numa máquina virtual Linux em Azure utilizando a autenticação do Azure Ative Directory
 

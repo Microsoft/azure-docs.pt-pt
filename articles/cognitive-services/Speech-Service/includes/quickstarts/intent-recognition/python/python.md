@@ -6,18 +6,18 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: d819eaa5c90e304a642efd3a6f2458cab4eefe7f
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 7572e5c5621b514c375e44ca44ddfc4102f5d714
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81422152"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87298769"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar:
 
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?pivots=programming-language-python" target="_blank">Instale o SDK de Discurso para o<span class="docon docon-navigate-external x-hidden-focus"></span>seu ambiente de desenvolvimento e crie um projeto de amostra vazia.</a>
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?pivots=programming-language-python" target="_blank">Instale o Speech SDK para o seu <span class="docon docon-navigate-external x-hidden-focus"></span> ambiente de desenvolvimento e crie um projeto de amostra vazia.</a>
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Criar uma app LUIS para reconhecimento de intenções
 
@@ -26,54 +26,56 @@ Antes de começar:
 ## <a name="open-your-project"></a>Abra o seu projeto
 
 1. Abra o seu IDE preferido.
-2. Crie um novo projeto `quickstart.py`e crie ficheiros chamados, e depois abra-o.
+2. Crie um novo projeto e crie um ficheiro `quickstart.py` chamado, em seguida, abra-o.
 
-## <a name="start-with-some-boilerplate-code"></a>Comece com um pouco de código de placa de caldeira
+## <a name="start-with-some-boilerplate-code"></a>Comece com um código de placa de caldeira
 
-Vamos adicionar um código que funciona como um esqueleto para o nosso projeto.
+Vamos adicionar um código que funcione como um esqueleto para o nosso projeto.
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=5-7)]
 
-## <a name="create-a-speech-configuration"></a>Criar uma configuração de Discurso
+## <a name="create-a-speech-configuration"></a>Criar uma configuração de discurso
 
-Antes de poder `IntentRecognizer` inicializar um objeto, precisa de criar uma configuração que utilize a chave e localização para o seu recurso de previsão LUIS.
+Antes de poder inicializar um `IntentRecognizer` objeto, precisa de criar uma configuração que utilize a chave e a localização para o seu recurso de previsão LUIS.
 
-Insira `quickstart.py`este código em . Certifique-se de atualizar estes valores:
+Insira este código em `quickstart.py` . Certifique-se de atualizar estes valores:
 
-* Substitua-a `"YourLanguageUnderstandingSubscriptionKey"` pela sua chave de previsão LUIS.
-* Substitua-a `"YourLanguageUnderstandingServiceRegion"` pela sua localização LUIS. Identificador da **região** de utilização da [região](https://aka.ms/speech/sdkregion)
+* `"YourLanguageUnderstandingSubscriptionKey"`Substitua-a pela sua chave de previsão LUIS.
+* `"YourLanguageUnderstandingServiceRegion"`Substitua-o pela sua localização LUIS. Utilização **do identificador** da [região](https://aka.ms/speech/sdkregion)
 
 >[!TIP]
-> Se precisar de ajuda para encontrar estes valores, consulte [Criar uma aplicação LUIS para reconhecimento de intenções.](#create-a-luis-app-for-intent-recognition)
+> Se precisar de ajuda para encontrar estes valores, consulte [criar uma aplicação LUIS para reconhecimento de intenções.](#create-a-luis-app-for-intent-recognition)
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=12)]
 
-Esta amostra constrói `SpeechConfig` o objeto utilizando a chave LUIS e a região. Para obter uma lista completa dos métodos disponíveis, consulte a [Aula de SpeechConfig](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig).
+Esta amostra constrói o `SpeechConfig` objeto utilizando a chave e a região LUIS. Para obter uma lista completa dos métodos disponíveis, consulte [a Aula deConfig da Fala](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig).
 
-O SDK do Discurso não irá reconhecer o uso de en-us para a língua, consulte [especificar a linguagem fonte para a fala a texto](../../../../how-to-specify-source-language.md) para obter informações sobre a escolha da língua de origem.
+O SDK de discurso não reconhecerá a utilização do linguístico para a língua, consulte especificar a [língua de origem para falar para texto](../../../../how-to-specify-source-language.md) para obter informações sobre a escolha da língua de origem.
 
-## <a name="initialize-an-intentrecognizer"></a>Inicializar um IntençãoReconhecedor
+## <a name="initialize-an-intentrecognizer"></a>Inicializar um IntentRecognizer
 
-Agora, vamos criar `IntentRecognizer`um. Insira este código logo abaixo da configuração do Discurso.
+Agora, vamos criar `IntentRecognizer` um. Insira este código logo abaixo da configuração do Discurso.
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=15)]
 
-## <a name="add-a-languageunderstandingmodel-and-intents"></a>Adicione um Modelo e Intenções LanguageUnderstanding
+## <a name="add-a-languageunderstandingmodel-and-intents"></a>Adicione um Modelo e Intenções De LínguaUnderstanding
 
-Precisa associar um `LanguageUnderstandingModel` ao reconhecedor de intenções e adicionar as intenções que quer que seja reconhecida. Vamos usar as intenções do domínio pré-construído para a domótica.
+Precisa associar um `LanguageUnderstandingModel` ao reconhecimento de intenções e adicionar as intenções que deseja reconhecidas. Vamos usar as intenções do domínio pré-construído para a domótica.
 
-Insira este `IntentRecognizer`código abaixo do seu . Certifique-se de `"YourLanguageUnderstandingAppId"` que substitui o seu ID da aplicação LUIS. 
+Insira este código abaixo do seu `IntentRecognizer` . Certifique-se de que substitui `"YourLanguageUnderstandingAppId"` pelo seu ID de aplicação LUIS. 
 
 >[!TIP]
-> Se precisar de ajuda para encontrar este valor, consulte [Criar uma aplicação LUIS para reconhecimento de intenções.](#create-a-luis-app-for-intent-recognition)
+> Se precisar de ajuda para encontrar este valor, consulte [criar uma aplicação LUIS para reconhecimento de intenções.](#create-a-luis-app-for-intent-recognition)
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=19-27)]
 
+Este exemplo utiliza a `add_intents()` função para adicionar uma lista de intenções explicitamente definidas. Se quiser adicionar todas as intenções de um modelo, use `add_all_intents(model)` e passe o modelo.
+
 ## <a name="recognize-an-intent"></a>Reconhecer uma intenção
 
-Pelo `IntentRecognizer` objeto, vais chamar o `recognize_once()` método. Este método permite ao serviço da Fala saber que está a enviar uma única frase para reconhecimento, e que assim que a frase é identificada para parar de reconhecer o discurso.
+Pelo `IntentRecognizer` objeto, vais chamar o `recognize_once()` método. Este método permite ao serviço de Discurso saber que está a enviar uma única frase para reconhecimento, e que uma vez que a frase é identificada para parar de reconhecer a fala.
 
-Insira este código abaixo do seu modelo.
+Insira este código por baixo do seu modelo.
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=35)]
 
@@ -81,7 +83,7 @@ Insira este código abaixo do seu modelo.
 
 Quando o resultado do reconhecimento for devolvido pelo serviço de Discurso, vai querer fazer algo com ele. Vamos mantê-lo simples e imprimir o resultado para consolar.
 
-Abaixo da `recognize_once()`sua chamada para, adicione este código.
+Abaixo a sua chamada para `recognize_once()` , adicione este código.
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=38-47)]
 
@@ -96,7 +98,7 @@ Neste momento, o seu código deve ser assim.
 
 ## <a name="build-and-run-your-app"></a>Construa e execute a sua app
 
-Executar a amostra a partir da consola ou no seu IDE:
+Execute a amostra da consola ou do seu IDE:
 
 ```
 python quickstart.py

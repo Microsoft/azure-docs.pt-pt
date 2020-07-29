@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machines-windows
 ms.subservice: sizes
 ms.workload: infrastructure
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: cynthn
-ms.openlocfilehash: 98a0a1a2ce0a5122a953b8cc9916e2bf56955feb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 552b397a93978d2790a69e9574b4ccf256e478b8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020242"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289638"
 ---
 # <a name="resize-a-windows-vm"></a>Redimensionar VMs do Windows
 

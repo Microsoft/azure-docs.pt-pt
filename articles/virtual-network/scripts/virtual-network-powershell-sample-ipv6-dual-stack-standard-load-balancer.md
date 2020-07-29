@@ -1,7 +1,7 @@
 ---
 title: Amostra de script Azure PowerShell - Confivel IPv6 frontend com Balancer de carga padrão (pré-visualização)
 titlesuffix: Azure Virtual Network
-description: Ativar pontos finais IPv6 usando Powershell na Rede Virtual Azure
+description: Saiba como configurar um frontend IPv6 numa amostra de script de rede virtual com o Balancer de Carga Padrão.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 2de93f66bdb2647bcc612322d90eb9197e0ad63e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 24057c494d76cf9435ed60ecf2a13db4eab36fbf
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068670"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291905"
 ---
 # <a name="configure-ipv6-frontend-in-virtual-network-script-sample-with-standard-load-balancerpreview"></a>Configurar o frontend IPv6 na amostra de script de rede virtual com o Balancer de Carga Padrão (pré-visualização)
 

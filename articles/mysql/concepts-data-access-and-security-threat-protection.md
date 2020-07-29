@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 01ac6ccbc2789d2052bab07e2da51630b6dbf581
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 834083b0f472de6ac1fd157ee966ebb021286cff
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79537164"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290190"
 ---
 # <a name="azure-database-for-mysql-advanced-threat-protection"></a>Base de Dados Azure para a Proteção Avançada de Ameaças MySQL
 
@@ -20,7 +20,7 @@ A Advanced Threat Protection para Base de Dados do Azure para MySQL deteta ativi
 > [!NOTE]
 > A Proteção Avançada de Ameaças está em visualização pública.
 
-A Advanced Threat Protection faz parte da oferta avançada de Segurança de Dados, que é um pacote unificado para capacidades avançadas de segurança. A Advanced Threat Protection pode ser acedida e gerida através do [portal Azure](https://portal.azure.com) ou utilizando [a API REST](/rest/api/mysql/serversecurityalertpolicies). A funcionalidade está disponível para servidores otimizados para fins gerais e memória.
+A Advanced Threat Protection faz parte da oferta avançada de Segurança de Dados, que é um pacote unificado para capacidades avançadas de segurança. A Advanced Threat Protection pode ser acedida e gerida através do [portal Azure](https://portal.azure.com) ou utilizando [a API REST](/rest/api/mysql). A funcionalidade está disponível para servidores otimizados para fins gerais e memória.
 
 > [!NOTE]
 > A funcionalidade de Proteção de Ameaças **Avançadas não** está disponível nas seguintes regiões de nuvens governamentais e soberanas: EUA Gov Texas, EUA Gov Arizona, US Gov Iowa, EUA, Gov Virginia, US DoD East, US DoD Central, Germany Central, Germany North, China East, China East 2. Visite [os produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) para disponibilidade geral de produtos.

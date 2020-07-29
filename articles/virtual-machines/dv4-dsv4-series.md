@@ -9,11 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 68cd6673283362380fc5a1f4b780f0a22aa53402
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 32520a458a797ee9945603dd86c9efe359e4d1f6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783590"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291173"
 ---
 # <a name="dv4-and-dsv4-series"></a>Séries Dv4 e Dsv4
 
@@ -42,15 +43,15 @@ Migração ao Vivo: Suportado
 
 Atualizações de preservação da memória: Suportadas
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Largura de banda max NICs/Rede Esperada (Mbps) |
-|---|---|---|---|---|---|
-| Standard_D2_v4 | 2 | 8 | Apenas armazenamento remoto | 4 | 2/1000 |
-| Standard_D4_v4 | 4 | 16  | Apenas armazenamento remoto | 8 | 2/2000 |
-| Standard_D8_v4 | 8 | 32 | Apenas armazenamento remoto | 16 | 4/4000 |
-| Standard_D16_v4 | 16 | 64 | Apenas armazenamento remoto | 32 | 8/8000 |
-| Standard_D32_v4 | 32 | 128 | Apenas armazenamento remoto | 32 | 8/16000 |
-| Standard_D48_v4 | 48 | 192 | Apenas armazenamento remoto | 32 | 8/24000 |
-| Standard_D64_v4 | 64 | 256 | Apenas armazenamento remoto | 32 | 8/30000 |
+| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | NICs máximos|Largura de banda esperada da rede (Mbps) |
+|---|---|---|---|---|---|---|
+| Standard_D2_v4 | 2 | 8 | Apenas armazenamento remoto | 4 | 2|1000 |
+| Standard_D4_v4 | 4 | 16  | Apenas armazenamento remoto | 8 | 2|2000 |
+| Standard_D8_v4 | 8 | 32 | Apenas armazenamento remoto | 16 | 4|4000 |
+| Standard_D16_v4 | 16 | 64 | Apenas armazenamento remoto | 32 | 8|8000 |
+| Standard_D32_v4 | 32 | 128 | Apenas armazenamento remoto | 32 | 8|16000 |
+| Standard_D48_v4 | 48 | 192 | Apenas armazenamento remoto | 32 | 8|24000 |
+| Standard_D64_v4 | 64 | 256 | Apenas armazenamento remoto | 32 | 8|30000 |
 
 ## <a name="dsv4-series"></a>Série Dsv4
 
@@ -69,12 +70,12 @@ Migração ao Vivo: Suportado
 
 Atualizações de preservação da memória: Suportadas
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Produção em cache máximo: IOPS/MBps (tamanho da cache em GiB) | Produção de disco não-abacatado por maxilar: IOPS/MBps | Largura de banda max NICs/Rede Esperada (Mbps) |
-|---|---|---|---|---|---|---|---|
-| Standard_D2s_v4 | 2 | 8  | Apenas armazenamento remoto | 4 | 19000/120 (50) | 3000/48 | 2/1000 |
-| Standard_D4s_v4 | 4 | 16 | Apenas armazenamento remoto | 8 | 38500/242 (100) | 6400/96 | 2/2000 |
-| Standard_D8s_v4 | 8 | 32 | Apenas armazenamento remoto | 16 | 77000/485 (200) | 12800/192 | 4/4000 |
-| Standard_D16s_v4 | 16 | 64  | Apenas armazenamento remoto | 32 | 154000/968 (400) | 25600/384 | 8/8000 |
-| Standard_D32s_v4 | 32 | 128 | Apenas armazenamento remoto | 32 | 308000/1936 (800) | 51200/768 | 8/16000 |
-| Standard_D48s_v4 | 48 | 192 | Apenas armazenamento remoto | 32 | 462000/2904 (1200) | 76800/1152 | 8/24000 |
-| Standard_D64s_v4 | 64 | 256 | Apenas armazenamento remoto | 32 | 615000/3872 (1600) | 80000/1200 | 8/30000 |
+| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Produção em cache máximo: IOPS/MBps (tamanho da cache em GiB) | Produção de disco não-abacatado por maxilar: IOPS/MBps | NICs máximos|Largura de banda esperada da rede (Mbps) |
+|---|---|---|---|---|---|---|---|---|
+| Standard_D2s_v4 | 2 | 8  | Apenas armazenamento remoto | 4 | 19000/120 (50) | 3000/48 | 2|1000 |
+| Standard_D4s_v4 | 4 | 16 | Apenas armazenamento remoto | 8 | 38500/242 (100) | 6400/96 | 2|2000 |
+| Standard_D8s_v4 | 8 | 32 | Apenas armazenamento remoto | 16 | 77000/485 (200) | 12800/192 | 4|4000 |
+| Standard_D16s_v4 | 16 | 64  | Apenas armazenamento remoto | 32 | 154000/968 (400) | 25600/384 | 8|8000 |
+| Standard_D32s_v4 | 32 | 128 | Apenas armazenamento remoto | 32 | 308000/1936 (800) | 51200/768 | 8|16000 |
+| Standard_D48s_v4 | 48 | 192 | Apenas armazenamento remoto | 32 | 462000/2904 (1200) | 76800/1152 | 8|24000 |
+| Standard_D64s_v4 | 64 | 256 | Apenas armazenamento remoto | 32 | 615000/3872 (1600) | 80000/1200 | 8|30000 |

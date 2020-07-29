@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 6452a826cfb6f7ceb65e6e89cdd42d683ee463b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9520369861623e60a0118baa20a7871437433a4b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83682713"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290720"
 ---
 # <a name="technical-guide-to-the-solution-template-for-predictive-maintenance-in-aerospace"></a>Guia técnico do Modelo de Solução para manutenção preditiva em aeroespacial
 
@@ -57,7 +58,7 @@ O serviço [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) �
 Utilize [o Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) para fornecer análises quase em tempo real no fluxo de entrada do serviço [Azure Event Hub.](#azure-event-hub) Em seguida, publica resultados num dashboard [Power BI,](https://powerbi.microsoft.com) bem como arquiva todos os eventos brutos de entrada no serviço [de Armazenamento Azure](https://azure.microsoft.com/services/storage/) para posterior processamento pelo serviço [Azure Data Factory.](https://azure.microsoft.com/documentation/services/data-factory/)
 
 ### <a name="hdinsight-custom-aggregation"></a>Agregação personalizada HDInsight
-Executar scripts [de Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) (orquestrados pela Azure Data Factory) usando HDInsight para fornecer agregações sobre os eventos brutos arquivados usando o recurso Azure Stream Analytics.
+Executar scripts [de Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) (orquestrados pela Azure Data Factory) usando HDInsight para fornecer agregações sobre os eventos brutos arquivados usando o recurso Azure Stream Analytics.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 Faça previsões sobre a vida útil restante (RUL) de um determinado motor de aeronaves utilizando as entradas recebidas com o [Azure Machine Learning Service](https://azure.microsoft.com/services/machine-learning/) (orquestrado pela Azure Data Factory). 
@@ -112,22 +113,22 @@ Esta secção discute os [oleodutos e atividades necessários contidos](../../da
 
 ![Azure Data Factory](./media/predictive-maintenance-technical-guide/azure-data-factory.png)
 
-Dois dos oleodutos desta fábrica contêm scripts [de Colmeia](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) usados para dividir e agregar os dados. Quando indicado, os scripts estão localizados na conta [de Armazenamento Azure](https://azure.microsoft.com/services/storage/) criada durante a configuração. A sua localização é: hive script de manutenção \\ \\ \\ \\ \\ \\ (ou https://[Nome da sua solução].blob.core.windows.net/maintenancesascript).
+Dois dos oleodutos desta fábrica contêm scripts [de Colmeia](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) usados para dividir e agregar os dados. Quando indicado, os scripts estão localizados na conta [de Armazenamento Azure](https://azure.microsoft.com/services/storage/) criada durante a configuração. A sua localização é: hive script de manutenção \\ \\ \\ \\ \\ \\ (ou https://[Nome da sua solução].blob.core.windows.net/maintenancesascript).
 
-Semelhantes às consultas [Azure Stream Analytics,](#azure-stream-analytics-1) os scripts [da Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) têm conhecimento implícito sobre o formato de dados de entrada e devem ser alterados com base no seu formato de dados.
+Semelhantes às consultas [Azure Stream Analytics,](#azure-stream-analytics-1) os scripts [da Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) têm conhecimento implícito sobre o formato de dados de entrada e devem ser alterados com base no seu formato de dados.
 
 #### <a name="aggregateflightinfopipeline"></a>*AgregaçãoFlightInfoPipeline*
-Este [oleoduto](../../data-factory/concepts-pipelines-activities.md) contém uma única atividade - uma atividade [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) usando um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa um script [hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) para dividir os dados colocados no [Azure Storage](https://azure.microsoft.com/services/storage/) durante o trabalho [Azure Stream Analytics.](https://azure.microsoft.com/services/stream-analytics/)
+Este [oleoduto](../../data-factory/concepts-pipelines-activities.md) contém uma única atividade - uma atividade [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) usando um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa um script [hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) para dividir os dados colocados no [Azure Storage](https://azure.microsoft.com/services/storage/) durante o trabalho [Azure Stream Analytics.](https://azure.microsoft.com/services/stream-analytics/)
 
-O script [da Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) para esta tarefa de partição é ***AggregateFlightInfo.hql***
+O script [da Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) para esta tarefa de partição é ***AggregateFlightInfo.hql***
 
 #### <a name="mlscoringpipeline"></a>*MLScoringPipeline*
 Este [oleoduto](../../data-factory/concepts-pipelines-activities.md) contém várias atividades cujo resultado final são as previsões pontuadas da experiência [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) associadas a este modelo de solução.
 
 As atividades incluídas são:
 
-* [Atividade HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) usando um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa um script [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) para realizar agregações e engenharia de recursos necessários para a experiência [Azure Machine Learning.](https://azure.microsoft.com/services/machine-learning/)
-  O script [da Colmeia](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) para esta tarefa de partição é ***PrepareMLInput.hql***.
+* [Atividade HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) usando um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa um script [Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) para realizar agregações e engenharia de recursos necessários para a experiência [Azure Machine Learning.](https://azure.microsoft.com/services/machine-learning/)
+  O script [da Colmeia](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) para esta tarefa de partição é ***PrepareMLInput.hql***.
 * [Copiar](https://msdn.microsoft.com/library/azure/dn835035.aspx) a atividade que move os resultados da atividade [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) para uma única bolha [de armazenamento Azure](https://azure.microsoft.com/services/storage/) acedida pela atividade [AzureMLBatchScoring.](https://msdn.microsoft.com/library/azure/dn894009.aspx)
 * A atividade [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) chama a experiência [Azure Machine Learning,](https://azure.microsoft.com/services/machine-learning/) com resultados colocados numa única bolha [de armazenamento Azure.](https://azure.microsoft.com/services/storage/)
 

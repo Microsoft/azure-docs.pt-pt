@@ -4,14 +4,15 @@ description: Mover um VM para outro grupo de subscrição ou recursos Azure util
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: ebcd5f166fd1876f67121787c23d23860c9fa4b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db4c7e0126616e2d8bd120e7430c70b89c5cf36d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78944593"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291101"
 ---
 # <a name="move-a-vm-to-another-subscription-or-resource-group"></a>Mover um VM para outro grupo de subscrição ou recursos
 Este artigo explica-lhe como mover uma máquina virtual (VM) entre grupos de recursos ou subscrições. Mover um VM entre subscrições pode ser útil se criar um VM numa subscrição pessoal e agora quiser movê-lo para a subscrição da sua empresa.
@@ -60,5 +61,5 @@ Quando lhe for pedido que confirme que pretende mover os recursos especificados,
 
 [!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-common-move-vm.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Você pode mover vários tipos diferentes de recursos entre grupos de recursos e subscrições. Para obter mais informações, consulte [mover recursos para um novo grupo de recursos ou subscrição.](../../azure-resource-manager/management/move-resource-group-and-subscription.md)    

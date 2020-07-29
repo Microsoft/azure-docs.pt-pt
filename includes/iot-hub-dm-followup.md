@@ -1,19 +1,19 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: iot-hub
 ms.service: iot-hub
-author: dominicbetts
+author: robinsh
 ms.topic: include
 ms.date: 02/17/2019
-ms.author: dobett
+ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 2514325c93f0f72aa979f871e86e465093479402
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f1f7d6f9ab6036fbcfcd1d19e175302bbd1a2a8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "69558746"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87298768"
 ---
 ## <a name="customize-and-extend-the-device-management-actions"></a>Personalizar e alargar as ações de gestão de dispositivos
 
@@ -23,7 +23,7 @@ As suas soluções IoT podem expandir o conjunto definido de padrões de gestão
 
 Normalmente, configura dispositivos para executar ações de uma vez que minimiza interrupções e tempo de inatividade. As janelas de manutenção do dispositivo são um padrão comumente utilizado para definir o momento em que um dispositivo deve atualizar a sua configuração. As suas soluções back-end podem utilizar as propriedades desejadas do twin do dispositivo para definir e ativar uma política no seu dispositivo que permita uma janela de manutenção. Quando um dispositivo recebe a política da janela de manutenção, pode utilizar a propriedade reportada do dispositivo twin para reportar o estado da apólice. A aplicação back-end pode então usar consultas gémeas do dispositivo para atestar a conformidade dos dispositivos e de cada política.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, utilizou um método direto para desencadear um reboot remoto num dispositivo. Utilizou as propriedades relatadas para relatar a última vez de reinicialização do dispositivo, e questionou o dispositivo twin para descobrir a última hora de reinicialização do dispositivo a partir da nuvem.
 

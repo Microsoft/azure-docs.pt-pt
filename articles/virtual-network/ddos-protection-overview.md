@@ -1,6 +1,6 @@
 ---
 title: Visão geral padrão de proteção Azure DDos
-description: Saiba mais sobre o serviço de Proteção Azure DDoS.
+description: Saiba como o Azure DDoS Protection Standard, quando combinado com as melhores práticas de design de aplicações, fornece defesa contra ataques DDoS.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: fc47e1f4fbdb48e6e0abc1f2a7e32127b0325f47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e92f3b5d8c48c783648285c9a03d8cb8d391a5ac
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82130962"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289607"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Visão geral do Padrão de Proteção Azure DDoS
 
@@ -33,10 +33,10 @@ A proteção Azure DDoS, combinada com as melhores práticas de design de aplica
 |Mitigação automática de ataques                    |Sim                                   |Sim                                           |
 |Garantia de disponibilidade                          |Região do Azure                          |Aplicação                                   |
 |Políticas de mitigação                             |Sintonizado para o volume da região de tráfego de Azure |Sintonizado para volume de tráfego de aplicações          |
-|Métricas & alertas                                |No                                    |Métricas de ataque em tempo real & registos de recursos via Azure Monitor                                 |
-|Relatórios de mitigação                              |No                                    |Relatórios de mitigação pós-ataque                |
-|Registos de fluxo de mitigação                            |No                                    |Fluxo de registo NRT para integração siem           |
-|Personalização da política de mitigação                 |No                                    |Envolver especialistas em DDoS                           |
+|Métricas & alertas                                |Não                                    |Métricas de ataque em tempo real & registos de recursos via Azure Monitor                                 |
+|Relatórios de mitigação                              |Não                                    |Relatórios de mitigação pós-ataque                |
+|Registos de fluxo de mitigação                            |Não                                    |Fluxo de registo NRT para integração siem           |
+|Personalização da política de mitigação                 |Não                                    |Envolver especialistas em DDoS                           |
 |Suporte                                         |Melhor esforço                           |Acesso a Peritos do DDoS durante um ataque ativo|
 |SLA                                             |Região do Azure                          |Garantia de aplicação & proteção de custos       |
 |Preços                                         |Gratuito                                  |Base de utilização & mensal                         |
@@ -80,7 +80,7 @@ Durante a mitigação, o tráfego enviado para o recurso protegido é redirecion
 - Interaja com o cliente para determinar se o tráfego é potencialmente um pacote falsificado (por exemplo: SYN Auth ou SYN Cookie ou deixando cair um pacote para a fonte retransmitê-lo).
 - Pacotes de limite de taxas, se nenhum outro método de execução puder ser executado.
 
-A proteção DDoS bloqueia o tráfego do ataque e reencaminha o tráfego restante para o destino pretendido. Em poucos minutos após a deteção do ataque, vai ser notificado através das métricas do Azure Monitor. Ao configurar a gravação na telemetria DDoS Protection Standard, pode escrever os registos para as opções disponíveis para análise futura. Os dados métricos do Azure Monitor para a Norma de Proteção DDoS são mantidos durante 30 dias.
+A proteção DDoS bloqueia o tráfego do ataque e reencaminha o tráfego restante para o destino pretendido. Em poucos minutos após a deteção do ataque, será notificado através das métricas do Azure Monitor. Ao configurar a gravação na telemetria DDoS Protection Standard, pode escrever os registos para as opções disponíveis para análise futura. Os dados métricos do Azure Monitor para a Norma de Proteção DDoS são mantidos durante 30 dias.
 
 A Microsoft estabeleceu uma parceria com a [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud) para construir uma interface onde pode gerar tráfego contra endereços IP públicos ativados pela Proteção DDoS para simulações. A simulação breakpoint cloud permite-lhe:
 

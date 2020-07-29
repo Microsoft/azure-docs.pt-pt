@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/23/2019
 ms.author: ramamill
-ms.openlocfilehash: 1b6084b4e93f3dc17f633f1b8496f9c26e7f576f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40f912122e6ffb9cccbd32a747f6f0d46fd6c330
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711957"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292799"
 ---
 # <a name="scale-with-additional-process-servers"></a>Escala com servidores de processos adicionais
 
@@ -51,7 +52,7 @@ Os pré-requisitos para o servidor de processo adicional são resumidos na tabel
 Descarregue o ficheiro de instalação para o servidor de processo da seguinte forma:
 
 1. Inscreva-se no portal Azure e navegue pelo cofre dos Serviços de Recuperação.
-2. Servidores de **Site Recovery Infrastructure**  >  configuração**VMWare e Máquinas Físicas**de Recuperação de Locais  >  **Abertos** (em VMware & Máquinas Físicas).
+2. Servidores de **Site Recovery Infrastructure**  >  configuração**VMware e Máquinas Físicas**de Recuperação de Locais  >  **Abertos** (em VMware & Máquinas Físicas).
 3. Selecione o servidor de configuração para perfurar os detalhes do servidor. Em seguida, clique **em + Servidor de Processo**.
 4. In **Add Process server**Escolha onde pretende implementar o seu servidor de  >   **processos**, selecione Implementar um Servidor de Processo de Escala no **local**.
 
@@ -73,7 +74,7 @@ Instale da seguinte forma. Depois de configurar o servidor, migra máquinas de o
 Instale executando o seguinte comando:
 
 ```
-UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCredsFilePath <MySQL credentials file path>] [/VaultCredsFilePath <Vault credentials file path>] [/EnvType <VMWare/NonVMWare>] [/PSIP <IP address to be used for data transfer] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>]
+UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCredsFilePath <MySQL credentials file path>] [/VaultCredsFilePath <Vault credentials file path>] [/EnvType <VMware/NonVMware>] [/PSIP <IP address to be used for data transfer] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>]
 ```
 
 Onde os parâmetros da linha de comando são os seguintes:
@@ -85,7 +86,7 @@ Por exemplo:
 ```
 MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
 cd C:\Temp\Extracted
-UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "PS" /InstallLocation "D:\" /EnvType "VMWare" /CSIP "10.150.24.119" /PassphraseFilePath "C:\Users\Administrator\Desktop\Passphrase.txt" /DataTransferSecurePort 443
+UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "PS" /InstallLocation "D:\" /EnvType "VMware" /CSIP "10.150.24.119" /PassphraseFilePath "C:\Users\Administrator\Desktop\Passphrase.txt" /DataTransferSecurePort 443
 ```
 ### <a name="create-a-proxy-settings-file"></a>Criar um ficheiro de configurações proxy
 
@@ -100,5 +101,5 @@ Se precisar de configurar um representante, o parâmetro ProxySettingsFilePath t
 * ProxyPassword="Password"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre [a gestão das definições do servidor de processos](vmware-azure-manage-process-server.md)

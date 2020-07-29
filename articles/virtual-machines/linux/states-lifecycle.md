@@ -4,16 +4,16 @@ description: Visão geral do ciclo de vida de um VM em Azure, incluindo descriç
 services: virtual-machines
 author: shandilvarun
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: 6cce718c22c591210dd31eb7c0b983d7a7322d7f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a12f4156947eb55696ffe2ba067250bd1282989d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080170"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292170"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Ciclo de vida de máquinas virtuais e estados
 

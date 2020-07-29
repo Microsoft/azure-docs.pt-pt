@@ -3,12 +3,12 @@ title: Gerir políticas de laboratório em Azure DevTest Labs Microsoft Docs
 description: Aprenda a definir políticas de laboratório como tamanhos de VM, VMs máximos por utilizador e automatização de encerramento.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 95d91cfc70d603187543e308d2b1355c549c88f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ab2e2b1905a515d3a85339099f02d93d8e5c0424
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483402"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290428"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Gerir todas as políticas para um laboratório em Azure DevTest Labs
 
@@ -70,7 +70,7 @@ A política de paragem automática ajuda a minimizar os resíduos de laboratóri
 
 1. Especifique **Sim** ou **Não** para a opção de enviar uma notificação 15 minutos antes do tempo de paragem automático especificado. Se escolher **Sim,** insira um ponto final de URL webhook ou um endereço de e-mail especificando onde deseja que a notificação seja publicada ou enviada. O utilizador recebe a notificação e é-lhe dada a opção de adiar a paralisação.
 
-   Para obter mais informações sobre webhooks, consulte [Criar um webhook ou a API Azure Function](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+   Para obter mais informações sobre webhooks, consulte [Criar um webhook ou a API Azure Function](../azure-functions/functions-bindings-http-webhook.md). 
 
 1. Selecione **Guardar**.
 
@@ -120,7 +120,7 @@ Pode definir uma data de validade quando [criar o VM](devtest-lab-add-vm.md). Na
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Depois de definir e aplicar as várias definições de política de VM para o seu laboratório, aqui ficam algumas coisas a experimentar a seguir:
 
 * [Compreender endereços IP partilhados](devtest-lab-shared-ip.md) - Explica como os endereços IP partilhados são usados em Laboratórios DevTest para minimizar o número de endereços IP públicos necessários para se ligar aos seus VMs de laboratório.
@@ -129,4 +129,3 @@ Depois de definir e aplicar as várias definições de política de VM para o se
 * [Crie uma imagem personalizada](devtest-lab-create-template.md) - Quando criar um VM, especifique uma base, que pode ser uma imagem personalizada ou uma imagem do Marketplace. Este artigo ilustra como criar uma imagem personalizada a partir de um ficheiro VHD.
 * [Configure Imagens marketplace](devtest-lab-configure-marketplace-images.md) - Azure DevTest Labs suporta a criação de VMs com base em imagens do Azure Marketplace. Este artigo ilustra como especificar quais, se houver, imagens do Azure Marketplace podem ser usadas ao criar VMs em laboratório.
 * [Criar um VM em laboratório](devtest-lab-add-vm.md) - Ilustra como criar um VM a partir de uma imagem base (personalizada ou marketplace), e como trabalhar com artefactos no seu VM.
-

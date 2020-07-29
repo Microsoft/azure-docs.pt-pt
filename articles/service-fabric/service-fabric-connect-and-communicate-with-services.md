@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: a873a32aa8c12b535c06711ea7dc7a4aa920a27f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5081ad813d871db0f60284bca4a0c53ee5bbf6b2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86257771"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287749"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Conecte-se e comunique-se com serviços em Tecido de Serviço
 Em Service Fabric, um serviço funciona em algum lugar em um cluster de Tecido de Serviço, normalmente distribuído por vários VMs. Pode ser movido de um lugar para outro, seja pelo proprietário do serviço, ou automaticamente pela Service Fabric. Os serviços não estão estáticos ligados a uma determinada máquina ou endereço.
@@ -58,7 +58,7 @@ O proxy reverso endereça serviços no cluster que expõe pontos finais HTTP, in
 Para obter mais detalhes sobre como utilizar o serviço de procuração inversa consulte Reverse proxy no artigo [do Azure Service Fabric.](service-fabric-reverseproxy.md)
 
 ## <a name="connections-from-external-clients"></a>Ligações de clientes externos
-Os serviços que se conectam entre si dentro de um cluster geralmente podem aceder diretamente aos pontos finais de outros serviços porque os nós de um cluster estão na mesma rede local. Em alguns ambientes, no entanto, um cluster pode estar por trás de um equilibrador de carga que encaminha o tráfego externo de entrada através de um conjunto limitado de portos. Nestes casos, os serviços ainda podem comunicar entre si e resolver endereços usando o Serviço de Nomeação, mas devem ser tomadas medidas adicionais para permitir que os clientes externos se conectem aos serviços.
+Os serviços que se conectam entre si dentro de um cluster geralmente podem aceder diretamente aos pontos finais de outros serviços porque os nós de um cluster estão na mesma rede local. Em alguns ambientes, no entanto, um cluster pode estar por trás de um equilibrador de carga que encaminha o tráfego através de um conjunto limitado de portos. Nestes casos, os serviços ainda podem comunicar entre si e resolver endereços usando o Serviço de Nomeação, mas devem ser tomadas medidas adicionais para permitir que os clientes externos se conectem aos serviços.
 
 ## <a name="service-fabric-in-azure"></a>Tecido de serviço em Azure
 Um cluster de tecido de serviço em Azure é colocado atrás de um Balançador de Carga Azure. Todo o tráfego externo para o cluster deve passar pelo equilibrador de carga. O balançador de carga encaminha automaticamente o tráfego para uma determinada porta para um *nó* aleatório que tenha a mesma porta aberta. O Azure Load Balancer só sabe sobre portas abertas nos *nós,* desconhece portas abertas por *serviços*individuais.

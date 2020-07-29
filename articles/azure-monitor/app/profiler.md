@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4c9907555301c55cd5e55f421f27518fd4a9960d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4f5328bbe21bb5f4a7947d5a495f4a0c8759c8da
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085062"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87315642"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Perfil ao vivo Aplicativos Azure App Service com Insights de Aplicações
 
@@ -19,9 +19,9 @@ Pode executar profiler em ASP.NET e ASP.NET aplicações Core que estão a ser e
 
 ## <a name="enable-profiler-for-your-app"></a><a id="installation"></a>Ativar o Profiler para a sua aplicação
 Para ativar o Profiler para uma aplicação, siga as instruções abaixo. Se estiver a executar um tipo diferente de serviço Azure, aqui estão as instruções para permitir o Profiler em outras plataformas suportadas:
-* [Serviços em Nuvem](../../azure-monitor/app/profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
-* [Aplicações de tecido de serviço](../../azure-monitor/app/profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
-* [Máquinas Virtuais](../../azure-monitor/app/profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Serviços em Nuvem](./profiler-cloudservice.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
+* [Aplicações de tecido de serviço](./profiler-servicefabric.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
+* [Máquinas Virtuais](./profiler-vm.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 
 O Application Insights Profiler está pré-instalado como parte do tempo de funcionamento dos Serviços de Aplicação. Os passos abaixo mostrar-lhe-ão como capacitá-lo para o seu Serviço de Aplicações. Siga estes passos mesmo que tenha incluído a App Insights SDK na sua aplicação no momento de construção.
 
@@ -50,7 +50,7 @@ Aqui estão as definições necessárias para ativar o perfil:
 |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 
-Pode definir estes valores utilizando [modelos de gestores de recursos Azure,](../../azure-monitor/app/azure-web-apps.md#app-service-application-settings-with-azure-resource-manager) [Azure PowerShell,](/powershell/module/az.websites/set-azwebapp) [Azure CLI](/cli/azure/webapp/config/appsettings?view=azure-cli-latest).
+Pode definir estes valores utilizando [modelos de gestores de recursos Azure,](./azure-web-apps.md#app-service-application-settings-with-azure-resource-manager) [Azure PowerShell,](/powershell/module/az.websites/set-azwebapp) [Azure CLI](/cli/azure/webapp/config/appsettings?view=azure-cli-latest).
 
 ### <a name="enabling-profiler-for-other-clouds-manually"></a>Habilitação do Profiler para outras nuvens manualmente
 
@@ -79,3 +79,4 @@ Os ficheiros do profiler podem ser eliminados quando utilizar o WebDeploy para i
 [Enablement UI]: ./media/profiler/Enablement_UI.png
 [profiler-app-setting]:./media/profiler/profiler-app-setting.png
 [disable-profiler-webjob]: ./media/profiler/disable-profiler-webjob.png
+

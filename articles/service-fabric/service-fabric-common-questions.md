@@ -4,12 +4,12 @@ description: Perguntas frequentes sobre o Service Fabric, incluindo capacidades,
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: 056ff2475e0ae8c78887e24e07a3e33f12d7df88
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1655a8ed03b1f678cc5dba0a165e0bcca1d2517a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258934"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292856"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Perguntas comuns acerca do Service Fabric
 
@@ -28,7 +28,7 @@ Se o seu cluster ainda estiver aproveitando a propriedade clássica de impressã
 
 ### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>Posso criar um cluster que abrange várias regiões do Azure ou os meus próprios centros de dados?
 
-Sim. 
+Yes. 
 
 A tecnologia de clustering core Service Fabric pode ser usada para combinar máquinas que correm em qualquer parte do mundo, desde que tenham conectividade de rede entre si. No entanto, construir e executar tal aglomerado pode ser complicado.
 
@@ -36,7 +36,7 @@ Se estiver interessado neste cenário, encorajamo-lo a entrar em contacto atrav�
 
 Algumas coisas a considerar: 
 
-1. O recurso de cluster de Tecido de Serviço em Azure é regional hoje em dia, assim como os conjuntos de escala de máquina virtual em que o cluster é construído. Isto significa que em caso de falha regional poderá perder a capacidade de gerir o cluster através do Azure Resource Manager ou do portal Azure. Isto pode acontecer mesmo que o cluster continue a funcionar e tu sejas capaz de interagir diretamente com ele. Além disso, o Azure hoje em dia não oferece a capacidade de ter uma única rede virtual que seja utilizável em todas as regiões. Isto significa que um cluster multi-região em Azure requer [ou endereços IP públicos para cada VM nos conjuntos de escala VM](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) ou [gateways Azure VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). Estas escolhas de networking têm impactos diferentes nos custos, desempenho e, em certa medida, design de aplicações, pelo que é necessária uma análise e planeamento cuidadosos antes de se levantar em tal ambiente.
+1. O recurso de cluster de Tecido de Serviço em Azure é regional hoje em dia, assim como os conjuntos de escala de máquina virtual em que o cluster é construído. Isto significa que em caso de falha regional poderá perder a capacidade de gerir o cluster através do Azure Resource Manager ou do portal Azure. Isto pode acontecer mesmo que o cluster continue a funcionar e tu sejas capaz de interagir diretamente com ele. Além disso, o Azure hoje em dia não oferece a capacidade de ter uma única rede virtual que seja utilizável em todas as regiões. Isto significa que um cluster multi-região em Azure requer [endereços IP públicos para cada VM nos conjuntos de escala de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) ou [gateways Azure VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). Estas escolhas de networking têm impactos diferentes nos custos, desempenho e, em certa medida, design de aplicações, pelo que é necessária uma análise e planeamento cuidadosos antes de se levantar em tal ambiente.
 2. A manutenção, gestão e monitorização destas máquinas podem tornar-se complicadas, especialmente quando abrangedas por _tipos_ de ambientes, como entre diferentes fornecedores de nuvem ou entre recursos no local e Azure. Há que ter em ação para garantir que as atualizações, a monitorização, a gestão e os diagnósticos sejam compreendidos tanto para o cluster como para as aplicações antes de executar cargas de trabalho de produção num ambiente deste tipo. Se já tem experiência em resolver estes problemas no Azure ou dentro dos seus próprios centros de dados, então é provável que essas mesmas soluções possam ser aplicadas ao construir ou executar o seu cluster de Tecido de Serviço. 
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Os nós de Tecido de Serviço recebem automaticamente atualizações de SISTEMA?
@@ -59,7 +59,7 @@ Existem outros problemas com grandes conjuntos de escala de máquina virtual atu
 
 O tamanho mínimo suportado para um cluster de tecido de serviço que executa cargas de trabalho de produção é de cinco nós. Para cenários de dev, apoiamos um nó (otimizado para uma experiência de desenvolvimento rápido em Visual Studio) e cinco clusters de nó.
 
-Exigimos que um cluster de produção tenha pelo menos 5 nós devido às seguintes três razões:
+Exigimos que um cluster de produção tenha pelo menos cinco nós devido às seguintes três razões:
 1. Mesmo quando nenhum serviço de utilizador está em execução, um cluster De Tecido de Serviço executa um conjunto de serviços de sistema estatais, incluindo o serviço de nomeação e o serviço de gerente de failover. Estes serviços de sistema são essenciais para que o cluster permaneça operacional.
 2. Colocamos sempre uma réplica de um serviço por nó, por isso o tamanho do cluster é o limite superior para o número de réplicas que um serviço (na verdade uma partição) pode ter.
 3. Uma vez que uma atualização de cluster vai derrubar pelo menos um nó, queremos ter um tampão de pelo menos um nó, portanto, queremos que um cluster de produção tenha pelo menos dois nós para *além* do mínimo. O mínimo é o tamanho do quórum de um serviço de sistema, como explicado abaixo.  
@@ -94,7 +94,7 @@ Se pretender criar clusters para testar a sua aplicação antes de ser implantad
 Enquanto estamos a trabalhar numa experiência melhorada, hoje, és responsável pela atualização. Tem de atualizar a imagem de SO nas máquinas virtuais do cluster um VM de cada vez. 
 
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>Posso encriptar os discos de dados anexados num tipo de nó de cluster (conjunto de escala de máquina virtual)?
-Sim.  Para obter mais informações, consulte [Criar um cluster com discos de dados anexados](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks) e [encriptação de disco Azure para conjuntos de escala de máquina virtual](../virtual-machine-scale-sets/disk-encryption-overview.md).
+Yes.  Para obter mais informações, consulte [Criar um cluster com discos de dados anexados](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks) e [encriptação de disco Azure para conjuntos de escala de máquina virtual](../virtual-machine-scale-sets/disk-encryption-overview.md).
 
 ### <a name="can-i-use-low-priority-vms-in-a-cluster-node-type-virtual-machine-scale-set"></a>Posso utilizar VMs de baixa prioridade num tipo de nó de cluster (conjunto de escala de máquina virtual)?
 Não. Os VM de baixa prioridade não são suportados. 
@@ -122,11 +122,11 @@ Não. Os VM de baixa prioridade não são suportados.
 | FabricRM.exe |
 | FileStoreService.exe |
  
-### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>Como pode a minha aplicação autenticar o KeyVault para obter segredos?
-Seguem-se os meios para a sua candidatura obter credenciais para autenticação no KeyVault:
+### <a name="how-can-my-application-authenticate-to-key-vault-to-get-secrets"></a>Como pode a minha aplicação autenticar-se no Key Vault para obter segredos?
+Seguem-se os meios para a sua aplicação para obter credenciais para autenticação no Cofre de Chaves:
 
-R. Durante o trabalho de construção/embalagem das suas aplicações, pode puxar um certificado para o pacote de dados da sua aplicação SF e usá-lo para autenticar para KeyVault.
-B. Para os anfitriões de escala de máquinas virtuais MSI habilitados, pode desenvolver um simples PowerShell SetupEntryPoint para a sua aplicação SF obter [um token de acesso a partir do ponto final do MSI](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md), e, em seguida, [recuperar os seus segredos a partir do KeyVault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
+A. Durante o trabalho de construção/embalagem das suas aplicações, pode puxar um certificado para o pacote de dados da sua aplicação SF e usá-lo para autenticar no Key Vault.
+B. Para os anfitriões de escala de máquinas virtuais MSI habilitados, pode desenvolver um simples PowerShell SetupEntryPoint para a sua aplicação SF obter [um token de acesso a partir do ponto final do MSI](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md), e, em seguida, [recuperar os seus segredos a partir do Key Vault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
 
 ## <a name="application-design"></a>Design de aplicações
 
@@ -155,7 +155,7 @@ Como exemplo, suponha que tem uma coleção confiável num serviço com 100 divi
 
 Tendo em conta que cada objeto deve ser armazenado três vezes (uma primária e duas réplicas), teria memória suficiente para aproximadamente 35 milhões de objetos na sua coleção quando estiver a funcionar em plena capacidade. No entanto, recomendamos ser resiliente à perda simultânea de um domínio de falha e de um domínio de upgrade, que representa cerca de 1/3 da capacidade, e reduziria o número para cerca de 23 milhões.
 
-Note que este cálculo também assume:
+Este cálculo pressupõe ainda:
 
 - Que a distribuição de dados através das divisórias é aproximadamente uniforme ou que está a reportar métricas de carga ao Gestor de Recursos do Cluster. Por predefinição, o Tecido de Serviço carrega o equilíbrio com base na contagem de réplicas. No exemplo anterior, que colocaria 10 réplicas primárias e 20 réplicas secundárias em cada nó no cluster. Isso funciona bem para a carga que é distribuída uniformemente através das divisórias. Se a carga não estiver igual, deve reportar a carga para que o Gestor de Recursos possa embalar réplicas menores juntas e permitir que réplicas maiores consumam mais memória num nó individual.
 
@@ -167,6 +167,12 @@ Note que este cálculo também assume:
 
 Tal como acontece com os serviços fiáveis, a quantidade de dados que pode armazenar num serviço de atores é limitada apenas pelo espaço total do disco e memória disponível nos nós do seu cluster. No entanto, os atores individuais são mais eficazes quando são usados para encapsular uma pequena quantidade de estado e lógica de negócio associada. Regra geral, um ator individual deve ter um estado que é medido em quilobytes.
 
+
+### <a name="where-does-azure-service-fabric-resource-provider-store-customer-data"></a>Onde é que o Fornecedor de Recursos de Tecido de Serviço Azure armazena os dados dos clientes?
+
+O Fornecedor de Recursos de Tecido de Serviço Azure não move nem armazena os dados dos clientes para fora da região em que está implantado.
+
+
 ## <a name="other-questions"></a>Outras questões
 
 ### <a name="how-does-service-fabric-relate-to-containers"></a>Como é que o Service Fabric se relaciona com os contentores?
@@ -177,7 +183,7 @@ Os contentores oferecem uma forma simples de embalar serviços e suas dependênc
 
 Dispomos de partes abertas do Service Fabric (quadro de[serviços fiáveis,](https://github.com/Azure/service-fabric-services-and-actors-dotnet) [quadro de atores fiáveis,](https://github.com/Azure/service-fabric-services-and-actors-dotnet) [bibliotecas de integração core ASP.NET,](https://github.com/Azure/service-fabric-aspnetcore) [Service Fabric Explorer](https://github.com/Azure/service-fabric-explorer), e Service Fabric [CLI](https://github.com/Azure/service-fabric-cli)) no GitHub e aceitamos contribuições comunitárias para esses projetos. 
 
-Recentemente [anunciamos](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) que planeamos abrir o tempo de funcionação do Tecido de Serviço. Neste momento temos o Tecido de [Serviço a reergê-lo](https://github.com/Microsoft/service-fabric/) no GitHub com ferramentas de construção e teste linux, o que significa que você pode clonar o repo, construir tecido de serviço para Linux, executar testes básicos, questões abertas e apresentar pedidos de pull. Estamos a trabalhar arduamente para que o ambiente de construção do Windows seja migrado também, juntamente com um ambiente de CI completo.
+Recentemente [anunciamos](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) que planeamos abrir o tempo de funcionação do Tecido de Serviço. Neste momento, temos o Tecido de [Serviço a reergê-lo](https://github.com/Microsoft/service-fabric/) no GitHub com ferramentas de construção e teste linux, o que significa que você pode clonar o repo, construir tecido de serviço para Linux, executar testes básicos, questões abertas e apresentar pedidos de pull. Estamos a trabalhar arduamente para que o ambiente de construção do Windows seja migrado também, juntamente com um ambiente de CI completo.
 
 Siga o [blog Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) para mais detalhes à medida que forem anunciados.
 

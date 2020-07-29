@@ -5,15 +5,16 @@ ms.subservice: sizes
 documentationcenter: ''
 author: sasha-melamed
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 028de173c5cda1e95de9dd64d6ccd2a6b0ad7eb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 038433e3b83ba936c14142053b86e0a7b0ed9dc6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84674318"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291071"
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais otimizados de armazenamento
 
@@ -30,7 +31,7 @@ A [série Lsv2](lsv2-series.md) apresenta alta produção, baixa latência, arma
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.
 

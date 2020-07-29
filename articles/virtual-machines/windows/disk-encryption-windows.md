@@ -4,16 +4,16 @@ description: Este artigo fornece instruções para permitir a encriptação do d
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
-ms.topic: article
+ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: edc52198208aa86772704bde7637a2801688da59
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8b2a8d552a2b9a1d6d3bb02bf02be95af031a5e4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036136"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291971"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Cenários do Azure Disk Encryption em VMs do Windows
 
@@ -140,6 +140,33 @@ A tabela que se segue lista os parâmetros do modelo do Gestor de Recursos para 
 | redimensionarOSDisco | Se a partição de SO for redimensionada para ocupar o VHD completo do SO antes de dividir o volume do sistema. |
 | localização | Localização de todos os recursos. |
 
+## <a name="enable-encryption-on-nvme-disks-for-lsv2-vms"></a>Ativar a encriptação em discos NVMe para Lsv2 VMs
+
+Este cenário descreve a ativação da encriptação do disco Azure em discos NVMe para VMs da série Lsv2.  A série Lsv2 apresenta armazenamento NVMe local. Os Discos NVMe locais são temporários e os dados serão perdidos nestes discos se parar/negociar o seu VM (Ver: [série Lsv2).](../lsv2-series.md)
+
+Para ativar a encriptação nos discos NVMe:
+
+1. Inicialize os discos NVMe e crie volumes NTFS.
+1. Ativar a encriptação no VM com o parâmetro VolumeType definido para Todos. Isto permitirá a encriptação de todos os discos de SO e dados, incluindo volumes apoiados por discos NVMe. Para obter informações, consulte [Ativar a encriptação num VM do Windows existente ou em execução](#enable-encryption-on-an-existing-or-running-windows-vm).
+
+A encriptação persistirá nos discos NVMe nos seguintes cenários:
+- Reinicialização do VM
+- VMSS reimagem
+- Troca de OS
+
+Os discos NVMe serão não ininitializados os seguintes cenários:
+
+- Iniciar VM após alocação de negócios
+- Cura de serviço
+- Backup
+
+Nestes cenários, os discos NVMe precisam de ser inicializados após o início do VM. Para ativar a encriptação nos discos NVMe, executar o comando para ativar a Encriptação do Disco Azure novamente após a inicialização dos discos NVMe.
+
+Além dos cenários listados na secção [Cenários Não Suportados,](#unsupported-scenarios) a encriptação dos discos NVMe não é suportada para:
+
+- VMs encriptados com Encriptação do Disco Azure com AAD (versão anterior)
+- Discos NVMe com espaços de armazenamento
+- Recuperação do sítio azul de SKUs com discos NVMe (ver matriz de suporte para recuperação de [desastres Azure VM entre regiões de Azure: Máquinas replicadas - armazenamento](../../site-recovery/azure-to-azure-support-matrix.md#replicated-machines---storage)).
 
 ## <a name="new-iaas-vms-created-from-customer-encrypted-vhd-and-encryption-keys"></a>Novos VMs iaas criados a partir de VHD encriptados pelo cliente e chaves de encriptação
 
@@ -236,7 +263,6 @@ A Azure Disk Encryption não funciona para os seguintes cenários, funcionalidad
 - Mover um VMs encriptado para outra subscrição ou região.
 - Criar uma imagem ou instantâneo de um VM encriptado e usá-lo para implementar VMs adicionais.
 - Gen2 VMs (ver: [Suporte para a geração 2 VMs em Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
-- VMs da série Lsv2 (ver: [série Lsv2)](../lsv2-series.md)
 - VMs da série M com discos de acelerador de escrita.
 - Aplicando ADE a um VM que tenha um disco de dados encriptado com [encriptação do lado do servidor com teclas geridas pelo cliente](disk-encryption.md) (SSE + CMK), ou aplicando SSE + CMK a um disco de dados num VM encriptado com ADE.
 - Migrar um VM encriptado com ADE para [encriptação do lado do servidor com teclas geridas pelo cliente](disk-encryption.md).

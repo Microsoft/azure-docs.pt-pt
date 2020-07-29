@@ -5,17 +5,17 @@ services: virtual-machines-linux
 author: laurenhughes
 ms.service: virtual-machines-linux
 ms-subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
-ms.openlocfilehash: 2068682ced09c8683ad7aae37366fcff443ae761
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 520754c08fc9bf89949739987b41974eccdcd29d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080119"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292135"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Otimizar o desempenho nas máquinas virtuais da série Lsv2
 

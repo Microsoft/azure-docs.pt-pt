@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 3245b4d0ce164acd8fcd367597dcbddc9436c782
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: aa2663706d052619dd1f40c0154222b0dac8c790
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965938"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87298732"
 ---
 Começa com a biblioteca de clientes do Content Moderador para .NET. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas. Content Moderador é um serviço cognitivo que verifica conteúdo de texto, imagem e vídeo para material potencialmente ofensivo, arriscado ou indesejável. Quando este tipo de material é encontrado, o serviço aplica etiquetas adequadas (sinalizadores) ao conteúdo. A sua aplicação pode então lidar com conteúdo sinalizado para cumprir as normas ou manter o ambiente pretendido para os utilizadores.
 
@@ -29,7 +29,7 @@ Utilize a biblioteca de clientes Content Moderador para .NET para:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/)
+* Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
 * A versão atual de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 
 ## <a name="setting-up"></a>Configuração
@@ -38,10 +38,9 @@ Utilize a biblioteca de clientes Content Moderador para .NET para:
 
 Os Serviços Cognitivos Azure são representados por recursos Azure que subscreve. Crie um recurso para Moderador de Conteúdo utilizando o [portal Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [O CLI Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) na sua máquina local. Também pode:
 
-* Obtenha uma [chave de teste](https://azure.microsoft.com/try/cognitive-services/#decision) válida por sete dias de graça. Depois de se inscrever, estará disponível no site da [Azure.](https://azure.microsoft.com/try/cognitive-services/my-apis/)  
 * Veja o seu recurso no [portal Azure](https://portal.azure.com/)
 
-Depois de obter uma chave da sua subscrição ou recurso de teste, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para o URL chave e ponto final, nomeado `CONTENT_MODERATOR_SUBSCRIPTION_KEY` `CONTENT_MODERATOR_ENDPOINT` e, respectivamente.
+Depois de obter uma chave do seu recurso, [crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para o URL chave e ponto final, nomeado `CONTENT_MODERATOR_SUBSCRIPTION_KEY` `CONTENT_MODERATOR_ENDPOINT` e, respectivamente.
 
 ### <a name="create-a-new-c-application"></a>Criar uma nova aplicação C#
 
@@ -94,7 +93,7 @@ Se estiver a utilizar o Visual Studio IDE, a biblioteca do cliente está dispon�
 
 As seguintes aulas lidam com algumas das principais características da biblioteca de clientes Content Moderador .NET.
 
-|Name|Description|
+|Nome|Descrição|
 |---|---|
 |[ContentModeratorClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.contentmoderatorclient?view=azure-dotnet)|Esta classe é necessária para todas as funcionalidades do Moderador de Conteúdo. Você instantanea-o com as suas informações de subscrição, e você usá-lo para produzir instâncias de outras classes.|
 |[Imagem Dedesederação](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation?view=azure-dotnet)|Esta classe fornece a funcionalidade de análise de imagens para conteúdo adulto, informações pessoais ou rostos humanos.|
@@ -264,7 +263,7 @@ Executar o pedido do seu diretório de candidaturas com o `dotnet run` comando.
 dotnet run 
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 

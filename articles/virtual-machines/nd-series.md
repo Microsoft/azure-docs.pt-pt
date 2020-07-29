@@ -4,15 +4,15 @@ description: Especificações para os VMs da série ND.
 author: vikancha-MSFT
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 243e5eafd38a35b5afd89e765c3196efbfe5362f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d39d97e598bdbd653b3c3149396f57afd43a6607
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080000"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292082"
 ---
 # <a name="nd-series"></a>Série ND
 
@@ -55,7 +55,7 @@ Se optar por instalar manualmente os controladores da NVIDIA GPU, consulte a [co
 - [Fins gerais](sizes-general.md)
 - [Com otimização de memória](sizes-memory.md)
 - [Com otimização de armazenamento](sizes-storage.md)
-- [Otimizada para GPU](sizes-gpu.md)
+- [Com otimização de GPU](sizes-gpu.md)
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 

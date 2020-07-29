@@ -6,12 +6,12 @@ ms.author: shresha
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 86df87af44f5594fe09445f2cc85d2a2bc823200
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 73d5c3abb2edc940bee9727ce1f3b0c4e8e0a62e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099100"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289950"
 ---
 # <a name="time-series-model-variables"></a>Variáveis de modelo de série de tempo
 
@@ -87,7 +87,7 @@ As variáveis estão em conformidade com o seguinte exemplo JSON:
       "label": "Good"
     },
     {
-      "values": [3],
+      "values": [4],
       "label": "Bad"
     }
   ],

@@ -4,15 +4,15 @@ description: Crie uma máquina virtual Windows a partir de uma imagem gerida gen
 author: cynthn
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 0b4083bdc896ce2f78484fe4ab083b234c4c5d12
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2be48025bcf2be8cec63e2a251f034e72c803e88
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508581"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289653"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Create a VM from a managed image (Criar uma VM a partir de uma imagem personalizada)
 
@@ -59,5 +59,5 @@ New-AzVm `
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Criar e gerir VMs do Windows com o módulo Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

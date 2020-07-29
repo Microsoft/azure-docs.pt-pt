@@ -4,16 +4,16 @@ description: Lista os diferentes tamanhos otimizados do cálculo disponíveis pa
 author: mimckitt
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: b945348f6fabfa698e45c111241fbfcef088d45e
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 3217a8e8ef011cb949444858601f1c93b8db14c7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058083"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292038"
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>Calcular tamanhos de máquinas virtuais otimizados
 
@@ -32,6 +32,6 @@ A um preço mais baixo por hora, a série Fsv2 é o melhor valor no desempenho d
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

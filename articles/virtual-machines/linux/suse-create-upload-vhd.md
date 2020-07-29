@@ -5,15 +5,15 @@ author: gbowerman
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: guybo
-ms.openlocfilehash: ed14aee756456e35198a501df309fc9eb032898e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 73e07c612486d5f48b1ad3eca8044a561549092b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080085"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292131"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Prepare a SLES or openSUSE virtual machine for Azure (Preparar uma máquina virtual SLES ou openSUSE para o Azure)
 
@@ -133,7 +133,7 @@ Como alternativa à construção do seu próprio VHD, a SUSE também publica ima
 2. Clique **em Ligar** para abrir a janela para a máquina virtual.
 3. Na concha, executar o `zypper lr` comando' Se este comando devolver a saída semelhante à seguinte, então os repositórios são configurados como esperado-- não são necessários ajustamentos (note que os números da versão podem variar):
 
-   | # | Alias                 | Name                  | Ativado | Atualizar
+   | # | Alias                 | Nome                  | Ativado | Atualizar
    | - | :-------------------- | :-------------------- | :------ | :------
    | 1 | Nuvem:Tools_13.1      | Nuvem:Tools_13.1      | Sim     | Sim
    | 2 | openSUSE_13.1_OSS     | openSUSE_13.1_OSS     | Sim     | Sim

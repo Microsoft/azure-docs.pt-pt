@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: a0a17f28f2a87ae42b552bfa07732b8b8232ef5e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 76e49393b1d26e6db85146a204911ba164d3ffc0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531952"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289904"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Planeie o seu ambiente Azure Time Series Insights Gen2
 
@@ -78,7 +78,7 @@ Quando deixada em branco, o Tempo de Enqueue do Evento de uma fonte de evento é
 
 Agora pode configurar o modelo da Série De Tempo do Azure. O novo modelo facilita a procura e análise de dados IoT. Permite a cura, manutenção e enriquecimento de dados de séries de tempo e ajuda a preparar conjuntos de dados prontos para o consumidor. O modelo usa IDs de Séries De Tempo, que mapeiam para um caso que associa o recurso único com variáveis, conhecidas como tipos, e hierarquias. Leia sobre a visão geral do [Modelo série](./concepts-model-overview.md) de tempo para saber mais.
 
-O modelo é dinâmico, por isso pode ser construído a qualquer momento. Para começar rapidamente, construa-o e carrete-o antes de empurrar os dados para a Azure Time Series Insights. Para construir o seu modelo, leia [Use o Modelo série de tempo](./time-series-insights-update-how-to-tsm.md).
+O modelo é dinâmico, por isso pode ser construído a qualquer momento. Para começar rapidamente, construa-o e carrete-o antes de empurrar os dados para a Azure Time Series Insights. Para construir o seu modelo, leia [Use o Modelo série de tempo](/azure/time-series-insights/concepts-model-overview).
 
 Para muitos clientes, o Modelo série de tempo mapeia para um modelo de ativo existente ou sistema ERP já em vigor. Se não tiver um modelo existente, é [fornecida](https://github.com/Microsoft/tsiclient) uma experiência de utilizador pré-construída para se levantar e funcionar rapidamente. Para imaginar como um modelo pode ajudá-lo, veja o [ambiente de demonstração de amostras](https://insights.timeseries.azure.com/preview/demo).
 
@@ -95,7 +95,7 @@ Para mais informações, leia [eventos de forma](./time-series-insights-send-eve
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja [o Azure Advisor](../advisor/advisor-overview.md) para planear as suas opções de configuração de recuperação de negócios.
 - Reveja [o Azure Advisor](../advisor/advisor-overview.md) para planear as suas opções de configuração de recuperação de negócios.
