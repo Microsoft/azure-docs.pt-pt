@@ -4,15 +4,15 @@ description: Saiba mais sobre as quotas vCPU para Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: ce08ebeba6ad09ec4cba063d787c510dce6e1e2f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 684c665d57127b7ca52771c0498ef370293e4003
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86501993"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292316"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Quotas de vCPU de máquina virtual
 
@@ -59,6 +59,6 @@ As instâncias VM reservadas, que são procuradas numa única subscrição sem f
 
 Se for necessário um aumento de quota para adquirir um RI de assinatura única, pode [solicitar um aumento de quota](../../azure-portal/supportability/resource-manager-core-quotas-request.md) na sua subscrição.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre faturação e quotas, consulte [os limites de subscrição e serviços, quotas e restrições de subscrição da Azure.](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)

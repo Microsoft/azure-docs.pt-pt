@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: ebbf83e1abe6140614a45bfa89570cdf19283f8f
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: caa73b5a86c5c245aefd18de9b60ec49616b3b84
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87169681"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281553"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerir instantâneos com o Azure NetApp Files
 
@@ -46,6 +46,9 @@ Pode criar instantâneos de volume a pedido.
 ## <a name="manage-snapshot-policies"></a>Gerir políticas de instantâneo
 
 Pode agendar as imagens de volume a serem tomadas automaticamente utilizando políticas de instantâneo. Também pode modificar uma política de instantâneos conforme necessário, ou eliminar uma política de instantâneos de que já não precisa.  
+
+> [!IMPORTANT] 
+> A utilização da funcionalidade de política instantânea requer uma lista de whitelisting. Envie um e-mail anffeedback@microsoft.com com o seu ID de subscrição para solicitar esta funcionalidade.
 
 ### <a name="create-a-snapshot-policy"></a>Criar uma política instantânea 
 
@@ -145,7 +148,7 @@ Atualmente, pode restaurar uma imagem apenas para um novo volume.
     O novo volume utiliza o mesmo protocolo que o instantâneo utiliza.   
     O novo volume ao qual o instantâneo é restaurado aparece na lâmina Volumes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Compreender a hierarquia de armazenamento do Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) (Limites dos recursos do Azure NetApp Files)

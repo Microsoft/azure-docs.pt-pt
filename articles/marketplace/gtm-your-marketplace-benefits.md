@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: c305a2513a5ace241fe697766b851cd2851e8b78
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 029883ea1ac85bdd1ea256caaa711d6537c06a76
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536083"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287884"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Os seus benefícios no mercado comercial
 
@@ -41,7 +41,7 @@ Descrições detalhadas de todos os benefícios do programa podem ser encontrada
 Começar é fácil:
 
 1. Publique uma oferta no Microsoft AppSource ou no Azure Marketplace.
-2. Vá ao [Marketplace Rewards](https://partner.microsoft.com/en-us/dashboard/mpn/program/commercialmarketplace) no Partner Center e selecione **Matricular-se no Programa de Recompensas do Mercado.**
+2. Vá ao [Marketplace Rewards](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) no Partner Center e selecione **Matricular-se no Programa de Recompensas do Mercado.**
 3. Para ativar os benefícios de vendas e marketing, atribua um contacto de marketing da empresa. Este contacto receberá as comunicações de acompanhamento do Marketplace Rewards.
 4. Para adicionar ou atualizar as suas informações de contacto de marketing, vá ao topo do separador de benefícios de Vendas e Marketing na página Marketplace Rewards e, em **seguida, selecione Adicionar, atualizar ou alterar**.  Em seguida, faça o seguinte:
 
@@ -116,7 +116,7 @@ Esta oferta é realizada em inglês para todos os parceiros com uma oferta ao vi
 
 As transações que se prove serem fraudulentas não contarão para o nível de programa de vendas faturado de um editor, como indicado na [lista, no ensaio,](#list-trial-and-consulting-benefits) na secção de consultoria e na secção de benefícios do [parceiro transacionado.](#marketplace-rewards-for-transact-partners) A Microsoft irá atribuir parceiros a níveis de elegibilidade com base nas suas vendas faturadas reais, depois de a fraude ter sido removida.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) para criar ou configurar a sua oferta.
 

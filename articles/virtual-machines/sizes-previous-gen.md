@@ -4,16 +4,16 @@ description: Lista as gerações anteriores de tamanhos disponíveis para máqui
 services: virtual-machines
 ms.subservice: sizes
 author: mimckitt
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 6ebd13317940d131facfb36987fb37358260ec05
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6fb5c384d5e9489c4213277a43d5be0ed14afb6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85119227"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289717"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Gerações anteriores de tamanhos de máquinas virtuais
 
@@ -129,7 +129,7 @@ Caching de armazenamento premium: Não suportado
 | Tamanho | vCPU | Memória: GiB | Armazenamento (HDD) temporário: GiB | Discos de dados máximos | Débito máximo do disco de dados: IOPS | Largura de banda de rede Max NICs/Expect (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A0 &nbsp; <sup>1</sup> | 1 | 0.768 | 20 | 1 | 1x500 | 2/100 |
-| Standard_A1 | 1 | 1.75 | 70  | 2  | 2x500  | 2/500  |
+| Standard_A1 | 1 | 1,75 | 70  | 2  | 2x500  | 2/500  |
 | Standard_A2 | 2 | 3.5  | 135 | 4  | 4x500  | 2/500  |
 | Standard_A3 | 4 | 7    | 285 | 8  | 8x500  | 2/1000 |
 | Standard_A4 | 8 | 14   | 605 | 16 | 16x500 | 4/2000 |
@@ -377,6 +377,6 @@ Atualizações de preservação da memória: Não suportadas
 * [GPU](sizes-gpu.md)
 * [Computação de elevado desempenho](sizes-hpc.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

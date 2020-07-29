@@ -3,12 +3,12 @@ title: Apoie um VM Azure a partir das definições de VM
 description: Neste artigo, aprenda a apoiar um VM Azure singular ou vários VMs Azure com o serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 580cb1ad5f611991212bc8cdb48c66339f14d8e8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 722c24ce87edc692156a86338521aa3b2f9c7562
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538892"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286750"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Apoie um VM Azure a partir das definições de VM
 
@@ -24,7 +24,7 @@ Este artigo explica como apoiar os VMs Azure com o serviço [Azure Backup.](back
 
 ### <a name="azure-vm-agent-installation"></a>Instalação do agente Azure VM
 
-Para apoiar os VMs Azure, o Azure Backup instala uma extensão no agente VM em funcionamento na máquina. Se o seu VM foi criado a partir de uma imagem de mercado Azure, o agente estará em execução. Em alguns casos, por exemplo, se criar um VM personalizado, ou migrar uma máquina a partir do local. pode ser necessário instalar o agente manualmente.
+Para apoiar os VMs Azure, o Azure Backup instala uma extensão no agente VM em funcionamento na máquina. Se o seu VM foi criado a partir de uma imagem do Azure Marketplace, o agente estará em execução. Em alguns casos, por exemplo, se criar um VM personalizado, ou migrar uma máquina a partir do local. pode ser necessário instalar o agente manualmente.
 
 - Se necessitar de instalar manualmente o agente VM, siga as instruções para [Windows](../virtual-machines/extensions/agent-windows.md) ou [Linux](../virtual-machines/extensions/agent-linux.md) VMs.
 - Depois de o agente ser instalado, quando ativa a cópia de segurança, o Azure Backup instala a extensão de reserva ao agente. Atualiza e corrige a extensão sem a intervenção do utilizador.
@@ -39,15 +39,15 @@ Para apoiar os VMs Azure, o Azure Backup instala uma extensão no agente VM em f
    - Se já tiver um cofre, clique em **Selecionar a existência**e selecione um cofre.
    - Se não tiver um cofre, clique em **Criar novo**. Especifique um nome para o cofre. É criado na mesma região e grupo de recursos que o VM. Não é possível modificar estas definições quando ativa a cópia de segurança diretamente a partir das definições de VM.
 
-   ![Assistente para Ativar Cópia de Segurança](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
+        ![Assistente para Ativar Cópia de Segurança](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
 
-6. Na **política de backup,** faça o seguinte:
+6. Na **política de backup,** faça uma das seguintes:
 
    - Deixe a política de incumprimento. Isto confirma o VM uma vez por dia no momento especificado, e retém cópias de segurança no cofre durante 30 dias.
    - Selecione uma política de backup existente se tiver uma.
    - Criar uma nova política e definir as definições de política.  
 
-   ![Selecionar política de cópia de segurança](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
+       ![Selecionar política de cópia de segurança](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
 7. Clique **em Ativar a Cópia de Segurança**. Isto associa a política de backup com o VM.
 
@@ -85,7 +85,7 @@ Siga as instruções deste artigo para permitir a cópia de segurança para os V
 >
 >**Para se inscrever para a pré-visualização, escreva-nos emAskAzureBackupTeam@microsoft.com**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Se tiver dificuldades com algum dos procedimentos deste artigo, consulte o [guia de resolução de problemas](backup-azure-vms-troubleshoot.md).
 - [Saiba como](backup-azure-manage-vms.md) gerir os seus backups.

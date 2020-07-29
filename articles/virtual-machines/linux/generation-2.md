@@ -4,15 +4,15 @@ description: Visão geral do suporte do Azure para a geração 2 VMs
 author: ju-shim
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: e84d4d147490cd3b9d136f25a3707f5a74999f3f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2a40c6158b5d29f695360c04a0d4376efd4238f9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527341"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288465"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Suporte para geração 2 VMs em Azure
 
@@ -147,7 +147,7 @@ Pode criar uma geração de 2 VM a partir de uma imagem gerida ou de um disco ge
 
 Também pode criar geração de 2 VMs utilizando conjuntos de escala de máquina virtual. No CLI Azure, utilize conjuntos de escala Azure para criar geração 2 VMs.
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 * **A geração 2 VMs está disponível em todas as regiões de Azure?**  
     Yes. Mas nem todos os [tamanhos de geração 2 VM](#generation-2-vm-sizes) estão disponíveis em todas as regiões. A disponibilidade da geração 2 VM depende da disponibilidade do tamanho VM.
@@ -202,6 +202,6 @@ Também pode criar geração de 2 VMs utilizando conjuntos de escala de máquina
     1. Verifique se a propriedade de **geração VM** está definida para **a Gen 2** no separador **Avançado.**
     1. Verifique se está à procura de um [tamanho VM que suporte VMs Gen2](#generation-2-vm-sizes).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [máquinas virtuais de geração 2 em Hyper-V.](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/07/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c5ea31217bd3088ec123281b36f8578b08ea25b2
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f0a706cc51027bc503da9ee3bc637216e9e52853
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/24/2020
-ms.locfileid: "87136233"
+ms.locfileid: "87171353"
 ---
 ## <a name="restrictions"></a>Restrições
 
@@ -50,12 +50,12 @@ Tem de implementar um novo VM para permitir a encriptação no hospedeiro, não 
 1. Crie uma nova máquina virtual, selecione uma região apropriada e um tamanho VM suportado.
 1. Preencha os outros valores na lâmina **Básica** como quiser e, em seguida, dirija-se à lâmina **dos Discos.**
 
-    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-basic-blade.png" alt-text="texto exemplo":::
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-basic-blade.png" alt-text="A screenshot da máquina virtual criação de lâminas básicas, região e tamanho V M são destacados.":::
 
 1. Na lâmina **Discos,** selecione **Sim** para **Encriptação no anfitrião**.
 1. Faça as restantes seleções como quiser.
 
-    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="texto exemplo":::
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="A screenshot da lâmina de criação de discos de criação de máquinas virtuais, a encriptação no anfitrião é realçada.":::
 
 1. Termine o processo de implantação de VM, faça seleções que se adaptem ao seu ambiente.
 

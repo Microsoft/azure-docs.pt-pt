@@ -3,12 +3,12 @@ title: Conceitos de DevTest Labs Microsoft Docs
 description: Aprenda os conceitos básicos da DevTest Labs, e como pode facilitar a criação, gestão e monitorização de máquinas virtuais Azure
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8f82f0484caf23d20092318b5bc2a32b0e6b1f1d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 43d62d637686a785cafd29aa311ccf20cb942721
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074969"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283848"
 ---
 # <a name="devtest-labs-concepts"></a>Conceitos de Laboratórios DevTest
 ## <a name="overview"></a>Descrição geral
@@ -20,7 +20,7 @@ Um laboratório é a infraestrutura que engloba um grupo de recursos, como máqu
 ## <a name="virtual-machine"></a>Máquina virtual
 Um Azure VM é um dos vários tipos de [recursos de computação a pedido e escaláveis](/azure/architecture/guide/technology-choices/compute-decision-tree) que a Azure oferece. Os VMs Azure dão-lhe a flexibilidade da virtualização sem ter de comprar e manter o hardware físico que o executa, embora ainda precise de manter o VM executando determinadas tarefas, tais como configurar, remendar e instalar o software que o executa.
 
-[A visão geral das máquinas virtuais do Windows em Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview) dá-lhe informações sobre o que deve considerar antes de criar um VM, como a cria e como a gere.
+[A visão geral das máquinas virtuais do Windows em Azure](../virtual-machines/windows/overview.md) dá-lhe informações sobre o que deve considerar antes de criar um VM, como a cria e como a gere.
 
 ## <a name="claimable-vm"></a>VM reclamatável
 Um Azure Claimable VM é uma máquina virtual que está disponível para ser usada por qualquer utilizador de laboratório com permissões. Um administrador de laboratório pode preparar VMs com imagens e artefactos específicos e guardá-los para uma piscina partilhada. Um utilizador de laboratório pode então reivindicar um VM funcionando da piscina quando precisar de um com essa configuração específica.
@@ -28,7 +28,7 @@ Um Azure Claimable VM é uma máquina virtual que está disponível para ser usa
 Um VM que seja reclamado não é inicialmente atribuído a nenhum utilizador em particular, mas aparecerá na lista de todos os utilizadores em "Máquinas virtuais Reclamadas". Depois de um VM ser reclamado por um utilizador, é transferido para a sua área de "As minhas máquinas virtuais" e já não é reclamado por qualquer outro utilizador.
 
 ## <a name="environment"></a>Ambiente
-Em DevTest Labs, um ambiente refere-se a uma coleção de recursos Azure em um laboratório. [Esta publicação de blog](https://blogs.msdn.microsoft.com/devtestlab/2016/11/16/connect-2016-news-for-azure-devtest-labs-azure-resource-manager-template-based-environments-vm-auto-shutdown-and-more/) discute como criar ambientes multi-VM a partir dos seus modelos de Gestor de Recursos Azure.
+Em DevTest Labs, um ambiente refere-se a uma coleção de recursos Azure em um laboratório. [Esta publicação de blog](./devtest-lab-faq.md#blog-post) discute como criar ambientes multi-VM a partir dos seus modelos de Gestor de Recursos Azure.
 
 ## <a name="base-images"></a>Imagens de base
 As imagens base são imagens VM com todas as ferramentas e configurações pré-instaladas e configuradas para criar rapidamente um VM. Pode providenciar um VM escolhendo uma base existente e adicionando um artefacto para instalar o seu agente de teste. Em seguida, pode guardar o VM a provisionado como base para que a base possa ser utilizada sem ter de reinstalar o agente de teste para cada provisão do VM.
@@ -74,7 +74,7 @@ Uma vez que os âmbitos são hierárquicos, quando um utilizador tem permissões
 ## <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 Todos os conceitos discutidos neste artigo podem ser configurados utilizando modelos de Gestor de Recursos Azure, que permitem definir a infraestrutura/configuração da sua solução Azure e implementá-la repetidamente num estado consistente.
 
-[Compreenda a estrutura e a sintaxe dos modelos do Gestor de Recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format) descreve a estrutura de um modelo de Gestor de Recursos Azure e as propriedades que estão disponíveis nas diferentes secções de um modelo.
+[Compreenda a estrutura e a sintaxe dos modelos do Gestor de Recursos Azure](../azure-resource-manager/templates/template-syntax.md#template-format) descreve a estrutura de um modelo de Gestor de Recursos Azure e as propriedades que estão disponíveis nas diferentes secções de um modelo.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

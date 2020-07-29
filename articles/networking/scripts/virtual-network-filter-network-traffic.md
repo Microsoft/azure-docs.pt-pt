@@ -1,6 +1,6 @@
 ---
 title: Exemplo de script da CLI do Azure - Filtrar o tráfego de rede de VM | Microsoft Docs
-description: Exemplo de script da CLI do Azure - Filtrar o tráfego de rede de VM de entrada e saída.
+description: Utilize um script Azure CLI para filtrar o tráfego de rede de máquinas virtuais de entrada e saída (VM).
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
-ms.openlocfilehash: fb62def47e46e6f72a2f04efaefaa9d36ef9e72c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d685da261a917b2d7b6432da65d1c1600ca07961
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080906"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281655"
 ---
 # <a name="use-an-azure-cli-script-to-filter-inbound-and-outbound-vm-network-traffic"></a>Use um script Azure CLI para filtrar o tráfego de rede VM de entrada e saída
 
