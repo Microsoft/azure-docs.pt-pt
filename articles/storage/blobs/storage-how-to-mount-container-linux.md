@@ -10,6 +10,7 @@ ms.author: ripohane
 ms.reviewer: dineshm
 ms.openlocfilehash: 3505cdaa009520f581e2ccf9f8bc60cbfb65586c
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84465478"

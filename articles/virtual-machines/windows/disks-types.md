@@ -9,6 +9,7 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.openlocfilehash: aeec1d4e8b092d5f7a0b4633b0d13a9ad0a608f7
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84343562"

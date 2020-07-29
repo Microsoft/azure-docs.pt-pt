@@ -16,6 +16,7 @@ ms.date: 12/29/2019
 ms.author: yelevin
 ms.openlocfilehash: 4042f7b9d0f6fdf293f338c89d5783fe266c4edf
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "77581689"

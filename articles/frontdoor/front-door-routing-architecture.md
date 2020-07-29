@@ -13,6 +13,7 @@ ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: a088e52f742f96a13ba61969c2d7a6697c96b145
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "80879297"

@@ -6,6 +6,7 @@ ms.date: 03/30/2020
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6ef87fab099c6ff7402b351664ee15a198d69a4b
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "83722971"

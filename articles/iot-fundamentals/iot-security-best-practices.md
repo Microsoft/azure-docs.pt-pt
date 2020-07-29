@@ -9,6 +9,7 @@ ms.date: 10/09/2018
 ms.author: robinsh
 ms.openlocfilehash: 61ddad58a9f61589aae137fb66ad75b37a0cbbe9
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "73931164"

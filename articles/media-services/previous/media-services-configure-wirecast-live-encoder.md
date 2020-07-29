@@ -17,6 +17,7 @@ ms.author: juliako
 ms.reviewer: cenkdin;anilmur
 ms.openlocfilehash: f5ca4496b9de25d6e95f37076f679eacff28af81
 ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/05/2020
 ms.locfileid: "85954979"

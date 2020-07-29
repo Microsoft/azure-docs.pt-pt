@@ -9,6 +9,7 @@ ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: a9b2e8148586ec58ea6a7a033099e726920857b6
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84987929"

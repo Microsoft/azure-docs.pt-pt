@@ -18,6 +18,7 @@ ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e2a7709cf0522727257025b2dddc495b20fe8448
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763759"

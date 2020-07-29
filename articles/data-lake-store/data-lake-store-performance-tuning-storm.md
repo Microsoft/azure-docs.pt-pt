@@ -8,6 +8,7 @@ ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: 47fb385e5e1fb60f860735530356fa87031c51e8
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513787"

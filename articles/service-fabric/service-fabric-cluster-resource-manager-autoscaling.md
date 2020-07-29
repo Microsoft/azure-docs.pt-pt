@@ -7,6 +7,7 @@ ms.date: 04/17/2018
 ms.author: miradic
 ms.openlocfilehash: 3d81feaede7658de69e255c32d3a3ef570156f93
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "82793096"

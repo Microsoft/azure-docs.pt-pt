@@ -10,6 +10,7 @@ ms.date: 5/19/2020
 ms.author: derekol
 ms.openlocfilehash: 1eaf7413b01bceacbcbf3640bfe654fdad026672
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84700673"

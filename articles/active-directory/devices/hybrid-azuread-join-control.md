@@ -13,6 +13,7 @@ ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 66b216e5e511d2d80378ee7e2d124dccbc7abcb7
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85252717"

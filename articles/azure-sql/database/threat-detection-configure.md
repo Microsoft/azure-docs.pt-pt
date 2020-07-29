@@ -12,6 +12,7 @@ ms.reviewer: vanto, carlrab
 ms.date: 08/05/2019
 ms.openlocfilehash: 2f4e9841a44252829fae283a12ba804219204022
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84321551"

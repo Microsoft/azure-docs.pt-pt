@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.reviewer: sunri
 ms.openlocfilehash: 2a5e67a8416c57c1a0cb039733a93608a8919be6
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85214235"

@@ -12,6 +12,7 @@ ms.custom: ''
 manager: mtillman
 ms.openlocfilehash: 359a544df906a277a89333e3aee2f6203a707f8c
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84764133"

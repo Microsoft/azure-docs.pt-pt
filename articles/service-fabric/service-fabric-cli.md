@@ -7,6 +7,7 @@ ms.date: 5/19/2020
 ms.author: jejarry
 ms.openlocfilehash: b3714f8401def9bed68e4b0845d025734a480cb3
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "83681797"

@@ -15,6 +15,7 @@ ms.date: 01/29/2020
 ms.author: mathoma
 ms.openlocfilehash: 93819332def05022272eabc130e0f2240938f244
 ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/05/2020
 ms.locfileid: "85955510"

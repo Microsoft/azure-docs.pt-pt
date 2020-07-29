@@ -12,6 +12,7 @@ ms.subservice: blobs
 ms.custom: references_regions
 ms.openlocfilehash: 60f83fae6e7e685a1065d1c01327a004d9bb2864
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84675657"

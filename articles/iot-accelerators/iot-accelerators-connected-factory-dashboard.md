@@ -10,6 +10,7 @@ ms.date: 07/10/2018
 ms.author: dobett
 ms.openlocfilehash: b53177d578768428665891704269e63bd8edb09e
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "73820181"

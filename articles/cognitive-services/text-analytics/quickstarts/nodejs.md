@@ -13,6 +13,7 @@ ms.author: aahi
 ms.custom: seo-javascript-september2019
 ms.openlocfilehash: 0cdd837f6c618846587878fac5145cb846dd8d36
 ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/07/2020
 ms.locfileid: "86027977"

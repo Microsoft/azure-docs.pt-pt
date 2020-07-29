@@ -17,6 +17,7 @@ ms.author: rolyon
 ms.reviewer: skwan
 ms.openlocfilehash: 2a52635dbaa7a76034f3a535b099320a901e8c07
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "83758780"

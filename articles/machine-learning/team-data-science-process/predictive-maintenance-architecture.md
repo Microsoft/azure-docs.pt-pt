@@ -12,6 +12,7 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.openlocfilehash: 8fae4255a577e7744fa045ef3da4ee5b784ed6b0
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "79088040"

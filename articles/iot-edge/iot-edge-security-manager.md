@@ -11,6 +11,7 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.openlocfilehash: d5cfa16196a8815b711fd5277a80f6eb67d3a388
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "76548701"

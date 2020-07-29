@@ -6,6 +6,7 @@ ms.service: notification-hubs
 ms.topic: include
 ms.openlocfilehash: e67f53e26f2081e1aa12f7c0e6a219c240f5027a
 ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/07/2020
 ms.locfileid: "86060503"

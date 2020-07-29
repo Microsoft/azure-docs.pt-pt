@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.service: iot-central
 ms.openlocfilehash: 12ba8526be68d2cb15e37510e66f959ab65c6e99
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85802292"

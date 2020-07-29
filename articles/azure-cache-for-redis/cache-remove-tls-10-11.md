@@ -8,6 +8,7 @@ ms.date: 10/22/2019
 ms.author: yegu
 ms.openlocfilehash: 69df5a65df99a7497099e71e9f41701458370c87
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84423926"
