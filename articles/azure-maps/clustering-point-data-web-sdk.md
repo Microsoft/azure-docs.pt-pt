@@ -8,12 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.custom: codepen
-ms.openlocfilehash: ce2891201331ee1efd861d2f13cec78c0551b6ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: codepen, devx-track-javascript
+ms.openlocfilehash: 05e21e63b104a21757c63b9ad8d2954ed778d4b8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80804576"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285752"
 ---
 # <a name="clustering-point-data"></a>Dados de pontos de agrupamento
 
@@ -94,9 +95,9 @@ Quando os eventos do rato ocorrem numa camada que contém pontos de dados agrupa
 | Nome da propriedade             | Tipo    | Descrição   |
 |---------------------------|---------|---------------|
 | `cluster`                 | boolean | Indica se a característica representa um cluster. |
-| `cluster_id`              | string  | Um ID único para o cluster que pode ser usado com o `getClusterExpansionZoom` DataSource, `getClusterChildren` e `getClusterLeaves` métodos. |
+| `cluster_id`              | cadeia  | Um ID único para o cluster que pode ser usado com o `getClusterExpansionZoom` DataSource, `getClusterChildren` e `getClusterLeaves` métodos. |
 | `point_count`             | número  | O número de pontos que o cluster contém.  |
-| `point_count_abbreviated` | string  | Uma corda que abrevia o `point_count` valor se for longa. (por exemplo, 4.000 torna-se 4K)  |
+| `point_count_abbreviated` | cadeia  | Uma corda que abrevia o `point_count` valor se for longa. (por exemplo, 4.000 torna-se 4K)  |
 
 Este exemplo toma uma camada de bolha que torna os pontos de cluster e adiciona um evento de clique. Quando o evento de clique dispara, o código calcula e amplia o mapa para o nível de zoom seguinte, no qual o cluster se parte. Esta funcionalidade é implementada usando o `getClusterExpansionZoom` método da classe e a propriedade do ponto de `DataSource` `cluster_id` dados agrupado clicado.
 
@@ -126,7 +127,7 @@ A amostra a seguir utiliza uma expressão agregada. O código calcula uma contag
 Consulte os <a href='https://codepen.io/azuremaps/pen/jgYyRL/'>agregados</a> pen cluster por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 

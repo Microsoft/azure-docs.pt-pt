@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.custom: codepen
-ms.openlocfilehash: 12c407ecacdce6b9052ca70ef70a2ae87928b6c2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: codepen, devx-track-javascript
+ms.openlocfilehash: 2942ae25e3ac84ae6f91ebbba08581eb87bcd169
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064689"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285684"
 ---
 # <a name="how-to-use-image-templates"></a>Como utilizar modelos de imagem
 
@@ -119,10 +119,10 @@ Consulte o marcador pen <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>HTML 
 
 Se a sua aplicação utilizar o mesmo ícone com ícones diferentes ou se estiver a criar um módulo que adiciona modelos de imagem adicionais, pode facilmente adicionar e recuperar estes ícones a partir da web SDK do Azure Maps. Utilize as seguintes funções estáticas no `atlas` espaço de nomes.
 
-| Name | Tipo de retorno | Descrição | 
+| Nome | Tipo de retorno | Descrição | 
 |-|-|-|
 | `addImageTemplate(templateName: string, template: string, override: boolean)` | | Adiciona um modelo de imagem SVG personalizado ao espaço de nome atlas. |
-|  `getImageTemplate(templateName: string, scale?: number)`| string | Recupera um modelo SVG pelo nome. |
+|  `getImageTemplate(templateName: string, scale?: number)`| cadeia | Recupera um modelo SVG pelo nome. |
 | `getAllImageTemplateNames()` | corda[] |  Recupera um modelo SVG pelo nome. |
 
 Os modelos de imagem SVG suportam os seguintes valores de espaço reservado:

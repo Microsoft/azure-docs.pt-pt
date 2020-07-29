@@ -7,14 +7,15 @@ ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 0d3f0a61da3654c31c99cfac43c86b081876f700
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07fde5a8e7e3d542ed3fa3bc54b761d5434ac710
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78944581"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284868"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Instale o MySQL numa máquina virtual em execução OpenSUSE Linux em Azure
 
@@ -154,7 +155,7 @@ quit
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para mais informações sobre o MySQL, consulte a [Documentação MySQL](https://dev.mysql.com/doc).
 
 

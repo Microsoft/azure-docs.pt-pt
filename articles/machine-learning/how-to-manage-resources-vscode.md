@@ -8,14 +8,15 @@ ms.author: luquinta
 ms.reviewer: luquinta
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.date: 07/09/2020
-ms.openlocfilehash: 2deb939745647636cc04ae124d1e843db0bef7f6
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 5ec6af894f434f8d1f7df34b2ed0c2514ab88cc4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206490"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87306150"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Gerir os recursos de aprendizagem automática Azure com a extensão do código VS (pré-visualização)
 
@@ -376,7 +377,7 @@ Para mais informações, consulte [os pontos finais do serviço web.](concept-az
 1. Expanda o nó de subscrição que contém o seu espaço de trabalho.
 1. Expanda o nó **Endpoints** dentro do seu espaço de trabalho.
 1. Clique com o botão direito na implementação que pretende remover e selecione **Remover o serviço**.
-1. Aparece um aviso confirmando que pretende remover o serviço. Selecione **Ok**.
+1. Aparece um aviso confirmando que pretende remover o serviço. Selecione **OK**.
 
 ### <a name="manage-deployments"></a>Gerir implementações
 

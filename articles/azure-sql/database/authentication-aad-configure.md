@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 03/27/2020
-ms.openlocfilehash: d8da5bb32836ff50240bf6b781227fde8839be5c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/27/2020
+ms.openlocfilehash: 00efa3ea6fcd299dcdc51b3002d6b0459edf2ec4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088007"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281162"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configure e gere a autenticação AD AD com Azure SQL
 
@@ -237,8 +237,6 @@ Os dois procedimentos seguintes mostram-lhe como providenciar um administrador d
 ### <a name="azure-portal"></a>Portal do Azure
 
 1. No [portal Azure,](https://portal.azure.com/)no canto superior direito, selecione a sua ligação para deixar cair uma lista de possíveis Diretórios Ativos. Escolha o Diretório Ativo correto como O AD AZure predefinido. Este passo liga o Ative Directory associado a subscrição com o servidor certificando-se de que a mesma subscrição é usada tanto para o AD AZure como para o servidor.
-
-    ! [escolha-anúncio] [8]
 
 2. Procure e selecione **o servidor SQL**.
 
@@ -538,8 +536,11 @@ As orientações sobre problemas de resolução de problemas com a autenticaçã
 - Para obter mais informações sobre os principais de bases de dados, veja [Principals (Principais)](https://msdn.microsoft.com/library/ms181127.aspx).
 - Para obter mais informações sobre as funções de base de dados, veja [Database roles (Funções de base de dados)](https://msdn.microsoft.com/library/ms189121.aspx).
 - Para obter mais informações sobre as regras de firewall na Base de Dados SQL, veja [Regras de firewall da Base de Dados SQL](firewall-configure.md).
+- Para obter informações sobre como definir um utilizador convidado AZure AD como administrador AD Azure, consulte [os utilizadores convidados create AD da Azure e definido como um administrador AD Azure](authentication-aad-guest-users.md).
+- Para obter informações sobre como servir os principais com o Azure SQL, consulte [utilizadores da Create AZure AD utilizando aplicações AD Azure](authentication-aad-service-principal-tutorial.md)
 
 <!--Image references-->
+
 [11]: ./media/authentication-aad-configure/active-directory-integrated.png
 [12]: ./media/authentication-aad-configure/12connect-using-pw-auth2.png
 [13]: ./media/authentication-aad-configure/13connect-to-db2.png

@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/22/2020
-ms.openlocfilehash: a03ef316b409fdeff687f0ee7bbbf6316857c54b
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: c6964a28956230dabad007d60d84dcdd1cffab23
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131750"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319920"
 ---
 # <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Painel de utilização na análise do mercado comercial da Microsoft
 
@@ -113,7 +115,7 @@ O **separador de utilização da faturação medido** apresenta informações de
 > [!NOTE]
 > Os detalhes de utilização e todos os gráficos desta página são apresentados para qualquer dimensão do medidor selecionada para o filtro de página.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 - Para uma visão geral dos relatórios de análise disponíveis no mercado comercial do Partner Center, consulte [Analytics para o mercado comercial no Partner Center](./analytics.md).
 - Para gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para a sua oferta, consulte [o Painel De Resumo em análise de mercado comercial.](./summary-dashboard.md)

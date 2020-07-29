@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: ffbe61cd84d2c543f0db97a5d70ad13193f2a68d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c347f637083d8dfdf39cbd032df97bc52973465f
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87267120"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372574"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Tamanhos de VM de computação de alto desempenho
 
@@ -33,50 +33,25 @@ As máquinas virtuais da série Azure H (VMs) são projetadas para proporcionar 
 
 ## <a name="rdma-capable-instances"></a>Instâncias com capacidade de RDMA
 
-A maioria dos tamanhos HPC VM (HBv2, HB, HC, H16r, H16mr, A8 e A9) apresentam uma interface de rede para acesso remoto à memória direta (RDMA). Os tamanhos de [série N](./nc-series.md) selecionados designados com 'r' como as configurações NC24rs (NC24rs_v3, NC24rs_v2 e NC24r) também são capazes de RDMA. Esta interface é além da interface de rede Azure padrão disponível nos outros tamanhos VM.
+A maioria dos tamanhos HPC VM (HBv2, HB, HC, H16r, H16mr, A8 e A9) apresentam uma interface de rede para acesso remoto à memória direta (RDMA). Os tamanhos de [série N](./nc-series.md) selecionados designados com 'r' (ND40rs_v2, ND24rs, NC24rs_v3, NC24rs_v2 e NC24r) também são capazes de RDMA. Esta interface é além da interface de rede Azure padrão disponível nos outros tamanhos VM.
 
-Esta interface permite que as instâncias com capacidade RDMA se comuniquem através de uma rede InfiniBand (IB), operando a taxas HDR para HBv2, taxas EDR para hb, HC, FDR para máquinas virtuais de série H16r, H16mr e RDMA, e taxas QDR para A8 e A9 VMs. Estas capacidades de RDMA podem aumentar a escalabilidade e desempenho de certas aplicações de Interface de Passagem de Mensagens (MPI). Para obter mais informações sobre a velocidade, consulte os detalhes nas tabelas desta página.
+Esta interface permite que as instâncias com capacidade RDMA se comuniquem através de uma rede InfiniBand (IB), operando a taxas HDR para HBv2, taxas EDR para hb, HC, NDv2, FDR para H16r, H16mr e outras máquinas virtuais de série N capazes de RDMA, e taxas QDR para A8 e A9 VMs. Estas capacidades de RDMA podem aumentar a escalabilidade e desempenho de certas aplicações de Interface de Passagem de Mensagens (MPI). Para obter mais informações sobre a velocidade, consulte os detalhes nas tabelas desta página.
 
 > [!NOTE]
-> Em Azure HPC, existem duas classes de VMs dependendo se são SR-IOV habilitados para InfiniBand. Atualmente, o SR-IOV para VMs ativados pela InfiniBand são: HBv2, HB, HC, NCv3 e NDv2. O resto dos VMs ativados pela InfiniBand não estão ativados com SR-IOV.
+> Em Azure HPC, existem duas classes de VMs dependendo se são SR-IOV habilitados para InfiniBand. Atualmente, o SR-IOV para VMs ativados pela InfiniBand são: HBv2, HB, HC, NCv3 e NDv2. O resto dos VMs ativados pela InfiniBand não estão ativados atualmente pelo SR-IOV.
 > O RDMA sobre o IB é suportado para todos os VMs capazes de RDMA.
 > O IP sobre o IB só é suportado nos VMs ativados pelo SR-IOV.
 
-- **Sistema operativo** - O Linux é muito bem suportado para VMs HPC; distros como CentOS, RHEL, Ubuntu, SUSE são comumente usados. No que diz respeito ao suporte ao Windows, o Windows Server 2016 e as versões mais recentes são suportadas em todos os VMs da série HPC. Windows Server 2012 R2, Windows Server 2012 também são suportados nos VMs não-SR-IOV ativados (H16r, H16mr, A8 e A9). Note que [o Windows Server 2012 R2 não é suportado em HBv2 e outros VMs com mais de 64 núcleos (virtuais ou físicos).](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)
+- **Sistema Operativo** - Linux é muito bem suportado para VMs HPC; distros como CentOS, RHEL, Ubuntu, SUSE são comumente usados. No que diz respeito ao suporte ao Windows, o Windows Server 2016 e as versões mais recentes são suportadas em todos os VMs da série HPC. Windows Server 2012 R2, Windows Server 2012 também são suportados nos VMs não-SR-IOV ativados (H16r, H16mr, A8 e A9). Note que [o Windows Server 2012 R2 não é suportado em HBv2 e outros VMs com mais de 64 núcleos (virtuais ou físicos).](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)
+
+- **Condutores InfiniBand e RDMA** - Na InfiniBand habilitados VMs, os controladores adequados são obrigados a ativar RDMA. No Linux, as imagens CentOS-HPC VM no Marketplace vêm pré-configuradas com os controladores apropriados. As imagens Ubuntu VM podem ser configuradas com os controladores certos usando as [instruções aqui](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). Nos VMs da série H e N ativados sr-IOV, a [extensão VM InfiniBandDriverLinux](./extensions/hpc-compute-infiniband-linux.md) pode ser utilizada para instalar os controladores Mellanox OFED e ativar a InfiniBand. Saiba mais sobre a ativação da InfiniBand em VM-able VM [HPC Workloads](./workloads/hpc/overview.md).
+
+No Windows, a [extensão VM InfiniBandDriverWindows](./extensions/hpc-compute-infiniband-windows.md) instala controladores Windows Network Direct (em VMs não-SR-IOV) ou condutores Mellanox OFED (em VMs SR-IOV) para conectividade RDMA. Em certas implementações de instâncias A8 e A9, a extensão HpcVmDrivers é adicionada automaticamente. Note que a extensão VM HpcVmDrivers está a ser depreciada; não será atualizado.
+
+Para adicionar a extensão VM a um VM, pode utilizar cmdlets [Azure PowerShell.](/powershell/azure/) Para obter mais informações, consulte [extensões e funcionalidades da máquina virtual.](./extensions/overview.md) Também pode trabalhar com extensões para VMs implantados no [modelo clássico de implantação.](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic)
 
 - **MPI** - O SR-IOV permitiu que os tamanhos VM em Azure (HBv2, HB, HC, NCv3, NDv2) permitam que quase qualquer sabor de MPI seja usado com Mellanox OFED.
 Em VMs não-SR-IOV habilitados, implementações de MPI suportadas utilizam a interface Microsoft Network Direct (ND) para comunicar entre VMs. Assim, apenas as versões Microsoft MPI (MS-MPI) 2012 R2 ou posterior e Intel MPI 5.x são suportadas. Versões posteriores (2017, 2018) da biblioteca de tempo de execução do INTEL MPI podem ou não ser compatíveis com os controladores Azure RDMA.
-
-- **InfiniBandDriver<Linux. Windows> extensão VM** - Em VMs com capacidade RDMA, adicione o InfiniBandDriver<Linux/ Windows> extensão para ativar a InfiniBand. No Linux, a extensão InfiniBandDriverLinux VM instala os controladores Mellanox OFED (em VMs SR-IOV) para a conectividade RDMA. No Windows, a extensão VM InfiniBandDriverWindows instala controladores Windows Network Direct (em VMs não-SR-IOV) ou condutores Mellanox OFED (em VMs SR-IOV) para conectividade RDMA.
-Em certas implementações de instâncias A8 e A9, a extensão HpcVmDrivers é adicionada automaticamente. Note que a extensão VM HpcVmDrivers está a ser depreciada; não será atualizado.
-Para adicionar a extensão VM a um VM, pode utilizar cmdlets [Azure PowerShell.](/powershell/azure/) 
-
-  O seguinte comando instala a mais recente extensão 1.0 InfiniBandDriverWindows num VM com capacidade RDMA *existente,* implantado no grupo de recursos denominado *myResourceGroup* na região *dos EUA Ocidentais:*
-
-  ```powershell
-  Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "InfiniBandDriverWindows" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverWindows" -TypeHandlerVersion "1.0"
-  ```
-
-  Alternativamente, as extensões VM podem ser incluídas nos modelos Azure Resource Manager para uma fácil implementação, com o seguinte elemento JSON:
-
-  ```json
-  "properties":{
-  "publisher": "Microsoft.HpcCompute",
-  "type": "InfiniBandDriverWindows",
-  "typeHandlerVersion": "1.0",
-  } 
-  ```
-
-  O seguinte comando instala a mais recente extensão 1.0 InfiniBandDriverWindows em todos os VMs capazes de RDMA num conjunto de escala de máquina virtual existente chamado *myVMSS* implantado no grupo de recursos chamado *myResourceGroup*:
-
-  ```powershell
-  $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
-  Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "InfiniBandDriverWindows" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverWindows" -TypeHandlerVersion "1.0"
-  Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "MyVMSS" -VirtualMachineScaleSet $VMSS
-  Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -InstanceId "*"
-  ```
-
-  Para obter mais informações, consulte [extensões e funcionalidades da máquina virtual.](./extensions/overview.md) Também pode trabalhar com extensões para VMs implantados no [modelo clássico de implantação.](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic)
 
 - **Espaço de endereço de rede RDMA** - A rede RDMA em Azure reserva o espaço de endereço 172.16.0.0/16. Para executar aplicações MPI em casos implantados numa rede virtual Azure, certifique-se de que o espaço de endereço de rede virtual não se sobrepõe à rede RDMA.
 
@@ -86,7 +61,7 @@ O Azure oferece várias opções para criar clusters de VMs Windows HPC que pode
 
 - **Máquinas virtuais** - Implementar os VMS HPC com capacidade RDMA no mesmo conjunto de escala ou disponibilidade (quando utilizar o modelo de implementação do Gestor de Recursos Azure). Se utilizar o modelo de implementação clássico, inserte os VMs no mesmo serviço de nuvem.
 
-- **Conjuntos de escala de máquina virtual** - Num conjunto de escala de máquina virtual (VMSS), certifique-se de que limita a colocação a um único grupo de colocação para a comunicação InfiniBand dentro do VMSS. Por exemplo, num modelo de Gestor de Recursos, desaprote a `singlePlacementGroup` propriedade para `true` . Note que o tamanho máximo de VMSS que pode ser fiado com `singlePlacementGroup` propriedade é limitado a `true` 100 VMs por padrão. Se as suas necessidades de escala de emprego HPC forem superiores a 100 VMs num único inquilino VMSS, poderá solicitar um aumento, [abrir um pedido de apoio](../azure-portal/supportability/how-to-create-azure-support-request.md) ao cliente online gratuitamente. O limite do número de VMs numa única VMSS pode ser aumentado para 300. Note que ao implementar VMs usando Conjuntos de Disponibilidade, o limite máximo é de 200 VMs por Conjunto de Disponibilidade.
+- **Conjuntos de escala de máquina virtual** - Num conjunto de escala de máquina virtual, certifique-se de que limita a colocação a um único grupo de colocação para a comunicação InfiniBand dentro do conjunto de escala. Por exemplo, num modelo de Gestor de Recursos, desaprote a `singlePlacementGroup` propriedade para `true` . Note que o tamanho máximo definido que pode ser fiado com `singlePlacementGroup` propriedade é limitado a `true` 100 VMs por padrão. Se as suas necessidades de escala de emprego HPC forem superiores a 100 VMs num único inquilino, poderá solicitar um aumento, [abrir um pedido de apoio](../azure-portal/supportability/how-to-create-azure-support-request.md) ao cliente online gratuitamente. O limite do número de VMs num conjunto de escala única pode ser aumentado para 300. Note que ao implementar VMs usando Conjuntos de Disponibilidade, o limite máximo é de 200 VMs por Conjunto de Disponibilidade.
 
 - **MPI entre máquinas virtuais** - Se o RDMA (por exemplo, utilizando a comunicação MPI) for necessário entre máquinas virtuais (VMs), certifique-se de que os VMs estão no mesmo conjunto de escala de máquina virtual ou conjunto de disponibilidade.
 
@@ -109,7 +84,7 @@ O Azure oferece várias opções para criar clusters de VMs Windows HPC que pode
   
 - **Rede virtual** – Uma [rede virtual](https://azure.microsoft.com/documentation/services/virtual-network/) Azure não é necessária para utilizar os casos intensivos de computação. No entanto, para muitas implementações, você precisa de pelo menos uma rede virtual Azure baseada na nuvem, ou uma ligação site-to-site se você precisar de aceder a recursos no local. Quando necessário, crie uma nova rede virtual para implementar os casos. A adição de VMs intensivos a uma rede virtual num grupo de afinidade não é suportada.
 
-- **Redimensionamento** – Devido ao seu hardware especializado, só é possível redimensionar casos intensivos de computação dentro da mesma família (série H ou série A intensiva de computação). Por exemplo, só é possível redimensionar um VM da série H de um tamanho da série H para outro. Além disso, não é suportado o redimensionamento de um tamanho não intensivo de computação para um tamanho computacional intensivo.  
+- **Redimensionamento** – Devido ao seu hardware especializado, só é possível redimensionar casos intensivos de computação dentro da mesma família (série H ou série N). Por exemplo, só é possível redimensionar um VM da série H de um tamanho da série H para outro. Considerações adicionais em torno do suporte do condutor InfiniBand e dos discos NVMe podem ter de ser consideradas para certos VMs.
 
 
 ## <a name="other-sizes"></a>Outros tamanhos

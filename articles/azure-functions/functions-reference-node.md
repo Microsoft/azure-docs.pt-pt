@@ -4,12 +4,13 @@ description: Entenda como desenvolver funções usando o JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: c0e5dd7e1869accd309656b69bd2a07d21b1a3ec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 636df121ea5b09a421ae7bedaf9e30cbbd1966f5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082975"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280873"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript guia de desenvolvedores
 

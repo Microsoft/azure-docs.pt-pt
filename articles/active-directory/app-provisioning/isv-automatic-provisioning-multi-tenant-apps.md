@@ -11,11 +11,12 @@ ms.workload: identity
 ms.date: 07/23/2019
 ms.author: kenwith
 ms.reviewer: zhchia
-ms.openlocfilehash: 8e1b953cd2a108e216b4f8e3889287c724f68fa0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 479bbe2dbef2d28a2744b667184c45e85faf9adc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781621"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283100"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Ativar o fornecimento automático de utilizadores para a sua aplicação multi-inquilino
 
@@ -108,10 +109,10 @@ Se pretender que os utilizadores apenas após o primeiro sinal de entrada na sua
 
 A SAML JIT utiliza as informações de sinistros no token SAML para criar e atualizar informações dos utilizadores na aplicação. Os clientes podem configurar estas reclamações necessárias na aplicação AZure AD, se necessário. Por vezes, o provisionamento do JIT precisa de ser ativado a partir do lado da aplicação para que o cliente possa utilizar esta funcionalidade. O SAML JIT é útil para criar e atualizar utilizadores, mas não pode eliminar ou desativar os utilizadores na aplicação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 * [Ativar o Único S-On para a sua aplicação](../manage-apps/isv-sso-content.md)
 
 * [Submeta a sua lista de aplicações](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) e parceiro com a Microsoft para criar documentação no site da Microsoft.
 
-* [Junte-se à Microsoft Partner Network (gratuita) e crie o seu plano de mercado.](https://partner.microsoft.com/en-us/explore/commercial)
+* [Junte-se à Microsoft Partner Network (gratuita) e crie o seu plano de mercado.](https://partner.microsoft.com/explore/commercial)

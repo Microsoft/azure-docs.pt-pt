@@ -1,38 +1,45 @@
 ---
-author: baanders
-ms.author: baanders
+author: dominicbetts
+ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
-ms.date: 10/24/2019
-ms.openlocfilehash: a3340eb9e53afa83c35109bad7d22f81413dd644
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 03/17/2020
+ms.custom: references_regions
+ms.openlocfilehash: adc621f932462422202d9f16fd539f5ecc7c3d8e
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80234152"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87336906"
 ---
-## <a name="prepare-an-iot-hub"></a>Prepare um hub ioT
+## <a name="prepare-an-iot-hub"></a>Prepare um hub IoT
 
-Você também precisa de um hub Azure IoT na sua subscrição Azure para completar este quickstart. Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. Se não tiver um hub IoT, siga [estas instruções para criar um](../articles/iot-hub/iot-hub-create-using-cli.md).
+Você precisa de um hub Azure IoT na sua assinatura Azure para completar os passos neste artigo. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Se estiver a utilizar o Azure CLI localmente, insera-se primeiro na subscrição do Azure utilizando `az login`. Se estiver a comandar estes comandos na Casca de Nuvem Azure, está automaticamente inscrito.
+Se estiver a utilizar o Azure CLI localmente, inscreva-se pela primeira vez na sua assinatura Azure utilizando `az login` . Se estiver a executar estes comandos na Azure Cloud Shell, está a fazer o seu contrato automaticamente.
 
-Se estiver a utilizar o Azure `az` CLI localmente, a versão deve ser **2.0.73** ou mais tarde; o Azure Cloud Shell utiliza a versão mais recente. Utilize `az --version` o comando para verificar a versão instalada na sua máquina.
+Se estiver a utilizar o Azure CLI localmente, a `az` versão deve ser **2.8.0** ou mais tarde; o Azure Cloud Shell utiliza a versão mais recente. Utilize o `az --version` comando para verificar a versão instalada na sua máquina.
 
-Execute o seguinte comando para adicionar a extensão Microsoft Azure IoT para O CLI Azure à sua instância:
+Executar o seguinte comando para adicionar a extensão IoT do Microsoft Azure para Azure CLI ao seu exemplo:
 
 ```azurecli-interactive
 az extension add --name azure-iot
 ```
 
-Execute o seguinte comando para criar a identidade do dispositivo no seu hub IoT. Substitua os espaços reservados **YourIoTHubName** e **YourDeviceID** pelo seu próprio _nome IoT Hub_ e um id de _dispositivo_ à sua escolha.
+Se ainda não tiver um hub IoT para utilizar, execute os seguintes comandos para criar um grupo de recursos e um hub IoT de nível livre na sua subscrição. Substitua `<YourIoTHubName>` por um nome central à sua escolha:
+
+```azurecli-interactive
+az group create --name my-pnp-resourcegroup \
+    --location centralus
+az iot hub create --name <YourIoTHubName> \
+    --resource-group my-pnp-resourcegroup --sku F1
+```
+
+> [!NOTE]
+> O IoT Plug and Play está atualmente disponível em hubs IoT criados nas regiões centro-americana, norte da Europa e Japão Oriental. O suporte IoT Plug e Play não está incluído em centros IoT de nível básico.
+
+Executar o seguinte comando para criar a identidade do dispositivo no seu hub IoT. Substitua os `<YourIoTHubName>` espaços reservados e `<YourDeviceID>` os espaços reservados pelo seu próprio nome _IoT Hub_ e um _ID_ do dispositivo à sua escolha.
 
 ```azurecli-interactive
 az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDeviceID>
-```
-
-Executar o seguinte comando para obter a _cadeia de ligação_ do dispositivo para o dispositivo que acabou de registar (nota para utilização posterior):
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output table
 ```

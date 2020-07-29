@@ -3,12 +3,12 @@ title: Pacotes Azure Monitor Application Insights NuGet
 description: Listas de pacotes nugets de aplicativos Azure Monitor insights para ASP.NET, ASP.NET Core, Python
 ms.topic: reference
 ms.date: 10/16/2018
-ms.openlocfilehash: 91b48aee64a6b6942719f7f4abfb444b894c728e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27a3d89b4a64de159535d346641c21616833e21b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807167"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87309958"
 ---
 # <a name="application-insights-nuget-packages"></a>Pacotes NuGet de Insights de Aplicações
 
@@ -79,7 +79,7 @@ Abaixo está a lista atual de pacotes nuget de lançamento estável para insight
 | Microsoft.ApplicationInsights.Agent_x64 | 2.2.1 |  Permite a recolha de dados em tempo de execução para aplicações x64 | [Pacote de Descarregamento](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x64/) |
 | Microsoft.ApplicationInsights.Agent_x86 | 2.2.1 |  Permite a recolha de dados em tempo de execução para aplicações x86. | [Pacote de Descarregamento](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x86/) |
 
-Estes pacotes constituem parte da funcionalidade principal da monitorização do tempo de funcionamento no [Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md). Não precisa de descarregar diretamente estes pacotes, basta utilizar o instalador status Monitor. Se quiser entender mais sobre como estes pacotes funcionam sob o capot este post de [blog](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/) de um dos nossos desenvolvedores é um bom começo.
+Estes pacotes constituem parte da funcionalidade principal da monitorização do tempo de funcionamento no [Status Monitor](./monitor-performance-live-website-now.md). Não precisa de descarregar diretamente estes pacotes, basta utilizar o instalador status Monitor. Se quiser entender mais sobre como estes pacotes funcionam sob o capot este post de [blog](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/) de um dos nossos desenvolvedores é um bom começo.
 
 ## <a name="additional-packages"></a>Pacotes adicionais
 
@@ -88,8 +88,9 @@ Estes pacotes constituem parte da funcionalidade principal da monitorização do
 | Microsoft.ApplicationInsights.AzureWebSites | 2.6.5 | Esta extensão permite a monitorização do Application Insights num Serviço de Aplicações Azure. Versão SDK 2.6.1. Instruções: Adicione as definições de aplicação 'APPINSIGHTS_INSTRUMENTATIONKEY' com o seu ikey e reinicie o webapp para fazer um efeito.| [Pacote de Descarregamento](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AzureWebSites/) |
 | Microsoft.ApplicationInsights.Injetor | 2.6.7 | Este pacote contém ficheiros necessários para a injeção de Insights de Aplicação sem código | [Pacote de Descarregamento](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Injector/) |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Monitor [ASP.NET Core](../../azure-monitor/app/asp-net-core.md).
-- Perfil ASP.NET aplicações web Core [Azure Linux](../../azure-monitor/app/profiler-aspnetcore-linux.md).
-- Debug ASP.NET [fotos.](../../azure-monitor/app/snapshot-debugger.md)
+- Monitor [ASP.NET Core](./asp-net-core.md).
+- Perfil ASP.NET aplicações web Core [Azure Linux](./profiler-aspnetcore-linux.md).
+- Debug ASP.NET [fotos.](./snapshot-debugger.md)
+

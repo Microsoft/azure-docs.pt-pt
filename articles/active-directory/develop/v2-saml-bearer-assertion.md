@@ -9,14 +9,15 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.author: ryanwi
-ms.reviewer: hirsin
+ms.author: kenwith
+ms.reviewer: paulgarn
 ms.custom: aaddev
-ms.openlocfilehash: 1cd79b1f9e4cd3afadee250da0c184c0c5b8ac07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d745ddcf7b1d5bd7976a0ca8461c13d8ae3c849
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80886182"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282386"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Plataforma de identidade microsoft e fluxo de afirmação do portador de OAuth 2.0 SAML
 O fluxo de afirmação do portador da OAuth 2.0 SAML permite-lhe solicitar um token de acesso OAuth usando uma afirmação SAML quando um cliente precisa de usar uma relação de confiança existente. A assinatura aplicada à afirmação SAML fornece a autenticação da aplicação autorizada. Uma afirmação SAML é um símbolo de segurança XML emitido por um fornecedor de identidade e consumido por um prestador de serviços. O prestador de serviços conta com o seu conteúdo para identificar o tema da afirmação para fins relacionados com a segurança.
@@ -88,6 +89,6 @@ Depois de receber o token de acesso, ligue para as APIs do Gráfico (tarefas out
 
 1. Após um pedido bem sucedido, receberá uma resposta JSON.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Conheça os [diferentes fluxos de autenticação e cenários de aplicação](authentication-flows-app-scenarios.md).

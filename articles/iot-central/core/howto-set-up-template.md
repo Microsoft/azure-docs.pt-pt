@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 5d8d3ddffc52bd351b21351b53e8a1be5a674fe3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f5e1347850c038386d32b52378674ac20316e4c
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562865"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337216"
 ---
-# <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Defina um novo tipo de dispositivo IoT na sua aplicação Azure IoT Central
+# <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definir um novo tipo de dispositivo IoT na aplicação do Azure IoT Central
 
 *Este artigo aplica-se a construtores de soluções e desenvolvedores de dispositivos.*
 
-Um modelo de dispositivo é uma planta que define as características e comportamentos de um tipo de dispositivo que se conecta a uma aplicação Azure IoT Central.
+Um modelo do dispositivo é um esquema que define as características e comportamentos de um tipo de dispositivo que é ligado a uma aplicação do Azure IoT Central.
 
 Por exemplo, um construtor pode criar um modelo de dispositivo para uma ventoinha conectada que tenha as seguintes características:
 
@@ -36,9 +36,7 @@ A partir deste modelo de dispositivo, um operador pode criar e ligar dispositivo
 > [!NOTE]
 > Apenas construtores e administradores podem criar, editar e eliminar modelos de dispositivos. Qualquer utilizador pode criar dispositivos na página **dispositivos** a partir dos modelos de dispositivos existentes.
 
-[O IoT Plug and Play (pré-visualização)](../../iot-pnp/overview-iot-plug-and-play.md) permite que a IoT Central integre dispositivos, sem que tenha escrito qualquer código de dispositivo incorporado. No núcleo do IoT Plug and Play (pré-visualização) encontra-se um esquema de modelo de capacidade do dispositivo que descreve as capacidades do dispositivo. Numa aplicação IoT Central, os modelos do dispositivo utilizam estes modelos de capacidade de dispositivo IoT Plug e Play (pré-visualização).
-
-Como construtor, tem várias opções para criar modelos de dispositivos:
+Numa aplicação IoT Central, um modelo de dispositivo utiliza um modelo de capacidade do dispositivo para descrever as capacidades de um dispositivo. Como construtor, tem várias opções para criar modelos de dispositivos:
 
 - Desenhe o modelo do dispositivo na IoT Central e, em seguida, implemente o seu modelo de capacidade de dispositivo no código do dispositivo.
 - Importe um modelo de capacidade do dispositivo do catálogo de [dispositivos Azure Certified for IoT](https://aka.ms/iotdevcat). Em seguida, adicione quaisquer propriedades em nuvem, personalizações e dashboards que a sua aplicação IoT Central precisa.
@@ -68,7 +66,7 @@ Para criar um modelo de dispositivo na IoT Central:
 1. Aceda à página **de Modelos de Dispositivo** na sua aplicação IoT Central.
 1. Selecione **+ Novo**  >  **Costume**.
 1. Insira um nome para o seu modelo, como **Sensor Ambiental.**
-1. **Pressione introsse**. IoT Central cria um modelo de dispositivo vazio.
+1.  Prima **Enter**. IoT Central cria um modelo de dispositivo vazio.
 
 ## <a name="manage-a-device-template"></a>Gerir um modelo de dispositivo
 
@@ -119,7 +117,7 @@ A tabela a seguir mostra as definições de configuração para uma capacidade d
 | Campo | Descrição |
 | ----- | ----------- |
 | Nome a Apresentar | O nome do visor para o valor da telemetria utilizado nos painéis e formulários. |
-| Name | O nome do campo na mensagem de telemetria. O IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. Este campo tem de ser alfanumérico. |
+| Nome | O nome do campo na mensagem de telemetria. O IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. Este campo tem de ser alfanumérico. |
 | Tipo de Capacidade | A telemetria. |
 | Tipo semântico | O tipo semântico da telemetria, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos seguintes campos estão disponíveis. |
 | Esquema | O tipo de dados de telemetria, como duplo, string ou vetor. As escolhas disponíveis são determinadas pelo tipo semântico. Schema não está disponível para o evento e tipos semânticos do estado. |
@@ -139,7 +137,7 @@ A tabela a seguir mostra as definições de configuração para uma capacidade d
 | Campo | Descrição |
 | ----- | ----------- |
 | Nome a Apresentar | O nome de exibição para o valor da propriedade usado em dashboards e formulários. |
-| Name | O nome da propriedade. O IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. Este campo tem de ser alfanumérico. |
+| Nome | O nome da propriedade. O IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. Este campo tem de ser alfanumérico. |
 | Tipo de Capacidade | Propriedade. |
 | Tipo semântico | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos seguintes campos estão disponíveis. |
 | Esquema | O tipo de dados da propriedade, como duplo, string ou vetor. As escolhas disponíveis são determinadas pelo tipo semântico. Schema não está disponível para o evento e tipos semânticos do estado. |
@@ -160,7 +158,7 @@ A tabela a seguir mostra as definições de configuração para uma capacidade d
 | Campo | Descrição |
 | ----- | ----------- |
 | Nome a Apresentar | O nome de visualização do comando utilizado nos painéis e formulários. |
-| Name | O nome do comando. O IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. Este campo tem de ser alfanumérico. |
+| Nome | O nome do comando. O IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. Este campo tem de ser alfanumérico. |
 | Tipo de Capacidade | O comando. |
 | Comando | `SynchronousExecutionType`. |
 | Comentário | Qualquer comentário sobre a capacidade de comando. |
@@ -174,7 +172,7 @@ Se ainda não publicou a interface, pode editar as capacidades definidas pela in
 
 Também pode exportar a interface como um ficheiro JSON se quiser reutilizá-la noutro modelo de capacidade.
 
-## <a name="add-cloud-properties"></a>Adicionar propriedades em nuvem
+## <a name="add-cloud-properties"></a>Adicionar propriedades da cloud
 
 Utilize propriedades em nuvem para armazenar informações sobre dispositivos no IoT Central. As propriedades da nuvem nunca são enviadas para um dispositivo. Por exemplo, pode utilizar propriedades na nuvem para armazenar o nome do cliente que instalou o dispositivo, ou a última data de serviço do dispositivo.
 
@@ -183,7 +181,7 @@ A tabela a seguir mostra as definições de configuração de uma propriedade na
 | Campo | Descrição |
 | ----- | ----------- |
 | Nome a Apresentar | O nome de exibição para o valor da propriedade na nuvem usado em dashboards e formulários. |
-| Name | O nome da propriedade na nuvem. O IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. |
+| Nome | O nome da propriedade na nuvem. O IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. |
 | Tipo semântico | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos seguintes campos estão disponíveis. |
 | Esquema | O tipo de dados de propriedade em nuvem, como duplo, string ou vetor. As escolhas disponíveis são determinadas pelo tipo semântico. |
 
@@ -255,6 +253,6 @@ Para publicar um modelo de dispositivo, vá até si o modelo do seu dispositivo 
 
 Depois de publicar um modelo de dispositivo, um operador pode ir à página dispositivos e adicionar **dispositivos** reais ou simulados que usam o modelo do seu dispositivo. Pode continuar a modificar e guardar o modelo do dispositivo à medida que está a fazer alterações. Quando pretender empurrar estas alterações para o operador para visualizar na página **Dispositivos,** tem de selecionar **Publicar** sempre.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se você é um desenvolvedor de dispositivos, um próximo passo sugerido é ler sobre a [versão do modelo do dispositivo](./howto-version-device-template.md).

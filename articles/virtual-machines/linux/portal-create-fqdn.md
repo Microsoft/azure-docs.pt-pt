@@ -4,16 +4,17 @@ description: Saiba como criar um Nome de Domínio Totalmente Qualificado, ou FQD
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: networking
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f51b9ecf8e300af6b1e3f11d8431de7a282ab342
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ac44c8d157102a39df9c580938589862dafd0a4
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759348"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371894"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Crie um nome de domínio totalmente qualificado no portal Azure para um Linux VM
 
@@ -26,7 +27,7 @@ Este artigo assume que já criou um VM. Se necessário, pode [criar um VM no por
 
 Pode agora ligar-se remotamente ao VM utilizando este nome DNS, como `ssh azureuser@mydns.westus.cloudapp.azure.com` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Agora que o seu VM tem um nome público de IP e DNS, pode implementar quadros ou serviços comuns de aplicação como nginx, MongoDB, Docker, etc.
 
 Também pode ler mais sobre [a utilização do Gestor de Recursos](../../azure-resource-manager/management/overview.md) para obter dicas sobre a construção das suas implementações Azure.

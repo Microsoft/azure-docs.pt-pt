@@ -4,17 +4,17 @@ description: Descreve como funciona a deteção de anomalias, quando as notifica
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: anbene
 ms.author: mingshen
+author: mingshen-ms
 ms.date: 06/10/2020
-ms.openlocfilehash: becd15ceea41e40b35848f46f9657c501acf659a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: cb134c82f231eb8b6329b1acafb181032edd6936
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122035"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320090"
 ---
-# <a name="anomaly-detection-service-for-metered-billing"></a>Serviço de deteção de anomalias para faturação medido
+# <a name="anomaly-detection-service-for-metered-billing"></a>Serviço de deteção de anomalias da faturação limitada
 
 O [serviço de medição marketplace](marketplace-metering-service-apis-faq.md) permite criar ofertas no programa de marketplace comercial que são cobradas de acordo com unidades não padrão. Com a faturação medido, envia eventos de utilização para o uso do seu cliente para a Microsoft e preparamos a faturação com base nessa utilização.
 
@@ -58,9 +58,9 @@ Se confirmar que anomalias detetadas são uma utilização normal, não é neces
 
 ## <a name="when-and-how-to-get-support"></a>Quando e como obter apoio
 
-Se enviou a utilização incorreta para a Microsoft e isso resultou ou resultará num subcomisse do cliente, a Microsoft não iniciará uma fatura ao cliente para utilização sub-reportada ou pagar-lhe-á por essa utilização. Terá de suportar a perda de receitas devido à subnotificação.
+Se enviou a utilização incorreta para a Microsoft e isso resultou ou resultará num subcomisse do cliente, a Microsoft não iniciará uma fatura ao cliente para utilização sub-reportada ou pagar-lhe-á por essa utilização. Terá de suportar a perda de receitas devido à comunicação de valor inferior.
 
-Se um dos seguintes casos se aplicar, pode abrir um bilhete de apoio para solicitar reembolso ou ajuste de faturação para os seus clientes:
+Se um dos seguintes casos se aplicar, poderá abrir um pedido de suporte para pedir um reembolso ou um ajuste da faturação para os clientes:
 
 - Confirmou que uma das anomalias que encontrámos é um problema real e que o uso incorreto resultaria numa **sobrecarga** do cliente.
 - Descobre que nos enviou uma utilização incorreta e que o uso incorreto resultaria numa **sobrecarga** do cliente.

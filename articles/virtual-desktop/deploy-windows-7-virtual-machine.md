@@ -1,5 +1,5 @@
 ---
-title: Implementar máquina virtual Windows 7 Windows Virtual Desktop Spring 2020 - Azure
+title: Implementar máquina virtual Windows 7 Windows Virtual Desktop - Azure
 description: Como configurar e implementar uma máquina virtual do Windows 7 no Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -8,20 +8,17 @@ ms.topic: how-to
 ms.date: 07/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b589890f7b65b41cf6b7ba4fdf53b71173ed6a38
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6cb4a31e3360f3f9f8c9ed4684c30295489d27d8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020445"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285159"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Implementar uma máquina virtual do Windows 7 no Windows Virtual Desktop
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à atualização primavera 2020 com objetos de desktop virtual do Windows Manager do Azure. Se estiver a utilizar o desbloqueio virtual do Windows Desktop Fall 2019 sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md).
->
-> A atualização Virtual Desktop Spring 2020 do Windows está atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos a sua utilização para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Este conteúdo aplica-se ao Windows Virtual Desktop com objetos de ambiente de trabalho virtuais do Windows, gestor de recursos do Azure. Se estiver a utilizar o Windows Virtual Desktop (clássico) sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md).
 
 O processo de implantação de uma máquina virtual (VM) do Windows 7 no Windows Virtual Desktop é ligeiramente diferente do que para os VMs que executam versões posteriores do Windows. Este guia irá dizer-lhe como implementar o Windows 7.
 

@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 634e1866a2c3e30e0750b9e6f4b2b3f93db2f8dc
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d2e84cf06019c592a726564768f9b332ab5ed610
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133117"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372302"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Utilize o fornecedor de recursos de armazenamento Azure para aceder a recursos de gestão
 
@@ -26,7 +26,7 @@ Pode utilizar o fornecedor de recursos Azure Storage para executar ações como 
 
 A Microsoft fornece duas APIs REST para trabalhar com recursos de armazenamento Azure. Estas APIs formam a base de todas as ações que pode realizar contra o Azure Storage. A Azure Storage REST API permite-lhe trabalhar com dados na sua conta de armazenamento, incluindo bolhas, filas, ficheiros e dados de tabela. O fornecedor de recursos de armazenamento Azure REST API permite-lhe trabalhar com a conta de armazenamento e recursos conexos.
 
-Um pedido que lê ou escreve dados blob requer permissões diferentes de um pedido que realiza uma operação de gestão. O RBAC fornece um controlo fino sobre permissões a ambos os tipos de recursos. Quando atribuir um papel de RBAC a um diretor de segurança, certifique-se de que compreende quais as permissões que o diretor será concedido. Para uma referência detalhada que descreve quais as ações associadas a cada papel rbac incorporado, consulte [as funções incorporadas do Azure.](../../role-based-access-control/built-in-roles.md)
+Um pedido que lê ou escreve dados blob requer permissões diferentes de um pedido que realiza uma operação de gestão. O RBAC fornece um controlo fino sobre permissões a ambos os tipos de recursos. Quando atribuir um papel de RBAC a um diretor de segurança, certifique-se de que compreende quais as permissões que o diretor será concedido. Para uma referência detalhada que descreve quais as ações associadas a cada papel incorporado do Azure, consulte [as funções incorporadas do Azure.](../../role-based-access-control/built-in-roles.md)
 
 O Azure Storage suporta a utilização do Azure AD para autorizar pedidos contra o armazenamento de Blob e Queue. Para obter informações sobre as funções DE RBAC para operações de dados de bolhas e filas, consulte [o acesso autorizado a bolhas e filas utilizando o Ative Directory](storage-auth-aad.md).
 

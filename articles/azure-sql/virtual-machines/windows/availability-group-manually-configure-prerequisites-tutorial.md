@@ -3,7 +3,7 @@ title: 'Tutorial: Pré-requisitos para um grupo de disponibilidade'
 description: Este tutorial mostra como configurar os pré-requisitos para a criação de um sql server Always On availability group em Azure Virtual Machines.
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
@@ -12,13 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
-ms.author: mikeray
+ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b72e894b7280a2d3e0fa978125e53ae79b2d20e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 881fa116b1a44d4714002f71e6ebd163279d8c70
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669363"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284307"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Pré-requisitos para criar grupos de disponibilidade sempre em sql server em máquinas virtuais Azure
 
@@ -87,8 +88,8 @@ Para criar a rede virtual no portal Azure:
    | **Campo** | Valor |
    | --- | --- |
    | **Nome** |autoHAVNET |
-   | **Espaço de endereço** |10.33.0.0/24 |
-   | **Nome da sub-rede** |Administrador |
+   | **Espaço de endereços** |10.33.0.0/24 |
+   | **Nome da sub-rede** |Admin |
    | **Gama de endereços de sub-rede** |10.33.0.0/29 |
    | **Subscrição** |Especifique a subscrição que pretende utilizar. **A subscrição** está em branco se tiver apenas uma subscrição. |
    | **Grupo de recursos** |Escolha **Utilizar o nome existente** e escolher o nome do grupo de recursos. |
@@ -130,7 +131,7 @@ A tabela a seguir resume as definições de configuração da rede:
 | **Campo** | Valor |
 | --- | --- |
 | **Nome** |**autoHAVNET** |
-| **Espaço de endereço** |Este valor depende dos espaços de endereço disponíveis na sua subscrição. Um valor típico é 10.0.0.0/16. |
+| **Espaço de endereços** |Este valor depende dos espaços de endereço disponíveis na sua subscrição. Um valor típico é 10.0.0.0/16. |
 | **Nome da sub-rede** |**admin** |
 | **Gama de endereços de sub-rede** |Este valor depende dos intervalos de endereços disponíveis na sua subscrição. Um valor típico é 10.0.0.0/24. |
 | **Nome da sub-rede** |**sqlsubnet** |
@@ -231,7 +232,7 @@ Nos passos seguintes, configuure a máquina **ad-primar-dc** como controlador de
     ![Adicionar diálogo de papéis](./media/availability-group-manually-configure-prerequisites-tutorial-/23-addroles.png)
 
 7. Selecione **Seguinte** até chegar à secção **de Confirmação.** Selecione **o servidor de destino reinicie automaticamente se necessário** caixa de verificação.
-8. Selecione **Instalar**.
+8. Selecione **Install** (Instalar).
 9. Depois de as funcionalidades terminarem de ser instaladas, volte ao painel **do Gestor do Servidor.**
 10. Selecione a nova opção **AD DS** no painel esquerdo.
 11. Selecione o link **Mais** na barra de aviso amarela.
@@ -247,7 +248,7 @@ Nos passos seguintes, configuure a máquina **ad-primar-dc** como controlador de
     | **Opções de Controlador de Domínio** |**Senha DSRM** = Contoso!0000<br/>**Confirmar Senha** = Contoso!0000 |
 
 14. Selecione **Seguinte** para ver as outras páginas do assistente. Na página **Pré-Requisitos Verificar,** verifique se vê a seguinte mensagem: **Todas as verificações pré-requisitos passadas com sucesso**. Pode rever quaisquer mensagens de aviso aplicáveis, mas é possível continuar com a instalação.
-15. Selecione **Instalar**. A máquina virtual **ad-primar-dc** reinicia automaticamente.
+15. Selecione **Install** (Instalar). A máquina virtual **ad-primar-dc** reinicia automaticamente.
 
 ### <a name="note-the-ip-address-of-the-primary-domain-controller"></a>Note o endereço IP do controlador de domínio primário
 
@@ -553,6 +554,6 @@ Para criar uma conta para a conta do sistema e conceder permissões apropriadas,
    GO 
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Crie um servidor SQL sempre no grupo de disponibilidade em Máquinas Virtuais Azure](availability-group-manually-configure-tutorial.md)

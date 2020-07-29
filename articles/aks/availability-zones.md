@@ -5,11 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 06507c75d486717a77676154818f2032b7e8c807
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: feea8c3cba170244be2ca3ec7a11c36a3c39f700
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195569"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281230"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Criar um cluster Azure Kubernetes Service (AKS) que utiliza zonas de disponibilidade
 
@@ -33,10 +34,10 @@ Os clusters AKS podem ser criados atualmente utilizando zonas de disponibilidade
 * França Central
 * Leste do Japão
 * Europa do Norte
-* Ásia Sudeste
+* Sudeste Asiático
 * Sul do Reino Unido
 * Europa Ocidental
-* E.U.A.Oeste 2
+* E.U.A. Oeste 2
 
 Aplicam-se as seguintes limitações quando cria um cluster AKS utilizando zonas de disponibilidade:
 
@@ -84,7 +85,7 @@ az aks create \
     --zones 1 2 3
 ```
 
-Leva alguns minutos para criar o cluster AKS.
+A criação do cluster do AKS demora alguns minutos.
 
 Ao decidir a que zona deve pertencer um novo nó, uma dada piscina de nó AKS utilizará uma [melhor zona de esforço de equilíbrio oferecida por conjuntos de escala de máquina virtual Azure subjacentes][vmss-zone-balancing]. Um determinado conjunto de nó AKS é considerado "equilibrado" se cada zona tiver o mesmo número de VMs ou + \- 1 VM em todas as outras zonas para o conjunto de escala.
 
@@ -98,7 +99,7 @@ Primeiro, obtenha as credenciais de cluster AKS usando o comando [az aks get-cre
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Em seguida, use o comando [de descrever kubectl][kubectl-describe] para listar os nós no cluster. Filtrar o valor *failure-domain.beta.kubernetes.io/zone* como mostrado no seguinte exemplo:
+Em seguida, utilize o comando [de desação do kubectl][kubectl-describe] para listar os nós no cluster e filtrar o *valor failure-domain.beta.kubernetes.io/zone.* O exemplo a seguir é para uma concha bash.
 
 ```console
 kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"
@@ -130,7 +131,7 @@ az aks scale \
     --node-count 5
 ```
 
-Quando a operação de escala terminar após alguns minutos, o comando `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` deve dar uma saída semelhante a esta amostra:
+Quando a operação de escala terminar após alguns minutos, o comando `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` numa casca bash deve dar uma saída semelhante a esta amostra:
 
 ```console
 Name:       aks-nodepool1-28993262-vmss000000
@@ -151,7 +152,7 @@ Temos agora dois nós adicionais nas zonas 1 e 2. Pode implementar uma aplicaç�
 kubectl run nginx --image=nginx --replicas=3
 ```
 
-Ao visualizar nós onde as suas cápsulas estão a funcionar, vê que as cápsulas estão a correr nos nós correspondentes a três zonas de disponibilidade diferentes. Por exemplo, com o comando `kubectl describe pod | grep -e "^Name:" -e "^Node:"` obteria uma saída semelhante a esta:
+Ao visualizar nós onde as suas cápsulas estão a funcionar, vê que as cápsulas estão a correr nos nós correspondentes a três zonas de disponibilidade diferentes. Por exemplo, com o comando `kubectl describe pod | grep -e "^Name:" -e "^Node:"` numa concha bash obteria uma saída semelhante a esta:
 
 ```console
 Name:         nginx-6db489d4b7-ktdwg
@@ -164,7 +165,7 @@ Node:         aks-nodepool1-28993262-vmss000004/10.240.0.8
 
 Como pode ver na saída anterior, a primeira cápsula está a funcionar no nó 0, que está localizado na zona de `eastus2-1` disponibilidade. A segunda cápsula está a funcionar no nó 2, que corresponde a `eastus2-3` , e a terceira no nó 4, em `eastus2-2` . Sem qualquer configuração adicional, a Kubernetes está a espalhar corretamente as cápsulas pelas três zonas de disponibilidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo detalhou como criar um cluster AKS que utiliza zonas de disponibilidade. Para obter mais considerações sobre clusters altamente disponíveis, consulte [as melhores práticas para a continuidade do negócio e recuperação de desastres em AKS][best-practices-bc-dr].
 

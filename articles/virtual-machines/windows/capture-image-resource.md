@@ -5,16 +5,16 @@ author: cynthn
 ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: 3aa4a7db9982d41cf32c1ddc4de6762bf1fdecf4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d1cd4a25a2a9f07c75976d5eb5c97ba450ffdabb
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508802"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284647"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Create a managed image of a generalized VM in Azure (Criar uma imagem gerida de uma VM generalizada no Azure)
 
@@ -245,5 +245,5 @@ Para criar uma imagem gerida a partir de um VM que não utilize discos geridos, 
     ```
 
     
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Criar um VM a partir de uma imagem gerida](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).    

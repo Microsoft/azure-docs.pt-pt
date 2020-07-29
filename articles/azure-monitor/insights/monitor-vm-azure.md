@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 9a96db0e9a834dcddbb5f247953fa1bbf0dc39ce
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 294c93242a3fee5db14f5919ebb367aebcca3a80
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539708"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326193"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitorização de máquinas virtuais Azure com Monitor Azure
 Este artigo descreve como usar o Azure Monitor para recolher e analisar dados de monitorização de máquinas virtuais Azure para manter a sua saúde. As máquinas virtuais podem ser monitorizadas para disponibilidade e desempenho com o Azure Monitor como qualquer [outro recurso Azure](monitor-azure-resource.md), mas são únicas a partir de outros recursos, uma vez que também é necessário monitorizar o funcionamento e o sistema de hóspedes e as cargas de trabalho que o operam. 
@@ -31,7 +31,7 @@ Este artigo descreve como usar o Azure Monitor para recolher e analisar dados de
 ## <a name="monitoring-data"></a>Monitorizar dados
 As máquinas virtuais em Azure geram [troncos](../platform/data-platform-logs.md) e [métricas](../platform/data-platform-metrics.md) como mostrado no diagrama seguinte.
 
-![Descrição Geral](media/monitor-vm-azure/logs-metrics.png)
+![Descrição geral](media/monitor-vm-azure/logs-metrics.png)
 
 
 ### <a name="virtual-machine-host"></a>Anfitrião de máquinas virtuais
@@ -132,9 +132,9 @@ Uma vez configurada a recolha de dados de monitorização para uma máquina virt
 
 | Opção menu | Descrição |
 |:---|:---|
-| Descrição Geral | Exibe [métricas](../platform/data-platform-metrics.md) da plataforma para o hospedeiro de máquina virtual. Clique num gráfico para trabalhar com estes dados no [explorador de métricas.](../platform/metrics-getting-started.md) |
+| Descrição geral | Exibe [métricas](../platform/data-platform-metrics.md) da plataforma para o hospedeiro de máquina virtual. Clique num gráfico para trabalhar com estes dados no [explorador de métricas.](../platform/metrics-getting-started.md) |
 | Registo de atividades | [Entradas de registo](../platform/activity-log.md#view-the-activity-log) de atividade filtradas para a máquina virtual atual. |
-| Informações | Abre [o Azure Monitor para VMs](../insights/vminsights-overview.md) com o mapa para a máquina virtual atual selecionada. |
+| Informações | Abre [o Azure Monitor para VMs](./vminsights-overview.md) com o mapa para a máquina virtual atual selecionada. |
 | Alertas | Vistas [alertas](../platform/alerts-overview.md) para a máquina virtual atual.  |
 | Métricas | Explorador [de métricas](../platform/metrics-getting-started.md) abertas com o âmbito definido para a máquina virtual atual. |
 | Definições de diagnóstico | Ativar e configurar [a extensão de diagnóstico](../platform/diagnostics-extension-overview.md) para a máquina virtual atual. |
@@ -238,7 +238,8 @@ As características do Azure Monitor que aumentam as funcionalidades SCOM existe
 Consulte [o Connect Operations Manager ao Azure Monitor](../platform/om-agents.md) para obter mais informações sobre a ligação do seu grupo de gestão SCOM existente ao seu espaço de trabalho Log Analytics.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como analisar dados em registos do Azure Monitor utilizando consultas de registo.](../log-query/get-started-queries.md)
 * [Saiba mais sobre alertas utilizando métricas e registos no Azure Monitor.](../platform/alerts-overview.md)
+

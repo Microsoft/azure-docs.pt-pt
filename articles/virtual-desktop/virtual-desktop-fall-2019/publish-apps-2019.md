@@ -1,6 +1,6 @@
 ---
-title: Publicar aplicativos incorporados no Windows Virtual Desktop Fall 2019 - Azure
-description: Como publicar aplicativos incorporados no Windows Virtual Desktop.
+title: Publicar aplicativos incorporados no Windows Virtual Desktop (clássico) - Azure
+description: Como publicar aplicações incorporadas no Windows Virtual Desktop (clássico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e20d2ca8f2f0ef2b8c0290702a2b9e91cc22bb09
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5f204bc6d2595e7f18e59bae15ff35d49e1801e0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020378"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284936"
 ---
-# <a name="publish-built-in-apps-in-windows-virtual-desktop---fall-2019"></a>Publicar aplicativos incorporados no Windows Virtual Desktop - outono 2019
+# <a name="publish-built-in-apps-in-windows-virtual-desktop-classic"></a>Publicar aplicativos incorporados no Windows Virtual Desktop (clássico)
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../publish-apps.md).
+>Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows. Se estiver a tentar gerir os objetos de ambiente de trabalho virtuais do Azure Resource Manager Windows, consulte [este artigo](../publish-apps.md).
 
 Este artigo irá dizer-lhe como publicar aplicações no seu ambiente de ambiente de trabalho virtual do Windows.
 

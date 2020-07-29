@@ -7,12 +7,13 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: ade688c3fe339db864994923d0ff40dfe41b7cb7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: c9abc4dc89651eec7df635fb415314b2c12da3a6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263012"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319767"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Use o feed de alteração DB do Azure Cosmos para visualizar a análise de dados em tempo real
 
@@ -392,6 +393,6 @@ Irá agora observar como pode utilizar a sua nova ferramenta de análise de dado
 
 Para eliminar os recursos que criou durante este laboratório, navegue para o grupo de recursos no [portal Azure](https://portal.azure.com/), em seguida, selecione **Delete grupo** de recursos do menu no topo da página e siga as instruções fornecidas.
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
   
 * Para saber mais sobre a mudança de feed, consulte [trabalhar com o suporte de feed de mudança em Azure Cosmos DB](change-feed.md) 

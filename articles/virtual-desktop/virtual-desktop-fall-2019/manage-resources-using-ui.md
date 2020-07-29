@@ -1,6 +1,6 @@
 ---
 title: Implementar ferramenta de gestão com um modelo de Gestor de Recursos Azure - Azure
-description: Como instalar uma ferramenta de interface de utilizador com um modelo de Gestor de Recursos Azure para gerir os recursos de desktop virtual do Windows.
+description: Como instalar uma ferramenta de interface de utilizador com um modelo de Gestor de Recursos Azure para gerir os recursos do Windows Virtual Desktop (clássico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3c3e93cf711d4dadfdc2354a297b0588fb637c80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf9fff614f638aec9519c11b2bb558cc77b94814
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514236"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284953"
 ---
-# <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>Implemente uma ferramenta de gestão com um modelo de Gestor de Recursos Azure
+# <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Implemente uma ferramenta de gestão virtual do Windows Desktop (clássico) com um modelo de Gestor de Recursos Azure
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure.
+>Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows.
 
 As instruções deste artigo dir-lhe-ão como implantar a UI utilizando um modelo de Gestor de Recursos Azure.
 
@@ -51,7 +51,7 @@ Antes de iniciar, certifique-se de que o servidor e as aplicações do cliente t
 Siga estas instruções para implementar o modelo de Gestão de Recursos Azure:
 
 1. Aceda à [página GitHub Azure RDS-Templates](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy).
-2. Desloque o modelo para Azure.
+2. Implemente o modelo no Azure.
     - Se estiver a implementar uma subscrição da Enterprise, desloque-se para baixo e selecione **Implementar para Azure**.
     - Se estiver a implementar uma subscrição do Cloud Solution Provider, siga estas instruções para implementar no Azure:
         1. Desloque-se para baixo e clique no botão direito **Implementar para Azure**e, em seguida, selecione **Copy Link Location**.
@@ -112,6 +112,6 @@ Siga estas instruções para lançar a ferramenta:
 
 Se encontrar problemas com a ferramenta de gestão ou outras ferramentas de ambiente de trabalho virtual do Windows, siga as instruções nos [modelos do Gestor de Recursos Azure para serviços de ambiente de trabalho remoto](https://github.com/Azure/RDS-Templates/blob/master/README.md) para os reportar no GitHub.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a implantar e conectar-se à ferramenta de gestão, pode aprender a usar o Serviço Azure para monitorizar problemas de serviço e avisos de saúde. Para saber mais, consulte o nosso [serviço de alertas de serviço tutorial.](set-up-service-alerts-2019.md)

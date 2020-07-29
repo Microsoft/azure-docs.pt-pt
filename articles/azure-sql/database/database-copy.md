@@ -10,25 +10,23 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 02/24/2020
-ms.openlocfilehash: d92882014f66234be8a8b1d7063dae866ec6f230
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/27/2020
+ms.openlocfilehash: 4dd27a5d3bca5ca1c0395feb049d5a814211c539
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84045299"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87309261"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copie uma cópia transaccionalmente consistente de uma base de dados na Base de Dados Azure SQL
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-A Azure SQL Database fornece vários métodos para criar uma cópia transacionalmente consistente de uma base de [dados](single-database-overview.md) existente no mesmo servidor ou num servidor diferente. Pode copiar uma base de dados utilizando o portal Azure, PowerShell ou T-SQL.
+A Azure SQL Database fornece vários métodos para criar uma cópia de uma base de [dados](single-database-overview.md) existente no mesmo servidor ou num servidor diferente. Pode copiar uma base de dados utilizando o portal Azure, PowerShell, Azure CLI ou T-SQL.
 
 ## <a name="overview"></a>Descrição geral
 
-Uma cópia da base de dados é uma imagem da base de dados de origem a partir da hora do pedido de cópia. Pode selecionar o mesmo servidor ou um servidor diferente. Também pode optar por manter o seu nível de serviço e tamanho de cálculo, ou utilizar um tamanho de cálculo diferente dentro do mesmo nível de serviço (edição). Após a cópia estar completa, torna-se uma base de dados totalmente funcional e independente. Neste momento, você pode atualizá-lo ou desclassificá-lo para qualquer edição. Os logins, utilizadores e permissões podem ser geridos de forma independente. A cópia é criada utilizando a tecnologia de geo-replicação e uma vez concluída a sementeira, a ligação de geo-replicação é automaticamente terminada. Todos os requisitos para a utilização de geo-replicação aplicam-se à operação de cópia da base de dados. Consulte [a visão geral da replicação de geo-replicação ativa](active-geo-replication-overview.md) para obter mais detalhes.
-
-> [!NOTE]
-> [As cópias de segurança automáticas](automated-backups-overview.md) da base de dados são utilizadas quando cria uma cópia da base de dados.
+Uma cópia de base de dados é uma imagem transaccionalmente consistente da base de dados de origem a partir de um ponto no tempo após o pedido de cópia ser iniciado. Pode selecionar o mesmo servidor ou um servidor diferente para a cópia. Também pode optar por manter o nível de serviço e o tamanho do cálculo da base de dados de origem, ou utilizar um tamanho de cálculo diferente dentro do mesmo nível de serviço ou de um nível de serviço diferente. Após a cópia estar completa, torna-se uma base de dados totalmente funcional e independente. Os logins, utilizadores e permissões na base de dados copiada são geridos independentemente da base de dados de origem. A cópia é criada utilizando a tecnologia de geo-replicação. Uma vez concluída a sementeira de réplica, a ligação de geo-replicação é automaticamente terminada. Todos os requisitos para a utilização de geo-replicação aplicam-se à operação de cópia da base de dados. Consulte [a visão geral da replicação de geo-replicação ativa](active-geo-replication-overview.md) para obter mais detalhes.
 
 ## <a name="logins-in-the-database-copy"></a>Logins na cópia da base de dados
 
@@ -186,7 +184,7 @@ Os seguintes erros podem ser encontrados ao copiar uma base de dados na Base de 
 | 40570 |16 |A cópia da base de dados falhou devido a um erro interno. Por favor, largue a base de dados do alvo e tente de novo mais tarde. |
 | 40571 |16 |A cópia da base de dados falhou devido a um erro interno. Por favor, largue a base de dados do alvo e tente de novo mais tarde. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre logins, consulte [Gerir logins](logins-create-manage.md) e como gerir a segurança da Base de [Dados Azure SQL após a recuperação de desastres.](active-geo-replication-security-configure.md)
 * Para exportar uma base de dados, consulte [exporte a base de dados para um BACPAC.](database-export.md)

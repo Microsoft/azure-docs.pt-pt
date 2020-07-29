@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 05/24/2020
-ms.openlocfilehash: 62163217862f586be7ed5c0a6000693f8e7fcdd6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ca41a403f789fd529ac65c21799d3d3e7f3becf6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043193"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285463"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Resolução de problemas Vídeo Analytics em IoT Edge
 
@@ -265,6 +265,9 @@ Recomendamos que *não* chame métodos diretos em paralelo. Chame-os sequencialm
 ### <a name="collect-logs-for-submitting-a-support-ticket"></a>Recolher registos para a submissão de um bilhete de apoio
 
 Quando os passos de resolução de problemas auto-guiados não resolverem o seu problema, vá ao portal Azure e [abra um bilhete de apoio](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+
+> [!WARNING]
+> Os registos podem conter informações pessoalmente identificáveis (PII) como o seu endereço IP. Todas as cópias locais dos registos serão apagadas assim que completarmos a sua análise e fecharmos o bilhete de apoio.  
 
 Para recolher os registos relevantes que devem ser adicionados ao bilhete, siga as instruções nas secções seguintes. Pode fazer o upload dos ficheiros de registo no painel **de detalhes** do pedido de suporte.
 

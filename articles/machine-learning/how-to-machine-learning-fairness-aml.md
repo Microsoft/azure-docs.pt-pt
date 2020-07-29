@@ -5,18 +5,18 @@ description: Saiba como avaliar a equidade dos seus modelos no Azure Machine Lea
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: luquinta
 ms.date: 07/09/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 4f791ef9e18032ce6773f4262586431e693b43b2
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: 5e6f241fcf30d4090a1af9a26441a5a10b939972
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206740"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87307068"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Utilize a Azure Machine Learning com o pacote fairlearn open-source para avaliar a equidade dos modelos ML (pré-visualização)
 

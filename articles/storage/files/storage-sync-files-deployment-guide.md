@@ -7,11 +7,12 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e1ba623a00c84a7b83afe778c808251e49c7008e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 072fa659d6f5cf55da4dfc99cfed38220be70812
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515356"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337352"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementar Azure File Sync
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos dados localmente, incluindo SMB, NFS e FTPS. Podes ter o número de caches que precisares em todo o mundo.
@@ -29,7 +30,7 @@ Recomendamos vivamente que leia Planeamento para uma implementação e Planeamen
     $PSVersionTable.PSVersion
     ```
 
-    Se o seu valor de PSVersion for inferior a 5.1, \* como será o caso da maioria das instalações recentes do Windows Server 2012 R2, pode facilmente atualizar-se descarregando e instalando o Windows Management Framework [(WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). O pacote apropriado para descarregar e instalar para o Windows Server 2012 R2 é **Win8.1AndW2K12R2-KB \* \* \* \* \* \* \* -x64.msu**. 
+    Se o seu valor **de PSVersion** for inferior a 5.1, \* como será o caso da maioria das instalações recentes do Windows Server 2012 R2, pode facilmente atualizar-se descarregando e instalando o Windows Management Framework [(WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). O pacote apropriado para descarregar e instalar para o Windows Server 2012 R2 é **Win8.1AndW2K12R2-KB \* \* \* \* \* \* \* -x64.msu**. 
 
     PowerShell 6+ pode ser utilizado com qualquer sistema suportado, e pode ser descarregado através da sua [página GitHub](https://github.com/PowerShell/PowerShell#get-powershell). 
 
@@ -214,6 +215,8 @@ Registar o Windows Server num Serviço de Sincronização de Armazenamento estab
 
 > [!Note]
 > O registo do servidor utiliza as suas credenciais Azure para criar uma relação de confiança entre o Serviço de Sincronização de Armazenamento e o seu Servidor Do Windows, no entanto, posteriormente, o servidor cria e utiliza a sua própria identidade que é válida desde que o servidor permaneça registado e o token de assinatura de acesso partilhado atual (Storage SAS) seja válido. Um novo token SAS não pode ser emitido para o servidor uma vez que o servidor não está registado, removendo assim a capacidade do servidor de aceder às suas ações de ficheiros Azure, impedindo qualquer sincronização.
+
+O administrador que regista o servidor deve ser membro das funções de gestão **Proprietário** ou **Contribuinte** para o serviço de sincronização de armazenamento dado. Isto pode ser configurado no Controlo **de Acesso (IAM)** no portal Azure para o Serviço de Sincronização de Armazenamento.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 O UI de Registo do Servidor deve abrir-se automaticamente após a instalação do agente Azure File Sync. Se isso não acontecer, pode abri-la manualmente na localização do ficheiro, em C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe. Quando o UI de Registo do Servidor abrir, selecione Iniciar o início do Início do Início do **Início.**
@@ -457,7 +460,7 @@ Para migrar uma implementação DFS-R para Azure File Sync:
 
 Para obter mais informações, consulte [o interop Azure File Sync com o Distributed File System (DFS)](storage-sync-files-planning.md#distributed-file-system-dfs).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Adicionar ou remover um ponto de final do servidor de sincronização de ficheiros Azure](storage-sync-files-server-endpoint.md)
 - [Registar ou não registar um servidor com Azure File Sync](storage-sync-files-server-registration.md)
 - [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)

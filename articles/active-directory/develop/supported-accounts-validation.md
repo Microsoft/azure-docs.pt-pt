@@ -10,12 +10,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 82b721d14d114b358939bebecff00bc762b075a6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e794e277f6731c7b6e57a4710eea437f65be0340
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058339"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87336349"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>Diferenças de validação por tipos de conta suportados (signInAudience)
 
@@ -41,7 +41,7 @@ Consulte a tabela seguinte para as diferenças de validação de vários imóvei
 | Redirecionamento URIs `replyURLs` () | Consulte [as restrições e limitações de URL de redirecionamento URI/resposta](reply-url.md) para mais informações. | | | 
 | Permissões API `requiredResourceAccess` () | Sem limite* | Sem limite* | Máximo de 50 recursos por aplicação e 30 permissões por recurso (por exemplo, Microsoft Graph). Limite total de 200 por pedido (recursos x permissões). | 
 | Âmbitos definidos por esta API ( `oauth2Permissions` ) | Comprimento máximo do nome do âmbito de 120 caracteres <br><br> Sem limite* no número de âmbitos definidos | Comprimento máximo do nome do âmbito de 120 caracteres <br><br> Sem limite* no número de âmbitos definidos |  Comprimento máximo do nome do âmbito de 40 caracteres <br><br> Máximo de 100 âmbitos definidos | 
-| Pedidos de cliente autorizados `preautorizedApplications` () | Sem limite* | Sem limite* | Máximo total de 500 <br><br> Máximo de 100 aplicações de cliente definidas <br><br> Máximo de 30 âmbitos definidos por cliente | 
+| Pedidos de cliente autorizados `preAuthorizedApplications` () | Sem limite* | Sem limite* | Máximo total de 500 <br><br> Máximo de 100 aplicações de cliente definidas <br><br> Máximo de 30 âmbitos definidos por cliente | 
 | appRoles | Suportado <br> Sem limite* | Suportado <br> Sem limite* | Não suportado | 
 | Logout URL | http://localhosté permitido <br><br> Comprimento máximo de 255 caracteres | http://localhosté permitido <br><br> Comprimento máximo de 255 caracteres | <br><br> https://localhosté permitido, http://localhost falha para MSA <br><br> Comprimento máximo de 255 caracteres <br><br> O regime HTTP não é permitido <br><br> Wildcards não são suportados | 
 

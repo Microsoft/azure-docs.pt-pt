@@ -10,12 +10,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 34ffa7a9fe9bd129fa3fd572bc8ef4d80b43ab9b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4ff61687f2fa045b51dfcb69488d1fbd87b65f75
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322980"
+ms.locfileid: "87336502"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintaxe de consulta do encaminhamento de mensagens do Hub IoT
 
@@ -59,9 +59,10 @@ As propriedades do sistema ajudam a identificar o conteúdo e a origem das mensa
 | contentEncoding | cadeia | O utilizador especifica o tipo de codificação da mensagem. Os valores permitidos são UTF-8, UTF-16, UTF-32 se o conteúdoType estiver definido para aplicação/JSON. |
 | iothub-connection-device-id | cadeia | Este valor é definido pelo IoT Hub e identifica o ID do dispositivo. Para consultar, use `$connectionDeviceId` . |
 | iothub-enqueuedtime | cadeia | Este valor é definido pelo IoT Hub e representa o tempo real de mensagem na UTC. Para consultar, use `enqueuedTime` . |
-| nome iothub-interface | cadeia | Este valor é definido pelo utilizador e representa o nome da interface digital twin que implementa a mensagem de telemetria. Para consultar, use `$interfaceName` . Esta funcionalidade está disponível como parte da [pré-visualização pública IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). |
+| dt-dataschema | cadeia |  Este valor é definido pelo hub IoT em mensagens dispositivo-a-nuvem. Contém o iD do modelo do dispositivo na ligação do dispositivo. Esta funcionalidade está disponível como parte da [pré-visualização pública IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). Para consultar, use `$dt-dataschema` . |
+| dt-sujeito | cadeia | O nome do componente que está a enviar as mensagens dispositivo-a-nuvem. Esta funcionalidade está disponível como parte da [pré-visualização pública IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). Para consultar, use `$dt-subject` . |
 
-Como descrito nas [Mensagens IoT Hub,](iot-hub-devguide-messages-construct.md)existem propriedades adicionais do sistema numa mensagem. Para além **do conteúdoType**, **contentEncoding**e **enqueuedTime,** a **ligaçãoDeviceId** e **conexãoModuleId** também pode ser consultada.
+Como descrito nas [Mensagens IoT Hub,](iot-hub-devguide-messages-construct.md)existem propriedades adicionais do sistema numa mensagem. Além das propriedades acima na tabela anterior, pode ainda consultar **a ligaçãoDeviceId,** **connectionModuleId**.
 
 ### <a name="application-properties"></a>Propriedades da aplicação
 

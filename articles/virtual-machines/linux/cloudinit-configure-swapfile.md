@@ -4,14 +4,15 @@ description: Como usar o cloud-init para configurar uma partição swap num Linu
 author: rickstercdn
 manager: gwallace
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 1247652e536042ee249054d86aed3c3f8e7aa7bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f8746e67ba712ac4c2c3e832fcb5ffefb170d59
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78969206"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371945"
 ---
 # <a name="use-cloud-init-to-configure-a-swap-partition-on-a-linux-vm"></a>Use cloud-init para configurar uma partição de troca num Linux VM
 Este artigo mostra-lhe como usar [a ineit em nuvem](https://cloudinit.readthedocs.io) para configurar a partição swap em várias distribuições Linux. A partição swap foi tradicionalmente configurada pelo Agente Linux (WALA) com base na qual as distribuições exigiam uma.  Este documento irá delinear o processo de construção da partição swap a pedido durante o tempo de fornecimento usando o cloud-init.  Para obter mais informações sobre como o cloud-init funciona de forma nativa em Azure e os distros de Linux suportados, consulte [a visão geral de cloud-init](using-cloud-init.md)
@@ -80,7 +81,7 @@ Filename                Type        Size    Used    Priority
 > [!NOTE] 
 > Se tiver uma imagem Azure existente que tenha uma partição de troca configurada e quiser alterar a configuração de troca de divisórias para novas imagens, deve remover a partição de troca existente. Consulte o documento 'Personalize as imagens para obter por cloud-init' para obter mais detalhes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para exemplos adicionais de alterações de configuração, consulte o seguinte:
  
 - [Adicione um utilizador Linux adicional a um VM](cloudinit-add-user.md)

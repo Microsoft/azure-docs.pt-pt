@@ -4,16 +4,16 @@ description: Este artigo fornece pré-requisitos para a utilização da Encripta
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 30edd5b8e9fbfdce9fb3061c1891ff0a68a50cc8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c85d362f7295e8edef1b4070a779c6aa99c3991f
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080255"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372642"
 ---
 # <a name="azure-disk-encryption-with-azure-active-directory-ad-previous-release"></a>Encriptação do disco Azure com Diretório Ativo Azure (AD) (versão anterior)
 

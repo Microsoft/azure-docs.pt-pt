@@ -3,19 +3,19 @@ title: Criptografe a sua fonte de aplicação em repouso
 description: Criptografe os dados da sua aplicação no Azure Storage e implemente-os como um ficheiro de pacote.
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 6dfb56a5ef6b1ab3cfbd0762bf7816e37ce0aa39
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1dd0d11baa16a325a22a501d40e22e5bad6adb21
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081887"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282335"
 ---
 # <a name="encrypt-your-application-data-at-rest-using-customer-managed-keys"></a>Criptografe os dados da sua aplicação em repouso utilizando as teclas geridas pelo cliente
 
 Encriptar os dados de aplicação da sua aplicação de função em repouso requer uma conta de armazenamento Azure e um Cofre de Chaves Azure. Estes serviços são utilizados quando executam a sua aplicação a partir de um pacote de implementação.
 
   - [O Azure Storage fornece encriptação em repouso](../storage/common/storage-service-encryption.md). Pode utilizar as chaves fornecidas pelo sistema ou as suas próprias chaves geridas pelo cliente. É aqui que os dados da sua aplicação são armazenados quando não estão a funcionar numa aplicação de função em Azure.
-  - [Funcionando a partir de um pacote de implantação] ((run-functions-from-deployment-package.md) é uma funcionalidade de implantação do Serviço de Aplicações. Permite-lhe implementar o conteúdo do seu site a partir de uma Conta de Armazenamento Azure utilizando um URL de Assinatura de Acesso Partilhado (SAS).
+  - [Executar a partir de um pacote de implementação](run-functions-from-deployment-package.md) é uma funcionalidade de implementação do Serviço de Aplicações. Permite-lhe implementar o conteúdo do seu site a partir de uma Conta de Armazenamento Azure utilizando um URL de Assinatura de Acesso Partilhado (SAS).
   - [As referências ao Cofre](../app-service/app-service-key-vault-references.md) chave são uma funcionalidade de segurança do Serviço de Aplicações. Permite-lhe importar segredos no tempo de execução como configurações de aplicação. Utilize isto para encriptar o URL SAS da sua Conta de Armazenamento Azure.
 
 ## <a name="set-up-encryption-at-rest"></a>Configurar encriptação em repouso

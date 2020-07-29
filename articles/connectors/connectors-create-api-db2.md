@@ -7,11 +7,12 @@ ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: 32b482607827ee4420e39b1936586d64f9ea3139
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd85155f932d57319f5f27081b44b48e5540bfb2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77651387"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284052"
 ---
 # <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Aceda e gere os recursos ibm DB2 utilizando apps Azure Logic
 
@@ -79,13 +80,13 @@ Os exemplos deste artigo utilizam o gatilho **de Recorrência.**
 
 Para configurar a sua ligação, forneça estes detalhes de conexão quando solicitado, escolha **Criar**e, em seguida, guarde a sua aplicação lógica:
 
-| Propriedade | Necessário | Descrição |
+| Propriedade | Obrigatório | Descrição |
 |----------|----------|-------------|
 | **Ligar através do portal no local** | Não | Aplica-se apenas a ligações no local. |
 | **Nome de conexão** | Sim | O nome da sua ligação, por exemplo, "MyLogicApp-DB2-connection" |
 | **Servidor** | Sim | O endereço ou número da porta do cólon para o seu servidor DB2, por exemplo, "myDB2server.cloudapp.net:50000" <p><p>**Nota:** Este valor é uma cadeia que representa um endereço TCP/IP ou pseudónimo, quer no formato IPv4 quer IPv6, seguido de um cólon e um número de porta TCP/IP. |
 | **Base de Dados** | Sim | O nome da sua base de dados <p><p>**Nota:** Este valor é uma cadeia que representa um nome de base de dados relacional DRDA (RDBNAM): <p>- DB2 para z/OS aceita uma cadeia de 16 bytes onde a base de dados é conhecida como uma localização "IBM DB2 para z/OS". <br>- DB2 para i aceita uma cadeia de 18 bytes onde a base de dados é conhecida como uma base de dados relacional "IBM DB2 para i". <br>- DB2 para LUW aceita uma corda de 8 bytes. |
-| **Nome de utilizador** | Sim | O seu nome de utilizador para a base de dados <p><p>**Nota:** Este valor é uma cadeia cujo comprimento se baseia na base de dados específica: <p><p>- DB2 para z/OS aceita uma corda de 8 bytes. <br>- DB2 para eu aceitar uma corda de 10 bytes. <br>- DB2 para Linux ou UNIX aceita uma corda de 8 bytes. <br>- DB2 para Windows aceita uma cadeia de 30 bytes. |
+| **Nome de Utilizador** | Sim | O seu nome de utilizador para a base de dados <p><p>**Nota:** Este valor é uma cadeia cujo comprimento se baseia na base de dados específica: <p><p>- DB2 para z/OS aceita uma corda de 8 bytes. <br>- DB2 para eu aceitar uma corda de 10 bytes. <br>- DB2 para Linux ou UNIX aceita uma corda de 8 bytes. <br>- DB2 para Windows aceita uma cadeia de 30 bytes. |
 | **Palavra-passe** | Sim | A sua senha para a base de dados |
 ||||
 
@@ -99,14 +100,14 @@ Por exemplo:
 
 Antes de criar a sua ligação, já deve ter o seu portal de dados no local instalado. Caso contrário, não pode terminar de configurar a sua ligação. Se tiver a sua instalação gateway, continue a fornecer estes detalhes de conexão e, em seguida, escolha **Criar**.
 
-| Propriedade | Necessário | Descrição |
+| Propriedade | Obrigatório | Descrição |
 |----------|----------|-------------|
 | **Ligar através do portal no local** | Sim | Aplica-se quando pretende uma ligação no local e mostra as propriedades de ligação no local. |
 | **Nome de conexão** | Sim | O nome da sua ligação, por exemplo, "MyLogicApp-DB2-connection" | 
 | **Servidor** | Sim | O endereço ou número da porta do cólon para o seu servidor DB2, por exemplo, "myDB2server:50000" <p><p>**Nota:** Este valor é uma cadeia que representa um endereço TCP/IP ou pseudónimo, quer no formato IPv4 quer IPv6, seguido de um cólon e um número de porta TCP/IP. |
 | **Base de Dados** | Sim | O nome da sua base de dados <p><p>**Nota:** Este valor é uma cadeia que representa um nome de base de dados relacional DRDA (RDBNAM): <p>- DB2 para z/OS aceita uma cadeia de 16 bytes onde a base de dados é conhecida como uma localização "IBM DB2 para z/OS". <br>- DB2 para i aceita uma cadeia de 18 bytes onde a base de dados é conhecida como uma base de dados relacional "IBM DB2 para i". <br>- DB2 para LUW aceita uma corda de 8 bytes. |
 | **Autenticação** | Sim | O tipo de autenticação para a sua ligação, por exemplo, "Básico" <p><p>**Nota:** Selecione este valor da lista, que inclui Básico ou Windows (Kerberos). |
-| **Nome de utilizador** | Sim | O seu nome de utilizador para a base de dados <p><p>**Nota:** Este valor é uma cadeia cujo comprimento se baseia na base de dados específica: <p><p>- DB2 para z/OS aceita uma corda de 8 bytes. <br>- DB2 para eu aceitar uma corda de 10 bytes. <br>- DB2 para Linux ou UNIX aceita uma corda de 8 bytes. <br>- DB2 para Windows aceita uma cadeia de 30 bytes. |
+| **Nome de Utilizador** | Sim | O seu nome de utilizador para a base de dados <p><p>**Nota:** Este valor é uma cadeia cujo comprimento se baseia na base de dados específica: <p><p>- DB2 para z/OS aceita uma corda de 8 bytes. <br>- DB2 para eu aceitar uma corda de 10 bytes. <br>- DB2 para Linux ou UNIX aceita uma corda de 8 bytes. <br>- DB2 para Windows aceita uma cadeia de 30 bytes. |
 | **Palavra-passe** | Sim | A sua senha para a base de dados |
 | **Porta de entrada** | Sim | O nome do seu portal de dados instalado no local <p><p>**Nota:** Selecione este valor da lista, que inclui todos os gateways de dados instalados dentro do seu grupo de subscrição e recursos Azure. |
 ||||
@@ -150,9 +151,9 @@ Para obter um registo numa tabela de bases de dados DB2, utilize a ação **de l
 
 1. Especifique os valores de todas as propriedades necessárias (*). Depois de selecionar uma tabela, a ação mostra as propriedades relevantes que são específicas dos registos nessa tabela.
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
-   | **Nome da tabela** | Sim | A tabela que tem o registo que deseja, como "AREA" neste exemplo |
+   | **Nome da mesa** | Sim | A tabela que tem o registo que deseja, como "AREA" neste exemplo |
    | **ID de área** | Sim | O ID para o registo que deseja, como "99999" neste exemplo |
    ||||
 
@@ -230,9 +231,9 @@ Para adicionar um único registo a uma tabela de base de dados DB2, utilize a a�
 
    Para este exemplo, aqui estão as propriedades:
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
-   | **Nome da tabela** | Sim | A tabela onde adicionar o recorde, como "AREA" |
+   | **Nome da mesa** | Sim | A tabela onde adicionar o recorde, como "AREA" |
    | **ID de área** | Sim | O ID para a área a adicionar, como "99999" |
    | **Descrição da área** | Sim | A descrição para a área a adicionar, como "Área 99999" |
    | **ID da região** | Sim | O ID para a região a adicionar, como "102" |
@@ -277,9 +278,9 @@ Para atualizar um único registo numa tabela de base de dados DB2, utilize a aç
 
    Para este exemplo, aqui estão as propriedades:
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
-   | **Nome da tabela** | Sim | A tabela onde atualizar o registo, como "AREA" |
+   | **Nome da mesa** | Sim | A tabela onde atualizar o registo, como "AREA" |
    | **ID de linha** | Sim | O ID para o registo a atualizar, como "99999" |
    | **ID de área** | Sim | O novo ID da área, como "99999" |
    | **Descrição da área** | Sim | A nova descrição da área, como "Atualizado 99999" |
@@ -325,9 +326,9 @@ Para eliminar um único registo de uma tabela de bases de dados DB2, utilize a a
 
    Para este exemplo, aqui estão as propriedades:
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
-   | **Nome da tabela** | Sim | A tabela onde apagar o registo, como "AREA" |
+   | **Nome da mesa** | Sim | A tabela onde apagar o registo, como "AREA" |
    | **ID de linha** | Sim | O ID para que o registo apague, como "99999" |
    ||||
 
@@ -358,11 +359,12 @@ Expandir a ação **da linha Delete.**
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter mais detalhes técnicos sobre este conector, tais como gatilhos, ações e limites descritos pelo ficheiro Swagger do conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/db2/).
+Para obter mais detalhes técnicos sobre este conector, tais como gatilhos, ações e limites descritos pelo ficheiro Swagger do conector, consulte a [página de referência do conector](/connectors/db2/).
 
 > [!NOTE]
 > Para aplicações lógicas num ambiente de [serviço de integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão com rótulo ISE deste conector utiliza os limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [outros conectores de Apps Lógicas](../connectors/apis-list.md)
+

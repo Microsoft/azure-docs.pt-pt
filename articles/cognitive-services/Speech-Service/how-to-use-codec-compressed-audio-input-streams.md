@@ -1,7 +1,7 @@
 ---
-title: Áudio comprimido de código stream com o Serviço Speech SDK - Speech
+title: Streaming codec comprimido áudio com o Serviço de Discurso SDK - Speech
 titleSuffix: Azure Cognitive Services
-description: Aprenda a transmitir áudio comprimido para o serviço de Fala com o SDK de Fala. Disponível para C++, C#, e Java para Linux, Java em Android e Objective-C no iOS.
+description: Aprenda a transmitir áudio comprimido para o serviço de Discurso com o SDK do discurso. Disponível para C++, C#e Java para Linux, Java no Android e Objective-C no iOS.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -10,21 +10,21 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: amishu
-zone_pivot_groups: programming-languages-set-twelve
-ms.openlocfilehash: 13cb35ffa650661da2855787279c4bdc37126ac9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+zone_pivot_groups: programming-languages-set-twenty-two
+ms.openlocfilehash: 14f87dff680fb72654d1d3e20fe2f0516f9709aa
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585029"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282752"
 ---
-# <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Utilize a entrada de áudio comprimido codec com o SDK do Discurso
+# <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Utilize entrada de áudio comprimido codec com o SDK de fala
 
-O serviço de fala SDK **Comprime Audio Input Stream** API fornece uma forma de transmitir áudio comprimido para o serviço de Fala usando um `PullStream` ou `PushStream` .
+O serviço de voz SDK **Comprimida Transmissão de Entrada Sonora** API fornece uma forma de transmitir áudio comprimido para o serviço Dea falar utilizando um `PullStream` ou `PushStream` .
 
-O streaming de áudio de entrada comprimido é atualmente suportado para C#, C++, Java no Windows (as aplicações UWP não são suportadas) e Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8, CentOS 7/8). Também é suportado para Java em Android e Objective-C na plataforma iOS.
-* A versão 1.10.0 ou posterior do Discurso SDK é necessária para RHEL 8 e CentOS 8
-* A versão 1.11.0 ou posterior do Speech SDK é necessária para windows.
+O áudio de entrada comprimido de streaming é atualmente suportado para C#, C++, Java e Python no Windows (as aplicações UWP não são suportadas) e Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8, CentOS 7/8). Também é suportado para Java no Android.
+* A versão SDK de fala 1.10.0 ou posterior é necessária para RHEL 8 e CentOS 8
+* A versão SDK do discurso 1.11.0 ou posterior é necessária para o Windows.
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
@@ -42,11 +42,11 @@ O streaming de áudio de entrada comprimido é atualmente suportado para C#, C++
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/java/prerequisites.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-objectivec"
-[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/objectivec/prerequisites.md)]
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/python/prerequisites.md)]
 ::: zone-end
 
-## <a name="example-code-using-codec-compressed-audio-input"></a>Código de exemplo utilizando entrada de áudio comprimido codec
+## <a name="example-code-using-codec-compressed-audio-input"></a>Código de exemplo usando entrada de áudio comprimido codec
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/csharp/examples.md)]
@@ -60,8 +60,8 @@ O streaming de áudio de entrada comprimido é atualmente suportado para C#, C++
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/java/examples.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-objectivec"
-[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/objectivec/examples.md)]
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/python/examples.md)]
 ::: zone-end
 
 ## <a name="next-steps"></a>Passos seguintes

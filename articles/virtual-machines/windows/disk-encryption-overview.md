@@ -4,16 +4,16 @@ description: Este artigo fornece instruções para permitir a encriptação do d
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 649fcc270f8c8cc1f476e677d0886f2c34bc620f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4650df71acb088fafc1280d31d9abfb398e06741
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088500"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284494"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Encriptação do disco Azure para VMs windows 
 

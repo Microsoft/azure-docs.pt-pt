@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: a66613406de66cf9478b90d4ad58c115a30fdf5d
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 82d797189096994e02c77e9d342c00b13dfa187d
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224770"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337097"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Ligar-se ao Azure IoT Central
 
@@ -213,13 +213,13 @@ Uma das principais características da IoT Central é a capacidade de associar a
 
 Os seguintes snippets mostram o formato da carga útil adicional que o dispositivo deve enviar durante a chamada de registo DPS para que a associação automática funcione.
 
-Este é o formato para dispositivos que utilizam o dispositivo geralmente disponível SDK que não suporta IoT Plug e Play:
+Este é o formato para dispositivos que utilizam o dispositivo geralmente disponível SDK:
 
 ```javascript
     iotcModelId: '< this is the URN for the capability model>';
 ```
 
-Este é o formato para dispositivos que utilizam o dispositivo público de pré-visualização SDK que suporta ioT Plug e Play:
+Este é o formato para dispositivos que utilizam o dispositivo público de pré-visualização SDK:
 
 ```javascript
 '__iot:interfaces': {
@@ -274,14 +274,12 @@ Toda a comunicação do dispositivo com o IoT Hub utiliza as seguintes opções 
 
 A tabela a seguir resume como o dispositivo Azure IoT Central apresenta o mapa nas características do IoT Hub:
 
-| Azure IoT Central | Hub IoT do Azure |
+| Azure IoT Central | Azure IoT Hub |
 | ----------- | ------- |
 | Telemetria | Mensagens dispositivo-a-nuvem |
 | Propriedade | Propriedades reportadas de twin dispositivo |
 | Propriedade (depreciada) | Propriedades duplas do dispositivo desejadas e reportadas |
 | Comando | Métodos diretos |
-
-Para saber mais sobre a utilização dos SDKs do dispositivo, consulte [ligar um dispositivo MXChip IoT DevKit à sua aplicação Azure IoT Central,](howto-connect-devkit.md) por exemplo, código.
 
 ### <a name="protocols"></a>Protocolos
 

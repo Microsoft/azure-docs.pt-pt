@@ -8,14 +8,18 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.custom: amqp
-ms.openlocfilehash: ac45cf42ed174d3e9423b4ea39cadf16b84897ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- amqp
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+ms.openlocfilehash: e9fd4308f89873183e4f5f57cee56887ce181fae
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759650"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87307289"
 ---
-# <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configurar a segurança X.509 no Hub IoT do Azure
+# <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Set up X.509 security in your Azure IoT hub (Configurar segurança X.509 no seu hub IoT do Azure)
 
 Este tutorial mostra os passos necessários para proteger o seu hub Azure IoT utilizando a *Autenticação de Certificado X.509*. Para efeitos de ilustração, utilizamos a ferramenta open-source OpenSSL para criar certificados localmente na sua máquina Windows. Recomendamos que utilize este tutorial apenas para efeitos de teste. Para o ambiente de produção, deverá adquirir os certificados a uma autoridade de *certificados de raiz (CA)*.
 
@@ -94,7 +98,7 @@ Em seguida, vamos mostrar-lhe como criar uma aplicação C# para simular o dispo
 
 1. No Solution Explorer, clique com o botão direito no projeto **SimulateX509Device** e, em seguida, **selecione Gerir pacotes NuGet**.
 
-1. No Gestor de **Pacotes NuGet**, selecione **Procurar** e escolher **Microsoft.Azure.Devices.Client**. Selecione **Instalar**.
+1. No Gestor de **Pacotes NuGet**, selecione **Procurar** e escolher **Microsoft.Azure.Devices.Client**. Selecione **Install** (Instalar).
 
    ![Adicione o pacote SDK NuGet do dispositivo no Estúdio Visual](./media/iot-hub-security-x509-get-started/device-sdk-nuget.png)
 
@@ -186,7 +190,7 @@ Em seguida, vamos mostrar-lhe como criar uma aplicação C# para simular o dispo
 
    ![Executar aplicativo de dispositivo](./media/iot-hub-security-x509-get-started/device-app-success.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a segurança da sua solução IoT, consulte:
 

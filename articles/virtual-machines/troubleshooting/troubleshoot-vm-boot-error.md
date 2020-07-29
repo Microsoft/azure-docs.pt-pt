@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/28/2019
 ms.author: tiag
-ms.openlocfilehash: 7774ea5138e6d77547e386531e573457cd6d2862
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5353bad3ff631fd7baa5d9892d38449ba622ea46
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525947"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284681"
 ---
 # <a name="linux-vm-boots-to-grub-rescue"></a>Botas Linux VM para Grub Rescue
 
@@ -35,7 +35,7 @@ Siga os passos de mitigação abaixo, dependendo do erro que recebe:
 * Se estiver a obter o erro **Do sistema de ficheiros Desconhecido,** este erro pode resultar de uma corrupção no sistema de ficheiros na partição do arranque ou de uma configuração incorreta do núcleo.
 
    * Para problemas no sistema de ficheiros, siga os passos do artigo [Recuperação Linux: Não pode SSH a Linux VM devido a erros do sistema de ficheiros (fsck, inodes)](/archive/blogs/linuxonazure/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes).
-   * Para questões de kernel, siga os passos no artigo [Recuperação linux: corrigir manualmente problemas de não arranque relacionados com problemas de Kernel](/archive/blogs/linuxonazure/linux-recovery-manually-fixing-non-boot-issues-related-to-kernel-problems), ou [Recuperação linux: Corrigir problemas de não-arranque relacionados com problemas de Kernel utilizando croástas](/archive/blogs/linuxonazure/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot).
+   * Para questões de kernel, siga os passos no artigo [Recuperação linux: corrigir manualmente problemas de não arranque relacionados com problemas de Kernel](http://linuxonazure.azurewebsites.net/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/), ou [Recuperação linux: Corrigir problemas de não-arranque relacionados com problemas de Kernel utilizando croástas](http://linuxonazure.azurewebsites.net/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/).
    
 ### <a name="error---file-not-found"></a>Erro - Ficheiro não encontrado
 
@@ -65,7 +65,7 @@ Siga os passos de mitigação abaixo, dependendo do erro que recebe:
 
    * Se o ficheiro em falta for `/boot/grub/menu.lst` , este erro destina-se às versões de SISTEMA mais antigas **(RHEL 6.x**, **Centos 6.x** e **Ubuntu 14.04**) para que os comandos possam adiar. Rode um servidor antigo e teste-o para garantir que os comandos corretos são fornecidos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Descrição geral do Agente da Máquina Virtual do Azure](../extensions/agent-windows.md)
 * [Extensões e funcionalidades de máquinas virtuais para Windows](../extensions/features-windows.md)

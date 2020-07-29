@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop diagnostics log analytics (outono 2019) - Azure
-description: Saiba como utilizar a análise de registos com a funcionalidade de diagnóstico do Windows Virtual Desktop (lançamento de outono 2019).
+title: Windows Virtual Desktop (clássico) diagnósticos de análise - Azure
+description: Como utilizar a análise de registo com a funcionalidade de diagnóstico virtual do Windows Desktop (clássico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c4c59268f63252813c7e08608d5d8ee499b11f53
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 500758839b426143650707d3d77d78e8a064533e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077618"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285072"
 ---
-# <a name="use-log-analytics-for-the-diagnostics-feature-fall-2019-release"></a>Use Log Analytics para a funcionalidade de diagnóstico (lançamento outono 2019)
+# <a name="use-log-analytics-for-the-diagnostics-feature-in-windows-virtual-desktop-classic"></a>Utilize o Log Analytics para a funcionalidade de diagnóstico no Windows Virtual Desktop (clássico)
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../diagnostics-log-analytics.md).
+>Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows. Se estiver a tentar gerir os objetos de ambiente de trabalho virtuais do Azure Resource Manager Windows, consulte [este artigo](../diagnostics-log-analytics.md).
 
 O Windows Virtual Desktop oferece uma funcionalidade de diagnóstico que permite ao administrador identificar problemas através de uma única interface. Esta funcionalidade regista informações de diagnóstico sempre que alguém atribui a função de Desktop Virtual do Windows utilizar o serviço. Cada registo contém informações sobre qual a função de Desktop Virtual do Windows envolvida na atividade, quaisquer mensagens de erro que apareçam durante a sessão, informações do inquilino e informações do utilizador. A funcionalidade de diagnóstico cria registos de atividade tanto para as ações do utilizador como para as ações administrativas. Cada registo de atividades insere-se em três categorias principais:
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: d20ac5964ef70618d4d7dc2d4a7fe7d7d01284ce
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: de773bb2188f09822cae59ce42924a9a49f8087e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965644"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285633"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>As melhores práticas de configuração do cluster (SQL Server em VMs Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -42,27 +42,26 @@ Tecnicamente, um aglomerado de três nós pode sobreviver a uma única perda de 
 
 O recurso quórum protege o cluster contra qualquer uma destas questões. 
 
-Para configurar o recurso quórum com o SQL Server em VMs Azure, pode utilizar estes tipos de testemunhas: 
+A tabela a seguir enumera as opções de quórum disponíveis na ordem recomendada para a utilização com um Azure VM, sendo a testemunha de disco a escolha preferida: 
 
 
 ||[Testemunho de disco](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Testemunha de cloud](/windows-server/failover-clustering/deploy-cloud-witness)  |[Testemunho de partilha de ficheiros](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
 |**SoA apoiado**| Todos |Windows Server 2016+| Windows Server 2012+|
-|**Versão suportada do SQL Server**|SQL Server 2019|SQL Server 2016+|SQL Server 2016+|
+
 
 
 
 ### <a name="disk-witness"></a>Testemunho de disco
 
-Uma testemunha em disco é um pequeno disco agrupado no grupo de armazenamento disponível do Cluster. Este disco está altamente disponível e pode falhar entre nós. Contém uma cópia da base de dados do cluster, com um tamanho padrão que normalmente é inferior a 1 GB. 
+Uma testemunha em disco é um pequeno disco agrupado no grupo de armazenamento disponível do Cluster. Este disco está altamente disponível e pode falhar entre nós. Contém uma cópia da base de dados do cluster, com um tamanho padrão que normalmente é inferior a 1 GB. A testemunha de disco é a opção de quórum preferida para um VM Azure, pois pode resolver a partição no tempo, ao contrário da testemunha em nuvem e testemunha de partilha de ficheiros. 
 
 Configure um disco partilhado do Azure como testemunha do disco. 
 
 Para começar, consulte [a Configure uma testemunha de disco.](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)
 
 
-**Os suportados**: Todos    
-**Versão SQL suportada**: SQL Server 2019   
+**Os suportados**: Todos   
 
 
 ### <a name="cloud-witness"></a>Testemunha de cloud
@@ -73,21 +72,18 @@ Para começar, consulte [Configure uma testemunha em nuvem.](/windows-server/fai
 
 
 **SISTEMA Suportado**: Windows Server 2016 e posteriormente   
-**Versão SQL suportada**: SQL Server 2016 e posterior     
 
 
 ### <a name="file-share-witness"></a>Testemunho de partilha de ficheiros
 
 Uma testemunha de partilha de ficheiros é uma partilha de ficheiros SMB que é tipicamente configurada num servidor de ficheiros que executa o Windows Server. Mantém informações de agrupamento num ficheiro witness.log, mas não armazena uma cópia da base de dados do cluster. Em Azure, pode configurar uma [partilha de ficheiros Azure](../../../storage/files/storage-how-to-create-file-share.md) para usar como testemunha de partilha de ficheiros, ou pode usar uma partilha de ficheiros numa máquina virtual separada.
 
-Se vai utilizar outra partilha de ficheiros Azure, pode montá-la com o mesmo processo usado para [montar a partilha de ficheiros Premium.](failover-cluster-instance-premium-file-share-manually-configure.md#mount-premium-file-share) 
+Se vai utilizar uma partilha de ficheiros Azure, pode montá-la com o mesmo processo usado para [montar a partilha de ficheiros Premium.](failover-cluster-instance-premium-file-share-manually-configure.md#mount-premium-file-share) 
 
 Para começar, consulte [a Configure uma testemunha de partilha de ficheiros.](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)
 
 
 **SISTEMA Suportado**: Windows Server 2012 e posteriormente   
-**Versão SQL suportada**: SQL Server 2016 e posterior   
-
 
 ## <a name="connectivity"></a>Conectividade
 
@@ -100,7 +96,7 @@ O quadro a seguir compara a capacidade de suporte à ligação HADR:
 | |**Nome de Rede Virtual (VNN)**  |**Nome de Rede Distribuída (DNN)**  |
 |---------|---------|---------|
 |**Versão mínima do SO**| Windows Server 2012 | Windows Server 2016|
-|**Versão mínima do SqL Server** |SQL Server 2012 |SQL Server 2019 CU2|
+|**Versão mínima do SqL Server** |SQL Server 2012 |SQL Server 2019 CU2|
 |**Solução HADR suportada** | Instância de cluster de ativação pós-falha <br/> Grupo de disponibilidade | Instância de cluster de ativação pós-falha|
 
 
@@ -150,7 +146,7 @@ Nas Máquinas Virtuais Azure, o MSDTC não é suportado para o Windows Server 20
 - O equilibrador de carga básico não lida com portas RPC.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de ter determinado as melhores práticas adequadas para a sua solução, começa por [preparar o seu SQL Server VM para a FCI](failover-cluster-instance-prepare-vm.md). Também pode criar o seu grupo de disponibilidade utilizando os modelos [Azure CLI](availability-group-az-cli-configure.md), ou [Azure quickstart](availability-group-quickstart-template-configure.md). 
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: b1756bd72dc78bfafc8959c4ff1c8f95d255c931
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 049c30613c358bf22616eaa2042a7fd6e42b9f61
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067572"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326040"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integrar gestor de operações do Centro de Sistema com Monitor Azure para funcionalidade de Mapa de VMs
 
@@ -139,9 +139,10 @@ O desenho atual apresenta as seguintes questões e limitações:
 Para documentação oficial da Azure sobre a criação de um diretor de serviço, consulte:
 
 * [Criar um principal de serviço utilizando o PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-* [Criar um principal de serviço utilizando o Azure CLI](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Criar um principal de serviço utilizando o Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
 * [Criar um principal de serviço utilizando o portal Azure](../../active-directory/develop/howto-create-service-principal-portal.md)
 
 ### <a name="suggestions"></a>Sugestões
 
 Tem algum feedback sobre a integração com o Azure Monitor para funcionalidade de Mapa de VMs ou esta documentação? Visite a nossa [página De Voz do Utilizador,](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map)onde pode sugerir funcionalidades ou votar nas sugestões existentes.
+

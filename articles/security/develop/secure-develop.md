@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 34294bf29ec861d7bbb954ece7016de37769a332
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 7818ae36c785311466d2fb26ce45dcf50983145d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232700"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283491"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desenvolver aplicações seguras no Azure
 Neste artigo apresentamos atividades de segurança e controlos a ter em conta quando desenvolve aplicações para a nuvem. Questões e conceitos de segurança a ter em conta durante as fases de implementação e verificação do Ciclo de Vida para o Desenvolvimento da Segurança da Microsoft [(SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) são cobertos. O objetivo é ajudá-lo a definir atividades e serviços Azure que você pode usar para desenvolver uma aplicação mais segura.
@@ -62,7 +62,7 @@ Faça este trabalho no servidor, não no lado do cliente (ou no servidor e no la
 
 ### <a name="verify-your-applications-outputs"></a>Verifique as saídas da sua aplicação
 
-Qualquer saída que apresente visualmente ou dentro de um documento deve ser sempre codificada e escapada. [A fuga](https://www.owasp.org/index.php/Injection_Theory#Escaping_.28aka_Output_Encoding.29), também conhecida como *codificação de saídas*, é usada para ajudar a garantir que dados não falsos não são um veículo para um ataque de injeção. A fuga, combinada com a validação de dados, fornece defesas em camadas para aumentar a segurança do sistema como um todo.
+Qualquer saída que apresente visualmente ou dentro de um documento deve ser sempre codificada e escapada. [A fuga](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), também conhecida como *codificação de saídas*, é usada para ajudar a garantir que dados não falsos não são um veículo para um ataque de injeção. A fuga, combinada com a validação de dados, fornece defesas em camadas para aumentar a segurança do sistema como um todo.
 
 A fuga garante que tudo é exibido como *saída.* Escapar também permite ao intérprete saber que os dados não se destinam a ser executados, o que impede que os ataques funcionem. Esta é outra técnica comum de ataque chamada *scripting cross-site* (XSS).
 

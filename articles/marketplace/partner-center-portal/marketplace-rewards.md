@@ -5,15 +5,15 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: MaggiePucciEvans
-ms.author: evansma
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 853aeb03dc1a19c1960709aedf09e71164ed62d4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2ae8e170e3f31090b6babfee23e4505f5b736655
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086375"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319954"
 ---
 # <a name="marketplace-rewards"></a>Marketplace Rewards
 

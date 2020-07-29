@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 4a45239836779fc83aa2e3927c6e3ff752c87182
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: Microsoft-BradleyWright
+ms.author: brwrigh
+ms.openlocfilehash: 5cea220b44618787e34ce2297921d715476b7f14
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103760"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280958"
 ---
 # <a name="consulting-service-offers"></a>Ofertas de serviços de consultoria
 
@@ -148,7 +150,7 @@ Exemplos:
 
 Após a equipa de revisão de conteúdos rever as descrições da sua oferta e oferecer resumos, aplicarão os seguintes critérios:
 
-|Tipo de oferta  |Necessário |Recomendado  |
+|Tipo de oferta  |Obrigatório |Recomendado  |
 |---------|---------|---------|
 |**Avaliação**    |   Inclua uma agenda detalhada para avaliações de vários dias ou multi-semanas e articule o que o cliente pode esperar.      |    Otimize o resumo da sua oferta com as suas palavras-chave SEO de topo.     |
 |**Briefing**    |   Articular o que o cliente pode esperar. Lembre-se, *o briefing* deve ser fornecido pessoalmente. Se estiver a prestar um serviço virtual, escolha um tipo de oferta diferente.    |  Otimize o resumo da sua oferta com as suas palavras-chave SEO de topo.       |
@@ -167,7 +169,7 @@ Aqui estão algumas dicas de Markdown:
 * Adicione uma rutura de linha após cada direção.
 * Para formatação **ousada,** adicione um asterisco duplo \* \* (), sem espaço, no início e no fim de uma palavra ou série de palavras (por exemplo, escreva \* \* conteúdo para \* \* formatar uma palavra como **conteúdo).**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se ainda não o fez, aprenda a [fazer crescer o seu negócio na nuvem com o Azure Marketplace.](https://azuremarketplace.microsoft.com/sell)
 

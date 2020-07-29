@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/04/2019
-ms.openlocfilehash: 540e824f301c402e1f65f6186b26ad1672e21d37
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ef34dbfd3af326dbf2d82e09a4c5c8c8e4a91a84
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539351"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319801"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics segurança de dados
 Este documento destina-se a fornecer informações específicas ao Log Analytics, que é uma característica do Azure Monitor, para complementar a informação no [Azure Trust Center](https://www.microsoft.com/en-us/trust-center?rtc=1).  
@@ -148,7 +148,7 @@ Para o Gestor de Operações, o grupo de gestão de Gestores de Operações esta
 
 Toda a comunicação entre os sistemas conectados e o serviço Log Analytics está encriptada. O protocolo TLS (HTTPS) é utilizado para encriptação.  O processo Microsoft SDL é seguido para garantir que o Log Analytics está atualizado com os mais recentes avanços nos protocolos criptográficos.
 
-Cada tipo de agente recolhe dados para o Log Analytics. O tipo de dados recolhidos depende dos tipos de soluções utilizadas. Pode ver um resumo da recolha de dados nas [soluções Add Log Analytics da Galeria solutions.](../../azure-monitor/insights/solutions.md) Além disso, informações de recolha mais detalhadas estão disponíveis para a maioria das soluções. Uma solução é um pacote de vistas predefinidas, consultas de pesquisa de registo, regras de recolha de dados e lógica de processamento. Apenas os administradores podem usar o Log Analytics para importar uma solução. Após a importação da solução, é transferida para os servidores de gestão do Gestor de Operações (se utilizado), e depois para quaisquer agentes que tenha escolhido. Depois, os agentes recolhem os dados.
+Cada tipo de agente recolhe dados para o Log Analytics. O tipo de dados recolhidos depende dos tipos de soluções utilizadas. Pode ver um resumo da recolha de dados nas [soluções Add Log Analytics da Galeria solutions.](../insights/solutions.md) Além disso, informações de recolha mais detalhadas estão disponíveis para a maioria das soluções. Uma solução é um pacote de vistas predefinidas, consultas de pesquisa de registo, regras de recolha de dados e lógica de processamento. Apenas os administradores podem usar o Log Analytics para importar uma solução. Após a importação da solução, é transferida para os servidores de gestão do Gestor de Operações (se utilizado), e depois para quaisquer agentes que tenha escolhido. Depois, os agentes recolhem os dados.
 
 ## <a name="2-send-data-from-agents"></a>2. Enviar dados de agentes
 Regista todos os tipos de agente com uma chave de inscrição e é estabelecida uma ligação segura entre o agente e o serviço Log Analytics utilizando a autenticação baseada em certificados e TLS com a porta 443. O Log Analytics utiliza uma loja secreta para gerar e manter as chaves. As chaves privadas são giradas a cada 90 dias e são armazenadas em Azure e são geridas pelas operações da Azure que seguem práticas regulamentares e de conformidade rigorosas.
@@ -171,7 +171,8 @@ O período de retenção dos dados recolhidos armazenados na base de dados depen
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Utilize o Log Analytics para aceder aos dados
 Para aceder ao seu espaço de trabalho Log Analytics, inscreva-se no portal Azure utilizando a conta organizacional ou a conta microsoft que criou anteriormente. Todo o tráfego entre o portal e o serviço Log Analytics é enviado através de um canal HTTPS seguro. Ao utilizar o portal, é gerado um ID de sessão no cliente utilizador (navegador web) e os dados são armazenados numa cache local até que a sessão seja terminada. Quando terminada, a cache é apagada. Os cookies do lado do cliente, que não contêm informações pessoalmente identificáveis, não são removidos automaticamente. Os cookies de sessão estão marcados HTTPOnly e estão seguros. Após um período de inatividade pré-determinado, a sessão do portal Azure é encerrada.
 
-## <a name="next-steps"></a>Próximos passos
-* Saiba como recolher dados com o Log Analytics para os seus VMs Azure seguindo o [quickstart Azure VM](../../azure-monitor/learn/quick-collect-azurevm.md).  
+## <a name="next-steps"></a>Passos seguintes
+* Saiba como recolher dados com o Log Analytics para os seus VMs Azure seguindo o [quickstart Azure VM](../learn/quick-collect-azurevm.md).  
 
-*  Se procura recolher dados de computadores Físicos ou virtuais do Windows ou Linux no seu ambiente, consulte o [Quickstart para computadores Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) ou [Quickstart para computadores Windows](../../azure-monitor/learn/quick-collect-windows-computer.md)
+*  Se procura recolher dados de computadores Físicos ou virtuais do Windows ou Linux no seu ambiente, consulte o [Quickstart para computadores Linux](../learn/quick-collect-linux-computer.md) ou [Quickstart para computadores Windows](../learn/quick-collect-windows-computer.md)
+

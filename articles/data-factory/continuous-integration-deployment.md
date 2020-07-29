@@ -11,11 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: d997c6d4eae93290cbb1e4cafe6c7ad662a65933
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c12cfc21668a13586d94089a7049f6f0d6066d7
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85336875"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87336927"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração contínua e entrega na Azure Data Factory
 
@@ -48,7 +49,7 @@ Abaixo está uma amostra geral do ciclo de vida CI/CD numa fábrica de dados Azu
 
 1.  Após a aprovação de um pedido de puxão e as alterações são fundidas no ramo principal, as alterações são publicadas na fábrica de desenvolvimento.
 
-1.  Quando a equipa estiver pronta para implementar as alterações numa fábrica de teste ou UAT, a equipa vai para o seu lançamento dos Azure Pipelines e implementa a versão desejada da fábrica de desenvolvimento para a UAT. Esta implementação ocorre como parte de uma tarefa de Azure Pipelines e utiliza parâmetros de modelo do Gestor de Recursos para aplicar a configuração apropriada.
+1.  Quando a equipa estiver pronta para implementar as alterações numa fábrica de teste ou UAT (User Accept Testing), a equipa vai para o seu lançamento de Azure Pipelines e implementa a versão desejada da fábrica de desenvolvimento para a UAT. Esta implementação ocorre como parte de uma tarefa de Azure Pipelines e utiliza parâmetros de modelo do Gestor de Recursos para aplicar a configuração apropriada.
 
 1.  Depois de verificadas as alterações na fábrica de ensaios, implantar-se na fábrica de produção utilizando a próxima tarefa do lançamento dos gasodutos.
 
@@ -324,7 +325,7 @@ Aqui está uma explicação de como o modelo anterior é construído, dividido p
 * A `connectionString` propriedade será parametrizada como um `securestring` valor. Não terá um valor padrão. Terá um nome de parâmetro encurtado que é sufixado com `connectionString` .
 * A propriedade `secretAccessKey` passa a ser um `AzureKeyVaultSecret` (por exemplo, num serviço ligado ao Amazon S3). É automaticamente parametrizado como um cofre de chave Azure e recolhido do cofre de chaves configurado. Também pode parametrizar o cofre da chave em si.
 
-#### <a name="datasets"></a>Conjuntos de Dados
+#### <a name="datasets"></a>Conjuntos de dados
 
 * Embora a personalização específica do tipo esteja disponível para conjuntos de dados, pode fornecer configuração sem ter explicitamente uma \* configuração de nível. No exemplo anterior, todas as propriedades do conjunto de `typeProperties` dados são parametrizadas.
 

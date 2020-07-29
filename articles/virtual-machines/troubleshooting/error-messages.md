@@ -12,11 +12,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
-ms.openlocfilehash: f5639d1cf94c77d699dc6de9841698b045ac1f96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e35772e81329e112aac361b6a533c559154f03f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76543023"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284698"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Compreender as mensagens de erro comuns na gestão de máquinas virtuais no Azure
 
@@ -175,7 +176,7 @@ Esta secção lista as mensagens de erro comuns que pode encontrar ao gerir os V
 |  OSProvisioningClientError  |  O nome de utilizador especificado para o VM é inválido para esta distribuição Linux. Detalhes de erro: {0} .  |
 |  OSProvisioningInternalError  |  O provisionamento do OS falhou para vm {0} ' ' devido a um erro interno.  |
 |  OSProvisioningTimedOut  |  Os Provisões para VM {0} ' ' não terminaram no tempo atribuído. O VM pode ainda terminar o fornecimento com sucesso. Por favor, verifique o estado de provisionamento mais tarde.  |
-|  OSProvisioningTimedOut  |  Os Provisões para VM {0} ' ' não terminaram no tempo atribuído. O VM pode ainda terminar o fornecimento com sucesso. Por favor, verifique o estado de provisionamento mais tarde. Além disso, certifique-se de que a imagem foi devidamente preparada (generalizada).   <ul><li>Instruções para windows:https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Instruções para Linux:https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
+|  OSProvisioningTimedOut  |  Os Provisões para VM {0} ' ' não terminaram no tempo atribuído. O VM pode ainda terminar o fornecimento com sucesso. Por favor, verifique o estado de provisionamento mais tarde. Além disso, certifique-se de que a imagem foi devidamente preparada (generalizada).   <ul><li>Instruções para [o Windows]( ../windows/upload-image.md).</li><li> Instruções para [Linux](../linux/capture-image.md)</li></ul>  |
 |  OSProvisioningTimedOut  |  Os Provisões para VM {0} ' ' não terminaram no tempo atribuído. No entanto, o agente convidado VM foi detetado a funcionar. Isto sugere que o SO convidado não foi devidamente preparado para ser usado como uma imagem VM (com CreateOption=FromImage). Para resolver este problema, utilize o VHD como está com o CreateOption=Attach ou prepare-o corretamente para ser utilizado como uma imagem:   <ul><li>Instruções para windows:https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Instruções para Linux:https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
 |  OverConstrainedAllocationRequest  |  O tamanho VM necessário não está atualmente disponível no local selecionado.  |
 |  ResourceUpdateBlockedOnPlatformUpdate  |  O recurso não pode ser atualizado neste momento devido à atualização da plataforma em curso. Tente novamente mais tarde.  |
@@ -214,5 +215,5 @@ Esta secção lista as mensagens de erro comuns que pode encontrar ao gerir os V
 |  VMStartTimedOut  |  VM {0} ' ' não começou no tempo atribuído. O VM ainda pode começar com sucesso. Por favor, verifique o estado de energia mais tarde.  |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Se precisar de mais ajuda, pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode apresentar um incidente de suporte Azure. Vá ao [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter **Apoio**.

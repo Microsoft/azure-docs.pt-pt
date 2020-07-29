@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a resolver problemas com os erros encontrados
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 5393ba1b7c604ef49cee83f759ed798cfc473417
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0f598e0058d817fbba8d816500ab252134be0eb5
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032838"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371741"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Falhas de backup de resolução de problemas em máquinas virtuais Azure
 
@@ -39,14 +39,24 @@ Esta secção cobre a falha de funcionamento de backup da máquina Virtual Azure
 
 Seguem-se problemas comuns com falhas de backup em máquinas virtuais Azure.
 
-## <a name="copyingvhdsfrombackupvaulttakinglongtime---copying-backed-up-data-from-vault-timed-out"></a>CopyingVHDsFromBackUpVaultTakingLongTime - Cópia de dados com cópia suspensa do cofre cronometrado
+### <a name="vmrestorepointinternalerror---antivirus-configured-in-the-vm-is-restricting-the-execution-of-backup-extension"></a>VMRestorePointInternalError - Antivírus configurado no VM está a restringir a execução da extensão de backup
+
+Código de erro: VMRestorePointInternalError
+
+Se no momento da cópia de segurança, os registos da **Aplicação do Visualizador** de Eventos apresentarem o nome da **aplicação falhando a mensagem: IaaSBcdrExtension.exe** então confirma-se que o antivírus configurado no VM está a restringir a execução da extensão de backup.
+Para resolver este problema, exclua abaixo os diretórios na configuração antivírus e refemina a operação de backup.
+
+* `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
+* `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
+
+### <a name="copyingvhdsfrombackupvaulttakinglongtime---copying-backed-up-data-from-vault-timed-out"></a>CopyingVHDsFromBackUpVaultTakingLongTime - Cópia de dados com cópia suspensa do cofre cronometrado
 
 Código de erro: CopyingVHDsFromBackUpVaultTakingLongTime <br/>
 Mensagem de erro: Copiar dados com cópias de segurança do cofre cronometrados
 
 Isto pode acontecer devido a erros de armazenamento transitórios ou a uma conta de armazenamento insuficiente IOPS para o serviço de cópia de segurança transferir dados para o cofre dentro do período de tempo. Configure a cópia de segurança VM utilizando estas [melhores práticas](backup-azure-vms-introduction.md#best-practices) e refaça a operação de backup.
 
-## <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState - VM não está num estado que permita cópias de segurança
+### <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState - VM não está num estado que permita cópias de segurança
 
 Código de erro: UserErrorVmNotInDesirableState <br/>
 Error message: VM is not in a state that allows backups.<br/>
@@ -56,7 +66,7 @@ A operação de reserva falhou porque o VM está em estado de falha. Para obter 
 * Se o VM estiver num estado transitório entre **correr** e **desligar,** aguarde que o Estado mude. Então desencadeie o trabalho de reserva.
 * Se o VM for um Linux VM e utilizar o módulo de kernel Linux reforçado pela segurança, exclua o caminho do Agente Azure Linux **/var/lib/waagent** da política de segurança e certifique-se de que a extensão de Backup está instalada.
 
-## <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>UserErrorFsFreezeFailed - Não conseguiu congelar um ou mais pontos de montagem do VM para tirar uma imagem consistente do sistema de ficheiros
+### <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>UserErrorFsFreezeFailed - Não conseguiu congelar um ou mais pontos de montagem do VM para tirar uma imagem consistente do sistema de ficheiros
 
 Código de erro: UserErrorFsFreezeFailed <br/>
 Mensagem de erro: Não conseguiu congelar um ou mais pontos de montagem do VM para tirar uma imagem consistente do sistema de ficheiros.
@@ -65,7 +75,7 @@ Mensagem de erro: Não conseguiu congelar um ou mais pontos de montagem do VM pa
 * Verifique a consistência do sistema de ficheiros nestes dispositivos utilizando o comando **FSCK.**
 * Volte a montar os dispositivos e volte a tentar o funcionamento de reserva.</ol>
 
-## <a name="extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error"></a>ExtensãoSSnapshotFailedCOM / ExtensãoInstalaçãoFailedCOM / ExtensãoInstalaçãoFailedMDTC - Instalação/operação de extensão falhou devido a um erro COM+
+### <a name="extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error"></a>ExtensãoSSnapshotFailedCOM / ExtensãoInstalaçãoFailedCOM / ExtensãoInstalaçãoFailedMDTC - Instalação/operação de extensão falhou devido a um erro COM+
 
 Código de erro: ExtensionSnapshotFailedCOM <br/>
 Error message: A operação snapshot falhou devido a erro COM+
@@ -88,7 +98,7 @@ A operação de backup falhou devido a um problema com a aplicação **do Sistem
   * Inicie o serviço MS DTC
 * Inicie a **aplicação**do sistema com o serviço Windows COM+ . Após o início da **Aplicação do Sistema COM+,** desencadeie uma tarefa de backup a partir do portal Azure.</ol>
 
-## <a name="extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state"></a>ExtensãoFailedVssWriterInBadState - Operação Snapshot falhou porque os escritores da VSS estavam em mau estado
+### <a name="extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state"></a>ExtensãoFailedVssWriterInBadState - Operação Snapshot falhou porque os escritores da VSS estavam em mau estado
 
 Código de erro: ExtensãoFailedVssWriterInBadState <br/>
 Error message: Snapshot operation failed because VSS writers were in a bad state.
@@ -100,19 +110,19 @@ Reinicie os escritores vss que estão em mau estado. A partir de um pedido de co
 
 Outro procedimento que pode ajudar é executar o seguinte comando a partir de uma elevada solicitação de comando (como administrador).
 
-```CMD
+```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
 
 A adição desta chave de registo fará com que os fios não sejam criados para instantâneos blob e evitem o intervalo.
 
-## <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensãoConfigParsingFailure - Falha na análise do config para a extensão de backup
+### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensãoConfigParsingFailure - Falha na análise do config para a extensão de backup
 
 Código de erro: Configuração de extensãoParparsingFailure<br/>
 Error message: Falha na análise do config para a extensão de backup.
 
 Este erro ocorre devido a permissões alteradas no diretório **machineKeys:** **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
-Executar o seguinte comando e verificar se as permissões no diretório **machineKeys** são predefinidos:**icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
+Executar o seguinte comando e verificar se as permissões no diretório **machineKeys** são padrão: `icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys` .
 
 As permissões por defeito são as seguintes:
 
@@ -137,7 +147,7 @@ Se vir permissões no diretório **MachineKeys** que são diferentes das predefi
    * Nos **Personal**  >  **Certificados Pessoais,** elimine todos os certificados em **que o Emitida seja** o modelo clássico de implementação ou o Gerador de **Certificados CRP do Windows Azure**.
 3. Desencadeie um trabalho de reserva VM.
 
-## <a name="extensionstuckindeletionstate---extension-state-is-not-supportive-to-backup-operation"></a>ExtensãoStuckInDeletionState - Estado de extensão não apoia a operação de backup
+### <a name="extensionstuckindeletionstate---extension-state-is-not-supportive-to-backup-operation"></a>ExtensãoStuckInDeletionState - Estado de extensão não apoia a operação de backup
 
 Código de erro: ExtensionStuckInDeletionState <br/>
 Error message: Extension state is not supportive to backup operation
@@ -150,7 +160,7 @@ A operação de backup falhou devido ao estado inconsistente da extensão de res
 * Depois de eliminar a extensão de backup, recandidutar a operação de backup
 * A operação de cópia de segurança subsequente irá instalar a nova extensão no estado pretendido
 
-## <a name="extensionfailedsnapshotlimitreachederror---snapshot-operation-failed-as-snapshot-limit-is-exceeded-for-some-of-the-disks-attached"></a>ExtensãoFailedSnapshotLimitReachedError - A operação Snapshot falhou, uma vez que o limite de instantâneo é ultrapassado para alguns dos discos ligados
+### <a name="extensionfailedsnapshotlimitreachederror---snapshot-operation-failed-as-snapshot-limit-is-exceeded-for-some-of-the-disks-attached"></a>ExtensãoFailedSnapshotLimitReachedError - A operação Snapshot falhou, uma vez que o limite de instantâneo é ultrapassado para alguns dos discos ligados
 
 Código de erro: ExtensãoFailedSnapshotLimitReachedError <br/>
 Error message: A operação snapshot falhou à medida que o limite de instantâneo é ultrapassado para alguns dos discos ligados
@@ -164,7 +174,7 @@ A operação de instantâneo falhou, uma vez que o limite de instantâneo excede
   * Certifique-se de que o valor de **isanysnapshot falhado** é definido como falso em /etc/azure/vmbackup.conf
   * Agendar a Recuperação do Local de Azure num momento diferente, de modo a não entrar em conflito com a operação de backup.
 
-## <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensãoFailedTimeoutVMNetworkUnresponsive - Operação snapshot falhou devido a recursos VM inadequados
+### <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensãoFailedTimeoutVMNetworkUnresponsive - Operação snapshot falhou devido a recursos VM inadequados
 
 Código de erro: ExtensionFailedTimeoutVMNetworkUnresponsive<br/>
 Error message: A operação snapshot falhou devido a recursos VM inadequados.
@@ -175,7 +185,7 @@ A operação de backup no VM falhou devido ao atraso nas chamadas de rede durant
 
 Numa linha de comandos elevada (administrador), execute o comando abaixo:
 
-```text
+```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotMethod /t REG_SZ /d firstHostThenGuest /f
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTimeFromHost /t REG_SZ /d True /f
 ```
@@ -184,57 +194,62 @@ Desta forma, garante-es que os instantâneos são criados através do anfitrião
 
 **Passo 2**: Tente alterar o horário de backup para uma altura em que o VM esteja menos carregado (menos CPU/IOps, etc.)
 
-**Passo 3**: Tente [aumentar o tamanho de VM](https://azure.microsoft.com/blog/resize-virtual-machines/) e reforce a operação
+**Passo 3**: Tente [aumentar o tamanho do VM](https://azure.microsoft.com/blog/resize-virtual-machines/) e reforce a operação
 
-
-## <a name="320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found"></a>320001, ResourceNotFound - Não foi possível realizar a operação uma vez que a VM já não existe / 400094, BCMV2VMNotFound - A máquina virtual não existe / Não foi encontrada uma máquina virtual Azure
+### <a name="320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found"></a>320001, ResourceNotFound - Não foi possível realizar a operação uma vez que a VM já não existe / 400094, BCMV2VMNotFound - A máquina virtual não existe / Não foi encontrada uma máquina virtual Azure
 
 Código de erro: 320001, ResourceNotFound <br/> Error message: Não foi possível efetuar a operação uma vez que o VM já não existe. <br/> <br/> Código de erro: 400094, BCMV2VMNotFound <br/> Error message: A máquina virtual não existe <br/>
 Uma máquina virtual Azure não foi encontrada.
 
 Este erro ocorre quando o VM primário é eliminado, mas a política de backup ainda procura um VM para fazer backup. Para corrigir este erro, tome os seguintes passos:
-- Recove a máquina virtual com o mesmo nome e mesmo nome de grupo de recursos, **nome de serviço em nuvem,**<br>ou
-- Pare de proteger a máquina virtual com ou sem eliminar os dados de reserva. Para obter mais informações, consulte [Parar de proteger máquinas virtuais.](backup-azure-manage-vms.md#stop-protecting-a-vm)</li></ol>
 
-## <a name="usererrorbcmpremiumstoragequotaerror---could-not-copy-the-snapshot-of-the-virtual-machine-due-to-insufficient-free-space-in-the-storage-account"></a>UserErrorBCMPremiumStorageQuotaError - Não foi possível copiar a imagem da máquina virtual, devido a um espaço livre insuficiente na conta de armazenamento
+* Recove a máquina virtual com o mesmo nome e mesmo nome de grupo de recursos, **nome de serviço em nuvem,**<br>ou
+* Pare de proteger a máquina virtual com ou sem eliminar os dados de reserva. Para obter mais informações, consulte [Parar de proteger máquinas virtuais.](backup-azure-manage-vms.md#stop-protecting-a-vm)</li></ol>
+
+### <a name="usererrorbcmpremiumstoragequotaerror---could-not-copy-the-snapshot-of-the-virtual-machine-due-to-insufficient-free-space-in-the-storage-account"></a>UserErrorBCMPremiumStorageQuotaError - Não foi possível copiar a imagem da máquina virtual, devido a um espaço livre insuficiente na conta de armazenamento
 
 Código de erro: UserErrorBCMPremiumStorageQuotaError<br/> Error message: Não foi possível copiar o instantâneo da máquina virtual, devido a um espaço livre insuficiente na conta de armazenamento
 
  Para VMs premium na pilha de backup V1 V1, copiamos o instantâneo para a conta de armazenamento. Este passo garante que o tráfego de gestão de backup, que funciona no instantâneo, não limita o número de IOPS disponíveis para a aplicação usando discos premium. <br><br>Recomendamos que aloque apenas 50%, 17,5 TB, do espaço total da conta de armazenamento. Em seguida, o serviço de backup Azure pode copiar o instantâneo para a conta de armazenamento e transferir dados deste local copiado na conta de armazenamento para o cofre.
 
+### <a name="380008-azurevmoffline---failed-to-install-microsoft-recovery-services-extension-as-virtual-machine--is-not-running"></a>380008, AzureVmOffline - Falhou na instalação da extensão dos Serviços de Recuperação da Microsoft, uma vez que a máquina virtual não está a funcionar
 
-## <a name="380008-azurevmoffline---failed-to-install-microsoft-recovery-services-extension-as-virtual-machine--is-not-running"></a>380008, AzureVmOffline - Falhou na instalação da extensão dos Serviços de Recuperação da Microsoft, uma vez que a máquina virtual não está a funcionar
 Código de erro: 380008, AzureVmOffline <br/> Error message: Failed to install Microsoft Recovery Services extension as virtual machine is not running
 
 O Agente VM é um pré-requisito para a extensão dos Serviços de Recuperação do Azure. Instale o Agente de Máquinas Virtuais Azure e reinicie a operação de registo. <br> <ol> <li>Verifique se o Agente VM está instalado corretamente. <li>Certifique-se de que a bandeira da config VM está corretamente definida.</ol> Leia mais sobre a instalação do Agente VM e como validar a instalação do Agente VM.
 
-## <a name="extensionsnapshotbitlockererror---the-snapshot-operation-failed-with-the-volume-shadow-copy-service-vss-operation-error"></a>ExtensõesSnapshotBitlockerError - A operação instantânea falhou com o erro de funcionamento do Serviço de Cópia Sombra de Volume (VSS)
+### <a name="extensionsnapshotbitlockererror---the-snapshot-operation-failed-with-the-volume-shadow-copy-service-vss-operation-error"></a>ExtensõesSnapshotBitlockerError - A operação instantânea falhou com o erro de funcionamento do Serviço de Cópia Sombra de Volume (VSS)
+
 Código de erro: ExtensionSnapshotBitlockerError <br/> Mensagem de erro: A operação instantânea falhou com o erro de funcionamento do Serviço de Cópia de Sombra de Volume (VSS) **Esta unidade está bloqueada pela Encriptação de Unidade BitLocker. Tem de desbloquear esta unidade do Painel de Controlo.**
 
 Desligue o BitLocker para todas as unidades do VM e verifique se o problema vss está resolvido.
 
-## <a name="vmnotindesirablestate---the-vm-isnt-in-a-state-that-allows-backups"></a>VmNotInDesirableState - O VM não está num estado que permite backups
+### <a name="vmnotindesirablestate---the-vm-isnt-in-a-state-that-allows-backups"></a>VmNotInDesirableState - O VM não está num estado que permite backups
+
 Código de erro: Estado VmNotInDesirable <br/> Error message: The VM is in a state that allows backups.
-- Se o VM estiver num estado transitório entre **correr** e **desligar,** aguarde que o Estado mude. Então desencadeie o trabalho de reserva.
-- Se o VM for um Linux VM e utilizar o módulo de kernel Linux reforçado pela segurança, exclua o caminho do Agente Azure Linux **/var/lib/waagent** da política de segurança e certifique-se de que a extensão de Backup está instalada.
 
-- O Agente VM não está presente na máquina virtual: <br>Instale qualquer pré-requisito e o agente VM. Em seguida, reinicie a operação. | Leia mais sobre [a instalação do Agente VM e como validar a instalação do Agente VM](#vm-agent).
+* Se o VM estiver num estado transitório entre **correr** e **desligar,** aguarde que o Estado mude. Então desencadeie o trabalho de reserva.
+* Se o VM for um Linux VM e utilizar o módulo de kernel Linux reforçado pela segurança, exclua o caminho do Agente Azure Linux **/var/lib/waagent** da política de segurança e certifique-se de que a extensão de Backup está instalada.
 
+* O Agente VM não está presente na máquina virtual: <br>Instale qualquer pré-requisito e o agente VM. Em seguida, reinicie a operação. | Leia mais sobre [a instalação do Agente VM e como validar a instalação do Agente VM](#vm-agent).
 
-## <a name="extensionsnapshotfailednosecurenetwork---the-snapshot-operation-failed-because-of-failure-to-create-a-secure-network-communication-channel"></a>ExtensõesSnapshotFailedNoSecureNet - A operação snapshot falhou devido à falha na criação de um canal de comunicação de rede seguro
+### <a name="extensionsnapshotfailednosecurenetwork---the-snapshot-operation-failed-because-of-failure-to-create-a-secure-network-communication-channel"></a>ExtensõesSnapshotFailedNoSecureNet - A operação snapshot falhou devido à falha na criação de um canal de comunicação de rede seguro
+
 Código de erro: ExtensionSnapshotFailedNoSecureNet <br/> Mensagem de erro: A operação instantânea falhou devido à falha na criação de um canal de comunicação de rede seguro.
-- Abra o Editor de Registo executando **regedit.exe** em modo elevado.
-- Identifique todas as versões do Quadro .NET presentes no seu sistema. Estão presentes sob a hierarquia da chave de registo **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**.
-- Para cada quadro .NET presente na chave de registo, adicione a seguinte chave: <br> **SchUseStrongCrypto"=dword:0000001**. </ol>
 
+* Abra o Editor de Registo executando **regedit.exe** em modo elevado.
+* Identifique todas as versões do Quadro .NET presentes no seu sistema. Estão presentes sob a hierarquia da chave de registo **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**.
+* Para cada quadro .NET presente na chave de registo, adicione a seguinte chave: <br> **SchUseStrongCrypto"=dword:0000001**. </ol>
 
-## <a name="extensionvcredistinstallationfailure---the-snapshot-operation-failed-because-of-failure-to-install-visual-c-redistributable-for-visual-studio-2012"></a>ExtensãoVCRedistInstallationFailure - A operação snapshot falhou devido à falha na instalação visual C++ Redistributable para Visual Studio 2012
+### <a name="extensionvcredistinstallationfailure---the-snapshot-operation-failed-because-of-failure-to-install-visual-c-redistributable-for-visual-studio-2012"></a>ExtensãoVCRedistInstallationFailure - A operação snapshot falhou devido à falha na instalação visual C++ Redistributable para Visual Studio 2012
+
 Código de erro: ExtensãoVCRedistInstallationFailure <br/> Error message: A operação snapshot falhou devido à falha na instalação do Visual C++ Redistributable para Visual Studio 2012.
-- Navegue `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion` e instale vcredist2013_x64.<br/>Certifique-se de que o valor da chave de registo que permite a instalação do serviço está definido para o valor correto. Ou seja, defina o valor **iniciar** **em HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** para **3** e não **4**. <br><br>Se ainda tiver problemas com a instalação, reinicie o serviço de instalação executando **o MSIEXEC /UNREGISTER** seguido de **MSIEXEC /REGISTER** a partir de uma solicitação de comando elevada.
-- Verifique o registo do evento para verificar se está a notar problemas relacionados com o acesso. Por exemplo: *Produto: Microsoft Visual C++ 2013 x64 Tempo mínimo de funcionação - 12.0.21005 -- Erro 1401.Não foi possível criar a chave: Software\Classes.  Erro do sistema 5.  Verifique se tem acesso suficiente a essa chave ou contacte o seu pessoal de apoio.* <br><br> Certifique-se de que o administrador ou a conta do utilizador têm permissões suficientes para atualizar a chave de registo **HKEY_LOCAL_MACHINE\SOFTWARE\Classes**. Forneça permissões suficientes e reinicie o Windows Azure Guest Agent.<br><br> <li> Se tiver produtos antivírus no lugar, certifique-se de que têm as regras de exclusão adequadas para permitir a instalação.
 
+* Navegue `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion` e instale vcredist2013_x64.<br/>Certifique-se de que o valor da chave de registo que permite a instalação do serviço está definido para o valor correto. Ou seja, defina o valor **iniciar** **em HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** para **3** e não **4**. <br><br>Se ainda tiver problemas com a instalação, reinicie o serviço de instalação executando **o MSIEXEC /UNREGISTER** seguido de **MSIEXEC /REGISTER** a partir de uma solicitação de comando elevada.
+* Verifique o registo do evento para verificar se está a notar problemas relacionados com o acesso. Por exemplo: *Produto: Microsoft Visual C++ 2013 x64 Tempo mínimo de funcionação - 12.0.21005 -- Erro 1401.Não foi possível criar a chave: Software\Classes.  Erro do sistema 5.  Verifique se tem acesso suficiente a essa chave ou contacte o seu pessoal de apoio.* <br><br> Certifique-se de que o administrador ou a conta do utilizador têm permissões suficientes para atualizar a chave de registo **HKEY_LOCAL_MACHINE\SOFTWARE\Classes**. Forneça permissões suficientes e reinicie o Windows Azure Guest Agent.<br><br> <li> Se tiver produtos antivírus no lugar, certifique-se de que têm as regras de exclusão adequadas para permitir a instalação.
 
-## <a name="usererrorrequestdisallowedbypolicy---an-invalid-policy-is-configured-on-the-vm-which-is-preventing-snapshot-operation"></a>UserErrorRequestDisallowedByPolicy - Uma política inválida está configurada no VM que está a impedir a operação Snapshot
+### <a name="usererrorrequestdisallowedbypolicy---an-invalid-policy-is-configured-on-the-vm-which-is-preventing-snapshot-operation"></a>UserErrorRequestDisallowedByPolicy - Uma política inválida está configurada no VM que está a impedir a operação Snapshot
+
 Código de erro: UserErrorRequestDisallowedByPolicy <BR> Error message: Uma política inválida está configurada no VM que está a impedir o funcionamento do Snapshot.
 
 Se tiver uma Política Azure que [regule as etiquetas dentro](../governance/policy/tutorials/govern-tags.md)do seu ambiente, considere alterar a política de um [efeito Deny](../governance/policy/concepts/effects.md#deny) para um [efeito Modificar,](../governance/policy/concepts/effects.md#modify)ou criar o grupo de recursos manualmente de acordo com o [esquema de nomeação exigido pela Azure Backup](./backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
@@ -312,7 +327,7 @@ A cópia de segurança VM baseia-se na emissão de comandos instantâneos para o
 
 * **VMs com backup sql server configurado pode causar atraso de tarefa instantânea**. Por predefinição, a cópia de segurança VM cria uma cópia de segurança completa vsS em VMs do Windows. Os VMs que executam o SQL Server, com a cópia de segurança do SQL Server configurada, podem sofrer atrasos de instantâneo. Se os atrasos de instantâneo causarem falhas de backup, desa um ponto de registo seguinte:
 
-   ```text
+   ```console
    [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
    "USEVSSCOPYBACKUP"="TRUE"
    ```

@@ -3,15 +3,15 @@ title: Criar e carregar um Linux VHD
 description: Aprenda a criar e carregar um disco rígido virtual Azure (VHD) que contenha um sistema operativo Linux.
 author: gbowerman
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: guybo
-ms.openlocfilehash: fc18c278754afd4bb08d564a2f82680fd94bf866
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a80cc29f318cff8e5a4c665cd07ba1829d25d66d
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082584"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373390"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informação para distribuições não endossadas
 
@@ -26,7 +26,7 @@ Recomendamos que comece com um dos [Linux em Azure Endossado Distribuições.](e
 
 - [Distribuições baseadas em CentOS](create-upload-centos.md)
 - [Debian Linux](debian-create-upload-vhd.md)
-- [Contentor Flatcar Linux](flatcar-create-upload-vhd.md)
+- [Flatcar Container Linux](flatcar-create-upload-vhd.md)
 - [Oracle Linux](oracle-create-upload-vhd.md)
 - [Red Hat Enterprise Linux](redhat-create-upload-vhd.md)
 - [SLES e openSUSE](suse-create-upload-vhd.md)

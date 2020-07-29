@@ -7,13 +7,14 @@ ms.date: 12/12/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 89d068fbd835a5b4f8886a2ed77691f94a701bb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8660cb18f5e7ac5f3695eb15475570b107bf25c
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759098"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337080"
 ---
-# <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Ligue os dispositivos Azure IoT Edge a uma aplicação Azure IoT Central
+# <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Ligar dispositivos Azure IoT Edge a uma aplicação do Azure IoT Central
 
 *Este artigo aplica-se a construtores de soluções e desenvolvedores de dispositivos.*
 
@@ -57,7 +58,7 @@ No Azure IoT Central, pode importar um manifesto de implantação para criar um 
 
 ![Fluxograma de implantação ciclo de vida manifesto](./media/concepts-iot-edge/dmflow.png)
 
-IoT Plug and Play (pré-visualização) modela um dispositivo IoT Edge da seguinte forma:
+IoT Central modela um dispositivo IoT Edge da seguinte forma:
 
 * Cada modelo de dispositivo IoT Edge tem um modelo de capacidade do dispositivo.
 * Para cada módulo personalizado listado no manifesto de implementação, é gerado um modelo de capacidade do módulo.
@@ -71,6 +72,6 @@ IoT Plug and Play (pré-visualização) modela um dispositivo IoT Edge da seguin
 
 Se selecionou um dispositivo IoT Edge para ser um dispositivo de gateway, pode adicionar relações a jusante aos modelos de capacidade do dispositivo para dispositivos que pretende ligar ao dispositivo gateway.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se você é um desenvolvedor de dispositivos, um próximo passo sugerido é aprender sobre [os tipos de dispositivos gateway na IoT Central](./tutorial-define-gateway-device-type.md).

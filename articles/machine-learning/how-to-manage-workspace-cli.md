@@ -5,16 +5,17 @@ description: Aprenda a usar o Azure CLI para criar um novo espaço de trabalho d
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: larryfr
 author: Blackmist
 ms.date: 06/25/2020
-ms.openlocfilehash: 64963bfc28921d195d9ed0f96b2673a9c9e4aa2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to
+ms.openlocfilehash: 1cc280dc12fcb462e11a568910eef053e4bdac50
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392714"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319699"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Criar um espaço de trabalho para a Azure Machine Learning com Azure CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -23,7 +24,7 @@ Neste artigo, você aprende a criar um espaço de trabalho Azure Machine Learnin
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma **assinatura Azure**. Se não tiver uma, experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
+* Uma **subscrição do Azure**. Se não tiver uma, experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Para utilizar os comandos CLI neste documento a partir do seu **ambiente local,** necessita do [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -59,7 +60,13 @@ az extension add -n azure-cli-ml
 O espaço de trabalho Azure Machine Learning conta com os seguintes serviços ou entidades da Azure:
 
 > [!IMPORTANT]
-> Se não especificar um serviço Azure existente, um deles será criado automaticamente durante a criação do espaço de trabalho. Deve sempre especificar um grupo de recursos. Ao anexar a sua própria conta de armazenamento, certifique-se de que tem as capacidades de Azure Blob e Azure File ativadas e que o Espaço Hierárquico (ADLS Gen 2) está desativado. Pode sempre anexar a sua própria conta de armazenamento mais tarde, após a criação do espaço de trabalho como datastores.
+> Se não especificar um serviço Azure existente, um deles será criado automaticamente durante a criação do espaço de trabalho. Deve sempre especificar um grupo de recursos. Ao anexar a sua própria conta de armazenamento, certifique-se de que satisfaz os seguintes critérios:
+>
+> * A conta de armazenamento _não_ é uma conta premium (Premium_LRS e Premium_GRS)
+> * Tanto as capacidades de Azure Blob como Azure File ativadas
+> * O espaço hierárquico namespace (ADLS Gen 2) está desativado
+>
+> Estes requisitos destinam-se apenas à conta de armazenamento _predefinido_ utilizada pelo espaço de trabalho.
 
 | Serviço | Parâmetro para especificar uma instância existente |
 | ---- | ---- |
@@ -67,7 +74,7 @@ O espaço de trabalho Azure Machine Learning conta com os seguintes serviços ou
 | **Conta de Armazenamento do Azure** | `--storage-account <service-id>` |
 | **Azure Application Insights** | `--application-insights <service-id>` |
 | **Azure Key Vault** | `--keyvault <service-id>` |
-| **Registo de Contentores do Azure** | `--container-registry <service-id>` |
+| **Azure Container Registry** | `--container-registry <service-id>` |
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -147,6 +154,9 @@ Para criar um espaço de trabalho que utilize os recursos existentes, você deve
     A resposta deste comando é semelhante ao seguinte texto, e é o ID para a sua conta de armazenamento:
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"`
+
+    > [!IMPORTANT]
+    > Se quiser utilizar uma conta de Armazenamento Azure existente, não pode ser uma conta premium (Premium_LRS e Premium_GRS). Também não pode ter um espaço hierárquico de nomes (usado com Azure Data Lake Storage Gen2). Nem o armazenamento premium nem o espaço hierárquico são suportados com a conta de armazenamento _predefinido_ do espaço de trabalho. Pode utilizar um espaço de identificação premium ou hierárquico com contas de armazenamento _não padrão._
 
 + **Insights de aplicação da Azure:**
 
@@ -363,6 +373,6 @@ O espaço de trabalho Azure Machine Learning utiliza o Registo do Contentor Azur
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a extensão do Azure CLI para machine learning, consulte a documentação [az ml.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest)

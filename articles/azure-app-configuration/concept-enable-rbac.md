@@ -6,11 +6,12 @@ ms.author: lcozzens
 ms.date: 02/13/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: c2812219e689cb42fd871f85300239a10ab0da0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d417fa4d6b444f4932338059e2ad499c12d6273e
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84116711"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371843"
 ---
 # <a name="authorize-access-to-azure-app-configuration-using-azure-active-directory"></a>Autorizar o acesso à Configuração de Aplicações Azure utilizando o Azure Ative Directory
 Além de utilizar o Código de Autenticação de Mensagens (HMAC) baseado em Hash, a Azure App Configuration suporta a utilização do Azure Ative Directory (Azure AD) para autorizar pedidos para instâncias de Configuração de Aplicações.  A Azure AD permite-lhe usar o controlo de acesso baseado em funções (RBAC) para conceder permissões a um diretor de segurança.  Um responsável de segurança pode ser um utilizador, uma [identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) ou um diretor de serviço [de aplicação.](../active-directory/develop/app-objects-and-service-principals.md)  Para saber mais sobre papéis e atribuições de papéis, consulte [compreender diferentes funções.](../role-based-access-control/overview.md)
@@ -22,15 +23,15 @@ Os pedidos feitos por um responsável de segurança para aceder a um recurso de 
 
 O passo de autenticação requer que um pedido de candidatura contenha um token de acesso OAuth 2.0 no tempo de execução.  Se uma aplicação estiver a ser executada dentro de uma entidade Azure, como uma aplicação Azure Functions, uma App Azure Web ou um Azure VM, pode usar uma identidade gerida para aceder aos recursos.  Para aprender a autenticar pedidos feitos por uma identidade gerida para a Configuração da Aplicação Azure, consulte [autenticar o acesso aos recursos de configuração de aplicações Azure com o Azure Ative Directory e identidades geridas para recursos Azure.](howto-integrate-azure-managed-service-identity.md)
 
-O passo de autorização requer que uma ou mais funções do RBAC sejam atribuídas ao diretor de segurança. A Azure App Configuration fornece funções RBAC que englobam conjuntos de permissões para recursos de configuração de aplicativos. As funções atribuídas a um diretor de segurança determinam as permissões fornecidas ao diretor. Para obter mais informações sobre os papéis do RBAC, consulte [os papéis de RBAC incorporados para configuração de aplicações Azure](#built-in-rbac-roles-for-azure-app-configuration). 
+O passo de autorização requer que uma ou mais funções do RBAC sejam atribuídas ao diretor de segurança. A Azure App Configuration fornece funções RBAC que englobam conjuntos de permissões para recursos de configuração de aplicativos. As funções atribuídas a um diretor de segurança determinam as permissões fornecidas ao diretor. Para obter mais informações sobre os papéis do RBAC, consulte [os papéis incorporados do Azure para a Configuração da Aplicação Azure.](#azure-built-in-roles-for-azure-app-configuration) 
 
 ## <a name="assign-rbac-roles-for-access-rights"></a>Atribuir funções do RBAC para direitos de acesso
 O Azure Ative Directory (Azure AD) autoriza os direitos de acesso a recursos seguros através [do controlo de acesso baseado em funções (RBAC)](../role-based-access-control/overview.md).
 
 Quando um papel rbac é atribuído a um diretor de segurança Azure, Azure concede acesso a esses recursos para esse chefe de segurança. O acesso é traçado para o recurso de Configuração de Aplicações. Um diretor de segurança Azure AD pode ser um utilizador, ou um diretor de serviço de aplicação, ou uma [identidade gerida para os recursos da Azure.](../active-directory/managed-identities-azure-resources/overview.md)
 
-## <a name="built-in-rbac-roles-for-azure-app-configuration"></a>Papéis RBAC incorporados para configuração de aplicativos Azure
-O Azure fornece as seguintes funções DE RBAC incorporadas para autorizar o acesso a dados de Configuração de Aplicações utilizando Azure AD e OAuth:
+## <a name="azure-built-in-roles-for-azure-app-configuration"></a>Azure funções incorporadas para configuração de aplicativos Azure
+O Azure fornece as seguintes funções incorporadas do Azure para autorizar o acesso aos dados de Configuração de Aplicações utilizando Azure AD e OAuth:
 
 - **Proprietário de dados de configuração de aplicativos**: Utilize esta função para dar acesso de leitura/escrita/exclusão aos dados de Configuração de Aplicações. Isto não permite o acesso ao recurso de Configuração de Aplicações.
 - **Leitor de Dados de Configuração de Aplicativos**: Utilize esta função para dar acesso à leitura dos dados de Configuração da Aplicação. Isto não permite o acesso ao recurso de Configuração de Aplicações.
@@ -40,5 +41,5 @@ O Azure fornece as seguintes funções DE RBAC incorporadas para autorizar o ace
 > [!NOTE]
 > Atualmente, o portal Azure e o CLI apenas suportam a autenticação HMAC para aceder aos dados de Configuração de Aplicações. A autenticação AD AZure não é suportada. Por isso, os utilizadores do portal Azure e do CLI exigem que o *contributo* recupere as chaves de acesso do recurso de Configuração da Aplicação. A concessão de funções *de Leitor de Dados de Configuração de Aplicações* ou *de Data Owner de Configuração de Aplicações* não tem impacto no acesso através do portal e do CLI.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre a utilização [de identidades geridas](howto-integrate-azure-managed-service-identity.md) para administrar o seu serviço de Configuração de Aplicações.

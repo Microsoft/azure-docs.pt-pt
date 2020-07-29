@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 2ed9e9e4ec658fc506ad2bd449ee1a49d510503f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c1ac3c1e312704f8a0afa751d0efc6d0cef897f9
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081343"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371775"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Utilize pontos finais de serviço de rede virtual e regras para servidores na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -139,7 +139,7 @@ PolyBase é comumente usado para carregar dados em Azure Synapse Analytics a par
 1. Na sua conta de armazenamento, navegue para **Access Control (IAM)** e selecione **Adicionar a atribuição de funções**. Atribua o papel de Colaborador **de Dados blob de armazenamento** ao servidor que hospeda o seu Azure Synapse Analytics que registou no Azure Ative Directory (AAD) como #1 passo.
 
    > [!NOTE]
-   > Apenas os membros com privilégio proprietário na conta de armazenamento podem realizar este passo. Para várias funções incorporadas para recursos Azure, consulte este [guia.](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
+   > Apenas os membros com privilégio proprietário na conta de armazenamento podem realizar este passo. Para várias funções incorporadas do Azure, consulte este [guia.](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
   
 1. **Conectividade polybase à conta de Armazenamento Azure:**
 

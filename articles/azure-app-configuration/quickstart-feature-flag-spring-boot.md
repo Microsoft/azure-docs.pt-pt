@@ -1,59 +1,60 @@
 ---
-title: Quickstart para adicionar bandeiras de recurso à Bota de primavera com configuração de app Azure
-description: Adicione bandeiras de funcionalidade sabotadas e gerencie-as usando a configuração da app Azure
+title: Quickstart para adicionar bandeiras de recurso ao Boot de mola com configuração de app Azure
+description: Adicione bandeiras de funcionalidade às aplicações do Boot de primavera e gerencie-as usando a Configuração da App Azure
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
-ms.openlocfilehash: a0d3c23f8f53b8ddfbd3fbd1cb1744a47664ce08
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.custom: devx-track-java
+ms.openlocfilehash: 2340e728933cc230fb53b9581f4b02b41a9438b6
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774011"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372064"
 ---
-# <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação spring boot
+# <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação De Boot de primavera
 
-Neste arranque rápido, incorpora a Configuração de Aplicações Azure numa aplicação web Spring Boot para criar uma implementação final da gestão de funcionalidades. Pode utilizar o serviço de Configuração de Aplicações para armazenar centralmente todas as suas bandeiras de funcionalidades e controlar os seus estados.
+Neste arranque rápido, incorpora a Configuração de Aplicações Azure numa aplicação web Spring Boot para criar uma implementação de ponta a ponta da gestão de funcionalidades. Pode utilizar o serviço de Configuração de Aplicações para armazenar centralmente todas as suas bandeiras de funcionalidades e controlar os seus estados.
 
-As bibliotecas de Gestão de Recursos de Arranque de primavera alargam o quadro com um suporte abrangente de bandeira de recurso. Estas bibliotecas **não** têm dependência de nenhuma biblioteca Azure. Integram-se perfeitamente com a Configuração da App através do seu fornecedor de configuração de Botas de primavera.
+As bibliotecas de Gestão de Recursos de Arranque de Mola alargam o quadro com suporte abrangente de bandeira de recurso. Estas bibliotecas **não** têm dependência de bibliotecas Azure. Integram-se perfeitamente com a Configuração de Aplicações através do seu fornecedor de configuração boot de mola.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/)
-* Um Kit de Desenvolvimento Java suportado [SDK](https://docs.microsoft.com/java/azure/jdk) com a versão 8.
+* Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
+* Um Kit de Desenvolvimento java suportado [SDK](https://docs.microsoft.com/java/azure/jdk) com a versão 8.
 * [Apache Maven](https://maven.apache.org/download.cgi) versão 3.0 ou superior.
 
-## <a name="create-an-app-configuration-instance"></a>Criar uma instância de configuração de aplicativos
+## <a name="create-an-app-configuration-instance"></a>Criar uma instância de configuração de aplicativo
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione Gestor de **Funcionalidades**  >  **+Adicione** para adicionar uma bandeira de recurso chamada `Beta` .
+6. Selecione **Feature Manager**  >  **+Adicione** para adicionar uma bandeira de recurso chamada `Beta` .
 
     > [!div class="mx-imgBorder"]
     > ![Ativar a bandeira de recurso chamada Beta](media/add-beta-feature-flag.png)
 
-    Deixe `label` indefinido por enquanto.
+    Deixe `label` indefinida por enquanto.
 
-## <a name="create-a-spring-boot-app"></a>Crie uma aplicação spring boot
+## <a name="create-a-spring-boot-app"></a>Criar uma aplicação de Boot de primavera
 
-Use o [Initializr de primavera](https://start.spring.io/) para criar um novo projeto spring boot.
+Utilize o [Initializr primavera](https://start.spring.io/) para criar um novo projeto de Bota de primavera.
 
 1. Navegue para <https://start.spring.io/>.
 
 1. Especifique as seguintes opções:
 
    * Gere um projeto do **Maven** com **Java**.
-   * Especifique uma versão **Spring Boot** igual ou superior a 2.0.
-   * Especifique os nomes do **Grupo** e do **Artefacto** da aplicação.  Este artigo usa `com.example` e `demo` .
+   * Especifique uma versão **de Boot de mola** igual ou superior a 2.0.
+   * Especifique os nomes do **Grupo** e do **Artefacto** da aplicação.  Este artigo usa `com.example` `demo` e. .
    * Adicione a dependência da **Web da primavera.**
 
-1. Depois de especificar as opções anteriores, selecione **Generate Project**. Quando solicitado, descarregue o projeto para o seu computador local.
+1. Depois de especificar as opções anteriores, **selecione Gerar Projeto**. Quando solicitado, descarregue o projeto para o seu computador local.
 
 ## <a name="add-feature-management"></a>Adicionar gestão de recursos
 
-1. Depois de extrair os ficheiros do seu sistema local, a sua aplicação Spring Boot está pronta para ser editada. Localize *pom.xml* no diretório raiz da sua aplicação.
+1. Depois de extrair os ficheiros do seu sistema local, a sua aplicação Boot Spring está pronta para edição. Localize *pom.xml* no diretório de raiz da sua aplicação.
 
 1. Abra o ficheiro *pom.xml* num editor de texto e adicione o seguinte à lista `<dependencies>` de:
 
@@ -96,19 +97,19 @@ Use o [Initializr de primavera](https://start.spring.io/) para criar um novo pro
     ```
 
 > [!Note]
-> Há uma biblioteca de gestão de recursos não web que não tem uma dependência na web da primavera. Consulte a [documentação](https://github.com/microsoft/spring-cloud-azure/tree/master/spring-cloud-azure-feature-management) do GitHub para as diferenças.
+> Existe uma Biblioteca de Gestão de Recursos não web que não tem uma dependência da web de mola. Consulte a [documentação](https://github.com/microsoft/spring-cloud-azure/tree/master/spring-cloud-azure-feature-management) do GitHub para obter diferenças.
 
-## <a name="connect-to-an-app-configuration-store"></a>Ligar a uma loja de configuração de aplicações
+## <a name="connect-to-an-app-configuration-store"></a>Conecte-se a uma loja de configuração de aplicativos
 
-1. Navegue para o `resources` diretório da sua app e `bootstrap.properties` abra.  Se o ficheiro não existir, crie-o. Adicione a seguinte linha ao ficheiro.
+1. Navegue para o `resources` diretório da sua aplicação e `bootstrap.properties` abra.  Se o ficheiro não existir, crie-o. Adicione a seguinte linha ao ficheiro.
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
 
-1. No portal de configuração da aplicação para a sua loja de config, selecione `Access keys` a partir da barra lateral. Selecione o separador de teclas apenas para leitura. Copiar o valor da cadeia de ligação primária.
+1. No portal de Configuração de Aplicações para a sua loja config, selecione `Access keys` a partir da barra lateral. Selecione o separador Teclas Apenas para leitura. Copiar o valor da cadeia de ligação primária.
 
-1. Adicione a cadeia de ligação primária como uma variável ambiental utilizando o nome variável `APP_CONFIGURATION_CONNECTION_STRING` .
+1. Adicione a cadeia de ligação primária como uma variável ambiental usando o nome variável `APP_CONFIGURATION_CONNECTION_STRING` .
 
 1. Abra o ficheiro Java da aplicação principal e adicione `@EnableConfigurationProperties` para ativar esta funcionalidade.
 
@@ -184,7 +185,7 @@ Use o [Initializr de primavera](https://start.spring.io/) para criar um novo pro
     }
     ```
 
-1. Crie um novo ficheiro HTML chamado *welcome.html* no diretório de modelos da sua aplicação.
+1. Crie um novo ficheiro HTML nomeado *welcome.html* no diretório de modelos da sua aplicação.
 
     ```html
     <!DOCTYPE html>
@@ -241,7 +242,7 @@ Use o [Initializr de primavera](https://start.spring.io/) para criar um novo pro
 
     ```
 
-1. Crie uma nova pasta chamada CSS dentro `static` e no seu interior um novo ficheiro CSS chamado *main.css*.
+1. Crie uma nova pasta chamada CSS por baixo `static` e por dentro dela um novo ficheiro CSS chamado *main.css*.
 
     ```css
     html {
@@ -274,7 +275,7 @@ Use o [Initializr de primavera](https://start.spring.io/) para criar um novo pro
     }
     ```
 
-## <a name="build-and-run-the-app-locally"></a>Construir e executar a app localmente
+## <a name="build-and-run-the-app-locally"></a>Construa e execute a app localmente
 
 1. Crie a aplicação Spring Boot com o Maven e execute-a.
 
@@ -283,28 +284,28 @@ Use o [Initializr de primavera](https://start.spring.io/) para criar um novo pro
     mvn spring-boot:run
     ```
 
-1. Abra uma janela do navegador e vá ao URL: `http://localhost:8080/welcome` .
+1. Abra uma janela do navegador e vá para o URL: `http://localhost:8080/welcome` .
 
-    ![Lançamento de app Quickstart local](./media/quickstarts/spring-boot-feature-flag-local-before.png)
+    ![Quickstart app lançar local](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 
-1. No portal de configuração da aplicação selecione Gestor de **Funcionalidades**, e altere o estado da chave **Beta** para **On:**
+1. No portal de configuração de aplicações selecione **'Feature Manager'** e altere o estado da tecla **Beta** para **On**:
 
     | Chave | Estado |
     |---|---|
     | Beta | Ativado |
 
-1. Refresque a página do navegador para ver as novas configurações de configuração.
+1. Refresque a página do navegador para ver as novas definições de configuração.
 
-    ![Lançamento de app Quickstart local](./media/quickstarts/spring-boot-feature-flag-local-after.png)
+    ![Quickstart app lançar local](./media/quickstarts/spring-boot-feature-flag-local-after.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste quickstart, criou uma nova loja de configuração de aplicações e utilizou-a para gerir funcionalidades numa aplicação web spring boot através das [bibliotecas de Gestão de Recursos.](https://go.microsoft.com/fwlink/?linkid=2074664)
+Neste quickstart, criou uma nova loja de Configuração de Aplicações e utilizou-a para gerir funcionalidades numa aplicação web Spring Boot através das [bibliotecas de Gestão de Recursos.](https://go.microsoft.com/fwlink/?linkid=2074664)
 
-* Saiba mais sobre gestão de [recursos.](./concept-feature-management.md)
-* [Gerir as bandeiras de recurso.](./manage-feature-flags.md)
-* [Utilize bandeiras de recurso numa aplicação Spring Boot Core](./use-feature-flags-spring-boot.md).
+* Saiba mais sobre [gestão de recursos.](./concept-feature-management.md)
+* [Gerir bandeiras de características](./manage-feature-flags.md).
+* [Utilize bandeiras de funcionalidades numa aplicação Spring Boot Core](./use-feature-flags-spring-boot.md).

@@ -4,16 +4,16 @@ description: Saiba como usar o Packer para criar imagens de máquinas virtuais d
 author: cynthn
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
-ms.openlocfilehash: 14b2e3df6d7ea3f72c1968cfed222a1b9b0d636d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1597d249899756ac0d43d2dcd90019179b81bb3b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525862"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284664"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Como usar o Packer para criar imagens de máquinas virtuais do Windows em Azure
 Cada máquina virtual (VM) em Azure é criada a partir de uma imagem que define a distribuição do Windows e a versão OS. As imagens podem incluir aplicações e configurações pré-instaladas. O Azure Marketplace fornece muitas imagens de primeira e de terceiros para ambientes de aplicação e SISTEMA mais comuns, ou pode criar as suas próprias imagens personalizadas adaptadas às suas necessidades. Este artigo detalha como usar a ferramenta de código aberto [Packer](https://www.packer.io/) para definir e construir imagens personalizadas em Azure.
@@ -247,5 +247,5 @@ Para ver o seu VM, que inclui a instalação IIS do provisionador Packer, em aç
 ![Site predefinido do IIS](./media/build-image-with-packer/iis.png) 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Também pode utilizar scripts de provisionadores Packer existentes com [O Azure Image Builder](image-builder.md).

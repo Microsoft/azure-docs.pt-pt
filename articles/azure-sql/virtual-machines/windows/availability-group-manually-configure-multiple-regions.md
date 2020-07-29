@@ -3,7 +3,7 @@ title: Configure um servidor SQL sempre em grupo de disponibilidade em diferente
 description: Este artigo explica como configurar um sql servidor sempre em grupo de disponibilidade em máquinas virtuais Azure com uma réplica em uma região diferente.
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
@@ -12,13 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
-ms.author: mikeray
+ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8ab62a93546719e172eec34168a0692daccf281a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e33a5e32848dfd0a6cf252d6876616fc89edd1d7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669312"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284273"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>Configure um SQL Server Always On availability group em diferentes regiões do Azure
 
@@ -184,8 +185,8 @@ Depois de testar a conectividade, mova a réplica primária de volta para o seu 
 
 | Localização | Instância do servidor | Função | Modo disponibilidade | Modo de failover
 | ----- | ----- | ----- | ----- | -----
-| Centro de dados primários | SQL-1 | Primário | Síncrono | Automático
-| Centro de dados primários | SQL-2 | Secundária | Síncrono | Automático
+| Centro de dados primários | SQL-1 | Primário | Synchronous (Síncrono) | Automático
+| Centro de dados primários | SQL-2 | Secundária | Synchronous (Síncrono) | Automático
 | Centro de dados secundário ou remoto | SQL-3 | Secundária | Assíncrono | Manual
 
 
@@ -196,7 +197,7 @@ Para obter mais informações, consulte os seguintes tópicos:
 - [Executar uma falha manual planeada de um Grupo de Disponibilidade (SQL Server)](https://msdn.microsoft.com/library/hh231018.aspx)
 - [Executar uma falha manual forçada de um Grupo de Disponibilidade (SQL Server)](https://msdn.microsoft.com/library/ff877957.aspx)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Grupos de Disponibilidade Always On](https://msdn.microsoft.com/library/hh510230.aspx)
 * [Máquinas Virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/)

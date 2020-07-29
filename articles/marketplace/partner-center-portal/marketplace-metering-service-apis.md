@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 8a6636b0fc6c3e67ec171d738efb3fd8a93de30c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: ac48973653e89d43521979a5606a8a3a3c2e1346
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120777"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319988"
 ---
 # <a name="marketplace-metered-billing-apis"></a>APIs de faturação medido no mercado
 
@@ -43,7 +45,7 @@ Apenas um evento de utilização pode ser emitido por cada hora de um dia de cal
 
 *Pedido de cabeçalhos:*
 
-| Tipo de conteúdo       | Utilizar `application/json`  |
+| Tipo de conteúdo       | Utilizar o comando `application/json`  |
 | ------------------ | ---------------------------- |
 | `x-ms-requestid`     | Valor de cadeia único para acompanhar o pedido do cliente, de preferência um GUID. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 | `x-ms-correlationid` | Valor único de corda para operação no cliente. Este parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
@@ -155,7 +157,7 @@ O evento de utilização do lote API permite-lhe emitir eventos de utilização 
 
 *Pedido de cabeçalhos:*
 
-| Tipo de conteúdo       | Utilizar `application/json`       |
+| Tipo de conteúdo       | Utilizar o comando `application/json`       |
 | ------------------ | ------ |
 | `x-ms-requestid`     | Valor de cadeia único para acompanhar o pedido do cliente, de preferência um GUID. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 | `x-ms-correlationid` | Valor único de corda para operação no cliente. Este parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se este valor não for fornecido, um será gerado, e fornecido nos cabeçalhos de resposta. |
@@ -273,6 +275,6 @@ Você também pode usar um plano privado para uma oferta ao vivo existente para 
 
 Siga a instrução de [Suporte ao programa de marketplace comercial no Partner Center](./support.md) para compreender as opções de suporte dos editores e abrir um bilhete de apoio com a Microsoft.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o serviço de medição APIs , consulte [o serviço de medição de mercado APIs FAQ](./marketplace-metering-service-apis-faq.md).

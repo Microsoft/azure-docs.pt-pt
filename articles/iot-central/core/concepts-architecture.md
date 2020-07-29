@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 12ad231d81b6c134ebb8d4902b3f95c978e9622d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e4b81f2350795b1244289119d714e99bc06ba6f
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695339"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337148"
 ---
 # <a name="azure-iot-central-architecture"></a>Arquitetura do Azure IoT Central
 
@@ -29,7 +30,7 @@ Os dispositivos trocam dados com a sua aplicação Azure IoT Central. Um disposi
 - Envie medições como telemetria.
 - Sincronizar as definições com a sua aplicação.
 
-No Azure IoT Central, os dados que um dispositivo pode trocar com a sua aplicação são especificados num modelo de dispositivo. Para obter mais informações sobre os modelos do dispositivo, consulte [a gestão dos metadados.](#metadata-management)
+No Azure IoT Central, os dados que um dispositivo pode trocar com a aplicação são especificados num modelo de dispositivo. Para obter mais informações sobre os modelos do dispositivo, consulte [a gestão dos metadados.](#metadata-management)
 
 Para saber mais sobre como os dispositivos se ligam à sua aplicação Azure IoT Central, consulte [a conectividade do dispositivo](concepts-get-connected.md).
 
@@ -134,7 +135,7 @@ Numa aplicação Azure IoT Central, os modelos do dispositivo definem o comporta
 
 Num modelo de dispositivo de aplicação IoT Central contém:
 
-- **Os modelos de capacidade** do dispositivo especificam as capacidades de um dispositivo como a telemetria que envia, as propriedades que definem o estado do dispositivo e os comandos a que o dispositivo responde. As capacidades do dispositivo são organizadas em uma ou mais interfaces. Para obter mais informações sobre os modelos de capacidade do dispositivo, consulte a documentação [IoT Plug and Play (pré-visualização).](../../iot-pnp/overview-iot-plug-and-play.md)
+- **Os modelos de capacidade** do dispositivo especificam as capacidades de um dispositivo como a telemetria que envia, as propriedades que definem o estado do dispositivo e os comandos a que o dispositivo responde. As capacidades do dispositivo são organizadas em uma ou mais interfaces.
 - **Propriedades na nuvem** especificam as propriedades IoT Central lojas para um dispositivo. Estas propriedades são armazenadas apenas na IoT Central e nunca são enviadas para um dispositivo.
 - **As vistas** especificam os dashboards e formas que o construtor cria para permitir que o operador monitorize e gere os dispositivos.
 - **As personalizações** permitem ao construtor sobrepor-se a algumas das definições no modelo de capacidade do dispositivo para torná-las mais relevantes para a aplicação IoT Central.
@@ -169,6 +170,6 @@ Um administrador pode personalizar o UI da aplicação aplicando temas personali
 
 Um operador pode criar dashboards de aplicação personalizados. Pode ter vários dashboards que exibem dados diferentes e alternam entre eles.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu sobre a arquitetura da Azure IoT Central, o próximo passo sugerido é aprender sobre a [conectividade do dispositivo](concepts-get-connected.md) no Azure IoT Central.

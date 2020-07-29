@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: t-bebon
 ms.custom: seodec18
-ms.openlocfilehash: 6bc118145bec30085c2d9fbf726c40a20b312430
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 83e76cd96e09b0e136d2bfbe2e5863b289724bdd
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207051"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284256"
 ---
-# <a name="optical-character-recognition-ocr"></a>Reconhecimento ótico de carateres (OCR)
+# <a name="optical-character-recognition-ocr"></a>Reconhecimento Ótico de Carateres (OCR)
 
 A API de Visão Computacional da Microsoft inclui capacidades de reconhecimento de caracteres óticos (OCR) que extraem texto impresso ou manuscrito a partir de imagens e documentos PDF. As APIs OCR extraem texto de documentos analógicos (imagens, documentos digitalizados) e documentos digitalizados. Pode extrair texto de imagens na natureza, como fotos de placas ou contentores com números de série, bem como de documentos - faturas, contas, relatórios financeiros, artigos e muito mais. O novo API de Leitura OCR está disponível como parte do serviço gerido na nuvem ou nas instalações (contentores). Além disso, suporta redes virtuais e pontos finais privados para atender às necessidades de conformidade e privacidade da sua empresa.
 
 ## <a name="read-api"></a>Ler API 
 
-[A API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) de Leitura da Visão de Computador é a mais recente tecnologia OCR da Microsoft que extrai texto impresso (sete idiomas), texto manuscrito (apenas inglês), dígitos e símbolos de moeda a partir de imagens e documentos PDF de várias páginas. É otimizado para extrair texto de imagens pesadas de texto silvestre e documentos PDF de várias páginas com línguas mistas. Suporta a deteção de texto impresso e manuscrito (apenas em inglês) na mesma imagem ou documento. Consulte a página completa da página de [idiomas suportados por OCR.](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr)
+[A API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) de Leitura da Visão de Computador é a mais recente tecnologia OCR da Microsoft que extrai texto impresso em vários idiomas, texto manuscrito (apenas inglês), dígitos e símbolos de moeda a partir de imagens e documentos PDF de várias páginas. É otimizado para extrair texto de imagens pesadas de texto silvestre e documentos PDF de várias páginas com línguas mistas. Suporta a deteção de texto impresso e manuscrito (apenas em inglês) na mesma imagem ou documento. Consulte a página completa da página de [idiomas suportados por OCR.](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr)
 
 ### <a name="how-ocr-works"></a>Como funciona o OCR
 
@@ -123,7 +123,7 @@ Neste momento, a operação Read suporta a extração de texto manuscrito exclus
 
 ### <a name="printed-text-in-supported-languages"></a>Texto impresso em línguas apoiadas
 
-A API de leitura suporta a extração de texto impresso em línguas inglesa, espanhola, alemã, francesa, italiana, portuguesa e neerlandesa. Se o seu cenário necessitar de apoiar mais línguas, consulte a visão geral da API do OCR neste documento. Consulte a lista de todas as [línguas apoiadas pelo OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr)
+A API de Leitura 3.0 suporta a extração de texto impresso em línguas inglesa, espanhola, alemã, francesa, italiana, portuguesa e neerlandesa. [Leia 3.1-pré-visualização.1 API Visualização Pública](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) adiciona suporte para chinês simplificado. Se o seu cenário necessitar de apoiar mais línguas, consulte a visão geral da API do OCR neste documento. Consulte a lista de todas as [línguas apoiadas pelo OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr)
 
 ![Uma imagem sendo girada e seu texto sendo lido e delineado](./Images/supported-languages-example.png)
 
@@ -137,7 +137,7 @@ A API de Leitura suporta imagens e documentos com múltiplas línguas neles, vul
 
 Tal como acontece com todos os serviços cognitivos, os desenvolvedores que usam o serviço Read devem estar cientes das políticas da Microsoft sobre os dados dos clientes. Consulte a página de Serviços Cognitivos no [Microsoft Trust Center](https://www.microsoft.com/en-us/trust-center/product-overview) para saber mais.
 
-### <a name="deploy-on-premises"></a>Implementar no local
+### <a name="containers-for-on-premise-deployment"></a>Contentores para implantação no local
 
 A leitura também está disponível como um recipiente Docker (pré-visualização) para permitir a implementação das novas capacidades de OCR no seu próprio ambiente. Os contentores são ótimos para requisitos específicos de segurança e governação de dados. Veja [como instalar e executar Recipientes de leitura.](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers)
 
@@ -149,4 +149,5 @@ A [API OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a [API De Leitura 3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005)REST .
+- Saiba mais sobre a [API Read 3.1-preview.1 REST](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) com suporte adicional para chinês simplificado.
 - Siga o [quickstart de texto extrato](./QuickStarts/CSharp-hand-text.md) para implementar OCR usando C#, Java, JavaScript ou Python juntamente com a REST API.

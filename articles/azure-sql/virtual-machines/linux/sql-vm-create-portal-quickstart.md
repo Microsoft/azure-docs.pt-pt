@@ -10,11 +10,12 @@ ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 41f39c7e60e79e034d4c855a77bfee0f6fa2094d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ce3ab92be33b378aeb6694efe181ee19da5d3f4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669516"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284358"
 ---
 # <a name="provision-a-linux-virtual-machine-running-sql-server-in-the-azure-portal"></a>Fornecimento de uma máquina virtual Linux que executa o SQL Server no portal Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -71,7 +72,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 1. Em seguida, digite ou selecione os seguintes valores:
    * **Região**: Selecione a região de Azure que é a certa para si.
    * **Opções de disponibilidade**: Escolha a opção de disponibilidade e redundância que é melhor para as suas apps e dados.
-   * **Tamanho de alteração**: Selecione esta opção para escolher o tamanho da máquina e quando terminar, escolha **Selecione**. Para obter mais informações sobre os tamanhos das VMs, veja [Linux VM size](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes) (Tamanhos de VMs do Linux).
+   * **Tamanho de alteração**: Selecione esta opção para escolher o tamanho da máquina e quando terminar, escolha **Selecione**. Para obter mais informações sobre os tamanhos das máquinas VM, consulte os [tamanhos de VM](../../../virtual-machines/sizes.md).
 
      ![Selecionar um tamanho de VM](./media/sql-vm-create-portal-quickstart/vmsizes.png)
 
@@ -81,7 +82,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
    * **Tipo de autenticação**: Selecione **sSH chave pública**.
 
      > [!Note]
-     > Tem a opção de utilizar uma chave pública SSH ou uma Palavra-passe para autenticação. O SSH é mais seguro. Para obter instruções sobre como gerar uma chave SSH, veja [Criar chaves SSH em Linux e Mac para VMs do Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
+     > Tem a opção de utilizar uma chave pública SSH ou uma Palavra-passe para autenticação. O SSH é mais seguro. Para obter instruções sobre como gerar uma chave SSH, veja [Criar chaves SSH em Linux e Mac para VMs do Linux no Azure](../../../virtual-machines/linux/mac-create-ssh-keys.md).
 
    * **Nome de utilizador**: Introduza o nome do administrador para o VM.
    * **Chave pública SSH**: Insira a sua chave pública RSA.
@@ -121,7 +122,7 @@ Se estiver a correr no Windows e não tiver uma concha BASH, instale um cliente 
 
 1. Selecione **Abrir** e insira o seu nome de utilizador e palavra-passe nas indicações.
 
-Para obter mais informações sobre como ligar a VMs do Linux, veja [Criar uma VM do Linux no Azure com o Portal](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal).
+Para obter mais informações sobre como ligar a VMs do Linux, veja [Criar uma VM do Linux no Azure com o Portal](../../../virtual-machines/linux/quick-create-portal.md).
 
 > [!NOTE]
 > Se vir um alerta de segurança PuTTY sobre a chave de anfitrião do servidor não estar em cache no registo, escolha entre as seguintes opções. Se confiar neste anfitrião, selecione **Sim** para adicionar a chave à cache do PuTTy e continue a ligar. Se pretender continuar a ligar apenas uma vez, sem adicionar a chave à cache, selecione **Nº**. Se não confia neste anfitrião, **selecione Cancelar** para abandonar a ligação.
@@ -191,7 +192,7 @@ Este tutorial orientou-o na criação de uma VM do Red Hat Enterprise Linux (RHE
    sudo firewall-cmd --reload
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que tem uma máquina virtual do SQL Server 2017 no Azure, pode ligar localmente com **sqlcmd** para executar consultas de Transact-SQL.
 

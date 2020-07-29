@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d6539a233fbb8038d82a8ea41da2c9e79745324
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15e3c5ba72ff7b97e03cd7aa2b68eeffb2aa7882
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83995195"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283015"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Acesso Condicional: Autenticação do legado do bloco
 
@@ -32,18 +33,18 @@ As seguintes etapas ajudarão a criar uma política de acesso condicional para b
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
    1. Em **Incluir**, selecione **Todos os utilizadores**.
    1. Em **'Excluir',** selecione **Utilizadores e grupos** e escolha quaisquer contas que mantenham a capacidade de utilizar a autenticação antiga. Exclua pelo menos uma conta para evitar que esteja trancado. Se não excluir nenhuma conta, não poderá criar esta política.
-   1. Selecione **Done** (Concluído).
+   1. Selecione **Concluído**.
 1. Em **aplicativos ou ações cloud**, selecione **Todas as aplicações cloud**.
-   1. Selecione **Done** (Concluído).
-1. Em **Condições**  >  **As aplicações do Cliente (pré-visualização)**, definir **Configurar** para **Sim**.
+   1. Selecione **Concluído**.
+1. Em **Condições As**  >  **aplicações do Cliente (pré-visualização)**, em Select as **aplicações do cliente esta política aplicar-se-á a:**
    1. Verifique apenas as caixas **Aplicações móveis e clientes de desktop**  >  **Outros clientes.**
-   1. Selecione **Done** (Concluído).
+   1. Selecione **Concluído**.
 1. Sob **controlos de acesso**  >  **Grant**, selecione **Acesso ao Bloco**.
    1. Selecione **Selecionar**.
 1. Confirme as suas definições e defina **Ativar** a política **apenas para reportar**.
 1. Selecione **Criar** para criar para ativar a sua política.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 

@@ -4,16 +4,16 @@ description: Este artigo fornece dicas de resolução de problemas para a Encrip
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
-ms.topic: article
+ms.topic: troubleshooting
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0e83d53122b3f80d73a573f0eff8c13888cbee11
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5ca6431531f8cebf1205aa555c5545f4dc44abd3
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325207"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372217"
 ---
 # <a name="azure-disk-encryption-for-linux-vms-troubleshooting-guide"></a>Encriptação do disco Azure para guia de resolução de problemas de Linux VMs
 

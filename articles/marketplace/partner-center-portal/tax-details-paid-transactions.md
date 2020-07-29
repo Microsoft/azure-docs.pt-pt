@@ -4,12 +4,14 @@ Description: Para compreender as suas considerações fiscais para a seleção d
 ms.topic: conceptual
 ms.service: marketplace
 ms.date: 05/04/2020
-ms.openlocfilehash: 0949bd1234b28a9683e194d3b3f08511f7f17a26
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: b0ada7047241e74095fd5b81a261c15295a08737
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120692"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319937"
 ---
 # <a name="tax-details-for-commercial-marketplace-publishers"></a>Detalhes fiscais para editores de mercado comercial
 
@@ -285,6 +287,6 @@ O que se aplica apenas à Azure Marketplace Publishers:
 | Brasil (para compras efetuações através de todos os cenários de compra de clientes, exceto CSP) |
 | México (apenas para compras efetuações através do cenário de compra de clientes do Enterprise Agreement) |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Configurar a conta de dividendos e os formulários fiscais](set-up-your-payout-account-tax-forms.md)

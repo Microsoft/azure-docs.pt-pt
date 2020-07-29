@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 68be8d08939464d200da588c481447f8206c9117
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 720a768679cdbd45224e5c9a05b8f8d0c9b9ea81
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117205"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326091"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução monitor de desempenho de rede em Azure
 
@@ -113,7 +113,7 @@ O Network Performance Monitor utiliza transações sintéticas para monitorizar 
 
 ### <a name="configure-the-solution"></a>Configure a solução 
 
-1. Adicione a solução Monitor de Desempenho da Rede ao seu espaço de trabalho a partir do [mercado Azure.](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) Também pode utilizar o processo descrito nas [soluções Add Azure Monitor da Galeria soluções.](../../azure-monitor/insights/solutions.md) 
+1. Adicione a solução Monitor de Desempenho da Rede ao seu espaço de trabalho a partir do [mercado Azure.](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) Também pode utilizar o processo descrito nas [soluções Add Azure Monitor da Galeria soluções.](./solutions.md) 
 2. Abra o seu espaço de trabalho Log Analytics e selecione o **azulejo de visão geral.** 
 3. Selecione o azulejo **do Monitor de Desempenho** da Rede com a solução de mensagem requer uma *configuração adicional*.
 
@@ -291,3 +291,4 @@ A informação sobre os preços está disponível [online.](network-performance-
 
 ## <a name="next-steps"></a>Passos seguintes 
 Saiba mais sobre [o Monitor de Desempenho,](network-performance-monitor-performance-monitor.md) [Monitor de Conectividade de Serviços](network-performance-monitor-performance-monitor.md)e [Monitor ExpressRoute](network-performance-monitor-expressroute.md). 
+
