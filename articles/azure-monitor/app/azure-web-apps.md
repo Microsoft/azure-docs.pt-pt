@@ -3,12 +3,13 @@ title: Desempenho dos serviços de aplicações Monitor Azure Microsoft Docs
 description: Monitorização do desempenho da aplicação para serviços de aplicações Azure. Cartografe o tempo de carga e resposta, informações de dependência e definir alertas sobre o desempenho.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 042dd67c0e1e5a0ba2f81d5678e191dbfdd60a43
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: f96d994f9f88a0debf110de2ca4f6da60e8ea3bc
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067892"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373169"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorizar o desempenho do Serviço de Aplicações do Azure
 
@@ -64,7 +65,7 @@ Existem duas formas de permitir a monitorização de aplicações para os Servi�
 | Recolhe tendências de utilização e permite a correlação dos resultados de disponibilidade para transações | Sim |Sim |
 | Recolhe exceções sem processamento pelo processo anfitrião | Sim |Sim |
 | Melhora a precisão das métricas de APM sob carga, quando é utilizada a amostragem | Sim |Sim |
-| Correlaciona os microsserviços entre limites de pedidos/dependências | Não (apenas capacidades APM de instância única) |Yes |
+| Correlaciona os microsserviços entre limites de pedidos/dependências | Não (apenas capacidades APM de instância única) |Sim |
 
 3. Para configurar configurações como amostragem, que poderia controlar previamente através do ficheiro applicationinsights.config pode agora interagir com essas mesmas definições através de definições de Aplicação com um prefixo correspondente. 
 
@@ -405,10 +406,11 @@ Os sites PHP e WordPress não são suportados. Atualmente, não existe um SDK/ag
 Quando se utiliza uma monitorização codificada, é necessário apenas o fio de ligação. No entanto, recomendamos ainda a definição da chave de instrumentação para preservar a retrocompatibilidade com versões mais antigas do SDK quando estiver a ser executada a instrumentação manual.
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Run the profiler on your live app](../app/profiler.md) (Executar o gerador de perfis na sua aplicação publicada).
+* [Run the profiler on your live app](./profiler.md) (Executar o gerador de perfis na sua aplicação publicada).
 * [Funções do Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample) - monitorize Funções do Azure com o Application Insights
 * [Ativar os diagnósticos do Azure](../platform/diagnostics-extension-to-application-insights.md) para serem enviados para o Application Insights.
 * [Monitorizar as métricas de estado de funcionamento de serviço](../platform/data-platform.md) para se certificar de que o serviço está disponível e a responder.
 * [Receber notificações de alertas](../platform/alerts-overview.md) sempre que ocorrem eventos operacionais ou quando as métricas ultrapassam um determinado limiar.
 * Utilizar o [Application Insights para aplicações JavaScript e páginas Web](javascript.md) para obter telemetria de clientes a partir dos browsers que visitam as páginas Web.
 * [Configurar os Testes Web de disponibilidade](monitor-web-app-availability.md) para ser alertado se o seu site estiver em baixo.
+

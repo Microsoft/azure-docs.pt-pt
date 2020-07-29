@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas Windows Virtual Desktop host Spring 2020 - Azure
+title: Resolução de problemas Windows Virtual Desktop host - Azure
 description: Como resolver problemas quando está a configurar a sessão virtual do Windows Desktop acolhe máquinas virtuais.
 services: virtual-desktop
 author: Heidilohr
@@ -8,20 +8,17 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6d1e155dc850143ee252effe5ec9d8ef2d716611
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f0665aa8427371fa458039d73297fa0e02b4eb4d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091322"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286381"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuração da máquina virtual do anfitrião da sessão
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à atualização primavera 2020 com objetos de desktop virtual do Windows Manager do Azure. Se estiver a utilizar o desbloqueio virtual do Windows Desktop Fall 2019 sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/troubleshoot-vm-configuration-2019.md).
->
-> A atualização Virtual Desktop Spring 2020 do Windows está atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos a sua utilização para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Este conteúdo aplica-se ao Windows Virtual Desktop com objetos de ambiente de trabalho virtuais do Windows, gestor de recursos do Azure. Se estiver a utilizar o Windows Virtual Desktop (clássico) sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/troubleshoot-vm-configuration-2019.md).
 
 Utilize este artigo para resolver problemas que está a ter ao configurar as máquinas virtuais de sessão de desktop virtual do Windows (VMs).
 

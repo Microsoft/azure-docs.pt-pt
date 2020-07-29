@@ -1,6 +1,5 @@
 ---
-title: Crie & implementar módulos R personalizados
-titleSuffix: ML Studio (classic) - Azure
+title: 'Estúdio ML (clássico): Criar & implementar módulos R personalizados - Azure'
 description: Aprenda a ser autor e implemente um módulo R personalizado no ML Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 389290b01848d598ada9ca49bee932a764854088
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 4b4251a426d33c0a3b8cc7584d2bf6375dcd0f79
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957329"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287245"
 ---
-# <a name="define-custom-r-modules-for-azure-machine-learning-studio-classic"></a>Definir módulos R personalizados para Azure Machine Learning Studio (clássico)
+# <a name="define-custom-r-modules-for-machine-learning-studio-classic"></a>Definir módulos R personalizados para Machine Learning Studio (clássico)
+
+**APLICA-SE A:** ![ no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) yes Machine Learning Studio ![ ](../../../includes/media/aml-applies-to-skus/yes.png) (clássico) 
 
 Este tópico descreve como ser autor e implementar um Estúdio R personalizado (clássico). Explica o que são os módulos R personalizados e quais os ficheiros utilizados para os definir. Ilustra como construir os ficheiros que definem um módulo e como registar o módulo para implantação num espaço de trabalho machine learning. Os elementos e atributos utilizados na definição do módulo personalizado são então descritos com mais detalhe. É também discutida a utilização de funcionalidades e ficheiros auxiliares e várias saídas. 
 
@@ -303,14 +305,14 @@ Um parâmetro do módulo é definido usando o elemento **arg** da secção **de 
     * Numérico
     * Booleano
     * Categórico
-    * String
+    * Cadeia
     * Etiqueta
     * Funcionalidade
     * Classificação
     * Todos
   * **padrão** - As seleções padrão válidas para o selecionador de colunas incluem: 
     
-    * Nenhuma
+    * Nenhum
     * Numericaatura
     * NumericLabel
     * Nummericscore

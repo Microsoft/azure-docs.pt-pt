@@ -8,12 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.custom: codepen
-ms.openlocfilehash: 69bf41f9d88081b9a416b9bee91e8650a84f12c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: codepen, devx-track-javascript
+ms.openlocfilehash: 6ffec1afc44c6b920a64b4b92b384b6ce3829488
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77209720"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286950"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Adicione uma camada de imagem a um mapa
 
@@ -79,7 +80,7 @@ A camada de imagem tem muitas opções de estilo. Aqui está uma ferramenta para
 <iframe height='700' scrolling='no' title='Opções de camada de imagem' src='//codepen.io/azuremaps/embed/RqOGzx/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte as <a href='https://codepen.io/azuremaps/pen/RqOGzx/'>opções de camada de imagem de caneta</a> por Azure Maps ( ) em <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 

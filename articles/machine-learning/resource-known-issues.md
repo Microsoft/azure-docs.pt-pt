@@ -8,15 +8,15 @@ ms.author: jmartens
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
-ms.custom: contperfq4
+ms.topic: conceptual
+ms.custom: troubleshooting, contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: 56acddda2cf5ae2ef2a94353ec11c3ddf6990e1c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8f58fcef1a35494053803d98b43ce97fed7205e0
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536118"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373696"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Questões conhecidas e resolução de problemas em Azure Machine Learning
 
@@ -169,7 +169,7 @@ Para obter mais informações sobre a resolução de problemas, consulte os [pr�
   * Chrome (versão mais recente)
   * Firefox (versão mais recente)
 
-## <a name="set-up-your-environment"></a>Configurar o seu ambiente
+## <a name="set-up-your-environment"></a>Configurar o ambiente
 
 * **Problemas na criação do AmlCompute**: Existe uma rara possibilidade de alguns utilizadores que criaram o seu espaço de trabalho Azure Machine Learning a partir do portal Azure antes do lançamento do GA não serem capazes de criar AmlCompute nesse espaço de trabalho. Pode levantar um pedido de apoio contra o serviço ou criar um novo espaço de trabalho através do portal ou o SDK para se desbloquear imediatamente.
 
@@ -369,7 +369,13 @@ Se efetuar uma operação de gestão num alvo de computação a partir de um tra
 
 Por exemplo, receberá um erro se tentar criar ou anexar um alvo de cálculo a partir de um Pipeline ML que é submetido para execução remota.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="missing-user-interface-items-in-studio"></a>Itens de interface de utilizador em falta no estúdio
+
+O controlo de acesso baseado em funções Azure pode ser usado para restringir as ações que pode realizar com a Azure Machine Learning. Estas restrições podem impedir que os itens de interface do utilizador apareçam no estúdio Azure Machine Learning. Por exemplo, se lhe for atribuída uma função que não pode criar uma instância de computação, a opção de criar uma instância de computação não aparecerá no estúdio.
+
+Para obter mais informações, consulte [Gerir os utilizadores e as funções.](how-to-assign-roles.md)
+
+## <a name="next-steps"></a>Passos seguintes
 
 Ver mais artigos de resolução de problemas para Azure Machine Learning:
 

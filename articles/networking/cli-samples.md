@@ -1,6 +1,6 @@
 ---
 title: Amostras Azure CLI - Networking
-description: Exemplos da CLI do Azure
+description: Saiba mais sobre as amostras do Azure CLI para networking, incluindo amostras para conectividade entre os recursos Azure e amostras para o equilíbrio de carga e direção de tráfego.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: kumud
-ms.openlocfilehash: 397f2999821e97a1f12362e2aa2fa20b20e78596
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 9d503e4c8eacd27ac7495ad56c4256455cf3885e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232411"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287818"
 ---
 # <a name="azure-cli-samples-for-networking"></a>Amostras Azure CLI para networking
 

@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.custom: codepen
-ms.openlocfilehash: 2888f6c58bb67cf68df2263bbabb87180bc57288
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: codepen, devx-track-javascript
+ms.openlocfilehash: 298e05d6527129a20c92b8bacf08cb3090b162c6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87130568"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286906"
 ---
 # <a name="add-a-popup-to-the-map"></a>Adicione um pop-up ao mapa
 

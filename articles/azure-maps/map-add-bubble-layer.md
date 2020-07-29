@@ -8,12 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.custom: codepen
-ms.openlocfilehash: 7ae11734eb804715f3eb1b5edcb02fc328dafec8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: codepen, devx-track-javascript
+ms.openlocfilehash: 1a86c1ef12a4cae4132e79a742b99c1b95ee4cd5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77208561"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287019"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Adicione uma camada de bolha a um mapa
 
@@ -77,7 +78,7 @@ A camada Bolha tem apenas algumas opções de estilo. Aqui está uma ferramenta 
 <iframe height='700' scrolling='no' title='Opções de camada de bolha' src='//codepen.io/azuremaps/embed/eQxbGm/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte as <a href='https://codepen.io/azuremaps/pen/eQxbGm/'>opções de camada de bolha de caneta</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 

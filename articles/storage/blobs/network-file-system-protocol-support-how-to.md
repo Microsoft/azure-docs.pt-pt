@@ -9,12 +9,12 @@ ms.date: 07/21/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 8f4ef046221ae50d2b05525d6cea2d268282551c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d3907967572b22e7a70316080b08a4368a9805ce
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099620"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372914"
 ---
 # <a name="mount-blob-storage-on-linux-using-the-network-file-system-nfs-30-protocol-preview"></a>Armazenamento do Monte Blob no Linux utilizando o protocolo Sistema de Ficheiros de Rede (NFS) 3.0 (pré-visualização)
 
@@ -113,7 +113,7 @@ Crie um recipiente na sua conta de armazenamento utilizando qualquer uma destas 
 |[AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
 |[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
 |[CLI do Azure](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
-||[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
+|[Portal do Azure](https://portal.azure.com)|[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
 
 ## <a name="step-7-mount-the-container"></a>Passo 7: Montar o recipiente
 
@@ -139,9 +139,8 @@ Crie um recipiente na sua conta de armazenamento utilizando qualquer uma destas 
 |---|---|
 |`Access denied by server while mounting`|Certifique-se de que o seu cliente está a funcionar dentro de uma sub-rede suportada. Consulte as localizações da [rede suportada.](network-file-system-protocol-support.md#supported-network-connections)|
 |`No such file or directory`| Certifique-se de que o recipiente que está a montar foi criado depois de verificar que a funcionalidade estava registada. Ver [Passo 2: Verifique se a função está registada](#step-2-verify-that-the-feature-is-registered). Além disso, certifique-se de digitar o comando de montagem e os seus parâmetros diretamente para o terminal. Se copiar e colar qualquer parte deste comando no terminal a partir de outra aplicação, caracteres ocultos nas informações coladas podem causar a aparecerem este erro.|
-|Os ficheiros que foram carregados utilizando ferramentas não 3.0 não são visíveis no diretório. | Desempresa o recipiente e, em seguida, monte o recipiente novamente. |
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 [Suporte ao protocolo do Sistema de Ficheiros de Rede (NFS) 3.0 no armazenamento do Azure Blob (pré-visualização)](network-file-system-protocol-support.md)
 

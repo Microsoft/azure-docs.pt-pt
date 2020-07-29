@@ -3,16 +3,16 @@ title: Utilização da Azure DevTest Labs em vários laboratórios e subscriçõ
 description: Saiba como reportar o uso da Azure DevTest Labs em vários laboratórios e subscrições.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8650244df4c8eb08d4ccc87b1e23fe1e3d047c54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d2663113e929145308f5a5712b968f3551668c2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483436"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287272"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Reportar o uso da Azure DevTest Labs em vários laboratórios e subscrições
 
-A maioria das grandes organizações quer acompanhar o uso de recursos para ser mais eficaz com esses recursos, visualizando tendências e outliers no uso. Com base no uso de recursos, os proprietários ou gestores de laboratório podem personalizar os laboratórios para melhorar o [uso de recursos e os custos.](https://docs.microsoft.com/azure/billing/billing-getting-started) Em Azure DevTest Labs, você pode baixar o uso de recursos por laboratório permitindo um olhar histórico mais profundo sobre os padrões de uso. Estes padrões de utilização podem ajudar a identificar alterações para melhorar a eficiência. A maioria das empresas quer o uso individual do laboratório e o uso geral em [vários laboratórios e subscrições.](https://docs.microsoft.com/azure/architecture/cloud-adoption/decision-guides/subscriptions/) 
+A maioria das grandes organizações quer acompanhar o uso de recursos para ser mais eficaz com esses recursos, visualizando tendências e outliers no uso. Com base no uso de recursos, os proprietários ou gestores de laboratório podem personalizar os laboratórios para melhorar o [uso de recursos e os custos.](../cost-management-billing/manage/getting-started.md) Em Azure DevTest Labs, você pode baixar o uso de recursos por laboratório permitindo um olhar histórico mais profundo sobre os padrões de uso. Estes padrões de utilização podem ajudar a identificar alterações para melhorar a eficiência. A maioria das empresas quer o uso individual do laboratório e o uso geral em [vários laboratórios e subscrições.](/azure/architecture/cloud-adoption/decision-guides/subscriptions/) 
 
 Este artigo discute como lidar com informações de utilização de recursos em vários laboratórios e subscrições.
 
@@ -24,8 +24,8 @@ Esta secção discute como exportar o uso de recursos para um único laboratóri
 
 Antes de poder exportar o uso de recursos da DevTest Labs, tem de criar uma conta de Armazenamento Azure para permitir que os diferentes ficheiros que contêm os dados de utilização sejam armazenados. Existem duas formas comuns de executar a exportação de dados:
 
-* [DevTest Labs REST API](https://docs.microsoft.com/rest/api/dtl/labs/exportresourceusage) 
-* O módulo PowerShell Az.Resource [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction?view=azps-2.5.0&viewFallbackFrom=azps-2.3.2) com a ação `exportResourceUsage` de, o ID de recursos de laboratório, e os parâmetros necessários. 
+* [DevTest Labs REST API](/rest/api/dtl/labs/exportresourceusage) 
+* O módulo PowerShell Az.Resource [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-2.5.0&viewFallbackFrom=azps-2.3.2) com a ação `exportResourceUsage` de, o ID de recursos de laboratório, e os parâmetros necessários. 
 
     O artigo [de exportação ou eliminação de dados pessoais](personal-data-delete-export.md) contém uma amostra do script PowerShell com informações detalhadas sobre os dados que são exportados. 
 
@@ -48,8 +48,8 @@ Estes ficheiros são armazenados no recipiente de *bolhas labresourceusage* sob 
 
 Para exportar a informação de uso para vários laboratórios considerar usar 
 
-* [Funções Azure](https://docs.microsoft.com/azure/azure-functions/), disponíveis em muitos idiomas, incluindo PowerShell, ou 
-* [Azure Automation runbook](https://docs.microsoft.com/azure/automation/), use PowerShell, Python ou um designer gráfico personalizado para escrever o código de exportação.
+* [Funções Azure](../azure-functions/index.yml), disponíveis em muitos idiomas, incluindo PowerShell, ou 
+* [Azure Automation runbook](../automation/index.yml), use PowerShell, Python ou um designer gráfico personalizado para escrever o código de exportação.
 
 Usando estas tecnologias, você pode executar as exportações individuais de laboratório em todos os laboratórios em uma data e hora específicas. 
 
@@ -69,11 +69,11 @@ Algumas soluções de armazenamento comuns são: [SQL Server,](https://azure.mic
 
 ## <a name="visualizing-data-and-gathering-insights"></a>Visualizar dados e recolher insights
 
-Utilize uma ferramenta de visualização de dados à sua escolha para ligar ao seu armazenamento de longo prazo para exibir os dados de utilização e recolher informações para verificar a eficiência de utilização. Por exemplo, [o Power BI](https://docs.microsoft.com/power-bi/power-bi-overview) pode ser usado para organizar e exibir os dados de utilização. 
+Utilize uma ferramenta de visualização de dados à sua escolha para ligar ao seu armazenamento de longo prazo para exibir os dados de utilização e recolher informações para verificar a eficiência de utilização. Por exemplo, [o Power BI](/power-bi/power-bi-overview) pode ser usado para organizar e exibir os dados de utilização. 
 
 Pode utilizar [a Azure Data Factory](https://azure.microsoft.com/services/data-factory/) para criar, ligar e gerir os seus recursos dentro de uma única interface de localização. Se for necessário um maior controlo, o recurso individual pode ser criado dentro de um único grupo de recursos e gerido independentemente do serviço Data Factory.  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 Uma vez que o sistema é configurado e os dados estão movendo-se para o armazenamento a longo prazo, o próximo passo é chegar a questões que os dados precisam de responder. Por exemplo: 
 

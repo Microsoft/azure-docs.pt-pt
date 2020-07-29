@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: 6ffc81f7fc5cf36ff4e9bada8f72cfef013afcbc
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 94ffe2852380d238e9829a8ab0cc69ebe82b74fe
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982793"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373509"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Permitir a sintonização automática no portal Azure para monitorizar consultas e melhorar o desempenho da carga de trabalho
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -51,7 +51,7 @@ No nível do servidor pode optar por herdar a configuração de sintonização a
 
 Para ativar a sintonização automática num [servidor](logical-servers.md) na Base de Dados Azure SQL, navegue para o servidor no portal Azure e, em seguida, selecione **sintonização automática** no menu.
 
-![Server](./media/automatic-tuning-enable/server.png)
+![Servidor](./media/automatic-tuning-enable/server.png)
 
 > [!NOTE]
 > Por favor, note que a opção **DROP_INDEX** neste momento não é compatível com aplicações que usam comutação de partição e dicas de índice e não deve ser ativada nestes casos. A queda de índices não suportados não é suportada para os níveis de serviço Premium e Business Critical.
@@ -117,7 +117,7 @@ A sintonização automática está a monitorizar todas as ações que toma na ba
 
 ## <a name="permissions"></a>Permissões
 
-Como a sintonização automática é uma característica Azure, para usá-la, você precisará usar as funções RBAC incorporadas da Azure. A utilização da autenticação SQL apenas não será suficiente para utilizar a funcionalidade a partir do portal Azure.
+Como a sintonização automática é uma função Azure, para usá-la, terá de utilizar as funções incorporadas do Azure. A utilização da autenticação SQL apenas não será suficiente para utilizar a funcionalidade a partir do portal Azure.
 
 Para utilizar a sintonização automática, a permissão mínima necessária para conceder ao utilizador é a função de contribuinte da Base de [Dados SQL](../../role-based-access-control/built-in-roles.md#sql-db-contributor) incorporada da Azure. Também pode considerar a utilização de funções de privilégio mais elevadas, tais como SQL Server Contributor, SQL Managed Instance Contributor, Colaborador e Proprietário.
 
@@ -125,7 +125,7 @@ Para utilizar a sintonização automática, a permissão mínima necessária par
 
 Consulte o guia [de notificações por e-mail de afinação automática.](automatic-tuning-email-notifications-configure.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia o [artigo de afinação automática](automatic-tuning-overview.md) para saber mais sobre a sintonização automática e como pode ajudá-lo a melhorar o seu desempenho.
 - Consulte [as recomendações](database-advisor-implement-performance-recommendations.md) de desempenho para uma visão geral das recomendações de desempenho da Base de Dados Azure SQL.

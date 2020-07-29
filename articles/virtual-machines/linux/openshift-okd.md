@@ -5,16 +5,16 @@ author: haroldwongms
 manager: joraio
 ms.service: virtual-machines-linux
 ms.subservice: workloads
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/15/2019
 ms.author: haroldw
-ms.openlocfilehash: dbd67903223bf4c8c2117f5356bc987665217362
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a7524ea80906f9df5f63af9e7d672bbef500b0d9
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527035"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373339"
 ---
 # <a name="deploy-okd-in-azure"></a>Implementar OKD em Azure
 
@@ -148,7 +148,7 @@ Quando a implementação terminar, ligue-se à consola OpenShift com o seu naveg
 $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Utilize o comando de eliminação do [grupo az](/cli/azure/group) para remover o grupo de recursos, o cluster OpenShift e todos os recursos relacionados quando já não são necessários.
 
@@ -156,7 +156,7 @@ Utilize o comando de eliminação do [grupo az](/cli/azure/group) para remover o
 az group delete --name openshiftrg
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Tarefas pós-implantação](./openshift-container-platform-3x-post-deployment.md)
 - [Resolução de problemas OpenShift deployment](./openshift-container-platform-3x-troubleshooting.md)

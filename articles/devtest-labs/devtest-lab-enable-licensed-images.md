@@ -3,12 +3,12 @@ title: Ativar uma imagem licenciada no seu laboratório em Azure DevTest Labs Mi
 description: Saiba como ativar uma imagem licenciada em Azure DevTest Labs usando o portal Azure
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6a4023a0107acf5aa4cabc2178d17f7be40301f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a043679e27580254c56fe118838dd355be5a58de
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481022"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286517"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Ativar uma imagem licenciada no seu laboratório em Azure DevTest Labs
 
@@ -50,7 +50,7 @@ Pode ativar a implementação programática para uma imagem licenciada seguindo 
     ![Configure janela de implantação programática](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
    > [!NOTE]
-   > Os VMs da Data Science são imagens da Máquina Virtual Azure, pré-instaladas, configuradas e testadas com várias ferramentas populares que são geralmente usadas para análise de dados, machine learning e formação em IA. [A introdução à Azure Data Science Virtual Machine para Linux e Windows](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) fornece uma grande quantidade de informação sobre DSVMs.
+   > Os VMs da Data Science são imagens da Máquina Virtual Azure, pré-instaladas, configuradas e testadas com várias ferramentas populares que são geralmente usadas para análise de dados, machine learning e formação em IA. [A introdução à Azure Data Science Virtual Machine para Linux e Windows](../machine-learning/data-science-virtual-machine/overview.md) fornece uma grande quantidade de informação sobre DSVMs.
    >
    >
 
@@ -78,10 +78,10 @@ Pode ativar a implementação programática para uma imagem licenciada seguindo 
 
 ## <a name="related-blog-posts"></a>Publicações de blogs relacionadas
 
-- [Imagens ou fórmulas personalizadas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [Imagens ou fórmulas personalizadas?](./devtest-lab-faq.md#blog-post)
 - [Copiar imagens personalizadas entre Azure DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma imagem personalizada a partir de uma VM](devtest-lab-create-custom-image-from-vm-using-portal.md)
 - [Crie uma imagem personalizada a partir de um ficheiro VHD](devtest-lab-create-template.md)

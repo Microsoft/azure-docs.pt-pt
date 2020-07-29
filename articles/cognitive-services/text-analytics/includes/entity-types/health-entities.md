@@ -6,18 +6,18 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/15/2020
+ms.date: 07/28/2020
 ms.author: aahi
-ms.openlocfilehash: 906e8e9e6cde80a2151c6b8671f64854cb431250
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 4ac65e85e05f408b8d2f37a1d6845dc9e28e2bab
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108512"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373080"
 ---
 ## <a name="health-entity-categories"></a>Categorias de entidades sanitárias:
 
-As seguintes categorias de entidades são devolvidas por [Text Analytics for Health](../../how-tos/text-analytics-for-health.md).  Tenha em atenção que apenas o texto em inglês é suportado nesta pré-visualização do recipiente e apenas uma única versão modelo é fornecida em cada imagem de recipiente.
+As seguintes categorias de entidades são devolvidas pela [Text Analytics para a saúde.](../../how-tos/text-analytics-for-health.md)  Tenha em atenção que apenas o texto em inglês é suportado nesta pré-visualização do recipiente e apenas uma única versão modelo é fornecida em cada imagem de recipiente.
 
 ### <a name="named-entity-recognition"></a>Reconhecimento de Entidades Nomeadas
 
@@ -26,7 +26,7 @@ As seguintes categorias de entidades são devolvidas por [Text Analytics for Hea
 | IDADE | Idades. |
 | BODY_STRUCTURE | Partes do corpo humano, incluindo órgãos e outras estruturas. | 
 | CONDITION_QUALIFIER | Níveis de condição tais como *leve,* *prolongado*ou *difuso*. | 
-| DIAGNÓSTICO | Condições médicas. Por *exemplo, hipertensão* . | 
+| Diagnóstico | Condições médicas. Por *exemplo, hipertensão* . | 
 | DIREÇÃO | Direções como *esquerda* ou *anterior.* | 
 | DOSAGEM | Tamanho ou quantidade de um medicamento.  | 
 | EXAMINATION_NAME | Um método ou procedimento de exame. | 

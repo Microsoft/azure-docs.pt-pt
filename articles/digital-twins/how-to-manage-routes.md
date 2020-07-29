@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bc22cf5a21709ccacafe068a60541cc9990d1131
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 8c9fbf7bc45ed2070570faf0d1dfdb15b5fd98ee
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132267"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373271"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Gerir pontos finais e rotas em Azure Digital Twins
 
@@ -184,7 +184,7 @@ Métricas de encaminhamento como contagem, latência e taxa de insucesso podem s
 
 A partir da página inicial do portal, procure a sua instância Azure Digital Twins para obter os seus detalhes. Selecione a opção **Métricas** no menu da instância Azure Digital Twins para apresentar a página *Métricas.*
 
-:::image type="content" source="media/how-to-manage-routes/metrics.png" alt-text="Página de métricas de uma instância Azure Digital Twins no portal Azure":::
+:::image type="content" source="media/how-to-view-metrics/azure-digital-twins-metrics.png" alt-text="Screenshot mostrando a página métrica para Azure Digital Twins":::
 
 A partir daqui, você pode ver as métricas para o seu exemplo e criar vistas personalizadas.
 

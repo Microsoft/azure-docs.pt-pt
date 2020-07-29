@@ -8,12 +8,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 07/20/2020
 tags: connectors
-ms.openlocfilehash: a277c6205dfb9dfa04565fb3ebcb3da589669764
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f3de582ff69dbd57aa4692fd5c3901602569cf9e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087888"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286619"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorizar, criar e gerir ficheiros SFTP com o SSH e o Azure Logic Apps
 
@@ -52,7 +52,7 @@ Para obter diferenças entre o conector SFTP-SSH e o conector SFTP, reveja a sec
 
   | Ação | Suporte de chunking | Sobrepor suporte do tamanho do pedaço |
   |--------|------------------|-----------------------------|
-  | **Ficheiro de cópia** | No | Não aplicável |
+  | **Ficheiro de cópia** | Não | Não aplicável |
   | **Criar ficheiro** | Sim | Sim |
   | **Criar pasta** | Não aplicável | Não aplicável |
   | **Eliminar mosaico** | Não aplicável | Não aplicável |
@@ -63,7 +63,7 @@ Para obter diferenças entre o conector SFTP-SSH e o conector SFTP, reveja a sec
   | **Obtenha metadados de ficheiros usando o caminho** | Não aplicável | Não aplicável |
   | **Listar ficheiros na pasta** | Não aplicável | Não aplicável |
   | **Arquivo de renomeação** | Não aplicável | Não aplicável |
-  | **Atualizar ficheiro** | No | Não aplicável |
+  | **Atualizar ficheiro** | Não | Não aplicável |
   ||||
 
 * Os gatilhos SFTP-SSH não suportam a mensagem a bater. Ao solicitar o conteúdo do ficheiro, os gatilhos selecionam apenas ficheiros com 15 MB ou menores. Para obter ficheiros maiores que 15 MB, siga este padrão em vez disso:
@@ -255,7 +255,7 @@ Se não conseguir evitar ou atrasar a deslocação do ficheiro, pode ignorar a l
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter mais detalhes técnicos sobre este conector, tais como gatilhos, ações e limites descritos pelo ficheiro Swagger do conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/sftpwithssh/).
+Para obter mais detalhes técnicos sobre este conector, tais como gatilhos, ações e limites descritos pelo ficheiro Swagger do conector, consulte a [página de referência do conector](/connectors/sftpwithssh/).
 
 > [!NOTE]
 > Para aplicações lógicas num ambiente de [serviço de integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão com rótulo ISE deste conector requer que se utilizem os limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
@@ -263,3 +263,4 @@ Para obter mais detalhes técnicos sobre este conector, tais como gatilhos, aç�
 ## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [outros conectores de Apps Lógicas](../connectors/apis-list.md)
+

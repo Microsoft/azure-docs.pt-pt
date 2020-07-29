@@ -3,12 +3,12 @@ title: Pré-visualização - Saiba a política do Azure para Kubernetes
 description: Saiba como a Azure Policy usa o Rego e o Open Policy Agent para gerir clusters que executam Kubernetes em Azure ou no local. Esta é uma funcionalidade em pré-visualização.
 ms.date: 06/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: a044ea33f1a7710c4bb97d30cf8f11d4de2838b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 461dd467ecda2764c6753ed6eeee0405f8420bbc
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373629"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373764"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Compreender a política do Azure para os clusters Kubernetes (pré-visualização)
 
@@ -20,7 +20,7 @@ A Azure Policy estende [o Gatekeeper](https://github.com/open-policy-agent/gatek
 
 A Azure Policy for Kubernetes suporta os seguintes ambientes de cluster:
 
-- [Serviço de Kubernetes do Azure (AKS)](../../../aks/intro-kubernetes.md)
+- [Azure Kubernetes Service (AKS)](../../../aks/intro-kubernetes.md)
 - [Kubernetes ativado pelo Azure Arc](../../../azure-arc/kubernetes/overview.md)
 - [Motor AKS](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
 
@@ -32,7 +32,7 @@ A Azure Policy for Kubernetes suporta os seguintes ambientes de cluster:
 Para ativar e utilizar a Política Azure com o seu cluster Kubernetes, tome as seguintes ações:
 
 1. Configure o seu cluster Kubernetes e instale o addon:
-   - [Serviço de Kubernetes do Azure (AKS)](#install-azure-policy-add-on-for-aks)
+   - [Azure Kubernetes Service (AKS)](#install-azure-policy-add-on-for-aks)
    - [Kubernetes ativado pelo Azure Arc](#install-azure-policy-add-on-for-azure-arc-enabled-kubernetes)
    - [Motor AKS](#install-azure-policy-add-on-for-aks-engine)
 
@@ -203,7 +203,7 @@ Antes de instalar o Azure Policy Add-on ou permitir qualquer uma das funcionalid
 
 1. Abra as portas para o add-on. O Azure Policy Add-on utiliza estes domínios e portas para obter definições e atribuições políticas e reportar o cumprimento do cluster de volta à Política Azure.
 
-   |Domain |Porta |
+   |Domínio |Porta |
    |---|---|
    |`gov-prod-policy-data.trafficmanager.net` |`443` |
    |`raw.githubusercontent.com` |`443` |
@@ -373,7 +373,7 @@ Como parte dos _detalhes.restriçõesTemplate_ e _details.restrição_ proprieda
 
 ## <a name="assign-a-built-in-policy-definition"></a>Atribuir uma definição de política incorporada
 
-Para atribuir uma definição de política ao seu cluster Kubernetes, deve ser-lhe atribuídas as operações de atribuição de políticas adequadas de controlo de acesso baseado em funções (RBAC). As funções incorporadas da RBAC **Resource Policy Contributor** e **Owner** têm estas operações. Para saber mais, consulte [as permissões do RBAC na Política Azure.](../overview.md#rbac-permissions-in-azure-policy)
+Para atribuir uma definição de política ao seu cluster Kubernetes, deve ser-lhe atribuídas as operações de atribuição de políticas adequadas de controlo de acesso baseado em funções (RBAC). As funções incorporadas Azure **Colaborador e** **Proprietário** têm estas operações. Para saber mais, consulte [as permissões do RBAC na Política Azure.](../overview.md#rbac-permissions-in-azure-policy)
 
 Encontre as definições de política incorporadas para gerir o seu cluster utilizando o portal Azure com os seguintes passos:
 
@@ -530,7 +530,7 @@ A informação recolhida pelo addon não são dados pessoais. Os seguintes detal
 - Exceções/erros encontrados pelo Azure Policy Add-on durante a instalação do agente na avaliação de políticas
 - Número de definições de política gatekeeper não instaladas pelo Add-on da Política Azure
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).
 - Veja a [Estrutura de definição do Policy](definition-structure.md).

@@ -3,15 +3,15 @@ title: Criar um Linux VM com a API REST
 description: Saiba como criar uma máquina virtual Linux em Azure que utiliza Discos Geridos e autenticação SSH com API AZure REST.
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 78b11a4d900b8c9cf30a1d37a2b7e6380d6b989a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d6e5195f43991f4d40af57c1ab4b87aaca475b64
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082567"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373407"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Crie uma máquina virtual Linux que utilize a autenticação SSH com a API REST
 
@@ -54,10 +54,10 @@ Para obter informações gerais sobre o trabalho com pedidos de API REST, consul
 
 As seguintes definições comuns são utilizadas para construir um organismo de pedido:
 
-| Name                       | Necessário | Tipo                                                                                | Description  |
+| Nome                       | Necessário | Tipo                                                                                | Description  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | localização                   | Verdadeiro     | string                                                                              | Localização de recursos. |
-| name                       |          | string                                                                              | Nome para a máquina virtual. |
+| name                       |          | cadeia                                                                              | Nome para a máquina virtual. |
 | propriedades.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Especifica as definições de hardware para a máquina virtual. |
 | propriedades.storageProfile  |          | [ArmazenamentoProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Especifica as definições de armazenamento dos discos de máquinas virtuais. |
 | propriedades.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Especifica as definições do sistema operativo para a máquina virtual. |

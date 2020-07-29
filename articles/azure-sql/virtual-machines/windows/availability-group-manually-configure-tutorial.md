@@ -3,7 +3,7 @@ title: 'Tutorial: Configurar um servidor SQL sempre no grupo de disponibilidade'
 description: Este tutorial mostra como criar um sql servidor sempre on availability group em Azure Virtual Machines.
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
@@ -12,13 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
-ms.author: mikeray
+ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0b98838441325245b3f4322a32eb5e2376557313
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 22240c61b2341999528dcb477308990133042fa0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960746"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286860"
 ---
 # <a name="tutorial-configure-a-sql-server-availability-group-on-azure-virtual-machines-manually"></a>Tutorial: Configurar um grupo de disponibilidade de servidor SQL em Azure Virtual Machines manualmente
 
@@ -413,11 +414,11 @@ Para configurar o equilibrador de carga, é necessário criar uma piscina de bac
 
 1. Desa esta medida, a sonda de saúde do ouvinte é a seguinte:
 
-   | Definição | Descrição | Exemplo
+   | Definições | Descrição | Exemplo
    | --- | --- |---
    | **Nome** | Texto | SQLAlwaysOnEndPointProbe |
    | **Protocolo** | Selecione TCP | TCP |
-   | **Porto** | Qualquer porto não-desuso | 59999 |
+   | **Porta** | Qualquer porto não-desuso | 59999 |
    | **Intervalo**  | A quantidade de tempo entre tentativas de sonda em segundos |5 |
    | **Limiar com funcionamento incorreto** | O número de falhas consecutivas da sonda que devem ocorrer para que uma máquina virtual seja considerada insalubre  | 2 |
 
@@ -429,16 +430,16 @@ Para configurar o equilibrador de carga, é necessário criar uma piscina de bac
 
 1. Desabrague as regras de equilíbrio da carga do ouvinte da seguinte forma.
 
-   | Definição | Descrição | Exemplo
+   | Definições | Descrição | Exemplo
    | --- | --- |---
    | **Nome** | Texto | SQLAlwaysOnEndPointListener |
    | **Endereço IP de front-end** | Escolha um endereço |Utilize o endereço que criou quando criou o equilibrador de carga. |
    | **Protocolo** | Selecione TCP |TCP |
-   | **Porto** | Utilize a porta para o ouvinte do grupo de disponibilidade | 1433 |
-   | **Porta back-end** | Este campo não é utilizado quando o IP flutuante está definido para a devolução direta do servidor | 1433 |
+   | **Porta** | Utilize a porta para o ouvinte do grupo de disponibilidade | 1433 |
+   | **Porto Backend** | Este campo não é utilizado quando o IP flutuante está definido para a devolução direta do servidor | 1433 |
    | **Sonda** |O nome especificado para a sonda | SQLAlwaysOnEndPointProbe |
-   | **Persistência da Sessão** | Lista de down down | **Nenhum** |
-   | **Tempo Limite de Inatividade** | Minutos para manter aberta uma ligação TCP | 4 |
+   | **Persistência da Sessão** | Lista de down down | **Nenhuma** |
+   | **Tempo de saída ocioso** | Minutos para manter aberta uma ligação TCP | 4 |
    | **IP flutuante (retorno direto do servidor)** | |Ativado |
 
    > [!WARNING]
@@ -457,11 +458,11 @@ O endereço IP WSFC também precisa estar no equilibrador de carga.
 
 1. Desaponhe a sonda de saúde do endereço IP do núcleo do WSFC da seguinte forma:
 
-   | Definição | Descrição | Exemplo
+   | Definições | Descrição | Exemplo
    | --- | --- |---
    | **Nome** | Texto | WSFCEndPointProbe |
    | **Protocolo** | Selecione TCP | TCP |
-   | **Porto** | Qualquer porto não-desuso | 58888 |
+   | **Porta** | Qualquer porto não-desuso | 58888 |
    | **Intervalo**  | A quantidade de tempo entre tentativas de sonda em segundos |5 |
    | **Limiar com funcionamento incorreto** | O número de falhas consecutivas da sonda que devem ocorrer para que uma máquina virtual seja considerada insalubre  | 2 |
 
@@ -471,16 +472,16 @@ O endereço IP WSFC também precisa estar no equilibrador de carga.
 
 1. Desabrague as regras de equilíbrio da carga do endereço IP do núcleo do cluster da seguinte forma.
 
-   | Definição | Descrição | Exemplo
+   | Definições | Descrição | Exemplo
    | --- | --- |---
    | **Nome** | Texto | WSFCEndPoint |
    | **Endereço IP de front-end** | Escolha um endereço |Utilize o endereço que criou quando configura o endereço IP do WSFC. Isto é diferente do endereço IP do ouvinte |
    | **Protocolo** | Selecione TCP |TCP |
-   | **Porto** | Utilize a porta para o endereço IP do cluster. Esta é uma porta disponível que não é utilizada para a porta da sonda ouvinte. | 58888 |
-   | **Porta back-end** | Este campo não é utilizado quando o IP flutuante está definido para a devolução direta do servidor | 58888 |
+   | **Porta** | Utilize a porta para o endereço IP do cluster. Esta é uma porta disponível que não é utilizada para a porta da sonda ouvinte. | 58888 |
+   | **Porto Backend** | Este campo não é utilizado quando o IP flutuante está definido para a devolução direta do servidor | 58888 |
    | **Sonda** |O nome especificado para a sonda | WSFCEndPointProbe |
-   | **Persistência da Sessão** | Lista de down down | **Nenhum** |
-   | **Tempo Limite de Inatividade** | Minutos para manter aberta uma ligação TCP | 4 |
+   | **Persistência da Sessão** | Lista de down down | **Nenhuma** |
+   | **Tempo de saída ocioso** | Minutos para manter aberta uma ligação TCP | 4 |
    | **IP flutuante (retorno direto do servidor)** | |Ativado |
 
    > [!WARNING]
@@ -537,6 +538,6 @@ A ligação SQLCMD liga-se automaticamente a qualquer instância do SQL Server q
 > Certifique-se de que a porta especificada está aberta na firewall de ambos os Servidores SQL. Ambos os servidores requerem uma regra de entrada para a porta TCP que utiliza. Para obter mais informações, consulte [adicionar ou editar a regra de Firewall](https://technet.microsoft.com/library/cc753558.aspx).
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Adicione um endereço IP a um equilibrador de carga para um segundo grupo de disponibilidade](availability-group-listener-powershell-configure.md#Add-IP).

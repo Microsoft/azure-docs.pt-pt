@@ -4,14 +4,15 @@ description: Conheça as principais diretrizes de conceção e implementação p
 author: cynthn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 6040bf8862131f5a8a5564cd2f5d845fa0490a95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 500de3f89bd041adf0b73e21762495d8c89e19c8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78944894"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286296"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Exemplo Azure infraestrutura walkthrough para Linux VMs
 Este artigo percorre a construção de uma infraestrutura de aplicação de exemplo. Detalhamos a conceção de uma infraestrutura para uma simples loja on-line que reúne todas as diretrizes e decisões em torno de convenções de nomeação, conjuntos de disponibilidade, redes virtuais e equilibradores de carga, e realmente implantando as suas máquinas virtuais (VMs).

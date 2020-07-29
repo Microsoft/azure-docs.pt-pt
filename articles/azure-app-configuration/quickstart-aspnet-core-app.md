@@ -8,11 +8,12 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 2dc2143619594c8fd46fa4e838b97a3ecde95653
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 069bce6f2f8e46679cbc82dd92c9fd73bfecde85
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027720"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373526"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Quickstart: Criar uma aplicação Core ASP.NET com configuração de aplicações Azure
 
@@ -34,9 +35,9 @@ Neste arranque rápido, utilizará a Configuração de Aplicações Azure para c
 
     | Chave | Valor |
     |---|---|
-    | TestApp:Definições:BackgroundColor | Branco |
+    | TestApp:Definições:BackgroundColor | Branca |
     | TestApp:Definições:FontSize | 24 |
-    | TestApp:Definições:FontColor | Preto |
+    | TestApp:Definições:FontColor | Negra |
     | TestApp:Definições:Mensagem | Dados da Configuração da Aplicação Azure |
 
     Deixe **a etiqueta** e o tipo de **conteúdo** vazios por enquanto. Selecione **Aplicar**.
@@ -242,7 +243,9 @@ Se estiver a trabalhar no Azure Cloud Shell, selecione o botão *de pré-visuali
 
 Quando solicitado para configurar a porta para pré-visualização, insira '5000' e *selecione Abrir e navegar*.  A página web irá ler "Data from Azure App Configuration".
 
-## <a name="clean-up-resources"></a>Limpar recursos
+![Lançamento de app quickstart](./media/quickstarts/aspnet-core-app-launch-local-before.png)
+
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

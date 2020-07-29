@@ -1,33 +1,33 @@
 ---
-title: Como usar a Análise de Texto para Saúde
+title: Como usar o Text Analytics para a saúde
 titleSuffix: Azure Cognitive Services
-description: Saiba como extrair e rotular informações médicas a partir de texto clínico não estruturado com Text Analytics for Health.
+description: Saiba como extrair e rotular informações médicas de texto clínico não estruturado com Text Analytics para a saúde.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/28/2020
 ms.author: aahi
-ms.openlocfilehash: cbc950647dc2f7102f20766c22f434526ab66639
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: dbd0699924268b38d69bc576a5886e8d31fa1208
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122384"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373475"
 ---
-# <a name="how-to-use-text-analytics-for-health-preview"></a>Como: Utilizar a análise de texto para a saúde (pré-visualização)
+# <a name="how-to-use-text-analytics-for-health-preview"></a>Como: Utilizar o Text Analytics para a saúde (pré-visualização)
 
 > [!IMPORTANT] 
 > Text Analytics for health é uma capacidade de pré-visualização fornecida "AS IS" e "WITH ALL FAULTS". Como tal, **o Text Analytics for health (pré-visualização) não deve ser implementado ou implantado em qualquer utilização de produção.** Texto Analytics para a saúde não é destinado ou disponibilizado para uso como dispositivo médico, suporte clínico, ferramenta de diagnóstico ou outra tecnologia destinada a ser usada no diagnóstico, cura, mitigação, tratamento ou prevenção de doenças ou outras condições, e nenhuma licença ou direito é concedido pela Microsoft para usar esta capacidade para tais fins. Esta capacidade não é concebida ou destina-se a ser implementada ou implementada como um substituto de aconselhamento médico profissional ou de opinião de cuidados de saúde, diagnóstico, tratamento ou julgamento clínico de um profissional de saúde, e não deve ser usada como tal. O cliente é o único responsável por qualquer utilização de Text Analytics para a saúde. A Microsoft não garante que o Text Analytics para a saúde ou quaisquer materiais fornecidos em conexão com a capacidade seja suficiente para qualquer finalidade médica ou de outra forma satisfaça os requisitos de saúde ou médico de qualquer pessoa. 
 
 
-Azure Text Analytics for Health é um serviço contentorizado que extrai e rotula informações médicas relevantes de textos não estruturados, tais como notas de médico, resumos de descarga, documentos clínicos e registos eletrónicos de saúde.  
+Text Analytics for health é um serviço contentorizado que extrai e rotula informações médicas relevantes de textos não estruturados, tais como notas de médico, resumos de descarga, documentos clínicos e registos de saúde eletrónicos.  
 
 ## <a name="features"></a>Funcionalidades
 
-O contentor Text Analytics for Health realiza atualmente Reconhecimento de Entidade Nomeada (NER), extração de relação, negação de entidade e ligação de entidade para texto em língua inglesa no seu próprio ambiente de desenvolvimento que satisfaz os seus requisitos específicos de segurança e governação de dados.
+O Text Analytics for health container realiza atualmente Reconhecimento de Entidade Nomeada (NER), extração de relação, negação de entidade e ligação de entidade para texto em língua inglesa no seu próprio ambiente de desenvolvimento que satisfaz os seus requisitos específicos de segurança e governação de dados.
 
 #### <a name="named-entity-recognition"></a>[Reconhecimento de Entidades Nomeadas](#tab/ner)
 
@@ -51,26 +51,26 @@ Entidade Que Liga entidades distintas associando entidades nomeadas mencionadas 
 > [!div class="mx-imgBorder"]
 > ![Saúde EL](../media/ta-for-health/health-entity-linking.png)
 
-O Text Analytics for Health apoia a ligação aos vocabulários de saúde e biomédicos encontrados no Sistema De Língua Médica Unificada[(UMLS](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html)) Metathesaurus Knowledge Source.
+Texto Analytics para suportes de saúde ligados aos vocabulários biomédicos e de saúde encontrados no Sistema De Língua Médica Unificada[(UMLS](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html)) Metathesaurus Knowledge Source.
 
 #### <a name="negation-detection"></a>[Deteção de Negação](#tab/negation-detection) 
 
-O significado do conteúdo médico é altamente afetado por modificadores como a negação, que pode ter implicações críticas se for diagnosticado erradamente. O Texto Analytics for Health apoia a deteção de negação para as diferentes entidades mencionadas no texto. 
+O significado do conteúdo médico é altamente afetado por modificadores como a negação, que pode ter implicações críticas se for diagnosticado erradamente. Texto Analytics para saúde suporta a deteção de negação para as diferentes entidades mencionadas no texto. 
 
 > [!div class="mx-imgBorder"]
 > ![Saúde NEG](../media/ta-for-health/health-negation.png)
 
 ---
 
-Consulte as [categorias de entidades devolvidas](../named-entity-types.md?tabs=health) por Text Analytics for Healthcare para obter uma lista completa de entidades apoiadas.
+Consulte as [categorias de entidades devolvidas](../named-entity-types.md?tabs=health) pela Text Analytics para obter uma lista completa de entidades apoiadas.
 
 ## <a name="supported-languages"></a>Linguagens suportadas
 
-O Texto Analytics for Health só suporta documentos em inglês.
+O Texto Analytics para a saúde só suporta documentos em inglês.
 
 ## <a name="request-access-to-the-container-registry"></a>Solicitar acesso ao registo de contentores
 
-Preencha e envie o formulário de [pedido de solicitação dos recipientes dos Serviços Cognitivos](https://aka.ms/cognitivegate) para solicitar o acesso ao contentor. Atualmente não será cobrado para text analytics para uso de saúde. 
+Preencha e envie o formulário de [pedido de solicitação dos recipientes dos Serviços Cognitivos](https://aka.ms/cognitivegate) para solicitar o acesso ao contentor. Atualmente não será cobrado para Text Analytics para uso de saúde. 
 
 [!INCLUDE [Request access to the container registry](../../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -80,8 +80,8 @@ Preencha e envie o formulário de [pedido de solicitação dos recipientes dos S
 
 Existem várias formas de instalar e executar o recipiente. 
 
-1. Utilizar o [portal Azure](text-analytics-how-to-install-containers.md?tabs=healthcare) para criar um recurso Text Analytics e utilizar o Docker para obter o seu contentor.
-2. Utilizando as scripts CLI abaixo do PowerShell e [do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) para automatizar a configuração do contentor de implantação de recursos.
+- Utilize o [portal Azure](text-analytics-how-to-install-containers.md?tabs=healthcare) para criar um recurso Text Analytics e use o Docker para obter o seu recipiente.
+- Utilize os seguintes scripts PowerShell e [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) para automatizar a configuração do contentor de implantação de recursos.
 
 ### <a name="install-the-container-using-azure-web-app-for-containers"></a>Instale o recipiente utilizando a Azure Web App para contentores
 
@@ -223,7 +223,7 @@ Para mais informações, consulte a documentação da NGINX sobre a rescisão do
 
 
 ## <a name="example-api-request"></a>Exemplo pedido de API
-O recipiente fornece APIs de previsão de consulta baseada em REST.
+O contentor fornece APIs de ponto final de predição de consulta com base em REST.
 
 Utilize o pedido de cURL de exemplo abaixo para submeter uma consulta ao recipiente que implementou substituindo a `serverURL` variável pelo valor adequado.
 
@@ -232,7 +232,7 @@ curl -X POST 'http://<serverURL>:5000/text/analytics/v3.0-preview.1/domains/heal
 
 ```
 
-O seguinte JSON é um exemplo de um ficheiro JSON anexado ao órgão POST do pedido de API de Texto para a Saúde:
+O seguinte JSON é um exemplo de um ficheiro JSON anexado ao Text Analytics para o corpo POSTAL do pedido de API de saúde:
 
 ```json
 example.json
@@ -255,7 +255,7 @@ example.json
 
 ## <a name="api-response-body"></a>Corpo de resposta da API
 
-O seguinte JSON é um exemplo do órgão de resposta da API de texto para a API de Saúde:
+O seguinte JSON é um exemplo do Text Analytics para o organismo de resposta da API em saúde:
 
 ```json
 {
@@ -406,6 +406,6 @@ O seguinte JSON é um exemplo do órgão de resposta da API de texto para a API 
 
 ## <a name="see-also"></a>Veja também
 
-* [Descrição Geral da Análise de Texto](../overview.md)
+* [Descrição geral da Análise de Texto](../overview.md)
 * [Categorias de entidades nomeadas](../named-entity-types.md)
 * [Novidades](../whats-new.md)

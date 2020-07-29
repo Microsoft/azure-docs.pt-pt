@@ -8,12 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b670f573be037f9650bd64b323d3e0e12e376007
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 141ae90805e81d7269a12dcf465389d6a9dcaf55
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126249"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286972"
 ---
 # <a name="add-a-drawing-tools-toolbar-to-a-map"></a>Adicione uma barra de ferramentas de desenho a um mapa
 

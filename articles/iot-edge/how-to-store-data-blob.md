@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0b647515e9bd802673114de82089ede5f52f9016
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07da9316ea76e609948eed586f776be33c91b4bb
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562706"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287256"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Armazenar dados na periferia com o Armazenamento de Blobs do Azure no IoT Edge
 
@@ -173,7 +173,10 @@ Especifique o seu dispositivo IoT Edge como o ponto final da bolha para quaisque
   * `http://<device IP >:11002/<account name>`
   * `http://<IoT Edge device hostname>:11002/<account name>`
   * `http://<fully qualified domain name>:11002/<account name>`
-
+ 
+ > [!IMPORTANT]
+ > O Azure IoT Edge é sensível a casos quando faz chamadas para módulos, e o SDK de armazenamento também falha em minúsculas. Embora o nome do módulo no [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) seja **AzureBlobStorageonIoTEdge,** mudar o nome para minúscula ajuda a garantir que as suas ligações com o Azure Blob Storage no módulo IoT Edge não sejam interrompidas.
+ 
 ## <a name="azure-blob-storage-quickstart-samples"></a>Amostras rápidas de arranque de armazenamento Azure Blob
 
 A documentação de armazenamento Azure Blob inclui código de amostra de arranque rápido em vários idiomas. Pode executar estas amostras para testar o Azure Blob Storage na IoT Edge alterando o ponto final da bolha para ligar ao módulo de armazenamento de bolhas locais.
@@ -297,7 +300,7 @@ O seu feedback é importante para nós para tornar este módulo e as suas funcio
 
 Pode nos alcançar emabsiotfeedback@microsoft.com
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [implementar o armazenamento de blob Azure na borda IoT](how-to-deploy-blob.md)
 

@@ -8,11 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 6e9d1f35d021c3381f9c2887dfb1c150bb720871
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 69ca43021ff2c45733375e14d87d0ed65d8962e9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80804661"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287062"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Utilize o módulo de serviços Azure Maps
 
@@ -184,7 +186,7 @@ var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');
 
 Se aceder diretamente aos serviços Azure Maps REST, altere o domínio URL para `atlas.azure.us` . Por exemplo, se utilizar o serviço de API de pesquisa, altere o domínio URL de `https://atlas.microsoft.com/search/` `https://atlas.azure.us/search/` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 

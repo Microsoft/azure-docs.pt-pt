@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/05/2019
-ms.openlocfilehash: 1b508a6b4fa8a541381ea8b74046adb2f79034d3
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 4d0ee48a42814ab2c4229c5f8f239aa1a1c28544
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044146"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87314225"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics e Power BI: Um dashboard de análise em tempo real para dados de streaming
 
@@ -56,7 +56,7 @@ No tutorial de deteção de fraudes em tempo real, a saída é enviada para o ar
 
 4. Quando seleciona **Autorizar**, uma janela de pop-up abre e é-lhe pedido que forneça credenciais para fazer a autenticação na sua conta do Power BI. Assim que a autorização for bem sucedida, **guarde** as definições.
 
-8. Clique em **Criar**.
+8. Clique em **Create** (Criar).
 
 O conjunto de dados é criado com as seguintes definições:
 
@@ -99,7 +99,7 @@ Para obter mais informações sobre conjuntos de dados Power BI, consulte a refe
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-4. Clique em **Guardar**.
+4. Clique em **Save** (Guardar).
 
 
 ## <a name="test-the-query"></a>Testar o modelo
@@ -184,16 +184,6 @@ O seu trabalho de Streaming Analytics começa a procurar chamadas fraudulentas n
 
      ![Painel de bi de potência acabado mostrando dois azulejos para chamadas fraudulentas](./media/stream-analytics-power-bi-dashboard/pbi-dashboard-fraudulent-calls-finished.png)
 
-
-## <a name="learn-more-about-power-bi"></a>Saiba mais sobre o Power BI
-
-Este tutorial demonstra como criar apenas alguns tipos de visualizações para um conjunto de dados. O Power BI pode ajudá-lo a criar outras ferramentas de inteligência de negócios para a sua organização. Para mais ideias, consulte os seguintes recursos:
-
-* Para mais um exemplo de um dashboard Power BI, assista ao vídeo [Getting Started with Power BI.](https://youtu.be/L-Z_6P56aas?t=1m58s)
-* Para obter mais informações sobre a configuração da produção de trabalho do Streaming Analytics para o Power BI e utilizar os grupos Power BI, reveja a secção [Power BI](stream-analytics-define-outputs.md#power-bi) do artigo [de saídas stream Analytics.](stream-analytics-define-outputs.md) 
-* Para obter informações sobre a utilização do Power BI em geral, consulte [dashboards no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
-
-
 ## <a name="learn-about-limitations-and-best-practices"></a>Conheça as limitações e as melhores práticas
 Atualmente, o Power BI pode ser chamado aproximadamente uma vez por segundo. Streaming de suporte de visuais pacotes de 15 KB. Além disso, os visuais de streaming falham (mas o impulso continua a funcionar). Devido a estas limitações, o Power BI presta-se mais naturalmente aos casos em que o Azure Stream Analytics faz uma redução significativa da carga de dados. Recomendamos a utilização de uma janela de Tumbling ou janela Hopping para garantir que o impulso de dados é no máximo um empurrão por segundo, e que a sua consulta cai dentro dos requisitos de produção.
 
@@ -234,12 +224,9 @@ Da mesma forma, se um trabalho começar após o token expirar, ocorre um erro e 
 
 Depois de a autorização ter sido atualizada com o Power BI, aparece um alerta verde na área de autorização para refletir que a questão foi resolvida.
 
-## <a name="get-help"></a>Obter ajuda
-Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Stream Analytics saídas](stream-analytics-define-outputs.md)
 * [Referência linguística de consulta Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referência Azure Stream Analytics API](https://msdn.microsoft.com/library/azure/dn835031.aspx)

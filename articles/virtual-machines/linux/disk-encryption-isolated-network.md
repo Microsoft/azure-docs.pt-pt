@@ -4,16 +4,16 @@ description: Este artigo fornece dicas de resolução de problemas para a Encrip
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 02/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1be80defd7a4291d1224d5b0cb9f9e833dcf9af5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f0ca50d137ef7e6378d2bf8d0ab03127d49a9a88
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510519"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373594"
 ---
 # <a name="azure-disk-encryption-on-an-isolated-network"></a>Encriptação do disco Azure numa rede isolada
 
@@ -49,7 +49,7 @@ Quando a encriptação estiver a ser ativada com [credenciais AD AZure,](disk-en
 
 A máquina virtual deve poder aceder ao ponto final do [serviço Azure Instance Metadata,](instance-metadata-service.md) que utiliza um conhecido endereço IP não roteível `169.254.169.254` ( ) que só pode ser acedido a partir do VM.  As configurações proxy que alteram o tráfego HTTP local para este endereço (por exemplo, adicionar um cabeçalho X-Forwarded)não são suportadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Ver mais passos para a [resolução de problemas de encriptação do disco Azure](disk-encryption-troubleshooting.md)
 - [Encriptação de dados inativa do Azure](../../security/fundamentals/encryption-atrest.md)

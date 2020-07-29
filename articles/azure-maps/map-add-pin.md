@@ -8,12 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.custom: codepen
-ms.openlocfilehash: b8d131dcc798fb2fe1d4bb650cd5b0a68903381b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: codepen, devx-track-javascript
+ms.openlocfilehash: c10e47ea10939b60c6c334229fb18ec2702af11f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77209703"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286926"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Adicione uma camada de símbolo a um mapa
 
@@ -94,7 +95,7 @@ A camada de símbolo tem muitas opções de estilo disponíveis. Aqui está uma 
 > [!TIP]
 > Quando pretender renderizar apenas texto com uma camada de símbolo, pode ocultar o ícone definindo a `image` propriedade das opções do ícone para `'none'` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 

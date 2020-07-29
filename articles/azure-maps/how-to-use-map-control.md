@@ -8,12 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: bdbdbfada3c7c4cfb4350bb11a33defd743b7195
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 40ae1492084430f7dbca331d1439b4ded099c866
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064206"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287074"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Utilizar o controlo de mapa do Azure Maps
 

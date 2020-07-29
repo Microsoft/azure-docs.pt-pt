@@ -4,14 +4,15 @@ description: Como preparar uma imagem VM Azure pré-existente para implantação
 author: danis
 ms.service: virtual-machines-linux
 ms.subservice: imaging
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: danis
-ms.openlocfilehash: c41368b311708d5ead36d589cf9c320787e596ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6785bb1f5ebde4f746dc8aa1ea9f586f406f8431
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82792314"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373679"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Prepare uma imagem VM Linux Azure existente para uso com cloud-init
 Este artigo mostra-lhe como pegar numa máquina virtual Azure existente e prepará-la para ser redistribuída e pronta para usar a cloud-init. A imagem resultante pode ser usada para implantar uma nova máquina virtual ou conjuntos de escala de máquinas virtuais - qualquer um dos quais poderia ser personalizado por cloud-init no tempo de implementação.  Estes scripts de nuvem funcionam na primeira bota uma vez que os recursos foram a provisionados pela Azure. Para obter mais informações sobre como o cloud-init funciona de forma nativa em Azure e os distros de Linux suportados, consulte [a visão geral de cloud-init](using-cloud-init.md)
@@ -126,7 +127,7 @@ az vm generalize --resource-group myResourceGroup --name sourceVmName
 az image create --resource-group myResourceGroup --name myCloudInitImage --source sourceVmName
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para exemplos adicionais de alterações de configuração, consulte o seguinte:
  
 - [Adicione um utilizador Linux adicional a um VM](cloudinit-add-user.md)

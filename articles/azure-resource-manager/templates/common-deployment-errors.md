@@ -4,12 +4,12 @@ description: Descreve como resolver erros comuns quando implementa recursos para
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 06/25/2020
-ms.openlocfilehash: 9914cf8267624cd05db860e7dd8eb8d8c5831f7e
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 652e4ec3c7f0de982b973733d75d736949b97bcc
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055669"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374002"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Resolver problemas comuns de erros de implementação do Azure com o Azure Resource Manager
 
@@ -78,7 +78,7 @@ Se procura informações sobre um código de erro e essa informação não é fo
 | SubnetsNotInSameVnet | Uma máquina virtual só pode ter uma rede virtual. Ao implementar vários NICs, certifique-se de que pertencem à mesma rede virtual. | [Múltiplos NICs](../../virtual-machines/windows/multiple-nics.md) |
 | SubscriçãoNotRegista | Ao implementar recursos de rede, o fornecedor de recursos Microsoft.Network é automaticamente registado na subscrição. Às vezes, o registo automático não completa a tempo. Para evitar este erro intermitente, registe o fornecedor de recursos Microsoft.Network antes da sua implantação. | [Resolver o registo](error-register-resource-provider.md) |
 | ModeloResourceCircularDependency | Remova dependências desnecessárias. | [Resolver dependências circulares](error-invalid-template.md#circular-dependency) |
-| TooManyTargetResourceGroups | Reduza o número de grupos de recursos para uma única implantação. | [Implementação entre grupos de recursos](cross-resource-group-deployment.md) |
+| TooManyTargetResourceGroups | Reduza o número de grupos de recursos para uma única implantação. | [Implantação de âmbito transversal](cross-scope-deployment.md) |
 
 ## <a name="find-error-code"></a>Encontrar código de erro
 
@@ -246,7 +246,7 @@ Em alguns casos, a maneira mais fácil de resolver problemas o seu modelo é tes
 
 Ou suponha que esteja a ter erros de implantação que acredita estarem relacionados com dependências incorretamente definidas. Teste o seu modelo quebrando-o em modelos simplificados. Em primeiro lugar, crie um modelo que implemente apenas um único recurso (como um SQL Server). Quando tiver a certeza de que tem esse recurso corretamente definido, adicione um recurso que depende dele (como uma Base de Dados SQL). Quando tiver esses dois recursos corretamente definidos, adicione outros recursos dependentes (como políticas de auditoria). Entre cada implementação de teste, elimine o grupo de recursos para se certificar de que testa adequadamente as dependências.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para passar por um tutorial de resolução de [problemas, consulte Tutorial: Implementações de modelos do Gestor de Recursos de Resolução de Problemas](template-tutorial-troubleshoot.md)
 * Para conhecer as ações de auditoria, consulte [as operações de Auditoria com o Gestor de Recursos.](../management/view-activity-logs.md)

@@ -7,11 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/09/2020
 tags: connectors
-ms.openlocfilehash: 23c6a555909d43f640fb5089fb60da8bac065886
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c7a0ddb80ba28548fc1821cc2063e500af0fa66
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609534"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286636"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Chamar pontos finais de serviço através de HTTP ou HTTPS a partir do Azure Logic Apps
 
@@ -43,7 +44,7 @@ Este gatilho incorporado faz uma chamada HTTP para o URL especificado para um po
 
 1. Sob a caixa de pesquisa do designer, selecione **Built-in**. Na caixa de pesquisa, introduza `http` como filtro. Na lista **de gatilhos,** selecione o gatilho **HTTP.**
 
-   ![Selecione o gatilho HTTP](./media/connectors-native-http/select-http-trigger.png)
+   ![Selecione Acionador HTTP](./media/connectors-native-http/select-http-trigger.png)
 
    Este exemplo renomea o gatilho para "HTTP trigger" para que o passo tenha um nome mais descritivo. Além disso, o exemplo adiciona mais tarde uma ação HTTP, e ambos os nomes devem ser únicos.
 
@@ -161,7 +162,7 @@ Aqui está o mesmo exemplo que mostra a definição JSON da ação HTTP na defin
 
 ## <a name="asynchronous-request-response-behavior"></a>Comportamento assíncronos de pedido-resposta
 
-Por padrão, todas as ações baseadas em HTTP em Azure Logic Apps seguem o [padrão de funcionamento assíncrona.](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) Este padrão especifica que após uma chamada de ação HTTP ou enviar um pedido para um ponto final, serviço, sistema ou API, o recetor devolve imediatamente uma resposta ["202 ACCEPTED".](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) Este código confirma que o recetor aceitou o pedido mas ainda não terminou o processamento. A resposta pode incluir um `location` cabeçalho que especifica o URL e um ID de atualização que o chamador pode usar para pesquisar ou verificar o estado do pedido assíncronos até que o recetor pare de processar e devolva uma resposta de sucesso ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) ou outra resposta não-202. No entanto, o chamador não tem que esperar pelo pedido para terminar o processamento e pode continuar a executar a próxima ação. Para mais informações, consulte [a integração de microserviços Asynchronous que impõe autonomia de microserviços.](https://docs.microsoft.com/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging)
+Por padrão, todas as ações baseadas em HTTP em Azure Logic Apps seguem o [padrão de funcionamento assíncrona.](/azure/architecture/patterns/async-request-reply) Este padrão especifica que após uma chamada de ação HTTP ou enviar um pedido para um ponto final, serviço, sistema ou API, o recetor devolve imediatamente uma resposta ["202 ACCEPTED".](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) Este código confirma que o recetor aceitou o pedido mas ainda não terminou o processamento. A resposta pode incluir um `location` cabeçalho que especifica o URL e um ID de atualização que o chamador pode usar para pesquisar ou verificar o estado do pedido assíncronos até que o recetor pare de processar e devolva uma resposta de sucesso ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) ou outra resposta não-202. No entanto, o chamador não tem que esperar pelo pedido para terminar o processamento e pode continuar a executar a próxima ação. Para mais informações, consulte [a integração de microserviços Asynchronous que impõe autonomia de microserviços.](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging)
 
 * No Logic App Designer, a ação HTTP, mas não desencadeada, tem uma definição **de Padrão Assíncronos,** que é ativada por padrão por padrão. Esta definição especifica que o chamador não espera que o processamento termine e pode passar para a próxima ação, mas continua a verificar o estado até que o processamento pare. Se desativado, esta definição especifica que o chamador aguarda que o processamento termine antes de passar para a ação seguinte.
 
@@ -256,7 +257,7 @@ Aqui está mais informações sobre as saídas de um gatilho http ou ação, que
 |----------|------|-------------|
 | `headers` | Objeto JSON | Os cabeçalhos do pedido |
 | `body` | Objeto JSON | O objeto com o conteúdo do corpo do pedido |
-| `status code` | Número inteiro | O código de estado do pedido |
+| `status code` | Integer (Número inteiro) | O código de estado do pedido |
 |||
 
 | Código de estado | Descrição |
@@ -270,6 +271,7 @@ Aqui está mais informações sobre as saídas de um gatilho http ou ação, que
 | 500 | Erro interno do servidor. Ocorreu um erro desconhecido. |
 |||
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [outros conectores de Apps Lógicas](../connectors/apis-list.md)
+

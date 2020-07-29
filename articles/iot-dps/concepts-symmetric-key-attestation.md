@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 0e3d343c0a68dd527e4e8e8d23e5b3843a216a78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0a8680dc5c06bd1527b2cca732b58f484101a96
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705377"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286500"
 ---
 # <a name="symmetric-key-attestation"></a>Atestado de chave simétrica
 
@@ -25,7 +26,7 @@ As inscrições chave simétricas também fornecem uma ótima maneira para dispo
 
 ## <a name="symmetric-key-creation"></a>Criação de chave simétrica
 
-Por predefinição, o Serviço de Provisionamento de Dispositivos cria novas teclas simétricas com um comprimento predefinido de 32 bytes quando as novas matrículas são guardadas com a opção **de teclas de geração automática** ativada.
+Por predefinição, o Serviço de Provisionamento de Dispositivos cria novas teclas simétricas com um comprimento predefinido de 64 bytes quando as novas matrículas são guardadas com a opção **de teclas de geração automática** ativada.
 
 ![Gerar automaticamente teclas simétricas](./media/concepts-symmetric-key-attestation/auto-generate-keys.png)
 
@@ -109,7 +110,7 @@ A identidade de cada dispositivo é representada pela chave de identificação d
 
 Se as teclas do dispositivo não forem instaladas na fábrica, deve ser utilizado um [módulo de segurança de hardware HSM](concepts-security.md#hardware-security-module) para armazenar a identidade do dispositivo de forma segura.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que tem uma compreensão do atestado de Chave Simétrica, confira os seguintes artigos para saber mais:
 

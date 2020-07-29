@@ -3,12 +3,12 @@ title: Gerir políticas de autoshutdown na Azure DevTest Labs Microsoft Docs
 description: Aprenda a definir a política de autoshutdown para um laboratório para que as máquinas virtuais sejam automaticamente desligadas quando não estão a ser utilizadas.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a865d178bd4bcf9715cefc7c5a01b31a6d6a9435
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a30070470f9a75ec5c56d448cd09ca82dd0cbce7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482739"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287555"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Configurar autoshutdown para laboratório e calcular máquinas virtuais em Azure DevTest Labs
 
@@ -71,7 +71,7 @@ Assim que o auto-down for configurado pelo proprietário do laboratório, as not
 - Salte o autoshutdown para esta hora
 - Soneca o autoshutdown durante uma hora ou 2 horas, para que possam continuar a trabalhar no VM.
 
-A notificação é enviada através do ponto final configurado do gancho web ou de um endereço de e-mail especificado pelos proprietários de laboratório nas definições de autoshutdown. Os Webhooks permitem-lhe construir ou configurar integrações que subscrevam determinados eventos. Quando um desses eventos for desencadeado, a DevTest Labs enviará uma carga HTTP POST para o URL configurado do webhook. Para obter mais informações sobre webhooks, consulte [Criar um webhook ou a API Azure Function](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+A notificação é enviada através do ponto final configurado do gancho web ou de um endereço de e-mail especificado pelos proprietários de laboratório nas definições de autoshutdown. Os Webhooks permitem-lhe construir ou configurar integrações que subscrevam determinados eventos. Quando um desses eventos for desencadeado, a DevTest Labs enviará uma carga HTTP POST para o URL configurado do webhook. Para obter mais informações sobre webhooks, consulte [Criar um webhook ou a API Azure Function](../azure-functions/functions-bindings-http-webhook.md). 
 
 Recomendamos que utilize ganchos web porque são amplamente suportados por várias aplicações (por exemplo, Slack, Azure Logic Apps, e assim por diante.) e permite-lhe implementar a sua própria maneira de enviar notificações. Como exemplo, este artigo explica-lhe como obter a notificação de autoshutdown a partir de e-mails usando Azure Logic Apps. Primeiro, vamos rapidamente ver os passos básicos para permitir a notificação de autoshutdown no seu laboratório.   
 
@@ -91,7 +91,7 @@ Para começar, crie uma aplicação lógica na sua subscrição Azure utilizando
     ![Novo menu de aplicativos de lógica](./media/devtest-lab-auto-shutdown/new-logic-app.png)
 2. Na **Aplicação Lógica - Criar** página, siga estes passos: 
     1. Insira um **nome** para a aplicação lógica.
-    2. Selecione a sua **subscrição** do Azure.
+    2. Selecione a sua **subscrição Azure**.
     3. Crie um novo **grupo de recursos** ou selecione um grupo de recursos existente. 
     4. Selecione uma **localização** para a aplicação lógica. 
 
@@ -209,6 +209,5 @@ Quando atualizar a definição de autoshutdown, verá a atividade registada no r
     ![Log de atividade - alterar histórico](./media/devtest-lab-auto-shutdown/activity-log-entry-change-history.png)
 6. Para ver mais detalhes sobre a operação, mude para o separador **JSON** na página **'Adicionar' ou modifique os horários.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para aprender a definir todas as políticas, consulte [as políticas de laboratório da Azure DevTest Labs](devtest-lab-set-lab-policy.md).
-

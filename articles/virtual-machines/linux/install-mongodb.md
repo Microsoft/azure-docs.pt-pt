@@ -6,17 +6,17 @@ manager: gwallace
 ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 953e474eb5d160b38981d61fbfda051f1da9f968
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8c5114f4b44c200b7853e68e58118a2323274a24
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87069576"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286262"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Como instalar e configurar o MongoDB num Linux VM
 

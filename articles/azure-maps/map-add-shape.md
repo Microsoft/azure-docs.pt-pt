@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.custom: codepen
-ms.openlocfilehash: a8ae7bc6c7f6aac199d4e3dd386c94d41c20965d
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: codepen, devx-track-javascript
+ms.openlocfilehash: b267109113ce4d2ec3e653fb079b760eb4a5a514
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87130516"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286870"
 ---
 # <a name="add-a-polygon-layer-to-the-map"></a>Adicione uma camada de polígono ao mapa
 

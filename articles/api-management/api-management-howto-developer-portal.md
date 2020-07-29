@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 07/28/2020
 ms.author: apimpm
-ms.openlocfilehash: 7d479f18e8764a69cdc81f99d723534e4895b0e4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f5f4df58a4b147ccb73c7d69f5307a8328803442
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025086"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373152"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Visão geral do portal de desenvolvimento da AZure API Management
 
@@ -105,7 +105,19 @@ Pode aceder programaticamente e gerir o conteúdo do portal do desenvolvedor atr
 
 A API está documentada na [secção wiki do repositório do GitHub.][2] Pode ser utilizado para automatizar migrações de conteúdos portais entre ambientes - por exemplo, de um ambiente de teste para o ambiente de produção. Você pode saber mais sobre este processo [neste artigo de documentação](https://aka.ms/apimdocs/migrateportal) no GitHub.
 
+### <a name="how-do-i-move-from-the-managed-to-the-self-hosted-version"></a>Como é que passo do gerido para a versão auto-hospedada?
+
+Consulte o artigo detalhado na [secção Wiki do repositório do portal de desenvolvimento no GitHub][2].
+
+### <a name="can-i-have-multiple-developer-portals-in-one-api-management-service"></a>Posso ter vários portais de desenvolvimento num serviço de Gestão API?
+
+Pode ter um portal gerido e vários portais auto-hospedados. O conteúdo de todos os portais está armazenado no mesmo serviço de Gestão da API, pelo que serão idênticos. Se quiser diferenciar a aparência e funcionalidade dos portais, pode auto-hospedar-se com os seus próprios widgets personalizados que personalizam dinamicamente as páginas no tempo de execução, por exemplo com base no URL.
+
 ### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>O portal suporta modelos e/ou é compatível com o Kit de Recursos de DevOps de Gestão de API?
+
+Não.
+
+### <a name="is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management"></a>O conteúdo do portal é guardado com a funcionalidade de backup/restauro na Gestão da API?
 
 Não.
 
@@ -205,7 +217,7 @@ A falha de chamada também pode ser causada por um certificado TLS/SSL, que é a
 | Apple Safari                | Sim<sup>1</sup> |
 | Google Chrome               | Sim<sup>1</sup> |
 | Microsoft Edge              | Sim<sup>1</sup> |
-| Microsoft Internet Explorer | No              |
+| Microsoft Internet Explorer | Não              |
 | Mozilla Firefox             | Sim<sup>1</sup> |
 
  <small><sup>1</sup> Suportado nas duas versões de produção mais recentes.</small>

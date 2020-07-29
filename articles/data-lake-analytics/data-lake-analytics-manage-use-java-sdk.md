@@ -7,12 +7,13 @@ ms.reviewer: jasonh
 ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: how-to
 ms.date: 08/20/2019
-ms.openlocfilehash: e5ff12479333c4b36cc7712e0e363a055b9f6dc6
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: devx-track-java
+ms.openlocfilehash: bac13f187c99166bc868112792d80833387a84dc
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127660"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373781"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Gerir a Azure Data Lake Analytics usando uma aplicação Java
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]

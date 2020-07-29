@@ -3,16 +3,17 @@ title: Use o filtro de pacotes freeBSD para criar uma firewall em Azure
 description: Saiba como implantar uma firewall NAT utilizando o PF do FreeBSD em Azure.
 author: KylieLiang
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: eeeb60cc41f96edbf8733468ca0cfd18d2939af7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85804e0f9293ec2e63aa319854e9559da11c8be1
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83652534"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286279"
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Como utilizar o filtro de pacotes freeBSD para criar uma firewall segura em Azure
 Este artigo introduz como implementar uma firewall NAT usando o filtro packer do FreeBSD através do modelo Azure Resource Manager para um cenário comum de servidor web.
@@ -47,7 +48,7 @@ Após cerca de cinco minutos, obterá a informação de `"provisioningState": "S
 az network public-ip list --resource-group myResourceGroup
 ```
     
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Quer montar o seu próprio NAT em Azure? Open Source, livre mas poderoso? Então PF é uma boa escolha. Ao utilizar a configuração freebsd-freebsd do modelo, você só precisa de cinco minutos para configurar uma firewall NAT com a carga de robin redondo equilibrando usando o PF do FreeBSD em Azure para um cenário comum de servidor web. 
 
 Se quiser aprender a oferta do FreeBSD em Azure, consulte [a introdução ao FreeBSD em Azure.](freebsd-intro-on-azure.md)

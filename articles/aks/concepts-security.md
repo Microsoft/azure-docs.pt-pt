@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: b3ad8fdce873b31c8ea6b1c8176ed41587b4b298
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a210098652a18959debfeabe36b390d1bdfca7fc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507102"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287458"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceitos de segurança para aplicações e clusters no Azure Kubernetes Service (AKS)
 
@@ -50,7 +50,7 @@ Os nós são implantados numa sub-rede de rede virtual privada, sem endereços I
 
 Para fornecer armazenamento, os nós usam Discos Geridos Azure. Para a maioria dos tamanhos dos nós VM, estes são discos Premium apoiados por SSDs de alto desempenho. Os dados armazenados em discos geridos são automaticamente encriptados em repouso dentro da plataforma Azure. Para melhorar a redundância, estes discos também são replicados de forma segura dentro do datacenter Azure.
 
-Os ambientes de Kubernetes, em AKS ou em qualquer outro lugar, atualmente não são completamente seguros para uso hostil de multi-inquilinos. Funcionalidades de segurança adicionais, tais como políticas de *segurança de pod* ou controlos de acesso baseados em papéis (RBAC) para nós tornam as explorações mais difíceis. No entanto, para uma verdadeira segurança ao executar cargas de trabalho hostis de vários inquilinos, um hipervisor é o único nível de segurança em que deve confiar. O domínio de segurança de Kubernetes torna-se todo o cluster, não um nó individual. Para este tipo de cargas de trabalho hostis multi-inquilinos, você deve usar aglomerados fisicamente isolados. Para obter mais informações sobre formas de isolar cargas de trabalho, consulte [as melhores práticas para o isolamento do cluster em AKS][cluster-isolation].
+Os ambientes de Kubernetes, em AKS ou em qualquer outro lugar, atualmente não são completamente seguros para uso hostil de multi-inquilinos. Funcionalidades de segurança adicionais como as Políticas de *Segurança do Pod,* ou controlos de acesso baseados em papéis (RBAC) para nós, dificultam as explorações. No entanto, para uma verdadeira segurança ao executar cargas de trabalho hostis de vários inquilinos, um hipervisor é o único nível de segurança em que deve confiar. O domínio de segurança de Kubernetes torna-se todo o cluster, não um nó individual. Para este tipo de cargas de trabalho hostis multi-inquilinos, você deve usar aglomerados fisicamente isolados. Para obter mais informações sobre formas de isolar cargas de trabalho, consulte [as melhores práticas para o isolamento do cluster em AKS][cluster-isolation].
 
 ### <a name="compute-isolation"></a>Isolamento computacional
 
@@ -96,7 +96,7 @@ O uso de Segredos reduz a informação sensível que é definida no manifesto YA
 
 Os segredos de Kubernetes estão armazenados em etcd, uma loja de valor-chave distribuída. A loja Etcd é totalmente gerida pela AKS e [os dados são encriptados em repouso dentro da plataforma Azure][encryption-atrest]. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar a assegurar os seus clusters AKS, consulte [upgrade de um cluster AKS][aks-upgrade-cluster].
 

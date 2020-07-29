@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 950f258e7380d7fbd25e1a5fe2dd4673ba122c52
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b01d6c36b31ef4f03522d03ca327439cfa31be8d
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321594"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373747"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Caracterização na aprendizagem automática de máquinas
 
@@ -114,13 +114,13 @@ Guarda-costas|Estado|Condição &nbsp; para &nbsp; o gatilho
 
 Pode personalizar as definições de exibição para garantir que os dados e funcionalidades utilizados para treinar o seu modelo ML resultem em previsões relevantes.
 
-Para personalizar as ações, especifique  `"featurization": FeaturizationConfig` no seu `AutoMLConfig` objeto. Se estiver a usar o estúdio Azure Machine Learning para a sua experiência, consulte o [artigo de como fazer.](how-to-use-automated-ml-for-ml-models.md#customize-featurization)
+Para personalizar as ações, especifique  `"featurization": FeaturizationConfig` no seu `AutoMLConfig` objeto. Se estiver a usar o estúdio Azure Machine Learning para a sua experiência, consulte o [artigo de como fazer.](how-to-use-automated-ml-for-ml-models.md#customize-featurization) Para personalizar os tipos de tarefas de previsão, consulte o [como fazer a previsão](how-to-auto-train-forecast.md#customize-featurization).
 
 As personalizações suportadas incluem:
 
 |Personalização|Definição|
 |--|--|
-|**Atualização do propósito da coluna**|Substitua o tipo de recurso para a coluna especificada.|
+|**Atualização do propósito da coluna**|Substitua o tipo de função detetada automaticamente para a coluna especificada.|
 |**Atualização do parâmetro do transformador** |Atualize os parâmetros para o transformador especificado. Atualmente suporta *o Imputer* (médio, mais frequente e mediano) e *o HashOneHotEncoder*.|
 |**Colunas de queda** |Especifica as colunas a deixar de serem apresentando.|
 |**Transformadores de blocos**| Especifica os transformadores de blocos a utilizar no processo de aposição.|

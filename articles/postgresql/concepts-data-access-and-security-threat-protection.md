@@ -6,11 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 3d86c76472580567c95d285924761e1714465d6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 390f44ffebb6531fde2f819fad0d4e9399cba218
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74768746"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287515"
 ---
 # <a name="advanced-threat-protection-in-azure-database-for-postgresql---single-server"></a>Proteção avançada de ameaças na base de dados Azure para PostgreSQL - Servidor Único
 
@@ -19,7 +20,7 @@ O Advanced Threat Protection da Base de Dados do Azure para PostgreSQL deteta at
 > [!NOTE]
 > A Proteção Avançada de Ameaças está em visualização pública.
 
-A Proteção de Ameaças faz parte da oferta de Proteção avançada de ameaças (ATP), que é um pacote unificado para capacidades avançadas de segurança. A Advanced Threat Protection pode ser acedida e gerida através do [portal Azure](https://portal.azure.com) ou utilizando [a API REST](/rest/api/postgresql/serversecurityalertpolicies). A funcionalidade está disponível para servidores otimizados para fins gerais e memória.
+A Proteção de Ameaças faz parte da oferta de Proteção avançada de ameaças (ATP), que é um pacote unificado para capacidades avançadas de segurança. A Advanced Threat Protection pode ser acedida e gerida através do [portal Azure](https://portal.azure.com) ou utilizando [a API REST](/rest/api/postgresql). A funcionalidade está disponível para servidores otimizados para fins gerais e memória.
 
 > [!NOTE]
 > A funcionalidade de Proteção de Ameaças **Avançadas não** está disponível nas seguintes regiões de nuvens governamentais e soberanas: EUA Gov Texas, EUA Gov Arizona, US Gov Iowa, EUA, Gov Virginia, US DoD East, US DoD Central, Germany Central, Germany North, China East, China East 2. Visite [os produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) para disponibilidade geral de produtos.
@@ -38,7 +39,7 @@ A Advanced Threat Protection for Azure Database for PostgreSQL deteta atividades
 - **Acesso de uma localização potencialmente prejudicial**: este alerta é acionado quando uma aplicação potencialmente prejudicial é utilizada para aceder à base de dados. Em alguns casos, o alerta deteta testes de penetração em ação. Noutros casos, o alerta deteta um ataque através de ferramentas de ataque comuns.
 - **Base de dados Azure força bruta para credenciais PostgreSQL**: Este alerta é acionado quando há um número anormal elevado de logins falhados com credenciais diferentes. Em alguns casos, o alerta deteta testes de penetração em ação. Noutros casos, o alerta deteta um ataque de força bruta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [o Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 * Para obter mais informações sobre preços, consulte a [Base de Dados Azure para a página de preços pós-SQL](https://azure.microsoft.com/pricing/details/postgresql/) 

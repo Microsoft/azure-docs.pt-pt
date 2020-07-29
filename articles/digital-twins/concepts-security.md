@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ec681d0af132d11e18703dce6105352651a70180
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: bc6b3911ed6d04561d25ef166625f9e73023726d
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131621"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373288"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>Secure Azure Digital Twins com controlo de acesso baseado em funções
 
@@ -45,7 +45,7 @@ Com identidades geridas, a plataforma Azure gere esta identidade de tempo de exe
 
 ### <a name="authorization-rbac-roles-for-azure-digital-twins"></a>Autorização: Papéis do RBAC para gémeos digitais Azure
 
-A Azure fornece as funções RBAC incorporadas abaixo para autorizar o acesso a um recurso Azure Digital Twins:
+A Azure fornece as funções incorporadas abaixo do Azure para autorizar o acesso a um recurso Azure Digital Twins:
 * *Azure Digital Twins Owner (Preview)* – Use esta função para dar acesso total sobre os recursos da Azure Digital Twins.
 * *Azure Digital Twins Reader (Preview)* – Use este papel para dar acesso apenas à leitura dos recursos da Azure Digital Twins.
 

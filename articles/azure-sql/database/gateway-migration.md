@@ -10,15 +10,15 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: e9bf1f06b1ec1f99da1ce653b4bc72f4638ba451
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 22bfab5b9f00a392054fa1aef6a93195180fd968
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084958"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373492"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database migração de tráfego para gateways mais recentes
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 À medida que a infraestrutura Azure melhora, a Microsoft irá atualizar periodicamente hardware para garantir que fornecemos a melhor experiência possível ao cliente. Nos próximos meses, planeamos adicionar gateways construídos sobre as gerações de hardware mais recentes, migrar o tráfego para eles, e eventualmente desativar gateways construídos em hardware mais antigo em algumas regiões.  
 
@@ -27,6 +27,19 @@ Os clientes serão notificados via e-mail e no portal Azure com muita antecedên
 ## <a name="status-updates"></a>Atualizações de estado
 
 # <a name="in-progress"></a>[Em curso](#tab/in-progress-ip)
+### <a name="september-2020"></a>Setembro de 2020
+
+Novos Gateways SQL estão a ser adicionados às seguintes regiões:
+
+- Norte da Europa : 13.74.104.113 
+- West US2 : 40.78.248.10 
+- Europa Ocidental : 52.236.184.163 
+- Centro Sul dos EUA : 20.45.121.1, 20.49.88.1 
+
+Os gateways SQL existentes começarão a aceitar o tráfego nas seguintes regiões:
+- Japão Leste : 40.79.184.8, 40.79.192.5
+
+Estes SQL Gateways começarão a aceitar o tráfego de clientes no dia 1 de setembro de 2020. 
 
 ### <a name="august-2020"></a>agosto de 2020
 
@@ -82,6 +95,6 @@ As ligações efetuadas a partir de aplicações que utilizam o Controlador Micr
 
 Se a mitigação acima não funcionar, arquive um pedido de suporte para a Base de Dados SQL ou para a SQL Gestão de Instâncias utilizando o seguinte URL:https://aka.ms/getazuresupport
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a Azure SQL Connectivity Architecture](connectivity-architecture.md)

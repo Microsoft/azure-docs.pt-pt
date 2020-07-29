@@ -8,12 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.custom: codepen
-ms.openlocfilehash: c473be25907eb3a761fbccd598bb9b732e5be5b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: codepen, devx-track-javascript
+ms.openlocfilehash: 366de0d17a1cdd62b95d39b1ad04b9bc76bec52c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80802353"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286934"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>Adicione uma camada de linha ao mapa
 
@@ -82,7 +83,7 @@ A camada Line tem várias opções de estilo. Aqui está uma ferramenta para exp
 <iframe height='700' scrolling='no' title='Opções de camada de linha' src='//codepen.io/azuremaps/embed/GwLrgb/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte as <a href='https://codepen.io/azuremaps/pen/GwLrgb/'>opções de camada de linha de caneta</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 

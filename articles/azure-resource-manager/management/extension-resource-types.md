@@ -2,12 +2,13 @@
 title: Tipos de recursos extensão
 description: Listas os tipos de recursos Azure são usados para aumentar as capacidades de outros tipos de recursos.
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 3a3fbc531750bec4b16e38f1fe79f613c1b94f5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/28/2020
+ms.openlocfilehash: 84de9b66f9001985b8c7b92882f03ff8c7cbf431
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80754864"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374019"
 ---
 # <a name="resource-types-that-extend-capabilities-of-other-resources"></a>Tipos de recursos que ampliam capacidades de outros recursos
 
@@ -27,7 +28,9 @@ Um recurso de extensão é um recurso que adiciona às capacidades de outro recu
 - Microsoft.Autorização/permissões
 - Microsoft.Autorização/políticaAssins de assinaturas
 - Microsoft.Autorização/políticaDefinitions
+- Microsoft.Autorização/políticaExemptions
 - Microsoft.Authorization/policySetDefinitions
+- Microsoft.Authorization/privateLinkAssociations
 - Microsoft.Autorização/funAssignments
 - Microsoft.Autorização/funAssignmentsUsageMetrics
 - Microsoft.Autorização/funDefinitions
@@ -38,6 +41,7 @@ Um recurso de extensão é um recurso que adiciona às capacidades de outro recu
 - Microsoft.Billing/createBillingRoleAssignment
 - Microsoft.Blueprint/blueprintAssignments
 - Microsoft.Blueprint/blueprints
+- Microsoft.ChangeAnalysis/recursosChanges
 - Microsoft.Consumption/AggregatedCost
 - Microsoft.Consumption/Saldos
 - Microsoft.Consumo/Orçamentos
@@ -49,6 +53,7 @@ Um recurso de extensão é um recurso que adiciona às capacidades de outro recu
 - Microsoft.Consumption/OperationStatus
 - Microsoft.Consumption/Pricesheets
 - Microsoft.Consumption/ReservationDetails
+- Microsoft.Consumption/ReservationRecommendationDetails
 - Microsoft.Consumption/ReservasRecommendations
 - Microsoft.Consumption/ReservasSummaries
 - Microsoft.Consumption/ReservasTransacções
@@ -63,6 +68,7 @@ Um recurso de extensão é um recurso que adiciona às capacidades de outro recu
 - Microsoft.ContainerInstance/serviceAssociationLinks
 - Microsoft.CostManagement/Alerts
 - Microsoft.CostManagement/Orçamentos
+- Microsoft.CostManagement/costAllocationRules
 - Microsoft.CostManagement/Dimensions
 - Microsoft.CostManagement/Exports
 - Microsoft.CostManagement/ExternalSubscriptions
@@ -70,8 +76,8 @@ Um recurso de extensão é um recurso que adiciona às capacidades de outro recu
 - Microsoft.CostManagement/Consulta
 - Microsoft.CostManagement/Reportconfigs
 - Microsoft.CostManagement/Reports
-- Microsoft.CostManagement/Views
 - Microsoft.CostManagement/showbackRules
+- Microsoft.CostManagement/Views
 - Microsoft.CustomProviders/associações
 - Microsoft.EventGrid/eventSubscriptions
 - Microsoft.EventGrid/extensionTopics
@@ -107,12 +113,13 @@ Um recurso de extensão é um recurso que adiciona às capacidades de outro recu
 - Microsoft.ManagedServices/registrationDefinitions
 - Microsoft.OperationalInsights/storageInsightConfigs
 - Microsoft.OperationsManagement/managementassociations
+- Microsoft.PolicyInsights/atestados
 - Microsoft.PolicyInsights/policyEvents
 - Microsoft.PolicyInsights/policyStates
 - Microsoft.PolicyInsights/policyTrackedResources
 - Microsoft.PolicyInsights/remediações
 - Microsoft.RecoveryServices/backupProtectedItems
-- Microsoft.RecoveryServices/replicationEtsesibilidade    
+- Microsoft.RecoveryServices/replicationEtsesibilidade
 - Microsoft.ResourceHealth/availabilityStatuses
 - Microsoft.ResourceHealth/childSetilabilityStatuses
 - Microsoft.ResourceHealth/childResources
@@ -130,11 +137,12 @@ Um recurso de extensão é um recurso que adiciona às capacidades de outro recu
 - Microsoft.Security/complianceResults
 - Microsoft.Security/dataCollectionAgents
 - Microsoft.Security/deviceSecurityGroups
-- Microsoft.Security/networkData
+- Microsoft.Security/jitPolicies
 - Microsoft.Security/serverVulnerabilityAssesments
 - Microsoft.SecurityInsights/agregações
 - Microsoft.SecurityInsights/alertRuleTemplates
 - Microsoft.SecurityInsights/alertRules
+- Microsoft.SecurityInsights/automationRules
 - Microsoft.SecurityInsights/bookmarks
 - Microsoft.SecurityInsights/cases
 - Microsoft.SecurityInsights/dataConnectors
@@ -144,6 +152,7 @@ Um recurso de extensão é um recurso que adiciona às capacidades de outro recu
 - Microsoft.SecurityInsights/incidentes
 - Microsoft.SecurityInsights/officeConsents
 - Microsoft.SecurityInsights/configurações
+- Microsoft.SecurityInsights/threatIntelligence
 - Microsoft.SoftwarePlan/hybridUseBenefits
 - Microsoft.Subscrição/Cria subscrição
 - microsoft.support/supporttickets
@@ -152,7 +161,7 @@ Um recurso de extensão é um recurso que adiciona às capacidades de outro recu
 - Microsoft.WorkloadMonitor/monitores
 - Microsoft.WorkloadMonitor/notificationSettings
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter o ID de recurso para um recurso de extensão num modelo de Gestor de Recursos Azure, utilize a [extensãoResourceId](../templates/template-functions-resource.md#extensionresourceid).
 - Para um exemplo de criação de um recurso de extensão num modelo, consulte [subscrições de eventos de grelha de eventos](/azure/templates/microsoft.eventgrid/2019-06-01/eventsubscriptions).

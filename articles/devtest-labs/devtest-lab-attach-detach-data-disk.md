@@ -3,22 +3,22 @@ title: Anexar ou separar um disco de dados a uma máquina virtual em Azure DevTe
 description: Saiba como anexar ou desprender um disco de dados a uma máquina virtual em Azure DevTest Labs
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 164c2335f0aadc08a447dd61e259786d5bfb104d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5faae56307639e369130ec7443c8bceab2f794d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482977"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287563"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Anexar ou separar um disco de dados a uma máquina virtual em Azure DevTest Labs
-[A Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) gere as contas de armazenamento associadas a discos de dados de máquinas virtuais. Um utilizador anexa um novo disco de dados a um VM, especifica o tipo e tamanho do disco que é necessário, e o Azure cria e gere o disco automaticamente. O disco de dados pode então ser desligado do VM e recolocado mais tarde no mesmo VM, ou ligado a um VM diferente que pertence ao mesmo utilizador.
+[A Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) gere as contas de armazenamento associadas a discos de dados de máquinas virtuais. Um utilizador anexa um novo disco de dados a um VM, especifica o tipo e tamanho do disco que é necessário, e o Azure cria e gere o disco automaticamente. O disco de dados pode então ser desligado do VM e recolocado mais tarde no mesmo VM, ou ligado a um VM diferente que pertence ao mesmo utilizador.
 
 Esta funcionalidade é útil para gerir armazenamento ou software fora de cada máquina virtual individual. Se o armazenamento ou software já existir dentro de um disco de dados, pode ser facilmente ligado, destacado e religado a qualquer VM que seja propriedade do utilizador que detém esse disco de dados.
 
 ## <a name="attach-a-data-disk"></a>Anexar um disco de dados
 Antes de anexar um disco de dados a um VM, reveja estas dicas:
 
-- O tamanho do VM controla quantos discos de dados pode anexar. Para mais detalhes, consulte [tamanhos para máquinas virtuais.](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
+- O tamanho do VM controla quantos discos de dados pode anexar. Para mais detalhes, consulte [tamanhos para máquinas virtuais.](../virtual-machines/sizes.md)
 - Só é possível anexar um disco de dados a um VM que esteja em execução. Certifique-se de que o VM está em funcionamento antes de tentar anexar um disco de dados.
 
 ### <a name="attach-a-new-disk"></a>Anexar um disco novo
@@ -88,6 +88,5 @@ Se tiver um VM existente que utilize discos de dados não geridos, pode facilmen
 
 Para atualizar um disco de dados não gerido, siga os passos descritos neste artigo para separar o disco de [dados](#detach-a-data-disk) de um VM não gerido. Em seguida, [recolocar o disco](#attach-an-existing-disk) a um VM gerido para atualizar automaticamente o disco de dados de não gerido para gerido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba como gerir discos de dados para [máquinas virtuais reclamantes.](devtest-lab-add-claimable-vm.md#unclaim-a-vm)
-

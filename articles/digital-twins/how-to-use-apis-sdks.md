@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 34a02de8a6789a028c776e784ea4aa9692f53d9d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 867c32203d8f780b307ede2ba2916ad4e82e1136
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079164"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373250"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Utilizar as APIs e SDKs do Azure Digital Twins
 
@@ -284,7 +284,7 @@ Métricas de API como pedidos, latência e taxa de insucesso podem ser vistas no
 
 A partir da página inicial do portal, procure a sua instância Azure Digital Twins para obter os seus detalhes. Selecione a opção **Métricas** no menu da instância Azure Digital Twins para apresentar a página *Métricas.*
 
-:::image type="content" source="media/how-to-use-apis-sdks/metrics.png" alt-text="Página de métricas de uma instância Azure Digital Twins no portal Azure":::
+:::image type="content" source="media/how-to-view-metrics/azure-digital-twins-metrics.png" alt-text="Screenshot mostrando a página métrica para Azure Digital Twins":::
 
 A partir daqui, você pode ver as métricas para o seu exemplo e criar vistas personalizadas.
 

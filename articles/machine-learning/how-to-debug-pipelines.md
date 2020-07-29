@@ -5,16 +5,17 @@ description: Depurar os seus oleodutos Azure Machine Learning em Python. Aprenda
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 03/18/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 3eb0cf85dce02595f3679a96b497e286682840bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: troubleshooting, tracking-python
+ms.openlocfilehash: 6fa75c0c6ec6146ca59f6eaf4593b4912ae823c1
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84557440"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372965"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depurar e resolver problemas de pipelines de machine learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +27,7 @@ Neste artigo, aprende-se a depurar e resolver [problemas de aprendizagem](concep
 * Depurar usando Insights de Aplicação
 * Debug utilizando interativamente o Código do Estúdio Visual (Código VS) e as Ferramentas Python para o Estúdio Visual (PTVSD)
 
-## <a name="debug-and-troubleshoot-in-the-azure-machine-learning-sdk"></a>Debug e resolução de problemas no Azure Machine Learning SDK
+## <a name="azure-machine-learning-sdk"></a>Azure Machine Learning SDK
 As secções seguintes fornecem uma visão geral das armadilhas comuns ao construir oleodutos, e diferentes estratégias para depurar o seu código que está a funcionar num oleoduto. Use as seguintes dicas quando tiver dificuldade em conseguir que um oleoduto corra como esperado.
 
 ### <a name="testing-scripts-locally"></a>Testar scripts localmente
@@ -90,9 +91,9 @@ O quadro abaixo fornece informações para diferentes opções de depuragem para
 
 | Biblioteca                    | Tipo   | Exemplo                                                          | Destino                                  | Recursos                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure Machine Learning SDK | Metric | `run.log(name, val)`                                             | Azure Machine Learning Portal UI             | [Como acompanhar experiências](how-to-track-experiments.md#available-metrics-to-track)<br>[azureml.core.Run classe](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
-| Impressão/registo de pítons    | Registar    | `print(val)`<br>`logging.info(message)`                          | Troncos de motorista, Azure Machine Learning designer | [Como acompanhar experiências](how-to-track-experiments.md#available-metrics-to-track)<br><br>[Abate de python](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
-| Pitão OpenCensus          | Registar    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Insights de Aplicação - vestígios                | [Depurar pipelines no Application Insights](how-to-debug-pipelines-application-insights.md)<br><br>[OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure) (Exportadores do Azure Monitor do OpenCensus)<br>[Livro de receitas de madeira python](https://docs.python.org/3/howto/logging-cookbook.html) |
+| Azure Machine Learning SDK | Métrica | `run.log(name, val)`                                             | Azure Machine Learning Portal UI             | [Como acompanhar experiências](how-to-track-experiments.md#available-metrics-to-track)<br>[azureml.core.Run classe](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
+| Impressão/registo de pítons    | Registo    | `print(val)`<br>`logging.info(message)`                          | Troncos de motorista, Azure Machine Learning designer | [Como acompanhar experiências](how-to-track-experiments.md#available-metrics-to-track)<br><br>[Abate de python](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
+| Pitão OpenCensus          | Registo    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Insights de Aplicação - vestígios                | [Depurar pipelines no Application Insights](how-to-debug-pipelines-application-insights.md)<br><br>[OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure) (Exportadores do Azure Monitor do OpenCensus)<br>[Livro de receitas de madeira python](https://docs.python.org/3/howto/logging-cookbook.html) |
 
 #### <a name="logging-options-example"></a>Exemplo de opções de registo
 
@@ -126,9 +127,13 @@ logger.warning("I am an OpenCensus warning statement, find me in Application Ins
 logger.error("I am an OpenCensus error statement with custom dimensions", {'step_id': run.id})
 ``` 
 
-## <a name="debug-and-troubleshoot-in-azure-machine-learning-designer-preview"></a>Debug e resolução de problemas em Azure Machine Learning designer (pré-visualização)
+## <a name="azure-machine-learning-designer-preview"></a>Azure Machine Learning designer (pré-visualização)
 
 Esta secção fornece uma visão geral de como resolver os oleodutos no designer. Para os oleodutos criados no designer, pode encontrar o ficheiro **70_driver_log** na página de autoria ou na página de detalhes do pipeline run.
+
+### <a name="enable-logging-for-real-time-endpoints"></a>Ativar a sessão para pontos finais em tempo real
+
+Para resolver problemas e depurar pontos finais em tempo real no designer, deve ativar o registo de insight de aplicação utilizando o SDK . O registo permite-lhe resolver problemas e depurar problemas de implementação e utilização do modelo. Para obter mais informações, consulte [Registar registos para modelos implantados.](how-to-enable-logging.md#logging-for-deployed-models) 
 
 ### <a name="get-logs-from-the-authoring-page"></a>Obtenha registos da página de autoria
 
@@ -155,10 +160,10 @@ Também pode encontrar os ficheiros de registo para execuções específicas na 
 > [!IMPORTANT]
 > Para atualizar um gasoduto a partir da página de detalhes do gasoduto, tem de **clonar** o gasoduto para um novo projeto de oleoduto. Um gasoduto é uma imagem do oleoduto. É semelhante a um ficheiro de registo, e não pode ser alterado. 
 
-## <a name="debug-and-troubleshoot-in-application-insights"></a>Debug e resolução de problemas em Insights de Aplicação
+## <a name="application-insights"></a>Application Insights
 Para obter mais informações sobre a utilização da biblioteca OpenCensus Python desta forma, consulte este guia: [Debug e troubleshoot machine learning pipelines in Application Insights](how-to-debug-pipelines-application-insights.md)
 
-## <a name="debug-and-troubleshoot-in-visual-studio-code"></a>Debug e resolução de problemas no Código do Estúdio Visual
+## <a name="visual-studio-code"></a>Visual Studio Code
 
 Em alguns casos, poderá ser necessário depurar interativamente o código Python utilizado no seu gasoduto ML. Ao utilizar o Código do Estúdio Visual (Código VS) e as Ferramentas Python para Estúdio Visual (PTVSD), pode anexar-se ao código tal como funciona no ambiente de treino.
 
@@ -391,7 +396,7 @@ Poupe o `ip_address` valor. É usado na secção seguinte.
     > [!NOTE]
     > Se o registo apresentar uma entrada indicando `Debugger attached = False` , então o tempo limite expirou e o script continuou sem o depurar. Submeta novamente o gasoduto e ligue o depurar após a `Timeout for debug connection` mensagem e antes que o intervalo expire.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Consulte a referência SDK para obter ajuda com o pacote [de núcleo de gasodutos azureml](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) e o pacote [de passos de gasodutos azureml.](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)
 
