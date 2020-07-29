@@ -13,6 +13,7 @@ ms.reviewer: sstein
 ms.date: 02/07/2020
 ms.openlocfilehash: c91f96afefe924856b7416844d37c4d7a13c794b
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84045040"

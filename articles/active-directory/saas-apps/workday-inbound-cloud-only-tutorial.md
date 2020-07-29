@@ -16,6 +16,7 @@ ms.date: 05/26/2020
 ms.author: chmutali
 ms.openlocfilehash: 6fb80af84379a1a0bc174a7318c8150a98bea95e
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84041814"

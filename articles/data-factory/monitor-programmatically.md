@@ -13,6 +13,7 @@ manager: anandsub
 ms.custom: tracking-python
 ms.openlocfilehash: 983beb70ef1919dc3230d5daa6d29fb7209f69aa
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84561225"

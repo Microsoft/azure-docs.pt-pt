@@ -16,6 +16,7 @@ ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8f520141d36726e94dc8d49d7e5aa95bb35d5484
 ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/05/2020
 ms.locfileid: "85956241"

@@ -14,6 +14,7 @@ ms.author: jaboes
 ms.subservice: disks
 ms.openlocfilehash: 17ce6eda79ed1c612a45fa2af7e6d083ccabc78b
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84660713"

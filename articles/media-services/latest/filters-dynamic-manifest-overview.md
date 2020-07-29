@@ -16,6 +16,7 @@ ms.date: 07/11/2019
 ms.author: juliako
 ms.openlocfilehash: cb7a399258dcab679468d2b8f699487b1ec5406b
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84705207"

@@ -7,6 +7,7 @@ ms.date: 11/14/2019
 ms.author: pafarley
 ms.openlocfilehash: 0644dad9e8e6f2999acfa24ea1088207f6d5e692
 ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/07/2020
 ms.locfileid: "86028059"

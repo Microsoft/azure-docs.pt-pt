@@ -13,6 +13,7 @@ ms.date: 06/08/2020
 ms.author: jingwang
 ms.openlocfilehash: 4e7828810a069756d1a0cde55ab47915ad11acc5
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85249708"

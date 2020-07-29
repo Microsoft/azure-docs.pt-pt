@@ -17,6 +17,7 @@ ms.date: 07/26/2019
 ms.author: mlottner
 ms.openlocfilehash: 9029ece923b7cda09c7a57d07736791e241c9e70
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "81310677"

@@ -11,6 +11,7 @@ ms.author: swmachan
 ms.topic: reference
 ms.openlocfilehash: 2edc5e9e255af321a30521ba1e707eea30d81f73
 ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/05/2020
 ms.locfileid: "85957601"

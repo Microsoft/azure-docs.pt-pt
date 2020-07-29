@@ -7,6 +7,7 @@ ms.date: 07/01/2020
 ms.author: atsenthi
 ms.openlocfilehash: 1da70c37c8a6ed93e7abe1b5d329e808c592e43a
 ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/07/2020
 ms.locfileid: "86034987"

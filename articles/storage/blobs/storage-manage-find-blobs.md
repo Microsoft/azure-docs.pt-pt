@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.reviewer: hux
 ms.openlocfilehash: 637bdb02cd9fc5296c74633bbfa381e62673a4bf
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85355663"

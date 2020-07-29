@@ -17,6 +17,7 @@ ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 26bf018d8823495c00b09af3a40b39315dadb31c
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85513671"

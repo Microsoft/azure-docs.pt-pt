@@ -13,6 +13,7 @@ ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4d926d027b59a225d76f6a73ab3ee4ec09b595e5
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85253312"

@@ -10,6 +10,7 @@ ms.tgt_pltfrm: windows
 ms.subservice: disks
 ms.openlocfilehash: 50ea70c70b78a28d618677dcec3980707ca3a24f
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84660724"

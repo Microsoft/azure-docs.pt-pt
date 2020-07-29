@@ -10,6 +10,7 @@ ms.author: charwen
 ms.custom: seodec18
 ms.openlocfilehash: 58d2949a18bfbf2800ae6ab4ac74b02b05b3eb07
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84736395"

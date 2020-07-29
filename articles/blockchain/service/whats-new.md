@@ -6,6 +6,7 @@ ms.topic: conceptual
 ms.reviewer: ravastra
 ms.openlocfilehash: 80ece6cb6bb81b7ce168da997603e17d1238171b
 ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85921884"

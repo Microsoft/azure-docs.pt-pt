@@ -11,6 +11,7 @@ ms.date: 06/29/2020
 ms.author: pdecarlo
 ms.openlocfilehash: 050631731a04e4c2ea89d8c7792ec093d6ab316e
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85800567"

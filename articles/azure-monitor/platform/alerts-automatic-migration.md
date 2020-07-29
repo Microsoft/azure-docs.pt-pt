@@ -6,6 +6,7 @@ ms.date: 08/19/2019
 ms.subservice: alerts
 ms.openlocfilehash: 8df83439d6754440648688ac1cc36ff66556a4e4
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "77668252"

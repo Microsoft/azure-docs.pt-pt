@@ -14,6 +14,7 @@ ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: 5c175a1575a4efbdc2294412e3743e201d8c4bb1
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "83653295"

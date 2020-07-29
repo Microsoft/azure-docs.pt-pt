@@ -6,6 +6,7 @@ ms.topic: conceptual
 ms.reviewer: chroyal
 ms.openlocfilehash: 78c93880007259267b26cf53e93de722be1c7323
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "77209448"

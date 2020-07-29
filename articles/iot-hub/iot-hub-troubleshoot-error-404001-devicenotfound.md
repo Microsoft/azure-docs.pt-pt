@@ -10,6 +10,7 @@ ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 15aa21c2ec2c11bb251f7208fd22c92ceb859d6d
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "76960831"

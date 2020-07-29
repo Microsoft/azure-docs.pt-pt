@@ -14,6 +14,7 @@ ms.reviewer: mathoma
 ms.date: 04/28/2020
 ms.openlocfilehash: ac701b70a9db860e2f839ab30fb575133703c142
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84708481"

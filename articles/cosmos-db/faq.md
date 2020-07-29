@@ -9,6 +9,7 @@ ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: f6b2d081b0dc475e0950b12de31bab83cbe7da8b
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85213096"

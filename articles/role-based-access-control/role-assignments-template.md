@@ -15,6 +15,7 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: e26f2ed498b8bfcf6b1518ea34815efb75a8eabe
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85392459"

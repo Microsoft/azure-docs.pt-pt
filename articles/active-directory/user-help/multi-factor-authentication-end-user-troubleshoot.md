@@ -14,6 +14,7 @@ ms.author: curtand
 ms.reviewer: kexia
 ms.openlocfilehash: 8d2e34bcfd180dfeb814dace2a496f3ac593c5bf
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "83738613"

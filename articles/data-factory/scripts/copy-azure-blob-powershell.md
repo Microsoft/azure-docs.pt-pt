@@ -12,6 +12,7 @@ ms.custom: seo-lt-2019
 ms.date: 03/12/2020
 ms.openlocfilehash: 2e289f30ef1c1883c38884eb563a41bccc841329
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "79462656"

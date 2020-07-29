@@ -7,6 +7,7 @@ ms.date: 10/16/2018
 ms.author: srrengar
 ms.openlocfilehash: fd24d65ebdf4e458870819286024d1ea2e13d83e
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "75645723"

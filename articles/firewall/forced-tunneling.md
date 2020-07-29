@@ -9,6 +9,7 @@ ms.date: 06/01/2020
 ms.author: victorh
 ms.openlocfilehash: a467aa60b131e47e9251366369b3fae8dd95c004
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84267703"
