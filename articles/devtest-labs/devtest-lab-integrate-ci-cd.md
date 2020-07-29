@@ -3,12 +3,12 @@ title: Integre a Azure DevTest Labs nos seus Pipelines Azure
 description: Saiba como integrar a Azure DevTest Labs no seu pipelineS Azure e gasoduto de entrega
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 080577a74a1cb168453c6a027d77ae395072ccc1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 96f99d41d0a7ea07bf3854292f9c3bd6245414b3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85480580"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288925"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-pipelines-cicd-pipeline"></a>Integre a Azure DevTest Labs no seu pipeline Azure Pipelines CI/CD
 
@@ -109,7 +109,7 @@ Para adicionar variáveis para os valores:
    
 1. Para cada variável, **selecione Adicionar** e insira o nome e o valor:
    
-   |Name|Valor|
+   |Nome|Valor|
    |---|---|
    |*vmName*|Nome VM atribuído no modelo de Gestor de Recursos|
    |*nome de utilizador*|Nome de utilizador para aceder ao VM|
@@ -150,7 +150,7 @@ Execute o script que criou anteriormente para recolher os detalhes do VM de DevT
    |Campo|Valor|
    |---|---|
    |**Tipo de conexão Azure**|Selecione **Azure Resource Manager**.|
-   |**Assinatura Azure**|Selecione a sua ligação de serviço ou subscrição.| 
+   |**Subscrição do Azure**|Selecione a sua ligação de serviço ou subscrição.| 
    |**Tipo de script**|Selecione **o caminho do ficheiro do script**.|
    |**Caminho do roteiro**|Introduza o caminho e o nome completos do script PowerShell que guardou no seu repositório de código fonte. Pode utilizar propriedades incorporadas para simplificar o caminho, por exemplo:<br /><br />`$(System.DefaultWorkingDirectory/Scripts/GetLabVMParams.ps1`|
    |**Argumentos de script**|Insira o nome da variável *labVmId* que foi povoada pela tarefa anterior, por exemplo:<br /><br />`-labVmId '$(labVMId)'`|
@@ -215,8 +215,8 @@ Para criar e executar um desbloqueio utilizando o novo oleoduto:
 
 Pode utilizar a imagem personalizada para criar VMs sempre que precisar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba como [criar ambientes multi-VM com modelos de Gestor de Recursos.](devtest-lab-create-environment-from-arm.md)
 - Explore modelos mais rápidos de Gestor de Recursos para automação de DevTest Labs a partir do [repo de DevTest Labs GitHub](https://github.com/Azure/azure-quickstart-templates).
-- Se necessário, consulte a página [de resolução de problemas do Azure DevOps.](https://docs.microsoft.com/azure/devops/pipelines/troubleshooting)
+- Se necessário, consulte a página [de resolução de problemas do Azure DevOps.](/azure/devops/pipelines/troubleshooting)
  

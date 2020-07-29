@@ -12,12 +12,13 @@ ms.workload: identity
 ms.date: 11/21/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma
-ms.custom: aaddev
-ms.openlocfilehash: 3d834a8d1524595304c22fed9897094622dfd93f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: aaddev, devx-track-java
+ms.openlocfilehash: f1ad755e444968cbbbe9e048be53fb72f65c3b37
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76696219"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87312644"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-java"></a>Apoio aos Serviços da Federação De Diretório Ativo no MSAL para a Java
 
@@ -45,6 +46,6 @@ As versões AD FS suportadas neste cenário federado são:
 
 Quando adquire um token usando `ConfidentialClientApplication.AcquireToken()` ou `PublicClientApplication.AcquireToken()` com `IntegratedWindowsAuthenticationParameters` `UsernamePasswordParameters` ou, MSAL para Java consegue que o fornecedor de identidade entre em contato com base no nome de utilizador. A MSAL para a Java recebe um [token SAML 1.1](reference-saml-tokens.md) do fornecedor de identidade, que depois fornece à Azure AD que devolve o JSON Web Token (JWT).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para o caso federado, consulte o [sinal de Diretório Ativo Configure Azure em comportamento para uma aplicação utilizando uma política de Descoberta do Home Realm](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal)

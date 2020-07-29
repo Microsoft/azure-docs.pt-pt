@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 6bebe8ac6b9869466938600d6267fd0062c84477
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dae797e73d52391288a5e8b7cf4a5c6ab2a122fc
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75977304"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337879"
 ---
 # <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>Monitor de porta -- Usando funções Azure e SendGrid, envie e-mail quando uma porta é aberta           
 
@@ -29,7 +30,7 @@ Neste projeto, aprende-se:
 > - Monte um íman na borda de uma porta.
 > - Monte o DevKit no bate-portas perto do íman. Abrir ou fechar a porta irá acionar o sensor, resultando na sua receção de uma notificação por e-mail do evento.
 
-## <a name="what-you-need"></a>Do que precisa
+## <a name="what-you-need"></a>O que precisa
 
 Termine o [Guia de Início](iot-hub-arduino-iot-devkit-az3166-get-started.md) para:
 
@@ -194,9 +195,6 @@ Se encontrar problemas, consulte o [IoT DevKit FAQ](https://microsoft.github.io/
 * [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Aprendeu a ligar um dispositivo DevKit ao seu acelerador de solução de monitorização remota Azure IoT e utilizou o serviço SendGrid para enviar um e-mail. Aqui estão os próximos passos sugeridos:
-
-* [Visão geral do acelerador de solução de monitorização remota Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
-* [Ligue um dispositivo MXChip IoT DevKit à sua aplicação Azure IoT Central](/azure/iot-central/core/howto-connect-devkit)
+Aprendeu a ligar um dispositivo DevKit ao seu acelerador de solução de monitorização remota Azure IoT e utilizou o serviço SendGrid para enviar um e-mail. Eis o próximo passo sugerido: Visão geral do[acelerador de solução de monitorização remota Azure IoT](https://docs.microsoft.com/azure/iot-suite/)

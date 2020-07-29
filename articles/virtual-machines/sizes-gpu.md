@@ -4,16 +4,16 @@ description: Lista os diferentes tamanhos otimizados da GPU disponíveis para m�
 author: vikancha-MSFT
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: efb26260d0e1f59e78c8328de298c3d4d92c19d3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 15b6de6a03bc5dd67650076beac603845b99ff59
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509322"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286194"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU otimizado tamanhos de máquinas virtuais
 
@@ -37,7 +37,7 @@ Para tirar partido das capacidades da GPU dos condutores da série Azure N VMs, 
 
 - Para VMs apoiados por GPUs AMD, consulte [os controladores DE GPU da AMD em VMs da série N que executam o Windows](./windows/n-series-amd-driver-setup.md) para sistemas operativos suportados, controladores, instalações e etapas de verificação.
 
-## <a name="deployment-considerations"></a>Considerações sobre a implementação
+## <a name="deployment-considerations"></a>Considerações sobre implementação
 
 - Para obter disponibilidade de VMs da série N, consulte [produtos disponíveis por região.](https://azure.microsoft.com/regions/services/)
 
@@ -58,6 +58,6 @@ Para tirar partido das capacidades da GPU dos condutores da série Azure N VMs, 
 - [Com otimização de armazenamento](sizes-storage.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

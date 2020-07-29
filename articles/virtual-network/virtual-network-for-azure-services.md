@@ -1,7 +1,7 @@
 ---
 title: Rede virtual para serviços do Azure
 titlesuffix: Azure Virtual Network
-description: Conheça os benefícios de implantar recursos numa rede virtual. Os recursos em redes virtuais podem comunicar entre si, e recursos no local, sem tráfego que atravessa a Internet.
+description: Aprenda como implementar serviços Azure dedicados numa rede virtual e conheça as capacidades que essas implementações fornecem.
 services: virtual-network
 documentationcenter: na
 author: mohnader
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/06/2020
 ms.author: kumud
-ms.openlocfilehash: cb63f99e93d4324e3f2addde7eadf18ac15f3d2d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 442059f4ff3502b99bf4aa93d581c39331e4f7d8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463353"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287694"
 ---
 # <a name="deploy-dedicated-azure-services-into-virtual-networks"></a>Implementar serviços dedicados da Azure em redes virtuais
 
@@ -44,9 +45,9 @@ A implantação de serviços dentro de uma rede virtual fornece as seguintes cap
 |Dados|[RedisCache](../azure-cache-for-redis/cache-how-to-premium-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Instância Gerida do SQL no Azure](../azure-sql/managed-instance/connectivity-architecture-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)| Sim <br/> Sim <br/> 
 |Análise | [Azure HDInsight](../hdinsight/hdinsight-extend-hadoop-virtual-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Databricks](../azure-databricks/what-is-azure-databricks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) |Nº<sup>2</sup> <br/> Nº<sup>2</sup> <br/> 
 | Identidade | [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json) |Não <br/>
-| Contentores | [Serviço de Kubernetes do Azure (AKS)](../aks/concepts-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Instância do Azure Container Instances (ACI)](https://www.aka.ms/acivnet)<br/>[Motor de serviço de contentores Azure](https://github.com/Azure/acs-engine) com [plug-in](https://github.com/Azure/acs-engine/tree/master/examples/vnet) CNI de rede virtual Azure<br/>[Funções do Azure](../azure-functions/functions-networking-options.md#virtual-network-integration) |Nº<sup>2</sup><br/> Sim <br/><br/> Não <br/> Sim
+| Contentores | [Azure Kubernetes Service (AKS)](../aks/concepts-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Instância do Azure Container Instances (ACI)](https://www.aka.ms/acivnet)<br/>[Motor de serviço de contentores Azure](https://github.com/Azure/acs-engine) com [plug-in](https://github.com/Azure/acs-engine/tree/master/examples/vnet) CNI de rede virtual Azure<br/>[Funções do Azure](../azure-functions/functions-networking-options.md#virtual-network-integration) |Nº<sup>2</sup><br/> Sim <br/><br/> Não <br/> Sim
 | Web | [Gestão de API](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Aplicações Web](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Ambiente do Serviço de Aplicações](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>|Sim <br/> Sim <br/> Sim <br/> Sim
-| Alojado | [HSM Dedicado do Azure](../dedicated-hsm/index.yml?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>|Sim <br/> Sim <br/>
+| Alojado | [Azure Dedicated HSM](../dedicated-hsm/index.yml?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>|Sim <br/> Sim <br/>
 | | |
 
 <sup>1</sup> 'Dedicado' implica que apenas os recursos específicos do serviço podem ser implantados nesta sub-rede e não podem ser combinados com vM/VMSS do cliente <br/> 

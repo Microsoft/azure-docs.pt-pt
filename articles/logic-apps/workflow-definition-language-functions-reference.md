@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 1a5b5ff535b2a0ca84831e8d4c42e80a72395b02
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 45ff681bdf0260b6e3c12f7e644d102a49206c9f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048251"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288909"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guia de referência para a utilização de funções em expressões para Apps lógicas Azure e Automatização de Energia
 
@@ -82,7 +82,7 @@ Para trabalhar com cordas, pode utilizar estas funções de corda e também [alg
 | [concat](../logic-apps/workflow-definition-language-functions-reference.md#concat) | Combine duas ou mais cordas e devolva a corda combinada. |
 | [terminaWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Verifique se uma corda termina com o sub-adcção especificado. |
 | [formatoNumbre](../logic-apps/workflow-definition-language-functions-reference.md#formatNumber) | Devolva um número como uma cadeia com base no formato especificado |
-| [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Gere um identificador globalmente único (GUID) como uma corda. |
+| [guiar](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Gere um identificador globalmente único (GUID) como uma corda. |
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Volte a colocar a posição inicial para um sub-adiscão. |
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Volte a colocar a posição inicial para a última ocorrência de um sub-adcões. |
 | [substituir](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Substitua um sub-adc de sublagem com a cadeia especificada e devolva a cadeia atualizada. |
@@ -96,7 +96,7 @@ Para trabalhar com cordas, pode utilizar estas funções de corda e também [alg
 
 <a name="collection-functions"></a>
 
-## <a name="collection-functions"></a>Funções de recolha
+## <a name="collection-functions"></a>Funções de coleção
 
 Para trabalhar com coleções, geralmente matrizes, cordas e, por vezes, dicionários, você pode usar estas funções de coleção.
 
@@ -126,7 +126,7 @@ Para trabalhar com condições, comparar valores e resultados de expressão, ou 
 
 | Função de comparação lógica | Tarefa |
 | --------------------------- | ---- |
-| [e](../logic-apps/workflow-definition-language-functions-reference.md#and) | Verifique se todas as expressões são verdadeiras. |
+| [and](../logic-apps/workflow-definition-language-functions-reference.md#and) | Verifique se todas as expressões são verdadeiras. |
 | [é igual a](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Verifique se ambos os valores são equivalentes. |
 | [greater](../logic-apps/workflow-definition-language-functions-reference.md#greater) | Verifique se o primeiro valor é maior do que o segundo valor. |
 | [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | Verifique se o primeiro valor é maior ou igual ao segundo valor. |
@@ -162,7 +162,7 @@ Para alterar o tipo ou formato de um valor, pode utilizar estas funções de con
 | [descodificarDataUri](../logic-apps/workflow-definition-language-functions-reference.md#decodeDataUri) | Devolva a versão binária para um URI de dados. |
 | [decodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#decodeUriComponent) | Retornar uma corda que substitua os caracteres de fuga por versões descodificadas. |
 | [encodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#encodeUriComponent) | Retorna uma corda que substitui caracteres inseguros por URL por caracteres de fuga. |
-| [flutuar](../logic-apps/workflow-definition-language-functions-reference.md#float) | Devolva um número de ponto flutuante para obter um valor de entrada. |
+| [flutuante](../logic-apps/workflow-definition-language-functions-reference.md#float) | Devolva um número de ponto flutuante para obter um valor de entrada. |
 | [int](../logic-apps/workflow-definition-language-functions-reference.md#int) | Devolva a versão inteiro por uma corda. |
 | [json](../logic-apps/workflow-definition-language-functions-reference.md#json) | Retornar o valor ou objeto do tipo JavaScript (JSON) para uma cadeia ou XML. |
 | [cadeia](../logic-apps/workflow-definition-language-functions-reference.md#string) | Devolva a versão de corda para obter um valor de entrada. |
@@ -350,9 +350,9 @@ action()
 action().outputs.body.<property>
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*propriedade*> | No | Cadeia | O nome da propriedade do objeto de ação cujo valor pretende: **nome**, **startTime**, **endTime,** **entradas,** **saídas,** **estado,** **código,** **trackingId**e **clientTrackingId**. No portal Azure, você pode encontrar estas propriedades revendo os detalhes de um histórico de execução específico. Para obter mais informações, consulte [REST API - Workflow Run Actions](/rest/api/logic/workflowrunactions/get). |
+| <*propriedade*> | Não | Cadeia | O nome da propriedade do objeto de ação cujo valor pretende: **nome**, **startTime**, **endTime,** **entradas,** **saídas,** **estado,** **código,** **trackingId**e **clientTrackingId**. No portal Azure, você pode encontrar estas propriedades revendo os detalhes de um histórico de execução específico. Para obter mais informações, consulte [REST API - Workflow Run Actions](/rest/api/logic/workflowrunactions/get). |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -372,9 +372,9 @@ Ver [corpo()](#body) e [ações()](#actions).
 actionBody('<actionName>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*nome de ação*> | Yes | Cadeia | O nome para a saída da ação `body` que você quer |
+| <*nome de ação*> | Sim | Cadeia | O nome para a saída da ação `body` que você quer |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -417,9 +417,9 @@ Devolva a saída de uma ação em tempo de execução.  e é abreviatura para `a
 actionOutputs('<actionName>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*nome de ação*> | Yes | Cadeia | O nome para a saída da ação que você quer |
+| <*nome de ação*> | Sim | Cadeia | O nome para a saída da ação que você quer |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -490,10 +490,10 @@ actions('<actionName>')
 actions('<actionName>').outputs.body.<property>
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*nome de ação*> | Yes | Cadeia | O nome do objeto de ação cuja saída você quer  |
-| <*propriedade*> | No | Cadeia | O nome da propriedade do objeto de ação cujo valor pretende: **nome**, **startTime**, **endTime,** **entradas,** **saídas,** **estado,** **código,** **trackingId**e **clientTrackingId**. No portal Azure, você pode encontrar estas propriedades revendo os detalhes de um histórico de execução específico. Para obter mais informações, consulte [REST API - Workflow Run Actions](/rest/api/logic/workflowrunactions/get). |
+| <*nome de ação*> | Sim | Cadeia | O nome do objeto de ação cuja saída você quer  |
+| <*propriedade*> | Não | Cadeia | O nome da propriedade do objeto de ação cujo valor pretende: **nome**, **startTime**, **endTime,** **entradas,** **saídas,** **estado,** **código,** **trackingId**e **clientTrackingId**. No portal Azure, você pode encontrar estas propriedades revendo os detalhes de um histórico de execução específico. Para obter mais informações, consulte [REST API - Workflow Run Actions](/rest/api/logic/workflowrunactions/get). |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -521,9 +521,9 @@ Devolva o resultado da adição de dois números.
 add(<summand_1>, <summand_2>)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*summand_1*>, *summand_2 <*> | Yes | Inteiro, Flutuante ou Misturado | Os números a adicionar |
+| <*summand_1*>, *summand_2 <*> | Sim | Inteiro, Flutuante ou Misturado | Os números a adicionar |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -551,11 +551,11 @@ Adicione alguns dias a uma hora de tempo.
 addDays('<timestamp>', <days>, '<format>'?)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*timetamp*> | Yes | Cadeia | A corda que contém a hora da hora |
-| <*Dias*> | Yes | Integer (Número inteiro) | O número positivo ou negativo de dias a adicionar |
-| <*formato*> | No | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
+| <*timetamp*> | Sim | Cadeia | A corda que contém a hora da hora |
+| <*Dias*> | Sim | Integer (Número inteiro) | O número positivo ou negativo de dias a adicionar |
+| <*formato*> | Não | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -593,11 +593,11 @@ Adicione algumas horas a um tempotando.
 addHours('<timestamp>', <hours>, '<format>'?)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*timetamp*> | Yes | Cadeia | A corda que contém a hora da hora |
-| <*horas*> | Yes | Integer (Número inteiro) | O número positivo ou negativo de horas a adicionar |
-| <*formato*> | No | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
+| <*timetamp*> | Sim | Cadeia | A corda que contém a hora da hora |
+| <*horas*> | Sim | Integer (Número inteiro) | O número positivo ou negativo de horas a adicionar |
+| <*formato*> | Não | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -635,11 +635,11 @@ Adicione alguns minutos a uma hora de tempo.
 addMinutes('<timestamp>', <minutes>, '<format>'?)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*timetamp*> | Yes | Cadeia | A corda que contém a hora da hora |
-| <*minutos*> | Yes | Integer (Número inteiro) | O número positivo ou negativo de minutos a adicionar |
-| <*formato*> | No | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
+| <*timetamp*> | Sim | Cadeia | A corda que contém a hora da hora |
+| <*minutos*> | Sim | Integer (Número inteiro) | O número positivo ou negativo de minutos a adicionar |
+| <*formato*> | Não | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -677,11 +677,11 @@ Adicione uma propriedade e o seu valor, ou par de valor-nome, a um objeto JSON, 
 addProperty(<object>, '<property>', <value>)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*objeto*> | Yes | Objeto | O objeto JSON onde você quer adicionar uma propriedade |
-| <*propriedade*> | Yes | Cadeia | O nome para a propriedade a adicionar |
-| <*valor*> | Yes | Qualquer | O valor do imóvel |
+| <*objeto*> | Sim | Objeto | O objeto JSON onde você quer adicionar uma propriedade |
+| <*propriedade*> | Sim | Cadeia | O nome para a propriedade a adicionar |
+| <*valor*> | Sim | Qualquer | O valor do imóvel |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -695,12 +695,12 @@ Para adicionar uma propriedade infantil a uma propriedade existente, use esta si
 addProperty(<object>['<parent-property>'], '<child-property>', <value>)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*objeto*> | Yes | Objeto | O objeto JSON onde você quer adicionar uma propriedade |
-| <*propriedade-mãe*> | Yes | Cadeia | O nome para propriedade dos pais onde você quer adicionar a propriedade da criança |
-| <*propriedade infantil*> | Yes | Cadeia | O nome para a propriedade da criança para adicionar |
-| <*valor*> | Yes | Qualquer | O valor a definir para o imóvel especificado |
+| <*objeto*> | Sim | Objeto | O objeto JSON onde você quer adicionar uma propriedade |
+| <*propriedade-mãe*> | Sim | Cadeia | O nome para propriedade dos pais onde você quer adicionar a propriedade da criança |
+| <*propriedade infantil*> | Sim | Cadeia | O nome para a propriedade da criança para adicionar |
+| <*valor*> | Sim | Qualquer | O valor a definir para o imóvel especificado |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -776,11 +776,11 @@ Adicione alguns segundos a um tempotando.
 addSeconds('<timestamp>', <seconds>, '<format>'?)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*timetamp*> | Yes | Cadeia | A corda que contém a hora da hora |
-| <*segundos*> | Yes | Integer (Número inteiro) | O número positivo ou negativo de segundos a adicionar |
-| <*formato*> | No | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
+| <*timetamp*> | Sim | Cadeia | A corda que contém a hora da hora |
+| <*segundos*> | Sim | Integer (Número inteiro) | O número positivo ou negativo de segundos a adicionar |
+| <*formato*> | Não | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -819,12 +819,12 @@ Consulte também [getFutureTime()](#getFutureTime).
 addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*timetamp*> | Yes | Cadeia | A corda que contém a hora da hora |
-| <*intervalo*> | Yes | Integer (Número inteiro) | O número de unidades de tempo especificadas para adicionar |
-| <*timeUnit*> | Yes | Cadeia | A unidade de tempo a utilizar com *intervalo:*"Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano" |
-| <*formato*> | No | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
+| <*timetamp*> | Sim | Cadeia | A corda que contém a hora da hora |
+| <*intervalo*> | Sim | Integer (Número inteiro) | O número de unidades de tempo especificadas para adicionar |
+| <*timeUnit*> | Sim | Cadeia | A unidade de tempo a utilizar com *intervalo:*"Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano" |
+| <*formato*> | Não | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -863,9 +863,9 @@ Devolva-se quando todas as expressões são verdadeiras, ou retorna falsas quand
 and(<expression1>, <expression2>, ...)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*expression1*>, *expressão <2*>, ... | Yes | Booleano | As expressões para verificar |
+| <*expression1*>, *expressão <2*>, ... | Sim | Booleano | As expressões para verificar |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -916,9 +916,9 @@ Para várias entradas, consulte [createArray()](#createArray).
 array('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Cadeia | A corda para criar uma matriz |
+| <*valor*> | Sim | Cadeia | A corda para criar uma matriz |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -949,9 +949,9 @@ Retornar a versão codificada base64 para uma cadeia.
 base64('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Cadeia | A cadeia de entrada |
+| <*valor*> | Sim | Cadeia | A cadeia de entrada |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -982,9 +982,9 @@ Devolva a versão binária para uma cadeia codificada base64.
 base64ToBinary('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Cadeia | A cadeia codificada base64 para converter |
+| <*valor*> | Sim | Cadeia | A cadeia codificada base64 para converter |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1017,9 +1017,9 @@ Devolva a versão de corda para uma corda codificada base64, descodificando efic
 base64ToString('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Cadeia | A cadeia codificada de base64 para descodificar |
+| <*valor*> | Sim | Cadeia | A cadeia codificada de base64 para descodificar |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1047,9 +1047,9 @@ Devolva a versão binária para uma corda.
 binary('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Cadeia | A corda para converter |
+| <*valor*> | Sim | Cadeia | A corda para converter |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1081,9 +1081,9 @@ Ver [ActionBody()](#actionBody) e [ações()](#actions).
 body('<actionName>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*nome de ação*> | Yes | Cadeia | O nome para a saída da ação `body` que você quer |
+| <*nome de ação*> | Sim | Cadeia | O nome para a saída da ação `body` que você quer |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1126,9 +1126,9 @@ Devolva a versão Boolean por um valor.
 bool(<value>)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Qualquer | O valor para converter |
+| <*valor*> | Sim | Qualquer | O valor para converter |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1161,9 +1161,9 @@ Cordas vazias, matrizes vazias e objetos vazios não são nulos.
 coalesce(<object_1>, <object_2>, ...)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*object_1*>, <*object_2 object_2*>... | Yes | Qualquer, pode misturar tipos | Um ou mais itens para verificar se há nulo |
+| <*object_1*>, <*object_2 object_2*>... | Sim | Qualquer, pode misturar tipos | Um ou mais itens para verificar se há nulo |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1197,9 +1197,9 @@ Combine duas ou mais cordas e devolva a corda combinada.
 concat('<text1>', '<text2>', ...)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*text1*>, <*texto2*>, ... | Yes | Cadeia | Pelo menos duas cordas para combinar |
+| <*text1*>, <*texto2*>, ... | Sim | Cadeia | Pelo menos duas cordas para combinar |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1236,10 +1236,10 @@ Especificamente, esta função funciona nestes tipos de coleção:
 * Uma *matriz* para encontrar um *valor*
 * Um *dicionário* para encontrar uma *chave*
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*coleção*> | Yes | String, Array ou Dicionário | A coleção para verificar |
-| <*valor*> | Yes | String, Array ou Dicionário, respectivamente | O item para encontrar |
+| <*coleção*> | Sim | String, Array ou Dicionário | A coleção para verificar |
+| <*valor*> | Sim | String, Array ou Dicionário, respectivamente | O item para encontrar |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1273,11 +1273,11 @@ Converta um relógio de tempo da Universal Time Coordinated (UTC) para o fuso ho
 convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*timetamp*> | Yes | Cadeia | A corda que contém a hora da hora |
-| <*destinationTimeZone*> | Yes | Cadeia | O nome do fuso horário do alvo. Para obter nomes de fuso horário, consulte [os Valores do Índice do Fuso Horário](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)da Microsoft, mas poderá ter de remover qualquer pontuação do nome do fuso horário. |
-| <*formato*> | No | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
+| <*timetamp*> | Sim | Cadeia | A corda que contém a hora da hora |
+| <*destinationTimeZone*> | Sim | Cadeia | O nome do fuso horário do alvo. Para obter nomes de fuso horário, consulte [os Valores do Índice do Fuso Horário](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)da Microsoft, mas poderá ter de remover qualquer pontuação do nome do fuso horário. |
+| <*formato*> | Não | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1315,12 +1315,12 @@ Converta um relógio do fuso horário de origem para o fuso horário alvo.
 convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<format>'?)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*timetamp*> | Yes | Cadeia | A corda que contém a hora da hora |
-| <*sourceTimeZone*> | Yes | Cadeia | O nome do fuso horário da fonte. Para obter nomes de fuso horário, consulte [os Valores do Índice do Fuso Horário](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)da Microsoft, mas poderá ter de remover qualquer pontuação do nome do fuso horário. |
-| <*destinationTimeZone*> | Yes | Cadeia | O nome do fuso horário do alvo. Para obter nomes de fuso horário, consulte [os Valores do Índice do Fuso Horário](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)da Microsoft, mas poderá ter de remover qualquer pontuação do nome do fuso horário. |
-| <*formato*> | No | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
+| <*timetamp*> | Sim | Cadeia | A corda que contém a hora da hora |
+| <*sourceTimeZone*> | Sim | Cadeia | O nome do fuso horário da fonte. Para obter nomes de fuso horário, consulte [os Valores do Índice do Fuso Horário](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)da Microsoft, mas poderá ter de remover qualquer pontuação do nome do fuso horário. |
+| <*destinationTimeZone*> | Sim | Cadeia | O nome do fuso horário do alvo. Para obter nomes de fuso horário, consulte [os Valores do Índice do Fuso Horário](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)da Microsoft, mas poderá ter de remover qualquer pontuação do nome do fuso horário. |
+| <*formato*> | Não | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1358,11 +1358,11 @@ Converter um tempotando do fuso horário de origem para o tempo universal coorde
 convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*timetamp*> | Yes | Cadeia | A corda que contém a hora da hora |
-| <*sourceTimeZone*> | Yes | Cadeia | O nome do fuso horário da fonte. Para obter nomes de fuso horário, consulte [os Valores do Índice do Fuso Horário](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)da Microsoft, mas poderá ter de remover qualquer pontuação do nome do fuso horário. |
-| <*formato*> | No | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
+| <*timetamp*> | Sim | Cadeia | A corda que contém a hora da hora |
+| <*sourceTimeZone*> | Sim | Cadeia | O nome do fuso horário da fonte. Para obter nomes de fuso horário, consulte [os Valores do Índice do Fuso Horário](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)da Microsoft, mas poderá ter de remover qualquer pontuação do nome do fuso horário. |
+| <*formato*> | Não | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1401,9 +1401,9 @@ Para matrizes de entrada únicas, consulte [matriz()](#array).
 createArray('<object1>', '<object2>', ...)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*objeto1*>, <*objeto2*>, ... | Yes | Qualquer, mas não misturado | Pelo menos dois itens para criar a matriz |
+| <*objeto1*>, <*objeto2*>, ... | Sim | Qualquer, mas não misturado | Pelo menos dois itens para criar a matriz |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1431,9 +1431,9 @@ Devolva um identificador de recursos uniformes de dados (URI) para uma cadeia.
 dataUri('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Cadeia | A corda para converter |
+| <*valor*> | Sim | Cadeia | A corda para converter |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1463,9 +1463,9 @@ Embora ambas as funções funcionem da mesma forma, `dataUriBinary()` é prefer�
 dataUriToBinary('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Cadeia | Os dados URI para converter |
+| <*valor*> | Sim | Cadeia | Os dados URI para converter |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1498,9 +1498,9 @@ Devolva a versão de cadeia para um identificador de recursos uniforme de dados 
 dataUriToString('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Cadeia | Os dados URI para converter |
+| <*valor*> | Sim | Cadeia | Os dados URI para converter |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1528,9 +1528,9 @@ Devolva o dia do mês de um tempotando.
 dayOfMonth('<timestamp>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*timetamp*> | Yes | Cadeia | A corda que contém a hora da hora |
+| <*timetamp*> | Sim | Cadeia | A corda que contém a hora da hora |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1558,9 +1558,9 @@ Volte o dia da semana de uma hora.
 dayOfWeek('<timestamp>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*timetamp*> | Yes | Cadeia | A corda que contém a hora da hora |
+| <*timetamp*> | Sim | Cadeia | A corda que contém a hora da hora |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1588,9 +1588,9 @@ Volte o dia do ano de um timetamp.
 dayOfYear('<timestamp>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*timetamp*> | Yes | Cadeia | A corda que contém a hora da hora |
+| <*timetamp*> | Sim | Cadeia | A corda que contém a hora da hora |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1627,9 +1627,9 @@ Devolva a versão binária para um identificador de recursos uniforme de dados (
 decodeDataUri('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Cadeia | A cadeia URI de dados para descodificar |
+| <*valor*> | Sim | Cadeia | A cadeia URI de dados para descodificar |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1662,9 +1662,9 @@ Retornar uma corda que substitua os caracteres de fuga por versões descodificad
 decodeUriComponent('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Cadeia | A corda com os personagens de fuga para descodificar |
+| <*valor*> | Sim | Cadeia | A corda com os personagens de fuga para descodificar |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1692,10 +1692,10 @@ Devolva o resultado da divisão de dois números. Para obter o resultado remanes
 div(<dividend>, <divisor>)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*dividendo*> | Yes | Inteiro ou Flutuante | O número a dividir pelo *divisor* |
-| <*divisor*> | Yes | Inteiro ou Flutuante | O número que divide o *dividendo,* mas não pode ser 0 |
+| <*dividendo*> | Sim | Inteiro ou Flutuante | O número a dividir pelo *divisor* |
+| <*divisor*> | Sim | Inteiro ou Flutuante | O número que divide o *dividendo,* mas não pode ser 0 |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1734,9 +1734,9 @@ Retornar uma versão codificada por um identificador de recursos uniforme (URI) 
 encodeUriComponent('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Cadeia | A corda para converter para formato codificado URI |
+| <*valor*> | Sim | Cadeia | A corda para converter para formato codificado URI |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1766,9 +1766,9 @@ empty('<collection>')
 empty([<collection>])
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*coleção*> | Yes | String, Array ou Objeto | A coleção para verificar |
+| <*coleção*> | Sim | String, Array ou Objeto | A coleção para verificar |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1802,10 +1802,10 @@ Esta função não é sensível a casos.
 endsWith('<text>', '<searchText>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*Texto*> | Yes | Cadeia | A corda para verificar |
-| <*searchText*> | Yes | Cadeia | O final substring para encontrar |
+| <*Texto*> | Sim | Cadeia | A corda para verificar |
+| <*searchText*> | Sim | Cadeia | O final substring para encontrar |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1835,7 +1835,7 @@ E devolve este resultado:`false`
 
 <a name="equals"></a>
 
-### <a name="equals"></a>equals
+### <a name="equals"></a>é igual a
 
 Verifique se ambos os valores, expressões ou objetos são equivalentes.
 Devolva-se quando ambos são equivalentes, ou devolva falso quando não são equivalentes.
@@ -1844,9 +1844,9 @@ Devolva-se quando ambos são equivalentes, ou devolva falso quando não são equ
 equals('<object1>', '<object2>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*objeto1*>, <*objeto2*> | Yes | Vários | Os valores, expressões ou objetos para comparar |
+| <*objeto1*>, <*objeto2*> | Sim | Vários | Os valores, expressões ou objetos para comparar |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1879,9 +1879,9 @@ first('<collection>')
 first([<collection>])
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*coleção*> | Yes | Corda ou Matriz | A coleção onde encontrar o primeiro item |
+| <*coleção*> | Sim | Corda ou Matriz | A coleção onde encontrar o primeiro item |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1914,9 +1914,9 @@ Só pode utilizar esta função quando passar parâmetros personalizados para um
 float('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Cadeia | A cadeia que tem um número de ponto flutuante válido para converter |
+| <*valor*> | Sim | Cadeia | A cadeia que tem um número de ponto flutuante válido para converter |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1944,10 +1944,10 @@ Devolva uma estada de tempo no formato especificado.
 formatDateTime('<timestamp>', '<format>'?)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*timetamp*> | Yes | Cadeia | A corda que contém a hora da hora |
-| <*formato*> | No | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
+| <*timetamp*> | Sim | Cadeia | A corda que contém a hora da hora |
+| <*formato*> | Não | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -1975,10 +1975,10 @@ Devolva um conjunto com valores que correspondam a um *nome-chave* nos dados de 
 formDataMultiValues('<actionName>', '<key>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*nome de ação*> | Yes | Cadeia | A ação cuja saída tem o valor-chave que você quer |
-| <*chave*> | Yes | Cadeia | O nome da chave cujo valor quer |
+| <*nome de ação*> | Sim | Cadeia | A ação cuja saída tem o valor-chave que você quer |
+| <*chave*> | Sim | Cadeia | O nome da chave cujo valor quer |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2007,10 +2007,10 @@ Se a função encontrar mais de uma correspondência, a função lança um erro.
 formDataValue('<actionName>', '<key>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*nome de ação*> | Yes | Cadeia | A ação cuja saída tem o valor-chave que você quer |
-| <*chave*> | Yes | Cadeia | O nome da chave cujo valor quer |
+| <*nome de ação*> | Sim | Cadeia | A ação cuja saída tem o valor-chave que você quer |
+| <*chave*> | Sim | Cadeia | O nome da chave cujo valor quer |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2038,11 +2038,11 @@ Devolva um número como uma corda que é baseada no formato especificado.
 formatNumber(<number>, <format>, <locale>?)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*número*> | Yes | Inteiro ou Duplo | O valor que quer formatar. |
-| <*formato*> | Yes | Cadeia | Uma cadeia de formato composto que especifica o formato que pretende utilizar. Para as cordas de formato numérico suportados, consulte [as cordas de formato numérico Standard](/dotnet/standard/base-types/standard-numeric-format-strings), que são suportadas por `number.ToString(<format>, <locale>)` . |
-| <*local*> | No | Cadeia | O local para usar como suportado por `number.ToString(<format>, <locale>)` . Se não for especificado, o valor predefinido é `en-us` . |
+| <*número*> | Sim | Inteiro ou Duplo | O valor que quer formatar. |
+| <*formato*> | Sim | Cadeia | Uma cadeia de formato composto que especifica o formato que pretende utilizar. Para as cordas de formato numérico suportados, consulte [as cordas de formato numérico Standard](/dotnet/standard/base-types/standard-numeric-format-strings), que são suportadas por `number.ToString(<format>, <locale>)` . |
+| <*local*> | Não | Cadeia | O local para usar como suportado por `number.ToString(<format>, <locale>)` . Se não for especificado, o valor predefinido é `en-us` . |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2092,11 +2092,11 @@ Retornar a temperatura atual mais as unidades de tempo especificadas.
 getFutureTime(<interval>, <timeUnit>, <format>?)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*intervalo*> | Yes | Integer (Número inteiro) | O número de unidades de tempo especificadas para adicionar |
-| <*timeUnit*> | Yes | Cadeia | A unidade de tempo a utilizar com *intervalo:*"Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano" |
-| <*formato*> | No | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
+| <*intervalo*> | Sim | Integer (Número inteiro) | O número de unidades de tempo especificadas para adicionar |
+| <*timeUnit*> | Sim | Cadeia | A unidade de tempo a utilizar com *intervalo:*"Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano" |
+| <*formato*> | Não | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2136,11 +2136,11 @@ Retornar o tempo de tempo atual menos as unidades de tempo especificadas.
 getPastTime(<interval>, <timeUnit>, <format>?)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*intervalo*> | Yes | Integer (Número inteiro) | O número de unidades de tempo especificadas para subtrair |
-| <*timeUnit*> | Yes | Cadeia | A unidade de tempo a utilizar com *intervalo:*"Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano" |
-| <*formato*> | No | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
+| <*intervalo*> | Sim | Integer (Número inteiro) | O número de unidades de tempo especificadas para subtrair |
+| <*timeUnit*> | Sim | Cadeia | A unidade de tempo a utilizar com *intervalo:*"Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano" |
+| <*formato*> | Não | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2182,10 +2182,10 @@ greater(<value>, <compareTo>)
 greater('<value>', '<compareTo>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Inteiro, Flutuante ou String | O primeiro valor para verificar se é maior do que o segundo valor |
-| <*compararTo*> | Yes | Inteiro, Float ou String, respectivamente | O valor de comparação |
+| <*valor*> | Sim | Inteiro, Flutuante ou String | O primeiro valor para verificar se é maior do que o segundo valor |
+| <*compararTo*> | Sim | Inteiro, Float ou String, respectivamente | O valor de comparação |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2219,10 +2219,10 @@ greaterOrEquals(<value>, <compareTo>)
 greaterOrEquals('<value>', '<compareTo>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Inteiro, Flutuante ou String | O primeiro valor para verificar se é maior ou igual ao segundo valor |
-| <*compararTo*> | Yes | Inteiro, Float ou String, respectivamente | O valor de comparação |
+| <*valor*> | Sim | Inteiro, Flutuante ou String | O primeiro valor para verificar se é maior ou igual ao segundo valor |
+| <*compararTo*> | Sim | Inteiro, Float ou String, respectivamente | O valor de comparação |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2260,9 +2260,9 @@ Além disso, pode especificar um formato diferente para o GUID que não seja o f
 guid('<format>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*formato*> | No | Cadeia | Um único [especificador de formato](/dotnet/api/system.guid.tostring?view=netcore-3.1#system_guid_tostring_system_string_) para o GUID devolvido. Por predefinição, o formato é "D", mas pode usar "N", "D", "B", "P" ou "X". |
+| <*formato*> | Não | Cadeia | Um único [especificador de formato](/dotnet/api/system.guid.tostring?view=netcore-3.1#system_guid_tostring_system_string_) para o GUID devolvido. Por predefinição, o formato é "D", mas pode usar "N", "D", "B", "P" ou "X". |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2290,11 +2290,11 @@ Verifique se uma expressão é verdadeira ou falsa. Com base no resultado, devol
 if(<expression>, <valueIfTrue>, <valueIfFalse>)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*expressão*> | Yes | Booleano | A expressão para verificar |
-| <*valorIfTrue*> | Yes | Qualquer | O valor para voltar quando a expressão é verdadeira |
-| <*valorIfFalse*> | Yes | Qualquer | O valor a devolver quando a expressão é falsa |
+| <*expressão*> | Sim | Booleano | A expressão para verificar |
+| <*valorIfTrue*> | Sim | Qualquer | O valor para voltar quando a expressão é verdadeira |
+| <*valorIfFalse*> | Sim | Qualquer | O valor a devolver quando a expressão é falsa |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2322,10 +2322,10 @@ Esta função não é sensível a casos, e os índices começam com o número 0.
 indexOf('<text>', '<searchText>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*Texto*> | Yes | Cadeia | A corda que tem o sub-adc de ser encontrado |
-| <*searchText*> | Yes | Cadeia | O sub-cordão para encontrar |
+| <*Texto*> | Sim | Cadeia | A corda que tem o sub-adc de ser encontrado |
+| <*searchText*> | Sim | Cadeia | O sub-cordão para encontrar |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2353,9 +2353,9 @@ Devolva a versão inteiro por uma corda.
 int('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Cadeia | A corda para converter |
+| <*valor*> | Sim | Cadeia | A corda para converter |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2408,9 +2408,9 @@ Utilize esta função dentro do laço para cada loop.
 items('<loopName>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*loopName*> | Yes | Cadeia | O nome para cada loop |
+| <*loopName*> | Sim | Cadeia | O nome para cada loop |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2436,9 +2436,9 @@ Devolva o valor de índice para a iteração atual dentro de um loop Until. Pode
 iterationIndexes('<loopName>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição | 
+| Parâmetro | Obrigatório | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*loopName*> | Yes | Cadeia | O nome para o loop Until | 
+| <*loopName*> | Sim | Cadeia | O nome para o loop Until | 
 ||||| 
 
 | Valor devolvido | Tipo | Descrição | 
@@ -2537,9 +2537,9 @@ Retornar o valor ou objeto do tipo JavaScript (JSON) para uma cadeia ou XML.
 json('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | String ou XML | A corda ou XML para converter |
+| <*valor*> | Sim | String ou XML | A corda ou XML para converter |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2609,9 +2609,9 @@ intersection([<collection1>], [<collection2>], ...)
 intersection('<collection1>', '<collection2>', ...)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*coleção1*>, <*coleção2*>, ... | Yes | Matriz ou Objeto, mas não ambos | As coleções de onde você quer *apenas* os itens comuns |
+| <*coleção1*>, <*coleção2*>, ... | Sim | Matriz ou Objeto, mas não ambos | As coleções de onde você quer *apenas* os itens comuns |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2639,10 +2639,10 @@ Devolva uma corda que tenha todos os itens de uma matriz e tenha cada personagem
 join([<collection>], '<delimiter>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*coleção*> | Yes | Matriz | A matriz que tem os itens para se juntar |
-| <*delimiter*> | Yes | Cadeia | O separador que aparece entre cada personagem na cadeia resultante |
+| <*coleção*> | Sim | Matriz | A matriz que tem os itens para se juntar |
+| <*delimiter*> | Sim | Cadeia | O separador que aparece entre cada personagem na cadeia resultante |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2671,9 +2671,9 @@ last('<collection>')
 last([<collection>])
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*coleção*> | Yes | Corda ou Matriz | A coleção onde encontrar o último item |
+| <*coleção*> | Sim | Corda ou Matriz | A coleção onde encontrar o último item |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2706,10 +2706,10 @@ Esta função não é sensível a casos, e os índices começam com o número 0.
 lastIndexOf('<text>', '<searchText>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*Texto*> | Yes | Cadeia | A corda que tem o sub-adc de ser encontrado |
-| <*searchText*> | Yes | Cadeia | O sub-cordão para encontrar |
+| <*Texto*> | Sim | Cadeia | A corda que tem o sub-adc de ser encontrado |
+| <*searchText*> | Sim | Cadeia | O sub-cordão para encontrar |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2738,9 +2738,9 @@ length('<collection>')
 length([<collection>])
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*coleção*> | Yes | Corda ou Matriz | A coleção com os itens a contar |
+| <*coleção*> | Sim | Corda ou Matriz | A coleção com os itens a contar |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2771,10 +2771,10 @@ less(<value>, <compareTo>)
 less('<value>', '<compareTo>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Inteiro, Flutuante ou String | O primeiro valor para verificar se menos do que o segundo valor |
-| <*compararTo*> | Yes | Inteiro, Float ou String, respectivamente | O item de comparação |
+| <*valor*> | Sim | Inteiro, Flutuante ou String | O primeiro valor para verificar se menos do que o segundo valor |
+| <*compararTo*> | Sim | Inteiro, Float ou String, respectivamente | O item de comparação |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2808,10 +2808,10 @@ lessOrEquals(<value>, <compareTo>)
 lessOrEquals('<value>', '<compareTo>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Inteiro, Flutuante ou String | O primeiro valor para verificar se menos ou igual ao segundo valor |
-| <*compararTo*> | Yes | Inteiro, Float ou String, respectivamente | O item de comparação |
+| <*valor*> | Sim | Inteiro, Flutuante ou String | O primeiro valor para verificar se menos ou igual ao segundo valor |
+| <*compararTo*> | Sim | Inteiro, Float ou String, respectivamente | O item de comparação |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2866,10 +2866,10 @@ max(<number1>, <number2>, ...)
 max([<number1>, <number2>, ...])
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*número1*>, <*número2*>, ... | Yes | Inteiro, Float, ou ambos | O conjunto de números a partir dos quais você quer o valor mais alto |
-| [<número *1*>, <> *número2,* ...] | Yes | Matriz - Inteiro, Float, ou ambos | A variedade de números a partir dos quais você quer o valor mais alto |
+| <*número1*>, <*número2*>, ... | Sim | Inteiro, Float, ou ambos | O conjunto de números a partir dos quais você quer o valor mais alto |
+| [<número *1*>, <> *número2,* ...] | Sim | Matriz - Inteiro, Float, ou ambos | A variedade de números a partir dos quais você quer o valor mais alto |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2899,10 +2899,10 @@ min(<number1>, <number2>, ...)
 min([<number1>, <number2>, ...])
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*número1*>, <*número2*>, ... | Yes | Inteiro, Float, ou ambos | O conjunto de números a partir dos quais se pretende o valor mais baixo |
-| [<número *1*>, <> *número2,* ...] | Yes | Matriz - Inteiro, Float, ou ambos | A variedade de números a partir dos quais se quer o valor mais baixo |
+| <*número1*>, <*número2*>, ... | Sim | Inteiro, Float, ou ambos | O conjunto de números a partir dos quais se pretende o valor mais baixo |
+| [<número *1*>, <> *número2,* ...] | Sim | Matriz - Inteiro, Float, ou ambos | A variedade de números a partir dos quais se quer o valor mais baixo |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2932,10 +2932,10 @@ Para obter o resultado inteiro, consulte [div()](#div).
 mod(<dividend>, <divisor>)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*dividendo*> | Yes | Inteiro ou Flutuante | O número a dividir pelo *divisor* |
-| <*divisor*> | Yes | Inteiro ou Flutuante | O número que divide o *dividendo,* mas não pode ser 0. |
+| <*dividendo*> | Sim | Inteiro ou Flutuante | O número a dividir pelo *divisor* |
+| <*divisor*> | Sim | Inteiro ou Flutuante | O número que divide o *dividendo,* mas não pode ser 0. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2963,10 +2963,10 @@ Retire o produto da multiplicação de dois números.
 mul(<multiplicand1>, <multiplicand2>)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*multiplicand1*> | Yes | Inteiro ou Flutuante | O número a multiplicar por *multiplicand2* |
-| <*multiplicand2*> | Yes | Inteiro ou Flutuante | O número que múltiplos *multiplicand1* |
+| <*multiplicand1*> | Sim | Inteiro ou Flutuante | O número a multiplicar por *multiplicand2* |
+| <*multiplicand2*> | Sim | Inteiro ou Flutuante | O número que múltiplos *multiplicand1* |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -2998,10 +2998,10 @@ Devolva o corpo para uma parte específica na saída de uma ação que tenha vá
 multipartBody('<actionName>', <index>)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*nome de ação*> | Yes | Cadeia | O nome para a ação que tem saída com várias partes |
-| <*índice*> | Yes | Integer (Número inteiro) | O valor do índice para a parte que você quer |
+| <*nome de ação*> | Sim | Cadeia | O nome para a ação que tem saída com várias partes |
+| <*índice*> | Sim | Integer (Número inteiro) | O valor do índice para a parte que você quer |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -3020,9 +3020,9 @@ Devolva-se quando a expressão é falsa, ou devolva falsa quando verdadeira.
 not(<expression>)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*expressão*> | Yes | Booleano | A expressão para verificar |
+| <*expressão*> | Sim | Booleano | A expressão para verificar |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -3069,9 +3069,9 @@ Devolva-se quando pelo menos uma expressão é verdadeira, ou devolva falsa quan
 or(<expression1>, <expression2>, ...)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*expression1*>, *expressão <2*>, ... | Yes | Booleano | As expressões para verificar |
+| <*expression1*>, *expressão <2*>, ... | Sim | Booleano | As expressões para verificar |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -3117,9 +3117,9 @@ Devolva as saídas de uma ação em tempo de execução. Utilize esta função, 
 outputs('<actionName>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*nome de ação*> | Yes | Cadeia | O nome para a saída da ação que você quer |
+| <*nome de ação*> | Sim | Cadeia | O nome para a saída da ação que você quer |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -3180,9 +3180,9 @@ Devolva o valor para um parâmetro descrito na definição de fluxo de trabalho.
 parameters('<parameterName>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*nome de parâmetroName*> | Yes | Cadeia | O nome do parâmetro cujo valor quer |
+| <*nome de parâmetroName*> | Sim | Cadeia | O nome do parâmetro cujo valor quer |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -3218,10 +3218,10 @@ Devolva um inteiro aleatório de uma gama especificada, que é inclusiva apenas 
 rand(<minValue>, <maxValue>)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*minValue*> | Yes | Integer (Número inteiro) | O número mais baixo de inteiros na gama |
-| <*maxValue*> | Yes | Integer (Número inteiro) | O inteiro que segue o mais alto inteiro na gama que a função pode devolver |
+| <*minValue*> | Sim | Integer (Número inteiro) | O número mais baixo de inteiros na gama |
+| <*maxValue*> | Sim | Integer (Número inteiro) | O inteiro que segue o mais alto inteiro na gama que a função pode devolver |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -3249,10 +3249,10 @@ Devolva uma matriz de inteiros que começa a partir de um inteiro especificado.
 range(<startIndex>, <count>)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*startIndex*> | Yes | Integer (Número inteiro) | Um valor inteiro que inicia a matriz como o primeiro item |
-| <*contar*> | Yes | Integer (Número inteiro) | O número de inteiros na matriz |
+| <*startIndex*> | Sim | Integer (Número inteiro) | Um valor inteiro que inicia a matriz como o primeiro item |
+| <*contar*> | Sim | Integer (Número inteiro) | O número de inteiros na matriz |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -3280,11 +3280,11 @@ Substitua um sub-adc de sublagem com a corda especificada e devolva a cadeia de 
 replace('<text>', '<oldText>', '<newText>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*Texto*> | Yes | Cadeia | A corda que tem o sub-cordão para substituir |
-| <*oldText*> | Yes | Cadeia | O sub-cordão para substituir |
-| <*newText*> | Yes | Cadeia | A cadeia de substituição |
+| <*Texto*> | Sim | Cadeia | A corda que tem o sub-cordão para substituir |
+| <*oldText*> | Sim | Cadeia | O sub-cordão para substituir |
+| <*newText*> | Sim | Cadeia | A cadeia de substituição |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -3312,10 +3312,10 @@ Remova uma propriedade de um objeto e devolva o objeto atualizado. Se a propried
 removeProperty(<object>, '<property>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*objeto*> | Yes | Objeto | O objeto JSON de onde você quer remover uma propriedade |
-| <*propriedade*> | Yes | Cadeia | O nome para a propriedade para remover |
+| <*objeto*> | Sim | Objeto | O objeto JSON de onde você quer remover uma propriedade |
+| <*propriedade*> | Sim | Cadeia | O nome para a propriedade para remover |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -3329,11 +3329,11 @@ Para remover uma propriedade infantil de uma propriedade existente, utilize esta
 removeProperty(<object>['<parent-property>'], '<child-property>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*objeto*> | Yes | Objeto | O objeto JSON cuja propriedade você quer remover |
-| <*propriedade-mãe*> | Yes | Cadeia | O nome para propriedade parental com a propriedade infantil que você quer remover |
-| <*propriedade infantil*> | Yes | Cadeia | O nome da propriedade da criança para remover |
+| <*objeto*> | Sim | Objeto | O objeto JSON cuja propriedade você quer remover |
+| <*propriedade-mãe*> | Sim | Cadeia | O nome para propriedade parental com a propriedade infantil que você quer remover |
+| <*propriedade infantil*> | Sim | Cadeia | O nome da propriedade da criança para remover |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -3409,9 +3409,9 @@ Devolva as entradas e saídas de todas as ações que estão dentro da ação es
 result('<scopedActionName>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*nome de aplicação de âmbito*> | Yes | Cadeia | O nome da ação a partir da qual devolver as entradas e saídas de todas as ações internas |
+| <*nome de aplicação de âmbito*> | Sim | Cadeia | O nome da ação a partir da qual devolver as entradas e saídas de todas as ações internas |
 ||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -3530,11 +3530,11 @@ Desaje o valor da propriedade do objeto JSON e devolva o objeto atualizado. Se a
 setProperty(<object>, '<property>', <value>)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*objeto*> | Yes | Objeto | O objeto JSON cuja propriedade você quer definir |
-| <*propriedade*> | Yes | Cadeia | O nome para a propriedade existente ou nova para definir |
-| <*valor*> | Yes | Qualquer | O valor a definir para o imóvel especificado |
+| <*objeto*> | Sim | Objeto | O objeto JSON cuja propriedade você quer definir |
+| <*propriedade*> | Sim | Cadeia | O nome para a propriedade existente ou nova para definir |
+| <*valor*> | Sim | Qualquer | O valor a definir para o imóvel especificado |
 |||||
 
 Para colocar a propriedade da criança num objeto infantil, utilize uma `setProperty()` chamada aninhada. Caso contrário, a função devolve apenas o objeto da criança como saída.
@@ -3543,12 +3543,12 @@ Para colocar a propriedade da criança num objeto infantil, utilize uma `setProp
 setProperty(<object>['<parent-property>'], '<parent-property>', setProperty(<object>['parentProperty'], '<child-property>', <value>))
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*objeto*> | Yes | Objeto | O objeto JSON cuja propriedade você quer definir |
-| <*propriedade-mãe*> | Yes | Cadeia | O nome para propriedade parental com a propriedade infantil que você quer definir |
-| <*propriedade infantil*> | Yes | Cadeia | O nome para a propriedade da criança para definir |
-| <*valor*> | Yes | Qualquer | O valor a definir para o imóvel especificado |
+| <*objeto*> | Sim | Objeto | O objeto JSON cuja propriedade você quer definir |
+| <*propriedade-mãe*> | Sim | Cadeia | O nome para propriedade parental com a propriedade infantil que você quer definir |
+| <*propriedade infantil*> | Sim | Cadeia | O nome para a propriedade da criança para definir |
+| <*valor*> | Sim | Qualquer | O valor a definir para o imóvel especificado |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -3622,10 +3622,10 @@ Retire os itens da parte da frente de uma coleção e devolva *todos os outros* 
 skip([<collection>], <count>)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*coleção*> | Yes | Matriz | A coleção cujos itens você quer remover |
-| <*contar*> | Yes | Integer (Número inteiro) | Um número inteiro positivo para o número de itens a remover na frente |
+| <*coleção*> | Sim | Matriz | A coleção cujos itens você quer remover |
+| <*contar*> | Sim | Integer (Número inteiro) | Um número inteiro positivo para o número de itens a remover na frente |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -3653,10 +3653,10 @@ Devolva uma matriz que contenha sublutos, separadas por vírgulas, com base no c
 split('<text>', '<delimiter>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*Texto*> | Yes | Cadeia | A corda para separar em sublamentos com base no limonado especificado na cadeia original |
-| <*delimiter*> | Yes | Cadeia | O personagem na corda original para usar como o delimiter |
+| <*Texto*> | Sim | Cadeia | A corda para separar em sublamentos com base no limonado especificado na cadeia original |
+| <*delimiter*> | Sim | Cadeia | O personagem na corda original para usar como o delimiter |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -3684,10 +3684,10 @@ Volte o início do dia para uma hora de tempo.
 startOfDay('<timestamp>', '<format>'?)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*timetamp*> | Yes | Cadeia | A corda que contém a hora da hora |
-| <*formato*> | No | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
+| <*timetamp*> | Sim | Cadeia | A corda que contém a hora da hora |
+| <*formato*> | Não | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -3715,10 +3715,10 @@ Volte a ligar o início da hora para uma hora marcada.
 startOfHour('<timestamp>', '<format>'?)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*timetamp*> | Yes | Cadeia | A corda que contém a hora da hora |
-| <*formato*> | No | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
+| <*timetamp*> | Sim | Cadeia | A corda que contém a hora da hora |
+| <*formato*> | Não | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -3746,10 +3746,10 @@ Devolva o início do mês para uma hora de tempo.
 startOfMonth('<timestamp>', '<format>'?)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*timetamp*> | Yes | Cadeia | A corda que contém a hora da hora |
-| <*formato*> | No | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
+| <*timetamp*> | Sim | Cadeia | A corda que contém a hora da hora |
+| <*formato*> | Não | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -3789,10 +3789,10 @@ Esta função não é sensível a casos.
 startsWith('<text>', '<searchText>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*Texto*> | Yes | Cadeia | A corda para verificar |
-| <*searchText*> | Yes | Cadeia | A cadeia inicial para encontrar |
+| <*Texto*> | Sim | Cadeia | A corda para verificar |
+| <*searchText*> | Sim | Cadeia | A cadeia inicial para encontrar |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -3822,7 +3822,7 @@ E devolve este resultado:`false`
 
 <a name="string"></a>
 
-### <a name="string"></a>string
+### <a name="string"></a>cadeia
 
 Devolva a versão de corda por um valor.
 
@@ -3830,9 +3830,9 @@ Devolva a versão de corda por um valor.
 string(<value>)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Qualquer | O valor para converter. Se este valor for nulo ou avaliar a nulo, o valor é convertido para um valor de cadeia vazia `""` ( ) <p><p>Por exemplo, se atribuir uma variável de corda a uma propriedade inexistente, à qual pode aceder com o `?` operador, o valor nulo é convertido numa cadeia vazia. No entanto, comparar um valor nulo não é o mesmo que comparar uma corda vazia. |
+| <*valor*> | Sim | Qualquer | O valor para converter. Se este valor for nulo ou avaliar a nulo, o valor é convertido para um valor de cadeia vazia `""` ( ) <p><p>Por exemplo, se atribuir uma variável de corda a uma propriedade inexistente, à qual pode aceder com o `?` operador, o valor nulo é convertido numa cadeia vazia. No entanto, comparar um valor nulo não é o mesmo que comparar uma corda vazia. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -3874,10 +3874,10 @@ Devolva o resultado da subtração do segundo número do primeiro número.
 sub(<minuend>, <subtrahend>)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*minuend*> | Yes | Inteiro ou Flutuante | O número a partir do qual subtrair o *subtraído* |
-| <*subtrahend*> | Yes | Inteiro ou Flutuante | O número para subtrair do *minuend* |
+| <*minuend*> | Sim | Inteiro ou Flutuante | O número a partir do qual subtrair o *subtraído* |
+| <*subtrahend*> | Sim | Inteiro ou Flutuante | O número para subtrair do *minuend* |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -3906,11 +3906,11 @@ Os valores do índice começam com o número 0.
 substring('<text>', <startIndex>, <length>)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*Texto*> | Yes | Cadeia | A corda cujos personagens quer |
-| <*startIndex*> | Yes | Integer (Número inteiro) | Um número positivo igual ou superior a 0 que pretende utilizar como posição inicial ou valor de índice |
-| <*comprimento*> | Yes | Integer (Número inteiro) | Um número positivo de caracteres que você quer no substring |
+| <*Texto*> | Sim | Cadeia | A corda cujos personagens quer |
+| <*startIndex*> | Sim | Integer (Número inteiro) | Um número positivo igual ou superior a 0 que pretende utilizar como posição inicial ou valor de índice |
+| <*comprimento*> | Sim | Integer (Número inteiro) | Um número positivo de caracteres que você quer no substring |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -3939,12 +3939,12 @@ Consulte também [getPastTime](#getPastTime).
 subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*timetamp*> | Yes | Cadeia | A corda que contém a hora da hora |
-| <*intervalo*> | Yes | Integer (Número inteiro) | O número de unidades de tempo especificadas para subtrair |
-| <*timeUnit*> | Yes | Cadeia | A unidade de tempo a utilizar com *intervalo:*"Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano" |
-| <*formato*> | No | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
+| <*timetamp*> | Sim | Cadeia | A corda que contém a hora da hora |
+| <*intervalo*> | Sim | Integer (Número inteiro) | O número de unidades de tempo especificadas para subtrair |
+| <*timeUnit*> | Sim | Cadeia | A unidade de tempo a utilizar com *intervalo:*"Segundo", "Minuto", "Hora", "Dia", "Semana", "Mês", "Ano" |
+| <*formato*> | Não | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -3983,10 +3983,10 @@ take('<collection>', <count>)
 take([<collection>], <count>)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*coleção*> | Yes | Corda ou Matriz | A coleção cujos itens você quer |
-| <*contar*> | Yes | Integer (Número inteiro) | Um número inteiro positivo para o número de itens que você quer da frente |
+| <*coleção*> | Sim | Corda ou Matriz | A coleção cujos itens você quer |
+| <*contar*> | Sim | Integer (Número inteiro) | Um número inteiro positivo para o número de itens que você quer da frente |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4018,9 +4018,9 @@ Devolve o número de tiques, que são intervalos de 100-nanosegundos, desde 1 de
 ticks('<timestamp>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*timetamp*> | Yes | Cadeia | A corda para uma hora de tempo |
+| <*timetamp*> | Sim | Cadeia | A corda para uma hora de tempo |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4038,9 +4038,9 @@ Devolva uma corda em formato minúsculo. Se um personagem na corda não tiver um
 toLower('<text>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*Texto*> | Yes | Cadeia | A corda para voltar em formato minúsculo |
+| <*Texto*> | Sim | Cadeia | A corda para voltar em formato minúsculo |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4068,9 +4068,9 @@ Devolva uma corda em formato maiúscula. Se um personagem na corda não tiver um
 toUpper('<text>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*Texto*> | Yes | Cadeia | A corda para voltar em formato maiúscula |
+| <*Texto*> | Sim | Cadeia | A corda para voltar em formato maiúscula |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4137,9 +4137,9 @@ Devolva um conjunto com valores que correspondam a um nome chave nos *dados* de 
 triggerFormDataMultiValues('<key>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*chave*> | Yes | Cadeia | O nome da chave cujo valor quer |
+| <*chave*> | Sim | Cadeia | O nome da chave cujo valor quer |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4168,9 +4168,9 @@ Se a função encontrar mais de uma correspondência, a função lança um erro.
 triggerFormDataValue('<key>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*chave*> | Yes | Cadeia | O nome da chave cujo valor quer |
+| <*chave*> | Sim | Cadeia | O nome da chave cujo valor quer |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4198,9 +4198,9 @@ Devolva o corpo para uma parte específica na saída de um gatilho que tenha vá
 triggerMultipartBody(<index>)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*índice*> | Yes | Integer (Número inteiro) | O valor do índice para a parte que você quer |
+| <*índice*> | Sim | Integer (Número inteiro) | O valor do índice para a parte que você quer |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4235,9 +4235,9 @@ Remova o espaço branco de uma corda e devolva a corda atualizada.
 trim('<text>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*Texto*> | Yes | Cadeia | A corda que tem o espaço branco líder e trailing para remover |
+| <*Texto*> | Sim | Cadeia | A corda que tem o espaço branco líder e trailing para remover |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4267,9 +4267,9 @@ union('<collection1>', '<collection2>', ...)
 union([<collection1>], [<collection2>], ...)
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*coleção1*>, <*coleção2*>, ...  | Yes | Matriz ou Objeto, mas não ambos | As coleções de onde você quer *todos os* itens |
+| <*coleção1*>, <*coleção2*>, ...  | Sim | Matriz ou Objeto, mas não ambos | As coleções de onde você quer *todos os* itens |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4299,9 +4299,9 @@ Embora ambas as funções funcionem da mesma forma, `uriComponent()` é preferí
 uriComponent('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Cadeia | A corda para converter para formato codificado URI |
+| <*valor*> | Sim | Cadeia | A corda para converter para formato codificado URI |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4329,9 +4329,9 @@ Devolva a versão binária para um componente de identificação de recursos uni
 uriComponentToBinary('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Cadeia | A cadeia codificada uri para converter |
+| <*valor*> | Sim | Cadeia | A cadeia codificada uri para converter |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4364,9 +4364,9 @@ Retorna a versão de corda para uma cadeia codificada de identificação de recu
 uriComponentToString('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Cadeia | A cadeia codificada uri para descodificar |
+| <*valor*> | Sim | Cadeia | A cadeia codificada uri para descodificar |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4394,9 +4394,9 @@ Devolva o `host` valor de um identificador de recursos uniforme (URI).
 uriHost('<uri>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*uri*> | Yes | Cadeia | O URI cujo `host` valor quer |
+| <*uri*> | Sim | Cadeia | O URI cujo `host` valor quer |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4424,9 +4424,9 @@ Devolva o `path` valor de um identificador de recursos uniforme (URI).
 uriPath('<uri>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*uri*> | Yes | Cadeia | O URI cujo `path` valor quer |
+| <*uri*> | Sim | Cadeia | O URI cujo `path` valor quer |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4454,9 +4454,9 @@ Devolva os `path` valores e `query` valores para um identificador de recursos un
 uriPathAndQuery('<uri>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*uri*> | Yes | Cadeia | O URI cujos `path` valores e `query` valores você quer |
+| <*uri*> | Sim | Cadeia | O URI cujos `path` valores e `query` valores você quer |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4484,9 +4484,9 @@ Devolva o `port` valor de um identificador de recursos uniforme (URI).
 uriPort('<uri>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*uri*> | Yes | Cadeia | O URI cujo `port` valor quer |
+| <*uri*> | Sim | Cadeia | O URI cujo `port` valor quer |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4514,9 +4514,9 @@ Devolva o `query` valor de um identificador de recursos uniforme (URI).
 uriQuery('<uri>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*uri*> | Yes | Cadeia | O URI cujo `query` valor quer |
+| <*uri*> | Sim | Cadeia | O URI cujo `query` valor quer |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4544,9 +4544,9 @@ Devolva o `scheme` valor de um identificador de recursos uniforme (URI).
 uriScheme('<uri>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*uri*> | Yes | Cadeia | O URI cujo `scheme` valor quer |
+| <*uri*> | Sim | Cadeia | O URI cujo `scheme` valor quer |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4577,9 +4577,9 @@ utcNow('<format>')
 Opcionalmente, pode especificar um formato diferente com o *<formato*> parâmetro.
 
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*formato*> | No | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
+| <*formato*> | Não | Cadeia | Ou um [especificador de formato único](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato predefinido para a timetamp é ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffK), que está em conformidade com a [NORMA 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva a informação do fuso horário. |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4619,9 +4619,9 @@ Devolva o valor para uma variável especificada.
 variables('<variableName>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*nome variável*> | Yes | Cadeia | O nome da variável cujo valor quer |
+| <*nome variável*> | Sim | Cadeia | O nome da variável cujo valor quer |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4650,9 +4650,9 @@ Devolva todos os detalhes sobre o fluxo de trabalho em si durante o tempo de fun
 workflow().<property>
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*propriedade*> | No | Cadeia | O nome da propriedade workflow cujo valor você quer <p>Um objeto de fluxo de trabalho tem estas propriedades: **nome,** **tipo,** **id,** **localização,** e **execução.** O valor da propriedade **de execução** é também um objeto que tem estas propriedades: **nome,** **tipo,** e **id.** |
+| <*propriedade*> | Não | Cadeia | O nome da propriedade workflow cujo valor você quer <p>Um objeto de fluxo de trabalho tem estas propriedades: **nome,** **tipo,** **id,** **localização,** e **execução.** O valor da propriedade **de execução** é também um objeto que tem estas propriedades: **nome,** **tipo,** e **id.** |
 |||||
 
 *Exemplo*
@@ -4673,9 +4673,9 @@ Retornar a versão XML para uma cadeia que contenha um objeto JSON.
 xml('<value>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Yes | Cadeia | A corda com o objeto JSON para converter <p>O objeto JSON deve ter apenas uma propriedade raiz, que não pode ser uma matriz. <br>Utilize o carácter de backslash \\ () como um personagem de fuga para a marca de dupla citação ("). |
+| <*valor*> | Sim | Cadeia | A corda com o objeto JSON para converter <p>O objeto JSON deve ter apenas uma propriedade raiz, que não pode ser uma matriz. <br>Utilize o carácter de backslash \\ () como um personagem de fuga para a marca de dupla citação ("). |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4731,10 +4731,10 @@ Verifique se xML se trata de nós ou valores que correspondam a uma expressão X
 xpath('<xml>', '<xpath>')
 ```
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*xml*> | Yes | Qualquer | A cadeia XML para procurar nóles ou valores que correspondam a um valor de expressão XPath |
-| <*xpath*> | Yes | Qualquer | A expressão XPath usada para encontrar nosdes ou valores XML correspondentes |
+| <*xml*> | Sim | Qualquer | A cadeia XML para procurar nóles ou valores que correspondam a um valor de expressão XPath |
+| <*xpath*> | Sim | Qualquer | A expressão XPath usada para encontrar nosdes ou valores XML correspondentes |
 |||||
 
 | Valor devolvido | Tipo | Descrição |
@@ -4746,21 +4746,15 @@ xpath('<xml>', '<xpath>')
 
 *Exemplo 1*
 
-Este exemplo encontra nódigos que correspondem ao `<name></name>` nó nos argumentos especificados, e devolve uma matriz com esses valores de nó:
+Suponha que tem esta `'items'` cadeia XML: 
+
+`"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+
+Este exemplo passa na expressão XPath, `'/produce/item/name'` para encontrar os nó que combinam com o nó na cadeia `<name></name>` `'items'` XML, e devolve uma matriz com esses valores de nó:
 
 `xpath(xml(parameters('items')), '/produce/item/name')`
 
-Aqui estão os argumentos:
-
-* A cadeia "itens", que contém este XML:
-
-  `"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
-
-  O exemplo utiliza a função [parâmetros()](#parameters) para obter a cadeia XML do argumento "itens", mas também deve converter a corda para o formato XML utilizando a função [xml().](#xml)
-
-* Esta expressão XPath, que é passada como uma corda:
-
-  `"/produce/item/name"`
+O exemplo também utiliza a função [parâmetros()](#parameters) para obter a cadeia XML `'items'` e converter a corda para o formato XML utilizando a função [xml().](#xml)
 
 Aqui está o conjunto de resultados com os nóns que `<name></name` combinam:
 
@@ -4768,63 +4762,103 @@ Aqui está o conjunto de resultados com os nóns que `<name></name` combinam:
 
 *Exemplo 2*
 
-Seguindo no Exemplo 1, este exemplo encontra nós que combinam com o `<count></count>` nó e adiciona esses valores de nó com a `sum()` função:
+Seguindo o Exemplo 1, este exemplo passa na expressão XPath, `'/produce/item/name[1]'` para encontrar o primeiro elemento que é a criança do `name` `item` elemento.
 
-`xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
+`xpath(xml(parameters('items')), '/produce/item/name[1]')`
 
-E devolve este resultado:`30`
+Aqui está o resultado:`Gala`
 
 *Exemplo 3*
 
-Para este exemplo, ambas as expressões encontram nós que combinam com o `<location></location>` nó, nos argumentos especificados, que incluem XML com um espaço de nome. 
+Seguindo o Exemplo 1, este exemplo passa na expressão XPath, `'/produce/item/name[last()]'` para encontrar o último elemento que é a criança do `name` `item` elemento.
 
-> [!NOTE]
+`xpath(xml(parameters('items')), '/produce/item/name[last()]')`
+
+Aqui está o resultado:`Honeycrisp`
+
+*Exemplo 4*
+
+Neste exemplo, suponha que a sua `items` cadeia XML também contém os atributos, `expired='true'` `expired='false'` e:
+
+`"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+
+Este exemplo passa na expressão XPath, `'//name[@expired]'` para encontrar todos os `name` elementos que têm o `expired` atributo:
+
+`xpath(xml(parameters('items')), '//name[@expired]')`
+
+Aqui está o resultado:`[ Gala, Honeycrisp ]`
+
+*Exemplo 5*
+
+Neste exemplo, suponha que a sua `items` cadeia XML contém apenas este atributo, `expired = 'true'` :
+
+`"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+
+Este exemplo passa na expressão XPath, `'//name[@expired = 'true']'` para encontrar todos os `name` elementos que têm o atributo, `expired = 'true'` :
+
+`xpath(xml(parameters('items')), '//name[@expired = 'true']')`
+
+Aqui está o resultado:`[ Gala ]`
+
+*Exemplo 6*
+
+Neste exemplo, suponha que a sua `items` cadeia XML também contém estes atributos: 
+
+* `expired='true' price='12'`
+* `expired='false' price='40'`
+
+`"<?xml version="1.0"?> <produce> <item> <name expired='true' price='12'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false' price='40'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+
+Este exemplo passa na expressão XPath, `'//name[price>35]'` para encontrar todos os `name` elementos que `price > 35` têm:
+
+`xpath(xml(parameters('items')), '//name[price>35]')`
+
+Aqui está o resultado:`Honeycrisp`
+
+*Exemplo 7*
+
+Neste exemplo, suponha que a sua `items` cadeia XML é a mesma que no Exemplo 1:
+
+`"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+
+Este exemplo encontra nóleiros que combinam com o `<count></count>` nó e adiciona esses valores de nó com a `sum()` função:
+
+`xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
+
+Aqui está o resultado:`30`
+
+*Exemplo 8*
+
+Neste exemplo, suponha que você tem esta cadeia XML, que inclui o espaço de nome de documento XML, `xmlns="http://contoso.com"` :
+
+`"<?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>"`
+
+Estas expressões usam a expressão `/*[name()="file"]/*[name()="location"]` `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]` XPath, ou, para encontrar nós que correspondam ao `<location></location>` nó. Estes exemplos mostram a sintaxe que utiliza no Logic App Designer ou no editor de expressão:
+
+* `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
+* `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]')`
+
+Aqui está o nó de resultado que combina com o `<location></location>` nó: 
+
+`<location xmlns="https://contoso.com">Paris</location>`
+
+> [!IMPORTANT]
 >
-> Se estiver a trabalhar na visualização de código, escape à marca de dupla cotação (") utilizando o carácter backslash \\ (). 
+> Se trabalhar na visualização de código, escape à marca de dupla citação (") utilizando o carácter de backslash \\ (). 
 > Por exemplo, tens de usar caracteres de fuga quando serializas uma expressão como uma corda JSON. 
 > No entanto, se estiver a trabalhar no Logic App Designer ou no editor de expressão, não precisa de escapar à marca de dupla cotação porque o carácter backslash é adicionado automaticamente à definição subjacente, por exemplo:
 > 
 > * Vista de código:`xpath(xml(body('Http')), '/*[name()=\"file\"]/*[name()=\"location\"]')`
 >
 > * Editor de expressão:`xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
-> 
-> Os exemplos a seguir aplicam-se às expressões que introduz no editor de expressão.
 
-* *Expressão 1*
+*Exemplo 9*
 
-  `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
-
-* *Expressão 2*
-
-  `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]')`
-
-Aqui estão os argumentos:
-
-* Este XML, que inclui o espaço de nomes de documentos XML, `xmlns="http://contoso.com"` :
-
-  ```xml
-  <?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>
-  ```
-
-* Ou a expressão XPath aqui:
-
-  * `/*[name()="file"]/*[name()="location"]`
-
-  * `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]`
-
-Aqui está o nó de resultado que combina com o `<location></location>` nó:
-
-```xml
-<location xmlns="https://contoso.com">Paris</location>
-```
-
-*Exemplo 4*
-
-Seguindo no Exemplo 3, este exemplo encontra o valor no `<location></location>` nó:
+Seguindo no Exemplo 8, este exemplo utiliza a expressão `'string(/*[name()="file"]/*[name()="location"])'` XPath, para encontrar o valor no `<location></location>` nó:
 
 `xpath(xml(body('Http')), 'string(/*[name()="file"]/*[name()="location"])')`
 
-E devolve este resultado:`"Paris"`
+Aqui está o resultado:`Paris`
 
 ## <a name="next-steps"></a>Passos seguintes
 

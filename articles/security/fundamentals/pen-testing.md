@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2018
 ms.author: terrylan
-ms.openlocfilehash: 413ec8b121838a4ffac4119421ec3266e141618b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db6e25b6304ee9ac41ca95d5a3a6eac0e91eb41b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80549258"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287771"
 ---
 # <a name="penetration-testing"></a>Testes de penetração
 Um dos benefícios de usar o Azure para testes de aplicações e implementação é que você pode obter rapidamente ambientes criados. Não tens de te preocupar com a requisição, aquisição e "racking e empilhar" o teu próprio hardware no local.
@@ -41,8 +41,6 @@ Os testes padrão que pode realizar incluem:
 * Testes nos seus pontos finais para descobrir o [Open Web Application Security Project (OWASP) top 10 vulnerabilidades](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
 * [Teste](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/) de fuzz dos seus pontos finais
 * [Verificação portuária](https://en.wikipedia.org/wiki/Port_scanner) dos seus pontos finais
-
-Um tipo de teste que não pode realizar é qualquer tipo de ataque [de Negação de Serviço (DoS).](https://en.wikipedia.org/wiki/Denial-of-service_attack) Isto inclui iniciar um ataque do DoS em si, ou realizar testes relacionados que possam determinar, demonstrar ou simular qualquer tipo de ataque DoS.
 
 ## <a name="next-steps"></a>Passos seguintes
 

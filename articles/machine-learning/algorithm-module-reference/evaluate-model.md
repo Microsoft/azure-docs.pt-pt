@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 07/08/2020
-ms.openlocfilehash: fe0d3819701e062fa2253bc6dd0c3a28eaeaadfb
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.date: 07/27/2020
+ms.openlocfilehash: 7f37a598c31f340e66437a6478512fad1f79121f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171125"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285956"
 ---
 # <a name="evaluate-model-module"></a>Avaliar módulo de modelo
 
@@ -80,9 +80,9 @@ As seguintes métricas são reportadas ao avaliar modelos de classificação bin
   
 -   **A precisão** mede a bondade de um modelo de classificação como a proporção de resultados verdadeiros para os casos totais.  
   
--   **Precisão** é a proporção de resultados verdadeiros sobre todos os resultados positivos.  
+-   **Precisão** é a proporção de resultados verdadeiros sobre todos os resultados positivos. Precisão = TP/(TP+FP)  
   
--   **A recuperação** é a fração de todos os resultados corretos devolvidos pelo modelo.  
+-   **A recuperação** é a fração da quantidade total de instâncias relevantes que foram efetivamente recuperadas. Recordação = TP/(TP+FN)  
   
 -   **A pontuação F1** é calculada como a média ponderada de precisão e recordação entre 0 e 1, onde o valor ideal de pontuação de F1 é 1.  
   

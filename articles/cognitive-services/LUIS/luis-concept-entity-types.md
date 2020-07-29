@@ -3,12 +3,12 @@ title: Tipos de entidades - LUIS
 description: Uma entidade extrai dados de uma expressão do utilizador no tempo de execução da previsão. Um propósito _opcional_e secundário é impulsionar a previsão da intenção ou de outras entidades utilizando a entidade como recurso.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 61dc0688cd304a672321f846a3ae5798c271345d
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: ced4a3e23b8e532b54d0b3cf974dab233b81b375
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84676493"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337624"
 ---
 # <a name="extract-data-with-entities"></a>Extrair dados com entidades
 
@@ -78,6 +78,12 @@ Para construir as entidades aprendidas com a máquina de forma eficaz:
 * Se tiver uma entidade aprendida com subconsidades, certifique-se de que as diferentes encomendas e variantes da entidade e subentências são apresentadas nas expressões etiquetadas. As expressões de exemplo rotuladas devem incluir todos os formulários válidos, e incluir entidades que aparecem e estão ausentes e também reordenadas dentro da expressão.
 * Deve evitar a adaptação excessiva das entidades a um conjunto muito fixo. **A adaptação excessiva** acontece quando o modelo não se generaliza bem, e é um problema comum em modelos de aprendizagem automática. Isto implica que a aplicação não funcionaria adequadamente em novos dados. Por sua vez, deve variar as expressões de exemplo rotuladas para que a aplicação seja capaz de generalizar para além dos exemplos limitados que fornece. Deve variar as diferentes subentidades com mudança suficiente para que o modelo pense mais no conceito em vez de apenas os exemplos mostrados.
 
+## <a name="effective-prebuilt-entities"></a>Entidades pré-construídas eficazes
+
+Para construir entidades eficazes que extraam dados comuns, como os fornecidos pelas [entidades pré-construídas,](luis-reference-prebuilt-entities.md)recomendamos o seguinte processo.
+
+Melhore a extração de dados trazendo os seus próprios dados para uma entidade como recurso. Desta forma, todos os rótulos adicionais dos seus dados irão aprender o contexto de onde existem nomes de pessoas na sua aplicação.
+
 <a name="composite-entity"></a>
 <a name="list-entity"></a>
 <a name="patternany-entity"></a>
@@ -141,7 +147,7 @@ O portal LUIS mostra quando a entidade tem uma previsão de entidade diferente d
 * Adicione mais [palavras de exemplo](luis-concept-utterance.md) e etiqueta com a entidade
 * [Reveja sugestões de aprendizagem ativa](luis-concept-review-endpoint-utterances.md) para quaisquer declarações recebidas no ponto final de previsão que possam ajudar a identificar o conceito da entidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aprenda conceitos sobre boas [expressões.](luis-concept-utterance.md)
 

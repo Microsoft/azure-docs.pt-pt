@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 9d44c1da27a1440e105ce76436bc284a537503c7
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 3b1a0d646c05be0de83837b33e77e34969c9254c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054445"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287810"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Proteção Azure DDoS - Conceber soluções resilientes
 
@@ -48,7 +48,7 @@ Garantir que uma aplicação é resistente o suficiente para lidar com uma nega�
 
 A escalabilidade é o quão bem um sistema pode lidar com o aumento da carga. Desenhe as suas aplicações para [escalar horizontalmente](/azure/architecture/guide/design-principles/scale-out) para satisfazer a procura de uma carga amplificada, especificamente em caso de ataque DDoS. Se a sua aplicação depender de uma única instância de um serviço, cria um único ponto de falha. A provisionar várias instâncias torna o seu sistema mais resistente e escalável.
 
-Para [o Azure App Service](/azure/app-service/app-service-value-prop-what-is), selecione um plano de Serviço de [Aplicações](/azure/app-service/overview-hosting-plans) que oferece várias instâncias. Para a Azure Cloud Services, configuure cada um dos seus papéis para usar [várias instâncias](/azure/cloud-services/cloud-services-choose-me). Para [máquinas virtuais Azure,](/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)certifique-se de que a sua arquitetura de máquina virtual (VM) inclui mais de um VM e que cada VM está incluído num [conjunto de disponibilidade.](/azure/virtual-machines/virtual-machines-windows-manage-availability) Recomendamos a utilização [de conjuntos de escala de máquina virtual](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) para capacidades de autoscalagem.
+Para [o Azure App Service](/azure/app-service/app-service-value-prop-what-is), selecione um plano de Serviço de [Aplicações](/azure/app-service/overview-hosting-plans) que oferece várias instâncias. Para a Azure Cloud Services, configuure cada um dos seus papéis para usar [várias instâncias](/azure/cloud-services/cloud-services-choose-me). Para [máquinas virtuais Azure,](../../virtual-machines/index.yml)certifique-se de que a sua arquitetura de máquina virtual (VM) inclui mais de um VM e que cada VM está incluído num [conjunto de disponibilidade.](../../virtual-machines/windows/tutorial-availability-sets.md) Recomendamos a utilização [de conjuntos de escala de máquina virtual](../../virtual-machine-scale-sets/overview.md) para capacidades de autoscalagem.
 
 ### <a name="defense-in-depth"></a>Defesa em profundidade
 
@@ -266,7 +266,7 @@ Para obter mais informações sobre esta arquitetura de referência, consulte o 
 > [!NOTE]
 > O Azure App Service Environment for PowerApps ou a gestão de API numa rede virtual com um IP público não são ambos suportados de forma nativa.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Responsabilidade partilhada na cloud](shared-responsibility.md)
 * [Página de produto Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/)

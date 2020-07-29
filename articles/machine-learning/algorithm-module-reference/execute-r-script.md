@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/27/2020
-ms.openlocfilehash: 3559ae5c246129aa369cb49e7749e499002f1dc6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/27/2020
+ms.openlocfilehash: 873f0d7d2aa4493e77a10f62b0646f4f8233f6b9
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048195"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337845"
 ---
 # <a name="execute-r-script-module"></a>Executar módulo de script R
 
@@ -119,6 +119,22 @@ Depois de terminado o curso do gasoduto, pode visualizar a imagem no painel dire
 > [!div class="mx-imgBorder"]
 > ![Pré-visualização da imagem carregada](media/module/upload-image-in-r-script.png)
 
+## <a name="access-to-registered-dataset"></a>Acesso ao conjunto de dados registado
+
+Pode consultar o seguinte código de amostra para [aceder aos conjuntos de dados registados](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets#access-datasets-in-your-script) no seu espaço de trabalho:
+
+```R
+        azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
+  run = get_current_run()
+  ws = run$experiment$workspace
+  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
+  dataframe2 <- dataset$to_pandas_dataframe()
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
 ## <a name="how-to-configure-execute-r-script"></a>Como configurar executar executar o script R
 
 O módulo executo R Script contém o código de amostra que pode usar como ponto de partida. Para configurar o módulo Executar R Script, forneça um conjunto de entradas e código para executar.
@@ -177,6 +193,25 @@ Os conjuntos de dados armazenados no designer são automaticamente convertidos p
  
     > [!NOTE]
     > O código R existente pode necessitar de pequenas alterações para ser executado num oleoduto de design. Por exemplo, os dados de entrada que fornece no formato CSV devem ser explicitamente convertidos para um conjunto de dados antes de poder usá-lo no seu código. Os tipos de dados e colunas utilizados na língua R também diferem de algumas formas dos tipos de dados e colunas utilizados no designer.
+
+    Se o seu script for maior que 16KB, utilize a porta **script Bundle** para evitar erros como *o CommandLine excede o limite de 16597 caracteres*. 
+    
+    Embrulhe o script e outros recursos personalizados para um ficheiro zip e faça o upload do ficheiro zip como um **Conjunto de Dados de Ficheiros** para o estúdio. Em seguida, pode arrastar o módulo de conjunto de dados da lista *My datasets* no painel do módulo esquerdo na página de autoria do designer. Ligue o módulo de conjunto de dados à porta do Pacote de **Scripts** do módulo **executo R Script.**
+    
+    Segue-se o código de amostra para consumir o script no pacote de scripts:
+
+    ```R
+    azureml_main <- function(dataframe1, dataframe2){
+    # Source the custom R script: my_script.R
+    source("./Script Bundle/my_script.R")
+
+    # Use the function that defined in my_script.R
+    dataframe1 <- my_func(dataframe1)
+
+    sample <- readLines("./Script Bundle/my_sample.txt")
+    return (list(dataset1=dataframe1, dataset2=data.frame("Sample"=sample)))
+    }
+    ```
 
 1.  Para **Sementes Aleatórias,** insira um valor a utilizar no ambiente R como valor de sementes aleatórias. Este parâmetro equivale a chamar `set.seed(value)` o código R.  
 

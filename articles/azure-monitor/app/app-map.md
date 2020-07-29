@@ -3,13 +3,14 @@ title: Mapa de aplicações em Insights de Aplicação Azure / Microsoft Docs
 description: Monitorize topologias complexas de aplicações com o mapa de aplicações
 ms.topic: conceptual
 ms.date: 03/15/2019
+ms.custom: devx-track-javascript
 ms.reviewer: sdash
-ms.openlocfilehash: 1f9f19ea9370b9da3e69d871e8b53ccf7f64a6a5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7e4035e382aaa3f8b5d2327054a50a5360c60bfa
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008511"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87367015"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa de aplicações: Aplicações distribuídas por triagem
 

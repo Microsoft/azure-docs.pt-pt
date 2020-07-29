@@ -10,11 +10,12 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
 ms.custom: mqtt
-ms.openlocfilehash: 600e64ef5bc3329f0116359066bdcdaf42c13e2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3a8c065c226d1cc94d79b44d16f288fab205a56
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733482"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337862"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Enviar mensagens para um servidor MQTT
 
@@ -28,7 +29,7 @@ Neste projeto, aprende-se:
 - Como utilizar a biblioteca do Cliente MQTT para enviar mensagens a um corretor MQTT.
 - Como configurar o seu MXChip Iot DevKit como cliente MQTT.
 
-## <a name="what-you-need"></a>Do que precisa
+## <a name="what-you-need"></a>O que precisa
 
 Termine o [Guia de Início](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) para:
 
@@ -85,9 +86,6 @@ Se encontrar problemas, consulte o [IoT DevKit FAQ](https://microsoft.github.io/
 * [Ligue ioT DevKit AZ3166 a Azure IoT Hub na nuvem](iot-hub-arduino-iot-devkit-az3166-get-started.md)
 * [Shake, Shake for a Tweet](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Agora que aprendeu a configurar o seu MXChip Iot DevKit como cliente MQTT e utilizar a biblioteca do Cliente MQTT para enviar mensagens a um corretor MQTT, eis os próximos passos sugeridos:
-
-* [Visão geral do acelerador de solução de monitorização remota Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
-* [Ligue um dispositivo MXChip IoT DevKit à sua aplicação Azure IoT Central](/azure/iot-central/core/howto-connect-devkit)
+Agora que aprendeu a configurar o seu MXChip Iot DevKit como cliente MQTT e a usar a biblioteca do Cliente MQTT para enviar mensagens a um corretor MQTT, eis o próximo passo sugerido: visão geral do [acelerador de solução de monitorização remota Azure IoT](https://docs.microsoft.com/azure/iot-suite/)

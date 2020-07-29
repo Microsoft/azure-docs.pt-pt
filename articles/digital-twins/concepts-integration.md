@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d82289366d79f44460b96d75781cac4fa50de53a
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 9c7c1000ed5229886d4a964161042eca6517c230
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129734"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87367441"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integre a Azure Digital Twins com outros serviços
 
@@ -20,11 +20,11 @@ Azure Digital Twins é normalmente usado juntamente com outros serviços. Utiliz
 
 ## <a name="data-ingress"></a>Entrada de dados
 
-As Gémeas Digitais Azure podem ser conduzidas com dados do IoT Hub. Isto permite-lhe recolher telemetria a partir de dispositivos físicos no seu ambiente, e processar estes dados usando o gráfico Azure Digital Twins na nuvem.
+A Azure Digital Twins pode ser conduzido com dados e eventos de qualquer serviço - IoT Hub, Logic Apps, seu próprio serviço personalizado, e muito mais. Isto permite-lhe recolher telemetria a partir de dispositivos físicos no seu ambiente, e processar estes dados usando o gráfico Azure Digital Twins na nuvem.
 
 A Azure Digital Twins não tem um Hub IoT incorporado. Você pode usar um Hub IoT existente que você tem atualmente em produção, ou implementar um novo. Isto dá-lhe acesso total a todas as capacidades de gestão de dispositivos do IoT Hub.
 
-Para ingerir dados do IoT Hub em Azure Digital Twins, utilize uma [função Azure](../azure-functions/functions-overview.md). Saiba mais sobre este padrão em [*Como-a-: Ingerir telemetria a partir do IoT Hub,*](how-to-ingest-iot-hub-data.md)ou experimente-o no Tutorial de Gémeos Digitais Azure: [*Conecte uma solução de ponta a ponta*](tutorial-end-to-end.md).
+Para ingerir dados de qualquer fonte em Azure Digital Twins, utilize uma [função Azure](../azure-functions/functions-overview.md). Saiba mais sobre este padrão em [*Como-a-: Ingerir telemetria a partir do IoT Hub,*](how-to-ingest-iot-hub-data.md)ou experimente-o no Tutorial de Gémeos Digitais Azure: [*Conecte uma solução de ponta a ponta*](tutorial-end-to-end.md).
 
 ## <a name="data-egress-services"></a>Serviços de saída de dados
 

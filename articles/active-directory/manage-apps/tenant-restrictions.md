@@ -12,12 +12,12 @@ ms.date: 03/28/2019
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae90a682ea2d1abb8159ec28ed02ed122494f512
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0f45cc2444a14fc138d201e3d7f81e687f53d3ac
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019255"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285905"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Use restrições de inquilinos para gerir o acesso a aplicações em nuvem SaaS
 
@@ -69,6 +69,11 @@ A configuração seguinte é necessária para permitir restrições de inquilino
 
 Para cada pedido de entrada para login.microsoftonline.com, login.microsoft.com e login.windows.net, insira dois cabeçalhos HTTP: *Restrict-Access-To-Tenants* e *Restrict-Access-Context*.
 
+> [!NOTE]
+> Ao configurar a interceção SSL e a injeção do cabeçalho, certifique-se de que o tráfego https://device.login.microsoftonline.com está excluído. Este URL é utilizado para a autenticação do dispositivo e a realização de quebras e inspeções TLS podem interferir com a autenticação do Certificado do Cliente, o que pode causar problemas com o registo do dispositivo e acesso condicional baseado no dispositivo.
+
+
+
 Os cabeçalhos devem incluir os seguintes elementos:
 
 - Para *os inquilinos de acesso restrito,* utilize um valor \<permitted tenant list\> de, que é uma lista separada de vírgulas de inquilinos que pretende permitir o acesso dos utilizadores. Qualquer domínio registado com um inquilino pode ser usado para identificar o inquilino nesta lista. Por exemplo, para permitir o acesso aos inquilinos contoso e fabrikam, o par de nome/valor parece: `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
@@ -81,6 +86,9 @@ Os cabeçalhos devem incluir os seguintes elementos:
 Para evitar que os utilizadores insiram o seu próprio cabeçalho HTTP por inquilinos não aprovados, o representante precisa de substituir o cabeçalho *de Acesso Restrito-Acesso-A-Inquilinos* se já estiver presente no pedido de entrada.
 
 Os clientes devem ser obrigados a usar o representante para todos os pedidos para login.microsoftonline.com, login.microsoft.com e login.windows.net. Por exemplo, se os ficheiros PAC forem utilizados para direcionar os clientes a utilizar o proxy, os utilizadores finais não devem ser capazes de editar ou desativar os ficheiros PAC.
+
+> [!NOTE]
+> Não inclua subdomínios em *.login.microsoftonline.com na sua configuração de procuração. Ao fazê-lo, incluirá device.login.microsoftonline.com e poderá interferir com a autenticação do Certificado de Cliente, que é utilizado em cenários de Registo de Dispositivos e Acesso Condicional baseados no Dispositivo. Configure o seu servidor proxy para excluir device.login.microsoftonline.com da injeção de break-and-inspect e da injeção de cabeçalho TLS.
 
 ## <a name="the-user-experience"></a>A experiência do utilizador
 

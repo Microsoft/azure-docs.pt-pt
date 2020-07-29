@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: 279ba2ca5b82d7bad5b55736179f92a0146bdc84
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/28/2020
+ms.openlocfilehash: 904b3ce1c2d05d713ee1ae99662148217f2a358e
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048160"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337828"
 ---
 # <a name="export-data-module"></a>Módulo de Dados de Exportação
 
@@ -41,6 +41,9 @@ Antes de exportar os seus dados, tem de registar primeiro uma loja de dados no s
 1. Selecione **Dados de Exportação** para abrir o painel **de propriedades.**
 
 1. Para **datastore,** selecione uma datastore existente da lista de dropdown. Também pode criar uma nova loja de dados. Verifique como visita os [dados do Access nos serviços de armazenamento Azure.](../how-to-access-data.md)
+
+    > [!NOTE]
+    > Não são suportados dados de exportação de um determinado tipo de dados para uma coluna de base de dados SQL especificada como outro tipo de dados.
 
 1. A caixa de verificação, **Regenerar a produção,** decide se executa o módulo para regenerar a saída em tempo de execução. 
 

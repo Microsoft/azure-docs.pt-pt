@@ -1,6 +1,6 @@
 ---
 title: O que é endereço IP 168.63.129.16? | Microsoft Docs
-description: Saiba mais sobre o endereço IP 168.63.129.16 e como funciona com os seus recursos.
+description: Saiba mais sobre o endereço IP 168.63.129.16, especificamente que é usado para facilitar um canal de comunicação aos recursos da plataforma Azure.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/15/2019
 ms.author: genli
-ms.openlocfilehash: bae1fbc89564ca17938e6a630146be5e5fb5b11f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0f0bfa693086a3a097df219132d696a1d04e6f56
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550863"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286041"
 ---
 # <a name="what-is-ip-address-1686312916"></a>O que é endereço IP 168.63.129.16?
 
@@ -42,7 +42,7 @@ O endereço IP público 168.63.129.16 é utilizado em todas as regiões e nuvens
 
 Num cenário de rede não virtual (Classic), a sonda de saúde é proveniente de um IP privado e 168.63.129.16 não é utilizada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Grupos de segurança](security-overview.md)
 - [Criar, alterar ou eliminar um grupo de segurança de rede](manage-network-security-group.md)

@@ -3,12 +3,13 @@ title: Enviar ou receber eventos de Azure Event Hubs usando Java (mais recente)
 description: Este artigo fornece uma caminhada para criar uma aplicação Java que envia/recebe eventos de/de Azure Event Hubs usando o mais recente pacote de eventos de mensagens azure..
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: ab28b3d434c1e44fb173655c6414412ceda1101f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-java
+ms.openlocfilehash: b1e18942e1e39c4238d73c6689c5de21d0d390db
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537093"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366794"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-messaging-eventhubs"></a>Use Java para enviar eventos ou receber eventos de Azure Event Hubs (azure-messaging-eventhubs)
 Este quickstart mostra como enviar eventos e receber eventos de um centro de eventos usando o pacote java **de mensagens azure-eventhubs.**
@@ -143,7 +144,7 @@ Neste arranque rápido, utilize o Azure Storage (especificamente, Blob Storage) 
 
 Siga estes passos para criar uma conta de Armazenamento Azure. 
 
-1. [Criar uma conta de Armazenamento Azure](../storage/common/storage-account-create.md?tabs=azure-portal)
+1. [Criar uma conta de Armazenamento do Azure](../storage/common/storage-account-create.md?tabs=azure-portal)
 2. [Criar um contentor de blobs](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
 3. [Obtenha o fio de ligação para a conta de armazenamento](../storage/common/storage-configure-connection-string.md)
 
@@ -318,7 +319,7 @@ Adicione as seguintes dependências no ficheiro pom.xml.
 1. Na janela de aplicação do **recetor,** confirme que vê os eventos que foram publicados pela aplicação remetente.
 1. Prima **ENTER** na janela de aplicação do recetor para parar a aplicação. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Veja as seguintes amostras no GitHub:
 
 - [amostras azure-messaging-eventhubs](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)

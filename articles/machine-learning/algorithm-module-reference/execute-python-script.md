@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: tracking-python
 author: likebupt
 ms.author: keli19
-ms.date: 06/16/2020
-ms.openlocfilehash: 2115a0bae8b26113fc10648db2584210809441de
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.date: 07/27/2020
+ms.openlocfilehash: d07681798cadf1d983942d681b910e26ea48d6d2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147253"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285939"
 ---
 # <a name="execute-python-script-module"></a>Execute o módulo de script python
 
@@ -30,124 +30,16 @@ Com python, você pode executar tarefas que os módulos existentes não suportam
 + Ler, carregar e manipular dados de fontes que o módulo [de Dados de Importação](./import-data.md) não suporta.
 + Executar o seu próprio código de aprendizagem profunda. 
 
+## <a name="supported-python-packages"></a>Pacotes Python suportados
 
 A Azure Machine Learning utiliza a distribuição de Anaconda de Python, que inclui muitos utilitários comuns para o processamento de dados. Atualizaremos automaticamente a versão Anaconda. A versão atual é:
  -  Anaconda 4.5+ distribuição para Python 3.6 
 
-Os pacotes pré-instalados são:
--    adal==1.2.2
--    aplicações==0.11.9
--    attrs==19.3.0
--    azure-common==1.1.25
--    azure-core==1.3.0
--    azure-graphrbac==0.61.1
--    azure-identidade==1.3.0
--    azure-mgmt-autorização==0,60.0
--    azure-mgmt-contentoresregistry==2,8.0
--    azure-mgmt-keyvault==2.2.0
--    azure-mgmt-recurso==8.0.1
--    azure-mgmt-storage==8.0.0
--    azure-storage-blob==1,5.0
--    azure-storage-common=1.4.2
--    azureml-core==1.1.5.5
--    azureml-dataprep-native==14.1.0
--    azureml-dataprep=1.3.5
--    azureml-defaults==1.1.5.1
--    azureml-designer-classic-modules==0.0.118
--    azureml-designer-core==0.0.31
--    azureml-designer-internal=0.0.18
--    azureml-model-management-sdk==1.0.1b6.post1
--    azureml-pipeline-core=1.1.5
--    azureml-telemetria==1.1.5.3
--    backports.tempfile==1.0
--    backports.weakref=1.0.post1
--    boto3==1.12.29
--    botocore=1.15.29
--    cachetools==4.0.0
--    certifi==2019.11.28
--    cffi==1.12.3
--    chardet==3.0.4
--    clique==7.1.1
--    cloudpickle==1.3.0
--    configparser==3.7.4
--    contextlib2==0.6.0.post1
--    criptografia==2.8
--    ciclor==0.10.0
--    endro==0.3.1.1
--    distro==1.4.0
--    estivador==4.2.0
--    docutils==0.15.2
--    dotnetcore2==2.1.13
--    frasco==1.0.3
--    fusepy==3.0.1
--    gensim==3.8.1
--    google-api-core==1.16.0
--    google-auth==1.12.0
--    google-cloud-core==1.3.0
--    google-cloud-storage==1.26.0
--    google-resumable-media==0.5.0
--    googleapis-common-protos==1.51.0
--    gunicorn==19.9.0
--    idna==2.9
--    desequilíbrio-aprendizagem==0.4.3
--    isodate==0.6.0
--    itsdangerous==1.1.0
--    jeepney=0.4.3
--    jinja2==2.11.1
--    jmespath==0,9.5
--    joblib==0.14.0
--    json-logging-py==0.2
--    jsonpickle==1.3
--    jsonschema==3.0.1
--    kiwisolver==1.1.0
--    liac-arff==2.4.0
--    lightgbm==2.2.3
--    markupsafe=1.1.1
--    matplotlib==3.1.3
--    mais itertools==6.0.0
--    msal-extensões==0.1.3
--    msal==1.1.0
--    msrest==0.6.11
--    msrestazure==0.6.3
--    ndg-httpsclient==0.5.1
--    nimbusml==1.6.1
--    numpy==1.18.2
--    oauthlib==3.1.0
--    pandas==0.25.3
--    pathspec==0.7.0
--    pip==20.0.2
--    portalocker==1.6.0
--    protobuf==3.11.3
--    pyarrow==0.16.0
--    pyasn1-módulos==0.2.8
--    pyasn1==0.4.8
--    pycparser==2,20
--    pycryptodomex=3.7.3
--    pyjwt==1.7.1
--    pyopenssl==19.1.0
--    pyparsing==2.4.6
--    pirsistente==0.16.0
--    python-dateutil==2.8.1
--    pytz==2019.3
--    pedidos-oauthlib==1.3.0
--    pedidos==2.23.0
--    rsa==4.0
--    ruamel.yaml==0.15.89
--    s3transfer==0.3.3
--    scikit-learn=0.22.2
--    scipy==1.4.1
--    secretstorage==3.1.2
--    setuptools==46.1.1.post20200323
--    seis==1.14.0
--    smart-open==1.10.0
--    urllib3==1.25.8
--    websocket-cliente==0.57.0
--    werkzeug==0.16.1
--    roda==0.34.2
+Para obter uma lista completa, consulte a secção [Pacotes Python pré-instalados](#preinstalled-python-packages).
 
- Para instalar pacotes que não estejam na lista pré-instalada (por exemplo, *scikit-misc),* adicione o seguinte código ao seu script: 
+Para instalar pacotes que não estejam na lista pré-instalada (por exemplo, *scikit-misc),* adicione o seguinte código ao seu script: 
 
- ```python
+```python
 import os
 os.system(f"pip install scikit-misc")
 ```
@@ -262,6 +154,117 @@ O módulo devolve dois conjuntos de dados:
 
 + **Resultado Dataset 2**, definido pelo segundo quadro de dados de pandas devolvidos em um script Python.
 
+## <a name="preinstalled-python-packages"></a>Pacotes Python pré-instalados
+Os pacotes pré-instalados são:
+-    adal==1.2.2
+-    aplicações==0.11.9
+-    attrs==19.3.0
+-    azure-common==1.1.25
+-    azure-core==1.3.0
+-    azure-graphrbac==0.61.1
+-    azure-identidade==1.3.0
+-    azure-mgmt-autorização==0,60.0
+-    azure-mgmt-contentoresregistry==2,8.0
+-    azure-mgmt-keyvault==2.2.0
+-    azure-mgmt-recurso==8.0.1
+-    azure-mgmt-storage==8.0.0
+-    azure-storage-blob==1,5.0
+-    azure-storage-common=1.4.2
+-    azureml-core==1.1.5.5
+-    azureml-dataprep-native==14.1.0
+-    azureml-dataprep=1.3.5
+-    azureml-defaults==1.1.5.1
+-    azureml-designer-classic-modules==0.0.118
+-    azureml-designer-core==0.0.31
+-    azureml-designer-internal=0.0.18
+-    azureml-model-management-sdk==1.0.1b6.post1
+-    azureml-pipeline-core=1.1.5
+-    azureml-telemetria==1.1.5.3
+-    backports.tempfile==1.0
+-    backports.weakref=1.0.post1
+-    boto3==1.12.29
+-    botocore=1.15.29
+-    cachetools==4.0.0
+-    certifi==2019.11.28
+-    cffi==1.12.3
+-    chardet==3.0.4
+-    clique==7.1.1
+-    cloudpickle==1.3.0
+-    configparser==3.7.4
+-    contextlib2==0.6.0.post1
+-    criptografia==2.8
+-    ciclor==0.10.0
+-    endro==0.3.1.1
+-    distro==1.4.0
+-    estivador==4.2.0
+-    docutils==0.15.2
+-    dotnetcore2==2.1.13
+-    frasco==1.0.3
+-    fusepy==3.0.1
+-    gensim==3.8.1
+-    google-api-core==1.16.0
+-    google-auth==1.12.0
+-    google-cloud-core==1.3.0
+-    google-cloud-storage==1.26.0
+-    google-resumable-media==0.5.0
+-    googleapis-common-protos==1.51.0
+-    gunicorn==19.9.0
+-    idna==2.9
+-    desequilíbrio-aprendizagem==0.4.3
+-    isodate==0.6.0
+-    itsdangerous==1.1.0
+-    jeepney=0.4.3
+-    jinja2==2.11.1
+-    jmespath==0,9.5
+-    joblib==0.14.0
+-    json-logging-py==0.2
+-    jsonpickle==1.3
+-    jsonschema==3.0.1
+-    kiwisolver==1.1.0
+-    liac-arff==2.4.0
+-    lightgbm==2.2.3
+-    markupsafe=1.1.1
+-    matplotlib==3.1.3
+-    mais itertools==6.0.0
+-    msal-extensões==0.1.3
+-    msal==1.1.0
+-    msrest==0.6.11
+-    msrestazure==0.6.3
+-    ndg-httpsclient==0.5.1
+-    nimbusml==1.6.1
+-    numpy==1.18.2
+-    oauthlib==3.1.0
+-    pandas==0.25.3
+-    pathspec==0.7.0
+-    pip==20.0.2
+-    portalocker==1.6.0
+-    protobuf==3.11.3
+-    pyarrow==0.16.0
+-    pyasn1-módulos==0.2.8
+-    pyasn1==0.4.8
+-    pycparser==2,20
+-    pycryptodomex=3.7.3
+-    pyjwt==1.7.1
+-    pyopenssl==19.1.0
+-    pyparsing==2.4.6
+-    pirsistente==0.16.0
+-    python-dateutil==2.8.1
+-    pytz==2019.3
+-    pedidos-oauthlib==1.3.0
+-    pedidos==2.23.0
+-    rsa==4.0
+-    ruamel.yaml==0.15.89
+-    s3transfer==0.3.3
+-    scikit-learn=0.22.2
+-    scipy==1.4.1
+-    secretstorage==3.1.2
+-    setuptools==46.1.1.post20200323
+-    seis==1.14.0
+-    smart-open==1.10.0
+-    urllib3==1.25.8
+-    websocket-cliente==0.57.0
+-    werkzeug==0.16.1
+-    roda==0.34.2
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f93a25854bc8b93e9bd75ea71037f6363d143914
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 79d80a5b94a753b43715c1ccd8fc2059ff84cfca
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145730"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87338032"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-azure-ad-tenant"></a>Quickstart: Adicione uma aplicação ao seu inquilino Azure Ative (Azure AD)
 
@@ -53,7 +53,7 @@ Para adicionar uma aplicação ao seu inquilino AZure AD:
 6. Pode navegar na galeria para a aplicação que pretende adicionar, ou procurar a aplicação introduzindo o seu nome na caixa de pesquisa. Em seguida, selecione a aplicação a partir dos resultados. No formulário, pode editar o nome da aplicação para corresponder às necessidades da sua organização. Neste exemplo, selecionamos GitHub e mudamos o nome para **teste GitHub.**
     ![Mostra como adicionar uma aplicação da galeria](media/add-application-portal/create-application.png)
     >[!TIP]
-    >Se a aplicação que procura não estiver na galeria, então pode clicar no link **Criar a sua própria aplicação.** A Microsoft já trabalhou com muitos desenvolvedores de aplicações para pré-configurar os mesmos para trabalhar com a Azure AD. Estas são as aplicações que aparecem na galeria. Mas se a app que pretende adicionar não estiver listada, então pode criar uma nova aplicação genérica e, em seguida, configurá-la por si mesmo ou com a orientação do desenvolvedor que a criou.
+    >Se a aplicação que procura não estiver na galeria, então pode clicar no link Criar a **sua própria aplicação** e, em seguida, em **O que pretende fazer com a sua aplicação?** Escolha **Integrar qualquer outra aplicação que não encontre na galeria.** A Microsoft já trabalhou com muitos desenvolvedores de aplicações para pré-configurar os mesmos para trabalhar com a Azure AD. Estas são as aplicações que aparecem na galeria. Mas se a app que pretende adicionar não estiver listada, então pode criar uma nova aplicação genérica e, em seguida, configurá-la por si mesmo ou com a orientação do desenvolvedor que a criou.
 7. Selecione **Criar**. É apresentada uma página de introdução com as opções para configurar a aplicação para a sua organização.
 
 Terminou de adicionar uma candidatura. O próximo quickstart mostra-lhe como alterar o logótipo e editar outras propriedades para a sua aplicação.

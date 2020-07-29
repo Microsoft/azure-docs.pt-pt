@@ -3,28 +3,26 @@ title: Criar e gerir grupos de ações no portal do Azure
 description: Saiba como criar e gerir grupos de ação no portal Azure.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 0c090238192b49af00856f6fcd002e95d154d2c0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a9d0fa9efaa07582212344e617d9a42f264b99ee
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321858"
+ms.locfileid: "87337794"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ações no portal do Azure
 Um grupo de ação é uma coleção de preferências de notificação definidas pelo proprietário de uma subscrição Azure. Os alertas Azure Monitor e Service Health utilizam grupos de ação para notificar os utilizadores de que foi desencadeado um alerta. Vários alertas podem utilizar o mesmo grupo de ação ou diferentes grupos de ação, dependendo dos requisitos do utilizador. Pode configurar até 2.000 grupos de ação numa subscrição.
-
-Configura uma ação para notificar uma pessoa por e-mail ou SMS, recebendo uma confirmação indicando que foram adicionadas ao grupo de ação.
 
 Este artigo mostra-lhe como criar e gerir grupos de ação no portal Azure.
 
 Cada ação é constituída pelas seguintes propriedades:
 
-* **Nome**: Um identificador único dentro do grupo de ação.  
-* **Tipo de ação**: A ação executada. Exemplos incluem envio de uma chamada de voz, SMS, e-mail; ou desencadeando vários tipos de ações automatizadas. Veja os tipos mais tarde neste artigo.
-* **Detalhes**: Os detalhes correspondentes que variam por *tipo de ação.*
+* **Tipo**: A notificação ou ação realizada. Exemplos incluem envio de uma chamada de voz, SMS, e-mail; ou desencadeando vários tipos de ações automatizadas. Veja os tipos mais tarde neste artigo.
+* **Nome**: Um identificador único dentro do grupo de ação.
+* **Detalhes**: Os detalhes correspondentes que variam por *tipo.*
 
 Para obter informações sobre como utilizar modelos do Gestor de Recursos Azure para configurar grupos de ação, consulte [os modelos do Gestor de Recursos do grupo action](./action-groups-create-resource-manager-template.md).
 
@@ -32,33 +30,75 @@ Para obter informações sobre como utilizar modelos do Gestor de Recursos Azure
 
 1. No [portal Azure,](https://portal.azure.com)procure e selecione **Monitor**. O **painel monitor** consolida todas as suas definições e dados de monitorização numa única vista.
 
-1. Selecione **Alertas** e, em seguida, selecione **Gerir ações**.
+1. Selecione **Alertas**e, em seguida, **selecione Gerir as ações**.
 
     ![Gerir botão de ações](./media/action-groups/manage-action-groups.png)
     
-1. **Selecione Adicionar grupo de ação**e preencha os campos.
+1. **Selecione Adicionar grupo de ação**e preencha os campos relevantes na experiência do assistente.
 
-    ![O comando "Adicionar grupo de ação"](./media/action-groups/add-action-group.png)
+    ![O comando "Adicionar grupo de ação"](./media/action-groups/add-action-group.PNG)
+
+### <a name="configure-basic-action-group-settings"></a>Configurar configurações básicas do grupo de ação
+
+Nos **detalhes do projeto:**
+
+Selecione o grupo **de subscrição** e **recursos** no qual o grupo de ação é guardado.
+
+De **acordo com os detalhes do exemplo:**
+
+1. Insira um **nome de grupo action**.
+
+1. Introduza um **nome de Exibição**. O nome do visor é utilizado em vez de um nome de grupo de ação completo quando as notificações são enviadas usando este grupo.
+
+      ![Caixa de diálogo do grupo de ação Add](./media/action-groups/action-group-1-basics.png)
+
+
+### <a name="configure-notifications"></a>Configurar notificações
+
+1. Clique no **seguinte: Notificações >** botão para mover para o separador **Notificações** ou selecione o **separador Notificações** na parte superior do ecrã.
+
+1. Defina uma lista de notificações a enviar quando um alerta é desencadeado. Fornecer o seguinte para cada notificação:
+
+    a. **Tipo de notificação**: Selecione o tipo de notificação que pretende enviar. As opções disponíveis são:
+      * Email Azure Resource Manager Role - Envie um e-mail para os utilizadores atribuídos a determinadas funções ARM de nível de subscrição.
+      * Email/SMS/Push/Voice - Envie estes tipos de notificação para destinatários específicos.
     
-1. Introduza um nome na caixa **de nome do grupo Action** e introduza um nome na caixa de **nomes Curto.** O nome abreviado é utilizado em vez de um nome de grupo de ação completo quando as notificações são enviadas através deste grupo.
+    b. **Nome**: Introduza um nome único para a notificação.
 
-      ![Caixa de diálogo do grupo de ação Add](./media/action-groups/action-group-define.png)
-
-1. A **caixa de subscrição** enche-se automaticamente com a sua subscrição atual. Esta subscrição é aquela em que o grupo de ação é salvo.
-
-1. Selecione o **grupo de Recursos** no qual o grupo de ação é guardado.
-
-1. Defina uma lista de ações. Fornecer o seguinte para cada ação:
-
-    1. **Nome**: Introduza um identificador único para esta ação.
-
-    1. **Tipo de Ação**: Selecione o Runbook de Automação, Função Azure, Função de Gestor de Recursos do E-mail Azure, Email/SMS/Push/Voice, ITSM, Logic App, Secure Webhook, Webhook.
-
-    1. **Detalhes**: Com base no tipo de ação, introduza um número de telefone, endereço de e-mail, webhook URI, app Azure, conexão ITSM ou livro de registo de automação. Para a AÇÃO ITSM, especifique ainda o **Produto de Trabalho** e outros campos que a sua ferramenta ITSM necessita.
+    c. **Detalhes**: Com base no tipo de notificação selecionado, insira um endereço de e-mail, número de telefone, etc.
     
-    1. **Esquema comum de alerta**: Pode optar por ativar o esquema comum de [alerta,](https://aka.ms/commonAlertSchemaDocs)que proporciona a vantagem de ter uma única carga de alerta extensível e unificada em todos os serviços de alerta do Monitor Azure.
+    d. **Esquema comum de alerta**: Pode optar por ativar o esquema comum de [alerta,](https://aka.ms/commonAlertSchemaDocs)que proporciona a vantagem de ter uma única carga de alerta extensível e unificada em todos os serviços de alerta do Monitor Azure.
 
-1. Selecione **OK** para criar o grupo de ação.
+    ![O separador Notificações](./media/action-groups/action-group-2-notifications.png)
+    
+### <a name="configure-actions"></a>Configure ações
+
+1. Clique no **Seguinte: As ações >** botão para mover-se para o **separador Ações** ou selecione o **separador Ações** na parte superior do ecrã.
+
+1. Defina uma lista de ações para desencadear quando um alerta é desencadeado. Fornecer o seguinte para cada ação:
+
+    a. **Tipo de ação**: Selecione O Runbook automation, Azure Function, ITSM, Logic App, Secure Webhook, Webhook.
+    
+    b. **Nome**: Introduza um nome único para a ação.
+
+    c. **Detalhes**: Com base no tipo de ação, introduza um webhook URI, app Azure, conexão ITSM ou livro de automação. Para a AÇÃO ITSM, especifique ainda o **Produto de Trabalho** e outros campos que a sua ferramenta ITSM necessita.
+    
+    d. **Esquema comum de alerta**: Pode optar por ativar o esquema comum de [alerta,](https://aka.ms/commonAlertSchemaDocs)que proporciona a vantagem de ter uma única carga de alerta extensível e unificada em todos os serviços de alerta do Monitor Azure.
+    
+    ![O separador Ações](./media/action-groups/action-group-3-actions.png)
+
+### <a name="create-the-action-group"></a>Criar o grupo de ação
+
+1. Se quiser, pode explorar as definições de **Etiquetas**. Isto permite-lhe associar pares chave/valor ao grupo de ação para a sua categorização e é uma funcionalidade disponível para qualquer recurso Azure.
+
+    ![O separador Tags](./media/action-groups/action-group-4-tags.png)
+    
+1. Clique em **Rever + criar** para rever as definições. Isto fará uma validação rápida das suas entradas para garantir que todos os campos necessários são selecionados. Se existirem problemas, serão comunicados aqui. Depois de rever as definições, clique em **Criar** para providenciar o grupo de ação.
+    
+    ![O separador Review + create](./media/action-groups/action-group-5-review.png)
+
+> [!NOTE]
+> Quando configura uma ação para notificar uma pessoa por e-mail ou SMS, recebe uma confirmação indicando que foi adicionada ao grupo de ação.
 
 ## <a name="manage-your-action-groups"></a>Gerir os seus grupos de ação
 

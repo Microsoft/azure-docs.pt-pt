@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: f37109cc2677ad5ef18c5677bda9308a78cebccf
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 7d6c0928196c9e8e1abf6aa7f724a58753ce3d2a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851312"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289040"
 ---
 # <a name="add-interaction-rules"></a>Adicionar regras de interação
 
-Neste artigo, aprende-se sobre *regras de interação.* Estas regras adicionais lidam com situações mais específicas ou complexas. Pode autorizar as suas próprias regras de interação personalizadas, mas neste artigo utiliza as regras de interação para os seguintes cenários direcionados:
+Neste artigo, você vai aprender sobre regras de **interação**. Estas são regras adicionais para lidar com situações mais específicas ou complexas. Enquanto você é livre de autorizar suas próprias regras de interação personalizada, neste artigo, você faz uso de regras de interação para os seguintes cenários direcionados:
 
 * Confirmando comandos
 * Adicionar uma correção de um passo aos comandos
@@ -30,8 +30,8 @@ Para saber mais sobre regras de interação, aceda à secção [de referências.
 
 Deve ter terminado os passos nos seguintes artigos:
 > [!div class="checklist"]
-> * [Criar uma aplicação com comandos simples](./how-to-custom-commands-create-application-with-simple-commands.md)
-> * [Adicionar parâmetros aos comandos](./how-to-custom-commands-add-parameters-to-commands.md)
+> * [Como: Criar aplicação com comandos simples](./how-to-custom-commands-create-application-with-simple-commands.md)
+> * [Como: Adicionar parâmetros aos comandos](./how-to-custom-commands-add-parameters-to-commands.md)
 
 ## <a name="add-confirmations-to-a-command"></a>Adicionar confirmações a um comando
 
@@ -40,7 +40,7 @@ Para adicionar uma confirmação, utilize o comando **SetTemperature.** Para obt
 1. Selecione o **comando SetTemperature** no painel esquerdo.
 1. Adicione as regras de interação selecionando **Adicione** no painel central. Em seguida, selecione **regras de interação**  >  **Confirme o comando**.
 
-    Esta ação adiciona três regras de interação. Esta regra pede ao utilizador que confirme a data e a hora do alarme e espera uma confirmação (sim/não) para a próxima volta.
+    Esta ação adiciona três regras de interação que pedirão ao utilizador que confirme a data e hora do alarme e espera uma confirmação (sim/não) para a próxima volta.
 
     1. Modificar a regra de interação **do comando Confirmar** de acordo com a seguinte configuração:
         1. **Nome** do nome para **confirmar a temperatura**.
@@ -75,14 +75,14 @@ Para adicionar uma confirmação, utilize o comando **SetTemperature.** Para obt
 
 Selecione **Train,** aguarde que o treino termine e selecione **Teste**.
 
-- **Entrada**: Definir a temperatura a 80 graus.
-- **Saída:** OK 80?
-- **Entrada**: Não.
+- **Entrada**: Definir temperatura a 80 graus
+- **Saída**: tem a certeza de que pretende definir a temperatura como 80 graus?
+- **Entrada**: Não
 - **Saída**: Sem problema. Que temperatura então?
-- **Entrada:** 83 graus.
-- **Saída:** OK 83?
-- **Entrada**: Sim.
-- **Saída:** OK, regulação da temperatura para 83 graus.
+- **Entrada**: 72 graus
+- **Saída**: tem a certeza de que pretende definir a temperatura como 72 graus?
+- **Entrada**: Sim
+- **Saída**: OK, temperatura de fixação de 83 graus
 
 
 ## <a name="implement-corrections-in-a-command"></a>Implementar correções num comando
@@ -141,7 +141,7 @@ Selecione **Train,** aguarde que o treino termine e selecione **Teste**.
 > [!NOTE]
 > Numa aplicação real, na secção **Ações** desta regra de correção, também terá de enviar uma atividade ao cliente ou chamar um ponto final HTTP para atualizar o tempo de alarme no seu sistema. Esta ação deve ser exclusivamente responsável pela atualização da hora de alarme e não de qualquer outro atributo do comando. Neste caso, seria o sinal de alarme.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Como: Adicionar modelos de geração de linguagem para respostas de fala](./how-to-custom-commands-add-language-generation-templates.md)

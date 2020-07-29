@@ -3,12 +3,12 @@ title: Como proteger a sua hierarquia de recursos - Azure Governance
 description: Saiba como proteger a sua hierarquia de recursos com definições de hierarquia que incluem a definição do grupo de gestão padrão.
 ms.date: 05/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 50b5ba1bccf3d603b6d273892d0c903d433786f3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 2f8d3d7ff85552fe18a49137450aefe91d0d02c9
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128001"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366777"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Como proteger a sua hierarquia de recursos
 
@@ -23,7 +23,7 @@ A configuração de qualquer uma das definições da hierarquia requer as seguin
 - `Microsoft.Management/managementgroups/settings/write`
 - `Microsoft.Management/managementgroups/settings/read`
 
-Estas operações apenas permitem que um utilizador leia e atualize as definições da hierarquia. As operações não fornecem qualquer outro acesso à hierarquia do grupo de gestão ou recursos na hierarquia. Ambas as operações estão disponíveis no administrador de **definições da hierarquia da função**RBAC incorporado.
+Estas operações apenas permitem que um utilizador leia e atualize as definições da hierarquia. As operações não fornecem qualquer outro acesso à hierarquia do grupo de gestão ou recursos na hierarquia. Ambas as operações estão disponíveis no Administrador de **Definições da Hierarquia**da Azure.
 
 ## <a name="setting---default-management-group"></a>Definição - Grupo de gestão predefinido
 

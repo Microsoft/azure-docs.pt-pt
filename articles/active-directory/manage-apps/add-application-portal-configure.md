@@ -10,13 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8418a45c9eba596339999c2bddf937a516d3e2d9
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: eb4a150a1680dd4101249458894ded652cde15a0
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223351"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87338049"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Quickstart: Configure propriedades para uma aplicação no seu inquilino Azure Ative (Azure AD)
 
@@ -41,15 +40,15 @@ Quando terminar de adicionar uma aplicação ao seu inquilino Azure AD, a págin
 Para editar as propriedades da aplicação:
 
 1. No portal AD Azure, selecione **aplicações Enterprise**. Em seguida, encontre e selecione a aplicação que pretende configurar.
-1. Na secção **Gerir,** selecione **Propriedades** para abrir o painel **propriedades** para edição.
+2. Na secção **Gerir,** selecione **Propriedades** para abrir o painel **propriedades** para edição.
 
     ![Screenshot do ecrã Propriedades que mostra propriedades de aplicações editáveis.](media/add-application-portal/edit-properties.png)
 
-1. Aproveite um momento para entender as opções disponíveis para configurar:
+3. Aproveite um momento para entender as opções disponíveis para configurar:
     - **Habilitado para os utilizadores fazerem o s.a.?** determina se os utilizadores designados para a aplicação podem iniciar sessão.
     - **Atribuição de utilizadores necessária?** determina se os utilizadores que não estão atribuídos à aplicação podem iniciar sessão.
     - **Visível para os utilizadores?** determina se os utilizadores atribuídos a uma aplicação podem vê-la no painel de [acesso](https://myapps.microsoft.com) e no lançador de aplicações office 365. (Consulte o menu de waffles no canto superior esquerdo de um site do Office 365 ou microsoft 365.)
-1. Use as seguintes tabelas para ajudá-lo a escolher as melhores opções para as suas necessidades.
+4. Use as seguintes tabelas para ajudá-lo a escolher as melhores opções para as suas necessidades.
 
    - Comportamento para utilizadores *atribuídos*:
 
@@ -86,10 +85,10 @@ Para editar as propriedades da aplicação:
 Para utilizar um logótipo personalizado:
 
 1. Crie um logótipo que seja de 215 por 215 pixels e guarde-o em formato .png.
-1. No portal AD Azure, selecione **aplicações Enterprise**. Em seguida, encontre e selecione a aplicação que pretende configurar.
-1. Na secção **Gerir,** selecione **Propriedades** para abrir o painel **propriedades** para edição. 
-1. Selecione o ícone para carregar o logotipo.
-1. Quando terminar, **selecione Save**.
+2. No portal AD Azure, selecione **aplicações Enterprise**. Em seguida, encontre e selecione a aplicação que pretende configurar.
+3. Na secção **Gerir,** selecione **Propriedades** para abrir o painel **propriedades** para edição. 
+4. Selecione o ícone para carregar o logotipo.
+5. Quando terminar, **selecione Save**.
 
     ![Screenshot do ecrã Propriedades que mostra como alterar o logotipo.](media/add-application-portal/change-logo.png)
 

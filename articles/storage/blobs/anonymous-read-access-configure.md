@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: a153a3735bbc46dbbce7e58374e1015ac1ec0bfb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: daf4eb4492f723b049dc62a16351e04ffc252337
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133185"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289253"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configurar o público anónimo ler acesso a contentores e bolhas
 
-O Azure Storage suporta o acesso público anónimo opcional para recipientes e bolhas. Por padrão, o acesso anónimo aos seus dados nunca é permitido. A menos que você ative explicitamente o acesso anónimo, todos os pedidos para um recipiente e suas bolhas devem ser autorizados usando a autorização do Azure Ative (Azure AD) ou da Chave Partilhada. Ao configurar a definição de nível de acesso público de um contentor para permitir o acesso anónimo, os clientes podem ler dados nesse recipiente sem autorizar o pedido.
+O Azure Storage suporta o acesso público anónimo opcional para recipientes e bolhas. Por padrão, o acesso anónimo aos seus dados nunca é permitido. A menos que você ative explicitamente o acesso anónimo, todos os pedidos para um recipiente e suas bolhas devem ser autorizados. Ao configurar a definição de nível de acesso público de um contentor para permitir o acesso anónimo, os clientes podem ler dados nesse recipiente sem autorizar o pedido.
 
 > [!WARNING]
 > Quando um recipiente é configurado para acesso público, qualquer cliente pode ler dados nesse recipiente. O acesso público apresenta um potencial risco de segurança, por isso, se o seu cenário não o exigir, a Microsoft recomenda que o desapromia para a conta de armazenamento. Para obter mais informações, consulte [Prevent anonymous public read access to containers and blobs](anonymous-read-access-prevent.md).
@@ -41,7 +41,7 @@ A tabela que se segue resume como ambas as configurações em conjunto afetam o 
 
 ## <a name="allow-or-disallow-public-read-access-for-a-storage-account"></a>Permitir ou proibir o acesso público a uma conta de armazenamento
 
-Por predefinição, o acesso público é permitido para recipientes individuais numa conta de armazenamento. Quando o acesso público é permitido, um utilizador com as permissões adequadas pode modificar a definição de acesso público de um contentor para permitir o acesso anónimo do público aos dados nesse contentor.
+Por predefinição, uma conta de armazenamento é configurada para permitir a um utilizador com as permissões adequadas para permitir o acesso do público a um recipiente. Quando o acesso público é permitido, um utilizador com as permissões adequadas pode modificar a definição de acesso público de um contentor para permitir o acesso público anónimo aos dados nesse contentor. Os dados blob nunca estão disponíveis para acesso público, a menos que o utilizador tome o passo adicional para configurar explicitamente a definição de acesso público do recipiente.
 
 Tenha em mente que o acesso do público a um recipiente é sempre desligado por defeito e deve ser explicitamente configurado para permitir pedidos anónimos. Independentemente da configuração da conta de armazenamento, os seus dados nunca estarão disponíveis para acesso público, a menos que um utilizador com permissões adequadas dê este passo adicional para permitir o acesso do público no recipiente.
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b3ed5d6605097b31dfaa58a2d37e71d3a6702bee
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f7e9a76309b4d9dcd010b85d1b55f340374be5c4
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537504"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337930"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Sobre a linguagem de consulta para Azure Digital Twins
 
@@ -28,7 +28,7 @@ A Azure Digital Twins fornece extensas capacidades de consulta contra o gráfico
 > Todas as operações de consulta da Azure Digital Twins são sensíveis a casos.
 
 Aqui estão as operações disponíveis no Idioma Azure Digital Twins Query Store:
-* Arranja gémeos pelas propriedades dos gémeos digitais.
+* Obtenha gémeos pelas propriedades de gémeos digitais (incluindo [etiquetas).](how-to-use-tags.md)
 * Arranja gémeos pelas interfaces dos gémeos digitais.
 * Arranja gémeos por propriedades de relacionamento.
 * Obter gémeos em vários tipos de relacionamento `JOIN` (consultas). Existem limitações no número de `JOIN` s permitidos (um nível para visualização pública).
@@ -38,6 +38,6 @@ Aqui estão as operações disponíveis no Idioma Azure Digital Twins Query Stor
 * Utilize qualquer combinação `AND` `OR` `NOT` (,, operador) do acima.
 * Continuação da utilização: O objeto de consulta é instantâneo com um tamanho de página (até 100). Você pode recuperar os gémeos digitais uma página de cada vez, fornecendo o token de continuação em chamadas subsequentes para a API.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como escrever consultas e ver exemplos de código do cliente em [*Como-a-fazer: Consultar o gráfico gémeo*](how-to-query-graph.md).

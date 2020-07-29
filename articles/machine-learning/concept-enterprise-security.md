@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: 94724ea44b52ae885594fe55b67d74a03e339dab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 723c30856593044c91220b4e3ab267ab140c5ffd
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012933"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366932"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança empresarial para Azure Machine Learning
 
@@ -75,7 +75,7 @@ A tabela a seguir enumera algumas das principais operações de Aprendizagem aut
 | Ver modelos/imagens | ✓ | ✓ | ✓ |
 | Serviço web de chamada | ✓ | ✓ | ✓ |
 
-Se as funções incorporadas não satisfaçam as suas necessidades, pode criar papéis personalizados. As funções personalizadas são suportadas apenas para operações no espaço de trabalho e no Machine Learning Compute. As funções personalizadas podem ter lido, escrito ou apagado permissões no espaço de trabalho e no recurso compute nesse espaço de trabalho. Pode disponibilizar a função a um nível específico do espaço de trabalho, a um nível específico de grupo de recursos ou a um nível de subscrição específico. Para obter mais informações, consulte [Gerir os utilizadores e as funções num espaço de trabalho de Aprendizagem automática Azure.](how-to-assign-roles.md)
+Se as funções incorporadas não satisfaçam as suas necessidades, pode criar papéis personalizados. As funções personalizadas são suportadas para controlar todas as operações dentro de um espaço de trabalho, tais como criar um cálculo, submeter uma corrida, registar uma datastore ou implementar um modelo. As funções personalizadas podem ter lido, escrito ou apagado permissões sobre os vários recursos de um espaço de trabalho, tais como clusters, datastores, modelos e pontos finais. Pode disponibilizar a função a um nível específico do espaço de trabalho, a um nível específico de grupo de recursos ou a um nível de subscrição específico. Para obter mais informações, consulte [Gerir os utilizadores e as funções num espaço de trabalho de Aprendizagem automática Azure.](how-to-assign-roles.md)
 
 > [!WARNING]
 > O Azure Machine Learning é apoiado com a colaboração entre negócios do Azure Ative Directory, mas não é atualmente apoiado com a colaboração entre negócios e consumidores do Azure Ative Directory.
@@ -154,10 +154,6 @@ Para utilizar as suas próprias chaves (geridas pelo cliente) para encriptar a i
 Para permitir o provisionamento de uma instância de DB cosmos na sua subscrição com chaves geridas pelo cliente, execute as seguintes ações:
 
 * Registe os fornecedores de recursos Microsoft.MachineLearning e Microsoft.DocumentDB na sua subscrição, se ainda não for feito.
-
-* Autorize a App de Aprendizagem automática (em Gestão de Identidade e Acesso) com permissões de colaboradores na sua subscrição.
-
-    ![Autorizar a 'App de Aprendizagem automática Azure' em Gestão de Identidade e Acesso no portal](./media/concept-enterprise-security/authorize-azure-machine-learning.png)
 
 * Utilize os seguintes parâmetros ao criar o espaço de trabalho Azure Machine Learning. Ambos os parâmetros são obrigatórios e suportados nos modelos SDK, CLI, REST APIs e Resource Manager.
 

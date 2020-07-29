@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 35fd95272530ed31f8ee197679e9368ca74ebef1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 852a8c8eb7e6a87739c58967eefd6c18e996b225
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089673"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87367406"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Gestão de Identidade Azure e controlo de segurança de acessos as melhores práticas
 
@@ -204,7 +204,7 @@ A sua equipa de segurança precisa de visibilidade nos seus recursos Azure para 
 Pode utilizar [o RBAC](/azure/role-based-access-control/overview) para atribuir permissões a utilizadores, grupos e aplicações num determinado âmbito. O âmbito da atribuição de uma função pode ser uma subscrição, um grupo de recursos ou um único recurso.
 
 **Boas práticas**: Segregar os deveres dentro da sua equipa e conceder apenas a quantidade de acesso aos utilizadores de que necessitam para desempenharem os seus trabalhos. Em vez de dar a todos permissões ilimitadas na sua subscrição ou recursos Azure, permita apenas certas ações num determinado âmbito.
-**Detalhe**: Utilize [funções RBAC incorporadas no](/azure/role-based-access-control/built-in-roles) Azure para atribuir privilégios aos utilizadores.
+**Detalhe**: Utilize [funções incorporadas em Azure](/azure/role-based-access-control/built-in-roles) para atribuir privilégios aos utilizadores.
 
 > [!Note]
 > Permissões específicas criam complexidade e confusão não precisas, acumulando-se numa configuração "legado" que é difícil de corrigir sem medo de quebrar algo. Evite permissões específicas de recursos. Em vez disso, utilize grupos de gestão para permissões e grupos de recursos para permissões dentro das subscrições. Evite permissões específicas do utilizador. Em vez disso, atribua acesso a grupos no Azure AD.
