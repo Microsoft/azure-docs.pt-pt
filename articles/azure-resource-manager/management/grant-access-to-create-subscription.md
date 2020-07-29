@@ -8,6 +8,7 @@ ms.date: 05/23/2019
 ms.author: jureid
 ms.openlocfilehash: 6a03d5e67e859a29cb18e29223fe74134aef75fb
 ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/07/2020
 ms.locfileid: "86057624"

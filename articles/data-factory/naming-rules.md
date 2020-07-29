@@ -13,6 +13,7 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.openlocfilehash: fb8c25a49aa4cacc09ba6cd51cc859c4db036ec6
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84670009"

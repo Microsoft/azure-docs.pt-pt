@@ -15,6 +15,7 @@ ms.date: 05/18/2020
 ms.author: mnayak
 ms.openlocfilehash: b67d8a9d7d4cdc8e1f42ca9f0a7dcc1a56fa2298
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84709985"

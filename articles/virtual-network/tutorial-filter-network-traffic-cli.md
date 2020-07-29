@@ -19,6 +19,7 @@ ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: b593630d6702f66b1b877c15688b9aea0e227fca
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84688303"

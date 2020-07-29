@@ -11,6 +11,7 @@ ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: b6828571499631ae08b077a4b7e3120f599e5b8b
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84673756"

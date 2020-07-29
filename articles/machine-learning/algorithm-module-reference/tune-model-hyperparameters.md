@@ -11,6 +11,7 @@ ms.author: keli19
 ms.date: 06/17/2020
 ms.openlocfilehash: 01e33f7b0133eb5d081e6e8f3c3c9497c11bae95
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84983411"

@@ -15,6 +15,7 @@ ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: aff1c8f68e3950b49a0a1bd8e99020b77e0f2019
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84677309"

@@ -19,6 +19,7 @@ ms.author: rdhillon
 ms.custom: ''
 ms.openlocfilehash: 702ee5dd8d432582ce1df75ce71c220aa0507cba
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84708217"

@@ -9,6 +9,7 @@ ms.author: normesta
 ms.date: 03/04/2020
 ms.openlocfilehash: 1fb4e7cf589d63e9e595a35c34a2728d564b309b
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84609935"

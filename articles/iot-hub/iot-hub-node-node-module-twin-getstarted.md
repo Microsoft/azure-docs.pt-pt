@@ -12,6 +12,7 @@ ms.date: 04/26/2018
 ms.custom: amqp
 ms.openlocfilehash: 8e1599b1bd5db5e410e8bbd76fffbe0beb5f066e
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "81732291"

@@ -9,6 +9,7 @@ ms.date: 02/18/2020
 ms.author: dnb
 ms.openlocfilehash: a891b580b5cb62d111e5d8a6980f4f547345deb6
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "79471256"

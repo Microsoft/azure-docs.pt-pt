@@ -13,6 +13,7 @@ ms.reviewer: vanto
 ms.date: 04/23/2020
 ms.openlocfilehash: 147b73b6772675d5143e41ddfff030614e393b95
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84045481"

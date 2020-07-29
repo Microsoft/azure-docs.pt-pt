@@ -7,6 +7,7 @@ ms.date: 10/04/2018
 ms.author: tomfitz
 ms.openlocfilehash: afe78dd00ecebdc54b6d73c4c8324729e117d95b
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "75651751"

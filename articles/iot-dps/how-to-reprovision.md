@@ -9,6 +9,7 @@ ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 0ded494debab19daa15a953715b1ab7b0b10ad18
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "74974909"

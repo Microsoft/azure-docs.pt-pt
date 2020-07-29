@@ -12,6 +12,7 @@ ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 07234e5f456a5467adde4d899341a6124d128567
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "83006126"

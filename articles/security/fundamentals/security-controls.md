@@ -12,6 +12,7 @@ ms.date: 09/05/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 2222c1d5e434e1c51cb66c2c5943badd58f95af9
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84013032"

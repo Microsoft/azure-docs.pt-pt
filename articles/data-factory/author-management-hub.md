@@ -11,6 +11,7 @@ manager: anandsub
 ms.date: 06/02/2020
 ms.openlocfilehash: 308d19fde78edacebb168b8d4e459169338acc41
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84346046"

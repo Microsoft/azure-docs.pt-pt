@@ -11,6 +11,7 @@ ms.date: 01/08/2020
 ms.custom: sqldbrb=1
 ms.openlocfilehash: 551276895de0ba659349c20205fa21d3d2c6b43e
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84669579"
