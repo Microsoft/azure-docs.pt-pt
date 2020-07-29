@@ -12,6 +12,7 @@ ms.author: srbozovi
 ms.date: 03/12/2020
 ms.openlocfilehash: b88740c71db6ae56621410ef41975a4616ff8ecd
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84711379"

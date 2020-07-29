@@ -14,6 +14,7 @@ ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 40a9f7ce86981d6f03b25237a7a73869fd5fd4ba
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "75483378"

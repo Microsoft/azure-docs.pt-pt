@@ -13,6 +13,7 @@ ms.reviewer: carlrab
 ms.date: 01/25/2019
 ms.openlocfilehash: 8ba9edc129cc169ccc146c7bc314d8f5ffe573b9
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84050409"

@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 13c85dff40e266287d893d9e45b32a66a33f027e
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "83006019"

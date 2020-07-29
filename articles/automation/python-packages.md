@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.custom: tracking-python
 ms.openlocfilehash: f3ba52c1396928d8c76fb85fda3f29c625e60919
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84561853"

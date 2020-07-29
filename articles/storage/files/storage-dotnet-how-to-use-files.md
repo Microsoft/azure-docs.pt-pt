@@ -10,6 +10,7 @@ ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 44602c65a08f2e76fa017022f6137a18481f2edd
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85515373"

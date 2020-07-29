@@ -15,6 +15,7 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: bdf9c1ce36921076ab79b2ca501bf008eddfe375
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84194058"

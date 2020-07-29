@@ -16,6 +16,7 @@ ms.author: madsd
 ms.custom: seodec18
 ms.openlocfilehash: 5e32baa10e98f0f57a861f8cebfb7506ad615631
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "74980065"

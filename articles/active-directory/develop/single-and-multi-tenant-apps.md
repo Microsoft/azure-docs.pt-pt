@@ -15,6 +15,7 @@ ms.reviewer: justhu
 ms.custom: aaddev
 ms.openlocfilehash: ec59383f9ca2b71ec9f4b6df3ab2e24c6b52473b
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "80881371"

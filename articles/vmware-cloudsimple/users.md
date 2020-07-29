@@ -10,6 +10,7 @@ ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: f9043fbbb77059eb4e4ed42dbef8a42e5790d565
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "77564011"

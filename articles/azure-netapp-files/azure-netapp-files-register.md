@@ -16,6 +16,7 @@ ms.date: 06/09/2020
 ms.author: b-juche
 ms.openlocfilehash: cdb96f08f78e22dd0e46070ab62bf9327e2d72a3
 ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/05/2020
 ms.locfileid: "85956309"

@@ -8,6 +8,7 @@ ms.date: 06/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 009e6a1b98e72d9618dc8ed3437d7ea90ab4afac
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85340573"

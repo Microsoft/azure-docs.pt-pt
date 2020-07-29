@@ -13,6 +13,7 @@ ms.date: 05/18/2017
 ms.author: rohink
 ms.openlocfilehash: 9b6cac64d2e3def673f6d7c27e80bd64eead9e97
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84689168"

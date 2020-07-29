@@ -16,6 +16,7 @@ ms.reviewer: rayluo, nacanuma, twhitney
 ms.custom: aaddev, tracking-python
 ms.openlocfilehash: 0cf711f9a295abaf20cd284e819cf062c462c668
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84558693"
