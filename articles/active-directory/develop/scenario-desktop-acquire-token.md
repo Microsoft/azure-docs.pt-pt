@@ -14,6 +14,7 @@ ms.author: jmprieur
 ms.custom: aaddev, tracking-python
 ms.openlocfilehash: 58be0315b272199e74f28654aae315a8c6c5f7b5
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84558827"

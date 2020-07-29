@@ -11,6 +11,7 @@ ms.date: 10/09/2019
 ms.author: cherylmc
 ms.openlocfilehash: 5a74f1ca8d1055885561a35dbd18899193d3924d
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84984146"

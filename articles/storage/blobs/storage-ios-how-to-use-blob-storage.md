@@ -9,6 +9,7 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.openlocfilehash: 378c21a6904acad16847bb32955e4bc091e587df
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84465495"

@@ -10,6 +10,7 @@ ms.author: tisande
 ms.custom: seodec18
 ms.openlocfilehash: 18a9f97d2cee9dd17345a1c8c0ae0efe442d79a4
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85799399"

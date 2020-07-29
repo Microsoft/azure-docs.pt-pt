@@ -11,6 +11,7 @@ ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: d4c675ab18a7a9231229ce0c7de9a7450dc1baa8
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84763963"

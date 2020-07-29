@@ -7,6 +7,7 @@ ms.date: 03/26/2018
 ms.author: mikhegn
 ms.openlocfilehash: d6734f5da0fb7e5c9052b26b55b2d90b068bdbbf
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "75614337"

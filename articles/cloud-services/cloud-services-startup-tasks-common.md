@@ -10,6 +10,7 @@ ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: beebe60d70b7e4908bd3e9348fe815036d6955c3
 ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85920079"

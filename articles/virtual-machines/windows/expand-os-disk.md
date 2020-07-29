@@ -11,6 +11,7 @@ ms.author: mimckitt
 ms.subservice: disks
 ms.openlocfilehash: 5044993e04dabc363a7a4ee49abb66285bcd7521
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85338245"

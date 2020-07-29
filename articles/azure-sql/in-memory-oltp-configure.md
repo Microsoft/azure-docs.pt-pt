@@ -12,6 +12,7 @@ ms.reviewer: MightyPen
 ms.date: 11/07/2018
 ms.openlocfilehash: d31fd8cca9df2ea21bf19beed26810568fc6481e
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84345313"

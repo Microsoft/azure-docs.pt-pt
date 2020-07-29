@@ -8,6 +8,7 @@ ms.date: 03/11/2020
 ms.author: stevelas
 ms.openlocfilehash: 2c6b66b635a2513ccc19e0352414d18d8389fef1
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "79371057"

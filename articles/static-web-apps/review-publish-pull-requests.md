@@ -9,6 +9,7 @@ ms.date: 05/08/2020
 ms.author: yolasors
 ms.openlocfilehash: 61c5917c1e4cb9dbf96e90af9a30777ea7c2e66c
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "83597031"

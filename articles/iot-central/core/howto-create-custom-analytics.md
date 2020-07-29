@@ -11,6 +11,7 @@ ms.custom: mvc
 manager: philmea
 ms.openlocfilehash: e04da10d71eed3706b87fc728a13927aeae82826
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84660122"

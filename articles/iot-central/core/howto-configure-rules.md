@@ -10,6 +10,7 @@ services: iot-central
 manager: philmea
 ms.openlocfilehash: c4d0639831d2f6f60a719637c5158fba5caf6f43
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "83659345"

@@ -17,6 +17,7 @@ ms.date: 10/14/2019
 ms.author: Zhchia
 ms.openlocfilehash: 7b91b8418580717afaf8ddf176f934b3ff1d0c60
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "77057552"

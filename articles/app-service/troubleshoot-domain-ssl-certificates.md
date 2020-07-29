@@ -10,6 +10,7 @@ ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: d61b95c7136a4cbce11789a58d27cc1a164ae374
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "80668029"

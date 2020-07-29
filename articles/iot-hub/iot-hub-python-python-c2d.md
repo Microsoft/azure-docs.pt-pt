@@ -11,6 +11,7 @@ ms.author: robinsh
 ms.custom: mqtt, tracking-python
 ms.openlocfilehash: 12d25fd06ddfa8265dbf046093d3854f7fde4f33
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84609561"

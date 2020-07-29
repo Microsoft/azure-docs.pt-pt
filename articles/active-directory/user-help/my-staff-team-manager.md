@@ -15,6 +15,7 @@ ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
 ms.openlocfilehash: d692302df1f5c03a7dce60858b31e0ca66de4c80
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "83744542"

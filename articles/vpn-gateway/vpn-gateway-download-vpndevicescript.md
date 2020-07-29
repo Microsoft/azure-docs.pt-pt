@@ -11,6 +11,7 @@ ms.date: 01/09/2019
 ms.author: yushwang
 ms.openlocfilehash: e17d17484ea9caf735fd717b1e58b85e798df87b
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84983211"

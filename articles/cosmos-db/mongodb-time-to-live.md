@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 12/26/2018
 ms.openlocfilehash: 74c140f2fa08fb49235c0503ea5812e047185f8b
 ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/07/2020
 ms.locfileid: "86023504"

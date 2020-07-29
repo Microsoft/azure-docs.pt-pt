@@ -9,6 +9,7 @@ ms.date: 12/05/2019
 keywords: aro, openshift, aquasec, twistlock, chapéu vermelho
 ms.openlocfilehash: e1c1dd9f27a207f78dd22e271f6b070c7f92f622
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "78271363"

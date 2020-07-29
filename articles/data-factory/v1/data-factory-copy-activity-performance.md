@@ -14,6 +14,7 @@ ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 12deb51cb2c0efc1bef77a3ff2c8d5150ba13cde
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84196115"

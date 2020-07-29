@@ -12,6 +12,7 @@ ms.date: 12/17/2018
 ms.author: trinadhk
 ms.openlocfilehash: d0ad54c19749d670f9ab753e1e6d8eb130475ffc
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "79415120"

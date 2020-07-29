@@ -10,6 +10,7 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: a683ad71f5e80c91728262dc7bbabf36e9d68deb
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "75775228"

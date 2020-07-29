@@ -9,6 +9,7 @@ ms.date: 08/10/2019
 ms.author: rohink
 ms.openlocfilehash: e7c4db7a2fc3ba931415e3b167f7fe72ee2b3980
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84710546"

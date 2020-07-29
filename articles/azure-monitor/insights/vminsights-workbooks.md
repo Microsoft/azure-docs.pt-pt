@@ -8,6 +8,7 @@ ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: a6ab126c3a5b0d2a82b17fac42dcc9e20f6aba3f
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "79480458"

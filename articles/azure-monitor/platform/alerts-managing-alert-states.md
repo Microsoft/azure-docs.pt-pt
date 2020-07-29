@@ -7,6 +7,7 @@ author: anantr
 ms.date: 09/24/2018
 ms.openlocfilehash: a22d7b7b962b36f93ee804c64b3bc6b08ecceb0f
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "77667521"

@@ -14,6 +14,7 @@ ms.date: 6/3/2020
 ms.author: yohaddad
 ms.openlocfilehash: 2d4e6054b1e5626b42bb662ac57fc0323d190aa8
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84343970"

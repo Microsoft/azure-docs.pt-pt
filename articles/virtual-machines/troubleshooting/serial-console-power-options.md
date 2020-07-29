@@ -16,6 +16,7 @@ ms.date: 8/6/2019
 ms.author: alsin
 ms.openlocfilehash: 11c2549d7282bae5654ede1ac34d63a43cd0f059
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "75451207"

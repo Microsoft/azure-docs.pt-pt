@@ -11,6 +11,7 @@ ms.date: 07/07/2019
 ms.author: joanpo
 ms.openlocfilehash: 6314bd348c22c901001b88eda6875181a2f69df4
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "70307129"

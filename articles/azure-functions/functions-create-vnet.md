@@ -8,6 +8,7 @@ ms.author: alkarche
 ms.reviewer: glenga
 ms.openlocfilehash: e1babfa188a29e79cb52cd14af19d552123345f1
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "83122742"

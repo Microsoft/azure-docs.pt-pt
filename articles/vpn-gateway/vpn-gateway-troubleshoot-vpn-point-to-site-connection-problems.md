@@ -10,6 +10,7 @@ ms.date: 03/26/2020
 ms.author: genli
 ms.openlocfilehash: b997942fd8d8a90b4bd395c2afa7d99b64a97ad8
 ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/07/2020
 ms.locfileid: "86037754"

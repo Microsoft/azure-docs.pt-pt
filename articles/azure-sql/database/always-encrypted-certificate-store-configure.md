@@ -14,6 +14,7 @@ ms.reviwer: ''
 ms.date: 04/23/2020
 ms.openlocfilehash: 848a0c9817472086dbaf3973dad9c64e3ed74b10
 ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/05/2020
 ms.locfileid: "85954252"

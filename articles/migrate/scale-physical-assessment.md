@@ -9,6 +9,7 @@ ms.date: 01/19/2020
 ms.author: hamusa
 ms.openlocfilehash: b84a7b88f700e2ba8e9fbe29099dfcbce8dbf3b7
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85081075"

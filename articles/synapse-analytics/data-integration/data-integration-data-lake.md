@@ -11,6 +11,7 @@ ms.author: daperlov
 ms.reviewer: jrasnick
 ms.openlocfilehash: 7b844bcf45417fefc7dd78a26d5dae0b2ce03249
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "82982909"

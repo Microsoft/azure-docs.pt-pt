@@ -15,6 +15,7 @@ ms.date: 04/03/2018
 ms.author: memildin
 ms.openlocfilehash: 4a62520a9807cd99b5c353c32bb13058fc471a84
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84771364"

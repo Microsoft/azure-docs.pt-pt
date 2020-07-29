@@ -9,6 +9,7 @@ ms.date: 11/25/2019
 ms.author: thvankra
 ms.openlocfilehash: 417a1dbc72c3b3c35c501351dcc8bda9dc95a78d
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84431602"

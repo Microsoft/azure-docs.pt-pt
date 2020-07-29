@@ -12,6 +12,7 @@ ms.date: 06/28/2019
 ms.author: ryanwi
 ms.openlocfilehash: cd3b21050c6a442284647212fdf7c5707943ffc1
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "80885621"

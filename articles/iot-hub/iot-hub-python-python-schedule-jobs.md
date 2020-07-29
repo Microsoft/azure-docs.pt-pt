@@ -11,6 +11,7 @@ ms.author: robinsh
 ms.custom: tracking-python
 ms.openlocfilehash: ea63b4bd40a610227b4315f9e6e858c39ff9ff6a
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84606467"

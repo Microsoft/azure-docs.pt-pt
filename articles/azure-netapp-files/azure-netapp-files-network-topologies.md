@@ -16,6 +16,7 @@ ms.date: 05/21/2020
 ms.author: ramakk
 ms.openlocfilehash: d81ae835fa62c5188c8d71a5ae0563259ab027f3
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "83797436"

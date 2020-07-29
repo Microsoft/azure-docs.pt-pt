@@ -10,6 +10,7 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.openlocfilehash: 725c319e4abb6cc65e1e6a900218393ace2d4d16
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84629569"

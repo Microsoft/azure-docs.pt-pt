@@ -12,6 +12,7 @@ ms.date: 06/18/2020
 ms.author: xiaojul
 ms.openlocfilehash: 1d84646fcb6769b7489cc0e03085e95fc47ef56c
 ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/07/2020
 ms.locfileid: "86027635"

@@ -8,6 +8,7 @@ ms.date: 03/26/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 6928da704236c4bb5492f99a4a5327bf297a323d
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84676852"

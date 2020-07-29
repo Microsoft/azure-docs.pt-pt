@@ -10,6 +10,7 @@ ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 95f0e542022f64a5a5bf7d7009c79382e25392df
 ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/06/2020
 ms.locfileid: "86035738"

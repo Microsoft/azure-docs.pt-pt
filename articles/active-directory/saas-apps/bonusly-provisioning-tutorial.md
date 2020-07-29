@@ -18,6 +18,7 @@ ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7694e441a59680a9b9544d3479100c1f779964ff
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "77058882"

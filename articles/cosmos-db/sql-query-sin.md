@@ -9,6 +9,7 @@ ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 25e7cf66fdd55a0b641c35443e38b0a67cbe365d
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "78303108"

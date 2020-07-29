@@ -9,6 +9,7 @@ ms.date: 02/06/2020
 ms.author: mialdrid
 ms.openlocfilehash: b4a83013d2cbeb2871a3963ec0c95144c02f4d66
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "77187016"

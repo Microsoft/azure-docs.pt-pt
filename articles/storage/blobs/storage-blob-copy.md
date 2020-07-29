@@ -10,6 +10,7 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.openlocfilehash: f4e6e2f2732d1c90e8fe669788d82692c8016fd6
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84463455"

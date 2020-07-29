@@ -13,6 +13,7 @@ ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: f25abb70a95f559cf0cc14efa6cf9f0e81ec9ec0
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "80876297"

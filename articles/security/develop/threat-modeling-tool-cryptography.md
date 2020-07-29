@@ -17,6 +17,7 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: c9116472af5b400ded0fea24f98b07bad9d9039b
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "68728194"

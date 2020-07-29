@@ -12,6 +12,7 @@ author: avneet723
 ms.date: 11/27/2019
 ms.openlocfilehash: 93e4d3d0bed9090573d2b6ee87a29b86ccd72e42
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "81758948"

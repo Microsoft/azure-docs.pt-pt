@@ -8,6 +8,7 @@ ms.date: 03/01/2019
 ms.author: antchu
 ms.openlocfilehash: dbacb6a5bbdead52750935c476f453423647fc0f
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84457138"

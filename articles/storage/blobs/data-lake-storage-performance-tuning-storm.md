@@ -10,6 +10,7 @@ ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 60e0d3fc22fdfc158110e9936748cc0bda280853
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84465920"

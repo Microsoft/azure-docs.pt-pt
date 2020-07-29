@@ -6,6 +6,7 @@ ms.topic: troubleshooting
 ms.reviewer: brendal
 ms.openlocfilehash: 20c0f9bdd6f820a73b1ba6660de805268c0d8714
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85212858"

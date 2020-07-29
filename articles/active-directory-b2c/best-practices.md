@@ -13,6 +13,7 @@ ms.author: vigunase
 ms.subservice: B2C
 ms.openlocfilehash: b18717b78a271bd390bc221e9ed0723cb02079ce
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84484304"

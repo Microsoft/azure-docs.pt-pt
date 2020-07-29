@@ -10,6 +10,7 @@ ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: 3db039d39ef532ea51143dc9cbdb6bd5f29d6225
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "75970281"

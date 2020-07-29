@@ -13,6 +13,7 @@ ms.author: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: f159105046231ba5fb4e458cdd70d930a411a920
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "80882340"

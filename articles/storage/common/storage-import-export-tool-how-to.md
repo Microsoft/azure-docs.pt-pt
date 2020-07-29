@@ -10,6 +10,7 @@ ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: 35236a95e691d6f7d0444a038e62116a684965a7
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "75978451"

@@ -13,6 +13,7 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 6404d00b87b9ee745b9e3a92c646404e574417c1
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "80881666"

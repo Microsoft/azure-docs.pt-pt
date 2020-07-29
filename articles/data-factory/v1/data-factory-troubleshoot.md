@@ -15,6 +15,7 @@ manager: anandsub
 robots: noindex
 ms.openlocfilehash: 45aa444393ed81bc320a770203ca114c35e16107
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84195905"

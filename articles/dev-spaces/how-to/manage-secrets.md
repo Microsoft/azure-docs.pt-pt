@@ -7,6 +7,7 @@ description: Aprenda a usar segredos kubernetes em execução ou construa tempo 
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contentores
 ms.openlocfilehash: d9dd0de348612bbb3baf5fb351c1c9af1c228c1f
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "75438467"

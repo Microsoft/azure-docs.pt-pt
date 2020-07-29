@@ -11,6 +11,7 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.openlocfilehash: a5b9b4c7d3bdd0c68d3a91a39972389e48ed910d
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85515015"

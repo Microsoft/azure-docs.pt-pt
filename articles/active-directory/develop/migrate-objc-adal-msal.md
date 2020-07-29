@@ -15,6 +15,7 @@ ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: 6050bdc8c2600998b9804b04b62102e74612719f
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "77085175"

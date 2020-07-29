@@ -10,6 +10,7 @@ ms.author: rohink
 ms.topic: how-to
 ms.openlocfilehash: bd40b3400b2a1c09be8fabd1201bedc7043bf19b
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84709101"

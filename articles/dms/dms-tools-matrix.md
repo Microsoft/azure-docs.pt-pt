@@ -13,6 +13,7 @@ ms.topic: article
 ms.date: 03/03/2020
 ms.openlocfilehash: de1e00d92661c3768efa49e5809751bf4f2327d8
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84267873"

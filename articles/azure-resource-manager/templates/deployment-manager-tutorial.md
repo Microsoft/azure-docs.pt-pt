@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 43291bdaa277c06262be2d7bb5ba8d3f61ff35ea
 ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/07/2020
 ms.locfileid: "86056893"

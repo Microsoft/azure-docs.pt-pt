@@ -12,6 +12,7 @@ ms.custom: H1Hack27Feb2017
 ms.subservice: disks
 ms.openlocfilehash: 45c51403661dfae6c8f78eaf35296881e5d90626
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "81869595"

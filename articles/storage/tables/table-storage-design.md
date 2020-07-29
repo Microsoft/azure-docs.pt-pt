@@ -10,6 +10,7 @@ ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 1dba3a6f3ebd7b6675e6d0d90d98a45625ad04ee
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "83656905"

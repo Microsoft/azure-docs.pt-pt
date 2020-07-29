@@ -12,6 +12,7 @@ ms.date: 12/4/2019
 ms.author: panosper
 ms.openlocfilehash: 2c84b291aad5ec2da2946e40075b23cc4496ef65
 ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85921029"

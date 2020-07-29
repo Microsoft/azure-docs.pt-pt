@@ -10,6 +10,7 @@ ms.date: 05/27/2020
 ms.author: anfeldma
 ms.openlocfilehash: 5fcde46738417a03cac8e5e99bea840ce2fd8bc6
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85392102"
