@@ -1,7 +1,7 @@
 ---
 title: Criar, alterar ou eliminar um grupo de segurança da rede Azure
 titlesuffix: Azure Virtual Network
-description: Saiba como criar, alterar ou eliminar um grupo de segurança de rede.
+description: Saiba onde encontrar informações sobre regras de segurança e como criar, alterar ou eliminar um grupo de segurança de rede.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -11,11 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 38fe9582595969ac92d3468b3b7e8c0a9d793c0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfb6426ec4e75f6484df37008522b966ebc3af6f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708285"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281264"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Criar, alterar ou eliminar um grupo de segurança de rede
 
@@ -45,7 +46,7 @@ Pode criar, [ver todos,](#view-all-network-security-groups) [ver detalhes de,](#
 
 Há um limite para quantos grupos de segurança de rede pode criar para cada localização e subscrição do Azure. Para saber mais, consulte [os limites de subscrição e serviço da Azure, quotas e constrangimentos.](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)
 
-1. No menu [do portal Azure](https://portal.azure.com) ou na página **Inicial,** selecione **Criar um recurso**.
+1. No menu do [portal do Azure](https://portal.azure.com) ou a partir da **Home page**, selecione **Criar um recurso**.
 
 2. Selecione **Networking**e, em seguida, selecione **grupo de segurança de rede**.
 
@@ -95,7 +96,7 @@ Para saber mais sobre as definições comuns do Azure listadas, consulte os segu
 - [Registo de atividades](../azure-monitor/platform/platform-logs-overview.md)
 - [Controlo de acesso (IAM)](../role-based-access-control/overview.md)
 - [Etiquetas](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Fechaduras](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Bloqueios](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Script de automatização](../azure-resource-manager/templates/export-template-portal.md)
 
 #### <a name="commands"></a>Comandos
@@ -261,7 +262,7 @@ Um grupo de segurança de aplicações contém interfaces de rede zero ou mais. 
 
 ### <a name="create-an-application-security-group"></a>Criar um grupo de segurança de aplicações
 
-1. No menu [do portal Azure](https://portal.azure.com) ou na página **Inicial,** selecione **Criar um recurso**.
+1. No menu do [portal do Azure](https://portal.azure.com) ou a partir da **Home page**, selecione **Criar um recurso**.
 
 2. Na caixa de pesquisa, insira *o grupo de segurança aplicação*.
 
@@ -354,7 +355,7 @@ Para realizar tarefas em grupos de segurança de rede, regras de segurança e gr
 
 ### <a name="network-security-group"></a>Grupo de segurança de rede
 
-| Ação                                                        |   Name                                                                |
+| Ação                                                        |   Nome                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/read                  |   Obtenha grupo de segurança de rede                                          |
 | Microsoft.Network/networkSecurityGroups/write                 |   Criar ou atualizar grupo de segurança de rede                             |
@@ -363,7 +364,7 @@ Para realizar tarefas em grupos de segurança de rede, regras de segurança e gr
 
 ### <a name="network-security-group-rule"></a>Regra do grupo de segurança da rede
 
-| Ação                                                        |   Name                                                                |
+| Ação                                                        |   Nome                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/securityRules/read            |   Obtenha a regra                                                            |
 | Microsoft.Network/networkSecurityGroups/securityRules/write           |   Criar ou atualizar regra                                               |
@@ -371,7 +372,7 @@ Para realizar tarefas em grupos de segurança de rede, regras de segurança e gr
 
 ### <a name="application-security-group"></a>Grupo de segurança de aplicações
 
-| Ação                                                                     | Name                                                     |
+| Ação                                                                     | Nome                                                     |
 | --------------------------------------------------------------             | -------------------------------------------              |
 | Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | Junte-se a uma configuração IP a um grupo de segurança de aplicações|
 | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Junte-se a uma regra de segurança a um grupo de segurança de aplicações    |
@@ -379,7 +380,7 @@ Para realizar tarefas em grupos de segurança de rede, regras de segurança e gr
 | Microsoft.Network/applicationSecurityGroups/write                          | Criar ou atualizar um grupo de segurança de aplicações           |
 | Microsoft.Network/applicationSecurityGroups/delete                         | Excluir um grupo de segurança de aplicações                     |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Crie um grupo de segurança de rede ou aplicação utilizando scripts de [amostras powerShell](powershell-samples.md) ou [Azure CLI,](cli-samples.md) ou [modelos de Gestor de Recursos](template-samples.md) Azure
 - Criar e atribuir [definições de Política Azure](policy-samples.md) para redes virtuais

@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: bdd540ad6c7ef1954936e4fb74bade2458e50927
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: ddec23f695396b8322d51da62158a97456096ae8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120794"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320005"
 ---
 # <a name="marketplace-metered-billing-apis---faq"></a>APIs de faturação medido no mercado - FAQ
 
@@ -84,6 +86,6 @@ Por exemplo, se a editora definir um plano SaaS que inclui 1000 e-mails por $100
 
 Quando o cliente comprar e ativar a subscrição no dia 6 de janeiro, o e-mail 1000 incluído na taxa fixa será contado a partir deste dia. Assim, se até 5 de fevereiro (final do primeiro mês da subscrição) apenas 900 e-mails forem enviados, o cliente pagará a taxa fixa apenas para o primeiro mês desta subscrição, e nenhum evento de utilização excessiva será emitido pela editora entre 6 de janeiro e 5 de fevereiro. No dia 6 de fevereiro, a subscrição será automaticamente renovada e a contagem recomeçará. Se em 15 de fevereiro o cliente tiver chegado aos 1000 e-mails enviados, os restantes e-mails enviados até 5 de março serão cobrados como overage ($1 por e-mail) com base nos eventos de utilização excessivo emitidos pela editora.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações, consulte [o serviço de medição de marketplace APIs](./marketplace-metering-service-apis.md).

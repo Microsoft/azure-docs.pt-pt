@@ -6,12 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
-ms.openlocfilehash: 42924b4ac5493fc910079ca1f89a6195ccba55e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 16fba1f036299a84db8301dbc09c7f4884d985f3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007916"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305096"
 ---
 # <a name="windows-azure-diagnostics-extension-wad-configuration-schema-versions-and-history"></a>Versões e histórico de esquemas de configuração do Windows Azure Diagnostics (WAD)
 Este artigo fornece o histórico da versão da [extensão Azure Diagnostics para versões](diagnostics-extension-overview.md) de esquema do Windows (WAD) enviadas como parte do Microsoft Azure SDK.  
@@ -19,7 +19,7 @@ Este artigo fornece o histórico da versão da [extensão Azure Diagnostics para
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Gráfico de envio de versões Azure SDK e diagnósticos  
 
-|Versão Azure SDK | Versão de extensão de diagnóstico | Modelação|  
+|Versão Azure SDK | Versão de extensão de diagnóstico | Modelo|  
 |------------------|-------------------------------|------|  
 |1.x               |1,0                            |plug-in|  
 |2.0 - 2.4         |1,0                            |plug-in|  
@@ -47,7 +47,7 @@ Diferentes versões de diagnósticos Azure utilizam diferentes esquemas de confi
 ### <a name="diagnostics-extension-111"></a>Extensão de diagnóstico 1.11
 Apoio adicional à pia do Monitor Azure. Esta pia só é aplicável aos contadores de desempenho. Permite o envio de contadores de desempenho recolhidos no seu VM, VMSS ou serviço de nuvem para O Azure Monitor como métricas personalizadas. O azure monitor suporta:
 * Recuperação de todos os contadores de desempenho enviados para o Azure Monitor através das [métricas Azure Monitor APIs.](/rest/api/monitor/metrics/list)
-* Alertando em todos os contadores de desempenho enviados ao Azure Monitor através da nova [experiência de alertas unificados](../../azure-monitor/platform/alerts-overview.md) no Azure Monitor
+* Alertando em todos os contadores de desempenho enviados ao Azure Monitor através da nova [experiência de alertas unificados](./alerts-overview.md) no Azure Monitor
 * Tratar o operador wildcard nos contadores de desempenho como a dimensão "Exemplo" na sua métrica. Por exemplo, se recolhesse o \* contador "LogicalDisk,)/DiskWrites/sec" seria capaz de filtrar e dividir na dimensão "Exemplo" para traçar ou alertar no Disco Writes/seg para cada Disco Lógico (C:, D:, etc.)
 
 Defina o Azure Monitor como uma nova pia na configuração da extensão de diagnóstico
@@ -155,7 +155,7 @@ Tipo de armazenamento adicionado ao PublicConfig. O StorageType pode ser *tabela
 Adicionou a capacidade de encaminhar para o EventHub.
 
 ### <a name="diagnostics-extension-15"></a>Extensão de diagnóstico 1.5
-Adicionou o elemento de sumidouros e a capacidade de enviar dados de diagnóstico para [o Application Insights,](../../azure-monitor/app/cloudservices.md) facilitando o diagnóstico de problemas em toda a sua aplicação, bem como o nível de sistema e infraestrutura.
+Adicionou o elemento de sumidouros e a capacidade de enviar dados de diagnóstico para [o Application Insights,](../app/cloudservices.md) facilitando o diagnóstico de problemas em toda a sua aplicação, bem como o nível de sistema e infraestrutura.
 
 ### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Azure SDK 2.6 e extensão de diagnóstico 1.3
 Para os projetos do Cloud Service no Visual Studio, foram feitas as seguintes alterações. (Estas alterações aplicam-se também às versões posteriores do Azure SDK.)
@@ -190,3 +190,4 @@ Se estiver a atualizar o seu projeto de Azure SDK 2.4 para Azure SDK 2.5 ou mais
 * **Os diagnósticos para aplicações de serviço na nuvem só podem ser configurados ao nível da função, e não ao nível da instância.**
 * **Sempre que implementa a sua aplicação, a configuração de diagnóstico é atualizada** – Isto pode causar problemas de paridade se alterar a configuração de diagnóstico do Server Explorer e, em seguida, recolocar a sua aplicação.
 * **No Azure SDK 2.5 e posteriormente, os depósitos de colisão são configurados no ficheiro de configuração de diagnósticos, não em código** – Se tiver falhas configuradas em código, terá de transferir manualmente a configuração do código para o ficheiro de configuração, porque os depósitos de colisão não são transferidos durante a migração para Azure SDK 2.6.
+

@@ -6,12 +6,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: ff7d088a80ceaf01e9434ef62beb0e771cdf6b55
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3914764035d65482bcf224f8d0eda9c6579e03a4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081666"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87309686"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerir a utilização e os custos do Application Insights
 
@@ -24,9 +24,9 @@ Se tiver dúvidas sobre como funciona o preço para a Application Insights, pode
 
 ## <a name="pricing-model"></a>Modelo preços
 
-O preço da [Azure Application Insights][start] é um modelo **Pay-As-You-Go** baseado no volume de dados ingerido e opcionalmente para uma maior retenção de dados. Cada recurso Application Insights é cobrado como um serviço separado e contribui para a fatura da sua subscrição Azure. O volume de dados é medido como o tamanho do pacote de dados JSON não comprimido que é recebido pela Application Insights da sua aplicação. Não existe uma carga de volume de dados para a utilização do [Live Metrics Stream](../../azure-monitor/app/live-stream.md).
+O preço da [Azure Application Insights][start] é um modelo **Pay-As-You-Go** baseado no volume de dados ingerido e opcionalmente para uma maior retenção de dados. Cada recurso Application Insights é cobrado como um serviço separado e contribui para a fatura da sua subscrição Azure. O volume de dados é medido como o tamanho do pacote de dados JSON não comprimido que é recebido pela Application Insights da sua aplicação. Não existe uma carga de volume de dados para a utilização do [Live Metrics Stream](./live-stream.md).
 
-[Os testes web em várias etapas](../../azure-monitor/app/availability-multistep.md) incorrem numa taxa adicional. Testes web em várias etapas são testes web que realizam uma sequência de ações. Não há carga separada para *testes* de ping de uma única página. A telemetria dos testes de ping e os testes em várias etapas são cobrados da mesma forma que outras telemetrias da sua aplicação.
+[Os testes web em várias etapas](./availability-multistep.md) incorrem numa taxa adicional. Testes web em várias etapas são testes web que realizam uma sequência de ações. Não há carga separada para *testes* de ping de uma única página. A telemetria dos testes de ping e os testes em várias etapas são cobrados da mesma forma que outras telemetrias da sua aplicação.
 
 A opção Application Insights para [Permitir alertar sobre as dimensões métricas personalizadas](./pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) também pode gerar em custos adicionais, uma vez que isso pode resultar na criação de métricas adicionais de pré-agregação. [Saiba mais](./pre-aggregated-metrics-log-metrics.md) sobre métricas baseadas em log e pré-agregadas em Application Insights e sobre [preços](https://azure.microsoft.com/pricing/details/monitor/) para métricas personalizadas do Azure Monitor.
 
@@ -48,7 +48,7 @@ Para os SDKs que não suportam amostras adaptativas, pode utilizar amostras de [
 
 ### <a name="learn-from-what-similar-customers-collect"></a>Saiba com o que os clientes semelhantes recolhem
 
-Na calculadora de preços de monitorização Azure para Insights de Aplicação, se ativar a funcionalidade "Estimar o volume de dados com base na atividade da aplicação", pode fornecer entradas sobre a sua aplicação (pedidos por mês e vistas de página por mês, caso recolha telemetria do lado do cliente), e então a calculadora lhe dirá a quantidade média e 90 de percentil de dados recolhidos por aplicações semelhantes. Estas aplicações abrangem a gama de configurações de Application Insights (por exemplo, algumas têm [amostragem](../../azure-monitor/app/sampling.md)padrão, algumas não têm amostragem, etc.), pelo que ainda tem o controlo para reduzir o volume de dados que ingeriu muito abaixo do nível mediano utilizando a amostragem. Mas este é um ponto de partida para entender o que outros clientes semelhantes estão a ver.
+Na calculadora de preços de monitorização Azure para Insights de Aplicação, se ativar a funcionalidade "Estimar o volume de dados com base na atividade da aplicação", pode fornecer entradas sobre a sua aplicação (pedidos por mês e vistas de página por mês, caso recolha telemetria do lado do cliente), e então a calculadora lhe dirá a quantidade média e 90 de percentil de dados recolhidos por aplicações semelhantes. Estas aplicações abrangem a gama de configurações de Application Insights (por exemplo, algumas têm [amostragem](./sampling.md)padrão, algumas não têm amostragem, etc.), pelo que ainda tem o controlo para reduzir o volume de dados que ingeriu muito abaixo do nível mediano utilizando a amostragem. Mas este é um ponto de partida para entender o que outros clientes semelhantes estão a ver.
 
 ## <a name="understand-your-usage-and-estimate-costs"></a>Compreenda o seu uso e calcule os custos
 
@@ -56,10 +56,10 @@ O Application Insights facilita a compreensão dos seus custos, provavelmente, b
 
 ![Escolha preços](./media/pricing/pricing-001.png)
 
-A. Reveja o seu volume de dados para o mês. Isto inclui todos os dados que são recebidos e retidos (após qualquer [amostra)](../../azure-monitor/app/sampling.md)das aplicações do seu servidor e cliente, e de testes de disponibilidade.  
-B. É feita uma carga separada para [testes web em várias etapas.](../../azure-monitor/app/availability-multistep.md) (Isto não inclui testes simples de disponibilidade, que estão incluídos na carga de volume de dados.)  
+A. Reveja o seu volume de dados para o mês. Isto inclui todos os dados que são recebidos e retidos (após qualquer [amostra)](./sampling.md)das aplicações do seu servidor e cliente, e de testes de disponibilidade.  
+B. É feita uma carga separada para [testes web em várias etapas.](./availability-multistep.md) (Isto não inclui testes simples de disponibilidade, que estão incluídos na carga de volume de dados.)  
 C. Ver as tendências do volume de dados do mês passado.  
-D. Permitir a recolha de [amostras](../../azure-monitor/app/sampling.md)de ingestão de dados.
+D. Permitir a recolha de [amostras](./sampling.md)de ingestão de dados.
 E. Desa estada a tampa diária do volume de dados.  
 
 (Note que todos os preços apresentados em imagens deste artigo são apenas para fins. Para os preços correntes na sua moeda e região, consulte [os preços do Application Insights][pricing].)
@@ -183,11 +183,11 @@ Na folha de cálculo descarregada, pode ver a utilização por recurso Azure por
 
 O volume de dados enviados pode ser gerido utilizando as seguintes técnicas:
 
-* **Amostragem**: Pode utilizar a amostragem para reduzir a quantidade de telemetria enviada a partir do seu servidor e aplicações de clientes, com a mínima distorção de métricas. A amostragem é a ferramenta primária que pode utilizar para sintonizar a quantidade de dados que envia. Saiba mais sobre [as características de amostragem.](../../azure-monitor/app/sampling.md)
+* **Amostragem**: Pode utilizar a amostragem para reduzir a quantidade de telemetria enviada a partir do seu servidor e aplicações de clientes, com a mínima distorção de métricas. A amostragem é a ferramenta primária que pode utilizar para sintonizar a quantidade de dados que envia. Saiba mais sobre [as características de amostragem.](./sampling.md)
 
-* **Limite as chamadas do Ajax**: Pode limitar o número de chamadas do Ajax que podem ser [reportadas](../../azure-monitor/app/javascript.md#configuration) em todas as visualizações de página ou desligar o relatório do Ajax.
+* **Limite as chamadas do Ajax**: Pode limitar o número de chamadas do Ajax que podem ser [reportadas](./javascript.md#configuration) em todas as visualizações de página ou desligar o relatório do Ajax.
 
-* **Desativar módulos não necessários**: [Editar ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) para desligar os módulos de recolha de que não necessita. Por exemplo, pode decidir que os contadores de desempenho ou dados de dependência são inessenciais.
+* **Desativar módulos não necessários**: [Editar ApplicationInsights.config](./configuration-with-applicationinsights-config.md) para desligar os módulos de recolha de que não necessita. Por exemplo, pode decidir que os contadores de desempenho ou dados de dependência são inessenciais.
 
 * **Métricas pré-agregadas**: Se colocar chamadas para TrackMetric na sua aplicação, pode reduzir o tráfego utilizando a sobrecarga que aceita o seu cálculo do desvio médio e padrão de um lote de medições. Ou pode utilizar um [pacote pré-agregado.](https://www.myget.org/gallery/applicationinsights-sdk-labs)
  
@@ -207,7 +207,7 @@ O volume de dados enviados pode ser gerido utilizando as seguintes técnicas:
 
 Pode utilizar a tampa de volume diária para limitar os dados recolhidos. No entanto, se a tampa for cumprida, ocorre uma perda de toda a telemetria enviada do seu pedido para o resto do dia. Não é *aconselhável* que a sua aplicação atinja a tampa diária. Não é possível acompanhar a saúde e o desempenho da sua aplicação depois de atingir o limite diário.
 
-Em vez de utilizar a tampa de volume diária, utilize [a amostragem](../../azure-monitor/app/sampling.md) para sintonizar o volume de dados ao nível que pretende. Em seguida, utilize a tampa diária apenas como um "último recurso" caso a sua aplicação comece inesperadamente a enviar volumes muito mais elevados de telemetria.
+Em vez de utilizar a tampa de volume diária, utilize [a amostragem](./sampling.md) para sintonizar o volume de dados ao nível que pretende. Em seguida, utilize a tampa diária apenas como um "último recurso" caso a sua aplicação comece inesperadamente a enviar volumes muito mais elevados de telemetria.
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identificar que limite de dados diários para definir
 
@@ -219,7 +219,7 @@ Para alterar a tampa diária, na secção **Configure** do seu recurso Applicati
 
 ![Ajuste a tampa diária de volume de telemetria](./media/pricing/pricing-003.png)
 
-Para [alterar a tampa diária através do Azure Resource Manager,](../../azure-monitor/app/powershell.md)a propriedade a alterar é a `dailyQuota` .  Através do Azure Resource Manager também pode definir o `dailyQuotaResetTime` e o da tampa diária `warningThreshold` .
+Para [alterar a tampa diária através do Azure Resource Manager,](./powershell.md)a propriedade a alterar é a `dailyQuota` .  Através do Azure Resource Manager também pode definir o `dailyQuotaResetTime` e o da tampa diária `warningThreshold` .
 
 ### <a name="create-alerts-for-the-daily-cap"></a>Criar alertas para o Daily Cap
 
@@ -230,13 +230,13 @@ O Application Insights Daily Cap cria um evento no registo de atividade do Azure
 * Limite diário de componente de Aplicações Insights alcançado
 
 ## <a name="sampling"></a>Amostragem
-[A amostragem](../../azure-monitor/app/sampling.md) é um método para reduzir a taxa a que a telemetria é enviada para a sua aplicação, mantendo ao mesmo tempo a capacidade de encontrar eventos relacionados durante as pesquisas de diagnóstico. Também mantém a contagem correta do evento.
+[A amostragem](./sampling.md) é um método de redução da taxa a que a telemetria é enviada para a sua aplicação, mantendo ao mesmo tempo a capacidade de encontrar eventos relacionados durante as pesquisas de diagnóstico. Também mantém a contagem correta do evento.
 
 A amostragem é uma forma eficaz de reduzir os encargos e ficar dentro da sua quota mensal. O algoritmo de amostragem retém itens relacionados de telemetria para que, por exemplo, quando utilizar o Search, possa encontrar o pedido relacionado com uma exceção particular. O algoritmo também mantém as contagens corretas para que você veja os valores corretos no Metric Explorer para taxas de pedido, taxas de exceção e outras contagens.
 
 Há várias formas de amostragem.
 
-* [A amostragem adaptativa](../../azure-monitor/app/sampling.md) é o padrão para o ASP.NET SDK. A amostragem adaptativa ajusta-se automaticamente ao volume de telemetria que a sua aplicação envia. Opera automaticamente no SDK na sua aplicação web para que o tráfego de telemetria na rede seja reduzido. 
+* [A amostragem adaptativa](./sampling.md) é o padrão para o ASP.NET SDK. A amostragem adaptativa ajusta-se automaticamente ao volume de telemetria que a sua aplicação envia. Opera automaticamente no SDK na sua aplicação web para que o tráfego de telemetria na rede seja reduzido. 
 * *A amostragem de ingestão* é uma alternativa que funciona no ponto em que a telemetria da sua aplicação entra no serviço Application Insights. A amostragem de ingestão não afeta o volume de telemetria enviada da sua app, mas reduz o volume que é retido pelo serviço. Você pode usar a amostragem de ingestão para reduzir a quota que é usada pela telemetria de navegadores e outros SDKs.
 
 Para definir a amostragem de ingestão, vá ao **painel de preços:**
@@ -310,7 +310,7 @@ Como este nível é aplicável apenas aos clientes com uma assinatura Do Suite d
   * Um *nó* é uma máquina de servidor físico ou virtual ou uma instância de função de plataforma como serviço que acolhe a sua aplicação.
   * Máquinas de desenvolvimento, navegadores de clientes e dispositivos móveis não contam como nós.
   * Se a sua aplicação tiver vários componentes que enviam telemetria, como um serviço web e um trabalhador de back-end, os componentes são contados separadamente.
-  * [Os dados do Live Metrics Stream](../../azure-monitor/app/live-stream.md) não são contados para efeitos de preços. Numa subscrição, os seus custos são por nó, não por app. Se tiver cinco nós que enviam telemetria para 12 aplicações, a taxa é de cinco nós.
+  * [Os dados do Live Metrics Stream](./live-stream.md) não são contados para efeitos de preços. Numa subscrição, os seus custos são por nó, não por app. Se tiver cinco nós que enviam telemetria para 12 aplicações, a taxa é de cinco nós.
 * Embora as taxas sejam citadas por mês, é cobrado apenas por qualquer hora em que um nó envie telemetria a partir de uma aplicação. A taxa horária é a taxa mensal citada dividida por 744 (número de horas num mês de 31 dias).
 * É dada uma atribuição de volume de dados de 200 MB por dia para cada nó detetado (com granularidade horária). A atribuição de dados não reutilizados não é transitada de um dia para o outro.
   * Se escolher o nível de preços per nó, cada subscrição recebe uma licença diária de dados com base no número de nós que enviam telemetria para os recursos de Insights de Aplicação nessa subscrição. Assim, se tiver cinco nós que enviam dados durante todo o dia, terá uma licença de 1 GB aplicada a todos os recursos de Insights de Aplicação nessa subscrição. Não importa se certos nós enviam mais dados do que outros nós porque os dados incluídos são partilhados em todos os nós. Se num determinado dia, os recursos do Application Insights receberem mais dados do que os incluídos na atribuição diária de dados para esta subscrição, aplicam-se os encargos por excesso de dados por GB. 
@@ -339,10 +339,11 @@ Pode escrever um script para definir o nível de preços utilizando a Azure Reso
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Amostragem](../../azure-monitor/app/sampling.md)
+* [amostragem](./sampling.md)
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[start]: ./app-insights-overview.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
+

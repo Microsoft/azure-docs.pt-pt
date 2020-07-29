@@ -1,26 +1,26 @@
 ---
-title: 'Quickstart: Implemente uma app com o portal LUIS'
-description: Este quickstart mostra como implementar uma aplicação criando um recurso final de previsão, atribuindo o recurso, formação e publicação da app.
+title: 'Quickstart: Implementar uma app com o portal LUIS'
+description: Este quickstart mostra como implementar uma aplicação criando um recurso de ponto final de previsão, atribuindo o recurso, formação e publicação da app.
 ms.topic: quickstart
 ms.date: 05/06/2020
-ms.openlocfilehash: 743c2fe311eeeabad5a3e957319be3a6e372e74f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3d12fa2956f962fe7a05b9639c1d32a7069635f9
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653226"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87336378"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Quickstart: Implementar uma aplicação no portal LUIS
 
-Quando a sua aplicação LUIS estiver pronta para devolver previsões de expressão a uma aplicação de cliente (por exemplo, um chat bot), precisa de implementar a app para o ponto final da previsão.
+Quando a sua aplicação LUIS estiver pronta para devolver as previsões de expressão a uma aplicação do cliente (por exemplo, um chat bot), é necessário implementar a app no ponto final da previsão.
 
-Neste arranque rápido, aprende-se a implementar uma aplicação. Cria um recurso de ponto final de previsão, atribui o recurso à app, treina a app e publica a aplicação.
+Neste arranque rápido, aprende-se a implementar uma aplicação. Cria-se um recurso de ponto final de previsão, atribui o recurso à app, treina a aplicação e publica a app.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Obtenha uma [assinatura Azure.](https://azure.microsoft.com/free)
-* Complete o [portal anterior, arranque](get-started-portal-build-app.md) rápido ou [descarregamento e importe a aplicação.](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json)
-* Se tiver aplicações que antecedam a autenticação de recursos Azure, [emigra para um recurso Azure.](luis-migration-authoring.md) Algumas páginas do portal parecem diferentes quando a autenticação por e-mail está em vigor.
+* Complete o [portal anterior quickstart](get-started-portal-build-app.md) ou [download e importe a app.](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/portal-build-app.json)
+* Se tiver aplicações que pré-datam a autenticação de recursos Azure, [migra para um recurso Azure](luis-migration-authoring.md). Algumas páginas do portal parecem diferentes quando a autenticação de e-mail está em vigor.
 
 <a name="create-the-endpoint-resource"></a>
 
@@ -28,43 +28,43 @@ Neste arranque rápido, aprende-se a implementar uma aplicação. Cria um recurs
 
 ## <a name="assign-the-resource-key-to-the-luis-app-in-the-luis-portal"></a>Atribuir a chave de recursos à app LUIS no portal LUIS
 
-Sempre que cria um novo recurso de autor ou previsão de consulta para o LUIS, tem de atribuir o recurso à app LUIS. Depois de atribuído, não precisará de fazer este passo de novo, a menos que crie um novo recurso. Poderá criar um novo recurso para expandir as regiões da sua app ou para suportar um maior número de consultas de previsão.
+Sempre que cria um novo recurso de autoria ou previsão de consulta para o LUIS, tem de atribuir o recurso à app LUIS. Depois de atribuído, não precisará de fazer este passo novamente a menos que crie um novo recurso. Pode criar um novo recurso para expandir as regiões da sua app ou para suportar um maior número de consultas de previsão.
 
-1. Inscreva-se no [portal LUIS](https://www.luis.ai) e escolha a aplicação **myEnglishApp** na lista de aplicações.
+1. Inscreva-se no [portal LUIS](https://www.luis.ai) e escolha a aplicação **myEnglishApp** da lista de aplicações.
 
-1. Selecione **Gerir** no menu superior direito e, em seguida, selecione **Recursos Azure**.
+1. **Selecione Gerir** no menu superior direito e, em seguida, selecione **Recursos Azure**.
 
-1. Para adicionar o LUIS, selecione **Adicionar recurso**de previsão .
+1. Para adicionar o LUIS, **selecione Adicionar recurso de previsão**.
 
     ![Para adicionar o recurso de previsão LUIS, selecione Adicionar recurso de previsão](./media/get-started-portal-deploy-app/azure-resources-add-prediction-resource.png)
 
-1. Selecione o seu nome de inquilino, subscrição e recursos. Selecione **recurso atribuir**.
+1. Selecione o seu inquilino, subscrição e nome de recurso. Selecione **Atribuir recurso**.
 
    > [!div class="mx-imgBorder"]
-   > ![Atribuir um recurso à sua aplicação](./media/get-started-portal-deploy-app/assign-resource.png)
+   > ![Atribua um recurso à sua aplicação](./media/get-started-portal-deploy-app/assign-resource.png)
 
-1. Complete os mesmos passos para adicionar a chave de autor à sua aplicação.
+1. Complete os mesmos passos para adicionar a chave de autoria à sua aplicação.
 
-1. Encontre a nova linha na tabela para o novo recurso de previsão e copie o URL do ponto final. É corretamente construído para fazer um `HTTP GET` pedido ao ponto final da API LUIS para uma previsão.
+1. Encontre a nova linha na tabela para o novo recurso de previsão e copie o URL do ponto final. Foi construído corretamente para fazer um `HTTP GET` pedido ao ponto final da API luis para uma previsão.
 
 > [!TIP]
-> Se pretender utilizar o Ative learning para melhorar a sua aplicação LUIS, selecione **parâmetros** de consulta de alteração e selecione **Registos Save**. Esta ação altera o URL de exemplo adicionando o parâmetro de corda de `log=true` consulta. Copie e use o URL de consulta de exemplo alterado ao fazer consultas de previsão para o ponto final do tempo de execução.
+> Se pretender utilizar a aprendizagem ativa para melhorar a sua aplicação LUIS, selecione **Alterar parâmetros de consulta** e selecione Guardar **registos**. Esta ação altera o URL de exemplo adicionando o `log=true` parâmetro de consulta. Copie e use o URL de consulta de exemplo alterado ao fazer consultas de previsão para o ponto final de tempo de execução.
 
 ## <a name="train-the-app"></a>Preparar a aplicação
 
 Se mudou a aplicação desde que a treinou pela última vez, [treine](get-started-portal-build-app.md) a aplicação.
 
-## <a name="publish-the-app-to-the-prediction-endpoint"></a>Publique a app para o ponto final da previsão
+## <a name="publish-the-app-to-the-prediction-endpoint"></a>Publique a app no ponto final da previsão
 
 [!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
-## <a name="prediction-endpoint-request"></a>Pedido de ponto final de previsão
+## <a name="prediction-endpoint-request"></a>Pedido de previsão de ponto final
 
-No portal, `query=` no final do URL é onde a expressão do utilizador está anexada ao pedido GET. Depois da `query=` , introduza a mesma expressão de utilizador utilizada no final do quickstart anterior:
+No portal, `query=` no final do URL é onde a expressão do utilizador é anexada ao pedido GET. Após a `query=` , introduza a mesma expressão de utilizador utilizada no final do início rápido anterior:
 
 ```Is there a form named hrf-234098```
 
-Certifique-se de que a corda de consulta inclui os seguintes pares:
+Certifique-se de que a cadeia de consulta inclui os seguintes pares:
 
 * `show-all-intents=true`
 * `verbose=true`
@@ -108,15 +108,15 @@ O navegador mostra a resposta:
 }
 ```
 
-Para ver este mesmo nível de informação no painel de teste, tem de publicar a aplicação. Depois da aplicação ser publicada, selecione **Compare com publicado** no painel de teste. Use **a visão JSON** do show no painel de teste publicado para ver o mesmo JSON que o passo anterior. Desta forma, pode comparar alterações à aplicação atual em que está a trabalhar com uma aplicação que é publicada no ponto final.
+Para ver este mesmo nível de informação no painel de teste, tem de publicar a aplicação. Depois de a aplicação ser publicada, **selecione Compare com a publicação** no painel de teste. Use **a vista JSON** do Show no painel de teste publicado para ver o mesmo JSON do passo anterior. Desta forma, pode comparar alterações à aplicação atual em que está a trabalhar com uma aplicação que é publicada no ponto final.
 
-[![Compare atualmente a edição versus versão publicada da app](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
+[![Compare atualmente editando versus versão publicada da app](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando terminar com este quickstart, selecione **Minhas aplicações** no menu de navegação superior. Selecione a caixa de verificação da aplicação da lista e, em seguida, selecione **Eliminar** a partir da barra de ferramentas de contexto acima da lista.
+Quando terminar este arranque rápido, selecione **As minhas aplicações** a partir do menu de navegação superior. Selecione a caixa de verificação da aplicação da lista e, em seguida, **selecione Eliminar** a partir da barra de ferramentas de contexto acima da lista.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Identificar intenções e entidades comuns](luis-tutorial-prebuilt-intents-entities.md)

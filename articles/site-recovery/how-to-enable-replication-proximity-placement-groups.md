@@ -5,12 +5,12 @@ author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
 ms.date: 05/25/2020
-ms.openlocfilehash: ec516ac1cd9c2a6201bfc77bd1169bcd8ea83e44
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1f64c7aa45b748bdb8174bd69dbfc25f43329c10
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091509"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285344"
 ---
 # <a name="replicate-azure-virtual-machines-running-in-proximity-placement-groups-to-another-region"></a>Replicar máquinas virtuais Azure em execução em Grupos de Colocação de Proximidade para outra região
 
@@ -28,14 +28,21 @@ Num cenário típico, poderá ter as suas máquinas virtuais a funcionar num gru
 -  Se um Conjunto de Disponibilidade for fixado a um Grupo de Colocação de Proximidade e durante os VMs de failover/failback no conjunto de disponibilidades tiverem uma restrição de atribuição, então as máquinas virtuais serão criadas fora do conjunto de disponibilidade e do grupo de colocação de proximidade.
 -  A recuperação do local para grupos de colocação de proximidade não é suportada para discos não geridos.
 
-> [!Note]
+> [!NOTE]
 > A Azure Site Recovery não suporta falhas de discos geridos para cenários De Hiper-V a Azure. Assim, não é suportado o recuo do Grupo de Colocação de Proximidade em Azure para o Hiper-V.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 1. Certifique-se de que tem o módulo Azure PowerShell Az. Se necessitar de instalar ou atualizar o Azure PowerShell, siga este [Guia para instalar e configurar a Azure PowerShell](/powershell/azure/install-az-ps).
+2. A versão mínima Azure PowerShell Az deve ser 4.1.0. Para verificar a versão atual, use o comando abaixo -
+    ```
+    Get-InstalledModule -Name Az
+    ```
 
 ## <a name="set-up-site-recovery-for-virtual-machines-in-proximity-placement-group"></a>Configurar a recuperação do site para máquinas virtuais no Grupo de Colocação de Proximidade
+
+> [!NOTE]
+> Certifique-se de que tem à mão o ID único do Grupo de Colocação de Proximidade alvo. Se está a criar um novo Grupo de Colocação de Proximidade, verifique o comando [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#create-a-proximity-placement-group) e se estiver a utilizar um Grupo de Colocação de Proximidade existente, use o comando [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#list-proximity-placement-groups).
 
 ### <a name="azure-to-azure"></a>Azure para o Azure
 
@@ -48,7 +55,7 @@ Num cenário típico, poderá ter as suas máquinas virtuais a funcionar num gru
 7. Crie um mapeamento de recipientes de proteção entre o recipiente de proteção primária e de recuperação utilizando [estas](./azure-to-azure-powershell.md#create-a-protection-container-mapping-between-the-primary-and-recovery-protection-container) etapas e um mapeamento de contentores de proteção para falhas, como [mencionado aqui](./azure-to-azure-powershell.md#create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover).
 8. Crie uma conta de armazenamento de cache seguindo [estes](./azure-to-azure-powershell.md#create-cache-storage-account-and-target-storage-account) passos.
 9. Crie os mapeamentos de rede necessários, conforme mencionado [aqui.](./azure-to-azure-powershell.md#create-network-mappings)
-10. Para replicar a máquina virtual Azure com discos geridos, utilize o cmdlet abaixo do PowerShell – 
+10. Para replicar a máquina virtual Azure com discos geridos, use o cmdlet abaixo do PowerShell -
 
 ```azurepowershell
 #Get the resource group that the virtual machine must be created in when failed over.
@@ -77,7 +84,7 @@ $diskconfigs += $OSDiskReplicationConfig, $DataDisk1ReplicationConfig
 
 #Start replication by creating replication protected item. Using a GUID for the name of the replication protected item to ensure uniqueness of name.
 
-$TempASRJob = New-AzRecoveryServicesAsrReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -Name (New-Guid).Guid -ProtectionContainerMapping $EusToWusPCMapping -AzureToAzureDiskReplicationConfiguration $diskconfigs -RecoveryResourceGroupId $RecoveryRG.ResourceId -RecoveryProximityPlacementGroupId $recPpg.Id
+$TempASRJob = New-AzRecoveryServicesAsrReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -Name (New-Guid).Guid -ProtectionContainerMapping $EusToWusPCMapping -AzureToAzureDiskReplicationConfiguration $diskconfigs -RecoveryResourceGroupId $RecoveryRG.ResourceId -RecoveryProximityPlacementGroupId $targetPpg.Id
 ```
 Uma vez que a operação de replicação inicial tenha sucesso, os dados da máquina virtual são replicados na região de recuperação.
 
@@ -85,7 +92,7 @@ O processo de replicação começa por sementeirar inicialmente uma cópia dos d
 
 Após a replicação inicial concluída, a replicação move-se para a fase de sincronização diferencial. Neste ponto, a máquina virtual está protegida e pode ser realizada uma operação de falha de teste. O estado de replicação do item replicado que representa a máquina virtual vai para o estado protegido após a replicação inicial.
 
-Monitorize o estado de replicação e a saúde de replicação para a máquina virtual, obtendo detalhes do item protegido de replicação correspondente à sua. 
+Monitorize o estado de replicação e a saúde de replicação para a máquina virtual, obtendo detalhes do item protegido de replicação correspondente à sua.
 
 ```azurepowershell
 Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $PrimaryProtContainer | Select FriendlyName, ProtectionState, ReplicationHealth
@@ -130,7 +137,7 @@ $VM1 = Get-AzRecoveryServicesAsrProtectableItem -ProtectionContainer $Protection
 
 # Enable replication for virtual machine CentOSVM1 using the Az.RecoveryServices module 2.0.0 onwards to replicate to managed disks
 # The name specified for the replicated item needs to be unique within the protection container. Using a random GUID to ensure uniqueness
-$Job_EnableReplication1 = New-AzRecoveryServicesAsrReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM1 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -ProcessServer $ProcessServers[1] -Account $AccountHandles[2] -RecoveryResourceGroupId $ResourceGroup.ResourceId -logStorageAccountId $LogStorageAccount.Id -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1" -RecoveryProximityPlacementGroupId $recPpg.Id
+$Job_EnableReplication1 = New-AzRecoveryServicesAsrReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM1 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -ProcessServer $ProcessServers[1] -Account $AccountHandles[2] -RecoveryResourceGroupId $ResourceGroup.ResourceId -logStorageAccountId $LogStorageAccount.Id -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1" -RecoveryProximityPlacementGroupId $targetPpg.Id
 ```
 8. Pode verificar o estado de replicação e a saúde de replicação da máquina virtual com o cmdlet Get-ASRReplicationProtectedItem.
 
@@ -161,7 +168,7 @@ Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $Protecti
     
     ```azurepowershell
     $OSType = "Windows"          # "Windows" or "Linux"
-    $DRjob = New-AzRecoveryServicesAsrReplicationProtectedItem -ProtectableItem $VM -Name $VM.Name -ProtectionContainerMapping $ProtectionContainerMapping -RecoveryAzureStorageAccountId   $StorageAccountID -OSDiskName $OSDiskNameList[$i] -OS $OSType -RecoveryResourceGroupId $ResourceGroupID -RecoveryProximityPlacementGroupId $recPpg.Id
+    $DRjob = New-AzRecoveryServicesAsrReplicationProtectedItem -ProtectableItem $VM -Name $VM.Name -ProtectionContainerMapping $ProtectionContainerMapping -RecoveryAzureStorageAccountId   $StorageAccountID -OSDiskName $OSDiskNameList[$i] -OS $OSType -RecoveryResourceGroupId $ResourceGroupID -RecoveryProximityPlacementGroupId $targetPpg.Id
     ```
     c. Aguarde que os VMs atinjam um estado protegido após a replicação inicial. Isto pode demorar algum tempo, dependendo de fatores como a quantidade de dados a replicar, e a largura de banda disponível a montante para Azure. Quando um estado protegido está em vigor, o estado de trabalho e a descrição do Estado são atualizados da seguinte forma: 
     

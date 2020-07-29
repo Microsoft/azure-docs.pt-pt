@@ -4,16 +4,16 @@ description: Este artigo fornece instruções para permitir a encriptação do d
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 274dda338fca1dae1940dd4a0fe66df617195544
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fa01c4a595a08ffdba56d777128431946540eee5
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502627"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372676"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Ativar encriptação do disco Azure com Azure AD em VMs Linux (versão anterior)
 
@@ -346,7 +346,7 @@ Pode desativar a encriptação utilizando o Azure PowerShell, o Azure CLI ou um 
      3. Selecione **Comprar** para desativar a encriptação do disco num VM do Windows em execução. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Encriptação do disco Azure para visão geral do Linux](disk-encryption-overview-aad.md)
 - [Criar e configurar um cofre chave para encriptação de disco Azure com Azure AD (versão anterior)](disk-encryption-key-vault-aad.md)

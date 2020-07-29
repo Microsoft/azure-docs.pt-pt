@@ -6,11 +6,12 @@ ms.author: lcozzens
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 6d072cd03fa0e5c8da4593d8633a268d3b5a50fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66d0e32e7dfdd5ab2abee5108ac8ce54c5222747
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84197052"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371826"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Sync o seu repositório GitHub para a Configuração de Aplicações
 
@@ -24,7 +25,7 @@ Um fluxo [de trabalho](https://help.github.com/articles/about-github-actions#wor
 A [documentação](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) do GitHub fornece uma visão aprofundada dos fluxos de trabalho e ações do GitHub. 
 
 ## <a name="enable-github-actions-in-your-repository"></a>Ativar as ações do GitHub no seu repositório
-Para começar a utilizar esta ação do GitHub, vá ao seu repositório e selecione o separador **Ações.** Clique em **Novo fluxo de trabalho**e, em seguida, crie um fluxo de trabalho por si **mesmo**. Finalmente, procure no mercado "Azure App Configuration Sync".
+Para começar a utilizar esta ação do GitHub, vá ao seu repositório e selecione o separador **Ações.** Selecione **novo fluxo de trabalho,** em seguida, **crie um fluxo de trabalho por si mesmo**. Finalmente, procure no mercado "Azure App Configuration Sync".
 > [!div class="mx-imgBorder"]
 > ![Selecione o separador Ação](media/find-github-action.png)
 
@@ -317,6 +318,6 @@ Os parâmetros de entrada especificam os dados utilizados pela ação durante o 
 | profundidade | Não | Profundidade máxima para achatar o ficheiro de configuração.  Profundidade deve ser um número positivo.  O padrão não terá profundidade máxima. |
 | etiquetas | Não | Especifica a etiqueta definida em pares de valor-chave.  O formato esperado é uma forma stringified de um objeto JSON da seguinte forma: { [nome de propriedade: corda]: corda; } Cada valor-nome de propriedade torna-se uma etiqueta. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu sobre a Configuração da Aplicação Sync GitHub Action e como pode ser usada para automatizar atualizações para a sua instância de Configuração de Aplicações. Para saber como a Configuração da Aplicação Azure reage a alterações em pares de valor-chave, continue para o próximo [artigo](./concept-app-configuration-event.md).

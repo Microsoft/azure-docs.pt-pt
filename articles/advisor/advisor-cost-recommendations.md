@@ -3,12 +3,12 @@ title: Reduzir os custos de serviço usando o Azure Advisor
 description: Utilize o Azure Advisor para otimizar o custo das suas implementações Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 6fa57726ee37d78438b4e07d329f1af00f157d7e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e8f0e555f71c31bb3286cee59bb7161c3ce3986e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057743"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284375"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Reduzir os custos de serviço utilizando o Azure Advisor
 
@@ -89,7 +89,7 @@ Para poupar 60% do custo, recomendamos guardar as suas fotos em armazenamento pa
 Ao utilizar informações sobre a contagem de objetos de armazenamento Azure Blob, tamanho total e transações, o Advisor deteta se deve permitir a gestão do ciclo de vida para dimensionar dados em uma ou mais das suas contas de armazenamento. Solicita-lhe que crie regras de gestão do ciclo de vida para hierarquizar automaticamente os seus dados para arrefecer ou arquivar o armazenamento para otimizar os seus custos de armazenamento, mantendo os seus dados no armazenamento do Azure Blob para compatibilidade com a aplicação.
 
 ## <a name="create-an-ephemeral-os-disk-recommendation"></a>Crie uma recomendação de Disco de SO Efémero
-[O disco EFÉMER OS](../virtual-machines/windows/ephemeral-os-disks.md) permite:00: 
+[O disco EFÉMER OS](../virtual-machines/ephemeral-os-disks.md) permite:00: 
 - Poupe nos custos de armazenamento dos discos de SO. 
 - Obtenha uma leitura mais baixa/escreva latência para discos DE. 
 - Obtenha operações de reimagem VM mais rápidas repondo o SO (e disco temporário) no seu estado original.

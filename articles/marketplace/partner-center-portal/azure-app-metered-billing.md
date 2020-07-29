@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: d1ed294412e44c79fc1eb8cbc01bf134f08a953f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.author: mingshen
+author: mingshen-ms
+ms.openlocfilehash: 07779769dae4c43148bbf4a8205feceea85ed363
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118941"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320056"
 ---
 # <a name="managed-application-metered-billing"></a>Faturação gerida com medidos de aplicação 
 
@@ -65,7 +67,7 @@ As dimensões da faturação são partilhadas em todos os planos para uma oferta
 Os atributos, que definem a dimensão em si, são partilhados em todos os planos para uma oferta. Antes de publicar a oferta, uma alteração feita a estes atributos a partir do contexto de qualquer plano irá afetar a definição de dimensão em todos os planos. Uma vez publicada a oferta, estes atributos deixarão de ser editáveis. Os atributos são:
 
 * Identificador
-* Name
+* Nome
 * Unidade de medida
 
 Os outros atributos de uma dimensão são específicos de cada plano e podem ter valores diferentes de plano a plano.  Antes de publicar o plano, pode editar estes valores e só este plano será afetado. Uma vez publicado o plano, estes atributos deixarão de ser editáveis. Os atributos são:
@@ -91,7 +93,7 @@ Uma dimensão utilizada com o serviço de medição marketplace representa uma c
 Uma vez que uma oferta é publicada com uma dimensão, os detalhes de nível de oferta para essa dimensão não podem mais ser alterados:
 
 * Identificador
-* Name
+* Nome
 * Unidade de medida
 
 Uma vez publicado um plano, os detalhes do plano já não podem ser alterados:
@@ -109,22 +111,14 @@ O número máximo de dimensões que podem ser configuradas para uma única ofert
 
 ## <a name="get-support"></a>Obter suporte
 
-Se um dos seguintes casos se aplicar, pode abrir um bilhete de apoio.
+Se tiver um dos seguintes problemas, pode abrir um bilhete de apoio.
 
 * Problemas técnicos com o serviço de medição de mercado API.
 * Um problema que precisa de ser agravado devido a um erro ou erro do seu lado (ex. evento de utilização errada).
 * Quaisquer outras questões relacionadas com a faturação medido.
 
-Siga os passos abaixo para submeter o seu bilhete de apoio:
+Siga a instrução de [Suporte ao programa de marketplace comercial no Partner Center](./support.md) para entender as opções de suporte dos editores e abrir o bilhete de suporte com a Microsoft.
 
-1. Vá à [página de suporte.](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff) Os primeiros menus suspensos são preenchidos automaticamente para si. Para o suporte ao Marketplace, identifique a família do produto como **Cloud e Serviços Online,** o produto como **Marketplace Publisher.** Não altere as seleções de menus de entrega pré-povoadas.
-2. Em "Selecione a versão do produto", selecione **Gestão da oferta ao vivo**.
-3. Em "Selecione uma categoria que melhor descreva o problema", escolha **a oferta de Aplicações Azure.**
-4. Em "Selecione um problema que melhor descreve o problema", **selecione a faturação medido.**
-5. Ao selecionar o botão **Seguinte,** será direcionado para a página de detalhes do **Problema,** onde pode introduzir mais detalhes sobre o seu problema.
-
-Para obter mais opções de suporte ao editor, consulte [o suporte ao programa de marketplace comercial no Partner Center.](support.md)
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte [o serviço de medição de mercado APIs](./marketplace-metering-service-apis.md) para obter mais informações.

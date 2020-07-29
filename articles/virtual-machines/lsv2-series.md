@@ -4,14 +4,15 @@ description: Especificações para os VMs da série Lsv2.
 author: sasha-melamed
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 9db5f391635505c18c7fe7c868431a0abc943730
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cedb5899b392cb111f9c1bb76949e940ef837252
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84675983"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284817"
 ---
 # <a name="lsv2-series"></a>Série Lsv2
 
@@ -36,14 +37,14 @@ Migração ao vivo: Não suportado
 
 Atualizações de preservação da memória: Não suportadas
 
-| Tamanho | vCPU | Memória (GiB) | Disco temporário<sup>1</sup> (GiB) | Discos NVMe<sup>2</sup> | Produção de disco NVMe<sup>3</sup> (Ler IOPS/MBps) | Produção de disco de dados não colada (IOPs/MBps)<sup>4</sup> | Max rebenta desatado de saída de disco de dados (IOPs/MBps)<sup>5</sup>| Discos de dados max | Max NICs / Largura de banda esperada (Mbps) |
-|---|---|---|---|---|---|---|---|---|---|
-| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 400000/2000  | 8000/160   | 8000/1280 | 16 | 2 / 3200   |
-| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 800000/4000  | 16000/320  | 16000/1280 | 32 | 4 / 6400   |
-| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1,5M/8000    | 32000/640  | 32000/1280 | 32 | 8 / 12800  |
-| Standard_L48s_v2  | 48 | 384 | 480 |  6x1.92 TB  | 2.2M/14000   | 48000/960  | 48000/2000 | 32 | 8 / 16000+ |
-| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.9M/16000   | 64000/1280 | 64000/2000 | 32 | 8 / 16000+ |
-| Standard_L80s_v2<sup>6</sup> | 80 | 640 | 800 | 10x1.92TB | 3.8M/20000 | 80000/1400 | 80000/2000 | 32 | 8 / 16000+ |
+| Tamanho | vCPU | Memória (GiB) | Disco temporário<sup>1</sup> (GiB) | Discos NVMe<sup>2</sup> | Produção de disco NVMe<sup>3</sup> (Ler IOPS/MBps) | Produção de disco de dados não colada (IOPs/MBps)<sup>4</sup> | Max rebenta desatado de saída de disco de dados (IOPs/MBps)<sup>5</sup>| Discos de dados max | NICs máximos | Largura de banda de rede esperada (Mbps) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 400000/2000  | 8000/160   | 8000/1280 | 16 | 2 | 3200   |
+| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 800000/4000  | 16000/320  | 16000/1280 | 32 | 4 | 6400   |
+| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1,5M/8000    | 32000/640  | 32000/1280 | 32 | 8 | 12800  |
+| Standard_L48s_v2  | 48 | 384 | 480 |  6x1.92 TB  | 2.2M/14000   | 48000/960  | 48000/2000 | 32 | 8 | 16000+ |
+| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.9M/16000   | 64000/1280 | 64000/2000 | 32 | 8 | 16000+ |
+| Standard_L80s_v2<sup>6</sup> | 80 | 640 | 800 | 10x1.92TB | 3.8M/20000 | 80000/1400 | 80000/2000 | 32 | 8 | 16000+ |
 
 <sup>1</sup> VMs da série Lsv2 têm um disco de recurso temporário baseado em SCSI padrão para a utilização de ficheiros de paging/swap de SO (D: no Windows, /dev/sdb no Linux). Este disco fornece 80 GiB de armazenamento, 4.000 IOPS e 80 MBps de taxa de transferência por cada 8 vCPUs (por exemplo, Standard_L80s_v2 fornece 800 GiB a 40.000 IOPS e 800 MBPS). Isto garante que as unidades NVMe podem ser totalmente dedicadas ao uso da aplicação. Este disco é efémero, e todos os dados serão perdidos no stop/deallocate.
 
@@ -74,6 +75,21 @@ Atualizações de preservação da memória: Não suportadas
 - Se quiser obter o melhor desempenho para os seus VMs, deve limitar o número de discos de dados a 2 discos por vCPU.
 - **A largura de banda de rede esperada** é a largura de banda agregada máxima atribuída por tipo [VM](../virtual-network/virtual-machine-network-throughput.md) em todos os NICs, para todos os destinos. Os limites superiores não são garantidos, mas foram concebidos para fornecer orientações para selecionar o tipo de VM correto para a aplicação pretendida. O desempenho de rede real irá depender de vários fatores, incluindo congestionamento, cargas e definições da rede. Para obter mais informações sobre a otimização do débito de rede, veja [Otimizar o débito de rede para Windows e Linux](../virtual-network/virtual-network-optimize-network-bandwidth.md). Para alcançar o desempenho de rede esperado no Linux ou no Windows, poderá ser necessário selecionar uma versão específica ou otimizar a VM. Para obter mais informações, veja [Como fazer um teste fiável de um débito de máquina virtual](../virtual-network/virtual-network-bandwidth-testing.md).
 
-## <a name="next-steps"></a>Próximos passos
+
+## <a name="other-sizes-and-information"></a>Outros tamanhos e informações
+
+- [Fins gerais](sizes-general.md)
+- [Com otimização de memória](sizes-memory.md)
+- [Com otimização de armazenamento](sizes-storage.md)
+- [Com otimização de GPU](sizes-gpu.md)
+- [Computação de elevado desempenho](sizes-hpc.md)
+- [Gerações anteriores](sizes-previous-gen.md)
+
+Calculadora de preços: [Calculadora de Preços](https://azure.microsoft.com/pricing/calculator/)
+
+Mais informações sobre tipos de discos : [tipos de discos](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
+
+
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

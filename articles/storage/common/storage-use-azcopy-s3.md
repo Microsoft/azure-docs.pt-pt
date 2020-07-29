@@ -5,21 +5,21 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/13/2020
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: ee58f21881c9799eba27dec3e71c601e94401deb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 88acb4fe31470dab3ca6f273fd8d942e7f84e687
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036714"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281893"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Copiar dados do Amazon S3 para o Azure Storage utilizando o AzCopy
 
 O AzCopy é um utilitário da linha de comando que pode utilizar para copiar blobs ou ficheiros de/para uma conta de armazenamento. Este artigo ajuda-o a copiar objetos, diretórios e baldes da Amazon Web Services (AWS) S3 para o armazenamento de blob Azure utilizando a AzCopy.
 
-## <a name="choose-how-youll-provide-authorization-credentials"></a>Escolha como irá fornecer credenciais de autorização
+## <a name="choose-how-youll-provide-authorization-credentials"></a>Escolher como disponibilizar as credenciais de autorização
 
 * Para autorizar com o Azure Storage, utilize o Azure Ative Directory (AD) ou um token de Assinatura de Acesso Partilhado (SAS).
 
@@ -50,9 +50,6 @@ Reúna a chave de acesso AWS e a chave de acesso secreta e, em seguida, descreva
 
 O AzCopy utiliza o [Bloco de Put From URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API, pelo que os dados são copiados diretamente entre a AWS S3 e os servidores de armazenamento. Estas operações de cópia não utilizam a largura de banda de rede do seu computador.
 
-> [!IMPORTANT]
-> Esta funcionalidade encontra-se em pré-visualização. Se decidir remover dados dos seus baldes S3 após uma operação de cópia, certifique-se de verificar se os dados foram devidamente copiados para a sua conta de armazenamento antes de remover os dados.
-
 > [!TIP]
 > Os exemplos desta secção encerram argumentos de percurso com citações únicas ('). Utilize aspas únicas em todas as cápsulas de comando, exceto no Windows Command Shell (cmd.exe). Se estiver a utilizar uma Concha de Comando do Windows (cmd.exe), encobre argumentos de caminho com citações duplas ("") em vez de cotações individuais (').
 
@@ -64,7 +61,7 @@ Utilize a mesma sintaxe URL `blob.core.windows.net` para contas que tenham um es
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<object-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>'` |
+| **Sintaxe** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<object-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>'` |
 | **Exemplo** | `azcopy copy 'https://s3.amazonaws.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'` |
 | **Exemplo** (espaço hierárquico) | `azcopy copy 'https://s3.amazonaws.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'` |
 
@@ -81,9 +78,22 @@ Utilize a mesma sintaxe URL `blob.core.windows.net` para contas que tenham um es
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<directory-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
+| **Sintaxe** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<directory-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
 | **Exemplo** | `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 | **Exemplo** (espaço hierárquico)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+
+> [!NOTE]
+> Este exemplo anexa a `--recursive` bandeira para copiar ficheiros em todos os sub-directórios.
+
+### <a name="copy-the-contents-of-a-directory"></a>Copiar o conteúdo de um diretório
+
+Pode copiar o conteúdo de um diretório sem copiar o próprio diretório contendo a utilização do símbolo wildcard (*).
+
+|    |     |
+|--------|-----------|
+| **Sintaxe** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<directory-name>/*' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
+| **Exemplo** | `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory/*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+| **Exemplo** (espaço hierárquico)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory/*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
 ### <a name="copy-a-bucket"></a>Copiar um balde
 
@@ -91,7 +101,7 @@ Utilize a mesma sintaxe URL `blob.core.windows.net` para contas que tenham um es
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>' --recursive=true` |
+| **Sintaxe** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>' --recursive=true` |
 | **Exemplo** | `azcopy copy 'https://s3.amazonaws.com/mybucket' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive=true` |
 | **Exemplo** (espaço hierárquico)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
@@ -101,7 +111,7 @@ Utilize a mesma sintaxe URL `blob.core.windows.net` para contas que tenham um es
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy 'https://s3.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
+| **Sintaxe** | `azcopy copy 'https://s3.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **Exemplo** | `azcopy copy 'https://s3.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
 | **Exemplo** (espaço hierárquico)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
@@ -111,7 +121,7 @@ Utilize a mesma sintaxe URL `blob.core.windows.net` para contas que tenham um es
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy 'https://s3-<region-name>.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
+| **Sintaxe** | `azcopy copy 'https://s3-<region-name>.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **Exemplo** | `azcopy copy 'https://s3-rds.eu-north-1.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
 | **Exemplo** (espaço hierárquico)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 

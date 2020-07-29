@@ -5,18 +5,18 @@ description: Utilize uma rede virtual Azure isolada com Azure Machine Learning p
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 07/07/2020
-ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: fa99a5c78fb533d17cb7f70b3545aa9ef6439b32
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.custom: how-to, contperfq4, tracking-python
+ms.openlocfilehash: 79db00216ffb54b8c71ef78cc745ec37c353f1cc
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072612"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320175"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Isolamento de rede durante treino & inferência com redes virtuais privadas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -304,8 +304,8 @@ Se não quiser utilizar as regras de saída predefinidos e pretender limitar o a
 - Negar a ligação à Internet de saída utilizando as regras NSG.
 
 - Para uma __instância de computação__ ou um __cluster de cálculo,__ limite o tráfego de saída para os seguintes itens:
-   - Armazenamento Azure, utilizando __a Etiqueta__ de Serviço de __Armazenamento.__
-   - Registo de Contentores Azure, utilizando __a Etiqueta__ de Serviço da __AzureContainerRegistry__.
+   - Armazenamento Azure, utilizando __a Etiqueta__ de Serviço de __Armazenamento.RegionName__. Onde `{RegionName}` está o nome de uma região de Azure.
+   - Registo do Contentor Azure, utilizando __a etiqueta__ de serviço da __AzureContainerRegistry.RegionName__. Onde `{RegionName}` está o nome de uma região de Azure.
    - Azure Machine Learning, utilizando __a etiqueta__ de serviço da __AzureMachineLearning__
    - Gestor de Recursos Azure, utilizando __a Tag__ de Serviço da __AzureResourceManager__
    - Diretório Ativo Azure, utilizando __a Tag__ de Serviço da __AzureActiveDirectory__

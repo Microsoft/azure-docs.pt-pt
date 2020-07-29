@@ -4,12 +4,12 @@ description: Use o Control de Acesso baseado em funções para gerir o acesso a 
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: dd6930a0228829f376140d515a3035afebad0f27
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 89e5cf7c6b46d63b10bd358fc078f8f87db689c8
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032430"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371707"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Use o Controlo de Acesso Baseado em Funções para gerir pontos de recuperação de backup do Azure
 
@@ -18,7 +18,7 @@ O controlo de acesso baseado em funções Azure (Azure RBAC) permite uma gestão
 > [!IMPORTANT]
 > As funções fornecidas pela Azure Backup estão limitadas a ações que podem ser executadas no portal Azure ou através de cofres de API ou Serviços de Recuperação powerShell ou CLI. As ações realizadas no Azure backup Agent Client UI ou System center Data Protection Manager UI ou Azure Backup Server UI estão fora de controlo destas funções.
 
-O Azure Backup fornece três funções incorporadas para controlar as operações de gestão de backup. Obter mais informações sobre [Funções incorporadas do RBAC do Azure](../role-based-access-control/built-in-roles.md)
+O Azure Backup fornece três funções incorporadas para controlar as operações de gestão de backup. Saiba mais sobre [os papéis embutidos no Azure](../role-based-access-control/built-in-roles.md)
 
 * [Backup Contributor](../role-based-access-control/built-in-roles.md#backup-contributor) - Esta função tem todas as permissões para criar e gerir backup, exceto eliminar o cofre dos Serviços de Recuperação e dar acesso a outros. Imagine este papel como administrador de gestão de backup que pode fazer todas as operações de gestão de backup.
 * [Operador de Backup](../role-based-access-control/built-in-roles.md#backup-operator) - Esta função tem permissões para tudo o que um contribuinte faz exceto remover backup e gerir políticas de backup. Esta função é equivalente ao contribuinte, exceto que não pode realizar operações destrutivas, tais como parar a cópia de segurança com eliminar dados ou remover o registo de recursos no local.

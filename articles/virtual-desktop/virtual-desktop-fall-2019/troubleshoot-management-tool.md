@@ -1,6 +1,6 @@
 ---
-title: Ferramenta de gestão virtual do Windows Desktop - Azure
-description: Como resolver problemas com a ferramenta de gestão virtual do Windows Desktop.
+title: Ferramenta de gestão virtual do Windows Desktop (clássico) - Azure
+description: Como resolver problemas com a ferramenta de gestão virtual do Windows Desktop (clássico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bb9206d2c2c15c036b0cf1184b79ed126966eb3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 442cdce2ebb6c1a3e38932411dfa2b081a44ef9f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82614801"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283372"
 ---
-# <a name="troubleshoot-the-windows-virtual-desktop-management-tool"></a>Resolução de problemas da ferramenta de gestão do Windows Virtual Desktop
+# <a name="troubleshoot-the-windows-virtual-desktop-classic-management-tool"></a>Resolução de problemas da ferramenta de gestão virtual do Windows Desktop (clássico)
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure.
+>Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows.
 
 Este artigo descreve problemas que podem ocorrer durante a implementação da ferramenta de gestão virtual do Windows Desktop e como corrigi-los.
 

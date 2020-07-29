@@ -3,12 +3,12 @@ title: Como testar a sua app no Azure Microsoft Docs
 description: Aprenda a criar uma partilha de ficheiros num laboratório e monte-a na sua máquina local e numa máquina virtual em laboratório e, em seguida, implemente aplicações de desktop/web para a partilha de ficheiros e teste-as.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 30e77e67a1674b2170c1d1782f1389274afa4c35
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2dbbf349da4e352fe20a22db03cc9063d801990
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476500"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282250"
 ---
 # <a name="test-your-app-in-azure"></a>Testar a aplicação no Azure 
 Este artigo fornece passos para testar a sua aplicação em Azure usando a DevTest Labs. Primeiro, cria-se uma partilha de ficheiros dentro de um laboratório e monta-se como uma unidade na sua máquina de desenvolvimento local e um VM dentro de um laboratório. Em seguida, utiliza o Visual Studio 2019 para implementar a sua app na partilha de ficheiros para que possa executar a aplicação no VM em laboratório.  
@@ -18,7 +18,7 @@ Este artigo fornece passos para testar a sua aplicação em Azure usando a DevTe
 ## <a name="prerequisites"></a>Pré-requisitos 
 1. [Crie uma subscrição Azure](https://azure.microsoft.com/free/) se ainda não tiver uma e inscreva-se no [portal Azure](https://portal.azure.com).
 2. Siga as instruções [deste artigo](devtest-lab-create-lab.md) para criar um laboratório usando a Azure DevTest Labs. Pin o laboratório no seu painel de instrumentos para que possa encontrá-lo facilmente da próxima vez que iniciar sôs. A Azure DevTest Labs permite-lhe criar rapidamente recursos dentro do Azure, minimizando o desperdício e controlando os custos. Para saber mais sobre a DevTest Labs, consulte [a visão geral.](devtest-lab-overview.md) 
-3. Crie uma conta de Armazenamento Azure no grupo de recursos do laboratório seguindo instruções no artigo da [conta de armazenamento Criar.](../storage/common/storage-create-storage-account.md) Na página de **conta de armazenamento Criar,** selecione **Utilizar o** grupo **de recursos**e selecione o grupo de recursos **do laboratório**. 
+3. Crie uma conta de Armazenamento Azure no grupo de recursos do laboratório seguindo instruções no artigo da [conta de armazenamento Criar.](../storage/common/storage-account-create.md) Na página de **conta de armazenamento Criar,** selecione **Utilizar o** grupo **de recursos**e selecione o grupo de recursos **do laboratório**. 
 4. Crie uma partilha de ficheiros no seu armazenamento Azure seguindo as instruções no artigo criar um ficheiro no artigo [do Azure Files.](../storage/files/storage-how-to-create-file-share.md) 
 
 ## <a name="mount-the-file-share-on-your-local-machine"></a>Monte a partilha de ficheiros na sua máquina local
@@ -90,7 +90,7 @@ Nesta secção, publica a sua aplicação do Visual Studio para um teste VM na n
 
     Agora pode aceder e testar a sua aplicação dentro do teste VM que criou no Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos para aprender a usar VMs em laboratório. 
 
 - [Adicionar uma VM a um laboratório](devtest-lab-add-vm.md)

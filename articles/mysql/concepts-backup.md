@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: e28fc3c5779f2c31abbb48a7ced448cd8f92d1a2
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 3f24e3538f05ca3b6a27907e0b794705402fce7c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171852"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285446"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Backup e restauro na Base de Dados Azure para o MySQL
 
@@ -41,8 +41,8 @@ As cópias de segurança do registo de transações ocorrem a cada cinco minutos
 As cópias de segurança são mantidas com base na definição do período de retenção de cópias de segurança no servidor. Pode selecionar um período de retenção de 7 a 35 dias. O período de retenção por defeito é de 7 dias. Pode definir o período de retenção durante a criação do servidor ou posteriormente atualizando a configuração de backup utilizando o [portal Azure](https://docs.microsoft.com/azure/mysql/howto-restore-server-portal#set-backup-configuration) ou [O Azure CLI](https://docs.microsoft.com/azure/mysql/howto-restore-server-cli#set-backup-configuration). 
 
 O período de retenção de backups regula o quão longe no tempo um restauro de ponto no tempo pode ser recuperado, uma vez que é baseado em backups disponíveis. O período de retenção de backup também pode ser tratado como uma janela de recuperação de uma perspetiva de restauro. Todas as cópias de segurança necessárias para a restauração pontual dentro do período de retenção de backup são mantidas no armazenamento de backup. Por exemplo, se o período de retenção de backup estiver definido para 7 dias, a janela de recuperação é considerada dura 7 dias. Neste cenário, todas as cópias de segurança necessárias para restaurar o servidor nos últimos 7 dias são mantidas. Com uma janela de retenção de reserva de sete dias:
-- Servidores legados com armazenamento 4-TB irão reter até 2 cópias de dados completas, todas as cópias de segurança diferenciais e cópias de segurança de registo de transações realizadas desde a primeira cópia de segurança completa da base de dados.
--   Os servidores com grande armazenamento (16-TB) conservam o instantâneo completo da base de dados, todos os instantâneos diferenciais e cópias de segurança de registo de transações nos últimos 8 dias.
+- Os servidores com armazenamento até 4-TB irão reter até 2 cópias de dados completas, todas as cópias de segurança diferenciais e cópias de segurança de registo de transações realizadas desde a primeira cópia de segurança completa da base de dados.
+-   Os servidores com armazenamento até 16-TB conservarão o instantâneo completo da base de dados, todas as imagens diferenciais e cópias de segurança de registo de transações nos últimos 8 dias.
 
 ### <a name="backup-redundancy-options"></a>Opções de redundância de backup
 
@@ -98,7 +98,7 @@ Após uma restauração de qualquer mecanismo de recuperação, deve executar as
 - Certifique-se de que estão em vigor logins e permissões de nível de base de dados apropriados
 - Configurar alertas, conforme adequado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre a continuidade do negócio, consulte a [visão geral](concepts-business-continuity.md)da continuidade do negócio.
 - Para restaurar um ponto no tempo usando o portal Azure, consulte restaurar o [servidor a um ponto no tempo utilizando o portal Azure](howto-restore-server-portal.md).

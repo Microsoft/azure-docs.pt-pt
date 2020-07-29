@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.custom: codepen
-ms.openlocfilehash: aaf974eca4b307fc122cf0ee5fdb0ddbcf75088a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: codepen, devx-track-javascript
+ms.openlocfilehash: 54477bd74df660edb12f6daffbaa2a7390f9516a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242615"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285718"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expressões de estilo orientadas por dados (Web SDK)
 
@@ -84,7 +84,7 @@ As expressões de dados fornecem acesso aos dados da propriedade numa funcionali
 | Expression | Tipo de retorno | Descrição |
 |------------|-------------|-------------|
 | `['at', number, array]` | objeto | Recupera um item de uma matriz. |
-| `['geometry-type']` | string | Obtém o tipo de geometria da funcionalidade: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
+| `['geometry-type']` | cadeia | Obtém o tipo de geometria da funcionalidade: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
 | `['get', string]` | valor | Obtém o valor da propriedade a partir das propriedades da funcionalidade atual. Devoluções nulas se o imóvel solicitado faltar. |
 | `['get', string, object]` | valor | Obtém o valor da propriedade a partir das propriedades do objeto fornecido. Devoluções nulas se o imóvel solicitado faltar. |
 | `['has', string]` | boolean | Determina se as propriedades de uma característica têm a propriedade especificada. |
@@ -402,12 +402,12 @@ As expressões de tipo fornecem ferramentas para testar e converter diferentes t
 | Expression | Tipo de retorno | Descrição |
 |------------|-------------|-------------|
 | `['literal', array]`<br/><br/>`['literal', object]` | objeto de matriz \| | Devolve um conjunto literal ou valor de objeto. Utilize esta expressão para evitar que uma matriz ou objeto seja avaliado como uma expressão. Isto é necessário quando uma matriz ou objeto precisa ser devolvido por uma expressão. |
-| `['image', string]` | string | Verifica se um ID de imagem especificado é carregado no sprite de imagem dos mapas. Se for, o ID é devolvido, caso contrário, o nulo é devolvido. |
+| `['image', string]` | cadeia | Verifica se um ID de imagem especificado é carregado no sprite de imagem dos mapas. Se for, o ID é devolvido, caso contrário, o nulo é devolvido. |
 | `['to-boolean', value]` | boolean | Converte o valor de entrada num booleano. O resultado é `false` quando a entrada é uma corda vazia, , , ou `0` , caso contrário a sua `false` `null` `NaN` `true` . |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | color | Converte o valor de entrada para uma cor. Se forem fornecidos vários valores, cada um é avaliado por ordem até obter a primeira conversão bem sucedida. Se nenhuma das entradas puder ser convertida, a expressão é um erro. |
 | `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | número | Converte o valor de entrada num número, se possível. Se a entrada for `null` `false` ou, o resultado é 0. Se a entrada `true` for, o resultado é 1. Se a entrada for uma cadeia, é convertida para um número utilizando a função de cadeia [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) da Especificação de Idioma ECMAScript. Se forem fornecidos vários valores, cada um é avaliado por ordem até obter a primeira conversão bem sucedida. Se nenhuma das entradas puder ser convertida, a expressão é um erro. |
-| `['to-string', value]` | string | Converte o valor de entrada numa cadeia. Se a entrada for `null` , o resultado é `""` . Se a entrada for um boolean, o resultado é `"true"` ou `"false"` . Se a entrada for um número, é convertido para uma cadeia utilizando a função número [tostring](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) da especificação de idioma ECMAScript. Se a entrada for uma cor, é convertida para cordão de cores CSS RGBA `"rgba(r,g,b,a)"` . Caso contrário, a entrada é convertida numa cadeia utilizando a função [JSON.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) da Especificação de Idioma ECMAScript. |
-| `['typeof', value]` | string | Devolve uma corda descrevendo o tipo do valor dado. |
+| `['to-string', value]` | cadeia | Converte o valor de entrada numa cadeia. Se a entrada for `null` , o resultado é `""` . Se a entrada for um boolean, o resultado é `"true"` ou `"false"` . Se a entrada for um número, é convertido para uma cadeia utilizando a função número [tostring](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) da especificação de idioma ECMAScript. Se a entrada for uma cor, é convertida para cordão de cores CSS RGBA `"rgba(r,g,b,a)"` . Caso contrário, a entrada é convertida numa cadeia utilizando a função [JSON.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) da Especificação de Idioma ECMAScript. |
+| `['typeof', value]` | cadeia | Devolve uma corda descrevendo o tipo do valor dado. |
 
 > [!TIP]
 > Se uma mensagem de erro semelhante a `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` aparecer na consola do navegador, significa que há uma expressão algures no seu código que tem uma matriz que não tem uma cadeia para o seu primeiro valor. Se quiser que a expressão devolva uma matriz, embrulhe a matriz com a `literal` expressão. O exemplo a seguir define a opção de ícone `offset` de uma camada de símbolo, que precisa de ser uma matriz contendo dois números, utilizando uma expressão para escolher entre dois `match` valores de compensação com base no valor da `entityType` propriedade da característica de ponto.
@@ -466,8 +466,8 @@ As expressões do operador de cordas executam operações de conversão em corda
 | Expression | Tipo de retorno | Description |
 |------------|-------------|-------------|
 | `['concat', string, string, …]` | cadeia (de carateres) | Concatenates várias cordas juntas. Cada valor deve ser uma corda. Utilize a `to-string` expressão tipo para converter outros tipos de valor para corda, se necessário. |
-| `['downcase', string]` | string | Converte a cadeia especificada para minúscula. |
-| `['upcase', string]` | string | Converte a cadeia especificada para maiúscula. |
+| `['downcase', string]` | cadeia | Converte a cadeia especificada para minúscula. |
+| `['upcase', string]` | cadeia | Converte a cadeia especificada para maiúscula. |
 
 **Exemplo**
 

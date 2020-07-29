@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 1ba9edba97ce89cede54287076e50eb587af10f3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4a57719ec9e7b22ed81ee6f07a568a993846de42
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242479"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374325"
 ---
 # <a name="drawing-package-requirements"></a>Requisitos de pacote do desenho
 
@@ -32,7 +32,7 @@ Glossário de termos utilizados neste documento.
 | Termo  | Definição |
 |:-------|:------------|
 | Camada | Uma camada AutoCAD DWG.|
-| Level | Uma área de um edifício a uma elevação definida. Por exemplo, o chão de um prédio. |
+| Nível | Uma área de um edifício a uma elevação definida. Por exemplo, o chão de um prédio. |
 | Xref  |Um ficheiro em formato de ficheiro AutoCAD DWG (.dwg) anexado ao desenho primário como referência externa.  |
 | Funcionalidade | Um objeto que combina uma geometria com informações adicionais de metadados. |
 | Aulas de Recurso | Uma planta comum para características. Por exemplo, uma Unidade é uma classe de recurso, e um escritório é uma característica. |
@@ -189,15 +189,15 @@ As secções seguintes detalham os requisitos para cada objeto.
 
 | Propriedade  | tipo | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
-| name      | string | true   |  Nome do prédio. |
-| streetAddress|    string |    false    | Endereço do edifício. |
-|unit     | string    |  false    |  Unidade no edifício. |
-| localidade |    string |    false |    Nome de uma área, bairro ou região. Por exemplo, "Overlake" ou "Distrito Central". A localidade não faz parte do endereço de correio. |
+| name      | cadeia | true   |  Nome do prédio. |
+| streetAddress|    cadeia |    false    | Endereço do edifício. |
+|unit     | cadeia    |  false    |  Unidade no edifício. |
+| localidade |    cadeia |    false |    Nome de uma área, bairro ou região. Por exemplo, "Overlake" ou "Distrito Central". A localidade não faz parte do endereço de correio. |
 | adminDivisions |    Matriz de cordas JSON |    false     | Um conjunto contendo designações de endereços (País, Estado, Cidade) ou (País, Prefeitura, Cidade, Cidade). Utilize códigos de país ISO 3166 e códigos iso 3166-2 estado/território. |
-| código postal |    string    | false    | O código de triagem do correio. |
-| horasOfOperação |    string |     false | Adere ao formato [ASM Opening Hours.](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification) |
-| telefone    | string |    false |    Número de telefone associado ao edifício. Deve incluir o código do país. |
-| site    | string |    false    | Site associado ao edifício. M começa com http ou https. |
+| código postal |    cadeia    | false    | O código de triagem do correio. |
+| horasOfOperação |    cadeia |     false | Adere ao formato [ASM Opening Hours.](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification) |
+| telefone    | cadeia |    false |    Número de telefone associado ao edifício. Deve incluir o código do país. |
+| site    | cadeia |    false    | Site associado ao edifício. M começa com http ou https. |
 | não Público |    bool    | false | Bandeira especificando se o edifício está aberto ao público. |
 | anchorAtitude | numeric |    false | Latitude de uma âncora de instalação (pino). |
 | anchorLongitude | numeric |    false | Longitude de uma âncora de instalação (pino). |
@@ -208,17 +208,17 @@ As secções seguintes detalham os requisitos para cada objeto.
 
 O `buildingLevels` objeto contém uma matriz JSON de níveis de edifícios.
 
-| Propriedade  | Tipo | Necessário | Descrição |
+| Propriedade  | Tipo | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
-|nome de nível    |string    |true |    Nome de nível descritivo. Por exemplo: Piso 1, Lobby, Estacionamento Azul, Cave, e assim por diante.|
+|nome de nível    |cadeia    |true |    Nome de nível descritivo. Por exemplo: Piso 1, Lobby, Estacionamento Azul, Cave, e assim por diante.|
 |ordinal | número inteiro |    true | Ordinal é usado para determinar a ordem vertical dos níveis. Todas as instalações devem ter um nível com ordinal 0. |
 |heightAboveFacilityAnchor | numeric | false |    Altura de nível acima da âncora em metros. |
 | verticalExtent | numeric | false | Altura do chão ao teto (espessura) do nível dos metros. |
-|filename |    string |    true |    O caminho do sistema de arquivo do desenho cad para um nível de construção. Deve ser relativo à raiz do arquivo zip do edifício. |
+|filename |    cadeia |    true |    O caminho do sistema de arquivo do desenho cad para um nível de construção. Deve ser relativo à raiz do arquivo zip do edifício. |
 
 ### <a name="georeference"></a>georeferência
 
-| Propriedade  | Tipo | Necessário | Descrição |
+| Propriedade  | Tipo | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 |lat    | numeric |    true |    Representação decimal de graus de latitude na origem do desenho da instalação. As coordenadas de origem devem estar no WGS84 Web Mercator `EPSG:3857` ().|
 |lon    |numeric|    true|    Representação decimal de graus de longitude na origem do desenho da instalação. As coordenadas de origem devem estar no WGS84 Web Mercator `EPSG:3857` (). |
@@ -226,7 +226,7 @@ O `buildingLevels` objeto contém uma matriz JSON de níveis de edifícios.
 
 ### <a name="dwglayers"></a>dwgLayers
 
-| Propriedade  | Tipo | Necessário | Descrição |
+| Propriedade  | Tipo | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 |exterior    |Matriz de cordas|    true|    Nomes de camadas(s) que definem o perfil de construção exterior.|
 |unit|    Matriz de cordas|    true|    Nomes de camadas que definem unidades.|
@@ -240,18 +240,18 @@ O `buildingLevels` objeto contém uma matriz JSON de níveis de edifícios.
 
 O `unitProperties` objeto contém uma matriz JSON de propriedades de unidade.
 
-| Propriedade  | Tipo | Necessário | Descrição |
+| Propriedade  | Tipo | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
-|unitName    |string    |true    |Nome da unidade para associar a este `unitProperty` registo. Este registo só é válido quando uma etiqueta correspondente `unitName` é encontrada `unitLabel` na(s) camadas. |
-|categoriaName|    string|    false    |Nome da categoria. Para obter uma lista completa de categorias, consulte [as categorias](https://aka.ms/pa-indoor-spacecategories). |
+|unitName    |cadeia    |true    |Nome da unidade para associar a este `unitProperty` registo. Este registo só é válido quando uma etiqueta correspondente `unitName` é encontrada `unitLabel` na(s) camadas. |
+|categoriaName|    cadeia|    false    |Nome da categoria. Para obter uma lista completa de categorias, consulte [as categorias](https://aka.ms/pa-indoor-spacecategories). |
 |navegávelBy| Matriz de cordas |    false    |Indica os tipos de agentes de navegação que podem atravessar a unidade. Por exemplo, "pedestre". Esta propriedade informará as capacidades de wayfinding.  Os valores permitidos `pedestrian` são, `wheelchair` , , , , , , , , `machine` , , , , `bicycle` e `automobile` `hiredAuto` `bus` `railcar` `emergency` `ferry` `boat` `disallowed` .|
-|routeThroughBehavior|    string|    false    |A rota através do comportamento para a unidade. Os valores permitidos são `disallowed` `allowed` , e `preferred` . O valor predefinido é `allowed` .|
+|routeThroughBehavior|    cadeia|    false    |A rota através do comportamento para a unidade. Os valores permitidos são `disallowed` `allowed` , e `preferred` . O valor predefinido é `allowed` .|
 |ocupantes    |Matriz de objetos De directórioInfo |false    |Lista de ocupantes para a unidade. |
-|nomeAlt|    string|    false|    Nome alternativo da unidade. |
-|nomeSubtário|    string    |false|    Legenda da unidade. |
-|addressRoomNumber|    string|    false|    Número do quarto/unidade/apartamento/suite da unidade.|
-|verticalPenetrationCategoria|    string|    false| Quando esta propriedade for definida, a característica resultante será uma Penetração Vertical (VRT) em vez de uma unidade. Os VRTs podem ser utilizados para navegar para outras funcionalidades de VRT nos níveis acima ou abaixo. A Penetração Vertical é um nome [de categoria.](https://aka.ms/pa-indoor-spacecategories) Se esta propriedade for definida, a propriedade categoriaName é ultrapassada com verticalPenetrationCategoria. |
-|verticalPenetrationDirection|    string|    false    |Se `verticalPenetrationCategory` for definido, definir opcionalmente a direção válida do viagens. Os valores permitidos `lowToHigh` `highToLow` `both` são, `closed` e. O valor predefinido é `both` .|
+|nomeAlt|    cadeia|    false|    Nome alternativo da unidade. |
+|nomeSubtário|    cadeia    |false|    Legenda da unidade. |
+|addressRoomNumber|    cadeia|    false|    Número do quarto/unidade/apartamento/suite da unidade.|
+|verticalPenetrationCategoria|    cadeia|    false| Quando esta propriedade for definida, a característica resultante será uma Penetração Vertical (VRT) em vez de uma unidade. Os VRTs podem ser utilizados para navegar para outras funcionalidades de VRT nos níveis acima ou abaixo. A Penetração Vertical é um nome [de categoria.](https://aka.ms/pa-indoor-spacecategories) Se esta propriedade for definida, a propriedade categoriaName é ultrapassada com verticalPenetrationCategoria. |
+|verticalPenetrationDirection|    cadeia|    false    |Se `verticalPenetrationCategory` for definido, definir opcionalmente a direção válida do viagens. Os valores permitidos `lowToHigh` `highToLow` `both` são, `closed` e. O valor predefinido é `both` .|
 | não Público | bool | false | Indica se a unidade está aberta ao público. |
 | isroutable | bool | false | Quando programado para `false` , a unidade não pode ser navegada para, ou através. O valor predefinido é `true` . |
 | isOpenArea | bool | false | Permite que o agente de navegação entre na unidade sem a necessidade de uma abertura ligada à unidade. Por predefinição, este valor é definido `true` para unidades sem aberturas; `false` para unidades com aberturas.  A regulação manual `isOpenArea` para uma unidade sem `false` aberturas resulta num aviso. Isto porque a unidade resultante não será acessível por um agente de navegação.|
@@ -260,13 +260,13 @@ O `unitProperties` objeto contém uma matriz JSON de propriedades de unidade.
 
 O `zoneProperties` objeto contém uma matriz JSON de propriedades de zona.
 
-| Propriedade  | Tipo | Necessário | Descrição |
+| Propriedade  | Tipo | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
-|zoneName        |string    |true    |Nome da zona para associar ao `zoneProperty` registo. Este registo só é válido quando uma etiqueta correspondente `zoneName` é encontrada na camada da `zoneLabel` zona.  |
-|categoriaName|    string|    false    |Nome da categoria. Para obter uma lista completa de categorias, consulte [as categorias](https://aka.ms/pa-indoor-spacecategories). |
-|zoneNameAlt|    string|    false    |Nome alternativo da zona.  |
-|zoneNameSubtitle|    string |    false    |Legenda da zona. |
-|zoneSetId|    string |    false    | Deslote o ID para estabelecer a relação entre várias zonas para que possam ser consultadas ou selecionadas como um grupo. Por exemplo, zonas que se estendem por vários níveis. |
+|zoneName        |cadeia    |true    |Nome da zona para associar ao `zoneProperty` registo. Este registo só é válido quando uma etiqueta correspondente `zoneName` é encontrada na camada da `zoneLabel` zona.  |
+|categoriaName|    cadeia|    false    |Nome da categoria. Para obter uma lista completa de categorias, consulte [as categorias](https://aka.ms/pa-indoor-spacecategories). |
+|zoneNameAlt|    cadeia|    false    |Nome alternativo da zona.  |
+|zoneNameSubtitle|    cadeia |    false    |Legenda da zona. |
+|zoneSetId|    cadeia |    false    | Deslote o ID para estabelecer a relação entre várias zonas para que possam ser consultadas ou selecionadas como um grupo. Por exemplo, zonas que se estendem por vários níveis. |
 
 ### <a name="sample-drawing-package-manifest"></a>Manifesto de pacote de desenho de amostra
 
@@ -279,7 +279,7 @@ Abaixo está um ficheiro manifesto de amostra para o pacote de desenho da amostr
     "version": "1.1", 
     "directoryInfo": { 
         "name": "Contoso Building", 
-        "streetAddresss": "Contoso Way", 
+        "streetAddress": "Contoso Way", 
         "unit": "1", 
         "locality": "Contoso eastside", 
         "postalCode": "98052", 

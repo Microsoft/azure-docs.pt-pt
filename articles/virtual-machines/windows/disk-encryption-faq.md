@@ -4,16 +4,16 @@ description: Este artigo fornece respostas a perguntas frequentes sobre encripta
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 78d4ffda62b98ca57a8204e6037f8ccd8c470924
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0b910e3b119167fb4c6de55289d92b9d538c8ddb
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508547"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284562"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Encriptação do disco Azure para máquinas virtuais do Windows FAQ
 
@@ -136,7 +136,7 @@ O Azure Backup fornece um mecanismo para fazer backup e restaurar vMs encriptado
 
 Pode fazer perguntas ou fornecer feedback sobre a [página de perguntas do Microsoft Q&Uma página de perguntas para encriptação do disco Azure](/answers/topics/azure-disk-encryption.html).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu mais sobre as questões mais frequentes relacionadas com a Encriptação do Disco Azure. Para obter mais informações sobre este serviço, consulte os seguintes artigos:
 
 - [Descrição geral do Azure Disk Encryption](disk-encryption-overview.md)

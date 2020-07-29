@@ -2,19 +2,16 @@
 title: Problemas na resolução de problemas do runbook da Azure Automation
 description: Este artigo diz como resolver problemas e resolver problemas com os runbooks da Azure Automation.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 01/24/2019
+ms.date: 07/28/2020
 ms.topic: conceptual
 ms.service: automation
-manager: carmonm
 ms.custom: has-adal-ref
-ms.openlocfilehash: e0665a6aa55b998d54d076013a25e2efadaa2b06
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 9bf04ae6985ac2ce0e20bf70b3d7c003bbddca69
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187188"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337301"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Resolver problemas de runbooks
 
@@ -511,6 +508,24 @@ Se pretender utilizar mais de 500 minutos de processamento por mês, altere a su
 1. Selecione **Definições**e, em seguida, **selecione Preços**.
 1. Selecione **Ative** na página inferior para atualizar a sua conta para o nível Básico.
 
+## <a name="scenario-runbook-output-stream-greater-than-1-mb"></a><a name="output-stream-greater-1mb"></a>Cenário: Fluxo de saída de runbook superior a 1 MB
+
+### <a name="issue"></a>Problema
+
+O seu runbook em funcionamento na caixa de areia Azure falha com o seguinte erro:
+
+```error
+The runbook job failed due to a job stream being larger than 1MB, this is the limit supported by an Azure Automation sandbox.
+```
+
+### <a name="cause"></a>Causa
+
+Este erro ocorre porque o seu livro de execução tentou escrever demasiados dados de exceção para o fluxo de saída.
+
+### <a name="resolution"></a>Resolução
+
+Há um limite de 1 MB no fluxo de saída de trabalho. Certifique-se de que o seu livro de execuções encerra chamadas para um executável ou subprocessamento utilizando `try` e `catch` bloqueia. Se as operações lançarem uma exceção, mande o código escrever a mensagem da exceção para uma variável De Automação. Esta técnica impede que a mensagem seja escrita no fluxo de saída do trabalho. Para os trabalhos do Trabalhador de Runbook Híbrido executados, o fluxo de saída truncado para 1 MB é apresentado sem mensagem de erro.
+
 ## <a name="scenario-runbook-job-start-attempted-three-times-but-fails-to-start-each-time"></a><a name="job-attempted-3-times"></a>Cenário: Runbook job start tentado três vezes, mas não começa cada vez
 
 ### <a name="issue"></a>Problema
@@ -526,20 +541,22 @@ The job was tried three times but it failed
 Este erro ocorre devido a uma das seguintes questões:
 
 * **Limite de memória.** Um trabalho pode falhar se estiver a usar mais de 400 MB de memória. Os limites documentados na memória atribuída a uma caixa de areia encontram-se nos [limites de serviço da Automação.](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) 
+
 * **Tomadas de rede.** As caixas de areia Azure estão limitadas a 1.000 tomadas de rede simultâneas. Para mais informações, consulte [os limites do serviço de Automação.](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)
+
 * **Módulo incompatível.** As dependências dos módulos podem não estar corretas. Neste caso, o seu livro de recortes normalmente devolve uma `Command not found` ou `Cannot bind parameter` mensagem.
+
 * **Não há autenticação com Diretório Ativo para caixa de areia.** O seu runbook tentou chamar um executável ou subprocesso que funciona numa caixa de areia Azure. Configurar os runbooks para autenticar com Azure AD utilizando a Biblioteca de Autenticação de Diretório Ativo Azure (ADAL) não é suportado.
-* **Demasiados dados de exceção.** O seu livro de corridas tentou escrever demasiados dados de exceção ao fluxo de saída.
 
 ### <a name="resolution"></a>Resolução
 
 * **Limite de memória, tomadas de rede.** As formas sugeridas de trabalhar dentro dos limites de memória são dividir a carga de trabalho entre vários runbooks, processar menos dados na memória, evitar escrever saídas desnecessárias dos seus livros de execução e considerar quantos pontos de verificação estão escritos nos seus livros de fluxo de trabalho PowerShell. Utilize o método claro, `$myVar.clear` como, para limpar variáveis e usar `[GC]::Collect` para executar a recolha de lixo imediatamente. Estas ações reduzem a pegada de memória do seu livro de bordo durante o tempo de execução.
+
 * **Módulo incompatível.** Atualize os seus módulos Azure seguindo os passos de [Como atualizar os módulos Azure PowerShell na Azure Automation](../automation-update-azure-modules.md).
+
 * **Não há autenticação com Diretório Ativo para caixa de areia.** Quando autenticar a AZure AD com um livro de aplicação, certifique-se de que o módulo AD AZure está disponível na sua conta Automation. Certifique-se de conceder à conta Run As as permissões necessárias para executar as tarefas que o livro de bordo automatiza.
 
   Se o seu runbook não puder chamar um executável ou subprocesso em execução numa caixa de areia Azure, utilize o livro de execução num [Trabalhador de Runbook Híbrido](../automation-hrw-run-runbooks.md). Os trabalhadores híbridos não são limitados pelos limites de memória e rede que as caixas de areia Azure têm.
-
-* **Demasiados dados de exceção.** Há um limite de 1 MB no fluxo de saída de trabalho. Certifique-se de que o seu livro de execuções encerra chamadas para um executável ou subprocessamento utilizando `try` e `catch` bloqueia. Se as operações lançarem uma exceção, mande o código escrever a mensagem da exceção para uma variável De Automação. Esta técnica impede que a mensagem seja escrita no fluxo de saída do trabalho.
 
 ## <a name="scenario-powershell-job-fails-with-cannot-invoke-method-error-message"></a><a name="cannot-invoke-method"></a>Cenário: Trabalho da PowerShell falha com mensagem de erro "Não pode invocar método"
 

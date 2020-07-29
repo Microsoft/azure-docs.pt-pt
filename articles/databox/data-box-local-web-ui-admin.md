@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 34b1ce42850fcefcc2b0d146e7f33d720fd8062d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a99499110951ccbc0458b5ce848930fed9205dad
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202527"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372034"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Utilize o UI web local para administrar a sua Caixa de Dados e Caixa de Dados Pesada
 
@@ -35,7 +35,7 @@ Este artigo inclui os seguintes tutoriais:
 
 Se surgir qualquer problema com o dispositivo, pode criar um Pacote de suporte a partir dos registos do sistema. A equipa de Suporte da Microsoft utiliza este pacote para resolver o problema. Para gerar um pacote de suporte, tome os seguintes passos:
 
-1. Na IU de Web local, aceda a **Contactar o Suporte** e clique em **Criar Pacote de suporte**.
+1. Na UI web local, vá ao Suporte de **Contato** e selecione **Pacote de Suporte de Criar**.
 
     ![Criar Pacote de suporte 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
@@ -43,14 +43,13 @@ Se surgir qualquer problema com o dispositivo, pode criar um Pacote de suporte a
 
     ![Criar Pacote de suporte 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 
-3. Depois de concluída a criação do Pacote de suporte, clique em **Transferir pacote de suporte**. 
+3. Assim que a criação do pacote de suporte estiver concluída, selecione **o pacote de Suporte ao Download**.
 
     ![Criar Pacote de suporte 4](media/data-box-local-web-ui-admin/create-support-package-4.png)
 
 4. Procure e selecione a localização de transferência. Abra a pasta para ver os conteúdos.
 
     ![Criar Pacote de suporte 5](media/data-box-local-web-ui-admin/create-support-package-5.png)
-
 
 ## <a name="shut-down-or-restart-your-device"></a>Encerrar ou reiniciar o dispositivo
 
@@ -59,7 +58,7 @@ Pode desligar ou reiniciar o seu dispositivo utilizando a UI web local. Recomend
 Para desligar o seu dispositivo, tome os seguintes passos.
 
 1. Na IU de Web local, aceda a **Encerrar ou reiniciar**.
-2. Clique em **Encerrar**.
+2. Selecione **Desligar**.
 
     ![Encerrar Data Box 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
 
@@ -72,11 +71,11 @@ Depois de o dispositivo ser encerrado, utilize o botão para ligar/desligar no p
 Para reiniciar o Data Box, execute os passos seguintes.
 
 1. Na IU de Web local, aceda a **Encerrar ou reiniciar**.
-2. Clique em **Reiniciar**.
+2. **Selecione Reiniciar**.
 
     ![Reiniciar Data Box 1](media/data-box-local-web-ui-admin/restart-local-web-ui-1.png)
 
-3. Quando lhe for pedida a confirmação, clique em **OK** para continuar.
+3. Quando solicitado para confirmação, selecione **OK** para prosseguir.
 
    O dispositivo é desligado e, em seguida, reinicia-se.
 
@@ -90,9 +89,9 @@ Antes de começar, certifique-se de que o seu dispositivo está concluído **Pre
 
     ![Dispositivo pronto para enviar](media/data-box-portal-admin/ready-to-ship.png)
 
-2. Clique **na lista de ficheiros** para descarregar a lista de ficheiros que foram copiados na sua Caixa de Dados.
+2. Selecione Baixar a **lista de ficheiros** para descarregar a lista de ficheiros que foram copiados na sua Caixa de Dados.
 
-    ![Clique na lista de ficheiros de descarregamento](media/data-box-portal-admin/download-list-of-files.png)
+    ![Selecione Lista de descarregamento de ficheiros](media/data-box-portal-admin/download-list-of-files.png)
 
 3. No File Explorer, verá que a lista separada de ficheiros é gerada dependendo do protocolo utilizado para ligar ao dispositivo e ao tipo de Armazenamento Azure utilizado.
 
@@ -179,10 +178,51 @@ Recomendamos vivamente que não desative a soma de verificação, a não ser que
     ![Desativar a soma de verificação](media/data-box-local-web-ui-admin/disable-checksum.png)
 
 2. **Desativar** validação da soma de verificação
-3. Clique em **Aplicar**.
+3. Selecione **Aplicar**.
 
 > [!NOTE]
 > A opção de cálculo skip checksum só está disponível quando a Caixa de Dados Azure estiver desbloqueada. Não verá esta opção quando o dispositivo estiver bloqueado.
 
-- Saiba como gerir a Caixa de [Dados e a Caixa de Dados Pesada através do portal Azure](data-box-portal-admin.md).
+## <a name="enable-smb-signing"></a>Ativar a assinatura de SMB
 
+A assinatura do bloco de mensagens do servidor (SMB) é uma funcionalidade através da qual as comunicações que utilizam o SMB podem ser assinadas digitalmente ao nível do pacote. Esta assinatura previne ataques que modificam pacotes SMB em trânsito.
+
+Para obter mais informações relacionadas com a assinatura do SMB, consulte [a visão geral da assinatura do Bloco de Mensagens do Servidor](https://support.microsoft.com/help/887429/overview-of-server-message-block-signing).
+
+Para ativar a sessão de SMB no seu Dispositivo Azure:
+
+1. No canto superior direito da UI web local do seu dispositivo, selecione **Definições**.
+
+    ![Abrir Definições](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. **Ativar** SMB Assinando.
+
+    ![Ativar a assinatura de SMB](media/data-box-local-web-ui-admin/data-box-smb-signing-1.png)
+
+3. Selecione **Aplicar**.
+4. Na IU de Web local, aceda a **Encerrar ou reiniciar**.
+5. **Selecione Reiniciar**.
+
+## <a name="enable-tls-11"></a>Ativar TLS 1.1
+
+Por padrão, a Azure Data Box utiliza a Segurança da Camada de Transporte (TLS) 1.2 para encriptação, uma vez que é mais segura do que a TSL 1.1. No entanto, se você ou os seus clientes estiverem a usar um browser para aceder a dados que não suportem TLS 1.2, poderá ativar o TLS 1.1.
+
+Para obter mais informações relacionadas com o TLS, consulte [a segurança do Gateway da Caixa de Dados Azure](../databox-online/data-box-gateway-security.md).
+
+Para ativar o TLS 1.1 no seu dispositivo Azure:
+
+1. No canto superior direito da UI web local do seu dispositivo, selecione **Definições**.
+
+    ![Abrir Definições](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. **Ativar** TLS 1.1.
+
+    ![Ativar TLS 1.1](media/data-box-local-web-ui-admin/data-box-tls-1-1.png)
+
+3. Selecione **Aplicar**.
+4. Na IU de Web local, aceda a **Encerrar ou reiniciar**.
+5. **Selecione Reiniciar**.
+
+## <a name="next-steps"></a>Passos seguintes
+
+- Saiba como gerir a Caixa de [Dados e a Caixa de Dados Pesada através do portal Azure](data-box-portal-admin.md).

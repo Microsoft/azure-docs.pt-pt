@@ -8,14 +8,15 @@ ms.author: osomorog
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 476f3925886a6de68b49e1861d22e6cfaf594202
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c794b87a88cec20b75923e1f251c1e309a43ef1c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601463"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319597"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Como executar os Jupyter Notebooks na área de trabalho
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -200,9 +201,9 @@ Um indicador ao lado da queda do **Compute** mostra o seu estado.  O estado tamb
 
 |Cor |Estado do cálculo |
 |---------|---------| 
-| Verde | Execução de cálculo |
-| Vermelho |O cálculo falhou | 
-| Preto | Computo parou |
+| Green | Execução de cálculo |
+| Red |O cálculo falhou | 
+| Negra | Computo parou |
 |  Azul claro |Criar, iniciar, reiniciar, configurar |
 |  Cinzento |Computação eliminando, parando |
 
@@ -210,14 +211,14 @@ Um indicador ao lado da queda do **Kernel** mostra o seu estado.
 
 |Cor |Estatuto de kernel |
 |---------|---------|
-|  Verde |Kernel conectado, ocioso, ocupado|
+|  Green |Kernel conectado, ocioso, ocupado|
 |  Cinzento |Kernel não ligado |
 
 ## <a name="find-compute-details"></a>Encontre detalhes do cálculo 
 
 Encontre detalhes sobre as suas instâncias de computação na página **compute** em [estúdio](https://ml.azure.com).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Executar a sua primeira experiência](tutorial-1st-experiment-sdk-train.md)
 * [Faça backup do armazenamento do seu ficheiro com instantâneos](../storage/files/storage-snapshots-files.md)

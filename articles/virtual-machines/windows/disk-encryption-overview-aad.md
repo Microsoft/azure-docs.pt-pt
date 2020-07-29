@@ -4,16 +4,16 @@ description: Este artigo fornece pré-requisitos para a utilização da Encripta
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: b428c45938000a5fc97428da331a7cc7bef14f30
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dc8349ed86a11b6588dbe4de3bf3d274de289374
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500672"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284511"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-previous-release"></a>Encriptação do disco Azure com Azure AD (versão anterior)
 
@@ -51,7 +51,7 @@ A encriptação do disco Azure requer um Cofre de Chave Azure para controlar e g
 
 Para mais detalhes, consulte [criar e configurar um cofre-chave para encriptação do disco Azure com Azure AD (versão anterior)](disk-encryption-key-vault-aad.md).
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar e configurar um cofre chave para encriptação de disco Azure com Azure AD (versão anterior)](disk-encryption-key-vault-aad.md)
 - [Ativar encriptação do disco Azure com Azure AD em VMs do Windows (versão anterior)](disk-encryption-windows-aad.md)

@@ -7,15 +7,15 @@ ms.author: laobri
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 01/31/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 90ad8cc87f1d6a1893b96f6201a4260c03c94fee
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: 8aebcfc2a46de3922dbc41942e63e71844de6e83
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072208"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319750"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Criar, executar e eliminar recursos Azure ML usando REST
 
@@ -204,8 +204,8 @@ Note que para listar experiências o caminho começa com `history/v1.0` enquanto
 
 |Área|Caminho|
 |-|-|
-|Artefactos|artefacto/v2.0/|
-|Arquivos de dados|datastore/v1.0/|
+|Artefactos|/rest/api/azureml|
+|Arquivos de dados|/azul/machine-learning/como aceder aos dados|
 |Otimização de hiperparâmetros|hiperdrive/v1.0/|
 |Modelos|gestão modelo/v1.0/|
 |Histórico de execuções|execução/v1.0/ e história/v1.0/|

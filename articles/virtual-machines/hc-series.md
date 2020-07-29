@@ -4,14 +4,15 @@ description: Especificações para os VMs da série HC.
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 08496068ac00de26a057e65fd758eb1cf8870a72
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ebdb88b8375fbb22c6148f94b16a2e649b4ba54b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84673722"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283355"
 ---
 # <a name="hc-series"></a>Série HC
 
@@ -42,6 +43,6 @@ Atualizações de preservação da memória: Não suportadas
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

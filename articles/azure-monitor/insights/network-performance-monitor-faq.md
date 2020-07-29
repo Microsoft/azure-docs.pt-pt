@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: d85cd05ee6b40b6b660958330145ed0c61b1b0a3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 45a10ddce165626bfbadb0ba0b3d68b81709c3bb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539674"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326142"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Solução de monitorização de desempenho de rede FAQ
 
@@ -19,7 +19,7 @@ ms.locfileid: "86539674"
 
 Este artigo captura as perguntas frequentes (FAQs) sobre Network Performance Monitor (NPM) em Azure
 
-[O Network Performance Monitor](../../networking/network-monitoring-overview.md) é uma solução de [monitorização de rede híbrida](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) baseada na nuvem que o ajuda a monitorizar o desempenho da rede entre vários pontos da sua infraestrutura de rede. Também ajuda a monitorizar a conectividade da rede para [os pontos finais](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md) de serviço e aplicação e [monitorizar o desempenho do Azure ExpressRoute](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
+[O Network Performance Monitor](../../networking/network-monitoring-overview.md) é uma solução de [monitorização de rede híbrida](./network-performance-monitor-performance-monitor.md) baseada na nuvem que o ajuda a monitorizar o desempenho da rede entre vários pontos da sua infraestrutura de rede. Também ajuda a monitorizar a conectividade da rede para [os pontos finais](./network-performance-monitor-service-connectivity.md) de serviço e aplicação e [monitorizar o desempenho do Azure ExpressRoute](./network-performance-monitor-expressroute.md). 
 
 O Monitor de Desempenho da Rede deteta problemas de rede como o blackholing de tráfego, erros de encaminhamento e problemas que os métodos convencionais de monitorização da rede não são capazes de detetar. A solução gera alertas e notifica-o quando existir uma falha do limiar de uma ligação de rede. Também garante a deteção atempada de problemas de desempenho de rede e localiza a origem do problema num dispositivo ou segmento de rede específico. 
 
@@ -40,7 +40,7 @@ A capacidade de monitorizar redes utilizando nós baseados em Linux está atualm
 Para executar a solução NPM em VMs de nó para monitorizar as redes, os nós devem ter pelo menos 500-MB de memória e um núcleo. Não é preciso usar nós separados para executar NPM. A solução pode funcionar em nós que têm outras cargas de trabalho em execução. A solução tem a capacidade de parar o processo de monitorização se utilizar mais de 5% de CPU.
 
 ### <a name="to-use-npm-should-i-connect-my-nodes-as-direct-agent-or-through-system-center-operations-manager"></a>Para utilizar o NPM, devo ligar os meus nós como agente direto ou através do Gestor de Operações do Centro de Sistema?
-Tanto o Monitor de Desempenho como as capacidades do Monitor de Conectividade de Serviço suportam nós [ligados como Agentes Diretos](../../azure-monitor/platform/agent-windows.md) e [ligados através do Gestor de Operações.](../../azure-monitor/platform/om-agents.md)
+Tanto o Monitor de Desempenho como as capacidades do Monitor de Conectividade de Serviço suportam nós [ligados como Agentes Diretos](../platform/agent-windows.md) e [ligados através do Gestor de Operações.](../platform/om-agents.md)
 
 Para a capacidade do Monitor ExpressRoute, os nós Azure devem ser ligados apenas como Agentes Diretos. Os nós Azure, que estão ligados através do Gestor de Operações, não são suportados. Para os nós no local, os nós ligados como Agentes Diretos e através do Gestor de Operações são suportados para monitorizar um circuito ExpressRoute.
 
@@ -49,12 +49,12 @@ Se estiver a monitorizar a sua rede utilizando nós baseados em servidores do Wi
 
 O ICMP é recomendado para os nós baseados em computadores windows/clientes baseados no sistema operativo. Esta plataforma não permite que os dados da TCP sejam enviados através de tomadas brutas, que a NPM utiliza para descobrir a topologia da rede.
 
-Pode obter mais detalhes sobre as vantagens relativas de cada protocolo [aqui.](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md#choose-the-protocol)
+Pode obter mais detalhes sobre as vantagens relativas de cada protocolo [aqui.](./network-performance-monitor-performance-monitor.md#choose-the-protocol)
 
 ### <a name="how-can-i-configure-a-node-to-support-monitoring-using-tcp-protocol"></a>Como posso configurar um nó para apoiar a monitorização utilizando o protocolo TCP?
 Para que o nó suporte a monitorização utilizando o protocolo TCP: 
 * Certifique-se de que a plataforma de nó é o Windows Server (2008 SP1 ou mais tarde).
-* Executar [EnableRules.ps1](https://aka.ms/npmpowershellscript) script Powershell no nó. Consulte [as instruções](../../azure-monitor/insights/network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) para mais detalhes.
+* Executar [EnableRules.ps1](https://aka.ms/npmpowershellscript) script Powershell no nó. Consulte [as instruções](./network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) para mais detalhes.
 
 
 ### <a name="how-can-i-change-the-tcp-port-being-used-by-npm-for-monitoring"></a>Como posso alterar a porta TCP que está a ser utilizada pela NPM para monitorização?
@@ -182,15 +182,15 @@ NetworkMonitoring
 ```
 
 ### <a name="which-regions-are-supported-for-npms-performance-monitor"></a>Que regiões são apoiadas para o Monitor de Desempenho da NPM?
-O NPM pode monitorizar a conectividade entre redes em qualquer parte do mundo, a partir de um espaço de trabalho que é hospedado numa das [regiões apoiadas](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)
+O NPM pode monitorizar a conectividade entre redes em qualquer parte do mundo, a partir de um espaço de trabalho que é hospedado numa das [regiões apoiadas](./network-performance-monitor.md#supported-regions)
 
 ### <a name="which-regions-are-supported-for-npms-service-connectivity-monitor"></a>Que regiões são apoiadas para o Monitor de Conectividade de Serviços da NPM?
-O NPM pode monitorizar a conectividade com os serviços em qualquer parte do mundo, a partir de um espaço de trabalho que é hospedado numa das [regiões apoiadas](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)
+O NPM pode monitorizar a conectividade com os serviços em qualquer parte do mundo, a partir de um espaço de trabalho que é hospedado numa das [regiões apoiadas](./network-performance-monitor.md#supported-regions)
 
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>Que regiões são apoiadas para o Monitor ExpressRoute da NPM?
 A NPM pode monitorizar os seus circuitos ExpressRoute localizados em qualquer região de Azure. Para embarcar no NPM, você precisará de um espaço de trabalho Log Analytics que deve ser hospedado em uma das [regiões apoiadas](../../expressroute/how-to-npm.md)
 
-## <a name="troubleshoot"></a>Resolver Problemas
+## <a name="troubleshoot"></a>Resolução de problemas
 
 ### <a name="why-are-some-of-the-hops-marked-as-unidentified-in-the-network-topology-view"></a>Porque é que alguns dos lúpulos são marcados como não identificados na vista da topologia da rede?
 O NPM usa uma versão modificada de rastreá-lo para descobrir a topologia do agente de origem para o destino. Um lúpulo não identificado representa que o salto de rede não respondeu ao pedido de rastreio do agente de origem. Se três lúpulos de rede consecutivos não responderem ao rasto do agente, a solução marca o lúpulo sem resposta como não identificado e não tenta descobrir mais lúpulo.
@@ -297,6 +297,7 @@ Pode visualizar o estado de saúde dos nós utilizados para a monitorização a 
 ### <a name="can-npm-report-latency-numbers-in-microseconds"></a>A NPM pode reportar números de latência em microsegundos?
 O NPM completa os números de latência na UI e em milissegundos. Os mesmos dados são armazenados numa granularidade mais elevada (às vezes até quatro casas decimais).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o Monitor de Desempenho da Rede referindo-se à [solução Monitor de Desempenho da Rede em Azure](../../azure-monitor/insights/network-performance-monitor.md).
+- Saiba mais sobre o Monitor de Desempenho da Rede referindo-se à [solução Monitor de Desempenho da Rede em Azure](./network-performance-monitor.md).
+

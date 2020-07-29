@@ -5,16 +5,16 @@ author: cynthn
 manager: gwallace
 ms.service: virtual-machines
 ms.subservice: networking
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: c29fb075fc2d8b512070d7a6cf3fef949def5894
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c78452d7919a6246c45c1d60484d3841f1fd0998
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80066636"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284851"
 ---
 # <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>Abrir portas e pontos finais para um VM com o Azure CLI
 
