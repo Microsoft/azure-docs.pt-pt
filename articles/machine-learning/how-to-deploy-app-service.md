@@ -5,18 +5,18 @@ description: Aprenda a usar o Azure Machine Learning para implementar um modelo 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 4795db914f776b14fa87ddc5db65362a48535324
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: faa2945b27e083865acb506f30c4d79ef65f3ca0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261329"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317863"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Implementar um modelo de machine learning para o Azure App Service (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -268,7 +268,7 @@ print(response.elapsed)
 print(response.json())
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Aprenda a configurar a sua Web App no Serviço de Aplicações na documentação [linux.](/azure/app-service/containers/)
 * Saiba mais sobre escalar em [Começar com a Autoscale em Azure.](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json)

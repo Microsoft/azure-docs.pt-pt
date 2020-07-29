@@ -1,6 +1,5 @@
 ---
-title: Interpretar os resultados do modelo
-titleSuffix: ML Studio (classic) - Azure
+title: 'Estúdio ML (clássico): Interpretar os resultados do modelo - Azure'
 description: Como escolher o parâmetro ideal definido para um algoritmo usando e visualizando saídas de modelos de pontuação.
 services: machine-learning
 ms.service: machine-learning
@@ -9,13 +8,17 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 11/29/2017
-ms.openlocfilehash: a99c1d71ed7e718d4d47ba55573a16466f62de5f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77704750344df7ae24b7f81bde6088762a00c86d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687774"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318594"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Interpretar os resultados do modelo no Azure Machine Learning Studio (clássico)
+
+**APLICA-SE A:** ![ no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) yes Machine Learning Studio ![ ](../../../includes/media/aml-applies-to-skus/yes.png) (clássico) 
+
 
 Este tópico explica como visualizar e interpretar os resultados da previsão no Azure Machine Learning Studio (clássico). Depois de ter treinado um modelo e feito previsões em cima dele ("marcou o modelo"), é preciso compreender e interpretar o resultado da previsão.
 

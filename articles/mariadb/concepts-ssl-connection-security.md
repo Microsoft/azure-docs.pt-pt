@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 2b166c1907a538d528ddabe3f2c53a962664eaa0
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 5072710378d0a179b3b96ae9b698e9a92d81cf44
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203870"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290237"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mariadb"></a>Conectividade SSL/TLS na Base de Dados Azure para MariaDB
 A Azure Database for MariaDB suporta ligar o seu servidor de base de dados a aplicações de clientes utilizando a Camada de Tomadas Seguras (SSL). A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação.
@@ -21,9 +21,9 @@ Por predefinição, o serviço de base de dados deve ser configurado para exigir
 
 Ao providenciar uma nova Base de Dados Azure para o servidor MariaDB através do portal Azure e do CLI, a aplicação das ligações SSL é ativada por padrão.
 
-Em alguns casos, os pedidos requerem um ficheiro de certificado local gerado a partir de um ficheiro de certificado fidedigno da Autoridade de Certificados (CA) para se conectarem de forma segura. O certificado para ligar a uma base de dados Azure para o servidor MariaDB está localizado em https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem . 
+Em alguns casos, os pedidos requerem um ficheiro de certificado local gerado a partir de um ficheiro de certificado fidedigno da Autoridade de Certificados (CA) para se conectarem de forma segura. Atualmente, os clientes só podem **utilizar** o certificado predefinido para ligar a uma Base de Dados Azure para o servidor MariaDB que está localizada em https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem . 
 
-Consulte os seguintes links para certificados para servidores em nuvens soberanas: [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure China](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)e [Azure Germany](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
+Da mesma forma, as seguintes ligações apontam para os certificados para servidores em nuvens soberanas: [Governo azul,](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) [Azure China](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)e [Azure Alemanha](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
 
 As cadeias de ligação para várias linguagens de programação são mostradas no portal Azure. Essas cadeias de ligação incluem os parâmetros SSL necessários para ligar à sua base de dados. No portal Azure, selecione o seu servidor. No título **Definições,** selecione as **cordas de ligação**. O parâmetro SSL varia em base no conector, por exemplo "ssl=true" ou "sslmode=requir" ou "sslmode=required" e outras variações.
 

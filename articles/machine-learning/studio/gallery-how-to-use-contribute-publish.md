@@ -1,6 +1,5 @@
 ---
-title: Galeria de IA do Azure
-titleSuffix: ML Studio (classic) - Azure
+title: 'Estúdio ML (clássico): Galeria Azure AI - Azure'
 description: Partilhe e descubra recursos de análise e muito mais na Galeria Azure AI. Aprenda com os outros e faça as suas próprias contribuições para a comunidade.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: cf483dadb9e27020095329d948698807a14012af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bbece33d443139c9f1b1384c1a9e0b3c4da0d08
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84709033"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318560"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Partilhar e descobrir recursos na Galeria Azure AI
+
+**APLICA-SE A:** ![ no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) yes Machine Learning Studio ![ ](../../../includes/media/aml-applies-to-skus/yes.png) (clássico) 
+
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
@@ -25,7 +28,7 @@ A Galeria tem uma variedade de recursos que pode usar para desenvolver as suas p
 
 ## <a name="what-can-i-find-in-the-gallery"></a>O que posso encontrar na Galeria?
 
-A Galeria Azure AI contém uma série de recursos diferentes que foram contribuídos pela Microsoft e membros da comunidade de ciência de dados. Incluem-se:
+A Galeria Azure AI contém uma série de recursos diferentes que foram contribuídos pela Microsoft e membros da comunidade de ciência de dados. Estas incluem:
 
 * **Experiências** - A Galeria contém uma grande variedade de experiências que foram desenvolvidas no Azure Machine Learning Studio (clássico). Estas vão desde experiências rápidas de prova de conceito que demonstram uma técnica específica de aprendizagem automática, até soluções totalmente desenvolvidas para problemas complexos de aprendizagem automática.
 * **Tutoriais** - Vários tutoriais estão disponíveis para o acompanhar através de tecnologias e conceitos de machine learning, ou para descrever métodos avançados para resolver vários problemas de aprendizagem automática.
@@ -95,7 +98,7 @@ E pode iniciar sessão com uma ferramenta de discussão, como Disqus, para receb
    * Screenshot de gráfico de experiência
    * Fontes de dados e explicação
    * Processamento de dados
-   * Com engenharia
+   * Desenvolvimento de funcionalidades
    * Descrição do modelo
    * Resultados e avaliação do desempenho do modelo
 
@@ -178,7 +181,7 @@ Pode editar os itens da sua coleção selecionando **Editar.**
 * Para adicionar notas aos itens da sua coleção, selecione o canto superior direito de um item e, em seguida, selecione **nota de Adicionar/Editar**.
 * Para remover um item da sua coleção, selecione o canto superior direito de um item e, em seguida, selecione **Remover**.
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 **Quais são os requisitos para submeter ou editar uma imagem?**
 
@@ -200,6 +203,6 @@ Depois de introduzir uma etiqueta, para introduzir outra etiqueta, prima a tecla
 
 Queremos que a Galeria seja conduzida pelos nossos utilizadores e pelos nossos utilizadores. Use o sorriso no direito de nos dizer o que ama ou odeia na Galeria.  
 
-![Feedback](./media/gallery-how-to-use-contribute-publish/feedback.png)
+![Comentários](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
 **[LEVE-ME À GALERIA >>](https://gallery.azure.ai)**

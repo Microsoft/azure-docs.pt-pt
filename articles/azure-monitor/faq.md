@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: 5366166a31ee45c74c34b8af0e01da251bd7f7f0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ff7472b764b0e65d69d9b694603e145440e89c0d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499227"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318118"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor perguntas frequentes
 
@@ -655,7 +655,7 @@ Consulte os [requisitos de firewall da rede](insights/container-insights-onboard
 Este Microsoft FAQ é uma lista de perguntas comumente feitas sobre O Azure Monitor para VMs. Se tiver alguma dúvida adicional sobre a solução, vá ao [fórum de discussão](https://feedback.azure.com/forums/34192--general-feedback) e publique as suas perguntas. Quando uma pergunta é frequentemente feita, adicionamo-la a este artigo para que possa ser encontrada de forma rápida e fácil.
 
 ### <a name="can-i-onboard-to-an-existing-workspace"></a>Posso embarcar num espaço de trabalho existente?
-Se as suas máquinas virtuais já estiverem ligadas a um espaço de trabalho log Analytics, poderá continuar a utilizar esse espaço de trabalho ao embarcar no Azure Monitor para VMs, desde que se encontra numa das regiões suportadas [listadas aqui.](insights/vminsights-enable-overview.md#prerequisites)
+Se as suas máquinas virtuais já estiverem ligadas a um espaço de trabalho log Analytics, poderá continuar a utilizar esse espaço de trabalho ao embarcar no Azure Monitor para VMs, desde que se encontra numa das [regiões suportadas.](insights/vminsights-configure-workspace.md#supported-regions)
 
 
 ### <a name="can-i-onboard-to-a-new-workspace"></a>Posso embarcar num novo espaço de trabalho? 
@@ -732,7 +732,7 @@ Se tiver configurado o Azure Monitor com um espaço de trabalho Log Analytics ut
 Nesta condição, será solicitado com a opção **Try Now** quando abrir o VM e selecionar **Insights** a partir do painel esquerdo, mesmo depois de já ter sido instalado no VM.  No entanto, não é solicitado com opções como normalmente ocorreria se este VM não fosse a bordo do Azure Monitor para VMs. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Se a sua pergunta não for respondida aqui, pode consultar os seguintes fóruns para perguntas e respostas adicionais.
 
 - [Log Analytics](/answers/topics/azure-monitor.html)

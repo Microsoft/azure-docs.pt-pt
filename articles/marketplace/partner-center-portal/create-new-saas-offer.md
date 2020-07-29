@@ -5,16 +5,21 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 2c5394dce503a6fa00e2a3e6ff73a683d3d2e76f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: 61592ee8ad5991c9540f5b418cafe2441ab4d3ea
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012098"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317736"
 ---
 # <a name="create-a-saas-offer"></a>Criar uma oferta SaaS
 
 Para começar a criar software como um Serviço (SaaS) oferece no mercado comercial, certifique-se de que primeiro [cria uma conta Partner Center](./create-account.md) e abre o painel de [instrumentos do Mercado Comercial,](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)com o **separador Overview** selecionado.
+
+> [!NOTE]
+> Se estiver a criar uma oferta de SaaS transacionável, certifique-se de que implementa a integração com [APIs de cumprimento saaS.](./pc-saas-fulfillment-apis.md)  A integração com as APIs é a única forma de a transação no Mercado funcionar corretamente. Também precisa de se certificar de que a sua aplicação utiliza a autenticação Azure AD com um único sinal (SSO). Consulte [a Azure AD e as ofertas transacionáveis da SaaS no mercado comercial.](../azure-ad-saas.md)
 
 ## <a name="create-a-new-offer"></a>Criar uma nova oferta
 
@@ -40,10 +45,6 @@ Insira **um pseudónimo de Oferta.** Este é o nome usado para a oferta no Partn
 - Este nome não é usado no mercado e é diferente do nome da oferta e outros valores mostrados aos clientes.
 - O pseudónimo Oferta não pode ser alterado depois de selecionar **Criar**.
 
-<!---
-![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
--->
-
 Selecione **Criar** para gerar a oferta e continuar.
 
 ## <a name="offer-overview"></a>Oferta geral
@@ -62,8 +63,8 @@ O menu **de visão geral da Oferta** contém uma lista de links para realizar op
 Esta página pede as seguintes informações.
 
 - **Gostaria de vender através da Microsoft?** (Sim/Não)
-    - **Sim,** gostaria de vender através da Microsoft e ter transações de anfitriões da Microsoft em meu nome.
-    - **Não,** prefiro apenas enumerar a minha oferta através dos mercados e processar transações de forma independente.
+  - **Sim,** gostaria de vender através da Microsoft e ter transações de anfitriões da Microsoft em meu nome.
+  - **Não,** prefiro apenas enumerar a minha oferta através dos mercados e processar transações de forma independente.
 
 ### <a name="sell-through-microsoft"></a>Venda através da Microsoft
 
@@ -102,8 +103,6 @@ Trata-se de uma repartição de custos e pagamentos para demonstrar o modelo da 
 
 Promova o seu negócio com a Microsoft criando uma listagem de marketplace. Selecionar para listar a sua oferta apenas e não transacionar através da Microsoft significa que a Microsoft não participa diretamente em transações de licenças de software. Não existe uma taxa de transação associada e a editora mantém 100% de quaisquer taxas de licenciamento de software cobradas ao cliente. No entanto, a editora é responsável por apoiar todos os aspetos da transação de licença de software, incluindo, mas não se limitando a: cumprimento da encomenda, medição, faturação, faturação, pagamento e cobrança.
 
-<!-- - **How do you want potential customers to interact with this listing offer?** -->
-
 #### <a name="get-it-now-free"></a>Obtê-lo agora (grátis)
 
 Enuncia gratuitamente a sua oferta aos *clientes,* fornecendo um endereço válido (a começar por *http* ou https ), onde podem obter um teste através [da autenticação de um clique utilizando o Azure Ative Directory (Azure AD)](../marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials)). Por exemplo, `https://contoso.com/saas-app`.
@@ -120,8 +119,6 @@ Enuncia a sua oferta aos clientes com um link para um teste gratuito, fornecendo
 Recolher informações de contacto com o cliente ligando o seu sistema de Gestão de Relacionamento com o Cliente (CRM). O cliente será solicitado permissão para partilhar as suas informações. Estes detalhes do cliente, juntamente com o nome da oferta, ID e fonte de mercado onde encontraram a sua oferta, serão enviados para o sistema CRM que configuraste. Para obter mais informações sobre a configuração do seu CRM, consulte [os leads do Cliente](#customer-leads).
 
 #### <a name="example-marketplace-offer-listing"></a>Exemplo de listagem de oferta do marketplace
-
-<!-- ![Example marketplace offer listing with notes](./media/marketplace-offer.svg) -->
 
 Aqui está um exemplo de como a informação da oferta aparece no Microsoft AppSource:
 
@@ -278,19 +275,19 @@ Este campo é obrigatório.
 
 - **Contactos** – Para cada contacto com o cliente, forneça um **nome**de colaborador, **número de telefone**e endereço de **e-mail** (estes *não serão* apresentados publicamente). É necessário **um URL de suporte** para o grupo de contacto de **suporte** (este *será* apresentado publicamente).
 
-    - **Contacto de apoio** (obrigatório) – Para questões gerais de apoio.
-    - **Contacto de engenharia** (obrigatório) – Para questões técnicas.
-    - **Contacto channel manager** (obrigatório) – Para revendedores questões relacionadas com o programa CSP.
+  - **Contacto de apoio** (obrigatório) – Para questões gerais de apoio.
+  - **Contacto de engenharia** (obrigatório) – Para questões técnicas.
+  - **Contacto channel manager** (obrigatório) – Para revendedores questões relacionadas com o programa CSP.
 
 #### <a name="files-and-images"></a>Ficheiros e Imagens
 
 - **Documentos** (obrigatórios) – Adicione documentos de marketing relacionados para a sua oferta, em formato PDF, de pelo menos um e até três documentos por oferta.
 - **Imagens** (opcional) – Existem vários locais onde as imagens de logótipo da sua oferta podem aparecer em todo o mercado, requerendo os seguintes tamanhos de pixel em formato PNG:
 
-    - **Pequeno** (48 x 48, necessário)
-    - **Médio** (90 x 90, necessário)
-    - **Grande** (216 x 216, necessário)
-    - **Largo** (255 x 115)
+  - **Pequeno** (48 x 48, necessário)
+  - **Médio** (90 x 90, necessário)
+  - **Grande** (216 x 216, necessário)
+  - **Largo** (255 x 115)
 
 - **Screenshots** (obrigatórios) – Adicione um máximo de cinco imagens que demonstrem a sua oferta, dimensionadas a 1280 x 720 pixels. Todas as imagens devem estar dentro . Formato PNG.
 - **Vídeos** (opcional) – Adicione links a vídeos que demonstrem a sua oferta. Pode utilizar links para vídeos do YouTube e/ou Vimeo, que são mostrados juntamente com a sua oferta aos clientes. Também terá de introduzir uma imagem miniatura do vídeo, dimensionada para 1280 x 720 pixels em formato PNG. Pode exibir um máximo de quatro vídeos por oferta.
@@ -322,32 +319,32 @@ Adicione até 10 endereços de e-mail manualmente, ou 20 se carregar um ficheiro
 
 ## <a name="technical-configuration"></a>Configuração técnica
 
-O separador **de configuração técnica** define os detalhes técnicos utilizados pelo mercado para comunicar ao seu serviço SaaS. Esta ligação permite-nos oferecer a sua oferta para o cliente final se optarem por adquiri-la e geri-la. 
+O separador **de configuração técnica** define os detalhes técnicos utilizados pelo mercado para comunicar ao seu serviço SaaS. Esta ligação permite-nos oferecer a sua oferta para o cliente final se optarem por adquiri-la e geri-la.
 
->[!Note]
->Deve implementar a integração com [as APIs de cumprimento do SaaS](./pc-saas-fulfillment-api-v2.md) antes de configurar estes detalhes nos detalhes da oferta.
+>[!NOTE]
+>Deve implementar a integração com [as APIs de cumprimento do SaaS](./pc-saas-fulfillment-api-v2.md) antes de configurar estes detalhes nos detalhes da oferta. Também tem de criar uma página de aterragem e a sua aplicação deve utilizar a autenticação AD AZure com um único sinal (SSO). Para mais informações, consulte [a Azure AD e as ofertas transacionáveis da SaaS no mercado comercial.](../azure-ad-saas.md)
 
 Diagramas e explicações detalhadas que descrevem a utilização dos campos recolhidos estão disponíveis em documentação para [as APIs](./pc-saas-fulfillment-api-v2.md).
 
 - **URL da página de aterragem** (obrigatório) – Defina o URL do site SaaS (por exemplo: `https://contoso.com/signup` ) que os clientes finais aterrarão após adquirirem a sua oferta no mercado e desencadeando o processo de configuração a partir da recém-criada subscrição SaaS.  Este URL será chamado com o parâmetro de identificação de compra de mercado que identifica exclusivamente a compra específica do cliente final SaaS.  Tem de trocar este token pelos correspondentes dados de subscrição do SaaS utilizando a API [de resolução.](./pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription)  Esses detalhes e quaisquer outros que deseje recolher devem ser usados como parte de uma página web interativa do cliente construída na sua experiência para completar o registo final do cliente e ativar a sua compra.  Nesta página, o utilizador deve inscrever-se através de uma autenticação de um clique utilizando o Azure Ative Directory (Azure AD). <br> <br> Este URL com o parâmetro de identificação de compra de mercado também será chamado quando o cliente final lançar a experiência Managed SaaS do portal Azure ou M365 Admin Center. Você deve lidar com ambos os fluxos, quando o token é fornecido pela primeira vez após a compra para novos clientes e quando é fornecido para o cliente existente que gere o seu SaaS. <br> <br> A página de Aterragem que configura aqui deve estar a funcionar 24 horas por dia, 7 horas por dia. Esta é a única forma de ser notificado sobre novas compras das suas ofertas SaaS efetuadas no mercado, ou pedidos de configuração de uma subscrição ativa de uma oferta.
 
-- **Connection webhook** (obrigatório) – Para todos os eventos assíncronos que a Microsoft precisa de lhe enviar (por exemplo, a subscrição do SaaS foi cancelada), exigimos que forneça um URL webhook de ligação. Vamos chamar este URL para notificá-lo sobre o evento. <br> <br> O webhook que fornece deve estar a funcionar 24 horas por dia, 7 dias por semana, pois esta é a única forma de ser notificado sobre atualizações sobre as subscrições saaS dos seus clientes adquiridas através do mercado. Se ainda não tiver um sistema webhook no lugar, a configuração mais simples é ter uma App lógica http Endpoint que irá ouvir quaisquer eventos que lhe sejam publicados e, em seguida, manuseá-los adequadamente (por exemplo, `https://prod-1westus.logic.azure.com:443/work` ). Para obter mais informações, consulte [Call, Trigger ou nestflows com pontos finais HTTP em aplicações lógicas.](../../logic-apps/logic-apps-http-endpoint.md)
+- **Connection webhook** (obrigatório) – Para todos os eventos assíncronos que a Microsoft precisa de lhe enviar (por exemplo, a subscrição do SaaS foi cancelada), exigimos que forneça um URL webhook de ligação. Vamos chamar este URL para notificá-lo sobre o evento. <br> <br> O webhook que fornece deve estar a funcionar 24 horas por dia, 7 dias por semana, pois esta é a única forma de ser notificado sobre atualizações sobre as subscrições saaS dos seus clientes adquiridas através do mercado.  Se ainda não tiver um sistema webhook no lugar, a configuração mais simples é ter uma App lógica http Endpoint que irá ouvir quaisquer eventos que lhe sejam publicados e, em seguida, manuseá-los adequadamente (por exemplo, `https://prod-1westus.logic.azure.com:443/work` ). Para obter mais informações, consulte [Call, Trigger ou nestflows com pontos finais HTTP em aplicações lógicas.](../../logic-apps/logic-apps-http-endpoint.md)
 
 - **ID do inquilino Azure AD** (obrigatório) – Dentro do portal Azure, exigimos que [crie uma app Azure Ative Directory (AD)](../../active-directory/develop/howto-create-service-principal-portal.md) para que possamos validar a ligação entre os nossos dois serviços por trás de uma comunicação autenticada. Para encontrar o ID do [inquilino),](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)vá ao seu Diretório Ativo Azure e selecione **Propriedades,** em seguida, procure o número **de ID** do Diretório listado (como 50c464d3-4930-494c-963c-1e951d15360e).
 
 - **ID da aplicação AD AZure** (obrigatório) – Também precisa do seu [ID de aplicação).](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Para obter o seu valor, vá ao seu Diretório Ativo Azure e selecione **registos de Aplicações,** em seguida, procure o número **de ID da aplicação** listado (por exemplo, `50c464d3-4930-494c-963c-1e951d15360e` ).
 
->[!Note]
->O ID da aplicação AZure está associado ao seu ID de editor na sua conta Partner Center. Certifique-se de que utiliza o mesmo ID de aplicação em todas as suas ofertas.
+>[!NOTE]
+>O ID da aplicação AZure está associado ao seu ID de editor na sua conta Partner Center.  Certifique-se de que o mesmo ID de aplicação é usado em todas as suas ofertas.
 
->[!Note]
+>[!NOTE]
 >Se a editora tiver duas ou mais contas diferentes no Partner Center, devem ser utilizados dois ou mais IDs de aplicações AD Azure diferentes, cada um para uma das contas. Cada conta de parceiro no Partner Center deve usar iD de aplicação AD AZure única para todas as ofertas saaS que são publicadas através desta conta.
 
 **Selecione Guardar o projeto** antes de continuar.
 
 ## <a name="plan-overview"></a>Visão geral do plano
 
-Esta página permite-lhe fornecer uma variedade de opções de plano dentro da mesma oferta. Estes planos (anteriormente chamados SKUs) podem diferir em termos de versão, rentabilização ou níveis de serviço. Deve criar pelo menos um plano para vender a sua oferta no mercado.
+Esta página permite-lhe fornecer uma variedade de opções de plano dentro da mesma oferta. Estes planos (por vezes referidos como SKUs) poderiam diferir em termos de versão, rentabilização ou níveis de serviço. Tem de criar pelo menos um plano para vender a sua oferta no mercado.
 
 Uma vez criado, verá os nomes do seu plano, IDs, modelos de preços, disponibilidade (Público ou Privado), estado de publicação atual e quaisquer ações disponíveis.
 
@@ -380,7 +377,7 @@ Esta página permite configurar os mercados em que este plano estará disponíve
 
 #### <a name="markets-optional"></a>Mercados (opcional)
 
-Todos os planos devem estar disponíveis em pelo menos um mercado. **Selecione os mercados editar** e selecione a caixa de verificação para qualquer local de mercado onde gostaria de disponibilizar este plano. Esta página inclui uma caixa de pesquisa e opção para selecionar [países/regiões "Tax Remitted",](tax-details-paid-transactions.md)em que a Microsoft remete as vendas e usa o imposto em seu nome.
+Todos os planos devem estar disponíveis em pelo menos um mercado. **Selecione os mercados editar** e selecione a caixa de verificação para qualquer local de mercado onde gostaria de disponibilizar este plano. Esta página inclui uma caixa de pesquisa e opção para selecionar países/regiões "Tax Remitted", em que a Microsoft remete as vendas e usa o imposto em seu nome.
 
 Se já estabeleceu preços para o seu plano em Dólares dos Estados Unidos (USD) e adiciona outra localização de mercado, o preço do novo mercado será calculado de acordo com as taxas de câmbio atuais. Reveja o preço de cada mercado antes de publicar. Ver preços utilizando o link "Preços de exportação (xlsx)" depois de guardar as suas alterações.
 
@@ -462,8 +459,6 @@ Enquanto o SaaS oferece iDs de inquilino para definir um público privado, outro
 1. Nome do plano
 2. Descrição do plano
 
-<br>
-
 ## <a name="cloud-solution-provider-csp-reseller-audience"></a>Público revendedor de fornecedor de solução em nuvem (CSP)
 
 Optar por disponibilizar a sua oferta no programa CSP permite que os Fornecedores de Soluções Cloud vendam o seu produto como parte de uma solução agregada aos seus clientes. Para mais informações, consulte [os Fornecedores de Soluções cloud.](https://go.microsoft.com/fwlink/?linkid=2111109)
@@ -477,12 +472,12 @@ Uma vez concluídas todas as secções necessárias da oferta, selecione **'Reve
 Se esta é a sua primeira vez publicando esta oferta, você pode:
 
 - Consulte o estado de conclusão de cada secção da oferta.
-    - **Não foi iniciado** – A secção não foi tocada e precisa de ser concluída.
-    - **Incompleto** – A secção tem erros que precisam de ser corrigidos ou exigem mais informações a serem fornecidas. Tens de voltar à secção e atualizá-la.
-    - **Completo** – A secção está completa, todos os dados necessários foram fornecidos e não há erros. Todas as secções da oferta devem estar em estado completo antes de poder submeter a oferta.
+  - **Não foi iniciado** – A secção não foi tocada e precisa de ser concluída.
+  - **Incompleto** – A secção tem erros que precisam de ser corrigidos ou exigem mais informações a serem fornecidas. Tens de voltar à secção e atualizá-la.
+  - **Completo** – A secção está completa, todos os dados necessários foram fornecidos e não há erros. Todas as secções da oferta devem estar em estado completo antes de poder submeter a oferta.
 - Forneça instruções de teste à equipa de certificação para garantir que a sua aplicação é testada corretamente, além de quaisquer notas suplementares úteis para entender a sua aplicação.
 - Submeta a oferta de publicação selecionando Enviar por ela que **não se possa fazer uma publicação.** Enviaremos um e-mail para informá-lo quando uma versão de pré-visualização da oferta estiver disponível para que você reveja e aprove. Volte ao Partner Center e selecione **Go-live** para publicar a sua oferta ao público (ou se uma oferta privada, para o público privado).
 
-## <a name="next-step"></a>Passo seguinte
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atualizar uma oferta existente no Marketplace Comercial](./update-existing-offer.md)

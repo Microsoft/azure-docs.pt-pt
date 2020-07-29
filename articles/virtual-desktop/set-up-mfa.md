@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 47b1a3a44c494560dde9ffdab004ea576f434ffe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8a8f5cb792f524354754b4368c0b68d5f9d40699
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091305"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291377"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Ativar o Multi-Factor Authentication do Microsoft Azure para o Windows Virtual Desktop
 
 >[!IMPORTANT]
-> Se estiver a visitar esta página a partir da documentação do outono de 2019, certifique-se de [voltar à documentação do outono de 2019](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) assim que terminar.
+> Se estiver a visitar esta página a partir da documentação virtual do Windows Desktop (clássica), certifique-se de [que regressa à documentação virtual do Windows Desktop (clássico)](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) uma vez terminada.
 
 O cliente Windows para Windows Virtual Desktop é uma excelente opção para integrar o Windows Virtual Desktop com a sua máquina local. No entanto, ao configurar a sua conta virtual do Windows desktop no Cliente Windows, existem certas medidas que terá de tomar para se manter a si e aos seus utilizadores seguros.
 
@@ -50,10 +50,10 @@ Eis como criar uma política de acesso condicional que requer autenticação de 
 7. Selecione **Concluído**.
 8. Em **aplicativos ou ações cloud**  >  **Inclua**, **selecione apps Select**.
 9. Selecione um dos seguintes grupos de aplicações com base na versão do Windows Virtual Desktop que está a utilizar.
-   - Se estiver a usar a versão outono 2019, escolha estas duas aplicações:
+   - Se estiver a utilizar o Windows Virtual Desktop (clássico), escolha estas duas aplicações:
        - **Windows Virtual Desktop** (App ID 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
        - **Windows Virtual Desktop Client** (App ID fa4345a4-a730-4230-84a8-7d9651b86739)
-   - Se estiver a usar a versão primavera de 2020, escolha estas duas aplicações:
+   - Se estiver a utilizar o Windows Virtual Desktop, escolha estas duas aplicações em vez disso:
        -  **Windows Virtual Desktop** (App ID 9cdead84-a844-4324-93f2-b2e6bb768d07)
        -  **Windows Virtual Desktop Client** (App ID a85cf173-4192-42f8-81fa-77763e6e2c)
 

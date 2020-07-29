@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
-ms.openlocfilehash: 65ced5021305dce15236ded59cf79a6578e7372a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c33e9105be1eb080025922ff9e612771a4f021cd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516792"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318084"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Monitor Ative Directory replication status with Azure Monitor
 
@@ -34,13 +34,13 @@ Utilize as seguintes informações para instalar e configurar a solução.
 
 
 ### <a name="install-agents-on-domain-controllers"></a>Instalar agentes em controladores de domínio
-Tem de instalar agentes em controladores de domínio que sejam membros do domínio a avaliar. Ou, deve instalar agentes nos servidores dos membros e configurar os agentes para enviar dados de replicação de AD para o Azure Monitor. Para entender como ligar computadores Windows ao Azure Monitor, consulte [os computadores Connect Windows ao Azure Monitor](../../azure-monitor/platform/agent-windows.md). Se o seu controlador de domínio já faz parte de um ambiente existente do Gestor de Operações do Centro de Sistema que pretende ligar ao Azure Monitor, consulte [o Connect Operations Manager para o Azure Monitor](../../azure-monitor/platform/om-agents.md).
+Tem de instalar agentes em controladores de domínio que sejam membros do domínio a avaliar. Ou, deve instalar agentes nos servidores dos membros e configurar os agentes para enviar dados de replicação de AD para o Azure Monitor. Para entender como ligar computadores Windows ao Azure Monitor, consulte [os computadores Connect Windows ao Azure Monitor](../platform/agent-windows.md). Se o seu controlador de domínio já faz parte de um ambiente existente do Gestor de Operações do Centro de Sistema que pretende ligar ao Azure Monitor, consulte [o Connect Operations Manager para o Azure Monitor](../platform/om-agents.md).
 
 ### <a name="enable-non-domain-controller"></a>Ativar o controlador não de domínio
 Se não quiser ligar nenhum dos seus controladores de domínio diretamente ao Azure Monitor, pode utilizar qualquer outro computador do seu domínio ligado ao Azure Monitor para recolher dados para o pacote de solução de estado de replicação de AD e enviar os dados.
 
 1. Verifique se o computador é um membro do domínio que pretende monitorizar utilizando a solução de Estado de Replicação de AD.
-2. [Ligue o computador Windows ao Azure Monitor](../../azure-monitor/platform/om-agents.md) ou [conecte-o utilizando o ambiente do Gestor de Operações existente ao Azure Monitor,](../../azure-monitor/platform/om-agents.md)se ainda não estiver ligado.
+2. [Ligue o computador Windows ao Azure Monitor](../platform/om-agents.md) ou [conecte-o utilizando o ambiente do Gestor de Operações existente ao Azure Monitor,](../platform/om-agents.md)se ainda não estiver ligado.
 3. Nesse computador, estale a seguinte chave de registo:<br>Chave: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parâmetros\Grupos de gestão \<ManagementGroupName> \Soluções\ADReplicação**<br>Valor: **IsTarget**<br>Dados de Valor: **verdadeiros**
 
    > [!NOTE]
@@ -112,7 +112,7 @@ Quando clica em qualquer item numa das listas, vê detalhes adicionais sobre o m
 
 ![Erros de estado de replicação de AD nos resultados da consulta](./media/ad-replication-status/oms-ad-replication-search-details.png)
 
-A partir daqui, pode filtrar mais, modificar a consulta de registo, e assim por diante. Para obter mais informações sobre a utilização das consultas de registo no Azure Monitor, consulte [os dados de registo de análise no Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+A partir daqui, pode filtrar mais, modificar a consulta de registo, e assim por diante. Para obter mais informações sobre a utilização das consultas de registo no Azure Monitor, consulte [os dados de registo de análise no Azure Monitor](../log-query/log-query-overview.md).
 
 O campo **HelpLink** mostra o URL de uma página TechNet com detalhes adicionais sobre esse erro específico. Pode copiar e colar este link na janela do seu navegador para ver informações sobre a resolução de problemas e a correção do erro.
 
@@ -152,9 +152,10 @@ R: As permissões normais do utilizador para o Ative Directory são suficientes.
 ## <a name="troubleshoot-data-collection-problems"></a>Problemas de recolha de dados de resolução de problemas
 Para recolher dados, o pacote de solução de estado de replicação AD requer pelo menos um controlador de domínio para ser ligado ao seu espaço de trabalho Log Analytics. Até ligar um controlador de domínio, aparece uma mensagem indicando que **os dados ainda estão a ser recolhidos**.
 
-Se precisar de assistência para ligar um dos seus controladores de domínio, pode ver documentação nos [computadores Connect Windows ao Azure Monitor](../../azure-monitor/platform/om-agents.md). Em alternativa, se o seu controlador de domínio já estiver ligado a um ambiente existente do Gestor de Operações do Centro de Sistema, pode ver documentação no [Connect System Center Operations Manager ao Azure Monitor](../../azure-monitor/platform/om-agents.md).
+Se precisar de assistência para ligar um dos seus controladores de domínio, pode ver documentação nos [computadores Connect Windows ao Azure Monitor](../platform/om-agents.md). Em alternativa, se o seu controlador de domínio já estiver ligado a um ambiente existente do Gestor de Operações do Centro de Sistema, pode ver documentação no [Connect System Center Operations Manager ao Azure Monitor](../platform/om-agents.md).
 
 Se não pretender ligar nenhum dos seus controladores de domínio diretamente ao Azure Monitor ou ao Gestor de Operações do Centro de Sistema, consulte [Ativar o controlador de não domínio](#enable-non-domain-controller).
 
-## <a name="next-steps"></a>Próximos passos
-* Utilize [consultas de registo no Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) para ver dados detalhados do estado de replicação do diretório ativo.
+## <a name="next-steps"></a>Passos seguintes
+* Utilize [consultas de registo no Azure Monitor](../log-query/log-query-overview.md) para ver dados detalhados do estado de replicação do diretório ativo.
+

@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 2f3d4050e51c5394edaa3c72213bc8da48ab568e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+author: shganesh-dev
+ms.author: shganesh
+ms.openlocfilehash: f0f14bf24bd867344ec72c86a6fd517085b66d1f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011843"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317557"
 ---
 # <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Terminologia de análise de mercado comercial e questões comuns
 

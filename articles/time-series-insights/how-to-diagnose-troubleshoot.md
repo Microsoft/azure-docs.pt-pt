@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: fcd73a5bb6de162fc258d93398b7d00044429588
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d9a4f7aa270aa4ed2b02e61da984e14379a241a9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099561"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289931"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Diagnosticar e resolver problemas num ambiente Azure Time Series Insights Gen2
 
@@ -121,7 +121,7 @@ Se a propriedade Timestamp não for explicitamente especificada, o hub IoT ou o 
 
 ## <a name="problem-all-my-instances-in-the-gen2-explorer-lack-a-parent"></a>Problema: Todos os meus casos no Explorador da Gen2 carecem de um pai
 
-Este problema pode ocorrer se o seu ambiente não tiver uma hierarquia do Modelo série de tempo definida. Para mais informações, leia sobre como [trabalhar com modelos de séries temporais.](./time-series-insights-update-how-to-tsm.md)
+Este problema pode ocorrer se o seu ambiente não tiver uma hierarquia do Modelo série de tempo definida. Para mais informações, leia sobre como [trabalhar com modelos de séries temporais.](/azure/time-series-insights/time-series-insights-overview)
 
   [![Casos não-parados apresentarão um aviso.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 
@@ -135,7 +135,7 @@ Este problema pode ocorrer se não estiver a utilizar a versão mais recente do 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Leia sobre como [trabalhar com modelos de séries de tempo.](./time-series-insights-update-how-to-tsm.md)
+- Leia sobre como [trabalhar com modelos de séries de tempo.](/azure/time-series-insights/time-series-insights-overview)
 
 - Conheça as [formas JSON suportadas.](./how-to-shape-query-json.md)
 

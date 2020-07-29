@@ -10,49 +10,49 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 81d0183b6dde1a5fe6bd9cd36910fd3dfc1cc5b1
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 16bb5fa41389dcf1ddd8ee2e3434e15755bb0d8d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205294"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290931"
 ---
 # <a name="language-support-for-computer-vision"></a>Suporte linguístico para Visão de Computador
 
 Algumas funcionalidades da Visão Computacional suportam vários idiomas; quaisquer funcionalidades não mencionadas aqui apenas suportam inglês.
 
-## <a name="optical-character-recognition-ocr"></a>Reconhecimento ótico de carateres (OCR)
+## <a name="optical-character-recognition-ocr"></a>Reconhecimento Ótico de Carateres (OCR)
 
 As APIs de OCR da Visão Computacional suportam vários idiomas. Não exigem que especifique um código linguístico. Consulte [o Reconhecimento de Caracteres Óticos (OCR)](concept-recognizing-text.md) para obter mais informações.
 
-|Linguagem| Código do idioma | OCR API | Ler API |
-|:-----|:----:|:-----:|:---:|
-|Árabe | `ar`|✔ | |
-|Chinês (Simplificado) | `zh-Hans`|✔ | |
-|Chinês (Tradicional) | `zh-Hant`|✔ | |
-|Checo | `cs` |✔ | |
-|Dinamarquês | `da` |✔ | |
-|Neerlandês | `nl` |✔ |✔ |
-|Inglês | `en` |✔ |✔ |
-|Finlandês | `fi` |✔ | |
-|Francês | `fr` |✔ |✔ |
-|Alemão | `de` |✔ |✔ |
-|Grego | `el` |✔ | |
-|Húngaro | `hu` |✔ | |
-|Italiano | `it` |✔ |✔ |
-|Japonês | `ja` |✔ | |
-|Coreano | `ko` |✔ | |
-|Norueguês | `nb` |✔ | |
-|Polaco | `pl` |✔ | |
-|Português | `pt` |✔ |✔ |
-|Romeno | `ro` |✔ | |
-|Russo | `ru` |✔ | |
-|Sérvio (Cirílico) | `sr-Cyrl` |✔ | |
-|Sérvio (Latim) | `sr-Latn` |✔ | |
-|Eslovaco | `sk` |✔ | |
-|Espanhol | `es` |✔ |✔ |
-|Sueco | `sw` |✔ | |
-|Turco | `tr` |✔ | |
+|Linguagem| Código do idioma | OCR API | Ler v3.0 | Ler v3.1-pré-visualização.1 |
+|:-----|:----:|:-----:|:---:|:---:|
+|Árabe | `ar`|✔ | | |
+|Chinês (Simplificado) | `zh-Hans`|✔ | |✔ |
+|Chinês (Tradicional) | `zh-Hant`|✔ | | |
+|Checo | `cs` |✔ | | |
+|Dinamarquês | `da` |✔ | | |
+|Neerlandês | `nl` |✔ |✔ |✔ |
+|Inglês | `en` |✔ |✔ |✔ |
+|Finlandês | `fi` |✔ | | |
+|Francês | `fr` |✔ |✔ |✔ |
+|Alemão | `de` |✔ |✔ |✔ |
+|Grego | `el` |✔ | | |
+|Húngaro | `hu` |✔ | | |
+|Italiano | `it` |✔ |✔ |✔ |
+|Japonês | `ja` |✔ | | |
+|Coreano | `ko` |✔ | | |
+|Norueguês | `nb` |✔ | | |
+|Polaco | `pl` |✔ | | |
+|Português | `pt` |✔ |✔ |✔ |
+|Romeno | `ro` |✔ | | |
+|Russo | `ru` |✔ | | |
+|Sérvio (Cirílico) | `sr-Cyrl` |✔ | | |
+|Sérvio (Latim) | `sr-Latn` |✔ | | |
+|Eslovaco | `sk` |✔ | | |
+|Espanhol | `es` |✔ |✔ |✔ |
+|Sueco | `sw` |✔ | | |
+|Turco | `tr` |✔ | | |
 
 ## <a name="image-analysis"></a>Análise de imagem
 

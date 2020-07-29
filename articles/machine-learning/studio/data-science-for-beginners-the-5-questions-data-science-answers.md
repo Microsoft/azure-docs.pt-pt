@@ -1,6 +1,5 @@
 ---
-title: Ciência de Dados para Principiantes
-titleSuffix: ML Studio (classic) - Azure
+title: 'Estúdio ML (clássico): Data Science for Principiantes - Azure'
 description: Data Science for Beginners é ensina conceitos básicos em 5 pequenos vídeos, começando com As 5 Perguntas Data Science Answers. Do Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,15 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 350363641056802e09eea90c85b4ccf8e33d9051
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a0c99c05701c7f2d64fcfc2f70081f2d7475ce5f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82930153"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318730"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Data Science for Beginners video 1: The 5 questions data science answers (Vídeo Ciência de Dados para Principiantes: As cinco perguntas às quais a ciência de dados dá resposta)
+
 Obtenha uma introdução rápida à ciência dos dados da *Data Science for Beginners* em cinco pequenos vídeos de um cientista de dados de topo. Estes vídeos são básicos, mas úteis, quer esteja interessado em fazer ciência de dados ou trabalhe com cientistas de dados.
 
 Este primeiro vídeo é sobre o tipo de perguntas que a ciência dos dados pode responder. Para tirar o máximo partido da série, assista a todas. [Vá à lista de vídeos](#other-videos-in-this-series)
@@ -123,7 +124,7 @@ Tipicamente, a aprendizagem de reforço é um bom ajuste para sistemas automatiz
 
 ![Algoritmos de aprendizagem de reforço: O que devo fazer a seguir?](./media/data-science-for-beginners-the-5-questions-data-science-answers/reinforcement-learning-algorithms.png)
 
-As perguntas que responde são sempre sobre que medidas devem ser tomadas - geralmente por uma máquina ou um robô. Os exemplos são:
+As perguntas que responde são sempre sobre que medidas devem ser tomadas - geralmente por uma máquina ou um robô. Eis alguns exemplos:
 
 * Se eu sou um sistema de controlo de temperatura para uma casa: Ajustar a temperatura ou deixá-la onde está?  
 * Se eu sou um carro autónomo: com um semáforo amarelo, travagem ou aceleração?  
@@ -133,6 +134,6 @@ Os algoritmos de aprendizagem de reforço recolhem dados à medida que vão avan
 
 As 5 perguntas que a ciência dos dados pode responder.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Experimente uma primeira experiência de ciência de dados com o Machine Learning Studio (clássico)](create-experiment.md)
 * [Obtenha uma introdução ao Machine Learning no Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)

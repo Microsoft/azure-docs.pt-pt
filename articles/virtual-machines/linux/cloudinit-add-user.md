@@ -3,14 +3,15 @@ title: Use cloud-init para adicionar um utilizador a um Linux VM em Azure
 description: Como utilizar o cloud-init para adicionar um utilizador a um Linux VM durante a criação com o CLI Azure
 author: rickstercdn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: f1782bfe0c14e3b44703f89ec7f78590c1bb74c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 569ceb4c7158ba9dc08c99c234951fb4507b69f6
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78969229"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87370075"
 ---
 # <a name="use-cloud-init-to-add-a-user-to-a-linux-vm-in-azure"></a>Use cloud-init para adicionar um utilizador a um Linux VM em Azure
 Este artigo mostra-lhe como utilizar o [cloud-init](https://cloudinit.readthedocs.io) para adicionar um utilizador numa máquina virtual (VM) ou conjuntos de escala de máquina virtual (VMSS) no tempo de provisionamento em Azure. Este script cloud-init funciona na primeira bota uma vez que os recursos foram a provisionados por Azure. Para obter mais informações sobre como o cloud-init funciona de forma nativa em Azure e os distros de Linux suportados, consulte [a visão geral de cloud-init](using-cloud-init.md).
@@ -73,7 +74,7 @@ sudo:x:27:myadminuser
 myadminuser:x:1000:
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para exemplos adicionais de alterações de configuração, consulte o seguinte:
  
 - [Adicione um utilizador Linux adicional a um VM](cloudinit-add-user.md)

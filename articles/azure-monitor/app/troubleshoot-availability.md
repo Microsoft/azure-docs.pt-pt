@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 04/28/2020
 ms.reviewer: sdash
-ms.openlocfilehash: 8544ad292d9e8982e236566fb53189c70922232c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0ac8dd189bee1c1d4f5a7a4d0f7de68b085fbc56
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041386"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318152"
 ---
 # <a name="troubleshooting"></a>Resolução de problemas
 
@@ -81,7 +81,7 @@ O erro ("violação do protocolo.. CR tem de ser seguido por LF") indica um prob
 
 ### <a name="i-dont-see-any-related-server-side-telemetry-to-diagnose-test-failures"></a>Não vejo nenhuma telemetria relacionada do lado do servidor para diagnosticar falhas de teste?*
 
-Se tiver o Application Insights configurado para a sua aplicação do lado do servidor, poderá dever-se ao facto de a [amostragem](../../azure-monitor/app/sampling.md) estar em curso. Selecione um resultado de disponibilidade diferente.
+Se tiver o Application Insights configurado para a sua aplicação do lado do servidor, poderá dever-se ao facto de a [amostragem](./sampling.md) estar em curso. Selecione um resultado de disponibilidade diferente.
 
 ### <a name="can-i-call-code-from-my-web-test"></a>Posso chamar um código a partir do meu teste Web?
 
@@ -96,7 +96,7 @@ Ambos os termos podem ser utilizados alternadamente. “Testes de disponibilidad
 
    Existem duas soluções possíveis:
 
-   * Configure a firewall para permitir pedidos recebidos a partir dos [endereços IP dos nossos agentes de teste Web](../../azure-monitor/app/ip-addresses.md).
+   * Configure a firewall para permitir pedidos recebidos a partir dos [endereços IP dos nossos agentes de teste Web](./ip-addresses.md).
    * Escreva o seu próprio código para testar periodicamente o seu servidor interno. Execute o código como um processo em segundo plano num servidor de teste atrás da firewall. O processo de teste pode enviar os resultados para o Application Insights através da API [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) no pacote SDK core. Isto requer que o servidor de teste tenha acesso de envio para o ponto final de ingestão do Application Insights, mas é um risco de segurança muito inferior do que a alternativa de permitir pedidos recebidos. Os resultados aparecerão nas lâminas de testes web de disponibilidade, embora a experiência seja ligeiramente simplificada a partir do que está disponível para testes criados através do portal. Os testes de disponibilidade personalizada também aparecerão como resultados de disponibilidade em Analytics, Search e Metrics.
 
 ### <a name="uploading-a-multi-step-web-test-fails"></a>O carregamento de um teste Web com vários passos falhou
@@ -134,3 +134,4 @@ Utilize os novos alertas de experiência de alerta/quase em tempo real se necess
 
 * [Testes web em várias etapas](availability-multistep.md)
 * [Testes de ping de URL](monitor-web-app-availability.md)
+

@@ -4,16 +4,16 @@ description: Criar e carregar um disco rígido virtual (VHD) para Azure utilizan
 author: cynthn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/10/2017
 ms.author: cynthn
 ms.custom: storage accounts
-ms.openlocfilehash: dcc7c69809ae623606bd091821c5f2fc661f6c8b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 288a697339fc6f8b001b445840e3fa98ab92f9a4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088755"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292253"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Faça upload e crie um Linux VM a partir de disco personalizado com o Azure CLI
 
@@ -74,7 +74,7 @@ az vm create --resource-group myResourceGroup --location westus \
 
 A conta de armazenamento de destino tem de ser a mesma de onde fez o upload do seu disco virtual. Também precisa de especificar, ou responder a solicitações para, todos os parâmetros adicionais exigidos pelo **az vm criar** comando como rede virtual, endereço IP público, nome de utilizador e teclas SSH. Pode ler mais sobre os [parâmetros clássicos do Gestor de Recursos CLI disponíveis.](../azure-cli-arm-commands.md#virtual-machines)
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 Para completar os seguintes passos, é necessário:
 
 * **Sistema operativo Linux instalado num ficheiro .vhd** - Instale uma distribuição Linux com base no [Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (ou consulte [informações para distribuições não endossadas)](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)num disco virtual no formato VHD. Existem várias ferramentas para criar um VM e VHD:

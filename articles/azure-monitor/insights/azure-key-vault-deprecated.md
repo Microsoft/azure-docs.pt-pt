@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: 97e687acba0c94f72ca571c498fb54531118714b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 286d8d8c202a4fc59a18501eff16a569e2d09047
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098241"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318050"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solução Azure Key Vault Analytics no Azure Monitor
 
@@ -34,7 +34,7 @@ Para utilizar a solução, é necessário ativar o registo de diagnósticos Azur
 ## <a name="install-and-configure-the-solution"></a>Instale e configuure a solução
 Utilize as seguintes instruções para instalar e configurar a solução Azure Key Vault:
 
-1. Utilize o processo descrito nas [soluções Add Azure Monitor da Galeria solutions](../../azure-monitor/insights/solutions.md) para adicionar a solução Azure Key Vault ao seu espaço de trabalho Log Analytics.
+1. Utilize o processo descrito nas [soluções Add Azure Monitor da Galeria solutions](./solutions.md) para adicionar a solução Azure Key Vault ao seu espaço de trabalho Log Analytics.
 2. Permitir a monitorização dos recursos do Cofre de Chaves, utilizando o [portal](#enable-key-vault-diagnostics-in-the-portal) ou o [PowerShell](#enable-key-vault-diagnostics-using-powershell)
 
 ### <a name="enable-key-vault-diagnostics-in-the-portal"></a>Ativar diagnósticos de Cofre de Chaves no portal
@@ -132,7 +132,7 @@ Em janeiro de 2017, a forma suportada de enviar registos do Key Vault para Log A
 Para utilizar a solução atualizada:
 
 1. [Configurar diagnósticos para serem enviados diretamente para um espaço de trabalho Log Analytics a partir do Cofre de Chaves](#enable-key-vault-diagnostics-in-the-portal)  
-2. Ativar a solução Azure Key Vault utilizando o processo descrito nas [soluções Add Azure Monitor da Galeria de Soluções](../../azure-monitor/insights/solutions.md)
+2. Ativar a solução Azure Key Vault utilizando o processo descrito nas [soluções Add Azure Monitor da Galeria de Soluções](./solutions.md)
 3. Atualize quaisquer consultas guardadas, dashboards ou alertas para utilizar o novo tipo de dados
    + O tipo é alterado de: KeyVaults para AzureDiagnostics. Pode utilizar o ResourceType para filtrar os registos do cofre de chaves.
    + Em vez de: `KeyVaults` , usar`AzureDiagnostics | where ResourceType'=="VAULTS"`
@@ -149,4 +149,5 @@ Os dados recolhidos antes da alteração não são visíveis na nova solução. 
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
-* Utilize [consultas de log no Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) para ver dados detalhados do Cofre da Chave Azure.
+* Utilize [consultas de log no Azure Monitor](../log-query/log-query-overview.md) para ver dados detalhados do Cofre da Chave Azure.
+

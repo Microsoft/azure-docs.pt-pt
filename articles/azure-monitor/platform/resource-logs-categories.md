@@ -4,21 +4,21 @@ description: Referência do Azure Monitor Compreenda os serviços suportados e e
 ms.subservice: logs
 ms.topic: reference
 ms.date: 06/03/2020
-ms.openlocfilehash: ceca6b0a230de6d3eeab47e60d90767b33b5ac59
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 81f79b81c03e7996d7f6d45b002d8160740c3c14
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515398"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318305"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Categorias suportadas para Registos de Recursos Azure
 
 > [!NOTE]
 > Os registos de recursos eram anteriormente conhecidos como registos de diagnóstico. O nome foi alterado em outubro de 2019, uma vez que os tipos de registos recolhidos pelo Azure Monitor mudaram para incluir mais do que apenas o recurso Azure.
 
-[Os registos de recursos do Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md) são registos emitidos pelos serviços da Azure que descrevem o funcionamento desses serviços ou recursos. Todos os registos de recursos disponíveis através do Azure Monitor partilham um esquema comum de alto nível, com flexibilidade para cada serviço emitir propriedades únicas para os seus próprios eventos.
+[Os registos de recursos do Azure Monitor](./platform-logs-overview.md) são registos emitidos pelos serviços da Azure que descrevem o funcionamento desses serviços ou recursos. Todos os registos de recursos disponíveis através do Azure Monitor partilham um esquema comum de alto nível, com flexibilidade para cada serviço emitir propriedades únicas para os seus próprios eventos.
 
-Uma combinação do tipo de recurso (disponível na `resourceId` propriedade) e o `category` esquema de identificação única. Existe um esquema comum para todos os registos de recursos com campos específicos de serviço e adicionados para diferentes categorias de registo. Para obter mais informações, consulte [esquemas específicos de common e serviço para registos de recursos Azure](resource-logs-categories.md)
+Uma combinação do tipo de recurso (disponível na `resourceId` propriedade) e o `category` esquema de identificação única. Existe um esquema comum para todos os registos de recursos com campos específicos de serviço e adicionados para diferentes categorias de registo. Para obter mais informações, consulte [esquemas específicos de common e serviço para registos de recursos Azure]()
 
 ## <a name="supported-log-categories-per-resource-type"></a>Categorias de registo suportado por tipo de recurso
 
@@ -709,9 +709,10 @@ Se ainda falta alguma coisa, pode abrir um comentário do GitHub na parte inferi
 |ScanLogs|Troncos de varredura antivírus|
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
-* [Saiba mais sobre registos de recursos](../../azure-monitor/platform/platform-logs-overview.md)
+* [Saiba mais sobre registos de recursos](./platform-logs-overview.md)
 * [Fluxo de registos de recursos para **Centros de Eventos**](./resource-logs.md#send-to-azure-event-hubs)
 * [Alterar definições de diagnóstico de registo de recursos utilizando a API do Monitor Azure](/rest/api/monitor/diagnosticsettings)
 * [Analise os registos do armazenamento do Azure com o Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)
+

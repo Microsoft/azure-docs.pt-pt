@@ -2,15 +2,15 @@
 title: Co-localizar Os VMs do Linux
 description: Saiba como a co-localização dos recursos Azure VM pode melhorar a latência.
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: zivr
-ms.openlocfilehash: 0a28b238701eeb0572149fb55e1633cdd40ec0a4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 000c8c8955314060ae9bdedb96b086a509fb3e96
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511029"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87368647"
 ---
 # <a name="co-locate-resources-for-improved-latency"></a>Co-localizar recursos para uma maior latência
 
@@ -20,7 +20,7 @@ Ao implementar a sua aplicação no Azure, espalhar instâncias através de regi
 
 [!INCLUDE [virtual-machines-common-ppg-overview](../../../includes/virtual-machines-common-ppg-overview.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Utilize um VM para um [grupo de colocação de proximidade](proximity-placement-groups.md) utilizando o Azure CLI.
 

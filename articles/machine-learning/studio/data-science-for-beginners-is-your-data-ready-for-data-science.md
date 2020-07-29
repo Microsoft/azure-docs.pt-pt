@@ -1,6 +1,5 @@
 ---
-title: Avaliação de dados
-titleSuffix: ML Studio (classic) - Azure
+title: 'Estúdio ML (clássico): Avaliação de dados - Azure'
 description: Quatro critérios que os seus dados precisam de cumprir para estarem prontos para a ciência dos dados. Este vídeo tem exemplos concretos para ajudar na avaliação básica de dados.
 services: machine-learning
 ms.service: machine-learning
@@ -10,11 +9,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 8eb9c5a182c17815d4efcf171cc99b1e9f5bc89e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12e939b8fb66b3cffbee49a4b3bedd74b71d7232
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82930170"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318764"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Os seus dados estão prontos para a ciência de dados?
 ## <a name="video-2-data-science-for-beginners-series"></a>Vídeo 2: Data Science for Beginners series
@@ -101,6 +101,6 @@ Com dados relevantes, conectados, precisos e suficientes, você tem todos os ing
 
 Certifique-se de conferir mais quatro vídeos em *Data Science para Principiantes* do Microsoft Azure Machine Learning Studio (clássico).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Experimente uma primeira experiência de ciência de dados com o Machine Learning Studio (clássico)](create-experiment.md)
 * [Obtenha uma introdução ao Machine Learning no Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)

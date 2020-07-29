@@ -11,11 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 150ee15adb042841f74ffbf3b75338b2dd569333
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95cbb509beba82a14b9f8f8a11c603a6d7b8689d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84017669"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280805"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade web na Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -24,9 +25,9 @@ ms.locfileid: "84017669"
 A atividade Web pode ser utilizada para chamar um ponto final REST personalizado a partir de um pipeline do Data Factory. Pode transmitir conjuntos de dados e serviços ligados aos quais a atividade tem acesso e que pode consumir.
 
 > [!NOTE]
-> A Web Activity só pode chamar URLs expostos publicamente. Não é suportado para URLs que estão hospedados numa rede virtual privada.
+> A Web Activity é suportada para invocar URLs que são hospedados em uma rede virtual privada, bem como alavancando o tempo de integração auto-hospedado. O tempo de execução da integração deve ter uma linha de visão para o ponto final url. 
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 ```json
 {
@@ -35,6 +36,10 @@ A atividade Web pode ser utilizada para chamar um ponto final REST personalizado
    "typeProperties":{
       "method":"Post",
       "url":"<URLEndpoint>",
+      "connectVia": {
+          "referenceName": "<integrationRuntimeName>",
+          "type": "IntegrationRuntimeReference"
+      }
       "headers":{
          "Content-Type":"application/json"
       },
@@ -65,10 +70,10 @@ A atividade Web pode ser utilizada para chamar um ponto final REST personalizado
 
 ## <a name="type-properties"></a>Tipo de propriedades
 
-Propriedade | Descrição | Valores permitidos | Necessário
+Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-name | Nome da atividade web | String | Sim
-tipo | Tem de ser definido para **WebActivity**. | String | Sim
+name | Nome da atividade web | Cadeia | Sim
+tipo | Tem de ser definido para **WebActivity**. | Cadeia | Sim
 método | Desarre-se o método API para o ponto final do alvo. | Cadeia. <br/><br/>Tipos suportados: "GET", "POST", "PUT" | Sim
 url | Ponto final e caminho | Corda (ou expressão com resultadoTipo de corda). A atividade irá cronometrar a 1 minuto com um erro se não receber uma resposta do ponto final. | Sim
 cabeçalhos | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir a língua e escrever num pedido: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | Corda (ou expressão com resultadoType de corda) | Sim, é necessário um cabeçalho do tipo conteúdo. `"headers":{ "Content-Type":"application/json"}`
@@ -76,6 +81,7 @@ body | Representa a carga útil que é enviada para o ponto final.  | Corda (ou 
 autenticação | Método de autenticação utilizado para chamar o ponto final. Os Tipos Suportados são "Básico, ou Certificado cliente". Para mais informações, consulte a secção [autenticação.](#authentication) Se não for necessária a autenticação, exclua este imóvel. | Corda (ou expressão com resultadoType de corda) | Não
 conjuntos de dados | Lista de conjuntos de dados passados para o ponto final. | Conjunto de referências de conjunto de dados. Pode ser uma matriz vazia. | Sim
 linkedServes | Lista de serviços ligados passados para ponto final. | Conjunto de referências de serviço ligadas. Pode ser uma matriz vazia. | Sim
+connectVia | O [tempo de integração](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime) a ser utilizado para ligar à loja de dados. Pode utilizar o tempo de funcionamento da integração Azure ou o tempo de integração auto-hospedado (se a sua loja de dados estiver numa rede privada). Se esta propriedade não for especificada, o serviço utiliza o tempo de execução de integração Azure padrão. | A referência de tempo de integração. | Não 
 
 > [!NOTE]
 > Os pontos finais do REST que a atividade web invoca devem devolver uma resposta do tipo JSON. A atividade irá cronometrar a 1 minuto com um erro se não receber uma resposta do ponto final.
@@ -94,11 +100,11 @@ A tabela a seguir mostra os requisitos para o conteúdo JSON:
 
 Abaixo estão os tipos de autenticação suportados na atividade web.
 
-### <a name="none"></a>Nenhuma
+### <a name="none"></a>Nenhum
 
 Se não for necessária a autenticação, não inclua o imóvel de "autenticação".
 
-### <a name="basic"></a>Básica
+### <a name="basic"></a>Básico
 
 Especifique o nome de utilizador e a palavra-passe para usar com a autenticação básica.
 
@@ -253,7 +259,7 @@ public HttpResponseMessage Execute(JObject payload)
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte outras atividades de fluxo de controlo suportadas pela Data Factory:
 
 - [Executar a Atividade do Pipeline](control-flow-execute-pipeline-activity.md)

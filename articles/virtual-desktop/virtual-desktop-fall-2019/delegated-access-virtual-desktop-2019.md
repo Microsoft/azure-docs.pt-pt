@@ -1,6 +1,6 @@
 ---
-title: Acesso delegado no Windows Virtual Desktop Fall 2019 - Azure
-description: Como delegar capacidades administrativas numa implementação virtual do Windows Desktop, incluindo exemplos.
+title: Acesso delegado no Windows Virtual Desktop (clássico) - Azure
+description: Como delegar capacidades administrativas numa implementação virtual do Windows Desktop (clássica), incluindo exemplos.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 91be20de49f549f3530e6c817906f1abf8f106b6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fbb8c6e100a9f72c20bcfaba7049b6724ee458b2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527562"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292530"
 ---
-# <a name="delegated-access-in-windows-virtual-desktop-fall-2019"></a>Acesso delegado no Windows Virtual Desktop Fall 2019
+# <a name="delegated-access-in-windows-virtual-desktop-classic"></a>Acesso delegado no Windows Virtual Desktop (clássico)
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../delegated-access-virtual-desktop.md).
+>Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows. Se estiver a tentar gerir os objetos de ambiente de trabalho virtuais do Azure Resource Manager Windows, consulte [este artigo](../delegated-access-virtual-desktop.md).
 
 O Windows Virtual Desktop tem um modelo de acesso delegado que permite definir a quantidade de acesso que um determinado utilizador pode ter atribuindo-lhes uma função. Uma atribuição de funções tem três componentes: principal de segurança, definição de função e âmbito. O modelo de acesso delegado do Windows Desktop baseia-se no modelo Azure RBAC. Para saber mais sobre atribuições específicas de funções e seus componentes, consulte [a visão geral do controlo de acesso baseada em funções Azure](../../role-based-access-control/built-in-roles.md).
 
@@ -66,7 +66,7 @@ Pode modificar os três cmdlets básicos com os seguintes parâmetros:
 * **SignInName**: o endereço de e-mail do utilizador ou o nome principal do utilizador.
 * **Nome do Inquilino**: nome do inquilino de ambiente de trabalho remoto.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma lista mais completa de cmdlets PowerShell que cada função pode utilizar, consulte a [referência PowerShell](/powershell/windows-virtual-desktop/overview).
 

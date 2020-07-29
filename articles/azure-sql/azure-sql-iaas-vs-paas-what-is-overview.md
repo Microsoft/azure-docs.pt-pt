@@ -12,13 +12,13 @@ keywords: Nuvem de servidor SQL, SQL Server na nuvem, base de dados PaaS, cloud 
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 05/27/2020
-ms.openlocfilehash: 7a4f26b11911caaa7bce40b77570331b492ceb9d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 07/27/2020
+ms.openlocfilehash: ff8dd9d10bf5970a5a96080beb51e2c111d481e3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080181"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280856"
 ---
 # <a name="what-is-azure-sql"></a>O que é o Azure SQL? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -110,12 +110,12 @@ Em geral, a BASE de Dados SQL e a SQL Managed Instance podem aumentar drasticame
 | Base de Dados SQL do Azure | Instância Gerida do Azure SQL | SQL Server numa VM do Azure |
 | :--- | :--- | :--- |
 |Suporta a maioria das capacidades de nível de base de dados no local. As funcionalidades do SQL Server mais utilizadas estão disponíveis.<br/>99,995% de disponibilidade garantida.<br/>Reforços incorporados, remendos, recuperação.<br/>Versão mais recente do Motor base de dados estável.<br/>Capacidade de atribuir recursos necessários (CPU/armazenamento) a bases de dados individuais.<br/>Inteligência e segurança avançadas.<br/>Mudança online de recursos (CPU/armazenamento).| Suporta quase todas as capacidades de nível de instância e de nível de base de dados no local. Alta compatibilidade com o SQL Server.<br/>99,99% de disponibilidade garantida.<br/>Reforços incorporados, remendos, recuperação.<br/>Versão mais recente do Motor base de dados estável.<br/>Fácil migração do SQL Server.<br/>Endereço IP privado dentro da Rede Virtual Azure.<br/>Inteligência e segurança avançadas.<br/>Mudança online de recursos (CPU/armazenamento).| Tem controlo total sobre o motor SQL Server. Suporta todas as capacidades no local.<br/>Até 99,99% de disponibilidade.<br/>Paridade total com a versão correspondente do SQL Server no local.<br/>Versão fixa e conhecida do Motor de Base de Dados.<br/>Fácil migração do SQL Server.<br/>Endereço IP privado dentro da Rede Virtual Azure.<br/>Tem a capacidade de implementar aplicações ou serviços no anfitrião onde o SQL Server é colocado.|
-|A migração do SQL Server pode ser um desafio.<br/>Algumas funcionalidades do SQL Server não estão disponíveis.<br/>Sem tempo de manutenção exato garantido (mas quase transparente).<br/>A compatibilidade com a versão SQL Server só pode ser alcançada utilizando níveis de compatibilidade na base de dados.<br/>O endereço IP privado não pode ser atribuído (pode limitar o acesso usando regras de firewall).|Existe ainda um número mínimo de funcionalidades do SQL Server que não estão disponíveis.<br/>Sem tempo de manutenção exato garantido (mas quase transparente).<br/>A compatibilidade com a versão SQL Server só pode ser alcançada utilizando níveis de compatibilidade na base de dados.|Tens de gerir os teus backups e patches.<br>Precisa implementar a sua própria solução de Alta Disponibilidade.<br/>Há uma inatividade ao alterar os recursos (CPU/armazenamento)|
+|A migração do SQL Server pode ser um desafio.<br/>Algumas funcionalidades do SQL Server não estão disponíveis.<br/>Sem tempo de manutenção exato garantido (mas quase transparente).<br/>A compatibilidade com a versão SQL Server só pode ser alcançada utilizando níveis de compatibilidade na base de dados.<br/>Suporte de endereço IP privado com [Link Privado Azure](database/private-endpoint-overview.md).|Existe ainda um número mínimo de funcionalidades do SQL Server que não estão disponíveis.<br/>Sem tempo de manutenção exato garantido (mas quase transparente).<br/>A compatibilidade com a versão SQL Server só pode ser alcançada utilizando níveis de compatibilidade na base de dados.|Tens de gerir os teus backups e patches.<br>Precisa implementar a sua própria solução de Alta Disponibilidade.<br/>Há uma inatividade ao alterar os recursos (CPU/armazenamento)|
 | Bases de dados de até 100 TB. | Até 8 TB. | SQL Server com até 256 TB de armazenamento. A instância pode suportar tantas bases de dados quanto necessário. |
 | A aplicação no local pode aceder a dados na Base de Dados Azure SQL. | [Implementação de rede virtual nativa](managed-instance/vnet-existing-add-subnet.md) e conectividade com o seu ambiente no local usando a Rota Expresso Azure ou VPN Gateway. | Com máquinas virtuais SQL, pode ter aplicações que funcionam parcialmente na nuvem e em parte no local. Por exemplo, pode expandir a sua rede no local e o Domínio do Active Directory para a nuvem através da [Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md). Para obter mais informações sobre soluções híbridas em nuvem, consulte [a extensão das soluções de dados no local para a nuvem.](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud) |
 
 
-## <a name="cost"></a>Custo
+## <a name="cost"></a>Cost
 
 Quer seja uma startup que está presa a dinheiro, ou uma equipa de uma empresa estabelecida que opera sob restrições orçamentais apertadas, o financiamento limitado é muitas vezes o principal impulsionador na hora de decidir como hospedar as suas bases de dados. Nesta secção, você aprende sobre o básico de faturação e licenciamento em Azure associado à família de serviços Azure SQL.  Também podem aprender a calcular o custo total da aplicação.
 
@@ -167,7 +167,7 @@ Para **o SQL em Azure VM,** a Microsoft fornece um SLA de disponibilidade de 99,
 
 [!INCLUDE [sql-database-create-manage-portal](includes/sql-database-create-manage-portal.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte [A sua primeira Base de Dados SQL do Azure](database/single-database-create-quickstart.md) para começar a utilizar a Base de Dados SQL.
 - Consulte [o seu primeiro Azure SQL Managed Instance](managed-instance/instance-create-quickstart.md) para começar com a SQL Managed Instance. 

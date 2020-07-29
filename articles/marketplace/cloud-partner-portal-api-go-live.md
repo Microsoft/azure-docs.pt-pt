@@ -4,15 +4,15 @@ description: A API Go Live inicia o processo de listagem ao vivo da oferta.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: dsindona
-ms.author: dsindona
+author: mingshen-ms
+ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 5c5448a853447a0eacc8d974a5b00d5d1e8f4be2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d612b796f85c9eaab1600c55cde7e79acb49f352
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535948"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292944"
 ---
 # <a name="go-live"></a>Ir ao vivo
 
@@ -30,7 +30,7 @@ Esta API inicia o processo de produção de uma app. Esta operação é geralmen
 |  --------      |   ---------------                                                           | ------------- |
 | publisherId    | Identificador de editor para a oferta de recuperar, por exemplo`contoso`       |  Cadeia       |
 | offerId        | Oferta identificador da oferta para recuperar                                   |  Cadeia       |
-| api-version    | Última versão da API                                                   |  Data         |
+| api-version    | Última versão da API                                                   |  Date         |
 |  |  |  |
 
 ## <a name="header"></a>Cabeçalho

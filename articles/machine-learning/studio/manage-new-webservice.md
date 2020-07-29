@@ -1,6 +1,5 @@
 ---
-title: Gerir os serviços Web
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clássico): Gerir serviços web - Azure'
 description: Gerencie os seus serviços Web machine learning novos e clássicos utilizando o portal Microsoft Azure Machine Learning Web Services. Uma vez que os serviços Web Clássicos e os serviços New Web são baseados em diferentes tecnologias subjacentes, você tem capacidades de gestão ligeiramente diferentes para cada um deles.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 893bb1ab7b3fd9d6b3416e0fa4bad29a3d6d518d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 246041d1a5f4826344c03b889c26dc381cd6db29
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84709016"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318509"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Gerir um serviço web utilizando o portal Azure Machine Learning Studio (clássico) Web Services
+
+**APLICA-SE A:** ![ no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) yes Machine Learning Studio ![ ](../../../includes/media/aml-applies-to-skus/yes.png) (clássico) 
+
 
 Pode gerir os seus serviços Web Machine Learning New e Classic usando o portal Microsoft Azure Machine Learning Web Services. Uma vez que os serviços Web Clássicos e os serviços New Web são baseados em diferentes tecnologias subjacentes, você tem capacidades de gestão ligeiramente diferentes para cada um deles.
 

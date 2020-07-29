@@ -1,6 +1,6 @@
 ---
 title: Criar Windows VM com rede acelerada - Azure PowerShell
-description: Aprenda a criar uma máquina virtual Linux com networking acelerado.
+description: Crie uma máquina virtual Windows (VM) com rede acelerada para melhorar consideravelmente o seu desempenho em rede.
 services: virtual-network
 documentationcenter: ''
 author: gsilva5
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: 582553675284e88e4707812b1f6b459a4e67f14a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fd50af98fe0d7f20273c45e2b86c18215a3626f0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088194"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289627"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Criar um VM do Windows com rede acelerada utilizando a Azure PowerShell
 

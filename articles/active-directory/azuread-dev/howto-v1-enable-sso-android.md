@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-java
 ROBOTS: NOINDEX
-ms.openlocfilehash: 67378cd363e22351198389f4480e3f6792e885bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d1faf7aed5cf4c4975925c7a56d169dc99a7bd5
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85383687"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87313596"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Como: Ativar sSO cross-app no Android usando ADAL
 
@@ -142,6 +142,6 @@ MANAGE_ACCOUNTS
 
 Agora, a identidade SDK partilhará automaticamente credenciais através das suas aplicações e invocará o corretor se estiver presente no seu dispositivo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [o protocolo SAML de assinatura única](../develop/single-sign-on-saml-protocol.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)

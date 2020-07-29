@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8b94d195ea1f31d228505f01c2a77a299e63c0a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 487177b4a114ba7537ac4f1aa74a4e2472455d4b
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518101"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369565"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -289,6 +289,12 @@ Esta função foi anteriormente denominada "Administrador de Password" no [porta
 
 Os utilizadores desta função podem permitir, configurar e gerir serviços e configurações relacionadas com a ativação da identidade híbrida em AZure AD. Esta função confere a possibilidade de configurar a Azure AD a um dos três métodos de autenticação suportados, a sincronização de hash password (PHS), a autenticação pass-through (PTA) ou a Federação (AD FS ou provedora de federação de terceiros), e a implantação de infraestruturas relacionadas no local para os permitir. A infraestrutura on-prem inclui agentes de provisionamento e de PTA. Esta função garante a capacidade de permitir um Único Sign-On (S-SSO) sem emenda para permitir a autenticação sem emenda em dispositivos não Windows 10 ou computadores não Windows Server 2016. Além disso, esta função garante a possibilidade de ver registos de inscrição e acesso à saúde e análise para fins de monitorização e resolução de problemas. 
 
+### <a name="insights-administrator"></a>[Administrador de Insights](#insights-administrator-permissions)
+Os utilizadores desta função podem aceder a todo o conjunto de capacidades administrativas na [aplicação M365 Insights](https://go.microsoft.com/fwlink/?linkid=2129521). Esta função tem a capacidade de ler informações de diretórios, monitorizar a saúde do serviço, bilhetes de suporte de ficheiros e aceder aos aspetos de definições de administração do Insights.
+
+### <a name="insights-business-leader"></a>[Insights Business Leader](#insights-business-leader-permissions)
+Os utilizadores desta função podem aceder a um conjunto de dashboards e insights através da [aplicação M365 Insights](https://go.microsoft.com/fwlink/?linkid=2129521). Isto inclui acesso total a todos os dashboards e apresenta insights e funcionalidade de exploração de dados. Os utilizadores desta função não têm acesso às definições de configuração do produto, que é da responsabilidade da função Insights Admin.
+
 ### <a name="intune-administrator"></a>[Administrador Intune](#intune-service-administrator-permissions)
 
 Os utilizadores com esta função têm permissões globais dentro do Microsoft Intune Online, quando o serviço está presente. Além disso, esta função contém a capacidade de gerir utilizadores e dispositivos de forma a associar a política, bem como criar e gerir grupos. Mais informações no [Controlo de Administração baseado em Role (RBAC) com a Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control).
@@ -314,22 +320,22 @@ Os utilizadores desta função podem monitorizar todas as notificações no Cent
 
 Os utilizadores desta função podem monitorizar notificações e atualizações de saúde de aconselhamento no [Office 365 Message Center](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) para a sua organização em serviços configurados como Exchange, Intune e Microsoft Teams. Os Leitores do Centro de Mensagens recebem e-mails semanais de publicações, atualizações e podem partilhar posts de centro de mensagens no Office 365. No Azure AD, os utilizadores designados para esta função terão apenas acesso de leitura apenas a serviços AD Azure, como utilizadores e grupos. Esta função não tem acesso a visualização, criação ou gestão de bilhetes de apoio.
 
-### <a name="modern-commerce-administrator"></a>[Administrador de Comércio Moderno](#modern-commerce-administrator-permissions)
+### <a name="modern-commerce-user"></a>[Utilizador de Comércio Moderno](#modern-commerce-user-permissions)
 
 Não utilizar. Esta função é automaticamente atribuída ao Comércio, e não se destina ou é suportada para qualquer outra utilização. Veja os detalhes abaixo.
 
-A função de Administrador de Comércio Moderno dá a certos utilizadores permissão para aceder ao centro de administração microsoft 365 e ver as entradas de navegação esquerda para **Home**, **Billing**e **Support**. O conteúdo disponível nestas áreas é controlado por [funções específicas do comércio](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-mca-roles) atribuídas aos utilizadores para gerir produtos que compraram para si ou para a sua organização. Isto pode incluir tarefas como pagar contas ou acesso a contas de faturação e perfis de faturação. 
+A função de Utilizador do Comércio Moderno dá a certos utilizadores permissão para aceder ao centro de administração microsoft 365 e ver as entradas de navegação esquerda para **Home**, **Billing**e **Support**. O conteúdo disponível nestas áreas é controlado por [funções específicas do comércio](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-mca-roles) atribuídas aos utilizadores para gerir produtos que compraram para si ou para a sua organização. Isto pode incluir tarefas como pagar contas ou acesso a contas de faturação e perfis de faturação. 
 
-Os utilizadores com a função de Administrador de Comércio Moderno normalmente têm permissões administrativas em outros sistemas de compra da Microsoft, mas não têm funções de administrador global ou administrador de faturação usadas para aceder ao centro de administração. 
+Os utilizadores com a função de Utilizador de Comércio Moderno normalmente têm permissões administrativas em outros sistemas de compra da Microsoft, mas não têm funções de administrador global ou administrador de faturação usadas para aceder ao centro de administração. 
 
-**Quando é atribuída a função de Administrador de Comércio Moderno?**
+**Quando é atribuída a função de Utilizador do Comércio Moderno?**
 
-* **A compra de self-service no Microsoft 365 admin center** – A compra de self-service dá aos utilizadores a oportunidade de experimentar novos produtos comprando ou inscrevendo-se por conta própria. Estes produtos são geridos no centro de administração. Os utilizadores que fazem uma compra de self-service são atribuídos a um papel no sistema de comércio, e o papel de Administrador de Comércio Moderno para que possam gerir as suas compras no centro de administração. Os administradores podem bloquear as compras de self-service (para Power BI, Power Apps, Power automat) através [do PowerShell](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Para obter mais informações, veja [Self-service purchase FAQ](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide) (FAQ da compra personalizada).  
-* **Compras no mercado comercial da Microsoft** – Semelhante à compra de self-service, quando um utilizador compra um produto ou serviço ao Microsoft AppSource ou ao Azure Marketplace, a função de Administrador de Comércio Moderno é atribuída se não tiver o papel de administrador global ou de administração de Billing. Em alguns casos, os utilizadores podem estar impedidos de fazer estas compras. Para mais informações, consulte [o mercado comercial da Microsoft.](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase)
-* **Propostas da Microsoft** – Uma proposta é uma oferta formal da Microsoft para a sua organização comprar produtos e serviços da Microsoft. Quando a pessoa que está a aceitar a proposta não tem um papel de administrador global ou de administração billing em Azure AD, eles são atribuídos tanto um papel específico do comércio para completar a proposta e o papel de Administrador de Comércio Moderno para aceder ao centro de administração. Quando acedem ao centro de administração, só podem usar funcionalidades que são autorizadas pelo seu papel específico do comércio.
-* **Funções específicas do comércio** – Alguns utilizadores têm funções específicas do comércio. Se um utilizador não for administrador global ou de billing, obtém o papel de Administrador de Comércio Moderno para que possa aceder ao centro de administração.  
+* **A compra de self-service no Microsoft 365 admin center** – A compra de self-service dá aos utilizadores a oportunidade de experimentar novos produtos comprando ou inscrevendo-se por conta própria. Estes produtos são geridos no centro de administração. Os utilizadores que fazem uma compra de self-service são atribuídos a um papel no sistema de comércio, e o papel de Utilizador do Comércio Moderno para que possam gerir as suas compras no centro de administração. Os administradores podem bloquear as compras de self-service (para Power BI, Power Apps, Power automat) através [do PowerShell](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Para obter mais informações, veja [Self-service purchase FAQ](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide) (FAQ da compra personalizada).  
+* **Compras no mercado comercial da Microsoft** – Semelhante à compra de self-service, quando um utilizador compra um produto ou serviço ao Microsoft AppSource ou ao Azure Marketplace, a função de Utilizador de Comércio Moderno é atribuída se não tiver o papel de administrador global ou de administração billing. Em alguns casos, os utilizadores podem estar impedidos de fazer estas compras. Para mais informações, consulte [o mercado comercial da Microsoft.](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase)
+* **Propostas da Microsoft** – Uma proposta é uma oferta formal da Microsoft para a sua organização comprar produtos e serviços da Microsoft. Quando a pessoa que está a aceitar a proposta não tem um papel de administrador global ou de administração billing em Azure AD, é-lhes atribuído um papel específico do comércio para completar a proposta e o papel de Utilizador do Comércio Moderno para aceder ao centro de administração. Quando acedem ao centro de administração, só podem usar funcionalidades que são autorizadas pelo seu papel específico do comércio.
+* **Funções específicas do comércio** – Alguns utilizadores têm funções específicas do comércio. Se um utilizador não for um administrador global ou de faturação, obtém o papel de Utilizador do Comércio Moderno para que possa aceder ao centro de administração.  
 
-Se o papel de Administrador de Comércio Moderno não for atribuído a um utilizador, perdem acesso ao centro de administração microsoft 365. Se eles estavam a gerir quaisquer produtos, para si ou para a sua organização, eles não serão capazes de geri-los. Isto pode incluir a atribuição de licenças, alteração de métodos de pagamento, pagamento de contas ou outras tarefas para a gestão de subscrições.
+Se a função de Utilizador do Comércio Moderno não for atribuído a um utilizador, perde o acesso ao centro de administração microsoft 365. Se eles estavam a gerir quaisquer produtos, para si ou para a sua organização, eles não serão capazes de geri-los. Isto pode incluir a atribuição de licenças, alteração de métodos de pagamento, pagamento de contas ou outras tarefas para a gestão de subscrições.
 
 ### <a name="network-administrator"></a>[Administrador de rede](#network-administrator-permissions)
 
@@ -1224,6 +1230,27 @@ Ativar, configurar, configurar, gerir, monitorizar e resolver problemas serviço
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar o Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerir os bilhetes de apoio do Office 365. |
 
+### <a name="insights-administrator-permissions"></a>Permissões de administrador insights
+
+Tem acesso sdministrativo na aplicação M365 Insights. 
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Crie e gere os bilhetes de apoio da Azure. |
+| microsoft.insights/allEntities/allTasks | Gerir todos os aspetos do Insights. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar o Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerir os bilhetes de apoio do Office 365. |
+| microsoft.office365.webPortal/allEntities/basic/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
+
+### <a name="insights-business-leader-permissions"></a>Insights Business Leader permissões
+
+Pode ver e partilhar dashboards e insights através da aplicação M365 Insights.
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.insights/reports/read | Ver relatórios e dashboard na aplicação Insights. |
+| microsoft.insights/programas/update | Implementar e gerir programas na aplicação Insights. |
 
 ### <a name="intune-service-administrator-permissions"></a>Permissões de Administrador de Serviço Intune
 
@@ -1338,7 +1365,7 @@ Pode ler mensagens e atualizações para a sua organização apenas no Office 36
 | microsoft.office365.webPortal/allEntities/basic/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.messageCenter/messages/read | Leia as mensagens no microsoft.office365.messageCenter. |
 
-### <a name="modern-commerce-administrator-permissions"></a>Permissões modernas do administrador de comércio
+### <a name="modern-commerce-user-permissions"></a>Permissões do utilizador do comércio moderno
 Pode gerir compras comerciais para uma empresa, departamento ou equipa. 
 
 > [!NOTE]
@@ -1619,24 +1646,26 @@ Pode ler informações de segurança e relatórios e gerir a configuração em A
 
 | **Ações** | **Descrição** |
 | --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Crie e gere os bilhetes de apoio da Azure. |
 | microsoft.diretório/aplicações/políticas/atualização | Atualizar aplicações.apólices propriedade em Azure Ative Directory. |
 | microsoft.diretório/auditoriaLogs/allProperties/read | Leia todas as propriedades (incluindo propriedades privilegiadas) em auditLogs no Azure Ative Directory. |
 | microsoft.diretório/dispositivos/bitLockerRecoveryKeys/read | Leia a propriedade dispositivos.bitLockerRecoveryKeys no Azure Ative Directory. |
+| microsoft.diretório/identidadeProteção/todas as ofertas/ler | Leia todos os recursos em microsoft.aad.identityProtection. |
+| microsoft.diretório/identidadeProteção/todas as ofertas/atualização | Atualizar todos os recursos em microsoft.aad.identityProtection. |
 | microsoft.diretório/políticas/básico/atualização | Atualizar propriedades básicas sobre políticas no Azure Ative Directory. |
 | microsoft.diretório/políticas/criar | Criar políticas no Diretório Ativo Azure. |
 | microsoft.diretório/políticas/excluir | Eliminar políticas no Diretório Ativo Azure. |
 | microsoft.diretório/políticas/proprietários/atualização | Atualizar apólices.propriedade dos proprietários em Azure Ative Directory. |
 | microsoft.diretório/políticas/tenantDefault/update | Atualizar políticas.tenantdefault propriedade em Azure Ative Directory. |
+| microsoft.diretório/privilegiadoIdmentManagement/allProperties/read | Leia todos os recursos em microsoft.aad.privilegedIdentityManagement. |
 | microsoft.diretório/serviçoPrincipals/políticas/atualização | Serviço de actualizaçãoPrincipals.políticas propriedade em Azure Ative Directory. |
 | microsoft.diretório/signInReports/allProperties/read | Leia todas as propriedades (incluindo propriedades privilegiadas) no signInReports in Azure Ative Directory. |
-| microsoft.aad.identityProtection/allEntities/read | Leia todos os recursos em microsoft.aad.identityProtection. |
-| microsoft.aad.identityProtection/allEntities/update | Atualizar todos os recursos em microsoft.aad.identityProtection. |
-| microsoft.aad.privilegedIdentityManagement/allEntities/read | Leia todos os recursos em microsoft.aad.privilegedIdentityManagement. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar Azure Service Health. |
-| microsoft.office365.webPortal/allEntities/basic/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.protectionCenter/allEntities/read | Leia todos os aspetos do Centro de Proteção do Office 365. |
 | microsoft.office365.protectionCenter/allEntities/update | Atualize todos os recursos em microsoft.office365.protectionCenter. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar o Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerir os bilhetes de apoio do Office 365. |
+| microsoft.office365.webPortal/allEntities/basic/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 
 ### <a name="security-operator-permissions"></a>Permissões do Operador de Segurança
 
@@ -1649,12 +1678,13 @@ Cria e gere eventos de segurança.
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| microsoft.aad.cloudAppSecurity/allEntities/allTasks | Leia e configuure a Microsoft Cloud App Security. |
-| microsoft.aad.identityProtection/allEntities/read | Leia todos os recursos em microsoft.aad.identityProtection. |
-| microsoft.aad.privilegedIdentityManagement/allEntities/read | Leia todos os recursos em microsoft.aad.privilegedIdentityManagement. |
 | microsoft.azure.advancedThreatProtection/allEntities/read | Leia e configuure Azure AD Advanced Threat Protection. |
+| microsoft.directy/cloudAppSecurity/allProperties/allTasks | Leia e configuure a Microsoft Cloud App Security. |
+| microsoft.diretório/identidadeProteção/todas as ofertas/ler | Leia todos os recursos em microsoft.aad.identityProtection. |
+| microsoft.diretório/privilegiadoIdmentManagement/allProperties/read | Leia todos os recursos em microsoft.aad.privilegedIdentityManagement. |
 | microsoft.intune/allEntities/allTasks | Gerir todos os aspetos do Intune. |
 | microsoft.office365.securityComplianceCenter/allEntities/allTasks | Leia e configuure o Centro de Conformidade & de Segurança. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerir os bilhetes de apoio do Office 365. |
 | microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Leia e configuure a proteção avançada de ameaças do Windows Defender. |
 
 ### <a name="security-reader-permissions"></a>Permissões do Leitor de Segurança
@@ -1872,13 +1902,15 @@ Administrador de Grupos | Administrador de grupos | fdd7a751-b60b-444a-984c-0265
 Convidado Convidado | Convidado convidado | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 Administrador helpdesk | Administrador da Helpdesk | 729827e3-9c14-49f7-bb1b-9608f156bbb8
 Administrador de Identidade Híbrida | Administrador de identidade híbrido | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2
+Administrador de Insights | Administrador de insights | eb1f4a8d-243a-41f0-9fbd-c7cdf6c5ef7c
+Insights Business Leader | Insights líder de negócios | 31e939ad-9672-4796-9c2e-873181342d2d
 Administrador de Serviços do Intune | Administrador do Intune | 3a2c62db-5318-420d-8d74-23affee5d9d5
 Administrador kaizala | Administrador kaizala | 74ef975b-6605-40af-a5d2-b9539d836353
 Administrador de Licença | Administrador de licenças | 4d6ac14f-3453-41d0-bef9-a3e0c569773a
 Administrador de Serviço Lync | Administrador do Skype para Empresas | 75941009-915a-4869-abe7-691bff18279e
 Leitor de Privacidade do Centro de Mensagens | Leitor de privacidade do centro de mensagens | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
 Leitor do Centro de Mensagens | Leitor de centro de mensagens | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
-Administrador de Comércio Moderno | Administrador de Comércio Moderno | d24aef57-1500-4070-84db-2666f29cf966
+Utilizador de Comércio Moderno | Utilizador de Comércio Moderno | d24aef57-1500-4070-84db-2666f29cf966
 Administrador de rede | Administrador de rede | d37c8bed-0711-4417-ba38-b4abe66ce4c2
 Administrador de Aplicações de Escritório | Administrador de aplicativos de escritório | 2b745bdf-0803-4d80-aa65-822c493daac
 Suporte parceiro Tier1 | Não mostrado porque não deve ser usado | 4ba39ca4-527c-499a-b93d-d9b492c50246
@@ -1939,7 +1971,7 @@ Utilizador restrito de hóspedes | Não mostrado porque não pode ser usado | ND
 Utilizador | Não mostrado porque não pode ser usado | ND
 Aderir ao dispositivo de trabalho | Preterido | [Documentação de papéis precotados](directory-assign-admin-roles.md#deprecated-roles)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre como atribuir um utilizador como administrador de uma subscrição do Azure, consulte [Gerir o acesso utilizando funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 * Para saber mais sobre como o acesso a recursos é controlado no Microsoft Azure, consulte [Compreender as diferentes funções](../../role-based-access-control/rbac-and-directory-admin-roles.md)

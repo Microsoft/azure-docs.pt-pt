@@ -4,12 +4,12 @@ description: Conheça os parceiros do Azure Monitor e como pode aceder à docume
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: f40d38d182e1a8c233b15f711fd557a5d72e8f30
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 994dfe0d7e252fd2aea489c363e76f0956715048
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077335"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318339"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 
@@ -138,7 +138,7 @@ A Microfocus **ArcSight** tem um conector inteligente para os centros de eventos
 
 A Microfocus **Operations Bridge** monitoriza automaticamente todos os recursos de TI híbridos – qualquer dispositivo, sistema operativo, base de dados, aplicação ou serviço, independentemente do local onde funciona e aplica AIOps a todos os tipos de dados – eventos, métricas, registos e dependências. Fornece uma combinação única de qualidade de monitorização de serviços, juntamente com análises profundas de saúde de aplicações, e inclui uma monitorização abrangente de desempenho e disponibilidade dos serviços microsoft Azure. Operations Bridge permite que os clientes forneçam um único painel de vidro, disponível em qualquer dispositivo com um browser, de forma a que tanto as partes interessadas de negócios como de TI possam compreender.
 
-Saiba mais
+Saber mais
 - [Visão geral da Suite OB](https://www.microfocus.com/products/operations-bridge-suite/overview)
 - [Transferência](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) - SiteScope é um componente na Suite da Ponte de Operações.
@@ -268,7 +268,7 @@ A Turbonomic fornece automatização de carga de trabalho para nuvens híbridas,
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Saiba mais sobre o Azure Monitor](../../azure-monitor/overview.md)
+- [Saiba mais sobre o Azure Monitor](../overview.md)
 - [Métricas de acesso usando a API REST](rest-api-walkthrough.md)
 - [Transmita o Registo de Atividades para um serviço não Microsoft](./activity-log.md#legacy-collection-methods)
 - [Faça logins de recursos de fluxo para um serviço não Microsoft](./resource-logs.md#send-to-azure-event-hubs)
@@ -281,13 +281,13 @@ A Turbonomic fornece automatização de carga de trabalho para nuvens híbridas,
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Introdução botmétrica."
 [circonus-doc]: https://docs.circonus.com/circonus/agents/cloud-agent/azure/ 
-[cloudhealth-doc]: https://www.cloudhealthtech.com/azure
+[cloudhealth-doc]: https://www.cloudhealthtech.com/products/azure-management
 [cloudmonix-doc]: https://cloudmonix.com/features/azure-management/ "Introdução cloudMonix."
 [datadog-doc]: https://docs.datadoghq.com/integrations/azure/ "Documentação datadog."
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Documentação da Dynatrace."
 [elastic-doc]: https://www.elastic.co/guide/en/logstash/master/azure-module.html "Documentação elástica."
 [grafana-doc]: ./grafana-plugin.md "Integração de Azure Monitor Grafana."
-[influxdata-doc]: ./../../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md "Azure Monitor Dados de Afluxo De Telegraf integração."
+[influxdata-doc]: ./collect-custom-metrics-linux-telegraf.md "Azure Monitor Dados de Afluxo De Telegraf integração."
 [logicmonitor-doc]: https://www.logicmonitor.com/lp/azure-monitoring/ "Documentação do Monitor Lógico."
 [moogsoft-doc]: https://www.moogsoft.com/partners/microsoft-azure "Documentação moogsoft."
 [newrelic-doc]: https://newrelic.com/azure "Nova documentação relíquia."
@@ -302,3 +302,4 @@ A Turbonomic fornece automatização de carga de trabalho para nuvens híbridas,
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Documentação splunk."
 [sumologic-doc]: https://www.sumologic.com/azure "Documentação SumoLogic."
 [turbonomic-doc]: https://turbonomic.com/ "Introdução turbonómica."
+

@@ -4,16 +4,16 @@ description: Lista os diferentes tamanhos disponíveis para máquinas virtuais e
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 07/21/2020
 ms.author: jushiman
-ms.openlocfilehash: 04f139e7e747d2c0566ffada9e080bf4abb1ac86
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: f6ed5fee8e6d4f1f0575df733b8b95d1d6990513
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171678"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289691"
 ---
 # <a name="sizes-for-virtual-machines-in-azure"></a>Tamanhos para máquinas virtuais em Azure
 
@@ -57,7 +57,7 @@ Saiba mais sobre o desempenho do cálculo dos VMs do Windows utilizando as [pont
 
 [!INCLUDE [cost-management-horizontal](../../includes/cost-management-horizontal.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre os diferentes tamanhos VM que estão disponíveis:
 

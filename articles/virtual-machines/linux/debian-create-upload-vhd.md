@@ -3,15 +3,15 @@ title: Prepare um Debian Linux VHD
 description: Saiba como criar imagens Debian VHD para implementações em VM em Azure.
 author: gbowerman
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2018
 ms.author: guybo
-ms.openlocfilehash: 4c2edddb8eec4a2f8300077bb00df72d7e2b00de
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 80272896bd314a1f5f05094afa83568e077ab480
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510730"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87368205"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Prepare um VHD Debian para Azure
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -114,5 +114,5 @@ Existem ferramentas disponíveis para gerar VHDs Debian para Azure, como os scri
 
 10. Clique em **Ação** -> Desligar em Hyper-V Manager. O seu VHD Linux está agora pronto para ser enviado para Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Está agora pronto para usar o seu disco rígido virtual Debian para criar novas máquinas virtuais em Azure. Se esta for a primeira vez que está a enviar o ficheiro .vhd para a Azure, consulte [Create a Linux VM a partir de um disco personalizado](upload-vhd.md#option-1-upload-a-vhd).

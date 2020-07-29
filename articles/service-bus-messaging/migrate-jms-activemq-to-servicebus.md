@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2020
 ms.author: aschhab
-ms.openlocfilehash: 7926e3b8aedde63c3a1a5a57c42b3d4f29cb9797
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-java
+ms.openlocfilehash: 35e2e86f68e1f53febabc75fcc537dbdd4481882
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076219"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369038"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Migrar aplicações existentes do Java Message Service (JMS) 2.0 da Apache ActiveMQ para Azure Service Bus
 
@@ -34,7 +35,7 @@ A Azure Service Bus e Apache ActiveMQ são ambos corretores de mensagens, funcio
 
 Ainda assim, existem algumas diferenças entre os dois, como mostra a tabela seguinte:
 
-| Categoria | ActiveMQ | Azure Service Bus |
+| Categoria | ActiveMQ | Service Bus do Azure |
 | --- | --- | --- |
 | Tiering de aplicações | Monólito agrupado | Dois níveis <br> (gateway + back end) |
 | Suporte de protocolo | <ul> <li>AMQP</li> <li> STOMP </li> <li> OpenWire </li> </ul> | AMQP |
@@ -83,7 +84,7 @@ A Service Bus suporta a comunicação sobre o protocolo AMQP. Para o efeito, per
 
 ### <a name="set-up-enterprise-configurations"></a>Configurar configurações empresariais
 
-O Service Bus permite várias funcionalidades de segurança empresarial e de alta disponibilidade. Para obter mais informações, veja: 
+O Service Bus permite várias funcionalidades de segurança empresarial e de alta disponibilidade. Para obter mais informações, consulte: 
 
   * [Pontos finais de serviço de rede virtual](service-bus-service-endpoints.md)
   * [Firewall](service-bus-ip-filtering.md)

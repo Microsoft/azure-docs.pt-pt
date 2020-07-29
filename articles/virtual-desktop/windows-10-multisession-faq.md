@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 218ec6a5beab32729e106a7397d58ebaa2a30123
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: adc0d63a51535b27b42abbe0115ff25594eb2b4f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086930"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292477"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>FAQ de multissessões do Windows 10 Enterprise
 
@@ -98,10 +98,10 @@ Para desativar a aplicação Store:
 5. Selecione **Desativado**e, em seguida, selecione **OK**.
 6. Selecione **Aplicar**.
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o Windows Virtual Desktop e o Windows 10 Enterprise multi-sessão:
 
-- Leia a nossa [documentação de pré-visualização virtual do Windows Desktop](overview.md)
+- Leia a nossa [documentação virtual do Windows Desktop](overview.md)
 - Visite o nosso [Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)
 - Configurar a sua implementação virtual do Windows desktop com os [tutoriais de ambiente de trabalho virtual do Windows](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)

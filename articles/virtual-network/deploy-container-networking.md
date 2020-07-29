@@ -1,6 +1,6 @@
 ---
 title: Implementar o funcionamento em rede de contentores da rede virtual do Azure | Microsoft Docs
-description: Saiba como implementar o plug-in da interface de rede de contentores (CNI) da Rede Virtual do Azure para clusters do Kubernetes implementados por si, implementados através do ACS-Engine e para contentores do Docker.
+description: Saiba como implementar o plug-in de interface de rede de contentores da rede virtual Azure (CNI) para clusters Kubernetes.
 services: virtual-network
 documentationcenter: na
 author: aanandr
@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 7cae4b579a933c03ec3a08a00ef032c57d15093f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09a0574666441138c143932e843080e8745f1b40
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710019"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289589"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Implementar o plug-in da interface de rede de contentores da Rede Virtual do Azure
 
@@ -30,7 +31,7 @@ O plug-in da interface de rede de contentores (CNI) da Rede Virtual do Azure é 
 
 O ACS-Engine implementa um cluster do Kubernetes através de um modelo do Azure Resource Manager. A configuração do cluster está especificada num ficheiro JSON transmitido à ferramenta ao gerar o modelo. Para saber mais sobre a lista completa de definições de cluster suportadas e as respetivas descrições, veja [Motor do Microsoft Azure Container Service – Definição do Cluster](https://github.com/Azure/acs-engine/blob/master/docs/clusterdefinition.md). O plug-in é o funcionamento em rede predefinido para os clusters criados com o ACS-Engine. As seguintes definições de configuração de rede são importantes quando configurar o plug-in:
 
-  | Definição                              | Descrição                                                                                                           |
+  | Definições                              | Descrição                                                                                                           |
   |--------------------------------------|------------------------------------------------------------------------------------------------------                 |
   | firstConsecutiveStaticIP             | O endereço IP alocado ao nó Principal. É uma definição obrigatória.                                     |
   | clusterSubnet em kubernetesConfig | CIDR da sub-rede da rede virtual em que o cluster está implementado e a partir do qual os IP endereços são alocados a Pods   |

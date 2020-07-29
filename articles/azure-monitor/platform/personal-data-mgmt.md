@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 7d8998b450613e097230d7692a8ad1990830993b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 64c461c5d3e1bb34f480e5173621f8753eadbbd8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539334"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318322"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Orientação para dados pessoais armazenados em Log Analytics e Insights de Aplicações
 
@@ -48,7 +48,7 @@ O Log Analytics é uma loja flexível, que ao prescrever um esquema aos seus dad
     ```
   Lembre-se de procurar não só nomes de utilizadores legíveis pelo homem, mas também GUIDs que podem ser diretamente rastreados até um determinado utilizador!
 * *IDs do dispositivo*: Tal como os IDs do utilizador, os IDs do dispositivo são por vezes considerados "privados". Utilize a mesma abordagem listada acima para identificação de iDs de utilizador para identificar tabelas onde isso possa ser uma preocupação. 
-* *Dados personalizados*: O Log Analytics permite a recolha numa variedade de métodos: registos personalizados e campos personalizados, [a API do Recolhão de Dados HTTP](../../azure-monitor/platform/data-collector-api.md) e dados personalizados recolhidos como parte dos registos de eventos do sistema. Todos estes são suscetíveis a conter dados privados, e devem ser examinados para verificar se esses dados existem.
+* *Dados personalizados*: O Log Analytics permite a recolha numa variedade de métodos: registos personalizados e campos personalizados, [a API do Recolhão de Dados HTTP](./data-collector-api.md) e dados personalizados recolhidos como parte dos registos de eventos do sistema. Todos estes são suscetíveis a conter dados privados, e devem ser examinados para verificar se esses dados existem.
 * *Dados capturados*por solução : Como o mecanismo de solução é um mecanismo de solução aberto, recomendamos a revisão de todas as tabelas geradas por soluções para garantir o cumprimento.
 
 ### <a name="application-data"></a>Dados da aplicação
@@ -123,6 +123,7 @@ Uma vez atribuída a função de Gestor de Recursos Azure, estão disponíveis d
 > [!IMPORTANT]
 >  Embora a grande maioria das operações de purga possa completar muito mais rapidamente do que o SLA, devido ao seu forte impacto na plataforma de dados utilizada pela Application Insights, **o SLA formal para a conclusão das operações de purga é fixado em 30 dias.**
 
-## <a name="next-steps"></a>Próximos passos
-- Para saber mais sobre como os dados do Log Analytics são recolhidos, processados e protegidos, consulte [a segurança de dados do Log Analytics](../../azure-monitor/platform/data-security.md).
-- Para saber mais sobre como os dados do Application Insights são recolhidos, processados e protegidos, consulte [a segurança dos dados do Application Insights](../../azure-monitor/app/data-retention-privacy.md).
+## <a name="next-steps"></a>Passos seguintes
+- Para saber mais sobre como os dados do Log Analytics são recolhidos, processados e protegidos, consulte [a segurança de dados do Log Analytics](./data-security.md).
+- Para saber mais sobre como os dados do Application Insights são recolhidos, processados e protegidos, consulte [a segurança dos dados do Application Insights](../app/data-retention-privacy.md).
+

@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/17/2019
 ms.author: raynew
-ms.openlocfilehash: ea5893f45962d67f4b6f3e9a261c65aa0ec926bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2994f68e4159c7c4aa7d82bef7a5891deb5055a0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75497868"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292827"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Falha e falha servidores físicos replicados no Azure
 
@@ -83,7 +84,7 @@ Depois de falhar com a Azure, reprotete os VMs Azure replicando-os no local. Dep
 10. Verifique os seguintes cenários em que não pode falhar:
     - Se estiver a utilizar a edição gratuita ESXi 5.5 ou a edição gratuita vSphere 6 Hypervisor. Upgrade para uma versão diferente.
     - Se tiver um servidor físico R2 SP1 do Windows Server 2008.
-    - VMs que [foram migrados.](migrate-overview.md#what-do-we-mean-by-migration)
+    - VMs que foram migrados.
     - Um VM que foi transferido para outro grupo de recursos.
     - Uma réplica Azure VM que foi apagada.
     - Uma réplica Azure VM que não está protegida (replicando-se no local).
@@ -129,6 +130,6 @@ Os dados devem estar agora outra vez no site no local, mas não estão a ser rep
 2. Selecione o servidor de processos que é utilizado para enviar os dados replicados para o Azure e clique em **OK**.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Após o fim do trabalho reprotegido, o VM no local está a replicar-se para a Azure. Se necessário, [podes correr outra falha](site-recovery-failover.md) para o Azure.

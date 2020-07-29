@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/13/2019
-ms.openlocfilehash: 62d16bc9ca6c4238ff7c6304c5e1964c2956c898
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/24/2020
+ms.openlocfilehash: 2a4f24da51b9e9e78c3df3e7d1437a380306e300
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505300"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318356"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Connect Operations Manager ao Azure Monitor
 
@@ -31,7 +31,7 @@ O diagrama seguinte mostra a ligação entre os servidores de gestão e os agent
 
 ![oms-operations-manager-integration-diagram](./media/om-agents/oms-operations-manager-connection.png)
 
-Se as suas políticas de segurança informática não permitirem que os computadores da sua rede se conectem à Internet, os servidores de gestão podem ser configurados para se ligarem ao gateway do Log Analytics para receber informações de configuração e enviar dados recolhidos dependendo das soluções ativadas. Para obter mais informações e etapas sobre como configurar o seu grupo de gestão de Gestor de Operações para comunicar através de uma porta de entrada do Log Analytics para o Azure Monitor, consulte [os computadores Connect para O Azure Monitor utilizando o gateway Log Analytics](../../azure-monitor/platform/gateway.md).  
+Se as suas políticas de segurança informática não permitirem que os computadores da sua rede se conectem à Internet, os servidores de gestão podem ser configurados para se ligarem ao gateway do Log Analytics para receber informações de configuração e enviar dados recolhidos dependendo das soluções ativadas. Para obter mais informações e etapas sobre como configurar o seu grupo de gestão de Gestor de Operações para comunicar através de uma porta de entrada do Log Analytics para o Azure Monitor, consulte [os computadores Connect para O Azure Monitor utilizando o gateway Log Analytics](./gateway.md).  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +40,7 @@ Antes de começar, reveja os seguintes requisitos.
 * O Azure Monitor só suporta o Gestor de Operações do Centro de Sistema 2016 ou posteriormente, Gestor de Operações 2012 SP1 UR6 ou posterior, e Gestor de Operações 2012 R2 UR2 ou mais tarde. Foi adicionado suporte de proxy ao Operations Manager 2012 SP1 UR7 e ao Operations Manager 2012 R2 UR3.
 * Integrar o System Center Operations Manager 2016 com a nuvem do Governo dos EUA requer um pacote de gestão de conselheiros atualizado incluído com Update Rollup 2 ou mais tarde. System Center Operations Manager 2012 R2 requer um pacote de gestão de conselheiros atualizado incluído com Update Rollup 3 ou mais tarde.
 * Todos os agentes do Operations Manager têm de cumprir os requisitos mínimos de suporte. Certifique-se de que os agentes estão na atualização mínima, caso contrário a comunicação do agente Windows pode falhar e gerar erros no registo de eventos do Gestor de Operações.
-* Uma área de trabalho do Log Analytics. Para mais informações, [reveja a visão geral do espaço de trabalho do Log Analytics](design-logs-deployment.md). 
+* Uma área de trabalho do Log Analytics. Para mais informações, [reveja a visão geral do espaço de trabalho do Log Analytics](design-logs-deployment.md).
 * Autentica a Azure com uma conta que é membro da [função Dedudo De Log Analytics](manage-access.md#manage-access-using-azure-permissions).
 
 * Regiões Apoiadas - Apenas as seguintes regiões de Azure são apoiadas pelo Gestor de Operações do Centro de Sistema para se ligarem a um espaço de trabalho log analytics:
@@ -51,7 +51,7 @@ Antes de começar, reveja os seguintes requisitos.
     - Ásia Sudeste
     - Leste do Japão
     - Sul do Reino Unido
-    - Central India
+    - Índia Central
     - Canadá Central
     - E.U.A. Oeste 2
 
@@ -95,7 +95,7 @@ As informações abaixo listam as informações de configuração de procuraçã
 
 ### <a name="tls-12-protocol"></a>Protocolo TLS 1.2
 
-Para garantir a segurança dos dados em trânsito para o Azure Monitor, encorajamo-lo a configurar o agente e o grupo de gestão para utilizar pelo menos a Segurança da Camada de Transporte (TLS) 1.2. Versões mais antigas da camada de tomadas TLS/Secure Sockets (SSL) foram consideradas vulneráveis e, embora ainda atualmente trabalhem para permitir retrocompatibilidade, não são **recomendadas**. Para obter informações adicionais, [reveja o envio de dados de forma segura utilizando o TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12).
+Para garantir a segurança dos dados em trânsito para o Azure Monitor, encorajamo-lo a configurar o agente e o grupo de gestão para utilizar pelo menos a Segurança da Camada de Transporte (TLS) 1.2. Versões mais antigas da camada de tomadas TLS/Secure Sockets (SSL) foram consideradas vulneráveis e, embora ainda atualmente trabalhem para permitir retrocompatibilidade, não são **recomendadas**. Para obter informações adicionais, [reveja o envio de dados de forma segura utilizando o TLS 1.2](./data-security.md#sending-data-securely-using-tls-12).
 
 ## <a name="connecting-operations-manager-to-azure-monitor"></a>Gestor de Operações de Ligação ao Monitor Azure
 
@@ -193,25 +193,15 @@ Para continuar a seguir o seu processo de controlo de alterações existente par
 
 ## <a name="validate-operations-manager-integration-with-azure-monitor"></a>Validar a integração do Gestor de Operações com o Azure Monitor
 
-Existem algumas maneiras diferentes de verificar que a integração do Azure Monitor para o Gestor de Operações é bem sucedida.
+Utilize a seguinte consulta para obter as instâncias ligadas do Gestor de Operações:
 
-### <a name="to-confirm-integration-from-the-azure-portal"></a>Para confirmar a integração no portal do Azure
-
-1. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada.
-1. Na lista de áreas de trabalho do Log Analytics, selecione a área de trabalho aplicável.  
-1. Selecione **Definições avançadas**, **Origens Ligadas** e, em seguida, selecione **System Center**.
-1. Na tabela na secção System Center Operations Manager, deve ver o nome do grupo de gestão listado com o número de agentes e o estado quando os dados foram recebidos pela última vez.
-
-   ![oms-settings-connectedsources](./media/om-agents/oms-settings-connectedsources.png)
-
-### <a name="to-confirm-integration-from-the-operations-console"></a>Para confirmar a integração na consola de Operações
-
-1. Abra a consola do Operations Manager e selecione a área de trabalho de **Administração**.
-1. Selecione **Pacotes de Gestão** e, na caixa de texto **Procurar:**, digite **Assistente** ou **Inteligência**.
-1. Consoante as soluções que tiver ativado, pode ver um pacote de gestão correspondente listado nos resultados da pesquisa.  Por exemplo, se tiver ativado a solução Gestão de Alertas, o pacote de gestão Microsoft System Center Advisor Alert Management será apresentado na lista.
-1. Na vista **Monitorização**, navegue até à vista **Operations Management Suite\Estado de Funcionamento**.  Selecione um servidor de Gestão no painel **Estado do Servidor de Gestão** e, no painel **Vista de Detalhes**, confirme se o valor da propriedade **URI do serviço de Autenticação** corresponde ao ID da Área de Trabalho do Log Analytics.
-
-   ![oms-opsmgr-mg-authsvcuri-property-ms](./media/om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
+```azurepowershell
+union *
+| where isnotempty(MG)
+| where not(ObjectName == 'Advisor Metrics' or ObjectName == 'ManagedSpace')
+| summarize LastData = max(TimeGenerated) by lowerCasedComputerName=tolower(Computer), MG, ManagementGroupName
+| sort by lowerCasedComputerName asc
+```
 
 ## <a name="remove-integration-with-azure-monitor"></a>Remover a integração com o Monitor Azure
 
@@ -352,6 +342,7 @@ No futuro, se planeia reconectar o seu grupo de gestão a um espaço de trabalho
 * No suporte de dados de origem na pasta `\ManagementPacks` do System Center 2016 – Operations Manager e superior.
 * No rollup de atualizações mais recentes aplicado ao grupo de gestão. Para Gestor de Operações 2012, a pasta de origem é `%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` e para 2012 R2, está localizada em `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para adicionar funcionalidade e recolher dados, consulte [as soluções Add Azure Monitor da Galeria soluções.](../../azure-monitor/insights/solutions.md)
+Para adicionar funcionalidade e recolher dados, consulte [as soluções Add Azure Monitor da Galeria soluções.](../insights/solutions.md)
+

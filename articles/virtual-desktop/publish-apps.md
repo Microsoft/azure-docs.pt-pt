@@ -1,5 +1,5 @@
 ---
-title: Publicar aplicativos incorporados no Windows Virtual Desktop Spring 2020 - Azure
+title: Publicar aplicativos incorporados no Windows Virtual Desktop - Azure
 description: Como publicar aplicativos incorporados no Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -8,20 +8,17 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 63d20bbb09af6f464a331ddfbad823f5d3b18d76
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ad2dd398e5eddd7cbb56b4f293a8a67a0df85316
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527589"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291388"
 ---
 # <a name="publish-built-in-apps-in-windows-virtual-desktop"></a>Publicar aplicativos incorporados no Windows Virtual Desktop
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à atualização primavera 2020 com objetos de desktop virtual do Windows Manager do Azure. Se estiver a utilizar o desbloqueio virtual do Windows Desktop Fall 2019 sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/publish-apps-2019.md).
->
-> A atualização Virtual Desktop Spring 2020 do Windows está atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos a sua utilização para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Este conteúdo aplica-se ao Windows Virtual Desktop com objetos de ambiente de trabalho virtuais do Windows, gestor de recursos do Azure. Se estiver a utilizar o Windows Virtual Desktop (clássico) sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/publish-apps-2019.md).
 
 Este artigo irá dizer-lhe como publicar aplicações no seu ambiente de ambiente de trabalho virtual do Windows.
 
@@ -52,7 +49,7 @@ O processo que utiliza para publicar o Microsoft Edge é um pouco diferente do p
 New-AzWvdApplication -Name -ResourceGroupName -ApplicationGroupName -FilePath "shell:Appsfolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge" -CommandLineSetting <Allow|Require|DoNotAllow> -iconPath "C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\microsoftedge.exe" -iconIndex 0 -ShowInPortal:$true
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como configurar feeds para organizar a forma como as aplicações são apresentadas para os utilizadores no [Feed Personalizado para utilizadores do Windows Virtual Desktop](customize-feed-for-virtual-desktop-users.md).
 - Saiba mais sobre a funcionalidade de anexação de aplicações MSIX no [anexo de aplicações set up MSIX](app-attach.md).

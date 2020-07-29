@@ -5,26 +5,29 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.openlocfilehash: dd75ad4ed1024292868f113e474fe8b8b73679b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/24/2020
+ms.openlocfilehash: e1c60542ec16ca19d26a77c1b9fb9676cf875e3d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75445137"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318271"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Otimizar o custo das consultas no Azure Cosmos DB
 
-O Azure Cosmos DB oferece um conjunto de operações de bases de dados, incluindo consultas relacionais e hierárquicas que operam nos itens de um contentor. O custo associado a cada uma destas operações varia com base na CPU, E/S e memória necessárias para concluir a operação. Em vez de pensar nos recursos de hardware e na sua gestão, pode pensar numa Unidade de Pedido (RU) como medida única para os recursos necessários para executar várias operações de bases de dados para servir um pedido. Este artigo descreve como avaliar os custos das unidades de pedidos de uma consulta e como otimizar a consulta em termos de desempenho e custo. 
+O Azure Cosmos DB oferece um conjunto de operações de bases de dados, incluindo consultas relacionais e hierárquicas que operam nos itens de um contentor. O custo associado a cada uma destas operações varia com base na CPU, E/S e memória necessárias para concluir a operação. Em vez de pensar nos recursos de hardware e na sua gestão, pode pensar numa Unidade de Pedido (RU) como medida única para os recursos necessários para executar várias operações de bases de dados para servir um pedido. Este artigo descreve como avaliar os custos das unidades de pedidos de uma consulta e como otimizar a consulta em termos de desempenho e custo.
 
-As consultas em Azure Cosmos DB são normalmente encomendadas de mais rápido/mais eficiente para mais lento/menos eficiente em termos de produção da seguinte forma:  
+As leituras em Azure Cosmos DB são normalmente encomendadas de mais rápido/eficiente para mais lento/menos eficiente em termos de produção da seguinte forma:  
 
-* Obtenha a operação numa única chave de partição e chave de item.
+* Leituras de pontos (procura de chave/valor numa única chave de iD de item e chave de partição).
 
 * Consulta com uma cláusula de filtro dentro de uma única chave de partição.
 
 * Consulta sem uma cláusula de filtro de igualdade ou alcance em qualquer propriedade.
 
 * Consulta sem filtros.
+
+Como as pesquisas chave/valor no ID do item são o tipo de leitura mais eficiente, deve certificar-se de que o ID do item tem um valor significativo.
 
 As consultas que lêem dados de uma ou mais divisórias incorrem em maior latência e consomem um maior número de unidades de pedido. Uma vez que cada partição tem indexação automática para todas as propriedades, a consulta pode ser servida eficientemente a partir do índice. Você pode fazer consultas que usam várias divisórias mais rapidamente usando as opções de paralelismo. Para saber mais sobre chaves de partição e partição, consulte [Partition in Azure Cosmos DB](partitioning-overview.md).
 
@@ -35,7 +38,7 @@ Uma vez armazenados alguns dados nos seus contentores Azure Cosmos, pode utiliza
 Também pode obter o custo das consultas programáticamente usando os SDKs. Para medir a sobrecarga de qualquer operação como criar, atualizar ou apagar inspecione o `x-ms-request-charge` cabeçalho quando utilizar a API REST. Se estiver a utilizar o .NET ou o Java SDK, a `RequestCharge` propriedade é a propriedade equivalente para obter o custo de pedido e esta propriedade está presente dentro da ResourceResponse ou FeedResponse.
 
 ```csharp
-// Measure the performance (request units) of writes 
+// Measure the performance (request units) of writes
 ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument); 
 
 Console.WriteLine("Insert of an item consumed {0} request units", response.RequestCharge); 
@@ -98,7 +101,7 @@ Considere as seguintes boas práticas ao otimizar consultas por custo:
 
    A taxa de pedido devolvida no cabeçalho do pedido indica o custo de uma determinada consulta. Por exemplo, se uma consulta devolver 1000 itens 1-KB, o custo da operação é de 1000. Como tal, dentro de um segundo, o servidor honra apenas dois desses pedidos antes de taxa limitando os pedidos subsequentes. Para mais informações, consulte o artigo [das unidades de pedido](request-units.md) e a calculadora da unidade de pedido. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, pode proceder para saber mais sobre a otimização de custos na Azure Cosmos DB com os seguintes artigos:
 
