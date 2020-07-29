@@ -3,12 +3,12 @@ title: Configure Azure Red Hat OpenShift v3.x com Monitor Azure para contentores
 description: Este artigo descreve como configurar a monitorização de um cluster Kubernetes com o Azure Monitor hospedado na versão 3 e superior do Azure Red Hat OpenShift.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 438a0513b6aceb876df4f9e3d0f4510c7cf8235e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: aac70ccc40da15318dd2dece17e429bb091e1860
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092903"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317982"
 ---
 # <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Configure Azure Red Hat OpenShift v3 com Monitor Azure para contentores
 
@@ -173,7 +173,7 @@ Execute os seguintes passos para permitir a monitorização de um cluster Azure 
     ![Permitir a monitorização de clusters não monitorizados](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
 
     >[!NOTE]
-    >Se pretender criar um novo espaço de trabalho log Analytics para armazenar os dados de monitorização do cluster, siga as instruções no Criar um espaço de [trabalho Log Analytics](../../azure-monitor/learn/quick-create-workspace.md). Certifique-se de criar o espaço de trabalho na mesma subscrição para a qual o cluster RedHat OpenShift está implantado.
+    >Se pretender criar um novo espaço de trabalho log Analytics para armazenar os dados de monitorização do cluster, siga as instruções no Criar um espaço de [trabalho Log Analytics](../learn/quick-create-workspace.md). Certifique-se de criar o espaço de trabalho na mesma subscrição para a qual o cluster RedHat OpenShift está implantado.
 
 Depois de ter ativado a monitorização, pode demorar cerca de 15 minutos até poder ver as métricas de saúde para o cluster.
 
@@ -244,3 +244,4 @@ Se optar por utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI loc
 - Para raspar e analisar as métricas prometheus do seu cluster, [reveja métricas configure Prometheus raspando](container-insights-prometheus-integration.md)
 
 - Para aprender a parar de monitorizar o seu cluster com o Azure Monitor para obter recipientes, consulte [Como Parar de monitorizar o seu aglomerado de chapéus abertos Azure Red Hat](./container-insights-optout-openshift-v3.md).
+

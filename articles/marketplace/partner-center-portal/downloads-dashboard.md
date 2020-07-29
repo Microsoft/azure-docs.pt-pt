@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: fde95e3b6d1b4d1cdfb060c11e1e67241d3329f8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: shganesh-dev
+ms.author: shganesh
+ms.openlocfilehash: 2bd38bc7a499aa9178d49f54e27a88a38206e521
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121712"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317574"
 ---
 # <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Dashboard de Transferências na análise de mercados comerciais
 
@@ -27,7 +29,7 @@ O painel de **transferências** do menu **Analyze** apresenta pedidos para quais
 
 Receberá uma notificação pop-up e um e-mail contendo um link para o dashboard **downloads** sempre que solicitar um download com mais de 1000 linhas de dados. Estes downloads de dados estarão disponíveis por um período de 30 dias e depois removidos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma visão geral dos relatórios de análise disponíveis no mercado comercial do Partner Center, consulte [Analytics para o mercado comercial no Partner Center](./analytics.md).
 - Para gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para a sua oferta, consulte [o Painel De Resumo em análise de mercado comercial.](./summary-dashboard.md)

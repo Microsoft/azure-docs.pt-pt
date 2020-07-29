@@ -3,12 +3,12 @@ title: Azure DevTest Labs FAQ Microsoft Docs
 description: Este artigo fornece respostas a algumas das perguntas frequentes (FAQ) sobre Azure DevTest Labs.
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: 707b66fadab482a31ac02f10460d581997931a0b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3f36b8238ccb69b3b1f14166b522e47d5debe54e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537496"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289377"
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ de Azure DevTest Labs
 Obtenha respostas para algumas das perguntas mais comuns sobre a Azure DevTest Labs.
@@ -36,7 +36,7 @@ A nossa alça do Twitter:[@azlabservices](https://twitter.com/azlabservices)
 Se a sua pergunta não estiver listada aqui, avise-nos, para que possamos ajudá-lo a encontrar uma resposta.
 
 - Publique uma pergunta no final desta FAQ.
-- Para chegar a um público mais vasto, publique uma pergunta no [Microsoft Q&Uma página de perguntas para a Azure DevTest Labs](https://docs.microsoft.com/answers/topics/azure-devtestlabs.html). Envolva-se com a equipa da Azure DevTest Labs e outros membros da comunidade.
+- Para chegar a um público mais vasto, publique uma pergunta no [Microsoft Q&Uma página de perguntas para a Azure DevTest Labs](/answers/topics/azure-devtestlabs.html). Envolva-se com a equipa da Azure DevTest Labs e outros membros da comunidade.
 - Para pedidos de funcionalidades, envie os seus pedidos e ideias para a [Azure DevTest Labs User Voice](https://feedback.azure.com/forums/320373-azure-devtest-labs).
 
 ### <a name="what-is-a-microsoft-account"></a>O que é uma conta microsoft?
@@ -337,7 +337,7 @@ As seguintes publicações de blog oferecem orientação e informações sobre a
 
 Para outras cadeiras de ferramentas de integração contínua (CI)/entrega contínua (CD), pode alcançar os mesmos cenários através da implementação de [modelos de Gestor de Recursos Azure,](https://azure.microsoft.com/resources/templates/) utilizando [cmdlets Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) e [.NET SDKs](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). Também pode utilizar [APIs REST para a DevTest Labs](https://aka.ms/dtlrestapis) para se integrar com a sua ferramenta.
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 
 ### <a name="when-should-i-create-a-new-virtual-network-for-my-devtest-labs-environment-vs-using-an-existing-virtual-network"></a>Quando devo criar uma nova rede virtual para o meu ambiente DevTest Labs vs. usando uma rede virtual existente?
 Se os seus VMs precisarem de interagir com a infraestrutura existente, então considere usar uma rede virtual existente dentro do seu ambiente DevTest Labs. Se utilizar o ExpressRoute, poderá querer minimizar o número de redes/sub-redes virtuais para que não fragmente o espaço de endereço IP que é atribuído para utilização nas subscrições.

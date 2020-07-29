@@ -8,20 +8,17 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8b000e9a83e6896266f0a6fc05195fc5599bc65f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 17df23a16bec91e5c333bc760143eac250b62699
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077641"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292629"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configure o tipo de atribuição de piscina de anfitriões de ambiente de trabalho pessoal
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à atualização primavera 2020 com objetos de desktop virtual do Windows Manager do Azure. Se estiver a utilizar o desbloqueio virtual do Windows Desktop Fall 2019 sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/configure-host-pool-personal-desktop-assignment-type-2019.md).
->
-> A atualização Virtual Desktop Spring 2020 do Windows está atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos a sua utilização para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Este conteúdo aplica-se ao Windows Virtual Desktop com objetos de ambiente de trabalho virtuais do Windows, gestor de recursos do Azure. Se estiver a utilizar o Windows Virtual Desktop (clássico) sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/configure-host-pool-personal-desktop-assignment-type-2019.md).
 
 Pode configurar o tipo de atribuição do seu pool de anfitriões de ambiente de trabalho pessoal para ajustar o ambiente de trabalho virtual do Windows de forma melhor adequada às suas necessidades. Neste tópico, vamos mostrar-lhe como configurar a atribuição automática ou direta para os seus utilizadores.
 

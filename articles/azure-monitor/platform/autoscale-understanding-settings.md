@@ -4,12 +4,12 @@ description: Uma desagregação detalhada das definições de autoescala e como 
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 03019b35a85d8d511e3ada131eff890a60fd57f6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6d6b868f745803263339e6b27e2610aaca8f63fb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539385"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317472"
 ---
 # <a name="understand-autoscale-settings"></a>Compreender as definições de Dimensionamento Automático
 As definições de autoescala ajudam a garantir que tem a quantidade certa de recursos em execução para lidar com a carga flutuante da sua aplicação. Pode configurar as definições de Autoescalação a serem ativadas com base em métricas que indicam carga ou desempenho, ou ativadas numa data e hora programadas. Este artigo dá uma olhada detalhada na anatomia de uma definição de Autoscale. O artigo começa com o esquema e propriedades de uma configuração, e depois anda pelos diferentes tipos de perfil que podem ser configurados. Finalmente, o artigo discute como a funcionalidade Autoscale em Azure avalia qual o perfil a executar a qualquer momento.
@@ -298,11 +298,12 @@ A autoescala calcula a nova capacidade determinada pela **escalaAcção** de cad
 
 Por exemplo, digamos que há uma escala de máquina virtual definida com uma capacidade de corrente de 10. Há duas regras de escala: uma que diminui a capacidade em 50%, e outra que diminui a capacidade em 3 contagens. A primeira regra resultaria numa nova capacidade de 5, e a segunda regra resultaria numa capacidade de 7. Para garantir a disponibilidade do serviço, a Autoscale escolhe a ação que resulta na capacidade máxima, para que a segunda regra seja escolhida.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre a Autoscale referindo-se ao seguinte:
 
-* [Descrição geral do dimensionamento automático](../../azure-monitor/platform/autoscale-overview.md)
-* [Azure Monitor autoescala métricas comuns](../../azure-monitor/platform/autoscale-common-metrics.md)
-* [Melhores práticas para o dimensionamento automático do Azure Monitor](../../azure-monitor/platform/autoscale-best-practices.md)
-* [Utilize ações de escala automática para enviar notificações de alerta de email e webhook](../../azure-monitor/platform/autoscale-webhook-email.md)
+* [Descrição geral do dimensionamento automático](./autoscale-overview.md)
+* [Azure Monitor autoescala métricas comuns](./autoscale-common-metrics.md)
+* [Melhores práticas para o dimensionamento automático do Azure Monitor](./autoscale-best-practices.md)
+* [Utilize ações de escala automática para enviar notificações de alerta de email e webhook](./autoscale-webhook-email.md)
 * [API de REPOUSO de Autoescala](/rest/api/monitor/autoscalesettings)
+

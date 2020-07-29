@@ -6,18 +6,18 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 05/28/2020
+ms.date: 07/28/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: 6e240a0c5d5d77489c92862238c2e5041bdeabe3
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 6d805dfc15264a34abe1f177f688dae96d4a49f7
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171357"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369451"
 ---
-Utilize a biblioteca de clientes de compreensão linguística (LUIS) para:
+Utilize a biblioteca de clientes de compreensão linguística (LUIS) para Node.js:
 
 * Criar uma aplicação.
 * Adicione intenções, entidades e exemplos de declarações.
@@ -25,7 +25,7 @@ Utilize a biblioteca de clientes de compreensão linguística (LUIS) para:
 * Treine e publique uma aplicação.
 * Excluir app
 
-[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring)  |  [Pacote de autoria (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring), Amostras de pacote de tempo de [execução (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)  |  [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_authoring_quickstart.js)
+[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring)  |  [Pacote de autoria (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring), Amostras de pacote de tempo de [execução (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)  |  [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/node-sdk-authoring-prediction/luis_authoring_quickstart.js)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,46 +36,7 @@ Utilize a biblioteca de clientes de compreensão linguística (LUIS) para:
 
 ### <a name="get-your-language-understanding-luis-starter-key"></a>Obtenha a sua chave de arranque de compreensão linguística (LUIS)
 
-Obtenha a sua [chave de arranque](../luis-how-to-azure-subscription.md#starter-key) criando um recurso de autoria LUIS. Guarde a chave e o ponto final da chave para o próximo passo.
-
-### <a name="create-an-environment-variable"></a>Criar uma variável ambiental
-
-Utilizando a sua chave, e a região para a chave, crie duas variáveis ambientais para a autenticação:
-
-* `LUIS_AUTHORING_KEY`- A chave de recursos para autenticar os seus pedidos.
-* `LUIS_AUTHORING_ENDPOINT`- O ponto final associado à sua chave.
-
-Utilize as instruções para o seu sistema operativo.
-
-#### <a name="windows"></a>[Windows](#tab/windows)
-
-```console
-setx LUIS_AUTHORING_KEY <replace-with-your-luis-authoring-key
-setx LUIS_AUTHORING_ENDPOINT <replace-with-your-luis-authoring-endpoint>
-```
-
-Depois de adicionar a variável ambiente, reinicie a janela da consola.
-
-#### <a name="linux"></a>[Linux](#tab/linux)
-
-```bash
-export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key>
-export LUIS_AUTHORING_ENDPOINT=<replace-with-your-luis-authoring-endpoint>
-```
-
-Depois de adicionar a variável de ambiente, execute `source ~/.bashrc` a partir da janela da consola para que as alterações entrem em vigor.
-
-#### <a name="macos"></a>[macOS](#tab/unix)
-
-Edite a sua `.bash_profile` variável e adicione a variável ambiental:
-
-```bash
-export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key>
-export LUIS_AUTHORING_ENDPOINT=<replace-with-your-luis-authoring-endpoint>
-```
-
-Depois de adicionar a variável de ambiente, execute `source .bash_profile` a partir da janela da consola para que as alterações entrem em vigor.
-***
+Obtenha a sua [chave de autoria](../luis-how-to-azure-subscription.md) criando um recurso de autoria LUIS. Guarde a sua chave e o ponto final da chave, precisa adicionar estas são cordas na parte superior do ficheiro de código.
 
 ### <a name="install-the-npm-library-for-luis-authoring"></a>Instalar a biblioteca NPM para a autoria do LUIS
 
@@ -102,7 +63,7 @@ Assim que o cliente for criado, utilize este cliente para aceder à funcionalida
 
 ## <a name="code-examples"></a>Exemplos de código
 
-Estes snippets de código mostram-lhe como fazer o seguinte com a biblioteca de clientes de autoria de Language Understanding (LUIS) para Node.js:
+Estes snippets de código mostram-lhe como fazer o seguinte com a biblioteca de clientes de compreensão linguística (LUIS) para Node.js:
 
 * [Criar uma aplicação](#create-a-luis-app)
 * [Adicionar entidades](#create-entities-for-the-app)
@@ -118,8 +79,6 @@ Estes snippets de código mostram-lhe como fazer o seguinte com a biblioteca de 
 Crie um novo ficheiro de texto no seu editor preferido ou IDE nomeado `luis_authoring_quickstart.js` . Em seguida, adicione as seguintes dependências.
 
 [!code-javascript[Create a new application in your preferred editor or IDE.](~/cognitive-services-quickstart-code/javascript/LUIS/node-sdk-authoring-prediction/luis_authoring_quickstart.js?name=Dependencies)]
-
-Crie variáveis para o ponto final e chave Azure do seu recurso. Se criou a variável ambiental depois de ter lançado a aplicação, terá de fechar e reabrir o editor, o IDE ou a shell que a executa para aceder à variável.
 
 [!code-javascript[Create variables for your resource's Azure endpoint and key.](~/cognitive-services-quickstart-code/javascript/LUIS/node-sdk-authoring-prediction/luis_authoring_quickstart.js?name=Variables)]
 
@@ -163,7 +122,7 @@ Para determinar a intenção de uma expressão e extrair entidades, a app precis
 
 Adicione palavras de exemplo criando uma lista de objetos [ExemploLabelObject,](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/examplelabelobject?view=azure-node-latest) um objeto para cada palavra de exemplo. Cada exemplo deve marcar todas as entidades com um dicionário de nome/valor pares de nomes e valor de entidade. O valor da entidade deve ser exatamente como aparece no texto da expressão de exemplo.
 
-Chame [exemplos.lote](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/examples?view=azure-node-latest#batch-string--string--examplelabelobject----msrest-requestoptionsbase-) com o ID da aplicação, iD da versão e a lista de exemplos. A chamada responde com uma lista de resultados. É necessário verificar o resultado de cada exemplo para se certificar de que foi adicionado com sucesso ao modelo.
+Ligue [examples.batch](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/examples?view=azure-node-latest#batch-string--string--examplelabelobject----msrest-requestoptionsbase-) com o ID da aplicação, iD da versão e a lista de exemplos. A chamada responde com uma lista de resultados. É necessário verificar o resultado de cada exemplo para se certificar de que foi adicionado com sucesso ao modelo.
 
 [!code-javascript[Add example utterance to intent](~/cognitive-services-quickstart-code/javascript/LUIS/node-sdk-authoring-prediction/luis_authoring_quickstart.js?name=AuthoringBatchAddUtterancesForIntent&highlight=52-56)]
 

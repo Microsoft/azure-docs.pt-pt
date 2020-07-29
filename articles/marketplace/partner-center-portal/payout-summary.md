@@ -4,15 +4,15 @@ description: Os relatórios do Payout mostram-lhe detalhes sobre o dinheiro que 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: mingshen
+author: mingshen-ms
 ms.author: mingshen
 ms.date: 04/24/2020
-ms.openlocfilehash: f524ef13af17054e52a94ac043546431b656203c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: dc690e29129f5be68456e6a9dc075ba72f11b121
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120726"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318237"
 ---
 # <a name="payout-summaries"></a>Resumos de dividendos
 
@@ -72,7 +72,7 @@ Para exportar qualquer um dos dados de transação nesta página, selecione **Ex
 | A seguir                 | Ordem de pagamento gerada até revisões internas pendentes antes do pagamento ser processado                                                               | Não                                                         |
 | Fatura fiscal pendente      | A sua fatura fiscal é incompleta ou inválida                                                                                                  | Precisa atualizar a sua fatura fiscal antes de poder ser paga |
 | Rejeitado durante a revisão   | O pagamento foi rejeitado durante a revisão                                                                                                     | Contacte [o suporte da Microsoft](https://developer.microsoft.com/windows/support) para obter mais detalhes                      |
-| Falhou                   | O pagamento falhou devido a um erro no sistema da Microsoft                                                                                         | Contacte [o suporte da Microsoft](https://developer.microsoft.com/windows/support) para obter mais detalhes                      |
+| Com falhas                   | O pagamento falhou devido a um erro no sistema da Microsoft                                                                                         | Contacte [o suporte da Microsoft](https://developer.microsoft.com/windows/support) para obter mais detalhes                      |
 | Em curso              | O pagamento está em curso.                                                                                                                 | Não                                                         |
 | Pagamento incorreto        | A recuperação do pagamento está em andamento                                                                                                       | Não                                                         |
 | Enviados                     | O pagamento foi enviado para o seu banco.                                                                                                     | Não                                                         |

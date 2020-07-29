@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: d52138f5b23a6a0ac8ff8c585e6aed0edd92eaf0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ee5aec2e483f41c73d57fc1d91427e5657bda3e7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499550"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317999"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Plan Hyper-V capacidade de máquina virtual com a solução capacidade e desempenho (depreciada)
 
@@ -41,9 +41,9 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 
 | Origem Ligada | Suporte | Descrição |
 |---|---|---|
-| [Agentes do Windows](../../azure-monitor/platform/agent-windows.md) | Sim | A solução recolhe informações de capacidade e dados de desempenho de agentes do Windows. |
-| [Agentes do Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Não    | A solução não recolhe informações de capacidade e dados de desempenho de agentes linux diretos.|
-| [Grupo de gestão SCOM](../../azure-monitor/platform/om-agents.md) | Sim |A solução recolhe dados de capacidade e desempenho de agentes de um grupo de gestão SCOM conectado. Não é necessária uma ligação direta do agente SCOM ao Log Analytics.|
+| [Agentes do Windows](../platform/agent-windows.md) | Sim | A solução recolhe informações de capacidade e dados de desempenho de agentes do Windows. |
+| [Agentes do Linux](../learn/quick-collect-linux-computer.md) | Não | A solução não recolhe informações de capacidade e dados de desempenho de agentes linux diretos.|
+| [Grupo de gestão SCOM](../platform/om-agents.md) | Sim |A solução recolhe dados de capacidade e desempenho de agentes de um grupo de gestão SCOM conectado. Não é necessária uma ligação direta do agente SCOM ao Log Analytics.|
 | [Conta de armazenamento Azure](../platform/resource-logs.md#send-to-log-analytics-workspace) | Não | O armazenamento do azul não inclui dados de capacidade e desempenho.|
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -55,7 +55,7 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 
 Execute o passo seguinte para adicionar a solução capacidade e desempenho ao seu espaço de trabalho.
 
-- Adicione a solução de Capacidade e Desempenho ao seu espaço de trabalho Log Analytics utilizando o processo descrito nas [soluções Add Log Analytics da Galeria de Soluções.](../../azure-monitor/insights/solutions.md)
+- Adicione a solução de Capacidade e Desempenho ao seu espaço de trabalho Log Analytics utilizando o processo descrito nas [soluções Add Log Analytics da Galeria de Soluções.](./solutions.md)
 
 ## <a name="management-packs"></a>Pacotes de gestão
 
@@ -72,7 +72,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 Quando a solução capacidade e desempenho for atualizada, o número da versão mudará.
 
-Para obter mais informações sobre como são atualizados os pacotes de gestão da solução, veja [Connect Operations Manager to Log Analytics (Ligar o Operations Manager ao Log Analytics)](../../azure-monitor/platform/om-agents.md).
+Para obter mais informações sobre como são atualizados os pacotes de gestão da solução, veja [Connect Operations Manager to Log Analytics (Ligar o Operations Manager ao Log Analytics)](../platform/om-agents.md).
 
 ## <a name="using-the-solution"></a>Utilizar a solução
 
@@ -128,5 +128,6 @@ A tabela seguinte fornece pesquisas de registo de amostras para dados de capacid
 | Desagregação da Latência Total em todos os CSVs | Perf &#124; onde ObjectName == "Capacidade e Desempenho" e (Contraname == "CSV Read Latency" ou CounterName == "CSV Write Latency") &#124; resumir AggregatedValue = avg (CounterValue) by bin (TimeGenerated, 1h), CounterName, InstanceName |
 
 
-## <a name="next-steps"></a>Próximos passos
-* Utilize pesquisas de Log no Log Analytics para visualizar [dados](../../azure-monitor/log-query/log-query-overview.md) detalhados de capacidade e desempenho.
+## <a name="next-steps"></a>Passos seguintes
+* Utilize pesquisas de Log no Log Analytics para visualizar [dados](../log-query/log-query-overview.md) detalhados de capacidade e desempenho.
+

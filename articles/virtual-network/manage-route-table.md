@@ -1,7 +1,7 @@
 ---
 title: Criar, alterar ou eliminar uma tabela de rotas Azure
 titlesuffix: Azure Virtual Network
-description: Saiba como criar, alterar ou apagar uma tabela de rotas.
+description: Saiba onde encontrar informações sobre o encaminhamento de tráfego de rede virtual e como criar, alterar ou apagar uma tabela de rotas.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
-ms.openlocfilehash: e694f29bb6f8e7c78c36ad2b8ee90d507529444f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 664e3851370be812cd7a0e58cf9beb1fddb5d991
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708268"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291004"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou eliminar uma tabela de rotas
 
@@ -40,7 +41,7 @@ A conta em que inicia sessão ou liga-se ao Azure deve ser atribuída à [funç�
 
 Há um limite para quantas tabelas de rotas pode criar por localização e subscrição de Azure. Para mais informações, consulte [os limites de rede - Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-1. No menu [do portal Azure](https://portal.azure.com) ou na página **Inicial,** selecione **Criar um recurso**.
+1. No menu do [portal do Azure](https://portal.azure.com) ou a partir da **Home page**, selecione **Criar um recurso**.
 
 1. Na caixa de pesquisa, introduza a *tabela Rota*. Quando **a tabela Rota** aparecer nos resultados da pesquisa, selecione-a.
 
@@ -87,7 +88,7 @@ Para saber mais sobre as configurações comuns do Azure, consulte as seguintes 
 - [Registo de atividades](../azure-monitor/platform/platform-logs-overview.md)
 - [Controlo de acesso (IAM)](../role-based-access-control/overview.md)
 - [Etiquetas](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Fechaduras](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Bloqueios](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Script de automatização](../azure-resource-manager/templates/export-template-portal.md)
 
 ### <a name="view-details-of-route-table---commands"></a>Ver detalhes da tabela de rotas - comandos
@@ -332,7 +333,7 @@ Depois de uma curta espera, a Azure diz-lhe o próximo tipo de lúpulo e o ID da
 
 Para realizar tarefas em tabelas e rotas de rota, a sua conta deve ser atribuída à [função de contribuinte da Rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenha atribuído as ações apropriadas listadas no quadro seguinte:
 
-| Ação                                                          |   Name                                                  |
+| Ação                                                          |   Nome                                                  |
 |--------------------------------------------------------------   |   -------------------------------------------           |
 | Microsoft.Network/routeTables/read                              |   Leia uma tabela de rotas                                    |
 | Microsoft.Network/routeTables/write                             |   Criar ou atualizar uma tabela de rotas                        |
@@ -344,7 +345,7 @@ Para realizar tarefas em tabelas e rotas de rota, a sua conta deve ser atribuíd
 | Microsoft.Network/networkInterfaces/effectiveRouteTable/action  |   Obtenha a tabela de rotas eficaz para uma interface de rede |
 | Microsoft.Network/networkWatchers/nextHop/action                |   Recebe o próximo salto de um VM                           |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Crie uma tabela de rotas utilizando scripts de [amostras powerShell](powershell-samples.md) ou [Azure CLI](cli-samples.md) ou [modelos](template-samples.md) de Gestor de Recursos Azure
 - Criar e atribuir [definições de Política Azure](policy-samples.md) para redes virtuais

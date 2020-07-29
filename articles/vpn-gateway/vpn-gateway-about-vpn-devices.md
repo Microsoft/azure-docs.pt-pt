@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 07/13/2020
+ms.date: 07/28/2020
 ms.author: yushwang
-ms.openlocfilehash: 86f040ab4735276e77d537f65130ae125c4757e6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4a4214e89b72ba3b782a8b141203ac0f4bbca635
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086953"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87367730"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Acerca dos dispositivos de VPN e dos parâmetros IPsec/IKE para ligações do Gateway da Rede de VPNs
 
@@ -66,7 +66,8 @@ Para ajudar a configurar o seu dispositivo VPN, consulte os links que correspond
 | SonicWall |Série TZ, Série NSA<br>Série SuperMassive<br>Série NSA Classe E |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |Não compatível |[Guia de configuração](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
 | Sophos | Firewall de Próxima Geração XG | XG v17 | (não testado) | [Guia de configuração](https://community.sophos.com/kb/127546)<br><br>[Guia de configuração - Várias SAs](https://community.sophos.com/kb/en-us/133154) |
 | Sinologia | MR2200ac <br>RT2600ac <br>RT1900ac | SRM1.1.5/VpnPlusServer-1.2.0 | (não testado) | [Guia de configuração](https://www.synology.com/en-global/knowledgebase/SRM/tutorial/VPN/How_to_set_up_Site_to_Site_VPN_between_Synology_Router_and_MS_Azure) |
-| Ubiquiti | EdgeRouter | EdgeOS v1.10 | (não testado) | [BGP sobre IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012374708)<br><br>[VTI sobre IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012305347)
+| Ubiquiti | EdgeRouter | EdgeOS v1.10 | (não testado) | [BGP sobre IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012374708)<br><br>[VTI sobre IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012305347) |
+| Ultra | 3E-636L3 | 5.2.0.T3 Build-13  | (não testado) | [Guia de configuração](https://ultra-3eti.com/wp-content/uploads/2020/07/Azure-VPN-636L3-Site-to-Site-Test-Notes.pdf) |
 | WatchGuard |Todos |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Guia de configuração](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Guia de configuração](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 | Zyxel |Série USG ZyWALL<br>Série ATP ZyWALL<br>Série ZYWALL VPN | ZLD v4.32+ | (não testado) | [VTI sobre IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2648/)<br><br>[BGP sobre IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2650/)|
 
@@ -143,7 +144,7 @@ Nas seguintes tabelas:
 | Algoritmos de Encriptação e Hash |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[Ofertas de RouteBased QM SA](#RouteBasedOffers) |
 | Duração de SA (Tempo)            |3600 segundos  |27,000 segundos                               |
 | Duração de SA (Bytes)           |102 400 000 KB |102 400 000 KB                               |
-| Perfect Forward Secrecy (PFS) |No             |[Ofertas de RouteBased QM SA](#RouteBasedOffers) |
+| Perfect Forward Secrecy (PFS) |Não             |[Ofertas de RouteBased QM SA](#RouteBasedOffers) |
 | Deteção de Elemento Inutilizado (DPD)     |Não suportado  |Suportado                                    |
 
 

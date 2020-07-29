@@ -3,12 +3,13 @@ title: Crie um Azure Service Fabric fiável aplicação Java em Linux
 description: Saiba como criar e implementar uma aplicação Java Reliable Actors do Service Fabric em cinco minutos.
 ms.topic: conceptual
 ms.date: 06/18/2018
-ms.openlocfilehash: 4d09666bad7b4e03b8598191d99a9db717c277d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: 28ddc4f0e47d853df6b026cf2495d710bebfa980
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82193569"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87368936"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Criar a sua primeira aplicação Java Reliable Actors do Service Fabric no Linux
 > [!div class="op_single_selector"]

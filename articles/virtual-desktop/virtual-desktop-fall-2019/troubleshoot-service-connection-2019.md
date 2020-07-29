@@ -1,6 +1,6 @@
 ---
-title: Conexão de serviço de resolução de problemas Windows Virtual Desktop Fall 2019 - Azure
-description: Como resolver problemas quando configura as ligações com o cliente num ambiente de inquilino virtual do Windows Desktop.
+title: Conexão de serviço de resolução de problemas Windows Virtual Desktop (clássico) - Azure
+description: Como resolver problemas quando configura as ligações com o cliente num ambiente de inquilino virtual do Windows Desktop (clássico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 05/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ad5e740a2874d398f3947fe755024bedc897ec73
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 213f7843e4896f8c7c9234e2c94433afbed1d565
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085797"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292512"
 ---
-# <a name="troubleshoot-windows-virtual-desktop-service-connections"></a>Resolução de problemas Ligações de serviço de desktop virtual do Windows
+# <a name="windows-virtual-desktop-classic-service-connections"></a>Windows Virtual Desktop (clássico) conexões de serviço
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../troubleshoot-service-connection.md).
+>Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows. Se estiver a tentar gerir os objetos de ambiente de trabalho virtuais do Azure Resource Manager Windows, consulte [este artigo](../troubleshoot-service-connection.md).
 
 Utilize este artigo para resolver problemas com as ligações do cliente virtual do Windows Desktop.
 

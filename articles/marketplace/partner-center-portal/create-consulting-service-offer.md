@@ -1,18 +1,18 @@
 ---
 title: Criar uma oferta de serviços de consultoria - Mercado comercial da Microsoft
 description: Saiba como publicar uma oferta de serviço de consultoria para o Microsoft AppSource ou para o Azure Marketplace utilizando o Partner Center.
-author: anbene
-ms.author: mingshen
+author: Microsoft-BradleyWright
+ms.author: brwrigh
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: a06f0838f25e771a90fb6dc6f4fcd3bd9bdeda87
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 11f4091489a8ef8c980ece0589945c8e1c7dc8b8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203816"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317778"
 ---
 # <a name="create-a-consulting-service-offer"></a>Criar uma oferta de serviço de consultoria
 
@@ -100,9 +100,9 @@ Esta página permite definir o produto primário que o seu serviço de consultor
 
     - Análise
     - Modernização da App
-    - Archive (Arquivo)
+    - Arquivo
     - IA + Machine Learning
-    - Cópia de segurança
+    - Backup
     - Macrodados
     - Plataforma de Dados
     - Gestão de Datacenter
@@ -138,7 +138,7 @@ Aqui está um exemplo de como a informação de oferta aparece no Azure Marketpl
 1. Logótipo
 2. Preço
 3. Áreas de solução
-4. Setores
+4. Indústrias
 5. Nome da oferta
 6. Resumo
 7. Descrição
@@ -153,7 +153,7 @@ Aqui está um exemplo de como a informação de oferta aparece no Azure Marketpl
 1. Logótipo
 2. Preço
 3. Produtos
-4. Setores
+4. Indústrias
 5. Nome da oferta
 6. Resumo
 7. Descrição

@@ -1,6 +1,6 @@
 ---
-title: Personalize propriedades RDP com PowerShell Fall 2019 - Azure
-description: Como personalizar propriedades RDP para windows Virtual Desktop com cmdlets PowerShell.
+title: Personalize propriedades RDP com PowerShell Windows Virtual Desktop (clássico) - Azure
+description: Como personalizar propriedades RDP para Windows Virtual Desktop (clássico) com cmdlets PowerShell.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 844c59c6e5ea6d730c64fea5fb2dee51f602c382
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3ed7e8b8348ae87e676ec4585bce42a1ac389e23
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527630"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291274"
 ---
-# <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Personalize propriedades do Protocolo de Ambiente de Trabalho Remoto para uma piscina de anfitriões
+# <a name="customize-remote-desktop-protocol-properties-for-a--windows-virtual-desktop-classic-host-pool"></a>Personalize propriedades do Protocolo de Ambiente de Trabalho Remoto para uma piscina de anfitriões virtual do Windows (clássico)
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../customize-rdp-properties.md).
+>Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows. Se estiver a tentar gerir os objetos de ambiente de trabalho virtuais do Azure Resource Manager Windows, consulte [este artigo](../customize-rdp-properties.md).
 
 A personalização das propriedades do Protocolo remoto de Ambiente de Trabalho (RDP) de uma piscina anfitriã, como experiência multi-monitor e reorientação de áudio, permite-lhe proporcionar uma experiência ideal para os seus utilizadores com base nas suas necessidades. Pode personalizar propriedades RDP no Windows Virtual Desktop utilizando o parâmetro **-CustomRdpProperty** no **cmdlet Set-RdsHostPool.**
 
@@ -76,7 +76,7 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 > [!div class="mx-imgBorder"]
 > ![Uma imagem do PowerShell cmdlet Get-RDSRemoteApp com nome e Nome Amigável em destaque.](../media/resetcustomrdpproperty.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que personalizou as propriedades RDP para uma determinada piscina de anfitriões, pode iniciar sessão num cliente virtual do Windows desktop para testá-las como parte de uma sessão de utilizador. Estes próximos dois How-tos dir-lhe-ão como se conectar a uma sessão utilizando o cliente à sua escolha:
 

@@ -8,14 +8,15 @@ ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 03/30/2020
-ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 93418369724286e8b8c967754b2fb37135094008
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: a92aa304d605242063e0d0484317bc8c051959e5
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027595"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317846"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Sintonize hiperparmetros para o seu modelo com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -402,6 +403,6 @@ Consulte os cadernos de comboio-hiperparameter-* nesta pasta:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Acompanhe uma experiência](how-to-track-experiments.md)
 * [Implementar um modelo treinado](how-to-deploy-and-where.md)

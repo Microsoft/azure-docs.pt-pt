@@ -4,15 +4,15 @@ description: Saiba como criar e configurar ativos técnicos para uma oferta de m
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: dannyevers
-ms.author: mingshen
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 04/13/2020
-ms.openlocfilehash: 5bed073799521498efe5302ab9af616dcdf9f9ab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 69458a7a3f2555a301c1266addfe7c49cb111ef6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053570"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317761"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Crie os seus ativos técnicos da Azure Virtual Machine
 

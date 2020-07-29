@@ -4,12 +4,12 @@ description: Implementar as funcionalidades do Monitor Azure em escala utilizand
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: fbfc0cafe83f53bd7cab2b93899e9c2cb02d52e3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 043edae04c6de5d42849cf43b947b9646f12f489
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505215"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317440"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Implementar monitor de Azure em escala usando a política Azure
 Enquanto algumas funcionalidades do Azure Monitor são configuradas uma ou um número limitado de vezes, outras devem ser repetidas para cada recurso que deseja monitorizar. Este artigo descreve métodos para usar a Política Azure para implementar o Azure Monitor em escala para garantir que a monitorização é configurada de forma consistente e precisa para todos os seus recursos Azure.
@@ -43,7 +43,7 @@ Para visualizar as definições de política incorporadas relacionadas com a mon
 
 
 ## <a name="diagnostic-settings"></a>Definições de diagnóstico
-[As definições](../platform/diagnostic-settings.md) de diagnóstico recolhem registos de recursos e métricas de recursos Azure para vários locais, tipicamente para um espaço de trabalho Log Analytics que permite analisar os dados com consultas de [registo](../log-query/log-query-overview.md) e [alertas de registo.](alerts-log.md) Utilize a Política para criar automaticamente uma definição de diagnóstico cada vez que criar um recurso.
+[As definições](./diagnostic-settings.md) de diagnóstico recolhem registos de recursos e métricas de recursos Azure para vários locais, tipicamente para um espaço de trabalho Log Analytics que permite analisar os dados com consultas de [registo](../log-query/log-query-overview.md) e [alertas de registo.](alerts-log.md) Utilize a Política para criar automaticamente uma definição de diagnóstico cada vez que criar um recurso.
 
 Cada tipo de recurso Azure tem um conjunto único de categorias que precisam de ser listadas na definição de diagnóstico. Por isso, cada tipo de recurso requer uma definição de política separada. Alguns tipos de recursos têm definições de política incorporadas que pode atribuir sem modificação. Para outros tipos de recursos, é necessário criar uma definição personalizada.
 
@@ -79,7 +79,7 @@ O script [Create-AzDiagPolicy](https://www.powershellgallery.com/packages/Create
    Create-AzDiagPolicy.ps1 -SubscriptionID xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -ResourceType Microsoft.Sql/servers/databases  -ExportLA -ExportEH -ExportDir ".\PolicyFiles"  
    ```
 
-5. O script cria pastas separadas para cada definição de política, cada uma contendo três ficheiros chamados azurepolicy,json, azurepolicy.rules.json, azurepolicy.parameters.json. Se pretender criar a política manualmente no portal Azure, pode copiar e colar o conteúdo da azurepolicy.js, uma vez que inclui toda a definição de política. Utilize os outros dois ficheiros com PowerShell ou CLI para criar a definição de política a partir de uma linha de comando.
+5. O script cria pastas separadas para cada definição de política, cada uma contendo três ficheiros nomeados azurepolicy.js, azurepolicy.rules.jsligados, azurepolicy.parameters.jsligados. Se pretender criar a política manualmente no portal Azure, pode copiar e colar o conteúdo da azurepolicy.js, uma vez que inclui toda a definição de política. Utilize os outros dois ficheiros com PowerShell ou CLI para criar a definição de política a partir de uma linha de comando.
 
     Os exemplos a seguir mostram como instalar a definição de política tanto da PowerShell como da CLI. Cada um deles inclui metadados para especificar uma categoria de **Monitorização** para agrupar a nova definição de política com as definições de política incorporada.
 
@@ -119,19 +119,65 @@ A iniciativa aplicar-se-á a cada máquina virtual à medida que for criada. Uma
 ![Remediação da iniciativa](media/deploy-scale/initiative-remediation.png)
 
 
-## <a name="azure-monitor-for-vms"></a>Azure Monitor para VMs
-[O Azure Monitor para VMs](../insights/vminsights-overview.md) é a principal ferramenta no Azure Monitor para monitorizar máquinas virtuais. Ativar o Monitor Azure para VMs instala tanto o agente Log Analytics como o agente Dependency. Em vez de executar estas tarefas manualmente, utilize a Política Azure para garantir que cada máquina virtual seja configurada à medida que a cria.
+## <a name="azure-monitor-for-vms-and-virtual-machine-agents"></a>Monitor Azure para VMs e agentes de máquinas virtuais
+[O Azure Monitor for VMs](../insights/vminsights-overview.md) é a principal ferramenta do Azure Monitor para monitorizar máquinas virtuais e conjuntos de balanças de máquinas virtuais. Para ativar o Azure Monitor para VMs, tem de instalar tanto o agente Log Analytics como o agente Dependency em cada cliente. Pode também instalar o agente Log Analytics por si só para suportar outros cenários de monitorização. Em vez de executar estas tarefas manualmente, utilize a Política Azure para garantir que cada máquina virtual seja configurada à medida que a cria.
 
-O Azure Monitor para VMs inclui duas iniciativas incorporadas chamadas **Enable Azure Monitor para VMs** e **Enable Azure Monitor para conjuntos de balanças de máquinas virtuais**. Estas iniciativas incluem um conjunto de definições políticas necessárias para instalar o agente Log Analytics e o agente de dependência necessário para permitir o Monitor Azure para VMs. 
+> [!NOTE]
+> O Azure Monitor for VMs inclui uma funcionalidade chamada **Azure Monitor for VMs Policy Coverage** que permite descobrir e remediar VMs não conformes no seu ambiente. Pode utilizar esta funcionalidade em vez de trabalhar diretamente com a Azure Policy para VMs Azure e para máquinas virtuais híbridas ligadas ao Arco Azure. Para conjuntos de escala de máquina virtual Azure, deve criar a atribuição utilizando a Política Azure.
+ 
 
+O Azure Monitor para VMs inclui as seguintes iniciativas incorporadas que instalam ambos os agentes para permitir uma monitorização completa. 
+
+|Nome |Descrição |
+|:---|:---|
+|Ativar monitor Azure para VMs | Instala o agente log analytics e agente de dependência em VMs Azure e VMs híbridos ligados ao Arco Azure. |
+|Ativar o Azure Monitor para conjuntos de escala de máquinas virtuais | Instala o agente Log Analytics e o agente De dependência no conjunto de escala de máquina virtual Azure. |
+
+
+### <a name="virtual-machines"></a>Máquinas virtuais
 Em vez de criar atribuições para estas iniciativas utilizando a interface Azure Policy, o Azure Monitor para VMs inclui uma funcionalidade que permite inspecionar o número de máquinas virtuais em cada âmbito para determinar se a iniciativa foi aplicada. Em seguida, pode configurar o espaço de trabalho e criar as atribuições necessárias utilizando essa interface.
 
 Para obter mais informações sobre este processo, consulte [Enable Azure Monitor para VMs utilizando a Política Azure](../insights/vminsights-enable-at-scale-policy.md).
 
 ![Azure Monitor para a política de VMs](../platform/media/deploy-scale/vminsights-policy.png)
 
+### <a name="virtual-machine-scale-sets"></a>Conjuntos de dimensionamento de máquinas virtuais
+Para utilizar a Política Azure para permitir a monitorização de conjuntos de escala de máquinas virtuais, atribua o Enable Azure Monitor para a iniciativa **de conjuntos de escalas de máquinas virtuais** a um grupo de gestão, subscrição ou grupo de recursos da Azure, dependendo do âmbito dos seus recursos para monitorizar. Um [grupo de gestão](../../governance/management-groups/overview.md) é particularmente útil para a política de deteção, especialmente se a sua organização tiver várias subscrições.
 
-## <a name="next-steps"></a>Próximos passos
+![Atribuição de iniciativas](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
+
+Selecione o espaço de trabalho para onde os dados serão enviados. Este espaço de trabalho deve ter a solução *VMInsights* instalada como descrito em []() .
+
+![Selecionar área de trabalho](media/deploy-scale/virtual-machine-scale-set-workspace.png)
+
+Crie uma tarefa de reparação se tiver o conjunto de escala de máquina virtual existente que precisa de ser atribuído a esta política.
+
+![Tarefa de reparação](media/deploy-scale/virtual-machine-scale-set-remediation.png)
+
+### <a name="log-analytics-agent"></a>Agente do Log Analytics
+Pode ter cenários em que pretende instalar o agente Log Analytics, mas não o agente de dependência. Não existe uma iniciativa integrada apenas para o agente, mas pode criar a sua própria com base nas definições de política incorporadas fornecidas pelo Azure Monitor para VMs.
+
+> [!NOTE]
+> Não haveria razão para implantar o agente de dependência por si só, uma vez que exige que o agente Log Analytics entregue os seus dados ao Azure Monitor.
+
+
+|Nome |Descrição |
+|-----|------------|
+|Implementação de agente de Audit Log Analytics – imagem VM (OS) não cotada |Reporta vMs como incompatível se a imagem VM (OS) não estiver definida na lista e o agente não estiver instalado. |
+|Implementar agente de Analítica de Registo para Os VMs linux |Implementar o agente Desafinado de Registos para VMs Linux se a imagem VM (OS) estiver definida na lista e o agente não estiver instalado. |
+|Implementar agente de Analítica de Registo para VMs do Windows |Implementar o agente Desajustado de Registo para VMs do Windows se a imagem VM (OS) estiver definida na lista e o agente não estiver instalado. |
+| [Pré-visualização]: O agente Log Analytics deve ser instalado nas suas máquinas Linux Azure Arc |Relata as máquinas híbridas Azure Arc como incompatíveis para os VMs Linux se a imagem VM (OS) estiver definida na lista e o agente não estiver instalado. |
+| [Pré-visualização]: O agente Log Analytics deve ser instalado nas suas máquinas Windows Azure Arc |Relata as máquinas híbridas Azure Arc como incompatível com VMs do Windows se a imagem VM (OS) estiver definida na lista e o agente não estiver instalado. |
+| [Pré-visualização]: Implementar o agente Desacutivamento de Registos para máquinas Linux Azure Arc |Implementar o agente Log Analytics para máquinas Azure Arc híbridas Linux se a imagem VM (OS) estiver definida na lista e o agente não estiver instalado. |
+| [Pré-visualização]: Implementar o agente Desacutivamento de Registos para máquinas Windows Azure Arc |Implementar o agente Log Analytics para máquinas Azure Arc híbridas do Windows se a imagem VM (OS) estiver definida na lista e o agente não estiver instalado. |
+|Implementação de agente de dependência de auditoria em conjuntos de escala de máquina virtual – imagem VM (OS) não cotada |Relata a escala de máquina virtual definida como incompatível se a imagem VM (OS) não estiver definida na lista e o agente não estiver instalado. |
+|Implementação de agente de Audit Log Analytics em conjuntos de escala de máquina virtual – imagem VM (OS) não cotada |Relata a escala de máquina virtual definida como incompatível se a imagem VM (OS) não estiver definida na lista e o agente não estiver instalado. |
+|Implementar o agente Desagregalhador para conjuntos de escala de máquina virtual Linux |Implementar o agente Log Analytics para conjuntos de escala de máquina virtual Linux se a Imagem VM (OS) estiver definida na lista e o agente não estiver instalado. |
+|Implementar o agente Desagregalhador para conjuntos de escala de máquina virtual do Windows |Implementar o agente Desajustado de Analítico para conjuntos de escala de máquina virtual do Windows se a imagem VM (OS) estiver definida na lista e o agente não estiver instalado. |
+
+
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia mais sobre [a Política Azure.](../../governance/policy/overview.md)
 - Leia mais sobre [as definições de diagnóstico](diagnostic-settings.md).
+

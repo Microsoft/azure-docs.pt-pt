@@ -11,16 +11,16 @@ keywords: VM isolamento,VM isolado,isolamento,isolado
 ms.assetid: ''
 ms.service: virtual-machines
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: bf2b4ac189e0e1eff77c2aae98a1fb53268821ab
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ed49f5299129d16ecdd31f537064e67a4e8965a4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509327"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289721"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Tamanhos de máquina virtual otimizados de memória
 
@@ -49,10 +49,10 @@ O Azure Compute oferece tamanhos de máquinas virtuais que são isolados a um ti
 - [Fins gerais](sizes-general.md)
 - [Com otimização de computação](sizes-compute.md)
 - [Com otimização de armazenamento](sizes-storage.md)
-- [Otimizada para GPU](sizes-gpu.md)
+- [Com otimização de GPU](sizes-gpu.md)
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

@@ -4,12 +4,12 @@ description: Saiba como gerir e monitorizar as cópias de segurança do Microsof
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 376e2d53165ab822f75e635b42106e1fe13282a9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 096f47ba4a3d8d490c9cfaf43f4dafec4faf10f9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054981"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317353"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gerir backups de agentes do Microsoft Azure Recovery Services (MARS) utilizando o serviço de backup da Azure
 
@@ -112,7 +112,7 @@ Existem duas formas de parar de proteger ficheiros e pastas de reserva:
 1. Em **Pausa Cópia de Segurança Programada,** reveja as informações e clique em **Terminar**.
 
     ![Modifique ou pare uma cópia de segurança programada.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. No **processo de backup modificar,** verifique se a pausa de backup do seu horário está em estado de sucesso e clique **perto** do fim.
+1. No **Modificar o progresso da cópia de segurança,** verifique se a pausa de backup do seu horário está em estado de sucesso e clique **perto** do fim.
 
 ### <a name="stop-protection-and-delete-backup-data"></a>Parar a proteção e eliminar dados de backup
 

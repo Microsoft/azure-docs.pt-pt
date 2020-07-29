@@ -4,12 +4,12 @@ description: Este artigo fornece orientações para a governação da infraestru
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: cebc32edf78df1fa6a72876f8c8e5d23525942b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d86728eefc46c74b49ac610e2207ce5e7ae6a9d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481583"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289359"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Governação da infraestrutura Azure DevTest Labs - Migração e integração de aplicações
 Uma vez estabelecido o seu ambiente de laboratório de desenvolvimento/teste, tem de pensar nas seguintes questões:
@@ -50,14 +50,14 @@ No entanto, um fator adicional a notar é a frequência de alterações ao seu p
 Como posso configurar um processo facilmente repetível para trazer as minhas imagens organizacionais personalizadas para um ambiente de DevTest Labs?
 
 ### <a name="answer"></a>Resposta
-Veja [este vídeo no padrão da Image Factory.](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) Este cenário é um cenário avançado, e os scripts fornecidos são apenas scripts de amostra. Se forem necessárias alterações, é necessário gerir e manter os scripts utilizados no seu ambiente.
+Veja [este vídeo no padrão da Image Factory.](./devtest-lab-faq.md#blog-post) Este cenário é um cenário avançado, e os scripts fornecidos são apenas scripts de amostra. Se forem necessárias alterações, é necessário gerir e manter os scripts utilizados no seu ambiente.
 
 Utilizar a DevTest Labs para criar um pipeline de imagem personalizado em Azure Pipelines:
 
-- [Introdução: Prepare os VMs em minutos, instalando uma fábrica de imagens em Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2016/09/14/introduction-get-vms-ready-in-minutes-by-setting-up-image-factory-in-azure-devtest-labs/)
-- [Fábrica de Imagem – Parte 2! Configurar gasodutos Azure e Laboratório de Fábrica para criar VMs](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
-- [Image Factory – Parte 3: Guardar imagens personalizadas e distribuir para vários laboratórios](https://blogs.msdn.microsoft.com/devtestlab/2018/01/10/image-factory-part-3-save-custom-images-and-distribute-to-multiple-labs/)
-- [Vídeo: Fábrica de Imagem Personalizada com Laboratórios Azure DevTest](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)
+- [Introdução: Prepare os VMs em minutos, instalando uma fábrica de imagens em Azure DevTest Labs](./devtest-lab-faq.md#blog-post)
+- [Fábrica de Imagem – Parte 2! Configurar gasodutos Azure e Laboratório de Fábrica para criar VMs](./devtest-lab-faq.md#blog-post)
+- [Image Factory – Parte 3: Guardar imagens personalizadas e distribuir para vários laboratórios](./devtest-lab-faq.md#blog-post)
+- [Vídeo: Fábrica de Imagem Personalizada com Laboratórios Azure DevTest](./devtest-lab-faq.md#blog-post)
 
 ## <a name="patterns-to-set-up-network-configuration"></a>Padrões para configurar a configuração da rede
 
@@ -65,7 +65,7 @@ Utilizar a DevTest Labs para criar um pipeline de imagem personalizado em Azure 
 Como posso garantir que as máquinas virtuais de desenvolvimento e de teste não conseguem chegar à internet pública? Existem padrões recomendados para configurar a configuração da rede?
 
 ### <a name="answer"></a>Resposta
-Sim. Há dois aspetos a ter em conta : tráfego de entrada e saída.
+Yes. Há dois aspetos a ter em conta : tráfego de entrada e saída.
 
 **Tráfego de entrada** – Se a máquina virtual não tiver um endereço IP público, então não pode ser alcançada pela internet. Uma abordagem comum consiste em assegurar que seja definida uma política de nível de subscrição, de modo a que nenhum utilizador seja capaz de criar um endereço IP público.
 
@@ -123,5 +123,5 @@ Este cenário pode não ser útil se estiver a usar a DevTest Labs para hospedar
 
 Vale também a pena notar que o número de máquinas virtuais por laboratório ou por opção de utilizador limita apenas o número de máquinas criadas nativamente no próprio laboratório, e não por quaisquer ambientes (modelos de Gestor de Recursos).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Ver [Ambientes de Utilização em Laboratórios DevTest](devtest-lab-test-env.md).

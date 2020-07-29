@@ -1,5 +1,5 @@
 ---
-title: Acesso delegado no Windows Virtual Desktop Spring 2020 - Azure
+title: Acesso delegado no Windows Virtual Desktop - Azure
 description: Como delegar capacidades administrativas numa implementação virtual do Windows Desktop, incluindo exemplos.
 services: virtual-desktop
 author: Heidilohr
@@ -8,20 +8,17 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 92de6011f85079e9207ab9f1a5bd8c3a045823d7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2dc96f587a9e5db9d9810a4d1ab7d32c4ff49f7d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082703"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289862"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop"></a>Acesso delegado ao Windows Virtual Desktop
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à atualização primavera 2020 com objetos de desktop virtual do Windows Manager do Azure. Se estiver a utilizar o desbloqueio virtual do Windows Desktop Fall 2019 sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/delegated-access-virtual-desktop-2019.md).
->
-> A atualização Virtual Desktop Spring 2020 do Windows está atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos a sua utilização para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Este conteúdo aplica-se ao Windows Virtual Desktop com objetos de ambiente de trabalho virtuais do Windows, gestor de recursos do Azure. Se estiver a utilizar o Windows Virtual Desktop (clássico) sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/delegated-access-virtual-desktop-2019.md).
 
 O Windows Virtual Desktop tem um modelo de acesso delegado que permite definir a quantidade de acesso que um determinado utilizador pode ter atribuindo-lhes uma função. Uma atribuição de funções tem três componentes: principal de segurança, definição de função e âmbito. O modelo de acesso delegado do Windows Desktop baseia-se no modelo Azure RBAC. Para saber mais sobre atribuições específicas de funções e seus componentes, consulte [a visão geral do controlo de acesso baseada em funções Azure](../role-based-access-control/built-in-roles.md).
 

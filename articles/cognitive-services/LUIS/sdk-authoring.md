@@ -2,15 +2,15 @@
 title: 'Quickstart: Language Understanding (LUIS) autoria da biblioteca de clientes'
 description: Começa com a biblioteca de clientes LUIS com este arranque rápido. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas.
 ms.topic: quickstart
-ms.date: 05/28/2020
-ms.custom: tracking-python
+ms.date: 07/28/2020
+ms.custom: tracking-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: c4f974935b5385b9df017af2f25b9f536ec5cddb
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: e5fc21ed42d3704cf102a820cebb64c09aff23ab
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84605753"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369449"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library"></a>Quickstart: Language Understanding (LUIS) autoria da biblioteca de clientes
 
@@ -28,7 +28,7 @@ Começa com a biblioteca de clientes de Compreensão linguística (LUIS). Siga e
 [!INCLUDE [Get intent with Python SDK](./includes/sdk-python-authoring.md)]
 ::: zone-end
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 >[Utilize o SDK para consultar o ponto final de previsão](sdk-query-prediction-endpoint.md)

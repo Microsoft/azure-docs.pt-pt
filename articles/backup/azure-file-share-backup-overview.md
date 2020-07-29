@@ -3,16 +3,16 @@ title: Sobre a Azure file share backup
 description: Saiba como apoiar as ações de ficheiros da Azure no cofre dos Serviços de Recuperação
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 40cb9ca0bd34fd65ab1983af6384d617db26e996
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7441157d6346eefc256e9e7c29f9bb1fa5c13b79
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539096"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289517"
 ---
 # <a name="about-azure-file-share-backup"></a>Sobre a Azure file share backup
 
-A azure file share backup é uma solução de backup baseada em nuvem nativa que protege os seus dados na nuvem e elimina despesas adicionais de manutenção envolvidas em soluções de backup no local. O serviço Azure Backup integra-se sem problemas com a sincronização de ficheiros Azure e permite centralizar os dados de partilha de ficheiros, bem como as suas cópias de segurança. Esta solução simples, fiável e segura permite-lhe configurar a proteção para as ações de ficheiros da sua empresa em poucos passos simples com a garantia de que pode recuperar os seus dados em caso de qualquer cenário de desastre.
+A azure file share backup é uma solução de backup baseada em nuvem nativa que protege os seus dados na nuvem e elimina despesas adicionais de manutenção envolvidas em soluções de backup no local. O serviço Azure Backup integra-se sem problemas com o Azure File Sync e permite centralizar os dados de partilha de ficheiros, bem como as suas cópias de segurança. Esta solução simples, fiável e segura permite-lhe configurar a proteção para as ações de ficheiros da sua empresa em poucos passos simples com a garantia de que pode recuperar os seus dados em caso de qualquer cenário de desastre.
 
 ## <a name="key-benefits-of-azure-file-share-backup"></a>Principais benefícios da cópia de segurança da partilha de ficheiros Azure
 
@@ -29,7 +29,7 @@ A azure file share backup é uma solução de backup baseada em nuvem nativa que
 
 ## <a name="how-the-backup-process-works"></a>Como funciona o processo de backup
 
-1. O primeiro passo para configurar o backup das ações da Azure File é criar um cofre de serviços de recuperação. O cofre dá-lhe uma visão consolidada das cópias de segurança configuradas em diferentes cargas de trabalho.
+1. O primeiro passo para configurar o backup das ações de ficheiros Azure é criar um cofre de serviços de recuperação. O cofre dá-lhe uma visão consolidada das cópias de segurança configuradas em diferentes cargas de trabalho.
 
 2. Assim que criar um cofre, o serviço Azure Backup descobre as contas de armazenamento que podem ser registadas no cofre. Pode selecionar a conta de armazenamento que hospeda as ações de ficheiro que pretende proteger.
 
@@ -42,15 +42,17 @@ A azure file share backup é uma solução de backup baseada em nuvem nativa que
     >[!NOTE]
     >Os dados de partilha de ficheiros não são transferidos para o serviço de Backup, uma vez que o serviço de Backup cria e gere instantâneos que fazem parte da sua conta de armazenamento, e as cópias de segurança não são transferidas para o cofre.
 
-6. Pode restaurar o conteúdo da partilha de ficheiros Azure (ficheiros individuais ou a parte completa) a partir de instantâneos disponíveis na partilha de ficheiros de origem. Uma vez que a operação é desencadeada, o URL instantâneo é recuperado da loja de metadados e os dados são listados e transferidos do instantâneo de origem para a parte do ficheiro alvo da sua escolha.
+6. Pode restaurar o conteúdo da partilha de ficheiros Azure (ficheiros individuais ou a parte completa) a partir de instantâneos disponíveis na partilha de ficheiros de origem. Uma vez que a operação é desencadeada, o URL instantâneo é recuperado da loja de metadados e os dados são listados e transferidos do instantâneo de origem para a parte do ficheiro alvo da sua escolha. 
 
-7. Os dados de monitorização do trabalho de backup e restauro são empurrados para o serviço de monitorização de backup Azure. Isto permite-lhe monitorizar as cópias de segurança em nuvem para as suas partilhas de ficheiros num único dashboard. Além disso, também pode configurar alertas ou notificações de e-mail quando a saúde de backup é afetada. Os e-mails são enviados através do serviço de e-mail Azure.
+7. Se estiver a utilizar o Azure File Sync, o serviço de Cópia de Segurança indica ao serviço Azure File Sync os caminhos dos ficheiros que estão a ser restaurados e, em seguida, desencadeia um processo de deteção de mudança de fundo nestes ficheiros. Quaisquer ficheiros que tenham sido alterados são sincronizados até ao ponto final do servidor. Este processo ocorre em paralelo com o restauro original da partilha de ficheiros Azure. 
+
+8. Os dados de monitorização do trabalho de backup e restauro são empurrados para o serviço de monitorização de backup Azure. Isto permite-lhe monitorizar as cópias de segurança em nuvem para as suas partilhas de ficheiros num único dashboard. Além disso, também pode configurar alertas ou notificações de e-mail quando a saúde de backup é afetada. Os e-mails são enviados através do serviço de e-mail Azure.
 
 ## <a name="backup-costs"></a>Custos de backup
 
 Atualmente será cobrado apenas por instantâneos, uma vez que a cópia de segurança da partilha de ficheiros Azure é uma solução baseada em instantâneos. Os custos de armazenamento incorridos para instantâneos são faturados juntamente com o uso de ficheiros Azure de acordo com os detalhes de preços [mencionados aqui](https://azure.microsoft.com/pricing/details/storage/files/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [apoiar as ações de ficheiros da Azure](backup-afs.md)
 * Encontre respostas a [Perguntas sobre o backup dos Ficheiros Azure](backup-azure-files-faq.md)

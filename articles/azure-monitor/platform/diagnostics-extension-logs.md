@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: a367e819ab9f12d9adcb448848c80eaeea73d113
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 095fd0b534c0dffaf80d2464fb9734f295335b84
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008035"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317183"
 ---
 # <a name="collect-data-from-azure-diagnostics-extension-to-azure-monitor-logs"></a>Recolher dados da extensão de diagnósticos do Azure para os Registos do Monitor Azure
 A extensão de diagnóstico Azure é um [agente no Azure Monitor](agents-overview.md) que recolhe dados de monitorização do sistema operativo convidado de recursos compute da Azure, incluindo máquinas virtuais. Este artigo descreve como recolher dados recolhidos pela extensão de diagnóstico de Azure Storage para Azure Monitor Logs.
@@ -24,13 +24,13 @@ A azure diagnostica extensões armazena dados numa conta de Armazenamento Azure.
 
 | Tipo de Registo | Tipo de Recurso | Localização |
 | --- | --- | --- |
-| Registos do IIS |Máquinas Virtuais <br> Funções web <br> Funções de trabalhador |wad-iis-logfiles (Blob Storage) |
-| Syslog |Máquinas Virtuais |LinuxsyslogVer2v0 (Armazenamento de Mesa) |
+| Registos do IIS |Virtual Machines <br> Funções web <br> Funções de trabalhador |wad-iis-logfiles (Blob Storage) |
+| Syslog |Virtual Machines |LinuxsyslogVer2v0 (Armazenamento de Mesa) |
 | Eventos Operacionais do Tecido de Serviço |Nó de tecido de serviço |WADServiceFabricSystemEventTable |
 | Eventos de ator confiáveis de tecido de serviço |Nó de tecido de serviço |WADServiceFabricReliableActorEventTable |
 | Eventos de serviço confiáveis de tecido de serviço |Nó de tecido de serviço |WADServiceFabricReliableServiceEventTable |
-| Registos do Evento Windows |Nó de tecido de serviço <br> Máquinas Virtuais <br> Funções web <br> Funções de trabalhador |WADWindowsEventLogsTable (Armazenamento de Mesa) |
-| Registos ETW do Windows |Nó de tecido de serviço <br> Máquinas Virtuais <br> Funções web <br> Funções de trabalhador |WADETWEventTable (Armazenamento de Mesa) |
+| Registos do Evento Windows |Nó de tecido de serviço <br> Virtual Machines <br> Funções web <br> Funções de trabalhador |WADWindowsEventLogsTable (Armazenamento de Mesa) |
+| Registos ETW do Windows |Nó de tecido de serviço <br> Virtual Machines <br> Funções web <br> Funções de trabalhador |WADETWEventTable (Armazenamento de Mesa) |
 
 ## <a name="data-types-not-supported"></a>Tipos de dados não suportados
 
@@ -64,5 +64,6 @@ Em aproximadamente 30 minutos, é possível ver dados da conta de armazenamento 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Recolher registos e métricas para serviços Azure](./resource-logs.md#send-to-log-analytics-workspace) para serviços Azure suportados.
-* [Permitir soluções](../../azure-monitor/insights/solutions.md) para fornecer informações sobre os dados.
-* [Utilize consultas de pesquisa](../../azure-monitor/log-query/log-query-overview.md) para analisar os dados.
+* [Permitir soluções](../insights/solutions.md) para fornecer informações sobre os dados.
+* [Utilize consultas de pesquisa](../log-query/log-query-overview.md) para analisar os dados.
+

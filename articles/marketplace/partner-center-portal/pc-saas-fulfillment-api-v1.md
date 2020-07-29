@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 05/04/2020
-ms.openlocfilehash: 3f25537953fd33c875aea23592d4526d6f07828d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: fddeea5265744045506564e65ce5337c183fe332
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118380"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318220"
 ---
 # <a name="saas-fulfillment-apis-version-1-deprecated"></a>ApIs de cumprimento saas (precotado)
 

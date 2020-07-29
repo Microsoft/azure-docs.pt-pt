@@ -6,15 +6,15 @@ author: tanmaygore
 manager: vashan
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: dd32b2a59a05578c061c2e21704001558706aede
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 79e560f73b69047419626086af9c975c90870edc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510536"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291128"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>Planeamento para a migração de recursos iaas do clássico para o Azure Resource Manager em Linux
 
@@ -201,7 +201,7 @@ Tenha de ser propositado em que serviços pretende agora ativar no Azure Resourc
 Lembre-se porque começou esta viagem de migração Classic to Azure Resource Manager.  Quais foram as razões comerciais originais? Conseguiu a razão do negócio?
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral da migração suportada pela plataforma de recursos iaas do clássico para o Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Análise detalhada técnica sobre a migração suportada por plataforma da clássica para Azure Resource Manager)

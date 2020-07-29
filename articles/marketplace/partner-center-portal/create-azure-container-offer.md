@@ -4,15 +4,15 @@ description: Saiba como criar e publicar uma oferta de contentores ao Azure Mark
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: mingshen
-ms.author: mingshen
+author: keferna
+ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: c659bbe3e5f5645bb42b3a9c94a5e5fb7ebe75f0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 103a5534c143e5edf87f70570eb941dfa72bd45b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086477"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317829"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Criar uma oferta de contentores Azure no Azure Marketplace
 
@@ -133,7 +133,7 @@ Esta página permite definir os detalhes da oferta que são exibidos no mercado 
 > [!NOTE]
 > Os detalhes da oferta não são necessários para estar em inglês se a descrição da oferta começar com a frase"Esta aplicação está disponível apenas em [língua não inglesa]." Também é normal fornecer um Link Útil para oferecer conteúdo num idioma diferente do usado na listagem de detalhes da Oferta.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 
 O nome que aqui entra apresenta como título da sua oferta. Este campo está pré-preenchido com o texto que inseriu na caixa **de pseudónimos Oferta** quando criou a oferta. Pode alterar este nome posteriormente.
 

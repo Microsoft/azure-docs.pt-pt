@@ -7,20 +7,17 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: f7a26b6a622368fe9601ea3b6555386b6a121540
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a80e9940aff69d351fde7512cfc38a12d6029f74
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081099"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291499"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configure a aceleração da unidade de processamento de gráficos (GPU) para o Windows Virtual Desktop
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à atualização primavera 2020 com objetos de desktop virtual do Windows Manager do Azure. Se estiver a utilizar o desbloqueio virtual do Windows Desktop Fall 2019 sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md).
->
-> A atualização Virtual Desktop Spring 2020 do Windows está atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos a sua utilização para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Este conteúdo aplica-se ao Windows Virtual Desktop com objetos de ambiente de trabalho virtuais do Windows, gestor de recursos do Azure. Se estiver a utilizar o Windows Virtual Desktop (clássico) sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md).
 
 O Windows Virtual Desktop suporta renderização acelerada por GPU e codificação para melhorar o desempenho e escalabilidade da aplicação. A aceleração da GPU é particularmente crucial para aplicações com gráficas intensivas.
 
@@ -113,7 +110,7 @@ Para verificar se o Remote Desktop está a utilizar a codificação de vídeo so
 2. Lançar o Observador de Eventos e navegar para o seguinte nó: **Aplicações e Serviços Regista**  >  **Microsoft**  >  **Windows**  >  **RemoteDesktopServices-RdpCoreCDV**  >  **Operacional**
 3. Para determinar se a codificação de vídeo de ecrã completo é utilizada, procure o ID 162 do evento. Se vir "AVC Disponível: 1 Perfil Inicial: 2048" então é utilizado AVC 444.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Estas instruções devem tê-lo a funcionar com a aceleração da GPU num anfitrião de uma sessão (um VM). Algumas considerações adicionais para permitir a aceleração da GPU através de um pool de hospedeiro maior:
 

@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/22/2020
-ms.openlocfilehash: f4dbdbfc3b835871516233e601881012190169ce
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+author: shganesh-dev
+ms.author: shganesh
+ms.openlocfilehash: 44e992bb1445e1e58f42ec150a8e2c0682eea98b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131774"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317591"
 ---
 # <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Dashboard do Cliente na análise do mercado comercial
 

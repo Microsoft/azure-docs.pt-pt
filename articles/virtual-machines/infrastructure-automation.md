@@ -3,16 +3,16 @@ title: Utilize ferramentas de automatização de infraestruturas
 description: Aprenda a usar ferramentas de automatização de infraestruturas como Ansible, Chef, Puppet, Terraform e Packer para criar e gerir máquinas virtuais em Azure.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 07/17/2020
 ms.author: cynthn
-ms.openlocfilehash: 31a0d9d4eac731836812c438a71541885863c8de
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5567274fd9ee2cfaf41f9ff4c6e71bb2faab7b1d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099230"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292372"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Utilize ferramentas de automação de infraestruturas com máquinas virtuais em Azure
 

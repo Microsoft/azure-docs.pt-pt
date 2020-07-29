@@ -10,11 +10,12 @@ ms.date: 06/22/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: has-adal-ref
-ms.openlocfilehash: ddb079051414168b125ce2e42e8badd55580f0c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 949347d07fe120c6900f49499e78595b540718a7
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212633"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369004"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Adquirir um token da Azure AD para autorizar pedidos de um pedido de cliente
 
@@ -26,7 +27,7 @@ Para obter uma visão geral do fluxo de concessão de código OAuth 2.0, consult
 
 ## <a name="assign-a-role-to-an-azure-ad-security-principal"></a>Atribuir um papel a um diretor de segurança da AD Azure
 
-Para autenticar um princípio de segurança da sua aplicação Azure Storage, configurar primeiro as definições de controlo de acesso baseado em funções (RBAC) para esse diretor de segurança. O Azure Storage define funções RBAC incorporadas que englobam permissões para contentores e filas. Quando o papel do RBAC é atribuído a um diretor de segurança, esse diretor de segurança tem acesso a esse recurso. Para obter mais informações, consulte [Gerir os direitos de acesso aos dados de Azure Blob e Queue com o RBAC.](storage-auth-aad-rbac.md)
+Para autenticar um princípio de segurança da sua aplicação Azure Storage, configurar primeiro as definições de controlo de acesso baseado em funções (RBAC) para esse diretor de segurança. O Azure Storage define funções incorporadas do Azure que englobam permissões para contentores e filas. Quando o papel do RBAC é atribuído a um diretor de segurança, esse diretor de segurança tem acesso a esse recurso. Para obter mais informações, consulte [Gerir os direitos de acesso aos dados de Azure Blob e Queue com o RBAC.](storage-auth-aad-rbac.md)
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Registe o seu pedido junto de um inquilino da AD Azure
 
@@ -280,7 +281,7 @@ CloudBlockBlob blob = new CloudBlockBlob(
 
 ### <a name="enable-implicit-grant-flow"></a>Permitir o fluxo de subvenção implícita
 
-Para executar a amostra, poderá ser necessário configurar o fluxo implícito de subvenção para o registo da sua aplicação. Siga estes passos.
+Para executar a amostra, poderá ser necessário configurar o fluxo implícito de subvenção para o registo da sua aplicação. Siga estes passos:
 
 1. Navegue para o registo da sua aplicação no portal Azure.
 1. Na secção **Gerir,** selecione a **definição de Autenticação.**
@@ -298,7 +299,7 @@ Ao executar a amostra, poderá descobrir que precisa de atualizar o URI de redir
 
     ![Screenshot mostrando URIs redirecionando para registo de aplicações](media/storage-auth-aad-app/redirect-uri.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Plataforma de identidades da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/)
 - [Gerir direitos de acesso aos dados de armazenamento com o RBAC](storage-auth-aad-rbac.md)

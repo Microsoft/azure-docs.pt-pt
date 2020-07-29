@@ -6,23 +6,23 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 05/28/2020
+ms.date: 07/28/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: 504ba9106cc9d617858e8fad7ea421c8707707b3
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 19da911cbc662f47e7bbd16aaddf8803d4109d6a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171289"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369281"
 ---
-Utilize a biblioteca de clientes de runtime com o Conhecimento de Idiomas (LUIS) para:
+Utilize a biblioteca de clientes de runtime com o Conhecimento de Línguas (LUIS) para Node.js:
 
 * Previsão por slot
 * Previsão por Versão
 
-[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-runtime)  |  [Pacote de tempo de execução (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)  |  [Amostras](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_prediction.js)
+[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-runtime)  |  [Pacote de tempo de execução (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)  |  [Amostras](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/node-sdk-authoring-prediction/luis_prediction.js)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,8 +35,6 @@ Utilize a biblioteca de clientes de runtime com o Conhecimento de Idiomas (LUIS)
 ### <a name="get-your-language-understanding-luis-runtime-key"></a>Obtenha a sua chave de tempo de execução (LUIS)
 
 Obtenha a sua [chave de tempo de execução](../luis-how-to-azure-subscription.md) criando um recurso de tempo de execução LUIS. Guarde a chave e o ponto final da chave para o próximo passo.
-
-[!INCLUDE [Set up environment variables for prediction quickstart](sdk-prediction-environment-variables.md)]
 
 ### <a name="create-a-new-javascript-nodejs-file"></a>Criar um novo ficheiro JavaScript (Node.js)
 
@@ -75,13 +73,11 @@ A partir do diretório do projeto, abra o `luis_prediction.js` arquivo no seu ed
 
 1. Crie variáveis para a sua própria informação LUIS requerida:
 
-    Adicione variáveis para gerir a sua chave de previsão puxada de uma variável ambiental chamada `LUIS_RUNTIME_KEY` . Se criou a variável ambiental após o lançamento da aplicação, o editor, o IDE ou o shell running terá de ser fechado e recarregado para aceder à variável. Os métodos serão criados mais tarde.
-
-    Crie uma variável para manter o seu nome de `LUIS_RUNTIME_ENDPOINT` recurso.
-
+    Adicione variáveis para gerir a sua chave de previsão e chave de ponto final. 
+    
     [!code-javascript [Azure resource variables](~/cognitive-services-quickstart-code/javascript/LUIS/node-sdk-authoring-prediction/luis_prediction.js?name=Variables)]
 
-1. Crie uma variável para o ID da aplicação como uma variável ambiental chamada `LUIS_APP_ID` . Desaprote a variável ambiente para a aplicação IoT pública, **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`** . Crie uma variável para definir a `production` ranhura publicada.
+1. Crie uma variável para o ID da aplicação chamado `LUIS_APP_ID` . Desaprote a variável para a aplicação IoT pública, **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`** . Crie uma variável para definir a `production` ranhura publicada.
 
     [!code-javascript [LUIS app variables](~/cognitive-services-quickstart-code/javascript/LUIS/node-sdk-authoring-prediction/luis_prediction.js?name=OtherVariables)]
 
@@ -158,6 +154,6 @@ O resultado da previsão devolve um objeto JSON:
 ```
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar as suas previsões, limpe o trabalho a partir deste arranque rápido, eliminando o ficheiro e as suas subdiretas.

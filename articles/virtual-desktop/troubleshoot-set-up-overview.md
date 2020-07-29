@@ -8,26 +8,23 @@ ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1010f89057d83a11fb2e156f01509e909270b044
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4622e64b585d3d4795b11d29e7bffdf9991203c6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083577"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292548"
 ---
 # <a name="troubleshooting-overview-feedback-and-support-for-windows-virtual-desktop"></a>Visão geral de resolução de problemas, feedback e suporte para Windows Virtual Desktop
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à atualização primavera 2020 com objetos de desktop virtual do Windows Manager do Azure. Se estiver a utilizar o desbloqueio virtual do Windows Desktop Fall 2019 sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
->
-> A atualização Virtual Desktop Spring 2020 do Windows está atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos a sua utilização para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Este conteúdo aplica-se ao Windows Virtual Desktop com objetos de ambiente de trabalho virtuais do Windows, gestor de recursos do Azure. Se estiver a utilizar o Windows Virtual Desktop (clássico) sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
 
 Este artigo fornece uma visão geral dos problemas que pode encontrar ao configurar um ambiente de desktop virtual do Windows e fornece formas de resolver os problemas.
 
-## <a name="report-issues-during-public-preview"></a>Problemas de relatório durante a visualização pública
+## <a name="report-issues"></a>Comunicar problemas
 
-Para relatar problemas ou sugerir funcionalidades durante a pré-visualização pública para o lançamento da primavera de 2020, visite a [Comunidade virtual de Desktop Tech do Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop). Você pode usar a Comunidade Tecnológica para discutir as melhores práticas ou sugerir e votar em novas funcionalidades. Quando reportar um problema relacionado com o lançamento de pré-visualização pública, certifique-se de rotular o tipo de problema como **Atualização primavera 2020 (Pré-visualização)**.
+Para reportar problemas ou sugerir funcionalidades para o Windows Virtual Desktop com integração do Azure Resource Manager, visite a [Comunidade virtual de Desktop Tech do Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop). Você pode usar a Comunidade Tecnológica para discutir as melhores práticas ou sugerir e votar em novas funcionalidades.
 
 Quando fizer uma publicação a pedir ajuda ou propor uma nova funcionalidade, certifique-se de descrever o seu tópico com o maior detalhe possível. Informações detalhadas podem ajudar outros utilizadores a responder à sua pergunta ou a compreender a funcionalidade a que está a propor um voto.
 

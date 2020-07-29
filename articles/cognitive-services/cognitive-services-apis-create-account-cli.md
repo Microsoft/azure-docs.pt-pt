@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 07/27/2020
 ms.author: aahi
-ms.openlocfilehash: 72b00d78d19ed0e963b4dad01b82033c659e1efd
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: b77d69248059a494d823afcd149382dd52b0e49d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84704714"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317132"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Criar um recurso de Serviços Cognitivos utilizando a Interface Azure Command-Line (CLI)
 
@@ -58,9 +58,9 @@ az account list-locations \
     --out table
 ```
 
-Depois de ter a sua localização azul, crie um novo grupo de recursos no CLI Azure utilizando o comando de criação do [grupo AZ.](/cli/azure/group#az-group-create)
+Depois de ter a sua localização Azure, crie um novo grupo de recursos no CLI Azure utilizando o comando de criação do [grupo AZ.](/cli/azure/group#az-group-create)
 
-No exemplo abaixo, substitua a localização azul `westus2` por uma das localizações Azure disponíveis para a sua subscrição.
+No exemplo abaixo, substitua a localização Azure `westus2` por uma das localizações Azure disponíveis para a sua subscrição.
 
 ```azurecli-interactive
 az group create \
@@ -103,7 +103,7 @@ Ao criar um novo recurso, terá de conhecer o "tipo" de serviço que pretende ut
 | Pesquisa Personalizada do Bing | `Bing.CustomSearch`   |
 | Pesquisa de Entidades do Bing | `Bing.EntitySearch`   |
 | Pesquisa do Bing        | `Bing.Search.v7`      |
-| Verificação de Ortografia do Bing   | `Bing.SpellCheck.v7`  |
+| Verificação Ortográfica do Bing   | `Bing.SpellCheck.v7`  |
 
 ### <a name="speech"></a>Voz
 
@@ -112,7 +112,7 @@ Ao criar um novo recurso, terá de conhecer o "tipo" de serviço que pretende ut
 | Serviços de Voz    | `SpeechServices`     |
 | Reconhecimento de Voz | `SpeakerRecognition` |
 
-### <a name="language"></a>Idioma
+### <a name="language"></a>Linguagem
 
 | Serviço            | Tipo                |
 |--------------------|---------------------|
@@ -151,6 +151,8 @@ az cognitiveservices account create \
     --location westus2 \
     --yes
 ```
+
+[!INCLUDE [Register Azure resource for subscription](./includes/register-resource-subscription.md)]
 
 ## <a name="get-the-keys-for-your-resource"></a>Obtenha as chaves do seu recurso
 
@@ -198,7 +200,7 @@ Para remover o grupo de recursos e os seus recursos associados, utilize o comand
 az group delete --name cognitive-services-resource-group
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Autenticar pedidos aos Serviços Cognitivos da Azure](authentication.md)
 * [O que é a Azure Cognitive Services?](Welcome.md)

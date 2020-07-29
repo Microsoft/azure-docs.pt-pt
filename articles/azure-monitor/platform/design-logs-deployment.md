@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 939a2e67d6d2c215f7a575b6b9bd08660fc03b27
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3a6afd42c12a523523b45861b38b323fa680ecab
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008205"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317289"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Criar a implementação de Registos do Azure Monitor
 
@@ -47,12 +47,12 @@ As organizações de TI de hoje são modeladas seguindo um híbrido centralizado
 
 Ao utilizar os agentes do Log Analytics para recolher dados, tem de compreender o seguinte para planear a implementação do seu agente:
 
-* Para recolher dados de agentes do Windows, pode [configurar cada agente para reportar a um ou mais espaços de trabalho](../../azure-monitor/platform/agent-windows.md), mesmo quando está a reportar a um grupo de gestão de Gestores de Operações do System Center. O agente windows pode reportar até quatro espaços de trabalho.
+* Para recolher dados de agentes do Windows, pode [configurar cada agente para reportar a um ou mais espaços de trabalho](./agent-windows.md), mesmo quando está a reportar a um grupo de gestão de Gestores de Operações do System Center. O agente windows pode reportar até quatro espaços de trabalho.
 * O agente Linux não suporta multi-homing e só pode reportar-se a um único espaço de trabalho.
 
 Se estiver a utilizar o Gestor de Operações do Centro de Sistema 2012 R2 ou mais tarde:
 
-* Cada grupo de gestão de Gestores de Operações pode ser [ligado a apenas um espaço de trabalho.](../platform/om-agents.md) 
+* Cada grupo de gestão de Gestores de Operações pode ser [ligado a apenas um espaço de trabalho.](./om-agents.md) 
 * Os computadores Linux que reportam a um grupo de gestão devem ser configurados para reportar diretamente a um espaço de trabalho log analytics. Se os seus computadores Linux já estão a reportar diretamente a um espaço de trabalho e pretende monitorá-los com o Gestor de Operações, siga estes passos para [reportar a um grupo de gestão de Gestores de Operações.](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group) 
 * Pode instalar o agente Do Windows do Log Analytics no computador Windows e informá-lo para ambos os Gestores de Operações integrados com um espaço de trabalho e um espaço de trabalho diferente.
 
@@ -166,3 +166,4 @@ Enquanto planeia a sua migração para este modelo, considere o seguinte:
 ## <a name="next-steps"></a>Passos seguintes
 
 Para implementar as permissões e controlos de segurança recomendados neste guia, [reveja o acesso aos registos](manage-access.md).
+
