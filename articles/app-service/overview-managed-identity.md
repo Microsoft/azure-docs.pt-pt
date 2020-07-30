@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: tracking-python
-ms.openlocfilehash: e6965cef0257ee472c08b19e3a9b1c2ec2860128
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: e97671e9722051674e3760f11e784ab3291283c7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116919"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87415045"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como utilizar identidades geridas para o Serviço de Aplicações e Funções Azure
 
@@ -176,6 +176,15 @@ Quando o site é criado, tem as seguintes propriedades adicionais:
 ```
 
 A propriedade do inquilinoId identifica a que Azure AD inquilino a identidade pertence. O directorid é um identificador único para a nova identidade da aplicação. Dentro da Azure AD, o responsável pelo serviço tem o mesmo nome que deu ao seu Serviço de Aplicações ou à instância Azure Functions.
+
+Se precisar de fazer referência a estas propriedades numa fase posterior do modelo, pode fazê-lo através da [ `reference()` função do modelo](../azure-resource-manager/templates/template-functions-resource.md#reference) com a `'Full'` bandeira, como neste exemplo:
+
+```json
+{
+    "tenantId": "[reference(resourceId('Microsoft.Web/sites', variables('appName')), '2018-02-01', 'Full').identity.tenantId]",
+    "objectId": "[reference(resourceId('Microsoft.Web/sites', variables('appName')), '2018-02-01', 'Full').identity.principalId]",
+}
+```
 
 ## <a name="add-a-user-assigned-identity"></a>Adicionar uma identidade atribuída ao utilizador
 
@@ -511,7 +520,7 @@ Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupNam
 > [!NOTE]
 > Há também uma configuração de aplicação que pode ser definida, WEBSITE_DISABLE_MSI, que apenas desativa o serviço de token local. No entanto, deixa a identidade no lugar, e a ferramenta ainda mostrará a identidade gerida como "on" ou "ativada". Como resultado, a utilização desta definição não é recomendada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Access SQL Database de forma segura usando uma identidade gerida](app-service-web-tutorial-connect-msi.md)

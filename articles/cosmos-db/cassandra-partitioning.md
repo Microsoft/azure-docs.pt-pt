@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 5f159ffcea0aa88f354ae503be96a5c571c10adb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 26df3c49e44dd79d87a1e0a982ceb8133f425447
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806837"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423325"
 ---
 # <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Partição em Azure Cosmos DB Cassandra API
 
@@ -31,7 +31,7 @@ Apache Cassandra recomenda um limite de 100-MB sobre o tamanho de um dado que po
 
 Em Azure Cosmos DB, cada partição física consiste num conjunto de réplicas, também conhecidas como conjuntos de réplicas, com pelo menos 4 réplicas por partição. Isto contrasta com Apache Cassandra, onde é possível definir um fator de replicação de 1. No entanto, isto leva a uma baixa disponibilidade se o único nó com os dados descer. Na API de Cassandra há sempre um fator de replicação de 4 (quórum de 3). A Azure Cosmos DB gere automaticamente os conjuntos de réplicas, enquanto estes precisam de ser mantidos usando várias ferramentas em Apache Cassandra. 
 
-Apache Cassandra tem um conceito de fichas, que são hashes de chaves de partição. Os tokens baseiam-se num haxixe murmurante de 3 64 byte, com valores que variam entre -2^63 e -2^63 - 1. Esta gama é comumente referida como o "anel simbólico" em Apache Cassandra. O anel simbólico é distribuído em gamas simbólicas, e estas gamas estão divididas entre os nós presentes num aglomerado nativo de Apache Cassandra. A partição para Azure Cosmos DB é implementada de forma semelhante, exceto que usa um algoritmo de haxixe diferente, e tem um anel de símbolo maior. 
+Apache Cassandra tem um conceito de fichas, que são hashes de chaves de partição. Os tokens baseiam-se num haxixe murmurante de 3 64 byte, com valores que variam entre -2^63 e -2^63 - 1. Esta gama é comumente referida como o "anel simbólico" em Apache Cassandra. O anel simbólico é distribuído em gamas simbólicas, e estas gamas estão divididas entre os nós presentes num aglomerado nativo de Apache Cassandra. A partição para Azure Cosmos DB é implementada de forma semelhante, exceto que usa um algoritmo de haxixe diferente, e tem um anel de ficha interna maior. No entanto, externamente expomos a mesma gama simbólica que a Apache Cassandra, ou seja, -2^63 a -2^63 - 1.
 
 
 ## <a name="primary-key"></a>Chave primária

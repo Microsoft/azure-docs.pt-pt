@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6b04a59da78abc81f7749300dfe34ca176c75c4
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 5d3082e3dc45102bc8700c7d1285ef832d09712a
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371180"
+ms.locfileid: "87419823"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Como gerir o grupo de administradores locais em Azure AD juntou dispositivos
 
@@ -72,9 +72,9 @@ Os administradores do dispositivo são atribuídos a todos os dispositivos ad AZ
 >[!NOTE]
 > Esta funcionalidade encontra-se em pré-visualização.
 
-A partir da atualização do Windows 10 2004, pode utilizar grupos AD Azure para gerir privilégios de administrador em dispositivos aderidos a Azure AD com a política MDM (grupos restritos de windows/cliente/mdm/policy-csp-restrictedgroups). Esta política permite-lhe atribuir utilizadores individuais ou grupos AD AD ao grupo de administradores locais num dispositivo aderido a Azure AD, proporcionando-lhe a granularidade para configurar administradores distintos para diferentes grupos de dispositivos. 
+A partir da atualização do Windows 10 2004, pode utilizar grupos AD Azure para gerir privilégios de administrador em dispositivos aderidos a Azure AD com a política de MDM [de Grupos Restritos.](/windows/client-management/mdm/policy-csp-restrictedgroups) Esta política permite-lhe atribuir utilizadores individuais ou grupos AD AD ao grupo de administradores locais num dispositivo aderido a Azure AD, proporcionando-lhe a granularidade para configurar administradores distintos para diferentes grupos de dispositivos. 
 
-Atualmente, não existe UI no Intune para gerir esta política e precisa de ser configurado usando [Configurações Personalizadas OMA-URI] (mem/intune/configuração/configurações personalizadas-windows-10). Algumas considerações para esta política: 
+Atualmente, não existe UI no Intune para gerir esta política e precisa de ser configurado usando [configurações personalizadas de OMA-URI](/mem/intune/configuration/custom-settings-windows-10). Algumas considerações para esta política: 
 
 - A adição de grupos AD Azure através da política requer o SID do grupo que pode ser obtido executando os Grupos API. O SID é definido pelo imóvel `securityIdentifier` nos Grupos API.
 - Quando a política dos Grupos Restritos é aplicada, qualquer membro atual do grupo que não esteja na lista de membros é removido. Assim, a aplicação desta política com novos membros ou grupos removerá os administradores existentes, nomeadamente o utilizador que aderiu ao dispositivo, a função de administrador do Dispositivo e a função de administrador global do dispositivo. Para evitar a remoção dos membros existentes, é necessário configurá-los como parte da lista de membros da política dos Grupos Restritos. 
@@ -108,7 +108,7 @@ Os administradores do dispositivo são atribuídos a todos os dispositivos Azure
 
 Quando retira os utilizadores da função de administrador do dispositivo, eles ainda têm o privilégio de administrador local num dispositivo, desde que estejam inscritos no mesmo. O privilégio é revogado durante a sua próxima entrada quando um novo token de atualização primária é emitido. Esta revogação, semelhante à elevação do privilégio, pode demorar até 4 horas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter uma descrição geral sobre como gerir dispositivos no portal do Azure, veja [Managing devices using the Azure portal](device-management-azure-portal.md) (Gerir dispositivos no portal do Azure)
 - Para saber mais sobre o Acesso Condicional baseado no dispositivo, consulte [as políticas de acesso condicional do Azure Ative Com base em dispositivos](../conditional-access/require-managed-devices.md).

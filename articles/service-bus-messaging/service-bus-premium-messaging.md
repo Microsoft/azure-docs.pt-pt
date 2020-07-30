@@ -2,13 +2,13 @@
 title: Azure Service Bus premium e níveis padrão
 description: Este artigo descreve os níveis standard e premium da Azure Service Bus. Compara estes níveis e proporciona diferenças técnicas.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: eb2d3dda18eb08809a5c8f1020490acdb1e9a21c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/28/2020
+ms.openlocfilehash: 82f8dbce7c48cb6efea67de4297239915e46eac8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337417"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386355"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Escalões de mensagens Standard e Premium do Service Bus
 
@@ -24,7 +24,7 @@ Na tabela seguinte, destacam-se algumas das principais diferenças.
 | Desempenho previsível |Latência variável |
 | Preços fixos |Preços variáveis de utilização |
 | Possibilidade de aumentar e reduzir verticalmente a carga de trabalho |N/D |
-| Tamanho da mensagem até 1 MB |Tamanho da mensagem até 256 KB |
+| Tamanho da mensagem até 1 MB. Este limite poderá ser aumentado no futuro. Para obter as mais recentes atualizações importantes do serviço, consulte [Mensagens no blog Azure](https://techcommunity.microsoft.com/t5/messaging-on-azure/bg-p/MessagingonAzureBlog). |Tamanho da mensagem até 256 KB |
 
 As **Mensagens Premium do Service Bus** fornecem isolamento de recursos no nível de CPU e memória para que cada carga de trabalho do cliente seja executada de forma isolada. Este contentor de recursos é designado por *unidade de mensagens*. A cada espaço de nomes premium é atribuído, pelo menos, uma unidade de mensagens. Pode comprar 1, 2, 4 ou 8 unidades de mensagens para cada espaço de nome Service Bus Premium. Uma única carga de trabalho ou entidade pode abranger várias unidades de mensagens e o número de unidades de mensagens pode ser alterado à vontade. O resultado é um desempenho previsível e repetível da sua solução com base no Service Bus.
 
@@ -36,11 +36,11 @@ As seguintes secções abordam as diferenças entre as camadas de mensagens Stan
 
 ### <a name="partitioned-queues-and-topics"></a>Filas e tópicos particionados
 
-As filas e tópicos particionados não são suportados nas Mensagens Premium. Para mais informações sobre a criação de partições, consulte o artigo [Filas e tópicos particionados](service-bus-partitioning.md).
+Filas e tópicos divididos não são suportados em Mensagens Premium. Para mais informações sobre a criação de partições, consulte o artigo [Filas e tópicos particionados](service-bus-partitioning.md).
 
 ### <a name="express-entities"></a>Entidades expressas
 
-Uma vez que as mensagens Premium se executam num ambiente de tempo de execução completamente isolado, as entidades expressas deixam de ser suportadas nos espaços de nome Premium. Para obter mais informações sobre a funcionalidade Express, veja a propriedade [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress).
+Como as mensagens Premium funcionam num ambiente isolado de tempo de execução, as entidades expressas não são suportadas em espaços de nome Premium. Para obter mais informações sobre a funcionalidade Express, veja a propriedade [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress).
 
 Se tiver código em execução nas mensagens Standard e quiser transportar para o escalão Premium, certifique-se de que a propriedade [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) está definida como **falso** (o valor predefinido).
 
@@ -51,9 +51,9 @@ Em geral, qualquer operação numa entidade pode causar a utilização da CPU e 
 - Operações de tempo de execução (enviar e receber mensagens)
 - Operações de monitorização e alertas
 
-O uso adicional de CPU e memória não tem preço adicional. Para o nível de mensagens Premium, existe um preço único para a unidade de mensagens.
+O uso adicional de CPU e memória não tem preço adicional. Para o nível de mensagens Premium, há um único preço para a unidade de mensagens.
 
-O CPU e o uso da memória são rastreados e apresentados ao seu lado pelas seguintes razões: 
+O CPU e o uso da memória são rastreados e apresentados para si pelas seguintes razões: 
 
 - Fornecer transparência nos internos do sistema
 - Compreender a capacidade dos recursos adquiridos.

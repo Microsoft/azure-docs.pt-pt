@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: trbye
-ms.custom: tracking-python
+ms.custom: tracking-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: ddcfeaad70e6552f94f9c87b6e9cf24ed15bfba8
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: b571c5ee64e12021acf699f979d85d37af7bac7d
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611476"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407643"
 ---
 # <a name="learn-the-basics-of-speech-synthesis"></a>Aprenda os fundamentos da síntese da fala
 
@@ -56,7 +56,7 @@ Neste artigo, você aprende padrões de design comuns para fazer síntese de tex
 [!INCLUDE [More languages include](./includes/how-to/speech-to-text-basics/more.md)]
 ::: zone-end
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Introdução à Voz Personalizada](how-to-custom-voice.md)
 * [Melhorar a sintetização com SSML](speech-synthesis-markup.md)

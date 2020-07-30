@@ -10,14 +10,14 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 07/27/2020
 ms.author: aahi
-ms.custom: tracking-python
+ms.custom: tracking-python, devx-track-javascript
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: f31ac8b36134548c3a7ecc4b0bf37d28a8ab7e4b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4aba103bcb3593d9baef256ce04a9ab6754ed900
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291701"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407677"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Quickstart: Use a biblioteca de clientes Text Analytics
 
@@ -80,7 +80,7 @@ Utilize a biblioteca de clientes Text Analytics para realizar:
 
 Se clicou neste separador, provavelmente não viu um arranque rápido na sua linguagem de programação favorita. Não se preocupe, temos mais rapidez disponíveis. Utilize a tabela para encontrar a amostra certa para a sua linguagem de programação.
 
-| Linguagem | Versão disponível | 
+| Idioma | Versão disponível | 
 |----------|------------------------|
 | Ruby     | [Versão 2.1](ruby-sdk.md) | 
 | Ir       | [Versão 2.1](go-sdk.md) | 
@@ -94,7 +94,7 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Explore uma solução](../text-analytics-user-scenarios.md#analyze-recorded-inbound-customer-calls)

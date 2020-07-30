@@ -3,12 +3,13 @@ title: 'Quickstart: A sua primeira consulta JavaScript'
 description: Neste arranque rápido, segue os passos para ativar a biblioteca de Gráficos de Recursos para JavaScript e executar a sua primeira consulta.
 ms.date: 06/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 6b2c8e17bb92dfcc91e8a65e5c113c0a72021a41
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.custom: devx-track-javascript
+ms.openlocfilehash: fc9809dbe615950b4f5c9e4dc66cefcd054f5ebf
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323546"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87415929"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-javascript"></a>Quickstart: Executar a sua primeira consulta de Gráfico de Recursos usando JavaScript
 
@@ -117,7 +118,7 @@ Para permitir que o JavaScript questione o Azure Resource Graph, o ambiente deve
 
 Quando a consulta final é executada várias vezes, assumindo que nada no seu ambiente está a mudar, os resultados devolvidos são consistentes e encomendados pela propriedade **Name,** mas ainda limitados aos cinco melhores resultados.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se desejar remover as bibliotecas instaladas da sua aplicação, execute o seguinte comando.
 
@@ -125,7 +126,7 @@ Se desejar remover as bibliotecas instaladas da sua aplicação, execute o segui
 npm uninstall @azure/arm-resourcegraph @azure/ms-rest-nodeauth yargs
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, adicionou as bibliotecas de Gráficos de Recursos ao seu ambiente JavaScript e executou a sua primeira consulta. Para saber mais sobre a linguagem Resource Graph, continue na página de detalhes da linguagem de consulta.
 

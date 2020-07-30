@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9084b486681ded0c194c93f07a404f5f5e88fa6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acf3cba5046a20b99212e89b378327765d22fa23
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84728474"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421642"
 ---
 # <a name="bulk-remove-group-members-in-azure-active-directory"></a>A granel remove membros do grupo no Azure Ative Directory
 
@@ -68,7 +68,7 @@ As linhas de um modelo de CSV descarregado são as seguintes:
 
 Pode ver o estado de todos os seus pedidos em massa pendentes na página de resultados da **operação Em Massa.**
 
-[![](media/groups-bulk-remove-members/bulk-center.png "Check status in the Bulk Operations Results page")](media/groups-bulk-remove-members/bulk-center.png#lightbox)
+[![Verifique o estado na página resultados das operações em massa](media/groups-bulk-remove-members/bulk-center.png)](media/groups-bulk-remove-members/bulk-center.png#lightbox)
 
 Para mais detalhes sobre cada item de linha dentro da operação a granel, selecione os valores sob as colunas **# Sucesso**, **# Falha**, ou **Pedidos Totais.** Se ocorrerem falhas, as razões do fracasso serão listadas.
 

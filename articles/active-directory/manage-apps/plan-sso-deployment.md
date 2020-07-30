@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 75e3f7fc98072957f571937a1627247cdc4a9e7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ee138ac41557554ae4b8fde8c9178336fd8d5db
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374446"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387783"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planear uma implementação de início de sessão único
 
@@ -55,7 +55,7 @@ Existem duas formas primárias de permitir que os seus utilizadores se inscrevam
 ### <a name="considerations-for-federation-based-sso"></a>Considerações para o SSO baseado na federação
 
 - **Utilizando o OpenID Connect e o OAuth** - Se a aplicação que está a ligar para a suportar, utilize o método OIDC/OAuth 2.0 para ativar o seu SSO nessa aplicação. Este método requer menos configuração e permite uma experiência de utilizador mais rica. Para mais informações, consulte [o OAuth 2.0,](../develop/v2-oauth2-auth-code-flow.md) [OpenID Connect 1.0](../develop/v2-protocols-oidc.md)e [o guia do programador do Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
-- **Configurações de ponto final para SSO baseado em SAML** - Se utilizar o SAML, os seus desenvolvedores precisarão de informações específicas antes de configurar a aplicação. Para obter mais informações, consulte [Editar a Configuração Básica SAML](configure-single-sign-on-non-gallery-applications.md).
+- **Configurações de ponto final para SSO baseado em SAML** - Se utilizar o SAML, os seus desenvolvedores precisarão de informações específicas antes de configurar a aplicação. Para obter mais informações, consulte o [sign-on único baseado em Configure SAML.](configure-saml-single-sign-on.md)
 - **Gestão de certificados para SSO baseado em SAML** - Quando ativa sSO federado para a sua aplicação, a Azure AD cria um certificado que é por defeito válido por três anos. Pode personalizar a data de validade desse certificado, se necessário. Certifique-se de que tem processos em vigor para renovar certificados antes da sua expiração. Para saber mais, consulte os [Certificados de Gestão da AD Azure.](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs)
 
 ### <a name="considerations-for-password-based-sso"></a>Considerações para SSO baseado em palavra-passe
@@ -203,7 +203,7 @@ Implemente o seu plano de comunicação. Certifique-se de que está a informar o
 
 Pode utilizar os seguintes casos de teste para realizar testes em dispositivos pessoais e corporativos para garantir que as suas configurações SSO estão a funcionar como esperado. Os cenários abaixo assumem que um utilizador está a navegar para um URL de aplicação e a passar por um fluxo de autenticação iniciado pelo prestador de serviços (fluxo de auth iniciado pela SP).
 
-| Scenario | Resultado esperado no fluxo de auth iniciado pelo SP pelo utilizador |
+| Cenário | Resultado esperado no fluxo de auth iniciado pelo SP pelo utilizador |
 |----------|---------------------------------------------------|
 | Faça login para aplicação com IE enquanto em corpnet. | A autenticação integrada do Windows (IWA) ocorre sem solicitações adicionais. |
 | Faça login para aplicação com IE enquanto desligado da corpnet com nova tentativa de login. | Solicitação baseada em formulários no AD FS Server. O utilizador inicia sessão com sucesso e solicita o mFA. |
@@ -235,11 +235,11 @@ Utilize sempre a função com o menor número de permissões disponíveis para r
 
 | Persona| Funções | Papel de AD AZure (se necessário) |
 |--------|-------|-----------------------------|
-| Administração de mesa de ajuda | Suporte de nível 1 | Nenhuma |
+| Administração de mesa de ajuda | Suporte de nível 1 | Nenhum |
 | Administrador de identidade | Configurar e depurar quando as questões impactam Azure AD | Administrador global |
-| Administrador de candidatura | Atestado de utilizador na aplicação, configuração em utilizadores com permissões | Nenhuma |
+| Administrador de candidatura | Atestado de utilizador na aplicação, configuração em utilizadores com permissões | Nenhum |
 | Administradores de infraestruturas | Cert proprietário de capotamento | Administrador global |
-| Empresário/stakeholder | Atestado de utilizador na aplicação, configuração em utilizadores com permissões | Nenhuma |
+| Empresário/stakeholder | Atestado de utilizador na aplicação, configuração em utilizadores com permissões | Nenhum |
 
 Recomendamos a [utilização de Gestão de Identidade Privilegiada](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) (PIM) para gerir as suas funções para fornecer auditoria, controlo e revisão de acesso adicionais para utilizadores com permissões de diretório.
 

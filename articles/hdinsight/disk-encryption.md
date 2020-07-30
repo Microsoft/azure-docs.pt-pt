@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 732709dbcb5ebe54025a963379128f1a1e74183e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8bb9dc5aa6ebbd4ef7fb1b9550670a3c6298333
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81536306"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387851"
 ---
 # <a name="customer-managed-key-disk-encryption"></a>Encriptação de discos chave gerida pelo cliente
 
@@ -30,7 +30,7 @@ Tanto o disco de recursos como os discos geridos em cada nó do cluster são enc
 
 Se a firewall do cofre de chaves estiver ativada no cofre de chaves onde a chave de encriptação do disco está armazenada, os endereços IP do Fornecedor de Recursos Regional HDInsight para a região onde o cluster será implantado devem ser adicionados à configuração da firewall do cofre de chaves. Isto é necessário porque o HDInsight não é um serviço de cofre de chaves Azure de confiança.
 
-Pode utilizar o portal Azure ou o Azure CLI para rodar com segurança as chaves no cofre da chave. Quando uma chave gira, o cluster HDInsight começa a utilizar a nova tecla dentro de minutos. Ativar as principais funcionalidades de proteção [para eliminar o soft delete](../key-vault/general/overview-soft-delete.md) para proteger contra cenários de ransomware e eliminação acidental. Os cofres sem esta proteção não são suportados.
+Pode utilizar o portal Azure ou o Azure CLI para rodar com segurança as chaves no cofre da chave. Quando uma chave gira, o cluster HDInsight começa a utilizar a nova tecla dentro de minutos. Ativar as principais funcionalidades de proteção [para eliminar o soft delete](../key-vault/general/soft-delete-overview.md) para proteger contra cenários de ransomware e eliminação acidental. Os cofres sem esta proteção não são suportados.
 
 |Tipo de cluster |Disco OS (Disco gerido) |Disco de dados (Disco gerido) |Disco de dados temporário (SSD local) |
 |---|---|---|---|
@@ -391,13 +391,13 @@ Os discos de recursos e os discos de dados/gerenciados são encriptados. Os disc
 
 **Se um cluster for dimensionado, os novos nós suportam as chaves geridas pelo cliente sem problemas?**
 
-Sim. O cluster precisa de acesso à chave no cofre durante a escala. A mesma chave é usada para encriptar tanto discos geridos como discos de recursos no cluster.
+Yes. O cluster precisa de acesso à chave no cofre durante a escala. A mesma chave é usada para encriptar tanto discos geridos como discos de recursos no cluster.
 
 **As chaves geridas pelo cliente estão disponíveis na minha localização?**
 
 As chaves geridas pelo cliente HDInsight estão disponíveis em todas as nuvens públicas e nuvens nacionais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais informações sobre o Cofre da Chave Azure, consulte [o cofre da chave Azure](../key-vault/general/overview.md).
 * [Visão geral da segurança da empresa em Azure HDInsight](./domain-joined/hdinsight-security-overview.md).

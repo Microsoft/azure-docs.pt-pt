@@ -1,18 +1,18 @@
 ---
 title: Crie uma oferta de máquina virtual Azure no Azure Marketplace
-description: Saiba como criar uma oferta de máquina virtual no Azure Marketplace com o plano necessário.
+description: Saiba como publicar uma oferta de máquina virtual ao Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
-author: iqshahmicrosoft
-ms.author: iqshah
-ms.date: 07/17/2020
-ms.openlocfilehash: 8da76650f9cc3da0ff8f79a9d3df7a00cdd01a24
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.topic: how-to
+author: emuench
+ms.author: mingshen
+ms.date: 07/28/2020
+ms.openlocfilehash: 9db6fbe002492c0db6e9e0e5e0a23ca1946759a5
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324697"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386440"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Crie uma oferta de máquina virtual Azure no Azure Marketplace
 
@@ -352,7 +352,7 @@ Nesta secção, configurar os detalhes da listagem do plano. Este painel apresen
 
 #### <a name="plan-name"></a>Nome do plano
 
-Este campo é preenchido automaticamente com o nome que deu ao seu plano quando o criou. Este nome aparece no Azure Marketplace como o título deste plano. Está limitado a 100 caracteres.
+Este campo é automaticamente preenchido com o nome que deu ao seu plano quando o criou. Este nome aparece no Azure Marketplace como o título deste plano. Está limitado a 100 caracteres.
 
 #### <a name="plan-summary"></a>Resumo do plano
 
@@ -368,7 +368,7 @@ Descreva o que torna este plano de software único e descreva quaisquer diferen�
 
 Neste painel, você configura:
 
-- Mercados onde este plano está disponível.
+- Mercados onde este plano está disponível. Todos os planos devem estar disponíveis em pelo menos um [mercado.](../marketplace-geo-availability-currencies.md)
 - O preço por hora.
 - Quer tornar o plano visível para todos ou apenas para clientes específicos (um público privado).
 

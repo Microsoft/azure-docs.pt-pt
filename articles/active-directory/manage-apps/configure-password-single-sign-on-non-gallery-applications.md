@@ -1,6 +1,6 @@
 ---
-title: Como configurar o sign-on único da palavra-passe para aplicações AD AZure / Microsoft Docs
-description: Como configurar o sign-on único da palavra-passe (SSO) para as suas aplicações empresariais AZure AD na plataforma de identidade microsoft (Azure AD)
+title: Como configurar um único sign-on baseado em palavra-passe para aplicações AD AZure
+description: Como configurar um único sign-on (SSO) baseado em palavra-passe para as suas aplicações AD Azure na plataforma de identidade microsoft (Azure AD)
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -8,60 +8,56 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/10/2019
+ms.date: 07/29/2020
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 043adc309c3480865eb9aa7a7bff8d35e85bc78a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3f9f96c6429d4925c60a56cd450a9c2ee7dde24
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763504"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419959"
 ---
-# <a name="configure-password-single-sign-on"></a>Configurar o sign-on único da palavra-passe
+# <a name="configure-password-based-single-sign-on"></a>Configurar o sign-on único baseado em palavra-passe
 
-Quando [adiciona uma aplicação](add-gallery-app.md) de galeria ou uma [aplicação web não-galeria](add-non-gallery-app.md) às suas Aplicações empresariais AZure AD, uma das opções únicas de inscrição disponível para si é o [único sinal de assinatura baseado em palavra-passe.](what-is-single-sign-on.md#password-based-sso) Esta opção está disponível para qualquer web com uma página de início de sção HTML. O SSO baseado em palavras-passe, também referido como cofre de palavras-passe, permite-lhe gerir o acesso ao utilizador e palavras-passe a aplicações web que não suportam a federação de identidade. Também é útil para cenários em que vários utilizadores precisam de partilhar uma única conta, como é o caso das contas de aplicações de redes sociais da sua organização. 
+Na [série quickstart](view-applications-portal.md) sobre gestão de aplicações, aprendeu a usar a Azure AD como Fornecedor de Identidade (IdP) para uma aplicação. No guia quickstart, você configura SSO baseado em SAML. Além da SAML, existe uma opção para SSO baseado em palavra-passe. Este artigo entra em mais detalhes sobre a opção baseada em palavra-passe para um único s-on. 
+
+Esta opção está disponível para qualquer website com uma página de início de sção HTML. O SSO baseado em palavras-passe, também referido como cofre de palavras-passe, permite-lhe gerir o acesso ao utilizador e palavras-passe a aplicações web que não suportam a federação de identidade. Também é útil para cenários em que vários utilizadores precisam de partilhar uma única conta, como é o caso das contas de aplicações de redes sociais da sua organização. 
 
 O SSO baseado em palavras-passe é uma ótima maneira de começar a integrar as aplicações em AZure AD rapidamente, e permite-lhe:
 
--   Ativar o **Único S-On para os seus utilizadores** armazenando e reproduzindo de forma segura nomes de utilizadores e palavras-passe para a aplicação que integrou com Azure AD
+- Ativar um único s-on para os seus utilizadores armazenando e reproduzindo de forma segura nomes de utilizador e palavras-passe para a aplicação que integrou com Azure AD
 
--   **Aplicações de suporte que requerem vários campos de entrada** para aplicações que requerem mais do que apenas o nome de utilizador e os campos de palavra-passe para iniciar seduções
+- Aplicações de suporte que requerem vários campos de entrada para aplicações que requerem mais do que apenas o nome de utilizador e os campos de palavra-passe para iniciar seduções
 
--   **Personalize as etiquetas** dos campos de entrada de nome de utilizador e palavra-passe que os seus utilizadores vêem no Painel de Acesso à [Aplicação](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) quando introduzem as suas credenciais
+- Personalize as etiquetas dos campos de entrada de nome de utilizador e palavra-passe que os seus utilizadores vêem no Painel de Acesso à [Aplicação](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) quando introduzem as suas credenciais
 
--   Permita que os seus **utilizadores** forneçam os seus próprios nomes de utilizador e palavras-passe para quaisquer contas de aplicação existentes que estejam a digitar manualmente no Painel de Acesso à [Aplicação](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+- Permita que os seus utilizadores forneçam os seus próprios nomes de utilizador e palavras-passe para quaisquer contas de aplicação existentes que estejam a digitar manualmente.
 
--   Permitir que um **membro do grupo de negócios** especifique os nomes de utilizador e palavras-passe atribuídos a um utilizador utilizando a funcionalidade de Acesso à [Aplicação de Self-Service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access)
+- Permitir que um membro do grupo de negócios especifique os nomes de utilizador e palavras-passe atribuídos a um utilizador utilizando a funcionalidade de Acesso à [Aplicação de Self-Service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access)
 
--   Permitir que um **administrador** especifique um nome de utilizador e uma palavra-passe para ser usado por indivíduos ou grupos ao iniciar a sessão na aplicação utilizando a funcionalidade 'Credenciais de Atualização' 
+-   Permitir que um administrador especifique um nome de utilizador e uma palavra-passe para ser usado por indivíduos ou grupos ao iniciar a sessão na aplicação utilizando a funcionalidade 'Credenciais de Atualização' 
 
 ## <a name="before-you-begin"></a>Before you begin
 
-Se a aplicação não tiver sido adicionada ao seu inquilino Azure AD, consulte [Adicionar uma aplicação](add-gallery-app.md) de galeria ou [adicionar uma aplicação não-galeria](add-non-gallery-app.md).
+A utilização do Azure AD como fornecedor de identidade e a configuração de um único sindes (SSO) pode ser simples ou complexa dependendo da aplicação que está a ser utilizada. Algumas aplicações podem ser criadas com apenas algumas ações. Outros requerem uma configuração aprofundada. Para acelerar rapidamente, caminhe pela [série quickstart](view-applications-portal.md) sobre gestão de aplicações. Se a aplicação que está a adicionar é simples, então provavelmente não precisa ler este artigo. Se a aplicação que está a adicionar necessitar de configuração personalizada e precisar de utilizar SSO baseado em palavra-passe, então este artigo é para si.
 
-## <a name="open-the-app-and-select-password-single-sign-on"></a>Abra a aplicação e selecione a palavra-passe de um único sinal
+> [!IMPORTANT] 
+> Existem alguns cenários em que a opção **de inscrição única** não estará na navegação para uma aplicação em **aplicações da Enterprise.** 
+>
+> Se a aplicação foi registada usando **registos de Aplicações,** então a capacidade de inscrição única é configurada para utilizar o OIDC OAuth por padrão. Neste caso, a opção **de inscrição única** não aparecerá na navegação ao abrigo das **aplicações da Enterprise.** Quando utiliza **as inscrições da App** para adicionar a sua aplicação personalizada, configura as opções no ficheiro manifesto. Para saber mais sobre o ficheiro manifesto, consulte o [manifesto da aplicação Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Para saber mais sobre os padrões SSO, consulte [autenticação e autorização utilizando a plataforma de identidade da Microsoft.](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform) 
+>
+> Outros cenários em que o único sinal de sessão estará ausente da navegação incluem quando uma aplicação é hospedada noutro inquilino ou se a sua conta não tiver as permissões necessárias (Administrador Global, Administrador de Aplicação **cloud,** Administrador de Aplicação ou proprietário do principal de serviço). As permissões também podem causar um cenário em que pode abrir **o single de sposição,** mas não será capaz de economizar. Para saber mais sobre as funções administrativas da Azure AD, consulte https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador de aplicações em nuvem ou como administrador de aplicação para o seu inquilino AZure AD.
 
-2. Navegue para aplicações **da Azure Ative Directory**  >  **Enterprise**. Aparece uma amostra aleatória das aplicações no seu inquilino AZure AD. 
+## <a name="basic-configuration"></a>Configuração básica
 
-3. No menu **'Tipo de Aplicação',** selecione **Todas as aplicações**e, em seguida, selecione **Aplicar**.
+Na [série quickstart](view-applications-portal.md), aprendeu a adicionar uma app ao seu inquilino para que a Azure AD saiba que está a ser usada como Fornecedor de Identidade (IdP) para a aplicação. Algumas aplicações já estão pré-configuradas e aparecem na galeria AZure AD. Outras aplicações não estão na galeria e você tem que criar uma app genérica e configugá-la manualmente. Dependendo da aplicação, a opção SSO baseada em palavra-passe pode não estar disponível. Se não vir a lista de opções baseada em Palavra-Passe na página de s registação única da aplicação, então não está disponível.
 
-4. Introduza o nome da aplicação na caixa de pesquisa e, em seguida, selecione a aplicação a partir dos resultados.
+A página de configuração para SSO baseado em palavra-passe é simples. Inclui apenas o URL da página de inscrição que a aplicação utiliza. Esta cadeia deve ser a página que inclui o campo de entrada do nome de utilizador.
 
-5. Na secção **'Gerir',** selecione **'Único's sign-on'**. 
-
-6. Selecione **password-baseada**.
-
-7. Insira o URL da página de entrada web da aplicação. Esta cadeia deve ser a página que inclui o campo de entrada do nome de utilizador.
-
-   ![S-base único baseado em palavra-passe](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
-
-8. Selecione **Guardar**. O Azure AD tenta analisar a página de entrada de inscrição para uma entrada de nome de utilizador e uma entrada de senha. Se a tentativa for bem sucedida, está feito. 
+Depois de introduzir o URL, **selecione Guardar**. Azure AD analisa o HTML do sinal na página para o nome de utilizador e os campos de entrada de palavra-passe. Se a tentativa for bem sucedida, está feito.
  
-> [!NOTE]
-> O seu próximo passo é [atribuir utilizadores ou grupos à aplicação.](methods-for-assigning-users-and-groups.md) Depois de ter atribuído utilizadores e grupos, pode fornecer credenciais para serem usadas em nome de um utilizador quando iniciarem sessão na aplicação. Selecione **Utilizadores e grupos**, selecione a caixa de verificação para a linha do utilizador ou grupo e, em seguida, clique em **''''Update Credentials' (')** Em seguida, introduza o nome de utilizador e a palavra-passe a utilizar em nome do utilizador ou do grupo. Caso contrário, os utilizadores serão solicitados a introduzir as credenciais por si mesmos no lançamento.
+O seu próximo passo é [atribuir utilizadores ou grupos à aplicação.](methods-for-assigning-users-and-groups.md) Depois de ter atribuído utilizadores e grupos, pode fornecer credenciais para serem usadas em nome de um utilizador quando iniciarem sessão na aplicação. Selecione **Utilizadores e grupos**, selecione a caixa de verificação para a linha do utilizador ou grupo e, em seguida, selecione **''' ''' 'Update Credentials'.** Em seguida, introduza o nome de utilizador e a palavra-passe a utilizar em nome do utilizador ou do grupo. Caso contrário, os utilizadores serão solicitados a introduzir as credenciais por si mesmos no lançamento.
  
 
 ## <a name="manual-configuration"></a>Configuração manual
@@ -86,11 +82,6 @@ Se a tentativa de análise do AD do Azure falhar, pode configurar a inscrição 
 7. Na página de configuração AD AD **Azure,** selecione **Ok, consegui iniciar sação na aplicação com sucesso.**
 
 8. Selecione **OK**.
-
-Após a captura da página de entrada, pode atribuir utilizadores e grupos, e pode configurar políticas de credenciais tal como [aplicações SSO de palavra-passe](what-is-single-sign-on.md)regular .
-
-> [!NOTE]
-> Pode carregar um logotipo de azulejo para a aplicação utilizando o botão **upload logo** no **separador Configurar** para a aplicação.
 
 ## <a name="next-steps"></a>Próximos passos
 

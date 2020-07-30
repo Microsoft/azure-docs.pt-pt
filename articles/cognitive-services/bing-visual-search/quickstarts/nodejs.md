@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Obtenha insights de imagem usando o REST API e Node.js - Bing Visual Search'
+title: 'Quickstart: Obtenha insights de imagem utilizando a API REST e Node.js - Bing Visual Search'
 titleSuffix: Azure Cognitive Services
-description: Aprenda a enviar uma imagem para a API de Pesquisa Visual bing e obtenha informações sobre isso.
+description: Aprenda a enviar uma imagem para a API de Pesquisa Visual Bing e obtenha informações sobre isso.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,28 +10,29 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: scottwhi
-ms.openlocfilehash: 7dfb3adb5d7bf5b005beb7e7b75fb339d456cd15
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 1e5594fab6e4b1758e8e3cd722c053b9d3d301ce
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872607"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87404027"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-nodejs"></a>Quickstart: Obtenha insights de imagem usando a API e node.js de pesquisa visual bing
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-nodejs"></a>Quickstart: Obtenha insights de imagem utilizando a API e o Node.js de pesquisa visual Bing Visual
 
-Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa Visual Bing. Esta simples aplicação JavaScript envia uma imagem para a API e exibe as informações devolvidas sobre a mesmo. Embora esta aplicação esteja escrita no JavaScript, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação.
+Utilize este quickstart para fazer a sua primeira chamada para a API de Pesquisa Visual Bing. Esta simples aplicação JavaScript envia uma imagem para a API e exibe as informações devolvidas sobre a presente. Embora esta aplicação esteja escrita em JavaScript, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Node.js](https://nodejs.org/en/download/)
-* O módulo Request para JavaScript. Pode utilizar `npm install request` o comando para instalar o módulo.
-* O módulo de dados de formulários. Pode utilizar o `npm install form-data` comando para instalar o módulo. 
+* O módulo pedido para JavaScript. Pode utilizar `npm install request` o comando para instalar o módulo.
+* O módulo de dados do formulário. Pode utilizar o `npm install form-data` comando para instalar o módulo. 
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="initialize-the-application"></a>Inicializar a aplicação
 
-1. Crie um ficheiro JavaScript no seu IDE ou editor favorito e detete os seguintes requisitos:
+1. Crie um ficheiro JavaScript no seu IDE ou editor favorito e desaprove os seguintes requisitos:
 
     ```javascript
     var request = require('request');
@@ -39,7 +40,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa Vis
     var fs = require('fs');
     ```
 
-2. Crie variáveis para o seu ponto final de API, chave de subscrição e o caminho para a sua imagem. Para o `baseUri` valor, pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+2. Crie variáveis para o seu ponto final da API, chave de subscrição e o caminho para a sua imagem. Pelo `baseUri` valor, pode utilizar o ponto final global no seguinte código ou utilizar o ponto final [de subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) apresentado no portal Azure para o seu recurso.
 
     ```javascript
     var baseUri = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch';
@@ -47,7 +48,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa Vis
     var imagePath = "path-to-your-image";
     ```
 
-3. Crie uma função nomeada `requestCallback()` para imprimir a resposta da API.
+3. Criar uma função nomeada `requestCallback()` para imprimir a resposta da API.
 
     ```javascript
     function requestCallback(err, res, body) {
@@ -55,9 +56,9 @@ Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa Vis
     }
     ```
 
-## <a name="construct-and-send-the-search-request"></a>Construir e enviar o pedido de pesquisa
+## <a name="construct-and-send-the-search-request"></a>Construa e envie o pedido de pesquisa
 
-1. Ao fazer o upload de uma imagem local, os dados do formulário devem incluir o `Content-Disposition` cabeçalho. Defina o parâmetro `name` para "imagem", e coloque o `filename` parâmetro no nome de ficheiro da sua imagem. O conteúdo do formulário inclui os dados binários da imagem. O tamanho máximo de imagem que pode carregar é de 1 MB.
+1. Ao carregar uma imagem local, os dados do formulário devem incluir o `Content-Disposition` cabeçalho. Desaveie o seu `name` parâmetro para "imagem", e desave o `filename` parâmetro para o nome do ficheiro da sua imagem. O conteúdo do formulário inclui os dados binários da imagem. O tamanho máximo de imagem que pode carregar é de 1 MB.
 
    ```
    --boundary_1234-abcd
@@ -68,14 +69,14 @@ Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa Vis
    --boundary_1234-abcd--
    ```
 
-2. Crie um novo `FormData` objeto com , e `FormData()` apreenda o seu caminho de imagem utilizando `fs.createReadStream()` .
+2. Crie um novo `FormData` objeto com , e `FormData()` apromte o seu caminho de imagem para ele usando `fs.createReadStream()` .
     
     ```javascript
     var form = new FormData();
     form.append("image", fs.createReadStream(imagePath));
     ```
 
-3. Utilize a biblioteca de pedidos para fazer upload da imagem e ligue `requestCallback()` para imprimir a resposta. Adicione a sua chave de subscrição ao cabeçalho de pedido.
+3. Use a biblioteca de pedidos para fazer o upload da imagem e ligue `requestCallback()` para imprimir a resposta. Adicione a chave de subscrição ao cabeçalho de pedido.
 
     ```javascript
     form.getLength(function(err, length){
@@ -88,7 +89,7 @@ Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa Vis
     });
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Construa uma aplicação web de pesquisa visual de uma página](../tutorial-bing-visual-search-single-page-app.md)

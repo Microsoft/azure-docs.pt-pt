@@ -8,12 +8,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/05/2018
 ms.topic: conceptual
-ms.openlocfilehash: 694cc83ffce20a8744d7452a8f6d67c9ce23641c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 207e5b8d9735004b6dc1a9662a3f66fbed8c2307
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82187233"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422696"
 ---
 # <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicione um painel personalizado ao painel no painel de instrumentos na UI do acelerador de solução de monitorização remota
 
@@ -28,7 +29,7 @@ O painel de exemplo deste artigo apresenta-se na página do painel de instrument
 
 Para completar os passos neste guia de como fazer, precisa do seguinte software instalado na sua máquina de desenvolvimento local:
 
-- [Git](https://git-scm.com/downloads)
+- [Rio Git](https://git-scm.com/downloads)
 - [Node.js](https://nodejs.org/download/)
 
 ## <a name="before-you-start"></a>Antes de começar
@@ -92,7 +93,7 @@ npm start
 
 O comando anterior dirige a UI localmente em `http://localhost:3000/dashboard` . Navegue na página **dashboard** para ver o novo painel.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu sobre os recursos disponíveis para ajudá-lo a adicionar ou personalizar dashboards na UI web no acelerador de solução de monitorização remota.
 

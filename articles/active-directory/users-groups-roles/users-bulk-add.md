@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41329f2f5500db35ee76c9880bdbef984413004b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f603623e2b47a8ac1a8530880e10c919f63b66c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057893"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423614"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>A granel cria utilizadores no Azure Ative Directory
 
@@ -60,7 +60,7 @@ As linhas de um modelo de CSV descarregado são as seguintes:
 
 1. Abra o ficheiro CSV e adicione uma linha para cada utilizador que pretende criar. Os únicos valores necessários são **Nome,** **nome principal do utilizador,** **senha inicial** e **iniciar sação do Bloco (Sim/Não)**. Em seguida, guarde o ficheiro.
 
-   [![](media/users-bulk-add/add-csv-file.png "The CSV file contains names and IDs of the users to create")](media/users-bulk-add/add-csv-file.png#lightbox)
+   [![O ficheiro CSV contém nomes e IDs dos utilizadores para criar](media/users-bulk-add/add-csv-file.png)](media/users-bulk-add/add-csv-file.png#lightbox)
 
 1. Na página de utilizador da **Bulk create,** no Upload do seu ficheiro CSV, navegue para o ficheiro. Quando seleciona o ficheiro e clica em **Enviar,** inicia-se a validação do ficheiro CSV.
 1. Depois de validado o conteúdo do ficheiro, verá **o Ficheiro carregado com sucesso.** Se houver erros, tem de os corrigir antes de poder submeter o trabalho.
@@ -73,7 +73,7 @@ Se houver erros, pode descarregar e ver o ficheiro de resultados na página de r
 
 Pode ver o estado de todos os seus pedidos em massa pendentes na página de resultados da **operação Em Massa.**
 
-   [![](media/users-bulk-add/bulk-center.png "Check create status in the Bulk Operations Results page")](media/users-bulk-add/bulk-center.png#lightbox)
+   [![Verifique o estado de criação na página resultados das operações em massa](media/users-bulk-add/bulk-center.png)](media/users-bulk-add/bulk-center.png#lightbox)
 
 Em seguida, pode verificar se os utilizadores que criou existem na organização Azure AD, quer no portal Azure, quer através da utilização do PowerShell.
 
@@ -98,7 +98,7 @@ Deve ver se os utilizadores que criou estão listados.
 
 Cada atividade a granel para criar utilizadores pode funcionar até uma hora. Isto permite a criação em massa de pelo menos 50.000 utilizadores.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Eliminar utilizadores em massa](users-bulk-delete.md)
 - [Lista de utilizadores](users-bulk-download.md)

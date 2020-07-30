@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 50398632f47d889ecb79b32faef94c9c5923789c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dfdb717a27af8dc7f3186ac7afdff4d1eb3d79f5
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532510"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420843"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>Compreensão do acesso ao VM just-in-time (JIT)
 
@@ -67,13 +67,17 @@ Quando o Security Center encontra uma máquina que pode beneficiar do JIT, adici
 
 ### <a name="what-permissions-are-needed-to-configure-and-use-jit"></a>Que permissões são necessárias para configurar e utilizar o JIT?
 
-Se quiser criar funções personalizadas que possam funcionar com o JIT, precisará dos seguintes detalhes:
+Se quiser criar funções personalizadas que possam funcionar com o JIT, precisará dos detalhes da tabela abaixo.
+
+> [!TIP]
+> Para criar um papel menos privilegiado para os utilizadores que precisam solicitar o acesso do JIT a um VM, e não realizar outras operações JIT, use o [script Set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) a partir das páginas comunitárias do Centro de Segurança GitHub.
 
 | Para permitir que um utilizador: | Permissões a definir|
 | --- | --- |
 | Configure ou edite uma política de JIT para um VM | *Atribua estas ações ao papel:*  <ul><li>No âmbito de uma subscrição ou grupo de recursos associado ao VM:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> No âmbito de uma subscrição ou grupo de recursos de VM: <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
 |Solicite acesso ao JIT a um VM | *Atribuir estas ações ao utilizador:*  <ul><li>No âmbito de uma subscrição ou grupo de recursos associado ao VM:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action` </li><li>No âmbito de uma subscrição ou grupo de recursos associado ao VM:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/*/read` </li><li>  No âmbito de um grupo de subscrição ou de recursos ou VM:<br/> `Microsoft.Compute/virtualMachines/read` </li><li>  No âmbito de um grupo de subscrição ou de recursos ou VM:<br/> `Microsoft.Network/networkInterfaces/*/read` </li></ul>|
 |Leia as políticas do JIT| *Atribuir estas ações ao utilizador:*  <ul><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/read`</li><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action`</li><li>`Microsoft.Security/policies/read`</li><li>`Microsoft.Compute/virtualMachines/read`</li><li>`Microsoft.Network/*/read`</li>|
+|||
 
 
 

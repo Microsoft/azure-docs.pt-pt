@@ -1,5 +1,5 @@
 ---
-title: Tutorial de rotação para recursos com um conjunto de credenciais de autenticação
+title: Tutorial de rotação para recursos com um conjunto de credenciais de autenticação armazenadas no Cofre da Chave Azure
 description: Use este tutorial para aprender a automatizar a rotação de um segredo para recursos que usam um conjunto de credenciais de autenticação.
 services: key-vault
 author: msmbaldwin
@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 9bff8c040f4cfed612278dd83ebb354b31a3a1f3
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 67fe36cf86c886f9d67d98cc8d34a090db4a71cb
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85801449"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373033"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatizar a rotação de um segredo para recursos que usam um conjunto de credenciais de autenticação
 
@@ -33,20 +33,23 @@ Este tutorial mostra como automatizar a rotação periódica de segredos para ba
 > [!NOTE]
 > Pode haver um desfasamento entre os passos 3 e 4. Durante esse tempo, o segredo em Key Vault não será capaz de autenticar para o SQL Server. Em caso de falha de qualquer uma das etapas, a Grade de Eventos retrijo por duas horas.
 
-## <a name="create-a-key-vault-and-sql-server-instance"></a>Crie um cofre chave e exemplo de servidor SQL
+## <a name="prerequisites"></a>Pré-requisitos
 
-O primeiro passo é criar um cofre chave e uma instância e base de dados do SQL Server e armazenar a palavra-passe de administrador do SQL Server no Key Vault.
+* Uma subscrição Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Azure Key Vault
+* SQL Server
 
-Este tutorial utiliza um modelo de Gestor de Recursos Azure existente para criar componentes. Pode encontrar o código aqui: [Amostra de modelo de rotação secreta básica.](https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/arm-templates)
+Abaixo o link de implementação pode ser usado, se não tiver o Cofre de Chaves e o Servidor SQL existentes:
 
-1. Selecione a ligação de implementação do modelo Azure:
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Finitial-setup%2Fazuredeploy.json" target="_blank"> <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/></a>
-1. No **grupo de Recursos,** selecione **Criar novo**. Nomeie a **versão mais simples do**grupo.
-1. Selecione **Comprar**.
+<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json" target="_blank"><img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png" alt="Deploy to Azure"/></a>
+1. No **grupo de Recursos,** selecione **Criar novo**. Nomeie a **akvrotation do**grupo .
+1. Em **Sql Admin Login,** tipo Sql administrator login. 
+1. Selecione **Rever + criar**.
+1. Selecione **Criar**
 
     ![Criar um grupo de recursos](../media/rotate2.png)
 
-Agora terá um cofre chave, uma instância sql server e uma base de dados SQL. Pode verificar esta configuração no Azure CLI executando o seguinte comando:
+Agora terá um Cofre-Chave e uma instância do SQL Server. Pode verificar esta configuração no Azure CLI executando o seguinte comando:
 
 ```azurecli
 az resource list -o table
@@ -57,26 +60,34 @@ O resultado será algo da seguinte saída:
 ```console
 Name                     ResourceGroup         Location    Type                               Status
 -----------------------  --------------------  ----------  ---------------------------------  --------
-simplerotation-kv          simplerotation      eastus      Microsoft.KeyVault/vaults
-simplerotation-sql         simplerotation      eastus      Microsoft.Sql/servers
-simplerotation-sql/master  simplerotation      eastus      Microsoft.Sql/servers/databases
+akvrotation-kv          akvrotation      eastus      Microsoft.KeyVault/vaults
+akvrotation-sql         akvrotation      eastus      Microsoft.Sql/servers
+akvrotation-sql/master  akvrotation      eastus      Microsoft.Sql/servers/databases
 ```
 
-## <a name="create-a-function-app"></a>Criar uma aplicação de função
+## <a name="create-and-deploy-sql-server-password-rotation-function"></a>Criar e implementar a função de rotação de senha do servidor sql
 
-Em seguida, crie uma aplicação de função com uma identidade gerida pelo sistema, além dos outros componentes necessários.
+Em seguida, crie uma aplicação de função com uma identidade gerida pelo sistema, além dos outros componentes necessários, e implemente funções de rotação de senha de servidor sql
 
 A aplicação de função requer estes componentes:
 - Um plano de serviço de aplicações Azure
-- Uma conta de armazenamento
-- Uma política de acesso a segredos de acesso em Key Vault através de app de função gerida identidade
+- Uma App de função com funções de rotação de senha sql com gatilho de evento e gatilho de http 
+- Uma conta de armazenamento necessária para a gestão do gatilho da aplicação de função
+- Uma política de acesso à identidade da App de Função para aceder a segredos no Cofre de Chaves
+- Uma subscrição de eventos Comagrid para o evento **SecretNearExpiry**
 
 1. Selecione a ligação de implementação do modelo Azure:
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Ffunction-app%2Fazuredeploy.json" target="_blank"><img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/></a>
-1. Na lista de **grupos de Recursos,** selecione **a simplificação**.
-1. Selecione **Comprar**.
+<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json" target="_blank"><img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png" alt="Deploy to Azure"/></a>
+1. Na lista de **grupos de recursos,** selecione **akvrotation**.
+1. No Nome do **Servidor Sql,** digite o nome sql Server com senha para rodar
+1. No Nome do **Cofre de Chaves,** digite o nome do cofre da chave
+1. No Nome da **Aplicação de Função,** digite o nome da aplicação de função
+1. No **Nome Secreto**, escreva o nome secreto onde a palavra-passe será armazenada
+1. No **Url Repo**, tipo de função gitHub localização **https://github.com/jlichwa/KeyVault-Rotation-SQLPassword-Csharp.git** ()
+1. Selecione **Rever + criar**.
+1. Selecione **Criar**.
 
-   ![Selecione Compra](../media/rotate3.png)
+   ![Selecione Review+criar](../media/rotate3.png)
 
 Depois de completar os passos anteriores, terá uma conta de armazenamento, uma fazenda de servidores e uma aplicação de função. Pode verificar esta configuração no Azure CLI executando o seguinte comando:
 
@@ -89,18 +100,19 @@ O resultado será algo parecido com a seguinte saída:
 ```console
 Name                     ResourceGroup         Location    Type                               Status
 -----------------------  --------------------  ----------  ---------------------------------  --------
-simplerotation-kv          simplerotation       eastus      Microsoft.KeyVault/vaults
-simplerotation-sql         simplerotation       eastus      Microsoft.Sql/servers
-simplerotation-sql/master  simplerotation       eastus      Microsoft.Sql/servers/databases
-simplerotationstrg         simplerotation       eastus      Microsoft.Storage/storageAccounts
-simplerotation-plan        simplerotation       eastus      Microsoft.Web/serverFarms
-simplerotation-fn          simplerotation       eastus      Microsoft.Web/sites
+akvrotation-kv           akvrotation       eastus      Microsoft.KeyVault/vaults
+akvrotation-sql          akvrotation       eastus      Microsoft.Sql/servers
+akvrotation-sql/master   akvrotation       eastus      Microsoft.Sql/servers/databases
+cfogyydrufs5wazfunctions akvrotation       eastus      Microsoft.Storage/storageAccounts
+akvrotation-fnapp        akvrotation       eastus      Microsoft.Web/serverFarms
+akvrotation-fnapp        akvrotation       eastus      Microsoft.Web/sites
+akvrotation-fnapp        akvrotation       eastus      Microsoft.insights/components
 ```
 
 Para obter informações sobre como criar uma aplicação de função e utilizar identidade gerida para aceder ao Key Vault, consulte [Criar uma aplicação de função a partir do portal Azure](../../azure-functions/functions-create-function-app-portal.md) e [fornecer autenticação key vault com uma identidade gerida.](../general/managed-identity.md)
 
 ### <a name="rotation-function"></a>Função de rotação
-A função utiliza um evento para desencadear a rotação de um segredo atualizando o Cofre de Chaves e a base de dados SQL.
+Implantado na função de passo anterior utiliza um evento para desencadear a rotação de um segredo atualizando o Cofre de Chaves e a base de dados SQL. 
 
 #### <a name="function-trigger-event"></a>Evento de gatilho de função
 
@@ -109,19 +121,19 @@ Esta função lê os dados do evento e executa a lógica de rotação:
 ```csharp
 public static class SimpleRotationEventHandler
 {
-    [FunctionName("SimpleRotation")]
-       public static void Run([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
-       {
-            log.LogInformation("C# Event trigger function processed a request.");
-            var secretName = eventGridEvent.Subject;
-            var secretVersion = Regex.Match(eventGridEvent.Data.ToString(), "Version\":\"([a-z0-9]*)").Groups[1].ToString();
-            var keyVaultName = Regex.Match(eventGridEvent.Topic, ".vaults.(.*)").Groups[1].ToString();
-            log.LogInformation($"Key Vault Name: {keyVaultName}");
-            log.LogInformation($"Secret Name: {secretName}");
-            log.LogInformation($"Secret Version: {secretVersion}");
+   [FunctionName("AKVSQLRotation")]
+   public static void Run([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
+   {
+      log.LogInformation("C# Event trigger function processed a request.");
+      var secretName = eventGridEvent.Subject;
+      var secretVersion = Regex.Match(eventGridEvent.Data.ToString(), "Version\":\"([a-z0-9]*)").Groups[1].ToString();
+      var keyVaultName = Regex.Match(eventGridEvent.Topic, ".vaults.(.*)").Groups[1].ToString();
+      log.LogInformation($"Key Vault Name: {keyVaultName}");
+      log.LogInformation($"Secret Name: {secretName}");
+      log.LogInformation($"Secret Version: {secretVersion}");
 
-            SeretRotator.RotateSecret(log, secretName, secretVersion, keyVaultName);
-        }
+      SecretRotator.RotateSecret(log, secretName, keyVaultName);
+   }
 }
 ```
 
@@ -129,104 +141,71 @@ public static class SimpleRotationEventHandler
 Este método de rotação lê informações de base de dados a partir do segredo, cria uma nova versão do segredo, e atualiza a base de dados com o novo segredo:
 
 ```csharp
-public class SecretRotator
+    public class SecretRotator
     {
-       private const string UserIdTagName = "UserID";
-       private const string DataSourceTagName = "DataSource";
-       private const int SecretExpirationDays = 31;
+        private const string CredentialIdTag = "CredentialId";
+        private const string ProviderAddressTag = "ProviderAddress";
+        private const string ValidityPeriodDaysTag = "ValidityPeriodDays";
 
-    public static void RotateSecret(ILogger log, string secretName, string secretVersion, string keyVaultName)
-    {
-           //Retrieve current secret
-           var kvUri = "https://" + keyVaultName + ".vault.azure.net";
-           var client = new SecretClient(new Uri(kvUri), new DefaultAzureCredential());
-           KeyVaultSecret secret = client.GetSecret(secretName, secretVersion);
-           log.LogInformation("Secret Info Retrieved");
-        
-           //Retrieve secret info
-           var userId = secret.Properties.Tags.ContainsKey(UserIdTagName) ?  
-                        secret.Properties.Tags[UserIdTagName] : "";
-           var datasource = secret.Properties.Tags.ContainsKey(DataSourceTagName) ? 
-                            secret.Properties.Tags[DataSourceTagName] : "";
-           log.LogInformation($"Data Source Name: {datasource}");
-           log.LogInformation($"User Id Name: {userId}");
-        
-           //Create new password
-           var randomPassword = CreateRandomPassword();
-           log.LogInformation("New Password Generated");
-        
-           //Check DB connection using existing secret
-           CheckServiceConnection(secret);
-           log.LogInformation("Service Connection Validated");
-                    
-           //Create new secret with generated password
-           CreateNewSecretVersion(client, secret, randomPassword);
-           log.LogInformation("New Secret Version Generated");
-        
-           //Update DB password
-           UpdateServicePassword(secret, randomPassword);
-           log.LogInformation("Password Changed");
-           log.LogInformation($"Secret Rotated Succesffuly");
-    }
+        public static void RotateSecret(ILogger log, string secretName, string keyVaultName)
+        {
+            //Retrieve Current Secret
+            var kvUri = "https://" + keyVaultName + ".vault.azure.net";
+            var client = new SecretClient(new Uri(kvUri), new DefaultAzureCredential());
+            KeyVaultSecret secret = client.GetSecret(secretName);
+            log.LogInformation("Secret Info Retrieved");
+
+            //Retrieve Secret Info
+            var credentialId = secret.Properties.Tags.ContainsKey(CredentialIdTag) ? secret.Properties.Tags[CredentialIdTag] : "";
+            var providerAddress = secret.Properties.Tags.ContainsKey(ProviderAddressTag) ? secret.Properties.Tags[ProviderAddressTag] : "";
+            var validityPeriodDays = secret.Properties.Tags.ContainsKey(ValidityPeriodDaysTag) ? secret.Properties.Tags[ValidityPeriodDaysTag] : "";
+            log.LogInformation($"Provider Address: {providerAddress}");
+            log.LogInformation($"Credential Id: {credentialId}");
+
+            //Check Service Provider connection
+            CheckServiceConnection(secret);
+            log.LogInformation("Service  Connection Validated");
+            
+            //Create new password
+            var randomPassword = CreateRandomPassword();
+            log.LogInformation("New Password Generated");
+
+            //Add secret version with new password to Key Vault
+            CreateNewSecretVersion(client, secret, randomPassword);
+            log.LogInformation("New Secret Version Generated");
+
+            //Update Service Provider with new password
+            UpdateServicePassword(secret, randomPassword);
+            log.LogInformation("Password Changed");
+            log.LogInformation($"Secret Rotated Successfully");
+        }
 }
 ```
-Pode encontrar o código completo no [GitHub.](https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/rotation-function)
-
-#### <a name="function-deployment"></a>Implantação de funções
-
-1. Descarregue o ficheiro zip da aplicação de função do [GitHub](https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-fn.zip).
-
-1. Faça o upload do ficheiro simplerotationsample-fn.zip para a Azure Cloud Shell.
-
-   ![Faça o upload do ficheiro](../media/rotate4.png)
-1. Utilize este comando Azure CLI para implantar o ficheiro zip na aplicação de função:
-
-   ```azurecli
-   az functionapp deployment source config-zip -g simplerotation -n simplerotation-fn --src /home/{firstname e.g jack}/simplerotationsample-fn.zip
-   ```
-
-Depois de a função ser implantada, deverá ver duas funções em simplificação-fn:
-
-![Funções SimpleRotation e SimpleRotationHttpTest](../media/rotate5.png)
-
-## <a name="add-an-event-subscription-for-the-secretnearexpiry-event"></a>Adicione uma subscrição de evento para o evento SecretNearExpiry
-
-Copie a chave da aplicação de `eventgrid_extension` função:
-
-   ![Selecione as definições de aplicações de funções](../media/rotate6.png)
-
-   ![eventgrid_extension chave](../media/rotate7.png)
-
-Utilize a chave copiada `eventgrid_extension` e o ID de subscrição no seguinte comando para criar uma subscrição de Grade de Eventos para `SecretNearExpiry` eventos:
-
-```azurecli
-az eventgrid event-subscription create --name simplerotation-eventsubscription --source-resource-id "/subscriptions/<subscription-id>/resourceGroups/simplerotation/providers/Microsoft.KeyVault/vaults/simplerotation-kv" --endpoint "https://simplerotation-fn.azurewebsites.net/runtime/webhooks/EventGrid?functionName=SimpleRotation&code=<extension-key>" --endpoint-type WebHook --included-event-types "Microsoft.KeyVault.SecretNearExpiry"
-```
+Pode encontrar o código completo no [GitHub.](https://github.com/jlichwa/KeyVault-Rotation-SQLPassword-Csharp)
 
 ## <a name="add-the-secret-to-key-vault"></a>Adicione o segredo ao Cofre de Chaves
 Desagre a sua política de acesso para conceder permissões *de segredos* aos utilizadores:
 
 ```azurecli
-az keyvault set-policy --upn <email-address-of-user> --name simplerotation-kv --secret-permissions set delete get list
+az keyvault set-policy --upn <email-address-of-user> --name akvrotation-kv --secret-permissions set delete get list
 ```
 
-Crie um novo segredo com tags que contenham a fonte de dados da base de dados SQL e o ID do utilizador. Inclua uma data de validade marcada para amanhã.
+Crie um novo segredo com tags que contenham o ID de recursos do SQL Server, o nome de login do SQL Server e o período de validade para o segredo em dias. Forneça o nome do segredo, palavra-passe inicial da base de dados SQL (no nosso exemplo "Simple123") e inclua uma data de validade marcada para amanhã.
 
 ```azurecli
 $tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddThh:mm:ssZ")
-az keyvault secret set --name sqluser --vault-name simplerotation-kv --value "Simple123" --tags "UserID=azureuser" "DataSource=simplerotation-sql.database.windows.net" --expires $tomorrowDate
+az keyvault secret set --name sqlPassword --vault-name akvrotation-kv --value "Simple123" --tags "CredentialId=sqlAdmin" "ProviderAddress=<sql-database-resource-id>" "ValidityPeriodDays=90" --expires $tomorrowDate
 ```
 
-Criar um segredo com uma data de validade curta publicará imediatamente um `SecretNearExpiry` evento, que por sua vez irá desencadear a função para rodar o segredo.
+Criar um segredo com uma data de validade curta publicará um `SecretNearExpiry` evento dentro de 15 minutos, o que por sua vez irá desencadear a função para rodar o segredo.
 
 ## <a name="test-and-verify"></a>Testar e verificar
-Após alguns minutos, o `sqluser` segredo deve girar automaticamente.
 
 Para verificar se o segredo gira, vá aos **Segredos do Cofre Chave:**  >  **Secrets**
 
 ![Ir para segredos](../media/rotate8.png)
 
-Abra o segredo **sqluser** e veja as versões originais e rotativas:
+Abra o **segredo sqlPassword** e veja as versões originais e rotativas:
 
 ![Abra o segredo sqluser](../media/rotate9.png)
 
@@ -239,34 +218,27 @@ A aplicação web requer estes componentes:
 - Uma política de acesso a segredos de acesso em Key Vault via web app identidade gerida
 
 1. Selecione a ligação de implementação do modelo Azure:
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Fweb-app%2Fazuredeploy.json" target="_blank"> <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/></a>
-1. Selecione o grupo de recursos **de simplificação.**
-1. Selecione **Comprar**.
+<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp-WebApp%2Fmaster%2Farm-templates%2FWeb-App%2Fazuredeploy.json" target="_blank"> <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png" alt="Deploy to Azure"/></a>
+1. Selecione o grupo de recursos **de akvrotation.**
+1. No Nome do **Servidor Sql,** digite o nome sql Server com senha para rodar
+1. No Nome do **Cofre de Chaves,** digite o nome do cofre da chave
+1. No **Nome Secreto**, escreva o nome secreto onde a palavra-passe está armazenada
+1. No **Url Repo**, digite código de aplicação web GitHub **https://github.com/jlichwa/KeyVault-Rotation-SQLPassword-Csharp-WebApp.git** ()
+1. Selecione **Rever + criar**.
+1. Selecione **Criar**.
 
-### <a name="deploy-the-web-app"></a>Implementar a aplicação web
-
-Pode encontrar código fonte para a aplicação web no [GitHub.](https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/test-webapp)
-
-Para implementar a aplicação web, complete estes passos:
-
-1. Descarregue o ficheiro zip da aplicação de função do [GitHub](https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-app.zip).
-1. Faça o upload do ficheiro simplerotationsample-app.zip para a Azure Cloud Shell.
-1. Utilize este comando Azure CLI para implantar o ficheiro zip na aplicação de função:
-
-   ```azurecli
-   az webapp deployment source config-zip -g simplerotation -n simplerotation-app --src /home/{firstname e.g jack}/simplerotationsample-app.zip
-   ```
 
 ### <a name="open-the-web-app"></a>Abra a aplicação web
 
-Vá à aplicação implementada e selecione o URL:
+Aceda ao URL de aplicação implantado:
  
-![Selecione o URL](../media/rotate10.png)
+https://akvrotation-app.azurewebsites.net/
 
 Quando a aplicação abrir no navegador, verá o **Valor Secreto Gerado** e um valor conectado à base de **dados** de *verdade.*
 
 ## <a name="learn-more"></a>Saber mais
 
+- Tutorial: [Rotação para recursos com dois conjuntos de credenciais](tutorial-rotation-dual.md)
 - Visão geral: [Monitoring Key Vault com Azure Event Grid (pré-visualização)](../general/event-grid-overview.md)
 - Como: [Receber e-mail quando um segredo de cofre chave muda](../general/event-grid-logicapps.md)
 - [Esquema de eventos Azure Event Grid para Azure Key Vault (pré-visualização)](../../event-grid/event-schema-key-vault.md)

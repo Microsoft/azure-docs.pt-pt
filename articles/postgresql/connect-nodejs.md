@@ -1,6 +1,6 @@
 ---
-title: Use node.js para ligar à Base de Dados Azure para PostgreSQL - Servidor Único
-description: Este quickstart fornece uma amostra de código Node.js que pode usar para ligar e consultar dados da Base de Dados Azure para PostgreSQL - Servidor Único.
+title: Utilize Node.js para ligar à Base de Dados Azure para PostgreSQL - Servidor Único
+description: Este quickstart fornece uma amostra de código Node.js que pode utilizar para ligar e consultar dados da Base de Dados Azure para PostgreSQL - Servidor Único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -9,23 +9,24 @@ ms.custom:
 - devcenter
 - seo-javascript-september2019
 - seo-javascript-october2019
+- devx-track-javascript
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: 1d48fc818ca32b6168b0986ddb6453fe66fc8341
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c3157bb3e643c8aea4653f7cf12390938ae44d5a
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80062251"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423257"
 ---
-# <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Quickstart: Use Node.js para ligar e consultar dados na Base de Dados Azure para PostgreSQL - Servidor Único
+# <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Quickstart: Utilize Node.js para ligar e consultar dados na Base de Dados Azure para PostgreSQL - Servidor Único
 
-Neste arranque rápido, ligue-se a uma Base de Dados Azure para PostgreSQL utilizando uma aplicação Node.js. Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Os passos neste artigo pressupõem que está familiarizado com a programação com Node.js e que nunca trabalhou com a Base de Dados do Azure para PostgreSQL.
+Neste arranque rápido, você conecta-se a uma Base de Dados Azure para PostgreSQL usando uma aplicação Node.js. Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Os passos neste artigo pressupõem que está familiarizado com a programação com Node.js e que nunca trabalhou com a Base de Dados do Azure para PostgreSQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
 - Conclusão do [Quickstart: Criar uma Base de Dados Azure para servidor PostgreSQL no portal Azure](quickstart-create-server-database-portal.md) ou [Quickstart: Criar uma Base de Dados Azure para PostgreSQL utilizando o Azure CLI](quickstart-create-server-database-azure-cli.md).
 
@@ -49,9 +50,9 @@ Obtenha as informações de ligação necessárias para se ligar à Base de Dado
 
 1. No [portal Azure,](https://portal.azure.com/)procure e selecione o servidor que criou (como **o mydemoserver).**
 
-1. A partir do painel **de visão geral** do servidor, tome nota do nome de **servidor** e nome de utilizador **do Administrador**. Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.
+1. A partir do painel de **visão geral** do servidor, tome nota do nome de utilizador **do Servidor** e do nome de **utilizador do**Administrador . Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.
 
-   ![Base de Dados Azure para cadeia de ligação PostgreSQL](./media/connect-nodejs/server-details-azure-database-postgresql.png)
+   ![Base de dados Azure para cadeia de ligação PostgreSQL](./media/connect-nodejs/server-details-azure-database-postgresql.png)
 
 ## <a name="running-the-javascript-code-in-nodejs"></a>Executar o código JavaScript no Node.js
 Pode iniciar o Node.js a partir do Bash shell, Terminal ou da Linha de Comandos do Windows ao introduzir `node` e, em seguida, executar o exemplo de código JavaScript, de forma interativa, copiando-o e colando-o na linha. Como alternativa, pode guardar o código JavaScript num ficheiro de texto e iniciar `node filename.js` com o nome do ficheiro como um parâmetro para o executar.
@@ -251,6 +252,6 @@ function queryDatabase() {
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 > [!div class="nextstepaction"]
 > [Migrar a base de dados com Exportar e Importar](./howto-migrate-using-export-and-import.md)

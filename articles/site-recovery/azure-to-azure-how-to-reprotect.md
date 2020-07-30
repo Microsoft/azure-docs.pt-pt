@@ -2,18 +2,18 @@
 title: Reprotect Azure VMs para a região primária com Recuperação do Sítio Azure Microsoft Docs
 description: Descreve como reprotegir os VMs Azure após o failover, o secundário para a região primária, usando a recuperação do local de Azure.
 services: site-recovery
-author: rajani-janaki-ram
-manager: gauravd
+author: Rajeswari-Mamilla
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
-ms.author: rajanaki
-ms.openlocfilehash: 9883065993f35054338079c8b9647a8420574414
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: ramamill
+ms.openlocfilehash: da740909cedb8e2bb78f5f70e062481395a5c181
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82738070"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422084"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Reprotect falhou sobre os VMs do Azure para a região primária
 
@@ -98,10 +98,6 @@ Quando o VM é re-protegido depois de ter falhado na região primária (isto é,
 
 Quando o VM é re-protegido da região DR para a região primária, não apagamos os VM primários e os NIC(s associados).
 
-Quando o VM é re-protegido depois de ter falhado na região primária (isto é, se o VM for re-protegido da região primária para a região DR), o VM-alvo e os NIC(s) associados são eliminados. 
-
-Quando o VM é re-protegido da região DR para a região primária, não apagamos os VM primários e os NIC(s associados).
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de o VM estar protegido, pode iniciar uma falha. O failover encerra o VM na região secundária e cria e arranca o VM na região primária, com breves tempos de paragem durante este processo. Recomendamos que escolha um momento adequado para este processo e que faça um teste de failover antes de iniciar uma falha total no local principal. [Saiba mais](site-recovery-failover.md) sobre o failover da Recuperação do Site Azure.

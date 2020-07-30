@@ -5,12 +5,12 @@ author: tugup
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: tugup
-ms.openlocfilehash: b106061805ea5485893df292c40974d3ee9bcadb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a39aecf16d1c3303c0a590b389ba2aa69d4472f2
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258830"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405131"
 ---
 # <a name="azure-service-fabric-hosting-lifecycle"></a>Tecido de serviço Azure hospedando ciclo de vida
 Este artigo fornece uma visão geral dos eventos que acontecem quando uma aplicação é ativada em um nó e vários configs cluster usados para controlar o comportamento.
@@ -83,7 +83,7 @@ O Tecido de Serviço utiliza sempre um back-off linear quando encontra erro dura
 
 * Se o CodePackage continuar a falhar e a recuar, o ServiceType será desativado. Mas se as ativações config for tal que tenha um reinício rápido, então o CodePackage pode surgir algumas vezes antes de poder ver o desactivamento do ServiceType. Para ex: assuma que o seu CodePackage aparece, regista o ServiceType com o Service Fabric e depois falha. Nesse caso, uma vez que o Hosting recebe um registo de tipo, o período **ServiceTypeDisableGraceInterval** é cancelado. E isto pode repetir-se até que o codepackage recue para um valor superior ao **ServiceTypeDisableGraceInterval** e, em seguida, o ServiceType será desativado no nó. Portanto, pode demorar algum tempo até que o seu ServiceType seja desativado no nó.
 
-* Em caso de ativações, quando o sistema de Tecido de Serviço precisa de colocar uma réplica num nó, a RA (ReconfigurationAgent) pede ao subSystem de hospedagem para ativar a aplicação e retrição o pedido de ativação a cada 15**segundos(RAPMessageRetryInterlor).** Para que o sistema de tecido de serviço saiba que o ServiceType foi desativado, a operação de ativação no alojamento precisa de viver por um período mais longo do que o intervalo de retry e **o ServiceTypeDisableGraceInterval**. Por exemplo: deixe o cluster ter as configurações **ActivationMaxFailureCount** definidas para 5 e **ActivationRetryBackoffInterval** definidas para 1 seg. Significa que a operação de ativação desistirá depois (0 + 1 + 2 + 3 + 4) = 10 seg (a primeira repetição é imediata) e depois o Hospedeiro desiste de voltar a tentar. Neste caso, a operação de ativação ficará concluída e não voltará a funcionar após 15 segundos. Aconteceu porque o Tecido de Serviço esgotou todas as retretes em 15 segundos. Assim, cada repetição da ReconfigurationAgent cria uma nova operação de ativação no subSistema de hospedagem e o padrão continuará a repetir-se e o ServiceType nunca será desativado no nó. Uma vez que o ServiceType não será desativado no componente do sistema de nó Sf FM(FailoverManager) não irá mover a Réplica para um nó diferente.
+* Em caso de ativações, quando o sistema de Tecido de Serviço precisa de colocar uma réplica num nó, a RA (ReconfigurationAgent) pede ao subSystem de hospedagem para ativar a aplicação e retrição o pedido de ativação a cada 15**segundos(RAPMessageRetryInterlor).** Para que o sistema de tecido de serviço saiba que o ServiceType foi desativado, a operação de ativação no alojamento precisa de viver por um período mais longo do que o intervalo de retry e **o ServiceTypeDisableGraceInterval**. Por exemplo: deixe o cluster ter as configurações **ActivationMaxFailureCount** definidas para 5 e **ActivationRetryBackoffInterval** definidas para 1 seg. Significa que a operação de ativação desistirá depois (0 + 1 + 2 + 3 + 4) = 10 seg (a primeira repetição é imediata) e depois o Hospedeiro desiste de voltar a tentar. Neste caso, a operação de ativação ficará concluída e não voltará a funcionar após 15 segundos. Aconteceu porque o Tecido de Serviço esgotou todas as retretes em 15 segundos. Assim, cada repetição da ReconfigurationAgent cria uma nova operação de ativação no subSistema de hospedagem e o padrão continuará a repetir-se e o ServiceType nunca será desativado no nó. Uma vez que o ServiceType não será desativado no nó, o componente do Sf System FM(FailoverManager) não move a Réplica para um nó diferente.
 > 
 
 ## <a name="deactivation"></a>Desativação
@@ -148,7 +148,7 @@ Configs com incumprimentos que impactam a ativação/decativação.
 **DesactivaçãoGraceInterval**: Padrão 60 seg. O tempo dado a um ServicePackage para acolher novamente outra Réplica uma vez que tenha hospedado qualquer Réplica em caso de modelo de Processo **Partilhado.**
 **ExclusivoModeDeactivationGraceInterval**: Padrão 1 seg. O tempo dado a um ServicePackage para acolher novamente outra Réplica uma vez que tenha hospedado qualquer Réplica em caso de modelo de Processo **Exclusivo.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Embale uma aplicação][a3] e prepare-a para ser implantada.
 
 [Implementar e remover aplicações][a4]. Este artigo descreve como usar o PowerShell para gerir instâncias de aplicação.

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: 234217b6571307db04941cc0b9989d3438cde1b7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bb213776d41c07238fcaba1ccdd4e06f5d5bbb5f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090183"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420894"
 ---
 # <a name="train-wide--deep-recommender"></a>Train Wide & Recomendador Profundo
 Este artigo descreve como usar o módulo **Train Wide & Deep Recommender** no Azure Machine Learning Designer (pré-visualização), para formar um modelo de recomendação. Este módulo é baseado em Wide & Deep learning, que é proposto pela Google.
@@ -105,7 +105,7 @@ Por exemplo, um conjunto típico de funcionalidades de item pode ser assim:
 
     Este hiperparmetro determina o tamanho do passo em cada passo de treino enquanto se move em direção a uma função mínima de perda. Uma taxa de aprendizagem demasiado grande pode causar um salto de aprendizagem sobre o minima, enquanto uma taxa de aprendizagem muito pequena pode causar problemas de convergência.
 
-7.  **Dimensão de características cruzadas**: digite a dimensão dos ids de utilizador cruzados e da função de ids de item. 
+7.  **Dimensão de característica cruzada**: digite a dimensão introduzindo as ids do utilizador pretendido e as funções de id do item. 
 
     O recomendador Wide & Deep executa a transformação entre produtos em relação às funcionalidades de id do utilizador e id de item por padrão. O resultado cruzado será hashed de acordo com este número para garantir a dimensão.
 
@@ -144,6 +144,6 @@ O Wide & Deep treina em conjunto modelos lineares largos e redes neuronais profu
 Na implementação do recomendador Wide & Deep, o módulo utiliza uma estrutura de modelo padrão. O componente largo leva incorporações de utilizador, incorporações de item e a transformação transversal de ids de utilizador e ids de item como entrada. Para a parte profunda do modelo, um vetor incorporado é aprendido para cada característica categórica. Juntamente com outros vetores de recurso numérico, estes vetores são então alimentados na rede neural de feed-forward profundo. A parte larga e profunda são combinadas resumindo as suas odds finais de registo de saída como a previsão, que finalmente vai para uma função comum de perda para o treino conjunto.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Veja o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 

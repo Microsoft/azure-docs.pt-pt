@@ -4,12 +4,12 @@ description: Crie e execute rapidamente um caderno Jupyter na Pré-visualizaçã
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.custom: tracking-python
-ms.openlocfilehash: 809cb006e1ea40e31d079b40febee6a09714731f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec1a03cb1c05248458a47ec4b22a0243b31bafcd
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85832105"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423291"
 ---
 # <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>Quickstart: Criar e partilhar um caderno em Pré-visualização de Cadernos Azure
 
@@ -43,7 +43,7 @@ Nenhum.
 
 1. Após alguns momentos, a Azure Notebooks navega para o novo projeto. Adicione um caderno ao projeto selecionando o **+ Novo** drop-down (que pode aparecer como apenas **+** ), selecionando então **o Caderno**:
 
-    [![](media/quickstarts/empty-project-new-notebook-button.png "A new, empty project and add notebook command")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
+    :::image type="content" source="media/quickstarts/empty-project-new-notebook-button.png" alt-text="Um novo projeto vazio e adicionar comando de caderno." lightbox="media/quickstarts/empty-project-new-notebook-button.png":::
 
 1. No popup **Create New Notebook** que aparece, introduza um nome de arquivo para o seu portátil, como *HelloWorldInPython.ipynb* *(.ipynb* significa IronPython (Jupyter) Notebook), e selecione **Python 3.6** para o idioma (também referido como *o núcleo):*
 
@@ -103,7 +103,7 @@ Na página do projeto, também pode utilizar o menu **Partilhar** para obter um 
 
 ![Comando de partilha de projetos](media/quickstarts/share-project-command.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Tutorial: Criar e executar um caderno Jupyter para fazer regressão linear](tutorial-create-run-jupyter-notebook.md)

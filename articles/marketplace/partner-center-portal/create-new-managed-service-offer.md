@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 07/07/2020
-ms.openlocfilehash: 193781e078f12dec553d98c15699c7e665966a87
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8546e5fde51ddc8a29a852a2c5dbcd25fffad287
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326631"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405250"
 ---
 # <a name="create-a-managed-service-offer"></a>Criar uma oferta de Serviço Gerido
 
@@ -194,6 +194,9 @@ Em seguida, insira uma **Descrição** que fornece uma explicação mais detalha
 Atualmente, existe apenas um modelo de preços que pode ser usado para a oferta de Serviço Gerido: **Traga a sua própria licença (BYOL)**. Isto significa que irá cobrar diretamente aos seus clientes pelos custos relacionados com esta oferta, e a Microsoft não cobra quaisquer taxas a si.
 
 A secção **de visibilidade do Plano** permite-lhe indicar se este plano deve ser [privado](../../marketplace/private-offers.md). Se sair da Esta é uma caixa **de plano privado** sem controlo, o seu plano não será restringido a clientes específicos (ou a um determinado número de clientes).
+
+> [!NOTE]
+> Os planos privados não são suportados com subscrições estabelecidas através de um revendedor do programa Cloud Solution Provider (CSP).
 
 Para disponibilizar este plano apenas a clientes específicos, selecione **Sim.** Quando o fizer, terá de identificar os clientes fornecendo os seus IDs de subscrição. Estes podem ser introduzidos um a um (para até 10 subscrições) ou através do upload de um ficheiro .csv (para um máximo de 10.000 subscrições em todos os planos). Certifique-se de incluir as suas próprias subscrições aqui para que possa testar e validar a oferta.
 

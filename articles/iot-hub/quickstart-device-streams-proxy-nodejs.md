@@ -1,58 +1,58 @@
 ---
-title: Dispositivo Azure IoT Hub transmite node.js quickstart para SSH e RDP
-description: Neste arranque rápido, executa uma aplicação Node.js de amostra que funciona como um proxy para permitir cenários de SSH e RDP sobre streams de dispositivos IoT Hub.
+title: O dispositivo Azure IoT Hub transmite Node.js quickstart para SSH e RDP
+description: Neste quickstart, você executou uma amostra Node.js aplicação que funciona como um proxy para permitir cenários de SSH e RDP sobre fluxos de dispositivos IoT Hub.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, devx-track-javascript
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: c372a0a09fd3143f570aa4b316c9191e617c69e2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 910ea6d333da08e69b6c5e6d6fe86421bda743ee
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78675446"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422594"
 ---
-# <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>Quickstart: Ative o SSH e o RDP sobre um fluxo de dispositivos IoT Hub utilizando uma aplicação de proxy Node.js (pré-visualização)
+# <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>Quickstart: Ative o SSH e o RDP sobre um fluxo de dispositivos IoT Hub utilizando uma aplicação de procuração Node.js (pré-visualização)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
-Neste arranque rápido, ativa o tráfego secure Shell (SSH) e Remote Desktop Protocol (RDP) para ser enviado para o dispositivo através de um fluxo de dispositivos. Os streams de dispositivos Azure IoT Hub permitem que as aplicações de serviço e dispositivo saem de forma segura e compatível com firewall. Este quickstart descreve a execução de uma aplicação de procuração Node.js que está a funcionar no lado do serviço. Durante a pré-visualização pública, o Node.js SDK suporta fluxos de dispositivos apenas no lado do serviço. Como resultado, este quickstart cobre instruções para executar apenas o pedido de procuração local de serviço.
+Neste arranque rápido, ativa-se o tráfego de Secure Shell (SSH) e Remote Desktop Protocol (RDP) para o dispositivo através de uma corrente de dispositivo. Os fluxos de dispositivos Azure IoT Hub permitem que as aplicações de serviço e dispositivos se comuniquem de forma segura e amiga da firewall. Este quickstart descreve a execução de uma aplicação de procuração Node.js que está a decorrer no lado de serviço. Durante a pré-visualização pública, o Node.js SDK suporta fluxos de dispositivo apenas no lado do serviço. Como resultado, este quickstart cobre instruções para executar apenas a aplicação de procuração local de serviço.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conclusão do [Enable SSH e RDP sobre os fluxos de dispositivos IoT Hub utilizando uma aplicação](./quickstart-device-streams-proxy-c.md) de procuração C ou [ativar o SSH e o RDP sobre os fluxos de dispositivos IoT Hub utilizando uma aplicação de procuração C#](./quickstart-device-streams-proxy-csharp.md).
+* Conclusão do [Enable SSH e RDP sobre fluxos de dispositivos IoT Hub utilizando uma aplicação de procuração C](./quickstart-device-streams-proxy-c.md) ou [ativar fluxos de dispositivoS SSH e RDP sobre fluxos de dispositivos IoT Hub utilizando uma aplicação de procuração C#](./quickstart-device-streams-proxy-csharp.md).
 
 * Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
 * [Node.js 10+](https://nodejs.org).
 
-* [Um projeto de node.js de amostra.](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip)
+* [Uma amostra Node.js projeto.](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip)
 
-Pode verificar a versão atual do Node.js na sua máquina de desenvolvimento utilizando o seguinte comando:
+Pode verificar a versão atual de Node.js na sua máquina de desenvolvimento utilizando o seguinte comando:
 
 ```cmd/sh
 node --version
 ```
 
-O Microsoft Azure IoT Hub suporta atualmente os streams do dispositivo como uma funcionalidade de [pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+O Microsoft Azure IoT Hub suporta atualmente os fluxos de dispositivos como [uma funcionalidade de pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!IMPORTANT]
-> A visualização dos fluxos de dispositivos é atualmente suportada apenas para os Hubs IoT criados nas seguintes regiões:
+> Atualmente, a pré-visualização dos fluxos de dispositivos só é suportada para os Hubs IoT criados nas seguintes regiões:
 >
 > * E.U.A. Central
-> * EUA Centrais EUA
+> * EUA Central EUAP
 > * Europa do Norte
-> * Ásia Sudeste
+> * Sudeste Asiático
   
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ### <a name="add-azure-iot-extension"></a>Adicionar extensão Azure IoT
 
-Adicione a extensão Azure IoT para Azure CLI à sua instância Cloud Shell executando o seguinte comando. A extensão IoT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) específicos para o Azure CLI.
+Adicione a extensão Azure IoT para Azure CLI à sua instância Cloud Shell executando o seguinte comando. A extensão IoT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) ao Azure CLI.
 
 ```azurecli-interactive
 az extension add --name azure-iot
@@ -68,21 +68,21 @@ Se concluiu o anterior [Guia de Início Rápido: Enviar telemetria a partir de u
 
 ## <a name="register-a-device"></a>Registar um dispositivo
 
-Se tiver concluído [o Quickstart: Envie a telemetria de um dispositivo para um hub IoT,](quickstart-send-telemetry-node.md)pode saltar este passo.
+Se tiver completado [Quickstart: Enviar telemetria de um dispositivo para um hub IoT,](quickstart-send-telemetry-node.md)pode saltar este passo.
 
-É necessário registar um dispositivo no hub IoT antes de o mesmo se poder ligar. Nesta secção, utiliza-se a Azure Cloud Shell para registar um dispositivo simulado.
+É necessário registar um dispositivo no hub IoT antes de o mesmo se poder ligar. Nesta secção, utilize a Azure Cloud Shell para registar um dispositivo simulado.
 
-1. Para criar a identidade do dispositivo, execute o seguinte comando na Cloud Shell:
+1. Para criar a identidade do dispositivo, executar o seguinte comando em Cloud Shell:
 
    > [!NOTE]
    > * Substitua o espaço reservado *YourIoTHubName* pelo nome que escolheu para o seu hub IoT.
-   > * Para o nome do dispositivo que está a registar, é aconselhável utilizar o *MyDevice* como mostrado. Se escolher um nome diferente para o seu dispositivo, utilize esse nome ao longo deste artigo e atualize o nome do dispositivo nas aplicações da amostra antes de os executar.
+   > * Para o nome do dispositivo que está a registar, é aconselhável utilizar *o MyDevice* como mostrado. Se escolher um nome diferente para o seu dispositivo, use esse nome ao longo deste artigo e atualize o nome do dispositivo nas aplicações da amostra antes de executá-los.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
-1. Para permitir que a aplicação back-end se ligue ao seu hub IoT e recupere as mensagens, também precisa de uma cadeia de *ligação*de serviço . O seguinte comando recupera a corda para o seu hub IoT:
+1. Para ativar a aplicação back-end para ligar ao seu hub IoT e recuperar as mensagens, também precisa de uma cadeia de *ligação de serviço*. O seguinte comando recupera a corda para o seu hub IoT:
 
    > [!NOTE]
    > Substitua o espaço reservado *YourIoTHubName* pelo nome que escolheu para o seu hub IoT.
@@ -91,30 +91,30 @@ Se tiver concluído [o Quickstart: Envie a telemetria de um dispositivo para um 
     az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
     ```
 
-   Note a cadeia de ligação de serviço devolvida para posterior utilização neste arranque rápido. O aspeto é igual ao do exemplo abaixo:
+   Note o fio de ligação de serviço devolvido para posterior utilização neste arranque rápido. O aspeto é igual ao do exemplo abaixo:
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
 ## <a name="ssh-to-a-device-via-device-streams"></a>SSH para um dispositivo através de fluxos de dispositivos
 
-Nesta secção, estabelece-se um fluxo de ponta a ponta para o túnel de tráfego ssh.
+Nesta secção, estabelece-se um fluxo de ponta a ponta para o tráfego do túnel SSH.
 
-### <a name="run-the-device-local-proxy-application"></a>Executar a aplicação de procuração local de dispositivo
+### <a name="run-the-device-local-proxy-application"></a>Executar a aplicação de procuração local do dispositivo
 
-Como mencionado anteriormente, o IoT Hub Node.js SDK suporta fluxos de dispositivos apenas no lado do serviço. Para a aplicação local do dispositivo, utilize uma aplicação proxy do dispositivo que esteja disponível num dos seguintes arranques rápidos:
+Como mencionado anteriormente, o IoT Hub Node.js SDK suporta fluxos de dispositivo apenas no lado do serviço. Para a aplicação local do dispositivo, utilize uma aplicação proxy do dispositivo disponível num dos seguintes quickstarts:
 
-   * [Ativar sSH e RDP sobre fluxos de dispositivos IoT Hub utilizando uma aplicação de procuração C](./quickstart-device-streams-proxy-c.md)
-   * [Ativar sSH e RDP sobre fluxos de dispositivos IoT Hub utilizando uma aplicação de procuração C#](./quickstart-device-streams-proxy-csharp.md) 
+   * [Ativar fluxos de dispositivos SSH e RDP através de uma aplicação de procuração C](./quickstart-device-streams-proxy-c.md)
+   * [Ativar fluxos de dispositivos SSH e RDP através de uma aplicação de procuração C#](./quickstart-device-streams-proxy-csharp.md) 
 
-Antes de passar para o próximo passo, certifique-se de que a aplicação de procuração local do dispositivo está em execução. Para uma visão geral da configuração, consulte a [Amostra de Procuração Local](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp).
+Antes de avançar para o passo seguinte, certifique-se de que a aplicação de procuração local do dispositivo está em execução. Para obter uma visão geral da configuração, consulte a [Amostra de Procuração Local](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp).
 
 ### <a name="run-the-service-local-proxy-application"></a>Executar a aplicação de procuração local de serviço
 
-Este artigo descreve a configuração para SSH (utilizando a porta 22) e descreve como modificar a configuração para RDP (que utiliza a porta 3389). Como os fluxos de dispositivos são aplicação e protocolo-agnóstico, pode modificar a mesma amostra para acomodar outros tipos de tráfego de aplicações do servidor cliente, geralmente modificando a porta de comunicação.
+Este artigo descreve a configuração para SSH (utilizando a porta 22) e, em seguida, descreve como modificar a configuração para RDP (que utiliza a porta 3389). Como os fluxos de dispositivos são aplicações e protocolo-agnósticos, pode modificar a mesma amostra para acomodar outros tipos de tráfego de aplicações do servidor cliente, normalmente modificando a porta de comunicação.
 
-Com a aplicação de procuração local do dispositivo em execução, execute a aplicação de procuração local de serviço que está escrita no Node.js fazendo o seguinte numa janela de terminal local:
+Com a aplicação de procuração local do dispositivo em execução, executa a aplicação de procuração local de serviço que está escrita em Node.js fazendo o seguinte numa janela de terminal local:
 
-1. Para variáveis ambientais, forneça as suas credenciais de serviço, o ID do dispositivo-alvo onde o daemon SSH corre, e o número de porta para o proxy que está em execução no dispositivo.
+1. Para variáveis ambientais, forneça as suas credenciais de serviço, o ID do dispositivo alvo onde funciona o daemon SSH e o número de porta para o proxy que está em execução no dispositivo.
 
    ```
    # In Linux
@@ -128,9 +128,9 @@ Com a aplicação de procuração local do dispositivo em execução, execute a 
    SET PROXY_PORT=2222
    ```
 
-   Altere o espaço reservado ServiceConnectionString para combinar com a sua cadeia de ligação de serviço e **o MyDevice** para combinar com o ID do seu dispositivo se tiver dado um nome diferente ao seu.
+   Altere o espaço reservado serviceConnectionString para combinar com a sua cadeia de ligação de serviço e **MyDevice** para combinar com o ID do seu dispositivo se tiver dado um nome diferente ao seu.
 
-1. Navegue `Quickstarts/device-streams-service` para o diretório na sua pasta de projeto sem fecho. Utilize o seguinte código para executar a aplicação de procuração local de serviço:
+1. Navegue para o `Quickstarts/device-streams-service` diretório na sua pasta de projeto desapertado. Utilize o seguinte código para executar a aplicação de procuração local de serviço:
 
    ```
    cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
@@ -147,30 +147,30 @@ Com a aplicação de procuração local do dispositivo em execução, execute a 
 
 Em Linux, executar SSH utilizando `ssh $USER@localhost -p 2222` um terminal. No Windows, utilize o seu cliente SSH favorito (por exemplo, PuTTY).
 
-Saída de consola no serviço local após a sessão SSH ser estabelecida (a aplicação de procuração local de serviço ouve na porta 2222):
+Saída da consola no serviço local após a sessão SSH (a aplicação de procuração local de serviço ouve na porta 2222):
 
 ![Saída do terminal SSH](./media/quickstart-device-streams-proxy-nodejs/service-console-output.png)
 
-Saída de consola da aplicação cliente SSH (cliente SSH comunica com daemon SSH ligando-se à porta 22, onde a aplicação de procuração local de serviço está a ouvir):
+Saída da consola da aplicação do cliente SSH (cliente SSH comunica ao daemon SSH ligando-se à porta 22, onde a aplicação de procuração local de serviço está a ouvir):
 
-![Saída de cliente SSH](./media/quickstart-device-streams-proxy-nodejs/ssh-console-output.png)
+![Saída do cliente SSH](./media/quickstart-device-streams-proxy-nodejs/ssh-console-output.png)
 
 ### <a name="rdp-to-your-device-via-device-streams"></a>RDP para o seu dispositivo através de fluxos de dispositivos
 
-Utilize agora a sua aplicação de cliente RDP e ligue-se ao proxy de serviço na porta 2222, uma porta arbitrária que escolheu anteriormente.
+Agora use a sua aplicação de cliente RDP e ligue-se ao representante de serviço na porta 2222, uma porta arbitrária que escolheu anteriormente.
 
 > [!NOTE]
-> Certifique-se de que o seu proxy do dispositivo está configurado corretamente para RDP e configurado com a porta RDP 3389.
+> Certifique-se de que o seu dispositivo está configurado corretamente para RDP e configurado com a porta RDP 3389.
 
-![O cliente RDP liga-se à aplicação de procuração local de serviço](./media/quickstart-device-streams-proxy-nodejs/rdp-screen-capture.png)
+![O cliente RDP conecta-se à aplicação de procuração local de serviço](./media/quickstart-device-streams-proxy-nodejs/rdp-screen-capture.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste arranque rápido, criou um hub IoT, registou um dispositivo e implementou uma aplicação de procuração de serviço para permitir rdp e SSH num dispositivo IoT. O tráfego rdp e SSH será escavado através de um fluxo de dispositivo através do centro IoT. Este processo elimina a necessidade de conectividade direta com o dispositivo.
+Neste quickstart, criou um hub IoT, registou um dispositivo e implementou uma aplicação de procuração de serviço para permitir o RDP e o SSH num dispositivo IoT. O tráfego RDP e SSH será escavado através de um fluxo de dispositivo através do hub IoT. Este processo elimina a necessidade de conectividade direta com o dispositivo.
 
 Para saber mais sobre os fluxos de dispositivos, consulte:
 

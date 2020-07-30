@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: mjbrown
-ms.custom: tracking-python
-ms.openlocfilehash: a07ab3f65fcdeacf37626ad05d0b95ac3f4e7e64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: tracking-python, devx-track-javascript
+ms.openlocfilehash: 37200983389f73cf733969b4b30dcc04efc3227c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263673"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422186"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configure multi-mestre nas suas aplicações que usam Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Uma vez criada uma conta com múltiplas regiões de escrita ativadas, deve escoa
 > [!Note]
 > As contas cosmos inicialmente configuradas com uma única região de escrita podem ser configuradas para várias regiões de escrita (ou seja, multi-master) com tempo de insuporte zero. Para saber mais ver, [configuure regiões de escrita múltipla](how-to-manage-database-account.md#configure-multiple-write-regions)
 
-## <a name="net-sdk-v2"></a><a id="netv2"></a>.NET SDK v2
+## <a name="net-sdk-v2"></a><a id="netv2"></a>SDK v2 de .NET
 
 Para ativar o multi-mestre na sua aplicação, desatado `UseMultipleWriteLocations` para `true` . Além disso, definido `SetCurrentLocation` para a região em que a aplicação está sendo implementada e onde Azure Cosmos DB é replicado:
 
@@ -35,7 +35,7 @@ ConnectionPolicy policy = new ConnectionPolicy
 policy.SetCurrentLocation("West US 2");
 ```
 
-## <a name="net-sdk-v3"></a><a id="netv3"></a>.NET SDK v3
+## <a name="net-sdk-v3"></a><a id="netv3"></a>SDK v3 de .NET
 
 Para ativar o multi-mestre na sua aplicação, desloque-se `ApplicationRegion` à região em que a aplicação está a ser implementada e onde a Cosmos DB é replicada:
 

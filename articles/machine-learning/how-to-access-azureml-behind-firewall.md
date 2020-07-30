@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 75e2ffcad4caeb6500f05ce3801797084c18a043
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 63e2ba93ecdc1131be6bd291fe436b42a2a2d19c
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321654"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407035"
 ---
 # <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Use espaço de trabalho atrás do Azure Firewall para a aprendizagem de máquinas Azure
 
@@ -60,9 +60,9 @@ Os anfitriões desta secção são utilizados para instalar pacotes Python. São
 
 | **Nome do anfitrião** | **Objetivo** |
 | ---- | ---- |
-| **anaconda.com** | Usado na instalação de pacotes conda |
-| **pypi.org** | Utilizado na instalação de pacotes de pip |
-
+| **anaconda.com** | Usado para instalar pacotes predefinidos. |
+| **\*.anaconda.org** | Usado para obter dados de repo. |
+| **pypi.org** | Usado para listar dependências do índice padrão, se houver, e o índice não é substituído pelas definições do utilizador. Se o índice for substituído, também deve permitir ** \* que .pythonhosted.org**. |
 
 ## <a name="r-hosts"></a>Anfitriões R
 
@@ -75,7 +75,7 @@ Os anfitriões desta secção são utilizados para instalar pacotes R. São nece
 | ---- | ---- |
 | **cloud.r-project.org** | Utilizado na instalação de embalagens CRAN. |
 
-Passos seguintes
+Próximos passos
 
 * [[Implementar e configurar firewall Azure](../firewall/tutorial-firewall-deploy-portal.md)]
 * [Secure Azure ML experimentação e inferências de empregos dentro de uma Rede Virtual Azure](how-to-enable-virtual-network.md)

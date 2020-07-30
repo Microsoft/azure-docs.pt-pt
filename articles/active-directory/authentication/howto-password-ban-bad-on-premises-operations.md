@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ee0f3d89d48b23db48e3bf4b78203b09fbcbdbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e4797c3e089e0ae9d15cc604e9f93605978b36c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80652623"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419772"
 ---
 # <a name="enable-on-premises-azure-active-directory-password-protection"></a>Ativar no local Azure Ative Directory Password Protection
 
@@ -40,7 +40,7 @@ Este artigo mostra-lhe como ativar a Proteção de PasswordS AZure AD para o seu
 1. Recomenda-se inicialmente definir o **Modo** de *Auditoria.* Depois de se sentir confortável com a funcionalidade e o impacto nos utilizadores da sua organização, pode mudar o **Modo** para *Aplicado*. Para obter mais informações, consulte a seguinte secção sobre [os modos de funcionamento](#modes-of-operation).
 1. Quando estiver pronto, **selecione Guardar**.
 
-    [![](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords-cropped.png "Enable on-premises password protection under Authentication Methods in the Azure portal")](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords.png#lightbox)
+    [![Ativar a proteção de senhas no local ao abrigo de Métodos de Autenticação no portal Azure](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords-cropped.png)](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords.png#lightbox)
 
 ## <a name="modes-of-operation"></a>Modos de funcionamento
 

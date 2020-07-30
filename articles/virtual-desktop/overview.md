@@ -8,14 +8,14 @@ ms.topic: overview
 ms.date: 07/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 26be41361a861795a9897442d9a0cc8bb14c1450
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6ff1f20314d79c507c696325d19c83e10ec4513f
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292582"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386579"
 ---
-# <a name="what-is-windows-virtual-desktop"></a>O que é o Windows Virtual Desktop? 
+# <a name="what-is-windows-virtual-desktop"></a>O que é o Windows Virtual Desktop?
 
 O Windows Virtual Desktop é um serviço de virtualização de computadores de secretária e aplicações que funciona na nuvem.
 
@@ -78,7 +78,7 @@ A sua infraestrutura necessita das seguintes coisas para suportar o Windows Virt
   * Azure AD Connect (para organizações híbridas)
   * Serviços de Domínio Azure AD (para organizações híbridas ou em nuvem)
 * Uma subscrição do Azure que contém uma rede virtual que contém ou está ligada ao Diretor ative do Windows Server
-  
+
 As máquinas virtuais Azure que cria para o Windows Virtual Desktop devem ser:
 
 * [AD de domínio padrão](../active-directory-domain-services/active-directory-ds-comparison.md) ou [híbrido.](../active-directory/devices/hybrid-azuread-join-plan.md) Máquinas virtuais não podem ser adá-la a Azure.
@@ -105,7 +105,7 @@ Os seguintes clientes de ambiente de trabalho remoto suportam o Windows Virtual 
 * [Web](connect-web.md)
 * [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
-* [Android (Pré-visualização)](connect-android.md)
+* [Android](connect-android.md)
 
 > [!IMPORTANT]
 > O Windows Virtual Desktop não suporta o cliente RemoteApp e Desktop Connections (RADC) ou o cliente Remote Desktop Connection (MSTSC).
@@ -128,7 +128,7 @@ O Windows Virtual Desktop suporta as seguintes imagens do sistema operativo x64:
 
 O Windows Virtual Desktop não suporta imagens do sistema operativo X86 (32 bits), Do Windows 10 Enterprise N ou do Sistema operativo Kn do Windows 10. O Windows 7 também não suporta nenhuma solução de perfil baseada em VHD ou VHDX hospedada no Azure Storage gerido devido a uma limitação de tamanho do setor.
 
-As opções de automação e implantação disponíveis dependem do sistema operativo e da versão escolhidas, como mostra o seguinte quadro: 
+As opções de automação e implantação disponíveis dependem do sistema operativo e da versão escolhidas, como mostra o seguinte quadro:
 
 |Sistema operativo|Galeria de Imagens Azure|Implantação manual de VM|Integração do modelo do Gestor de Recursos Azure|Provisão de piscinas de acolhimento no Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|

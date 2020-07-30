@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 02/26/2020
 ms.author: martinco
-ms.openlocfilehash: 5075ae57df6a7306f0c860690931c846e52c2a89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31fde1b80a1646a92688a0fcc1fa221cf01ba0a9
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78926890"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87418870"
 ---
 # <a name="compare-active-directory-to-azure-active-directory"></a>Compare o Diretório Ativo com o Azure Ative Directory
 
@@ -42,7 +42,7 @@ A maioria dos administradores de TI estão familiarizados com os conceitos de Se
 | Serviços mid-tier/Daemon|Os serviços que funcionam em ambientes no local normalmente utilizam contas de serviçoS AD ou contas de serviço geridas (gMSA) para executar. Estas aplicações herdarão então as permissões da conta de serviço.| A Azure AD fornece [identidades geridas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/index) para executar outras cargas de trabalho na nuvem. O ciclo de vida destas identidades é gerido pela Azure AD e está ligado ao fornecedor de recursos não pode ser usado para outros fins para obter acesso backdoor.|
 | **Dispositivos**|||
 | Móvel|O Ative Directory não suporta dispositivos móveis sem soluções de terceiros.| A solução de gestão de dispositivos móveis da Microsoft, a Microsoft Intune, está integrada com o Azure AD. O Microsoft Intune fornece informações do estado do dispositivo ao sistema de identidade para avaliar durante a autenticação. |
-| Computadores de trabalho do Windows|O Ative Directory fornece a capacidade de se juntar a dispositivos Windows para geri-los usando a Política de Grupo, o Gestor de Configuração do Centro de Sistema ou outras soluções de terceiros.|Os dispositivos Windows podem ser [associados ao Azure AD](https://docs.microsoft.com/azure/active-directory/devices/). O acesso condicional pode verificar se um dispositivo é Azure AD unido como parte do processo de autenticação. Os dispositivos Windows também podem ser geridos com [o Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune). Neste caso, o acesso condicional irá considerar se um dispositivo é reclamação (por exemplo, patches de segurança atualizados e assinaturas de vírus) antes de permitir o acesso às apps.|
+| Computadores de trabalho do Windows|O Ative Directory fornece a capacidade de se juntar a dispositivos Windows para geri-los usando a Política de Grupo, o Gestor de Configuração do Centro de Sistema ou outras soluções de terceiros.|Os dispositivos Windows podem ser [associados ao Azure AD](https://docs.microsoft.com/azure/active-directory/devices/). O acesso condicional pode verificar se um dispositivo é Azure AD unido como parte do processo de autenticação. Os dispositivos Windows também podem ser geridos com [o Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune). Neste caso, o acesso condicional irá considerar se um dispositivo está em conformidade (por exemplo, patches de segurança atualizados e assinaturas de vírus) antes de permitir o acesso às apps.|
 | Servidores Windows| O Ative Directory oferece fortes capacidades de gestão para servidores Windows no local utilizando a Política de Grupo ou outras soluções de gestão.| As máquinas virtuais dos servidores windows em Azure podem ser geridas com [serviços de domínio AD AD Azure](https://docs.microsoft.com/azure/active-directory-domain-services/). [As identidades geridas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/index) podem ser utilizadas quando os VMs precisam de acesso ao diretório ou recursos do sistema de identidade.|
 | Cargas de trabalho Linux/Unix|O Ative Directory não suporta de forma nativa o não-Windows sem soluções de terceiros, embora as máquinas Linux possam ser configuradas para autenticar com o Ative Directory como um reino Kerberos.|Os VMs Linux/Unix podem usar [identidades geridas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/index) para aceder ao sistema de identidade ou recursos. Algumas organizações migram estas cargas de trabalho para tecnologias de contentores em nuvem, que também podem usar identidades geridas.|
 

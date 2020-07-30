@@ -5,18 +5,18 @@ ms.date: 07/24/2019
 ms.topic: conceptual
 description: Saiba como ativar os Espaços Azure Dev num cluster AKS e instale as ferramentas do lado do cliente.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: b62c4a4861529c19363f159b8cc64a32a0ba11e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac010a466f7db7b829cc3d6f0687dbdbefdd7b6c
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83996266"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407902"
 ---
 # <a name="enable-azure-dev-spaces-on-an-aks-cluster-and-install-the-client-side-tools"></a>Ativar os espaços Azure Dev num cluster AKS e instalar as ferramentas do lado do cliente
 
 Este artigo mostra-lhe várias formas de ativar a Azure Dev Spaces num cluster AKS, bem como instalar as ferramentas do lado do cliente.
 
-## <a name="enable-or-remove-azure-dev-spaces-using-the-cli"></a>Ativar ou remover espaços Azure Dev utilizando o CLI
+## <a name="enable-azure-dev-spaces-using-the-cli"></a>Ativar espaços Azure Dev utilizando o CLI
 
 Antes de poder ativar os Espaços Dev utilizando o CLI, precisa de:
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, pode criar uma [conta gratuita.][az-portal-create-account]
@@ -49,7 +49,23 @@ Managed Kubernetes cluster 'myAKSCluster' in resource group 'myResourceGroup' is
 
 O `use-dev-spaces` comando também instala o Azure Dev Spaces CLI.
 
-Para remover os espaços Azure Dev do seu cluster AKS, utilize o `azds remove` comando. Por exemplo:
+## <a name="install-the-client-side-tools"></a>Instale as ferramentas do lado do cliente
+
+Você pode usar as ferramentas do lado do cliente Azure Dev Spaces para interagir com espaços dev em um cluster AKS da sua máquina local. Existem várias formas de instalar as ferramentas do lado do cliente:
+
+* No [Código do Estúdio Visual,][vscode]instale a [extensão Azure Dev Spaces][vscode-extension].
+* No [Visual Studio 2019,][visual-studio]instale a carga de trabalho do Azure Development.
+* Faça o download e instale o [Windows][cli-win], [Mac][cli-mac]ou [Linux][cli-linux] CLI.
+
+## <a name="remove-azure-dev-spaces-using-the-cli"></a>Remova espaços Azure Dev usando o CLI
+
+Para remover os espaços Azure Dev do seu cluster AKS, utilize o `azds remove` comando.
+
+```azurecli
+azds remove -g MyResourceGroup -n MyAKS
+```
+
+A saída abaixo mostra a remoção dos espaços Azure Dev do cluster *MyAKS.*
 
 ```azurecli
 $ azds remove -g MyResourceGroup -n MyAKS
@@ -58,15 +74,7 @@ Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that tar
 Deleting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAks' in resource group 'MyResourceGroup' (takes a few minutes)...
 ```
 
-O comando acima remove Azure Dev Spaces do cluster *MyAKS* no *MyResourceGroup*. Quaisquer espaços de nome que tenha criado com a Azure Dev Spaces permanecerão juntamente com as suas cargas de trabalho, mas novas cargas de trabalho nesses espaços de nome não serão instrumentadas com Azure Dev Spaces. Além disso, se reiniciar quaisquer cápsulas existentes instrumentadas com espaços Azure Dev, poderá ver erros. Estas cápsulas devem ser redistribuídas sem a ferramenta Azure Dev Spaces. Para remover totalmente os Espaços Azure Dev do seu cluster, elimine todas as cápsulas em todos os espaços de nome onde o Azure Dev Spaces estava ativado.
-
-## <a name="install-the-client-side-tools"></a>Instale as ferramentas do lado do cliente
-
-Você pode usar as ferramentas do lado do cliente Azure Dev Spaces para interagir com espaços dev em um cluster AKS da sua máquina local. Existem várias formas de instalar as ferramentas do lado do cliente:
-
-* No [Código do Estúdio Visual,][vscode]instale a [extensão Azure Dev Spaces][vscode-extension].
-* No [Visual Studio 2019,][visual-studio]instale a carga de trabalho do Azure Development.
-* Faça o download e instale o [Windows][cli-win], [Mac][cli-mac]ou [Linux][cli-linux] CLI.
+Quaisquer espaços de nome que tenha criado com a Azure Dev Spaces permanecerão juntamente com as suas cargas de trabalho, mas novas cargas de trabalho nesses espaços de nome não serão instrumentadas com Azure Dev Spaces. Além disso, se reiniciar quaisquer cápsulas existentes instrumentadas com espaços Azure Dev, poderá ver erros. Estas cápsulas devem ser redistribuídas sem a ferramenta Azure Dev Spaces. Para remover totalmente os Espaços Azure Dev do seu cluster, elimine todas as cápsulas em todos os espaços de nome onde o Azure Dev Spaces estava ativado.
 
 ## <a name="next-steps"></a>Próximos passos
 

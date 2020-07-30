@@ -9,16 +9,66 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 4bab1ef4588a705f0dd6cdb34be8272868f826e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd1e387727b0a80781b1103ddfb40afcbce8fce8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207571"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386627"
 ---
 # <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Ficheiros De consulta Parquet utilizando SQL on-demand (pré-visualização) em Azure Synapse Analytics
 
 Neste artigo, você aprenderá a escrever uma consulta usando SQL on demand (pré-visualização) que irá ler ficheiros Parquet.
+
+## <a name="quickstart-example"></a>Exemplo de arranque rápido
+
+`OPENROWSET`função permite-lhe ler o conteúdo do ficheiro parquet fornecendo o URL ao seu ficheiro.
+
+### <a name="reading-parquet-file"></a>Arquivo de parquet de leitura
+
+A maneira mais fácil de ver o conteúdo do seu ficheiro é fornecer URL de `PARQUET` ficheiro para funcionar e `OPENROWSET` especificar o parquet `FORMAT` . Se o ficheiro estiver disponível publicamente ou se a sua identidade AZure AD puder aceder a este ficheiro, deverá poder ver o conteúdo do ficheiro utilizando a consulta como a apresentada no seguinte exemplo:
+
+```sql
+select top 10 *
+from openrowset(
+    bulk 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.parquet',
+    format = 'parquet') as rows
+```
+
+Certifique-se de que acede a este ficheiro. Se o seu ficheiro estiver protegido com a chave SAS ou identidade Azure personalizada, terá de configurar a [credencial de nível do servidor para iniciar sessão de sessão](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+
+### <a name="using-data-source"></a>Usando a fonte de dados
+
+Exemplo anterior utiliza o caminho completo para o ficheiro. Como alternativa, pode criar uma fonte de dados externa com a localização que aponta para a pasta raiz do armazenamento, e utilizar essa fonte de dados e o caminho relativo para o ficheiro em `OPENROWSET` função:
+
+```sql
+create external data source covid
+with ( location = 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases' );
+go
+select top 10 *
+from openrowset(
+        bulk 'latest/ecdc_cases.parquet',
+        data_source = 'covid',
+        format = 'parquet'
+    ) as rows
+```
+
+Se uma fonte de dados estiver protegida com chave SAS ou identidade personalizada, pode configurar [a fonte de dados com credencial](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential)de área de dados .
+
+### <a name="explicitly-specify-schema"></a>Especificar explicitamente o esquema
+
+`OPENROWSET`permite especificar explicitamente quais as colunas que pretende ler a partir do ficheiro usando a `WITH` cláusula:
+
+```sql
+select top 10 *
+from openrowset(
+        bulk 'latest/ecdc_cases.parquet',
+        data_source = 'covid',
+        format = 'parquet'
+    ) with ( date_rep date, cases int, geo_id varchar(6) ) as rows
+```
+
+Nas secções seguintes pode ver como consultar vários tipos de ficheiros PARQUET.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -132,7 +182,7 @@ Os ficheiros parquet contêm descrições de tipo para cada coluna. A tabela a s
 | INT32 |INT(8, falso) |tinyint |
 | INT32 |INT(16, falso) |int |
 | INT32 |INT(32, falso) |bigint |
-| INT32 |DATA |date |
+| INT32 |DATA |data |
 | INT32 |DECIMAL |decimal |
 | INT32 |TEMPO (MILLIS)|hora |
 | INT64 |INT(64, verdade) |bigint |

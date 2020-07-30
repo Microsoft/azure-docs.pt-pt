@@ -3,12 +3,12 @@ title: Autorizar o acesso com o Azure Active Directory
 description: Este artigo fornece informações sobre a autorização de acesso aos recursos do Event Hubs utilizando o Azure Ative Directory.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: cb55a716498bc50dff72c0d98943de407a367d4a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: c6d1be2825ea716c72d70cd38babbb2d95083198
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371503"
+ms.locfileid: "87413396"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorizar o acesso aos recursos do Event Hubs utilizando o Azure Ative Directory
 O Azure Event Hubs suporta a utilização do Azure Ative Directory (Azure AD) para autorizar pedidos aos recursos do Event Hubs. Com o Azure AD, pode utilizar o controlo de acesso baseado em funções (RBAC) para conceder permissões a um principal de segurança, que pode ser um utilizador ou um diretor de serviço de aplicação. Para saber mais sobre papéis e atribuições de papéis, consulte [compreender os diferentes papéis.](../role-based-access-control/overview.md)
@@ -49,7 +49,7 @@ A lista a seguir descreve os níveis em que pode estender o acesso aos recursos 
 - **Subscrição**: A atribuição de funções aplica-se a todos os recursos do Event Hubs em todos os grupos de recursos da subscrição.
 
 > [!NOTE]
-> - Tenha em mente que as atribuições de funções da RBAC podem demorar até cinco minutos a propagar-se. 
+> - Tenha em mente que as atribuições de funções do Azure podem demorar até cinco minutos a propagar-se. 
 > - Este conteúdo aplica-se tanto a Centros de Eventos como a Centros de Eventos para Apache Kafka. Para obter mais informações sobre os Centros de Eventos para suporte a Kafka, consulte [Os Centros de Eventos para Kafka - segurança e autenticação.](event-hubs-for-kafka-ecosystem-overview.md#security-and-authentication)
 
 
@@ -67,7 +67,7 @@ Para obter mais informações sobre como as funções incorporadas são [definid
 - [Centros de Eventos para amostras kafka - OAuth](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth). 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba como atribuir uma função incorporada no RBAC a um diretor de segurança, consulte [o acesso autenticado aos recursos do Event Hubs utilizando o Azure Ative Directory](authenticate-application.md).
 - Saiba [como criar papéis personalizados com o RBAC.](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/CustomRole)
 - Saiba [como usar o Azure Ative Directory com EH](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/AzureEventHubsSDK)

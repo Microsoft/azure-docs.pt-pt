@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: a9c2cee1478bc64c63b0d7ad09eec386b59678ae
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cacb517c783416994fa95bd0f6a6d15a95a52ab4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509023"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423461"
 ---
 # <a name="azure-serial-console-for-linux"></a>Consola de Série do Azure para Linux
 
@@ -26,11 +26,12 @@ A Consola em Série no portal Azure fornece acesso a uma consola baseada em text
 
 A Consola em Série funciona da mesma forma para VMs e instâncias de escala de máquinas virtuais. Neste doc, todas as menções aos VMs incluirão implicitamente instâncias de conjunto de escala de máquina virtual, salvo indicação em contrário.
 
+A Consola Em Série está geralmente disponível nas regiões globais do Azure e em pré-visualização pública no Governo de Azure. Ainda não está disponível na nuvem Azure China.
+
 Para documentação da consola em série para windows, consulte [a Consola em Série para Windows](./serial-console-windows.md).
 
 > [!NOTE]
-> A Consola Em Série está geralmente disponível nas regiões globais de Azure e em pré-visualização pública no Governo de Azure. Ainda não está disponível na nuvem Azure China.
-
+> A Consola em Série é atualmente incompatível com uma conta de armazenamento de diagnóstico de arranque gerida. Para utilizar a Consola em Série, certifique-se de que está a utilizar uma conta de armazenamento personalizada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -130,7 +131,7 @@ Colar cordas compridas não funciona. | A consola em série limita o comprimento
 Entrada de teclado errático em imagens SLES BYOS. A entrada do teclado só é esporadicamente reconhecida. | Este é um problema com o pacote Plymouth. Plymouth não deve ser executado em Azure, uma vez que não precisa de um ecrã de respingo e Plymouth interfere com a capacidade da plataforma de usar a Consola Em Série. Remova Plymouth com `sudo zypper remove plymouth` e, em seguida, reinicie. Em alternativa, modifique a linha de núcleo do seu config GRUB, `plymouth.enable=0` apimindo-se até ao fim da linha. Pode fazê-lo [editando a entrada de arranque na hora do arranque,](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles)ou editando a linha GRUB_CMDLINE_LINUX `/etc/default/grub` em , reconstruindo GRUB com , e, em `grub2-mkconfig -o /boot/grub2/grub.cfg` seguida, reiniciando.
 
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 **Q. Como posso enviar feedback?**
 

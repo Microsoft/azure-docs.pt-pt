@@ -9,12 +9,12 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: d9efafdbc3545bebb3b90b3f64c14f45d8be82e6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 28f666fe295b2b49fb6795306e9fad489c867517
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496031"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387222"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Azure Synapse Analytics partilhou tabelas de metadados
 
@@ -24,7 +24,7 @@ O Azure Synapse Analytics permite que os diferentes motores computacionais do es
 
 Uma vez criada uma base de dados por uma função Spark, pode criar tabelas com a Spark que usam o Parquet como formato de armazenamento. Estas mesas ficarão imediatamente disponíveis para consulta por qualquer uma das piscinas de spark do espaço de trabalho Azure Synapse. Também podem ser usados a partir de qualquer um dos trabalhos de Faísca sujeitos a permissões.
 
-As tabelas Spark criadas, geridas e externas também são disponibilizadas como tabelas externas com o mesmo nome na base de dados sincronizada correspondente em SQL on-demand. [Expor uma tabela Spark em SQL](#exposing-a-spark-table-in-sql) fornece mais detalhes sobre a sincronização da tabela.
+As tabelas Spark criadas, geridas e externas também são disponibilizadas como tabelas externas com o mesmo nome na base de dados sincronizada correspondente em SQL on-demand. [Expor uma tabela Spark em SQL](#expose-a-spark-table-in-sql) fornece mais detalhes sobre a sincronização da tabela.
 
 Uma vez que as tabelas são sincronizadas com SQL a pedido assíncronia, haverá um atraso até que apareçam.
 
@@ -34,9 +34,9 @@ Use o Spark para gerir as bases de dados criadas pela Spark. Por exemplo, elimin
 
 Se criar objetos numa base de dados deste tipo a partir da SQL a pedido ou tentar largar a base de dados, a operação terá sucesso, mas a base de dados original do Spark não será alterada.
 
-## <a name="exposing-a-spark-table-in-sql"></a>Expondo uma mesa de faísca no SQL
+## <a name="expose-a-spark-table-in-sql"></a>Expor uma mesa de faíscas em SQL
 
-### <a name="which-spark-tables-are-shared"></a>Que mesas de faísca são partilhadas
+### <a name="shared-spark-tables"></a>Mesas de faísca compartilhadas
 
 A Spark fornece dois tipos de tabelas que a Azure Synapse expõe automaticamente em SQL:
 
@@ -50,7 +50,7 @@ A Spark fornece dois tipos de tabelas que a Azure Synapse expõe automaticamente
 
 Atualmente, a Azure Synapse apenas partilha tabelas de Faíscas geridas e externas que armazenam os seus dados em formato Parquet com os motores SQL. As tabelas apoiadas por outros formatos não são sincronizadas automaticamente. Poderá sincronizar essas tabelas explicitamente como uma tabela externa na sua própria base de dados SQL se o motor SQL suportar o formato subjacente da tabela.
 
-### <a name="how-are-spark-tables-shared"></a>Como são partilhadas as mesas Spark
+### <a name="share-spark-tables"></a>Partilhar tabelas de faíscas
 
 As tabelas de faíscas geridas e externas comparticuais expostas no motor SQL como tabelas externas com as seguintes propriedades:
 
@@ -96,7 +96,7 @@ Para obter mais informações sobre como definir permissões nas pastas e fichei
 
 ### <a name="create-a-managed-table-backed-by-parquet-in-spark-and-query-from-sql-on-demand"></a>Criar uma tabela gerida apoiada pela Parquet em Faísca e consulta a partir de SQL on-demand
 
-Neste cenário, tem uma base de dados Spark chamada `mytestdb` . Consulte [a criação & ligar à base de dados Spark - SQL on demand](database.md#create--connect-to-spark-database---sql-on-demand).
+Neste cenário, tem uma base de dados Spark chamada `mytestdb` . Consulte [Criar e ligue-se a uma base de dados Spark com SQL a pedido.](database.md#create-and-connect-to-spark-database-with-sql-on-demand)
 
 Crie uma tabela spark gerida com o SparkSQL executando o seguinte comando:
 
@@ -153,7 +153,7 @@ id | name | birthdate
 1 | Alice | 2010-01-01
 ```
 
-### <a name="creating-an-external-table-backed-by-parquet-in-spark-and-querying-it-from-sql-on-demand"></a>Criar uma tabela externa apoiada pela Parquet em Spark e questioná-la a partir da SQL on-demand
+### <a name="create-an-external-table-backed-by-parquet-in-spark-and-query-from-sql-on-demand"></a>Criar uma tabela externa apoiada pela Parquet em Faísca e consulta a partir de SQL on-demand
 
 Neste exemplo, crie uma tabela De Spark externa sobre os ficheiros de dados parquet que foram criados no exemplo anterior para a tabela gerida.
 

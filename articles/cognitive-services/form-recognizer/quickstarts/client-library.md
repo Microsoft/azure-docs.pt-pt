@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Form Recogniser client library [ Microsoft Docs'
-description: Começar com a biblioteca de clientes [Nome do Produto].
+title: 'Quickstart: Biblioteca de clientes Do Reconhecimento de Formulários / Microsoft Docs'
+description: Começa com a biblioteca do cliente [Nome do Produto].
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,25 +9,26 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 04/28/2020
 ms.author: pafarley
+ms.custom: devx-track-javascript
 zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: c00a30dd10abd58e488a11b2ff79161695789e33
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: ee798ba765346d701851d6873f75c0e572ba7d04
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997617"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405466"
 ---
-# <a name="quickstart-use-the-form-recognizer-client-library"></a>Quickstart: Use a biblioteca de clientes do Reconhecimento de Formulários
+# <a name="quickstart-use-the-form-recognizer-client-library"></a>Quickstart: Use a biblioteca do cliente Do Reconhecimento de Formulários
 
-Começar com a biblioteca de clientes do Reconhecimento de Formulários. O Reconhecimento de Formulários é um Serviço Cognitivo que utiliza tecnologia de machine learning para identificar e extrair pares chave/valor e dados de tabela saem de documentos de formulário. Em seguida, gera a saída de dados estruturados, que inclui as relações no ficheiro original. Siga estes passos para instalar o pacote SDK e experimente o código de exemplo para tarefas básicas.
+Começa com a biblioteca do cliente Do Reconhecimento de Formulários. O Form Recogniser é um Serviço Cognitivo que utiliza tecnologia de machine learning para identificar e extrair pares de chaves/valor e dados de tabela a partir de documentos de formulário. Em seguida, gera a saída de dados estruturados, que inclui as relações no ficheiro original. Siga estes passos para instalar o pacote SDK e experimente o código de exemplo para tarefas básicas.
 
-Utilize a biblioteca de clientes do Reconhecimento de Formulários para:
+Utilize a biblioteca do cliente Do Reconhecimento de Formulários para:
 
-* [Reconhecer conteúdo de formulário](#recognize-form-content)
+* [Reconhecer o conteúdo da forma](#recognize-form-content)
 * [Reconhecer recibos](#recognize-receipts)
 * [Preparar um modelo personalizado](#train-a-custom-model)
-* [Analisar formulários com um modelo personalizado](#analyze-forms-with-a-custom-model)
-* [Gerencie os seus modelos personalizados](#manage-your-custom-models)
+* [Analisar formas com um modelo personalizado](#analyze-forms-with-a-custom-model)
+* [Gerir os seus modelos personalizados](#manage-your-custom-models)
 
 ::: zone pivot="programming-language-csharp"
 

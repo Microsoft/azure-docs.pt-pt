@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 5d478723af7d13cc3480f6c2a80bf9b76ba4b84f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4b52fe22e455f5b0ebce6960b40bcc80c46079c3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091356"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421353"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Access control in Azure Data Lake Storage Gen2 (Controlo de acesso no Azure Data Lake Storage Gen2)
 
@@ -34,9 +34,9 @@ Para aprender a atribuir funções aos principais de segurança no âmbito da su
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>O impacto das atribuições de funções nas listas de controlo de acesso ao nível de ficheiros e diretórios
 
-Embora a utilização de atribuições de funções RBAC seja um mecanismo poderoso para controlar permissões de acesso, é um mecanismo muito grosso em relação aos ACLs. A menor granularidade para o RBAC está ao nível do contentor e esta será avaliada com uma prioridade maior do que os ACLs. Portanto, se atribuir uma função a um diretor de segurança no âmbito de um contentor, esse responsável de segurança tem o nível de autorização associado a essa função para todos os diretórios e ficheiros nesse contentor, independentemente das atribuições da ACL.
+Embora a utilização de atribuições de funções Azure seja um mecanismo poderoso para controlar permissões de acesso, é um mecanismo muito grosso em relação aos ACLs. A menor granularidade para o RBAC está ao nível do contentor e esta será avaliada com uma prioridade maior do que os ACLs. Portanto, se atribuir uma função a um diretor de segurança no âmbito de um contentor, esse responsável de segurança tem o nível de autorização associado a essa função para todos os diretórios e ficheiros nesse contentor, independentemente das atribuições da ACL.
 
-Quando um principal de segurança recebe permissões de dados do RBAC através de uma [função incorporada,](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)ou através de uma função personalizada, estas permissões são avaliadas primeiro após autorização de um pedido. Se a operação solicitada for autorizada pelas atribuições do diretor de segurança do RBAC, a autorização será imediatamente resolvida e não são efetuados controlos adicionais da ACL. Em alternativa, se o principal de segurança não tiver uma atribuição de RBAC, ou se a operação do pedido não corresponder à permissão atribuída, então os controlos da ACL são realizados para determinar se o principal de segurança está autorizado a realizar a operação solicitada.
+Quando um principal de segurança recebe permissões de dados do RBAC através de uma [função incorporada,](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)ou através de uma função personalizada, estas permissões são avaliadas primeiro após autorização de um pedido. Se a operação solicitada for autorizada pelas atribuições de funções Azure do diretor de segurança, a autorização é imediatamente resolvida e não são realizadas verificações adicionais da ACL. Em alternativa, se o diretor de segurança não tiver uma atribuição de função Azure, ou se a operação do pedido não corresponder à permissão atribuída, então os controlos da ACL são realizados para determinar se o principal de segurança está autorizado a realizar a operação solicitada.
 
 > [!NOTE]
 > Se o principal de segurança tiver sido designado para a atribuição de funções incorporada ao Proprietário de Dados blob de armazenamento, então o principal de segurança é considerado um *super utilizador* e tem acesso total a todas as operações de mutação, incluindo a definição do proprietário de um diretório ou ficheiro, bem como ACLs para diretórios e ficheiros para os quais não são o proprietário. O acesso do super-utilizador é a única forma autorizada de alterar o proprietário de um recurso.
@@ -333,7 +333,7 @@ Quando tiver o OID correto para o principal do serviço, vá à página de **Ace
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>O Data Lake Storage Gen2 suporta a herança dos ACLs?
 
-As missões do Azure RBAC herdam. As atribuições fluem de recursos de subscrição, grupo de recursos e conta de armazenamento até ao recurso do contentor.
+As tarefas do Azure herdam. As atribuições fluem de recursos de subscrição, grupo de recursos e conta de armazenamento até ao recurso do contentor.
 
 AcLs não herdam. No entanto, os ACLs predefinidos podem ser usados para definir ACLs para subdiretórios infantis e ficheiros criados sob o diretório dos pais. 
 
@@ -348,6 +348,6 @@ AcLs não herdam. No entanto, os ACLs predefinidos podem ser usados para definir
 * [POSIX ACL no Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL usando listas de controlo de acesso em Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Visão geral do Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)

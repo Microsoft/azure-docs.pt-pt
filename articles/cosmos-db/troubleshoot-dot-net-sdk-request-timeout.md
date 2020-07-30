@@ -3,19 +3,34 @@ title: Resolução de problemas Azure Cosmos DB HTTP 408 ou solicitar problemas 
 description: Como diagnosticar e corrigir .NET SDK solicitar exceção de tempo limite
 author: j82w
 ms.service: cosmos-db
-ms.date: 07/13/2020
+ms.date: 07/29/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 29b0c6237ae04ea5da9ec496498fc7c20890b173
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3d6fed539581b2d1add87ade92e34bcf2e1913e8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87294629"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87417612"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout"></a>Diagnóstico e resolução de problemas Azure Cosmos DB .NET SDK solicitar tempo limite
 O erro HTTP 408 ocorre se o SDK não conseguir completar o pedido antes do prazo de tempo ocorrer.
+
+## <a name="customizing-the-timeout-on-the-azure-cosmos-net-sdk"></a>Personalizar o tempo limite no Azure Cosmos .NET SDK
+
+O SDK tem duas alternativas distintas para controlar os intervalos de tempo, cada um com um âmbito diferente.
+
+### <a name="requesttimeout"></a>RequestTimeout
+
+A `CosmosClientOptions.RequestTimeout` configuração (ou `ConnectionPolicy.RequestTimeout` para SDK V2) permite-lhe definir um tempo limite que afeta cada pedido de rede individual.  Uma operação iniciada por um utilizador pode abranger vários pedidos de rede (por exemplo, pode haver estrangulamento) e esta configuração aplicar-se-ia a cada pedido de rede na nova rota. Isto não é o fim do tempo limite de pedido de operação.
+
+### <a name="cancellationtoken"></a>CancelamentoToken
+
+Todas as operações de async no SDK têm um parâmetro de CancelamentoToken opcional. Este [CancelamentoToken](https://docs.microsoft.com/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) é utilizado durante toda a operação, em todos os pedidos de rede. Entre pedidos de rede, o CancelamentoToken pode ser verificado e uma operação cancelada se o token relacionado estiver expirado. CancelamentoToken deve ser usado para definir um tempo limite esperado aproximadamente no âmbito da operação.
+
+> [!NOTE]
+> CancelamentoToken é um mecanismo onde a biblioteca verificará o cancelamento quando [não causará um estado inválido](https://devblogs.microsoft.com/premier-developer/recommended-patterns-for-cancellationtoken/). A operação pode não cancelar exatamente quando a hora definida no cancelamento está acabando, mas, em vez disso, depois de o tempo acabar, irá cancelar quando for seguro fazê-lo.
 
 ## <a name="troubleshooting-steps"></a>Passos de resolução de problemas
 A lista que se segue contém causas e soluções conhecidas para solicitar exceções no prazo de tempo.
@@ -66,6 +81,6 @@ A aplicação deve ser capaz de lidar com falhas transitórias e tentar novament
 ### <a name="8-failure-rate-is-violating-the-cosmos-db-sla"></a>8. A taxa de avaria está a violar o Cosmos DB SLA
 Por favor contacte o suporte da Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Diagnosticar e resolver problemas](troubleshoot-dot-net-sdk.md) ao utilizar a Azure Cosmos DB .NET SDK
 * Conheça as diretrizes de desempenho para [.NET V3](performance-tips-dotnet-sdk-v3-sql.md) e [.NET V2](performance-tips.md)

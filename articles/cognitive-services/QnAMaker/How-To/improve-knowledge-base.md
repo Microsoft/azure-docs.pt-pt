@@ -3,12 +3,13 @@ title: Ative Learning sugeriu perguntas - QnA Maker
 description: Melhore a qualidade da sua base de conhecimento com aprendizagem ativa. Reveja, aceite ou rejeite, adicione sem remover ou alterar as questões existentes.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: bb95ddc40e122e2589d0396b94f0de921aab9350
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: fc7aebc3df2d14c78230d112e3e807d8d98fb047
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053938"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406984"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Aceitar aprendizagem ativa sugerida questões na base de conhecimento
 
@@ -129,10 +130,10 @@ Content-Type: application/json
 
 |HTTP solicitar propriedade|Nome|Tipo|Objetivo|
 |--|--|--|--|
-|Parâmetro de rota URL|ID da base de conhecimento|string|O GUID para a sua base de conhecimento.|
-|Subdomínio personalizado|Nome de recurso QnAMaker|string|O nome do recurso é usado como subdomínio personalizado para o seu QnA Maker. Isto está disponível na página Definições depois de publicar a base de conhecimento. Está listado `host` como.|
-|Cabeçalho|Content-Type|string|O tipo de mídia do corpo enviado para a API. O valor predefinido é:`application/json`|
-|Cabeçalho|Autorização|string|A sua chave de ponto final (EndpointKey xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx).|
+|Parâmetro de rota URL|ID da base de conhecimento|cadeia|O GUID para a sua base de conhecimento.|
+|Subdomínio personalizado|Nome de recurso QnAMaker|cadeia|O nome do recurso é usado como subdomínio personalizado para o seu QnA Maker. Isto está disponível na página Definições depois de publicar a base de conhecimento. Está listado `host` como.|
+|Cabeçalho|Content-Type|cadeia|O tipo de mídia do corpo enviado para a API. O valor predefinido é:`application/json`|
+|Cabeçalho|Autorização|cadeia|A sua chave de ponto final (EndpointKey xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx).|
 |Corpo do Correio|Objeto JSON|JSON|O feedback do treino|
 
 O corpo JSON tem várias configurações:
@@ -140,8 +141,8 @@ O corpo JSON tem várias configurações:
 |Propriedade corporal JSON|Tipo|Objetivo|
 |--|--|--|--|
 |`feedbackRecords`|matriz|Lista de comentários.|
-|`userId`|string|Identificação do utilizador da pessoa que aceita as perguntas sugeridas. O formato de ID do utilizador é da sua mente. Por exemplo, um endereço de e-mail pode ser um ID válido do utilizador na sua arquitetura. Opcional.|
-|`userQuestion`|string|Texto exato da consulta do utilizador. Necessário.|
+|`userId`|cadeia|Identificação do utilizador da pessoa que aceita as perguntas sugeridas. O formato de ID do utilizador é da sua mente. Por exemplo, um endereço de e-mail pode ser um ID válido do utilizador na sua arquitetura. Opcional.|
+|`userQuestion`|cadeia|Texto exato da consulta do utilizador. Necessário.|
 |`qnaID`|número|ID de pergunta, encontrado na [resposta GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 Um exemplo de corpo JSON parece:
@@ -338,7 +339,7 @@ Ao reimportar esta aplicação, a aprendizagem ativa continua a recolher informa
 
 Para melhores práticas ao utilizar a aprendizagem ativa, consulte [as melhores práticas.](../Concepts/best-practices.md#active-learning)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Utilizar metadados com a API GenerateAnswer](metadata-generateanswer-usage.md)

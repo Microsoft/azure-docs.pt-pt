@@ -1,14 +1,14 @@
 ---
 title: Ofertas de Serviço Gerido no Azure Marketplace
 description: As ofertas de Serviços Geridos permitem que os prestadores de serviços vendam ofertas de gestão de recursos aos clientes no Azure Marketplace.
-ms.date: 05/04/2020
+ms.date: 07/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 119ecc8d15ef93a265cb5419404840496aaa1572
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 4f3813b7e2adabe5caaf0c7a5cbe8b15ed084730
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121593"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406865"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Ofertas de Serviço Gerido no Azure Marketplace
 
@@ -25,6 +25,9 @@ Depois disso, os utilizadores da sua organização poderão trabalhar nesses rec
 Cada oferta de Serviços Geridos inclui um ou mais planos. Os planos podem ser privados ou públicos.
 
 Se quiser limitar a sua oferta a clientes específicos, pode publicar um plano privado. Quando o fizer, o plano só pode ser adquirido para os IDs de subscrição específicos que fornece. Para mais informações, consulte [ofertas privadas.](../../marketplace/private-offers.md)
+
+> [!NOTE]
+> As ofertas privadas não são suportadas com subscrições estabelecidas através de um revendedor do programa Cloud Solution Provider (CSP).
 
 Os planos públicos permitem promover os seus serviços a novos clientes. Estes são geralmente mais adequados quando você só precisa de acesso limitado ao inquilino do cliente. Uma vez estabelecida uma relação com um cliente, se decidirem conceder à sua organização acesso adicional, pode fazê-lo publicando um novo plano privado apenas para esse cliente, quer [a bordo deles para mais acesso utilizando modelos do Azure Resource Manager.](../how-to/onboard-customer.md)
 

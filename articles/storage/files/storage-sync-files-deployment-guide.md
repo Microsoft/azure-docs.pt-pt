@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 072fa659d6f5cf55da4dfc99cfed38220be70812
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: c3933e9165160c16a9e533bf8bf95f1533dff1cc
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337352"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386695"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementar Azure File Sync
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos dados localmente, incluindo SMB, NFS e FTPS. Podes ter o número de caches que precisares em todo o mundo.
@@ -218,6 +218,13 @@ Registar o Windows Server num Serviço de Sincronização de Armazenamento estab
 
 O administrador que regista o servidor deve ser membro das funções de gestão **Proprietário** ou **Contribuinte** para o serviço de sincronização de armazenamento dado. Isto pode ser configurado no Controlo **de Acesso (IAM)** no portal Azure para o Serviço de Sincronização de Armazenamento.
 
+Também é possível diferenciar os administradores capazes de registar servidores daqueles que também são autorizados a configurar a sincronização num Serviço de Sincronização de Armazenamento. Para isso, você precisaria de criar uma função personalizada onde lista os administradores que só podem registar servidores e dar à sua função personalizada as seguintes permissões:
+
+* "Microsoft.StorageSync/storageSyncServices/registeredServers/write"
+* "Microsoft.StorageSync/storageSyncServices/read"
+* "Microsoft.StorageSync/storageSyncServices/workflows/read"
+* "Microsoft.StorageSync/storageSyncServices/workflows/operations/read"
+
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 O UI de Registo do Servidor deve abrir-se automaticamente após a instalação do agente Azure File Sync. Se isso não acontecer, pode abri-la manualmente na localização do ficheiro, em C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe. Quando o UI de Registo do Servidor abrir, selecione Iniciar o início do Início do Início do **Início.**
 
@@ -245,6 +252,8 @@ Um ponto final em nuvem é um ponteiro para uma partilha de ficheiros Azure. Tod
 
 > [!Important]  
 > Pode escoar alterações em qualquer ponto final da nuvem ou ponto final do servidor no grupo de sincronização e ter os seus ficheiros sincronizados com os outros pontos finais do grupo de sincronização. Se fizer uma alteração direta no ponto final da nuvem (partilha de ficheiros Azure), as alterações têm primeiro de ser descobertas por um trabalho de deteção de alteração de ficheiros Azure. Um trabalho de deteção de alterações é iniciado para um ponto final de nuvem apenas uma vez a cada 24 horas. Para obter mais informações, consulte [a Azure Files com frequência a fazer perguntas.](storage-files-faq.md#afs-change-detection)
+
+O administrador que cria o ponto final da nuvem deve ser um membro da função de gestão **Proprietário** para a conta de armazenamento que contém o ficheiro Azure partilhar o ponto final da nuvem está apontando. Isto pode ser configurado no Controlo **de Acesso (IAM)** no portal Azure para a conta de armazenamento.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Para criar um grupo de sincronização, no [portal Azure,](https://portal.azure.com/)vá ao seu Serviço de Sincronização de Armazenamento e, em seguida, selecione **+ Sync group**:
@@ -460,7 +469,7 @@ Para migrar uma implementação DFS-R para Azure File Sync:
 
 Para obter mais informações, consulte [o interop Azure File Sync com o Distributed File System (DFS)](storage-sync-files-planning.md#distributed-file-system-dfs).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Adicionar ou remover um ponto de final do servidor de sincronização de ficheiros Azure](storage-sync-files-server-endpoint.md)
 - [Registar ou não registar um servidor com Azure File Sync](storage-sync-files-server-registration.md)
 - [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)

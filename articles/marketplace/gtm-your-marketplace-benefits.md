@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 029883ea1ac85bdd1ea256caaa711d6537c06a76
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8aa9fa1701f41c6fd1adacc264b811e0d9849ab5
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287884"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87408123"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Os seus benefícios no mercado comercial
 
@@ -106,9 +106,15 @@ Todas as atividades descritas nesta página estão abrangidas pelo acordo de [ed
 A Microsoft reserva-se o direito de revogar e acabar com os benefícios do Marketplace Rewards para os editores que: 
 
 * Envolva-se em atividades ilegais usando a sua lista geminada de mercado.
+* Receba uma compra que seja conhecida ou que se acredita ser fraudulenta.
 * Estão desatados do mercado comercial. 
 * Use a sua oferta para mostrar marketing ou outro conteúdo que viole leis de direitos autorais ou de marca.
 * Violar as políticas do programa de [patrocínios Azure](https://azure.microsoft.com/offers/ms-azr-0036p/), incluindo, mas não se limitando a, usar o financiamento de patrocínios Azure para as suas próprias operações internas ou mineração Bitcoin.
+
+A Microsoft reserva-se o direito de revogar e terminar as Prémios Marketplace quando:
+
+* O cliente que fez a compra fê-lo acidentalmente e deseja cancelar a compra. 
+* O cliente cancela antes de utilizar o produto do parceiro.
 
 ### <a name="offer-availability"></a>Disponibilidade de oferta
 
@@ -116,7 +122,7 @@ Esta oferta é realizada em inglês para todos os parceiros com uma oferta ao vi
 
 As transações que se prove serem fraudulentas não contarão para o nível de programa de vendas faturado de um editor, como indicado na [lista, no ensaio,](#list-trial-and-consulting-benefits) na secção de consultoria e na secção de benefícios do [parceiro transacionado.](#marketplace-rewards-for-transact-partners) A Microsoft irá atribuir parceiros a níveis de elegibilidade com base nas suas vendas faturadas reais, depois de a fraude ter sido removida.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) para criar ou configurar a sua oferta.
 

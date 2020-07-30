@@ -12,12 +12,13 @@ ms.custom:
 - mvc
 - amqp
 - mqtt
-ms.openlocfilehash: c568dddcbbf57ebd6ed5906bb83af01a84dafa41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- devx-track-javascript
+ms.openlocfilehash: b424ea01d8283963c49d899a97120c9132d862f8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81683836"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422543"
 ---
 # <a name="create-an-advanced-device-model"></a>Create an advanced device model (Criar um modelo de dispositivo avançado)
 
@@ -166,8 +167,8 @@ Os campos listados no esquema podem ser dos seguintes tipos:
 * Binário - serializado usando base64
 * Texto
 * Booleano
-* Número inteiro
-* Double
+* Integer (Número inteiro)
+* Double (Duplo)
 * DateTime
 
 ### <a name="supported-methods"></a>Métodos apoiados

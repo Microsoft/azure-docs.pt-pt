@@ -4,12 +4,12 @@ description: Saiba como o Azure App Service atualiza o SISTEMA e os tempos de ex
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 597964914f4022899ab027b735ec6932105497b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93716ab36bc475b092542d1eef40cfe9d75ad819
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78273627"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87414943"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Correção de SO e tempo de execução no Serviço de Aplicações Azure
 
@@ -78,7 +78,7 @@ A tabela a seguir mostra como as versões do Windows e do tempo de execução do
 | Informações | Onde encontrá-lo | 
 |-|-|
 | Versão do Windows | Ver `https://<appname>.scm.azurewebsites.net/Env.cshtml` (informações do Sistema) |
-| Versão .NET | Em `https://<appname>.scm.azurewebsites.net/DebugConsole` , executar o seguinte comando no comando pronta: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
+| Versão .NET | Em `https://<appname>.scm.azurewebsites.net/DebugConsole` , executar o seguinte comando no comando pronta: <br>`reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full"` |
 | Versão .NET Core | Em `https://<appname>.scm.azurewebsites.net/DebugConsole` , executar o seguinte comando no comando pronta: <br> `dotnet --version` |
 | Versão PHP | Em `https://<appname>.scm.azurewebsites.net/DebugConsole` , executar o seguinte comando no comando pronta: <br> `php --version` |
 | Versão de Node.js predefinido | Na [Cloud Shell](../cloud-shell/overview.md), executar o seguinte comando: <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |

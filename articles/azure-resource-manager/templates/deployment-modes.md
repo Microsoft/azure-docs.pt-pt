@@ -124,7 +124,7 @@ O exemplo a seguir mostra um modelo ligado definido para o modo de implementaç�
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber sobre a criação de modelos de Gestor de Recursos, consulte os modelos do [Gestor de Recursos Azure.](template-syntax.md)
 * Para saber mais sobre a implementação de recursos, consulte [implementar uma aplicação com o modelo Azure Resource Manager](deploy-powershell.md).

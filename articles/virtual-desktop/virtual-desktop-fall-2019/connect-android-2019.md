@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fd319c7a6b356052f91e779e2f2a67eff4c4b6de
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c83d243a24fb0cacdf032dfa77e9bb17fdf5e824
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87270758"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87383805"
 ---
 # <a name="connect-to-windows-virtual-desktop-classic-with-the-android-client"></a>Conecte-se ao Windows Virtual Desktop (clássico) com o cliente Android
 
@@ -21,9 +21,6 @@ ms.locfileid: "87270758"
 
 >[!IMPORTANT]
 >Este conteúdo aplica-se ao Windows Virtual Desktop (clássico), que não suporta objetos de desktop virtual do Gestor de Recursos Azure Windows. Se estiver a tentar gerir os objetos de ambiente de trabalho virtuais do Azure Resource Manager Windows, consulte [este artigo](../connect-android.md).
-
->[!NOTE]
-> A capacidade de aceder aos recursos de Desktop Virtual do Windows a partir do cliente Android está atualmente disponível em pré-visualização.
 
 Pode aceder aos recursos do Windows Virtual Desktop a partir do seu dispositivo Android com o nosso cliente descarregador. Também pode utilizar o cliente Android em dispositivos Chromebook que suportam a Google Play Store. Este guia irá dizer-lhe como configurar o cliente Android.
 
@@ -51,6 +48,6 @@ Após a subscrição, o Centro de Ligação deve exibir os recursos remotos.
 
 Uma vez subscrito um feed, o conteúdo do feed será atualizado automaticamente regularmente. Os recursos podem ser adicionados, alterados ou removidos com base em alterações efetuadas pelo seu administrador.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre como usar o cliente Android, confira [Consulte o cliente Android.](/windows-server/remote/remote-desktop-services/clients/remote-desktop-android/)

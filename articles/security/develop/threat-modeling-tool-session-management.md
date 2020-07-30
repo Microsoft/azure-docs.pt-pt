@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: has-adal-ref
-ms.openlocfilehash: 7ddc8c3016487ce56bc1a54d74aa94064cef24e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: has-adal-ref, devx-track-javascript
+ms.openlocfilehash: 7f9eb18e72c12a8585ea8bcd42d8d720af43dbaf
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83198869"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420554"
 ---
 # <a name="security-frame-session-management"></a>Quadro de Segurança: Gestão de Sessão
 | Produto/Serviço | Artigo |

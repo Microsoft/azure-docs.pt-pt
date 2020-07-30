@@ -4,12 +4,12 @@ description: Neste tutorial, aprenda a criar um cofre dos Serviços de Recupera�
 ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: af1a869c9253a9037c5ee38313de60311acb1e10
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7a8849bba51939a0c40cba81925e1b4b4a6e3826
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87277996"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372557"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Utilizar o portal do Azure para criar cópias de segurança de várias máquinas virtuais
 
@@ -98,11 +98,11 @@ Depois de criar o cofre dos Serviços de Recuperação, o próximo passo é conf
 
      Depois de criar a política de cópia de segurança, associe-a às máquinas virtuais.
 
-1. Em **Máquinas Virtuais,** selecione **Add.'
+1. Em **Máquinas Virtuais**, selecione **Adicionar**.
 
      ![Adicionar máquinas virtuais](./media/tutorial-backup-vm-at-scale/add-virtual-machines.png)
 
-1. O **painel de máquinas virtuais Select** abre-se. selecione *myVM* e selecione **OK** para implementar a política de backup para as máquinas virtuais.
+1. O **painel de máquinas virtuais Select** abre-se. Selecione *myVM* e selecione **OK** para implementar a política de backup para as máquinas virtuais.
 
     Todas as máquinas virtuais que estão no mesmo local, e que ainda não estão associadas a uma política de backup, aparecem. *myVMH1* e *myVMR1* são selecionadas para serem associadas à política *Finance*.
 
@@ -189,7 +189,7 @@ Se pretende continuar a trabalhar com tutoriais subsequentes, não limpe os recu
 
     Assim que o cofre for apagado, voltará à lista de cofres dos Serviços de Recuperação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, utilizou o portal do Azure para:
 

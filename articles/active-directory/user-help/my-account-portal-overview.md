@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 04/20/2020
+ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: 878fbb81e05db058aa015f8b4a7eae42e8cfea2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da00d77138eb3ff737c26d7fa52ab0bb56ec6ae4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83742195"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422420"
 ---
 # <a name="what-is-the-my-account-portal"></a>O que é o portal A Minha Conta?
 
@@ -33,9 +33,9 @@ Pode chegar ao portal **My Account** ( , a partir da versão atual de qualquer u
 ![Portal da Minha Conta, Página geral](media/my-account-portal/my-account-portal-overview.png)
 
 >[!Important]
->Este artigo destina-se a utilizadores que tentem chegar ao portal My Account para atualizarem as suas informações de segurança, informações do dispositivo, palavra-passe, organizações conectadas, privacidade ou informações de login anteriores. Se é um administrador que procura informações sobre como ativar a autenticação e outras funcionalidades do Azure Ative Directory (Azure AD) para os seus colaboradores e outras utilizações, consulte a [documentação AD AD do Azure para administradores.](https://docs.microsoft.com/azure/active-directory/)
+>Este artigo destina-se a utilizadores que tentem chegar ao portal My Account para atualizar as suas informações de segurança, informações do dispositivo, palavra-passe, organizações conectadas, configurações linguísticas, privacidade ou informações de entrada prévias. Se é um administrador que procura informações sobre como ativar a autenticação e outras funcionalidades do Azure Ative Directory (Azure AD) para os seus colaboradores e outras utilizações, consulte a [documentação AD AD do Azure para administradores.](https://docs.microsoft.com/azure/active-directory/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Selecione para ver ou gerir as suas [informações de segurança](user-help-security-info-overview.md)
 
@@ -46,6 +46,8 @@ Pode chegar ao portal **My Account** ( , a partir da versão atual de qualquer u
 - Veja a sua [atividade de inscrição](my-account-portal-sign-ins-page.md)
 
 - Veja como a sua organização [utiliza os seus dados relacionados com a privacidade](my-account-portal-privacy-page.md)
+
+- Altere as [definições do portal 'Minha Conta'](my-account-portal-settings.md)
 
 ## <a name="related-microsoft-office-content"></a>Conteúdo relacionado do Microsoft Office
 

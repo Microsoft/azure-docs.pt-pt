@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/15/2020
+ms.date: 07/16/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 4e21edd662649238b16cf7e7df9d9904f3f17752
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 34720a10796a1a215d541baef9f2c225857d3bc0
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015906"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423631"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Perguntas frequentes (FAQ) sobre a aplicação Microsoft Authenticator
 
@@ -30,6 +30,7 @@ A aplicação Microsoft Authenticator substituiu a aplicação Azure Authenticat
 | Pergunta | Resposta |
 | -------- | ------ |
 | O registo de um dispositivo está a concordar em dar à empresa ou ao serviço acesso ao meu dispositivo? | Registar um dispositivo dá acesso aos serviços da sua organização e não permite que a sua organização tenha acesso ao seu dispositivo. |
+| O que é App Lock, e como posso usá-lo para me ajudar a manter-me mais seguro? | O Bloqueio de Aplicações ajuda a manter as suas senhas únicas, informações de aplicações e configurações de aplicações mais seguras. Quando o Bloqueio de Aplicações estiver ativado, ser-lhe-á pedido que autenerá usando o PIN do dispositivo ou biométrico sempre que abrir o Autenticador. O App Lock também ajuda a garantir que é o único que pode aprovar notificações solicitando o seu PIN ou biométrico sempre que aprovar uma notificação de entrada. Pode ligar ou desligar o Bloqueio de Aplicações na página Definições do Autenticador. Por predefinição, o Bloqueio de Aplicações é ligado quando configura um PIN ou biométrico no seu dispositivo.<br><br>Infelizmente, não há garantias de que o App Lock impeça alguém de aceder ao Autenticador. Isto porque o registo do dispositivo pode acontecer em outros locais fora do Authenticator, como é o caso das definições de conta Android ou da aplicação Portal da Empresa. |
 | Tenho um dispositivo Windows Mobile, e o Autenticador microsoft no Windows Mobile foi depreciado. Posso continuar a autenticar usando a app? | Todas as autenticações que utilizem o Autenticador Microsoft no Windows Mobile serão retiradas após o dia 15 de julho de 2020. Recomendamos vivamente que utilize um método de autenticação alternativo para evitar ser bloqueado fora das suas contas.<br>As opções alternativas para utilizadores empresariais incluem:<br><ul><li>Configuração do Microsoft Authenticator para [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) ou [iOS](https://apps.apple.com/app/microsoft-authenticator/id983156458).</li><li>[Configuração de SMS](multi-factor-authentication-setup-phone-number.md) para receber códigos de verificação.</li><li>Configurar o número de telefone para receber [chamadas telefónicas para verificar a sua identidade](multi-factor-authentication-setup-office-phone.md).</li></ul><br>As opções alternativas para utilizadores pessoais da conta microsoft incluem:<br><ul><li>Configuração do Microsoft Authenticator para [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) ou [iOS](https://apps.apple.com/app/microsoft-authenticator/id983156458).</li><li>Configurar um método de login alternativo (SMS ou e-mail) atualizando as suas informações de segurança a partir da página microsoft [Account Security](https://account.microsoft.com/security/).</li></ul> |
 | Posso tirar fotografias dos meus códigos de senha única (OTP) no Autenticador Android? | Começando com o lançamento 6.2003.1704 do Android Autenticador, por padrão todos os códigos OTP são ocultas sempre que uma imagem do Autenticador é tirada. Se quiser ver os seus códigos OTP em imagens ou permitir que outras aplicações capturem o ecrã Authenticator, pode. Basta ligar a definição **de Captura** de Ecrã no Autenticador e reiniciar a aplicação. |
 | Que dados armazena o Autenticador em meu nome e como posso eliminá-lo? | A aplicação Authenticator recolhe três tipos de informação:<ul><li>Informações de conta que fornece quando adiciona a sua conta. Estes dados podem ser removidos removendo a sua conta.</li><li>Dados de registo de diagnóstico que permanecem apenas na aplicação até que selecione **Enviar Registos** do menu **de Ajuda** da aplicação para enviar registos para a Microsoft. Estes registos podem conter dados pessoais, tais como endereços de e-mail, endereços de servidor ou endereços IP. Também podem conter dados do dispositivo, como o nome do dispositivo e a versão do sistema operativo. Todos os dados pessoais recolhidos estão limitados a informações necessárias para ajudar a resolver problemas com as aplicações. Pode navegar nestes ficheiros de registo na aplicação a qualquer momento para ver a informação a ser recolhida. Se enviar os seus ficheiros de registo, os engenheiros de aplicações de autenticação utilizarão apenas para resolver problemas reportados pelo cliente.</li><li>Dados de utilização não pessoalmente identificáveis, tais "começaram a adicionar fluxo de conta/conta adicionada com sucesso", ou "notificação aprovada". Estes dados são parte integrante das nossas decisões de engenharia. O seu uso ajuda-nos a determinar onde podemos melhorar as aplicações de formas que são importantes para si. Vê uma notificação desta recolha de dados quando utiliza a app pela primeira vez. Informa-o então que pode ser desligado na página **de Definições** da aplicação. Pode ligar ou desligar esta definição a qualquer momento.</li></ul> |
@@ -57,7 +58,7 @@ A aplicação Microsoft Authenticator substituiu a aplicação Azure Authenticat
 | Os meus códigos de senha única (OTP) não estão a funcionar. O que devo fazer? | Certifique-se de que a data e a hora do seu dispositivo estão corretas e que estão a ser sincronizadas automaticamente. Se a data e a hora estiverem erradas, ou fora de sincronização, o código não funcionará. |
 | O sistema operativo Windows 10 Mobile foi deprecado em dezembro de 2019. Será que o Autenticador Microsoft nos sistemas operativos Windows Mobile também será depreciado? | O autenticador em todos os sistemas operativos Windows Mobile não será suportado após 28 de fevereiro de 2020. Os utilizadores não serão elegíveis para receber quaisquer novas atualizações para a aplicação postar a data acima referida. Depois de 28 de fevereiro de 2020, os serviços da Microsoft que atualmente suportam autenticações utilizando o Microsoft Authenticator em todos os sistemas operativos Windows Mobile começarão a retirar o seu suporte. Para autenticar os serviços da Microsoft, encorajamos todos os nossos utilizadores a mudarem para um mecanismo de autenticação alternativo antes desta data. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Se tiver dificuldades em obter o seu código de verificação para a sua conta pessoal da Microsoft, consulte a secção de problemas de verificação do código de verificação de resolução de **problemas** da informação de segurança da conta da Microsoft & artigo de [códigos de verificação.](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes)
 

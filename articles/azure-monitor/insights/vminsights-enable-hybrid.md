@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 7a6105e8742a4cb3d2f113c6ef723f6171baf4d9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ccf4ad960abfd737a9a05d8fdc77a8bb1ea92d2d
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328445"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87417119"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-virtual-machine"></a>Ativar o Azure Monitor para VMs para uma máquina virtual híbrida
 Este artigo descreve como ativar o Azure Monitor para VMs para uma máquina virtual fora de Azure, incluindo no local e outros ambientes em nuvem.
 
 > [!IMPORTANT]
-> O método recomendado para permitir VMs híbridos é primeiro permitir [o Arco Azure para servidores para](/azure-arc/servers/overview.md) que os VMs possam ser ativados para monitores Azure para VMs usando processos semelhantes aos VMs Azure. Este artigo descreve como embarcar VMs híbridos se optar por não utilizar o Arco Azure.
+> O método recomendado para permitir VMs híbridos é primeiro permitir [o Arco Azure para servidores para](../../azure-arc/servers/overview.md) que os VMs possam ser ativados para monitores Azure para VMs usando processos semelhantes aos VMs Azure. Este artigo descreve como embarcar VMs híbridos se optar por não utilizar o Arco Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,7 +31,7 @@ Máquinas virtuais fora de Azure requerem o mesmo agente log analytics e agente 
 Consulte [os computadores Do Windows ao Azure Monitor](../platform/agent-windows.md) ou ligue os [computadores Linux ao Azure Monitor](../platform/agent-linux.md) para obter mais informações sobre a implementação do agente Log Analytics. Os detalhes para o agente de Dependência são fornecidos neste artigo. 
 
 ## <a name="firewall-requirements"></a>Requisitos de firewall
-Os requisitos de firewall para o agente Log Analytics são fornecidos na [visão geral do agente Log Analytics](..//platform/log-analytics-agent.md#network-requirements). O Azure Monitor para o agente VMs Map Dependency não transmite quaisquer dados em si, e não requer alterações em firewalls ou portas. Os dados do Mapa são sempre transmitidos pelo agente Log Analytics ao serviço Azure Monitor, quer diretamente quer através do [gateway da Suite de Gestão de Operações,](../../azure-monitor/platform/gateway.md) se as suas políticas de segurança de TI não permitirem que os computadores da rede se conectem à internet.
+Os requisitos de firewall para o agente Log Analytics são fornecidos na [visão geral do agente Log Analytics](../platform/log-analytics-agent.md#network-requirements). O Azure Monitor para o agente VMs Map Dependency não transmite quaisquer dados em si, e não requer alterações em firewalls ou portas. Os dados do Mapa são sempre transmitidos pelo agente Log Analytics ao serviço Azure Monitor, quer diretamente quer através do [gateway da Suite de Gestão de Operações,](../../azure-monitor/platform/gateway.md) se as suas políticas de segurança de TI não permitirem que os computadores da rede se conectem à internet.
 
 
 ## <a name="dependency-agent"></a>Agente de Dependência
@@ -175,7 +175,7 @@ Se vir o seu servidor no mapa, mas não tiver dados de processo ou ligação, is
 Verifique o ficheiro C:\Programas\Microsoft Dependency Agent\logs\wrapper.log (Windows) ou o ficheiro /var/opt/microsoft/dependency-agent/log/service.log (Linux). As últimas linhas do ficheiro devem indicar o motivo pelo qual kernel não carregou. Por exemplo, o kernel poderá não ser suportado pelo Linux se tiver atualizado o kernel.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que a monitorização está ativada para as suas máquinas virtuais, esta informação está disponível para análise com o Azure Monitor para VMs.
 

@@ -10,13 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: trbye
+ms.custom: devx-track-javascript
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: f10f50c30c1a8561f8a0b959fd17138f3e8aab8d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8c9a99927512ed842fc05e4f3067b2732fc2d00b
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090910"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405840"
 ---
 # <a name="learn-the-basics-of-speech-translation"></a>Aprenda os fundamentos da tradução da fala
 
@@ -52,6 +53,6 @@ Uma das características centrais do serviço de fala é a capacidade de reconhe
 [!INCLUDE [More languages include](includes/how-to/speech-translation-basics/more.md)]
 ::: zone-end
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Utilize formatos de áudio comprimido codec](how-to-use-codec-compressed-audio-input-streams.md)

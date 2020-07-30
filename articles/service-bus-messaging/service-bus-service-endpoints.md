@@ -4,14 +4,14 @@ description: Este artigo fornece informações sobre como adicionar um ponto fin
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 48d7f1783f197804e12a8c2d20a0c46b6efd2160
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4518f7faedb44631c76c6d8b42ff9cca0dc3e08c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071329"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422951"
 ---
-# <a name="configure-virtual-network-service-endpoints-for-azure-service-bus"></a>Configurar pontos finais de serviço de rede virtual para Azure Service Bus
+# <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Permitir o acesso ao espaço de nomes do Azure Service Bus a partir de redes virtuais específicas
 
 A integração do Service Bus com [os pontos finais de serviço da Rede Virtual (VNet)][vnet-sep] permite o acesso seguro às capacidades de mensagens a partir de cargas de trabalho, como máquinas virtuais, que estão ligadas a redes virtuais, com o caminho de tráfego da rede a ser assegurado em ambas as extremidades.
 
@@ -58,11 +58,20 @@ A regra da rede virtual é uma associação do espaço de nomes do Service Bus c
 Esta secção mostra-lhe como usar o portal Azure para adicionar um ponto final de serviço de rede virtual. Para limitar o acesso, é necessário integrar o ponto final do serviço de rede virtual para este espaço de nomes do Event Hubs.
 
 1. Navegue para o seu espaço de nomes de **ônibus de serviço** no portal [Azure.](https://portal.azure.com)
-2. No menu esquerdo, selecione A opção **de Rede.** Por predefinição, a opção **Todas as redes** é selecionada. O seu espaço de nome aceita ligações a partir de qualquer endereço IP. Esta definição predefinida é equivalente a uma regra que aceita o intervalo de endereço IP 0.0.0.0/0. 
+2. No menu esquerdo, selecione a opção **de rede** em **Definições**.  
 
-    ![Firewall - Todas as opções de redes selecionadas](./media/service-endpoints/firewall-all-networks-selected.png)
-1. Selecione a opção **Redes Selecionadas** no topo da página.
-2. Na secção **Rede Virtual** da página, selecione **+Adicionar a rede virtual existente.** 
+    > [!NOTE]
+    > Você vê o **separador Networking** apenas para espaços de nome **premium.**  
+    
+    Por predefinição, a opção **de rede Selecionada** é selecionada. Se não adicionar pelo menos uma regra de firewall IP ou uma rede virtual nesta página, o espaço de nome pode ser acedido através da internet pública (utilizando a chave de acesso).
+
+    :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Página de rede - padrão" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
+    
+    Se selecionar a opção **Todas as redes,** o seu espaço de nomes service bus aceita ligações a partir de qualquer endereço IP. Esta definição predefinida é equivalente a uma regra que aceita o intervalo de endereço IP 0.0.0.0/0. 
+
+    ![Firewall - Todas as opções de redes selecionadas](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
+2. Para restringir o acesso a redes virtuais específicas, selecione a opção **redes Selecionadas** se ainda não estiver selecionada.
+1. Na secção **Rede Virtual** da página, selecione **+Adicionar a rede virtual existente.** 
 
     ![adicionar rede virtual existente](./media/service-endpoints/add-vnet-menu.png)
 3. Selecione a rede virtual a partir da lista de redes virtuais e, em seguida, escolha a **sub-rede**. Tem de ativar o ponto final de serviço antes de adicionar a rede virtual à lista. Se o ponto final de serviço não estiver ativado, o portal irá solicitar-lhe para o ativar.
@@ -78,6 +87,9 @@ Esta secção mostra-lhe como usar o portal Azure para adicionar um ponto final 
 6. **Selecione Guarde** na barra de ferramentas para guardar as definições. Aguarde alguns minutos para que a confirmação apareça nas notificações do portal. O botão **Guardar** deve ser desativado. 
 
     ![Salvar rede](./media/service-endpoints/save-vnet.png)
+
+    > [!NOTE]
+    > Para obter instruções sobre como permitir o acesso a partir de endereços ou intervalos IP específicos, consulte [Permitir o acesso a partir de endereços ou intervalos IP específicos](service-bus-ip-filtering.md).
 
 ## <a name="use-resource-manager-template"></a>Utilizar o modelo do Resource Manager
 O modelo seguinte do Gestor de Recursos permite adicionar uma regra de rede virtual a um espaço de nomes de service bus existente.
@@ -204,7 +216,7 @@ Modelo:
 
 Para implementar o modelo, siga as instruções para [O Gestor de Recursos Azure][lnk-deploy].
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre redes virtuais, consulte os seguintes links:
 

@@ -3,12 +3,13 @@ title: Enviar ou receber eventos de Azure Event Hubs usando JavaScript (legado)
 description: Este artigo fornece uma passagem para a criação de uma aplicação JavaScript que envia/recebe eventos de/para Azure Event Hubs usando o antigo pacote azure/event-hubs versão 2.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 548276b4bcbdd514c37a19375154923ad9f3f9a4
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.custom: devx-track-javascript
+ms.openlocfilehash: ffa6b821d617731bd6ee5cbb9bec8bd6d856a7a6
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85314504"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87414127"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-javascript-azureevent-hubs-version-2"></a>Quickstart: Enviar eventos para ou receber eventos de Azure Event Hubs usando JavaScript @azure/event-hubs (versão 2)
 Este quickstart mostra como criar aplicações JavaScript para enviar eventos e receber eventos de um centro de eventos usando o pacote JavaScript da versão azure/event-hubs. 
@@ -182,7 +183,7 @@ Esta secção mostra como receber eventos de um centro de eventos utilizando o A
 
 Parabéns! Já recebeu eventos do centro de eventos usando o Host do Processador de Eventos. Isto receberá eventos de todas as divisórias do grupo de consumidores padrão no seu Event Hub
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Leia os seguintes artigos:
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)

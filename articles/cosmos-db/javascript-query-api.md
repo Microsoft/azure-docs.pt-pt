@@ -7,12 +7,13 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 785c430347bc62a00eee80c977f2d6ce440c08db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 56fbcc3950a739c4c9fc3df86468301e2e2ff4d8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82982280"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421132"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>Consulta JavaScript API em Azure Cosmos DB
 
@@ -20,7 +21,7 @@ Além de emitir consultas utilizando o SQL API em Azure Cosmos DB, o [Cosmos DB 
 
 ## <a name="supported-javascript-functions"></a>Funções JavaScript suportadas
 
-| **Function** | **Descrição** |
+| **Função** | **Descrição** |
 |---------|---------|
 |`chain() ... .value([callback] [, options])`|Inicia uma chamada acorrentada que deve ser terminada com valor().|
 |`filter(predicateFunction [, options] [, callback])`|Filtra a entrada utilizando uma função predicado que devolve verdadeiro/falso para filtrar os documentos de entrada dentro/fora no conjunto resultante. Esta função comporta-se com um comportamento semelhante a uma cláusula WHERE em SQL.|

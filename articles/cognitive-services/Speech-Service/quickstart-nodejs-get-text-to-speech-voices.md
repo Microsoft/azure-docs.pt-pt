@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Lista de vozes de texto para discurso, Node.js - Serviço de fala'
+title: 'Quickstart: Listar vozes texto-a-discurso, Node.js - Serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Neste arranque rápido, você vai aprender a obter a lista completa de vozes padrão e neurais para uma região/ponto final usando Node.js. A lista é devolvida como JSON, e a disponibilidade de voz varia por região.
+description: Neste arranque rápido, você aprenderá a obter a lista completa de vozes padrão e neurais para uma região/ponto final usando Node.js. A lista é devolvida como JSON, e a disponibilidade de voz varia por região.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,30 +10,31 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/13/2020
 ms.author: erhopf
-ms.openlocfilehash: 9fe8bc06aafd17518d37c35034fac9b566e079ce
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: d7ec5b386a9e62606a8b46c4e66cea85f8098a83
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81261555"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406831"
 ---
-# <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>Quickstart: Obtenha a lista de vozes de texto-a-fala usando Node.js
+# <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>Quickstart: Obtenha a lista de vozes texto-a-discurso usando Node.js
 
-Neste arranque rápido, você vai aprender a obter a lista completa de vozes padrão e neurais para uma região/ponto final usando Node.js. A lista é devolvida como JSON, e a disponibilidade de voz varia por região. Para obter uma lista de regiões apoiadas, consulte [regiões.](regions.md)
+Neste arranque rápido, você aprenderá a obter a lista completa de vozes padrão e neurais para uma região/ponto final usando Node.js. A lista é devolvida como JSON, e a disponibilidade de voz varia por região. Para obter uma lista de regiões apoiadas, consulte [as regiões.](regions.md)
 
-Este quickstart requer uma [conta de Serviços Cognitivos Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso de serviço da Fala. Se não tiver uma conta, pode utilizar a [avaliação gratuita](get-started.md) para obter uma chave de subscrição.
+Este quickstart requer uma [conta Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso de serviço de fala. Se não tiver uma conta, pode utilizar a [avaliação gratuita](get-started.md) para obter uma chave de subscrição.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este início rápido requer:
 
 * <a href="https://nodejs.org/en/" target="_blank">Nó 8.12.x ou mais tarde<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-* Estúdio Visual , <a href="https://code.visualstudio.com/download" target="_blank">Código <span class="docon docon-navigate-external x-hidden-focus"> </span>de Estúdio Visual, </a>ou o seu editor de texto favorito <a href="https://visualstudio.microsoft.com/downloads/" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>
-* Uma chave de subscrição Azure para o serviço De Fala. [Pegue um de graça!](get-started.md)
+* <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">Visual <span class="docon docon-navigate-external x-hidden-focus"></span> Studio </a>, <a href="https://code.visualstudio.com/download" target="_blank">Visual Studio Code, <span class="docon docon-navigate-external x-hidden-focus"></span> </a>ou o seu editor de texto favorito
+* Uma chave de subscrição Azure para o serviço Speech. [Arranja um de graça!](get-started.md)
 
 ## <a name="create-a-project-and-require-dependencies"></a>Criar um projeto e exigir dependências
 
-Crie um novo projeto Node.js usando o seu IDE favorito ou editor. Em seguida, copie este fragmento de código para o seu projeto num ficheiro com o nome `get-voices.js`.
+Crie um novo projeto de Node.js utilizando o seu IDE ou editor favorito. Em seguida, copie este fragmento de código para o seu projeto num ficheiro com o nome `get-voices.js`.
 
 ```javascript
 // Requires request and request-promise for HTTP requests
@@ -48,9 +49,9 @@ const fs = require('fs');
 
 ## <a name="get-an-access-token"></a>Obter um token de acesso
 
-A API REST text-to-speech requer um sinal de acesso para autenticação. Para obter um sinal de acesso, é necessária uma troca. Esta função troca a chave de subscrição `issueToken` do serviço Speech por um token de acesso utilizando o ponto final.
+A API DE REPOUSO text-to-speech requer um sinal de acesso para autenticação. Para obter um token de acesso, é necessária uma troca. Esta função troca a chave de subscrição do serviço Speech por um token de acesso utilizando o `issueToken` ponto final.
 
-Esta amostra pressupõe que a sua subscrição de serviço speech está na região dos EUA Ocidentais. Se estiver a utilizar uma região `uri`diferente, atualize o valor para . Para obter uma lista completa, consulte [Regiões.](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis)
+Esta amostra pressupõe que a sua subscrição de serviço de Discurso está na região oeste dos EUA. Se estiver a utilizar uma região diferente, atualize o valor para `uri` . Para obter uma lista completa, consulte [regiões.](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis)
 
 Copie este código para o seu projeto:
 
@@ -69,15 +70,15 @@ function getAccessToken(subscriptionKey) {
 ```
 
 > [!NOTE]
-> Para obter mais informações sobre a autenticação, consulte [Authenticate com um sinal de acesso](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
+> Para obter mais informações sobre a autenticação, consulte [Authenticate com um token de acesso.](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token)
 
-Na próxima secção, criaremos a função de obter a lista de vozes e salvar a saída jSON para arquivar.
+Na próxima secção, criaremos a função para obter a lista de vozes e guardar a saída JSON para arquivar.
 
-## <a name="make-a-request-and-save-the-response"></a>Faça um pedido e poupe a resposta
+## <a name="make-a-request-and-save-the-response"></a>Faça um pedido e guarde a resposta
 
-Aqui vais construir o pedido e salvar a lista de vozes devolvidas. Esta amostra pressupõe que estás a usar o ponto final dos EUA Ocidentais. Se o seu recurso estiver registado numa região diferente, certifique-se de que atualiza o `uri`. Para mais informações, consulte [as regiões de serviço da Fala.](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech)
+Aqui vais construir o pedido e guardar a lista de vozes devolvidas. Esta amostra assume que estás a usar o ponto final dos EUA. Se o seu recurso estiver registado numa região diferente, certifique-se de que atualiza o `uri` . Para mais informações, consulte [as regiões de serviços de fala.](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech)
 
-Em seguida, adicione os cabeçalhos necessários para o pedido. Finalmente, fará um pedido ao serviço. Se o pedido for bem sucedido, e um código de estado de 200 for devolvido, a resposta é escrita para arquivar.
+Em seguida, adicione os cabeçalhos necessários para o pedido. Finalmente, fará um pedido ao serviço. Se o pedido for bem sucedido e um código de estado de 200 for devolvido, a resposta será escrita para arquivar.
 
 ```javascript
 function textToSpeech(accessToken) {
@@ -104,9 +105,9 @@ function textToSpeech(accessToken) {
 
 ## <a name="put-it-all-together"></a>Juntar tudo
 
-Está quase concluído. O último passo é criar uma função assíncrona. Esta função irá ler a sua chave de subscrição a partir de uma variável ambiental, obter um símbolo, esperar que o pedido seja concluído, em seguida, escrever a resposta JSON para arquivar.
+Está quase concluído. O último passo é criar uma função assíncronea. Esta função irá ler a sua chave de subscrição a partir de uma variável ambiental, obter um token, esperar que o pedido seja concluído e, em seguida, escrever a resposta JSON para arquivar.
 
-Se não estiver familiarizado com variáveis ambientais ou preferir testar com a `process.env.SPEECH_SERVICE_KEY` sua chave de subscrição codificada como uma cadeia, substitua-a pela sua chave de subscrição como uma corda.
+Se não estiver familiarizado com variáveis ambientais ou preferir testar com a sua chave de subscrição codificada como uma corda, substitua `process.env.SPEECH_SERVICE_KEY` a sua chave de subscrição como uma corda.
 
 ```javascript
 // Use async and await to get the token before attempting
@@ -133,23 +134,23 @@ main()
 
 ## <a name="run-the-sample-app"></a>Execute a aplicação de exemplo
 
-Está pronto para executar a sua aplicação de amostras. A partir da linha de comando (ou sessão terminal), navegue até ao seu diretório de projeto e corra:
+Está pronto para executar a sua aplicação de amostras. A partir da linha de comando (ou sessão terminal), navegue até ao diretório do projeto e corra:
 
 ```console
 node get-voices.js
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Certifique-se de remover quaisquer informações confidenciais do código fonte da sua aplicação de amostra, como as chaves de subscrição.
+Certifique-se de remover qualquer informação confidencial do código fonte da sua aplicação de amostra, como chaves de subscrição.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
-> [Explore amostras de Node.js no GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/NodeJS)
+> [Explore Node.js amostras no GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/NodeJS)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 * [Referência da API de conversão de texto em voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
-* [Criação de fontes de voz personalizadas](how-to-customize-voice-font.md)
-* [Gravar amostras de voz para criar uma voz personalizada](record-custom-voice-samples.md)
+* [Criando fontes de voz personalizadas](how-to-customize-voice-font.md)
+* [Registar amostras de voz para criar uma voz personalizada](record-custom-voice-samples.md)

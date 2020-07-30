@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 16828435dc8913fff8da4717ee7f77cc701504ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93ada332fdf9179cf0f582195779afc085416e1a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213079"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386236"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Melhores práticas para usar o Cofre-Chave
 
@@ -56,5 +56,5 @@ Certifique-se de que faz back ups regulares do seu cofre em atualização/exclus
 
 ## <a name="turn-on-recovery-options"></a>Ligue as opções de recuperação
 
-1. Ligue [soft Delete](overview-soft-delete.md).
+1. Ligue [soft Delete](soft-delete-overview.md).
 2. Ligue a proteção contra a purga se quiser proteger-se contra a eliminação forçada do segredo/cofre mesmo depois de ser ligado o apagamento suave.

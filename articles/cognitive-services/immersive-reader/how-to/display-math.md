@@ -9,20 +9,21 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: pasta
-ms.openlocfilehash: e01cc9e8cedb6c38da0b56e04419c706d5d0566e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 6bde75fe0fb856633d7849173faf21db76edc950
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75946124"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406916"
 ---
-# <a name="how-to-display-math-in-the-immersive-reader"></a>Como mostrar matemática no Leitor Imersivo
+# <a name="how-to-display-math-in-the-immersive-reader"></a>Como exibir matemática no Leitor Imersivo
 
-O Leitor Imersivo pode apresentar matemática quando fornecida sob a forma de Linguagem De Marcação Matemática[(MathML).](https://developer.mozilla.org/docs/Web/MathML)
-O tipo MIME pode ser definido através do [pedaço](../reference.md#chunk)de leitor imersivo . Consulte [os tipos mime suportados](../reference.md#supported-mime-types) para obter mais informações.
+O Leitor Imersivo pode apresentar matemática quando fornecido sob a forma de Linguagem de Marcação Matemática[(MathML).](https://developer.mozilla.org/docs/Web/MathML)
+O tipo MIME pode ser definido através do [pedaço](../reference.md#chunk)de Leitor Imersivo. Consulte [os tipos de MIME suportados](../reference.md#supported-mime-types) para obter mais informações.
 
-## <a name="send-math-to-the-immersive-reader"></a>Enviar Matemática ao Leitor Imersivo
-Para enviar matemática ao Leitor Imersivo, forneça um pedaço que ```application/mathml+xml```contenha MathML e coloque o tipo MIME para;
+## <a name="send-math-to-the-immersive-reader"></a>Enviar Matemática para o Leitor Imersivo
+Para enviar matemática ao Leitor Imersivo, forneça um pedaço contendo MathML e desemalte o tipo MIME ```application/mathml+xml``` para;
 
 Por exemplo, se o seu conteúdo fosse o seguinte:
 
@@ -71,6 +72,6 @@ Quando lançar o Leitor Imersivo, deve ver:
 
 ![Matemática em Leitor Imersivo](../media/how-tos/1-math.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Explore o [SDK imersivo do leitor](https://github.com/microsoft/immersive-reader-sdk) e a [referência SDK do leitor imersivo](../reference.md)
+* Explore o [SDK do leitor imersivo](https://github.com/microsoft/immersive-reader-sdk) e a [referência SDK do leitor imersivo](../reference.md)

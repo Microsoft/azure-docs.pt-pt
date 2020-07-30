@@ -12,12 +12,12 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7b2a75bff21825a47f4364a8936ee7d5f122c1a
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 5b641437b7e15334d59c544b95d5be0f20f2a8df
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223895"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387545"
 ---
 # <a name="what-is-single-sign-on-sso"></a>O que é o Início de Sessão Único (SSO)?
 
@@ -54,7 +54,7 @@ A tabela a seguir resume os métodos de inscrição única e liga-se a mais deta
 
 Ao desenvolver novas aplicações, utilize protocolos modernos como OpenID Connect e OAuth para obter a melhor experiência de súp livre para a sua aplicação em várias plataformas de dispositivos. A OAuth permite que utilizadores ou administradores [concedam consentimento](configure-user-consent.md) para recursos protegidos como [o Microsoft Graph](/graph/overview). Fornecemos [SDKs](../develop/reference-v2-libraries.md) fáceis de adotar para a sua aplicação e, além disso, a sua aplicação estará pronta para usar [o Microsoft Graph.](/graph/overview)
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 - [OAuth 2.0](../develop/v2-oauth2-auth-code-flow.md)
 - [OpenID Connect 1.0](../develop/v2-protocols-oidc.md)
@@ -71,9 +71,9 @@ O sign-on único baseado em SAML é suportado para aplicações que usam qualque
 - SAML 2.0
 - WS-Federation
 
-Para configurar um pedido SaaS para um único sign-on baseado em SAML, consulte um [único sinal baseado em SAML baseado em Configure](configure-single-sign-on-non-gallery-applications.md). Além disso, muitas aplicações de Software como serviço (SaaS) têm um [tutorial específico para aplicações](../saas-apps/tutorial-list.md) que o movem através da configuração para um único sign-on baseado em SAML.
+Para configurar um pedido SaaS para um único sign-on baseado em SAML, consulte um [único sinal baseado em SAML baseado em Configure](configure-saml-single-sign-on.md). Além disso, muitas aplicações de Software como serviço (SaaS) têm um [tutorial específico para aplicações](../saas-apps/tutorial-list.md) que o movem através da configuração para um único sign-on baseado em SAML.
 
-Para configurar um pedido de WS-Federação, siga as mesmas orientações para configurar o pedido de assinatura única baseada em SAML, consulte [o sign-on único baseado em Configure SAML.](configure-single-sign-on-non-gallery-applications.md) Na etapa para configurar a aplicação para utilizar o Azure AD, terá de substituir o URL de login Azure AD para o ponto final da WS-Federation `https://login.microsoftonline.com/<tenant-ID>/wsfed` .
+Para configurar um pedido para a WS-Federação, siga as mesmas orientações para configurar o pedido de inscrição única baseada em SAML. Na etapa para configurar a aplicação para utilizar o Azure AD, terá de substituir o URL de login Azure AD para o ponto final da WS-Federation `https://login.microsoftonline.com/<tenant-ID>/wsfed` .
 
 Para configurar um pedido no local para um único sign-on baseado em SAML, consulte [o auto-sign-on da SAML para aplicações no local com o Application Proxy](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
@@ -198,8 +198,8 @@ Uma vez que este cenário é oferecido através de uma parceria entre a Azure AD
 Para mais informações, consulte [as edições do Azure Ative Directory.](../fundamentals/active-directory-whatis.md)
 
 ## <a name="related-articles"></a>Artigos relacionados
+* [Quickstart Series em Gestão de Aplicações](view-applications-portal.md)
 * [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md) (Tutoriais para integrar aplicações SaaS no Azure Active Directory)
-* [Configurar o único sinal baseado em SAML](configure-single-sign-on-non-gallery-applications.md)
 * [Configurar um único sinal baseado em palavra-passe](configure-password-single-sign-on-non-gallery-applications.md)
 * [Configuração de inscrição ligada](configure-linked-sign-on.md)
 * [Introdução à Gestão do Acesso às Aplicações](what-is-access-management.md)

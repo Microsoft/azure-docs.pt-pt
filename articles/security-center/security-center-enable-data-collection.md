@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: f7aca2820e599c4f3dad364f1ea14eadc634a548
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c6a779deef3ed1dc0a4d5e83c38f483776adf6fe
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519719"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387375"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Data collection in Azure Security Center (Recolha de dados no Centro de Segurança do Azure)
 O Security Center recolhe dados das suas máquinas virtuais Azure (VMs), conjuntos de escala de máquinas virtuais, contentores IaaS e computadores não-Azure (incluindo no local) para monitorizar vulnerabilidades e ameaças de segurança. Os dados são recolhidos utilizando o agente Log Analytics, que lê várias configurações relacionadas com a segurança e registos de eventos da máquina e copia os dados para o seu espaço de trabalho para análise. Exemplos desses dados são: tipo e versão do sistema operativo, registos do sistema operativo (registos de eventos windows), processos de execução, nome da máquina, endereços IP e registados no utilizador.
@@ -211,15 +211,17 @@ O centro de segurança instalará a extensão do agente Log Analytics lado a lad
     - Se tiver um ambiente onde o agente Log Analytics está instalado em postos de trabalho dos clientes e reporte a um espaço de trabalho log analytics existente, reveja a lista de [sistemas operativos suportados pelo Azure Security Center](security-center-os-coverage.md) para se certificar de que o seu sistema operativo é suportado. Para obter mais informações, consulte [os clientes de analítica de registo existentes.](./faq-azure-monitor-logs.md)
  
 ### <a name="turn-off-automatic-provisioning"></a>Desligue o provisionamento automático<a name="offprovisioning"></a>
-Pode desligar o fornecimento automático dos recursos a qualquer momento, desligando esta definição na política de segurança. 
+Para desligar o provisionamento automático do agente Log Analytics:
 
+1. A partir do menu do Security Center no portal, **selecione definições de preços &**.
+2. Selecione a subscrição relevante.
 
-1. Volte ao menu principal do Centro de Segurança e selecione a política de Segurança.
-2. Clique em **Editar as definições** na linha da subscrição para a qual pretende desativar o provisionamento automático.
-3. Na política de Segurança – Página **de Recolha de Dados,** em **preseto automático** select **Off**.
-4. Selecione **Guardar**.
+   ![Selecionar subscrição][7]
 
-   ![Desativar o provisionamento automático][6]
+3. Selecione **a recolha de dados.**
+4. Em **Previsão automática**, selecione **Off** para desativar o provisionamento automático.
+5. Selecione **Guardar**. 
+
 
 Quando o provisionamento automático é desativado (desligado), a secção de configuração do espaço de trabalho predefinido não é apresentada.
 
@@ -293,7 +295,7 @@ Pode instalar manualmente o agente Log Analytics, para que o Security Center pos
     Para obter mais informações sobre as razões pelas quais o Security Center não consegue monitorizar com sucesso VMs e computadores inicializados para provisão automático, consulte [problemas de saúde do agente de monitorização](security-center-troubleshooting-guide.md#mon-agent).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Este artigo mostrou-lhe como funciona a recolha de dados e o provisionamento automático no Centro de Segurança. Para saber mais sobre o Centro de Segurança, consulte as seguintes páginas:
 
 * [FAQ do Centro de Segurança do Azure](faq-general.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço.

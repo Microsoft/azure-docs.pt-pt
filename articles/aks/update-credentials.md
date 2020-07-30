@@ -5,12 +5,12 @@ description: Saiba como atualizar ou redefinir as credenciais de serviço princi
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: a9cc19184cc39975cce18d17a6047bedf5915555
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a824606bc0e77ba069b6b54725645ee3f348de27
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251031"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386933"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Atualizar ou rodar as credenciais para o Serviço Azure Kubernetes (AKS)
 
@@ -24,12 +24,14 @@ Em alternativa, pode utilizar uma identidade gerida para permissões em vez de u
 
 Precisa da versão Azure CLI 2.0.65 ou posteriormente instalada e configurada. Corre  `az --version` para encontrar a versão. Se necessitar de instalar ou atualizar, consulte [instalar o Azure CLI][install-azure-cli].
 
-## <a name="update-or-create-a-new-service-principal-for-your-aks-cluster"></a>Atualize ou crie um novo Diretor de Serviço para o seu cluster AKS
+## <a name="update-or-create-a-new-service-principal-for-your-aks-cluster"></a>Atualize ou crie um novo diretor de serviço para o seu cluster AKS
 
-Quando pretender atualizar as credenciais de um cluster AKS, pode optar por:
+Quando pretende atualizar as credenciais de um cluster AKS, pode optar por:
 
-* atualizar as credenciais para o principal de serviço existente utilizado pelo cluster, ou
-* criar um chefe de serviço e atualizar o cluster para usar estas novas credenciais.
+* Atualize as credenciais para o principal de serviço existente.
+* Crie um novo diretor de serviço e atualize o cluster para usar estas novas credenciais. 
+
+> ! [AVISO] Se optar por criar um *novo* diretor de serviço, atualizar um grande cluster AKS para usar estas credenciais pode demorar muito tempo a ser concluído.
 
 ### <a name="check-the-expiration-date-of-your-service-principal"></a>Verifique a data de validade do seu serviço principal
 
@@ -41,7 +43,7 @@ SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
 az ad sp credential list --id $SP_ID --query "[].endDate" -o tsv
 ```
 
-### <a name="reset-existing-service-principal-credential"></a>Repor a credencial principal do serviço existente
+### <a name="reset-the-existing-service-principal-credential"></a>Repor a credencial principal de serviço existente
 
 Para atualizar as credenciais para o principal serviço existente, obtenha o iD principal de serviço do seu cluster usando o comando [az aks show.][az-aks-show] O exemplo a seguir obtém o ID para o cluster chamado *myAKSCluster* no grupo de recursos *myResourceGroup.* O ID principal de serviço é definido como uma variável chamada *SP_ID* para uso em comando adicional. Estes comandos usam sintaxe Bash.
 
@@ -58,7 +60,7 @@ SP_SECRET=$(az ad sp credential reset --name $SP_ID --query password -o tsv)
 
 Agora continue a [atualizar o cluster AKS com novas credenciais principais de serviço.](#update-aks-cluster-with-new-service-principal-credentials) Este passo é necessário para que as alterações principais do serviço reflitam sobre o cluster AKS.
 
-### <a name="create-a-new-service-principal"></a>Criar um novo diretor de serviço
+### <a name="create-a-new-service-principal"></a>Criar um novo diretor de serviços
 
 Se optar por atualizar as credenciais principais do serviço existentes na secção anterior, ignore este passo. Continue a [atualizar o cluster AKS com novas credenciais principais de serviço.](#update-aks-cluster-with-new-service-principal-credentials)
 
@@ -90,6 +92,9 @@ Agora continue a [atualizar o cluster AKS com novas credenciais principais de se
 
 ## <a name="update-aks-cluster-with-new-service-principal-credentials"></a>Atualizar cluster AKS com novas credenciais principais de serviço
 
+> [!IMPORTANT]
+> Para grandes clusters, a atualização do cluster AKS com um novo diretor de serviço pode demorar muito tempo a ser concluída.
+
 Independentemente de ter optado por atualizar as credenciais para o principal de serviço existente ou criar um principal de serviço, agora atualiza o cluster AKS com as suas novas credenciais utilizando o comando [de ações az aks.][az-aks-update-credentials] As variáveis para o *---serviço-principal* e *--cliente-segredo* são usados:
 
 ```azurecli-interactive
@@ -101,11 +106,11 @@ az aks update-credentials \
     --client-secret "$SP_SECRET"
 ```
 
-Leva alguns momentos para que as credenciais principais do serviço sejam atualizadas na AKS.
+Para agrupamentos de pequena e média dimensão, são necessários alguns momentos para que as principais credenciais de serviço sejam atualizadas na AKS.
 
 ## <a name="update-aks-cluster-with-new-aad-application-credentials"></a>Atualizar cluster AKS com novas credenciais de aplicação AAD
 
-Pode criar novas aplicações AAD Server e Client seguindo os [passos de integração da AAD.][create-aad-app] Ou reinicie as aplicações AAD existentes seguindo o [mesmo método que para o reset principal de serviço](#reset-existing-service-principal-credential). Depois disso, basta atualizar as credenciais de aplicação do cluster AAD utilizando o mesmo comando [de credenciais de atualização az aks,][az-aks-update-credentials] mas usando as variáveis *--reset-aad.*
+Pode criar novas aplicações AAD Server e Client seguindo os [passos de integração da AAD.][create-aad-app] Ou reinicie as aplicações AAD existentes seguindo o [mesmo método que para o reset principal de serviço](#reset-the-existing-service-principal-credential). Depois disso, basta atualizar as credenciais de aplicação do cluster AAD utilizando o mesmo comando [de credenciais de atualização az aks,][az-aks-update-credentials] mas usando as variáveis *--reset-aad.*
 
 ```azurecli-interactive
 az aks update-credentials \
@@ -118,7 +123,7 @@ az aks update-credentials \
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, o principal de serviço do cluster AKS em si e as Aplicações de Integração da AAD foram atualizados. Para obter mais informações sobre como gerir a identidade para cargas de trabalho dentro de um cluster, consulte [as melhores práticas de autenticação e autorização em AKS][best-practices-identity].
 

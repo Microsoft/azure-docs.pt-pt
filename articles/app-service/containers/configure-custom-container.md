@@ -3,12 +3,12 @@ title: Configure um recipiente Linux personalizado
 description: Saiba como configurar um recipiente Linux personalizado no Azure App Service. Este artigo mostra as tarefas de configuração mais comuns.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: df766c289ac9ece4c1dc1fbdc65d49ae1306a592
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9a3e360270ac388d0f8434a9184d39d602c98e9e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008596"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422781"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configure um recipiente Linux personalizado para o Serviço de Aplicações Azure
 
@@ -156,13 +156,9 @@ As seguintes listas mostram opções de configuração de Composição de Docker
 > [!NOTE]
 > Quaisquer outras opções não explicitamente chamadas são ignoradas na Visualização Pública.
 
-## <a name="configure-vnet-integration"></a>Configurar a integração VNet
-
-A utilização de um recipiente personalizado com integração VNet pode requerer uma configuração adicional do recipiente. Ver [Integrar a sua aplicação com uma Rede Virtual Azure.](../web-sites-integrate-with-vnet.md)
-
 [!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Tutorial: Implantação do repositório de contentores privados](tutorial-custom-docker-image.md)

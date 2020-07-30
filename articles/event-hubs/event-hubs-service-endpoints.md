@@ -2,15 +2,15 @@
 title: Pontos finais de serviço de Rede Virtual - Azure Event Hubs Microsoft Docs
 description: Este artigo fornece informações sobre como adicionar um ponto final de serviço Microsoft.EventHub a uma rede virtual.
 ms.topic: article
-ms.date: 07/16/2020
-ms.openlocfilehash: 5d1f6bb8e1160a328c30cfd6ef1726e3cf011aee
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 07/29/2020
+ms.openlocfilehash: 15778c85f28300df3d5af34e2940b3854d814c66
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288009"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420464"
 ---
-# <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Utilize pontos finais de serviço de rede virtual com hubs de eventos Azure
+# <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Permitir o acesso aos espaços de nome do Azure Event Hubs a partir de redes virtuais específicas 
 
 A integração de Centros de Eventos com [Rede Virtual (VNet) Os pontos finais][vnet-sep] de serviço permitem o acesso seguro às capacidades de mensagens a partir de cargas de trabalho, como máquinas virtuais, que estão ligadas a redes virtuais, com o caminho de tráfego da rede a ser assegurado em ambas as extremidades.
 
@@ -56,10 +56,19 @@ A regra da rede virtual é uma associação do espaço de nomes do Event Hubs co
 Esta secção mostra-lhe como usar o portal Azure para adicionar um ponto final de serviço de rede virtual. Para limitar o acesso, é necessário integrar o ponto final do serviço de rede virtual para este espaço de nomes do Event Hubs.
 
 1. Navegue para o seu **espaço de nomes de Centros de Eventos** no [portal Azure.](https://portal.azure.com)
-2. No menu esquerdo, selecione A opção **de Rede.** Se selecionar a opção **Todas as redes,** o centro de eventos aceita ligações a partir de qualquer endereço IP. Esta definição é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0. 
+4. Selecione **rede em** **Definições** no menu esquerdo. 
+
+    > [!NOTE]
+    > Você vê o **separador Networking** apenas para espaços de nome **padrão** ou **dedicados.** 
+
+    Por predefinição, a opção **de rede Selecionada** é selecionada. Se não especificar uma regra de firewall IP ou adicionar uma rede virtual nesta página, o espaço de nome pode ser acedido a partir de todas as redes, incluindo internet pública (utilizando a chave de acesso). 
+
+    :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Separador de redes - opção de redes selecionada" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
+
+    Se selecionar a opção **Todas as redes,** o centro de eventos aceita ligações a partir de qualquer endereço IP (utilizando a chave de acesso). Esta definição é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0. 
 
     ![Firewall - Todas as opções de redes selecionadas](./media/event-hubs-firewall/firewall-all-networks-selected.png)
-1. Para restringir o acesso a redes específicas, selecione a opção **Redes Selecionadas** no topo da página.
+1. Para restringir o acesso a redes específicas, selecione a opção **Redes Selecionadas** no topo da página se ainda não estiver selecionada.
 2. Na secção **Rede Virtual** da página, selecione **+Adicionar a rede virtual existente****. Selecione **+ Crie uma nova rede virtual** se quiser criar um novo VNet. 
 
     ![adicionar rede virtual existente](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
@@ -77,6 +86,8 @@ Esta secção mostra-lhe como usar o portal Azure para adicionar um ponto final 
 
     ![Salvar rede](./media/event-hubs-tutorial-vnet-and-firewalls/save-vnet.png)
 
+    > [!NOTE]
+    > Para restringir o acesso a endereços ou intervalos IP específicos, consulte [Permitir o acesso a partir de endereços ou intervalos IP específicos](event-hubs-ip-filtering.md).
 
 ## <a name="use-resource-manager-template"></a>Utilizar o modelo do Resource Manager
 
@@ -203,7 +214,7 @@ Parâmetros do modelo:
 
 Para implementar o modelo, siga as instruções para [O Gestor de Recursos Azure][lnk-deploy].
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre redes virtuais, consulte os seguintes links:
 

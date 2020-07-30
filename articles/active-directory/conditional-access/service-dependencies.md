@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00b23a845002f5a92128917d81fdadf5a647d798
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 578f1e97c8a53604edca7b803933139362a763a7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253193"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419738"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Quais são as dependências de serviços no Azure Ative Directory Conditional Access? 
 
@@ -49,8 +49,9 @@ A tabela abaixo lista dependências adicionais de serviço, onde as aplicações
 | Azure Data Lake     | Microsoft Azure Management (portal e API) | Inicialmente ligado |
 | Sala de Aula da Microsoft | Troca                                    | Inicialmente ligado |
 |                     | SharePoint                                  | Inicialmente ligado |
-| Microsoft Teams     | Troca                                    | Inicialmente ligado |
+| Microsoft Stream     | Troca                                    | Inicialmente ligado |
 |                     | MS Planner                                  | Atrasado  |
+|                     | Microsoft Stream                            | Atrasado  |
 |                     | SharePoint                                  | Inicialmente ligado |
 |                     | Skype para Empresas Online                   | Inicialmente ligado |
 | Portal do Escritório       | Troca                                    | Atrasado  |

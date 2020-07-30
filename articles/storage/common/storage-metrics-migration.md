@@ -9,16 +9,16 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 219d2b972089f9d3b7f84caa8b527474ac241c4f
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a1f977cef614a52853407c0d0665399f1a249c53
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374172"
+ms.locfileid: "87422067"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Transição para métricas no Monitor Azure
 
-O Azure Storage integra agora métricas na plataforma Azure Monitor. No **dia 31 de agosto de 2023** serão retiradas as métricas de Storage Analytics, também referidas como *métricas clássicas.* Se utilizar métricas clássicas, certifique-se de que faz a transição para métricas no Azure Monitor antes dessa data. Este artigo ajuda-o a fazer a transição.
+O Azure Storage integra agora métricas na plataforma Azure Monitor. Este artigo ajuda-o a fazer a transição.
 
 ## <a name="steps-to-complete-the-transition"></a>Passos para completar a transição
 
@@ -113,7 +113,7 @@ Para saber mais sobre as métricas no Azure Monitor, consulte [métricas no Azur
 | `TotalIngress` | `Ingress` |
 | `TotalRequests` | `Transactions` |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
 * [Métricas de armazenamento no Monitor Azure](./storage-metrics-in-azure-monitor.md)

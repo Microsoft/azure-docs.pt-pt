@@ -4,12 +4,12 @@ description: Respostas para perguntas frequentes relacionadas com o serviço de 
 author: dkkapur
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 21643ccfb6bb256e29114435ccb39a009d1b8dae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95190496df4037a973207e14292911225094782e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806606"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421285"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Perguntas frequentes sobre instâncias de contentores Azure
 
@@ -89,7 +89,7 @@ Atualmente, a escala não está disponível para contentores ou grupos de conten
 
 ### <a name="what-features-are-available-to-instances-running-in-a-custom-vnet"></a>Quais as funcionalidades disponíveis para as instâncias em execução num VNet personalizado?
 
-Você pode [implantar grupos de contentores numa rede virtual Azure](container-instances-vnet.md) à sua escolha, e delegar IPs privados para os grupos de contentores para encaminhar o tráfego dentro do VNet através dos seus recursos Azure. A implantação de um grupo de contentores numa rede virtual está atualmente disponível para cargas de trabalho de produção num subconjunto de regiões de Azure.
+Você pode [implantar grupos de contentores numa rede virtual Azure](container-instances-vnet.md) à sua escolha, e delegar IPs privados para os grupos de contentores para encaminhar o tráfego dentro do VNet através dos seus recursos Azure. Para cenários de networking e limitações com instâncias de contentores Azure, consulte [cenários e recursos de rede virtual.](container-instances-virtual-network-concepts.md)
 
 ## <a name="pricing"></a>Preços
 

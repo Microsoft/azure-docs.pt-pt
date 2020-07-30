@@ -3,12 +3,12 @@ title: Padrões de rede para tecido de serviço Azure
 description: Descreve padrões comuns de networking para o Tecido de Serviço e como criar um cluster utilizando funcionalidades de rede Azure.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 0c3664d1890fd318aa1bff508a51cb227bdcc01d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 20bd5e931307725016c3e2ad69dae91214b2caab
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258539"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421472"
 ---
 # <a name="service-fabric-networking-patterns"></a>Padrões de rede de tecido de serviço
 Pode integrar o seu cluster Azure Service Fabric com outras funcionalidades de networking Azure. Neste artigo, mostramos-lhe como criar clusters que utilizam as seguintes funcionalidades:
@@ -99,6 +99,8 @@ Nos exemplos deste artigo, utilizamos o tecido de serviço template.js. Pode uti
                 "defaultValue": "10.0.0.0/24"
             },*/
     ```
+
+   Também pode comentar o parâmetro com o nome "virtualNetworkName" para que não o indique duas vezes no nome da rede virtual na lâmina de implantação do cluster no portal Azure.
 
 2. Comente `nicPrefixOverride` o atributo de , porque está a usar a `Microsoft.Compute/virtualMachineScaleSets` sub-rede existente e desativou esta variável no passo 1.
 
@@ -600,7 +602,7 @@ Após a colocação, pode ver dois equilibradores de carga no grupo de recursos.
 
 Os modelos gitHub acima são projetados para trabalhar com o SKU padrão para Azure Standard Load Balancer (SLB), o SKU Básico. Este SLB não tem SLA, pelo que, para as cargas de trabalho de produção, o SKU Standard deve ser utilizado. Para mais informações, consulte a visão geral do [Balanço de Carga Padrão Azure](../load-balancer/load-balancer-overview.md). Qualquer cluster de tecido de serviço que utilize o SKU Standard para SLB precisa de garantir que cada tipo de nó tem uma regra que permite o tráfego de saída na porta 443. Isto é necessário para completar a configuração do cluster, e qualquer implementação sem tal regra falhará. No exemplo acima de um equilibrador de carga "apenas interno", deve ser adicionado um equilibrador de carga externo adicional ao gabarito com uma regra que permite o tráfego de saída para a porta 443.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Criar um cluster](service-fabric-cluster-creation-via-arm.md)
 
 Após a colocação, pode ver dois equilibradores de carga no grupo de recursos. Se navegar nos esquiliadores de carga, pode ver o endereço IP público e os pontos finais de gestão (portes 19000 e 19080) atribuídos ao endereço IP público. Também pode ver o endereço IP interno estático e o ponto final da aplicação (porta 80) atribuído ao balançador interno de carga. Ambos os equilibradores de carga usam a mesma balança de máquina virtual definida na parte de trás da piscina.

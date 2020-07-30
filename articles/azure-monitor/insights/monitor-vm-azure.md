@@ -238,7 +238,7 @@ As características do Azure Monitor que aumentam as funcionalidades SCOM existe
 Consulte [o Connect Operations Manager ao Azure Monitor](../platform/om-agents.md) para obter mais informações sobre a ligação do seu grupo de gestão SCOM existente ao seu espaço de trabalho Log Analytics.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como analisar dados em registos do Azure Monitor utilizando consultas de registo.](../log-query/get-started-queries.md)
 * [Saiba mais sobre alertas utilizando métricas e registos no Azure Monitor.](../platform/alerts-overview.md)

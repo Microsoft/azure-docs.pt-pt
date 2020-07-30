@@ -4,12 +4,12 @@ description: Saiba como configurar um fornecedor OpenID Connect como fornecedor 
 ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
-ms.openlocfilehash: 1a4f956c15fae640c2a7978a14bb95328dc9aa71
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 89164061a968e37f928f8c21f5323c418e85361f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209915"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87413923"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-login-using-an-openid-connect-provider-preview"></a>Configure a sua app App Service ou Azure Functions para iniciar sessão utilizando um fornecedor OpenID Connect (Preview)
 
@@ -61,7 +61,7 @@ Esta secção irá acompanhar-te através da atualização da configuração par
        "registration" : {},
        "login": {
              "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
-             "loginScopes": [],
+             "scope": [],
              "loginParameterNames": [],
        }
     }
@@ -112,7 +112,7 @@ Uma configuração de exemplo pode parecer o seguinte (usando o Sign in com a Ap
                         "secretSettingName": "APPLE_GENERATED_CLIENT_SECRET"
                     },
                     "openIdConnectConfiguration": {
-                        "authorizationEndpoint": "https://appleid.apple.com/.well-known/openid-configuration"
+                        "wellKnownOpenIdConfiguration": "https://appleid.apple.com/.well-known/openid-configuration"
                     }
                 },
                 "login": {
@@ -131,6 +131,6 @@ Uma configuração de exemplo pode parecer o seguinte (usando o Sign in com a Ap
 }
 ```
 
-## <a name="next-steps"></a><a name="related-content"> </a>Passos seguintes
+## <a name="next-steps"></a><a name="related-content"> </a>Próximos passos
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: 0da3a0bec79ab6f60b1e69c490124e95a4b7c365
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e8e900e410f1a41c8c98f5cec00631cfb5f275de
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497649"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407698"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration runtime no Azure Data Factory 
 
@@ -45,13 +45,10 @@ A tabela seguinte descreve as capacidades e o suporte de rede para cada um dos t
 
 Tipo de IR | Rede pública | Rede privada
 ------- | -------------- | ---------------
-Azure | Fluxo de Dados<br/>Movimento de dados<br/>Distribuição de atividades | &nbsp;
+Azure | Fluxo de Dados<br/>Movimento de dados<br/>Distribuição de atividades | Fluxo de Dados<br/>Movimento de dados<br/>Distribuição de atividades
 Autoalojado | Movimento de dados<br/>Distribuição de atividades | Movimento de dados<br/>Distribuição de atividades
 Azure-SSIS | Execução de pacotes do SSIS | Execução de pacotes do SSIS
 
-O diagrama seguinte mostra como os diferentes runtimes de integração podem ser utilizados em combinação para oferecer suporte de rede e capacidades de integração de dados avançadas:
-
-![Diferentes tipos de runtimes de integração](media/concepts-integration-runtime/different-integration-runtimes.png)
 
 ## <a name="azure-integration-runtime"></a>Runtime de integração do Azure
 
@@ -63,7 +60,7 @@ Um tempo de integração Azure pode:
 
 ### <a name="azure-ir-network-environment"></a>Ambiente de rede de IR do Azure
 
-O Azure Integration Runtime suporta a ligação a lojas de dados e serviços de cálculo com pontos finais acessíveis ao público. Utilize um runtime de integração autoalojado para o ambiente Rede Virtual do Azure.
+O Azure Integration Runtime suporta a ligação a lojas de dados e serviços de cálculo com pontos finais acessíveis ao público. Ativando a Rede Virtual Gerida, o Azure Integration Runtime suporta a ligação a lojas de dados utilizando o serviço de ligações privadas em ambiente de rede privada.
 
 ### <a name="azure-ir-compute-resource-and-scaling"></a>Recurso de computação e dimensionamento do IR do Azure
 Os runtimes de integração do Azure fornecem uma computação totalmente gerida e sem servidor no Azure.  Não tem de se preocupar com a oferta de infraestruturas, instalação de software, remendos ou dimensionamento de capacidade.  Além disso, apenas paga durante a utilização efetiva.
@@ -136,7 +133,7 @@ A localização do runtime de integração define a localização da respetiva c
 
 Pode definir uma determinada localização de um Azure IR, caso em que a execução ou expedição da atividade ocorrerá nessa região específica.
 
-Se optar por utilizar o Azure IR de resolução automática, que é o padrão,
+Se optar por utilizar o Azure IR de resolução automática na rede pública, que é o padrão,
 
 - Para a atividade de cópia, a ADF fará um melhor esforço para detetar automaticamente a localização da sua loja de dados de sumidouros e, em seguida, utilizar o IR na mesma região, se disponível ou o mais próximo da mesma geografia; se a região da loja de dados do lavatório não for detetável, o IR na região da fábrica de dados como alternativa é utilizado.
 
@@ -154,6 +151,8 @@ Se optar por utilizar o Azure IR de resolução automática, que é o padrão,
 
   > [!TIP] 
   > Uma boa prática seria garantir que o fluxo de dados é executado na mesma região que as suas lojas de dados correspondentes (se possível). Pode fazê-lo resolvendo automaticamente o Azure IR (se a localização da data store for igual à localização da Data Factory), ou criando uma nova instância Azure IR na mesma região que as suas lojas de dados e, em seguida, executar o fluxo de dados sobre ele. 
+
+Se ativar a Rede Virtual Gerida para resolver automaticamente o Azure IR, a ADF utiliza o IR na região da fábrica de dados. 
 
 Pode monitorizar que localização de IR entra em efeito durante a execução da atividade na vista de monitorização da atividade do pipeline no payload de monitorização de atividade ou na IU.
 

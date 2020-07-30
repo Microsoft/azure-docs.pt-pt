@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.author: erhopf
-ms.custom: tracking-python
+ms.custom: tracking-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 31d316635211d56207b2d612997938c2baaff02f
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 00b846eba8812ad3126f24ce5cf382b93253169e
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144227"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405331"
 ---
 # <a name="quickstart-use-the-translator-to-transliterate-text"></a>Quickstart: Use o Tradutor para transliterar texto
 

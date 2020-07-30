@@ -2,37 +2,33 @@
 title: Dimensionar automaticamente os nós de computação de um conjunto do Azure Batch
 description: Permita que o escalonamento automático numa piscina de nuvens ajuste dinamicamente o número de nós computacional na piscina.
 ms.topic: how-to
-ms.date: 10/24/2019
+ms.date: 07/27/2020
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: cb40ea72dad2313618fb3c38bf73bf822f4b4433
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 0309a5665cf9338340a21f4c8d0eb5bc3c848a04
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960848"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387477"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Crie uma fórmula automática para escalar os nóns computacional numa piscina de Lote
 
-O Azure Batch pode escalar automaticamente os pools com base nos parâmetros que define. Com o dimensionamento automático, o Batch adiciona dinamicamente os nós a uma piscina à medida que as exigências de tarefa aumentam, e remove os nós computacional à medida que diminuem. Pode economizar tempo e dinheiro ajustando automaticamente o número de nós de computação utilizados pela sua aplicação Batch.
+O Azure Batch pode escalar automaticamente os pools com base nos parâmetros que define, poupando-lhe tempo e dinheiro. Com o dimensionamento automático, o Batch adiciona dinamicamente os nós a um pool à medida que as exigências de tarefa aumentam, e remove os nós de computação à medida que as exigências de tarefa diminuem.
 
-Você permite a escala automática em um conjunto de nós computacional associando-lhe uma *fórmula de autoescala* que você define. O serviço Batch utiliza a fórmula de escala automática para determinar o número de nós de computação necessários para executar a sua carga de trabalho. Os nós computacional podem ser nós dedicados ou [nós de baixa prioridade](batch-low-pri-vms.md). O lote responde aos dados das métricas de serviço que são recolhidos periodicamente. Utilizando estes dados métricos, o Batch ajusta o número de nós de computação na piscina com base na sua fórmula e num intervalo configurável.
+Para permitir a escala automática num conjunto de nós computacional, associa a piscina a uma *fórmula de autoescala* que define. O serviço Batch utiliza a fórmula de autoescalação para determinar quantos nós são necessários para executar a sua carga de trabalho. Estes nós podem ser nós dedicados ou [nós de baixa prioridade](batch-low-pri-vms.md). Em seguida, o lote irá analisar periodicamente os dados das métricas do serviço e usá-lo para ajustar o número de nós na piscina com base na sua fórmula e num intervalo que definir.
 
-Você pode ativar a escala automática quando uma piscina é criada, ou em uma piscina existente. Também pode alterar uma fórmula existente numa piscina que está configurada para autoscalagem. O lote permite-lhe avaliar as suas fórmulas antes de as atribuir a piscinas e monitorizar o estado das corridas de escala automáticas.
-
-Este artigo discute as várias entidades que compõem as suas fórmulas de autoescala, incluindo variáveis, operadores, operações e funções. Discutimos como obter vários recursos compute e métricas de tarefa dentro do Batch. Pode utilizar estas métricas para ajustar a contagem de nós da sua piscina com base no uso do recurso e no estado da tarefa. Em seguida, descrevemos como construir uma fórmula e permitir a escala automática numa piscina utilizando tanto o Lote REST como o .NET APIs. Finalmente, terminamos com algumas fórmulas de exemplo.
+Pode ativar o dimensionamento automático quando criar uma piscina ou aplicá-la a uma piscina existente. O lote permite-lhe avaliar as suas fórmulas antes de as atribuir a piscinas e monitorizar o estado das corridas de escala automáticas. Uma vez configurar uma piscina com escala automática, pode fazer alterações na fórmula mais tarde.
 
 > [!IMPORTANT]
-> Quando criar uma conta Batch, pode especificar a configuração da [conta,](accounts.md)que determina se os pools são atribuídos numa subscrição de serviço Batch (o padrão) ou na subscrição do utilizador. Se criou a sua conta Batch com a configuração padrão do Serviço de Lote, então a sua conta está limitada a um número máximo de núcleos que podem ser utilizados para o processamento. O serviço de lote escala os nós de cálculo apenas até esse limite de núcleo. Por esta razão, o serviço Batch não pode atingir o número-alvo de nós de computação especificados por uma fórmula de autoescala. Consulte [quotas e limites para o serviço Azure Batch](batch-quota-limit.md) para obter informações sobre a visualização e aumento das quotas da sua conta.
+> Quando criar uma conta Batch, pode especificar o [modo de atribuição](accounts.md)de piscinas, que determina se os pools são atribuídos numa subscrição de serviço Batch (o padrão) ou na subscrição do utilizador. Se criou a sua conta Batch com a configuração de serviço predefinido do Lote, então a sua conta está limitada a um número máximo de núcleos que podem ser utilizados para o processamento. O serviço de lote escala os nós de cálculo apenas até esse limite de núcleo. Por esta razão, o serviço Batch não pode atingir o número-alvo de nós de computação especificados por uma fórmula de autoescala. Consulte [quotas e limites para o serviço Azure Batch](batch-quota-limit.md) para obter informações sobre a visualização e aumento das quotas da sua conta.
 >
->Se criou a sua conta com a configuração de Subscrição do Utilizador, então a sua conta partilha na quota principal da subscrição. Para obter mais informações, veja [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits) (Limites das Máquinas Virtuais), em [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md) (Limites, quotas e limitações das subscrições e serviços do Azure).
->
->
+>Se criou a sua conta com o modo de subscrição do utilizador, então a sua conta partilha na quota principal da subscrição. Para obter mais informações, veja [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits) (Limites das Máquinas Virtuais), em [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md) (Limites, quotas e limitações das subscrições e serviços do Azure).
 
-## <a name="automatic-scaling-formulas"></a>Fórmulas automáticas de escala
+## <a name="autoscale-formulas"></a>Fórmulas de autoescala
 
-Uma fórmula de escala automática é um valor de cadeia que se define que contém uma ou mais declarações. A fórmula de autoescalação é atribuída ao elemento [autoScaleFormula][rest_autoscaleformula] (Batch REST) ou [cloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (Lote.NET). O serviço Batch utiliza a sua fórmula para determinar o número alvo de nós de computação na piscina para o próximo intervalo de processamento. A cadeia de fórmula não pode exceder 8 KB, pode incluir até 100 declarações que são separadas por pontos e-tíricos, e pode incluir quebras de linha e comentários.
+Uma fórmula de escala automática é um valor de cadeia que se define que contém uma ou mais declarações. A fórmula de autoescalação é atribuída ao elemento [autoScaleFormula](/rest/api/batchservice/enable-automatic-scaling-on-a-pool) (Batch REST) ou [cloudPool.AutoScaleFormula](/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) (Lote.NET). O serviço Batch utiliza a sua fórmula para determinar o número alvo de nós de computação na piscina para o próximo intervalo de processamento. A cadeia de fórmula não pode exceder 8 KB, pode incluir até 100 declarações que são separadas por pontos e-tímricos, e pode incluir quebras de linha e comentários.
 
-Pode pensar em fórmulas de escala automática como uma "linguagem" de autoescala do Batch. As declarações de fórmula são expressões de forma livre que podem incluir variáveis definidas pelo serviço (variáveis definidas pelo serviço Batch) e variáveis definidas pelo utilizador (variáveis que define). Podem realizar várias operações nestes valores utilizando tipos, operadores e funções incorporados. Por exemplo, uma declaração pode assumir o seguinte formulário:
+Pode pensar em fórmulas de escala automática como uma "linguagem" de autoescala do Batch. As declarações de fórmula são expressões de forma livre que podem incluir variáveis definidas pelo serviço (definidas pelo serviço Batch) e variáveis definidas pelo utilizador. As fórmulas podem realizar várias operações nestes valores utilizando tipos, operadores e funções incorporados. Por exemplo, uma declaração pode assumir o seguinte formulário:
 
 ```
 $myNewVariable = function($ServiceDefinedVariable, $myCustomVariable);
@@ -45,15 +41,19 @@ $variable1 = function1($ServiceDefinedVariable);
 $variable2 = function2($OtherServiceDefinedVariable, $variable1);
 ```
 
-Inclua estas declarações na sua fórmula de autoescalação para chegar a um número de nós de computação. Nós dedicados e nós de baixa prioridade têm as suas próprias definições de alvo, para que possa definir um alvo para cada tipo de nó. Uma fórmula de autoescala pode incluir um valor-alvo para nós dedicados, um valor-alvo para nós de baixa prioridade, ou ambos.
+Inclua estas declarações na sua fórmula de autoescalação para chegar a um número de nós de computação. Nós dedicados e nós de baixa prioridade têm cada um as suas próprias definições de alvo. Uma fórmula de autoescala pode incluir um valor-alvo para nós dedicados, um valor-alvo para nós de baixa prioridade, ou ambos.
 
-O número de nós-alvo pode ser maior, mais baixo ou o mesmo que o número atual de nós desse tipo na piscina. O lote avalia a fórmula de autoescala de uma piscina num intervalo específico (ver [intervalos automáticos de escala).](#automatic-scaling-interval) O lote ajusta o número de alvo de cada tipo de nó na piscina ao número que a sua fórmula de autoescalação especifica no momento da avaliação.
+O número de nós-alvo pode ser maior, mais baixo ou o mesmo que o número atual de nós desse tipo na piscina. O lote avalia a fórmula de autoescala de uma piscina em [intervalos de escala automática específicos](#automatic-scaling-interval). O lote ajusta o número de alvo de cada tipo de nó na piscina ao número que a sua fórmula de autoescalação especifica no momento da avaliação.
 
 ### <a name="sample-autoscale-formulas"></a>Fórmulas de autoescala de amostra
 
 Abaixo estão exemplos de duas fórmulas de autoescala, que podem ser ajustadas para trabalhar para a maioria dos cenários. As variáveis `startingNumberOfVMs` e `maxNumberofVMs` as fórmulas de exemplo podem ser ajustadas às suas necessidades.
 
 #### <a name="pending-tasks"></a>Tarefas pendentes
+
+Com esta fórmula de autoescala, a piscina é inicialmente criada com um único VM. A `$PendingTasks` métrica define o número de tarefas que estão em execução ou em fila. A fórmula encontra o número médio de tarefas pendentes nos últimos 180 segundos e define a `$TargetDedicatedNodes` variável em conformidade. A fórmula garante que o número-alvo de nós dedicados nunca exceda 25 VMs. À medida que novas tarefas são submetidas, o pool cresce automaticamente. À medida que as tarefas terminam, os VMs tornam-se livres e a fórmula de autoscalagem diminui a piscina.
+
+Esta fórmula escala os nós dedicados, mas pode ser modificada para aplicar também aos nós de baixa prioridade.
 
 ```
 startingNumberOfVMs = 1;
@@ -64,11 +64,9 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 $NodeDeallocationOption = taskcompletion;
 ```
 
-Com esta fórmula de autoescala, a piscina é inicialmente criada com um único VM. A `$PendingTasks` métrica define o número de tarefas que estão em execução ou em fila. A fórmula encontra o número médio de tarefas pendentes nos últimos 180 segundos e define a `$TargetDedicatedNodes` variável em conformidade. A fórmula garante que o número-alvo de nós dedicados nunca exceda 25 VMs. À medida que novas tarefas são submetidas, o pool cresce automaticamente. À medida que as tarefas terminam, os VMs tornam-se livres um a um e a fórmula de autoscalagem encolhe a piscina.
+#### <a name="preempted-nodes"></a>Nódoas presas
 
-Esta fórmula escala os nós dedicados, mas pode ser modificada para aplicar também aos nós de baixa prioridade.
-
-#### <a name="preempted-nodes"></a>Nódoas presas 
+Este exemplo cria uma piscina que começa com 25 nós de baixa prioridade. Sempre que um nó de baixa prioridade é antecipado, é substituído por um nó dedicado. Tal como no primeiro exemplo, a `maxNumberofVMs` variável impede que a piscina exceda 25 VMs. Este exemplo é útil para tirar partido de VMs de baixa prioridade, garantindo também que apenas um número fixo de preempções ocorrerá durante a vida útil da piscina.
 
 ```
 maxNumberofVMs = 25;
@@ -77,35 +75,42 @@ $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicated
 $NodeDeallocationOption = taskcompletion;
 ```
 
-Este exemplo cria uma piscina que começa com 25 nós de baixa prioridade. Sempre que um nó de baixa prioridade é antecipado, é substituído por um nó dedicado. Tal como no primeiro exemplo, a `maxNumberofVMs` variável impede que a piscina exceda 25 VMs. Este exemplo é útil para tirar partido de VMs de baixa prioridade, garantindo também que apenas um número fixo de preempções ocorrerá durante a vida útil da piscina.
+Você vai aprender mais sobre [como criar fórmulas de autoescala](#write-an-autoscale-formula) e ver [fórmulas de autoescala](#example-autoscale-formulas) adicionais mais tarde neste tópico.
 
 ## <a name="variables"></a>Variáveis
 
-Pode utilizar variáveis **definidas pelo serviço** e **definidas pelo utilizador** nas suas fórmulas de autoescala. As variáveis definidas pelo serviço são incorporadas no serviço Batch. Algumas variáveis definidas pelo serviço são de leitura-escrita, e algumas são apenas de leitura. As variáveis definidas pelo utilizador são variáveis que define. Na fórmula de exemplo mostrada na secção anterior, `$TargetDedicatedNodes` e `$PendingTasks` são variáveis definidas pelo serviço. Variáveis `startingNumberOfVMs` e `maxNumberofVMs` são variáveis definidas pelo utilizador.
+Pode utilizar variáveis **definidas pelo serviço** e **definidas pelo utilizador** nas suas fórmulas de autoescala.
+
+As variáveis definidas pelo serviço são incorporadas no serviço Batch. Algumas variáveis definidas pelo serviço são de leitura-escrita, e algumas são apenas de leitura.
+
+As variáveis definidas pelo utilizador são variáveis que define. Na fórmula de exemplo acima mostrada, `$TargetDedicatedNodes` e `$PendingTasks` são variáveis definidas pelo serviço, enquanto `startingNumberOfVMs` são `maxNumberofVMs` variáveis definidas pelo utilizador.
 
 > [!NOTE]
 > As variáveis definidas pelo serviço são sempre precedidas por um sinal de dólar ($). Para variáveis definidas pelo utilizador, o sinal de dólar é opcional.
->
->
 
-As tabelas que se seguem mostram variáveis de leitura-escrita e apenas de leitura que são definidas pelo serviço Batch.
+As tabelas que se seguem mostram as variáveis de leitura e leitura que são definidas pelo serviço Batch.
 
-Você pode obter e definir os valores destas variáveis definidas pelo serviço para gerir o número de nós computacional em uma piscina:
+### <a name="read-write-service-defined-variables"></a>Variáveis definidas por serviço de leitura
 
-| Variáveis definidas por serviço de leitura | Descrição |
+Você pode obter e definir os valores destas variáveis definidas pelo serviço para gerir o número de nós computacional em uma piscina.
+
+| Variável | Descrição |
 | --- | --- |
-| $TargetDedicatedNodes |O número-alvo de nós computacional dedicados para a piscina. O número de nós dedicados é especificado como um alvo porque uma piscina pode nem sempre alcançar o número desejado de nós. Por exemplo, se o número de nós específicos for modificado por uma avaliação de autoescala antes de o pool atingir o objetivo inicial, então o pool pode não atingir o alvo. <br /><br /> Um pool numa conta criada com a configuração do Serviço de Lote pode não atingir o seu objetivo se o objetivo exceder um nó de conta batch ou uma quota de base. Um pool numa conta criada com a configuração de Subscrição do Utilizador pode não atingir o seu objetivo se o objetivo exceder a quota-base partilhada para a subscrição.|
-| $TargetLowPriorityNodes |O número-alvo de nós de computação de baixa prioridade para a piscina. O número de nós de baixa prioridade é especificado como um alvo porque um pool pode nem sempre alcançar o número desejado de nós. Por exemplo, se o número-alvo de nós de baixa prioridade for modificado por uma avaliação de autoescala antes de o pool atingir o objetivo inicial, então o pool pode não atingir o alvo. Um pool também não pode atingir o seu objetivo se o alvo exceder um nó de conta batch ou uma quota principal. <br /><br /> Para obter mais informações sobre nós de computação de baixa prioridade, consulte [utilizar VMs de baixa prioridade com Lote](batch-low-pri-vms.md). |
-| $NodeDeallocationOption |A ação que ocorre quando os nós computadores são removidos de uma piscina. Os valores possíveis são:<ul><li>**requeue**- O valor padrão. Termina as tarefas imediatamente e coloca-as de volta na fila de trabalho para que sejam reagendadas. Esta ação garante que o número de nós-alvo seja atingido o mais rapidamente possível, mas pode ser menos eficiente, uma vez que quaisquer tarefas de execução serão interrompidas e terão de ser reiniciadas, desperdiçando todo o trabalho que já tinham feito. <li>**terminar**--Termina imediatamente as tarefas e retira-as da fila de trabalho.<li>**taskcompletion**--Espera que as tarefas atualmente em execução terminem e, em seguida, remova o nó da piscina. Utilize esta opção para evitar que as tarefas sejam interrompidas e requesadas, desperdiçando qualquer trabalho que a tarefa tenha feito. <li>**dados retidos**--Espera que todos os dados locais retidos no nó sejam limpos antes de retirar o nó do pool.</ul> |
+| $TargetDedicatedNodes |O número-alvo de nós computacional dedicados para a piscina. Isto é especificado como um alvo porque uma piscina pode nem sempre alcançar o número desejado de nós. Por exemplo, se o número de nós específicos for modificado por uma avaliação de autoescala antes de o pool atingir o objetivo inicial, o pool pode não atingir o alvo. <br /><br /> Um pool numa conta criada no modo de serviço Batch pode não atingir o seu objetivo se o objetivo exceder um nó de conta batch ou uma quota principal. Um pool numa conta criada no modo de subscrição do utilizador pode não atingir o seu objetivo se o objetivo exceder a quota-base partilhada para a subscrição.|
+| $TargetLowPriorityNodes |O número-alvo de nós de computação de baixa prioridade para a piscina. Isto especificado como um alvo porque uma piscina pode nem sempre alcançar o número desejado de nós. Por exemplo, se o número-alvo de nós de baixa prioridade for modificado por uma avaliação de autoescala antes de o pool atingir o objetivo inicial, o pool pode não atingir o alvo. Um pool também não pode atingir o seu objetivo se o alvo exceder um nó de conta batch ou uma quota principal. <br /><br /> Para obter mais informações sobre nós de computação de baixa prioridade, consulte [utilizar VMs de baixa prioridade com Lote](batch-low-pri-vms.md). |
+| $NodeDeallocationOption |A ação que ocorre quando os nós computadores são removidos de uma piscina. Os valores possíveis são:<ul><li>**requeue**: O valor predefinido. Termina as tarefas imediatamente e coloca-as de volta na fila de trabalho para que sejam reagendadas. Esta ação garante que o número de nós-alvo seja atingido o mais rapidamente possível. No entanto, pode ser menos eficiente, uma vez que quaisquer tarefas de execução serão interrompidas e terão de ser completamente reiniciadas. <li>**terminar:** Acaba imediatamente com as tarefas e retira-as da fila de trabalho.<li>**taskcompleletion**: Espera que as tarefas atualmente em execução terminem e, em seguida, remova o nó da piscina. Utilize esta opção para evitar que as tarefas sejam interrompidas e requeadas, desperdiçando qualquer trabalho que a tarefa tenha feito.<li>**retenção de dados**: Aguarda que todos os dados locais retidos no nó sejam limpos antes de retirar o nó do pool.</ul> |
 
 > [!NOTE]
 > A `$TargetDedicatedNodes` variável também pode ser especificada usando o pseudónimo `$TargetDedicated` . Da mesma forma, a `$TargetLowPriorityNodes` variável pode ser especificada usando o pseudónimo `$TargetLowPriority` . Se tanto a variável totalmente nomeada como o seu pseudónimo forem definidos pela fórmula, o valor atribuído à variável totalmente nomeada terá precedência.
->
->
 
-Pode obter o valor destas variáveis definidas pelo serviço para fazer ajustes que são baseados em métricas do serviço Batch:
+### <a name="read-only-service-defined-variables"></a>Variáveis definidas apenas por serviços
 
-| Variáveis definidas apenas por serviços | Descrição |
+Pode obter o valor destas variáveis definidas pelo serviço para fazer ajustes que são baseados em métricas do serviço Batch.
+
+> [!IMPORTANT]
+> As tarefas de libertação de emprego não estão atualmente incluídas em variáveis que fornecem contagens de tarefas, tais como $ActiveTasks e $PendingTasks. Dependendo da sua fórmula de autoescala, isto pode resultar na remoção de nós sem nós disponíveis para executar tarefas de libertação de emprego.
+
+| Variável | Descrição |
 | --- | --- |
 | $CPUPercent |A percentagem média de utilização do CPU. |
 | $WallClockSeconds |O número de segundos consumidos. |
@@ -118,7 +123,7 @@ Pode obter o valor destas variáveis definidas pelo serviço para fazer ajustes 
 | $NetworkInBytes |O número de bytes de entrada. |
 | $NetworkOutBytes |O número de bytes de saída. |
 | $SampleNodeCount |A contagem de nós computacional. |
-| $ActiveTasks |O número de tarefas que estão prontas a executar mas que ainda não estão a ser executadas. A contagem de $ActiveTasks inclui todas as tarefas que estão no estado ativo e cujas dependências foram satisfeitas. Quaisquer tarefas que estejam no estado ativo, mas cujas dependências não foram satisfeitas, estão excluídas da contagem $ActiveTasks. Para uma tarefa multi-instância, $ActiveTasks incluirá o número de casos definidos na tarefa.|
+| $ActiveTasks |O número de tarefas que estão prontas a executar mas que ainda não estão a ser executadas. Isto inclui todas as tarefas que se encontram no estado ativo e cujas dependências foram satisfeitas. Quaisquer tarefas que estejam no estado ativo, mas cujas dependências não foram satisfeitas, estão excluídas da contagem $ActiveTasks. Para uma tarefa multi-instância, $ActiveTasks incluirá o número de casos definidos na tarefa.|
 | $RunningTasks |O número de tarefas num estado de execução. |
 | $PendingTasks |A soma de $ActiveTasks e $RunningTasks. |
 | $SucceededTasks |O número de tarefas que terminaram com sucesso. |
@@ -127,43 +132,36 @@ Pode obter o valor destas variáveis definidas pelo serviço para fazer ajustes 
 | $CurrentLowPriorityNodes |O número atual de nós computacional de baixa prioridade, incluindo quaisquer nós que tenham sido antecipados. |
 | $PreemptedNodeCount | O número de nós na piscina que estão em estado preemptido. |
 
-> [!IMPORTANT]
-> As tarefas de libertação de emprego não estão atualmente incluídas nas variáveis acima referidas que fornecem contagens de tarefas, tais como $ActiveTasks e $PendingTasks. Dependendo da sua fórmula de escala automática, isto pode resultar na remoção de nós e na disponibilização de nós para executar as tarefas de libertação de trabalho.
-
 > [!TIP]
-> As variáveis apenas de leitura, definidas pelo serviço que são mostradas na tabela anterior são *objetos* que fornecem vários métodos de acesso aos dados associados a cada um. Para mais informações, consulte [Obter dados da amostra](#getsampledata) mais tarde neste artigo.
->
->
+> Estas variáveis definidas apenas por serviço são *objetos* que fornecem vários métodos de acesso aos dados associados a cada um. Para mais informações, consulte [Obter dados da amostra](#obtain-sample-data) mais tarde neste artigo.
 
 ## <a name="types"></a>Tipos
 
-Estes tipos são suportados numa fórmula:
+As fórmulas de autoescala suportam os seguintes tipos:
 
-* double
-* doubleVec
-* doubleVecList
-* string
-* timetamp-timetamp é uma estrutura composta que contém os seguintes membros:
-
-  * ano
-  * mês (1-12)
-  * dia (1-31)
-  * dia da semana (no formato de número; por exemplo, 1 para segunda-feira)
-  * hora (em formato número 24 horas; por exemplo, 13 significa 1 PM)
-  * minuto (00-59)
-  * segundo (00-59)
-* timeinterval
-
-  * TimeInterval_Zero
-  * TimeInterval_100ns
-  * TimeInterval_Microsecond
-  * TimeInterval_Millisecond
-  * TimeInterval_Second
-  * TimeInterval_Minute
-  * TimeInterval_Hour
-  * TimeInterval_Day
-  * TimeInterval_Week
-  * TimeInterval_Year
+- double
+- doubleVec
+- doubleVecList
+- cadeia
+- timetamp -- uma estrutura composta que contém os seguintes membros:
+  - ano
+  - mês (1-12)
+  - dia (1-31)
+  - dia da semana (no formato de número; por exemplo, 1 para segunda-feira)
+  - hora (em formato número 24 horas; por exemplo, 13 significa 1 PM)
+  - minuto (00-59)
+  - segundo (00-59)
+- timeinterval
+  - TimeInterval_Zero
+  - TimeInterval_100ns
+  - TimeInterval_Microsecond
+  - TimeInterval_Millisecond
+  - TimeInterval_Second
+  - TimeInterval_Minute
+  - TimeInterval_Hour
+  - TimeInterval_Day
+  - TimeInterval_Week
+  - TimeInterval_Year
 
 ## <a name="operations"></a>Operações
 
@@ -180,7 +178,7 @@ Estas operações são permitidas nos tipos listados na secção anterior.
 | timeinterval *operador* relógios |+ |carimbo de data/hora |
 | timetamp *operador* timeinterval |+ |carimbo de data/hora |
 | timetamp *operador* |- |timeinterval |
-| *operador*duplo |-, ! |double |
+| *operador* duplo |-, ! |double |
 | *timeinterval operador* |- |timeinterval |
 | *duplo operador* duplo |<, <== =, >=, >, != |double |
 | cadeia *de operador de* cordas |<, <== =, >=, >, != |double |
@@ -191,7 +189,8 @@ Estas operações são permitidas nos tipos listados na secção anterior.
 Ao testar um duplo com um operador ternário `double ? statement1 : statement2` (), não fazer nada é **verdade,** e zero é **falso**.
 
 ## <a name="functions"></a>Funções
-Estas **funções** predefinidas estão disponíveis para que possa utilizar na definição de uma fórmula de escala automática.
+
+Pode utilizar estas **funções** predefinidas ao definir uma fórmula de autoescala.
 
 | Função | Tipo de retorno | Descrição |
 | --- | --- | --- |
@@ -212,7 +211,7 @@ Estas **funções** predefinidas estão disponíveis para que possa utilizar na 
 | std (doubleVecList) |double |Devolve o desvio padrão da amostra dos valores na DoubleVecList. |
 | paragem() | |Para a avaliação da expressão auto-caling. |
 | soma (doubleVecList) |double |Devolve a soma de todos os componentes da DoubleVecList. |
-| tempo (data de cadeiaTime=") |carimbo de data/hora |Devolve o carimbo de tempo da hora atual se não forem passados parâmetros ou o carimbo de hora da cadeia Time se for passado. Data suportada Os formatos tempos são W3C-DTF e RFC 1123. |
+| tempo (data de cadeiaTime=") |carimbo de data/hora |Devolve o carimbo de tempo da hora atual se não forem passados parâmetros ou o carimbo de hora da cadeia Time se tal for passado. Data suportada Os formatos tempos são W3C-DTF e RFC 1123. |
 | val (doubleVec v, double i) |double |Devolve o valor do elemento que está na localização i no vetor v, com um índice inicial de zero. |
 
 Algumas das funções descritas na tabela anterior podem aceitar uma lista como argumento. A lista separada por vírgula é qualquer combinação de *Duplo* e *DuploVec*. Por exemplo:
@@ -221,73 +220,13 @@ Algumas das funções descritas na tabela anterior podem aceitar uma lista como 
 
 O valor *duploVecList* é convertido para um único *DuploVec* antes da avaliação. Por exemplo, `v = [1,2,3]` se, então, ligar `avg(v)` é equivalente a chamar `avg(1,2,3)` . Ligar `avg(v, 7)` é equivalente a `avg(1,2,3,7)` ligar.
 
-## <a name="obtain-sample-data"></a><a name="getsampledata"></a>Obter dados de amostra
-
-As fórmulas de autoescala atuam em dados de métricas (amostras) fornecidos pelo serviço Batch. Uma fórmula cresce ou diminui o tamanho da piscina com base nos valores que obtém do serviço. As variáveis definidas pelo serviço que foram descritas anteriormente são objetos que fornecem vários métodos de acesso a dados que estão associados a esse objeto. Por exemplo, a seguinte expressão mostra um pedido para obter os últimos cinco minutos de utilização do CPU:
-
-```
-$CPUPercent.GetSample(TimeInterval_Minute * 5)
-```
-
-| Método | Descrição |
-| --- | --- |
-| GetSample() |O `GetSample()` método devolve um vetor de amostras de dados.<br/><br/>Uma amostra tem 30 segundos de dados métricos. Por outras palavras, as amostras são obtidas a cada 30 segundos. Mas, como se nota abaixo, há um atraso entre quando uma amostra é recolhida e quando está disponível para uma fórmula. Como tal, nem todas as amostras durante um determinado período de tempo podem estar disponíveis para avaliação por uma fórmula.<ul><li>`doubleVec GetSample(double count)`<br/>Especifica o número de amostras a obter das amostras mais recentes recolhidas.<br/><br/>`GetSample(1)`devolve a última amostra disponível. No entanto, para métricas como `$CPUPercent` , esta não deve ser utilizada porque é impossível saber *quando* a amostra foi recolhida. Pode ser recente, ou, devido a problemas do sistema, pode ser muito mais antigo. É melhor, nestes casos, utilizar um intervalo de tempo como mostrado abaixo.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Especifica um prazo para a recolha de dados da amostra. Opcionalmente, especifica também a percentagem de amostras que devem estar disponíveis no prazo solicitado.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)`devolveria 20 amostras se todas as amostras dos últimos 10 minutos estivessem presentes na história do CPUPercent. No entanto, se o último minuto da história não estivesse disponível, apenas 18 amostras seriam devolvidas. Neste caso:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)`falharia porque apenas 90% das amostras estão disponíveis.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)`teria sucesso.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Especifica um prazo para a recolha de dados, com uma hora de início e um tempo final.<br/><br/>Como mencionado acima, há um atraso entre quando uma amostra é recolhida e quando está disponível para uma fórmula. Considere este atraso quando utilizar o `GetSample` método. Veja `GetSamplePercent` abaixo. |
-| GetSamplePeriod() |Devolve o período de amostras que foram colhidas num conjunto histórico de dados de amostras. |
-| Contagem() |Devolve o número total de amostras na história métrica. |
-| HistoryBeginTime() |Devolve o carimbo de tempo da amostra de dados mais antiga disponível para a métrica. |
-| GetSamplePercent() |Devolve a percentagem de amostras disponíveis para um determinado intervalo de tempo. Por exemplo:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Como o `GetSample` método falha se a percentagem de amostras devolvidas for inferior à `samplePercent` especificada, pode utilizar o `GetSamplePercent` método para verificar primeiro. Em seguida, pode efetuar uma ação alternativa se estiverem presentes amostras insuficientes, sem travar a avaliação automática de escalonamento. |
-
-### <a name="samples-sample-percentage-and-the-getsample-method"></a>Amostras, percentagem de amostras e método *GetSample()*
-O funcionamento principal de uma fórmula de autoescala é obter dados métricos de tarefa e recursos e, em seguida, ajustar o tamanho do pool com base nesses dados. Como tal, é importante ter uma compreensão clara de como as fórmulas de autoescala interagem com dados de métricas (amostras).
-
-**Amostras**
-
-O serviço Batch retira periodicamente amostras de métricas de tarefa e recursos e coloca-as à disposição das suas fórmulas de autoescala. Estas amostras são registadas a cada 30 segundos pelo serviço Batch. No entanto, existe tipicamente um atraso entre quando essas amostras foram gravadas e quando são disponibilizadas para (e podem ser lidas) as suas fórmulas de autoescala. Além disso, devido a diversos fatores, tais como problemas de rede ou outras questões de infraestruturas, as amostras não podem ser registadas num intervalo específico.
-
-**Percentagem de amostra**
-
-Quando `samplePercent` é passado para o método ou o método é `GetSample()` `GetSamplePercent()` chamado, por _cento_ refere-se a uma comparação entre o número total possível de amostras que são registadas pelo serviço Batch e o número de amostras que estão disponíveis para a sua fórmula de autoescala.
-
-Vejamos um intervalo de 10 minutos como um exemplo. Como as amostras são registadas a cada 30 segundos dentro de um intervalo de 10 minutos, o número máximo total de amostras que são registadas pelo Batch seria de 20 amostras (2 por minuto). No entanto, devido à latência inerente do mecanismo de reporte e outras questões dentro do Azure, pode haver apenas 15 amostras que estão disponíveis na sua fórmula de autoescala para leitura. Assim, por exemplo, para esse período de 10 minutos, apenas 75% do número total de amostras registadas podem estar disponíveis na sua fórmula.
-
-**Gamas getSample e amostras**
-
-As suas fórmulas de autoescala vão crescer e diminuir as suas piscinas &mdash; adicionando nós ou removendo nós. Como os nós custam dinheiro, quer garantir que as suas fórmulas usam um método inteligente de análise que se baseia em dados suficientes. Por isso, recomendamos que utilize uma análise do tipo de tendência nas suas fórmulas. Este tipo cresce e encolhe as suas piscinas com base numa gama de amostras recolhidas.
-
-Para tal, utilize `GetSample(interval look-back start, interval look-back end)` para devolver um vetor de amostras:
-
-```
-$runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
-```
-
-Quando a linha acima é avaliada por Batch, retorna uma gama de amostras como um vetor de valores. Por exemplo:
-
-```
-$runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
-```
-
-Uma vez recolhido o vetor de amostras, pode então usar funções como `min()` `max()` , e obter `avg()` valores significativos da gama recolhida.
-
-Para uma segurança adicional, pode forçar uma avaliação de fórmula a falhar se houver menos de uma determinada percentagem de amostra disponível por um determinado período de tempo. Quando forçar uma avaliação de fórmula a falhar, instrui o Batch a cessar a avaliação da fórmula se a percentagem especificada de amostras não estiver disponível. Neste caso, não é feita nenhuma alteração ao tamanho da piscina. Para especificar uma percentagem necessária de amostras para que a avaliação tenha êxito, especifique-a como o terceiro parâmetro para `GetSample()` . Aqui, é especificado um requisito de 75 por cento das amostras:
-
-```
-$runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second, 75);
-```
-
-Como pode haver um atraso na disponibilidade da amostra, é importante especificar sempre um intervalo de tempo com um tempo de retrocesso que é superior a um minuto. Leva aproximadamente um minuto para que as amostras se propaguem através do sistema, pelo que as amostras na gama `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` podem não estar disponíveis. Mais uma vez, pode utilizar o parâmetro percentual de forçar um determinado requisito de percentagem da `GetSample()` amostra.
-
-> [!IMPORTANT]
-> **Recomendamos vivamente** que **evite confiar *apenas* `GetSample(1)` nas suas fórmulas de autoescala**. Isto `GetSample(1)` porque, essencialmente, diz ao serviço Batch: "Dê-me a última amostra que tiver, não importa há quanto tempo a recuperou." Uma vez que se trata apenas de uma única amostra, e pode ser uma amostra mais antiga, pode não ser representativa da imagem maior do estado de tarefa ou recursos recentes. Se `GetSample(1)` utilizar, certifique-se de que faz parte de uma declaração maior e não o único ponto de dados em que a sua fórmula depende.
->
->
-
 ## <a name="metrics"></a>Métricas
 
-Pode utilizar as métricas de recursos e tarefas quando estiver a definir uma fórmula. Ajusta o número-alvo de nós dedicados na piscina com base nos dados métricos que obtém e avalia. Consulte a secção [Variáveis](#variables) acima para obter mais informações sobre cada métrica.
+Pode utilizar as métricas de recursos e tarefas quando estiver a definir uma fórmula. Ajusta o número-alvo de nós dedicados na piscina com base nos dados métricos que obtém e avalia. Para obter mais informações sobre cada métrica, consulte a secção [Variáveis](#variables) acima.
 
 <table>
   <tr>
-    <th>Metric</th>
+    <th>Métrica</th>
     <th>Descrição</th>
   </tr>
   <tr>
@@ -328,18 +267,79 @@ Pode utilizar as métricas de recursos e tarefas quando estiver a definir uma f�
   </tr>
 </table>
 
+## <a name="obtain-sample-data"></a>Obter dados de amostra
+
+O funcionamento principal de uma fórmula de autoescala é obter dados de tarefa e métrica de recursos (amostras) e, em seguida, ajustar o tamanho da piscina com base nesses dados. Como tal, é importante ter uma compreensão clara de como as fórmulas de autoescala interagem com amostras.
+
+### <a name="methods"></a>Métodos
+
+As fórmulas de autoescala atuam em amostras de dados métricos fornecidos pelo serviço Batch. Uma fórmula irá crescer ou diminuir o tamanho da piscina com base nos valores que obtém. As variáveis definidas pelo serviço são objetos que fornecem métodos de acesso a dados que estão associados a esse objeto. Por exemplo, a seguinte expressão mostra um pedido para obter os últimos cinco minutos de utilização do CPU:
+
+```
+$CPUPercent.GetSample(TimeInterval_Minute * 5)
+```
+
+Podem ser utilizados os seguintes métodos para obter dados de amostra sobre variáveis definidas pelo serviço.
+
+| Método | Descrição |
+| --- | --- |
+| GetSample() |O `GetSample()` método devolve um vetor de amostras de dados.<br/><br/>Uma amostra tem 30 segundos de dados métricos. Por outras palavras, as amostras são obtidas a cada 30 segundos. Mas, como se nota abaixo, há um atraso entre quando uma amostra é recolhida e quando está disponível para uma fórmula. Como tal, nem todas as amostras durante um determinado período de tempo podem estar disponíveis para avaliação por uma fórmula.<ul><li>`doubleVec GetSample(double count)`: Especifica o número de amostras a obter das amostras mais recentes recolhidas. `GetSample(1)`devolve a última amostra disponível. Para métricas como `$CPUPercent` , no entanto, `GetSample(1)` não deve ser usado, porque é impossível saber *quando* a amostra foi recolhida. Pode ser recente, ou, devido a problemas do sistema, pode ser muito mais antigo. Nesses casos, é melhor usar um intervalo de tempo como mostrado abaixo.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`: Especifica um prazo para a recolha de dados da amostra. Opcionalmente, especifica também a percentagem de amostras que devem estar disponíveis no prazo solicitado. Por exemplo, `$CPUPercent.GetSample(TimeInterval_Minute * 10)` devolveria 20 amostras se todas as amostras dos últimos 10 minutos estiverem presentes na `CPUPercent` história. Se o último minuto da história não estivesse disponível, apenas 18 amostras seriam devolvidas. Neste caso `$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` falharia porque apenas 90% das amostras estão disponíveis, mas `$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` seriam bem sucedidas.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`: Especifica um prazo para a recolha de dados, com uma hora de início e um tempo de fim. Como mencionado acima, há um atraso entre quando uma amostra é recolhida e quando fica disponível para uma fórmula. Considere este atraso quando utilizar o `GetSample` método. Veja `GetSamplePercent` abaixo. |
+| GetSamplePeriod() |Devolve o período de amostras que foram colhidas num conjunto histórico de dados de amostras. |
+| Contagem() |Devolve o número total de amostras na história métrica. |
+| HistoryBeginTime() |Devolve o carimbo de tempo da amostra de dados mais antiga disponível para a métrica. |
+| GetSamplePercent() |Devolve a percentagem de amostras disponíveis para um determinado intervalo de tempo. Por exemplo, `doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`. Como o `GetSample` método falha se a percentagem de amostras devolvidas for inferior à `samplePercent` especificada, pode utilizar o `GetSamplePercent` método para verificar primeiro. Em seguida, pode efetuar uma ação alternativa se estiverem presentes amostras insuficientes, sem travar a avaliação automática de escalonamento. |
+
+### <a name="samples"></a>Amostras
+
+O serviço Batch retira periodicamente amostras de métricas de tarefa e recursos e coloca-as à disposição das suas fórmulas de autoescala. Estas amostras são registadas a cada 30 segundos pelo serviço Batch. No entanto, existe tipicamente um atraso entre quando essas amostras foram gravadas e quando são disponibilizadas para (e podem ser lidas) as suas fórmulas de autoescala. Além disso, as amostras não podem ser registadas num intervalo específico devido a fatores como a rede ou outras questões de infraestruturas.
+
+### <a name="sample-percentage"></a>Percentagem de amostra
+
+Quando `samplePercent` é passado para o método ou o método é `GetSample()` `GetSamplePercent()` chamado, por _cento_ refere-se a uma comparação entre o número total possível de amostras que são registadas pelo serviço Batch e o número de amostras que estão disponíveis para a sua fórmula de autoescala.
+
+Vejamos um intervalo de 10 minutos como um exemplo. Como as amostras são registadas a cada 30 segundos dentro desse intervalo de 10 minutos, o número máximo total de amostras registadas pelo Batch seria de 20 amostras (2 por minuto). No entanto, devido à latência inerente do mecanismo de reporte e outras questões dentro do Azure, pode haver apenas 15 amostras que estão disponíveis na sua fórmula de autoescala para leitura. Assim, por exemplo, para esse período de 10 minutos, apenas 75% do número total de amostras registadas podem estar disponíveis na sua fórmula.
+
+### <a name="getsample-and-sample-ranges"></a>Gamas getSample e amostras
+
+As suas fórmulas de autoescala irão crescer e diminuir as suas piscinas adicionando ou removendo nós. Como os nós lhe custam dinheiro, certifique-se de que as suas fórmulas usam um método inteligente de análise que se baseia em dados suficientes. Recomendamos que utilize uma análise de tendência nas suas fórmulas. Este tipo cresce e encolhe as suas piscinas com base numa gama de amostras recolhidas.
+
+Para tal, utilize `GetSample(interval look-back start, interval look-back end)` para devolver um vetor de amostras:
+
+```
+$runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
+```
+
+Quando a linha acima é avaliada por Batch, retorna uma gama de amostras como um vetor de valores. Por exemplo:
+
+```
+$runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
+```
+
+Uma vez recolhido o vetor de amostras, pode então usar funções como `min()` `max()` , e obter `avg()` valores significativos da gama recolhida.
+
+Para uma segurança adicional, pode forçar uma avaliação de fórmula a falhar se houver menos de uma determinada percentagem de amostra disponível por um determinado período de tempo. Quando forçar uma avaliação de fórmula a falhar, instrui o Batch a cessar a avaliação da fórmula se a percentagem especificada de amostras não estiver disponível. Neste caso, não é feita nenhuma alteração ao tamanho da piscina. Para especificar uma percentagem necessária de amostras para que a avaliação tenha êxito, especifique-a como o terceiro parâmetro para `GetSample()` . Aqui, é especificado um requisito de 75 por cento das amostras:
+
+```
+$runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second, 75);
+```
+
+Como pode haver um atraso na disponibilidade da amostra, deve sempre especificar um intervalo de tempo com um tempo de retrocesso que seja superior a um minuto. Leva aproximadamente um minuto para que as amostras se propaguem através do sistema, pelo que as amostras na gama `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` podem não estar disponíveis. Mais uma vez, pode utilizar o parâmetro percentual de forçar um determinado requisito de percentagem da `GetSample()` amostra.
+
+> [!IMPORTANT]
+> Recomendamos vivamente que **evite confiar *apenas* `GetSample(1)` nas suas fórmulas de autoescala**. Isto `GetSample(1)` porque, essencialmente, diz ao serviço Batch: "Dê-me a última amostra que tiver, não importa há quanto tempo a recuperou." Uma vez que se trata apenas de uma única amostra, e pode ser uma amostra mais antiga, pode não ser representativa da imagem maior do estado de tarefa ou recursos recentes. Se `GetSample(1)` utilizar, certifique-se de que faz parte de uma declaração maior e não o único ponto de dados em que a sua fórmula depende.
+
 ## <a name="write-an-autoscale-formula"></a>Escreva uma fórmula de autoescala
 
-Constrói uma fórmula de autoescala formando declarações que utilizam os componentes acima e, em seguida, combina essas declarações numa fórmula completa. Nesta secção, criamos uma fórmula de autoescala que pode executar algumas decisões de escala no mundo real.
+Constrói uma fórmula de autoescala formando declarações que utilizam os componentes acima e, em seguida, combina essas declarações numa fórmula completa. Nesta secção, criamos uma fórmula de autoescala exemplo que pode executar decisões de escala no mundo real e fazer ajustes.
 
 Primeiro, vamos definir os requisitos para a nossa nova fórmula de autoescala. A fórmula deve:
 
-1. Aumente o número-alvo de nós computacional dedicados numa piscina se o uso do CPU for elevado.
-1. Diminua o número-alvo de nós computacional dedicados numa piscina quando o uso do CPU é baixo.
-1. Restrinja sempre o número máximo de nós dedicados a 400.
-1. Ao reduzir o número de nós, não remova os nós que estão a executar tarefas; se necessário, aguarde até que as tarefas tenham terminado para remover os nós.
+- Aumente o número-alvo de nós computacional dedicados numa piscina se o uso do CPU for elevado.
+- Diminua o número-alvo de nós computacional dedicados numa piscina quando o uso do CPU é baixo.
+- Restrinja sempre o número máximo de nós dedicados a 400.
+- Ao reduzir o número de nós, não remova os nós que estão a executar tarefas; se necessário, aguarde até que as tarefas tenham terminado antes de remover os nós.
 
-Para aumentar o número de nós durante a utilização elevada do CPU, defina a afirmação que povoa uma variável definida pelo utilizador com `$totalDedicatedNodes` um valor que é 110 por cento do número atual de nós dedicados, mas apenas se o uso médio mínimo de CPU durante os últimos 10 minutos fosse superior a 70 por cento. Caso contrário, utilize o valor para o número atual de nós dedicados.
+A primeira declaração na nossa fórmula aumentará o número de nós durante o uso elevado do CPU. Vamos definir uma afirmação que povoa uma variável definida pelo utilizador `$totalDedicatedNodes` com um valor que é 110 por cento do número atual de nós dedicados, mas apenas se o uso médio mínimo de CPU durante os últimos 10 minutos fosse superior a 70 por cento. Caso contrário, utiliza o valor para o número atual de nós dedicados.
 
 ```
 $totalDedicatedNodes =
@@ -347,7 +347,7 @@ $totalDedicatedNodes =
     ($CurrentDedicatedNodes * 1.1) : $CurrentDedicatedNodes;
 ```
 
-Para *diminuir* o número de nós dedicados durante o baixo uso do CPU, a próxima declaração na nossa fórmula define a mesma `$totalDedicatedNodes` variável para 90 por cento do número atual de nós dedicados se o uso médio do CPU nos últimos 60 minutos fosse inferior a 20 por cento. Caso contrário, utilize o valor atual do `$totalDedicatedNodes` que povoamos na declaração acima.
+Para diminuir o número de nós dedicados durante o baixo uso do CPU, a próxima declaração na nossa fórmula define a mesma `$totalDedicatedNodes` variável para 90 por cento do número atual de nós dedicados, se o uso médio do CPU nos últimos 60 minutos foi inferior a 20 por cento. Caso contrário, utiliza o valor atual do `$totalDedicatedNodes` que povoamos na declaração acima.
 
 ```
 $totalDedicatedNodes =
@@ -355,10 +355,16 @@ $totalDedicatedNodes =
     ($CurrentDedicatedNodes * 0.9) : $totalDedicatedNodes;
 ```
 
-Agora limite o número-alvo de nós computacional dedicados a um máximo de 400:
+Agora, vamos limitar o número alvo de nós computacional dedicados a um máximo de 400.
 
 ```
 $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
+```
+
+Finalmente, vamos garantir que os nós não sejam removidos até que as suas tarefas estejam terminadas.
+
+```
+$NodeDeallocationOption = taskcompletion;
 ```
 
 Aqui está a fórmula completa:
@@ -371,7 +377,23 @@ $totalDedicatedNodes =
     (avg($CPUPercent.GetSample(TimeInterval_Minute * 60)) < 0.2) ?
     ($CurrentDedicatedNodes * 0.9) : $totalDedicatedNodes;
 $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
+$NodeDeallocationOption = taskcompletion;
 ```
+
+> [!NOTE]
+> Se optar, pode incluir comentários e quebras de linha em cadeias de fórmula.
+
+## <a name="automatic-scaling-interval"></a>Intervalo de escala automático
+
+Por predefinição, o serviço Batch ajusta o tamanho da piscina de acordo com a sua fórmula de autoescala a cada 15 minutos. Este intervalo é configurável utilizando as seguintes propriedades da piscina:
+
+- [CloudPool.AutoScaleEvaluationInterval](/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (Lote.NET)
+- [autoScaleEvaluationInterval](/rest/api/batchservice/enable-automatic-scaling-on-a-pool) (REST API)
+
+O intervalo mínimo é de cinco minutos, e o máximo é de 168 horas. Se for especificado um intervalo fora deste intervalo, o serviço Batch retorna um erro de Mau Pedido (400).
+
+> [!NOTE]
+> A autoscalagem não se destina atualmente a responder a alterações em menos de um minuto, mas destina-se a ajustar gradualmente o tamanho da sua piscina à medida que funciona uma carga de trabalho.
 
 ## <a name="create-an-autoscale-enabled-pool-with-batch-sdks"></a>Criar uma piscina com autoescala com SDKs de lote
 
@@ -387,13 +409,13 @@ Para criar uma piscina com autoscalagem ativada em .NET, siga estes passos:
 1. (Opcional) Desafie a propriedade [CloudPool.AutoScaleEvaluationInterval](/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (o padrão é de 15 minutos).
 1. Comprometa a piscina com [CloudPool.Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) ou [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
 
-O seguinte corte de código cria uma piscina ativada por escala automática em .NET. A fórmula de autoescala da piscina define o número de nós dedicados para 5 às segundas-feiras, e 1 em cada dois dias da semana. O [intervalo de escala automático](#automatic-scaling-interval) está definido para 30 minutos. Neste e nos outros snippets C# neste artigo, `myBatchClient` é uma instância devidamente inicializada da classe [BatchClient.][net_batchclient]
+O exemplo a seguir cria uma piscina ativada por escala automática em .NET. A fórmula de autoescala da piscina define o número de nós dedicados para 5 às segundas-feiras, e para 1 em cada dois dias da semana. O [intervalo de escala automático](#automatic-scaling-interval) está definido para 30 minutos. Neste e nos outros snippets C# neste artigo, `myBatchClient` é uma instância devidamente inicializada da classe [BatchClient.](/dotnet/api/microsoft.azure.batch.batchclient)
 
 ```csharp
 CloudPool pool = myBatchClient.PoolOperations.CreatePool(
                     poolId: "mypool",
                     virtualMachineSize: "standard_d1_v2",
-                    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));    
+                    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
 pool.AutoScaleEnabled = true;
 pool.AutoScaleFormula = "$TargetDedicatedNodes = (time().weekday == 1 ? 5:1);";
 pool.AutoScaleEvaluationInterval = TimeSpan.FromMinutes(30);
@@ -401,31 +423,19 @@ await pool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> Quando criar uma piscina ativada por escala automática, não especifique o parâmetro _TargetDedicatedNodes_ ou o parâmetro _targetLowPriorityNodes_ na chamada para **CreatePool**. Em vez disso, especifique as propriedades **AutoScaleEnabled** e **AutoScaleFormula** na piscina. Os valores destas propriedades determinam o número alvo de cada tipo de nó. Além disso, para redimensionar manualmente uma piscina autoescalada (por exemplo, com [BatchClient.PoolOperations.ResizePoolAsync), desative][net_poolops_resizepoolasync]primeiro a escala automática na piscina e depois redimensione-a. **disable**
+> Quando criar uma piscina ativada por escala automática, não especifique o parâmetro _TargetDedicatedNodes_ ou o parâmetro _targetLowPriorityNodes_ na chamada para **CreatePool**. Em vez disso, especifique as propriedades **AutoScaleEnabled** e **AutoScaleFormula** na piscina. Os valores destas propriedades determinam o número alvo de cada tipo de nó.
 >
->
-
-#### <a name="automatic-scaling-interval"></a>Intervalo de escala automático
-
-Por predefinição, o serviço Batch ajusta o tamanho da piscina de acordo com a sua fórmula de autoescala a cada 15 minutos. Este intervalo é configurável utilizando as seguintes propriedades da piscina:
-
-* [CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (Lote.NET)
-* [autoScaleEvaluationInterval][rest_autoscaleinterval] (REST API)
-
-O intervalo mínimo é de cinco minutos, e o máximo é de 168 horas. Se for especificado um intervalo fora deste intervalo, o serviço Batch retorna um erro de Mau Pedido (400).
-
-> [!NOTE]
-> A autoscalagem não se destina atualmente a responder a alterações em menos de um minuto, mas destina-se a ajustar gradualmente o tamanho da sua piscina à medida que funciona uma carga de trabalho.
->
->
+> Para redimensionar manualmente uma piscina com uma escala automática (por exemplo, com [BatchClient.PoolOperations.ResizePoolAsync),](/dotnet/api/microsoft.azure.batch.pooloperations.resizepoolasync)primeiro deve desativar a escala automática na piscina e depois redimensioná-la.
 
 ### <a name="python"></a>Python
 
-Da mesma forma, você pode fazer uma piscina auto-ativa com o Python SDK por:
+Para criar piscina com uma escala automática com o Python SDK:
 
 1. Crie uma piscina e especifique a sua configuração.
 1. Adicione a piscina ao cliente de serviço.
 1. Ative a autoescala na piscina com uma fórmula que escreve.
+
+O exemplo que se segue ilustra estes passos.
 
 ```python
 # Create a pool; specify configuration
@@ -446,44 +456,39 @@ new_pool = batch.models.PoolAddParameter(
 batch_service_client.pool.add(new_pool) # Add the pool to the service client
 
 formula = """$curTime = time();
-             $workHours = $curTime.hour >= 8 && $curTime.hour < 18; 
-             $isWeekday = $curTime.weekday >= 1 && $curTime.weekday <= 5; 
-             $isWorkingWeekdayHour = $workHours && $isWeekday; 
+             $workHours = $curTime.hour >= 8 && $curTime.hour < 18;
+             $isWeekday = $curTime.weekday >= 1 && $curTime.weekday <= 5;
+             $isWorkingWeekdayHour = $workHours && $isWeekday;
              $TargetDedicated = $isWorkingWeekdayHour ? 20:10;""";
 
 # Enable autoscale; specify the formula
 response = batch_service_client.pool.enable_auto_scale(pool_id, auto_scale_formula=formula,
-                                            auto_scale_evaluation_interval=datetime.timedelta(minutes=10), 
-                                            pool_enable_auto_scale_options=None, 
+                                            auto_scale_evaluation_interval=datetime.timedelta(minutes=10),
+                                            pool_enable_auto_scale_options=None,
                                             custom_headers=None, raw=False)
 ```
 
 > [!TIP]
 > Mais exemplos de utilização do Python SDK podem ser encontrados no [repositório DeStart Quickstart Batch Python](https://github.com/Azure-Samples/batch-python-quickstart) no GitHub.
->
->
 
 ## <a name="enable-autoscaling-on-an-existing-pool"></a>Ativar a autoscalagem numa piscina existente
 
-Cada Batch SDK fornece uma forma de ativar a autoscalagem. Por exemplo:
+Cada Batch SDK fornece uma forma de permitir a escala automática. Por exemplo:
 
-* [BatchClient.PoolOperations.EnableAutoScaleAsync][net_enableautoscaleasync] (Lote.NET)
-* [Permitir a escala automática numa piscina][rest_enableautoscale] (REST API)
+- [BatchClient.PoolOperations.EnableAutoScaleAsync](/dotnet/api/microsoft.azure.batch.pooloperations.enableautoscaleasync) (Lote.NET)
+- [Permitir a escala automática numa piscina](/rest/api/batchservice/enable-automatic-scaling-on-a-pool) (REST API)
 
-Quando ativar a autoscalagem numa piscina existente, tenha em mente os seguintes pontos:
+Quando ativar a autoscalagem numa piscina existente, lembre-se:
 
-* Se o escalonamento automático estiver atualmente desativado na piscina quando emitir o pedido para ativar a autoscalagem, deve especificar uma fórmula de autoescala válida quando emitir o pedido. Pode especificar opcionalmente um intervalo de avaliação de escala automática. Se não especificar um intervalo, utiliza-se o valor predefinido de 15 minutos.
-* Se a autoescala estiver ativada na piscina, pode especificar uma fórmula de autoescala, um intervalo de avaliação ou ambos. Deve especificar pelo menos uma destas propriedades.
-
-  * Se especificar um novo intervalo de avaliação de autoescala, o calendário de avaliação existente é interrompido e um novo horário é iniciado. A hora de início do novo horário é o momento em que foi emitido o pedido de autoscalagem.
-  * Se omitir a fórmula de autoescala ou o intervalo de avaliação, o serviço Batch continua a utilizar o valor atual dessa definição.
+- Se a autoscalagem estiver atualmente desativada na piscina, tem de especificar uma fórmula de autoescala válida quando emitir o pedido. Pode especificar opcionalmente um intervalo de escala automático. Se não especificar um intervalo, utiliza-se o valor predefinido de 15 minutos.
+- Se a autoscalagem estiver ativada na piscina, pode especificar uma nova fórmula, um novo intervalo ou ambos. Deve especificar pelo menos uma destas propriedades.
+  - Se especificar um novo intervalo de escala automático, o horário existente é interrompido e um novo horário é iniciado. A hora de início do novo horário é o momento em que foi emitido o pedido de autoscalagem.
+  - Se omitir a fórmula de autoescala ou o intervalo, o serviço Batch continuará a utilizar o valor atual dessa definição.
 
 > [!NOTE]
-> Se especificou valores para os *parâmetros targetDedicatedNodes* ou *targetLowPriorityNodes* do método **CreatePool** quando criou o pool em .NET, ou para os parâmetros comparáveis noutra língua, então esses valores são ignorados quando a fórmula de escala automática é avaliada.
->
->
+> Se especificou valores para os *parâmetros targetDedicatedNodes* ou *targetLowPriorityNodes* do método **CreatePool** quando criou o pool em .NET, ou para os parâmetros comparáveis noutra língua, então esses valores são ignorados quando a fórmula automática é avaliada.
 
-Este corte de código C# utiliza a biblioteca [Batch .NET][net_api] para permitir a autoscalagem numa piscina existente:
+Este exemplo C# utiliza a biblioteca [Batch .NET](/dotnet/api/microsoft.azure.batch) para permitir a autoscalagem numa piscina existente.
 
 ```csharp
 // Define the autoscaling formula. This formula sets the target number of nodes
@@ -518,26 +523,26 @@ await myBatchClient.PoolOperations.EnableAutoScaleAsync(
 
 ## <a name="evaluate-an-autoscale-formula"></a>Avaliar uma fórmula de autoescala
 
-Você pode avaliar uma fórmula antes de aplicá-la em uma piscina. Desta forma, pode testar a fórmula para ver como as suas declarações avaliam antes de colocar a fórmula em produção.
+Você pode avaliar uma fórmula antes de aplicá-la em uma piscina. Isto permite-lhe testar os resultados da fórmula antes de a colocar em produção.
 
-Para avaliar uma fórmula de autoescala, deve primeiro ativar a autoscalagem na piscina com uma fórmula válida. Para testar uma fórmula numa piscina que ainda não tenha autoscaling ativada, utilize a fórmula de uma linha `$TargetDedicatedNodes = 0` quando ativar a autoscalagem pela primeira vez. Em seguida, utilize uma das seguintes para avaliar a fórmula que pretende testar:
+Antes de poder avaliar uma fórmula de autoescala, tem primeiro de ativar a autoscalagem na piscina com uma fórmula válida, como a fórmula de uma linha `$TargetDedicatedNodes = 0` . Em seguida, utilize uma das seguintes para avaliar a fórmula que pretende testar:
 
-* [BatchClient.PoolOperations.AssessAutoScale](/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscale) ou [AssessAutoScaleAsync](/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscaleasync)
+- [BatchClient.PoolOperations.AssessAutoScale](/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscale) ou [AssessAutoScaleAsync](/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscaleasync)
 
     Estes métodos Batch .NET requerem a identificação de uma piscina existente e uma corda que contenha a fórmula de autoescala para avaliar.
 
-* [Avaliar uma fórmula de escala automática](/rest/api/batchservice/evaluate-an-automatic-scaling-formula)
+- [Avaliar uma fórmula de escala automática](/rest/api/batchservice/evaluate-an-automatic-scaling-formula)
 
     Neste pedido de API REST, especifique o ID do pool no URI e a fórmula de autoescalação no elemento *autoScaleFormula* do corpo de pedido. A resposta da operação contém qualquer informação de erro que possa estar relacionada com a fórmula.
 
-Neste corte de código [Batch .NET,][net_api] avaliamos uma fórmula de autoescala. Se a piscina não tiver autoscaling ativado, ativamos primeiro.
+Este exemplo [batch .NET](/dotnet/api/microsoft.azure.batch) avalia uma fórmula de autoescala. Se a piscina já não utilizar autoscaling, ativamos primeiro.
 
 ```csharp
 // First obtain a reference to an existing pool
 CloudPool pool = await batchClient.PoolOperations.GetPoolAsync("myExistingPool");
 
 // If autoscaling isn't already enabled on the pool, enable it.
-// You can't evaluate an autoscale formula on non-autoscale-enabled pool.
+// You can't evaluate an autoscale formula on a non-autoscale-enabled pool.
 if (pool.AutoScaleEnabled == false)
 {
     // We need a valid autoscale formula to enable autoscaling on the
@@ -610,17 +615,17 @@ AutoScaleRun.Results:
 
 ## <a name="get-information-about-autoscale-runs"></a>Obtenha informações sobre corridas de autoescala
 
-Para garantir que a sua fórmula está a funcionar como esperado, recomendamos que verifique periodicamente os resultados das correções de autoscalagem que o Batch executa na sua piscina. Para tal, obtenha (ou refresque) uma referência à piscina e examine as propriedades da sua última corrida de autoescala.
+Para garantir que a sua fórmula está a funcionar como esperado, recomendamos que verifique periodicamente os resultados das correções de autoscalagem que o Batch executa na sua piscina. Para tal, obtenha (ou refresque) uma referência à piscina e, em seguida, examine as propriedades da sua última corrida de autoescala.
 
 Em Batch .NET, a propriedade [CloudPool.AutoScaleRun](/dotnet/api/microsoft.azure.batch.cloudpool.autoscalerun) tem várias propriedades que fornecem informações sobre a mais recente corrida de escala automática realizada na piscina:
 
-* [AutoScaleRun.Timestamp](/dotnet/api/microsoft.azure.batch.autoscalerun.timestamp)
-* [Resultados autoScaleRun.](/dotnet/api/microsoft.azure.batch.autoscalerun.results)
-* [Erro autoScaleRun.Erro](/dotnet/api/microsoft.azure.batch.autoscalerun.error)
+- [AutoScaleRun.Timestamp](/dotnet/api/microsoft.azure.batch.autoscalerun.timestamp)
+- [Resultados autoScaleRun.](/dotnet/api/microsoft.azure.batch.autoscalerun.results)
+- [Erro autoScaleRun.Erro](/dotnet/api/microsoft.azure.batch.autoscalerun.error)
 
 Na API REST, o [Get information about a pool](/rest/api/batchservice/get-information-about-a-pool) request devolve informações sobre o pool, que inclui as mais recentes informações automáticas de escala na propriedade [autoScaleRun.](/rest/api/batchservice/get-information-about-a-pool)
 
-O seguinte corte de código C# utiliza a biblioteca Batch .NET para imprimir informações sobre a última corrida de autoscalagem na _piscina myPool_:
+O exemplo C# a seguir utiliza a biblioteca Batch .NET para imprimir informações sobre a última autoscalagem executada na _piscina myPool_.
 
 ```csharp
 await Cloud pool = myBatchClient.PoolOperations.GetPoolAsync("myPool");
@@ -629,7 +634,7 @@ Console.WriteLine("Result:" + pool.AutoScaleRun.Results.Replace("$", "\n  $"));
 Console.WriteLine("Error: " + pool.AutoScaleRun.Error);
 ```
 
-Saída de amostra do corte anterior:
+Saída da amostra do exemplo anterior:
 
 ```
 Last execution: 10/14/2016 18:36:43
@@ -661,11 +666,12 @@ $isWorkingWeekdayHour = $workHours && $isWeekday;
 $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
 $NodeDeallocationOption = taskcompletion;
 ```
+
 `$curTime`pode ser ajustado para refletir o seu fuso horário local adicionando `time()` ao produto e ao seu offset `TimeZoneInterval_Hour` UTC. Por exemplo, utilize `$curTime = time() + (-6 * TimeInterval_Hour);` para o horário de verão da montanha (MDT). Tenha em mente que a compensação teria de ser ajustada no início e no fim do horário de verão (se aplicável).
 
 ### <a name="example-2-task-based-adjustment"></a>Exemplo 2: Ajustamento baseado em tarefas
 
-Neste exemplo, o tamanho da piscina é ajustado com base no número de tarefas na fila. Tanto os comentários como as quebras de linha são aceitáveis nas cordas de fórmula.
+Neste exemplo C#, o tamanho da piscina é ajustado com base no número de tarefas na fila. Incluímos comentários e quebras de linha nas cordas de fórmula.
 
 ```csharp
 // Get pending tasks for the past 15 minutes.
@@ -685,16 +691,16 @@ $NodeDeallocationOption = taskcompletion;
 
 ### <a name="example-3-accounting-for-parallel-tasks"></a>Exemplo 3: Contabilização de tarefas paralelas
 
-Este exemplo ajusta o tamanho da piscina com base no número de tarefas. Esta fórmula também tem em conta o valor [MaxTasksPerComputeNode][net_maxtasks] que foi definido para a piscina. Esta abordagem é útil em situações em que a [execução paralela](batch-parallel-node-tasks.md) de tarefas foi ativada na sua piscina.
+Este exemplo C# ajusta o tamanho da piscina com base no número de tarefas. Esta fórmula também tem em conta o valor [MaxTasksPerComputeNode](/dotnet/api/microsoft.azure.batch.cloudpool.maxtaskspercomputenode) que foi definido para a piscina. Esta abordagem é útil em situações em que a [execução paralela](batch-parallel-node-tasks.md) de tarefas foi ativada na sua piscina.
 
 ```csharp
 // Determine whether 70 percent of the samples have been recorded in the past
 // 15 minutes; if not, use last sample
 $samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
 $tasks = $samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
-// Set the number of nodes to add to one-fourth the number of active tasks (the
-// MaxTasksPerComputeNode property on this pool is set to 4, adjust this number
-// for your use case)
+// Set the number of nodes to add to one-fourth the number of active tasks
+// (theMaxTasksPerComputeNode property on this pool is set to 4, adjust
+// this number for your use case)
 $cores = $TargetDedicatedNodes * 4;
 $extraVMs = (($tasks - $cores) + 3) / 4;
 $targetVMs = ($TargetDedicatedNodes + $extraVMs);
@@ -707,15 +713,15 @@ $NodeDeallocationOption = taskcompletion;
 
 ### <a name="example-4-setting-an-initial-pool-size"></a>Exemplo 4: Definir um tamanho inicial da piscina
 
-Este exemplo mostra um corte de código C# com uma fórmula de autoescala que define o tamanho da piscina para um número especificado de nós durante um período de tempo inicial. Em seguida, ajusta o tamanho da piscina com base no número de tarefas de execução e ativas após o período de tempo inicial decorrido.
+Este exemplo mostra um exemplo C# com uma fórmula de autoescala que define o tamanho da piscina num determinado número de nós durante um período de tempo inicial. Depois disso, ajusta o tamanho da piscina com base no número de tarefas em execução e ativas.
 
-A fórmula no seguinte corte de código:
+Especificamente, esta fórmula faz o seguinte:
 
-* Define o tamanho inicial da piscina em quatro nós.
-* Não ajuste o tamanho da piscina nos primeiros 10 minutos do ciclo de vida da piscina.
-* Após 10 minutos, obtém o valor máximo do número de tarefas de execução e ativas nos últimos 60 minutos.
-  * Se ambos os valores forem 0 (indicando que nenhuma tarefa estava em execução ou ativa nos últimos 60 minutos), o tamanho da piscina está definido para 0.
-  * Se um dos valores for maior do que zero, não é feita nenhuma alteração.
+- Define o tamanho inicial da piscina em quatro nós.
+- Não ajuste o tamanho da piscina nos primeiros 10 minutos do ciclo de vida da piscina.
+- Após 10 minutos, obtém o valor máximo do número de tarefas de execução e ativas nos últimos 60 minutos.
+  - Se ambos os valores forem 0 (indicando que nenhuma tarefa estava em execução ou ativa nos últimos 60 minutos), o tamanho da piscina está definido para 0.
+  - Se um dos valores for maior do que zero, não é feita nenhuma alteração.
 
 ```csharp
 string now = DateTime.UtcNow.ToString("r");
@@ -730,20 +736,7 @@ string formula = string.Format(@"
     ", now, 4);
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Maximize o uso do recurso computado Azure Batch com tarefas de nó simultâneos](batch-parallel-node-tasks.md) contém detalhes sobre como pode executar várias tarefas simultaneamente nos nós de computação na sua piscina. Além de autoscaling, esta funcionalidade pode ajudar a reduzir a duração do trabalho para algumas cargas de trabalho, poupando-lhe dinheiro.
-* Para outro reforço de eficiência, certifique-se de que a sua aplicação Batch consulta o serviço Batch da forma mais ótima. Consulte [o serviço Azure Batch de forma eficiente](batch-efficient-list-queries.md) para aprender a limitar a quantidade de dados que cruza o fio quando consulta o estado de potencialmente milhares de nós ou tarefas de computação.
-
-[net_api]: /dotnet/api/microsoft.azure.batch
-[net_batchclient]: /dotnet/api/microsoft.azure.batch.batchclient
-[net_cloudpool_autoscaleformula]: /dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula
-[net_cloudpool_autoscaleevalinterval]: /dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval
-[net_enableautoscaleasync]: /dotnet/api/microsoft.azure.batch.pooloperations.enableautoscaleasync
-[net_maxtasks]: /dotnet/api/microsoft.azure.batch.cloudpool.maxtaskspercomputenode
-[net_poolops_resizepoolasync]: /dotnet/api/microsoft.azure.batch.pooloperations.resizepoolasync
-
-[rest_api]: /rest/api/batchservice/
-[rest_autoscaleformula]: /rest/api/batchservice/enable-automatic-scaling-on-a-pool
-[rest_autoscaleinterval]: /rest/api/batchservice/enable-automatic-scaling-on-a-pool
-[rest_enableautoscale]: /rest/api/batchservice/enable-automatic-scaling-on-a-pool
+- Saiba como [executar várias tarefas simultaneamente nos nós de computação na sua piscina](batch-parallel-node-tasks.md). Juntamente com o autoscaling, isto pode ajudar a reduzir a duração do trabalho para algumas cargas de trabalho, poupando-lhe dinheiro.
+- Saiba como [consultar o serviço Azure Batch de forma eficiente](batch-efficient-list-queries.md) para obter uma maior eficiência.

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 648ec2d9fea3e4e112e65cec44a0518b653ddbea
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8694b766d98c6240d7745b814d13358debe714e8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119978"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387052"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Melhores práticas para criar avaliações
 
@@ -67,15 +67,15 @@ Siga estas melhores práticas para avaliações de servidores importados para a 
  
 ### <a name="ftt-sizing-parameters-for-avs-assessments"></a>Parâmetros de dimensionamento ftt para avaliações de AVS
 
-O motor de armazenamento utilizado em AVS é vSAN. as polícias de armazenamento vSAN definem os requisitos de armazenamento para as suas máquinas virtuais. Estas políticas garantem o nível de serviço necessário para os seus VMs porque determinam como o armazenamento é atribuído ao VM. Estas são as combinações FTT-Raid disponíveis: 
+O motor de armazenamento utilizado em AVS é vSAN. As políticas de armazenamento vSAN definem os requisitos de armazenamento das máquinas virtuais. Estas políticas garantem o nível de serviço necessário das VMs, porque determinam como o armazenamento é alocado à VM. Estas são as Combinações FTT-Raid disponíveis: 
 
-**Falhas na toleração (FTT)** | **Configuração RAID** | **Anfitriões mínimos necessários** | **Consideração de dimensionamento**
+**Falhas a Tolerar (FTT)** | **Configuração do RAID** | **Anfitriões Mínimos Necessários** | **Consideração sobre o dimensionamento**
 --- | --- | --- | --- 
-1 | RAID-1 (Espelhamento) | 3 | Um VM de 100GB consumiria 200GB.
-1 | RAID-5 (Codificação de Apagação) | 4 | Um VM de 100GB consumiria 133.33GB
-2 | RAID-1 (Espelhamento) | 5 | Um VM de 100GB consumiria 300GB.
-2 | RAID-6 (Codificação de Apagação) | 6 | Um VM de 100GB consumiria 150GB.
-3 | RAID-1 (Espelhamento) | 7 | Um VM de 100GB consumiria 400GB.
+1 | RAID-1 (Espelhamento) | 3 | Uma VM de 100 GB consumiria 200 GB.
+1 | RAID-5 (Codificação de Eliminação) | 4 | Uma VM de 100 GB consumiria 133,33 GB
+2 | RAID-1 (Espelhamento) | 5 | Uma VM de 100 GB consumiria 300 GB.
+2 | RAID-6 (Codificação de Eliminação) | 6 | Uma VM de 100 GB consumiria 150 GB.
+3 | RAID-1 (Espelhamento) | 7 | Uma VM de 100 GB consumiria 400 GB.
 
 
 ## <a name="best-practices-for-confidence-ratings"></a>Melhores práticas para avaliações de confiança
@@ -131,9 +131,9 @@ Uma avaliação pode não ter todos os pontos de dados por uma série de razões
 
 ### <a name="migration-tool-guidance-for-avs-assessments"></a>Orientação da Ferramenta de Migração para avaliações de AVS
 
-No relatório de prontidão Azure para a avaliação da Solução VMware (AVS) do Azure VMware, pode ver as seguintes ferramentas sugeridas: 
-- **VMware HCX ou Enterprise**: Para máquinas VMware, a solução VMWare Hybrid Cloud Extension (HCX) é a ferramenta de migração sugerida para migrar a sua carga de trabalho no local para a sua nuvem privada Azure VMWare Solution (AVS). [Saiba mais.](../azure-vmware/hybrid-cloud-extension-installation.md)
-- **Desconhecido**: Para as máquinas importadas através de um ficheiro CSV, a ferramenta de migração padrão é desconhecida. No entanto, para máquinas VMware, recomenda-se a utilização da solução VMWare Hybrid Cloud Extension (HCX).
+No relatório de preparação para o Azure da avaliação do Azure VMware Solution (AVS), pode ver as seguintes ferramentas sugeridas: 
+- **VMware HCX ou Enterprise**: Para máquinas VMware, a solução VMware Hybrid Cloud Extension (HCX) é a ferramenta de migração sugerida para migrar a sua carga de trabalho no local para a sua nuvem privada Azure VMware Solution (AVS). [Saiba Mais](../azure-vmware/hybrid-cloud-extension-installation.md).
+- **Desconhecida**: para as máquinas virtuais importadas através de um ficheiro CSV, a ferramenta de migração predefinida é desconhecida. No entanto, para máquinas VMware, recomenda-se a utilização da solução VMware Hybrid Cloud Extension (HCX).
 
 
 ## <a name="next-steps"></a>Próximos passos

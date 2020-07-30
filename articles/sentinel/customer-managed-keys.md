@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/19/2020
 ms.author: yelevin
-ms.openlocfilehash: ded28ef872bbc3147793ea3d68c94f8dde35f74e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44a2c0c1b4bc9b4e6fc1247497640b261d1d0fa1
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83674190"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387919"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Configurar a chave gerida pelo cliente Azure Sentinel
 
@@ -64,9 +64,9 @@ Para provisão cmk, siga estes passos: 
 
 1.  [Ligue as opções de recuperação:](../key-vault/general/best-practices.md#turn-on-recovery-options)
 
-    -   Certifique-se de que [o Soft Delete](../key-vault/general/overview-soft-delete.md) está ligado.
+    -   Certifique-se de que [o Soft Delete](../key-vault/general/soft-delete-overview.md) está ligado.
 
-    -   Ligue [a proteção de purga](../key-vault/general/overview-soft-delete.md#purge-protection) para evitar a eliminação forçada do segredo/cofre mesmo após a eliminação suave.
+    -   Ligue [a proteção de purga](../key-vault/general/soft-delete-overview.md#purge-protection) para evitar a eliminação forçada do segredo/cofre mesmo após a eliminação suave.
 
 ### <a name="step-2-enable-cmk-on-your-log-analytics-workspace"></a>PASSO 2: Ativar a CMK no seu espaço de trabalho Log Analytics
 

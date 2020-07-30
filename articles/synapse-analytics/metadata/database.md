@@ -9,12 +9,12 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 42c6ad7f77d1b42c02f57f161874eadb75387dc2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 196577741ae1560232f8ae193aacd51a446431c8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496014"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385539"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Base de dados partilhada Azure Synapse Analytics
 
@@ -34,7 +34,7 @@ Use o Spark para gerir as bases de dados criadas pela Spark. Por exemplo, elimin
 
 Se criar objetos numa base de dados criada pela Spark usando o SQL a pedido ou tentar largar a base de dados, a operação terá sucesso. Mas a base de dados original do Spark não será alterada.
 
-## <a name="handling-of-name-conflicts"></a>Tratamento de conflitos de nomes
+## <a name="how-name-conflicts-are-handled"></a>Como os conflitos de nome são tratados
 
 Se o nome de uma base de dados Spark entrar em conflito com o nome de uma base de dados a pedido do SQL existente, um sufixo é anexado em SQL a pedido à base de dados Spark. O sufixo em SQL a pedido é `_<workspace name>-ondemand-DefaultSparkConnector` .
 
@@ -57,7 +57,7 @@ Se um princípio de segurança necessitar da capacidade de criar objetos ou larg
 
 ## <a name="examples"></a>Exemplos
 
-### <a name="create--connect-to-spark-database---sql-on-demand"></a>Criar & ligar à base de dados Spark - SQL on-demand
+### <a name="create-and-connect-to-spark-database-with-sql-on-demand"></a>Criar e ligar à base de dados Spark com SQL on demand
 
 Primeiro crie uma nova base de dados Spark chamada `mytestdb` usando um cluster Spark que já criou no seu espaço de trabalho. Pode conseguir isso, por exemplo, utilizando um Caderno Spark C# com o seguinte .NET para declaração spark:
 

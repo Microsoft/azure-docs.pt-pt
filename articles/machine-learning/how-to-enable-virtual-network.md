@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 79db00216ffb54b8c71ef78cc745ec37c353f1cc
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: df819f5ff641af014750d6501c8b168e54917318
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320175"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420537"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Isolamento de rede durante treino & inferência com redes virtuais privadas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -57,9 +57,6 @@ Também pode [ativar o Azure Private Link](how-to-configure-private-link.md) par
 > [!WARNING]
 > 
 > A pré-visualização de instâncias computacional de aprendizagem automática Azure não é suportada num espaço de trabalho onde o Private Link está ativado.
->
-> O Azure Machine Learning não suporta a utilização de um Serviço Azure Kubernetes que tenha uma ligação privada ativada. Em vez disso, pode utilizar o Serviço Azure Kubernetes numa rede virtual. Para obter mais informações, consulte [secure Azure ML experimentação e inferências de trabalhos dentro de uma Rede Virtual Azure](how-to-enable-virtual-network.md).
-
 
 <a id="amlcompute"></a>
 
@@ -449,9 +446,6 @@ Para adicionar o Serviço Azure Kubernetes (AKS) numa rede virtual ao seu espaç
 >
 > A instância AKS e a rede virtual Azure devem estar na mesma região. Se proteger a Conta de Armazenamento Azure utilizada pelo espaço de trabalho numa rede virtual, deve estar na mesma rede virtual que a aks.
 
-> [!WARNING]
-> O Azure Machine Learning não suporta a utilização de um Serviço Azure Kubernetes que tenha uma ligação privada ativada.
-
 1. Inscreva-se no [estúdio Azure Machine Learning](https://ml.azure.com/)e, em seguida, selecione a sua subscrição e espaço de trabalho.
 
 1. __Selecione Compute__ à esquerda.
@@ -826,7 +820,7 @@ Para utilizar uma máquina virtual ou cluster Azure HDInsight numa rede virtual 
 1. Fixe o cluster VM ou HDInsight ao seu espaço de trabalho de aprendizagem de máquinas Azure. Para obter mais informações, consulte [Configurar metas de computação para a formação de modelos.](how-to-set-up-training-targets.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Configurar ambientes de preparação](how-to-set-up-training-targets.md)
 * [Configurar pontos finais privados](how-to-configure-private-link.md)

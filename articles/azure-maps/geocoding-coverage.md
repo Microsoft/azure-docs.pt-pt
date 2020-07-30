@@ -1,26 +1,29 @@
 ---
-title: Cobertura de Geocoding Microsoft Azure Maps
-description: O processo de conversão do endereço de localização para as coordenadas de latitude e longitude é conhecido como geocoding. Neste artigo, você vai aprender sobre regiões com Cobertura de Geocoding no Microsoft Azure Maps.
+title: Cobertura de geocoding no serviço de pesquisa microsoft Azure Maps
+description: Neste artigo, você vai aprender sobre a cobertura de geocoding microsoft Azure Maps em diferentes países/regiões.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/31/2019
+ms.date: 07/28/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
-ms.openlocfilehash: 52c6cda800b535109d906fd6e6ae1aa8c709f23f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+manager: philmea
+ms.openlocfilehash: 6014cb4dda18a68b9149206adf034536161eb08e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132811"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386916"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Cobertura de geocoding Azure Maps
 
-Quando procura uma localização com o Azure Maps, o serviço de pesquisa, por [exemplo, obter endereço](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress)de pesquisa, pega nos seus termos de pesquisa e devolve as coordenadas de latitude e longitude. Este processo chama-se geocoding. No entanto, o Azure Maps não tem o mesmo nível de informação e exatidão para todas as regiões e países. Use este artigo para determinar que tipo de locais pode procurar de forma fiável em cada região. 
+O serviço Azure Maps [Search](https://docs.microsoft.com/rest/api/maps/search) suporta geocoding, o que significa que o seu pedido de API pode ter termos de pesquisa, como um endereço ou o nome de um lugar, e devolve o resultado como coordenadas de latitude e longitude. Por exemplo, o Azure Maps [Get Search Address API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) recebe consultas que contêm informações de localização e devolve resultados como coordenadas de latitude e longitude.
 
-A capacidade de geocódigo num país/região depende da cobertura de dados rodoviários e da precisão geocodificador do serviço de geocodagem. As seguintes categorizações são utilizadas especificam o nível de apoio à geocodagem em cada país/região.
-* **Pontos de endereço** - Os dados de endereços podem ser resolvidos para uma coordenada de latitude/longitude dentro da parcela de endereço (limite de propriedade). Às vezes referido como "Rooftop" preciso. Este é o mais alto nível de precisão disponível para endereços. 
+No entanto, o serviço de [pesquisa](https://docs.microsoft.com/rest/api/maps/search) Azure Maps não tem o mesmo nível de informação e precisão para todas as regiões e países. Use este artigo para determinar que tipo de locais pode procurar de forma fiável em cada região.
+
+A capacidade de geocódificar num país/região depende da cobertura de dados rodoviários e da precisão geocodificante do serviço de geocodagem. As seguintes categorizações são utilizadas para especificar o nível de apoio à geocodagem em cada país/região.
+
+* **Pontos de endereço** - Os dados de endereço podem ser resolvidos com coordenadas de latitude/longitude dentro da parcela de endereço (limite de propriedade). Os pontos de endereço são muitas vezes referidos como sendo "Rooftop" exato, que é o nível mais alto de precisão disponível para endereços.
 * **Números da casa** - Os endereços são interpolados a uma coordenada de latitude/longitude na rua.
 * **Nível de rua** - Os endereços são resolvidos para a coordenada latitude/longitude da rua que contém o endereço. O número da casa pode não ser processado.
 * **Nível da cidade** - Os nomes dos locais da cidade são suportados.
@@ -214,7 +217,6 @@ A capacidade de geocódigo num país/região depende da cobertura de dados rodov
 | Usbequistão                                          |                 |                |              |      ✓     |          ✓         |
 | Cidade do Vaticano                                        |                 |                |       ✓      |      ✓     |          ✓         |
 
-
 ## <a name="middle-east-and-africa"></a>Médio Oriente e África
 
 | País/Região                                      | Pontos de endereço |Números da casa | Nível de rua | Nível da cidade | Pontos de interesse |
@@ -295,11 +297,8 @@ A capacidade de geocódigo num país/região depende da cobertura de dados rodov
 | Zâmbia                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Zimbabué                                            |                 |                |       ✓      |      ✓     |          ✓         |
 
+## <a name="next-steps"></a>Próximos passos
 
-
-## <a name="next-steps"></a>Passos seguintes
-
-Para obter mais informações sobre geocoding Azure Maps, consulte as páginas de referência [de Pesquisa.](https://docs.microsoft.com/rest/api/maps/search)
-
-Conheça as [áreas de cobertura do serviço de tráfego Maps.](traffic-coverage.md) 
-
+Saiba mais sobre geocoding Azure Maps:
+> [!div class="nextstepaction"]
+> [Serviço de pesquisa Azure Maps](https://docs.microsoft.com/rest/api/maps/search)
