@@ -4,15 +4,15 @@ description: Saiba como pode efetuar um pré-pagamento por encargos do Azure Dat
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 02/12/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: b000934bb218c21a454ed04afe4e9a4495e808ab
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: dd5654b31f8d1bebe44902d1db5c35fc6dd9a866
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200389"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287597"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>Otimizar custos do Azure Databricks com uma pré-compra
 

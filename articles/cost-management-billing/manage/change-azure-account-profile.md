@@ -5,16 +5,16 @@ author: genlin
 ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 06/22/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d1c38057a32f8abc5fa289bc5ab96b8f65ddfb06
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 449f1e50bda2991db8eec15464a32d295a054c6f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85209954"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286602"
 ---
 # <a name="change-the-contact-information-for-your-azure-account"></a>Alterar as informações de contacto da sua conta do Azure
 

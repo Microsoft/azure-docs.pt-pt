@@ -8,12 +8,13 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: b85a70b6d2feba68ed5a766ad05bc6aa22f597f8
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 9554fa63d13c5da465653064d69d7950d91f0300
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85114695"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421880"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Tutorial: Construa uma Node.js aplicação web utilizando o JavaScript SDK para gerir uma conta API SQL em Azure Cosmos DB 
 
@@ -49,7 +50,7 @@ Antes de seguir as instruções deste artigo, certifique-se de que tem os seguin
 * [Express generator](https://www.expressjs.com/starter/generator.html) (pode instalar o Express através de `npm install express-generator -g`)
 * Instale o [Git][Git] na estação de trabalho local.
 
-## <a name="create-an-azure-cosmos-db-account"></a><a name="_Toc395637761"></a>Criar uma conta DB Azure Cosmos
+## <a name="create-an-azure-cosmos-db-account"></a><a name="_Toc395637761"></a>Criar uma conta do Azure Cosmos DB
 Comecemos por criar uma conta do Azure Cosmos DB. Se já tiver uma conta ou se estiver a utilizar o Emulador do Azure Cosmos DB para este tutorial, pode avançar para o [Passo 2: Criar uma aplicação Node.js](#_Toc395783178).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
@@ -473,11 +474,11 @@ Depois de a sua aplicação ter sucesso localmente, pode implantá-la para Azure
 
 4. Em alguns segundos, a aplicação Web é publicada e iniciada num browser.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando estes recursos já não forem necessários, pode eliminar o grupo de recursos, a conta DB da Azure Cosmos e todos os recursos conexos. Para tal, selecione o grupo de recursos que utilizou para a conta DB Azure Cosmos, selecione **Delete**e, em seguida, confirme o nome do grupo de recursos para eliminar.
 
-## <a name="next-steps"></a><a name="_Toc395637775"></a>Passos seguintes
+## <a name="next-steps"></a><a name="_Toc395637775"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Criar aplicações móveis com o Xamarin e o Azure Cosmos DB](mobile-apps-with-xamarin.md)

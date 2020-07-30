@@ -3,12 +3,12 @@ title: Recuperação de desastres para tópicos personalizados na Grelha de Even
 description: Este tutorial irá acompanhá-lo como configurar a sua arquitetura de eventos para recuperar se o serviço de Grade de Eventos se tornar insalubre numa região.
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.openlocfilehash: 1ee9c9566a70ba104f6c12866a631061672cb0c0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: da796a9ac4d03f7ad6999b8fa4530fddfb60cbfe
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115086"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420265"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Construa a sua própria recuperação de desastres para tópicos personalizados na Grade de Eventos
 A recuperação de desastres centra-se na recuperação de uma grave perda de funcionalidade de aplicação. Este tutorial irá acompanhá-lo como configurar a sua arquitetura de eventos para recuperar se o serviço de Grade de Eventos se tornar insalubre numa determinada região.
@@ -26,7 +26,7 @@ Para simplificar os testes, implemente uma [aplicação web pré-construída](ht
 
 1. Selecione **Implementar no Azure** para implementar a solução para a sua subscrição. No portal do Azure, indique os valores para os parâmetros.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to Deploy to Aquent." /></a>
 
 1. A implementação pode demorar alguns minutos. Após a implementação ter sido concluída com êxito, verifique a aplicação Web para verificar se está em execução. Num browser, navegue para: `https://<your-site-name>.azurewebsites.net`
 Certifique-se de que nota este URL como vai precisar mais tarde.

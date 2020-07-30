@@ -11,12 +11,12 @@ author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 70a73cb1f855840831f2e1107baa94dfd54868a5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f4687a98bfb58db8ed5e8a853fa0db2207f435e8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518492"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419653"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutorial: Permitir que a palavra-passe de autosserviço do Azure Ative Directory reponha a gravação para um ambiente no local
 
@@ -40,7 +40,7 @@ Neste tutorial, ficará a saber como:
 
 Para completar este tutorial, precisa dos seguintes recursos e privilégios:
 
-* Um inquilino Azure AD em funcionamento com pelo menos uma licença de julgamento Azure AD Premium P1 habilitado.
+* Um inquilino Azure AD em funcionamento com pelo menos um Azure AD Premium P1 ou uma licença de julgamento habilitada.
     * Se necessário, [crie um de graça.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
     * Para obter mais informações, consulte [os requisitos de licenciamento para Azure AD SSPR](concept-sspr-licensing.md).
 * Uma conta com privilégios *de administrador global.*
@@ -81,7 +81,7 @@ Para configurar as permissões adequadas para a gravação da palavra-passe, com
     * **Escrever lockoutTime**
     * **Escrever pwdLastSet**
 
-    [![](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions-cropped.png "Set the appropriate permissions in Active Users and Computers for the account that is used by Azure AD Connect")](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions.png#lightbox)
+    [![Desconfifique as permissões adequadas em Utilizadores ativos e computadores para a conta que é utilizada pelo Azure AD Connect ](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions-cropped.png)](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions.png#lightbox)
 
 1. Quando estiver pronto, **selecione Aplicar / OK** para aplicar as alterações e sair de quaisquer caixas de diálogo abertas.
 
@@ -127,7 +127,7 @@ Para ativar a gravação de palavra-passe em SSPR, complete os seguintes passos:
 
 1. Quando estiver pronto, **selecione Guardar**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não pretender utilizar a funcionalidade de writeback SSPR que configuraste como parte deste tutorial, complete os seguintes passos:
 

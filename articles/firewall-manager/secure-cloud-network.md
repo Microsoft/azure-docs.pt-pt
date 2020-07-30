@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 07/17/2020
+ms.date: 07/29/2020
 ms.author: victorh
-ms.openlocfilehash: 7634effd5d1ac46955addd723ee7c992eb820a57
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 458ebe14e77c7b190a5c4cdd9b408396589d5d27
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084709"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420826"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Tutorial: Proteja o seu hub virtual usando o Azure Firewall Manager
 
@@ -108,7 +108,7 @@ Repita para ligar a rede virtual **Spoke-02:** nome de ligação - **hub-spoke-0
 
 ### <a name="configure-the-hub-and-spoke-routing"></a>Configure o centro e falou de encaminhamento
 
-A partir do portal Azure, abra uma Cloud Shell e corra o seguinte Azure PowerShell para configurar o hub necessário e encaminhamento de fala.
+A partir do portal Azure, abra uma Cloud Shell e corra o seguinte Azure PowerShell para configurar o hub necessário e encaminhamento de fala. As ligações de fala/ramo peered devem definir a propagação a **NENHUMA**. Isto impede qualquer comunicação entre os raios e, em vez disso, encaminha o tráfego para a firewall utilizando a rota predefinida.
 
 ```azurepowershell
 $noneRouteTable = Get-AzVHubRouteTable -ResourceGroupName fw-manager `
@@ -271,7 +271,7 @@ Agora teste a regra da rede.
 Então agora verificou que a regra da rede de firewall está a funcionar:
 * Pode ligar um ambiente de trabalho remoto a um servidor localizado noutra rede virtual.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Conheça os parceiros de segurança de confiança](trusted-security-partners.md)

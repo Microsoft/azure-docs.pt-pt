@@ -4,12 +4,12 @@ description: Saiba como se preparar para a avaliação/migração de servidores 
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 31db91b512a4532cca144dc012282ea58a87514f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 55e6039e5844c575808210cde7ee348f658b40ec
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113256"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420792"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Preparar para avaliação e migração de servidores físicos para Azure
 
@@ -138,7 +138,7 @@ Antes de configurar o aparelho Azure Migrate e iniciar a avaliação no tutor se
 
 A Azure Migrate precisa de permissões para descobrir servidores no local.
 
-- **Janelas:** Tem de ser um administrador de domínio ou administrador local em todos os servidores windows que pretende descobrir. A conta de utilizador deve ser adicionada a estes grupos: Utilizadores de Gestão Remota, Utilizadores de Monitores de Desempenho e Utilizadores de Registos de Desempenho.
+- **Janelas:** Precisa de uma conta de domínio para descobrir servidores unidos por domínios e uma conta local para descobrir máquinas que não estejam unidas ao domínio. A conta de utilizador deve ser adicionada a estes grupos: Utilizadores de Gestão Remota, Utilizadores de Monitores de Desempenho e Utilizadores de Registos de Desempenho.
 - **Linux:** Precisa de uma conta raiz nos servidores Linux que pretende descobrir.
 
 ## <a name="prepare-for-physical-server-migration"></a>Preparar para a migração física do servidor

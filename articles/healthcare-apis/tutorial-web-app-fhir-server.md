@@ -9,12 +9,13 @@ ms.reviewer: mihansen
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
-ms.openlocfilehash: fcad9356f87e76b14e0ef636389c11fd4290e12a
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.custom: devx-track-javascript
+ms.openlocfilehash: bf47ec0ca88d409c91b8acad25506c1cc8958e86
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "84872666"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422798"
 ---
 # <a name="deploy-javascript-app-to-read-data-from-fhir-service"></a>Implementar aplicativo JavaScript para ler dados do serviço FHIR
 Neste tutorial, irá implementar uma pequena aplicação JavaScript, que lê dados de um serviço FHIR. Os passos neste tutorial são:
@@ -25,7 +26,7 @@ Neste tutorial, irá implementar uma pequena aplicação JavaScript, que lê dad
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de iniciar este conjunto de tutoriais, você precisará dos seguintes itens:
-1. Uma subscrição do Azure.
+1. Uma subscrição do Azure
 1. Um inquilino do Azure Active Directory
 1. [Carteiro](https://www.getpostman.com/) instalado
 
@@ -42,7 +43,7 @@ O primeiro passo no tutorial é obter corretamente a sua API Azure para a config
     1. Em **Métodos,** escolha **Selecione todos**
     1. Definir a **idade máxima** para **600**
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Agora que tem a sua API Azure para fHIR implantada, está pronta para registar uma aplicação de cliente público.
 
 >[!div class="nextstepaction"]

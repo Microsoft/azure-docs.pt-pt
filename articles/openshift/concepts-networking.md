@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 06/22/2020
-ms.openlocfilehash: fa39fe3e065c230f7e06ee443d2aa56227dc6f31
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: fb81405e85d6e2653e0cf6c007c363493992161a
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965705"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419976"
 ---
 # <a name="networking-in-azure-red-hat-on-openshift-4"></a>Networking em Azure Red Hat no OpenShift 4
 
@@ -63,14 +63,14 @@ A lista que se segue abrange pontos finais importantes num cluster Azure Red Hat
     * Por predefinição, este grupo de segurança de rede permite todo o tráfego de saída. Atualmente, o tráfego de saída só pode ser restringido ao avião de controlo Azure Red Hat OpenShift.
 * **aro-controle-nsg**
     * Este ponto final só permite que o tráfego entre pelo porto 6443 para os nós principais.
-* **Registo de Contentores do Azure**
+* **Azure Container Registry**
     * Este é um registo de contentores que forneceu e utilizou internamente pela Microsoft.
         * Este registo fornece imagens de plataforma hospedeira e componentes de cluster. Por exemplo, monitorizar ou registar contentores.
         * Não se destina a ser utilizado pelos clientes Azure Red Hat OpenShift.  
         * Leia apenas.
         * As ligações a este registo ocorrem sobre o ponto final de serviço (conectividade interna entre os serviços Azure).
         * Este registo interno não está disponível fora do cluster por padrão.
-* **Private Link**
+* **Ligação Privada**
     * Permite a conectividade da rede do plano de gestão para um cluster para gestão de clusters.
     * Engenheiros de fiabilidade do site Microsoft e Red Hat para ajudar a gerir o seu cluster.
 
@@ -102,7 +102,7 @@ As seguintes definições de rede estão disponíveis no Azure Red Hat OpenShift
     * As rotas "privadas" serão incumpridoras para o balanceador interno de carga (isto pode ser alterado).
 
 ## <a name="network-security-groups"></a>Grupos de segurança de rede
-Os grupos de segurança da rede serão criados no grupo de recursos dos nós, que está bloqueado. Os grupos de segurança da rede são atribuídos diretamente às sub-redes que não estão nos NICs do nó. Os grupos de segurança da rede são imutáveis, o que significa que não tem permissões para alterá-los. 
+Os grupos de segurança da rede serão criados no grupo de recursos do nó, que está bloqueado. Os grupos de segurança da rede são atribuídos diretamente às sub-redes, não aos NICs do nó. Os grupos de segurança da rede são imutáveis, o que significa que não tem permissões para alterá-los. 
 
 No entanto, com um servidor API publicamente visível, não é possível criar grupos de segurança de rede e atribuí-los aos NICs.
 

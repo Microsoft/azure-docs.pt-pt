@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/1/2020
 ms.author: inhenkel
-ms.openlocfilehash: 81c83cd8dcea5f8746b67a7bd52ea52a09c8a711
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: ad50b29dbda7c09c9312ebb4a01ebc5da568f3da
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001405"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422101"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Tutorial: Proteção de conteúdo de ponta a ponta utilizando Azure AD
 
@@ -371,12 +372,12 @@ O seu cliente pode então navegar na sua configuração, iniciar sôr-se na cont
 
 A sua solução de amostra pode ser configurada num inquilino da Microsoft com subscrição da Microsoft ou inquilino personalizado com subscrição da Microsoft. A instância do Azure Media Service pode ser de outra subscrição com o seu inquilino.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 > [!WARNING]
 > Se não vai continuar a utilizar esta aplicação, elimine os recursos que criou enquanto segue este tutorial. Caso contrário, serás cobrado por eles.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Quickstart: Encriptar conteúdo](encrypt-content-quickstart.md)

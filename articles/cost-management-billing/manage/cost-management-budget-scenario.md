@@ -5,15 +5,15 @@ author: bandersmsft
 ms.reviewer: adwise
 tags: billing
 ms.service: cost-management-billing
-ms.topic: reference
-ms.date: 05/04/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 633ca5cd16b8e730225900c30c575e74a0956ada
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: bfe790924d639a35644a1b8438755d1146dcded7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791685"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281842"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gerir os custos com os Orçamentos do Azure
 

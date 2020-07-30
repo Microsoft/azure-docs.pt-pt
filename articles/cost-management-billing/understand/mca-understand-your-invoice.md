@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: banders
 ms.openlocfilehash: 4c4b105bb4b67e855de27b6a57d2080fde068421
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79237909"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039672"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Termos na sua fatura do Contrato de Cliente da Microsoft
 
