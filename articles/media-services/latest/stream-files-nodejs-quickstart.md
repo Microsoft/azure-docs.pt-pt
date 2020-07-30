@@ -10,15 +10,15 @@ keywords: serviços de multimédia do azure, transmitir
 ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-javascript
 ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: 5e4c50b4b66d164ba2e89cfc537d9dd8593c4f57
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1c96c538826de696de531aff79ce601bc01a239d
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092036"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87414076"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---nodejs"></a>Tutorial: Codificar um ficheiro remoto baseado em URL e transmitir o vídeo - Node.js
 
@@ -89,7 +89,7 @@ Para testar a transmissão, este artigo utiliza o Leitor de Multimédia do Azure
 
 O Leitor de Multimédia do Azure pode ser utilizado para fins de teste, mas não deve ser utilizado num ambiente de produção. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não precisar de nenhum dos recursos do seu grupo de recursos, incluindo os Serviços de Media e as contas de armazenamento que criou para este tutorial, elimine o grupo de recursos.
 
@@ -99,11 +99,11 @@ Execute o seguinte comando CLI:
 az group delete --name amsResourceGroup
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 [Códigos de erro de trabalho](/rest/api/media/jobs/get#joberrorcode).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Conceitos de Serviços de Mídia](concepts-overview.md)

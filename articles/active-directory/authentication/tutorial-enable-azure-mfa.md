@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1df88e26284dc868267cbc79e27df6f0e25f1250
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5aa84faea43846a2f930373529769e62f76e5bbf
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035065"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419551"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-multi-factor-authentication"></a>Tutorial: Garantir eventos de entrada de utilizadores com autenticação multi-factor Azure
 
@@ -39,7 +39,7 @@ Neste tutorial, ficará a saber como:
 
 Para completar este tutorial, precisa dos seguintes recursos e privilégios:
 
-* Um inquilino da Azure AD em funcionamento com Azure AD Premium ou licença de julgamento habilitado.
+* Um inquilino Azure AD em funcionamento com pelo menos um Azure AD Premium P1 ou uma licença de julgamento habilitada.
     * Se necessário, [crie um de graça.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Uma conta com privilégios *de administrador global.*
 * Um utilizador não administrador com uma palavra-passe que conhece, como *testuser.* Você testa a experiência de autenticação multi-factor do utilizador final usando esta conta neste tutorial.
@@ -65,7 +65,7 @@ Em primeiro lugar, crie uma política de acesso condicional e atribua o seu grup
 1. Verifique a caixa para **Utilizadores e grupos,** em **seguida, selecione** para navegar nos utilizadores e grupos Azure AD disponíveis.
 1. Navegue e selecione o seu grupo AD Azure, como *MFA-Test-Group,* em seguida, escolha **Select**.
 
-    [![](media/tutorial-enable-azure-mfa/select-group-for-conditional-access-cropped.png "Select your Azure AD group to use with the Conditional Access policy")](media/tutorial-enable-azure-mfa/select-group-for-conditional-access.png#lightbox)
+    [![Selecione o seu grupo AD Azure para usar com a política ](media/tutorial-enable-azure-mfa/select-group-for-conditional-access-cropped.png) de acesso condicional](media/tutorial-enable-azure-mfa/select-group-for-conditional-access.png#lightbox)
 
 1. Para aplicar a política de acesso condicional para o grupo, selecione **'Fazer'.**
 
@@ -114,7 +114,7 @@ Agora inscreva-se no portal Azure. Como o portal Azure foi configurado na polít
 
 1. Feche a janela do browser.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não pretender utilizar a política de Acesso Condicional para ativar a autenticação multi-factor Azure configurada como parte deste tutorial, elimine a política utilizando os seguintes passos:
 
@@ -123,7 +123,7 @@ Se já não pretender utilizar a política de Acesso Condicional para ativar a a
 1. Selecione **o acesso condicional,** em seguida, escolha a política que criou, como *O Piloto de MFA*
 1. Escolha **Eliminar**e, em seguida, confirme que deseja eliminar a apólice.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, permitiu a autenticação multi-factor Azure utilizando políticas de Acesso Condicional para um grupo selecionado de utilizadores. Aprendeu a:
 

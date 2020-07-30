@@ -8,14 +8,14 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jopapa
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-javascript
 ms.reviewer: sngun
-ms.openlocfilehash: c4d44b1bf645132f5c2d6e863dbe0c93f024c7ea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a5d697465f811f468fb0047284126deae0c455dd
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066939"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424312"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Criar uma aplicação angular com API da Azure Cosmos DB para MongoDB - Adicionar funções CRUD à app
 
@@ -185,7 +185,7 @@ Antes de iniciar esta parte do tutorial, certifique-se de que concluiu os passos
 
     Se atualizar a página, o separador Rede mostra o tempo que demora a obter os heroes. Embora estes tempos sejam rápidos, muito está dependente de onde os seus dados estão localizados no mundo e da sua capacidade de georreplicá-los numa zona perto dos seus utilizadores. Pode encontrar mais informações sobre a georreplicação no tutorial seguinte, que vai ser lançado em breve.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Nesta parte do tutorial, fez o seguinte:
 
