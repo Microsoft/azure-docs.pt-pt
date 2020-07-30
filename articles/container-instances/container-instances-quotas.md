@@ -2,19 +2,21 @@
 title: Quotas de serviço e disponibilidade da região
 description: Quotas, limites e disponibilidade da região do serviço Azure Container Instances.
 ms.topic: article
-ms.date: 03/01/2019
-ms.openlocfilehash: b3e7f2f67d806bd2fca74f58d446b0de9a4b8f44
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/22/2020
+ms.openlocfilehash: eaaa8e0b2d72aaea546a1bc351da40932c1deb14
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77117896"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87384838"
 ---
 # <a name="quotas-and-limits-for-azure-container-instances"></a>Quotas e limites para instâncias de contentores Azure
 
 Todos os serviços do Azure incluem determinados limites e quotas predefinidos para os recursos e funcionalidades. Este artigo detalha as quotas e limites padrão para as instâncias do contentor Azure.
 
 A disponibilidade de recursos de computação, memória e armazenamento para instâncias de contentores Azure varia por região e sistema operativo. Para mais informações, consulte [a disponibilidade de recursos para instâncias do recipiente Azure](container-instances-region-availability.md).
+
+Utilize a [API de Utilização de Listas](/rest/api/container-instances/location/listusage) para rever o uso atual de quota numa região para uma subscrição.
 
 ## <a name="service-quotas-and-limits"></a>Quotas e limites do serviço
 
