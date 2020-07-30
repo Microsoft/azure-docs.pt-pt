@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 07/29/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: af554b2055102b12a8c0e89c6301400f76021ede
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e242e6ce59c715cf3a9ca95523a9a9eda274407a
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87313341"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87418921"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Fichas de ID da plataforma de identidade da Microsoft
 
@@ -71,7 +71,7 @@ Esta lista mostra as alegações do JWT que estão na maioria id_tokens por padr
 |`nbf` |  int, um timetamp UNIX | A alegação "nbf" (não antes) identifica o tempo anterior ao qual o JWT NÃO DEVE ser aceite para processamento.|
 |`exp` |  int, um timetamp UNIX | A alegação "exp" (tempo de validade) identifica o tempo de validade no ou após o qual o JWT NÃO DEVE ser aceite para processamento.  É importante notar que um recurso pode rejeitar o token antes deste tempo também - se, por exemplo, for necessária uma alteração na autenticação ou se tiver sido detetada uma revogação simbólica. |
 | `c_hash`| Cadeia |O haxixe de código só está incluído em fichas de identificação quando o token de ID é emitido com um código de autorização OAuth 2.0. Pode ser usado para validar a autenticidade de um código de autorização. Para obter mais informações sobre a realização desta validação, consulte a [especificação OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html). |
-|`at_hash`| Cadeia |O hash de acesso só está incluído em fichas de identificação quando o token de ID é emitido com um token de acesso OAuth 2.0. Pode ser usado para validar a autenticidade de um token de acesso. Para obter mais informações sobre a realização desta validação, consulte a [especificação OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html). |
+|`at_hash`| Cadeia |O hash de acesso só está incluído em fichas de identificação quando o token de ID é emitido a partir do ponto final com um token de `/authorize` acesso OAuth 2.0. Pode ser usado para validar a autenticidade de um token de acesso. Para obter mais informações sobre a realização desta validação, consulte a [especificação OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#HybridIDToken). Isto não é devolvido em fichas de identificação do `/token` ponto final. |
 |`aio` | Corda Opaca | Uma alegação interna usada pela Azure AD para registar dados para reutilização de fichas. Deve ser ignorado.|
 |`preferred_username` | Cadeia | O nome de utilizador primário que representa o utilizador. Pode ser um endereço de e-mail, número de telefone ou um nome de utilizador genérico sem um formato especificado. O seu valor é mutável e pode mudar com o tempo. Uma vez que é mutável, este valor não deve ser utilizado para tomar decisões de autorização. O `profile` âmbito de aplicação é necessário para receber esta reclamação.|
 |`email` | Cadeia | A `email` reclamação está presente por padrão para contas de hóspedes que tenham um endereço de e-mail.  A sua aplicação pode solicitar a reclamação de e-mail para utilizadores geridos (os do mesmo inquilino que o recurso) utilizando a `email` [reclamação opcional.](active-directory-optional-claims.md)  No ponto final v2.0, a sua aplicação também pode solicitar o `email` âmbito OpenID Connect - não precisa de solicitar tanto a reclamação opcional como o âmbito para obter a reclamação.  A alegação de e-mail apenas suporta correio endereçada a partir de informações de perfil do utilizador. |
@@ -113,7 +113,7 @@ Para validar manualmente o token, consulte os detalhes dos passos na [validaçã
 * Público: a `aud` reclamação deve coincidir com o ID da aplicação para a sua aplicação.
 * Nonce: a `nonce` reclamação na carga útil deve corresponder ao parâmetro nonce passado para o ponto final /autorizado durante o pedido inicial.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [fichas de acesso](access-tokens.md)
 * Personalize as reclamações do JWT na sua id_token utilizando [reclamações opcionais.](active-directory-optional-claims.md)

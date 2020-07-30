@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
-ms.openlocfilehash: fd7ca6bdfa7626707af9efa20d76dab633dc16fd
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ac9554ae5ca151a377395d3b16598f7070c87d10
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249556"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386049"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Utilizar o serviço Gestão de API do Azure com uma rede virtual interna
 Com a Azure Virtual Networks, a Azure API Management pode gerir APIs não acessíveis na internet. Várias tecnologias VPN estão disponíveis para fazer a ligação. A API Management pode ser implementada em dois modos principais dentro de uma rede virtual:
@@ -81,7 +81,7 @@ Também pode ativar a conectividade da rede virtual utilizando cmdlets PowerShel
 * Atualize uma implementação existente de um serviço de Gestão API dentro de uma rede virtual: Utilize o cmdlet [Update-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) para mover um serviço de Gestão de API existente dentro de uma rede virtual e configurar-se para utilizar o tipo de rede virtual interna.
 
 ## <a name="dns-configuration"></a><a name="apim-dns-configuration"></a>Configuração DNS
-Quando a API Management está em modo de rede virtual externa, o DNS é gerido pelo Azure. Para o modo de rede virtual interna, tem de gerir o seu próprio encaminhamento.
+Quando a API Management está em modo de rede virtual externa, o DNS é gerido pelo Azure. Para o modo de rede virtual interna, tem de gerir o seu próprio DNS.
 
 > [!NOTE]
 > O serviço de Gestão API não ouve pedidos provenientes de endereços IP. Apenas responde aos pedidos ao nome de anfitrião configurado nos seus pontos finais de serviço. Estes pontos finais incluem gateway, o portal Azure e o portal Developer, o ponto final de gestão direta, e Git.

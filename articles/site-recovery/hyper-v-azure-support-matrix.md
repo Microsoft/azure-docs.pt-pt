@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 268d8f3b43809e02476757cfe36b1ee52d4eaef1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 53967ab0bec9488691ff60cdabb8fedbb6b9730e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317489"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386712"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de apoio à recuperação de desastres de Hiper-V VMs para Azure
 
@@ -32,8 +32,8 @@ Hiper-V sem Gestor de Máquinas Virtuais | Você pode realizar a recuperação d
 
 **Servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
-Hiper-V (funcionando sem gestor de máquinas virtuais) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 com as mais recentes atualizações (incluindo a instalação principal do servidor destes sistemas operativos) | Se já configurar o Windows Server 2012 R2 com/ou SCVMM 2012 R2 com a Recuperação do Site Azure e planeia atualizar o SISTEMA, siga a [documentação](upgrade-2012R2-to-2016.md) de orientação.
-Hiper-V (em execução com Gestor de Máquinas Virtuais) | Gestor de Máquinas Virtuais 2019, Gestor de Máquinas Virtuais 2016, Gestor de Máquinas Virtuais 2012 R2 (incluindo a instalação central do servidor destes sistemas operativos, com exceção do Virtual Machine Manager 2019) | Se o Gestor de Máquinas Virtuais for utilizado, os anfitriões do Windows Server 2019 deverão ser geridos no Virtual Machine Manager 2019. Da mesma forma, os anfitriões do Windows Server 2016 devem ser geridos no Virtual Machine Manager 2016.
+Hiper-V (funcionando sem gestor de máquinas virtuais) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 com as mais recentes atualizações <br/><br/> **Nota:** A instalação do núcleo do servidor destes sistemas operativos também é suportada. | Se já configurar o Windows Server 2012 R2 com/ou SCVMM 2012 R2 com a Recuperação do Site Azure e planeia atualizar o SISTEMA, siga a [documentação](upgrade-2012R2-to-2016.md) de orientação.
+Hiper-V (em execução com Gestor de Máquinas Virtuais) | Gestor de Máquinas Virtuais 2019, Gestor de Máquinas Virtuais 2016, Gestor de Máquinas Virtuais 2012 R2 <br/><br/> **Nota:** A instalação do núcleo do servidor destes sistemas operativos também é suportada.  | Se o Gestor de Máquinas Virtuais for utilizado, os anfitriões do Windows Server 2019 deverão ser geridos no Virtual Machine Manager 2019. Da mesma forma, os anfitriões do Windows Server 2016 devem ser geridos no Virtual Machine Manager 2016.
 
 > [!NOTE]
 > Certifique-se de que o quadro .NET 4.6.2 ou superior está presente no servidor no local.
@@ -198,5 +198,5 @@ Agente dos Serviços de Recuperação do Microsoft Azure | Coordena a replicaç�
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba como [preparar o Azure](tutorial-prepare-azure.md) para a recuperação de desastres dos Hiper-V VMs no local.

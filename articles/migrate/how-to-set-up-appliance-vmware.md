@@ -3,12 +3,12 @@ title: Crie um aparelho Azure Migrate para VMware
 description: Saiba como configurar um aparelho Azure Migrate para avaliar e migrar VMware VMs.
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 272481640db739a458a19a2c9383ff45b54974b5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 24ba978d776da375b417fb67823651727836cb22
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112821"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386746"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurar um aparelho para VMware VMs
 
@@ -34,7 +34,7 @@ Para configurar o aparelho utilizando um modelo OVA:
 ## <a name="download-the-ova-template"></a>Descarregue o modelo OVA
 
 1. In **Migration Goals**  >  **Servers**  >  **Azure Migrate: Server Assessment**, click **.click**.
-2. In **Discover machines**  >  **Are your machines virtualized?** **Yes, with VMWare vSphere hypervisor**
+2. In **Discover machines**  >  **Are your machines virtualized?** **Yes, with VMware vSphere hypervisor**
 3. Clique em **Transferir** para transferir o ficheiro de modelo .OVA.
 
   ![Seleções para descarregar um ficheiro OVA](./media/tutorial-assess-vmware/download-ova.png)
@@ -89,7 +89,7 @@ Coloque o aparelho pela primeira vez. Se utilizar o aparelho utilizando um scrip
         - Apenas é suportado o proxy HTTP.
     - **Sincronização temporal:** O tempo é verificado. O tempo do aparelho deve estar sincronizado com o tempo de internet para que a descoberta funcione corretamente.
     - **Instalar atualizações**: A Azure Migrate verifica se as atualizações mais recentes do aparelho estão instaladas.
-    - **Instalar VDDK**: Azure Migrate verifica se o Kit de Desenvolvimento de Discos Virtuais VMWare vSphere (VDDK) está instalado.
+    - **Instalar VDDK**: Azure Migrate verifica se o Kit de Desenvolvimento de Discos Virtuais VMware vSphere (VDDK) está instalado.
         - Azure Migrates usa o VDDK para replicar máquinas durante a migração para Azure.
         - Baixe o VDDK 6.7 da VMware e extraia o conteúdo zip descarregado para a localização especificada no aparelho.
 

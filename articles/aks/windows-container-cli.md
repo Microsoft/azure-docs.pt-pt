@@ -4,12 +4,12 @@ description: Aprenda a criar rapidamente um cluster Kubernetes, implementar uma 
 services: container-service
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: 5baa4f807002cc39428eb46e5a86cf59bd022cb2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ff7fc00c8de5b4d577770c140d356d7f9da1b7e7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015634"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421251"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Criar um recipiente do Windows Server num cluster Azure Kubernetes Service (AKS) utilizando o Azure CLI
 
@@ -94,8 +94,7 @@ az aks create \
 ```
 
 > [!NOTE]
-> Se tiver um erro de validação de palavra-passe, tente criar o seu grupo de recursos noutra região.
-> Em seguida, tente criar o cluster com o novo grupo de recursos.
+> Se obter um erro de validação de palavra-passe, verifique se o parâmetro *de palavra-passe do windows-admin* cumpre os [requisitos][windows-server-password]de senha do Windows Server . Se a sua palavra-passe satisfaz os requisitos, tente criar o seu grupo de recursos noutra região. Em seguida, tente criar o cluster com o novo grupo de recursos.
 
 Após alguns minutos, o comando completa e devolve informações formatadas com JSON sobre o cluster. Ocasionalmente, o cluster pode demorar mais do que alguns minutos a providenciar. Deixe até 10 minutos nestes casos.
 
@@ -250,7 +249,7 @@ az group delete --name myResourceGroup --yes --no-wait
 > [!NOTE]
 > Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter passos sobre como remover o principal de serviço, consulte [Considerações sobre e eliminação do principal de serviço AKS][sp-delete]. Se usou uma identidade gerida, a identidade é gerida pela plataforma e não necessita de remoção.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, implementou um cluster Kubernetes e implementou uma aplicação de amostra ASP.NET num recipiente do Windows Server. [Aceda ao painel web Kubernetes][kubernetes-dashboard] para o cluster que acabou de criar.
 

@@ -10,24 +10,24 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: sudbalas
-ms.openlocfilehash: 76ceba11ffeb5569e250fab6bc47fe8faf019361
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 668154b5e54ed4d496d272e33e8fc7f378e75e8a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521110"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386270"
 ---
 # <a name="azure-key-vault-backup"></a>Backup do Cofre de Chaves Azure
 
 Este documento mostra-lhe como fazer o back up secrets, chaves e certificados armazenados no seu cofre de chaves. Uma cópia de segurança destina-se a fornecer-lhe uma cópia offline de todos os seus segredos no caso improvável de perder acesso ao seu cofre de chaves.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 O Azure Key Vault fornece automaticamente funcionalidades para o ajudar a manter a disponibilidade e a prevenir a perda de dados. Faça o reforço dos segredos apenas se tiver uma justificação crítica de negócio. O backup de segredos no cofre chave pode introduzir desafios operacionais, tais como manter vários conjuntos de registos, permissões e backups quando os segredos expiram ou giram.
 
 O Key Vault mantém a disponibilidade em cenários de desastres e falhará automaticamente sobre os pedidos a uma região emparelhada sem qualquer intervenção de um utilizador. Para mais informações, consulte [a disponibilidade e redundância do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance).
 
-Se pretender proteção contra a eliminação acidental ou maliciosa dos seus segredos, configuure as funcionalidades de proteção para eliminar e limpar o seu cofre. Para obter mais informações, consulte [a visão geral do Azure Key Vault.](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete)
+Se pretender proteção contra a eliminação acidental ou maliciosa dos seus segredos, configuure as funcionalidades de proteção para eliminar e limpar o seu cofre. Para obter mais informações, consulte [a visão geral do Azure Key Vault.](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview)
 
 ## <a name="limitations"></a>Limitações
 
@@ -39,7 +39,7 @@ Considere também as seguintes consequências:
 * Um backup cria uma foto pontual. Os segredos podem renovar-se durante uma cópia de segurança, causando uma incompatibilidade de chaves de encriptação.
 * Se exceder os limites de serviço do cofre para pedidos por segundo, o cofre da chave será acelerado e a cópia de segurança falhará.
 
-## <a name="design-considerations"></a>Considerações de conceção
+## <a name="design-considerations"></a>Considerações de design
 
 Quando fizer uma cópia de segurança de um objeto de cofre, como um segredo, chave ou certificado, a operação de backup descarregará o objeto como uma bolha encriptada. Esta bolha não pode ser desencriptada fora de Azure. Para obter dados utilizáveis desta bolha, você deve restaurar a bolha em um cofre chave dentro da mesma assinatura Azure e [geografia Azure](https://azure.microsoft.com/global-infrastructure/geographies/).
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: damendo
-ms.openlocfilehash: f8743f19d6cd262ad140659be55a4fc57e842564
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d31240cad709a156d7235f116c9cd2c8fb698b03
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76840558"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421149"
 ---
 # <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Permissões de controlo de acesso baseadas em funções necessárias para utilizar as capacidades do Network Watcher
 
@@ -104,7 +104,7 @@ As capacidades do Network Watcher também requerem as seguintes ações:
 
 | Ações                                                           | Descrição                                                    |
 | ---------                                                           | -------------                                                  |
-| Microsoft.Autorização/ \* /Ler                                     | Usado para obter atribuições de funções rbac e definições de políticas          |
+| Microsoft.Autorização/ \* /Ler                                     | Usado para buscar atribuições de funções azure e definições de política          |
 | Microsoft.Resources/subscrições/resourceGroups/Read               | Usado para enumerar todos os grupos de recursos numa subscrição    |
 | Microsoft.Storage/storageAcontas/Ler                              | Usado para obter as propriedades para a conta de armazenamento especificado   |
 | Microsoft.Storage/storageAcounts/listServiceSas/Action, </br> Microsoft.Storage/storageAcounts/listAccountSas/Action, <br> Microsoft.Storage/storageAcontas/listKeys/Action| Usado para obter assinaturas de acesso compartilhado (SAS) permitindo [acesso seguro à conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) e escrever na conta de armazenamento |

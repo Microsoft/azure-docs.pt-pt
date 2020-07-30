@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 1c8acd2d8055359288608f7bd2e5f54f8c4f6cc3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 351307132e231f1fc6639333e6839848ac933337
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809197"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420911"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Registos do Azure Monitor para o Balanceador de Carga Básico público
 
@@ -39,8 +39,8 @@ Inicie sessão no [portal do Azure](https://portal.azure.com). Se ainda não tiv
 
 1. No portal, clique em **grupos de recursos.**
 2. Selecione **\<resource-group-name>** onde está o seu equilibrador de carga.
-3. Selecione o seu equilibrador de carga.
-4. Selecione **Monitoring**  >  **as definições de diagnóstico de monitorização**.
+3. Selecione o seu balanceador de carga.
+4. Selecione **Definições de**diagnóstico de registo de  >  **atividades**.
 5. No painel de **definições de Diagnóstico,** nas **definições de Diagnóstico**, selecione **+ Adicione a definição de diagnóstico**.
 6. No painel de criação de **definições de diagnóstico,** **insira o myLBDiagnostics** no campo **Nome.**
 7. Tem três opções para as **definições de Diagnóstico**.  Pode escolher um, dois ou três e configurar cada um para os seus requisitos:

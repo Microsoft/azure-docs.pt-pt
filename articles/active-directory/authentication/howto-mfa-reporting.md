@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9bf76729c3b5844918659283a65eeb347c4237d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8584ca84efc889afebe6758e254bda845912316
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83639850"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87418241"
 ---
 # <a name="use-the-sign-ins-report-to-review-azure-multi-factor-authentication-events"></a>Utilize o relatório de ins- ins para rever eventos de autenticação multi-factor Azure
 
@@ -44,7 +44,7 @@ Para visualizar o relatório de atividades de inscrição no [portal Azure,](htt
 
     O *separador De Dados* de Autenticação ou *de Acesso Condicional* dos dados do evento mostra-lhe o código de estado ou qual a política que desencadeou o pedido de MFA.
 
-    [![](media/howto-mfa-reporting/sign-in-report-cropped.png "Screenshot of example Azure Active Directory sign-ins report in the Azure portal")](media/howto-mfa-reporting/sign-in-report.png#lightbox)
+    [![Screenshot do exemplo Azure Ative Directory relatório de ins- ins no portal Azure](media/howto-mfa-reporting/sign-in-report-cropped.png)](media/howto-mfa-reporting/sign-in-report.png#lightbox)
 
 Se disponível, a autenticação é mostrada, como mensagem de texto, notificação de aplicação do Microsoft Authenticator ou chamada telefónica.
 

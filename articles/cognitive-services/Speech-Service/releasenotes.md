@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 152907908f12a41679b3161e0c4b39348926399e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: f2aebee24c4de8a1bd92ad3db8e5d110184cbaee
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373798"
+ms.locfileid: "87415028"
 ---
 # <a name="speech-service-release-notes"></a>Notas de lançamento do Serviço de Fala
 
@@ -28,20 +28,20 @@ ms.locfileid: "87373798"
 - **C:** Apoio adicional à transcrição de conversação assíncrona. Consulte a documentação [aqui.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-async-conversation-transcription)  
 - **JavaScript**: Suporte adicional de reconhecimento de altifalantes tanto para [o navegador](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser/speaker-recognition) como [paranode.js](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition).
 - **JavaScript**: Suporte adicional para deteção automática de idiomas/ID de linguagem. Consulte a documentação [aqui.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-javascript)
-- **Objectivo-C**: Suporte adicional para conversação multi-dispositivo e transcrição de conversação. 
+- **Objectivo-C**: Suporte adicional para [conversações multi-dispositivos](https://docs.microsoft.com/azure/cognitive-services/speech-service/multi-device-conversation) e [transcrição de conversação](https://docs.microsoft.com/azure/cognitive-services/speech-service/conversation-transcription). 
 - **Python**: Suporte áudio comprimido adicionado para Python em Windows e Linux. Consulte a documentação [aqui.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams) 
 
 **Correções de bugs**
 - **Tudo**: Corrigiu um problema que fez com que o KeywordRecognizer não avançasse os fluxos após um reconhecimento.
 - **Tudo**: Corrigiu um problema que fez com que o fluxo obtido a partir de um KeywordRecognitionResult não contivesse a palavra-chave.
 - **Tudo**: Corrigiu um problema que o SendMessageAsync não envia realmente a mensagem pelo fio depois de os utilizadores terminarem de esperar por ela.
-- **Tudo**: Fixo uma falha nas APIs de Reconhecimento de Altifalantes quando os utilizadores lançarem vários VoiceProfileClient::SpeakerRecEnrollProfileAsync e não esperou que acabassem.
+- **Tudo**: Fixou uma falha nas APIs de reconhecimento de altifalantes quando os utilizadores ligam para o método VoiceProfileClient:::SpeakerRecEnrollProfileAsync método várias vezes e não esperou que as chamadas terminassem.
 - **Tudo:** Ativar fixo o registo de ficheiros nas aulas VoiceProfileClient e SpeakerRecognizer.
 - **JavaScript**: Corrigi um [problema](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/74) com estrangulamento quando o navegador é minimizado.
 - **JavaScript**: Corrigiu um [problema](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/78) com uma fuga de memória nos fluxos.
 - **JavaScript**: Caching adicionado para respostas OCSP de NodeJS.
 - **Java**: Corrigiu um problema que estava a fazer com que os campos bigInteger voltassem sempre 0.
-- **iOS**: Fixo e [problema](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/702) com a publicação de aplicações baseadas em SDK na Loja de Aplicações iOS.
+- **iOS**: Corrigi um [problema](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/702) com a publicação de aplicações baseadas em SDK na Loja de Aplicações iOS.
 
 **Amostras**
 - **C++**: Código de amostra adicionado para reconhecimento de [altifalantes aqui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/windows/console/samples/speaker_recognition_samples.cpp).
@@ -85,7 +85,7 @@ Mantenha-se saudável!
 
 * Melhor precisão da pronúncia ao nível da palavra em 5 línguas.
 
-    | Linguagem | Redução do erro de pronúncia |
+    | Idioma | Redução do erro de pronúncia |
     |---|---|
     | `en-GB` | 51% |
     | `ko-KR` | 17% |
@@ -98,7 +98,7 @@ Mantenha-se saudável!
 * Leitura cambial
     * Corrigiu a questão com a leitura da moeda para `es-ES` e`es-MX`
      
-    | Linguagem | Input | Leitura após melhoria |
+    | Idioma | Input | Leitura após melhoria |
     |---|---|---|
     | `es-MX` | $1,58 | un peso cincuenta y ocho centavos |
     | `es-ES` | $1,58 | un dólar cincuenta y ocho centavos |

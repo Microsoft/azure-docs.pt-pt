@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b510326b6683ae48b6521483118367f36e0dc58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 159a14b30113a251c6ac61c4c04a2a3c4d69d3e5
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85387019"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385216"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Grant B2B utilizadores em Azure AD acesso às suas aplicações no local
 
@@ -28,7 +28,7 @@ Se a sua aplicação no local utilizar a autenticação baseada em SAML, pode fa
 
 Deve fazer as duas coisas:
 
-- Integre a aplicação SAML utilizando o modelo de aplicação não-galeria, conforme descrito na [configuração de um único sinal para aplicações que não estão na galeria de aplicações do Azure Ative Directory](../manage-apps/configure-single-sign-on-non-gallery-applications.md). Certifique-se de que nota o que utiliza para o valor **URL de inscrição.**
+- Integre a aplicação utilizando o SAML como descrito no [sign-on único baseado em Configure SAML](../manage-apps/configure-saml-single-sign-on.md). Certifique-se de que nota o que utiliza para o valor **URL de inscrição.**
 -  Utilize o Azure AD Application Proxy para publicar a aplicação no local, com **o Azure Ative Directory** configurado como fonte de autenticação. Para obter instruções, consulte [publicar aplicações utilizando o Azure AD Application Proxy](../manage-apps/application-proxy-publish-azure-portal.md). 
 
    Quando configurar a definição **de Url Interno,** utilize o URL de inscrição que especificou no modelo de aplicação de não galeria. Desta forma, os utilizadores podem aceder à app a partir do limite da organização. Application Proxy executa o único sign-on SAML para a aplicação no local.

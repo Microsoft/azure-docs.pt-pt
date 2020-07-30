@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 588e63e630caa4746b493d4530e301f72e5ccb5f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b3dcb3a74e9341981af7e6eddb4be7454aaf429b
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282947"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419789"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Iniciar sedutação na máquina virtual do Windows em Azure utilizando a autenticação do Azure Ative Directory (Preview)
 
@@ -69,7 +69,7 @@ Para ativar a autenticação AZure AD para os seus VMs windows em Azure, tem de 
 
 ## <a name="enabling-azure-ad-login-in-for-windows-vm-in-azure"></a>Habilitar o Azure AD a iniciar sessão para o Windows VM em Azure
 
-Para utilizar o login Azure AD para o Windows VM em Azure, tem de ativar primeiro a opção de login Azure AD para o seu Windows VM e, em seguida, tem de configurar atribuições de funções RBAC para utilizadores autorizados a iniciar sessão no VM.
+Para utilizar o login Azure AD para o Windows VM em Azure, tem de ativar primeiro a opção de login Azure AD para o seu Windows VM e depois tem de configurar atribuições de funções Azure para utilizadores autorizados a iniciar sessão no VM.
 Existem várias formas de ativar o login AD AZure para o seu Windows VM:
 
 - Utilizar a experiência do portal Azure ao criar um VM windows
@@ -365,6 +365,6 @@ Se não tiver implementado o Windows Hello for Business e se isso não for uma o
 
 Partilhe o seu feedback sobre esta funcionalidade de pré-visualização ou informe os problemas que o utilizam no fórum de feedback da [AD Azure](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações sobre o Diretório Ativo Azure, consulte [o que é o Diretório Ativo Azure](/azure/active-directory/fundamentals/active-directory-whatis)

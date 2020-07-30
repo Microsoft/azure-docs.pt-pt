@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 21f91c15adb5e950f5ed9cc20449387ddcf6504f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 6ab32a2ccb4c7eb79309798c2b53d326723ad6ea
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080833"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420078"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Recolher dados de telemetria para análise de tráfego de pesquisa
 
@@ -233,7 +234,7 @@ A imagem que se segue mostra como um relatório incorporado pode parecer se tive
 
 ![Painel de bi de potência para pesquisa cognitiva de Azure](./media/search-traffic-analytics/azuresearch-powerbi-dashboard.png "Painel de bi de potência para pesquisa cognitiva de Azure")
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Instrumento a sua aplicação de pesquisa para obter dados poderosos e perspicazes sobre o seu serviço de pesquisa.
 

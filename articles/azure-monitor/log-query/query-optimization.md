@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 5a454d04701160492539f5c9caba57c9e617401e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dca320168805e9f7c8f6336b39c4f9394255f9b8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067477"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87416320"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Otimizar consultas de log no Azure Monitor
 O Azure Monitor Logs utiliza [o Azure Data Explorer (ADX)](/azure/data-explorer/) para armazenar dados de registo e executar consultas para analisar esses dados. Cria, gere e mantém os clusters ADX para si, e otimiza-os para a sua carga de trabalho de análise de registo. Quando você faz uma consulta, é otimizado, e encaminhado para o cluster ADX apropriado que armazena os dados do espaço de trabalho. Tanto os Registos monitores Azure como o Azure Data Explorer utilizam muitos mecanismos automáticos de otimização de consultas. Embora as otimizações automáticas ofereçam um impulso significativo, são em alguns casos onde você pode melhorar dramaticamente o seu desempenho de consulta. Este artigo explica as considerações de desempenho e várias técnicas para corrigi-las.
@@ -98,14 +98,14 @@ Por exemplo, as seguintes consultas produzem exatamente o mesmo resultado, mas a
 Heartbeat 
 | extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
 | where IPRegion == "WestCoast"
-| summarize count() by Computer
+| summarize count(), make_set(IPRegion) by Computer
 ```
 ```Kusto
 //more efficient
 Heartbeat 
 | where RemoteIPLongitude  < -94
 | extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| summarize count() by Computer
+| summarize count(), make_set(IPRegion) by Computer
 ```
 
 ### <a name="use-effective-aggregation-commands-and-dimensions-in-summarize-and-join"></a>Use comandos e dimensões de agregação eficazes em resumir e juntar
@@ -433,11 +433,11 @@ Os comportamentos de consulta que podem reduzir o paralelismo incluem:
 - Utilização de funções de serialização e janela, tais como o [operador de serialização,](/azure/kusto/query/serializeoperator) [o próximo()](/azure/kusto/query/nextfunction) [prev()](/azure/kusto/query/prevfunction)e as funções de [linha.](/azure/kusto/query/rowcumsumfunction) As funções de análise de séries temporárias e de análise de utilizadores podem ser utilizadas em alguns destes casos. A serialização ineficiente também pode acontecer se os seguintes operadores não forem utilizados no final da consulta: [intervalo](/azure/kusto/query/rangeoperator), [ordenar](/azure/kusto/query/sortoperator), [encomendar,](/azure/kusto/query/orderoperator) [topo,](/azure/kusto/query/topoperator) [top-hitters,](/azure/kusto/query/tophittersoperator) [getschema](/azure/kusto/query/getschemaoperator).
 -    A utilização da função de agregação [dcount()](/azure/kusto/query/dcount-aggfunction) força o sistema a ter cópia central dos valores distintos. Quando a escala de dados for elevada, considere usar os parâmetros opcionais da função dcount para reduzir a precisão.
 -    Em muitos casos, o operador de [união](/azure/kusto/query/joinoperator?pivots=azuremonitor) reduz o paralelismo geral. Examine a mistura como alternativa quando o desempenho é problemático.
--    Nas consultas de âmbito de recursos, os controlos RBAC pré-execução podem permanecer em situações em que há um número muito elevado de atribuições de RBAC. Isto pode levar a controlos mais longos que resultariam num paraleloismo mais baixo. Por exemplo, uma consulta é executada numa subscrição onde existem milhares de recursos e cada recurso tem muitas atribuições de funções ao nível dos recursos, não no grupo de subscrição ou recursos.
+-    Nas consultas de âmbito de recursos, os controlos RBAC pré-execução podem permanecer em situações em que há um número muito grande de atribuições de funções Azure. Isto pode levar a controlos mais longos que resultariam num paraleloismo mais baixo. Por exemplo, uma consulta é executada numa subscrição onde existem milhares de recursos e cada recurso tem muitas atribuições de funções ao nível dos recursos, não no grupo de subscrição ou recursos.
 -    Se uma consulta estiver a processar pequenos pedaços de dados, o seu paralelismo será baixo, uma vez que o sistema não o espalhará por muitos nós computacional.
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Documentação de referência para a língua de consulta kusto.](/azure/kusto/query/)

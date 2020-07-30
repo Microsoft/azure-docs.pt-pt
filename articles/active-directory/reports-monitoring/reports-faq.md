@@ -16,12 +16,12 @@ ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 818528ae193209e23424998421ebe2fb0c2b24b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35aa75fcbd579c3e2c587b370b0926393b4e58c1
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83199382"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87383771"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Perguntas frequentes em torno de relatórios do Azure Ative Directory
 
@@ -145,7 +145,7 @@ Este artigo inclui respostas a perguntas frequentes sobre relatórios do Azure A
 
 * **Não Aplicado**: Isto significa que não havia nenhuma política de CA com o utilizador e app no âmbito. 
 * **Sucesso**: Isto significa que houve uma política de CA com o utilizador e app no âmbito e as políticas de CA foram satisfeitas com sucesso. 
-* **Falha**: Isto significa que havia uma política de CA com o utilizador e app no âmbito e as políticas de CA não foram satisfeitas. 
+* **Falha**: A inscrição satisfez o estado de utilização e aplicação de pelo menos uma política de acesso condicional e os controlos de concessão não estão satisfeitos ou definidos para bloquear o acesso.
     
 **P: Quais são todos os valores possíveis para o resultado da política de acesso condicional?**
 

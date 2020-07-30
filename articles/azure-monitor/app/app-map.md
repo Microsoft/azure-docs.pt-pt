@@ -3,14 +3,13 @@ title: Mapa de aplicações em Insights de Aplicação Azure / Microsoft Docs
 description: Monitorize topologias complexas de aplicações com o mapa de aplicações
 ms.topic: conceptual
 ms.date: 03/15/2019
-ms.custom: devx-track-javascript
 ms.reviewer: sdash
-ms.openlocfilehash: 7e4035e382aaa3f8b5d2327054a50a5360c60bfa
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b99998a7b1bcb2348a1a73696661de7cf8b44b85
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367015"
+ms.locfileid: "87421302"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa de aplicações: Aplicações distribuídas por triagem
 
@@ -82,9 +81,12 @@ Para visualizar alertas ativos e as regras subjacentes que fazem com que os aler
 
 ![Screenshot da experiência de análise](media/app-map/alerts-view.png)
 
-## <a name="set-cloud-role-name"></a>Definir nome de função de nuvem
+## <a name="set-or-override-cloud-role-name"></a>Definir ou sobrepor nome de papel de nuvem
 
-O Mapa de Aplicações utiliza a propriedade **do nome da função da nuvem** para identificar os componentes no mapa. O Application Insights SDK adiciona automaticamente a propriedade do nome da função em nuvem à telemetria emitida por componentes. Por exemplo, o SDK adicionará um nome de site ou nome de função de serviço à propriedade do nome da função cloud. No entanto, existem casos em que poderá querer anular o valor predefinido. Para substituir o nome da função da nuvem e alterar o que é apresentado no Mapa de Aplicações:
+O Mapa de Aplicações utiliza a propriedade **do nome da função da nuvem** para identificar os componentes no mapa. Para definir ou substituir manualmente o nome da função da nuvem e alterar o que é apresentado no Mapa de Aplicações:
+
+> [!NOTE]
+> O Application Insights SDK ou Agente adiciona automaticamente a propriedade do nome da função em nuvem à telemetria emitida por componentes num ambiente de Serviço de Aplicações Azure.
 
 # <a name="netnetcore"></a>[.NET/.NetCore](#tab/net)
 
@@ -266,7 +268,7 @@ Se está com dificuldades em fazer com que o Mapa da Aplicação funcione como e
 
 3. Se estiver a utilizar funções Azure com C#, atualize para [funções V2](../../azure-functions/functions-versions.md).
 
-4. Confirme que [o nome da função da nuvem](#set-cloud-role-name) está corretamente configurado.
+4. Confirme que [o nome da função da nuvem](#set-or-override-cloud-role-name) está corretamente configurado.
 
 5. Se tiver uma dependência em falta, certifique-se de que a mesma está na lista de [dependências recolhidas automaticamente](./auto-collect-dependencies.md). Se não, pode acompanhá-la manualmente com uma [chamada de dependência de acompanhamento](./api-custom-events-metrics.md#trackdependency).
 
@@ -282,7 +284,7 @@ Para corrigir isto, terá de alterar a sua instrumentação para definir correta
 
 * O tipo de dependência deve representar o tipo lógico de dependência. Por exemplo, HTTP, SQL ou Azure Blob são tipos típicos de dependência. Não deve conter identificações únicas.
 
-* O objetivo do nome da função em nuvem é descrito na [secção acima](#set-cloud-role-name).
+* O objetivo do nome da função em nuvem é descrito na [secção acima](#set-or-override-cloud-role-name).
 
 ## <a name="portal-feedback"></a>Feedback do portal
 
@@ -290,7 +292,7 @@ Para fornecer feedback, utilize a opção de feedback.
 
 ![Imagem mapLink-1](./media/app-map/14-updated.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre como funciona a correlação no Application Insights consulte o [artigo de correlação de telemetria](correlation.md).
 * A [experiência de diagnóstico de transações de ponta a ponta](transaction-diagnostics.md) correlaciona a telemetria do lado do servidor de todos os seus componentes monitores application insights numa única visão.

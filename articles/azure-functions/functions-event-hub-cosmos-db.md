@@ -5,12 +5,13 @@ author: KarlErickson
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
-ms.openlocfilehash: d93d11f32ba5db9b0be38757d0f1456fc137a9ef
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-java
+ms.openlocfilehash: ef2b774195f522be3520850d2e6e7193e70dd4fb
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083060"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372455"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>Tutorial: Crie uma função em Java com um gatilho do Event Hub e uma ligação de saída DB Azure Cosmos
 
@@ -435,7 +436,7 @@ As suas funções funcionam agora em Azure e continuam a acumular dados no seu A
 
 ![Lâmina de desempenho de insights de aplicação](media/functions-event-hub-cosmos-db/application-insights-performance.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar dos recursos do Azure criados neste tutorial, pode utilizar o comando abaixo para os eliminar:
 
@@ -443,7 +444,7 @@ Quando já não precisar dos recursos do Azure criados neste tutorial, pode util
 az group delete --name $RESOURCE_GROUP
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a criar uma Função Azure que lida com eventos do Event Hub e atualiza um Cosmos DB. Para mais informações, consulte o [guia de desenvolvimento da Azure Functions Java](./functions-reference-java.md). Para obter informações sobre as anotações utilizadas, consulte a referência [com.microsoft.azure.functions.anotação.](/java/api/com.microsoft.azure.functions.annotation)
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 06/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 84f2ef1fc318e53914b1510870d0399cfbfa87e9
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: a3f48c9f15d12fbfc41ac8baf589f8579f259377
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185284"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421489"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Gerir uma execução de automação Azure Como conta
 
@@ -174,7 +174,8 @@ Pode determinar se o principal de serviço utilizado pela sua conta Run As está
 2. Selecione **Azure Run as Account**. 
 3. Selecione **Função** para localizar a definição de função que está a ser usada.
 
-[![](media/manage-runas-account/verify-role.png "Verify the Run As Account role")](media/manage-runas-account/verify-role-expanded.png#lightbox)
+:::image type="content" source="media/manage-runas-account/verify-role.png" alt-text="Verifique a função 'Executar como conta'." lightbox="media/manage-runas-account/verify-role-expanded.png":::
+
 
 Também pode determinar a definição de função utilizada pelas contas Run As para várias subscrições ou contas de Automação. Faça-o utilizando [Check-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug5) oCheck-AutomationRunAsAccountRoleAssignments.ps1script na PowerShell Gallery.
 
@@ -208,7 +209,7 @@ The Run As account is incomplete. Either one of these was deleted or not created
 
 Pode resolver rapidamente estes problemas da conta Run As, ao eliminar e recriar a conta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Objetos de aplicação e objetos principais de serviço.](../active-directory/develop/app-objects-and-service-principals.md)
 * [Visão geral dos certificados para serviços de nuvem Azure](../cloud-services/cloud-services-certs-create.md).

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
-ms.date: 04/09/2020
-ms.openlocfilehash: 5a246288eb3c4063a85935c20abec5c86467d340
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 07/28/2020
+ms.openlocfilehash: 33f87bf6f030adb48f2c4f8eb45027c1b298d812
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042378"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419721"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Piscinas elásticas ajudam a gerir e escalar várias bases de dados na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -35,16 +35,16 @@ As piscinas elásticas resolvem este problema garantindo que as bases de dados o
 > [!IMPORTANT]
 > Não há carga por base de dados para piscinas elásticas. Você é cobrado por cada hora que uma piscina existe no mais alto eDTU ou vCores, independentemente do uso ou se a piscina estava ativa por menos de uma hora.
 
-Piscinas elásticas permitem ao desenvolvedor adquirir recursos para um pool partilhado por várias bases de dados para acomodar períodos imprevisíveis de utilização por bases de dados individuais. Pode configurar recursos para o pool com base no modelo de compra baseado na [DTU](service-tiers-dtu.md) ou no [modelo de compra baseado em vCore.](service-tiers-vcore.md) A exigência de recursos para um pool é determinada pela utilização agregada das suas bases de dados. A quantidade de recursos disponíveis para a piscina é controlada pelo orçamento do promotor. O desenvolvedor simplesmente adiciona bases de dados ao pool, define os recursos mínimos e máximos para as bases de dados (ou DTUs mínimos e máximos ou vCores mínimos ou máximos dependendo da sua escolha do modelo de reabastecimento), e, em seguida, define os recursos do pool com base no seu orçamento. Os programadores podem utilizar os conjuntos para fazer crescer de forma contínua o serviço, de uma “lean startup” para uma empresa madura e em constante crescimento.
+Piscinas elásticas permitem ao desenvolvedor adquirir recursos para um pool partilhado por várias bases de dados para acomodar períodos imprevisíveis de utilização por bases de dados individuais. Pode configurar recursos para o pool com base no modelo de compra baseado na [DTU](service-tiers-dtu.md) ou no [modelo de compra baseado em vCore.](service-tiers-vcore.md) A exigência de recursos para um pool é determinada pela utilização agregada das suas bases de dados. A quantidade de recursos disponíveis para a piscina é controlada pelo orçamento do promotor. O desenvolvedor simplesmente adiciona bases de dados ao pool, configura opcionalmente os recursos mínimos e máximos para as bases de dados (ou DTUs mínimos e máximos ou vCores mínimos ou máximos dependendo da sua escolha do modelo de reabastecimento), e, em seguida, define os recursos do pool com base no seu orçamento. Os programadores podem utilizar os conjuntos para fazer crescer de forma contínua o serviço, de uma “lean startup” para uma empresa madura e em constante crescimento.
 
-Dentro do conjunto, é dada às bases de dados individuais a flexibilidade para se dimensionarem automaticamente dentro de parâmetros definidos. Sob carga pesada, uma base de dados pode consumir mais recursos para satisfazer a procura. As bases de dados sob cargas leves consomem menos, e as bases de dados sem carga não consomem recursos. O aprovisionamento de recursos para o conjunto completo e não para bases de dados individuais simplifica as tarefas de gestão. Além disso, tens um orçamento previsível para a piscina. Os recursos adicionais podem ser adicionados a um pool existente sem tempo de inatividade na base de dados, exceto que as bases de dados podem precisar de ser movidas para fornecer os recursos adicionais de computação para a nova reserva eDTU. Do mesmo modo, se já não forem necessários recursos adicionais, podem ser removidos de uma piscina existente a qualquer momento. Além disso, pode adicionar ou subtrair bases de dados ao conjunto. Se uma base de dados estiver a subutilizar recursos de forma previsível, remova-a.
+Dentro do conjunto, é dada às bases de dados individuais a flexibilidade para se dimensionarem automaticamente dentro de parâmetros definidos. Sob carga pesada, uma base de dados pode consumir mais recursos para satisfazer a procura. As bases de dados sob cargas leves consomem menos, e as bases de dados sem carga não consomem recursos. O aprovisionamento de recursos para o conjunto completo e não para bases de dados individuais simplifica as tarefas de gestão. Além disso, tens um orçamento previsível para a piscina. Os recursos adicionais podem ser adicionados a uma piscina existente com tempo mínimo de inatividade. Do mesmo modo, se já não forem necessários recursos adicionais, podem ser removidos de uma piscina existente a qualquer momento. E pode adicionar ou remover bases de dados da piscina. Se uma base de dados estiver a subutilizar recursos de forma previsível, remova-a.
 
 > [!NOTE]
 > Ao mover bases de dados para dentro ou para fora de uma piscina elástica, não há tempo de paragem, exceto por um breve período de tempo (na ordem dos segundos) no final da operação quando as ligações de base de dados são largadas.
 
 ## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>Quando deve considerar uma piscina elástica SQL Database
 
-Os conjuntos são bastante adequados para um grande número de bases de dados com padrões de utilização específicos. Para uma determinada base de dados, este padrão caracteriza-se por uma utilização média baixa com picos de utilização relativamente raros.
+Os conjuntos são bastante adequados para um grande número de bases de dados com padrões de utilização específicos. Para uma determinada base de dados, este padrão caracteriza-se por uma utilização média baixa com picos de utilização relativamente raros. Inversamente, várias bases de dados com utilização persistente de médio-alto não devem ser colocadas na mesma piscina elástica.
 
 Quantas mais bases de dados adicionar a um conjunto, maior será a poupança. Dependendo do seu padrão de utilização da aplicação, é possível ver poupanças com apenas duas bases de dados S3.
 
@@ -82,16 +82,13 @@ As seguintes regras do polegar relacionadas com a contagem de bases de dados e a
 
 Se a quantidade agregada de recursos para bases de dados individuais for superior a 1,5x os recursos necessários para a piscina, então uma piscina elástica é mais rentável.
 
-***Exemplo do modelo de compra baseado em DTU***<br>
-São necessárias pelo menos duas bases de dados S3 ou pelo menos 15 S0 para que um pool de 100 eDTU seja mais rentável do que utilizar tamanhos de cálculo para bases de dados individuais.
+***Exemplo do modelo de compra baseado em DTU*** São necessárias pelo menos duas bases de dados S3 ou pelo menos 15 S0 para que um pool de 100 eDTU seja mais rentável do que utilizar tamanhos de cálculo para bases de dados individuais.
 
 ### <a name="maximum-number-of-concurrently-peaking-databases"></a>Número máximo de bases de dados com picos simultâneos
 
 Ao partilhar recursos, nem todas as bases de dados de um pool podem simultaneamente utilizar recursos até ao limite disponível para bases de dados únicas. Quanto menos bases de dados atingirem simultaneamente o pico, menor é a definição dos recursos da piscina e mais rentável se torna a piscina. Em geral, não mais de 2/3 (ou 67%) das bases de dados na piscina devem simultaneamente atingir o limite de recursos.
 
-***Exemplo do modelo de compra baseado em DTU***
-
-Para reduzir os custos de três bases de dados S3 num conjunto de 200 eDTU, duas bases de dados, no máximo, podem ter o pico de utilização ao mesmo tempo. Caso contrário, se mais de duas destas quatro bases de dados S3 tiverem o pico em simultâneo, o conjunto terá de ser dimensionado para mais de 200 eDTUs. Se a piscina for redimensionada para mais de 200 eDTUs, mais bases de dados S3 teriam de ser adicionadas à piscina para manter os custos inferiores aos tamanhos de cálculo para bases de dados individuais.
+***Exemplo do modelo de compra baseado em DTU*** Para reduzir os custos de três bases de dados S3 num pool de 200 eDTU, no máximo duas destas bases de dados podem simultaneamente atingir o pico na sua utilização. Caso contrário, se mais de duas destas quatro bases de dados S3 tiverem o pico em simultâneo, o conjunto terá de ser dimensionado para mais de 200 eDTUs. Se a piscina for redimensionada para mais de 200 eDTUs, mais bases de dados S3 teriam de ser adicionadas à piscina para manter os custos inferiores aos tamanhos de cálculo para bases de dados individuais.
 
 Note que este exemplo não considera a utilização de outras bases de dados na piscina. Se todas as bases de dados tiverem alguma utilização num determinado momento, menos de 2/3 (67%) das bases de dados podem ter o pico em simultâneo.
 
@@ -99,13 +96,13 @@ Note que este exemplo não considera a utilização de outras bases de dados na 
 
 Uma grande diferença entre o pico e a utilização média das bases de dados indica períodos longos de pouca utilização e curtos períodos de elevada utilização. Este padrão de utilização é ideal para partilhar recursos entre bases de dados. A inclusão de bases de dados num conjunto deve ser considerada quando o pico de utilização for cerca de 1,5 vezes superior à utilização média.
 
-**Exemplo do modelo de compra baseado em DTU**: Uma base de dados S3 que atinge 100 DTUs e, em média, utiliza 67 DTUs ou menos é um bom candidato para a partilha de eDTUs numa piscina. Em alternativa, uma base de dados S1 que tenha como pico 20 DTUs e utilize, em média, 13 DTUs ou menos, é uma boa candidata para um conjunto.
+***Exemplo do modelo de compra baseado em DTU*** Uma base de dados S3 que atinge 100 DTUs e, em média, utiliza 67 DTUs ou menos é um bom candidato para a partilha de eDTUs numa piscina. Em alternativa, uma base de dados S1 que tenha como pico 20 DTUs e utilize, em média, 13 DTUs ou menos, é uma boa candidata para um conjunto.
 
 ## <a name="how-do-i-choose-the-correct-pool-size"></a>Como posso escolher o tamanho correto da piscina
 
 O melhor tamanho para uma piscina depende dos recursos agregados necessários para todas as bases de dados na piscina. Trata-se de determinar o seguinte:
 
-- Recursos máximos utilizados por todas as bases de dados da piscina (ou DTUs máximos ou vCores máximos dependendo da sua escolha do modelo de reabastecimento).
+- Recursos máximos utilizados por todas as bases de dados da piscina (ou DTUs máximos ou vCores máximos dependendo da sua escolha do modelo de compra).
 - Bytes de armazenamento máximos utilizados por todas as bases de dados do conjunto.
 
 Para os níveis de serviço disponíveis e limites para cada modelo de recurso, consulte o [modelo de compra baseado em DTU](service-tiers-dtu.md) ou o modelo de compra baseado em [vCore.](service-tiers-vcore.md)
@@ -114,11 +111,13 @@ Os seguintes passos podem ajudá-lo a estimar se uma piscina é mais rentável d
 
 1. Estimar os eDTUs ou vCores necessários para a piscina da seguinte forma:
 
-   Para o modelo de compra baseado em DTU: MAX (<*número total de DTUs* X *utilização média de DTU por DB*>,<br>  
-   <*Número de DBs com pico em simultâneo* X *utilização de pico de DTUs por DB*)
+Para o modelo de compra baseado em DTU:
 
-   Para o modelo de compra baseado em vCore: MAX (<Número total de *utilização média vCore* *de DBs* X por DB>,<br>  
-   <*Número de DBs de pico simultâneo* X *Peak vCore utilização por DB)*
+MAX (<*Número total de DTU* média de *DTU por DB*>, <Número de utilização *DBs* X *Peak DTU simultaneamente*por DB )
+
+Para o modelo de compra baseado em vCore:
+
+MAX (<*Número total de* *utilização média vCore* por DB>, <Número de utilização *simultânea de DBs* X *Peak vCore por DB*)
 
 2. Calcule o espaço de armazenamento necessário para o conjunto ao adicionar o número de bytes de que todas as bases de dados do conjunto precisam. Em seguida, determine o tamanho do conjunto de eDTUs que disponibiliza esta quantidade de armazenamento.
 3. Para o modelo de compra baseado em DTU, pegue o maior das estimativas do eDTU do Passo 1 e Passo 2. Para o modelo de compra baseado em vCore, pegue a estimativa vCore do Passo 1.

@@ -8,12 +8,13 @@ ms.topic: how-to
 ms.date: 06/16/2020
 author: timsander1
 ms.author: tisande
-ms.openlocfilehash: e0b14eefcc0b484c92faf1148ae2972f51b04d31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 473bc8677c5369833928eb4648f32bb146e83e65
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260700"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420656"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gerir a indexação na API da Azure Cosmos para a MongoDB
 
@@ -23,7 +24,7 @@ A API da Azure Cosmos DB para a MongoDB tira partido das capacidades de gestão 
 
 A API do Azure Cosmos DB para a versão 3.6 do servidor MongoDB indexa automaticamente o `_id` campo, que não pode ser eliminado. Impõe automaticamente a singularidade do `_id` campo por chave de fragmentos. Na API da Azure Cosmos DB para o MongoDB, o sharding e a indexação são conceitos separados. Não tens de indexar a tua chave de fragmentos. No entanto, como em qualquer outra propriedade no seu documento, se esta propriedade é um filtro comum nas suas consultas, recomendamos indexar a chave de fragmentos.
 
-Para indexar campos adicionais, aplica-se os comandos de gestão de índices MongoDB. Tal como em MongoDB, a API da Azure Cosmos para a MongoDB indexa automaticamente o `_id` campo apenas. Esta política de indexação padrão difere da AZure Cosmos DB SQL API, que indexa todos os campos por padrão.
+Para indexar campos adicionais, aplique os comandos de gestão de índices do MongoDB. Tal como em MongoDB, a API da Azure Cosmos para a MongoDB indexa automaticamente o `_id` campo apenas. Esta política de indexação predefinida difere da API SQL do Azure Cosmos DB, que indexa todos os campos por predefinição.
 
 Para aplicar uma espécie a uma consulta, é necessário criar um índice nos campos utilizados na operação de classificação.
 

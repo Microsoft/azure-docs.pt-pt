@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77d465b5900a3c36e6c6b957431b9d6ba56f50a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 97def0608251f65aa222e13760877d4287135d08
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764864"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386984"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Trabalhar com aplicações conscientes de reclamações no Application Proxy
 [As aplicações conscientes das reclamações](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) realizam uma reorientação para o Serviço de Token de Segurança (STS). O STS solicita credenciais ao utilizador em troca de um token e, em seguida, redireciona o utilizador para a aplicação. Existem algumas formas de permitir que o Application Proxy trabalhe com estes redirecionamentos. Utilize este artigo para configurar a sua implementação para aplicações conscientes de sinistros. 
@@ -55,7 +55,6 @@ Se todos os URLs internos para as suas aplicações forem nomes de domínio tota
    ![Adicione um Ponto Final - definir valor de URL fidedigno - screenshot](./media/application-proxy-configure-for-claims-aware-applications/appproxyendpointtrustedurl.png)  
 
 ## <a name="next-steps"></a>Próximos passos
-* [Ativar um único sinal](configure-single-sign-on-non-gallery-applications.md) para aplicações que não estão cientes de reclamações
 * [Permitir que as aplicações de clientes nativos interajam com aplicações proxy](application-proxy-configure-native-client-application.md)
 
 

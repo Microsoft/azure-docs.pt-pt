@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: 76eee4b0b029714a75b57e5d44e097a36de3181f
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 721848b996bc4887370b77404e3d571975815624
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371418"
+ms.locfileid: "87421897"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administração de serviços para Azure Cognitive Search no portal Azure
 
@@ -58,7 +58,7 @@ No que diz respeito ao acesso ao ponto final, qualquer pessoa com acesso ao URL 
 
 Os direitos ao aparelho de prestação de serviços são concedidos através de atribuições de funções. [O acesso baseado em funções (RBAC)](../role-based-access-control/overview.md) é um sistema de autorização construído com [o Azure Resource Manager](../azure-resource-manager/management/overview.md) para o fornecimento de recursos Azure. 
 
-No contexto da Azure Cognitive Search, as atribuições de [funções do RBAC](search-security-rbac.md) determinarão quem pode executar tarefas, independentemente de estarem a utilizar o [portal](search-manage.md), [PowerShell,](search-manage-powershell.md)ou as [APIs de Rest de Gestão:](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api)
+No contexto da Azure Cognitive Search, as atribuições de [funções da Azure](search-security-rbac.md) determinarão quem pode executar tarefas, independentemente de estarem a utilizar o [portal,](search-manage.md) [o PowerShell,](search-manage-powershell.md)ou as [APIs de Rest de Gestão:](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api)
 
 * Criar ou apagar um serviço
 * Dimensione o serviço
@@ -137,7 +137,7 @@ Não existe um método de deteção que lhe diga quais os fragmentos de índice 
 
 Para ajudar no planeamento futuro, pode querer verificar o armazenamento (usando [as estatísticas do Índice Get](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)) para ver quanto realmente utilizou. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Automatize com [PowerShell](search-manage-powershell.md)
 

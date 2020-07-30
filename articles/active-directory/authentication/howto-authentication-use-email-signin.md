@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: scottsta
-ms.openlocfilehash: af410310e3866b547b8c898a1cc4f91f4f851bc7
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 084c50a67fe332751a3679da4c97f67d414ebb94
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223028"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419534"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Iniciar sessão no Azure Ative Directory usando o e-mail como iD de login alternativo (pré-visualização)
 
@@ -159,6 +159,8 @@ Durante a pré-visualização, atualmente só pode ativar o login com e-mail com
     Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
     ```
 
+Com a política aplicada, pode levar até uma hora para se propagar e para que os utilizadores possam iniciar sessão usando o seu ID de login alternativo.
+
 ## <a name="test-user-sign-in-with-email"></a>Teste de s-in do utilizador com e-mail
 
 Para testar que os utilizadores podem iniciar scontabilidade com e-mail, navegue [https://myprofile.microsoft.com][my-profile] e inscreva-se com uma conta de utilizador com base no seu endereço de e-mail, `balas@fabrikam.com` como, por exemplo, não a SUA UPN, como `balas@contoso.com` . . A experiência de inscrição deve parecer e sentir o mesmo que com um evento de inscrição baseado na UPN.
@@ -175,7 +177,7 @@ Se os utilizadores tiverem problemas com eventos de inscrição utilizando o seu
     Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre a identidade híbrida, como a Azure AD App Proxy ou a Azure AD Domain Services, consulte [a identidade híbrida AD AD Azure para acesso e gestão de cargas de trabalho on-prem][hybrid-overview].
 

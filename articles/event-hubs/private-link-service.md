@@ -1,16 +1,16 @@
 ---
 title: Integre os Hubs de Eventos Azure com o Azure Private Link Service
 description: Saiba como integrar os Hubs de Eventos Azure com o Azure Private Link Service
-ms.date: 06/23/2020
+ms.date: 07/29/2020
 ms.topic: article
-ms.openlocfilehash: a07204615c4d81373d744e83862e6de14c7f8165
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 66753e51fd1e918e5659e219c5ebbe471705b3ee
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287966"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421111"
 ---
-# <a name="integrate-azure-event-hubs-with-azure-private-link"></a>Integre os Hubs de Eventos Azure com Azure Private Link
+# <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Permitir o acesso aos espaços de nome do Azure Event Hubs através de pontos finais privados 
 O Azure Private Link Service permite-lhe aceder aos Serviços Azure (por exemplo, Azure Event Hubs, Azure Storage e Azure Cosmos DB) e a Azure acolheu serviços de cliente/parceiro sobre um **ponto final privado** na sua rede virtual.
 
 Um ponto final privado é uma interface de rede que o liga de forma privada e segura a um serviço alimentado pela Azure Private Link. O ponto final privado utiliza um endereço IP privado a partir da sua rede virtual, efetivamente trazendo o serviço para a sua rede virtual. Todo o tráfego para o serviço pode ser encaminhado através do ponto final privado, pelo que não são necessários gateways, dispositivos NAT, ligações ExpressRoute ou VPN, ou endereços IP públicos. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Pode ligar-se a um recurso Azure, dando-lhe o mais alto nível de granularidade no controlo de acessos.
@@ -42,7 +42,7 @@ Para integrar um espaço de nomes do Event Hubs com a Azure Private Link, necess
 
 - Um espaço de nomes de Event Hubs.
 - Uma rede virtual Azure.
-- Uma sub-rede na rede virtual.
+- Uma sub-rede na rede virtual. Pode utilizar a sub-rede **predefinida.** 
 - Permissões de proprietário ou contribuinte tanto para o espaço de nome como para a rede virtual.
 
 O seu ponto final privado e rede virtual devem estar na mesma região. Quando selecionar uma região para o ponto final privado utilizando o portal, irá filtrar automaticamente apenas redes virtuais que se encontrem nessa região. Seu espaço pode estar em uma região diferente.
@@ -55,10 +55,15 @@ Se já tem um espaço de nomes do Event Hubs, pode criar uma ligação de ligaç
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 2. Na barra de pesquisa, escreva nos **centros de eventos.**
 3. Selecione o **espaço de nomes** da lista à qual pretende adicionar um ponto final privado.
-4. Selecione o **separador 'Rede'** em **Definições**.
+4. Selecione **rede em** **Definições** no menu esquerdo.
 
     > [!NOTE]
     > Você vê o **separador Networking** apenas para espaços de nome **padrão** ou **dedicados.** 
+
+    :::image type="content" source="./media/private-link-service/selected-networks-page.png" alt-text="Separador de redes - opção de redes selecionada" lightbox="./media/private-link-service/selected-networks-page.png":::    
+
+    > [!NOTE]
+    > Por predefinição, a opção **de rede Selecionada** é selecionada. Se não especificar uma regra de firewall IP ou adicionar uma rede virtual, o espaço de nome pode ser acedido através da internet pública. 
 1. Selecione o **separador de ligações de ponto final privado** no topo da página. 
 1. Selecione o botão **+ Ponto final privado** na parte superior da página.
 
@@ -271,7 +276,7 @@ Aliases:  <event-hubs-namespace-name>.servicebus.windows.net
 
 Para mais informações, consulte [o serviço Azure Private Link: Limitações](../private-link/private-link-service-overview.md#limitations)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [o Azure Private Link](../private-link/private-link-service-overview.md)
 - Saiba mais sobre [os Azure Event Hubs](event-hubs-about.md)

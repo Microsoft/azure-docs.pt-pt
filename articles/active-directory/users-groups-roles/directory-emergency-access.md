@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0339d9d47752c194eeda96cd2df4859d6b97518b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9d4f293f3835e26def97aa2f52dd0c42d9137c7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338280"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421727"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gerir contas de acesso de emergência em Azure AD
 
@@ -56,7 +56,7 @@ No entanto, pelo menos uma das suas contas de acesso de emergência não deve te
 
 ### <a name="exclude-at-least-one-account-from-conditional-access-policies"></a>Excluir pelo menos uma conta das políticas de acesso condicional
 
-Durante uma emergência, não pretende que uma política bloqueie potencialmente o seu acesso para corrigir um problema. Pelo menos uma conta de acesso de emergência deve ser excluída de todas as políticas de Acesso Condicional. Se tiver ativado uma [política de base,](../conditional-access/baseline-protection.md)deve excluir as suas contas de acesso de emergência.
+Durante uma emergência, não pretende que uma política bloqueie potencialmente o seu acesso para corrigir um problema. Pelo menos uma conta de acesso de emergência deve ser excluída de todas as políticas de Acesso Condicional.
 
 ## <a name="federation-guidance"></a>Orientação da Federação
 
@@ -109,14 +109,14 @@ As organizações devem monitorizar a atividade de registo de login e auditoria 
 
         ![lógica de alerta](./media/directory-emergency-access/alert-image2.png)
 
-    1. Selecione **Done** (Concluído). Pode agora ver o custo mensal estimado deste alerta.
+    1. Selecione **Concluído**. Pode agora ver o custo mensal estimado deste alerta.
 1. Selecione um grupo de ação de utilizadores para ser notificado pelo alerta. Se quiser criar um, consulte [criar um grupo de ação](#create-an-action-group).
 1. Para personalizar a notificação de e-mail enviada aos membros do grupo de ação, selecione ações ao abrigo **de Ações Personalizadas**.
 1. Em **Detalhes de Alerta**, especifique o nome da regra de alerta e adicione uma descrição opcional.
 1. Desa estaleia o nível de **Severidade** do evento. Recomendamos que o coloque na **Critical(Sev 0)**.
 1. Sob **a regra Enable após a criação,** deixe-a definida como **sim**.
 1. Para desligar os alertas durante algum tempo, selecione a caixa **de verificação alertas de supressão** e introduza a duração da espera antes de voltar a alertar e, em seguida, selecione **Guardar**.
-1. Clique **em Criar regra de alerta**.
+1. Clique em **Criar regra de alerta**.
 
 ### <a name="create-an-action-group"></a>Criar um grupo de ação
 

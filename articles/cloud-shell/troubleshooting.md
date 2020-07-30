@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: b06deadae15a8176a49bed88a53884df2b71e473
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e538299dfc9c9406b519d888d1a92c5c643bb03
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82189467"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421744"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Resolução de problemas & limitações da concha da nuvem de Azure
 
@@ -141,26 +141,6 @@ Tenha cuidado ao editar .bashrc, ao fazê-lo pode causar erros inesperados na Cl
 ### <a name="preview-version-of-azuread-module"></a>Versão de pré-visualização do módulo AzureAD
 
 Atualmente, `AzureAD.Standard.Preview` está disponível uma versão de pré-visualização do módulo .NET Standard. Este módulo fornece a mesma funcionalidade que `AzureAD` .
-
-### <a name="sqlserver-module-functionality"></a>`SqlServer`funcionalidade do módulo
-
-O `SqlServer` módulo incluído na Cloud Shell tem apenas suporte pré-lançado para PowerShell Core. Em particular, `Invoke-SqlCmd` ainda não está disponível.
-
-### <a name="default-file-location-when-created-from-azure-drive"></a>Localização do ficheiro padrão quando criado a partir da unidade Azure
-
-Utilizando cmdlets PowerShell, os utilizadores não podem criar ficheiros sob a unidade Azure. Quando os utilizadores criam novos ficheiros utilizando outras ferramentas, como vim ou nano, os ficheiros são guardados `$HOME` por padrão.
-
-### <a name="tab-completion-can-throw-psreadline-exception"></a>A conclusão do separador pode lançar a exceção PSReadline
-
-Se o EditMode PSReadline do utilizador estiver definido para Emacs, o utilizador tenta apresentar todas as possibilidades através da conclusão do separador, e o tamanho da janela é demasiado pequeno para exibir todas as possibilidades, o PSReadline lançará uma exceção sem manipulação.
-
-### <a name="large-gap-after-displaying-progress-bar"></a>Grande lacuna após exibir barra de progresso
-
-Se um comando ou ação do utilizador apresentar uma barra de progresso, tal separador completando durante a `Azure:` unidade, então é possível que o cursor não esteja corretamente definido e apareça uma lacuna onde a barra de progresso estava anteriormente.
-
-### <a name="random-characters-appear-inline"></a>Caracteres aleatórios aparecem em linha
-
-Os códigos de sequência de posição de posição do cursor, por `5;13R` exemplo, podem aparecer na entrada do utilizador. Os caracteres podem ser removidos manualmente.
 
 ## <a name="personal-data-in-cloud-shell"></a>Dados pessoais em Cloud Shell
 

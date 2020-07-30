@@ -3,12 +3,12 @@ title: Perguntas sobre a descoberta, avaliação e análise de dependência em A
 description: Obtenha respostas a perguntas comuns sobre a descoberta, avaliação e análise de dependência em Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 7b26d4442f9a84375205e7778ae037b565f53438
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e2aa0f5c2dae33cd995b30d84e7406da9b501e8f
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118839"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385726"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Descoberta, avaliação e análise de dependência - Questões comuns
 
@@ -29,30 +29,30 @@ Reveja as regiões suportadas em [clouds públicas](migrate-support-matrix.md#su
 
 Pode descobrir até 10.000 VMware VMs, até 5.000 VMs Hiper-V e até 1000 servidores físicos utilizando um único aparelho. Se tiver mais máquinas, leia sobre [o escalonamento de uma avaliação de Hiper-V,](scale-hyper-v-assessment.md) [escalonando uma avaliação de VMware,](scale-vmware-assessment.md)ou [escalando uma avaliação do servidor físico](scale-physical-assessment.md).
 
-## <a name="how-do-i-choose-the-assessment-type"></a>Como escolho o tipo de avaliação?
+## <a name="how-do-i-choose-the-assessment-type"></a>Como devo proceder para escolher o tipo de avaliação?
 
 - Utilize **avaliações de VM do Azure** quando pretender avaliar os seus [VMs VMs, VMs](how-to-set-up-appliance-vmware.md) [hiper-V](how-to-set-up-appliance-hyper-v.md)e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para VMs Azure. [Saiba mais](concepts-assessment-calculation.md)
 
 - Utilize avaliações **da Solução VMware Azure (AVS)** quando pretender avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md) no local para migração para [Azure VMware Solution (AVS)](../azure-vmware/introduction.md) utilizando este tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
 
-- Pode utilizar um grupo comum com máquinas VMware apenas para executar ambos os tipos de avaliações. Note que se estiver a fazer avaliações AVS em Azure Migrate pela primeira vez, é aconselhável criar um novo grupo de máquinas VMware.
+- Pode utilizar um grupo comum com as máquinas virtuais VMware apenas para executar ambos os tipos de avaliações. Tenha em atenção que se estiver a fazer avaliações do AVS no Azure Migrate pela primeira vez, será aconselhável criar um novo grupo de máquinas virtuais VMware.
 
 ## <a name="i-cant-see-some-groups-when-i-am-creating-an-azure-vmware-solution-avs-assessment"></a>Não consigo ver alguns grupos quando estou a criar uma avaliação da Solução VMware (AVS) do Azure VMware
 
-- A avaliação do AVS pode ser feita em grupos que têm apenas máquinas VMware. Por favor, remova qualquer máquina não-VMware do grupo se pretender realizar uma avaliação AVS.
-- Se estiver a realizar avaliações AVS em Azure Migrate pela primeira vez, é aconselhável criar um novo grupo de máquinas VMware.
+- A avaliação do AVS pode ser feita em grupos que têm apenas máquinas virtuais VMware. Remova as máquinas virtuais que não sejam VMware do grupo se quiser realizar uma avaliação do AVS.
+- Se estiver a fazer avaliações do AVS no Azure Migrate pela primeira vez, será aconselhável criar um novo grupo de máquinas virtuais VMware.
 
 ## <a name="how-do-i-select-ftt-raid-level-in-avs-assessment"></a>Como selecionar o nível FTT-RAID na avaliação AVS?
 
-O motor de armazenamento utilizado em AVS é vSAN. as polícias de armazenamento vSAN definem os requisitos de armazenamento para as suas máquinas virtuais. Estas políticas garantem o nível de serviço necessário para os seus VMs porque determinam como o armazenamento é atribuído ao VM. Estas são as combinações FTT-Raid disponíveis: 
+O motor de armazenamento utilizado em AVS é vSAN. As políticas de armazenamento vSAN definem os requisitos de armazenamento das máquinas virtuais. Estas políticas garantem o nível de serviço necessário das VMs, porque determinam como o armazenamento é alocado à VM. Estas são as Combinações FTT-Raid disponíveis: 
 
-**Falhas na toleração (FTT)** | **Configuração RAID** | **Anfitriões mínimos necessários** | **Consideração de dimensionamento**
+**Falhas a Tolerar (FTT)** | **Configuração do RAID** | **Anfitriões Mínimos Necessários** | **Consideração sobre o dimensionamento**
 --- | --- | --- | --- 
-1 | RAID-1 (Espelhamento) | 3 | Um VM de 100GB consumiria 200GB.
-1 | RAID-5 (Codificação de Apagação) | 4 | Um VM de 100GB consumiria 133.33GB
-2 | RAID-1 (Espelhamento) | 5 | Um VM de 100GB consumiria 300GB.
-2 | RAID-6 (Codificação de Apagação) | 6 | Um VM de 100GB consumiria 150GB.
-3 | RAID-1 (Espelhamento) | 7 | Um VM de 100GB consumiria 400GB.
+1 | RAID-1 (Espelhamento) | 3 | Uma VM de 100 GB consumiria 200 GB.
+1 | RAID-5 (Codificação de Eliminação) | 4 | Uma VM de 100 GB consumiria 133,33 GB
+2 | RAID-1 (Espelhamento) | 5 | Uma VM de 100 GB consumiria 300 GB.
+2 | RAID-6 (Codificação de Eliminação) | 6 | Uma VM de 100 GB consumiria 150 GB.
+3 | RAID-1 (Espelhamento) | 7 | Uma VM de 100 GB consumiria 400 GB.
 
 ## <a name="i-cant-see-some-vm-types-in-azure-government"></a>Não consigo ver alguns tipos de VM no Governo de Azure.
 
@@ -113,7 +113,7 @@ As avaliações de VM Azure baseadas em importação são avaliações criadas c
 
 ## <a name="why-is-the-suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Porque é que o instrumento de migração sugerido na avaliação do AVS baseado nas importações é marcado como desconhecido?
 
-Para as máquinas importadas através de um ficheiro CSV, a ferramenta de migração padrão numa avaliação AVS é desconhecida. No entanto, para máquinas VMware, é aconselhável utilizar a solução VMWare Hybrid Cloud Extension (HCX). [Saiba mais.](../azure-vmware/hybrid-cloud-extension-installation.md)
+Para as máquinas importadas através de um ficheiro CSV, a ferramenta de migração padrão numa avaliação AVS é desconhecida. No entanto, para máquinas VMware, é aconselhável utilizar a solução VMware Hybrid Cloud Extension (HCX). [Saiba Mais](../azure-vmware/hybrid-cloud-extension-installation.md).
 
 
 ## <a name="what-is-dependency-visualization"></a>O que é visualização de dependência?

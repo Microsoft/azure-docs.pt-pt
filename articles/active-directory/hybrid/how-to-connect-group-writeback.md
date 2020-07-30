@@ -11,12 +11,12 @@ ms.date: 06/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7992563bdfb318867e963ed4f371998bafbbbcdb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8c8fb54261f51d74f02b7b79c27f7a2043426686
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019918"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385148"
 ---
 # <a name="azure-ad-connect-group-writeback"></a>Azure AD Connect group writeback
 
@@ -40,7 +40,7 @@ Para ativar a gravação do grupo, utilize os seguintes passos:
 6. Na **página Writeback,** selecione uma unidade organizacional ative directory (OU) para armazenar objetos sincronizados do Office 365 para a sua organização no local e, em seguida, clique em **Seguinte**.
 7. Na página **Pronto** para configurar, clique em **Configurar**.
 8. Quando o assistente estiver completo, clique em **Sair** na página completa da Configuração.
-9. Abra o Windows PowerShell no servidor Azure Ative Directory Connect e execute os seguintes comandos.
+9. Abra o Windows PowerShell como administrador no servidor Azure Ative Directory Connect e execute os seguintes comandos.
 
 ```Powershell
 $AzureADConnectSWritebackAccountDN =  <MSOL_ account DN>
@@ -67,5 +67,5 @@ Para desativar o Writeback do Grupo, utilize os seguintes passos:
  >[!NOTE]
  > Desativará as bandeiras de Repartição total e Sincronização Completas para "verdadeiro" no Conector de Diretório Ativo Azure, fazendo com que as alterações de regras se propaguem no próximo ciclo de sincronização, eliminando os grupos previamente recímos para o seu Diretório Ativo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

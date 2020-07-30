@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 879138d882913b8ab43c5689ff72a40e6987c104
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 7d1cd032f6042f57a096c5c8e7624f66a4b01355
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223045"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419602"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Rever eventos de auditoria de segurança em Azure Ative Directory Domain Services usando livros de trabalho do Azure Monitor
 
@@ -75,7 +75,7 @@ Para aceder ao modelo de livro para o relatório geral de segurança, complete o
 
 1. A parte inferior do relatório geral de segurança abaixo do gráfico, em seguida, decompõe o tipo de atividade selecionado. Pode filtrar por nomes de utilizador envolvidos no lado direito, como mostra o seguinte relatório de exemplo:
 
-    [![](./media/use-azure-monitor-workbooks/account-lockout-details-cropped.png "Details of account lockouts in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-lockout-details.png#lightbox)
+    [![Detalhes dos bloqueios de conta nos livros de trabalho do Monitor Azure.](./media/use-azure-monitor-workbooks/account-lockout-details-cropped.png)](./media/use-azure-monitor-workbooks/account-lockout-details.png#lightbox)
 
 ## <a name="use-the-account-activity-report-workbook"></a>Use o livro de relatório de atividade da conta
 
@@ -93,7 +93,7 @@ Para aceder ao modelo de livro para o relatório de atividade da conta, complete
 
     Pode filtrar o **nome de utilizador da conta**, como o *félix,* como mostra o seguinte relatório de exemplo:
 
-    [![](./media/use-azure-monitor-workbooks/account-activity-report-cropped.png "Account activity report in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-activity-report.png#lightbox)
+    [![Relatório de atividade da conta nos livros de trabalho do Monitor Azure.](./media/use-azure-monitor-workbooks/account-activity-report-cropped.png)](./media/use-azure-monitor-workbooks/account-activity-report.png#lightbox)
 
     A área abaixo do gráfico mostra eventos individuais de entrada, juntamente com informações como o resultado da atividade e a estação de trabalho de origem. Estas informações podem ajudar a determinar fontes repetidas de eventos de entrada que podem causar bloqueios de conta ou indicar um potencial ataque.
 
@@ -108,7 +108,7 @@ Os dois livros de modelo fornecidos pela Azure AD DS são um bom lugar para come
 
 Todos os gráficos e tabelas em Azure Monitor Workbooks são gerados usando consultas kusto. Para obter mais informações sobre a criação das suas próprias consultas, consulte [as consultas de registo do Azure Monitor][azure-monitor-queries] e o tutorial de consultas de [Kusto.][kusto-queries]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se precisar de ajustar as políticas de senha e bloqueio, consulte [as políticas de bloqueio de passwords e de conta em domínios geridos][password-policy].
 

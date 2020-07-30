@@ -3,12 +3,12 @@ title: 'Quickstart: Enviar eventos personalizados para o ponto final da web - Ev
 description: 'Quickstart: Use a Azure Event Grid e o portal Azure para publicar um tópico personalizado e subscreva eventos para esse tópico. Os eventos são tratados por uma aplicação web.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 21c3d043925d328c671de19444b0fed1c6950bf1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 592e2d6b7393da8cb55a457b022d6c2358048cfe
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115235"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421047"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Quickstart: Encaminhe eventos personalizados para o ponto final da Web com o portal Azure e a Grade de Eventos
 
@@ -31,7 +31,7 @@ Um tópico do Event Grid fornece um ponto final definido pelo utilizador no qual
 
     :::image type="content" source="./media/custom-event-quickstart-portal/add-event-grid-topic-button.png" alt-text="Adicionar botão tópico de grelha de evento":::
 4. Na página **'Criar Tópico',** siga estes passos:
-    1. Selecione a sua **subscrição** do Azure.
+    1. Selecione a sua **subscrição Azure**.
     2. Selecione um grupo de recursos existente ou **selecione Criar novo**, e insira um **nome** para o grupo **de recursos**.
     3. Forneça um **nome** único para o tema personalizado. O nome do tópico deve ser exclusivo, porque este é representado por uma entrada DNS. Não utilize o nome apresentado na imagem. Em vez disso, crie o seu próprio nome - deve estar entre 3-50 caracteres e conter apenas valores a-z, A-Z, 0-9 e "-".
     4. Selecione um **local** para o tópico da grelha do evento.
@@ -44,7 +44,8 @@ Um tópico do Event Grid fornece um ponto final definido pelo utilizador no qual
 5. Após a implementação ter sucesso, escreva **tópicos de grelha de eventos** novamente na barra de pesquisa e selecione **Tópicos** de Grelha de Evento da lista de drop-down como fez anteriormente. 
 6. Selecione o tópico que criou na lista. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Selecione o seu tópico na lista":::  
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Selecione o seu tópico na lista":::
+
 7. Você vê a página **tópico da grelha de evento** para o seu tópico. Mantenha esta página aberta. Usa-se mais tarde no arranque rápido. 
 
     :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Página inicial do tópico da grelha de evento":::
@@ -54,7 +55,7 @@ Antes de criar uma subscrição para o tópico personalizado, crie um ponto fina
 
 1. Na página do artigo, **selecione Implementar para Azure** para implementar a solução para a sua subscrição. No portal do Azure, indique os valores para os parâmetros.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to Deploy to Aquent." /></a>
 1. A implementação pode demorar alguns minutos. Após a implementação ter sido concluída com êxito, verifique a aplicação Web para verificar se está em execução. Num browser, navegue para: `https://<your-site-name>.azurewebsites.net`
 
     Se a implementação falhar, verifique a mensagem de erro. Pode ser porque o nome do site já está tomado. Volte a implementar o modelo e escolha um nome diferente para o site. 
@@ -179,7 +180,7 @@ Acionou o evento e o Event Grid enviou a mensagem para o ponto final que configu
 
 :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-viewer-end.png" alt-text="Espectador de grelha de evento":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se quiser continuar a trabalhar com este evento, não limpe os recursos criados neste artigo. Caso contrário, elimine os recursos que criou neste artigo.
 
 1. Selecione **Grupos de Recursos** no menu esquerdo. Se não o vir no menu esquerdo, selecione **Todos os Serviços** no menu esquerdo e selecione **Grupos de Recursos**. 

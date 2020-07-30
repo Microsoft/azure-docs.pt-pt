@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, divswa, logicappspm
 ms.topic: article
 ms.date: 07/28/2020
-ms.openlocfilehash: a9ebc6b0cdbaa05c36383fa5126c2672fb19b69c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 675d4bdb0b8c0aa8e034d5a85dc027f642705fa9
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370959"
+ms.locfileid: "87386185"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Ligar a origens de dados no local a partir do Azure Logic Apps
 
@@ -52,13 +52,13 @@ A Azure Logic Apps suporta operações de leitura e escrita através do portal d
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Já [instalou o portal de dados no local num computador local.](../logic-apps/logic-apps-gateway-install.md)
+* Já [instalou o portal de dados no local num computador local.](../logic-apps/logic-apps-gateway-install.md) Esta instalação gateway deve existir antes de poder criar um recurso de gateway que se ligue a esta instalação.
 
-* Tem a [mesma conta Eszure e subscrição](../logic-apps/logic-apps-gateway-install.md#requirements) que usou para a instalação do gateway. Esta conta Azure deve pertencer apenas a um único [inquilino ou diretório Azure Ative Directory (Azure AD).](../active-directory/fundamentals/active-directory-whatis.md#terminology) Precisa da mesma conta Estruz e subscrição para criar o seu recurso gateway em Azure porque só o administrador de gateway pode criar o recurso gateway em Azure. Os diretores de serviços não são apoiados.
+* Tem a [mesma conta Eszure e subscrição](../logic-apps/logic-apps-gateway-install.md#requirements) que usou para a instalação do gateway. Esta conta Azure deve pertencer apenas a um único [inquilino ou diretório Azure Ative Directory (Azure AD).](../active-directory/fundamentals/active-directory-whatis.md#terminology) Precisa de utilizar a mesma conta Estil e subscrição Azure para criar o seu recurso gateway em Azure, porque só o administrador de gateway pode criar o recurso gateway em Azure. Os diretores de serviços não são apoiados.
 
-  * Quando criar um recurso de gateway em Azure, selecione uma instalação gateway para usar com o seu recurso gateway e apenas esse recurso gateway. Cada recurso de gateway pode ligar-se a apenas uma instalação de gateway, que pode ligar-se a apenas uma conta Eszure e subscrição. Então, não pode selecionar uma instalação de gateway que já está associada a outro recurso de gateway.
+  * Quando criar um recurso de gateway em Azure, selecione uma instalação gateway para ligar com o seu recurso gateway e apenas com esse recurso gateway. Cada recurso de gateway pode ligar-se a apenas uma instalação de gateway. Não é possível selecionar uma instalação de gateway que já esteja associada a outro recurso de gateway.
   
-  * A sua aplicação lógica e recurso gateway não têm de existir na mesma subscrição do Azure. Desde que tenha acesso a subscrição, em gatilhos e ações que possam aceder a fontes de dados no local, pode selecionar a partir de diferentes subscrições do Azure que estão associadas a um recurso de gateway diferente.
+  * A sua aplicação lógica e recurso gateway não têm de existir na mesma subscrição do Azure. Desde que tenha acesso a subscrição, em gatilhos e ações que possam aceder a fontes de dados no local, pode selecionar outras subscrições do Azure que tenham recursos de gateway.
 
 <a name="create-gateway-resource"></a>
 
@@ -175,7 +175,7 @@ Para criar um recurso de gateway diferente, ligue a instalação do gateway a um
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Proteger as suas aplicações lógicas](./logic-apps-securing-a-logic-app.md)
 * [Exemplos e cenários comuns para apps lógicas](./logic-apps-examples-and-scenarios.md)

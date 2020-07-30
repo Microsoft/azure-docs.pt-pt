@@ -4,12 +4,13 @@ description: Utilize a solução do consórcio Ethereum Proof-of-Authority para 
 ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: d75b5348c49728d2a796257fa4000f6c3a36831d
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: f0b7d056d37ffb11945a5c50e2705b5d74402007
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124931"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386117"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Implementar o modelo de solução de consórcio de prova de autoridade do Ethereum no Azure
 
@@ -83,11 +84,11 @@ No [portal Azure,](https://portal.azure.com) **selecione Criar um recurso** no c
 
 Selecione **Blockchain**  >  **Ethereum Proof-of-Authority Consortium (pré-visualização)**.
 
-### <a name="basics"></a>Informações básicas
+### <a name="basics"></a>Noções básicas
 
 De acordo com **os Básicos,** especifique os valores para os parâmetros padrão para qualquer implantação.
 
-![Informações básicas](./media/ethereum-poa-deployment/basic-blade.png)
+![Noções básicas](./media/ethereum-poa-deployment/basic-blade.png)
 
 Parâmetro | Descrição | Valor de exemplo
 ----------|-------------|--------------
@@ -738,6 +739,6 @@ Envolva-se com engenheiros da Microsoft e especialistas da comunidade Azure Bloc
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais soluções Azure Blockchain, consulte a documentação do [Azure Blockchain.](../index.yml)

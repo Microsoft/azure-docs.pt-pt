@@ -6,12 +6,13 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 0ac35fde59479ffc13c17f8e63d6fccf65c3be27
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: e853255f0fc1bc95a4a7fb1658fc41d4fe705c41
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001711"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420061"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Chamar as funções do Azure a partir do Azure Logic Apps
 
@@ -312,6 +313,6 @@ Agora está pronto para configurar a autenticação Azure AD para a sua aplicaç
 
 1. Volte ao Designer de Aplicações Lógica e siga os [passos para autenticar o acesso com a identidade gerida.](../logic-apps/create-managed-service-identity.md#authenticate-access-with-identity)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais [sobre os conectores de Aplicações Lógicas](../connectors/apis-list.md)

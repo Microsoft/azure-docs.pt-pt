@@ -3,12 +3,12 @@ title: FAQ sobre como Fazer Cópias de Segurança de Ficheiros do Azure
 description: Neste artigo, descubra respostas a perguntas comuns sobre como proteger as suas partilhas de ficheiros Azure com o serviço de Backup Azure.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 134d9520a3c2348b23ec27c6e14eb56468f2002d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6c2ef95a6303fd061b1ce486e893ba9812b83e14
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054975"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382717"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre a cópia de segurança de Ficheiros do Azure
 
@@ -34,13 +34,13 @@ Yes. Está ativada a proteção das ações de ficheiros Azure ligadas a Grupos 
 
 Ao tentar fazer o back up, selecionar uma Conta de Armazenamento para descobrir ações de ficheiros no seu interior regista a Conta de Armazenamento com o cofre a partir do qual isto é feito. Se optar por proteger as partilhas de ficheiros com um cofre diferente, [não registe](manage-afs-backup.md#unregister-a-storage-account) a Conta de Armazenamento escolhida a partir deste cofre.
 
+### <a name="why-cant-i-change-the-vault-to-configure-backup-for-the-file-share"></a>Por que não posso mudar o cofre para configurar a cópia de segurança para a partilha de ficheiros?
+
+Se a conta de armazenamento já estiver registada com um cofre ou outras ações de ficheiro na conta de armazenamento estão protegidas através de um cofre, não lhe é dada a opção de alterá-la, uma vez que todas as ações de ficheiros numa conta de armazenamento só podem ser protegidas pelo mesmo cofre. Caso queira mudar o cofre, terá de parar a [proteção de todas as ações](manage-afs-backup.md#stop-protection-on-a-file-share) de ficheiros na conta de armazenamento do cofre conectado, [desagregar](manage-afs-backup.md#unregister-a-storage-account) a Conta de Armazenamento e, em seguida, escolher um cofre diferente para proteção.
+
 ### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>Posso mudar o Cofre para o qual apoio as minhas ações?
 
 Yes. No entanto, terá de parar a [proteção da parte do ficheiro](manage-afs-backup.md#stop-protection-on-a-file-share) do cofre conectado, de não [registar](manage-afs-backup.md#unregister-a-storage-account) esta Conta de Armazenamento e, em seguida, protegê-la de um cofre diferente.
-
-### <a name="how-many-azure-file-shares-can-i-protect-in-a-vault"></a>Quantas partilhas de ficheiros do Azure posso proteger num Cofre?
-
-Pode proteger as ações de ficheiros Azure de até 50 Contas de Armazenamento por Cofre. Também pode proteger até 200 partilhas de ficheiros do Azure num único cofre.
 
 ### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>Posso proteger duas partilhas de ficheiros diferentes da mesma Conta de Armazenamento em cofres diferentes?
 
@@ -155,6 +155,6 @@ Aqui está um exemplo de como isto funciona:
 >[!NOTE]
 >As mudanças de política afetarão apenas os pontos de recuperação criados como parte do backup programado. Para cópias de segurança a pedido, a retenção é determinada pelo valor **Retenuso Till** especificado no momento da tomada do backup.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Problemas de resolução de problemas ao mesmo tempo que apoiam as ações de ficheiros da Azure](troubleshoot-azure-files.md)

@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/15/2020
 ms.author: mihansen
-ms.openlocfilehash: bf05ede858c86fa82e199c800ea42747745c9c19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3fbbfd931efb0e570bc96639bc6b7943fddc0237
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871918"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87417680"
 ---
 # <a name="configure-azure-rbac-for-fhir"></a>Configure Azure RBAC para FHIR 
 
@@ -51,10 +51,9 @@ Na caixa **Select,** procure um utilizador, um responsável de serviço ou um gr
 
 A Azure API para fHIR irá cache decisões por até 5 minutos. Se conceder a um utilizador acesso ao servidor FHIR adicionando-os à lista de IDs de objetos permitidos, ou removê-los da lista, deverá esperar que leve até cinco minutos para que as alterações nas permissões se propaguem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a atribuir papéis de Azure RBAC para o plano de dados FHIR. Em seguida, saiba mais sobre as definições adicionais para a AZure API para FHIR:
  
 >[!div class="nextstepaction"]
 >[Definições adicionais Azure API para FHIR](azure-api-for-fhir-additional-settings.md)
-

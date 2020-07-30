@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
-ms.openlocfilehash: eb59d30079c830ad7d6f3dbd5fb8d48e6cd06c67
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4f94c3e643e372d96a6e9d100773ccd8929e4c8b
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291869"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87416507"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou eliminar uma rede virtual de espreitar
 
@@ -118,7 +118,7 @@ Se quiser que as redes virtuais se comuniquem às vezes, mas nem sempre, em vez 
 - Ao criar um perspeção global, as redes virtuais espreitadas podem existir em qualquer região de nuvem pública de Azure ou regiões de nuvem da China ou regiões de nuvem do Governo. Não se pode olhar através das nuvens. Por exemplo, um VNet em nuvem pública Azure não pode ser espreitado para um VNet na nuvem Azure China.
 - Os recursos numa rede virtual não conseguem comunicar com o endereço IP de front-end de um balanceador de carga interno Básico numa rede virtual de peering global. O suporte para Balanceadores de Carga Básicos existe apenas na mesma região. O suporte para Balanceadores de Carga Standard existe para VNet Peering e VNet Peering Global. Os serviços que utilizam um balanceador de carga básico que não funcionará sobre o Global VNet Peering são documentados [aqui.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
 - Você pode usar gateways remotos ou permitir o trânsito de gateway em redes virtuais globalmente espreitadas e redes virtuais com vista local.
-- As redes virtuais podem estar na mesma, ou subscrições diferentes. Ao espreitar redes virtuais em diferentes subscrições, ambas as subscrições podem ser associadas ao mesmo ou diferente inquilino do Azure Ative Directory. Se ainda não tem um inquilino da AD, pode [criar um.](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant) O suporte para espreitar através de redes virtuais a partir de subscrições associadas a diferentes inquilinos do Azure Ative Directory não está disponível no Portal. Pode utilizar CLI, PowerShell ou Modelos.
+- As redes virtuais podem estar na mesma, ou subscrições diferentes. Ao espreitar redes virtuais em diferentes subscrições, ambas as subscrições podem ser associadas ao mesmo ou diferente inquilino do Azure Ative Directory. Se ainda não tem um inquilino da AD, pode [criar um.](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant)
 - As redes virtuais que você peer deve ter espaços de endereço IP não sobrepostos.
 - Não é possível adicionar intervalos de endereços ou eliminar intervalos de endereços a partir do espaço de endereços de uma rede virtual uma vez que uma rede virtual é espreitada com outra rede virtual. Para adicionar ou remover os intervalos de endereços, elimine os pontos de observação, adicione ou remova as gamas de endereços e, em seguida, re-crie o espreitante. Para adicionar intervalos de endereços ou remover intervalos de endereços de redes virtuais, consulte [Gerir redes virtuais](manage-virtual-network.md).
 - Pode consultar duas redes virtuais implementadas através do Resource Manager ou uma rede virtual implantada através do Resource Manager com uma rede virtual implantada através do modelo de implementação clássico. Não é possível espreitar duas redes virtuais criadas através do modelo clássico de implementação. Se não está familiarizado com os modelos de implementação da Azure, leia o artigo dos [modelos de implementação Understand Azure.](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Pode utilizar um [Gateway de VPN](../vpn-gateway/design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para ligar duas redes virtuais criadas através do modelo de implementação clássica.
@@ -154,7 +154,7 @@ Se a sua conta não for atribuída a uma das funções anteriores, deve ser atri
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/read   | Leia uma rede virtual a espreitar   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/delete | Excluir um olhar de rede virtual |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - É criado um peering de rede virtual entre redes virtuais criadas com o mesmo ou com diferentes modelos de implementação que existam na mesma ou em diferentes subscrições. Conclua um tutorial para um dos cenários seguintes:
 

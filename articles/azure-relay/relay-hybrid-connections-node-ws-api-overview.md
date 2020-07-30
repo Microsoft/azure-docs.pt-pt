@@ -3,12 +3,13 @@ title: Visão geral das APIs do Nó de Relé Azure Microsoft Docs
 description: Este artigo fornece uma visão geral da API Node.js para o serviço Azure Relay. Também mostra como usar o pacote hyco-ws Node.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 71faa2ee143488483aff4300152aab6d1e2b2a88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 67d818a95d63b3097f81f799a287fb4c48a1cfb7
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316740"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386253"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Visão geral da API do relé híbrido de ligações híbridas
 
@@ -18,7 +19,7 @@ O [`hyco-ws`](https://www.npmjs.com/package/hyco-ws) pacote de nó para ligaçõ
 
 Aplicações existentes que `require('ws')` podem usar este pacote `require('hyco-ws')` com, em vez disso, o que também permite cenários híbridos em que uma aplicação pode ouvir as ligações WebSocket localmente a partir de "dentro da firewall" e via Conexões Híbridas, tudo ao mesmo tempo.
   
-## <a name="documentation"></a>Documentation
+## <a name="documentation"></a>Documentação
 
 As APIs estão [documentadas no pacote principal 'ws'.](https://github.com/websockets/ws/blob/master/doc/ws.md) Este artigo descreve como este pacote difere dessa linha de base. 
 
@@ -199,5 +200,5 @@ WebSocket.relayedConnect(
 
 ## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre o Azure Relay, visite estes links:
-* [O que é o Reencaminhamento do Azure?](relay-what-is-it.md)
+* [O que é o Azure Relay?](relay-what-is-it.md)
 * [APIs de retransmissão disponível](relay-api-overview.md)

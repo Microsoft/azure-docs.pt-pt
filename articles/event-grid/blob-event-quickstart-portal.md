@@ -3,12 +3,12 @@ title: 'Quickstart: Enviar eventos de armazenamento Blob para o web endpoint - p
 description: 'Quickstart: Use o portal Azure Event Grid e Azure para criar a conta de armazenamento Blob e subscreva os seus eventos. Envie os eventos para um Webhook.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: fe942a4daa877088bd354352aa994e4e283f9be5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 46cd88558334239a1a9971c63b8b2608def3c4d3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103641"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421608"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Quickstart: Route Blob storage events to web endpoint with the Azure portal
 
@@ -50,7 +50,7 @@ Antes de subscrever aos eventos do armazenamento de Blobs, vamos criar o ponto f
 
 1. Selecione **Implementar no Azure** para implementar a solução para a sua subscrição. 
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to Deploy to Aquent." /></a>
 2. Na página **de implantação personalizada,** faça os seguintes passos: 
     1. Para **o grupo de recursos,** selecione o grupo de recursos que criou ao criar a conta de armazenamento. Será mais fácil para si limpar depois de terminar o tutorial eliminando o grupo de recursos.  
     2. Para **Nome do Site,** insira um nome para a aplicação web.
@@ -131,7 +131,7 @@ Aciona um evento para o armazenamento de Blobs ao carregar um ficheiro. O fichei
 
    ![Blob criou evento](./media/blob-event-quickstart-portal/blob-created-event.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se quiser continuar a trabalhar com este evento, não limpe os recursos criados neste artigo. Caso contrário, elimine os recursos que criou neste artigo.
 

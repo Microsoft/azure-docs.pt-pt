@@ -2,18 +2,18 @@
 title: Depreciação da recuperação de desastres entre sites geridos pelo cliente (com VMM) usando Azure Site Recovery / Microsoft Docs
 description: Detalhes sobre a depreciação futura de DR entre sites de propriedade do cliente usando Hyper-V e entre sites geridos pela SCVMM para Azure e opções alternativas
 services: site-recovery
-author: rajani-janaki-ram
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
 ms.date: 02/25/2020
-ms.author: rajanaki
-ms.openlocfilehash: 501cf161a22aaa1ec37abda2b750106b6eaf3dc4
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.author: sharrai
+ms.openlocfilehash: 9ffe7a3158b1de6828350947dcf81ef41d08708d
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135216"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421846"
 ---
 # <a name="deprecation-of-disaster-recovery-between-customer-managed-sites-with-vmm-using-azure-site-recovery"></a>Depreciação da recuperação de desastres entre sites geridos pelo cliente (com VMM) usando a recuperação do site Azure
 

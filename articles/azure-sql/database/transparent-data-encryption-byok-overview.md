@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 507253fcddddf7331ff51c71904c2cdd8e7e5dfd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cf0fec1f081a232abc88941e3dd785fb7617fb57
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514731"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387120"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Encriptação de Dados Transparente do SQL do Azure com chave gerida pelo cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -78,7 +78,7 @@ Os auditores podem utilizar o Azure Monitor para rever os registos auditevent do
 
 - O cofre-chave e a base de dados SQL/instância gerida devem pertencer ao mesmo inquilino do Azure Ative Directory. O cofre de chaves de inquilino cruzado e as interações do servidor não são suportadas. Para mover recursos depois, tDE com AKV terá que ser reconfigurado. Saiba mais sobre [a movimentação de recursos.](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
 
-- A função [de eliminação suave](../../key-vault/general/overview-soft-delete.md) deve ser ativada no cofre da chave, para proteger contra a perda de dados a eliminação acidental da chave (ou cofre de chaves). Os recursos de soft-deleted são retidos por 90 dias, a menos que entretanto sejam recuperados ou purgados pelo cliente. As ações *de recuperação* e *purga* têm as suas próprias permissões associadas a uma política de acesso ao cofre chave. A função de eliminação suave está desligada por predefinição e pode ser ativada através do [PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) ou [do CLI](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete). Não pode ser ativado através do portal Azure.  
+- A função [de eliminação suave](../../key-vault/general/soft-delete-overview.md) deve ser ativada no cofre da chave, para proteger contra a perda de dados a eliminação acidental da chave (ou cofre de chaves). Os recursos de soft-deleted são retidos por 90 dias, a menos que entretanto sejam recuperados ou purgados pelo cliente. As ações *de recuperação* e *purga* têm as suas próprias permissões associadas a uma política de acesso ao cofre chave. A função de eliminação suave está desligada por predefinição e pode ser ativada através do [PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) ou [do CLI](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete). Não pode ser ativado através do portal Azure.  
 
 - Conceda ao servidor ou ao acesso de instância gerida ao cofre de chaves (obter, wrapKey, desembrulhar aKey) utilizando a sua identidade de Diretório Ativo Azure. Ao utilizar o portal Azure, a identidade Azure AD é criada automaticamente. Ao utilizar o PowerShell ou o CLI, a identidade AZure AD deve ser explicitamente criada e a conclusão deve ser verificada. Consulte [o Configure TDE com BYOK](transparent-data-encryption-byok-configure.md) e [Configure TDE com BYOK para SQL Managed Instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) para instruções detalhadas passo a passo ao utilizar o PowerShell.
 

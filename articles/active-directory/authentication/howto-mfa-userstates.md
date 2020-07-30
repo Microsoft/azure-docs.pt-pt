@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 860616cbea598e40494155e250254b3c607c1173
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2bd688a9e488c1206b0c8531698b061f650e2afe
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027500"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87417935"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Ativar o Multi-Factor Authentication do Azure por utilizador para garantir eventos de início de sessão seguros
 
@@ -55,7 +55,7 @@ Utilize os seguintes passos para aceder à página do portal Azure onde pode vis
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador.
 1. Procure e selecione *O Diretório Ativo Azure,* selecione **Utilizadores**  >  **Todos os utilizadores**.
-1. Selecione **Multi-Factor Authentication**. Pode ser necessário deslocar-se para a direita para ver esta opção de menu. Selecione a imagem de exemplo abaixo para ver a janela completa do portal Azure e a localização do menu:[![](media/howto-mfa-userstates/selectmfa-cropped.png "Selecione autenticação multi-factor a partir da janela do Utilizadores em Azure AD")](media/howto-mfa-userstates/selectmfa.png#lightbox)
+1. Selecione **Multi-Factor Authentication**. Pode ser necessário deslocar-se para a direita para ver esta opção de menu. Selecione a imagem de exemplo abaixo para ver a janela completa do portal Azure e a localização do menu: [ ![ Selecione a autenticação multi-factor da janela do Utilizadores em Azure AD.](media/howto-mfa-userstates/selectmfa-cropped.png)](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. Abre-se uma nova página que exibe o estado do utilizador, como mostra o exemplo a seguir.
    ![Screenshot que mostra exemplo informações do estado do utilizador para autenticação multi-factor Azure](./media/howto-mfa-userstates/userstate1.png)
 
@@ -179,7 +179,7 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 > [!NOTE]
 > Se o MFA for re-activado num objeto de utilizador que já tenha dados de registo, como telefone ou e-mail, então os administradores precisam de ter esse utilizador a re-registar MFA através do portal Azure ou powerShell. Se o utilizador não se re-registar, o seu estado de MFA não transita de *Enabled* para *Enforcado* na UI de gestão de MFA.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para configurar as definições de autenticação multi-factor Azure, consulte [as definições de autenticação multi-factor Configure Azure](howto-mfa-mfasettings.md).
 

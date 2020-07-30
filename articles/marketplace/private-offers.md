@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: aea093cbbb59824973c351f6df23113e1b51ab69
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7e93772a77ac1edb88c8e1a56c8db216c6e9fbd3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319869"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420112"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Ofertas privadas no mercado comercial da Microsoft
 
@@ -43,6 +43,9 @@ Os planos privados são componentes de uma oferta e só são visíveis e purciá
 
 Para *novas ofertas que incluem apenas planos privados,* os editores podem criar as suas ofertas como qualquer outra oferta, e depois marcar os planos como privados. As ofertas que apenas têm planos privados não serão detetáveis ou acessíveis através do mercado comercial da Microsoft ou do [portal Azure](https://azure.microsoft.com/features/azure-portal/) por clientes que não estejam associados à oferta.
 
+>[!NOTE]
+>Uma oferta que contenha apenas planos privados não será visível no mercado público de Azure ou AppSource.
+
 ## <a name="targeting-customers-with-private-offers"></a>Direcionar clientes com ofertas privadas
 
 Para ofertas privadas novas e existentes, os editores podem direcionar os clientes usando identificadores de subscrição. Os editores que usam uma oferta de aplicação Virtual Machine ou Azure podem limitar a disponibilidade de um plano privado a um ID de subscrição individual do Azure ou carregar um CSV de até 20.000 IDs de subscrição Azure. Ao utilizar uma oferta privada da SaaS App, os editores podem associar um ID de inquilino para limitar a disponibilidade de um plano privado, utilizando a abordagem de upload manual ou CSV.
@@ -61,6 +64,7 @@ As ofertas privadas também aparecerão nos resultados da pesquisa. Procura o di
 
 >[!Note]
 >As ofertas privadas não são suportadas com subscrições estabelecidas através de um revendedor do programa Cloud Solution Provider (CSP).
+
 
 <!---
 ## Next steps

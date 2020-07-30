@@ -1,18 +1,18 @@
 ---
 title: Executar um exercício de recuperação de desastres NHyper-V para um local secundário com recuperação do local de Azure
 description: Aprenda a executar um berbequim DR para VMs hiper-V em nuvens VMM para um centro de dados secundário no local usando a recuperação do local de Azure.
-author: rajani-janaki-ram
-manager: rochakm
+author: sideeksh
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: rajanaki
-ms.openlocfilehash: 0b6055cdf930c93ba096a21ebc0b74c204540a79
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: sideeksh
+ms.openlocfilehash: 569af28f5773d843f49dd9c8143b45e308ae142e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076062"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420418"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Faça um exercício DR para Hiper-V VMs para um local secundário
 
@@ -143,7 +143,7 @@ Recomendamos que não faça um teste de falha na rede do site de recuperação d
 * Testes como este levam a tempo de inatividade para a sua aplicação de produção. Peça aos utilizadores da aplicação para não utilizarem a aplicação quando a broca DR estiver em andamento.  
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Depois de ter feito um exercício DR com sucesso, pode [executar um fracasso total](site-recovery-failover.md).
 
 

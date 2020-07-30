@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/28/2020
 ms.author: lbosq
-ms.openlocfilehash: 7879793cbbb029468e84b14f8e8eee793cf4c530
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 7b0ac1e301705b24d706638deb3ee0a15d49c87b
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260734"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87415096"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Utilize comandos de extensão MongoDB para gerir os dados armazenados na API da Azure Cosmos para o MongoDB 
 
@@ -212,8 +213,8 @@ A tabela a seguir descreve os parâmetros dentro do comando:
 
 | **Campo** | **Tipo** | **Necessário** | **Descrição** |
 |---------|---------|---------|---------|
-| `customAction` | `string` | Necessário | Nome do comando personalizado. Deve ser "CreateCollection".|
-| `collection` | `string` | Necessário | O nome da coleção. Não são permitidos caracteres ou espaços especiais.|
+| `customAction` | `string` | Obrigatório | Nome do comando personalizado. Deve ser "CreateCollection".|
+| `collection` | `string` | Obrigatório | O nome da coleção. Não são permitidos caracteres ou espaços especiais.|
 | `offerThroughput` | `int` | Opcional | Provisão para definir na base de dados. Se este parâmetro não for fornecido, irá incumprimento ao mínimo, 400 RU/s. * Para especificar a potência para além de 10.000 RU/s, `shardKey` o parâmetro é necessário.|
 | `shardKey` | `string` | Necessário para coleções com grande produção | O caminho para a Chave de Fragmentos para a coleção de fragmentos. Este parâmetro é necessário se definir mais de 10.000 RU/s em `offerThroughput` .  Se for especificado, todos os documentos inseridos exigirão esta chave e valor. |
 | `autoScaleSettings` | `Object` | Necessário para [o modo autoescala](provision-throughput-autoscale.md) | Este objeto contém as definições associadas ao modo de capacidade de autoescalação. Pode configurar o `maxThroughput` valor, que descreve a maior quantidade de Unidades de Pedido que a coleção será aumentada de forma dinâmica. |

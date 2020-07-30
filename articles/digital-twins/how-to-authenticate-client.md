@@ -1,5 +1,5 @@
 ---
-title: Escrever código de autenticação de aplicativos
+title: Escrever o código de autenticação da aplicação
 titleSuffix: Azure Digital Twins
 description: Ver como escrever código de autenticação numa aplicação ao cliente
 author: baanders
@@ -7,12 +7,13 @@ ms.author: baanders
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4d235280ae4a600994eb93ec08c7a13630f9682f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 1eebacefa2e91970263c301de4ff160ea7c9f2eb
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131587"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420350"
 ---
 # <a name="write-client-app-authentication-code"></a>Escreva código de autenticação de aplicativos de cliente
 
@@ -193,7 +194,7 @@ Note mais uma vez que quando o código acima coloca o ID do cliente, iD do inqui
 
 A MSAL tem muitas mais opções que pode usar, para implementar coisas como caching e outros fluxos de autenticação. Para obter mais informações sobre este documento, consulte [*a visão geral da Biblioteca de Autenticação da Microsoft (MSAL)*](../active-directory/develop/msal-overview.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia mais sobre como funciona a segurança em Azure Digital Twins:
 * [*Conceitos: Segurança para soluções Azure Digital Twins*](concepts-security.md)

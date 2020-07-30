@@ -3,14 +3,14 @@ title: Regras de Firewall do Azure Event Hubs Firewall Microsoft Docs
 description: Utilize regras de firewall para permitir ligações de endereços IP específicos para Azure Event Hubs.
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: 2b886aaaf40e5c82d9c7ac3ce5abeda8f54cad3b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a27c5981bb14c2ff98dfcb74692cf9db19a55137
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288038"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421506"
 ---
-# <a name="configure-ip-firewall-rules-for-an-azure-event-hubs-namespace"></a>Configure as regras de firewall IP para um espaço de nomes Azure Event Hubs
+# <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-ip-addresses-or-ranges"></a>Permitir o acesso aos espaços de nomes do Azure Event Hubs a partir de endereços ou intervalos IP específicos
 Por predefinição, os espaços de nomes do Event Hubs estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Roteamento Inter-Domain Sem Classe).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
 
 Esta funcionalidade é útil em cenários em que os Azure Event Hubs deverão ser acessíveis apenas a partir de determinados sites conhecidos. As regras de firewall permitem-lhe configurar regras para aceitar tráfego originário de endereços IPv4 específicos. Por exemplo, se utilizar Os Centros de Eventos com [Rota Azure Express,][express-route]pode criar uma regra de **firewall** para permitir o tráfego a partir apenas dos endereços IP da infraestrutura no local. 
@@ -37,20 +37,28 @@ As regras de firewall IP são aplicadas ao nível do espaço de nomes do Event H
 Esta secção mostra-lhe como usar o portal Azure para criar regras de firewall IP para um espaço de nomes de Event Hubs. 
 
 1. Navegue para o seu **espaço de nomes de Centros de Eventos** no [portal Azure.](https://portal.azure.com)
-2. No menu esquerdo, selecione A opção **de Rede.** Se selecionar a opção **Todas as redes,** o centro de eventos aceita ligações a partir de qualquer endereço IP. Esta definição é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0. 
+4. Selecione **rede em** **Definições** no menu esquerdo. 
+
+    > [!NOTE]
+    > Você vê o **separador Networking** apenas para espaços de nome **padrão** ou **dedicados.** 
+
+    Por predefinição, a opção **de rede Selecionada** é selecionada. Se não especificar uma regra de firewall IP ou adicionar uma rede virtual nesta página, o espaço de nome pode ser acedido através da internet pública (utilizando a chave de acesso). 
+
+    :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Separador de redes - opção de redes selecionada" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
+
+    Se selecionar a opção **Todas as redes,** o centro de eventos aceita ligações a partir de qualquer endereço IP (utilizando a chave de acesso). Esta definição é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0. 
 
     ![Firewall - Todas as opções de redes selecionadas](./media/event-hubs-firewall/firewall-all-networks-selected.png)
-1. Para restringir o acesso a redes específicas e endereços IP, selecione a opção **redes Selecionadas.** Na secção **Firewall,** siga estes passos:
+1. Para restringir o acesso a endereços IP específicos, confirme que a opção **de redes Selecionadas** está selecionada. Na secção **Firewall,** siga estes passos:
     1. Selecione Adicionar a opção **de endereço IP** do seu cliente para dar ao seu cliente atual IP o acesso ao espaço de nome. 
     2. Para **o intervalo de endereços**, insira um endereço IPv4 específico ou um intervalo de endereço IPv4 na notação CIDR. 
     3. Especificar se pretende **permitir que serviços de confiança da Microsoft contornem esta firewall.** 
 
-        > [!WARNING]
-        > Se escolher a opção **redes Selecionadas** e não especificar um endereço IP ou intervalo de endereços, o serviço permitirá o tráfego de todas as redes. 
-
         ![Firewall - Todas as opções de redes selecionadas](./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png)
 3. **Selecione Guarde** na barra de ferramentas para guardar as definições. Aguarde alguns minutos para que a confirmação apareça nas notificações do portal.
 
+    > [!NOTE]
+    > Para restringir o acesso a redes virtuais específicas, consulte [permitir o acesso a redes específicas.](event-hubs-service-endpoints.md)
 
 ## <a name="use-resource-manager-template"></a>Utilizar o modelo do Resource Manager
 
@@ -141,7 +149,7 @@ Parâmetros do modelo:
 
 Para implementar o modelo, siga as instruções para [O Gestor de Recursos Azure][lnk-deploy].
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para limitar o acesso aos Centros de Eventos às redes virtuais Azure, consulte o seguinte link:
 

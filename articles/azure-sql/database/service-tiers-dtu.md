@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
-ms.openlocfilehash: 901ad08440cf1cfbbbab4779a08a87c89a72cc59
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b7354a921950daec5cc429fa07318213c8924264
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281502"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382700"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Escalões de serviço no modelo de compra baseado em DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,15 +36,14 @@ A escolha de um nível de serviço depende principalmente da continuidade do neg
 
 ||Básica|Standard|Premium|
 | :-- | --: |--:| --:|
-|Carga de trabalho de destino|Desenvolvimento e produção|Desenvolvimento e produção|Desenvolvimento e produção|
-|Uptime SLA|99,99%|99,99%|99,99%|
-|Retenção máxima de backup|7 dias|35 dias|35 dias|
-|CPU|Baixo|Baixo, Médio, Alto|Médio, Alto|
-|Produção de IO (aproximada) |1-5 IOPS por DTU| 1-5 IOPS por DTU | 25 IOPS por DTU|
-|Latência IO (aproximada)|5 ms (ler), 10 ms (escrever)|5 ms (ler), 10 ms (escrever)|2 ms (ler/escrever)|
-|Indexação de colunas |N/D|S3 e acima|Suportado|
-|OLTP dentro da memória|N/D|N/D|Suportado|
-|||||
+|**Carga de trabalho de destino**|Desenvolvimento e produção|Desenvolvimento e produção|Desenvolvimento e produção|
+|**Uptime SLA**|99,99%|99,99%|99,99%|
+|**Retenção máxima de backup**|7 dias|35 dias|35 dias|
+|**CPU**|Baixo|Baixo, Médio, Alto|Médio, Alto|
+|**Produção de IO (aproximada)** |1-5 IOPS por DTU| 1-5 IOPS por DTU | 25 IOPS por DTU|
+|**Latência IO (aproximada)**|5 ms (ler), 10 ms (escrever)|5 ms (ler), 10 ms (escrever)|2 ms (ler/escrever)|
+|**Indexação de colunas** |N/D|S3 e acima|Suportado|
+|**OLTP dentro da memória**|N/D|N/D|Suportado|
 
 > [!IMPORTANT]
 > Os níveis de serviço Basic, Standard S0, S1 e S2 fornecem menos de um vCore (CPU).  Para cargas de trabalho intensivas de CPU, recomenda-se um nível de serviço de S3 ou superior. 
@@ -61,9 +60,8 @@ Os tamanhos de cálculo são expressos em termos de Unidades de Transação de D
 
 ||Básica|Standard|Premium|
 | :-- | --: | --: | --: |
-| Tamanho máximo de armazenamento | 2 GB | 1 TB | 4 TB  |
-| DTUs máximos | 5 | 3.000 | 4000 | 
-|||||
+| **Tamanho máximo de armazenamento** | 2 GB | 1 TB | 4 TB  |
+| **DTUs máximos** | 5 | 3.000 | 4000 |
 
 > [!IMPORTANT]
 > Em algumas circunstâncias, pode precisar de encolher uma base de dados para recuperar o espaço não usused. Para obter mais informações, consulte [Gerir o espaço de ficheiros na Base de Dados Azure SQL](file-space-manage.md).
@@ -72,12 +70,11 @@ Os tamanhos de cálculo são expressos em termos de Unidades de Transação de D
 
 || **Básica** | **Standard** | **Premium** |
 | :-- | --: | --: | --: |
-| Tamanho máximo de armazenamento por base de dados  | 2 GB | 1 TB | 1 TB |
-| Tamanho máximo de armazenamento por piscina | 156 GB | 4 TB | 4 TB |
-| Máximo de EDTUs por base de dados | 5 | 3.000 | 4000 |
-| Máximo de EDTUs por piscina | 1600 | 3.000 | 4000 |
-| Número máximo de bases de dados por piscina | 500  | 500 | 100 |
-|||||
+| **Tamanho máximo de armazenamento por base de dados**  | 2 GB | 1 TB | 1 TB |
+| **Tamanho máximo de armazenamento por piscina** | 156 GB | 4 TB | 4 TB |
+| **Máximo de EDTUs por base de dados** | 5 | 3.000 | 4000 |
+| **Máximo de EDTUs por piscina** | 1600 | 3.000 | 4000 |
+| **Número máximo de bases de dados por piscina** | 500  | 500 | 100 |
 
 > [!IMPORTANT]
 > Mais de 1 TB de armazenamento no nível Premium está atualmente disponível em todas as regiões, exceto: China Leste, China Norte, Alemanha Central, Alemanha Nordeste, Centro Oeste dos EUA, eua doD regiões e governo dos EUA Central. Nestas regiões, o máximo de armazenamento no nível Premium é limitado a 1 TB.  Para obter mais informações, consulte [as limitações atuais do P11-P15.](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)  
@@ -177,7 +174,7 @@ As métricas-chave no benchmark são o tempo de produção e resposta.
 | Standard |Transações por minuto |Percentil 90 a 1,0 segundos |
 | Básico |Transações por hora |Percentil 80 a 2,0 segundos |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter informações sobre tamanhos específicos de cálculo e opções de tamanho de armazenamento disponíveis para bases de dados individuais, consulte [os limites de recursos baseados em DTU da Base de Dados SQL para bases de dados individuais.](resource-limits-dtu-single-databases.md#single-database-storage-sizes-and-compute-sizes)
 - Para obter detalhes sobre tamanhos específicos de computação e opções de tamanho de armazenamento disponíveis para piscinas elásticas, consulte [os limites de recursos baseados em DTU da Base de Dados SQL](resource-limits-dtu-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).

@@ -6,25 +6,28 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: d85fe36bb948ae9a0c81fa25f87450c7f5fe93b7
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 5db756b60330cdac4e43e13bfe29d9397f87af50
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337267"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421659"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-preview"></a>Cache Azure para Redis com Link Privado Azure (Pré-visualização)
 Azure Private Endpoint é uma interface de rede que o liga de forma privada e segura ao Azure Cache para Redis alimentado por Azure Private Link. 
 
 Neste artigo, você vai aprender a criar um Azure Cache, uma rede virtual Azure, e um Private Endpoint usando o portal Azure.  
 
+> [!IMPORTANT]
+> Esta pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 
+> 
+
 ## <a name="prerequisites"></a>Pré-requisitos
 * Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
 
 > [!NOTE]
-  > Esta funcionalidade está neste momento em pré-visualização - [contacte-nos](mailto:azurecache@microsoft.com) se estiver interessado.
-  >
-
+> Esta funcionalidade está neste momento em pré-visualização - [contacte-nos](mailto:azurecache@microsoft.com) se estiver interessado.
+>
 
 ## <a name="create-a-cache"></a>Criar uma cache
 1. Para criar uma cache, inscreva-se no [portal Azure](https://portal.azure.com) e selecione **Criar um recurso.** 
@@ -151,7 +154,7 @@ Nesta secção, irá criar um ponto final privado e conectá-lo à cache que cri
 12. Assim que aparecer a mensagem **verde da validação,** selecione **Criar**.
 
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre o Private Link, consulte a [documentação do Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview). 
 

@@ -12,12 +12,12 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53c4e3e3e3b6aaca2f861a8c5aba528541dc4854
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 28b04828bc778a2b9076c9ea1970ce80f231fbe3
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322198"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386015"
 ---
 # <a name="what-is-application-management"></a>O que é a gestão de aplicações?
 
@@ -63,7 +63,7 @@ Existem quatro tipos principais de aplicações que pode adicionar às suas **ap
 
 - **Aplicações personalizadas** – Ao construir as suas próprias aplicações de linha de negócio, pode integrá-las com Azure AD para suportar uma única sação. Ao registar a sua aplicação com a Azure AD, tem controlo sobre a política de autenticação para a aplicação. Para obter mais informações, consulte [a orientação para os desenvolvedores.](developer-guidance-for-integrating-applications.md)
 
-- **Aplicações não-Galeria –** Traga as suas próprias aplicações! Suporte um único sinal para outras aplicações adicionando-as ao Azure AD. Existem várias formas de integrar uma aplicação, algumas delas estão listadas abaixo. Para obter mais informações, consulte [configurar um único sinal para aplicações não-galerias.](configure-single-sign-on-non-gallery-applications.md)
+- **Aplicações não-Galeria –** Traga as suas próprias aplicações! Suporte um único sinal para outras aplicações adicionando-as ao Azure AD. Existem várias formas de integrar uma aplicação, algumas delas estão listadas abaixo. Para obter mais informações, consulte [configurar o único sinal de inscrição da SAML.](configure-saml-single-sign-on.md)
 
 >[!TIP]
 >Pode integrar o Azure AD com uma aplicação mesmo que ainda não esteja pré-configurada e na galeria de aplicações. Pode **integrar o AZure AD com qualquer um** dos seguintes
@@ -91,8 +91,8 @@ Ao migrar para o Microsoft Azure AD, pode reduzir os custos e remover a complic
 
 Para aplicações focadas em Recursos Humanos, ou outras aplicações com um grande conjunto de utilizadores, pode aproveitar o fornecimento de App para automatizar o processo de provisionamento e desprovisionamento de utilizadores, ver O que é o provisionamento de [aplicações?](../app-provisioning/user-provisioning.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Quickstart Series on App Managemement in Azure AD](view-applications-portal.md)
+- [Quickstart Series on App Management in Azure AD](view-applications-portal.md)
 - [Começar com a integração de aplicações](plan-an-application-integration.md)
 - [Saiba como automatizar o provisionamento](../app-provisioning/user-provisioning.md)

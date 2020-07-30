@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 7e8e12c3e10243e2e8adb23527683813f33a75a4
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d05670d55d8a4f9ad7ab691da3f05f1c3e0cd177
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084380"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386151"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco passos para garantir a sua infraestrutura de identidade
 
@@ -35,7 +35,7 @@ Esta lista de verificação irá ajudá-lo a implementar rapidamente ações rec
 Certifique-se de que mantém as características e passos completos durante a leitura desta lista de verificação.
 
 > [!NOTE]
-> Muitas das recomendações deste documento aplicam-se apenas a aplicações configuradas para utilizar o Azure Ative Directory como seu fornecedor de identidade. Configurar aplicações para Sign-On único assegura os benefícios de políticas credenciais, deteção de ameaças, auditoria, registo e outras funcionalidades adicionam a essas aplicações. [O único sinal através do Azure Ative Directory](../../active-directory/manage-apps/configure-single-sign-on-non-gallery-applications.md) é a base - na qual todas estas recomendações se baseiam.
+> Muitas das recomendações deste documento aplicam-se apenas a aplicações configuradas para utilizar o Azure Ative Directory como seu fornecedor de identidade. Configurar aplicações para Sign-On único assegura os benefícios de políticas credenciais, deteção de ameaças, auditoria, registo e outras funcionalidades adicionam a essas aplicações. [A Azure AD Application Management](../../active-directory/manage-apps/what-is-application-management.md) é a base - na qual todas estas recomendações se baseiam.
 
 As recomendações neste documento estão alinhadas com a [Pontuação De Identidade Segura,](../../active-directory/fundamentals/identity-secure-score.md)uma avaliação automatizada da configuração de segurança de identidade do seu inquilino Azure. As organizações podem usar a página Identity Secure Score no portal AD Azure para encontrar lacunas na sua configuração de segurança atual para garantir que seguem as [melhores práticas](identity-management-best-practices.md) atuais da Microsoft para a segurança. A implementação de cada recomendação na página Secure Score aumentará a sua pontuação e permitir-lhe-á acompanhar o seu progresso, além de ajudá-lo a comparar a sua implementação com outras organizações de tamanho semelhante ou a sua indústria.
 

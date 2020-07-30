@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 07/21/2020
 ms.author: jushiman
-ms.openlocfilehash: f6ed5fee8e6d4f1f0575df733b8b95d1d6990513
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 99419a73386f39492d78ee93aeb61f432ac9c690
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289691"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421064"
 ---
 # <a name="sizes-for-virtual-machines-in-azure"></a>Tamanhos para máquinas virtuais em Azure
 
@@ -22,7 +22,7 @@ Este artigo descreve os tamanhos e opções disponíveis para as máquinas virtu
 | Tipo | Tamanhos | Descrição |
 |------|-------|-------------|
 | [Fins gerais](sizes-general.md)   | B, Dsv3, Dv3, Dasv4, Dav4, DSv2, Dv2, Av2, DC, DCv2, Dv4, Dsv4, Ddv4, Ddsv4  | Relação CPU-memória equilibrada. Ideais para testes e desenvolvimento, bases de dados pequenas a médias e servidores Web de tráfego baixo a médio. |
-| [Com otimização de computação](sizes-compute.md) | Fsv2 | Elevado rácio CPU-memória. Bom para servidores web de tráfego médio, aparelhos de rede, processos de lote e servidores de aplicações. |
+| [Com otimização de computação](sizes-compute.md) | F, Fs, Fsv2 | Elevado rácio CPU-memória. Bom para servidores web de tráfego médio, aparelhos de rede, processos de lote e servidores de aplicações. |
 | [Com otimização de memória](sizes-memory.md) | Esv3, Ev3, Easv4, Eav4, Ev4, Esv4, Edv4, Edsv4, Mv2, M, DSv2, Dv2 | Relação memória alta-CPU. Ideais para servidores de bases de dados relacionais, caches médias a grandes e análise dentro da memória.                 |
 | [Com otimização de armazenamento](sizes-storage.md) | Lsv2 | Alta produção de disco e IO ideal para Big Data, SQL, bases de dados NoSQL, armazenamento de dados e grandes bases de dados transacionais.  |
 | [GPU](sizes-gpu.md) | NC, NCv2, NCv3, ND, NDv2 (Preview), NV, NVv3, NVv4 | Máquinas virtuais especializadas direcionadas para renderização gráfica pesada e edição de vídeo, bem como treino de modelos e inferenização (ND) com aprendizagem profunda. Disponível com GPUs individuais ou múltiplas. |
@@ -31,9 +31,7 @@ Este artigo descreve os tamanhos e opções disponíveis para as máquinas virtu
 - Para obter informações sobre preços dos vários tamanhos, consulte as páginas de preços do [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux) ou [do Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows).
 - Para disponibilidade de tamanhos VM nas regiões de Azure, consulte [os produtos disponíveis por região.](https://azure.microsoft.com/regions/services/)
 - Para ver os limites gerais dos VMs Azure, consulte [os limites de subscrição e serviços da Azure, quotas e restrições.](../azure-resource-manager/management/azure-subscription-service-limits.md)
-
-> [!NOTE]
-  > Para obter mais informações sobre como a Azure designa os seus VMs, consulte: [Tamanhos de máquina virtual Azure que nomeiam convenções.](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions)
+- Para obter mais informações sobre como a Azure dá nome aos seus VMs, consulte [o tamanho da máquina virtual Azure que nomeia convenções.](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions)
 
 ## <a name="rest-api"></a>API REST
 
@@ -57,7 +55,7 @@ Saiba mais sobre o desempenho do cálculo dos VMs do Windows utilizando as [pont
 
 [!INCLUDE [cost-management-horizontal](../../includes/cost-management-horizontal.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre os diferentes tamanhos VM que estão disponíveis:
 

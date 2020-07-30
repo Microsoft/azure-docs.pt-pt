@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Designar uma base de dados multi-inquilinos - Hyperscale (Citus) - Base de Dados Azure para PostgreSQL'
-description: Este tutorial mostra como criar, povoar e consultar mesas distribuídas na Base de Dados Azure para hiperescala PostgreSQL (Citus).
+title: 'Tutorial: Conceber uma base de dados multi-inquilinos - Hiperescala (Citus) - Base de Dados Azure para PostgreSQL'
+description: Este tutorial mostra como criar, povoar e consultar tabelas distribuídas na Base de Dados Azure para a Hiperescala Pós-SQL (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -9,23 +9,23 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: 17ac29de243f4abfff1cfc83fc6424799978bf0e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bc7891e157bbffa386396a352fd1d48e4559ecdc
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74978156"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386402"
 ---
-# <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Tutorial: conceber uma base de dados multi-inquilinoutilizando a Base de Dados Azure para PostgreSQL – Hyperscale (Citus)
+# <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Tutorial: desenhe uma base de dados multi-inquilinos utilizando a Base de Dados Azure para PostgreSQL – Hyperscale (Citus)
 
-Neste tutorial, utiliza a Base de Dados Azure para PostgreSQL - Hyperscale (Citus) para aprender a:
+Neste tutorial, você usa a Base de Dados Azure para PostgreSQL - Hiperescala (Citus) para aprender a:
 
 > [!div class="checklist"]
 > * Criar um grupo do servidor Hyperscale (Citus)
 > * Use a utilidade psql para criar um esquema
-> * Mesas de caco em todos os nódosos
+> * Mesas de caco em todos os nosdes
 > * Ingerir dados de exemplo
-> * Dados do inquilino consulta
+> * Dados do inquilino de consulta
 > * Partilhar dados entre inquilinos
 > * Personalize o esquema por inquilino
 
@@ -35,9 +35,9 @@ Neste tutorial, utiliza a Base de Dados Azure para PostgreSQL - Hyperscale (Citu
 
 ## <a name="use-psql-utility-to-create-a-schema"></a>Use a utilidade psql para criar um esquema
 
-Uma vez ligado à Base de Dados Azure para PostgreSQL - Hiperescala (Citus) utilizando o psql, pode completar algumas tarefas básicas. Este tutorial acompanha-o através da criação de uma aplicação web que permite aos anunciantes acompanhar em suas campanhas.
+Uma vez ligado à Base de Dados Azure para PostgreSQL - Hiperescala (Citus) utilizando o psql, pode completar algumas tarefas básicas. Este tutorial acompanha-o através da criação de uma aplicação web que permite aos anunciantes acompanhar as suas campanhas.
 
-Várias empresas podem usar a app, por isso vamos criar uma tabela para manter empresas e outra para as suas campanhas. Na consola psql, execute estes comandos:
+Várias empresas podem usar a app, por isso vamos criar uma mesa para manter empresas e outra para as suas campanhas. Na consola psql, executar estes comandos:
 
 ```sql
 CREATE TABLE companies (
@@ -63,7 +63,7 @@ CREATE TABLE campaigns (
 );
 ```
 
-Cada campanha vai pagar para publicar anúncios. Adicione também uma tabela para anúncios, executando o seguinte código em psql após o código acima:
+Cada campanha pagará para publicar anúncios. Adicione também uma tabela para anúncios, executando o seguinte código em psql após o código acima:
 
 ```sql
 CREATE TABLE ads (
@@ -118,19 +118,19 @@ CREATE TABLE impressions (
 );
 ```
 
-Pode ver as tabelas recém-criadas na lista de tabelas agora no PSQL, executando:
+Pode ver as tabelas recém-criadas na lista de tabelas agora no PSQL, correndo:
 
 ```postgres
 \dt
 ```
 
-As aplicações multi-arrendatárias só podem impor a singularidade por inquilino, razão pela qual todas as chaves primárias e estrangeiras incluem o ID da empresa.
+As aplicações multi-arrendadas podem impor a singularidade apenas por inquilino, razão pela qual todas as chaves primárias e estrangeiras incluem a identificação da empresa.
 
-## <a name="shard-tables-across-nodes"></a>Mesas de caco em todos os nódosos
+## <a name="shard-tables-across-nodes"></a>Mesas de caco em todos os nosdes
 
-Uma implantação de hiperescala armazena linhas de mesa em diferentes nódosos com base no valor de uma coluna designada pelo utilizador. Esta "coluna de distribuição" marca qual o inquilino que possui quais as filas.
+Uma implantação de hiperescala armazena linhas de mesa em diferentes nós com base no valor de uma coluna designada pelo utilizador. Esta "coluna de distribuição" marca que o inquilino possui que rema.
 
-Vamos definir a coluna de\_distribuição para ser id da empresa, o identificador inquilino. No psql, executar estas funções:
+Vamos definir a coluna de distribuição para ser identificação da \_ empresa, o identificador do inquilino. No PSQL, executar estas funções:
 
 ```sql
 SELECT create_distributed_table('companies',   'id');
@@ -140,9 +140,11 @@ SELECT create_distributed_table('clicks',      'company_id');
 SELECT create_distributed_table('impressions', 'company_id');
 ```
 
+[!INCLUDE [azure-postgresql-hyperscale-dist-alert](../../includes/azure-postgresql-hyperscale-dist-alert.md)]
+
 ## <a name="ingest-sample-data"></a>Ingerir dados de exemplo
 
-Fora do PSQL agora, na linha de comando normal, descarregue os conjuntos de dados da amostra:
+Fora do psql agora, na linha de comando normal, descarregue conjuntos de dados de amostras:
 
 ```bash
 for dataset in companies campaigns ads clicks impressions geo_ips; do
@@ -150,7 +152,7 @@ for dataset in companies campaigns ads clicks impressions geo_ips; do
 done
 ```
 
-De volta ao psql, carregue a granel os dados. Certifique-se de executar psql no mesmo diretório onde descarregou os ficheiros de dados.
+De volta ao PSQL, a granel carregue os dados. Certifique-se de executar psql no mesmo diretório onde descarregou os ficheiros de dados.
 
 ```sql
 SET CLIENT_ENCODING TO 'utf8';
@@ -164,9 +166,9 @@ SET CLIENT_ENCODING TO 'utf8';
 
 Estes dados serão agora distribuídos pelos nós dos trabalhadores.
 
-## <a name="query-tenant-data"></a>Dados do inquilino consulta
+## <a name="query-tenant-data"></a>Dados do inquilino de consulta
 
-Quando o pedido solicita dados para um único inquilino, a base de dados pode executar a consulta num único nó de trabalhador. Consultas de inquilino único filtram por uma única identificação de inquilino. Por exemplo, os filtros `company_id = 5` de consulta seguintes para anúncios e impressões. Tente executá-lo no PSQL para ver os resultados.
+Quando o pedido solicita dados para um único inquilino, a base de dados pode executar a consulta num único nó de trabalhador. Consultas de inquilino único filtram por uma única identificação de inquilino. Por exemplo, os seguintes filtros de consulta `company_id = 5` para anúncios e impressões. Tente executá-lo no PSQL para ver os resultados.
 
 ```sql
 SELECT a.campaign_id,
@@ -185,9 +187,9 @@ ORDER BY a.campaign_id, n_impressions desc;
 
 ## <a name="share-data-between-tenants"></a>Partilhar dados entre inquilinos
 
-Até agora, todas as `company_id`tabelas foram distribuídas por, mas alguns dados não naturalmente "pertencem" a qualquer inquilino em particular, e podem ser partilhados. Por exemplo, todas as empresas da plataforma de anúncios exemplo podem querer obter informações geográficas para o seu público com base em endereços IP.
+Até agora, todas as tabelas foram distribuídas por `company_id` , mas alguns dados naturalmente não "pertencem" a qualquer inquilino em particular, e podem ser partilhados. Por exemplo, todas as empresas da plataforma de anúncios de exemplo podem querer obter informações geográficas para o seu público com base em endereços IP.
 
-Crie uma tabela para guardar informações geográficas partilhadas. Executar os seguintes comandos em psql:
+Crie uma tabela para conter informações geográficas partilhadas. Executar os seguintes comandos em psql:
 
 ```sql
 CREATE TABLE geo_ips (
@@ -199,21 +201,21 @@ CREATE TABLE geo_ips (
 CREATE INDEX ON geo_ips USING gist (addrs inet_ops);
 ```
 
-Em `geo_ips` seguida, faça uma "mesa de referência" para armazenar uma cópia da mesa em cada nó dos trabalhadores.
+Em seguida, faça `geo_ips` uma "tabela de referência" para armazenar uma cópia da tabela em cada nó de trabalhador.
 
 ```sql
 SELECT create_reference_table('geo_ips');
 ```
 
-Carregue-o com dados de exemplo. Lembre-se de executar este comando em psql de dentro do diretório onde descarregou o conjunto de dados.
+Carregue-o com dados de exemplo. Lembre-se de executar este comando no PSQL a partir de dentro do diretório onde descarregou o conjunto de dados.
 
 ```sql
 \copy geo_ips from 'geo_ips.csv' with csv
 ```
 
-Juntar a tabela de\_cliques com geo ips é eficiente em todos os nós.
-Aqui está uma junta para encontrar as localizações de todos os que clicaram em anúncio
-290. Tente fazer a consulta no PSQL.
+Juntar a tabela de cliques com geo \_ ips é eficiente em todos os nós.
+Aqui está uma união para encontrar as localizações de todos os que clicaram no anúncio
+290. Tente executar a consulta em PSQL.
 
 ```sql
 SELECT c.id, clicked_at, latlon
@@ -225,12 +227,12 @@ SELECT c.id, clicked_at, latlon
 
 ## <a name="customize-the-schema-per-tenant"></a>Personalize o esquema por inquilino
 
-Cada inquilino pode ter de armazenar informações especiais não necessárias por outros. No entanto, todos os inquilinos partilham uma infraestrutura comum com um esquema de base de dados idêntico. Para onde podem ir os dados extras?
+Cada inquilino pode precisar de armazenar informações especiais não necessárias por outros. No entanto, todos os inquilinos partilham uma infraestrutura comum com um esquema de base de dados idêntico. Para onde podem ir os dados extras?
 
-Um truque é usar um tipo de coluna aberta como o JSONB do PostgreSQL.  O nosso esquema tem um campo `clicks` JSONB chamado `user_data`.
-Uma empresa (digamos empresa cinco), pode usar a coluna para rastrear se o utilizador está num dispositivo móvel.
+Um dos truques é usar um tipo de coluna aberta como o JSONB do PostgreSQL.  O nosso esquema tem um campo JSONB `clicks` `user_data` chamado.
+Uma empresa (digamos empresa cinco), pode usar a coluna para saber se o utilizador está num dispositivo móvel.
 
-Aqui está uma consulta para encontrar quem clica mais: visitantes móveis ou tradicionais.
+Aqui está uma consulta para descobrir quem clica mais: mobile, ou visitantes tradicionais.
 
 ```sql
 SELECT
@@ -242,7 +244,7 @@ GROUP BY user_data->>'is_mobile'
 ORDER BY count DESC;
 ```
 
-Podemos otimizar esta consulta para uma única empresa através da criação de um [índice parcial.](https://www.postgresql.org/docs/current/static/indexes-partial.html)
+Podemos otimizar esta consulta para uma única empresa criando um [índice parcial.](https://www.postgresql.org/docs/current/static/indexes-partial.html)
 
 ```sql
 CREATE INDEX click_user_data_is_mobile
@@ -250,7 +252,7 @@ ON clicks ((user_data->>'is_mobile'))
 WHERE company_id = 5;
 ```
 
-De uma forma mais geral, podemos criar um [gin índices](https://www.postgresql.org/docs/current/static/gin-intro.html) em cada chave e valor dentro da coluna.
+De uma forma mais geral, podemos criar [índices gin em](https://www.postgresql.org/docs/current/static/gin-intro.html) cada chave e valor dentro da coluna.
 
 ```sql
 CREATE INDEX click_user_data
@@ -265,14 +267,14 @@ SELECT id
    AND company_id = 5;
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Nos passos anteriores, criou os recursos do Azure num grupo de servidores. Se não espera precisar destes recursos no futuro, elimine o grupo de servidores. Prima o botão *Eliminar* na página *'Visão Geral'* para o seu grupo de servidores. Quando solicitado numa página pop-up, confirme o nome do grupo do servidor e clique no *botão* Eliminar final.
+Nos passos anteriores, criou recursos Azure num grupo de servidores. Se não espera precisar destes recursos no futuro, elimine o grupo de servidores. Prima o botão *Eliminar* na página *'Vista Geral'* para o seu grupo de servidor. Quando solicitado numa página pop-up, confirme o nome do grupo de servidor e clique no botão final *eliminar.*
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste tutorial, aprendeu a fornecer um grupo de servidores de Hiperescala (Citus). Ligaste-lhe com o PSQL, criaste um esquema e distribuíste dados. Aprendeu a consultar dados dentro e entre inquilinos, e a personalizar o esquema por inquilino.
+Neste tutorial, aprendeu a providenciar um grupo de servidores Hyperscale (Citus). Ligou-se a ele com o PSQL, criou um esquema e distribuiu dados. Aprendeu a consultar dados dentro e entre inquilinos, e a personalizar o esquema por inquilino.
 
-Em seguida, aprenda sobre os conceitos de hiperescala.
+Em seguida, conheça os conceitos de hiperescala.
 > [!div class="nextstepaction"]
 > [Tipos de nó de hiperescala](https://aka.ms/hyperscale-concepts)

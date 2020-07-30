@@ -74,7 +74,7 @@ Estes modelos representam duas formas distingas de implementar e gerir as suas s
 
 Para obter mais informações sobre os modelos de implementação da Azure, consulte [o Gestor de Recursos e a implementação clássica.](../../azure-resource-manager/management/deployment-models.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral do Gestor de Recursos Azure](/azure/azure-resource-manager/resource-group-overview)
 - [O que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?](../../role-based-access-control/overview.md)

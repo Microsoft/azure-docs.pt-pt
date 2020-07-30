@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 628631fb7fddbc07dcb865e3d3badbfb608ad097
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d033a904087bf8ff32721372209820a64090502
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214456"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87383890"
 ---
 # <a name="query-csv-files"></a>Ficheiros CSV de consulta
 
@@ -26,6 +26,72 @@ Neste artigo, você aprenderá a consultar um único ficheiro CSV usando SQL on 
 - Valores não citados e citados, e personagens escapando
 
 Todas as variações acima serão cobertas abaixo.
+
+## <a name="quickstart-example"></a>Exemplo de arranque rápido
+
+`OPENROWSET`função permite-lhe ler o conteúdo do ficheiro CSV fornecendo o URL ao seu ficheiro.
+
+### <a name="reading-csv-file"></a>Arquivo de leitura csv
+
+A maneira mais fácil de ver o conteúdo do seu ficheiro é fornecer URL de `CSV` ficheiro para `OPENROWSET` funcionar, especificar csv `FORMAT` , e 2.0 `PARSER_VERSION` . Se o ficheiro estiver disponível publicamente ou se a sua identidade AZure AD puder aceder a este ficheiro, deverá poder ver o conteúdo do ficheiro utilizando a consulta como a apresentada no seguinte exemplo:
+
+```sql
+select top 10 *
+from openrowset(
+    bulk 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
+    format = 'csv',
+    parser_version = '2.0',
+    firstrow = 2 ) as rows
+```
+
+A opção `firstrow` é usada para saltar a primeira linha no ficheiro CSV que representa o cabeçalho neste caso. Certifique-se de que pode aceder a este ficheiro. Se o seu ficheiro estiver protegido com chave SAS ou identidade personalizada, terá de configurar a [credencial de nível do servidor para o início de sessão](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+
+### <a name="using-data-source"></a>Usando a fonte de dados
+
+Exemplo anterior utiliza o caminho completo para o ficheiro. Como alternativa, pode criar uma fonte de dados externa com a localização que aponta para a pasta raiz do armazenamento:
+
+```sql
+create external data source covid
+with ( location = 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases' );
+```
+
+Uma vez que crie uma fonte de dados, pode utilizar essa fonte de dados e o caminho relativo para o ficheiro em `OPENROWSET` função:
+
+```sql
+select top 10 *
+from openrowset(
+        bulk 'latest/ecdc_cases.csv',
+        data_source = 'covid',
+        format = 'csv',
+        parser_version ='2.0',
+        firstrow = 2
+    ) as rows
+```
+
+Se uma fonte de dados estiver protegida com chave SAS ou identidade personalizada, pode configurar [a fonte de dados com credencial](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential)de área de dados .
+
+### <a name="explicitly-specify-schema"></a>Especificar explicitamente o esquema
+
+`OPENROWSET`permite especificar explicitamente quais as colunas que pretende ler a partir do ficheiro usando a `WITH` cláusula:
+
+```sql
+select top 10 *
+from openrowset(
+        bulk 'latest/ecdc_cases.csv',
+        data_source = 'covid',
+        format = 'csv',
+        parser_version ='2.0',
+        firstrow = 2
+    ) with (
+        date_rep date 1,
+        cases int 5,
+        geo_id varchar(6) 8
+    ) as rows
+```
+
+Os números após um tipo de dados na cláusula representam o `WITH` índice de coluna no ficheiro CSV.
+
+Nas secções seguintes pode ver como consultar vários tipos de ficheiros CSV.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

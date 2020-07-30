@@ -3,12 +3,12 @@ title: Suporte para avaliação de Hiper-V em Azure Migrate
 description: Saiba mais sobre o suporte para avaliação de Hiper-V com avaliação do servidor Azure Migrate
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 2cf13904a3642b8b91d61c84bb1c51cbb97f0846
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 563a98162a2453ac1c96baf9f04500ee880e0ce5
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324816"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420962"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matriz de suporte para avaliação de Hiper-V
 
@@ -34,7 +34,7 @@ Para configurar a avaliação do Hiper-V VM, cria um projeto Azure Migrate e adi
 
 | **Suporte**                | **Detalhes**               
 | :-------------------       | :------------------- |
-| **Anfitrião Hyper-V**       | O hospedeiro Hyper-V pode ser autónomo ou implantado num cluster.<br/><br/> O anfitrião Hyper-V pode executar o Windows Server 2019, o Windows Server 2016 ou o Windows Server 2012 R2.<br/> Não pode avaliar as VMs localizadas em sistemas anfitriões Hyper-V com o Windows Server 2012.
+| **Anfitrião Hyper-V**       | O hospedeiro Hyper-V pode ser autónomo ou implantado num cluster.<br/><br/> O anfitrião Hyper-V pode executar o Windows Server 2019, o Windows Server 2016 ou o Windows Server 2012 R2. A instalação do núcleo do servidor do Windows Server 2016 e do Windows Server 2012 R2 também são suportados. <br/>Não pode avaliar as VMs localizadas em sistemas anfitriões Hyper-V com o Windows Server 2012.
 | **Permissões**           | Precisa de permissões de administrador no anfitrião Do Hiper-V. <br/> Se não quiser atribuir permissões de Administrador, crie uma conta de utilizador local ou de domínio e adicione a conta de utilizador a estes grupos- Utilizadores de Gestão Remota, Administradores de Hiper-V e Utilizadores do Monitor de Desempenho. |
 | **Comunicação remota do PowerShell**   | [A remoing PowerShell](/powershell/module/microsoft.powershell.core/enable-psremoting?view=powershell-7) deve ser ativada em cada hospedeiro Hiper-V. |
 | **Réplica do Hyper-V**       | Se utilizar réplicas Hyper-V (ou tiver vários VMs com os mesmos identificadores VM) e descobrir tanto os VMs originais como replicados usando Azure Migrate, a avaliação gerada por Azure Migrate pode não ser exata. |
@@ -81,6 +81,6 @@ O quadro seguinte resume os requisitos portuários para avaliação.
 **Conectividade Internet** | Se as máquinas não estiverem ligadas à internet, é necessário instalar o gateway Do Log Analytics nelas.
 **Azure Government** | A análise da dependência baseada em agentes não é suportada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Preparar para avaliação de VM hiper-V](tutorial-prepare-hyper-v.md)

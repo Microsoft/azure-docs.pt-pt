@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: ac72e3e232ec17c4c4d810f6d2c7fed6fa84fd02
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 84166e5523cdbdb9ccebf9a0cbfc5e4dee0eb9e8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981333"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387137"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell e o Azure CLI: Ativar a encriptação de dados transparente com a chave gerida pelo cliente a partir do Cofre da Chave Azure
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ Este artigo percorre como usar uma chave do Cofre de Chaves Azure para encripta�
 - Crie um cofre e chave de chave Azure para usar para TDE.
   - [Instruções para a utilização de um módulo de segurança de hardware (HSM) e cofre de chaves](../../key-vault/keys/hsm-protected-keys.md)
     - O cofre-chave deve ter a seguinte propriedade a ser utilizada para tDE:
-  - [proteção para eliminar](../../key-vault/general/overview-soft-delete.md) e limpar soft-delete
+  - [proteção para eliminar](../../key-vault/general/soft-delete-overview.md) e limpar soft-delete
 - A chave deve ter os seguintes atributos a utilizar para o TDE:
   - Sem data de validade
   - Não incapacitado
@@ -121,7 +121,7 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
    -ServerName <LogicalServerName> -DatabaseName <DatabaseName>  
 ```
 
-# <a name="the-azure-cli"></a>[O Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[A CLI do Azure](#tab/azure-cli)
 
 Para instalar a versão necessária do Azure CLI (versão 2.0 ou posterior) e ligar-se à sua subscrição Azure, consulte [instalar e configurar a Interface de Linha de Comando 2.0 da Plataforma Cruzada Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -207,7 +207,7 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
    Remove-AzSqlServerKeyVaultKey -KeyId <KeyVaultKeyId> -ServerName <LogicalServerName> -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
 
-# <a name="the-azure-cli"></a>[O Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[A CLI do Azure](#tab/azure-cli)
 
 - Para as definições gerais da base de dados, consulte [az sql](/cli/azure/sql).
 
@@ -229,7 +229,7 @@ Verifique se ocorre um problema:
    Get-AzSubscription -SubscriptionId <SubscriptionId>
    ```
 
-   # <a name="the-azure-cli"></a>[O Azure CLI](#tab/azure-cli)
+   # <a name="the-azure-cli"></a>[A CLI do Azure](#tab/azure-cli)
 
    ```powershell
    az account show - s <SubscriptionId>

@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 2edf1574784ec93448495086fdd05c988a3e55a7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4c28299758150f56e3f47156382d8a6245a0cf52
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090540"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386219"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do Programador do Azure Key Vault
 
@@ -122,7 +122,7 @@ Estes artigos são sobre outros cenários e serviços que usam ou integram com o
 
 ## <a name="key-vault-overviews-and-concepts"></a>Principais visões e conceitos do Cofre
 
-- [Key Vault soft-delete comportamento](overview-soft-delete.md)) descreve uma característica que permite a recuperação de objetos apagados, quer a eliminação tenha sido acidental ou intencional.
+- [Key Vault soft-delete comportamento](soft-delete-overview.md)) descreve uma característica que permite a recuperação de objetos apagados, quer a eliminação tenha sido acidental ou intencional.
 - [O cliente Key Vault o](overview-throttling.md) orienta para os conceitos básicos de estrangulamento e oferece uma abordagem para a sua aplicação.
 - [Visão geral das chaves da conta de armazenamento do cofre chave](../secrets/overview-storage-keys.md)) descreve as chaves de integração do Cofre chave Azure Storage Accounts.
 - [Os principais mundos de segurança do Cofre](overview-security-worlds.md) descrevem as relações entre regiões e áreas de segurança.
