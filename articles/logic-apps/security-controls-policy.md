@@ -22,7 +22,7 @@ ms.locfileid: "87294945"
 
 [!INCLUDE [azure-policy-compliancecontrols-logicapps](../../includes/policy/standards/byrp/microsoft.logic.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [a Conformidade Regulamentar da Política Azure.](../governance/policy/concepts/regulatory-compliance.md)
 - Veja as incorporações no [repositório do GitHub do Azure Policy](https://github.com/Azure/azure-policy).

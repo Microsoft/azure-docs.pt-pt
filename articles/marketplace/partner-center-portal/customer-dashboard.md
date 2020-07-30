@@ -110,7 +110,7 @@ Os filtros **de página clientes** são aplicados ao nível da página dos Clien
 >[!NOTE]
 > Definições detalhadas para cada um dos campos na grelha do cliente, filtros de página e suas possíveis seleções estão localizadas no artigo de FAQ abaixo indicado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para uma visão geral dos relatórios de análise disponíveis no mercado comercial do Partner Center, consulte [Analytics para o mercado comercial no Partner Center](./analytics.md).
 - Para gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para a sua oferta, consulte [o Painel De Resumo em análise de mercado comercial.](./summary-dashboard.md)

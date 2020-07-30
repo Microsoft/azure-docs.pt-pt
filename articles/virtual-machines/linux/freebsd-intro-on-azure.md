@@ -118,5 +118,5 @@ Pode obter opcionalmente uma casca de raiz utilizando `sudo -s` .
 ## <a name="known-issues"></a>Problemas conhecidos
 A versão 2.2.2 [do Agente Convidado Azure VM](https://github.com/Azure/WALinuxAgent/) tem um [problema conhecido](https://github.com/Azure/WALinuxAgent/pull/517) que causa a falha de provisão para FreeBSD VM em Azure. A correção foi capturada pela versão 2.2.3 do [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) e posteriormente lançada. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Vá ao [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD112) para criar um VM FreeBSD.
