@@ -1,6 +1,6 @@
 ---
 title: Garantir um serviço ligado
-description: Saiba como providenciar e garantir um serviço ligado com a Managed Vnet
+description: Saiba como providenciar e garantir um serviço ligado com o Managed VNet
 services: synapse-analytics
 author: acomet
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7c7cf8ec7297b3c0ef855936becc3c06a5120a38
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1ce127dbfd9984b3fb18e518701cbbd3a87f5988
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496082"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387251"
 ---
-# <a name="securing-a-linked-service-with-private-links"></a>Garantir um serviço ligado com links privados 
+# <a name="secure-a-linked-service-with-private-links"></a>Garantir um serviço ligado com links privados 
 
 Neste artigo, você aprenderá a garantir um serviço ligado em Synapse com um ponto final privado.
 
@@ -52,7 +52,7 @@ Caso não tenha clicando na hiperligação ao testar a ligação acima, siga o s
 1. Selecione **Criar**
 1. Você deve ver depois de esperar alguns segundos que o link privado criado precisa de uma aprovação.
 
-## <a name="approval-of-a-private-link"></a>Aprovação de um link privado
+## <a name="private-link-approval"></a>Aprovação de ligação privada
 1. Selecione o Ponto Final Privado que criou acima. Pode ver uma hiperligação que lhe permitirá aprovar o Ponto Final Privado ao nível da Conta de Armazenamento. *Uma alternativa é ir diretamente para a Conta de Armazenamento do portal Azure e entrar na lâmina **de ligações de ponto final privado.***
 1. Marque o ponto final privado que criou no Estúdio e selecione **Aprovar**.
 1. Adicione uma descrição e clique **em sim**

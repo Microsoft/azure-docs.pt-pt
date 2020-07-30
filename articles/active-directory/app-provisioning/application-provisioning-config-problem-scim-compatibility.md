@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/03/2018
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: ae08589785d8a482801c71ce3641ba0d66d11133
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 441d830c7512b7d06c5d4f3e64dc59844b764453
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782267"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387171"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Questões e resoluções conhecidas com o protocolo SCIM 2.0 cumprimento do serviço de fornecimento de utilizadores Azure AD
 
@@ -42,13 +42,13 @@ Este artigo descreve problemas atuais e passados com a adesão do serviço de fo
 
 Não. Como teria constituído uma alteração de rutura nas aplicações SCIM que estavam codificadas para trabalhar com o comportamento mais antigo, as alterações não eram automaticamente aplicadas às aplicações existentes.
 
-As alterações são aplicadas a todas as novas [aplicações SCIM não-galeria](../manage-apps/configure-single-sign-on-non-gallery-applications.md) configuradas no portal Azure, após a data da correção.
+As alterações são aplicadas a todas as novas aplicações SCIM não-galeria configuradas no portal Azure, após a data da correção.
 
 Para obter informações sobre como migrar um trabalho de fornecimento de utilizadores pré-existente para incluir as correções mais recentes, consulte a secção seguinte.
 
 ## <a name="can-i-migrate-an-existing-scim-based-user-provisioning-job-to-include-the-latest-service-fixes"></a>Posso migrar um trabalho de fornecimento de utilizadores baseado no SCIM existente para incluir as correções de serviço mais recentes?
 
-Sim. Se já estiver a utilizar esta aplicação para um único sinal de adesão e precisar de migrar o trabalho de provisão existente para incluir as correções mais recentes, siga o procedimento abaixo. Este procedimento descreve como usar a API do Microsoft Graph e o microsoft Graph API explorer para remover o seu antigo trabalho de provisionamento da sua app SCIM existente, e criar um novo que exibe o novo comportamento.
+Yes. Se já estiver a utilizar esta aplicação para um único sinal de adesão e precisar de migrar o trabalho de provisão existente para incluir as correções mais recentes, siga o procedimento abaixo. Este procedimento descreve como usar a API do Microsoft Graph e o microsoft Graph API explorer para remover o seu antigo trabalho de provisionamento da sua app SCIM existente, e criar um novo que exibe o novo comportamento.
 
 > [!NOTE]
 > Se a sua aplicação ainda estiver em desenvolvimento e ainda não tiver sido implementada para um único sign-on ou provisionamento do utilizador, a solução mais fácil é eliminar a entrada de aplicação na secção **Azure Ative Directory > Aplicações empresariais** do portal Azure, e simplesmente adicionar uma nova entrada para a aplicação utilizando a **aplicação Create >** opção Não galeria. Esta é uma alternativa para executar o procedimento abaixo.
@@ -91,7 +91,7 @@ Sim. Se já estiver a utilizar esta aplicação para um único sinal de adesão 
 
 ## <a name="can-i-add-a-new-non-gallery-app-that-has-the-old-user-provisioning-behavior"></a>Posso adicionar uma nova aplicação não-galeria que tenha o comportamento de provisionamento do utilizador antigo?
 
-Sim. Se tivesse codificado uma aplicação para o comportamento antigo que existia antes das correções, e precisasse de implementar uma nova instância, siga o procedimento abaixo. Este procedimento descreve como usar a API do Microsoft Graph e o explorador de API do Microsoft Graph para criar um trabalho de provisão SCIM que exibe o comportamento antigo.
+Yes. Se tivesse codificado uma aplicação para o comportamento antigo que existia antes das correções, e precisasse de implementar uma nova instância, siga o procedimento abaixo. Este procedimento descreve como usar a API do Microsoft Graph e o explorador de API do Microsoft Graph para criar um trabalho de provisão SCIM que exibe o comportamento antigo.
  
 1. Inscreva-se no portal Azure em https://portal.azure.com .
 2. no **Azure Ative Directory > Aplicações Empresariais > Criar** a secção de aplicação do portal Azure, criar uma nova aplicação **não-galeria.**

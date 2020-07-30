@@ -1,6 +1,6 @@
 ---
 title: Criar tabelas distribuídas - Hiperescala (Citus) - Base de Dados Azure para PostgreSQL
-description: Quickstart para criar e consultar tabelas distribuídas na Base de Dados Azure para Hiperescala PostgreSQL (Citus).
+description: Quickstart para criar e consultar tabelas distribuídas na Base de Dados Azure para a Hiperescala Pós-SQL (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,34 +8,34 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.openlocfilehash: 02e009e6fff2e717693d1579d409199ab179d941
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4ff80330ab6244bc9d108b7f5a1d4e4e0dbd4feb
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79241515"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387409"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-in-the-azure-portal"></a>Quickstart: Criar uma Base de Dados Azure para PostgreSQL - Hiperescala (Citus) no portal Azure
 
-A Base de Dados do Azure para o PostgreSQL é um serviço gerido com o qual pode executar, gerir e dimensionar as bases de dados de elevada disponibilidade do PostgreSQL na cloud. Este Quickstart mostra-lhe como criar uma Base de Dados Azure para o grupo de servidores PostgreSQL - Hyperscale (Citus) utilizando o portal Azure. Você vai explorar dados distribuídos: sharding tabelas através de nós, ingerir dados de amostra, e executar consultas que executam em vários nós.
+A Base de Dados do Azure para o PostgreSQL é um serviço gerido com o qual pode executar, gerir e dimensionar as bases de dados de elevada disponibilidade do PostgreSQL na cloud. Este Quickstart mostra-lhe como criar um grupo de servidores Azure Database for PostgreSQL - Hyperscale (Citus) utilizando o portal Azure. Você explorará dados distribuídos: tabelas de fragmentos através de nós, ingerir dados de amostras e consultas de execução que executam em múltiplos nós.
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
 ## <a name="create-and-distribute-tables"></a>Criar e distribuir tabelas
 
-Uma vez ligado ao nó coordenador de hiperescala usando psql, você pode completar algumas tarefas básicas.
+Uma vez ligado ao nó coordenador de hiperescala utilizando o psql, pode completar algumas tarefas básicas.
 
-Dentro dos servidores de Hiperescala existem três tipos de tabelas:
+Dentro dos servidores hyperscale existem três tipos de tabelas:
 
-- Mesas distribuídas ou esfartos (espalhadas para ajudar a escalonar para desempenho e paraparação)
+- Tabelas distribuídas ou estantes de fragmentos (espalhadas para ajudar a escalar para desempenho e paralelização)
 - Tabelas de referência (várias cópias mantidas)
-- Tabelas locais (frequentemente utilizadas para tabelas internas de administração)
+- Tabelas locais (frequentemente utilizadas para tabelas de administração interna)
 
 Neste arranque rápido, vamos focar-nos principalmente em mesas distribuídas e familiarizarmo-nos com elas.
 
-O modelo de dados com o qual vamos trabalhar é simples: dados de utilizador e evento do GitHub. Os eventos incluem criação de garfos, git compromete-se relacionado com uma organização, e muito mais.
+O modelo de dados com que vamos trabalhar é simples: dados de utilizador e eventos do GitHub. Os eventos incluem criação de garfos, git compromete-se relacionado com uma organização, e muito mais.
 
-Depois de ligar através do PSQL, vamos criar as nossas mesas. Na corrida da consola psql:
+Depois de ligares via PSQL, vamos criar as nossas mesas. Na corrida da consola psql:
 
 ```sql
 CREATE TABLE github_events
@@ -62,23 +62,25 @@ CREATE TABLE github_users
 );
 ```
 
-O `payload` campo `github_events` tem um tipo de dados JSONB. JSONB é o tipo de dados JSON em forma binária em Postgres. O tipo de dados facilita a armazenação de um esquema flexível numa única coluna.
+O `payload` campo de tem um tipo de `github_events` dados JSONB. JSONB é o tipo de dados JSON na forma binária em Postgres. O tipo de dados facilita a armazenação de um esquema flexível numa única coluna.
 
-Os postgres `GIN` podem criar um índice neste tipo, que indexará todas as teclas e valores dentro dele. Com um índice, torna-se rápido e fácil consultar a carga útil com várias condições. Vamos em frente e criar alguns índices antes de carregarmos os nossos dados. No psql:
+Postgres podem criar um `GIN` índice neste tipo, que irá indexar cada chave e valor dentro dele. Com um índice, torna-se rápido e fácil de consultar a carga útil com várias condições. Vamos em frente e criar um par de índices antes de carregar os nossos dados. Em psql:
 
 ```sql
 CREATE INDEX event_type_index ON github_events (event_type);
 CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
 ```
 
-Em seguida, pegaremos as mesas postgres no nó coordenador e diremos hyperscale para estoirá-las através dos trabalhadores. Para tal, faremos uma consulta para cada mesa especificando a chave para escasseá-la. No exemplo atual, vamos estoirá-los `user_id`tanto os eventos como os utilizadores tabela em:
+Em seguida, pegaremos as mesas postgres no nó coordenador e diremos à Hyperscale para os apanhar pelos trabalhadores. Para tal, vamos fazer uma consulta para cada mesa especificando a chave para o enromer. No exemplo atual, vamos resolver tanto os eventos como a mesa dos utilizadores `user_id` em:
 
 ```sql
 SELECT create_distributed_table('github_events', 'user_id');
 SELECT create_distributed_table('github_users', 'user_id');
 ```
 
-Estamos prontos para carregar dados. Ainda em psql, shell out para descarregar os ficheiros:
+[!INCLUDE [azure-postgresql-hyperscale-dist-alert](../../includes/azure-postgresql-hyperscale-dist-alert.md)]
+
+Estamos prontos para carregar dados. No psql ainda, descasca para descarregar os ficheiros:
 
 ```sql
 \! curl -O https://examples.citusdata.com/users.csv
@@ -96,13 +98,13 @@ SET CLIENT_ENCODING TO 'utf8';
 
 ## <a name="run-queries"></a>Executar consultas
 
-Agora está na hora da parte divertida, na verdade, fazer algumas perguntas. Vamos começar com um `count (*)` simples para ver quantos dados carregamos:
+Agora é hora da parte divertida, na verdade, fazer algumas consultas. Vamos começar com um simples `count (*)` para ver quantos dados carregamos:
 
 ```sql
 SELECT count(*) from github_events;
 ```
 
-Funcionou bem. Voltaremos a este tipo de agregação daqui a pouco, mas por agora vamos ver outras perguntas. Dentro da coluna `payload` JSONB há uma boa parte dos dados, mas varia em função do tipo de evento. `PushEvent`eventos contêm um tamanho que inclui o número de compromissos distintos para o impulso. Podemos usá-lo para encontrar o número total de compromissos por hora:
+Funcionou bem. Voltaremos a esse tipo de agregação daqui a pouco, mas por agora vamos ver mais algumas consultas. Dentro da coluna JSONB `payload` há um bom pedaço de dados, mas varia com base no tipo de evento. `PushEvent`os eventos contêm um tamanho que inclui o número de compromissos distintos para o impulso. Podemos usá-lo para encontrar o número total de compromissos por hora:
 
 ```sql
 SELECT date_trunc('hour', created_at) AS hour,
@@ -113,9 +115,9 @@ GROUP BY hour
 ORDER BY hour;
 ```
 
-Até agora as consultas envolveram exclusivamente os eventos github,\_mas\_podemos combinar esta informação com os utilizadores do Github. Uma vez que esfarrapamos tanto os`user_id`utilizadores como os eventos no mesmo identificador , as filas de ambas as tabelas com iDs de utilizador correspondentes serão [colocalizadas](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) nos mesmos nós de base de dados e podem facilmente ser unidas.
+Até agora, as consultas envolveram exclusivamente os \_ eventos github, mas podemos combinar esta informação com os utilizadores do \_ Github. Uma vez que nós encaderramos tanto os utilizadores como os eventos no mesmo identificador ( `user_id` ), as filas de ambas as tabelas com iDs de utilizador correspondentes serão [colocamos](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) nos mesmos nós da base de dados e podem ser facilmente unidas.
 
-Se nos `user_id`juntarmos, a Hiperescala pode empurrar a execução de união para baixo em fragmentos para execução em paralelo nos nós dos trabalhadores. Por exemplo, vamos encontrar os utilizadores que criaram o maior número de repositórios:
+Se nos `user_id` juntarmos, a Hyperscale pode empurrar a execução da junta para baixo em fragmentos para execução em paralelo nos nós dos trabalhadores. Por exemplo, vamos encontrar os utilizadores que criaram o maior número de repositórios:
 
 ```sql
 SELECT gu.login, count(*)
@@ -128,14 +130,14 @@ SELECT gu.login, count(*)
  ORDER BY count(*) DESC;
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Nos passos anteriores, criou os recursos do Azure num grupo de servidores. Se não espera precisar destes recursos no futuro, elimine o grupo de servidores. Prima o botão **Eliminar** na página **'Visão Geral'** para o seu grupo de servidores. Quando solicitado numa página pop-up, confirme o nome do grupo do servidor e clique no **botão** Eliminar final.
+Nos passos anteriores, criou recursos Azure num grupo de servidores. Se não espera precisar destes recursos no futuro, elimine o grupo de servidores. Prima o botão **Eliminar** na página **'Vista Geral'** para o seu grupo de servidor. Quando solicitado numa página pop-up, confirme o nome do grupo de servidor e clique no botão final **eliminar.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste arranque rápido, aprendeu a fornecer um grupo de servidores de Hiperescala (Citus). Ligaste-lhe com o PSQL, criaste um esquema e distribuíste dados.
+Neste arranque rápido, aprendeu a providenciar um grupo de servidores Hyperscale (Citus). Ligou-se a ele com o PSQL, criou um esquema e distribuiu dados.
 
-Em seguida, siga um tutorial para construir aplicações escaláveis de vários inquilinos.
+Em seguida, siga um tutorial para construir aplicações escaláveis de multi-inquilinos.
 > [!div class="nextstepaction"]
-> [Conceber uma base de dados multi-inquilino](https://aka.ms/hyperscale-tutorial-multi-tenant)
+> [Desenhe uma base de dados multi-inquilinos](https://aka.ms/hyperscale-tutorial-multi-tenant)

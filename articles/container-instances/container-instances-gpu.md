@@ -2,13 +2,13 @@
 title: Implementar a instância do contentor ativada pela GPU
 description: Saiba como implantar instâncias de contentores Azure para executar aplicações de contentores intensivos com computação utilizando recursos gpu.
 ms.topic: article
-ms.date: 07/02/2020
-ms.openlocfilehash: 3ddeb7da2667b774724fe05227cefeec5227101a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/22/2020
+ms.openlocfilehash: 19240560baa0cebdb6777d7b63d8c91832b12e1a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076865"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387099"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implementar instâncias de contentores que utilizem recursos da GPU
 
@@ -33,9 +33,6 @@ Será acrescentado apoio a regiões adicionais ao longo do tempo.
 
 ## <a name="about-gpu-resources"></a>Sobre os recursos da GPU
 
-> [!IMPORTANT]
-> Os recursos da GPU só estão disponíveis mediante solicitação. Para solicitar o acesso aos recursos da GPU, por favor envie um [pedido de apoio da Azure.][azure-support]
-
 ### <a name="count-and-sku"></a>Conde e SKU
 
 Para utilizar gpus em uma instância de contentor, especifique um *recurso GPU* com as seguintes informações:
@@ -52,6 +49,9 @@ Para utilizar gpus em uma instância de contentor, especifique um *recurso GPU* 
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
 Ao utilizar recursos de GPU, desementa os recursos de CPU e memória adequados à carga de trabalho, até aos valores máximos indicados no quadro anterior. Estes valores são atualmente maiores do que o CPU e os recursos de memória disponíveis em grupos de contentores sem recursos de GPU.  
+
+> [!IMPORTANT]
+> Os limites de [subscrição predefinidos](container-instances-quotas.md) (quotas) para os recursos de GPU diferem por SKU. Os limites padrão do CPU para os SKUs P100 e V100 estão inicialmente definidos para 0. Para solicitar um aumento numa região disponível, por favor submeta um [pedido de apoio ao Azure.][azure-support]
 
 ### <a name="things-to-know"></a>Aspetos importantes
 
@@ -207,7 +207,7 @@ Accuracy at step 990: 0.969
 Adding run metadata for 999
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Porque a utilização de recursos gpu pode ser dispendiosa, certifique-se de que os seus recipientes não funcionam inesperadamente por longos períodos. Monitorize os seus recipientes no portal Azure ou verifique o estado de um grupo de contentores com o comando de demonstração do [contentor az.][az-container-show] Por exemplo:
 
@@ -222,7 +222,7 @@ az container delete --resource-group myResourceGroup --name gpucontainergroup -y
 az container delete --resource-group myResourceGroup --name gpucontainergrouprm -y
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre a implantação de um grupo de contentores utilizando um [ficheiro YAML](container-instances-multi-container-yaml.md) ou [um modelo de Gestor de Recursos](container-instances-multi-container-group.md).
 * Saiba mais sobre [os tamanhos de VM otimizados](../virtual-machines/sizes-gpu.md) da GPU em Azure.
