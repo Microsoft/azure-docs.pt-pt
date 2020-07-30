@@ -6,12 +6,12 @@ ms.date: 06/22/2020
 ms.topic: include
 ms.author: crtreasu
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: baf9abae9ce2f823df304f2dcee983439a3ac8a7
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: aed5b18a1241aa914f49e7613bd8a6f4a03eff2b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85297975"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87375149"
 ---
 ## <a name="putting-everything-together"></a>Juntando tudo
 
@@ -283,13 +283,13 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
         {
             return;
         }
+        
         tapExecuted = true;
 
         // We have saved an anchor, so we will now look for it.
         if (!String.IsNullOrEmpty(cloudSpatialAnchorId))
         {
             Debug.Log("ASA Info: We will look for a placed anchor.");
-            tapExecuted = true;
 
             ResetSession(() =>
             {
@@ -400,7 +400,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, você tem mais informações sobre como usar Azure Spatial Anchors em uma nova aplicação Unity HoloLens. Para saber mais sobre como usar o Azure Spatial Anchors numa nova aplicação Android, continue para o próximo tutorial.
 

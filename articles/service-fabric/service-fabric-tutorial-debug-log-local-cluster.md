@@ -5,13 +5,13 @@ author: suhuruli
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: suhuruli
-ms.custom: mvc
-ms.openlocfilehash: c664b586260957138249028e4d521c29b411d56d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-java
+ms.openlocfilehash: 040eaeb3ef77dfd68feb2aebac71d945ef669d6d
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75465381"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372438"
 ---
 # <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Tutorial: Depurar uma aplicação Java implementada num cluster do Service Fabric local
 
@@ -40,13 +40,13 @@ Antes de começar este tutorial:
 
 ## <a name="download-the-voting-sample-application"></a>Transferir a aplicação de votação de exemplo
 
-Se não construiu a aplicação da amostra de voto na [primeira parte desta série tutorial,](service-fabric-tutorial-create-java-app.md)pode descarregá-la. Numa janela do comando, execute o seguinte comando para clonar o repositório da aplicação de exemplo para o seu computador local.
+Se não tiver construído a aplicação da amostra de voto na [primeira parte desta série tutorial,](service-fabric-tutorial-create-java-app.md)pode descarregá-la. Numa janela do comando, execute o seguinte comando para clonar o repositório da aplicação de exemplo para o seu computador local.
 
 ```bash
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 ```
 
-[Construir e implementar](service-fabric-tutorial-create-java-app.md#deploy-application-to-local-cluster) a aplicação para o cluster de desenvolvimento local.
+[Construa e implemente](service-fabric-tutorial-create-java-app.md#deploy-application-to-local-cluster) a aplicação para o cluster de desenvolvimento local.
 
 ## <a name="debug-java-application-using-eclipse"></a>Implementar a aplicação Java com o Eclipse
 
@@ -56,7 +56,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 3. Na janela Importar Projetos, selecione a opção **Selecionar diretório de raiz** e selecione o diretório **Voting**. Se seguiu o tutorial da primeira série, o diretório **Voting** está no diretório **Eclipse-workspace**.
 
-4. Atualize entryPoint.sh do serviço que quer depurar para iniciar o processo de Java com parâmetros de depuração remota. Para este tutorial é utilizada a extremidade frontal apátrida: *Votação/VotaçãoAplicação/VotingWebPkg/Code/entryPoint.sh*. O porto 8001 está definido para depuração neste exemplo.
+4. Atualize entryPoint.sh do serviço que quer depurar para iniciar o processo de Java com parâmetros de depuração remota. Para este tutorial é utilizada a frente apátrida: *Votação/VotaçãoApplication/VoteWebPkg/Code/entryPoint.sh*. O Porto 8001 está preparado para depurar neste exemplo.
 
     ```bash
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar VotingWeb.jar
@@ -82,7 +82,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 10. No Eclipse IDE, selecione **Executar -> Configurações de Depuração -> Aplicação Java Remota**, clique na configuração **Voto** que criou e clique em **Depurar**.
 
-11. Vá ao seu navegador web e aceda ao **local host:8080**. Isto irá automaticamente atingir o ponto de rutura e o Eclipse entrará na **perspetiva Debug**.
+11. Vá ao seu navegador web e **aceda ao local local:8080**. Isto irá automaticamente atingir o ponto de rutura e o Eclipse entrará na **perspetiva Debug**.
 
 Agora pode aplicar estes mesmos passos para depurar qualquer aplicação de Tecido de Serviço no Eclipse.
 
@@ -90,7 +90,7 @@ Agora pode aplicar estes mesmos passos para depurar qualquer aplicação de Teci
 
 Os passos seguintes permitem saber como redirecionar os registos de aplicações da localização */var/log/syslog* predefinida para uma localização personalizada.
 
-1. Atualmente, as aplicações em execução em clusters de Tecido de Serviço Linux apenas suportam a recolha de um único ficheiro de registo. Para configurar uma aplicação de modo a que os registos acedam sempre a */tmp/mysfapp0.0.log,* crie um ficheiro chamado logging.properties no seguinte local *Votação/VotingWebPkg/Code/logging.properties* e adicione o seguinte conteúdo.
+1. Atualmente, as aplicações em execução em clusters De Tecido de Serviço Linux apenas suportam a recolha de um único ficheiro de registo. Para configurar uma aplicação para que os registos vão sempre para */tmp/mysfapp0.0.log*, crie um ficheiro chamado logging.properties na localização seguinte *Votação/VotaçãoApplication/VoteWebPkg/Code/logging.properties* e adicione o seguinte conteúdo.
 
     ```
     handlers = java.util.logging.FileHandler
@@ -109,7 +109,7 @@ Os passos seguintes permitem saber como redirecionar os registos de aplicações
     -Djava.util.logging.config.file=logging.properties
     ```
 
-    O exemplo seguinte mostra uma execução de amostra com o desbugger anexado, semelhante à execução na secção anterior.
+    O exemplo a seguir mostra uma execução de amostra com o depurar anexado, semelhante à execução na secção anterior.
 
     ```bash
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=logging.properties -jar VotingWeb.jar
@@ -117,7 +117,7 @@ Os passos seguintes permitem saber como redirecionar os registos de aplicações
 
 Nesta fase, aprendeu a depurar e aceder aos seus registos de aplicações ao programar as suas aplicações Java do Service Fabric.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Nesta parte do tutorial, ficou a saber como:
 

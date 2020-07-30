@@ -3,16 +3,16 @@ title: Controlos de amostras de planta do Canadá Federal PBMM
 description: Controlo do mapeamento das amostras de planta do PBMM federal do Canadá. Cada controlo é mapeado para uma ou mais Políticas Azure que ajudam na avaliação.
 ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: e9153972938a572f8d37610e5721f7b0a578157c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 65fcd016c749a66fbfca1c5edc9d425216545341
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085638"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419704"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Mapeamento de controlo da amostra de planta federal do Canadá PBMM
 
-O artigo seguinte detalha como o Azure Blueprints Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM) mapes de amostra de planta para os controlos do PBMM federal do Canadá. Para obter mais informações sobre os controlos, consulte [o Canadá Federal PBMM](https://www.canada.ca/en/government/system/digital-government/modern-emerging-technologies/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html#toc4).
+O artigo seguinte detalha como o Azure Blueprints Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM) mapes de amostra de planta para os controlos do PBMM federal do Canadá. Para obter mais informações sobre os controlos, consulte [o Canadá Federal PBMM](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html).
 
 Os seguintes mapeamentos são para os controlos **PBMM federais** do Canadá. Utilize a navegação no direito de saltar diretamente para um mapeamento de controlo específico. Muitos dos controlos mapeados são implementados com uma iniciativa [da Política Azure.](../../../policy/overview.md) Para rever a iniciativa completa, abra **a Política** no portal Azure e selecione a página **Definições.** Em seguida, encontre e selecione a ** \[ Pré-visualização \] : Audit Canada Federal PBMM controla** a iniciativa política incorporada.
 
@@ -75,7 +75,7 @@ O Azure implementa o controlo de acesso baseado em funções (RBAC) para [ajudá
 
 ## <a name="ac-7-security-attributes"></a>Atributos de segurança AC-7
 
-A capacidade de descoberta e classificação de dados de segurança avançada de dados para a Base de Dados Azure SQL fornece capacidades para descobrir, classificar, rotular e proteger os dados sensíveis nas suas bases de dados. Pode ser utilizada para oferecer visibilidade sobre o estado de classificação da base de dados e para controlar o acesso aos dados confidenciais na base de dados e além dos respetivos limites. A segurança avançada dos dados pode ajudá-lo a garantir informações associadas aos atributos de segurança apropriados para a sua organização. Esta planta atribui definições [de Política Azure](../../../policy/overview.md) para monitorizar e impor a utilização de segurança avançada de dados no servidor SQL.
+A capacidade de descoberta e classificação de dados de segurança avançada de dados para a Base de Dados Azure SQL fornece capacidades para descobrir, classificar, rotular e proteger os dados sensíveis nas suas bases de dados. Pode ser utilizada para fornecer visibilidade sobre o estado de classificação da base de dados e para controlar o acesso a dados confidenciais na base de dados e além dos respetivos limites. A segurança avançada dos dados pode ajudá-lo a garantir informações associadas aos atributos de segurança apropriados para a sua organização. Esta planta atribui definições [de Política Azure](../../../policy/overview.md) para monitorizar e impor a utilização de segurança avançada de dados no servidor SQL.
 
 - A segurança avançada dos dados deve ser ativada nas suas instâncias geridas pelo SQL
 - A segurança avançada dos dados deve ser ativada nos seus servidores SQL
