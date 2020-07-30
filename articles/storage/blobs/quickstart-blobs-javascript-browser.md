@@ -7,12 +7,13 @@ ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 039aea76e5e59d43078c2fa884e192922ec50035
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 1f3ec5b2b1c46b40c6f99836fc10778c98b59d4c
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87276997"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431994"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -297,7 +298,7 @@ Clique na consola **Terminal** no Código do Estúdio Visual e prima CTRL+C para
 
 Para limpar os recursos criados durante este arranque rápido, vá ao [portal Azure](https://portal.azure.com) e elimine o grupo de recursos que criou na secção [Pré-Requisitos.](#prerequisites)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, aprendeu a carregar, listar e apagar bolhas usando JavaScript. Também aprendeu a criar e apagar um recipiente de armazenamento de bolhas.
 

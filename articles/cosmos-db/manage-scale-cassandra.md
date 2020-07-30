@@ -4,14 +4,14 @@ description: Conheça as opções disponíveis para escalar uma conta Azure Cosm
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 07/29/2020
 ms.author: thvankra
-ms.openlocfilehash: c9517b6d48f21a2ac2c4b92e68c788a33897511b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 447744f0436cb29e849a52694a02600183fd357a
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85119159"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432816"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Dimensionar elasticamente uma conta Azure Cosmos DB Cassandra API
 
@@ -46,7 +46,7 @@ A vantagem deste método é que é uma forma simples de gerir a capacidade de pr
 
 ## <a name="use-the-control-plane"></a><a id="use-control-plane"></a>Use o plano de controlo
 
-A API da Azure Cosmos DB para a Cassandra fornece a capacidade de ajustar a produção programática usando as nossas várias funcionalidades de control-plane. Consulte os [artigos Azure Resource Manager](manage-cassandra-with-resource-manager.md), [PowerShell](powershell-samples-cassandra.md)e [Azure CLI](cli-samples-cassandra.md) para obter orientação e amostras.
+A API da Azure Cosmos DB para a Cassandra fornece a capacidade de ajustar a produção programática usando as nossas várias funcionalidades de control-plane. Consulte os [artigos Azure Resource Manager](manage-cassandra-with-resource-manager.md), [PowerShell](powershell-samples-cassandra.md)e [Azure CLI](cli-samples.md) para obter orientação e amostras.
 
 A vantagem deste método é que você pode automatizar a escala de recursos para cima ou para baixo de recursos com base em um temporizador para explicar a atividade de pico, ou períodos de baixa atividade. Veja [aqui](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler) a nossa amostra para saber como realizar isto usando as Funções Azure e a PowerShell.
 

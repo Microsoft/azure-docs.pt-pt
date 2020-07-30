@@ -7,12 +7,13 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: a7215790a7f052227b08f51dcd7ad5dd337bb4e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: d9988adea8e4d2dab39de64f9fd155a9d0b02cae
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84259274"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432964"
 ---
 # <a name="set-up-local-development-for-azure-static-web-apps-preview"></a>Configurar o desenvolvimento local para pré-visualização de aplicações web estáticas Azure
 
@@ -46,7 +47,7 @@ Dependendo da forma como um site é construído, um servidor web local pode ou n
 
 ### <a name="javascript-frameworks-and-libraries"></a>Estruturas e bibliotecas JavaScript
 
-- [Angular CLI](https://angular.io/cli)
+- [CLI do Angular](https://angular.io/cli)
 - [Vue CLI](https://cli.vuejs.org/guide/creating-a-project.html)
 - [Reagir CLI](https://create-react-app.dev/)
 
@@ -70,7 +71,7 @@ A extensão live server para Visual Studio Code fornece um servidor web de desen
 
 1. Abra o Visual Studio Code.
 
-1. Prima **F1** para abrir a paleta de comando.
+1. Prima **F1** para abrir a Paleta de Comandos.
 
 1. Digite **o clone** na caixa de pesquisa e selecione **Git: Clone**.
 
@@ -92,7 +93,7 @@ Visual Studio Code abre o projeto clonado no editor.
 
 ### <a name="run-the-website-locally-with-live-server"></a>Executar o site localmente com Live Server
 
-1. Prima **F1** para abrir a paleta de comando.
+1. Prima **F1** para abrir a Paleta de Comandos.
 
 1. Digite **servidor ao vivo** na caixa de pesquisa e selecione Live **Server: Abra com servidor ao vivo**
 
@@ -193,7 +194,7 @@ Para obter mais informações sobre a configuração de ficheiros ambientais par
 
     :::image type="content" source="media/local-development/stop-live-server.png" alt-text="Parar o comando do Servidor Ao Vivo na paleta de comando do Estúdio Visual":::
 
-1. Prima **F1** para abrir a paleta de comando.
+1. Prima **F1** para abrir a Paleta de Comandos.
 
 1. Digite **servidor ao vivo** e selecione Live **Server: Abra com servidor ao vivo**.
 

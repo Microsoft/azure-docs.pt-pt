@@ -23,7 +23,7 @@ ms.locfileid: "87328553"
 
 [!INCLUDE [azure-policy-compliancecontrols-rbac](../../includes/policy/standards/byrp/microsoft.authorization.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [a Conformidade Regulamentar da Política Azure.](../governance/policy/concepts/regulatory-compliance.md)
 - Veja as incorporações no [repositório do GitHub do Azure Policy](https://github.com/Azure/azure-policy).

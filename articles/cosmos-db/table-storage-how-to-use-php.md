@@ -516,7 +516,7 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que já tem as noções básicas sobre o serviço Tabela do Azure e o Azure Cosmos DB, siga estas ligações para saber mais.
 

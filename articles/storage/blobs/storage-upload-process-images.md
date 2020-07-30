@@ -8,12 +8,13 @@ ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.openlocfilehash: e8caf6af0b30809857fd59d88fd57e5e43010ae2
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 15d18372b9123602e6d6f05b9259e50a74f7eb39
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85368350"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87433274"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutorial: Carregar dados de imagem na nuvem com armazenamento Azure
 
@@ -36,7 +37,7 @@ Na primeira parte da série, saiba como:
 > * Criar uma conta de armazenamento
 > * Criar um contentor e definir permissões
 > * Obter uma chave de acesso
-> * Implementar uma aplicação web para a Azure
+> * Implementar uma aplicação Web no Azure
 > * Configurar as definições da aplicação
 > * Interaja com a aplicação web
 
@@ -424,7 +425,7 @@ Na segunda parte da série, automatizas a criação de imagens de miniaturas par
 
 Pode ativar a Rede de Entrega de Conteúdos (CDN) para cache de conteúdo a partir da sua conta de armazenamento Azure. Para obter mais informações, consulte [Integrar uma conta de armazenamento Azure com a Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Na primeira parte da série, aprendeu a configurar uma aplicação web para interagir com o armazenamento.
 

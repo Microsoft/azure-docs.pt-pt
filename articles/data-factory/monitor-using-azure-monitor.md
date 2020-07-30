@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: b7f58c13181c9ec966d548096ffc2756d5d333e3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: ac083f842bf10adcbb23e3e1c1157383e11f3af9
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124914"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432428"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Monitorizar e alertar a fábrica de dados utilizando o Monitor Azure
 
@@ -111,8 +111,8 @@ Esta solução fornece-lhe um resumo da saúde geral da sua Data Factory, com op
 A instalação desta solução cria um conjunto predefinido de vistas dentro da secção de livros de trabalho do espaço de trabalho do Log Analytics escolhido. Como resultado, as seguintes métricas tornam-se ativadas:
 
 * ADF Runs - 1) Pipeline Runs by Data Factory
-* ADF Executa - 2) Atividade é executado por fator de dados
-* ADF Runs - 3) Trigger Runs by Data Factor
+* ADF Executa - 2) Atividades executados por fábrica de dados
+* ADF Runs - 3) Trigger Runs by Data Factory
 * Erros ADF - 1) Principais 10 erros de gasoduto por fábrica de dados
 * Erros ADF - 2) Top 10 Atividades executados por fábrica de dados
 * Erros ADF - 3) Principais 10 erros de disparo por fábrica de dados
@@ -201,7 +201,7 @@ Inscreva-se no portal Azure e selecione **Monitor**  >  **Alertas de Monitoriza�
 
 ### <a name="diagnostic-settings"></a>Definições de diagnóstico
 
-Utilize definições de diagnóstico para configurar registos de diagnóstico para recursos não conformes. As definições para um controlo de recursos têm as seguintes características:
+Utilize definições de diagnóstico para configurar registos de diagnóstico para recursos não computatados. As definições para um controlo de recursos têm as seguintes características:
 
 * Especificam para onde são enviados registos de diagnóstico. Exemplos incluem uma conta de armazenamento Azure, um centro de eventos Azure ou registos monitor.
 * Especificam quais as categorias de registos enviadas.
@@ -214,7 +214,7 @@ Utilize definições de diagnóstico para configurar registos de diagnóstico pa
 
 #### <a name="create-or-update-a-diagnostics-setting-in-the-monitor-rest-api"></a>Criar ou atualizar uma definição de diagnóstico na API monitor REST
 
-##### <a name="request"></a>Pedido
+##### <a name="request"></a>Pedir
 
 ```
 PUT
@@ -334,7 +334,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 #### <a name="get-information-about-diagnostics-settings-in-the-monitor-rest-api"></a>Obtenha informações sobre as definições de diagnóstico na API monitor REST
 
-##### <a name="request"></a>Pedido
+##### <a name="request"></a>Pedir
 
 ```
 GET
@@ -455,7 +455,7 @@ Para obter mais informações, consulte [Definições de Diagnóstico](https://d
 |**operaçãoName**| Cadeia | O nome da atividade com o seu estado. Se a atividade for o batimento cardíaco inicial, o valor da propriedade é `MyActivity -` . Se a atividade for o batimento cardíaco final, o valor da propriedade é `MyActivity - Succeeded` . | `MyActivity - Succeeded` |
 |**pipelineName**| Cadeia | O nome do oleoduto. | `MyPipeline` |
 |**nome de atividades**| Cadeia | O nome da atividade. | `MyActivity` |
-|**iniciar**| Cadeia | A hora de início da atividade é executado no formato UTC timepan. | `2017-06-26T20:55:29.5007959Z`|
+|**começar**| Cadeia | A hora de início da atividade é executado no formato UTC timepan. | `2017-06-26T20:55:29.5007959Z`|
 |**fim**| Cadeia | O tempo final da atividade é executado em formato UTC timepan. Se o registo de diagnóstico mostrar que uma atividade começou mas ainda não terminou, o valor da propriedade é `1601-01-01T00:00:00Z` . | `2017-06-26T20:55:29.5007959Z` |
 
 #### <a name="pipeline-run-log-attributes"></a>Atributos de registo executados por pipeline
@@ -499,7 +499,7 @@ Para obter mais informações, consulte [Definições de Diagnóstico](https://d
 |**nível**| Cadeia | O nível dos registos de diagnóstico. Desa estava o valor da propriedade para `Informational` . | `Informational` |
 |**operaçãoName**| Cadeia | O nome do oleoduto juntamente com o seu estado. Após o curso do gasoduto estar concluído, o valor da propriedade é `Pipeline - Succeeded` . | `MyPipeline - Succeeded`. |
 |**pipelineName**| Cadeia | O nome do oleoduto. | `MyPipeline` |
-|**iniciar**| Cadeia | A hora de início da atividade é executado no formato UTC timepan. | `2017-06-26T20:55:29.5007959Z`. |
+|**começar**| Cadeia | A hora de início da atividade é executado no formato UTC timepan. | `2017-06-26T20:55:29.5007959Z`. |
 |**fim**| Cadeia | O tempo final da atividade é executado em formato UTC timepan. Se o registo de diagnóstico mostrar que uma atividade começou mas ainda não terminou, o valor da propriedade é `1601-01-01T00:00:00Z` .  | `2017-06-26T20:55:29.5007959Z` |
 |**estado**| Cadeia | O estado final do oleoduto. Possíveis valores de propriedade são `Succeeded` `Failed` e. | `Succeeded`|
 
@@ -544,7 +544,7 @@ Para obter mais informações, consulte [Definições de Diagnóstico](https://d
 |**gatilhoName**| Cadeia | O nome do gatilho. | `MyTrigger` |
 |**triggerType**| Cadeia | O tipo do gatilho. Possíveis valores de propriedade são `Manual Trigger` `Schedule Trigger` e. | `ScheduleTrigger` |
 |**triggerEvent**| Cadeia | O caso do gatilho. | `ScheduleTime - 2017-07-06T01:50:25Z` |
-|**iniciar**| Cadeia | A hora de início do disparo do gatilho no formato UTC timepan. | `2017-06-26T20:55:29.5007959Z`|
+|**começar**| Cadeia | A hora de início do disparo do gatilho no formato UTC timepan. | `2017-06-26T20:55:29.5007959Z`|
 |**estado**| Cadeia | O estado final mostrando se o gatilho disparou com sucesso. Possíveis valores de propriedade são `Succeeded` `Failed` e. | `Succeeded`|
 
 #### <a name="ssis-integration-runtime-log-attributes"></a>Atributos de registo de runtime de integração SSIS
@@ -833,10 +833,10 @@ Log Analytics herda o esquema do Monitor com as seguintes exceções:
     | --- | --- | --- |
     | Propriedades. UserProperties | UserProperties | Dinâmica |
     | Propriedades. Anotações | Anotações | Dinâmica |
-    | Propriedades. Entrada | Entrada | Dinâmica |
+    | Propriedades. Entrada | Input | Dinâmica |
     | Propriedades. Saída | Saída | Dinâmica |
     | Propriedades. Erro.erroSDesco | CódigoDoErro | int |
-    | Propriedades. Error.message | ErroS | string |
+    | Propriedades. Error.message | ErroS | cadeia |
     | Propriedades. Erro | Erro | Dinâmica |
     | Propriedades. Antecessores | Antecessores | Dinâmica |
     | Propriedades. Parâmetros | Parâmetros | Dinâmica |
@@ -907,5 +907,5 @@ Ao consultar os registos de execução do pacote SSIS no Logs Analytics, pode ju
 
 ![Consulta de registos de execução de pacote sSIS no Log Analytics](media/data-factory-monitor-oms/log-analytics-query2.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Monitorize e gere os oleodutos programáticamente](monitor-programmatically.md)

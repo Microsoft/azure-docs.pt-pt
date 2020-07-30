@@ -8,16 +8,16 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 10/27/2016
-ms.openlocfilehash: 47f72e1844f6fe34f129d40130a3dba0383dd094
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 1f577c43b6602a78dd585d1b998110c708aa54b0
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326295"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432097"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio-classic"></a>Gestão de ciclo de vida de aplicação no Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:** ![ no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) yes Machine Learning Studio ![ ](../../../includes/media/aml-applies-to-skus/yes.png) (clássico) 
+**APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 
 O Azure Machine Learning Studio (clássico) é uma ferramenta para desenvolver experiências de machine learning que são operacionalizadas na plataforma cloud Azure. É como o Visual Studio IDE e o serviço de nuvem escalável fundido numa única plataforma. Pode incorporar práticas padrão de Gestão de Ciclo de Vida (ALM) desde a versão de vários ativos até à execução e implementação automatizada, no Azure Machine Learning Studio (clássico). Este artigo discute algumas das opções e abordagens.
@@ -96,7 +96,7 @@ Um aspeto importante da ALM é ser capaz de automatizar o processo de execução
 9. [Implemente um serviço web](https://github.com/hning86/azuremlps#new-amlwebservice) a partir da experiência preditiva.
 10. Teste o serviço web [RRS](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) ou o ponto final [do BES.](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Descarregue o módulo [Azure Machine Learning Studio (clássico) PowerShell](https://aka.ms/amlps) e comece a automatizar as suas tarefas ALM.
 * Aprenda a [criar e gerir um grande número de modelos ML utilizando apenas uma experiência](create-models-and-endpoints-with-powershell.md) através da PowerShell e retreinando a API.
 * Saiba mais sobre [a implementação dos serviços web Azure Machine Learning](deploy-a-machine-learning-web-service.md).

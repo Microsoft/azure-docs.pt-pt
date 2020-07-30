@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65a6a622a0d3fac7b28cc699d860068f12b780fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9abfe79989dbefe79a001e4638c7318bd99d54a
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84728610"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421710"
 ---
 # <a name="bulk-download-members-of-a-group-in-azure-active-directory"></a>Membros de descarregamento em massa de um grupo em Azure Ative Directory
 
@@ -37,7 +37,7 @@ Utilizando o portal Azure Ative Directory (Azure AD), pode descarregar em massa 
 
 Pode ver o estado de todos os seus pedidos em massa pendentes na página de resultados da **operação Em Massa.**
 
-[![](media/groups-bulk-download-members/bulk-center.png "Check status in the Bulk Operations Results page")](media/groups-bulk-download-members/bulk-center.png#lightbox)
+[![Verifique o estado na página resultados das operações a granel.](media/groups-bulk-download-members/bulk-center.png)](media/groups-bulk-download-members/bulk-center.png#lightbox)
 
 ## <a name="bulk-download-service-limits"></a>Limites de serviço de descarregamento a granel
 

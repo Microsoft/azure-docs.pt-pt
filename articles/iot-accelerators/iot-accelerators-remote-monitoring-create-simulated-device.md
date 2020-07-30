@@ -8,13 +8,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.custom: mqtt
-ms.openlocfilehash: d31e520dac1c7e2a13fbd9e24a0cd3167f69e904
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mqtt, devx-track-javascript
+ms.openlocfilehash: c0aac897d85cd96d537238bc81cbc89d3626a07c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81682013"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422764"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Criar e testar um novo dispositivo simulado
 
@@ -31,7 +31,7 @@ No segundo cenário, a Contoso quer testar um novo dispositivo de lâmpada intel
 
 *Propriedades*
 
-| Name                     | Valores                      |
+| Nome                     | Valores                      |
 | ------------------------ | --------------------------- |
 | Cor                    | Branco, Vermelho, Azul            |
 | Luminosidade               | 0 a 100                    |
@@ -41,7 +41,7 @@ No segundo cenário, a Contoso quer testar um novo dispositivo de lâmpada intel
 
 A tabela seguinte mostra os dados que a lâmpada reporta à nuvem como um fluxo de dados:
 
-| Name   | Valores      |
+| Nome   | Valores      |
 | ------ | ----------- |
 | Estado | "on", "off" |
 | Temperatura | Graus F |
@@ -54,7 +54,7 @@ A tabela seguinte mostra os dados que a lâmpada reporta à nuvem como um fluxo 
 
 A tabela a seguir mostra as ações que o novo dispositivo suporta:
 
-| Name        |
+| Nome        |
 | ----------- |
 | Ligar   |
 | Desligar  |
@@ -63,9 +63,9 @@ A tabela a seguir mostra as ações que o novo dispositivo suporta:
 
 A tabela a seguir mostra o estado inicial do dispositivo:
 
-| Name                     | Valores |
+| Nome                     | Valores |
 | ------------------------ | -------|
-| Cor inicial            | Branco  |
+| Cor inicial            | Branca  |
 | Brilho inicial       | 75     |
 | Vida remanescente inicial   | 10,000 |
 | Estado inicial da telemetria | "on"   |
@@ -493,7 +493,7 @@ Para configurar e executar a simulação:
 
 Para interromper a simulação, selecione o pedido **de simulação Stop** no Carteiro e clique em **Enviar**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Pode parar os dois microserviços de funcionamento local nas suas instâncias do Código do Estúdio Visual **(Debug > Stop Debugging).**
 

@@ -1,33 +1,34 @@
 ---
-title: Conteúdo protegido do leitor de mídia Azure
-description: O Azure Media Player suporta atualmente conteúdo encriptado de envelope AES-128 e conteúdo encriptado comum.
+title: Azure Media Player Conteúdo Protegido
+description: A Azure Media Player suporta atualmente conteúdo encriptado de envelope AES-128 e conteúdo encriptado comum.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 64414d3ec31e8763b7c576af93374bf514141fd4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: da79556b466e3511845724e969c76477ad2ba0a8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81726495"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423019"
 ---
 # <a name="protected-content"></a>Conteúdo protegido #
 
-O Azure Media Player suporta atualmente conteúdo encriptado de envelope SES-128 e conteúdo encriptado comum (através do PlayReady e Widevine) ou conteúdo encriptado através do FairPlay. Para reproduzir corretamente os conteúdos protegidos, deve dizer `protectionInfo`ao Azure Media Player que . Esta informação existe por fonte e `<source>` pode ser `data-setup`adicionada diretamente na etiqueta através do .  Também pode adicionar `protectionInfo` o diretamente como parâmetro se definir a fonte dinamicamente.
+A Azure Media Player suporta atualmente conteúdo encriptado de envelope AES-128 e conteúdo encriptado comum (através do PlayReady e Widevine) ou conteúdo encriptado via FairPlay. Para reproduzir corretamente os conteúdos protegidos, tem de dizer ao Azure Media Player o `protectionInfo` . Esta informação existe por fonte e pode ser adicionada diretamente na `<source>` etiqueta através do `data-setup` .  Também pode adicionar o `protectionInfo` diretamente como parâmetro se definir a fonte de forma dinâmica.
 
 `protectionInfo`aceita um objeto JSON e inclui:
 
-- `type`: `AES` `PlayReady` ou `Widevine` ou ou ou`FairPlay`
-- `certificateUrl`: este deve ser um link direto para o seu certificado fairPlay hospedado
+- `type`: `AES` ou `PlayReady` ou `Widevine` ou`FairPlay`
+- `certificateUrl`: este deve ser um link direto para o seu certificado FairPlay hospedado
 
-- `authenticationToken`: este é um campo de opção para adicionar um símbolo de autenticação não codificado
+- `authenticationToken`: este é um campo de opção para adicionar um token de autenticação não codificado
 
 > [!IMPORTANT]
-> O objeto **certificateUrl** só é necessário para FairPlay DRM.***
+> O **objeto certificadoUrl** só é necessário para FairPlay DRM.***
 >[!NOTE]
-> A tecnologia padrãoOrder foi alterada para `html5FairPlayHLS` acomodar a nova tecnologia, especificamente para reproduzir conteúdos FairPlay de forma nativa nos navegadores que o suportam (Safari em OSX 8+). Se tiver conteúdo fairPlay para reproduzir **e** mudou a tecnologia padrãoOrder para uma personalizada na sua aplicação, terá de adicionar esta nova tecnologia ao seu objeto techOrder. Recomendamos que o inclua antes do silverlightSS para que o seu conteúdo não reprodução através do PlayReady.
+> O techOrder padrão foi alterado para acomodar a nova tecnologia, `html5FairPlayHLS` especificamente para reproduzir os conteúdos FairPlay de forma nativa nos navegadores que o suportam (Safari no OSX 8+). Se tiver conteúdo FairPlay para reproduzir **E** alterou o techOrder padrão para um personalizado na sua aplicação, terá de adicionar esta nova tecnologia ao seu objeto techOrder. Recomendamos que o inclua antes da luz de prataSSS para que o seu conteúdo não reproduza através do PlayReady.
 
 ## <a name="code-sample"></a>Exemplo de código ##
 
@@ -79,10 +80,10 @@ ou, com vários DRM
 ```
 
 > [!NOTE]
-> Nem todos os navegadores/plataformas são capazes de reproduzir conteúdo protegido. Consulte a secção [DeReback Technology](azure-media-player-playback-technology.md) para obter mais informações sobre o que é suportado.
+> Nem todos os navegadores/plataformas são capazes de reproduzir conteúdo protegido. Consulte a secção ['Tecnologia de Reprodução'](azure-media-player-playback-technology.md) para obter mais informações sobre o que é suportado.
 > [!IMPORTANT]
-> O símbolo passado no leitor destina-se a conteúdo seguro e apenas utilizado para utilizadores autenticados. Presume-se que o pedido está a utilizar sSL ou qualquer outra forma de medida de segurança. Além disso, o utilizador final é assumido para ser de confiança para não usar mal o token; se não for esse o caso, por favor envolva os seus peritos em segurança.
+> O token passado para o leitor destina-se a conteúdos seguros e apenas utilizado para utilizadores autenticados. Presume-se que o pedido está a utilizar sSL ou qualquer outra forma de medida de segurança. Além disso, o utilizador final é assummed para ser confiável para não usar indevidamente o token; Se não for esse o caso, por favor envolva os seus peritos em segurança.
 
-## <a name="next-steps"></a>Passos seguintes ##
+## <a name="next-steps"></a>Próximos passos ##
 
 - [Azure Media Player Quickstart](azure-media-player-quickstart.md)

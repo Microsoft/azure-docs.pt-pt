@@ -7,12 +7,13 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.openlocfilehash: 1fb4e7cf589d63e9e595a35c34a2728d564b309b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: bac476cfbe78ad6fcf73b6a2319581cc60524a57
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609935"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432561"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hospedar um site estático no Azure Storage
 
@@ -42,7 +43,7 @@ O alojamento estático do site é uma funcionalidade que tem de ativar na conta 
 
    A página de erro predefinida é exibida quando um utilizador tenta navegar para uma página que não existe no seu website estático.
 
-7. Clique em **Guardar**. O portal Azure apresenta agora o seu ponto final estático do site. 
+7. Clique em **Save** (Guardar). O portal Azure apresenta agora o seu ponto final estático do site. 
 
     ![Ativar hospedagem estática no site para uma conta de armazenamento](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 
@@ -134,7 +135,7 @@ Pode ativar o alojamento estático do site utilizando o módulo Azure PowerShell
 
 Estas instruções mostram-lhe como fazer o upload de ficheiros utilizando a versão do Storage Explorer que aparece no portal Azure. No entanto, também pode utilizar a versão do [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) que corre fora do portal Azure. Pode utilizar [AzCopy,](../common/storage-use-azcopy-v10.md)PowerShell, CLI ou qualquer aplicação personalizada que possa enviar ficheiros para **o** $web recipiente da sua conta. Para obter um tutorial passo a passo que faça upload de ficheiros utilizando o código Visual Studio, consulte [Tutorial: Hospedar um website estático no Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
 
-1. Selecione **Storage Explorer (pré-visualização)**.
+1. Selecione **Explorador de Armazenamento (pré-visualização)**.
 
 2. Expanda o nó **BLOB CONTAINERS** e, em seguida, selecione **o** $web recipiente.
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: 7c52e8dfa3cda40cc663b5d7f27b67c7d2ad0b60
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9e50cdb16ee6acbdb903681984dcfbd7bfe170fa
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078652"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386134"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para o Azure Logic Apps
 
@@ -28,21 +28,20 @@ Este artigo mostra como descarregar, instalar e configurar o seu portal de dados
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma conta e subscrição do Azure. Se não tiver uma conta Azure com uma subscrição, [inscreva-se para uma conta Azure gratuita.](https://azure.microsoft.com/free/)
+* Uma conta e subscrição do Azure. Se não tiver uma conta Azure com uma subscrição, [inscreva-se para uma conta Azure gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
-  * A sua conta Azure deve pertencer a um único [inquilino ou diretório Azure Ative Directory (Azure AD).](../active-directory/fundamentals/active-directory-whatis.md#terminology) Deve utilizar a mesma conta Azure para instalar e administrar o portal no seu computador local.
-
-  * Durante a instalação gateway, faça sedús com a sua conta Azure, que liga a instalação do gateway à sua conta Azure e apenas a essa conta. Mais tarde, no portal Azure, deve utilizar a mesma conta Azure e inquilino AZure AD quando criar um recurso de gateway Azure que regista e reclama a sua instalação gateway. Nas Azure Logic Apps, os gatilhos e ações no local utilizam o recurso gateway para se conectarem a fontes de dados no local.
+  * A sua conta Azure tem de ser uma conta de trabalho ou uma conta escolar, que `username@contoso.com` parece. Não pode utilizar contas Azure B2B (convidados) ou contas pessoais da Microsoft, tais como @hotmail.com @outlook.com .
 
     > [!NOTE]
-    > Pode ligar apenas uma instalação de gateway e um recurso de gateway Azure entre si. Não é possível ligar a mesma instalação de gateway a várias contas Azure ou recursos de gateway Azure. No entanto, uma conta Azure pode ligar-se a múltiplas instalações de gateway e recursos de gateway Azure. Num gatilho ou ação no local, pode selecionar a partir das suas várias subscrições Azure e, em seguida, selecionar um recurso de gateway associado.
+    > Se se inscreveu numa oferta do Office 365 e não forneceu o seu endereço de e-mail de trabalho, o seu endereço poderá parecer `username@domain.onmicrosoft.com` . Sua conta está guardada num inquilino da AD Azure. Na maioria dos casos, o Nome Principal do Utilizador (UPN) para a sua conta Azure é o mesmo que o seu endereço de e-mail.
 
-  * Tem de se inscrever com uma conta de trabalho ou uma conta escolar, também conhecida como uma conta *de organização,* que `username@contoso.com` parece. Não pode utilizar contas Azure B2B (convidados) ou contas pessoais da Microsoft, tais como @hotmail.com @outlook.com .
+    Para utilizar uma [subscrição Visual Studio Standard](https://visualstudio.microsoft.com/vs/pricing/) que esteja associada a uma conta Microsoft, [primeiro crie um inquilino AD Azure](../active-directory/develop/quickstart-create-new-tenant.md) ou use o diretório predefinido. Adicione um utilizador com uma palavra-passe ao diretório e, em seguida, dê a esse utilizador acesso à sua subscrição Azure. Em seguida, pode iniciar seduca durante a instalação gateway com este nome de utilizador e senha.
 
-    > [!TIP]
-    > Se se inscreveu numa oferta do Office 365 e não forneceu o seu endereço de e-mail de trabalho, o seu endereço poderá parecer `username@domain.onmicrosoft.com` . A sua conta está armazenada dentro de um inquilino num Diretório Ativo Azure (Azure AD). Na maioria dos casos, o Nome Principal do Utilizador (UPN) para a sua conta AZure AD é o mesmo que o seu endereço de e-mail.
-    >
-    > Para utilizar uma [subscrição Visual Studio Standard](https://visualstudio.microsoft.com/vs/pricing/) que esteja ligada a uma conta microsoft, [primeiro crie um inquilino em Azure AD](../active-directory/develop/quickstart-create-new-tenant.md) ou use o diretório predefinido. Adicione um utilizador com uma palavra-passe ao diretório e, em seguida, dê a esse utilizador acesso à sua subscrição Azure. Em seguida, pode iniciar seduca durante a instalação gateway com este nome de utilizador e senha.
+  * A sua conta Azure deve pertencer apenas a um único [inquilino ou diretório Azure Ative Directory (Azure AD).](../active-directory/fundamentals/active-directory-whatis.md#terminology) Tem de utilizar a mesma conta Azure para instalar e administrar o portal no seu computador local.
+
+  * Quando instalar o gateway, iniciará seduca com a sua conta Azure, que liga a sua instalação gateway à sua conta Azure e apenas a essa conta. Não é possível ligar a mesma instalação de gateway através de várias contas Azure ou inquilinos da AD Azure.
+
+  * Mais tarde, no portal Azure, é necessário utilizar a mesma conta Azure para criar um recurso de gateway Azure que se ligue à instalação do gateway. Pode ligar apenas uma instalação de gateway e um recurso de gateway Azure entre si. No entanto, a sua conta Azure pode ligar-se a diferentes instalações de gateway que estão associadas a um recurso de gateway Azure. As suas aplicações lógicas podem então usar este recurso gateway em gatilhos e ações que podem aceder a fontes de dados no local.
 
 * Aqui estão os requisitos para o seu computador local:
 
@@ -265,8 +264,8 @@ Aqui estão as formas de combinar as suas contas de Ative Directory no local com
 * [Resolução de problemas do gateway de dados no local](/data-integration/gateway/service-gateway-tshoot)
 * [Monitorizar e otimizar o desempenho de gateways](/data-integration/gateway/service-gateway-performance)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Conecte-se aos dados no local a partir de aplicações lógicas](../logic-apps/logic-apps-gateway-connection.md)
 * [Funcionalidades de integração empresarial](../logic-apps/logic-apps-enterprise-integration-overview.md)
-* [Conectores para o Azure Logic Apps](../connectors/apis-list.md)
+* [Conectores do Azure Logic Apps](../connectors/apis-list.md)

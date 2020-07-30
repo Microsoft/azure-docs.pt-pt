@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: f85ef90520049aef2cb39da9c360013d6f11aca0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8195d310de708e48b27b5a2d81023d02792be1d3
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318713"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429476"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Implementar um serviço web Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:** ![ no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) yes Machine Learning Studio ![ ](../../../includes/media/aml-applies-to-skus/yes.png) (clássico) 
+**APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 
 O Azure Machine Learning Studio (clássico) permite-lhe construir e testar uma solução analítica preditiva. Em seguida, pode implementar a solução como um serviço web.
@@ -284,7 +284,7 @@ Como já implementou esta experiência antes, é-lhe perguntado se pretende subs
 
 Uma opção para atualizar o seu serviço web é reforçá-lo programaticamente. Para obter mais informações, consulte [os modelos do Retrain Machine Learning Studio (clássico) programáticamente.](/azure/machine-learning/studio/retrain-machine-learning-model)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais detalhes técnicos sobre como funciona a implementação, consulte [como um modelo de Machine Learning Studio (clássico) progride de uma experiência para um serviço Web operacionalizado.](model-progression-experiment-to-web-service.md)
 

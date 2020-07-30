@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: cedb5899b392cb111f9c1bb76949e940ef837252
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4ca6d6647882e81dbf20a0dd39b1ae659b6a6ab6
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284817"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432988"
 ---
 # <a name="lsv2-series"></a>Série Lsv2
 
@@ -52,7 +52,7 @@ Atualizações de preservação da memória: Não suportadas
 
 <sup>3</sup> A tecnologia Hyper-V NVMe Direct proporciona acesso ininterlizado às unidades locais de NVMe mapeadas de forma segura no espaço VM convidado.  Alcançar o desempenho máximo requer a utilização da mais recente construção WS2019 ou Ubuntu 18.04 ou 16.04 do Azure Marketplace.  O desempenho da escrita varia em função do tamanho de IO, da carga de unidade e da utilização da capacidade.
 
-<sup>4</sup> VMs da série Lsv2 não fornecem cache de anfitrião para o disco de dados, uma vez que não beneficia as cargas de trabalho Lsv2.  No entanto, os Lsv2 VMs podem acomodar a opção de disco efémero VM OS da Azure (até 30 GiB).
+<sup>4</sup> VMs da série Lsv2 não fornecem cache de anfitrião para o disco de dados, uma vez que não beneficia as cargas de trabalho Lsv2.
 
 <sup>5</sup> VMs da série Lsv2 podem [rebentar](linux/disk-bursting.md) o seu desempenho em disco até 30 minutos de cada vez. 
 
@@ -90,6 +90,6 @@ Calculadora de preços: [Calculadora de Preços](https://azure.microsoft.com/pri
 Mais informações sobre tipos de discos : [tipos de discos](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

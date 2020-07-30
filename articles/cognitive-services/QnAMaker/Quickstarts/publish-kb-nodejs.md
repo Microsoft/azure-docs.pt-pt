@@ -1,22 +1,22 @@
 ---
-title: 'Quickstart: QnA Maker com REST APIs para Node.js'
-description: Este quickstart mostra como começar com as APIs DE REST do Fabricante QnA para Node.js. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas.  O Criador de FAQ permite-lhe incorporar um serviço de perguntas e respostas a partir do seu conteúdo semiestruturado, como documentos de FAQ, URLs e manuais de produtos.
+title: 'Quickstart: QnA Maker com APIs REST para Node.js'
+description: Este quickstart mostra como começar com as APIs DE REST do Criador QnA para Node.js. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas.  O Criador de FAQ permite-lhe incorporar um serviço de perguntas e respostas a partir do seu conteúdo semiestruturado, como documentos de FAQ, URLs e manuais de produtos.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27
+ms.custom: RESTCURL2020FEB27, devx-track-javascript
 ms.topic: how-to
-ms.openlocfilehash: b42bc3be0d425a84da8bb545ebb29e261a6b0780
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 18ccec5332e3751a86225ab087a1f68b0577cf96
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342736"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406100"
 ---
-# <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>Quickstart: QnA Maker REST APIs for Node.js
+# <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>Quickstart: QnA Maker REST APIs para Node.js
 
-Começa com as APIs DE REST DO Criador QNA para Node.js. Siga estes passos para experimentar o código de exemplo para tarefas básicas.  O Criador de FAQ permite-lhe incorporar um serviço de perguntas e respostas a partir do seu conteúdo semiestruturado, como documentos de FAQ, URLs e manuais de produtos.
+Começa com as APIs de REST do Criador QnA para Node.js. Siga estes passos para experimentar o código de exemplo para tarefas básicas.  O Criador de FAQ permite-lhe incorporar um serviço de perguntas e respostas a partir do seu conteúdo semiestruturado, como documentos de FAQ, URLs e manuais de produtos.
 
-Utilize as APIs REST DO Fabricante QNA para nó.js para:
+Utilize as APIs REST DO Fabricante QNA para Node.js:
 
 * Criar uma base de dados de conhecimento
 * Substitua uma base de conhecimento
@@ -25,14 +25,14 @@ Utilize as APIs REST DO Fabricante QNA para nó.js para:
 * Descarregue uma base de conhecimento
 * Obter o estado de uma operação
 
-[Documentação de referência](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase)  |  [Amostras de nó.js](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
+[Documentação de referência](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase)  |  [amostras deNode.js](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/)
-* A versão atual do [Node.js.](https://nodejs.org)
+* A versão atual de [Node.js. ](https://nodejs.org)
 * Tem de ter um [serviço Criador de FAQ](../How-To/set-up-qnamaker-service-azure.md). Para recuperar a sua chave e ponto final (que inclui o nome do recurso), selecione **Quickstart** para o seu recurso no portal Azure.
 
 ## <a name="setting-up"></a>Configuração
@@ -65,7 +65,7 @@ npm install requestretry request --save
 
 ## <a name="code-examples"></a>Exemplos de código
 
-Estes snippets de código mostram-lhe como fazer o seguinte com as APIs DE REST do Fabricante QnA para node.js:
+Estes snippets de código mostram-lhe como fazer o seguinte com as APIs DO QNA Maker REST para Node.js:
 
 * [Criar uma base de dados de conhecimento](#create-a-knowledge-base)
 * [Substitua uma base de conhecimento](#replace-a-knowledge-base)
@@ -152,7 +152,7 @@ Execute a aplicação com `node rest-apis.js` o comando do seu diretório de can
 node rest-apis.js
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 

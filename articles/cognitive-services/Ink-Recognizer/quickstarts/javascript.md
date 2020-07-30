@@ -10,12 +10,13 @@ ms.subservice: ink-recognizer
 ms.topic: quickstart
 ms.date: 06/30/2020
 ms.author: aahi
-ms.openlocfilehash: aa16f0cca5e60608518ff914a89a48fa8b8899c5
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 59cd4711ec3604779e57434af72460534b378af4
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85980020"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407052"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Quickstart: Reconhecer tinta digital com a API do Reconhecimento de Tinta e JavaScript
 
@@ -161,7 +162,7 @@ O código-fonte para este arranque rápido pode ser encontrado no [GitHub](https
 
 Esta aplicação pode ser executada dentro do seu navegador web. Uma resposta bem sucedida é devolvida no formato JSON. Também pode encontrar a resposta JSON no [GitHub:](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-response.json)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Referência da API REST](https://go.microsoft.com/fwlink/?linkid=2089907)

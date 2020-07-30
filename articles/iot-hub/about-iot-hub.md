@@ -13,12 +13,12 @@ ms.custom:
 - 'role: System Architecture'
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: b5b92de195e4ff4d5b00de041f5b021ee75f9800
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: cde9d8614883168c3fbb3ab8219cdbef6087c9d0
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307697"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428978"
 ---
 # <a name="what-is-azure-iot-hub"></a>O que é o IoT Hub do Azure?
 
@@ -68,7 +68,7 @@ Pode integrar o Hub IoT noutros serviços do Azure para criar soluções ponto a
 
 * O [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) para automatizar os processos de negócio.
 
-* O [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/) para adicionar a aprendizagem automática e modelos de IA à sua solução.
+* O [Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md) para adicionar a aprendizagem automática e modelos de IA à sua solução.
 
 * O [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) para executar cálculos de análise em tempo real sobre a transmissão de dados a partir dos seus dispositivos.
 
@@ -120,7 +120,7 @@ Cada subscrição do Azure tem limites de quota predefinidos para evitar o abuso
 
 * [A limitação do Hub IoT e o que significa para si](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para experimentar uma solução de IoT ponto a ponto, veja os guias de início rápido do Hub IoT:
 

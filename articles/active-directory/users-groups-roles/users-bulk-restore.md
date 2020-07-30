@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2800119f1a88172ea7c329fc53359bf1565a0705
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4fe5cacfec6ee85a5d61204ffce38c856b0d1baf
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84731278"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423342"
 ---
 # <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Restaurar a granel utilizadores eliminados no Azure Ative Directory
 
@@ -68,7 +68,7 @@ Se houver erros, pode descarregar e ver o ficheiro de resultados na página de r
 
 Pode ver o estado de todos os seus pedidos em massa pendentes na página de resultados da **operação Em Massa.**
 
-[![](media/users-bulk-restore/bulk-center.png "Check status in the Bulk Operations Results page")](media/users-bulk-restore/bulk-center.png#lightbox)
+[![Verifique o estado na página resultados das operações a granel.](media/users-bulk-restore/bulk-center.png)](media/users-bulk-restore/bulk-center.png#lightbox)
 
 Em seguida, pode verificar se os utilizadores que restaurou existem na organização Azure AD, quer no portal Azure, quer utilizando o PowerShell.
 

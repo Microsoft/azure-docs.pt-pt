@@ -6,14 +6,14 @@ ms.author: rodrigoa
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.reviewer: mamccrea
-ms.custom: mvc
+ms.custom: mvc, devx-track-javascript
 ms.date: 06/16/2020
-ms.openlocfilehash: c9767942c893017e98e3013f92022f058524e13c
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: ff4af372fa0ec1b6b24698184eb3f52449e28d46
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079007"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430807"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funções definidas pelo utilizador JavaScript no Azure Stream Analytics
  
@@ -86,10 +86,10 @@ Stream Analytics | JavaScript
 bigint | Number (o JavaScript só pode representar números inteiros até precisamente 2^53)
 DateTime | Date (o JavaScript só suporta milissegundos)
 double | Número
-nvarchar(MAX) | String
+nvarchar(MAX) | Cadeia
 Registo | Objeto
 Matriz | Matriz
-NULL | Null
+NULL | Nulo
 
 Seguem-se conversões do JavaScript para o Stream Analytics:
 
@@ -97,7 +97,7 @@ JavaScript | Stream Analytics
 --- | ---
 Número | Bigint (se o número for redondo e entre long.MinValue e long.MaxValue; caso contrário, é duplo)
 Date | DateTime
-String | nvarchar(MAX)
+Cadeia | nvarchar(MAX)
 Objeto | Registo
 Matriz | Matriz
 Null, Undefined | NULL
@@ -132,7 +132,7 @@ FROM
     input PARTITION BY PARTITIONID
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [UDF de aprendizagem automática](https://docs.microsoft.com/azure/stream-analytics/machine-learning-udf)
 * [UDF em C#](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf-methods)

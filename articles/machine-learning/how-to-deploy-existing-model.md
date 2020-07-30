@@ -1,54 +1,42 @@
 ---
 title: Utilizar e implementar modelos existentes
 titleSuffix: Azure Machine Learning
-description: Saiba como pode utilizar o Azure Machine Learning com modelos treinados fora do serviço. Pode registar modelos criados fora do Azure Machine Learning e, em seguida, implantá-los como um serviço web ou módulo Azure IoT Edge.
+description: Aprenda a trazer os seus modelos ML treinados localmente para a nuvem Azure com Azure Machine Learning.  Pode registar modelos criados fora do Azure Machine Learning e, em seguida, implantá-los como um serviço web ou módulo Azure IoT Edge.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 03/17/2020
+ms.date: 07/17/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 7dc58540cf78356021f1fa2d33dd498381f1da7c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e9177fdbac6173040145ff6d84dda8a579ee1d9e
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325836"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429412"
 ---
-# <a name="use-an-existing-model-with-azure-machine-learning"></a>Use um modelo existente com Azure Machine Learning
+# <a name="deploy-your-existing-model-with-azure-machine-learning"></a>Implemente o seu modelo existente com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Aprenda a usar um modelo de aprendizagem automática existente com a Azure Machine Learning.
+Neste artigo, aprende a registar-se e a implementar um modelo de machine learning que treinou fora do Azure Machine Learning. Pode implementar como serviço web ou para um dispositivo IoT Edge.  Uma vez implementado, pode monitorizar o seu modelo e detetar a deriva de dados no Azure Machine Learning. 
 
-Se tiver um modelo de machine learning treinado fora do Azure Machine Learning, ainda pode utilizar o serviço para implementar o modelo como serviço web ou para um dispositivo IoT Edge. 
-
-> [!TIP]
-> Este artigo fornece informações básicas sobre o registo e implantação de um modelo existente. Uma vez implantado, o Azure Machine Learning fornece monitorização para o seu modelo. Também permite armazenar dados de entrada enviados para a implementação, que podem ser usados para análise de deriva de dados ou formação de novas versões do modelo.
->
-> Para obter mais informações sobre os conceitos e termos utilizados aqui, consulte [Gerir, implementar e monitorizar modelos de machine learning.](concept-model-management-and-deployment.md)
->
-> Para obter informações gerais sobre o processo de implantação, consulte [os modelos implementar com Azure Machine Learning](how-to-deploy-and-where.md).
+Para obter mais informações sobre os conceitos e termos deste artigo, consulte [Gerir, implementar e monitorizar modelos de machine learning.](concept-model-management-and-deployment.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma área de trabalho do Azure Machine Learning. Para mais informações, consulte [Criar um espaço de trabalho.](how-to-manage-workspace.md)
+* [Um espaço de trabalho de aprendizagem de máquinas Azure](how-to-manage-workspace.md)
+  + Os exemplos de Python assumem que a `ws` variável está definida para o seu espaço de trabalho de aprendizagem de máquinas Azure.
+  
+  + Os exemplos CLI utilizam espaços reservados `myworkspace` de `myresourcegroup` e, que deve substituir pelo nome do seu espaço de trabalho e pelo grupo de recursos que o contém.
 
-    > [!TIP]
-    > Os exemplos python neste artigo assumem que a `ws` variável está definida para o seu espaço de trabalho de Aprendizagem de Máquinas Azure.
-    >
-    > Os exemplos do CLI usam um espaço reservado de `myworkspace` e `myresourcegroup` . Substitua-as pelo nome do seu espaço de trabalho e pelo grupo de recursos que o contém.
-
-* [O Azure Machine Learning SDK.](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)  
+* [A máquina azul aprendendo Python SDK.](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)  
 
 * A extensão CLI do [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e [machine learning CLI](reference-azure-machine-learning-cli.md).
 
-* Um modelo treinado. O modelo deve ser persistido a um ou mais ficheiros sobre o seu ambiente de desenvolvimento.
-
-    > [!NOTE]
-    > Para demonstrar o registo de um modelo treinado fora do Azure Machine Learning, os exemplos de código snippets neste artigo utilizam os modelos criados pelo projeto de análise de sentimentos do Twitter de Paolo Ripamonti: [https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis) .
+* Um modelo treinado. O modelo deve ser persistido a um ou mais ficheiros sobre o seu ambiente de desenvolvimento. <br><br>Para demonstrar o registo de um modelo treinado, o código de exemplo neste artigo utiliza os modelos do projeto de [análise de sentimentos do Twitter de Paolo Ripamonti.](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis)
 
 ## <a name="register-the-models"></a>Registar o(s) modelo(s)
 
@@ -82,7 +70,7 @@ Para obter mais informações sobre o registo do modelo em geral, consulte [Geri
 
 A configuração de inferência define o ambiente utilizado para executar o modelo implantado. A configuração da inferência refere as seguintes entidades, que são usadas para executar o modelo quando é implementado:
 
-* Um script de entrada. Este ficheiro `score.py` (nomeado) carrega o modelo quando o serviço implantado começa. É também responsável por receber dados, transmiti-lo para o modelo e, em seguida, devolver uma resposta.
+* Um script de entrada, denominado `score.py` , carrega o modelo quando o serviço implantado começa. Este script também é responsável por receber dados, transmiti-lo para o modelo e, em seguida, devolver uma resposta.
 * Um [ambiente](how-to-use-environments.md)de aprendizagem automática Azure. Um ambiente define as dependências de software necessárias para executar o modelo e o script de entrada.
 
 O exemplo a seguir mostra como usar o SDK para criar um ambiente e, em seguida, usá-lo com uma configuração de inferência:
@@ -145,7 +133,7 @@ dependencies:
 
 Para obter mais informações sobre a configuração de inferência, consulte [implementar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
 
-### <a name="entry-script"></a>Roteiro de entrada
+### <a name="entry-script-scorepy"></a>Script de entrada (score.py)
 
 O roteiro de entrada tem apenas duas funções `init()` necessárias, e `run(data)` . Estas funções são utilizadas para inicializar o serviço no arranque e executar o modelo utilizando dados de pedido passados por um cliente. O resto do script lida com o carregamento e execução do modelo.
 
@@ -305,9 +293,8 @@ print(response.json())
 
 Para obter mais informações sobre como consumir o serviço implantado, consulte [Criar um cliente.](how-to-consume-web-service.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Monitorize os seus modelos de machine learning Azure com Insights de Aplicações](how-to-enable-app-insights.md)
 * [Recolher dados para modelos em produção](how-to-enable-data-collection.md)
-* [Como e onde implementar modelos](how-to-deploy-and-where.md)
 * [Como criar um cliente para um modelo implantado](how-to-consume-web-service.md)

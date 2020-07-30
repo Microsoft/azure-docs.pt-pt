@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 ms.date: 03/28/2017
-ms.openlocfilehash: 2e1395e23ec8fa3bbd787b5b12a810f6e9720392
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d16fabbf08b95d16cf54926d7d0373596e7bcf13
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326227"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430119"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Implementar serviços web do Azure Machine Learning Studio (clássicos) que utilizam módulos de importação de dados e exportação de dados
 
-**APLICA-SE A:** ![ no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) yes Machine Learning Studio ![ ](../../../includes/media/aml-applies-to-skus/yes.png) (clássico) 
+**APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 
 Quando cria uma experiência preditiva, normalmente adiciona-se uma entrada e saída de serviço web. Quando implementa a experiência, os consumidores podem enviar e receber dados do serviço web através das entradas e saídas. Para algumas aplicações, os dados de um consumidor podem estar disponíveis a partir de um feed de dados ou já residir numa fonte de dados externa, como o armazenamento Azure Blob. Nestes casos, não precisam de ler e escrever dados utilizando entradas e saídas de serviço web. Em vez disso, podem utilizar o Serviço de Execução de Lotes (BES) para ler dados da fonte de dados utilizando um módulo de Dados de Importação e escrever os resultados da pontuação para um local de dados diferente utilizando um módulo de Dados de Exportação.

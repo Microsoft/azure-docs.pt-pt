@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
-ms.custom: mvc, tracking-python
+ms.custom: mvc, tracking-python, devx-track-javascript
 ms.subservice: blobs
-ms.openlocfilehash: f7c3ebb1a68d671f63e3239794266c8c24f5906a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 60829e7755c31fdc5204b74c278b8eed21946c60
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84553208"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432652"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Construa uma aplicação altamente disponível com armazenamento Blob
 
@@ -52,7 +52,7 @@ Para concluir este tutorial:
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-* Instalar [Node.js](https://nodejs.org).
+* Instale [Node.js](https://nodejs.org).
 
 ---
 
@@ -70,7 +70,7 @@ Siga estes passos para criar uma conta de armazenamento de geo-zonas de acesso d
 2. Selecione **a conta de armazenamento - blob, arquivo, mesa, fila** da página **Nova.**
 4. Preencha o formulário da conta de armazenamento com as seguintes informações, conforme mostrado na imagem abaixo e selecione **Criar**:
 
-   | Definição       | Valor da amostra | Description |
+   | Definição       | Valor da amostra | Descrição |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Subscrição** | *A minha assinatura* | Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.azure.com/Subscriptions) (Subscrições). |
    | **Grupo de Recursos** | *myResourceGroup* | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Atribuição de nomes de regras e restrições). |
@@ -79,7 +79,7 @@ Siga estes passos para criar uma conta de armazenamento de geo-zonas de acesso d
    | **Desempenho** | *Standard* | O desempenho padrão é uma boa opção para o cenário de exemplo. |
    | **Tipo de conta** | *StorageV2* | Recomenda-se a utilização de uma conta de armazenamento v2 para fins gerais. Para obter mais informações sobre tipos de contas de armazenamento Azure, consulte [a visão geral da conta de Armazenamento](../common/storage-account-overview.md). |
    | **Replicação**| *Armazenamento de geo-zonas de acesso à leitura (RA-GZRS)* | A região primária é zona redundante e é replicada para uma região secundária, com acesso lido à região secundária habilitada. |
-   | **Escalão de acesso**| *Frequente* | Utilize o nível quente para obter dados de acesso frequente. |
+   | **Camada de acesso**| *Acesso Frequente* | Utilize o nível quente para obter dados de acesso frequente. |
 
     ![criar conta de armazenamento](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
@@ -103,7 +103,7 @@ git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-patter
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-[Descarregue o projeto da amostra](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs) e desaperte o ficheiro. Também pode utilizar o [git](https://git-scm.com/) para transferir uma cópia da aplicação para o seu ambiente de desenvolvimento. O projeto de amostra contém uma aplicação básica do Node.js.
+[Descarregue o projeto da amostra](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs) e desaperte o ficheiro. Também pode utilizar o [git](https://git-scm.com/) para transferir uma cópia da aplicação para o seu ambiente de desenvolvimento. O projeto de amostra contém uma aplicação Node.js básica.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
@@ -340,7 +340,7 @@ const pipeline = StorageURL.newPipeline(sharedKeyCredential, {
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Na primeira parte da série, aprendeu a disponibilizar uma aplicação altamente disponível com contas de armazenamento RA-GZRS.
 

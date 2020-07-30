@@ -7,22 +7,23 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: 24d5ee132444f19118613f6b1b798fd763e46e3c
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 192e939d21cae3b67cafe190e32e7202cd8bdb20
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299327"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429678"
 ---
 # <a name="tutorial-publish-a-gatsby-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site gatsby para pré-visualização de aplicações web estáticas Azure
 
 Este artigo demonstra como criar e implementar uma aplicação web [Gatsby](https://gatsbyjs.org) para [Azure Static Web Apps](overview.md). O resultado final é um novo site estático de Aplicações Web (com as ações associadas do GitHub) que lhe dão controlo sobre como a aplicação é construída e publicada.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
-> - Criar uma aplicação Gatsby
+> - Criar uma aplicação do Gatsby
 > - Configurar um site de aplicações web estáticas Azure
 > - Implementar a app Gatsby para Azure
 
@@ -32,7 +33,7 @@ Neste tutorial, vai aprender a:
 
 - Uma conta Azure com uma subscrição ativa. Se não tiver uma, pode [criar uma conta gratuitamente.](https://azure.microsoft.com/free/)
 - Uma conta do GitHub. Se não tiver uma, pode [criar uma conta gratuitamente.](https://github.com/join)
-- Ter o [Node.js](https://nodejs.org) instalado.
+- [Node.js](https://nodejs.org) instalados.
 
 ## <a name="create-a-gatsby-app"></a>Criar uma App Gatsby
 
@@ -83,11 +84,11 @@ Os passos seguintes mostram-lhe como criar uma nova aplicação estática do sit
 
 ### <a name="create-the-application"></a>Criar a aplicação
 
-1. Navegue para o [portal do Azure](https://portal.azure.com)
-1. Clique **em Criar um recurso**
-1. Pesquisa de **aplicativos web estáticos**
-1. Clique **em Aplicativos Web Estáticos (pré-visualização)**
-1. Clique **em Criar**
+1. Navegue até ao [portal Azure](https://portal.azure.com)
+1. Clique em **Criar um Recurso**.
+1. Procure **Aplicações Web Estáticas**
+1. Clique em **Aplicações Web Estáticas (Pré-visualização)**
+1. Clique em **Criar**
 
    :::image type="content" source="./media/publish-gatsby/create-in-portal.png" alt-text="Criar uma Web Apps estática (pré-visualização) no portal":::
 
@@ -117,7 +118,7 @@ Os passos seguintes mostram-lhe como criar uma nova aplicação estática do sit
 
 Em seguida, adicione as definições de configuração que o processo de construção utiliza para construir a sua aplicação.
 
-1. Clique no **Seguinte: Construa >** botão para editar a configuração de construção
+1. Clique no botão **Seguinte: Compilar>** para editar a configuração de compilação
 
 1. Para configurar as definições do passo em GitHub Actions, defina a _localização_ da App para **/** .
 
@@ -139,11 +140,11 @@ Em seguida, adicione as definições de configuração que o processo de constru
 
    :::image type="content" source="./media/publish-gatsby/deployed-app.png" alt-text="Aplicação implantada":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cleanup-resource](../../includes/static-web-apps-cleanup-resource.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Adicionar um domínio personalizado](custom-domain.md)

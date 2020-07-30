@@ -4,14 +4,14 @@ description: Utilize o Helm com registo de contentores AKS e Azure para embalar 
 services: container-service
 author: zr-msft
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 07/28/2020
 ms.author: zarhoads
-ms.openlocfilehash: 1f67605918e093e9ab28aa88be777d27acd831ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ca2d7ccc863e2208db1212ef3d3f10fa709d069
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82169573"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407120"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-helm"></a>Quickstart: Desenvolva-se no Serviço Azure Kubernetes (AKS) com Helm
 
@@ -23,7 +23,6 @@ Este artigo mostra-lhe como usar o Helm para embalar e executar uma aplicação 
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, pode criar uma [conta gratuita.](https://azure.microsoft.com/free)
 * A [CLI do Azure instalada](/cli/azure/install-azure-cli?view=azure-cli-latest).
-* Docker instalado e configurado. O Docker disponibiliza pacotes que o configuram num sistema [Mac][docker-for-mac], [Windows][docker-for-windows] ou [Linux][docker-for-linux].
 * [Helm v3 instalado][helm-install].
 
 ## <a name="create-an-azure-container-registry"></a>Criar um Azure Container Registry
@@ -58,15 +57,7 @@ O resultado será semelhante ao seguinte exemplo. Tome nota do valor do *loginSe
 }
 ```
 
-Para utilizar a instância ACR, tem primeiro de iniciar sê-lo. Utilize o comando [de login az acr][az-acr-login] para iniciar sessão. O exemplo abaixo irá entrar num ACR chamado *MyHelmACR*.
-
-```azurecli
-az acr login --name MyHelmACR
-```
-
-O comando devolve uma mensagem *login concluída* uma vez concluída.
-
-## <a name="create-an-azure-kubernetes-service-cluster"></a>Criar um cluster de serviço Azure Kubernetes
+## <a name="create-an-azure-kubernetes-service-cluster"></a>Criar um cluster do Azure Kubernetes Service
 
 Crie um cluster AKS. O comando abaixo cria um cluster AKS chamado MyAKS e anexa o MyHelmACR.
 
@@ -122,18 +113,12 @@ CMD ["node","server.js"]
 
 ## <a name="build-and-push-the-sample-application-to-the-acr"></a>Construa e empurre a aplicação da amostra para o ACR
 
-Obtenha o endereço do servidor de login utilizando o comando da [lista az acr][az-acr-list] e consulta para o *loginServer*:
+Utilize o comando [de construção az acr][az-acr-build] para construir e empurrar uma imagem para o registo, utilizando o Dockerfile anterior. O `.` fim do comando define a localização do Dockerfile, neste caso o atual diretório.
 
 ```azurecli
-az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
-```
-
-Utilize o Docker para construir, etiquetar e empurrar o recipiente de aplicação da amostra para o ACR:
-
-```console
-docker build -t webfrontend:latest .
-docker tag webfrontend <acrLoginServer>/webfrontend:v1
-docker push <acrLoginServer>/webfrontend:v1
+az acr build --image webfrontend:v1 \
+  --registry MyHelmACR \
+  --file Dockerfile .
 ```
 
 ## <a name="create-your-helm-chart"></a>Crie o seu gráfico Helm
@@ -144,9 +129,9 @@ Gere o seu gráfico Helm usando o `helm create` comando.
 helm create webfrontend
 ```
 
-Faça as seguintes atualizações para *webfrontend/values.yaml*:
+Faça as seguintes atualizações para *webfrontend/values.yaml*. Substitua o loginServer do seu registo que observou num passo anterior, como *myhelmacr.azurecr.io:*
 
-* Alterar `image.repository` para`<acrLoginServer>/webfrontend`
+* Alterar `image.repository` para`<loginServer>/webfrontend`
 * Alterar `service.type` para`LoadBalancer`
 
 Por exemplo:
@@ -159,7 +144,7 @@ Por exemplo:
 replicaCount: 1
 
 image:
-  repository: <acrLoginServer>/webfrontend
+  repository: *myhelmacr.azurecr.io*/webfrontend
   pullPolicy: IfNotPresent
 ...
 service:
@@ -211,23 +196,18 @@ az group delete --name MyResourceGroup --yes --no-wait
 > [!NOTE]
 > Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter passos sobre como remover o principal de serviço, consulte [Considerações sobre e eliminação do principal de serviço AKS][sp-delete]. Se usou uma identidade gerida, a identidade é gerida pela plataforma e não necessita de remoção.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a utilização do Helm, consulte a documentação helm.
 
 > [!div class="nextstepaction"]
 > [Documentação de leme][helm-documentation]
 
-[az-acr-login]: /cli/azure/acr#az-acr-login
 [az-acr-create]: /cli/azure/acr#az-acr-create
-[az-acr-list]: /cli/azure/acr#az-acr-list
+[az-acr-build]: /cli/azure/acr#az-acr-build
 [az-group-delete]: /cli/azure/group#az-group-delete
 [az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az aks install-cli]: /cli/azure/aks#az-aks-install-cli
-
-[docker-for-linux]: https://docs.docker.com/engine/installation/#supported-platforms
-[docker-for-mac]: https://docs.docker.com/docker-for-mac/
-[docker-for-windows]: https://docs.docker.com/docker-for-windows/
 [example-nodejs]: https://github.com/Azure/dev-spaces/tree/master/samples/nodejs/getting-started/webfrontend
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [helm]: https://helm.sh/

@@ -3,12 +3,13 @@ title: Conexões híbridas Azure Relay - pedidos HTTP em Nó
 description: Escreva uma aplicação de consola Node.js para pedidos HTTP das Ligações Híbridas do Azure Relay em Node.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 4e40b16d71e8d651e687fa8dea93efeab7064ca9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: ff6b4e6b99299091910df537bf90984f493405e3
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316906"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382870"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-node"></a>Introdução aos pedidos HTTP das Ligações Híbridas do Azure Relay em Node
 

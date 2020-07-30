@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Personalize um VM Linux com cloud-init em Azure
-description: Neste tutorial, você aprende a usar cloud-init e Key Vault para personalizar VMs Linux na primeira vez que eles arrancam em Azure
+title: Tutorial - Personalize um Linux VM com nuvem em Azure
+description: Neste tutorial, você aprende a usar cloud-init e Key Vault para personalizar Os VMs Linux na primeira vez que eles iniciam em Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/12/2019
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: d2a6568b0d62c880a688160cf981fb33083ae02e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: 2a07480bf5b3defb4176437d99274e9ecfb4ba13
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81461485"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87433017"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Tutorial – Como utilizar o cloud-init para personalizar uma máquina virtual do Linux no Azure no primeiro arranque
 
@@ -41,7 +41,7 @@ O cloud-init também funciona em distribuições. Por exemplo, não utiliza **ap
 
 Estamos a trabalhar com os nossos parceiros para que o cloud-init seja incluído e fique operacional nas imagens que fornecem ao Azure. A tabela seguinte descreve a disponibilidade atual do cloud-init nas imagens de plataforma do Azure:
 
-| Publicador | Oferta | SKU | Versão | nuvem-init pronto |
+| Publisher | Oferta | SKU | Versão | nuvem-init pronto |
 |:--- |:--- |:--- |:--- |:--- |
 |Canónico |UbuntuServer |18.04-LTS |mais recente |sim | 
 |Canónico |UbuntuServer |16.04-LTS |mais recente |sim | 
@@ -55,7 +55,7 @@ Estamos a trabalhar com os nossos parceiros para que o cloud-init seja incluído
 ## <a name="create-cloud-init-config-file"></a>Criar ficheiro de configuração do cloud-init
 Para ver o cloud-init em ação, crie uma VM que instala o NGINX e executa uma aplicação Node.js “Hello World” simples. A seguinte configuração do cloud-init instala os pacotes necessários, cria uma aplicação Node.js e, em seguida, inicializa e lança a aplicação.
 
-No seu pedido de bash ou na Cloud Shell, crie um ficheiro chamado *cloud-init.txt* e colhe a seguinte configuração. Por exemplo, `sensible-editor cloud-init.txt` digite para criar o ficheiro e consulte uma lista de editores disponíveis. Certifique-se de que o ficheiro de inicialização da cloud é copiado corretamente, especialmente a primeira linha:
+No seu pedido de festa ou na Cloud Shell, crie um ficheiro nomeado *cloud-init.txt* e cole a seguinte configuração. Por exemplo, `sensible-editor cloud-init.txt` escreva para criar o ficheiro e ver uma lista de editores disponíveis. Certifique-se de que o ficheiro de inicialização da cloud é copiado corretamente, especialmente a primeira linha:
 
 ```bash
 #cloud-config
@@ -108,7 +108,7 @@ Antes de poder criar uma VM, tem de criar um grupo de recursos com [az group cre
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
-Agora, crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). Utilize o parâmetro `--custom-data` para passar o ficheiro de configuração de inicialização da cloud. Forneça o caminho completo para a configuração do *cloud-init.txt*, se tiver guardado o ficheiro fora do diretório de trabalho atual. O exemplo seguinte cria um VM chamado *myVM:*
+Agora, crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). Utilize o parâmetro `--custom-data` para passar o ficheiro de configuração de inicialização da cloud. Forneça o caminho completo para a configuração do *cloud-init.txt*, se tiver guardado o ficheiro fora do diretório de trabalho atual. O exemplo a seguir cria um VM chamado *myVM:*
 
 ```azurecli-interactive
 az vm create \
@@ -129,7 +129,7 @@ az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myAuto
 ```
 
 ## <a name="test-web-app"></a>Testar a aplicação Web
-Agora pode abrir um navegador web e inserir *http:\/\/\<publicIpAddress>* na barra de endereços. Forneça o seu próprio endereço IP público a partir do processo de criação da VM. A aplicação Node.js é apresentada conforme mostrada no exemplo seguinte:
+Agora pode abrir um navegador web e inserir *http: \/ \/ \<publicIpAddress> * na barra de endereços. Forneça o seu próprio endereço IP público a partir do processo de criação da VM. A aplicação Node.js é apresentada conforme mostrada no exemplo seguinte:
 
 ![Ver site NGINX em execução](./media/tutorial-automate-vm-deployment/nginx.png)
 
@@ -183,7 +183,7 @@ vm_secret=$(az vm secret format --secret "$secret" --output json)
 ### <a name="create-cloud-init-config-to-secure-nginx"></a>Criar uma configuração do cloud-init para proteger o NGINX
 Quando criar uma VM, os certificados e as chaves são armazenados no diretório */var/lib/waagent/* protegido. Para automatizar a adição do certificado à VM e configurar o NGINX, pode utilizar uma configuração atualizada de cloud-init do exemplo anterior.
 
-Crie um ficheiro com o nome *cloud-init-secured.txt* e cole a seguinte configuração. Se utilizar a Cloud Shell, crie o ficheiro de config cloud-init e não na sua máquina local. Por exemplo, `sensible-editor cloud-init-secured.txt` digite para criar o ficheiro e consulte uma lista de editores disponíveis. Certifique-se de que o ficheiro de inicialização da cloud é copiado corretamente, especialmente a primeira linha:
+Crie um ficheiro com o nome *cloud-init-secured.txt* e cole a seguinte configuração. Se utilizar o Cloud Shell, crie o ficheiro config de nuvem lá e não na sua máquina local. Por exemplo, `sensible-editor cloud-init-secured.txt` escreva para criar o ficheiro e ver uma lista de editores disponíveis. Certifique-se de que o ficheiro de inicialização da cloud é copiado corretamente, especialmente a primeira linha:
 
 ```yaml
 #cloud-config
@@ -260,7 +260,7 @@ az vm open-port \
 ```
 
 ### <a name="test-secure-web-app"></a>Testar uma aplicação Web segura
-Agora pode abrir um navegador web e inserir *https:\/\/\<publicIpAddress>* na barra de endereços. Forneça o seu próprio endereço IP público conforme apresentado na saída do processo de criação da VM anterior. Aceite o aviso de segurança se utilizou um certificado autoassinado:
+Agora pode abrir um navegador web e inserir *https: \/ \/ \<publicIpAddress> * na barra de endereços. Forneça o seu próprio endereço IP público conforme apresentado na saída do processo de criação da VM anterior. Aceite o aviso de segurança se utilizou um certificado autoassinado:
 
 ![Aceitar o aviso de segurança do browser](./media/tutorial-automate-vm-deployment/browser-warning.png)
 
@@ -269,7 +269,7 @@ O site NGINX protegido e a aplicação Node.js são apresentados como no exemplo
 ![Ver site NGINX seguro em execução](./media/tutorial-automate-vm-deployment/secured-nginx.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste tutorial, configurou as VMs no primeiro arranque com o cloud-init. Aprendeu a:
 
 > [!div class="checklist"]

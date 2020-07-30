@@ -5,16 +5,20 @@ author: sunasing
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
-ms.openlocfilehash: e6678eb2e738c206bbe67151361b594679d97b35
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 35acf4e9bd338a0e67b046a59d8884df0626e516
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281026"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429257"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>Obtenha dados meteorológicos dos parceiros meteorológicos
 
-O Azure FarmBeats ajuda-o a trazer dados meteorológicos dos seus fornecedores de dados meteorológicos utilizando uma estrutura de conector baseada em Docker. Utilizando este quadro, os fornecedores de dados meteorológicos implementam um Docker que pode ser integrado com o FarmBeats. Atualmente, apenas o fornecedor de dados meteorológicos [da DTN](https://www.dtn.com/dtn-content-integration/) é suportado.
+O Azure FarmBeats ajuda-o a trazer dados meteorológicos dos seus fornecedores de dados meteorológicos utilizando uma estrutura de conector baseada em Docker. Utilizando este quadro, os fornecedores de dados meteorológicos implementam um Docker que pode ser integrado com o FarmBeats. Atualmente, o seguinte fornecedor de dados meteorológicos é suportado.
+
+  ![Parceiros FarmBeats](./media/get-sensor-data-from-sensor-partner/dtn-logo.png)
+  
+   [DTN](https://www.dtn.com/dtn-content-integration/)
 
 Os dados meteorológicos podem ser usados para gerar insights accuíveis e construir modelos de IA ou ML em FarmBeats.
 
@@ -225,6 +229,6 @@ Para resolver problemas de trabalho, [verifique os registos de trabalho.](troubl
 |  name   |   Nome desejado do parceiro no sistema FarmBeats.   |
 |  descrição |  Descrição.   |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que já questionou os dados dos sensores a partir do seu exemplo Azure FarmBeats, aprenda a [gerar mapas](generate-maps-in-azure-farmbeats.md#generate-maps) para as suas quintas.

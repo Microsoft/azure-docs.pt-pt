@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: e3be1f9ec900655f4dae45abd402ff8e6a56e283
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ddf4641cfba2fb9704c2354e01299df368eb2ac
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84147953"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432017"
 ---
 # <a name="configure-the-model-conversion"></a>Configurar a conversão de modelos
 
@@ -18,7 +18,8 @@ Este capítulo documenta as opções para a conversão do modelo.
 
 ## <a name="settings-file"></a>Ficheiro de definições
 
-Se um ficheiro chamado `ConversionSettings.json` for encontrado no recipiente de entrada ao lado do modelo de entrada, então é utilizado para fornecer uma configuração adicional para o processo de conversão do modelo.
+Se um ficheiro chamado `<modelName>.ConversionSettings.json` for encontrado no recipiente de entrada ao lado do modelo de `<modelName>.<ext>` entrada, então será utilizado para fornecer uma configuração adicional para o processo de conversão do modelo.
+Por exemplo, `box.ConversionSettings.json` seria utilizado na conversão `box.gltf` .
 
 O conteúdo do ficheiro deve satisfazer o seguinte esquema json:
 
@@ -54,7 +55,7 @@ O conteúdo do ficheiro deve satisfazer o seguinte esquema json:
 }
 ```
 
-Um ficheiro de exemplo `ConversionSettings.json` pode ser:
+Um ficheiro de exemplo `box.ConversionSettings.json` pode ser:
 
 ```json
 {
@@ -66,15 +67,18 @@ Um ficheiro de exemplo `ConversionSettings.json` pode ser:
 
 ### <a name="geometry-parameters"></a>Parâmetros de geometria
 
-* `scaling`- Este parâmetro escala um modelo uniformemente. A escala pode ser usada para crescer ou encolher um modelo, por exemplo, para exibir um modelo de construção em cima de uma mesa. Uma vez que o motor de renderização espera que os comprimentos sejam especificados nos metros, outra utilização importante deste parâmetro surge quando um modelo é definido em diferentes unidades. Por exemplo, se um modelo for definido em centímetros, então a aplicação de uma escala de 0,01 deve tornar o modelo no tamanho correto.
+* `scaling`- Este parâmetro escala um modelo uniformemente. A escala pode ser usada para crescer ou encolher um modelo, por exemplo, para exibir um modelo de construção em cima de uma mesa.
+A escala também é importante quando um modelo é definido em unidades que não os metros, uma vez que o motor de renderização espera contadores.
+Por exemplo, se um modelo for definido em centímetros, então a aplicação de uma escala de 0,01 deve tornar o modelo no tamanho correto.
 Alguns formatos de dados de origem (por exemplo.fbx) fornecem uma sugestão de escala de unidade, caso em que a conversão escala implicitamente o modelo para as unidades de contador. A escala implícita fornecida pelo formato de origem será aplicada em cima do parâmetro de escala.
 O fator de escala final é aplicado aos vértices de geometria e às transformações locais dos nós gráficos de cena. A escala para a transformação da entidade raiz permanece não modificada.
 
 * `recenterToOrigin`- Estabelece que um modelo deve ser convertido de modo a que a sua caixa de delimitação esteja centrada na origem.
-O centramento é importante se o modelo de origem for deslocado longe da origem, uma vez que nesse caso problemas de precisão de ponto flutuante podem causar artefactos de renderização.
+Se um modelo de origem for deslocado longe da origem, problemas de precisão de ponto flutuante podem causar artefactos de renderização.
+Centrar o modelo pode ajudar nesta situação.
 
 * `opaqueMaterialDefaultSidedness`- O motor de renderização pressupõe que os materiais opacos são de duplala.
-Se este não for o comportamento pretendido, este parâmetro deve ser definido como "SingleSided". Para mais informações, consulte [ :::no-loc text="single sided"::: renderização.](../../overview/features/single-sided-rendering.md)
+se essa suposição não for verdadeira de um modelo específico, este parâmetro deve ser definido como "SingleSided". Para mais informações, consulte [ :::no-loc text="single sided"::: renderização.](../../overview/features/single-sided-rendering.md)
 
 ### <a name="material-overrides"></a>Substituições de material
 
@@ -99,10 +103,10 @@ Se um modelo é definido usando espaço gama, então estas opções devem ser de
 
 * `sceneGraphMode`- Define como o gráfico de cena no ficheiro de origem é convertido:
   * `dynamic`(predefinição): Todos os objetos do ficheiro são expostos como [entidades](../../concepts/entities.md) na API e podem ser transformados de forma independente. A hierarquia do nó em tempo de execução é idêntica à estrutura do ficheiro de origem.
-  * `static`: Todos os objetos estão expostos na API mas não podem ser transformados de forma independente.
+  * `static`: Todos os objetos estão expostos na API, mas não podem ser transformados de forma independente.
   * `none`: O gráfico da cena é desmoronado num único objeto.
 
-Cada modo tem um desempenho de tempo de execução diferente. Em `dynamic` modo, o custo de desempenho escala linearmente com o número de [entidades](../../concepts/entities.md) no gráfico, mesmo quando nenhuma parte é movida. Só deve ser utilizado quando as peças móveis forem necessárias individualmente para a aplicação, por exemplo, para uma animação de "vista de explosão".
+Cada modo tem um desempenho de tempo de execução diferente. Em `dynamic` modo, o custo de desempenho escala linearmente com o número de [entidades](../../concepts/entities.md) no gráfico, mesmo quando nenhuma parte é movida. Utilize o modo de utilização `dynamic` apenas quando for necessário mover peças individualmente, por exemplo, para uma animação de "vista de explosão".
 
 O `static` modo exporta o gráfico de cena completa, mas as partes dentro deste gráfico têm uma transformação constante em relação à sua parte raiz. O nó raiz do objeto, no entanto, ainda pode ser movido, rodado ou escalado sem custos significativos de desempenho. Além disso, [as consultas espaciais](../../overview/features/spatial-queries.md) devolverão peças individuais e cada parte pode ser modificada através de [sobreposições de estado.](../../overview/features/override-hierarchical-state.md) Com este modo, a sobrecarga de tempo de execução por objeto é insignificante. É ideal para grandes cenas onde ainda precisa de inspeção por objeto, mas nenhuma transformação por objeto muda.
 
@@ -178,7 +182,7 @@ Estes formatos são permitidos para os respetivos componentes:
 
 As pegadas de memória dos formatos são as seguintes:
 
-| Formatar | Descrição | Bytes per:::no-loc text="vertex"::: |
+| Formato | Descrição | Bytes per:::no-loc text="vertex"::: |
 |:-------|:------------|:---------------|
 |32_32_FLOAT|precisão de ponto flutuante completo de dois componentes|8
 |16_16_FLOAT|precisão de ponto flutuante metade de dois componentes|4
@@ -278,6 +282,11 @@ Nestes casos de utilização, os modelos têm frequentemente detalhes muito elev
 * As peças individuais devem ser selecionáveis e móveis, pelo que `sceneGraphMode` a deve ser deixada para `dynamic` .
 * Os moldes de raios são tipicamente parte integrante da aplicação, por isso as malhas de colisão devem ser geradas.
 * Os aviões cortados ficam melhor com a `opaqueMaterialDefaultSidedness` bandeira ativada.
+
+## <a name="deprecated-features"></a>Funcionalidades preteridas
+
+O fornecimento de definições que utilizem o nome de ficheiro não específico do modelo `conversionSettings.json` ainda é suportado, mas prectado.
+Utilize o nome de ficheiro específico do `<modelName>.ConversionSettings.json` modelo.
 
 ## <a name="next-steps"></a>Próximos passos
 

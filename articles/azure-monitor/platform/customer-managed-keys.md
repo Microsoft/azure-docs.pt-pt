@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: 3835046e50180e1d1091f5083f276c7c1ad56612
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: eec056cbe246f129fb78e15faa0027846c271181
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117372"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382955"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave gerida pelo cliente Azure Monitor 
 
@@ -42,7 +42,7 @@ Após a configuração cmk, quaisquer dados ingeridos em espaços de trabalho as
 
 ![Visão geral da CMK](media/customer-managed-keys/cmk-overview.png)
 
-1. Key Vault
+1. Cofre de Chaves
 2. Log Analytics *Cluster* recurso tendo gerido identidade com permissões para Key Vault -- A identidade é propagada para o armazenamento de cluster de Log Analytics dedicado
 3. Cluster dedicado log analytics
 4. Espaços de trabalho associados ao recurso *Cluster* para encriptação CMK
@@ -187,8 +187,8 @@ Crie ou utilize um Cofre de Chaves Azure que já tem de gerar, ou importe uma ch
 
 Estas definições podem ser atualizadas através do CLI e do PowerShell:
 
-- [Eliminação de Forma Recuperável](../../key-vault/general/overview-soft-delete.md)
-- [Purgue](../../key-vault/general/overview-soft-delete.md#purge-protection) os guardas de proteção contra a eliminação forçada do segredo/cofre mesmo após a eliminação suave
+- [Eliminação de Forma Recuperável](../../key-vault/general/soft-delete-overview.md)
+- [Purgue](../../key-vault/general/soft-delete-overview.md#purge-protection) os guardas de proteção contra a eliminação forçada do segredo/cofre mesmo após a eliminação suave
 
 ### <a name="create-cluster-resource"></a>Criar recurso *cluster*
 
@@ -706,8 +706,8 @@ Após a configuração, qualquer nova consulta de alerta será guardada no seu a
 - A encriptação CMK aplica-se aos dados recém-ingeridos após a configuração cmk. Os dados que foram ingeridos antes da configuração cmk, permanecem encriptados com a chave microsoft. Pode consultar os dados ingeridos antes e depois da configuração CMK de forma perfeita.
 
 - O Cofre da Chave Azure deve ser configurado como recuperável. Estas propriedades não são ativadas por padrão e devem ser configuradas usando CLI ou PowerShell:<br>
-  - [Eliminação de Forma Recuperável](../../key-vault/general/overview-soft-delete.md)
-  - [A proteção de purga](../../key-vault/general/overview-soft-delete.md#purge-protection) deve ser ligada para se proteger contra a eliminação forçada do segredo/cofre mesmo após a eliminação suave.
+  - [Eliminação de Forma Recuperável](../../key-vault/general/soft-delete-overview.md)
+  - [A proteção de purga](../../key-vault/general/soft-delete-overview.md#purge-protection) deve ser ligada para se proteger contra a eliminação forçada do segredo/cofre mesmo após a eliminação suave.
 
 - *A* mudança de recursos do cluster para outro grupo de recursos ou subscrição não é suportada atualmente.
 
@@ -763,7 +763,7 @@ Após a configuração, qualquer nova consulta de alerta será guardada no seu a
   -  400. Cluster está em estado de eliminação. A operação async está em andamento. O Cluster deve concluir o seu funcionamento antes de qualquer operação de atualização ser efetuada.
   -  400 - KeyVaultProperties não está vazio, mas tem um mau formato. Consulte a [atualização do identificador de chaves](#update-cluster-resource-with-key-identifier-details).
   -  400- Falhou na validação da chave no Cofre de Chaves. Pode ser devido à falta de permissões ou quando a chave não existe. Verifique se [define a chave e a política de acesso](#grant-key-vault-permissions) no Key Vault.
-  -  400- Chave não é recuperável. O cofre da chave deve ser configurado para eliminar suavemente e proteger a purga. Ver [documentação do Cofre-Chave](../../key-vault/general/overview-soft-delete.md)
+  -  400- Chave não é recuperável. O cofre da chave deve ser configurado para eliminar suavemente e proteger a purga. Ver [documentação do Cofre-Chave](../../key-vault/general/soft-delete-overview.md)
   -  400. Operação não pode ser executada agora. Aguarde que a operação Async termine e tente de novo.
   -  400. Cluster está em estado de eliminação. Aguarde que a operação Async termine e tente de novo.
 

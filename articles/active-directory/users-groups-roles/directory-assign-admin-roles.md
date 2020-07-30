@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 487177b4a114ba7537ac4f1aa74a4e2472455d4b
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 9f87f732fbfff23e71096a89a7c04c65d1bd7959
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87369565"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432336"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -270,6 +270,7 @@ Os utilizadores com esta função podem alterar palavras-passe, invalidar fichas
 * Convidado Convidado
 * Administrador helpdesk
 * Leitor do Centro de Mensagens
+* Administrador de password
 * Leitor de Relatórios
 
 > [!IMPORTANT]
@@ -506,7 +507,7 @@ Os utilizadores com esta função podem criar utilizadores e gerir todos os aspe
 | --- | --- |
 |Permissões gerais|<p>Criar utilizadores e grupos</p><p>Criar e gerir vistas de utilizador</p><p>Gerir bilhetes de apoio ao Escritório<p>Atualizar as políticas de expiração da palavra-passe|
 | <p>Em todos os utilizadores, incluindo todos os administradores</p>|<p>Gerir licenças</p><p>Gerir todas as propriedades do utilizador, exceto o nome principal do utilizador</p>
-| Apenas em utilizadores que não sejam administradores ou em qualquer uma das seguintes funções de administração limitadas:<ul><li>Leitores de Diretório<li>Convidado Convidado<li>Administrador helpdesk<li>Leitor do Centro de Mensagens<li>Leitor de Relatórios<li>Administrador do Utilizador|<p>Eliminar e restaurar</p><p>Desativar e ativar</p><p>Tokens de atualização invalidado</p><p>Gerir todas as propriedades do utilizador, incluindo o nome principal do utilizador</p><p>Repor palavra-passe</p><p>Teclas de dispositivo de atualização (FIDO)</p>|
+| Apenas em utilizadores que não sejam administradores ou em qualquer uma das seguintes funções de administração limitadas:<ul><li>Leitores de Diretório<li>Administrador de Grupos<li>Convidado Convidado<li>Administrador helpdesk<li>Leitor do Centro de Mensagens<li>Administrador de password<li>Leitor de Relatórios<li>Administrador do Utilizador|<p>Eliminar e restaurar</p><p>Desativar e ativar</p><p>Tokens de atualização invalidado</p><p>Gerir todas as propriedades do utilizador, incluindo o nome principal do utilizador</p><p>Repor palavra-passe</p><p>Teclas de dispositivo de atualização (FIDO)</p>|
 
 > [!IMPORTANT]
 > Os utilizadores com esta função podem alterar palavras-passe para pessoas que possam ter acesso a informações sensíveis ou privadas ou configuração crítica dentro e fora do Azure Ative Directory. Alterar a palavra-passe de um utilizador pode significar a capacidade de assumir a identidade e permissões desse utilizador. Por exemplo:
@@ -1971,7 +1972,7 @@ Utilizador restrito de hóspedes | Não mostrado porque não pode ser usado | ND
 Utilizador | Não mostrado porque não pode ser usado | ND
 Aderir ao dispositivo de trabalho | Preterido | [Documentação de papéis precotados](directory-assign-admin-roles.md#deprecated-roles)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre como atribuir um utilizador como administrador de uma subscrição do Azure, consulte [Gerir o acesso utilizando funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 * Para saber mais sobre como o acesso a recursos é controlado no Microsoft Azure, consulte [Compreender as diferentes funções](../../role-based-access-control/rbac-and-directory-admin-roles.md)

@@ -6,12 +6,13 @@ ms.topic: conceptual
 description: Rever e testar alterações a partir de um pedido de pull diretamente no Serviço Azure Kubernetes usando GitHub Actions e Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, GitHub Actions, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: a83da0ef3958748831eb0eeda1aa5e91efa7ef2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 9cb240add87a14b0d474cec17684ef65a22cc07a
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80637951"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421030"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>GitHub Actions & Serviço Azure Kubernetes (pré-visualização)
 

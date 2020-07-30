@@ -17,12 +17,12 @@ ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfb6e0608609a3940affd83a0aa235a2ef7c041c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce4c64f0be61c2fe28a102674929333235ee29c8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357567"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385097"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Alterar a senha de conta de serviço ADSync
 Se alterar a palavra-passe da conta de serviço ADSync, o Serviço de Sincronização não poderá iniciar-se corretamente até ter abandonado a chave de encriptação e reiniciado a palavra-passe da conta de serviço ADSync. 
@@ -52,7 +52,7 @@ Para garantir que não recebe estes erros, siga os procedimentos de [abandono da
  
 ## <a name="abandoning-the-adsync-service-account-encryption-key"></a>Abandono da chave de encriptação da conta de serviço ADSync
 >[!IMPORTANT]
->Os seguintes procedimentos aplicam-se apenas à construção Azure AD Connect 1.1.443.0 ou mais.
+>Os seguintes procedimentos aplicam-se apenas à construção Azure AD Connect 1.1.443.0 ou mais. Isto não pode ser usado para versões mais recentes do Azure AD Connect.
 
 Utilize os seguintes procedimentos para abandonar a chave de encriptação.
 

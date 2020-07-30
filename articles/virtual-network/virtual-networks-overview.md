@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 237361c6a519fea4dde7f1fe85f91d97ce0365b1
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: db3eae5cd31fff0db465389ea4a09b1666453634
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281587"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387001"
 ---
 # <a name="what-is-azure-virtual-network"></a>O que é a Rede Virtual do Azure?
 
@@ -27,7 +27,7 @@ A Azure Virtual Network (VNet) é o bloco de construção fundamental para a sua
 ## <a name="vnet-concepts"></a>Conceitos VNet
 
 - **Espaço de endereço:** Ao criar um VNet, deve especificar um espaço de endereço IP privado personalizado utilizando endereços públicos e privados (RFC 1918). O Azure atribui aos recursos numa rede virtual um endereço IP privado a partir do espaço de endereços que atribuir. Por exemplo, se colocar um VM num VNet com espaço de endereço, 10.0.0.0/16, o VM será atribuído a um IP privado como 10.0.0.4.
-- **Sub-redes:** As sub-redes permitem segmentar a rede virtual em uma ou mais sub-redes e atribuir uma parte do espaço de endereço da rede virtual a cada sub-rede. Em seguida, pode implantar recursos Azure numa sub-rede específica. Tal como numa rede tradicional, as sub-redes permitem segmentar o seu espaço de endereço VNet em segmentos apropriados para a rede interna da organização. Isto também melhora a eficiência da atribuição de endereços. Pode proteger recursos dentro de sub-redes utilizando grupos de segurança de rede. Para mais informações, consulte [os grupos de segurança.](security-overview.md)
+- **Sub-redes:** As sub-redes permitem segmentar a rede virtual em uma ou mais sub-redes e atribuir uma parte do espaço de endereço da rede virtual a cada sub-rede. Em seguida, pode implantar recursos Azure numa sub-rede específica. Tal como numa rede tradicional, as sub-redes permitem segmentar o seu espaço de endereço VNet em segmentos apropriados para a rede interna da organização. Isto também melhora a eficiência da atribuição de endereços. Pode proteger recursos dentro de sub-redes utilizando grupos de segurança de rede. Para obter mais informações, consulte [os grupos de segurança da Rede.](security-overview.md)
 - **Regiões**: O VNet é traçado para uma única região/localização; no entanto, várias redes virtuais de diferentes regiões podem ser conectadas em conjunto usando o Virtual Network Peering.
 - **Assinatura:** O VNet é traçado para uma subscrição. Pode implementar várias redes virtuais dentro de cada [subscrição](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) do Azure e [região](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region) do Azure.
 
@@ -67,7 +67,7 @@ Pode ligar os computadores e redes no local a uma rede virtual, com qualquer com
 
 Pode filtrar o tráfego de rede entre as sub-redes com uma ou ambas das seguintes opções:
 
-- **Grupos de segurança:** Os grupos de segurança da rede e os grupos de segurança de aplicações podem conter várias regras de segurança de entrada e saída que lhe permitem filtrar o tráfego de e para os recursos através do endereço IP de origem e destino, porto e protocolo. Para saber mais, consulte [grupos de segurança da Rede](security-overview.md#network-security-groups) ou [grupos de segurança de aplicações.](security-overview.md#application-security-groups)
+- **Grupos de segurança de rede:** Os grupos de segurança da rede e os grupos de segurança de aplicações podem conter várias regras de segurança de entrada e saída que lhe permitem filtrar o tráfego de e para os recursos através do endereço IP de origem e destino, porto e protocolo. Para saber mais, consulte [grupos de segurança da Rede](security-overview.md#network-security-groups) ou [grupos de segurança de aplicações.](security-overview.md#application-security-groups)
 - **Aplicações virtuais de rede:** uma aplicação virtual de rede é uma VM que executa uma função de rede, como uma firewall, otimização de rede alargada ou outra função de rede. Para ver uma lista das aplicações virtuais de rede disponíveis que pode implementar numa rede virtual, veja [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances).
 
 ## <a name="route-network-traffic"></a>Encaminhar o tráfego de rede
@@ -94,6 +94,6 @@ Existem certos limites em torno do número de recursos Azure que pode implementa
 
 Não há qualquer custo para a utilização do Azure VNet, é livre de custos. Os encargos padrão são aplicáveis para recursos, tais como Máquinas Virtuais (VMs) e outros produtos. Para saber mais, consulte [os preços da VNet](https://azure.microsoft.com/pricing/details/virtual-network/) e a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/)da Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
  Para começar a utilizar uma rede virtual, crie uma, implemente algumas VMs na mesma e comunique entre as VMs. Para saber como, veja o início rápido [Criar uma rede virtual](quick-create-portal.md).
