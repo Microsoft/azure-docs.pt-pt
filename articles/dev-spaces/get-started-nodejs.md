@@ -5,12 +5,13 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Este tutorial mostra-lhe como usar Azure Dev Spaces e Visual Studio Code para depurar e iterar rapidamente uma aplicação Node.js no Serviço Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: 286f4f37b0f34614b560c9a1758c18f5f7c586bc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: c4c583a53cb9250a37b934629ffc0539d760a876
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87044327"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419585"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-nodejs-with-azure-dev-spaces"></a>Criar um espaço dev Kubernetes: Visual Studio Code e Node.js com Azure Dev Spaces
 
@@ -278,7 +279,7 @@ Nesta configuração, o contentor é configurado para iniciar o *nodemon*. Quand
 
 **Agora, tem um método para iterar rapidamente no código e depurar diretamente no Kubernetes.** Em seguida, irá ver como pode criar e chamar um segundo contentor.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Conheça o desenvolvimento de vários serviços](multi-service-nodejs.md)

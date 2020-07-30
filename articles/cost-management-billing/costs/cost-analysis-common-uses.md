@@ -3,16 +3,16 @@ title: Utilizações comuns da análise de custos no Azure Cost Management
 description: Este artigo explica como pode obter resultados para tarefas comuns da análise de custos no Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/27/2020
-ms.topic: conceptual
+ms.date: 07/24/2020
+ms.topic: how-to
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.openlocfilehash: 130d313c1ca549f3a4e6f1ec1bbac2a16a753709
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 1c1d883d3bc71d23b460e960c903401e1acdd0e2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142527"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290829"
 ---
 # <a name="common-cost-analysis-uses"></a>Utilizações comuns da análise de custos
 

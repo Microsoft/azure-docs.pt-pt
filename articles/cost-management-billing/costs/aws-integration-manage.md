@@ -3,17 +3,17 @@ title: Gerir a utilização e os custos do AWS no Azure Cost Management
 description: Este artigo ajuda-o a compreender como utilizar a análise de custos e os orçamentos no Cost Management para gerir os custos e a utilização do AWS.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
-ms.topic: conceptual
+ms.date: 07/24/2020
+ms.topic: how-to
 ms.service: cost-management-billing
 ms.reviewer: matrive
 ms.custom: ''
-ms.openlocfilehash: fd4d4a16642e764276d49dd732a785be48197d01
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d62a2aecc787d23750023def65eda7bf096b34f5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200032"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290864"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Gerir os custos e a utilização do AWS no Azure
 

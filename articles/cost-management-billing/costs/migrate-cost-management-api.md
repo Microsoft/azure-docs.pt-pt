@@ -3,16 +3,16 @@ title: Migrar das APIs do EA para as APIs do Contrato de Cliente Microsoft – A
 description: Este artigo ajuda-o a compreender as consequências da migração de um Contrato Enterprise (EA) Microsoft para um Contrato de Cliente Microsoft.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
-ms.openlocfilehash: 397e0a21b1ba11b3bdd74c2030ff358c1ce159d8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1c556f2371ffba239ceee64fd4180143ae9b9230
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77201038"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290055"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrar das APIs do Contrato Enterprise para as APIs do Contrato de Cliente Microsoft
 
