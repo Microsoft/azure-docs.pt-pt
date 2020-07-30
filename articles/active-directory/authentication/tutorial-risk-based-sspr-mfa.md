@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18b2fb520ecab8b233be3c93ef614a2bce01a75e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e008091b3d0b450384cb7a672a62c786c33bfeab
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035001"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419636"
 ---
 # <a name="tutorial-use-risk-detections-for-user-sign-ins-to-trigger-azure-multi-factor-authentication-or-password-changes"></a>Tutorial: Utilize deteções de risco para iniciar alterações de autenticação ou palavra-passe do Azure Multi-Factor
 
@@ -39,7 +39,7 @@ Neste tutorial, ficará a saber como:
 
 Para completar este tutorial, precisa dos seguintes recursos e privilégios:
 
-* Um inquilino Azure AD em funcionamento com pelo menos uma licença de julgamento Azure AD Premium P2 habilitado.
+* Um inquilino Azure AD em funcionamento com pelo menos um Azure AD Premium P2 ou uma licença de julgamento habilitada.
     * Se necessário, [crie um de graça.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Uma conta com privilégios *de Administrador Global.*
 * Azure AD configurado para reset de senha de autosserviço e autenticação multi-factor Azure
@@ -123,11 +123,11 @@ A maioria dos eventos de inscrição do utilizador não desencadeará as políti
 
 Para testar as políticas de Proteção de Identidade Azure AD criadas nos passos anteriores, precisa de uma forma de simular comportamentos de risco ou potenciais ataques. Os passos para fazer estes testes variam em função da política de Proteção de Identidade Azure AD que pretende validar. Para obter mais informações sobre cenários e etapas, consulte [Simular deteções de riscos na Proteção de Identidade AZure AD](../identity-protection/howto-identity-protection-simulate-risk.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se tiver concluído os testes e deixar de querer ter as políticas baseadas no risco ativadas, volte a cada política que pretende desativar e desative a Política de **Execução** para *desligar*.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, permitiu políticas de utilizador baseadas em riscos para a Proteção de Identidade Azure AD. Aprendeu a:
 
