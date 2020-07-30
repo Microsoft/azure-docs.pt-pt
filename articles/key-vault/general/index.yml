@@ -11,12 +11,12 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 09/19/2019
-  ms.openlocfilehash: f1e519c99bf55abb8a72ada83d59fa1e4c063998
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.openlocfilehash: ff7af5ead7cc14deb974700e7bf6f3553f2e71f7
+  ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/23/2020
-  ms.locfileid: "87078885"
+  ms.lasthandoff: 07/29/2020
+  ms.locfileid: "87387749"
 landingContent:
 - title: Acerca do Azure Key Vault
   linkLists:
@@ -24,12 +24,14 @@ landingContent:
     links:
     - text: O que é o cofre de chave do Azure?
       url: overview.md
+    - text: Notícias importantes sobre a eliminação recuperável
+      url: soft-delete-change.md
   - linkListType: concept
     links:
     - text: Conceitos básicos
       url: basic-concepts.md
     - text: Eliminar de forma recuperável
-      url: overview-soft-delete.md
+      url: soft-delete-overview.md
     - text: Limitação
       url: overview-throttling.md
 - title: Tutoriais

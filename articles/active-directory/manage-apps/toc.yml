@@ -7,7 +7,7 @@
       href: what-is-application-management.md
     - name: O que é o Início de Sessão Único (SSO)?
       href: what-is-single-sign-on.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   items:
     - name: Ver as suas aplicações
       href: view-applications-portal.md
@@ -21,8 +21,6 @@
       href: delete-application-portal.md
 - name: Tutoriais
   items:
-    - name: Adicionar uma aplicação não listada na galeria
-      href: add-non-gallery-app.md
     - name: 'Aplicações de galeria integradas (por exemplo, ServiceNow, Salesforce, Dropbox)'
       href: /azure/active-directory/saas-apps/
     - name: Adicionar uma aplicação no local com o Proxy de Aplicações
@@ -42,6 +40,8 @@
       items:
         - name: Introdução à integração de aplicações
           href: plan-an-application-integration.md
+        - name: Planear aplicações não listadas na galeria
+          href: non-gallery-apps.md
         - name: Planear uma implementação de painel de acesso
           href: access-panel-deployment-plan.md
         - name: Orientação para programadores
@@ -106,7 +106,7 @@
             - name: Configurar o início de sessão único baseado em SAML
               items:
                 - name: Configurar o início de sessão único baseado em SAML
-                  href: configure-single-sign-on-non-gallery-applications.md
+                  href: configure-saml-single-sign-on.md
                 - name: Personalizar atributos e afirmações de utilizador
                   items:
                     - name: Configurar afirmações de grupo
