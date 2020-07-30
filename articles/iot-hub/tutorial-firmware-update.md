@@ -13,12 +13,13 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: cc5c7193914f02cf52956481f22553dcabdd6520
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+- devx-track-javascript
+ms.openlocfilehash: 2e2d66e113c855830f841761cb11a70e4f26c19d
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324527"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87415079"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutorial: Implementar um processo de atualização de firmware do dispositivo
 
@@ -206,7 +207,7 @@ Em alternativa, utilize a CLI:
 az group delete --name tutorial-iot-hub-rg
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a implementar um processo de atualização de firmware para os seus dispositivos ligados. Avance para o próximo tutorial para aprender a usar as ferramentas do portal Azure IoT Hub e os comandos Azure CLI para testar a conectividade do dispositivo.
 

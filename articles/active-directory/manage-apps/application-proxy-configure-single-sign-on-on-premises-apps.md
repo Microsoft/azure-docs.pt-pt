@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9b6753a0aa9e79624b9b972264611fd31f2bba8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c706de8a7638c16f3778d0d5295069c13b79d98
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764830"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387273"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>SAML único sinal de inscrição para aplicações no local com Proxy de aplicação
 
@@ -47,7 +47,7 @@ Os diagramas de protocolo abaixo descrevem a sequência de sinalização única 
 
 4. Selecione **o SAML** como o método de inscrição única.
 
-5. Primeiro criou a SAML SSO para trabalhar na rede corporativa. Na **configuração de um único sign-on com página SAML,** vá ao título **de configuração básica do SAML** e selecione o seu ícone **editar** (um lápis). Siga os passos na [configuração básica do SAML](configure-single-sign-on-non-gallery-applications.md#step-1-edit-the-basic-saml-configuration) para configurar a autenticação baseada em SAML para a aplicação.
+5. Primeiro, crie o SAML SSO para trabalhar enquanto estiver na rede corporativa, consulte a secção básica de configuração SAML do [Configure SAML baseado em um único sign-on baseado em SAML](configure-saml-single-sign-on.md) para configurar a autenticação baseada em SAML para a aplicação.
 
 6. Adicione pelo menos um utilizador à aplicação e certifique-se de que a conta de teste tem acesso à aplicação. Enquanto estiver ligado à rede corporativa, utilize a conta de teste para ver se tem um único sinal de saturação para a aplicação. 
 
@@ -81,7 +81,7 @@ Antes de poder fornecer SSO para aplicações no local, tem de ativar o Applicat
 
 4. Selecione a caixa de verificação ao lado do **URL de resposta** atualizado para a marcar como o padrão.
 
-   * Após a marcação do **URL de resposta** exigido como padrão, também pode eliminar o URL de **resposta** previamente configurado que utilizou o URL interno.
+   * Depois de marcar o **URL de resposta** exigido como padrão, também pode eliminar o URL de **resposta** previamente configurado que utilizou o URL interno.
 
    * Para um fluxo iniciado pelo SP, certifique-se de que a aplicação de back-end especifica o **URL de resposta** correto ou URL do Serviço de Apoio ao Consumidor de Afirmação para receber o token de autenticação.
 

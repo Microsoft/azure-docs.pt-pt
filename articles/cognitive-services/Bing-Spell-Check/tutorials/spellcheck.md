@@ -10,12 +10,13 @@ ms.subservice: bing-spell-check
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 1c3cb862ee40c62ba3c22f9019abae3db2368652
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 71dca130fa20fd1887d9c80582997bf274dd475e
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85603082"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405114"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Tutorial: Compilar um cliente de Verificação Ortográfica de página Web
 
@@ -323,7 +324,7 @@ Abra a página Web no seu browser. Quando lhe for pedido, introduza a sua chave 
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Requisitos de utilização e de apresentação](../UseAndDisplayRequirements.md)

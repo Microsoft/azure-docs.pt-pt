@@ -3,12 +3,12 @@ title: Crie uma especificação de modelo com modelos ligados
 description: Aprenda a criar uma especificação de modelo com modelos ligados.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: c2648cb8a71be709406f314d02a226ed097be6f0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b952baa465092fef19ad2feb11a43328a6177d1c
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87097734"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387868"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Tutorial: Criar uma especificação de modelo com modelos ligados (Pré-visualização)
 
@@ -33,7 +33,7 @@ O modelo ligado é chamado **linkedTemplate.jsem**, e é armazenado em uma sub-p
 - `/artifacts/linkedTemplate.json`
 - `artifacts/linkedTemplate.json`
 
-Se houver outro linkedTemplate2.jssobre o que é chamado a partir de linkedTemplate.jse linkedTemplate2.jsestá armazenado na mesma subpagadora de artefactos, o parentePath especificado em linkedTemplate.jsestá **linkedTemplate2.jsem**.
+A `relativePath` propriedade é sempre relativa ao ficheiro de modelo onde é `relativePath` declarado, por isso, se houver outra linkedTemplate2.jssobre o que é chamado a partir de linkedTemplate.jse linkedTemplate2.jsestá armazenado na mesma subpagadora de artefactos, o parentePath especificado em linkedTemplate.jsé apenas `linkedTemplate2.json` .
 
 1. Crie o modelo principal com o seguinte JSON. Guarde o modelo principal à medida **queazuredeploy.jspara** o computador local. Este tutorial assume que guardou para um caminho **c:\Templates\linkedTS\azuredeploy.js,** mas pode usar qualquer caminho.
 
@@ -199,6 +199,6 @@ New-AzResourceGroupDeployment `
   -ResourceGroupName webRG
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para aprender sobre a implementação de uma especificação de modelo como um modelo ligado, consulte [Tutorial: Implemente uma especificação de modelo como um modelo ligado](template-specs-deploy-linked-template.md).

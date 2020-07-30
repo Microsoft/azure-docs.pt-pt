@@ -4,15 +4,15 @@ description: Tutorial - Aprenda a executar scripts Python como parte de um oleod
 author: mammask
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 12/11/2019
+ms.date: 07/29/2020
 ms.author: komammas
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: a8f6fe49faf0624f6ef6d4fa8a346e22c69da599
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 165f688233ef03a390e8e1d5cccf2b2e45218c43
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851737"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407462"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Tutorial: Executar scripts Python através da Azure Data Factory usando Azure Batch
 
@@ -99,7 +99,7 @@ df = df[df['Species'] == "setosa"]
 df.to_csv("iris_setosa.csv", index = False)
 
 # Upload iris dataset
-blobService.create_blob_from_text(containerName, "iris_setosa.csv", "iris_setosa.csv")
+blobService.create_blob_from_path(containerName, "iris_setosa.csv", "iris_setosa.csv")
 ```
 
 Guarde o script como `main.py` e faça o upload para o recipiente de armazenamento **Azure.** Certifique-se de testar e validar a sua funcionalidade localmente antes de a enviar para o seu recipiente blob:
@@ -147,7 +147,7 @@ Caso sejam produzidos avisos ou erros pela execução do seu script, pode verifi
 1. Clique na tarefa que tinha um código de saída de falha.
 1. Ver `stdout.txt` e investigar e diagnosticar o seu `stderr.txt` problema.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, você explorou um exemplo que o ensinou a executar scripts Python como parte de um oleoduto através da Azure Data Factory usando Azure Batch.
 

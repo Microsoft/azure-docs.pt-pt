@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71a019ee6b0df52de70dfedca94feaede90e1f0d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 46d3ac6947293529308ad0abba9cd175d6b4dd6c
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87294962"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407341"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-smarthr"></a>Tutorial: Azure Ative Directy integração única (SSO) com SmartHR
 
@@ -90,7 +90,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://<SUBDOMAIN>.smarthr.jp/external_saml/acs`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o sinal real em URL, URL de resposta e identificador. Contacte [a equipa de suporte do Cliente SmartHR](mailto:info@smarhr.jp) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o sinal real em URL, URL de resposta e identificador. Contacte [a equipa de suporte do Cliente SmartHR](mailto:info@smarthr.jp) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregue** para descarregar o certificado e guarde-o no seu computador.
 
@@ -132,11 +132,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ## <a name="configure-smarthr-sso"></a>Configurar SmartHR SSO
 
-Para configurar um único sign-on no lado **SmartHR,** você precisa enviar o **Metdata XML da Federação** descarregado e URLs copiados apropriados do portal Azure para a equipe de [suporte SmartHR](mailto:info@smarhr.jp). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
+Para configurar um único sign-on no lado **SmartHR,** você precisa enviar o **Metdata XML da Federação** descarregado e URLs copiados apropriados do portal Azure para a equipe de [suporte SmartHR](mailto:info@smarthr.jp). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
 ### <a name="create-smarthr-test-user"></a>Criar utilizador de teste SmartHR
 
-Nesta secção, cria-se um utilizador chamado B.Simon in SmartHR. Trabalhe com a [equipa de suporte smartHR](mailto:info@smarhr.jp) para adicionar os utilizadores na plataforma SmartHR. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado B.Simon in SmartHR. Trabalhe com a [equipa de suporte smartHR](mailto:info@smarthr.jp) para adicionar os utilizadores na plataforma SmartHR. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ## <a name="test-sso"></a>Teste SSO 
 
