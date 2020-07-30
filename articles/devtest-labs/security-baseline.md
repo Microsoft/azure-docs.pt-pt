@@ -3,12 +3,12 @@ title: Linha de Base de Segurança Azure para Azure DevTest Labs
 description: Linha de Base de Segurança Azure para Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 47adca5867fef1d41ccfec2455acc6932269842d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7f0dc1fb18740e2b0611b5954821a5ceda2d2657
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282284"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387834"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Linha de Base de Segurança Azure para Azure DevTest Labs
 
@@ -547,7 +547,7 @@ Se estiver a utilizar a encriptação do disco Azure, pode restaurar o Azure VM 
 **Orientação:** Quando faz cópia de segurança com backup Azure, os VMs são encriptados em repouso com encriptação do serviço de armazenamento (SSE). O Azure Backup também pode fazer backup de VMs Azure que são encriptados usando Azure Disk Encryption. A encriptação do disco Azure integra-se com chaves de encriptação BitLocker (BEKs), que são salvaguardadas num cofre-chave como segredos. A encriptação do disco Azure também se integra com chaves de encriptação chave Azure Key Vault (KEKs). Ativar a eliminação suave no cofre de chaves para proteger as chaves contra a eliminação acidental ou maliciosa.
 
 - [Excluir suave para VMs](../backup/soft-delete-virtual-machines.md)
-- [Azure Key Vault - visão geral de exclusão suave](../key-vault/general/overview-soft-delete.md)
+- [Azure Key Vault - visão geral de exclusão suave](../key-vault/general/soft-delete-overview.md)
 
 **Monitorização do Centro de Segurança Azure:** Sim, é o seu
 

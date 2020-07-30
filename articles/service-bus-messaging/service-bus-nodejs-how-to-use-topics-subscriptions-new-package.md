@@ -6,12 +6,13 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: ceedd018f80ba189afa0bd986a5606ad68327d77
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 531322c49a772eaf416fadf1bb4f9a5fb6bf1ff6
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85340629"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430615"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Quickstart: Como usar tópicos e subscrições do Service Bus com Node.js e o pacote azure/service-bus
 Neste tutorial, aprende-se a escrever um programa Node.js para enviar mensagens para um tópico de Service Bus e receber mensagens de uma assinatura de Service Bus utilizando o novo [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) pacote. Este pacote utiliza o [protocolo AMQP 1.0](service-bus-amqp-overview.md) mais rápido, enquanto o pacote [azure-sb](https://www.npmjs.com/package/azure-sb) mais antigo utilizou [APIs de tempo de funcionamento do Service Bus REST](/rest/api/servicebus/service-bus-runtime-rest). As amostras estão escritas em JavaScript.

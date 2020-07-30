@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/15/2020
 ms.author: radeltch
-ms.openlocfilehash: e17dcf02c920dc1a824a165fb3d667833267cac7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e018f2320b505a174850472d85ec2ebd59310560
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507510"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406576"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Implementar um sistema de escala SAP HANA com nó de espera em VMs Azure utilizando ficheiros Azure NetApp no Red Hat Enterprise Linux 
 
@@ -89,7 +89,7 @@ Antes de começar, consulte as seguintes notas e documentos SAP:
 * [Aplicações NETApp SAP no Microsoft Azure utilizando ficheiros Azure NetApp][anf-sap-applications-azure]
 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Um método para alcançar a alta disponibilidade de HANA é configurando o failover de carro hospedeiro. Para configurar o failover automático do anfitrião, adicione uma ou mais máquinas virtuais ao sistema HANA e configurá-las como nós de espera. Quando o nó ativo falha, um nó de espera assume automaticamente. Na configuração apresentada com máquinas virtuais Azure, obtém-se falha automática utilizando [NFS em Ficheiros Azure NetApp](../../../azure-netapp-files/azure-netapp-files-introduction.md).  
 
@@ -361,7 +361,7 @@ Configure e prepare o seu SO fazendo os seguintes passos:
     <pre><code>
     vi /etc/sysctl.d/ms-az.conf
     # Add the following entries in the configuration file
-    ipv6.conf.all.disable_ipv6 = 1
+    net.ipv6.conf.all.disable_ipv6 = 1
     net.ipv4.tcp_max_syn_backlog = 16348
     net.ipv4.ip_local_port_range = 40000 65300
     net.ipv4.conf.all.rp_filter = 0

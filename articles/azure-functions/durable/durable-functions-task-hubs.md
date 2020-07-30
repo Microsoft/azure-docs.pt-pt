@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: azfuncdf
-ms.openlocfilehash: afee79aecaad97ec4b441df0758166073b2413cf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 26234039c77601bc1d29beeebd3fcb8461d6d6c9
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083111"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432694"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Centros de tarefas em Funções Duradouras (Funções Azure)
 
@@ -110,12 +110,12 @@ O seguinte código demonstra como escrever uma função que usa a ligação do c
 [FunctionName("HttpStart")]
 public static async Task<HttpResponseMessage> Run(
     [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}")] HttpRequestMessage req,
-    [OrchestrationClient(TaskHub = "%MyTaskHub%")] IDurableOrchestrationClient starter,
+    [DurableClient(TaskHub = "%MyTaskHub%")] IDurableOrchestrationClient starter,
     string functionName,
     ILogger log)
 {
     // Function input comes from the request content.
-    dynamic eventData = await req.Content.ReadAsAsync<object>();
+    object eventData = await req.Content.ReadAsAsync<object>();
     string instanceId = await starter.StartNewAsync(functionName, eventData);
 
     log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
@@ -167,7 +167,7 @@ Para obter mais informações sobre as diferenças entre as versões de extensã
 > [!NOTE]
 > O nome é o que diferencia um centro de tarefas de outro quando existem múltiplos centros de tarefas numa conta de armazenamento partilhada. Se tiver várias aplicações de funções que partilhem uma conta de armazenamento partilhada, tem de configurar explicitamente diferentes nomes para cada centro de tarefas no *host.jsem* ficheiros. Caso contrário, as aplicações de múltiplas funções competirão entre si por mensagens, o que pode resultar em comportamentos indefinidos, incluindo orquestrações ficando inesperadamente "presas" no `Pending` `Running` ou no estado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba como lidar com a versão de orquestração](durable-functions-versioning.md)

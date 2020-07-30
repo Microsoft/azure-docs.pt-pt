@@ -7,18 +7,19 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: cc1bf52190cb47bc4ffd6efe159ed88cac560e02
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 6f5e05e9bfea6b14e46bbde8d17fba2d2a3b7b07
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298006"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429507"
 ---
 # <a name="tutorial-publish-a-vuepress-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site da VuePress para visualização de aplicações web estáticas Azure
 
 Este artigo demonstra como criar e implementar uma aplicação web [VuePress](https://vuepress.vuejs.org/) para [Azure Azure Static Web Apps](overview.md). O resultado final é uma nova aplicação Azure Static Web Apps com as ações associadas do GitHub Que lhe dão controlo sobre como a aplicação é construída e publicada.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -30,7 +31,7 @@ Neste tutorial, vai aprender a:
 
 - Uma conta Azure com uma subscrição ativa. Se não tiver uma, pode [criar uma conta gratuitamente.](https://azure.microsoft.com/free/)
 - Uma conta do GitHub. Se não tiver uma, pode [criar uma conta gratuitamente.](https://github.com/join)
-- Ter o [Node.js](https://nodejs.org) instalado.
+- [Node.js](https://nodejs.org) instalados.
 
 ## <a name="create-a-vuepress-app"></a>Criar uma app VuePress
 
@@ -48,7 +49,7 @@ Criar uma aplicação VuePress a partir da Interface da Linha de Comando (CLI):
    echo '# Hello From VuePress' > README.md
    ```
 
-1. Inicialize o ficheiro _package.json._
+1. Inicialize a _package.jsarquivada._
 
    ```bash
    npm init -y
@@ -60,7 +61,7 @@ Criar uma aplicação VuePress a partir da Interface da Linha de Comando (CLI):
    npm install --save-dev vuepress
    ```
 
-1. Abra o ficheiro _package.json_ num editor de texto e adicione um comando de construção à [`scripts`](https://docs.npmjs.com/cli-commands/run-script.html) secção.
+1. Abra a _package.jsficheiro num_ editor de texto e adicione um comando de construção à [`scripts`](https://docs.npmjs.com/cli-commands/run-script.html) secção.
 
    ```json
    ...
@@ -108,11 +109,11 @@ Os passos seguintes mostram-lhe como criar uma nova aplicação estática de Web
 
 ### <a name="create-the-application"></a>Criar a aplicação
 
-1. Navegue para o [portal do Azure](https://portal.azure.com)
-1. Clique **em Criar um recurso**
-1. Pesquisa de **aplicativos web estáticos**
-1. Clique **em Aplicativos Web Estáticos (pré-visualização)**
-1. Clique **em Criar**
+1. Navegue até ao [portal Azure](https://portal.azure.com)
+1. Clique em **Criar um Recurso**.
+1. Procure **Aplicações Web Estáticas**
+1. Clique em **Aplicações Web Estáticas (Pré-visualização)**
+1. Clique em **Criar**
 
    :::image type="content" source="./media/publish-vuepress/create-in-portal.png" alt-text="Criar uma Web Apps estática (pré-visualização) no portal":::
 
@@ -142,7 +143,7 @@ Os passos seguintes mostram-lhe como criar uma nova aplicação estática de Web
 
 Em seguida, adiciona definições de configuração que o processo de construção utiliza para construir a sua aplicação. As seguintes definições configuram o ficheiro de fluxo de trabalho gitHub Action.
 
-1. Clique no **Seguinte: Construa >** botão para editar a configuração de construção
+1. Clique no botão **Seguinte: Compilar>** para editar a configuração de compilação
 
 1. Definir _a localização da aplicação_ para **/** .
 
@@ -164,11 +165,11 @@ Um valor para _a localização_ da API não é necessário, uma vez que não est
 
    :::image type="content" source="./media/publish-vuepress/deployed-app.png" alt-text="Aplicação implantada":::
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cleanup-resource](../../includes/static-web-apps-cleanup-resource.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Adicionar um domínio personalizado](custom-domain.md)

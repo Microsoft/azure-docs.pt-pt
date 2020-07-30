@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2020
 ms.author: allensu
-ms.openlocfilehash: 80e2ba8df9c81d2a34f63b2f1bc943ee5d731bae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93ce3b02ef8963a33e485b6560516e1d2b9c1ef5
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549586"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424022"
 ---
 # <a name="what-is-virtual-network-nat"></a>O que é Virtual Network NAT?
 
@@ -32,7 +32,7 @@ O VIRTUAL Network NAT (tradução de endereços de rede) simplifica a conectivid
 -->
 
 <p align="center">
-  <img src="./media/nat-overview/flow-map.svg" width="256" title="Rede Virtual NAT">
+  <img src="./media/nat-overview/flow-map.svg" alt="Figure depicts a NAT receiving traffic from internal subnets and directing it to a public IP and an IP prefix." width="256" title="Rede Virtual NAT">
 </p>
 
 
@@ -61,7 +61,7 @@ Ao contrário do que acontece com o SNAT de saída do balanceador de carga, o NA
 
 A NAT é compatível com os seguintes recursos SKU padrão:
 
-- Load balancer
+- Balanceador de carga
 - Endereço IP público
 - Prefixo de IP público
 
@@ -74,7 +74,7 @@ As funcionalidades NAT e Standard SKU compatíveis estão cientes da direção e
 ![Virtual Network NAT flow direction](./media/nat-overview/flow-direction4.svg)
 -->
 <p align="center">
-  <img src="./media/nat-overview/flow-direction4.svg" width="512" title="Direção de fluxo NAT de rede virtual">
+  <img src="./media/nat-overview/flow-direction4.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP and a public load balancer." width="512" title="Direção de fluxo NAT de rede virtual">
 </p>
 
 *Figura: Direção de fluxo NAT de rede virtual*
@@ -103,7 +103,7 @@ O NAT é regional por defeito. Ao criar [cenários de zonas de disponibilidade,]
 -->
 
 <p align="center">
-  <img src="./media/nat-overview/az-directions.svg" width="512" title="Rede Virtual NAT com zonas de disponibilidade">
+  <img src="./media/nat-overview/az-directions.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet." width="512" title="Rede Virtual NAT com zonas de disponibilidade">
 </p>
 
 *Figura: Rede Virtual NAT com zonas de disponibilidade*
@@ -156,7 +156,7 @@ Queremos saber como podemos melhorar o serviço. Propor e votar o que devemos co
 * A exploração de fluxo NSG não é suportada quando se utiliza o NAT.
 * A NAT não pode abranger várias redes virtuais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [o recurso nat gateway.](./nat-gateway-resource.md)
 * [Diga-nos o que construir a seguir para o NAT de Rede Virtual no UserVoice](https://aka.ms/natuservoice).

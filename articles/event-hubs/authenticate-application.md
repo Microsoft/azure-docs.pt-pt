@@ -3,12 +3,12 @@ title: Autenticar uma aplicação para aceder aos recursos do Azure Event Hubs
 description: Este artigo fornece informações sobre a autenticação de uma aplicação com o Azure Ative Directory para aceder aos recursos do Azure Event Hubs
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 1def026b1f188eba85ad5a86bf963ba1964b768a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 37f76d99ac7f676b260b8a0e23f8a6e31792e835
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371537"
+ms.locfileid: "87413872"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticar uma aplicação com o Azure Ative Directory para aceder aos recursos do Event Hubs
 O Microsoft Azure fornece uma gestão integrada do controlo de acessos para recursos e aplicações com base no Azure Ative Directory (Azure AD). Uma vantagem fundamental de usar a Azure AD com Azure Event Hubs é que já não precisa de armazenar as suas credenciais no código. Em vez disso, pode solicitar um token de acesso OAuth 2.0 a partir da plataforma Microsoft Identity. O nome de recurso para solicitar um token é `https://eventhubs.azure.net/` (Para os clientes Kafka, o recurso para solicitar um token é `https://<namespace>.servicebus.windows.net` ). A Azure AD autentica o principal de segurança (um utilizador, grupo ou principal de serviço) que executa a aplicação. Se a autenticação for bem sucedida, a Azure AD devolve um sinal de acesso à aplicação, e a aplicação pode então utilizar o token de acesso para autorizar o pedido aos recursos do Azure Event Hubs.
@@ -106,9 +106,9 @@ Para obter uma lista de cenários para os quais a aquisição de fichas é supor
 
     Esta amostra foi atualizada para utilizar a mais recente biblioteca **Azure.Messaging.EventHubs.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Para saber mais sobre o RBAC, veja [o que é o controlo de acesso baseado em funções do Azure (Azure RBAC)](../role-based-access-control/overview.md)?
-- Para aprender a atribuir e gerir atribuições de funções da RBAC com a Azure PowerShell, Azure CLI ou a REST API, consulte estes artigos:
+- Para aprender a atribuir e gerir atribuições de funções da Azure PowerShell, Azure CLI ou da REST API, consulte estes artigos:
     - [Gerir o controlo de acesso baseado em funções (RBAC) com a Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
     - [Gerir o controlo de acesso baseado em funções (RBAC) com o Azure CLI](../role-based-access-control/role-assignments-cli.md)
     - [Gerir o controlo de acesso baseado em funções (RBAC) com a API REST](../role-based-access-control/role-assignments-rest.md)

@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 2434c5b80fedb7fd5ae61357cadf5d23f9b00934
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 6571f4351fb3410d1c10079a41b7041eb85ee5e3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127184"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423767"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorizar o acesso a dados de blob e fila com identidades geridas para recursos Azure
 
@@ -87,7 +87,7 @@ O `az ad sp create-for-rbac` comando devolve uma lista de propriedades principai
 ```
 
 > [!IMPORTANT]
-> As atribuições de funções da RBAC podem demorar alguns minutos a propagar-se.
+> As atribuições de funções azure podem demorar alguns minutos a propagar-se.
 
 #### <a name="set-environment-variables"></a>Definir variáveis de ambiente
 
@@ -160,7 +160,7 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 > [!NOTE]
 > Para autorizar pedidos contra dados de blob ou fila com a Azure AD, deve utilizar HTTPS para esses pedidos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Gerir os direitos de acesso aos dados de armazenamento com o RBAC.](storage-auth-aad-rbac.md)
 - [Utilize a Azure AD com aplicações de armazenamento](storage-auth-aad-app.md).

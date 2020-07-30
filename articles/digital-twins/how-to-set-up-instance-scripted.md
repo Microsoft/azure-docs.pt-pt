@@ -1,18 +1,18 @@
 ---
 title: Configurar uma instância e autenticação (com script)
 titleSuffix: Azure Digital Twins
-description: Veja como configurar uma instância do serviço Azure Digital Twins, incluindo a autenticação adequada. Versão escrita.
+description: Veja como configurar um exemplo do serviço Azure Digital Twins, executando um script de implementação automatizado
 author: baanders
 ms.author: baanders
-ms.date: 7/22/2020
+ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 522096b921faf34130f0c37f727d89c7bf95c530
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 076bde9e2760a862822d80d63197e2c15a678d35
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337913"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407492"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurar uma instância e autenticação de Gémeos Digitais Azure (scripted)
 
@@ -20,9 +20,12 @@ ms.locfileid: "87337913"
 
 Este artigo abrange as etapas para **a criação de um novo exemplo de Azure Digital Twins**, incluindo a criação do caso e a criação de autenticação. Depois de completar este artigo, terá uma instância Azure Digital Twins pronta para começar a programar contra.
 
-Esta versão deste artigo completa estes passos executando uma amostra [ **de script de implementação automatizada** ](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/) que simplifica o processo. Para ver os passos manuais que o script percorre nos bastidores, consulte a versão manual deste artigo: [*Como-a-fazer: Configurar uma instância e autenticação (manual)*](how-to-set-up-instance-manual.md).
+Esta versão deste artigo completa estes passos executando uma amostra [ **de script de implementação automatizada** ](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/) que simplifica o processo. 
+* Para ver os passos manuais do CLI que o script percorre nos bastidores, consulte a versão CLI deste artigo: [*Como-a-fazer: Configurar uma instância e autenticação (CLI)*](how-to-set-up-instance-cli.md).
+* Para ver os passos manuais de acordo com o portal Azure, consulte a versão porta deste artigo: [*Como-a-fazer: Configurar uma instância e autenticação (portal)*](how-to-set-up-instance-portal.md).
 
-[!INCLUDE [digital-twins-setup-starter.md](../../includes/digital-twins-setup-starter.md)]
+[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
+[!INCLUDE [digital-twins-setup-role-cli.md](../../includes/digital-twins-setup-role-cli.md)]
 
 ## <a name="run-the-deployment-script"></a>Executar o script de implementação
 
@@ -41,7 +44,7 @@ Aqui estão os passos para executar o script de implementação em Cloud Shell.
  
 2. Depois de iniciar sessão, olhe para a barra de ícones da janela Cloud Shell. Selecione o ícone "Carregar/Descarregar ficheiros" e escolha "Upload".
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell-upload.png" alt-text="Janela Cloud Shell mostrando a seleção da opção Upload":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Janela Cloud Shell mostrando a seleção da opção Upload":::
 
     Navegue para o _**ficheirodeploy.ps1**_ na sua máquina e acerte em "Open". Isto irá enviar o ficheiro para cloud Shell para que possa executá-lo na janela Cloud Shell.
 
@@ -57,21 +60,38 @@ O script criará uma instância Azure Digital Twins, atribuirá ao seu utilizado
 
 Aqui está um excerto do registo de saída do script:
 
-:::image type="content" source="media/how-to-set-up-instance/deployment-script-output.png" alt-text="Janela Cloud Shell mostrando log de entrada e saída através da execução do script de implementação" lightbox="media/how-to-set-up-instance/deployment-script-output.png":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Janela Cloud Shell mostrando log de entrada e saída através da execução do script de implementação" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
 
 Se o guião estiver concluído com sucesso, a impressão final dirá `Deployment completed successfully` . Caso contrário, endereça a mensagem de erro e reencando o script. Irá contornar os passos que já completou e começar a solicitar a entrada novamente no ponto onde deixou de lado.
 
-Após a conclusão do script, tem agora uma instância Azure Digital Twins pronta a ser executada e permissões configuradas para a gerir.
+Após a conclusão do script, tem agora uma instância Azure Digital Twins pronta para ir com permissões para a gerir, e criou permissões para uma aplicação do cliente aceder à sua.
+
+> [!NOTE]
+> O script atribui atualmente o papel de gestão necessário dentro da Azure Digital Twins *(Azure Digital Twins Owner (Preview)* ao mesmo utilizador que executa o script da Cloud Shell. Se precisar de atribuir esta função a outra pessoa que esteja a gerir o caso, pode fazê-lo agora através do portal Azure[(instruções)](how-to-set-up-instance-portal.md#set-up-user-access-permissions)ou CLI[(instruções).](how-to-set-up-instance-cli.md#set-up-user-access-permissions)
 
 ## <a name="collect-important-values"></a>Recolher valores importantes
 
-Existem dois valores importantes do registo da aplicação que serão necessários mais tarde para [autenticar uma aplicação do cliente contra as APIs das Gémeas Digitais Azure.](how-to-authenticate-client.md) 
+Existem vários valores importantes a partir dos recursos criados pelo script que você pode precisar enquanto você continua a trabalhar com o seu exemplo Azure Digital Twins. Nesta secção, utilizará o [portal Azure](https://portal.azure.com) para recolher estes valores. Deve guardá-los num local seguro, ou voltar a esta secção para encontrá-los mais tarde quando precisar.
+
+Se outros utilizadores estiverem a programar contra a instância, também deverá partilhar estes valores com eles.
+
+### <a name="collect-instance-values"></a>Recolher valores de instância
+
+No [portal Azure,](https://portal.azure.com)encontre a sua instância Azure Digital Twins procurando o nome do seu caso na barra de pesquisa do portal.
+
+Selecioná-lo abrirá a página *geral* da instância. Note o seu *Nome,* *Grupo de Recursos*e Nome *hospedeiro.* Pode precisar mais tarde para identificar e ligar-se ao seu caso.
+
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Realçando os valores importantes da página geral da instância":::
+
+### <a name="collect-app-registration-values"></a>Recolher valores de registo de aplicativos 
+
+Existem dois valores importantes do registo da aplicação que serão necessários mais tarde para [escrever o código de autenticação da aplicação do cliente para as APIs das Gémeas Digitais Azure.](how-to-authenticate-client.md) 
 
 Para encontrá-los, siga [este link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) para navegar para a página geral de registo da aplicação AZure no portal Azure. Esta página mostra todos os registos de aplicações que foram criados na sua subscrição.
 
 Você deve ver o registo de aplicações que acabou de criar nesta lista. Selecione-o para abrir os seus detalhes:
 
-:::image type="content" source="media/how-to-set-up-instance/app-important-values.png" alt-text="Visão do portal dos valores importantes para o registo da aplicação":::
+:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Visão do portal dos valores importantes para o registo da aplicação":::
 
 Tome nota do ID de *Aplicação (cliente)* e *Diretório (inquilino)* mostrado na **sua** página. Se você não é a pessoa que vai escrever código para aplicações de clientes, você precisará compartilhar estes valores com a pessoa que será.
 
@@ -87,6 +107,9 @@ Para verificar se o seu caso foi criado, aceda à [página Azure Digital Twins](
 
 [!INCLUDE [digital-twins-setup-verify-role-assignment.md](../../includes/digital-twins-setup-verify-role-assignment.md)]
 
+> [!NOTE]
+> Lembre-se que o script atribui atualmente esta função necessária ao mesmo utilizador que executa o script a partir de Cloud Shell. Se precisar de atribuir esta função a outra pessoa que esteja a gerir o caso, pode fazê-lo agora através do portal Azure[(instruções)](how-to-set-up-instance-portal.md#set-up-user-access-permissions)ou CLI[(instruções).](how-to-set-up-instance-cli.md#set-up-user-access-permissions)
+
 ### <a name="verify-app-registration"></a>Verificar registo de aplicativos
 
 [!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
@@ -99,7 +122,7 @@ Em primeiro lugar, verifique se as permissões das permissões Azure Digital Twi
 
 [!INCLUDE [digital-twins-setup-additional-requirements.md](../../includes/digital-twins-setup-additional-requirements.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Veja como ligar a aplicação do seu cliente ao seu caso escrevendo o código de autenticação da aplicação do cliente:
 * [*Como fazer: Escrever código de autenticação de aplicativos*](how-to-authenticate-client.md)

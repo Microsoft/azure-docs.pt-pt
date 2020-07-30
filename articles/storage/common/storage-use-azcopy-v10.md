@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 08e70265399a67ee58ad66e06adffbfd30b20e10
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b43b20023aa0d96dcaa3ce79b626d61ec6f6752d
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289239"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423836"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -97,7 +97,7 @@ Estas funções podem ser atribuídas ao seu principal de segurança em qualquer
 Para aprender a verificar e atribuir funções, consulte [o Acesso ao Grant ao blob Azure e dados de fila com o RBAC no portal Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
-> Tenha em mente que as atribuições de funções da RBAC podem levar até cinco minutos para se propagar.
+> Tenha em mente que as atribuições de funções do Azure podem demorar até cinco minutos a propagar-se.
 
 Não precisa de ter uma destas funções atribuídas ao seu diretor de segurança se o seu diretor de segurança for adicionado à lista de controlo de acesso (ACL) do contentor-alvo ou diretório. Na ACL, o seu diretor de segurança precisa de escrever permissão no directório-alvo, e executar permissão em contentores e cada diretório dos pais.
 
@@ -318,6 +318,6 @@ Se precisar de utilizar a versão anterior do AzCopy, consulte qualquer uma das 
 
 Consulte [Configuração, otimização e resolução de problemas AzCopy](storage-use-azcopy-configure.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se tiver dúvidas, problemas ou feedback geral, envie-os na página [do GitHub.](https://github.com/Azure/azure-storage-azcopy)

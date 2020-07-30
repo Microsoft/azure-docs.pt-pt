@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: tracking-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: 2652e3b5be108985557427b99fa7841b88bf28ef
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e938e7a8595b6d6b5b94dd265cb466b3e8719230
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318611"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432502"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Execute scripts de aprendizagem de máquina python no Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:** ![ no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) yes Machine Learning Studio ![ ](../../../includes/media/aml-applies-to-skus/yes.png) (clássico) 
+**APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 
 Python é uma ferramenta valiosa no baú de ferramentas de muitos cientistas de dados. É usado em todas as fases dos fluxos típicos de aprendizagem automática, incluindo a exploração de dados, extração de recursos, treino de modelos e validação, e implementação.
@@ -181,7 +181,7 @@ O ponto de entrada Python só é permitido devolver um único quadro de dados co
 
 Atualmente, a única maneira de adicionar módulos Python personalizados é através do mecanismo de ficheiro zip descrito anteriormente. Embora isto seja viável para pequenos módulos, é complicado para grandes módulos (especialmente módulos com DLLs nativos) ou um grande número de módulos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, consulte o [Centro para Programadores do Python](https://azure.microsoft.com/develop/python/).
 

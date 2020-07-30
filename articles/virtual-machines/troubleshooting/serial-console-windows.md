@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 4778ea7781d181a89e7a6b2d6c4ad5d474e9b5c9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c30999a5f0239e60c842084b60b44c165fb7182e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005944"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424005"
 ---
 # <a name="azure-serial-console-for-windows"></a>Consola em série Azure para Windows
 
@@ -26,10 +26,12 @@ A Consola em Série no portal Azure fornece acesso a uma consola baseada em text
 
 A Consola em Série funciona da mesma forma para VMs e instâncias de escala de máquinas virtuais. Neste doc, todas as menções aos VMs incluirão implicitamente instâncias de conjunto de escala de máquina virtual, salvo indicação em contrário.
 
+A Consola Em Série está geralmente disponível nas regiões globais do Azure e em pré-visualização pública no Governo de Azure. Ainda não está disponível na nuvem Azure China.
+
 Para documentação de consola em série para Linux, consulte [a Consola em Série Azure para Linux](serial-console-linux.md).
 
 > [!NOTE]
-> A Consola Em Série está geralmente disponível nas regiões globais de Azure e em pré-visualização pública no Governo de Azure. Ainda não está disponível na nuvem Azure China.
+> A Consola em Série é atualmente incompatível com uma conta de armazenamento de diagnóstico de arranque gerida. Para utilizar a Consola em Série, certifique-se de que está a utilizar uma conta de armazenamento personalizada.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -216,7 +218,7 @@ A. A sua imagem está provavelmente mal configurada para o acesso à consola em 
 
 A. Sim, é! Ver [consola em série para conjuntos de escala de máquinas virtuais](./serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Para obter um guia aprofundado dos comandos CMD e PowerShell que pode utilizar no Windows SAC, consulte os [comandos windows: CMD e PowerShell](serial-console-cmd-ps-commands.md).
 * A consola em série também está disponível para Os VMs [Linux.](serial-console-linux.md)
 * Saiba mais sobre [diagnósticos de arranque.](boot-diagnostics.md)

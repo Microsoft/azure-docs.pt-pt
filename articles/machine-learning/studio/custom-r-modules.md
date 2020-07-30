@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 4b4251a426d33c0a3b8cc7584d2bf6375dcd0f79
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2b050e8c70de4edc39c8ddad71d2169d5308607b
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287245"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429382"
 ---
 # <a name="define-custom-r-modules-for-machine-learning-studio-classic"></a>Definir módulos R personalizados para Machine Learning Studio (clássico)
 
-**APLICA-SE A:** ![ no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) yes Machine Learning Studio ![ ](../../../includes/media/aml-applies-to-skus/yes.png) (clássico) 
+**APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 Este tópico descreve como ser autor e implementar um Estúdio R personalizado (clássico). Explica o que são os módulos R personalizados e quais os ficheiros utilizados para os definir. Ilustra como construir os ficheiros que definem um módulo e como registar o módulo para implantação num espaço de trabalho machine learning. Os elementos e atributos utilizados na definição do módulo personalizado são então descritos com mais detalhe. É também discutida a utilização de funcionalidades e ficheiros auxiliares e várias saídas. 
 

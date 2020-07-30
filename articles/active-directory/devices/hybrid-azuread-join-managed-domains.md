@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c4a128d46ca1b3f84981f9732f86ff49f72cc18
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a4f30202b08328854296b45e0279fc51b25b0a7c
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025834"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428461"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: configurar a associação ao Azure Active Directory para os domínios geridos
 
@@ -40,7 +40,7 @@ Neste tutorial, ficará a saber como:
 > * Configurar a associação ao Azure AD híbrido
 > * Permitir dispositivos de nível inferior do Windows
 > * Verificar dispositivos associados
-> * Resolução de Problemas
+> * Resolução de problemas
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -69,6 +69,9 @@ A adesão híbrida AD AD requer que os dispositivos tenham acesso aos seguintes 
 - `https://login.microsoftonline.com`
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com`(Se utilizar ou pretender utilizar SSO sem costura)
+
+> [!WARNING]
+> Se a sua organização utilizar servidores proxy que intercetam tráfego SSL para cenários como prevenção de perda de dados ou restrições de inquilinos AZure AD, certifique-se de que o tráfego para https://device.login.microsoftonline.com ' ' é excluído do break-and-inspect TLS. A não exclusão https://device.login.microsoftonline.com pode causar interferência na autenticação do certificado do cliente, causando problemas com o registo do dispositivo e o acesso condicional baseado no dispositivo.
 
 Se a sua organização necessitar de acesso à internet através de um proxy de saída, pode utilizar [a implementação da Web Proxy Auto-Discovery (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) para ativar os computadores do Windows 10 para o registo de dispositivos com Azure AD. Para resolver problemas que configuram e gerem o WPAD, consulte [a resolução de problemas de Deteção Automática](/previous-versions/tn-archive/cc302643(v=technet.10)). Nos dispositivos Windows 10 antes da atualização de 1709, o WPAD é a única opção disponível para configurar um proxy para trabalhar com a ad AD Híbrida Azure. 
 
@@ -225,7 +228,7 @@ Se sentir problemas em completar a ad AD híbrida para dispositivos Windows unid
 - [Resolver problemas de dispositivos associados ao Azure Active Directory híbrido](troubleshoot-hybrid-join-windows-current.md)
 - [O Azure Ative Directory híbrido de resolução de problemas juntou-se a dispositivos de nível inferior](troubleshoot-hybrid-join-windows-legacy.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Avance para o próximo artigo para aprender a gerir as identidades dos dispositivos utilizando o portal Azure.
 > [!div class="nextstepaction"]

@@ -1,7 +1,7 @@
 ---
 title: Colocar o token de autenticação em cache
 titleSuffix: Azure Cognitive Services
-description: Este artigo irá mostrar-lhe como cache o símbolo de autenticação.
+description: Este artigo irá mostrar-lhe como cache o token de autenticação.
 author: metanMSFT
 manager: guillasi
 ms.service: cognitive-services
@@ -9,20 +9,21 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: metan
-ms.openlocfilehash: e652aa29b1c1935fcc4887dbe13ef9b683a8bd05
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 70173e1904ce9d7a159532c8962932765060e4d9
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75946168"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406950"
 ---
 # <a name="how-to-cache-the-authentication-token"></a>Como cache o símbolo de autenticação
 
-Este artigo demonstra como cache o símbolo de autenticação de forma a melhorar o desempenho da sua aplicação.
+Este artigo demonstra como cache o token de autenticação de forma a melhorar o desempenho da sua aplicação.
 
-## <a name="using-aspnet"></a>Usando ASP.NET
+## <a name="using-aspnet"></a>Utilização de ASP.NET
 
-Importar o pacote **Microsoft.IdentityModel.Clients.ActiveDirectory** NuGet, que é usado para adquirir um símbolo. Em seguida, utilize o `AuthenticationResult`seguinte código para adquirir um , utilizando os valores de autenticação que obteve quando [criou o recurso Imersivo leitor](./how-to-create-immersive-reader.md).
+Importe o pacote **Microsoft.IdentityModel.Clients.ActiveDirectory** NuGet, que é usado para adquirir um token. Em seguida, utilize o seguinte código para adquirir um `AuthenticationResult` , utilizando os valores de autenticação que obteve quando [criou o recurso Leitor Imersivo](./how-to-create-immersive-reader.md).
 
 ```csharp
 private async Task<AuthenticationResult> GetTokenAsync()
@@ -34,11 +35,11 @@ private async Task<AuthenticationResult> GetTokenAsync()
 }
 ```
 
-O `AuthenticationResult` objeto `AccessToken` tem uma propriedade que é o símbolo real que você vai usar ao lançar o Leitor Imersivo usando o SDK. Possui ainda `ExpiresOn` uma propriedade que denota quando o token expirará. Antes de lançar o Leitor Imersivo, pode verificar se o token expirou e adquirir um novo token apenas se tiver expirado.
+O `AuthenticationResult` objeto tem uma propriedade que é o símbolo real que você `AccessToken` usará ao lançar o Leitor Imersivo usando o SDK. Também tem uma `ExpiresOn` propriedade que denota quando o token expirará. Antes de lançar o Leitor Imersivo, pode verificar se o token expirou e adquirir um novo token apenas se tiver expirado.
 
-## <a name="using-nodejs"></a>Usando o Nó.JS
+## <a name="using-nodejs"></a>Usando Node.JS
 
-Adicione o pacote de [**solicitação**](https://www.npmjs.com/package/request) npm ao seu projeto. Utilize o seguinte código para adquirir um símbolo, utilizando os valores de autenticação que obteve quando [criou o recurso Imersivo leitor](./how-to-create-immersive-reader.md).
+Adicione o pacote de [**pedido**](https://www.npmjs.com/package/request) npm ao seu projeto. Utilize o seguinte código para adquirir um token, utilizando os valores de autenticação que obteve quando [criou o recurso Leitor Imersivo](./how-to-create-immersive-reader.md).
 
 ```javascript
 router.get('/token', function(req, res) {
@@ -75,6 +76,6 @@ async function getToken() {
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Explore a [referência SDK do leitor imersivo](./reference.md)

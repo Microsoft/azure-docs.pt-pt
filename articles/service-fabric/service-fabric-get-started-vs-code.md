@@ -5,12 +5,13 @@ author: peterpogorski
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: b34893b64ac3533406f33c45583a911b70ae42af
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 1480b5e1ddab86761adb1c7caef808de89a3d947
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247443"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428989"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Tecido de serviço para código de estúdio visual
 
@@ -27,7 +28,7 @@ Devem ser instalados em todos os ambientes os seguintes pré-requisitos.
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Node.js](https://nodejs.org/)
-* [Git](https://git-scm.com/)
+* [Rio Git](https://git-scm.com/)
 * [SDK de tecido de serviço](./service-fabric-get-started.md)
 * Geradores Yeoman - instale os geradores apropriados para a sua aplicação
 
@@ -124,7 +125,7 @@ O **comando 'Service Fabric: Clean Application'** elimina todos os ficheiros de 
 2.  Selecione o **Tecido de Serviço: Comando de aplicação limpa.**
 3.  A saída do processo de limpeza é escrita para o terminal integrado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [desenvolver e depurar aplicações de tecido de serviço C# com código VS](./service-fabric-develop-csharp-applications-with-vs-code.md).
 * Saiba como [desenvolver e depurar aplicações de Tecido de Serviço Java com código VS.](./service-fabric-develop-java-applications-with-vs-code.md)

@@ -7,13 +7,13 @@ ms.date: 07/13/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
-ms.openlocfilehash: 9ddca58e166baa1e94fcc3edcfbbc64abd578049
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: 511a61fb1069ce10e94e24ecd3ba6d60470ca40f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352929"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424448"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-preview-device-thats-connected-to-your-solution-nodejs"></a>Quickstart: Interaja com um dispositivo IoT Plug e Play Preview que esteja ligado à sua solução (Node.js)
 
@@ -251,7 +251,7 @@ Neste cenário, `Model Id: dtmi:com:example:Thermostat;1` produz.
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, aprendeu a ligar um dispositivo IoT Plug e Play a uma solução IoT. Para saber mais sobre os modelos ioT Plug e Play, consulte:
 

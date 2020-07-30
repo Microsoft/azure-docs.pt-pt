@@ -10,13 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: trbye
+ms.custom: devx-track-javascript
 zone_pivot_groups: programming-languages-set-two-with-js-spx
-ms.openlocfilehash: 4411c0af64c5db516b7d165c67925233230ed883
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: b0ee2d18dda05f1e0409fdc91dcd54698c809975
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391626"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406328"
 ---
 # <a name="quickstart-recognize-speech-from-an-audio-file"></a>Quickstart: Reconhecer a fala a partir de um ficheiro áudio
 

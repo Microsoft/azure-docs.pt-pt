@@ -3,18 +3,18 @@ title: 'Quickstart: Armazenamento Azure Blob para JavaScript v10 no navegador'
 description: Aprenda a carregar, listar e apagar bolhas usando JavaScript v10 SDK numa página HTML.
 services: storage
 author: mhopkins-msft
-ms.custom: mvc
+ms.custom: mvc, devx-track-javascript
 ms.service: storage
 ms.author: mhopkins
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 0db110d02211323f64e7ffe795f72e3a5003ec91
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3982e54d06f2e84c4e8e8703e70e9a26773c389a
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282046"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429207"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -359,7 +359,7 @@ Neste ponto, você pode lançar a página e experimentar para obter uma sensaç�
 
 Para limpar os recursos criados durante este arranque rápido, vá ao [portal Azure](https://portal.azure.com) e elimine o grupo de recursos que criou na secção Pré-Requisitos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste quickstart, criou um site simples que acede ao armazenamento de blob a partir do JavaScript baseado no navegador. Para saber como pode hospedar um website em armazenamento de bolhas, continue até ao seguinte tutorial:
 

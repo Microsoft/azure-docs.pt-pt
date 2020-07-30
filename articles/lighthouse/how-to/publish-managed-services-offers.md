@@ -1,14 +1,14 @@
 ---
 title: Publicar uma oferta de Serviço Gerido para o Azure Marketplace
 description: Saiba como publicar uma oferta de Serviço Gerido que a bordo dos clientes para o Farol de Azure.
-ms.date: 05/04/2020
+ms.date: 07/28/2020
 ms.topic: how-to
-ms.openlocfilehash: 19364164617a32a561140e985c8723f8deafe1a7
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: e86cec16cc377470f255c8b677d7462dee6b3573
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133311"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407069"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publicar uma oferta de Serviço Gerido para o Azure Marketplace
 
@@ -34,7 +34,7 @@ Para saber mais sobre o processo de publicação geral, consulte [o Azure Market
 Uma vez que um cliente adicione a sua oferta, eles serão capazes de delegar uma ou mais subscrições ou grupos de recursos, que serão então [a bordo do Farol de Azure.](#the-customer-onboarding-process)
 
 > [!IMPORTANT]
-> Cada plano de uma oferta de Serviço Gerido inclui uma secção **De Detalhes Manifesto,** onde define as entidades do Azure Ative Directory (Azure AD) no seu inquilino que terão acesso aos grupos de recursos delegados e/ou subscrições para os clientes que adquirem esse plano. É importante estar ciente de que qualquer grupo (ou utilizador ou diretor de serviço) que inclua terá as mesmas permissões para cada cliente que comprar o plano. Para atribuir diferentes grupos para trabalhar com cada cliente, terá de publicar um [plano privado](../../marketplace/private-offers.md) separado que seja exclusivo de cada cliente.
+> Cada plano de uma oferta de Serviço Gerido inclui uma secção **De Detalhes Manifesto,** onde define as entidades do Azure Ative Directory (Azure AD) no seu inquilino que terão acesso aos grupos de recursos delegados e/ou subscrições para os clientes que adquirem esse plano. É importante estar ciente de que qualquer grupo (ou utilizador ou diretor de serviço) que inclua terá as mesmas permissões para cada cliente que comprar o plano. Para atribuir diferentes grupos para trabalhar com cada cliente, pode publicar um [plano privado](../../marketplace/private-offers.md) separado que seja exclusivo de cada cliente. Tenha em mente que os planos privados não são suportados com subscrições estabelecidas através de um revendedor do programa Cloud Solution Provider (CSP).
 
 ## <a name="publish-your-offer"></a>Publique a sua oferta
 

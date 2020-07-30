@@ -3,16 +3,16 @@ title: Disponibilidade geográfica e suporte cambial para o mercado comercial da
 description: Disponibilidade geográfica e apoio cambial para transações no mercado comercial
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 01/29/2020
-ms.openlocfilehash: 57d1564c155a553571499a47a5c1d83c80c074b3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7041221b015465e9db2d67d8dd7760d644c34f0c
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120012"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387443"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilidade geográfica e apoio cambial para o mercado comercial
 
@@ -43,9 +43,9 @@ As ofertas de mercado comercial podem ser compradas em 141 geografias, conforme 
 | Brasil                              | BR        | BRL\*        |
 | Brunei                              | BN        | USD          |
 | Bulgária                            | BG        | EUR          |
+| Cabo Verde                          | CV        | USD          |
 | Camarões                            | CM        | USD          |
 | Canadá                              | CA        | CAD          |
-| Cabo Verde                          | CV        | USD          |
 | Ilhas Caimão                      | KY        | USD          |
 | Chile                               | CL        | USD          |
 | China\**                            | CN        | N/D          |
@@ -110,8 +110,8 @@ As ofertas de mercado comercial podem ser compradas em 141 geografias, conforme 
 | Namíbia                             | ND        | USD          |
 | Nepal                               | NP        | USD          |
 | Países Baixos                         | NL        | EUR          |
-| Nicarágua                           | NI        | USD          |
 | Nova Zelândia                         | NZ        | NZD          |
+| Nicarágua                           | NI        | USD          |
 | Nigéria                             | NG        | USD          |
 | Noruega                              | NO        | NOK          |
 | Omã                                | OM        | USD          |
@@ -148,15 +148,15 @@ As ofertas de mercado comercial podem ser compradas em 141 geografias, conforme 
 | Tunísia                             | TN        | USD          |
 | Turquia                              | TR        | USD          |
 | Turquemenistão                        | TM        | USD          |
-| Cidade do Vaticano (Santa Sé)             | VA        | EUR          |
-| Ilhas Virgens Dos Estados Unidos | VI        | USD          |
 | Uganda                              | UG        | USD          |
 | Ucrânia                             | UA        | USD          |
 | Emirados Árabes Unidos                | AE        | USD          |
 | Reino Unido                      | GB        | GBP          |
 | Estados Unidos da América                       | EUA        | USD          |
+| Ilhas Virgens Americanas                 | VI        | USD          |
 | Uruguai                             | UY        | USD          |
 | Usbequistão                          | UZ        | USD          |
+| Cidade do Vaticano (Santa Sé)             | VA        | EUR          |
 | Venezuela                           | VE        | USD          |
 | Vietname                             | VN        | USD          |
 | Iémen                               | YE        | USD          |

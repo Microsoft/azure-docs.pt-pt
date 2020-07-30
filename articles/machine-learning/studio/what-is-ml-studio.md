@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
 ms.date: 03/24/2020
-ms.openlocfilehash: 0b0e09cfe855e017c297cbad1667eef81726d3da
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0dff28d5bfb2623a7362dc9b8aeb0840ac4e1e49
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326210"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430105"
 ---
 # <a name="what-is-machine-learning-studio-classic"></a>O que é o Machine Learning Studio (clássico)?
 
-**APLICA-SE A:** ![ no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) yes Machine Learning Studio ![ ](../../../includes/media/aml-applies-to-skus/yes.png) (clássico) 
+**APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -89,7 +89,7 @@ Para alguma ajuda a navegar através da grande biblioteca de algoritmos de machi
 ## <a name="deploying-a-predictive-analytics-web-service"></a>Implementar um serviço web de análise preditiva
 Uma vez que o seu modelo de análise preditiva esteja pronto, pode implantá-lo como um serviço web a partir do Machine Learning Studio (clássico). Para obter mais informações sobre este processo, consulte [implementar um serviço web Azure Machine Learning](deploy-a-machine-learning-web-service.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Você pode aprender os fundamentos da análise preditiva e da aprendizagem automática usando um [quickstart passo-a-passo](create-experiment.md) e [baseando-se em amostras](sample-experiments.md).
 
 <!-- Module References -->

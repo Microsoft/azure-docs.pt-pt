@@ -3,12 +3,12 @@ title: Publicar eventos com domínios de eventos com Azure Event Grid
 description: Mostra como gerir grandes conjuntos de tópicos em Azure Event Grid e publicar eventos para eles usando domínios de eventos.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 30a77d98fdb0d5bfd5169174999a0a08742adfd8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: eae467c1c4cc1257e7a5205dd5efda40490f7908
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105566"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423648"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Gerir tópicos e publicar eventos usando domínios de eventos
 
@@ -135,7 +135,7 @@ New-AzureRmEventGridSubscription `
 
 Se precisar de um ponto final de teste para subscrever os seus eventos, pode sempre implementar uma [aplicação web pré-construída](https://github.com/Azure-Samples/azure-event-grid-viewer) que exibe os eventos que chegam. Pode enviar os seus eventos para o seu site de testes em `https://<your-site-name>.azurewebsites.net/api/updates` .
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to Deploy to Aquent." /></a>
 
 As permissões definidas para um tópico são armazenadas no Diretório Ativo Azure e devem ser eliminadas explicitamente. A eliminação de uma subscrição de eventos não revogará o acesso dos utilizadores à criação de subscrições de eventos se tiverem acesso a um tópico.
 

@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: 95372d69f58249afc946f12ec74696507429e5c6
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a971291dd423894e4d04158abe873a7222f9802c
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125306"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405616"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>O pedido de serviço falhou. Estado: 403 (Proibido)
 
@@ -57,7 +57,7 @@ Se você é um Proprietário na subscrição, você pode executar este comando p
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
-Para obter mais detalhes sobre este requisito de função e o processo de atribuição, consulte a secção de [ *permissões* ](how-to-set-up-instance-manual.md#set-up-your-users-access-permissions) de acesso do seu utilizador de *Como-a-: Configurar uma instância e autenticação (Manual)*.
+Para obter mais detalhes sobre este requisito de função e o processo de atribuição, consulte a secção de [ *permissões* ](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) de acesso do seu utilizador de *Como-a-: Configurar uma instância e autenticação (CLI ou portal)*.
 
 Se já tem esta função e ainda encontra a edição 403, continue para a próxima solução.
 
@@ -75,12 +75,12 @@ Em primeiro lugar, verifique se as permissões das permissões Azure Digital Twi
 
 #### <a name="fix-issues"></a>Corrigir problemas
 
-Se alguma destas coisas aparecer de forma diferente da descrita, siga as instruções sobre como configurar um registo de aplicações na secção [ *De acesso a aplicações do cliente* ](how-to-set-up-instance-manual.md#set-up-access-permissions-for-client-applications) de *Como-a-: Configurar uma instância e autenticação (Manual)*.
+Se alguma destas coisas aparecer de forma diferente da descrita, siga as instruções sobre como configurar um registo de aplicações na secção [ *De acesso a aplicações do cliente* ](how-to-set-up-instance-cli.md#set-up-access-permissions-for-client-applications) de *Como-a-: Configurar uma instância e autenticação (CLI ou portal)*.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia os passos de configuração para criar e autenticar um novo exemplo de Azure Digital Twins:
-* [*Como fazer: Configurar uma instância e autenticação (Manual)*](how-to-set-up-instance-manual.md)
+* [*Como: Configurar um caso e autenticação (CLI)*](how-to-set-up-instance-cli.md)
 
 Leia mais sobre segurança e permissões em Azure Digital Twins:
 * [*Conceitos: Segurança para soluções Azure Digital Twins*](concepts-security.md)

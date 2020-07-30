@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/15/2020
 ms.author: mihansen
-ms.openlocfilehash: a8c1b36d6a439297dfb0bbcb34efe059349fc5a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8aa454e272e0dbf4c69941c35a63ee036c16f78f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871911"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422577"
 ---
 # <a name="configure-local-rbac-for-fhir"></a>Configurar o RBAC local para fHIR 
 
@@ -63,10 +63,9 @@ Depois de introduzir os IDs de objetos necessários, clique em **Guardar** e agu
 
 A Azure API para fHIR irá cache decisões por até 5 minutos. Se conceder a um utilizador acesso ao servidor FHIR adicionando-os à lista de IDs de objetos permitidos, ou removê-los da lista, deverá esperar que leve até cinco minutos para que as alterações nas permissões se propaguem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você aprendeu a atribuir o acesso de avião de dados FHIR usando um inquilino externo (secundário) Azure Ative Directory. Em seguida, saiba mais sobre as definições adicionais para a AZure API para FHIR:
  
 >[!div class="nextstepaction"]
 >[Definições adicionais Azure API para FHIR](azure-api-for-fhir-additional-settings.md)
-

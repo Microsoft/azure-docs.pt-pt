@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 07/28/2020
 ms.author: cherylmc
-ms.openlocfilehash: ca5880f76ffd3a85d4b3cec8e01f58ae5c024a58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d94904e580cefb53b2c71d21259bebfc07c1ad6
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749700"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431286"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Ligue um Gateway VPN (gateway de rede virtual) ao VIRTUAL WAN
 
@@ -33,17 +33,19 @@ Rede Virtual do Azure
 
 * Crie uma rede virtual sem quaisquer gateways de rede virtuais. Verifique se nenhuma das sub-redes das suas redes no local se sobrepõe às redes virtuais a que pretende ligar. Para criar uma rede virtual no portal Azure, consulte o [Quickstart](../virtual-network/quick-create-portal.md).
 
-## <a name="1-create-an-azure-virtual-network-gateway"></a><a name="vnetgw"></a>1. Criar uma porta de entrada de rede virtual Azure
+## <a name="1-create-a-vpn-gateway-virtual-network-gateway"></a><a name="vnetgw"></a>1. Criar uma porta de rede virtual VPN Gateway
 
-Crie uma porta de rede virtual VPN Gateway para a sua rede virtual em modo ativo para a sua rede virtual. Quando criar o gateway, pode utilizar os endereços IP públicos existentes para as duas instâncias do gateway, ou pode criar novos IPs públicos. Utiliza estes IPs públicos ao configurar os sites DE WAN virtuais. Para obter mais informações sobre o modo ativo, consulte [configurar ligações ativas ativas](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md#aagateway).
+Crie um gateway de rede virtual **VPN Gateway** em modo ativo para a sua rede virtual. Quando criar o gateway, pode utilizar os endereços IP públicos existentes para as duas instâncias do gateway, ou pode criar novos IPs públicos. Utilizará estes IPs públicos ao configurar os sites DE WAN Virtuais. Para obter mais informações sobre gateways VPN ativos e etapas de configuração, consulte as [portas VPN ativas ativas](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md#aagateway).
 
 ### <a name="active-active-mode-setting"></a><a name="active-active"></a>Definição de modo ativo
+
+Na página **de Configuração** de gateway de rede virtual, ative o modo ative.
 
 ![ativa-ativa](./media/connect-virtual-network-gateway-vwan/active.png "ativa-ativa")
 
 ### <a name="bgp-setting"></a><a name="BGP"></a>Definição de BGP
 
-O BGP ASN não pode ser 65515. 66515 será usado pela Azure Virtual WAN.
+Na página **configuração** do gateway de rede virtual, pode configurar o **BGP ASN**. Mude o BGP ASN. O BGP ASN não pode ser 65515. 66515 será usado pela Azure Virtual WAN.
 
 ![BGP](./media/connect-virtual-network-gateway-vwan/bgp.png "bgp")
 
@@ -60,16 +62,16 @@ Para criar sites VPN de WAN virtual, navegue até ao seu WAN virtual e, em **con
 1. Selecione **+Criar site.**
 2. Na página de **sites Create VPN,** digite os seguintes valores:
 
-   * **Região** - (A mesma região que o gateway virtual Azure VPN Gateway)
-   * **Fornecedor de dispositivos** - Introduza o fornecedor do dispositivo (qualquer nome)
-   * **Espaço de endereço privado** - (Introduza um valor, ou deixe em branco quando o BGP estiver ativado)
-   * **Protocolo border gateway** - (Conjunto para **permitir** se o gateway de rede virtual Azure VPN Gateway tiver BGP habilitado)
-   * **Conecte-se a Hubs** (Selecione o hub que criou nos pré-requisitos a partir do dropdown)
+   * **Região** - A mesma região que o gateway virtual Azure VPN Gateway.
+   * **Fornecedor de dispositivos** - Introduza o fornecedor do dispositivo (qualquer nome).
+   * **Espaço de endereço privado** - Introduza um valor ou deixe em branco quando o BGP estiver ativado.
+   * **Protocolo border gateway** - Definido para **ativar** se o gateway de rede virtual Azure VPN Gateway tiver BGP habilitado.
+   * **Conecte-se a Hubs** - Selecione o hub que criou nos pré-requisitos a partir do dropdown. Se não vir um hub, verifique se criou uma porta de entrada VPN site-to-site para o seu hub.
 3. Em **Links**, insira os seguintes valores:
 
-   * **Nome do fornecedor** - Introduza um nome link e um nome de fornecedor (qualquer nome)
-   * **Velocidade** - Velocidade (qualquer número)
-   * **Endereço IP** - Insira o endereço IP (o mesmo que o primeiro endereço IP público mostrado sob as propriedades de gateway de rede virtual (VPN Gateway) )
+   * **Nome do fornecedor** - Introduza um nome link e um nome de fornecedor (qualquer nome).
+   * **Velocidade** - Velocidade (qualquer número).
+   * **Endereço IP** - Insira o endereço IP (o mesmo que o primeiro endereço IP público mostrado sob as propriedades de gateway de rede virtual (VPN Gateway).
    * **Endereço BGP** e **ASN** - Endereço BGP e ASN. Estes devem ser os mesmos que um dos endereços IP peer BGP, e ASN a partir do gateway de rede virtual VPN Gateway que você configurado no [passo 1](#vnetgw).
 4. Reveja e **selecione Confirme** para criar o site.
 5. Repita os passos anteriores para criar o segundo site para combinar com a segunda instância do gateway de rede virtual VPN Gateway. Você manterá as mesmas definições, exceto usando o segundo endereço IP público e segundo endereço IP peer BGP a partir da configuração VPN Gateway.
@@ -114,12 +116,12 @@ Nesta secção, cria-se uma ligação entre os gateways de rede locais VPN Gatew
    * **Gateway de rede local:** Esta ligação ligará a porta de entrada de rede virtual à porta de entrada de rede local. Escolha um dos gateways de rede locais que criou anteriormente.
    * **Chave partilhada:** Introduza uma chave partilhada.
    * **Protocolo IKE:** Escolha o protocolo IKE.
-   * **BGP:** Escolha **Ativar O BGP** se a ligação tiver ultrapassado o BGP.
 3. Clique em **OK** para criar a ligação.
 4. A ligação é apresentada na página **Ligações** do gateway de rede virtual.
 
    ![Ligação](./media/connect-virtual-network-gateway-vwan/connect.png "ligação")
 5. Repita os passos anteriores para criar uma segunda ligação. Para a segunda ligação, selecione o outro gateway de rede local que criou.
+6. Se as ligações estiverem sobre o BGP, depois de ter criado as suas ligações, navegue para uma ligação e selecione **Configuração**. Na página **Configuração,** para **BGP,** selecione **Ativado**. Em seguida, clique em **Guardar**. Repita para a segunda ligação.
 
 ## <a name="6-test-connections"></a><a name="test"></a>6. Ligações de teste
 

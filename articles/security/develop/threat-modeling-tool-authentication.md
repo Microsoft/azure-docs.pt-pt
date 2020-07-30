@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: has-adal-ref
-ms.openlocfilehash: 569e8d769d56acbb4c7fb4258952ec19e44b58e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: has-adal-ref, devx-track-javascript
+ms.openlocfilehash: 6e29388595a53923e4899b319b94c87bae5cf941
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82607831"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424210"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Quadro de Segurança: Autenticação / Mitigações
 

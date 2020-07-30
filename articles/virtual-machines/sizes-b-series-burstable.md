@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: ayshak
-ms.openlocfilehash: e3a5d2228074ed358244b49bdf283c09f777ddee
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d8ac2a8317343b1bc172eefa17c6eb0074c5c21f
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292068"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432629"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamanhos de máquina virtual rebentado da série B
 
@@ -92,18 +92,21 @@ Para um D16s_v3 que tem 16 vCPUs e 64 GiB de memória, a taxa horária é de $0,
 
 ## <a name="q--a"></a>Perguntas e Respostas
 
+### <a name="q-what-happens-if-the-credits-run-out"></a>P: O que acontece se os créditos se esgotarem?
+**R**: Quando os créditos estão esgotados, o VM volta ao desempenho de base.
+
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>P: Como obtém um desempenho de base de 135% de um VM?
 
 **R**: Os 135% são partilhados entre os 8 vCPU's que compõem o tamanho VM. Por exemplo, se a sua aplicação utilizar 4 dos 8 núcleos que trabalham no processamento de lotes e cada um desses 4 vCPU's estiver em execução a 30% de utilização, a quantidade total de desempenho do CPU VM equivaleria a 120%.  O que significa que o seu VM estaria a construir tempo de crédito baseado no delta de 15% do seu desempenho de base.  Mas também significa que quando tiver créditos disponíveis, esse mesmo VM pode usar 100% de todos os 8 vCPU's dando a esse VM um desempenho DE CPU Max de 800%.
 
 
-### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>P: Como posso monitorizar o meu saldo de crédito e consumo
+### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>P: Como posso monitorizar o meu saldo de crédito e consumo?
 
 **R**: Vamos introduzir 2 novas métricas nas próximas semanas, a métrica de **Crédito** permitir-lhe-á ver quantos créditos o seu VM depositou e a métrica **ConsumirCredit** mostrará quantos créditos cpU o seu VM consumiu do banco.    Poderá ver estas métricas a partir do painel de métricas do portal ou programáticamente através das APIs do Monitor Azure.
 
 Para obter mais informações sobre como aceder aos dados das métricas para Azure, consulte [a visão geral das métricas no Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
-### <a name="q-how-are-credits-accumulated"></a>P: Como são acumulados os créditos?
+### <a name="q-how-are-credits-accumulated-and-consumed"></a>P: Como são acumulados e consumidos os créditos?
 
 **R**: As taxas de acumulação e de consumo em VM são fixadas de modo a que um VM que esteja a funcionar exatamente ao seu nível de desempenho base não terá nem uma acumulação líquida nem um consumo de créditos de rebentamento.  Um VM terá um aumento líquido de créditos sempre que estiver a correr abaixo do seu nível de desempenho base e terá uma redução líquida de créditos sempre que o VM estiver a utilizar o CPU mais do que o seu nível de desempenho base.
 
@@ -148,6 +151,6 @@ Calculadora de preços: [Calculadora de Preços](https://azure.microsoft.com/pri
 
 Mais informações sobre tipos de discos : [tipos de discos](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

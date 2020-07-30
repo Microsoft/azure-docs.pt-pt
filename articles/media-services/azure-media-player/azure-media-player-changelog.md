@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 07/27/2020
-ms.openlocfilehash: 113249f56c1f5f9c035ec2ff6ccb7309dd355763
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9642f6d1090ef358cf86241640255c647dea52eb
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281349"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432668"
 ---
 # <a name="changelog"></a>Registo de alterações #
 
@@ -57,13 +57,13 @@ ms.locfileid: "87281349"
 
 ### <a name="changes-234"></a>Alterações 2.3.4
 
-- Removido rótulo/faixa de legenda vazia ao reproduzir HLS no iOS e MacOS Safari
+- Removido rótulo/faixa de legenda vazia ao reproduzir HLS no iOS e macOS Safari
 - Reduziu o número de 412 s para legendas IMSC1
 - Aviso de saída na consola para 10 respostas de legendas IMSC1 vazias consecutivas para ajudar a depurar ao vivo
 
 ## <a name="232-official-update-october-9-2019"></a>2.3.2 (Atualização Oficial 9 de outubro de 2019)
 
-### <a name="features"></a>Funcionalidades
+### <a name="features-232"></a>Características 2.3.2
 
 -Suporte PlayReady adicionado para reprodução DASH para navegador Chromium Edge
 
@@ -101,7 +101,7 @@ ms.locfileid: "87281349"
 
 - Ao obter um segmentoDecryptError e o jogador já está na borda ao vivo, o jogador agora refresca o manifesto em vez de experimentar o próximo segmento
 - Adicione mais registos para diagnóstico
-- Documentação atualizada para inlcude suporte FairPlay para iOS Safari
+- Documentação atualizada para incluir suporte FairPlay para iOS Safari
 - Acrescentou um exemplo para o "srclang" da opção IMSC1
 - Acolchoamento adicionado, textPadding, boxShadow sobreposições para faixas de texto.
 - Adicionei um código de erro (0x00202025B) para diferenciar que o download do segmento falhou por não ter internet em vez de apenas lançar 0x00200259
@@ -228,7 +228,7 @@ ms.locfileid: "87281349"
 
 ### <a name="changes-218"></a>Alterações 2.1.8 ###
 
-- [Mudança] Atualizado 0x0600001 errror para exibir quando o conteúdo AES é reproduzido com Flash 30, uma vez que não é suportado neste momento. Por favor, veja [questões conhecidas](azure-media-player-known-issues.md) para mais detalhes
+- [Mudança] Erro atualizado de 0x06000001 para visualizar quando o conteúdo AES é reproduzido com o Flash 30, uma vez que não é suportado neste momento. Por favor, veja [questões conhecidas](azure-media-player-known-issues.md) para mais detalhes
 - [Mudança] Adicionou mais retréis para cenários ao vivo quando pedidos manifestos 404 ou devolve manifestos vazios.
 
 ## <a name="217-official-update"></a>2.1.7 (Atualização Oficial) ##
@@ -727,6 +727,6 @@ ms.locfileid: "87281349"
 
 Pré-lançamento inicial
 
-## <a name="next-steps"></a>Passos seguintes ##
+## <a name="next-steps"></a>Próximos passos ##
 
 - [Azure Media Player Quickstart](azure-media-player-quickstart.md)

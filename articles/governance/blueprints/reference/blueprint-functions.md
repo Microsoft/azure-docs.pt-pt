@@ -3,12 +3,12 @@ title: Funções de Plantas Azure
 description: Descreve as funções disponíveis para utilização com artefactos de planta em definições e atribuições de Plantas Azure.
 ms.date: 05/22/2020
 ms.topic: reference
-ms.openlocfilehash: c402075aa9f6beb52e72454179c2e96d148c271f
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 7a52901060466692e7094cf74fa5acfcded5f1da
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970880"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422849"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funções para utilização com Plantas Azure
 
@@ -34,9 +34,9 @@ Devolve um objeto de propriedades povoadas com as saídas de artefactos de plant
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| nome de artefactos |Sim |string |O nome de um artefacto de planta. |
+| nome de artefactos |Sim |cadeia |O nome de um artefacto de planta. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -109,10 +109,10 @@ Alguns exemplos de obtenção de dados da amostra _myTemplateArtifact_ são:
 | Expression | Tipo | Valor |
 |:---|:---|:---|
 |`[artifacts("myTemplateArtifact").outputs.myArray]` | Matriz | \["Primeiro", "segundo"\] |
-|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | "Primeiro" |
-|`[artifacts("myTemplateArtifact").outputs.myString]` | String | "o meu valor de corda" |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | Cadeia | "Primeiro" |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | Cadeia | "o meu valor de corda" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Objeto | { "myproperty": "my value", "anotherProperty": true } |
-|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | "o meu valor" |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | Cadeia | "o meu valor" |
 |`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Booleano | Verdadeiro |
 
 ## <a name="concat"></a>concat
@@ -123,10 +123,10 @@ Combina vários valores de corda e devolve a corda concatenated.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| string1 |Sim |string |O primeiro valor para a concatenação. |
-| argumentos adicionais |Não |string |Valores adicionais na ordem sequencial para a concatenação |
+| string1 |Sim |cadeia |O primeiro valor para a concatenação. |
+| argumentos adicionais |Não |cadeia |Valores adicionais na ordem sequencial para a concatenação |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -148,9 +148,9 @@ Devolve um valor de parâmetro de planta. O nome do parâmetro especificado deve
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| nome de parâmetroName |Sim |string |O nome do parâmetro para voltar. |
+| nome de parâmetroName |Sim |cadeia |O nome do parâmetro para voltar. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -174,7 +174,7 @@ Defina _os principados de parâmetros_ na definição do projeto:
                 "type": "array",
                 "metadata": {
                     "displayName": "Principal IDs",
-                    "description": "This is a blueprint parameter that any artifact can reference. We'll display these descriptions for you in the info bubble. Supply principal IDs for the users,groups, or service principals for the RBAC assignment.",
+                    "description": "This is a blueprint parameter that any artifact can reference. We'll display these descriptions for you in the info bubble. Supply principal IDs for the users,groups, or service principals for the Azure role assignment.",
                     "strongType": "PrincipalId"
                 }
             }
@@ -269,9 +269,9 @@ Devolve um objeto que representa o artefacto do grupo de recursos especificado. 
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| nome de espaço reservado |Sim |string |O nome reservado do artefacto do grupo de recursos para regressar. |
+| nome de espaço reservado |Sim |cadeia |O nome reservado do artefacto do grupo de recursos para regressar. |
 
 ### <a name="return-value"></a>Valor devolvido
 

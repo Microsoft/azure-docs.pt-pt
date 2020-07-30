@@ -1,28 +1,28 @@
 ---
-title: Atualização RU/s para uma tabela API tabela para Azure Cosmos DB
-description: Atualização RU/s para uma tabela API tabela para Azure Cosmos DB
+title: Atualizar RU/s para uma tabela API de tabela para Azure Cosmos DB
+description: Atualizar RU/s para uma tabela API de tabela para Azure Cosmos DB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
-ms.date: 9/25/2019
-ms.openlocfilehash: 8cc04b766ba63fb522417310177a539ea04fcdd6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 07/29/2020
+ms.openlocfilehash: 3f3a39e546c83620ded539180197f6fda760260f
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71275382"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431539"
 ---
-# <a name="update-rus-for-a-table-api-table-for-azure-cosmos-db-azure-cli"></a>Atualização RU/s para uma tabela API tabela para Azure Cosmos DB Azure CLI
+# <a name="update-rus-for-a-table-api-table-for-azure-cosmos-db-azure-cli"></a>Atualizar RU/s para uma tabela API de tabela para Azure Cosmos DB Azure CLI
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar o CLI localmente, este tópico requer que esteja a executar a versão Azure CLI 2.0.73 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
+Se optar por instalar e utilizar o CLI localmente, este tópico requer que esteja a executar a versão 2.9.1 ou posterior do Azure CLI. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script de exemplo
 
-Este script cria uma tabela API de tabela e, em seguida, atualiza a entrada da tabela.
+Este script cria uma tabela API de tabela e, em seguida, atualiza o resultado da tabela.
 
 [!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/table/throughput.sh "Update RU/s for a Table API table.")]
 
@@ -42,12 +42,12 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Cria uma conta do Azure Cosmos DB. |
-| [az cosmosdb tabela criar](/cli/azure/cosmosdb/table#az-cosmosdb-table-create) | Cria uma tabela API de mesa Azure Cosmos. |
-| [az cosmosdb atualização de entrada de tabela](/cli/azure/cosmosdb/table/throughput#az-cosmosdb-table-throughput-update) | Atualização RU/s para uma tabela API mesa Azure Cosmos. |
+| [az cosmosdb criar](/cli/azure/cosmosdb/table#az-cosmosdb-table-create) | Cria uma tabela API de tabela Azure Cosmos. |
+| [az cosmosdb tabela de saída](/cli/azure/cosmosdb/table/throughput#az-cosmosdb-table-throughput-update) | Atualize RU/s para uma tabela API de tabela Azure Cosmos. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para obter mais informações sobre o Azure Cosmos DB CLI, consulte a [documentação Do CD D. Azure Cosmos.](/cli/azure/cosmosdb)
+Para mais informações sobre o Azure Cosmos DB CLI, consulte [a documentação do Azure Cosmos DB CLI](/cli/azure/cosmosdb).
 
-Todas as amostras de script soro D DD Do Azure Cosmos podem ser encontradas no [Repositório Azure Cosmos DB CLI GitHub](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
+Todas as amostras de scriptS Azure Cosmos DB CLI podem ser encontradas no [Repositório Azure Cosmos DB CLI GitHub](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).

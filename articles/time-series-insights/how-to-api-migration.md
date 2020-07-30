@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: shresha
-ms.openlocfilehash: a5721748f023ea5f098b71d8d43dbda53721c54d
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: a74a5e2b8e80121324dc8b880d90f493d5b2ddfd
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171792"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423954"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>Migrando para novas versões Azure Time Series Insights Gen2 API
 
@@ -286,7 +286,7 @@ Corpo de Pedido Atualizado (utilizado `2020-07-31` por:
 
 Em alternativa, o `value` pode também `$event['Bar-Pressure-Offset'].Double` ser. Se nenhum tipo de dados for especificado, o tipo de dados é sempre assumido como Duplo. A notação do suporte deve ser utilizada para escapar ao carácter especial ( `-` ).
 
-#### <a name="getaggregateseries"></a>GetAggregateseries
+#### <a name="aggregateseries"></a>Agregados
 
 Antigo Corpo de Pedido (usado `2018-11-01-preview` por:
 
@@ -382,6 +382,6 @@ Se vir o seguinte erro, está a utilizar a nova versão API `2020-07-31` (), mas
 }
 ```
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 - Teste o seu ambiente através do [Azure Time Series Insights Explorer](./concepts-ux-panels.md) ou através da sua aplicação personalizada.

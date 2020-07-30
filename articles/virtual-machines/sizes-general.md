@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: mimckitt
-ms.openlocfilehash: c7cb2667f8e653b4e71844cd849e691a7c5bcd81
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f56b0fe087cad831efda848da3b8d89a826ec6da
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325445"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423971"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Tamanhos de máquina virtual de propósito geral
 
@@ -48,6 +48,8 @@ Os tamanhos VM de finalidade geral proporcionam uma relação CPU-memória equil
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.
+
+Para obter mais informações sobre como a Azure dá nome aos seus VMs, consulte [o tamanho da máquina virtual Azure que nomeia convenções.](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions)

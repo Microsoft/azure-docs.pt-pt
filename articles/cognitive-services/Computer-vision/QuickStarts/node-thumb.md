@@ -10,13 +10,13 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.custom: seodec18
-ms.openlocfilehash: c28b3e648dbb451535c182b28b672e670d749629
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.custom: seodec18, devx-track-javascript
+ms.openlocfilehash: 69e687baef0d3dc1d7c660b18cdae305a6cd7177
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84985947"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406763"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-nodejs"></a>Quickstart: Gere uma miniatura utilizando a API e o Node.js
 
@@ -100,7 +100,7 @@ request.post(options, (error, response, body) => {
 Um pop-up da imagem da miniatura será exibido.
 É devolvida uma resposta com êxito como dados binários, que representa os dados da imagem da miniatura. Se o pedido falhar, a resposta é apresentada na janela da consola. A resposta do pedido falhado contém um código de erro e uma mensagem para ajudar a determinar o que correu mal.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, explore a API de Visão Computacional usada para analisar uma imagem, detetar celebridades e marcos, criar uma miniatura e extrair texto impresso e manuscrito.
 

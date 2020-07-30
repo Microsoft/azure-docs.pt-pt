@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 04/09/2020
-ms.openlocfilehash: 3d4ec077ac0e92d26cf82ba96593a76a21ed885f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 07/29/2020
+ms.openlocfilehash: 36c497a180070358332997649e768999c78935cb
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324680"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87433108"
 ---
 # <a name="test-virtual-machine-vm-deployed-from-vhd"></a>Máquina virtual de teste (VM) implantada a partir de VHD
 
@@ -222,7 +222,7 @@ Edite e execute o seguinte script Azure PowerShell para criar um Cofre de Chaves
 |   |   |
 
 ```PowerShell
-    # Creating Key vault in resource group
+# Creating Key vault in resource group
 
     # "Random" number for deployment identifiers
     $postfix = "0101048"
@@ -242,9 +242,9 @@ Edite e execute o seguinte script Azure PowerShell para criar um Cofre de Chaves
     # code snippet to get the Azure user object ID
     try
        {
-        $accounts = Get-AzureAccount
+        $accounts = Get-AzContext
         $accountNum = 0
-        $accounts.Id | %{ ++$accountNum; Write-Host $accountNum $_}
+        $accounts.Account | %{ ++$accountNum; Write-Host $accountNum $_}
         Write-Host "`nPlease select User, e.g. 1:" -ForegroundColor DarkYellow
         [Int] $accountChoice = Read-Host
 
@@ -257,10 +257,10 @@ Edite e execute o seguinte script Azure PowerShell para criar um Cofre de Chaves
 
         $accountSelected = $accounts[$accountChoice-1]
         echo $accountSelected
-        $id = $accountSelected.Id
+        $id = $accountSelected.Account
 
         Write-Host "User $id Selected"
-        $myobjectId=(Get-AzADUser -Mail $id)[0].Id
+        $myobjectId=(Get-AzADUser -Mail $id).Id
       }
       catch
       {
@@ -273,10 +273,10 @@ Edite e execute o seguinte script Azure PowerShell para criar um Cofre de Chaves
         #**************************************
         try
         {
-        $subslist=Get-AzureSubscription
+        $subslist=Get-AzSubscription
         for($i=1; $i -le $subslist.Length;$i++)
         {
-           Write-Host ($i.ToString() +":"+ $subslist[$i-1].SubscriptionName)
+           Write-Host ($i.ToString() +":"+ $subslist[$i-1].Name)
         }
         Write-Host "`nPlease pick subscription from above, e.g. 1:" -ForegroundColor DarkYellow
         [int] $selectedsub=Read-Host
@@ -286,15 +286,15 @@ Edite e execute o seguinte script Azure PowerShell para criar um Cofre de Chaves
             Write-Host "incorrect input" -ForegroundColor Red
             for($i=1; $i -le $subslist.Length;$i++)
              {
-              Write-Host ($i.ToString() +":"+ $subslist[$i-1].SubscriptionName)
+              Write-Host ($i.ToString() +":"+ $subslist[$i-1].Name)
              }
             Write-Host "`nPlease pick subscription from above, e.g. 1:" -ForegroundColor DarkYellow
            [int] $selectedsub=Read-Host
         }
         if($selectedsub -ge 1 -and $selectedsub -le $subslist.Length)
         {
-        $mysubid=$subslist[$selectedsub-1].SubscriptionId
-        $mysubName=$subslist[$selectedsub-1].SubscriptionName
+        $mysubid=$subslist[$selectedsub-1].Id
+        $mysubName=$subslist[$selectedsub-1].Name
         $mytenantId=$subslist[$selectedsub-1].TenantId
         Write-Host "$mysubName selected"
         }
@@ -322,7 +322,7 @@ Edite e execute o seguinte script Azure PowerShell para criar um Cofre de Chaves
 Guarde os certificados contidos no ficheiro .pfx no novo cofre de chaves utilizando este script:
 
 ```PowerShell
-     $fileName =$certroopath+"\$certname"+".pfx"
+ $fileName =$certroopath+"\$certname"+".pfx"
 
      $fileContentBytes = get-content $fileName -Encoding Byte
      $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
@@ -338,7 +338,7 @@ Guarde os certificados contidos no ficheiro .pfx no novo cofre de chaves utiliza
             $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
             $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
             $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
-            $objAzureKeyVaultSecret=Set-AzureKeyVaultSecret -VaultName $kvname -Name "ISVSecret$postfix" -SecretValue $secret
+            $objAzureKeyVaultSecret=Set-AzKeyVaultSecret -VaultName $kvname -Name "ISVSecret$postfix" -SecretValue $secret
             echo $objAzureKeyVaultSecret.Id
 
 ```
@@ -855,7 +855,6 @@ Copiar e editar o seguinte script para fornecer valores para as `$storageaccount
 $storageaccount = "testwinrm11815"
 
 # generalized VHD URL
-
 $vhdUrl = "https://testwinrm11815.blob.core.windows.net/vhds/testvm1234562016651857.vhd"
 
 # Full pathname to the file VHDtoImage.json. inserted these highlighted lines
@@ -879,11 +878,10 @@ $adminUserName = "isv"
 # The OS of the virtual machine
 $osType = "windows"
 
-echo "New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName" -TemplateFile "C:\certLocation\VHDtoImage.json" -userStorageAccountName "$storageaccount" -dnsNameForPublicIP "$vmName" -subscriptionId "$mysubid" -location "$location" -vmName "$vmName" -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl $objAzureKeyVaultSecret.Id -vhdUrl "$vhdUrl" -vmSize "Standard\_A2" -publicIPAddressName "myPublicIP1" -virtualNetworkName "myVNET1" -nicName "myNIC1" -adminUserName "isv" -adminPassword $pwd"
+echo "New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName" -TemplateFile $templateFile -userStorageAccountName "$storageaccount" -dnsNameForPublicIP "$vmName" -subscriptionId "$mysubid" -location "$location" -vmName "$vmName" -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl $objAzureKeyVaultSecret.Id  -vhdUrl "$vhdUrl" -vmSize "$vmSize" -publicIPAddressName "$publicIPAddressName" -virtualNetworkName "$virtualNetworkName" -nicName "$nicName" -adminUserName "$adminUserName" -adminPassword $pwd -osType "$osType""
 
 # deploying VM with existing VHD
-
-New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName" -TemplateFile "C:\certLocation\VHDtoImage.json" -userStorageAccountName "$storageaccount" -dnsNameForPublicIP "$vmName" -subscriptionId "$mysubid" -location "$location" -vmName "$vmName" -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl “$objAzureKeyVaultSecret.Id” -vhdUrl "$vhdUrl" -vmSize "Standard_A2" -publicIPAddressName "myPublicIP1" -virtualNetworkName"myVNET1" -nicName "myNIC1" -adminUserName "isv" -adminPassword “$pwd"
+New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName" -TemplateFile $templateFile -userStorageAccountName "$storageaccount" -dnsNameForPublicIP "$vmName" -subscriptionId "$mysubid" -location "$location" -vmName "$vmName" -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl $objAzureKeyVaultSecret.Id -vhdUrl "$vhdUrl" -vmSize "$vmSize" -publicIPAddressName "$publicIPAddressName" -virtualNetworkName "$virtualNetworkName" -nicName "$nicName" -adminUserName "$adminUserName" -adminPassword $pwd -osType "$osType"
 
 ```
 

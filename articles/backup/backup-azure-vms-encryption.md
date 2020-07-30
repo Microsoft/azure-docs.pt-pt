@@ -2,13 +2,13 @@
 title: Fazer o back up e restaurar vMs Azure encriptados
 description: Descreve como fazer backup e restaurar VMs Azure encriptados com o serviço Azure Backup.
 ms.topic: conceptual
-ms.date: 04/03/2019
-ms.openlocfilehash: 20310c6c51a2467e9389bc77dd9ada4848c69be4
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.date: 07/29/2020
+ms.openlocfilehash: 25c5e66bde817e824a307df2a2b1b5f76c773c01
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371758"
+ms.locfileid: "87405768"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Fazer o back up e restaurar o Azure VM encriptado
 
@@ -56,29 +56,33 @@ Além disso, há algumas coisas que pode precisar fazer em algumas circunstânci
 
 ## <a name="configure-a-backup-policy"></a>Configure uma política de backup
 
-1. Se ainda não criou um cofre de reserva dos Serviços de Recuperação, siga [estas instruções](backup-create-rs-vault.md)
-2. Abra o cofre no portal e selecione **Backup** na secção **Iniciar.**
+1. Se ainda não criou um cofre de reserva dos Serviços de Recuperação, siga [estas instruções](backup-create-rs-vault.md).
+1. Abra o cofre no portal e selecione **+Backup** na secção **'Visão Geral'.**
 
-    ![Lâmina de reserva](./media/backup-azure-vms-encryption/select-backup.png)
+    ![Painel de reserva](./media/backup-azure-vms-encryption/select-backup.png)
 
-3. Em **Backup goal**Onde está a sua carga de trabalho a  >  **correr?** **Azure**
-4. Em **O que pretende fazer para fazer o back-up?** Selecione Máquina **Virtual**  >  **OK**.
+1. Em **Backup goal**Onde está a sua carga de trabalho a  >  **correr?** **Azure**
+1. Em O que pretende fazer **Virtual machine**para fazer **o back-up?** Em seguida, **selecione Backup**.
 
       ![Lâmina de cenário](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
-5. Na **política de backup**Escolha a política de  >  **backup,** selecione a política que pretende associar ao cofre. Em seguida, clique em **OK**.
-    - Uma política de backup especifica quando as cópias de segurança são tomadas e quanto tempo são armazenadas.
+1. Na **política de backup**Escolha a política de  >  **backup,** selecione a política que pretende associar ao cofre. Em seguida, selecione **OK**.
+    - Uma política de backup especifica quando as cópias de segurança são tomadas e quanto tempo estão armazenadas.
     - Os detalhes da política predefinida estão listados no menu pendente.
 
     ![Abrir o painel Cenário](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
 
-6. Se não quiser utilizar a política predefinitiva, **selecione Create New**e crie uma política [personalizada](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
+1. Se não quiser utilizar a política predefinitiva, **selecione Create New**e crie uma política [personalizada](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
-7. Escolha os VMs encriptados que pretende fazer de fazer com a política selecionada e selecione **OK**.
+1. Em **Máquinas Virtuais**, selecione **Adicionar**.
+
+    ![Abrir o painel Cenário](./media/backup-azure-vms-encryption/add-virtual-machines.png)
+
+1. Escolha os VMs encriptados que pretende fazer de fazer com a política selecionada e selecione **OK**.
 
       ![Selecione VMs encriptados](./media/backup-azure-vms-encryption/selected-encrypted-vms.png)
 
-8. Se estiver a usar o Cofre da Chave Azure, na página do cofre, vê uma mensagem de que o Azure Backup precisa de acesso apenas de leitura às chaves e segredos no Cofre de Chaves.
+1. Se estiver a usar o Cofre da Chave Azure, na página do cofre, verá uma mensagem de que o Azure Backup precisa de acesso apenas de leitura às chaves e segredos no Cofre de Chaves.
 
     - Se receber esta mensagem, não é necessária qualquer ação.
 
@@ -88,17 +92,17 @@ Além disso, há algumas coisas que pode precisar fazer em algumas circunstânci
 
         ![Aviso de acesso](./media/backup-azure-vms-encryption/access-warning.png)
 
-9. Clique em **Ativar o Backup** para implementar a política de backup no cofre e ative a cópia de segurança para os VMs selecionados.
+1. Selecione **Ativar** a cópia de segurança para implementar a política de backup no cofre e ative a cópia de segurança para os VMs selecionados.
 
 ## <a name="trigger-a-backup-job"></a>Desencadear um trabalho de reserva
 
 A cópia de segurança inicial será executada de acordo com o horário, mas pode executá-la imediatamente da seguinte forma:
 
-1. No menu do cofre, clique em **itens de cópia de segurança.**
-2. Em **Itens de cópia de segurança,** clique na **Máquina Virtual Azure**.
-3. Na lista **de Itens de Reserva,** clique nas elipses (...).
-4. Clique **em Backup agora**.
-5. Em **Backup Now,** utilize o controlo do calendário para selecionar o último dia em que o ponto de recuperação deve ser mantido. Em seguida, clique em **OK**.
+1. No menu do cofre, selecione **itens de reserva**.
+2. Em **Itens de Cópia de Segurança**, selecione **Azure Virtual Machine**.
+3. Na lista **de Itens de Cópia de Segurança,** selecione as elipses (...).
+4. **Selecione Backup agora**.
+5. Em **Backup Now,** utilize o controlo do calendário para selecionar o último dia em que o ponto de recuperação deve ser mantido. Em seguida, selecione **OK**.
 6. Monitorize as notificações do portal. Pode monitorizar o progresso do trabalho no painel de segurança do cofre > **trabalhos de reserva**  >  **em curso**. Dependendo do tamanho da sua VM, a criação da cópia de segurança inicial poderá demorar algum tempo.
 
 ## <a name="provide-permissions"></a>Fornecer permissões
@@ -111,24 +115,27 @@ O Azure Backup precisa de acesso apenas de leitura para fazer cópias de seguran
 Para definir permissões:
 
 1. No portal Azure, selecione **Todos os serviços**e procure **cofres chave**.
-2. Selecione o cofre de chaves associado ao VM encriptado que está a fazer.
-3. Selecione **políticas de acesso**Adicione  >  **novos**.
-4. **Selecione o principal**e, em seguida, **escreva Gestão de Backup**.
-5. Selecione **o serviço de gestão de**  >  **cópias de segurança .**
+1. Selecione o cofre de chaves associado ao VM encriptado que está a fazer.
+1. Selecione **políticas de acesso**Adicionar Política de  >  **Acesso**.
+
+    ![Adicionar política de acesso](./media/backup-azure-vms-encryption/add-access-policy.png)
+
+1. **Selecione o principal**e, em seguida, **escreva Gestão de Backup**.
+1. Selecione **o serviço de gestão de**  >  **cópias de segurança .**
 
     ![Seleção de serviço de backup](./media/backup-azure-vms-encryption/select-backup-service.png)
 
-6. In **Add access policy**  >  **Configure from template (opcional)**, selecione **Azure Backup**.
+1. In **Add access policy**  >  **Configure from template (opcional)**, selecione **Azure Backup**.
     - As permissões necessárias são preenchidas para **permissões chave** e **permissões secretas.**
     - Se o seu VM estiver encriptado apenas com **BEK,** remova a seleção para **permissões chave,** uma vez que só necessita de permissões para segredos.
 
     ![Seleção de backup azure](./media/backup-azure-vms-encryption/select-backup-template.png)
 
-7. Clique em **OK**. **O Serviço de Gestão de Cópias** de Segurança é adicionado às **políticas de Acesso.**
+1. Selecione **Adicionar**. **O Serviço de Gestão de Cópias** de Segurança é adicionado às **políticas de Acesso.**
 
     ![Políticas de acesso](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
 
-8. Clique em **Guardar** para fornecer cópia de segurança do Azure com as permissões.
+1. **Selecione Guardar** para fornecer cópia de segurança do Azure com as permissões.
 
 ## <a name="restore-an-encrypted-vm"></a>Restaurar um VM encriptado
 
@@ -142,7 +149,7 @@ Restaurar vMs encriptados da seguinte forma:
     2. Crie um novo VM a partir dos discos restaurados utilizando o PowerShell. [Saiba mais](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 3. Para os VMs Linux, reinstale a extensão ADE para que os discos de dados estejam abertos e montados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se encontrar algum problema, reveja estes artigos:
 

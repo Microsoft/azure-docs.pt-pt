@@ -6,13 +6,13 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 01841b1e6d6fed684137e1327dd77e276650803c
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-javascript
+ms.openlocfilehash: 076233c52074bca646c072e9a1abe63b15412c1b
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85340606"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430649"
 ---
 # <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Quickstart: Use as filas de ônibus de serviço em Azure com Node.js e o pacote azure-sb
 Neste tutorial, aprende-se a criar aplicações Node.js para enviar mensagens e receber mensagens de uma fila de autocarros da Azure Service usando o pacote [azure-sb.](https://www.npmjs.com/package/azure-sb) As amostras são escritas em JavaScript e utilizam o [módulo Azure](https://www.npmjs.com/package/azure) Node.js que utiliza internamente o pacote azure-sb.
@@ -181,7 +181,7 @@ No caso de a aplicação falhar após o processamento da mensagem, mas antes do 
 > [!NOTE]
 > Você pode gerir os recursos de Service Bus com [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). O Service Bus Explorer permite que os utilizadores se conectem a um espaço de nomes de Service Bus e administram as entidades de mensagens de forma fácil. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, subscrições, serviços de retransmissão, centros de notificação e centros de eventos. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre as filas, consulte os seguintes recursos.
 
 * [Filas, tópicos e subscrições][Queues, topics, and subscriptions]

@@ -1,14 +1,14 @@
 ---
 title: Considerações sobre o programa do Fornecedor de Soluções Cloud
 description: Para os parceiros da CSP, a gestão de recursos delegada da Azure ajuda a melhorar a segurança e o controlo, permitindo permissões granulares.
-ms.date: 07/06/2020
+ms.date: 07/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8dd40c5c4f7131554dcc3249777de9f0d92c35bb
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 0ae7ef0b78f2f37708c6b442a9591fcbcce25646
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131508"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429451"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Farol Azure e o programa Cloud Solution Provider
 
@@ -32,6 +32,9 @@ Utilizando o Farol Azure, pode atribuir diferentes grupos a diferentes clientes 
 A bordo de uma subscrição que criou através do programa CSP segue os passos descritos a [bordo de uma subscrição do Farol Azure.](../how-to/onboard-customer.md) Qualquer utilizador que tenha o papel de Agente Administrativo no seu inquilino pode realizar este embarque.
 
 ![Gestão de inquilinos utilizando a GESTÃO DE RECURSOS DELEGADA AOBO e Azure delegada](../media/csp-2.jpg)
+
+> [!TIP]
+> [As ofertas de Serviços Geridos](managed-services-offers.md) com planos privados não são suportadas com subscrições estabelecidas através de um revendedor do programa Cloud Solution Provider (CSP). Pode embarcar nestas subscrições do Azure Lighthouse [utilizando modelos do Azure Resource Manager](../how-to/onboard-customer.md).
 
 > [!NOTE]
 > A página [ **dos meus clientes** no portal Azure](../how-to/view-manage-customers.md) inclui agora uma secção **cloud solution provider (Preview),** que exibe informações e recursos de faturação para clientes da CSP que [assinaram o Microsoft Customer Agreement (MCA)](/partner-center/confirm-customer-agreement) e estão [ao abrigo do plano Azure.](/partner-center/azure-plan-get-started) Para obter mais informações, consulte [Começar com a sua conta de faturação do Microsoft Partner Agreement](../../cost-management-billing/understand/mpa-overview.md).

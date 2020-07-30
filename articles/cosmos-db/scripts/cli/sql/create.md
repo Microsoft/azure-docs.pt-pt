@@ -6,19 +6,19 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 06/03/2020
-ms.openlocfilehash: 416da39df9bfb49d6323ee789d5e67b1743a1cd7
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.date: 07/29/2020
+ms.openlocfilehash: ff441595dd1a1a782a553f28a779f2f73715448f
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84509394"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432779"
 ---
 # <a name="create-an-azure-cosmos-core-sql-api-account-database-and-container-using-azure-cli"></a>Criar uma conta AZure Cosmos Core (SQL) API, base de dados e contentor usando Azure CLI
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar o CLI localmente, este tópico requer que esteja a executar a versão Azure CLI 2.0.73 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
+Se optar por instalar e utilizar o CLI localmente, este tópico requer que esteja a executar a versão 2.9.1 ou posterior do Azure CLI. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -44,7 +44,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [recipiente az cosmosdb sql criar](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) | Cria um recipiente Azure Cosmos SQL (Core). |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações sobre o Azure Cosmos DB CLI, consulte [a documentação do Azure Cosmos DB CLI](/cli/azure/cosmosdb).
 

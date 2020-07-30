@@ -12,12 +12,12 @@ ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 361e8c63dc036443e527d1027fe3fd0cca784d9a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 864225238c10ab2fda96e95448790201cc8a16ae
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83747213"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423002"
 ---
 # <a name="use-your-phone-number-as-a-user-name-preview"></a>Use o seu número de telefone como nome de utilizador (pré-visualização)
 
@@ -52,11 +52,11 @@ Se já estiver a utilizar um número de telefone com uma organização e utiliza
 
 1. Quando o sing-in POR SMS está disponível, é apresentado um banner perguntando se gostaria de ativar o número de telefone para o sôm-in POR SMS:
 
-    [![](media/sms-sign-in-explainer/sms-sign-in-banner.png "Banner to enable SMS sign-in for a phone number")](media/sms-sign-in-explainer/sms-sign-in-banner.png#lightbox)
+    [![Banner para ativar o sing-in POR SMS para um número de telefone.](media/sms-sign-in-explainer/sms-sign-in-banner.png)](media/sms-sign-in-explainer/sms-sign-in-banner.png#lightbox)
 
 1. Além disso, aparece um botão **Enable** se selecionar o cuidado no azulejo do método do telefone:
 
-    [![](media/sms-sign-in-explainer/sms-sign-in-phone-method.png "Banner to enable SMS sign-in for a phone number")](media/sms-sign-in-explainer/sms-sign-in-phone-method.png#lightbox)
+    [![Banner para ativar o sing-in POR SMS para um número de telefone.](media/sms-sign-in-explainer/sms-sign-in-phone-method.png)](media/sms-sign-in-explainer/sms-sign-in-phone-method.png#lightbox)
 
 1. Para ativar o método, selecione **Ativar**. É-lhe pedido que confirme a ação:
 
@@ -68,7 +68,7 @@ Se já estiver a utilizar um número de telefone com uma organização e utiliza
 
 1. Para eliminar o número de telefone, selecione o botão de exclusão no telha do método de inscrição de SMS.
 
-    [![](media/sms-sign-in-explainer/sms-sign-in-delete-method.png "Banner to delete SMS sign-in for a phone number")](media/sms-sign-in-explainer/sms-sign-in-delete-method.png#lightbox)
+    [![Banner para eliminar o sing-in POR SMS para um número de telefone.](media/sms-sign-in-explainer/sms-sign-in-delete-method.png)](media/sms-sign-in-explainer/sms-sign-in-delete-method.png#lightbox)
 
 2. Quando for solicitado para confirmar a ação, selecione **OK**.
 

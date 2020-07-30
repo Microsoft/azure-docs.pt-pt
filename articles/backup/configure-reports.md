@@ -3,12 +3,12 @@ title: Configurar relatórios do Azure Backup
 description: Configure e veja relatórios para Azure Backup usando diários de log analytics e Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 5d1c7d628a61e550aa9dc4a5265ae16c5ed5336a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 248fcdc8d57ca2408ada01db4ecf3b8ee7712e4d
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513630"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87388074"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 
@@ -70,28 +70,63 @@ Selecione este link para abrir o livro de relatórios de cópia de segurança.
 
 O relatório contém vários separadores:
 
-- **Resumo**: Utilize este separador para obter uma visão geral de alto nível da sua propriedade de reserva. Você pode obter uma olhada rápida do número total de itens de backup, armazenamento total na nuvem consumido, o número de casos protegidos, e a taxa de sucesso do trabalho por tipo de carga de trabalho. Para obter informações mais detalhadas sobre um tipo específico de artefacto de backup, aceda aos respetivos separadores.
+##### <a name="summary"></a>Resumo
+Use este separador para obter uma visão geral de alto nível da sua propriedade de reserva. Você pode obter uma olhada rápida do número total de itens de backup, armazenamento total na nuvem consumido, o número de casos protegidos, e a taxa de sucesso do trabalho por tipo de carga de trabalho. Para obter informações mais detalhadas sobre um tipo específico de artefacto de backup, aceda aos respetivos separadores.
 
    ![Separador Resumo](./media/backup-azure-configure-backup-reports/summary.png)
 
-- **Itens de reserva**: Utilize este separador para ver as informações e tendências sobre o armazenamento na nuvem consumidas a um nível de produto de reserva. Por exemplo, se utilizar o SQL numa cópia de segurança Azure VM, pode ver o armazenamento na nuvem consumido por cada base de dados SQL que está a ser apoiada. Também pode optar por ver dados para itens de backup de um determinado estado de proteção. Por exemplo, selecionar o azulejo **'Protecção' Stop** na parte superior do separador filtra todos os widgets por baixo para mostrar dados apenas para itens de backup no estado de Proteção Parado.
+##### <a name="backup-items"></a>Itens de Cópia de Segurança
+Utilize este separador para ver informações e tendências sobre o armazenamento na nuvem consumidas a um nível de itens de backup. Por exemplo, se utilizar o SQL numa cópia de segurança Azure VM, pode ver o armazenamento na nuvem consumido por cada base de dados SQL que está a ser apoiada. Também pode optar por ver dados para itens de backup de um determinado estado de proteção. Por exemplo, selecionar o azulejo **'Protecção' Stop** na parte superior do separador filtra todos os widgets por baixo para mostrar dados apenas para itens de backup no estado de Proteção Parado.
 
    ![Separador de Itens de Reserva](./media/backup-azure-configure-backup-reports/backup-items.png)
 
-- **Utilização**: Utilize este separador para visualizar os parâmetros de faturação das chaves para as suas cópias de segurança. A informação apresentada neste separador encontra-se a um nível de entidade de faturação (contentor protegido). Por exemplo, no caso de um servidor DPM ser apoiado até Azure, pode ver a tendência de casos protegidos e armazenamento em nuvem consumido para o servidor DPM. Da mesma forma, se utilizar o SQL em Azure Backup ou SAP HANA em Azure Backup, este separador dá-lhe informações relacionadas com o uso ao nível da máquina virtual em que estas bases de dados estão contidas.
+##### <a name="usage"></a>Utilização
+Utilize este separador para visualizar os parâmetros de faturação das chaves para as suas cópias de segurança. A informação apresentada neste separador encontra-se a um nível de entidade de faturação (contentor protegido). Por exemplo, no caso de um servidor DPM ser apoiado até Azure, pode ver a tendência de casos protegidos e armazenamento em nuvem consumido para o servidor DPM. Da mesma forma, se utilizar o SQL em Azure Backup ou SAP HANA em Azure Backup, este separador dá-lhe informações relacionadas com o uso ao nível da máquina virtual em que estas bases de dados estão contidas.
 
    ![Separador de utilização](./media/backup-azure-configure-backup-reports/usage.png)
 
 > [!NOTE]
 > No caso das cargas de trabalho de DPM, os utilizadores podem ver uma ligeira diferença (da ordem de 20 MB por servidor DPM) entre os valores de utilização indicados nos relatórios em comparação com o valor de utilização agregado, tal como mostrado no separador de visão geral do cofre dos serviços recovery. Esta diferença é explicada pelo facto de que todos os servidores DPM registados para cópia de segurança têm uma fonte de dados de metadados associada que não é surgiu como um artefacto para reportar.
 
-- **Empregos**: Utilize este separador para ver as tendências de longo prazo sobre os postos de trabalho, tais como o número de empregos falhados por dia e as principais causas de insuficiência de emprego. Pode ver estas informações tanto a um nível agregado como a um nível de backup-item. Selecione um item de cópia de segurança específico numa grelha para visualizar informações detalhadas sobre cada trabalho que foi ativado nesse item de Cópia de Segurança no intervalo de tempo selecionado.
+##### <a name="jobs"></a>Tarefas
+Utilize este separador para ver as tendências de longo prazo sobre os postos de trabalho, como o número de empregos falhados por dia e as principais causas de insuficiência de emprego. Pode ver estas informações tanto a um nível agregado como a um nível de backup-item. Selecione um item de cópia de segurança específico numa grelha para visualizar informações detalhadas sobre cada trabalho que foi ativado nesse item de Cópia de Segurança no intervalo de tempo selecionado.
 
    ![Guia de emprego](./media/backup-azure-configure-backup-reports/jobs.png)
 
-- **Políticas**: Utilize este separador para visualizar informações sobre todas as suas políticas ativas, tais como o número de itens associados e o armazenamento total de nuvem consumido por itens apoiados por uma determinada política. Selecione uma política específica para visualizar informações sobre cada um dos itens de Backup associados.
+##### <a name="policies"></a>Políticas
+Utilize este separador para visualizar informações sobre todas as suas políticas ativas, tais como o número de itens associados e o armazenamento total de nuvem consumido por itens apoiados por uma determinada política. Selecione uma política específica para visualizar informações sobre cada um dos itens de Backup associados.
 
    ![Separador de políticas](./media/backup-azure-configure-backup-reports/policies.png)
+
+##### <a name="optimize"></a>Otimizar
+Use este separador para ganhar visibilidade em potenciais oportunidades de otimização de custos para as suas cópias de segurança. Seguem-se os cenários para os quais o separador Otimize fornece atualmente insights:
+
+###### <a name="inactive-resources"></a>Recursos Inativos
+Utilizando esta vista, pode identificar os itens de backup que não tiveram uma cópia de segurança bem sucedida durante um período significativo de tempo. Isto pode significar que a máquina subjacente que está a ser apoiada já não existe (e está, portanto, a resultar em cópias de segurança falhadas), ou existe algum problema com a máquina que está a impedir que as cópias de segurança sejam tomadas de forma fiável. 
+
+Para visualizar recursos inativos, navegue no separador **Otimize** e clique no azulejo **Recursos Inativos.** Clicar neste azulejo exibe uma grelha que contém detalhes de todos os recursos inativos que existem no âmbito selecionado. Por predefinição, a grelha mostra itens que não têm um ponto de recuperação nos últimos 7 dias. Para encontrar recursos inativos para um intervalo de tempo diferente, pode ajustar o filtro **de intervalo** de tempo na parte superior do separador.
+
+Uma vez identificado um recurso inativo, pode investigar o problema mais adiante navegando no painel de instrumentos de reserva ou na lâmina de recurso Azure para esse recurso (sempre que aplicável). Dependendo do seu cenário, pode optar por parar a cópia de segurança da máquina (se já não existir), poupando assim no custo de instâncias protegidas, ou pode corrigir problemas na máquina para garantir que as cópias de segurança são tomadas de forma fiável.
+
+![Separador Otimizar - Recursos Inativos](./media/backup-azure-configure-backup-reports/optimize-inactive-resources.png)
+
+###### <a name="backup-items-with-a-large-retention-duration"></a>Itens de backup com uma grande duração de retenção
+Utilizando esta vista, pode identificar os itens que têm cópias de segurança retidas por uma duração mais longa do que o exigido pela sua organização. 
+
+Clicar no azulejo **de Otimizações de Política** seguido do azulejo de **Otimizações de Retenção** exibe uma grelha contendo todos os itens de backup para os quais a retenção do ponto de retenção diário, semanal, mensal ou anual (RP) é maior do que um valor especificado. Por predefinição, a grelha apresenta todos os itens de cópia de segurança no âmbito selecionado. Pode utilizar os filtros para a retenção diária, semanal, mensal e anual de RP para filtrar ainda mais a grelha e identificar os itens para os quais a retenção poderia potencialmente ser reduzida para economizar nos custos de armazenamento de backup.
+
+Note que para cargas de trabalho de base de dados como SQL e SAP HANA, os períodos de retenção mostrados na grelha correspondem aos períodos de retenção dos pontos de backup completos e não aos pontos de backup diferenciais. O mesmo se aplica aos filtros de retenção também.  
+
+![Otimizar o separador - Otimizações de Retenção](./media/backup-azure-configure-backup-reports/optimize-retention.png)
+
+###### <a name="databases-configured-for-daily-full-backup"></a>Bases de dados configuradas para cópia de segurança diária
+Utilizando esta vista, pode identificar cargas de trabalho de base de dados que foram configuradas para cópias de segurança diárias. Muitas vezes, usar backup diferencial diário juntamente com o backup completo semanal é mais rentável. 
+
+Clicar no azulejo **de Otimizações de Políticas** seguido do azulejo de Backup Schedule **Otimizações** exibe uma grelha contendo todas as bases de dados com uma política diária de backup completa. Pode optar por navegar para um determinado item de backup e modificar a política para utilizar a cópia de segurança diferencial diária com cópia de segurança total semanal.
+
+Note que o filtro **do Tipo de Gestão de Cópias** de Segurança na parte superior do separador deve ter os itens **SQL em Azure VM** e **SAP HANA em Azure VM** selecionados, para que a grelha possa apresentar cargas de trabalho de base de dados como esperado.
+
+![Otimizar o separador - Otimizações de Agenda de Backup](./media/backup-azure-configure-backup-reports/optimize-backup-schedule.png)
 
 ## <a name="export-to-excel"></a>Exportar para o Excel
 

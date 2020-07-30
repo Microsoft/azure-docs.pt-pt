@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: ad34195e003e0ca2d73000d3482cc79c3dbe3ee0
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 58a8bd6b8e5594f36bf27a3ad76bee137fdd1160
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372115"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87433228"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implementar um modelo para um cluster de serviço Azure Kubernetes
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -63,7 +63,11 @@ O cluster AKS e o espaço de trabalho AML podem estar em diferentes grupos de re
 
 - Os cortes __do CLI__ neste artigo assumem que criaste um `inferenceconfig.json` documento. Para obter mais informações sobre a criação deste documento, consulte [como e onde implementar modelos.](how-to-deploy-and-where.md)
 
-- Se ligar um cluster AKS, que tem uma [gama IP autorizada habilitada a aceder ao servidor API,](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges)ative as gamas IP do plano contol AML para o cluster AKS. O plano de controlo AML é implantado em regiões emparelhadas e implanta cápsulas de inferenculação no cluster AKS. Sem acesso ao servidor API, as cápsulas de inferenculação não podem ser implantadas. Utilize as [gamas IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) para ambas as [regiões emparelhadas]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) ao permitir as gamas IP num cluster AKS
+- Se necessitar de um Balanceador de Carga Padrão (SLB) implantado no seu cluster em vez de um Balanceador de Carga Básica (BLB), por favor, crie um cluster no portal AKS/CLI/SDK e, em seguida, prenda-o ao espaço de trabalho AML.
+
+- Se ligar um cluster AKS, que tem uma [gama IP autorizada habilitada a aceder ao servidor API,](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges)ative as gamas IP do plano contol AML para o cluster AKS. O plano de controlo AML é implantado em regiões emparelhadas e implanta cápsulas de inferenculação no cluster AKS. Sem acesso ao servidor API, as cápsulas de inferenculação não podem ser implantadas. Utilize as [gamas IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) para ambas as [regiões emparelhadas]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) ao permitir as gamas IP num cluster AKS.
+
+__As gamas IP authroizadas só funcionam com o Balancer de Carga Padrão.__
  
  - Nome de computação DEVE ser único dentro de um espaço de trabalho
    - O nome é necessário e deve ter entre 3 a 24 caracteres de comprimento.
@@ -73,7 +77,7 @@ O cluster AKS e o espaço de trabalho AML podem estar em diferentes grupos de re
    
  - Se pretender implantar modelos para nós GPU ou nóns FPGA (ou qualquer SKU específico), então deve criar um cluster com o SKU específico. Não existe suporte para a criação de um conjunto de nó secundário num cluster existente e modelos de implantação na piscina de nó secundário.
  
- - Se necessitar de um Balanceador de Carga Padrão (SLB) implantado no seu cluster em vez de um Balanceador de Carga Básica (BLB), por favor, crie um cluster no portal AKS/CLI/SDK e, em seguida, prenda-o ao espaço de trabalho AML. 
+ 
 
 
 
@@ -258,6 +262,30 @@ Para obter informações sobre a utilização do Código VS, consulte [a impleme
 > [!IMPORTANT]
 > A implementação através do Código VS requer que o cluster AKS seja criado ou ligado antecipadamente ao seu espaço de trabalho.
 
+### <a name="understand-the-deployment-processes"></a>Compreender os processos de implantação
+
+A palavra "implantação" é usada tanto em Kubernetes como em Azure Machine Learning. "Implantação" tem significados muito diferentes nestes dois contextos. Em Kubernetes, a `Deployment` é uma entidade concreta, especificada com um arquivo YAML declarativo. A Kubernetes `Deployment` tem um ciclo de vida definido e relações concretas com outras entidades kubernetes tais como e `Pods` `ReplicaSets` . Você pode aprender sobre Kubernetes de docs e vídeos em [What is Kubernetes?](https://aka.ms/k8slearning)
+
+No Azure Machine Learning, a "implantação" é usada no sentido mais geral de disponibilizar e limpar os recursos do seu projeto. Os passos que a Azure Machine Learning considera parte da implantação são:
+
+1. Fechar os ficheiros na pasta do projeto, ignorando os especificados em .amlignore ou .gitignore
+1. Escalonamento do seu cluster de cálculo (Relaciona-se com Kubernetes)
+1. Construção ou download do ficheiro de estiva para o nó computacional (Relaciona-se com Kubernetes)
+    1. O sistema calcula um haxixe de: 
+        - A imagem base 
+        - Passos personalizados do estivador (ver [Implementar um modelo utilizando uma imagem base personalizada do Docker)](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image)
+        - A definição conda YAML (ver [Criar & utilizar ambientes de software em Azure Machine Learning)](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments)
+    1. O sistema utiliza este haxixe como chave numa procura do espaço de trabalho Registo do Contentor Azure (ACR)
+    1. Se não for encontrado, procura um jogo no ACR global
+    1. Se não for encontrado, o sistema constrói uma nova imagem (que será em cache e registada com o espaço de trabalho ACR)
+1. Baixar o ficheiro do projeto zipped para armazenamento temporário no nó de computação
+1. Desapertar o ficheiro do projeto
+1. A execução do nó computativo`python <entry script> <arguments>`
+1. Guardar registos, ficheiros de modelos e outros ficheiros escritos `./outputs` para a conta de armazenamento associada ao espaço de trabalho
+1. Escalonamento do cálculo, incluindo a remoção do armazenamento temporário (Relaciona-se com Kubernetes)
+
+Quando estiver a utilizar aKS, a escala para cima e para baixo do cálculo é controlada pela Kubernetes, utilizando o estivador construído ou encontrado como descrito acima. 
+
 ## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Implementar modelos para AKS utilizando o lançamento controlado (pré-visualização)
 
 Analise e promova as versões de modelos de forma controlada utilizando pontos finais. Pode implementar até seis versões atrás de um único ponto final. Os pontos finais fornecem as seguintes capacidades:
@@ -399,7 +427,7 @@ print(token)
 
 [!INCLUDE [aml-update-web-service](../../includes/machine-learning-update-web-service.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Experiências e inferências seguras numa rede virtual](how-to-enable-virtual-network.md)
 * [Como implementar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)

@@ -4,18 +4,18 @@ description: O serviço Azure Container Instances oferece a forma mais rápida e
 ms.topic: overview
 ms.date: 04/25/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 261e5d0159b4201aab0e8aad1e05fa320cc76a14
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 572557860f5d715d6c708acb640acc24e1dd4a35
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259506"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424159"
 ---
 # <a name="what-is-azure-container-instances"></a>O que é o Azure Container Instances?
 
 Os contentores estão a tornar-se na forma preferida de empacotar, implementar e gerir aplicações na cloud. O Azure Container Instances é a forma mais rápida e simples de executar um contentor no Azure, sem que tenha de gerir máquinas virtuais e sem que tenha de adotar um serviço de nível superior.
 
-O Azure Container Instances é uma ótima solução para qualquer cenário que possa funcionar em contentores isolados, incluindo aplicações simples, automatização de tarefas e tarefas de compilação. Em cenários nos quais precisa de orquestração de contentores completa, incluindo deteção de serviços em vários contentores, dimensionamento automático e atualizações coordenadas de aplicações, recomendamos o [Serviço Kubernetes do Azure (AKS)](../aks/index.yml).
+O Azure Container Instances é uma ótima solução para qualquer cenário que possa funcionar em contentores isolados, incluindo aplicações simples, automatização de tarefas e tarefas de compilação. Para cenários onde você precisa de orquestração completa de contentores, incluindo a descoberta de serviço em vários contentores, escala automática e atualizações coordenadas de aplicações, recomendamos [serviço Azure Kubernetes Service (AKS)](../aks/index.yml).
 
 ## <a name="fast-startup-times"></a>Tempos de arranque rápidos
 
@@ -68,9 +68,9 @@ O Azure Container Instances suporta o agendamento de [grupos de vários contento
 
 ## <a name="virtual-network-deployment"></a>Implementação de rede virtual
 
-Atualmente disponível para cargas de trabalho de produção num subconjunto de regiões de Azure, esta característica de Instâncias de Contentores Azure permite [a colocação de instâncias de contentores numa rede virtual Azure](container-instances-vnet.md). Ao implementar instâncias de contentor numa sub-rede da sua rede virtual, estes podem comunicar em segurança com outros recursos na rede virtual, incluindo os que estão no local (através da [gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou de [ ExpressRoute](../expressroute/expressroute-introduction.md)).
+Azure Container Instances permite [a colocação de casos de contentores numa rede virtual Azure](container-instances-vnet.md). Quando implantados numa sub-rede dentro da sua rede virtual, as instâncias de contentores podem comunicar de forma segura com outros recursos na rede virtual, incluindo os que estão no local (através do [gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [ExpressRoute).](../expressroute/expressroute-introduction.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Experimente implementar um contentor no Azure com um único comando através do nosso guia de início rápido:
 

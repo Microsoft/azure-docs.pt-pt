@@ -3,12 +3,12 @@ title: Clone um caderno Jupyter de GitHub com pré-visualização de cadernos Az
 description: Clone rapidamente um caderno Jupyter de um repositório GitHub e execute-o na sua conta de Azure Notebooks.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 35352e74a8db071a2f85bd71857d47f3af1953e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 267e79e7d4bf108ac3b2c72d64cee5a07ba638be
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85833091"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424482"
 ---
 # <a name="quickstart-clone-a-notebook-in-azure-notebooks-preview"></a>Quickstart: Clone um caderno em Azure Notebooks Preview
 
@@ -49,7 +49,7 @@ Nenhum.
 
 1. Uma vez terminada a clonagem, a Azure Notebooks leva-o ao novo projeto onde pode ver as cópias de todos os ficheiros.
 
-    [![](media/quickstarts/completed-clone.png "View of a completed clone")](media/quickstarts/completed-clone.png#lightbox)
+    :::image type="content" source="media/quickstarts/completed-clone.png" alt-text="Vista de um clone completo." lightbox="media/quickstarts/completed-clone.png":::
 
 ## <a name="share-a-notebook"></a>Partilhar um caderno
 
@@ -71,7 +71,7 @@ Nenhum.
 
 1. Para editar ficheiros que não os cadernos, clique com o botão direito no ficheiro do projeto e selecione editar o **ficheiro Editar** (atalho de teclado: i). A ação predefinida, **Executar** (atalho de teclado: r), só mostra o conteúdo do ficheiro e não permite a edição.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Tutorial: Criar e executar um caderno Jupyter para fazer regressão linear](tutorial-create-run-jupyter-notebook.md)

@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 246041d1a5f4826344c03b889c26dc381cd6db29
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d40d67b40d9e269f9ed6552467918cc878ffd197
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318509"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430773"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Gerir um serviço web utilizando o portal Azure Machine Learning Studio (clássico) Web Services
 
-**APLICA-SE A:** ![ no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) yes Machine Learning Studio ![ ](../../../includes/media/aml-applies-to-skus/yes.png) (clássico) 
+**APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 
 Pode gerir os seus serviços Web Machine Learning New e Classic usando o portal Microsoft Azure Machine Learning Web Services. Uma vez que os serviços Web Clássicos e os serviços New Web são baseados em diferentes tecnologias subjacentes, você tem capacidades de gestão ligeiramente diferentes para cada um deles.

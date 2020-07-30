@@ -12,12 +12,13 @@ ms.date: 03/13/2020
 ms.author: wesmc
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: 1188c597b3e46af140173d59b2cbac972d0c018c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+- devx-track-javascript
+ms.openlocfilehash: e1df4387b5617e9aebb4045bdf19c8df628b56ef
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324034"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423665"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Ligue raspberry Pi ao Azure IoT Hub (Node.js)
 
@@ -256,7 +257,7 @@ Uma forma de monitorizar as mensagens recebidas pelo seu hub IoT do seu disposit
 
 Para mais formas de processar os dados enviados pelo seu dispositivo, continue para a secção seguinte.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Executou uma aplicação de amostra para recolher dados de sensores e enviá-lo para o seu hub IoT.
 

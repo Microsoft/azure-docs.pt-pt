@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 07/20/2020
-ms.openlocfilehash: 0eea1b696d8eae8606c0b6009f248a215d12db57
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ed3f23b13920a9c3220a030059fdc8471f350d28
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515133"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428231"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backups automatizados - Azure SQL Database & SQL Managed Instance
 
@@ -161,6 +161,9 @@ Para compreender os custos de armazenamento de backup, vá à **Gestão de Custo
 Adicione um filtro para **o nome de serviço**e, em seguida, selecione a base de **dados sql** na lista de drop-down. Utilize o filtro **da subcategoria** do medidor para escolher o contador de faturação para o seu serviço. Para uma única base de dados ou uma piscina de base de dados elástica, selecione **um armazenamento de backup de pitr de piscina único/elástico**. Para uma instância gerida, selecione **o armazenamento de backup mi pitr**. As subcategorias **de Armazenamento** e **Computação** também podem interessar-lhe, mas não estão associados a custos de armazenamento de backup.
 
 ![Análise de custos de armazenamento de backup](./media/automated-backups-overview/check-backup-storage-cost-sql-mi.png)
+
+  >[!NOTE]
+  > Os contadores só são visíveis para os balcões que estão atualmente a ser utilizados. Se um contador não estiver disponível, é provável que a categoria não esteja atualmente a ser utilizada. Por exemplo, os contadores de instância geridos não estarão presentes para clientes que não tenham um caso gerido implantado. Do mesmo modo, os balcões de armazenamento não serão visíveis para os recursos que não consomem armazenamento. 
 
 ## <a name="encrypted-backups"></a>Backups encriptados
 

@@ -8,12 +8,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/18/2019
-ms.openlocfilehash: c22f028779090e735bf6f91d5ecc1fc572f190ab
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-javascript
+ms.openlocfilehash: edb84810b7391242e9ac90b1502c18f9af4e4698
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87313647"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87433173"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Padrões de consulta comuns em Azure Stream Analytics
 
@@ -933,7 +934,7 @@ Para obter mais informações, consulte os cenários de [agregação geoespacial
 
 Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)

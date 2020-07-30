@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: mahain
-ms.openlocfilehash: a4d2e810144e7c3d36545cb1e965aec40980c1d2
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 84798dbcd158b62ce6714bf73494a9e85bf932a8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118822"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387953"
 ---
 # <a name="avs-assessments-in-azure-migrate-server-assessment"></a>Avaliações avs em Azure Migrate: Avaliação do servidor
 
@@ -152,7 +152,7 @@ A Avaliação do Servidor revê a seguinte propriedade do VM no local para deter
 
 | **Propriedade** | **Detalhes** | **Estado de prontidão do AVS** 
 | - | - | - 
-| **Protocolo de Internet** | ATUALMENTE, o AVS não suporta o endereço de internet IPv6.<br/><br/> Contacte a sua equipa local msft AVS GBB para obter orientação sobre a orientação de remediação se a sua máquina for detetada com o IPv6.| Protocolo de Internet pronto condicionalmente
+| **Protocolo de Internet** | Atualmente, o AVS não suporta o endereçamento de Internet IPv6.<br/><br/> Contacte a equipa MSFT AVS GBB local para obter orientações de remediação se a máquina virtual for detetada com o IPv6.| Protocolo de Internet pronto condicionalmente
 
 
 ### <a name="guest-operating-system"></a>Sistema operativo convidado
@@ -172,15 +172,15 @@ Depois de uma máquina estar marcada como pronta para o AVS, a Avaliação avs n
 
 ### <a name="ftt-sizing-parameters"></a>Parâmetros de dimensionamento ftt
 
-O motor de armazenamento utilizado em AVS é vSAN. as políticas de armazenamento vSAN definem os requisitos de armazenamento para as suas máquinas virtuais. Estas políticas garantem o nível de serviço necessário para os seus VMs porque determinam como o armazenamento é atribuído ao VM. As combinações FTT-Raid disponíveis são: 
+O motor de armazenamento utilizado em AVS é vSAN. as políticas de armazenamento vSAN definem os requisitos de armazenamento para as suas máquinas virtuais. Estas políticas garantem o nível de serviço necessário das VMs, porque determinam como o armazenamento é alocado à VM. As combinações FTT-Raid disponíveis são: 
 
-**Falhas na toleração (FTT)** | **Configuração RAID** | **Anfitriões mínimos necessários** | **Consideração de dimensionamento**
+**Falhas a Tolerar (FTT)** | **Configuração do RAID** | **Anfitriões Mínimos Necessários** | **Consideração sobre o dimensionamento**
 --- | --- | --- | --- 
-1 | RAID-1 (Espelhamento) | 3 | Um VM de 100GB consumiria 200GB.
-1 | RAID-5 (Codificação de Apagação) | 4 | Um VM de 100GB consumiria 133.33GB
-2 | RAID-1 (Espelhamento) | 5 | Um VM de 100GB consumiria 300GB.
-2 | RAID-6 (Codificação de Apagação) | 6 | Um VM de 100GB consumiria 150GB.
-3 | RAID-1 (Espelhamento) | 7 | Um VM de 100GB consumiria 400GB.
+1 | RAID-1 (Espelhamento) | 3 | Uma VM de 100 GB consumiria 200 GB.
+1 | RAID-5 (Codificação de Eliminação) | 4 | Uma VM de 100 GB consumiria 133,33 GB
+2 | RAID-1 (Espelhamento) | 5 | Uma VM de 100 GB consumiria 300 GB.
+2 | RAID-6 (Codificação de Eliminação) | 6 | Uma VM de 100 GB consumiria 150 GB.
+3 | RAID-1 (Espelhamento) | 7 | Uma VM de 100 GB consumiria 400 GB.
 
 ### <a name="performance-based-sizing"></a>Dimensionamento baseado no desempenho
 
@@ -197,11 +197,11 @@ Após a determinação do valor de utilização efetiva, o armazenamento, a rede
 
 **Dimensionamento de armazenamento**: A Azure Migrate utiliza o espaço total do disco VM no local como parâmetro de cálculo para determinar os requisitos de armazenamento AVS vSAN, para além da definição ftt selecionada pelo cliente. FTT - Falhas na toleração, bem como a necessidade de um mínimo de nós por opção FTT determinarão o armazenamento total de vSAN necessário combinado com o requisito do disco VM.
 
-**Dimensionamento da rede**: Atualmente, a Avaliação do Servidor não tem em conta quaisquer definições de rede para avaliações avs.
+**Dimensionamento da rede**: atualmente, a Avaliação do Servidor não leva em consideração quaisquer definições de rede para avaliações do AVS.
 
 **Tamanho do cálculo**: Depois de calcular os requisitos de armazenamento, a Avaliação do Servidor considera os requisitos de CPU e memória para determinar o número de nós necessários para o AVS com base no tipo de nó.
 
-- Com base nos critérios de dimensionamento, a Avaliação do Servidor analisa os dados VM baseados no desempenho ou a configuração VM no local. A definição do fator de conforto permite especificar o fator de crescimento do cluster. Atualmente por padrão, a hiperfinição está ativada e, portanto, um 36 nós de núcleo terá 72 vCores. 4 vCores por físico é utilizado para determinar os limiares de CPU por cluster utilizando a norma VMware de não exceder 80% de utilização para permitir a manutenção ou falhas a serem manuseadas sem comprometer a disponibilidade do cluster. Não existe atualmente nenhuma sobreposição disponível para alterar os valores de sobresubscrição e podemos tê-lo em futuras versões.
+- Com base nos critérios de dimensionamento, a Avaliação do Servidor analisa os dados VM baseados no desempenho ou a configuração VM no local. A definição do fator de conforto permite especificar o fator de crescimento do cluster. Atualmente, por predefinição, o hyperthreading está ativado e, portanto, um nó de 36 núcleos terá 72 vCores. São utilizados 4 vCores por máquina física para determinar os limiares da CPU por cluster através da norma de VMware de não exceder 80% de utilização para permitir que a manutenção ou as falhas sejam processadas sem comprometer a disponibilidade do cluster. Não existe atualmente nenhuma sobreposição disponível para alterar os valores de sobresubscrição e podemos tê-lo em futuras versões.
 
 ### <a name="as-on-premises-sizing"></a>Como dimensionamento no local
 
@@ -255,9 +255,9 @@ Note que como a Azure VMware Solution (AVS) está em Pré-visualização, os pre
 
 ## <a name="migration-tool-guidance"></a>Orientação da ferramenta de migração
 
-No relatório de prontidão Azure para a avaliação da Solução VMware (AVS) do Azure VMware, pode ver as seguintes ferramentas sugeridas: 
-- **VMware HCX ou Enterprise**: Para máquinas VMware, a solução VMWare Hybrid Cloud Extension (HCX) é a ferramenta de migração sugerida para migrar a sua carga de trabalho no local para a sua nuvem privada Azure VMWare Solution (AVS). [Saiba mais.](../azure-vmware/hybrid-cloud-extension-installation.md)
-- **Desconhecido**: Para as máquinas importadas através de um ficheiro CSV, a ferramenta de migração padrão é desconhecida. Embora para máquinas VMware, é aconselhável utilizar a solução VMWare Hybrid Cloud Extension (HCX).
+No relatório de preparação para o Azure da avaliação do Azure VMware Solution (AVS), pode ver as seguintes ferramentas sugeridas: 
+- **VMware HCX ou Enterprise**: Para máquinas VMware, a solução VMware Hybrid Cloud Extension (HCX) é a ferramenta de migração sugerida para migrar a sua carga de trabalho no local para a sua nuvem privada Azure VMware Solution (AVS). [Saiba Mais](../azure-vmware/hybrid-cloud-extension-installation.md).
+- **Desconhecida**: para as máquinas virtuais importadas através de um ficheiro CSV, a ferramenta de migração predefinida é desconhecida. Embora para máquinas VMware, é aconselhável utilizar a solução VMware Hybrid Cloud Extension (HCX).
 
 ## <a name="next-steps"></a>Próximos passos
 

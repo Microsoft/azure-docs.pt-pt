@@ -7,12 +7,13 @@ ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 01d9c2e2b822af607d7473206461b97dfa627c17
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-javascript
+ms.openlocfilehash: cb1e1baa63e5a38a7f3db251c6c6d551e999befc
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282029"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431068"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>Quickstart: Gerir blobs com JavaScript v10 SDK em Node.js
 
@@ -406,7 +407,7 @@ console.log(`Container "${containerName}" is deleted`);
 
 Todos os dados escritos na conta de armazenamento são eliminados automaticamente no fim do código de exemplo. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este início rápido demonstra como gerir blobs e contentores no armazenamento de Blobs do Azure com Node.js. Para saber mais sobre a utilização deste SDK, consulte o repositório do GitHub.
 

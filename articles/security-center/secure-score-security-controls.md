@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: 1956090f1b927d9fd4e205eaa57bf1952cb1b070
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f80403946b3097e81678383c4829ef6606f26cd6
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083995"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430359"
 ---
 # <a name="enhanced-secure-score-in-azure-security-center"></a>Pontuação garantida reforçada no Azure Security Center
 
@@ -171,6 +171,10 @@ A tabela abaixo lista os controlos de segurança no Centro de Segurança Azure. 
     <td class="tg-lboi"; width=55%>-A auditoria no servidor SQL deve ser ativada<br>-Os registos de diagnóstico nos Serviços de Aplicações devem ser ativados<br>-Os registos de diagnóstico na Azure Data Lake Store devem ser ativados<br>-Os registos de diagnóstico no Azure Stream Analytics devem ser ativados<br>-Os registos de diagnóstico nas contas do Lote devem ser ativados<br>-Os registos de diagnóstico em Data Lake Analytics devem ser ativados<br>-Os registos de diagnóstico no Centro de Eventos devem ser ativados<br>-Os registos de diagnóstico no IoT Hub devem ser ativados<br>-Os registos de diagnóstico no Cofre de Chaves devem ser ativados<br>-Os registos de diagnóstico em Aplicações Lógicas devem ser ativados<br>-Os registos de diagnóstico no serviço de pesquisa devem ser ativados<br>-Os registos de diagnóstico no Service Bus devem ser ativados<br>-Os registos de diagnóstico em conjuntos de escala de máquina virtual devem ser ativados<br>-As regras de alerta métrico devem ser configuradas nas contas do Lote<br>-As definições de auditoria sql devem ter grupos de ação configurados para capturar atividades críticas<br>-Os servidores SQL devem ser configurados com dias de retenção de auditoria superiores a 90 dias.</td>
   </tr>
   <tr>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Permitir uma proteção avançada de ameaças (pontuação máxima 0)</p></strong>A proteção contra ameaças do Azure Security Center fornece defesas abrangentes para o seu ambiente. Quando o Centro de Segurança deteta uma ameaça em qualquer área do seu ambiente, gera um alerta. Estes alertas descrevem detalhes dos recursos afetados, sugeriram medidas de reparação e, em alguns casos, uma opção para desencadear uma aplicação lógica em resposta.<br>Cada pacote de proteção contra ameaças é uma oferta separada e opcional que pode permitir utilizar a recomendação relevante neste controlo de segurança.<br><a href="https://docs.microsoft.com/azure/security-center/threat-protection">Saiba mais sobre a proteção contra ameaças no Centro de Segurança.</a></td>
+    <td class="tg-lboi"; width=55%>-A segurança avançada dos dados deve ser ativada nos servidores da Base de Dados Azure SQL<br>-A segurança avançada dos dados deve ser ativada em servidores SQL em máquinas<br>-A proteção avançada de ameaças deve ser ativada em Máquinas Virtuais<br>-Proteção avançada de ameaças deve ser ativada nos planos do Azure App Service<br>-A proteção avançada de ameaças deve ser ativada nas contas de armazenamento do Azure<br>-A proteção avançada de ameaças deve ser ativada nos clusters de serviços Azure Kubernetes<br>-A proteção avançada de ameaças deve ser ativada nos registos do Registo de Contentores de Azure<br>-Proteção avançada de ameaças deve ser ativada em cofres Azure Key Vault</td>
+  </tr>
+  <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Implementar as melhores práticas de segurança (pontuação máxima 0)</p></strong>As práticas de segurança modernas "assumem a violação" do perímetro da rede. Por essa razão, muitas das melhores práticas neste controlo concentram-se na gestão de identidades.<br>Perder chaves e credenciais é um problema comum. <a href="https://docs.microsoft.com/azure/key-vault/key-vault-overview">O Azure Key Vault</a> protege chaves e segredos encriptando chaves, ficheiros .pfx e palavras-passe.<br>As redes privadas virtuais (VPNs) são uma forma segura de aceder às suas máquinas virtuais. Se as VPNs não estiverem disponíveis, utilize frases-passe complexas e autenticação de dois fatores, tais como <a href="https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks">autenticação multi-factor Azure</a>. A autenticação de dois fatores evita as fraquezas inerentes à dependência apenas de nomes de utilizador e palavras-passe.<br>A utilização de plataformas de autenticação e autorização fortes é outra das melhores práticas. A utilização de identidades federadas permite que as organizações deleguem a gestão de identidades autorizadas. Isto também é importante quando os trabalhadores são despedidos, e o seu acesso precisa de ser revogado.</td>
     <td class="tg-lboi"; width=55%>-Um máximo de 3 proprietários deve ser designado para a sua subscrição<br>-As contas externas com permissões de leitura devem ser removidas da sua subscrição<br>-MFA deve ser ativado em contas com permissões de leitura na sua subscrição<br>-O acesso a contas de armazenamento com firewall e configurações de rede virtuais deve ser restringido<br>-Todas as regras de autorização, exceto RootManageSharedAccessKey, devem ser removidas do espaço de nomes do Event Hub<br>-Um administrador do Azure Ative Directory deve ser a provisionado para servidores SQL<br>-A segurança avançada dos dados deve ser ativada nas suas instâncias geridas<br>-As regras de autorização relativas à instância do Centro de Eventos devem ser definidas<br>-As contas de armazenamento devem ser migradas para novos recursos do Gestor de Recursos Azure<br>-Máquinas virtuais devem ser migradas para novos recursos do Azure Resource Manager<br>-As subnetas devem ser associadas a um Grupo de Segurança de Rede<br>-[Pré-visualização] A proteção de exploração do Windows deve ser ativada <br>-[Pré-visualização] O agente de configuração do hóspede deve ser instalado<br>-Máquinas virtuais não orientadas para a Internet devem ser protegidas com grupos de segurança de rede</td>
   </tr>
@@ -200,7 +204,7 @@ Yes. Recomendamos desativar recomendações quando são inaplicáveis no seu amb
 ### <a name="if-a-security-control-offers-me-zero-points-towards-my-secure-score-should-i-ignore-it"></a>Se um controlo de segurança me oferece zero pontos para a minha pontuação segura, devo ignorá-la?
 Em alguns casos, verá uma pontuação máxima de controlo superior a zero, mas o impacto é zero. Quando a pontuação incremental para a fixação de recursos é insignificante, é arredondada para zero. Não ignore estas recomendações, pois ainda trazem melhorias de segurança. A única exceção é o controlo "Melhores Práticas Adicionais". Remediar estas recomendações não aumentará a sua pontuação, mas aumentará a sua segurança geral.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo descreveu a pontuação segura e os controlos de segurança que introduz. Para obter material relacionado, consulte os seguintes artigos:
 

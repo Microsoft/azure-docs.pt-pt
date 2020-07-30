@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: 496b890cc49b6b6b9f15213a48472447f801b1c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aef468d919e6f09722045f98c68383785d10b137
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76045131"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423087"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Suporte da plataforma Azure IoT Device SDKs
 
@@ -124,7 +124,7 @@ Se não conseguir utilizar um dos SDKs do dispositivo IoT Hub, pode ligar-se dir
 
 ## <a name="support-and-other-resources"></a>Suporte e outros recursos
 
-Se tiver problemas ao usar os SDKs do dispositivo Azure IoT, existem várias formas de procurar suporte. Pode experimentar um dos seguintes canais:
+Se tiver problemas durante a utilização dos SDKs do dispositivo Azure IoT, existem várias formas de procurar suporte resumido abaixo. Para obter informações completas sobre todas as suas opções de suporte, consulte [as Opções de Suporte e Ajuda Azure IoT.](https://aka.ms/iothelp) 
 
 **Reportar bugs** – Bugs no dispositivo SDKs podem ser reportados na página de problemas do projeto GitHub relevante. As correções fazem rapidamente o seu caminho desde o projeto até atualizações de produtos.
 
@@ -137,6 +137,8 @@ Se tiver problemas ao usar os SDKs do dispositivo Azure IoT, existem várias for
 * [Azure IoT Hub Node.js problemas SDK](https://github.com/Azure/azure-iot-sdk-node/issues)
 
 * [Problemas de Azure IoT Hub Python SDK](https://github.com/Azure/azure-iot-sdk-python/issues)
+
+**Perguntas Técnicas** – Pode fazer perguntas técnicas tanto no [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-iot-sdk.html) como no Stack [Overflow](https://stackoverflow.com/questions/tagged/azure-iot-sdk) utilizando a etiqueta *azure-iot-sdk*.
 
 **Equipa de Apoio ao Cliente da Microsoft** – Os utilizadores que tenham um plano de [suporte](https://azure.microsoft.com/support/plans/) podem envolver a equipa de Suporte ao Cliente da Microsoft, criando um novo pedido de suporte diretamente do [portal Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 

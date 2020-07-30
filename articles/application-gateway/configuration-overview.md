@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 892ace66c4994f4c2e263d529d69e505ed9c1c1f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 20d1dfea251fdfd0bd6e8432d1ea0c7af7284cb5
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068024"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428178"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do Gateway de Aplicação
 
@@ -55,7 +55,7 @@ Os grupos de segurança da rede (NSGs) são suportados no Gateway de Aplicaçõe
   - Não remova as regras de saída padrão.
   - Não crie outras regras de saída que neguem qualquer conectividade de saída.
 
-- O tráfego da etiqueta **AzureLoadBalancer** deve ser permitido.
+- Tráfego a partir da etiqueta **AzureLoadBalancer** com a sub-rede de destino como **Any** deve ser permitido.
 
 #### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>Permitir o acesso do Gateway de Aplicações a alguns IPs de origem
 
@@ -74,7 +74,7 @@ Para este cenário, utilize NSGs na sub-rede Do Gateway de Aplicação. Colocar 
 
 - **v1**
 
-   Para o v1 SKU, as rotas definidas pelo utilizador (UDRs) são suportadas na sub-rede Do Gateway de Aplicação, desde que não alterem a comunicação de pedido/resposta de ponta a ponta. Por exemplo, pode configurar um UDR na sub-rede Do Gateway de aplicação para apontar para um aparelho de firewall para inspeção de pacotes. Mas deve certificar-se de que o pacote pode chegar ao destino pretendido após a inspeção. Se não o fizer, pode resultar em comportamentos incorretos de sonda de saúde ou de encaminhamento de tráfego. Isto inclui rotas aprendidas ou rotas padrão 0.0.0.0/0 que são propagadas por gateways Azure ExpressRoute ou VPN na rede virtual.
+   Para o v1 SKU, as rotas definidas pelo utilizador (UDRs) são suportadas na sub-rede Do Gateway de Aplicação, desde que não alterem a comunicação de pedido/resposta de ponta a ponta. Por exemplo, pode configurar um UDR na sub-rede Do Gateway de aplicação para apontar para um aparelho de firewall para inspeção de pacotes. Mas deve certificar-se de que o pacote pode chegar ao destino pretendido após a inspeção. Se não o fizer, pode resultar em comportamentos incorretos de sonda de saúde ou de encaminhamento de tráfego. Isto inclui rotas aprendidas ou rotas padrão 0.0.0.0/0 que são propagadas por gateways Azure ExpressRoute ou VPN na rede virtual. Qualquer cenário em que 0.0.0.0/0 precise de ser redirecionado para o local (túneis forçados) não é suportado para v1.
 
 - **v2**
 
@@ -279,12 +279,12 @@ Para obter mais informações sobre a reorientação, consulte:
 - [Redirecione o tráfego para um site externo utilizando o PowerShell](redirect-external-site-powershell.md)
 - [Redirecione o tráfego para um site externo utilizando o CLI](redirect-external-site-cli.md)
 
-### <a name="rewrite-http-headers-and-url"></a>Reescrever cabeçalhos HTTP e URL
+### <a name="rewrite-http-headers-and-url"></a>Rescrever cabeçalhos HTTP e URL
 
 Ao utilizar regras de reescrita, pode adicionar, remover ou atualizar os cabeçalhos de pedido e resposta HTTP(S), bem como os parâmetros de trajetória e de consulta de URL, à medida que os pacotes de pedido e resposta se movem entre o cliente e as piscinas de backend através do gateway de aplicação.
 
 Os cabeçalhos e parâmetros URL podem ser definidos para valores estáticos ou para outros cabeçalhos e variáveis do servidor. Isto ajuda com casos importantes de utilização, tais como a extração de endereços IP do cliente, a remoção de informações sensíveis sobre o backend, adicionando mais segurança, e assim por diante.
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
  - [Reescrever cabeçalhos HTTP e visão geral do URL](rewrite-http-headers-url.md)
  - [Configure HTTP reescrita cabeçalho HTTP](rewrite-http-headers-portal.md)
@@ -395,7 +395,7 @@ Uma porta de aplicação monitoriza a saúde de todos os recursos no seu final p
 > [!NOTE]
 > Depois de criar uma sonda de saúde personalizada, tem de a associar a uma definição HTTP de fundo. Uma sonda personalizada não monitorizará a saúde da piscina traseira a menos que a definição HTTP correspondente esteja explicitamente associada a um ouvinte usando uma regra.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que sabe sobre os componentes do Application Gateway, pode:
 

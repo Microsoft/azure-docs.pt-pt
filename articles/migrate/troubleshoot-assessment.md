@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: 61afc3ec0f37f5d8b1030818d21b7daabb7fce40
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b47c6c7d2137737021766f239fdb6ab1c64bd12f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121678"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422866"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Resolver problemas de avaliação/visualização de dependência
 
@@ -52,7 +52,7 @@ Protocolo de Internet pronto condicionalmente | Apenas aplicável às avaliaçõ
 
 ## <a name="suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Ferramenta de migração sugerida na avaliação de AVS baseada em importações marcada como desconhecida
 
-Para as máquinas importadas através de um ficheiro CSV, a ferramenta de migração padrão dentro e a avaliação AVS é desconhecida. No entanto, para máquinas VMware, recomenda-se a utilização da solução VMWare Hybrid Cloud Extension (HCX). [Saiba mais.](../azure-vmware/hybrid-cloud-extension-installation.md)
+Para as máquinas importadas através de um ficheiro CSV, a ferramenta de migração padrão dentro e a avaliação AVS é desconhecida. No entanto, para máquinas VMware, recomenda-se a utilização da solução VMware Hybrid Cloud Extension (HCX). [Saiba Mais](../azure-vmware/hybrid-cloud-extension-installation.md).
 
 ## <a name="linux-vms-are-conditionally-ready-in-an-azure-vm-assessment"></a>Os VMs do Linux estão "condicionadomente prontos" numa avaliação do Azure VM
 
@@ -180,6 +180,9 @@ Após a migração de máquinas com visualização de dependência ativada para 
 
 ## <a name="dependencies-export-csv-shows-unknown-process"></a>Dependências exportam CSV mostra "processo desconhecido"
 Na análise da dependência sem agentes, os nomes do processo são capturados com o melhor esforço. Em certos cenários, embora os nomes dos servidores de origem e destino e a porta de destino sejam capturados, não é possível determinar os nomes do processo em ambas as extremidades da dependência. Nestes casos, o processo é marcado como "processo desconhecido".
+
+## <a name="my-log-analytics-workspace-is-not-listed-when-trying-to-configure-the-workspace-in-server-assessment"></a>O meu espaço de trabalho Log Analytics não está listado quando se tenta configurar o espaço de trabalho na Avaliação do Servidor
+Atualmente, o Azure Migrate suporta a criação de áreas de trabalho do OMS nas regiões E.U.A. Leste, Ásia Sudeste e Europa Ocidental. Se o espaço de trabalho for criado fora de Azure Migrate em qualquer outra região, atualmente não pode ser associado a um projeto Azure Migrate.
 
 
 ## <a name="capture-network-traffic"></a>Captação de tráfego de rede

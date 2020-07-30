@@ -6,12 +6,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.subservice: ''
-ms.openlocfilehash: a7ff659eb6fc204208c84146a2fc33c8278f7154
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: c81d9774dccf8c02d2eab7b1ebbb69e6671869e8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207274"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423801"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation-preview"></a>Utilize o Azure Private Link para ligar de forma segura as redes à Azure Automation (pré-visualização)
 
@@ -110,9 +110,9 @@ Nesta secção, irá criar um ponto final privado para a sua conta Demôm automa
     | ------- | ----- |
     |**NETWORKING**| |
     | Rede virtual| Selecione *MyVirtualNetwork*. |
-    | Sub-rede | Selecione *mySubnet*. |
+    | Subrede | Selecione *mySubnet*. |
     |**INTEGRAÇÃO PRIVADA DE DNS**||
-    |Integrar-se com a zona privada de DNS |Selecione **Yes** (Sim). |
+    |Integrar-se com a zona privada de DNS |Selecione **Sim**. |
     |Zona privada de DNS |Selecione *(Novo)privatelink.azure-automation.net* |
     |||
 
@@ -132,15 +132,15 @@ Se o consumidor de serviço tiver permissões de RBAC no recurso Automation, pod
 
 ## <a name="set-public-network-access-flags"></a>Definir bandeiras de acesso à rede pública
 
-Pode configurar uma conta Automation para negar todas as configurações públicas e permitir que apenas as ligações através de pontos finais privados melhorem ainda mais a segurança da rede. Se pretender restringir o acesso à conta Automation apenas dentro do VNet e não permitir o acesso a partir da internet pública, pode definir `publicNetworkAccess` a propriedade para `$true` .
+Pode configurar uma conta Automation para negar todas as configurações públicas e permitir que apenas as ligações através de pontos finais privados melhorem ainda mais a segurança da rede. Se pretender restringir o acesso à conta Automation apenas dentro do VNet e não permitir o acesso a partir da internet pública, pode definir `publicNetworkAccess` a propriedade para `$false` .
 
-Quando a definição **de acesso à rede pública** de Deny está definida para , `true` apenas são permitidas ligações através de pontos finais privados e todas as ligações através de pontos finais públicos são negadas com uma mensagem de erro.
+Quando a definição de Acesso à **Rede Pública** está definida para , `$false` apenas são permitidas ligações através de pontos finais privados e todas as ligações através de pontos finais públicos são negadas com uma mensagem de erro não autorizada e o estado HTTP de 401. 
 
 O seguinte script PowerShell mostra como `Get` e a propriedade de Acesso à Rede `Set` **Pública** ao nível da conta Dem automação:
 
 ```powershell
 $account = Get-AzResource -ResourceType Microsoft.Automation/automationAccounts -ResourceGroupName "<resourceGroupName>" -Name "<automationAccountName>" -ApiVersion "2020-01-13-preview"
-$account.Properties | Add-Member -Name 'publicNetworkAccess' -Type NoteProperty -Value $true
+$account.Properties | Add-Member -Name 'publicNetworkAccess' -Type NoteProperty -Value $false
 $account | Set-AzResource -Force -ApiVersion "2020-01-13-preview"
 ```
 
@@ -160,6 +160,6 @@ Pode utilizar as seguintes opções para configurar as definições de DNS para 
 
 Para obter mais informações, consulte [a configuração do DNS do Ponto Final Privado Azure](../../private-link/private-endpoint-dns.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o Private Endpoint, veja [o que é Azure Private Endpoint?](../../private-link/private-endpoint-overview.md)

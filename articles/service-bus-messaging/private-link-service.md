@@ -5,14 +5,14 @@ author: spelluru
 ms.author: spelluru
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: 4516405472abf733c8ef06fb5ee5855f8e97d396
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef469eb74c3dd7d82dec908dba8c53136df206e4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340440"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423427"
 ---
-# <a name="integrate-azure-service-bus-with-azure-private-link"></a>Integre o ônibus de serviço Azure com Azure Private Link
+# <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>Permitir o acesso aos espaços de nomes do Azure Service Bus através de pontos finais privados
 
 O Azure Private Link Service permite-lhe aceder aos serviços Azure (por exemplo, Azure Service Bus, Azure Storage e Azure Cosmos DB) e a Azure acolheu serviços de cliente/parceiro sobre um **ponto final privado** na sua rede virtual.
 
@@ -46,7 +46,7 @@ Para integrar um espaço de nomes de Service Bus com a Azure Private Link, neces
 
 - Um espaço de nomes de autocarro de serviço.
 - Uma rede virtual Azure.
-- Uma sub-rede na rede virtual.
+- Uma sub-rede na rede virtual. Pode utilizar a sub-rede **predefinida.** 
 - Permissões de proprietário ou contribuinte tanto para o espaço de nome do Service Bus como para a rede virtual.
 
 O seu ponto final privado e rede virtual devem estar na mesma região. Quando selecionar uma região para o ponto final privado utilizando o portal, irá filtrar automaticamente apenas redes virtuais que se encontrem nessa região. O seu espaço de nomes de ônibus de serviço pode estar numa região diferente. E, o seu ponto final privado utiliza um endereço IP privado na sua rede virtual.
@@ -58,8 +58,19 @@ Se já tiver um espaço de nome existente, pode criar um ponto final privado seg
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 2. Na barra de pesquisa, escreva em **Service Bus.**
 3. Selecione o **espaço de nomes** da lista à qual pretende adicionar um ponto final privado.
-4. Selecione o **separador 'Rede'** em **Definições**.
-5. Selecione o **separador de ligações de ponto final privado** no topo da página
+2. No menu esquerdo, selecione a opção **de rede** em **Definições**. 
+
+    > [!NOTE]
+    > Você vê o **separador Networking** apenas para espaços de nome **premium.**  
+    
+    Por predefinição, a opção **de rede Selecionada** é selecionada. Se não adicionar pelo menos uma regra de firewall IP ou uma rede virtual nesta página, o espaço de nome pode ser acedido através da internet pública (utilizando a chave de acesso).
+
+    :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Página de rede - padrão" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
+    
+    Se selecionar a opção **Todas as redes,** o seu espaço de nomes Service Bus aceita ligações a partir de qualquer endereço IP (utilizando a chave de acesso). Esta definição predefinida é equivalente a uma regra que aceita o intervalo de endereço IP 0.0.0.0/0. 
+
+    ![Firewall - Todas as opções de redes selecionadas](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
+5. Para permitir o acesso ao espaço de nomes através de pontos finais privados, selecione o **separador de ligações de ponto final privado** no topo da página
 6. Selecione o botão **+ Ponto final privado** na parte superior da página.
 
     ![Adicione botão de ponto final privado](./media/private-link-service/private-link-service-3.png)
@@ -171,14 +182,14 @@ Existem quatro estados de provisionamento:
 
 | Ação de serviço | Estado de ponto final privado do consumidor de serviço | Descrição |
 |--|--|--|
-| Nenhuma | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário do recurso Private Link. |
+| Nenhum | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário do recurso Private Link. |
 | Aprovar | Aprovado | A ligação foi aprovada automaticamente ou manualmente e está pronta a ser utilizada. |
 | Rejeitar | Rejeitado | A ligação foi rejeitada pelo proprietário de recursos de ligação privada. |
 | Remover | Desligado | A ligação foi removida pelo proprietário do recurso de ligação privada, o ponto final privado torna-se informativo e deve ser eliminado para limpeza. |
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Aprovar, rejeitar ou remover uma ligação de ponto final privado
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 1. Na barra de pesquisa, escreva em **Service Bus.**
 1. Selecione o **espaço de nomes** que pretende gerir.
 1. Selecione o **separador 'Rede'.**

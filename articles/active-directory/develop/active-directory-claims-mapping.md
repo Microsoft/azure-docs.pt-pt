@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/22/2019
+ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 00f9e4c1ebd162883f62280e753b6e0c4c13a21d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 29dc03d663d590c13a1948411ed597388750c1d7
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027177"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428008"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: Personalizar reclamações emitidas em fichas para uma aplicação específica num inquilino (Preview)
 
@@ -436,6 +436,9 @@ As políticas de mapeamento de sinistros só podem ser atribuídas a objetos pri
 
 No Azure AD, muitos cenários são possíveis quando você pode personalizar reclamações emitidas em fichas para diretores de serviço específicos. Nesta secção, passamos por alguns cenários comuns que podem ajudá-lo a compreender como usar o tipo de política de mapeamento de sinistros.
 
+> [!NOTE]
+> Ao criar uma política de mapeamento de reclamações, também pode emitir uma reclamação a partir de um atributo de extensão de esquema de diretório em fichas. Utilize *extensionID* para o atributo de extensão em vez de *ID* no `ClaimsSchema` elemento.  Para obter mais informações sobre os atributos de extensão, consulte [utilizando atributos de extensão de esquema de diretório](active-directory-schema-extensions.md).
+
 #### <a name="prerequisites"></a>Pré-requisitos
 
 Nos exemplos seguintes, cria, atualiza, liga e elimina políticas para os principais serviços. Se você é novo no AZure AD, recomendamos que você [aprenda sobre como obter um inquilino AZure AD](quickstart-create-new-tenant.md) antes de prosseguir com estes exemplos.
@@ -525,6 +528,7 @@ Neste exemplo, cria-se uma política que emite uma reivindicação personalizada
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
-Para saber como personalizar as reclamações emitidas no token SAML através do portal Azure, consulte [Como: Personalizar reclamações emitidas no token SAML para aplicações empresariais](active-directory-saml-claims-customization.md)
+- Para saber como personalizar as reclamações emitidas no token SAML através do portal Azure, consulte [Como: Personalizar reclamações emitidas no token SAML para aplicações empresariais](active-directory-saml-claims-customization.md)
+- Para saber mais sobre os atributos de extensão, consulte [utilizando atributos de extensão de esquema de diretório em sinistros](active-directory-schema-extensions.md).

@@ -6,12 +6,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 01/29/2020
-ms.openlocfilehash: 8d68c36e7d6603cb8cdc906ad2a0280094e6e0e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: ff3ae9a787586a4d3f7c27353aca37326be32448
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83698266"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432550"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Parse JSON e Dados da Avro em Azure Stream Analytics
 

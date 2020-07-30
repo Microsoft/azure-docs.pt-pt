@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 4c6c73d29e04889b390bc071511eef8591da1543
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 57856f449a4eb4ac53cda698e82569adeca8cade
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318696"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429235"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio (clássico) Web Services: Implantação e consumo
 
-**APLICA-SE A:** ![ no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) yes Machine Learning Studio ![ ](../../../includes/media/aml-applies-to-skus/yes.png) (clássico) 
+**APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 Você pode usar O Azure Machine Learning Studio (clássico) para implementar fluxos de trabalho de machine learning e modelos como serviços web. Estes serviços web podem então ser usados para chamar os modelos de machine learning de aplicações através da Internet para fazer previsões em tempo real ou em modo de lote. Como os serviços web são RESTful, pode chamá-los de várias linguagens e plataformas de programação, tais como .NET e Java, e de aplicações, como o Excel.
 

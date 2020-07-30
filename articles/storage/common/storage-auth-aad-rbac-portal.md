@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 160833817150332b240ec17b2b700fbcb7a4456b
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 28cb140293d449876cc05e3e5f9e59a04b8396e0
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370653"
+ms.locfileid: "87423725"
 ---
 # <a name="use-the-azure-portal-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Utilizar o portal do Azure para atribuir uma função RBAC para aceder a dados de blobs e filas
 
@@ -95,11 +95,11 @@ A atribuição da função **Reader** é necessária apenas para os utilizadores
 > [!IMPORTANT]
 > A versão de pré-visualização do Storage Explorer no portal Azure não suporta a utilização de credenciais AZure AD para visualizar e modificar dados de blob ou fila. O Explorador de Armazenamento no portal Azure utiliza sempre as chaves da conta para aceder aos dados. Para utilizar o Storage Explorer no portal Azure, tem de ser atribuída uma função que inclua **Microsoft.Storage/storageAccounts/listkeys/action**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter mais informações sobre as funções do RBAC para recursos de armazenamento, consulte [o acesso autenticado a blobs e filas Azure usando o Azure Ative Directory](storage-auth-aad.md). 
 - Para saber mais sobre o RBAC, veja [o que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?](../../role-based-access-control/overview.md)
-- Para aprender a atribuir e gerir atribuições de funções da RBAC com a Azure PowerShell, Azure CLI ou a REST API, consulte estes artigos:
+- Para aprender a atribuir e gerir atribuições de funções da Azure PowerShell, Azure CLI ou da REST API, consulte estes artigos:
     - [Gerir o controlo de acesso baseado em funções (RBAC) com a Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
     - [Gerir o controlo de acesso baseado em funções (RBAC) com o Azure CLI](../../role-based-access-control/role-assignments-cli.md)
     - [Gerir o controlo de acesso baseado em funções (RBAC) com a API REST](../../role-based-access-control/role-assignments-rest.md)

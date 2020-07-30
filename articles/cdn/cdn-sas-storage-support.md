@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/21/2018
 ms.author: allensu
-ms.openlocfilehash: 702ea4e76f1fb13a3c7935f131da4ef11d369813
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d716b026159311c12341c30a8c32d5a9ecc6fa3f
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003003"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432748"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Utilização de Azure CDN com SAS
 
@@ -96,7 +96,7 @@ Esta opção está disponível apenas para **Azure CDN Premium a partir de** per
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
        
 
-3. Afinar a duração da cache utilizando regras de cache ou adicionando `Cache-Control` cabeçalhos no servidor de origem. Como o Azure CDN trata o token SAS como uma simples cadeia de consulta, como uma boa prática deve configurar uma duração de caching que expire dentro ou antes do tempo de expiração do SAS. Caso contrário, se um ficheiro for em cache por uma duração mais longa do que o SAS está ativo, o ficheiro pode estar acessível a partir do servidor de origem Azure CDN após o tempo de expiração do SAS ter decorrido. Se esta situação ocorrer e pretender tornar o seu ficheiro em cache inacessível, tem de efetuar uma operação de purga no ficheiro para o retirar da cache. Para obter informações sobre a definição da duração da cache no Azure CDN, consulte [o comportamento de cache do Control Azure CDN com regras de cache](cdn-caching-rules.md).
+3. Afinar a duração da cache utilizando regras de cache ou adicionando `Cache-Control` cabeçalhos no servidor de origem. Como o Azure CDN trata o token SAS como uma simples cadeia de consulta, como uma boa prática deve configurar uma duração de caching que expire dentro ou antes do tempo de expiração do SAS. Caso contrário, se um ficheiro for em cache por uma duração mais longa do que o SAS está ativo, o ficheiro pode estar acessível a partir do ponto final Azure CDN após o tempo de expiração do SAS ter decorrido. Se esta situação ocorrer e pretender tornar o seu ficheiro em cache inacessível, tem de efetuar uma operação de purga no ficheiro para o retirar da cache. Para obter informações sobre a definição da duração da cache no Azure CDN, consulte [o comportamento de cache do Control Azure CDN com regras de cache](cdn-caching-rules.md).
 
 ### <a name="option-3-using-cdn-security-token-authentication-with-a-rewrite-rule"></a>Opção 3: Utilização da autenticação simbólica de símbolo de segurança CDN com regra de reescrita
 
@@ -141,7 +141,7 @@ Como os parâmetros SAS não são visíveis para a Azure CDN, a Azure CDN não p
 | Endereços IP permitidos | Opcional. Se estiver a utilizar **o Azure CDN da Verizon,** pode definir este parâmetro para as gamas definidas no [Azure CDN a partir de Verizon Edge Server IP Ranges](/azure/cdn/cdn-pop-list-api). Se estiver a utilizar **o Azure CDN da Akamai,** não é possível definir o parâmetro de gama IP porque os endereços IP não são estáticos.|
 | Protocolos permitidos | O protocolo permitiu um pedido feito com a conta SAS. Recomenda-se a definição HTTPS.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a SAS, consulte os seguintes artigos:
 - [Utilizar assinaturas de acesso partilhado (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)

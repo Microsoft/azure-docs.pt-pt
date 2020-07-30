@@ -7,12 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: 46aa9879af4bda1cd4a5e06894ea2d964f838f32
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 758846e2b4bfa42c9f6db0dc330c12e38a2f8c96
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86181357"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432360"
 ---
 # <a name="debug-user-defined-functions-in-azure-stream-analytics"></a>Debug funções definidas pelo utilizador no Azure Stream Analytics 
 
@@ -126,7 +127,7 @@ Selecione **Run and Debug** ou pressione **CTRL + SHIFT + D** para começar a de
 > ![Stream Analytics run e debug uda](./media/debug-user-defined-functions/run-debug-uda.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Desenvolver e depurar Azure Stream Analytics empregos localmente](develop-locally.md)
 * [Debug Azure Stream Analytics consulta localmente usando diagrama de trabalho em Estúdio Visual](debug-locally-using-job-diagram.md)

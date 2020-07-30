@@ -6,12 +6,13 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 59137cd50c2bb6fcd71b43028f68d63225b4094c
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 63b8c33b61d6bff28eca98929e344df7ea54e779
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85340679"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430676"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-nodejs-and-the-azureservice-bus-package"></a>Quickstart: Como utilizar as filas de Service Bus com Node.js e o pacote azure/service-bus
 Neste tutorial, aprende-se a escrever um programa Nodejs para enviar mensagens e receber mensagens de uma fila de Autocarros de Serviço utilizando o novo [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) pacote. Este pacote utiliza o [protocolo AMQP 1.0](service-bus-amqp-overview.md) mais rápido, enquanto o pacote [azure-sb](https://www.npmjs.com/package/azure-sb) mais antigo utilizou [APIs de tempo de funcionamento do Service Bus REST](/rest/api/servicebus/service-bus-runtime-rest). As amostras estão escritas em JavaScript.
@@ -123,7 +124,7 @@ O método [createReceiver](https://docs.microsoft.com/javascript/api/%40azure/se
 > [!NOTE]
 > Você pode gerir os recursos de Service Bus com [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). O Service Bus Explorer permite que os utilizadores se conectem a um espaço de nomes de Service Bus e administram as entidades de mensagens de forma fácil. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, subscrições, serviços de retransmissão, centros de notificação e centros de eventos. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para saber mais, consulte os seguintes recursos.
 - [Filas, tópicos e subscrições](service-bus-queues-topics-subscriptions.md)
 - Check-out [outras amostras de Nodejs para Service Bus em GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples/javascript)

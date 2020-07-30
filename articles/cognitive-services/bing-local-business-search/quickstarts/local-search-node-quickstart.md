@@ -10,12 +10,13 @@ ms.subservice: bing-local-business
 ms.topic: quickstart
 ms.date: 05/12/2020
 ms.author: aahi
-ms.openlocfilehash: 2b5de1c5bf99ff2516a0eb836d540fc2833d99cb
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.custom: devx-track-javascript
+ms.openlocfilehash: d0ee55c0baa6d7ec2ff86aa0e37b10ca4c973b77
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611259"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87408140"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Quickstart: Envie uma consulta para a API de Pesquisa de Negócios Locais de Bing utilizando Node.js
 
@@ -91,7 +92,7 @@ Search();
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Pesquisa de negócios locais C# quickstart](local-quickstart.md)
 * [Pesquisa de negócios locais Java quickstart](local-search-java-quickstart.md)

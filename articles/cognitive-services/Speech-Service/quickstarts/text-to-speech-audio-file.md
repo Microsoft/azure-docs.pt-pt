@@ -10,13 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: trbye
+ms.custom: devx-track-javascript
 zone_pivot_groups: programming-languages-set-two-with-js-spx
-ms.openlocfilehash: a902f15b8e782cd001e4d6dab3177751e39900e8
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: bc1e9c5f6ef5e38ca0dab7cf4875f1143cdadaca
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391456"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405195"
 ---
 # <a name="quickstart-synthesize-speech-into-an-audio-file"></a>Quickstart: Sintetizar o discurso num ficheiro áudio
 

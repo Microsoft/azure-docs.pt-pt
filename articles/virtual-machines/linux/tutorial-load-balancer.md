@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: 1bd6e9280acdbde105876a6c0e8e0bc45735a558
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: 164e15c62465fe876b11b8e3001147150df43160
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510145"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431049"
 ---
 # <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Tutorial: Fazer o balanceamento de carga de máquinas virtuais do Linux no Azure para criar uma aplicação de elevada disponibilidade com a CLI do Azure
 

@@ -8,13 +8,13 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.custom: mqtt
-ms.openlocfilehash: 9335c45688752ea41801e988157740f4170cfcb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mqtt, devx-track-javascript
+ms.openlocfilehash: 0cc576c1fe4ef9d952a616f1d5daed38d0b4b922
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81683948"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423223"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Ligue o seu dispositivo Raspberry Pi ao acelerador de solução de monitorização remota (Node.js)
 

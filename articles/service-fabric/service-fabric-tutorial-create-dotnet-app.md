@@ -3,13 +3,13 @@ title: Criar uma aplicação .NET no Tecido de Serviço em Azure
 description: Neste tutorial, irá aprender a criar uma aplicação com um front-end do ASP.NET Core e um back-end com monitorização de estado de Reliable Service, e como implementar a aplicação num cluster.
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.custom: mvc
-ms.openlocfilehash: dc869dce536449a901826db3b0d964bf17abbbec
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: 03320fe41bcac8b99a3475b52fcf1b41ea5aed89
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86257122"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428368"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tutorial: Criar e implementar uma aplicação com um serviço front-end de API Web do ASP.NET Core e um serviço back-end com monitorização de estado
 
@@ -630,7 +630,7 @@ Para ver o que acontece no código, conclua os passos seguintes:
 
 Para parar a sessão de depuração, prima **Shift + F5**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Nesta parte do tutorial, ficou a saber como:
 

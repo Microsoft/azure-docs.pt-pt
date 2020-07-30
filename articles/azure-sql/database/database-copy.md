@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 07/27/2020
-ms.openlocfilehash: 4dd27a5d3bca5ca1c0395feb049d5a814211c539
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 07/29/2020
+ms.openlocfilehash: 968fe5a0f4999c25486189384186c23d1fcd5509
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87309261"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430251"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copie uma cópia transaccionalmente consistente de uma base de dados na Base de Dados Azure SQL
 
@@ -117,6 +117,9 @@ Pode utilizar os passos na [Base de Dados Copy a SQL para uma](#copy-to-a-differ
 > [!NOTE]
 > O [portal Azure,](https://portal.azure.com)o PowerShell e o Azure CLI não suportam cópia de base de dados para uma subscrição diferente.
 
+> [!TIP]
+> A cópia da base de dados utilizando o T-SQL suporta a cópia de uma base de dados de uma subscrição num inquilino Azure diferente.
+
 ## <a name="monitor-the-progress-of-the-copying-operation"></a>Monitorizar o progresso da operação de cópia
 
 Monitorize o processo de cópia consultando as [vistas sys.databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [sys.dm_database_copies](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database)e [sys.dm_operation_status.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) Enquanto a cópia está em curso, a coluna **state_desc** da vista sys.databases para a nova base de dados está definida como **COPYING**.
@@ -184,7 +187,7 @@ Os seguintes erros podem ser encontrados ao copiar uma base de dados na Base de 
 | 40570 |16 |A cópia da base de dados falhou devido a um erro interno. Por favor, largue a base de dados do alvo e tente de novo mais tarde. |
 | 40571 |16 |A cópia da base de dados falhou devido a um erro interno. Por favor, largue a base de dados do alvo e tente de novo mais tarde. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter informações sobre logins, consulte [Gerir logins](logins-create-manage.md) e como gerir a segurança da Base de [Dados Azure SQL após a recuperação de desastres.](active-geo-replication-security-configure.md)
 * Para exportar uma base de dados, consulte [exporte a base de dados para um BACPAC.](database-export.md)

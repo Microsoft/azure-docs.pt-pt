@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: 99332a8716ae137b8ea5fe69a53c7f8e4c46f095
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ad02e25e1025692765790be20d993d7dd5cd2e26
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282556"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432054"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-machine-learning-studio-classic"></a>Quickstart: Crie a sua primeira experiência de ciência de dados no Machine Learning Studio (clássico)
 
-**APLICA-SE A:** ![ no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) yes Machine Learning Studio ![ ](../../../includes/media/aml-applies-to-skus/yes.png) (clássico) 
+**APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
@@ -237,7 +237,7 @@ Em cada uma das estatísticas de erros, quanto mais pequeno, melhor. Um valor ma
 
 [!INCLUDE [machine-learning-studio-clean-up](../../../includes/machine-learning-studio-clean-up.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, criou uma experiência simples usando um conjunto de dados de amostra. Para explorar o processo de criação e implantação de um modelo em maior profundidade, continue a solução tutorial de solução preditiva.
 

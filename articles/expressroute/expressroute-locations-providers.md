@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: c7b394c9327b34d205f5b107851c7579fb57fc0c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 17e17e4bfaad047f303fccf2ed4481133f5409c2
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512202"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406151"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute 
 
@@ -78,7 +78,7 @@ A tabela seguinte mostra as localizações de conectividade e os fornecedores de
 | **Localização** | **Endereço** | **Zona** | **Regiões locais de Azure** | **ER Direto** | **Fornecedores de serviços** |
 | --- | --- | --- | --- | --- | --- |
 | **Amsterdão** | [Equinix AM5](https://www.equinix.com/locations/europe-colocation/netherlands-colocation/amsterdam-data-centers/am5/) | 1 | Europa Ocidental | 10G, 100G | Redes Aryaka, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
-| **Amesterdão2** | [Interxion AMS8](https://www.interxion.com/Locations/amsterdam/schiphol/) | 1 | Europa Ocidental | 10G, 100G | CenturyLink Cloud Connect, Colt, DE-CIX, euNetworks, Interxion, NOS, Orange, Vodafone |
+| **Amesterdão2** | [Interxion AMS8](https://www.interxion.com/Locations/amsterdam/schiphol/) | 1 | Europa Ocidental | 10G, 100G | CenturyLink Cloud Connect, Colt, DE-CIX, euNetworks, GÉANT, Interxion, NOS, Orange, Vodafone |
 | **Atlanta** | [Equinix AT2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/atlanta-data-centers/at2/) | 1 | n/a | 10G, 100G | Equinix, Megaport |
 | **Auckland** | [Grupo Vocus NZ Albany](https://www.vocus.co.nz/business/cloud-data-centres) | 2 | n/a | 10G | Devoli, Kordia, Megaport, Spark NZ, Vocus Group NZ |
 | **Rio Banguecoque** | [RIO AIS](https://business.ais.co.th/solution/en/azure-expressroute.html) | 2 | n/a | 10G | AIS |
@@ -118,7 +118,7 @@ A tabela seguinte mostra as localizações de conectividade e os fornecedores de
 | **Munique** | [EdgeConneX](https://www.edgeconnex.com/locations/europe/) | 1 | n/a | 10G | DE-CIX |
 | **Nova Iorque** | [Equinix NY9](https://www.equinix.com/locations/americas-colocation/united-states-colocation/new-york-data-centers/ny9/) | 1 | n/a | 10G, 100G | CenturyLink Cloud Connect, Colt, Coresite, DE-CIX, Equinix, InterCloud, Megaport, Packet, Zayo |
 | **Newport (País de Gales)** | [Next Generation Data](https://www.nextgenerationdata.co.uk) | 1 | Oeste do Reino Unido | n/a | British Telecom, Colt, Level 3 Communications, Next Generation Data |
-| **Osaca** | [Equinix OS1](https://www.equinix.com/locations/asia-colocation/japan-colocation/osaka-data-centers/os1/) | 2 | Oeste do Japão | 10G, 100G | Colt, Equinix, Internet Initiative Japan Inc. - IIJ, Megaport, NTT Communications, NTT SmartConnect, Softbank |
+| **Osaca** | [Equinix OS1](https://www.equinix.com/locations/asia-colocation/japan-colocation/osaka-data-centers/os1/) | 2 | Oeste do Japão | 10G, 100G | AT TOKYO, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, Megaport, NTT Communications, NTT SmartConnect, Softbank |
 | **Oslo** | [DigiPlex Ulven](https://www.digiplex.com/locations/oslo-datacentre) | 1 | Leste da Noruega | 10G, 100G | Global Connect, Megaport, Telenor, Telia Carrier |
 | **Paris** | [Interxion PAR5](https://www.interxion.com/Locations/paris/) | 1 | França Central | 10G, 100G | CenturyLink Cloud Connect, Colt, Equinix, Intercloud, Interxion, Orange, Telia Carrier, Zayo |
 | **Rio Perth** | [NextDC P1](https://www.nextdc.com/data-centres/p1-perth-data-centre) | 2 | n/a | 10G | Megaport |

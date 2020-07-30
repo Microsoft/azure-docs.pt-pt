@@ -7,12 +7,13 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 1157fb69704af59a75989b22338b88a8576428ce
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 99424e5a7b39d3f60f3337ff10bf7d9265e2ab4c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076659"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422883"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-nodejs-v4"></a>Quickstart: Biblioteca de clientes Azure Key Vault para Node.js (v4)
 
@@ -137,7 +138,7 @@ Pode verificar se o segredo se foi com o comando secreto do [programa az keyvaul
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, pode utilizar o Azure CLI ou o Azure PowerShell para remover o cofre da chave e o grupo de recursos correspondente.
 
@@ -206,7 +207,7 @@ main()
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido criaste um cofre, armazenaste um segredo e recuperaste esse segredo. Para saber mais sobre o Key Vault e como integrá-lo com as suas aplicações, continue para os artigos abaixo.
 

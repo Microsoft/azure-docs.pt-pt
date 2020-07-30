@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.author: erhopf
-ms.custom: tracking-python
+ms.custom: tracking-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 017cb7dbc3e81584905530d819de680e79e2282b
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 6b703eb006638d91b664c7694f99f380be6bd809
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147150"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405399"
 ---
 # <a name="quickstart-use-the-translator-to-determine-sentence-length"></a>Quickstart: Use o Tradutor para determinar o comprimento da frase
 

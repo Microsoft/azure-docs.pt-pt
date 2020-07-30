@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6238e89b3941668f831f3128bb0e723a4097e48
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 88270d51bf50b2b175d9d8761685a8a2a8ae19b1
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027517"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428265"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Adicione um conector API a um fluxo de utilizador
 
@@ -42,9 +42,16 @@ Para utilizar um [conector API,](api-connectors-overview.md)primeiro cria o cone
 8. Selecione as reclamações que pretende enviar para a API.
 9. Selecione quaisquer reclamações que pretenda receber de volta da API.
 
-   ![Definir reclamações de conector API](./media/self-service-sign-up-add-api-connector/api-connector-claims.png)
+   <!-- ![Set API connector claims](./media/self-service-sign-up-add-api-connector/api-connector-claims.png) -->
 
 10. Selecione **Guardar**.
+
+### <a name="selection-of-claims-to-send-and-claims-to-receive"></a>Seleção de 'Reclamações a enviar' e 'Reclamações a receber'
+> [!IMPORTANT]
+> Pode ver todas as reclamações selecionadas por padrão, conforme ilustrado abaixo. Todos os conectores API serão atualizados para se comportarem desta forma. A sua API receberá todas as reclamações disponíveis e poderá retorquir qualquer reclamação suportada sem as configurar na definição do conector API. 
+
+![Definir reclamações de conector API](./media/self-service-sign-up-add-api-connector/api-connector-claims-new.png)
+
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Ativar o conector API num fluxo de utilizador
 
@@ -133,12 +140,12 @@ Content-type: application/json
 }
 ```
 
-| Parâmetro                                          | Tipo              | Necessário | Descrição                                                                                                                                                                                                                                                                            |
+| Parâmetro                                          | Tipo              | Obrigatório | Descrição                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| versão                                            | Cadeia            | Yes      | A versão da API.                                                                                                                                                                                                                                                                |
-| ação                                             | Cadeia            | Yes      | O valor deve `Continue` ser.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | No       | Os valores podem ser armazenados no diretório se forem selecionados como Uma **Reivindicação para receber** na configuração do conector API e **nos atributos do Utilizador** para um fluxo de utilizador. Os valores podem ser devolvidos no token se forem selecionados como **reclamação de Candidatura.**                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | A reclamação devolvida não precisa de `_<extensions-app-id>_` conter. Os valores são armazenados no diretório se forem selecionados como Uma **Reivindicação a receber** na configuração do conector API e **no atributo do Utilizador** para um fluxo de utilizador. Os atributos personalizados não podem ser enviados de volta no token. |
+| versão                                            | Cadeia            | Sim      | A versão da API.                                                                                                                                                                                                                                                                |
+| ação                                             | Cadeia            | Sim      | O valor deve `Continue` ser.                                                                                                                                                                                                                                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | Não       | Os valores podem ser armazenados no diretório se forem selecionados como Uma **Reivindicação para receber** na configuração do conector API e **nos atributos do Utilizador** para um fluxo de utilizador. Os valores podem ser devolvidos no token se forem selecionados como **reclamação de Candidatura.**                                              |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Não       | A reclamação devolvida não precisa de `_<extensions-app-id>_` conter. Os valores são armazenados no diretório se forem selecionados como Uma **Reivindicação a receber** na configuração do conector API e **no atributo do Utilizador** para um fluxo de utilizador. Os atributos personalizados não podem ser enviados de volta no token. |
 
 ### <a name="blocking-response"></a>Resposta de bloqueio
 
@@ -159,12 +166,12 @@ Content-type: application/json
 
 ```
 
-| Parâmetro   | Tipo   | Necessário | Descrição                                                                |
+| Parâmetro   | Tipo   | Obrigatório | Descrição                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
-| versão     | Cadeia | Yes      | A versão da API.                                                    |
-| ação      | Cadeia | Yes      | Valor deve ser`ShowBlockPage`                                              |
-| userMessage | Cadeia | Yes      | A mensagem a apresentar ao utilizador.                                            |
-| code        | Cadeia | No       | Código de erro. Pode ser usado para depurar propósitos. Não apresentado ao utilizador. |
+| versão     | Cadeia | Sim      | A versão da API.                                                    |
+| ação      | Cadeia | Sim      | Valor deve ser`ShowBlockPage`                                              |
+| userMessage | Cadeia | Sim      | A mensagem a apresentar ao utilizador.                                            |
+| code        | Cadeia | Não       | Código de erro. Pode ser usado para depurar propósitos. Não apresentado ao utilizador. |
 
 #### <a name="end-user-experience-with-a-blocking-response"></a>Experiência de utilizador final com uma resposta de bloqueio
 
@@ -189,13 +196,13 @@ Content-type: application/json
 }
 ```
 
-| Parâmetro   | Tipo    | Necessário | Descrição                                                                |
+| Parâmetro   | Tipo    | Obrigatório | Descrição                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
-| versão     | Cadeia  | Yes      | A versão da API.                                                    |
-| ação      | Cadeia  | Yes      | O valor deve `ValidationError` ser.                                           |
-| status      | Integer (Número inteiro) | Yes      | Deve ser valor `400` para uma resposta do ValidationError.                        |
-| userMessage | Cadeia  | Yes      | A mensagem a apresentar ao utilizador.                                            |
-| code        | Cadeia  | No       | Código de erro. Pode ser usado para depurar propósitos. Não apresentado ao utilizador. |
+| versão     | Cadeia  | Sim      | A versão da API.                                                    |
+| ação      | Cadeia  | Sim      | O valor deve `ValidationError` ser.                                           |
+| status      | Integer (Número inteiro) | Sim      | Deve ser valor `400` para uma resposta do ValidationError.                        |
+| userMessage | Cadeia  | Sim      | A mensagem a apresentar ao utilizador.                                            |
+| code        | Cadeia  | Não       | Código de erro. Pode ser usado para depurar propósitos. Não apresentado ao utilizador. |
 
 #### <a name="end-user-experience-with-a-validation-error-response"></a>Experiência de utilizador final com uma resposta de erro de validação
 
@@ -204,7 +211,7 @@ Content-type: application/json
 ### <a name="integration-with-azure-functions"></a>Integração com as Funções do Azure
 Pode utilizar um gatilho HTTP em Funções Azure como uma forma simples de criar uma API para usar com o conector API. Utiliza a Função Azure [para, por exemplo,](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts)executar lógica de validação e limitar inscrições a domínios específicos. Também pode ligar e invocar outras APIs web, lojas de utilizadores e outros serviços na nuvem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 <!-- - Learn [where you can enable an API connector](api-connectors-overview.md#where-you-can-enable-an-api-connector-in-a-user-flow) -->
 - Saiba como [adicionar um fluxo de trabalho de aprovação personalizado ao autosserviço](self-service-sign-up-add-approvals.md)

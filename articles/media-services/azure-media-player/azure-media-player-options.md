@@ -6,12 +6,13 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.openlocfilehash: 9ab79a60f55fad6a45fadb6bf8890d2879caac62
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 2b7acb1ad6fbe0beb4d79ee2a833561f0829664c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043576"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423036"
 ---
 # <a name="options"></a>Opções #
 
@@ -146,6 +147,6 @@ A definição ativa para ser verdadeira permite-lhe exibir legendas CEA ao vivo 
 
 Esta opção só está disponível na versão 2.1.1 do Azure Media Player e posteriormente.
 
-## <a name="next-steps"></a>Passos seguintes ##
+## <a name="next-steps"></a>Próximos passos ##
 
 - [Azure Media Player Quickstart](azure-media-player-quickstart.md)

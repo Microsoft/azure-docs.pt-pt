@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/26/2020
-ms.openlocfilehash: f6868e3a77cbc4b262180b47ed3b387840062969
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/15/2020
+ms.openlocfilehash: a4594ca1a992f158522eccb4ffa6e846a1f4f605
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87097714"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406287"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory Rede Virtual Gerida (pré-visualização)
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo explicará a Rede Virtual Gerida e os pontos finais privados geridos na Azure Data Factory.
 
@@ -82,6 +82,7 @@ Abaixo as fontes de dados são suportadas para se conectar através de ligação
 - Azure SQL Data Warehouse
 - Azure CosmosDB SQL
 - Azure Key Vault
+- Azure Private Link
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Comunicações de saída através de ponto final público da ADF Managed Virtual Network
 - Apenas a porta 443 está aberta para comunicações de saída.
@@ -91,7 +92,7 @@ Abaixo as fontes de dados são suportadas para se conectar através de ligação
 A depurada para a conectividade CosmosDB não funciona, incluindo o depurg dataFlow e o pipeline depurg.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Tutorial: [Construir um pipeline de cópias utilizando rede virtual gerida e pontos finais privados](tutorial-copy-data-portal-private.md) 
 - Tutorial: [Construa o pipeline de fluxo de dados de mapeamento utilizando rede virtual gerida e pontos finais privados](tutorial-data-flow-private.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: 72408b4f17aa5e8601095b27478806883739a7a8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0aac3d7a4bc2eb8bb83405155b345360f5d2c699
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87031631"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407358"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Parceiros de conectividade ExpressRoute e locais de observação
 
@@ -82,7 +82,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[Redes Aryaka](https://www.aryaka.com/)** |Suportado |Suportado |Amesterdão, Chicago, Dallas, Hong Kong SAR, São Paulo, Seattle, Silicon Valley, Singapura, Tóquio, Washington DC |
 | **[Datacenters da Ascenty](https://www.ascenty.com/en/cloud/microsoft-express-route)** |Suportado |Suportado |São Paulo |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Suportado |Suportado |Amesterdão, Chicago, Dallas, Frankfurt, Londres, Silicon Valley, Singapura, Sydney, Tóquio, Toronto, Washington DC |
-| **[EM TÓQUIO](https://www.attokyo.com/service/cloudsconnection/forazure.html)** | Suportado | Suportado | Tóquio2 |
+| **[EM TÓQUIO](https://www.attokyo.com/connectivity/azure.html)** | Suportado | Suportado | Osaka |
 | **[BBIX](https://www.bbix.net/en/service/ix/)** | Suportado | Suportado | Tóquio |
 | **[BCX](https://www.bcx.co.za/solutions/connectivity/data-networks)** |Suportado |Suportado |Cidade do Cabo, Joanesburgo|
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Suportado |Suportado |Montreal, Toronto, Cidade do Quebeque |
@@ -109,7 +109,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **Emirados Árabes Unidos** |Suportado |Suportado |Rio Dubai|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Suportado |Suportado |Amsterdão, Amesterdão2, Dublin, Frankfurt, Londres |
 | **FarEasTone** |Suportado |Suportado |Taipé|
-| **GÉANT** |Suportado |Suportado |Amsterdão, Dublin, Frankfurt, Marselha |
+| **GÉANT** |Suportado |Suportado |Amsterdão, Amesterdão2, Dublin, Frankfurt, Marselha |
 | **GTT** |Suportado |Suportado |Londres2 |
 | **[Global Cloud Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Suportado| Suportado | Chennai, Mumbai |
 | **Intelsat** | Suportado | Suportado | Washington DC2 |
@@ -361,7 +361,7 @@ A ativação da conectividade privada para atender as suas necessidades pode ser
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | América do Sul |
 | **[Vigilant.IT](https://vigilant.it/expressroute)** | Austrália |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Para obter mais informações sobre o ExpressRoute, consulte as [FAQ ExpressRoute.](expressroute-faqs.md)
 * Confirme que todos os pré-requisitos são cumpridos. Veja os [Pré-requisitos do ExpressRoute](expressroute-prerequisites.md).
 

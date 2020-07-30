@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: tracking-python
-ms.openlocfilehash: da437f830a452a57ea1290b3d85a3faa92895bcd
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: b35f971d90f8cd74e2f5a60e34864d8e55a743c4
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147056"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431911"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Modelos de trem com Azure Machine Learning
 
@@ -92,11 +92,33 @@ Os oleodutos de aprendizagem automática podem utilizar os métodos de treino an
 * [Exemplos: Pipeline com aprendizagem automática de máquinas](https://aka.ms/pl-automl)
 * [Exemplos: Pipeline com estimadores](https://aka.ms/pl-estimator)
 
+### <a name="understand-what-happens-when-you-submit-a-training-job"></a>Entenda o que acontece quando se submete um trabalho de formação
+
+O ciclo de vida de formação Azure consiste em:
+
+1. Fechar os ficheiros na pasta do projeto, ignorando os especificados em _.amlignore_ ou _.gitignore_
+1. Escalonando o seu cluster de computação 
+1. Construindo ou descarregando o estival para o nó computacional 
+    1. O sistema calcula um haxixe de: 
+        - A imagem base 
+        - Passos personalizados do estivador (ver [Implementar um modelo utilizando uma imagem base personalizada do Docker)](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image)
+        - A definição conda YAML (ver [Criar & utilizar ambientes de software em Azure Machine Learning)](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments)
+    1. O sistema utiliza este haxixe como chave numa procura do espaço de trabalho Registo do Contentor Azure (ACR)
+    1. Se não for encontrado, procura um jogo no ACR global
+    1. Se não for encontrado, o sistema constrói uma nova imagem (que será em cache e registada com o espaço de trabalho ACR)
+1. Baixar o ficheiro do projeto zipped para armazenamento temporário no nó de computação
+1. Desapertar o ficheiro do projeto
+1. A execução do nó computativo`python <entry script> <arguments>`
+1. Guardar registos, ficheiros de modelos e outros ficheiros escritos `./outputs` para a conta de armazenamento associada ao espaço de trabalho
+1. Escalonamento do cálculo, incluindo a remoção do armazenamento temporário 
+
+Se optar por treinar na sua máquina local ("configurar como corrida local"), não precisa de usar o Docker. Pode utilizar o Docker localmente se escolher (consulte a secção [Configure o gasoduto ML](https://docs.microsoft.com/azure/machine-learning/how-to-debug-pipelines#configure-ml-pipeline ) por exemplo).
+
 ## <a name="r-sdk"></a>SDK para R
 
-O R SDK permite-lhe utilizar a linguagem R com Azure Machine Learning. O SDK usa o pacote reticulado para ligar-se ao Python SDK da Azure Machine Learning. Isto permite-lhe aceder a objetos e métodos principais implementados no Python SDK a partir de qualquer ambiente R.
+O R SDK permite-lhe utilizar a linguagem R com Azure Machine Learning. O SDK usa o pacote reticulado para ligar-se ao Python SDK da Azure Machine Learning. Isto dá-lhe acesso a objetos e métodos principais implementados no Python SDK a partir de qualquer ambiente R.
 
-Para obter mais informações, veja os artigos seguintes:
+Para obter mais informações, veja os seguintes artigos:
 
 * [Tutorial: Criar um modelo de regressão logística](tutorial-1st-r-experiment.md)
 * [Azure Machine Learning SDK para referência R](https://azure.github.io/azureml-sdk-for-r/index.html)
@@ -136,6 +158,6 @@ O CLI de aprendizagem automática é uma extensão para o CLI Azure. Fornece com
 
 Pode utilizar a extensão do Código VS para executar e gerir os seus trabalhos de formação. Consulte o [guia de gestão de recursos do Código VS para](how-to-manage-resources-vscode.md#experiments) saber mais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [configurar ambientes de treino.](how-to-set-up-training-targets.md)

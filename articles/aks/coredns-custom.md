@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jenoller
-ms.openlocfilehash: cbac35e6c20c0885a1849e3d37951aa23c2dfeb0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f58232eac6727f10fdccb32e7795bf12a93b7cbb
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057232"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405522"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Personalizar o CoreDNS com o Azure Kubernetes Service
 
@@ -28,6 +28,8 @@ Este artigo mostra-lhe como usar ConfigMaps para opções básicas de personaliz
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
+Ao criar uma configuração como os exemplos abaixo, os seus nomes na secção *de dados* devem terminar em *.servidor* ou *.override*. Esta convenção de nomeação é definida no configmap AKS CoreDNS padrão que pode ver usando o `kubectl get configmaps --namespace=kube-system coredns -o yaml` comando.
+
 ## <a name="what-is-supportedunsupported"></a>O que é suportado/não suportado
 
 Todos os plugins CoreDNS incorporados são suportados. Não são suportados plugins adicionais/terceiros.
@@ -43,7 +45,7 @@ metadata:
   name: coredns-custom
   namespace: kube-system
 data:
-  test.server: |
+  test.server: | # you may select any name here, but it must end with the .server file extension
     <domain to be rewritten>.com:53 {
         errors
         cache 30
@@ -110,7 +112,7 @@ metadata:
   name: coredns-custom
   namespace: kube-system
 data:
-  puglife.server: |
+  puglife.server: | # you may select any name here, but it must end with the .server file extension
     puglife.local:53 {
         errors
         cache 30
@@ -136,7 +138,7 @@ metadata:
   name: coredns-custom
   namespace: kube-system
 data:
-  test.server: |
+  test.server: | # you may select any name here, but it must end with the .server file extension
     abc.com:53 {
         errors
         cache 30
@@ -168,7 +170,7 @@ metadata:
   name: coredns-custom # this is the name of the configmap you can overwrite with your changes
   namespace: kube-system
 data:
-    test.override: |
+    test.override: | # you may select any name here, but it must end with the .override file extension
           hosts example.hosts example.org { # example.hosts must be a file
               10.0.0.1 example.org
               fallthrough
@@ -186,11 +188,11 @@ metadata:
   name: coredns-custom
   namespace: kube-system
 data:
-  log.override: |
+  log.override: | # you may select any name here, but it must end with the .override file extension
         log
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo mostrou alguns cenários de exemplo para a personalização do CoreDNS. Para obter informações sobre o projeto CoreDNS, consulte [a página do projeto CoreDNS a montante.][coredns]
 
