@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Extrair detalhes da imagem com a REST API e C# - Bing Image Search'
+title: 'Tutorial: Extrair detalhes de imagem com a API REST e C# - Pesquisa de imagem de Bing'
 titleSuffix: Azure Cognitive Services
-description: Utilize este tutorial para criar uma aplicação C# que extrai detalhes de imagem utilizando a API de Pesquisa de Imagem Bing.
+description: Utilize este tutorial para criar uma aplicação C# que extrai detalhes de imagem utilizando a API de Pesquisa de Imagem de Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,13 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 12/06/2019
 ms.author: aahi
-ms.openlocfilehash: 69c5fc9805bed8fdfde3dd208e7fb66254e82c3c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 2b51fb8dcc456d895d5c4032bd16e1502ee86f0f
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75383880"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407086"
 ---
 # <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Tutorial: extrair os detalhes da imagem através da API de Pesquisa de Imagens do Bing e C#
 
@@ -32,17 +33,17 @@ Este tutorial explica como:
 > * Carregar os dados da imagem e enviar o pedido `POST`
 > * Imprimir os resultados JSON para a consola
 
-O código fonte desta amostra está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingGetSimilarImages.cs).
+O código-fonte desta amostra está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingGetSimilarImages.cs).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Qualquer edição do [Estúdio Visual 2017 ou mais tarde.](https://visualstudio.microsoft.com/downloads/)
+* Qualquer edição do [Estúdio Visual 2017 ou posterior.](https://visualstudio.microsoft.com/downloads/)
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="construct-an-image-details-search-request"></a>Criar um pedido de pesquisa de detalhes da imagem
 
-Segue-se o ponto final `/details`, que aceita pedidos POST com dados da imagem no corpo do pedido. Pode utilizar o ponto final global abaixo, ou o ponto final personalizado do [subdomínio](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+Segue-se o ponto final `/details`, que aceita pedidos POST com dados da imagem no corpo do pedido. Pode utilizar o ponto final global abaixo ou o ponto final [personalizado subdomínio](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
@@ -106,11 +107,11 @@ https://api.cognitive.microsoft.com/bing/v7.0/images/details?InsightsToken="bcid
 
 Se existirem pessoas ou locais identificáveis na imagem, este pedido devolverá informações sobre os mesmos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Apresentar opções de pesquisa e imagens numa aplicação Web de página única ](tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 * [Bing Image Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) (Referência da API de Pesquisa de Imagens do Bing)

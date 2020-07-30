@@ -3,12 +3,13 @@ title: 'Tutorial: Language Understanding Bot Node.js v4'
 description: Utilizando Node.js, construa um chat bot integrado com a compreensão da linguagem (LUIS) neste tutorial. Este chatbot utiliza a aplicação Recursos Humanos para implementar rapidamente uma solução de bot. O bot é criado com a versão 4 do Bot Framework e o bot de aplicação Web do Azure.
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 0f726034f18f834dcaf9b202ffbf03a45e5b6ce7
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 522502a043778d6f482c1756506063dfa6515ca3
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85443553"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405029"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Tutorial: Use um Bot de aplicação web ativado com compreensão de linguagem em Node.js
 
@@ -74,7 +75,7 @@ O processo de criação de serviços bot também cria uma nova app LUIS com inte
 |Voo do livro|`Travel to Paris`|
 |Cancelar|`bye`|
 |GetWeather|`what's the weather like?`|
-|Nenhuma|Tudo o que estiver fora do domínio da aplicação.|
+|Nenhum|Tudo o que estiver fora do domínio da aplicação.|
 
 ## <a name="test-the-bot-in-web-chat"></a>Teste o bot no Web Chat
 
@@ -387,7 +388,7 @@ Faça uma pergunta ao Bot para a intenção do Voo do Livro.
 
 [!INCLUDE [Bot Information](../../../includes/cognitive-services-qnamaker-luis-bot-info.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Veja mais [amostras](https://github.com/microsoft/botframework-solutions) com bots de conversação.
 

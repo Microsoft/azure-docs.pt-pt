@@ -4,12 +4,12 @@ ms.service: iot-edge
 ms.topic: include
 ms.date: 12/30/2019
 ms.author: kgremban
-ms.openlocfilehash: f8cb734e8a57e3b0ee114ae20f454d0034e9cdc9
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 0c43c6dcced94225e9ab9ae903535ce74286ad9a
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387625"
+ms.locfileid: "87406724"
 ---
 ## <a name="create-a-container-registry"></a>Criar um registo de contentor
 
@@ -33,7 +33,7 @@ Se ainda não tiver um registo de contentores, siga estes passos para criar um n
 
 3. Selecione **Criar**.
 
-4. Após a criação do registo do contentor, procure-o e, a partir do painel esquerdo, selecione **as teclas** de acesso do menu localizado em **Definições**.
+4. Após a criação do registo do contentor, procure-o e, a partir do painel esquerdo, selecione **as teclas** de acesso do menu localizado em **Definições**. 
 
 5. Clique para permitir ao utilizador do Administrador visualizar o **nome de utilizador** e a **palavra-passe** para o seu registo de contentores.
 

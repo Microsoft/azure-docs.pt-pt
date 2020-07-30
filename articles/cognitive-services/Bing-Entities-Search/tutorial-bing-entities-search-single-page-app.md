@@ -10,18 +10,19 @@ ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 53731540c4a2861c77c02b1a4b25b60fd0e23872
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.custom: devx-track-javascript
+ms.openlocfilehash: d14681e07518188deabd9f48a04b80a489d858b8
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184145"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407936"
 ---
 # <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicação Web de página única
 
 A API de Pesquisa de Entidades do Bing permite-lhe procurar informações sobre *entidades* e *locais* na Web. Pode pedir um destes dois tipos de resultados, ou ambos, numa dada consulta. As definições dos locais e das entidades são indicadas abaixo.
 
-| Result | Descrição |
+| Resultado | Descrição |
 |-|-|
 |Entidades|Pessoas famosas, sítios conhecidos e coisas que podem ser encontradas por nome|
 |Realiza|Restaurantes, hotéis e outros negócios locais que podem ser encontrados por nome *ou* por tipo (restaurantes italianos)|
@@ -141,7 +142,7 @@ A tag `<body>` HTML inclui o atributo `onload` que chama `getSearchSubscriptionK
 
 O formulário HTML inclui os controlos seguintes:
 
-| Controlar | Descrição |
+| Controlo | Descrição |
 |-|-|
 |`where`|Um menu pendente para selecionar o mercado (localização e idioma) utilizado para a pesquisa.|
 |`query`|O campo de texto no qual introduzir os termos da pesquisa.|
@@ -555,7 +556,7 @@ cors-proxy-server
 
 Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial. Se a janela for fechada, o proxy é interrompido. Na secção Cabeçalhos HTTP expansíveis, abaixo dos resultados da pesquisa, pode agora ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e confirmar se é o mesmo em todos os pedidos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Bing Entity Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) (Referência da API de Pesquisa de Entidades do Bing)

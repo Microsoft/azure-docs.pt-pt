@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 995ca20ed264d78e93e04a6f54e4f691ec551e84
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 61e2d4607ebe1b688b2874220a170b2539a2226e
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024864"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87404179"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configurar LDAP seguro para um domínio gerido por Azure Ative Directory Domain Services
 
@@ -110,6 +110,7 @@ Para utilizar lDAP seguro, o tráfego de rede é encriptado utilizando infraestr
 * Uma chave **privada** é aplicada ao domínio gerido.
     * Esta chave privada é usada para *desencriptar* o tráfego LDAP seguro. A chave privada só deve ser aplicada ao domínio gerido e não amplamente distribuída aos computadores clientes.
     * Um certificado que inclui a chave privada utiliza o *. Formato* de ficheiro PFX.
+    * O algoritmo de encriptação do certificado deve ser *TripleDES-SHA1*.
 * Uma chave **pública** é aplicada aos computadores clientes.
     * Esta chave pública é usada para *encriptar* o tráfego LDAP seguro. A chave pública pode ser distribuída para computadores clientes.
     * Certificados sem a chave privada usam o *. Formato* de ficheiro CER.
@@ -149,7 +150,7 @@ Antes de utilizar o certificado digital criado no passo anterior com o seu domí
 
 1. Uma vez que este certificado é utilizado para desencriptar dados, deve controlar cuidadosamente o acesso. Uma palavra-passe pode ser usada para proteger a utilização do certificado. Sem a senha correta, o certificado não pode ser aplicado a um serviço.
 
-    Na página **'Segurança',** escolha a opção por **Palavra-Passe** para proteger o *. *Arquivo de certificado PFX. Introduza e confirme uma palavra-passe e, em seguida, selecione **Seguinte**. Esta palavra-passe é utilizada na secção seguinte para permitir um LDAP seguro para o seu domínio gerido.
+    Na página **'Segurança',** escolha a opção por **Palavra-Passe** para proteger o *. *Arquivo de certificado PFX. O algoritmo de encriptação deve ser *TripleDES-SHA1*. Introduza e confirme uma palavra-passe e, em seguida, selecione **Seguinte**. Esta palavra-passe é utilizada na secção seguinte para permitir um LDAP seguro para o seu domínio gerido.
 1. Na página **"Ficheiro para Exportação",** especifique o nome do ficheiro e o local onde pretende exportar o certificado, tais como *C:\Users\accountname\azure-ad-ds.pfx*. Mantenha uma nota da senha e localização do *. Ficheiro PFX,* uma vez que esta informação seria necessária nos próximos passos.
 1. Na página de análise, **selecione Finish** para exportar o certificado para um *. *Arquivo de certificado PFX. É apresentado um diálogo de confirmação quando o certificado foi exportado com sucesso.
 1. Deixe o MMC aberto para utilização na secção seguinte.
@@ -210,7 +211,7 @@ Com um certificado digital criado e exportado que inclui a chave privada, e o co
 
 Demora alguns minutos a ativar o LDAP seguro para o seu domínio gerido. Se o certificado LDAP seguro que fornece não corresponder aos critérios exigidos, a ação para permitir a segurança do LDAP para o domínio gerido falha.
 
-Algumas razões comuns para a falha são se o nome de domínio estiver incorreto, ou se o certificado expirar em breve ou já tiver expirado. Pode recriar o certificado com parâmetros válidos e, em seguida, ativar lDAP seguro utilizando este certificado atualizado.
+Algumas razões comuns para a falha são se o nome de domínio estiver incorreto, o algoritmo de encriptação do certificado não é *TripleDES-SHA1*, ou o certificado expira em breve ou já expirou. Pode recriar o certificado com parâmetros válidos e, em seguida, ativar lDAP seguro utilizando este certificado atualizado.
 
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>Bloqueie o acesso seguro do LDAP através da internet
 
@@ -233,7 +234,7 @@ Vamos criar uma regra para permitir o acesso lDAP seguro de entrada sobre a port
     | Protocolo                          | TCP          |
     | Ação                            | Permitir        |
     | Prioridade                          | 401          |
-    | Name                              | AllowLDAPS   |
+    | Nome                              | AllowLDAPS   |
 
 1. Quando estiver pronto, **selecione Adicione** para guardar e aplicar a regra.
 
@@ -279,7 +280,7 @@ Para ver os objetos armazenados no seu domínio gerido:
 
 Para consultar diretamente um recipiente específico, a partir do menu **View > Tree,** pode especificar um **BaseDN** como *OU=AADDC Users,DC=AADDSCONTOSO,DC=COM* ou *OU=AADDC Computers,DC=AADDSCONTOSO,DC=COM*. Para obter mais informações sobre como formatar e criar consultas, consulte o [básico da consulta LDAP][ldap-query-basics].
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se adicionar uma entrada de DNS ao ficheiro de anfitriões locais do seu computador para testar a conectividade para este tutorial, remova esta entrada e adicione um registo formal na sua zona de DNS. Para remover a entrada do ficheiro dos anfitriões locais, complete os seguintes passos:
 

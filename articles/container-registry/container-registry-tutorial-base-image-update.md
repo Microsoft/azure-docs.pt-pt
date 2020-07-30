@@ -1,21 +1,21 @@
 ---
-title: Tutorial - Imagem de gatilho construída na atualização de imagem base
+title: Tutorial - Gatilho de imagem baseia-se na atualização da imagem base
 description: Neste tutorial, aprende-se a configurar uma Tarefa de Registo de Contentores Azure para ativar automaticamente a imagem do contentor na nuvem quando uma imagem base é atualizada no mesmo registo.
 ms.topic: tutorial
 ms.date: 01/22/2020
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 4797dd1f1fe19b98ab94c4743ad4af3c43ce0627
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: seodec18, mvc, devx-track-javascript
+ms.openlocfilehash: 0efac34d05dfaf8877efec2e66f1f95a19ca95be
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78402866"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87408004"
 ---
-# <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Tutorial: Automatiza imagem de contentor constrói-se quando uma imagem de base é atualizada num registo de contentores Do Azure 
+# <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Tutorial: Automatizar a imagem do contentor quando uma imagem base é atualizada num registo de contentores Azure 
 
-A ACR Tasks suporta a imagem automatizada do recipiente quando a imagem base de um recipiente [é atualizada](container-registry-tasks-base-images.md), como quando você patch o OS ou a estrutura de aplicação em uma das suas imagens base. 
+A ACR Tasks suporta a imagem automatizada do contentor quando [a imagem base](container-registry-tasks-base-images.md)de um recipiente é atualizada , como quando se remeca o SISTEMA ou a estrutura de aplicação numa das suas imagens base. 
 
-Neste tutorial, aprende-se a criar uma tarefa ACR que desencadeia uma construção na nuvem quando a imagem base de um contentor é empurrada para o mesmo registo. Também pode tentar um tutorial para criar uma tarefa ACR que desencadeie uma construção de imagem quando uma imagem base é empurrada para outro registo de [contentores Azure.](container-registry-tutorial-private-base-image-update.md) 
+Neste tutorial, aprende-se a criar uma tarefa ACR que desencadeie uma construção na nuvem quando a imagem base de um recipiente é empurrada para o mesmo registo. Também pode experimentar um tutorial para criar uma tarefa ACR que desencadeie uma construção de imagem quando uma imagem base é empurrada para [outro registo de contentores Azure](container-registry-tutorial-private-base-image-update.md). 
 
 Neste tutorial:
 
@@ -49,9 +49,9 @@ Se ainda não o fez, complete os seguintes tutoriais antes de prosseguir:
 
 ### <a name="configure-the-environment"></a>Configurar o ambiente
 
-Preencha estas variáveis de ambiente da shell com os valores adequados para o seu ambiente. Este passo não é estritamente necessário, mas facilita um pouco a execução dos comandos da CLI do Azure com várias linhas neste tutorial. Se não povoar estas variáveis ambientais, deve substituir manualmente cada valor onde quer que apareça nos comandos de exemplo.
+Preencha estas variáveis de ambiente da shell com os valores adequados para o seu ambiente. Este passo não é estritamente necessário, mas facilita um pouco a execução dos comandos da CLI do Azure com várias linhas neste tutorial. Se não preencher estas variáveis ambientais, deve substituir manualmente cada valor onde quer que apareça nos comandos de exemplo.
 
-[![Lançamento emcamado](https://shell.azure.com/images/launchcloudshell.png "Iniciar o Azure Cloud Shell")](https://shell.azure.com)
+[![Lançamento incorporado](https://shell.azure.com/images/launchcloudshell.png "Iniciar o Azure Cloud Shell")](https://shell.azure.com)
 
 ```console
 ACR_NAME=<registry-name>        # The name of your Azure container registry
@@ -62,9 +62,9 @@ GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial
 
 ### <a name="base-image-update-scenario"></a>Cenário de atualização da imagem de base
 
-Este tutorial acompanha-o através de um cenário de atualização de imagem base em que uma imagem base e uma imagem de aplicação são mantidas num único registo. 
+Este tutorial acompanha-o através de um cenário de atualização de imagem base no qual uma imagem base e uma imagem de aplicação são mantidas num único registo. 
 
-O [exemplo de código][code-sample] inclui dois Dockerfiles: uma imagem da aplicação e uma imagem que é especificada como a sua base. Nas seguintes secções, cria-se uma tarefa ACR que desencadeia automaticamente uma construção da imagem de aplicação quando uma nova versão da imagem base é empurrada para o mesmo registo de contentores.
+O [exemplo de código][code-sample] inclui dois Dockerfiles: uma imagem da aplicação e uma imagem que é especificada como a sua base. Nas secções seguintes, cria-se uma tarefa ACR que aciona automaticamente uma construção da imagem da aplicação quando uma nova versão da imagem base é empurrada para o mesmo registo do contentor.
 
 * [Dockerfile-app][dockerfile-app]: uma pequena aplicação Web Node.js que compõe uma página Web estática, que apresenta a versão do Node.js na qual se baseia. A cadeia de versão é simulada: apresenta o conteúdo de uma variável de ambiente, `NODE_VERSION`, definido na imagem de base.
 
@@ -72,11 +72,11 @@ O [exemplo de código][code-sample] inclui dois Dockerfiles: uma imagem da aplic
 
 Nas próximas secções, vai criar uma tarefa, atualizar o valor `NODE_VERSION` no Dockerfile da imagem de base e, em seguida, utilizar o ACR Tasks para compilar a imagem de base. Quando a tarefa do ACR envia a nova imagem de base para o registo, aciona automaticamente uma compilação da imagem da aplicação. Opcionalmente, pode executar a imagem de contentor da aplicação localmente para ver as diferentes cadeias de versão nas imagens da compilação.
 
-Neste tutorial, a sua tarefa ACR constrói e empurra uma imagem de recipiente de aplicação especificada num Dockerfile. As Tarefas ACR também podem executar [tarefas em várias etapas,](container-registry-tasks-multi-step.md)utilizando um ficheiro YAML para definir passos para construir, empurrar e testar opcionalmente vários recipientes.
+Neste tutorial, a sua tarefa ACR constrói e empurra uma imagem de recipiente de aplicação especificada num Dockerfile. As tarefas ACR também podem executar [tarefas em várias etapas,](container-registry-tasks-multi-step.md)utilizando um ficheiro YAML para definir passos para construir, empurrar e testar opcionalmente vários recipientes.
 
 ## <a name="build-the-base-image"></a>Compilar a imagem de base
 
-Comece por construir a imagem base com uma *tarefa rápida*aCR Tasks, utilizando [a construção az acr][az-acr-build]. Tal como explicado no [primeiro tutorial](container-registry-tutorial-quick-task.md) da série, este processo não só compila a imagem como a envia para o seu registo de contentor, caso a compilação seja concluída com êxito.
+Comece por construir a imagem base com uma *tarefa rápida*ACR Tasks, utilizando [a construção az acr][az-acr-build]. Tal como explicado no [primeiro tutorial](container-registry-tutorial-quick-task.md) da série, este processo não só compila a imagem como a envia para o seu registo de contentor, caso a compilação seja concluída com êxito.
 
 ```azurecli-interactive
 az acr build --registry $ACR_NAME --image baseimages/node:9-alpine --file Dockerfile-base .
@@ -97,17 +97,17 @@ az acr task create \
     --git-access-token $GIT_PAT
 ```
 
-Esta tarefa é semelhante à tarefa criada no [tutorial anterior.](container-registry-tutorial-build-task.md) Dá instruções ao ACR Tasks para acionar uma compilação da imagem quando as consolidações são enviadas por push para o repositório especificado por `--context`. Enquanto o Dockerfile usado para construir a imagem no`FROM node:9-alpine`tutorial anterior especifica uma imagem de base pública (), o Dockerfile nesta tarefa, [Dockerfile-app,][dockerfile-app]especifica uma imagem base no mesmo registo:
+Esta tarefa é semelhante à tarefa criada no [tutorial anterior.](container-registry-tutorial-build-task.md) Dá instruções ao ACR Tasks para acionar uma compilação da imagem quando as consolidações são enviadas por push para o repositório especificado por `--context`. Enquanto o Dockerfile usado para construir a imagem no tutorial anterior especifica uma imagem de base pública `FROM node:9-alpine` (), o Dockerfile nesta tarefa, [Dockerfile-app,][dockerfile-app]especifica uma imagem base no mesmo registo:
 
 ```dockerfile
 FROM ${REGISTRY_NAME}/baseimages/node:9-alpine
 ```
 
-Esta configuração facilita a simulação de um patch de enquadramento na imagem base mais tarde neste tutorial.
+Esta configuração facilita a simulação de um patch de estrutura na imagem base mais tarde neste tutorial.
 
 ## <a name="build-the-application-container"></a>Compilar o contentor de aplicação
 
-Utilize o [az acr task run][az-acr-task-run] para ativar manualmente a tarefa e construir a imagem de aplicação. Este passo é necessário para que a tarefa rastreie a dependência da imagem da aplicação na imagem base.
+Utilize [a execução de tarefas az acr][az-acr-task-run] para desencadear manualmente a tarefa e construir a imagem da aplicação. Este passo é necessário para que a tarefa rastreie a dependência da imagem da aplicação na imagem base.
 
 ```azurecli-interactive
 az acr task run --registry $ACR_NAME --name taskhelloworld
@@ -119,13 +119,13 @@ Depois de concluída a tarefa, tome nota do **ID de Execução** (por exemplo, "
 
 Se estiver a trabalhar localmente (não estiver no Cloud Shell) e tiver o Docker instalado, execute o contentor para ver a aplicação composta num browser, antes de recompilar a imagem de base. Se estiver a utilizar o Cloud Shell, ignore esta secção (o Cloud Shell não suporta `az acr login` nem `docker run`).
 
-Primeiro, autenticar o seu registo de contentores com [login az acr:][az-acr-login]
+Em primeiro lugar, autente no seu registo de contentores com [início az acr][az-acr-login]:
 
 ```azurecli
 az acr login --name $ACR_NAME
 ```
 
-Agora, execute o contentor localmente com `docker run`. Substitua ** \<o\> id de execução** pelo ID de execução encontrado na saída do passo anterior (por exemplo, "da6"). Este exemplo dá `myapp` nome `--rm` ao recipiente e inclui o parâmetro para remover o recipiente quando o parar.
+Agora, execute o contentor localmente com `docker run`. **\<run-id\>** Substitua-a ID de execução encontrada na saída do passo anterior (por exemplo, "da6"). Este exemplo dá nomes ao recipiente `myapp` e inclui o parâmetro para remover o recipiente quando o `--rm` parar.
 
 ```bash
 docker run -d -p 8080:80 --name myapp --rm $ACR_NAME.azurecr.io/helloworld:<run-id>
@@ -135,7 +135,7 @@ Navegue para `http://localhost:8080` no browser, deverá ver o número de versã
 
 ![Captura de ecrã da aplicação de exemplo composta no browser][base-update-01]
 
-Para parar e remover o recipiente, execute o seguinte comando:
+Para parar e remover o recipiente, executar o seguinte comando:
 
 ```bash
 docker stop myapp
@@ -217,13 +217,13 @@ Navegue para http://localhost:8081 no browser, deverá ver o número de versão 
 
 O que é importante ter em atenção é que atualizou a imagem de **base** com um novo número de versão, mas a imagem da **aplicação** da última compilação apresenta a nova versão. O ACR Tasks captou a alteração para a imagem de base e recompilou automaticamente a imagem da aplicação.
 
-Para parar e remover o recipiente, execute o seguinte comando:
+Para parar e remover o recipiente, executar o seguinte comando:
 
 ```bash
 docker stop updatedapp
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a utilizar uma tarefa para acionar automaticamente compilações da imagem de contentor quando a imagem de base é atualizada. Agora, passe para o próximo tutorial para aprender a desencadear tarefas num horário definido.
 
