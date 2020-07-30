@@ -4,15 +4,15 @@ description: Saiba como pedir a propriedade da faturação das subscrições do 
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 06/12/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: bbc4ed254d0b193d7cf328b95fc9dffbfcced380
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 44fb7a8a93569b2591150a99d39fcb3bac0134c0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84753432"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290788"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>Obter a propriedade da faturação das subscrições do Azure de outras contas
 

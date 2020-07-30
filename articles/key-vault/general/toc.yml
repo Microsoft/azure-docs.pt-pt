@@ -67,7 +67,9 @@
     - name: Eliminar de forma recuperável
       items:
         - name: Eliminação recuperável do Azure Key Vault
-          href: overview-soft-delete.md
+          href: soft-delete-overview.md
+        - name: Eliminação recuperável ativada por predefinição
+          href: soft-delete-change.md
     - name: 'Autenticação, Pedidos e Respostas'
       href: authentication-requests-and-responses.md
     - name: Diretrizes de limitação do Azure Key Vault

@@ -66,6 +66,8 @@
           href: how-to-create-azure-function.md
         - name: Consultar o grafo duplo
           href: how-to-query-graph.md
+        - name: Ver métricas no Azure Monitor
+          href: how-to-view-metrics.md
     - name: Ligar entrada
       items:
         - name: Ingerir telemetria do Hub IoT
@@ -80,6 +82,8 @@
           href: how-to-integrate-time-series-insights.md
     - name: Resolução de problemas
       items:
+        - name: Ativar registos de diagnóstico
+          href: troubleshoot-diagnostics.md
         - name: Problemas conhecidos
           href: troubleshoot-known-issues.md
         - name: Resolução do problema
