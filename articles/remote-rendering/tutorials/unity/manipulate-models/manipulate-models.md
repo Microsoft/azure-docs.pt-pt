@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 182ceca11d6e9b9bbebcf2911de1783cef43dd1a
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 4928938c38df8a1ed0f1e31c73e755a4f7f6c371
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207333"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87367635"
 ---
 # <a name="tutorial-manipulating-models"></a>Tutorial: Manipular modelos
 
@@ -185,7 +185,7 @@ O **AppMenu** tem um sub menu **Model Tools** que implementa um controlador de v
 
 1. Segure o clique esquerdo e arraste o modelo para movê-lo.
 
-Deve ver o conteúdo prestado remotamente mover-se junto com a caixa de delimitação. Pode notar algum atraso ou desfasamento entre a caixa de delimitação do conteúdo remoto. Este atraso dependerá da sua latência na internet e largura de banda.
+Deve ver o conteúdo prestado remotamente mover-se junto com a caixa de delimitação. Pode notar algum atraso ou desfasamento entre a caixa de delimitação e o conteúdo remoto. Este atraso dependerá da sua latência na internet e largura de banda.
 
 ## <a name="ray-cast-and-spatial-queries-of-remote-models"></a>Ray elenco e consultas espaciais de modelos remotos
 
@@ -385,7 +385,7 @@ O mesmo processo pode ser feito programáticamente e é o primeiro passo para mo
 
 Criar um caso local e torná-lo automaticamente sincronizado é o primeiro passo na manipulação de subinsícopas. As mesmas técnicas que usamos para manipular o modelo como um todo também podem ser usadas nas sub-entidades. Por exemplo, depois de criar uma instância local sincronizada de uma entidade, você poderia consultar os seus limites e adicionar manipuladores de manipulação para permitir que ele fosse movido pelos raios de mão do utilizador.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora pode manipular e interagir com os seus modelos remotamente renderizados! No próximo tutorial, cobriremos materiais modificados, alterando a iluminação e aplicando efeitos em modelos renderizados remotamente.
 
