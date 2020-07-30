@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2b01d88a097b8b05188242109c27c696be179eb5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9b9a7a5b3d92833a0f24f6bc646b19110dcfd66a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282233"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386083"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Como utilizar a eliminação de forma recuperável do Key Vault com o PowerShell
 
@@ -285,5 +285,5 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 
 ## <a name="other-resources"></a>Outros recursos
 
-- Para obter uma visão geral da função de eliminação suave do Key Vault, consulte [a visão geral do Azure Key Vault soft-delete](overview-soft-delete.md)).
+- Para obter uma visão geral da função de eliminação suave do Key Vault, consulte [a visão geral do Azure Key Vault soft-delete](soft-delete-overview.md)).
 - Para uma visão geral da utilização do Cofre da Chave Azure, veja [o que é o Cofre da Chave Azure?](overview.md)

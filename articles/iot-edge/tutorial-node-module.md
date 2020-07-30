@@ -8,19 +8,19 @@ ms.author: xshi
 ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc, tracking-python
-ms.openlocfilehash: 7e17da94ba124c3b20fdede93ad6b4716247c6ba
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.custom: mvc, tracking-python, devx-track-javascript
+ms.openlocfilehash: 01c7973efd2619a37ea77dfe4dad131b14144991
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610122"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420146"
 ---
-# <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-for-linux-devices"></a>Tutorial: Desenvolver e implementar um módulo Node.js IoT Edge para dispositivos Linux
+# <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-for-linux-devices"></a>Tutorial: Desenvolver e implementar um módulo IoT Edge Node.js para dispositivos Linux
 
-Utilize o Código do Estúdio Visual para desenvolver o código Node.js e implemente-o num dispositivo Linux que executa o Azure IoT Edge.
+Utilize o Código do Estúdio Visual para desenvolver Node.js código e implemente-o num dispositivo Linux que executa o Azure IoT Edge.
 
-Pode utilizar os módulos do IoT Edge para implementar código que aplica a sua lógica de negócio diretamente nos seus dispositivos IoT Edge. Este tutorial explica-lhe como criar e implementar um módulo do IoT Edge que filtra dados de sensores. Vai utilizar o dispositivo IoT Edge simulado que criou nos inícios rápidos. Neste tutorial, vai aprender a:
+Pode utilizar os módulos do IoT Edge para implementar código que aplica a sua lógica de negócio diretamente nos seus dispositivos IoT Edge. Este tutorial explica-lhe como criar e implementar um módulo do IoT Edge que filtra dados de sensores. Vai utilizar o dispositivo IoT Edge simulado que criou nos inícios rápidos. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -35,14 +35,14 @@ O módulo do IoT Edge que criou neste tutorial filtra os dados de temperatura ge
 
 ## <a name="solution-scope"></a>Âmbito de solução
 
-Este tutorial demonstra como desenvolver um módulo em **Node.js** usando **o Código do Estúdio Visual,** e como implantá-lo num dispositivo **Linux**. O IoT Edge não suporta módulos Node.js para dispositivos Windows.
+Este tutorial demonstra como desenvolver um módulo em **Node.js** usando **o Código do Estúdio Visual,** e como implantá-lo num **dispositivo Linux**. O IoT Edge não suporta Node.js módulos para dispositivos Windows.
 
 Utilize a seguinte tabela para compreender as suas opções de desenvolvimento e implantação de módulos Node.js:
 
 | Node.js | Visual Studio Code | Estúdio Visual 2017/2019 |
 | - | ------------------ | ------------------ |
-| **Linux AMD64** | ![Utilize o Código VS para módulos Node.js no Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
-| **Linux ARM32** | ![Utilize o Código VS para módulos Node.js no Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
+| **Linux AMD64** | ![Utilize o Código VS para Node.js módulos no Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
+| **Linux ARM32** | ![Utilize o Código VS para Node.js módulos no Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -56,7 +56,7 @@ Antes de iniciar este tutorial, deveria ter passado pelo tutorial anterior para 
 
 Para desenvolver um módulo IoT Edge em Node.js, instale os seguintes pré-requisitos adicionais na sua máquina de desenvolvimento:
 
-* [Nó.js e npm](https://nodejs.org). O pacote npm é distribuído com o Node.js, o que significa que quando transfere o Node.js, obtém automaticamente o npm instalado no seu computador.
+* [Node.js e npm.](https://nodejs.org) O pacote npm é distribuído com o Node.js, o que significa que quando transfere o Node.js, obtém automaticamente o npm instalado no seu computador.
 
 ## <a name="create-a-module-project"></a>Criar um projeto de módulo
 
@@ -84,7 +84,7 @@ Utilize o **npm** para criar um modelo de solução de Node.js que possa servir 
    | ----- | ----- |
    | Selecionar pasta | Escolha a localização no computador de desenvolvimento na qual o VS Code vai criar os ficheiros da solução. |
    | Indicar um nome para a solução | Introduza um nome descritivo para a sua solução ou aceite a **solução edges padrão**. |
-   | Selecionar modelo de módulo | Escolha **o Módulo Node.js**. |
+   | Selecionar modelo de módulo | Escolha **Node.js Módulo.** |
    | Indicar um nome para o módulo | Atribua o nome **NodeModule** ao módulo. |
    | Indicar o repositório de imagens do Docker para o módulo | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. A sua imagem de contentor está pré-apovoada do nome que forneceu no último passo. Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. Pode obter o servidor de início de sessão na página Overview (Descrição Geral) do registo de contentor no portal do Azure. <br><br>O repositório de imagem final parece \<registry name\> .azurecr.io/nodemodule. |
 
@@ -165,7 +165,7 @@ Cada modelo vem com o código de amostra incluído, que recolhe dados simulados 
 
 6. Guarde o ficheiro app.js.
 
-7. No explorador de código VS, abra o ficheiro **deployment.template.json** no seu espaço de trabalho de solução IoT Edge.
+7. No explorador de código VS, abra o **deployment.template.jsno** ficheiro no seu espaço de trabalho de solução IoT Edge.
 
 8. Adicione o módulo duplo NodeModule ao manifesto de implementação. Insira o seguinte conteúdo JSON na parte inferior da secção `moduleContent`, após o módulo duplo `$edgeHub`:
 
@@ -195,13 +195,13 @@ Na secção anterior, criou uma solução IoT Edge e adicionou código ao NodeMo
 
    Pode receber um aviso de segurança recomendando a utilização de `--password-stdin` . Embora essa melhor prática seja recomendada para cenários de produção, está fora do âmbito deste tutorial. Para mais informações, consulte a referência de login do [estivador.](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)
 
-1. No explorador de código VS, clique com o botão direito no ficheiro **implementação.template.json** e selecione **a solução Build and Push IoT Edge**.
+1. No explorador de código VS, clique com o botão direito **no ficheirodeployment.template.js** e selecione a **solução Build and Push IoT Edge**.
 
    O comando de construção e pressão inicia três operações. Em primeiro lugar, cria uma nova pasta na solução chamada **config** que detém o manifesto de implantação completo, construído a partir de informações no modelo de implementação e outros ficheiros de solução. Em segundo lugar, funciona `docker build` para construir a imagem do contentor com base no arquivo apropriado para a arquitetura do seu alvo. Em seguida, corre `docker push` para empurrar o repositório de imagem para o seu registo de contentores.
 
 ## <a name="deploy-modules-to-device"></a>Implementar módulos para dispositivo
 
-Utilize o explorador visual Studio Code e a extensão Azure IoT Tools para implantar o projeto do módulo no seu dispositivo IoT Edge. Já tem um manifesto de implantação preparado para o seu cenário, o ficheiro **deployment.json** na pasta config. Agora tudo o que precisa de fazer é selecionar um dispositivo para receber a implementação.
+Utilize o explorador visual Studio Code e a extensão Azure IoT Tools para implantar o projeto do módulo no seu dispositivo IoT Edge. Já tem um manifesto de implantação preparado para o seu cenário, o **deployment.jsficheiro na** pasta config. Agora tudo o que precisa de fazer é selecionar um dispositivo para receber a implementação.
 
 Certifique-se de que o seu dispositivo IoT Edge está a funcionar.
 
@@ -239,7 +239,7 @@ Usamos o módulo NodeModule twin no manifesto de implantação para definir o li
 
 6. Monitorize as mensagens de entrada de dispositivo para nuvem. Deve ver as mensagens paradas até que o novo limiar de temperatura seja atingido.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se planeia avançar para o próximo artigo recomendado, pode manter os recursos e as configurações que criou e reutilizá-los. Também pode continuar a utilizar o mesmo dispositivo IoT Edge como um dispositivo de teste.
 

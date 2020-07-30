@@ -8,12 +8,13 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: 07579cf22738e195e3e4ae7a2aa18ffeb885bbe2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 47e175a47d3548962f63e283c80abe8333e9ecc4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82233269"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421625"
 ---
 # <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-starter"></a>Implementar Node.js aplicações alimentadas pela Azure Cosmos DB com DevOps Starter
 
@@ -149,11 +150,11 @@ Está agora pronto para colaborar com uma equipa na sua aplicação, utilizando 
 
      Após alguns segundos, uma construção começa em Azure DevOps e um lançamento executa para implementar as alterações. Monitorize o estado de construção no painel de partidas de DevOps ou no navegador com a sua organização Azure DevOps.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Elimine os recursos relacionados que criou quando já não precisa deles. Utilize a funcionalidade **Eliminar** no painel de arranque de devOps.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode modificar estes pipelines de compilação e de lançamento para satisfazer as necessidades da sua equipa. Também pode utilizar este padrão de CI/CD como modelo para outros pipelines. Neste tutorial, ficou a saber como:
 
@@ -164,7 +165,7 @@ Pode modificar estes pipelines de compilação e de lançamento para satisfazer 
 > * Examinar o pipeline de CI
 > * Examinar o pipeline de CD
 > * Cometa alterações no Git e desloque-as automaticamente para a Azure
-> * Limpar recursos
+> * Limpar os recursos
 
 Consulte [o seu pipeline de implantação contínua em várias fases (CD)](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) para obter mais informações e próximos passos.
 

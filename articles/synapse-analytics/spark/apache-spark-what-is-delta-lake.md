@@ -9,16 +9,18 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 244cdf5329e26fc7d928998b734a539f086051ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 374b8bb094a93c6c608d6bf95d2b074f661c4a6a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193384"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87384740"
 ---
-# <a name="what-is-delta-lake"></a>O que é Delta Lake?
+# <a name="what-is-delta-lake"></a>O que é Delta Lake
 
 A Azure Synapse Analytics é compatível com o Lago Delta da Fundação Linux. Delta Lake é uma camada de armazenamento de código aberto que traz transações acid (atomicidade, consistência, isolamento e durabilidade) para Apache Spark e grandes cargas de trabalho de dados.
+
+A versão atual do Delta Lake incluída com a Azure Synapse conta com suporte linguístico para Scala, PySpark e .NET. Existem links na parte inferior da página para exemplos e documentação mais detalhados.
 
 ## <a name="key-features"></a>Principais funcionalidades
 
@@ -32,12 +34,12 @@ A Azure Synapse Analytics é compatível com o Lago Delta da Fundação Linux. D
 | **Aplicação de Schema** | A aplicação do Schema ajuda a garantir que os tipos de dados estão corretos e as colunas necessárias estão presentes, evitando que os dados maus causem inconsistências de dados. Para mais informações, consulte [Mergulhar no Lago Delta: Schema Enforcement & Evolution](https://databricks.com/blog/2019/09/24/diving-into-delta-lake-schema-enforcement-evolution.html) |
 | **Evolução do Schema** | O Delta Lake permite-lhe fazer alterações num esquema de mesa que pode ser aplicado automaticamente, sem ter de escrever DDL de migração. Para mais informações, consulte [Mergulhar no Lago Delta: Schema Enforcement & Evolution](https://databricks.com/blog/2019/09/24/diving-into-delta-lake-schema-enforcement-evolution.html) |
 | **Histórico de Auditoria** | Registos de registos de transações da Delta Lake registam detalhes sobre todas as alterações feitas aos dados que fornecem um rasto completo de auditoria das alterações. |
-| **Atualizações e Eliminações** | Delta Lake suporta ApIs Scala / Java / Python e SQL para uma variedade de funcionalidades. O suporte para a fusão, atualização e eliminação de operações ajuda-o a cumprir os requisitos de conformidade. Para obter mais informações, consulte [anunciando o Lançamento delta Lake 0.4.0](https://delta.io/news/delta-lake-0-4-0-released/) e [simples, upserts e deletes em Tabelas delta lake usando APIs Python](https://databricks.com/blog/2019/10/03/simple-reliable-upserts-and-deletes-on-delta-lake-tables-using-python-apis.html), que inclui snippets de código para fusão, atualização e apagar comandos DML. |
+| **Atualizações e Eliminações** | Delta Lake suporta ApIs Scala / Java / Python e SQL para uma variedade de funcionalidades. O suporte para a fusão, atualização e eliminação de operações ajuda-o a cumprir os requisitos de conformidade. Para mais informações, consulte [anunciando o Lançamento delta Lake 0.6.1](https://delta.io/news/delta-lake-0-6-1-released/), [anunciando o Lançamento delta Lake 0.7](https://delta.io/news/delta-lake-0-7-0-released/) e [Simples, Upserts e Deletes em Delta Lake Tables usando APIs Python,](https://databricks.com/blog/2019/10/03/simple-reliable-upserts-and-deletes-on-delta-lake-tables-using-python-apis.html)que inclui snippets de código para fusão, atualização e eliminação de comandos DML. |
 | **100% Compatível com Apache Spark API** | Os desenvolvedores podem usar o Delta Lake com os seus oleodutos de dados existentes com alterações mínimas, uma vez que é totalmente compatível com as implementações de Spark existentes. |
 
 Para documentação completa, consulte a Página de [Documentação do Lago Delta](https://docs.delta.io/latest/delta-intro.html)
 
-Para mais informações, consulte [o Projeto Delta Lake.](https://lfprojects.org)
+Para mais informações, consulte [o Projeto Delta Lake.](https://github.com/delta-io/delta)
 
 ## <a name="next-steps"></a>Próximos passos
 

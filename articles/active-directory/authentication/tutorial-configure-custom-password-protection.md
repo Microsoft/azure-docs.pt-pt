@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 642082b3fe23e0d007e21409062fe8e777728cc3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a5b2f3a61e2167067bd6e61ee2a36bb1d22950d8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518544"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419670"
 ---
 # <a name="tutorial-configure-custom-banned-passwords-for-azure-active-directory-password-protection"></a>Tutorial: Configurar senhas personalizadas proibidas para proteção de senha do Azure Ative Directory
 
@@ -32,7 +32,7 @@ Neste tutorial, ficará a saber como:
 
 Para completar este tutorial, precisa dos seguintes recursos e privilégios:
 
-* Um inquilino do Azure AD em funcionamento com, pelo menos, uma licença de avaliação ativada.
+* Um inquilino Azure AD em funcionamento com pelo menos um Azure AD Premium P1 ou uma licença de julgamento habilitada.
     * Se necessário, [crie um de graça.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Uma conta com privilégios *de administrador global.*
 * Um utilizador não administrador com uma palavra-passe que conhece, como *testuser.* Você testa um evento de mudança de senha usando esta conta neste tutorial.
@@ -77,7 +77,7 @@ Para ativar a lista de senhas proibidas personalizadas e adicionar entradas à s
 
     Especifique as suas próprias palavras-passe personalizadas para proibir, como mostrado no exemplo seguinte
 
-    [![](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords-cropped.png "Modify the custom banned password list under Authentication Methods in the Azure portal")](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords.png#lightbox)
+    [![Modifique a lista de palavras-passe proibidas sob métodos de autenticação no portal ](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords-cropped.png) Azure](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords.png#lightbox)
 
 1. Deixe a opção de Ativar a **proteção de palavras-passe no Windows Server Ative Directory** para *o Nº*.
 1. Para ativar as palavras-passe proibidas personalizadas e as suas entradas, **selecione Guardar**.
@@ -104,7 +104,7 @@ Para ver a lista de senhas proibidas personalizadas em ação, tente alterar a p
 
     ![Mensagem de erro exibida quando tenta usar uma palavra-passe que faz parte da lista de senhas proibidas personalizadas](media/tutorial-configure-custom-password-protection/password-change-error.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não pretender utilizar a lista de palavras-passe proibidas personalizadas que configura como parte deste tutorial, complete os seguintes passos:
 

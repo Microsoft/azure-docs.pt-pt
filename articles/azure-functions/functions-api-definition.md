@@ -1,16 +1,14 @@
 ---
 title: Metadados OpenAPI em Funções Azure
 description: Visão geral do suporte do OpenAPI em Funções Azure
-author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 03/23/2017
-ms.author: alkarche
-ms.openlocfilehash: 59425456d6d8f4dc426a20deef7b866b3eaa1df4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 499d4f685e3802fcc37c8a3050ae367207f192d2
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083073"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385828"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Suporte de metadados OpenAPI 2.0 em Funções Azure (pré-visualização)
 O suporte de metadados OpenAPI 2.0 (anteriormente Swagger) em Funções Azure é uma funcionalidade de pré-visualização que pode utilizar para escrever uma definição OpenAPI 2.0 dentro de uma aplicação de função. Em seguida, pode hospedar esse ficheiro utilizando a aplicação de função.
@@ -75,7 +73,7 @@ A tabela seguinte representa as definições do portal Azure e os dados correspo
 
 Agora, as alterações ao swagger.jsno seu repositório são hospedadas pela sua aplicação de função no URL de definição API e chave que observou no passo 1.c.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Começar tutorial.](./functions-openapi-definition.md) Experimente a nossa passagem para ver uma definição OpenAPI em ação.
 * [Funções Azure GitHub repositório](https://github.com/Azure/Azure-Functions/). Consulte o repositório de funções para nos dar feedback sobre a pré-visualização do suporte de definição API. Faça um problema do GitHub para tudo o que quiser ver atualizado.
 * [Referência do desenvolvedor de Funções Azure](functions-reference.md). Saiba mais sobre funções de codificação e definição de gatilhos e encadernações.

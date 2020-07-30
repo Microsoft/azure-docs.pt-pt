@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: 552f974b99b9430d82596a5a25265bb916cb4e25
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.custom: devx-track-javascript
+ms.openlocfilehash: f2182dcfd3db83580dfbec9b4f09479650dd62ca
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262196"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420639"
 ---
 # <a name="tutorial-order-search-results-using-the-net-sdk"></a>Tutorial: Encomende os resultados da pesquisa utilizando o .NET SDK
 
@@ -21,7 +22,7 @@ Até este ponto na nossa série de tutoriais, os resultados são devolvidos e ap
 
 Para comparar facilmente os resultados devolvidos, este projeto baseia-se no projeto de scrolling infinito criado no [Tutorial C#: Pagination de resultados de pesquisa - Tutorial de Pesquisa Cognitiva Azure.](tutorial-csharp-paging.md)
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Resultados da encomenda com base numa propriedade
 > * Resultados da encomenda com base em múltiplas propriedades
@@ -970,7 +971,7 @@ Considere os seguintes takeaways deste projeto:
 * É natural que alguns resultados sejam encomendados por ordem ascendente (por exemplo, distância de um ponto), e alguns em ordem descendente (por exemplo, classificação do hóspede).
 * Os perfis de pontuação podem ser definidos quando as comparações numéricas não estão disponíveis, ou não são inteligentes o suficiente, para um conjunto de dados. Marcar cada resultado ajudará a encomendar e mostrar os resultados de forma inteligente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Você completou esta série de tutoriais C# - você deveria ter adquirido conhecimento valioso das APIs de Pesquisa Cognitiva Azure.
 

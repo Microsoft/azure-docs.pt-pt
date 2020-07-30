@@ -10,13 +10,13 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.custom: tracking-python
-ms.openlocfilehash: b70ac801765461401a7bfa1d2f251fb41176dccb
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.custom: tracking-python, devx-track-javascript
+ms.openlocfilehash: b0a8a55b1e62c30ec7384b19b3e963054fee432b
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232768"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407290"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Tutorial: Construir uma app Flask com Serviços Cognitivos Azure
 
@@ -960,7 +960,7 @@ Navegue para o endereço do servidor fornecido. Digite texto na área de entrada
 
 O código-fonte deste projeto está disponível no [GitHub.](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Flask-App-Tutorial)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Referência do tradutor](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
 * [Text Analytics API reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) (Referência à API de Análise de Texto)

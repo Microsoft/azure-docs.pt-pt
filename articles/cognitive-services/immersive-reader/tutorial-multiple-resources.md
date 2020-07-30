@@ -9,16 +9,17 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: skamal
-ms.openlocfilehash: d4fa61f8290f3bf9e2f065ec841fa94d8ecaaac1
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 214d6d614fcc54a532766854f2e72ac45dbfa8ad
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267210"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407205"
 ---
 # <a name="tutorial-integrate-multiple-immersive-reader-resources"></a>Tutorial: Integrar múltiplos recursos imersivos do leitor
 
-Na [visão geral,](./overview.md)aprendeu sobre o que é o Leitor Imersivo e como implementa técnicas comprovadas para melhorar a compreensão da leitura para os alunos de línguas, leitores emergentes e alunos com diferenças de aprendizagem. No início rápido do [Node.js,](./quickstarts/client-libraries.md?pivots=programming-language-nodejs)aprendeu a utilizar o Leitor Imersivo com um único recurso. Este tutorial abrange como integrar múltiplos recursos imersivos do Leitor na mesma aplicação. Neste tutorial, ficará a saber como:
+Na [visão geral,](./overview.md)aprendeu sobre o que é o Leitor Imersivo e como implementa técnicas comprovadas para melhorar a compreensão da leitura para os alunos de línguas, leitores emergentes e alunos com diferenças de aprendizagem. No [Node.js quickstart,](./quickstarts/client-libraries.md?pivots=programming-language-nodejs)aprendeu a usar o Leitor Imersivo com um único recurso. Este tutorial abrange como integrar múltiplos recursos imersivos do Leitor na mesma aplicação. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar vários recursos imersivos do Leitor sob um grupo de recursos existente
@@ -78,7 +79,7 @@ SUBDOMAIN_EUS={YOUR_EASTUS_SUBDOMAIN}
 
 Certifique-se de que não compromete este ficheiro em controlo de fontes, pois contém segredos que não devem ser tornados públicos.
 
-Em seguida, vamos modificar o ficheiro _rotas\index.js_ que criamos para suportar os nossos múltiplos recursos. Substitua o seu conteúdo pelo seguinte código.
+Em seguida, vamos modificar o ficheiro _routes\index.js_ que criamos para suportar os nossos múltiplos recursos. Substitua o seu conteúdo pelo seguinte código.
 
 Como antes, este código cria um ponto final da API que adquire um token de autenticação AD Azure usando a sua senha principal de serviço. Desta vez, permite ao utilizador especificar uma localização de recursos e passá-la como parâmetro de consulta. Em seguida, devolve um objeto que contém o símbolo e o subdomínio correspondente.
 
@@ -260,7 +261,7 @@ O ponto final da API **getimmersivereaderlaunchparams** deve ser protegido por t
 
 4. Abra o seu navegador e navegue para `http://localhost:3000` . Deve ver o conteúdo acima na página. Clique no botão **EastUS Immersive Reader** ou no botão **WestUS Immersive Reader** para lançar o Leitor Imersivo utilizando esses respetivos recursos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Explore o [SDK do leitor imersivo](https://github.com/microsoft/immersive-reader-sdk) e a [referência SDK do leitor imersivo](./reference.md)
 * Ver amostras de código no [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/advanced-csharp)
