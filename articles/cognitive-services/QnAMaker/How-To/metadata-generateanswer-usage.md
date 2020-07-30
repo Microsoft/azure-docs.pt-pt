@@ -8,12 +8,13 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 863143cb2ec1085bf03b070c225f2be5e8e4393d
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 7120f95b8b61fc08759f4d15061ec530849dfc05
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126181"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406525"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenha uma resposta com a API generateAnswer e metadados
 
@@ -276,7 +277,7 @@ Pode pesquisar através do kb publicado, utilizando `isTest=false` ou no kb de t
 |404|KB não existe|
 |410|Esta API é depreciada e já não está disponível|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 A página **publicar** também fornece informações para [gerar uma resposta](../Quickstarts/get-answer-from-knowledge-base-using-url-tool.md) com o Carteiro ou cURL.
 

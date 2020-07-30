@@ -3,12 +3,12 @@ title: Como proteger a sua hierarquia de recursos - Azure Governance
 description: Saiba como proteger a sua hierarquia de recursos com definições de hierarquia que incluem a definição do grupo de gestão padrão.
 ms.date: 05/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2f8d3d7ff85552fe18a49137450aefe91d0d02c9
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: cdaad59d136e89c595a6a42a9760c73523a977c0
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366777"
+ms.locfileid: "87422832"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Como proteger a sua hierarquia de recursos
 
@@ -29,7 +29,7 @@ Estas operações apenas permitem que um utilizador leia e atualize as definiç�
 
 Por padrão, uma nova subscrição adicionada dentro de um inquilino é adicionada como membro do grupo de gestão de raiz. Se as atribuições políticas, o controlo de acesso baseado em funções (RBAC) e outras construções de governação forem atribuídas ao grupo de gestão de raízes, elas efetuam imediatamente estas novas subscrições. Por esta razão, muitas organizações não aplicam estas construções no grupo de gestão de raízes, embora esse seja o local desejado para as atribuir. Noutros casos, é desejado um conjunto mais restritivo de controlos para novas subscrições, mas não deve ser atribuído a todas as subscrições. Esta definição suporta ambos os casos de utilização.
 
-Ao permitir que o grupo de gestão padrão para novas subscrições seja definido, as construções de governação a nível da organização podem ser aplicadas no grupo de gestão de raiz, e um grupo de gestão separado com atribuições políticas ou atribuições de RBAC mais adequadas a uma nova subscrição pode ser definido.
+Ao permitir que o grupo de gestão padrão para novas subscrições seja definido, as construções de governação a nível da organização podem ser aplicadas no grupo de gestão de raiz, e um grupo de gestão separado com atribuições políticas ou atribuições de funções Azure mais adequadas a uma nova subscrição pode ser definido.
 
 Para configurar esta definição, o ponto final da API de [Definições de Hierarquia](/rest/api/resources/hierarchysettings) REST é chamado. Para tal, utilize o seguinte REST API URI e formato corporal. `{rootMgID}`Substitua-se pelo ID do seu grupo de gestão de raízes e `{defaultGroupID}` pelo ID do grupo de gestão para se tornar o grupo de gestão padrão:
 
@@ -75,7 +75,7 @@ Para configurar esta definição, o ponto final da API de [Definições de Hiera
 
 Para desligar a regulação, utilize o mesmo ponto final e defina **o requerer a Autenticação para oGroupCreation** a um valor de **falso**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os grupos de gestão, veja:
 

@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.author: erhopf
-ms.custom: tracking-python
+ms.custom: tracking-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: c3c3e2badfb9fe1678f09262e02809e9fa06560e
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 366e914b6d9084d1076a7b1cb6a03b84afb11ceb
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147180"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87404634"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary"></a>Quickstart: Procure palavras com dicionário bilingue
 

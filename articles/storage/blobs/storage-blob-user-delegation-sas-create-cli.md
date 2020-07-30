@@ -10,12 +10,12 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: d6fdf25087ec376ec1bc9173aae16f357795372e
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: edfdbef2dd0cbfe264ae6a52741413ca28d70864
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87130924"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424465"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli"></a>Criar uma delegação de utilizador SAS para um recipiente ou bolha com o Azure CLI
 
@@ -129,9 +129,9 @@ az storage account revoke-delegation-keys \
 ```
 
 > [!IMPORTANT]
-> Tanto a chave da delegação de utilizadores como as atribuições de funções RBAC são armazenadas pela Azure Storage, pelo que pode haver um atraso entre quando inicia o processo de revogação e quando uma delegação de utilizadores existente SAS se torna inválida.
+> Tanto a chave da delegação do utilizador como as atribuições de funções Azure são armazenadas pela Azure Storage, pelo que pode haver um atraso entre quando inicia o processo de revogação e quando uma delegação de utilizador existente SAS se torna inválida.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar uma delegação de utilizadores SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas)
 - [Obtenha a operação chave da delegação de utilizadores](/rest/api/storageservices/get-user-delegation-key)

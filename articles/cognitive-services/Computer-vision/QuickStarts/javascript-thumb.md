@@ -10,13 +10,13 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 03/26/2020
 ms.author: pafarley
-ms.custom: seodec18
-ms.openlocfilehash: 94e8901a0526c0e771ad570f4271937a87e83aea
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.custom: seodec18, devx-track-javascript
+ms.openlocfilehash: 989d04bb7727b90d507f82e5fdae78feefd8e444
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84986780"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407885"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-javascript"></a>Quickstart: Gere uma miniatura utilizando a API e o JavaScript da Visão de Computador
 
@@ -161,7 +161,7 @@ Image for thumbnail:
 
 É devolvida uma resposta com êxito como dados binários, que representa os dados da imagem da miniatura. Se o pedido for bem-sucedido, a miniatura é gerada a partir dos dados binários na resposta e é apresentada na janela do browser. Se o pedido falhar, a resposta é apresentada na janela da consola. A resposta do pedido falhado contém um código de erro e uma mensagem para ajudar a determinar o que correu mal.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Explore uma aplicação do JavaScript que utiliza a Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR); criar miniaturas com recorte inteligente; além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 

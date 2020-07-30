@@ -1,21 +1,21 @@
 ---
-title: IDs de cadeia de localização - Diretório Ativo Azure B2C / Microsoft Docs
-description: Especifique os IDs para uma definição de conteúdo com um Id de api.signuporsignin numa política personalizada no Diretório Ativo Azure B2C.
+title: IDs de cadeia de localização - Azure Ative Directory B2C / Microsoft Docs
+description: Especifique os IDs para uma definição de conteúdo com um ID de api.signuporsignin em uma política personalizada em Azure Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/09/2020
+ms.date: 07/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3abf38a4b1ea798c39150454ac33f73ea588b782
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 611d676f5f588ff32f981692456160e269642a43
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79264378"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428119"
 ---
 # <a name="localization-string-ids"></a>IDs de cadeia de localização
 
@@ -23,40 +23,40 @@ ms.locfileid: "79264378"
 
 O elemento **Localização** permite-lhe suportar vários locais ou idiomas na política para as viagens do utilizador. Este artigo fornece a lista de IDs de localização que pode usar na sua política. Para se familiarizar com a localização da UI, consulte [a Localização.](localization.md)
 
-## <a name="sign-up-or-sign-in-page-elements"></a>Elementos de página de inscrição ou de inscrição
+## <a name="sign-up-or-sign-in-page-elements"></a>Elementos de página de inscrição ou inscrição
 
-Os seguintes Ids são utilizados para uma definição de conteúdo com uma identificação de `api.signuporsignin`.
+Os iDs seguintes são utilizados para uma definição de conteúdo com um ID de `api.signuporsignin` .
 
 | ID | Valor predefinido |
 | -- | ------------- |
-| **local_intro_email** | Inscreva-se na sua conta existente |
+| **local_intro_email** | Inscreva-se com a sua conta existente |
 | **logonIdentifier_email** | Endereço de E-mail |
 | **requiredField_email** | Por favor, insira o seu e-mail |
 | **invalid_email** | Por favor, insira um endereço de e-mail válido |
-| **email_pattern** | ^[a-zA-Z0-9.! #$%&'' *+/=?^_\`{\|}~-]+@[a-zA-Z0-9-](?:\\.[ a-zA-Z0-9-]+)* $ |
+| **email_pattern** | ^[a-zA-Z0-9.! #$%&''*+/=?^_ \` \| {____+@[a-zA-Z0-9-]++.:: \\ .[ a-zA-Z0-9-]+)*$ |
 | **local_intro_username** | Inscreva-se com o seu nome de utilizador |
 | **logonIdentifier_username** | Nome de utilizador |
 | **requiredField_username** | Por favor, insira o seu nome de utilizador |
-| **senha** | Palavra-passe |
+| **palavra-passe** | Palavra-passe |
 | **requiredField_password** | Por favor, insira a sua senha |
-| **invalid_password** | A palavra-passe que inseriu não está no formato esperado. |
-| **forgotpassword_link** | Esqueceu a sua senha? |
-| **createaccount_intro** | Não tem uma conta? |
+| **invalid_password** | A palavra-passe que introduziu não está no formato esperado. |
+| **forgotpassword_link** | Forgot your password? |
+| **createaccount_intro** | Não tem conta? |
 | **createaccount_link** | Inscreva-se já |
 | **divider_title** | OU |
 | **cancel_message** | O utilizador esqueceu-se da sua senha |
 | **button_signin** | Iniciar sessão |
 | **social_intro** | Inscreva-se na sua conta social |
-  **remember_me** |Manter sessão iniciada|
-| **unknown_error** | Estamos a ter dificuldades em contratá-lo. Por favor, tente de novo mais tarde. |
+  **remember_me** |Manter a sessão iniciada|
+| **unknown_error** | Estamos com dificuldades em contratar-te. Tente novamente mais tarde. |
 
-O exemplo seguinte mostra a utilização de alguns dos elementos da interface do utilizador na página de inscrição ou de inscrição:
+O exemplo a seguir mostra a utilização de alguns dos elementos da interface do utilizador na página de inscrição ou de inscrição:
 
-![Elementos UX de inscrição ou inscrição na página](./media/localization-string-ids/localization-susi.png)
+![Elementos UX de página de inscrição ou inscrição](./media/localization-string-ids/localization-susi.png)
 
-O ID dos fornecedores de identidade está configurado no elemento de viagem do utilizador **ClaimsExchange.** Para localizar o título do fornecedor de identidade, o **ElementType** está definido para `ClaimsProvider`, enquanto o **StringId** está definido para o ID do `ClaimsExchange`.
+O ID dos fornecedores de identidade está configurado no elemento de viagem do utilizador **ClaimsExchange.** Para localizar o título do fornecedor de identidade, o **ElementType** está definido para `ClaimsProvider` , enquanto o **StringId** é definido para o ID do `ClaimsExchange` .
 
-```XML
+```xml
 <OrchestrationStep Order="2" Type="ClaimsExchange">
   <Preconditions>
     <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
@@ -73,9 +73,9 @@ O ID dos fornecedores de identidade está configurado no elemento de viagem do u
 </OrchestrationStep>
 ```
 
-O exemplo seguinte localiza o fornecedor de identidade do Facebook para árabe:
+O exemplo a seguir coloca o fornecedor de identidade do Facebook em árabe:
 
-```XML
+```xml
 <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">فيس بوك</LocalizedString>
 ```
 
@@ -83,17 +83,17 @@ O exemplo seguinte localiza o fornecedor de identidade do Facebook para árabe:
 
 | ID | Valor predefinido |
 | -- | ------------- |
-| **UserMessageIfInvalidPassword** | A sua palavra-passe está incorreta. |
-| **UserMessageif ClaimsprincipalNão Existe** | Não conseguimos encontrar a sua conta. |
-| **UserMessageifOldPasswordUsed** | Parece que usaste uma senha antiga. |
-| **Mensagem padrão** | Nome de utilizador ou palavra-passe inválido. |
-| **UserMessageIfUserAccountDisabled** | A sua conta está trancada. Contacte a sua pessoa de apoio para desbloqueá-la e tente novamente. |
-| **UserMessageifUserAccount** | A sua conta está temporariamente bloqueada para evitar uma utilização não autorizada. Tente novamente mais tarde. |
+| **UserMessageIfInvalidPassword** | A sua palavra-passe está errada. |
+| **UserMessageIfClaimsPrincipalDoesNotExist** | Não conseguimos encontrar a sua conta. |
+| **UserMessageIfOldPasswordUsed** | Parece que usaste uma senha antiga. |
+| **Padrão Desmesagem** | Nome de utilizador ou senha inválido. |
+| **UserMessageIfUserAccountDisabled** | A sua conta está bloqueada. Contacte a sua pessoa de apoio para desbloqueá-la e tente novamente. |
+| **UserMessageIfUserAccountLocked** | A sua conta está temporariamente bloqueada para evitar uma utilização não autorizada. Tente novamente mais tarde. |
 | **AADRequestsThrottled** | Há muitos pedidos neste momento. Por favor, espere um pouco e tente de novo. |
 
-## <a name="sign-up-and-self-asserted-pages-user-interface-elements"></a>Elementos de interface de utilizador de páginas de inscrição e autoafirmadas
+## <a name="sign-up-and-self-asserted-pages-user-interface-elements"></a>Elementos de interface de utilizador de páginas de inscrição e autoafirmação
 
-Seguem-se as IDs para uma definição de conteúdo com identificação de `api.localaccountsignup` ou qualquer definição de conteúdo que comece com `api.selfasserted`, como `api.selfasserted.profileupdate` e `api.localaccountpasswordreset`.
+Seguem-se os IDs para uma definição de conteúdo com um ID ou qualquer definição de `api.localaccountsignup` conteúdo que comece `api.selfasserted` por, tais como . `api.selfasserted.profileupdate` `api.localaccountpasswordreset` .
 
 | ID | Valor predefinido |
 | -- | ------------- |
@@ -103,59 +103,59 @@ Seguem-se as IDs para uma definição de conteúdo com identificação de `api.l
 | **preloader_alt** | Aguarde |
 | **ver_but_send** | Enviar código de verificação |
 | **alert_yes** | Sim |
-| **error_fieldIncorrect** | Um ou mais campos são preenchidos incorretamente. Por favor, verifique as suas entradas e tente novamente. |
+| **error_fieldIncorrect** | Um ou mais campos são preenchidos incorretamente. Por favor, verifiquem as suas entradas e tentem novamente. |
 | **ano** | Ano |
-| **verifying_blurb** | Por favor, espere enquanto processamos a sua informação. |
+| **verifying_blurb** | Por favor, aguarde enquanto processamos a sua informação. |
 | **button_cancel** | Cancelar |
-| **ver_fail_no_retry** | Já fez muitas tentativas incorretas. Por favor, tente de novo mais tarde. |
+| **ver_fail_no_retry** | Fizeste muitas tentativas incorretas. Tente novamente mais tarde. |
 | **mês** | Mês |
 | **ver_success_msg** | Endereço de e-mail verificado. Agora pode continuar. |
 | **months** | Janeiro, fevereiro, março, abril, maio, junho, julho, agosto, setembro, outubro, novembro, dezembro |
 | **ver_fail_server** | Estamos com dificuldades em verificar o seu endereço de e-mail. Por favor, insira um endereço de e-mail válido e tente novamente. |
-| **error_requiredFieldMissing** | Falta um campo necessário. Por favor, preencha todos os campos necessários e tente novamente. |
+| **error_requiredFieldMissing** | Falta um campo necessário. Por favor preencha todos os campos necessários e tente novamente. |
 | **initial_intro** | Por favor, forneça os seguintes detalhes. |
 | **ver_but_resend** | Enviar novo código |
 | **button_continue** | Criar |
-| **error_passwordEntryMismatch** | Os campos de entrada de senhas não coincidem. Introduza a mesma senha em ambos os campos e tente novamente. |
+| **error_passwordEntryMismatch** | Os campos de entrada de senha não correspondem. Introduza a mesma palavra-passe em ambos os campos e tente novamente. |
 | **ver_incorrect_format** | Formato incorreto. |
 | **ver_but_edit** | Alterar e-mail |
 | **ver_but_verify** | Verificar código |
 | **alert_no** | Não |
 | **ver_info_msg** | O código de verificação foi enviado para a sua caixa de entrada. Por favor, copie-o para a caixa de entrada abaixo. |
 | **dia** | Dia |
-| **ver_fail_throttled** | Tem havido muitos pedidos para verificar este endereço de e-mail. Por favor, espere um pouco e tente de novo. |
+| **ver_fail_throttled** | Houve muitos pedidos para verificar este endereço de e-mail. Por favor, espere um pouco, e tente de novo. |
 | **helplink_text** | O que é isto? |
-| **ver_fail_retry** | O código está incorreto. Tente novamente. |
-| **alert_title** | Cancele a entrada dos seus dados |
+| **ver_fail_retry** | Este código está incorreto. Tente novamente. |
+| **alert_title** | Cancelar Insira os seus dados |
 | **required_field** | Esta informação é necessária. |
-| **alert_message** | Tem certeza de que quer cancelar a entrada dos seus dados? |
-| **ver_intro_msg** | A verificação é necessária. Por favor, clique no botão Enviar. |
+| **alert_message** | Tem a certeza de que pretende cancelar a introdução dos seus dados? |
+| **ver_intro_msg** | A verificação é necessária. Clique no botão Enviar por favor. |
 | **ver_input** | Código de verificação |
 
-### <a name="sign-up-and-self-asserted-pages-error-messages"></a>Mensagens de erro de páginas de inscrição e autoafirmadas
+### <a name="sign-up-and-self-asserted-pages-error-messages"></a>Inscrições e mensagens de erro de páginas autoafirmadas
 
 | ID | Valor predefinido |
 | -- | ------------- |
-| **UserMessageif Claims Principal AlreadyExists** | Já existe um utilizador com o ID especificado. Por favor, escolha outro. |
-| **UserMessageIfClaimNotVerified** | Reclamação não verificada: {0} |
-| **UserMessageIfIncorrectPattern** | Padrão incorreto para: {0} |
-| **UserMessageIfMissingRequiredElement** | Elemento necessário em falta: {0} |
-| **Erro de validação de mensagens de utilizador** | Erro na validação por: {0} |
-| **UserMessageIfInvalidInput** | {0} tem entrada inválida. |
-| **ServiçoThrottled** | Há muitos pedidos neste momento. Por favor, espere um pouco e tente de novo. |
+| **UserMessageIfClaimsPrincipalAlreadyExists** | Um utilizador com o ID especificado já existe. Por favor, escolha um diferente. |
+| **UserMessageIfClaimNotVerified** | Reclamação não verificada:{0} |
+| **UserMessageIfIncorrectPattern** | Padrão incorreto para:{0} |
+| **UserMessageIfMissingRequiredElement** | Elemento necessário em falta:{0} |
+| **UserMessageIfValidationError** | Erro de validação por:{0} |
+| **UserMessageIfInvalidInput** | {0}tem entrada inválida. |
+| **ServiceThrottled** | Há muitos pedidos neste momento. Por favor, espere um pouco e tente de novo. |
 
-O exemplo seguinte mostra a utilização de alguns dos elementos da interface do utilizador na página de inscrição:
+O exemplo a seguir mostra a utilização de alguns dos elementos da interface do utilizador na página de inscrição:
 
-![Página de inscrição com os nomes dos seus elementos ui rotulados](./media/localization-string-ids/localization-sign-up.png)
+![Página de inscrição com os nomes dos elementos de UI rotulados](./media/localization-string-ids/localization-sign-up.png)
 
-O exemplo seguinte mostra a utilização de alguns dos elementos da interface do utilizador na página de inscrição, depois de o utilizador clicar no botão código de verificação de envio:
+O exemplo a seguir mostra a utilização de alguns dos elementos de interface do utilizador na página de inscrição, depois de o utilizador clicar no botão de código de verificação de envio:
 
-![Elementos UX de verificação de e-mail de página de inscrição](./media/localization-string-ids/localization-email-verification.png)
+![Elementos UX de verificação de página de inscrição](./media/localization-string-ids/localization-email-verification.png)
 
 
-## <a name="phone-factor-authentication-page-user-interface-elements"></a>Elementos de interface de página de autenticação de fator de telefone
+## <a name="phone-factor-authentication-page-user-interface-elements"></a>Elementos de interface de utilizador de página de autenticação de fator de telefone
 
-Seguem-se as identidades para uma definição de conteúdo com identificação de `api.phonefactor`.
+Seguem-se os IDs para uma definição de conteúdo com um ID de `api.phonefactor` .
 
 | ID | Valor predefinido |
 | -- | ------------- |
@@ -164,62 +164,62 @@ Seguem-se as identidades para uma definição de conteúdo com identificação d
 | **cancel_message** | O utilizador cancelou a autenticação de vários fatores |
 | **text_button_send_second_code** | enviar um novo código |
 | **code_pattern** | \\d{6} |
-| **intro_mixed** | Temos o seguinte número registado para si. Podemos enviar um código via SMS ou telefone para o autenticar. |
-| **intro_mixed_p** | Temos os seguintes números registados para si. Escolha um número que podemos telefonar ou enviar um código via SMS para o autenticar. |
-| **button_verify_code** | Verificar código |
-| **requiredField_code** | Por favor, insira o código de verificação que recebeu |
-| **invalid_code** | Por favor, insira o código de 6 dígitos que recebeu |
+| **intro_mixed** | Temos o seguinte número registado para si. Podemos enviar um código via SMS ou telefone para autenticá-lo. |
+| **intro_mixed_p** | Temos os seguintes números registados para si. Escolha um número que possamos telefonar ou envie um código via SMS para autenticá-lo. |
+| **button_verify_code** | Verificar Código |
+| **requiredField_code** | Introduza o código de verificação que recebeu |
+| **invalid_code** | Introduza o código de 6 dígitos que recebeu |
 | **button_cancel** | Cancelar |
 | **local_number_input_placeholder_text** | Número de telefone |
-| **button_retry** | Repetir |
+| **button_retry** | Tentar novamente |
 | **alternative_text** | Não tenho o meu telemóvel. |
-| **intro_phone_p** | Temos os seguintes números registados para si. Escolha um número que podemos telefonar para o autenticar. |
-| **intro_phone** | Temos o seguinte número registado para si. Vamos telefonar para te autenticar. |
-| **enter_code_text_intro** | Insira o seu código de verificação abaixo, ou  |
-| **intro_entry_phone** | Insira um número abaixo que podemos telefonar para o autenticar. |
-| **intro_entry_sms** | Insira um número abaixo que podemos enviar um código via SMS para o autenticar. |
+| **intro_phone_p** | Temos os seguintes números registados para si. Escolha um número que podemos telefonar para autenticá-lo. |
+| **intro_phone** | Temos o seguinte número registado para si. Vamos telefonar para autenticá-lo. |
+| **enter_code_text_intro** | Introduza o seu código de verificação abaixo, ou  |
+| **intro_entry_phone** | Introduza um número abaixo que podemos telefonar para autenticá-lo. |
+| **intro_entry_sms** | Introduza um número abaixo que podemos enviar um código via SMS para autenticá-lo. |
 | **button_send_code** | Enviar Código |
-| **invalid_number** | Por favor, insira um número de telefone válido |
-| **intro_sms** | Temos o seguinte número registado para si. Enviaremos um código via SMS para o autenticar. |
-| **intro_entry_mixed** | Insira um número abaixo que podemos enviar um código via SMS ou telefone para o autenticar. |
-| **number_pattern** | ^\\+(?:[0-9][\\x20-]?){6,14}[0-9]$ |
-| **intro_sms_p** |Temos os seguintes números registados para si. Escolha um número que podemos enviar um código via SMS para o autenticar. |
+| **invalid_number** | Introduza um número de telefone válido |
+| **intro_sms** | Temos o seguinte número registado para si. Enviaremos um código via SMS para autenticá-lo. |
+| **intro_entry_mixed** | Introduza um número abaixo que podemos enviar um código via SMS ou telefone para autenticá-lo. |
+| **number_pattern** | ^\\+?:[0-9][x20-]?) \\ {6,14} [0-9]$ |
+| **intro_sms_p** |Temos os seguintes números registados para si. Escolha um número que possamos enviar um código via SMS para autenticá-lo. |
 | **requiredField_countryCode** | Por favor, selecione o seu código de país |
 | **requiredField_number** | Por favor, insira o seu número de telefone |
 | **country_code_input_placeholder_text** |País ou região |
-| **number_label** | Número de telefone |
+| **number_label** | Número de Telefone |
 | **error_tryagain** | O número de telefone que forneceu está ocupado ou indisponível. Por favor, verifique o número e tente de novo. |
 | **error_incorrect_code** | O código de verificação que inseriu não corresponde aos nossos registos. Por favor, tente de novo, ou peça um novo código. |
-| **countryList** | {\"DEFAULT\":\"Country/Region\",\"AF\":\"Afghanistan\",\"AX\":\"Åland Islands\",\"AL\":\"Albania\",\"DZ\":\"Algeria\",\"AS\":\"American Samoa\",\"AD\":\"Andorra\",\"AO\":\"Angola\",\"AI\":\"Anguilla\",\"AQ\":\"Antarctica\",\"AG\":\"Antigua and Barbuda\",\"AR\":\"Argentina\",\"AM\":\"Armenia\",\"AW\":\"Aruba\",\"AU\":\"Australia\",\"AT\":\"Austria\",\"AZ\":\"Azerbaijan\",\"BS\":\"Bahamas\",\"BH\":\"Bahrain\",\"BD\":\"Bangladesh\",\"BB\":\"Barbados\",\"BY\":\"Belarus\",\"BE\":\"Belgium\",\"BZ\":\"Belize\",\"BJ\":\"Benin\",\"BM\":\"Bermuda\",\"BT\":\"Bhutan\",\"BO\":\"Bolivia\",\"BQ\":\"Bonaire\",\"BA\":\"Bosnia and Herzegovina\",\"BW\":\"Botswana\",\"BV\":\"Bouvet Island\",\"BR\":\"Brazil\",\"IO\":\"British Indian Ocean Territory\",\"VG\":\"British Virgin Islands\",\"BN\":\"Brunei\",\"BG\":\"Bulgaria\",\"BF\":\"Burkina Faso\",\"BI\":\"Burundi\",\"CV\":\"Cabo Verde\",\"KH\":\"Cambodia\",\"CM\":\"Cameroon\",\"CA\":\"Canada\",\"KY\":\"Cayman Islands\",\"CF\":\"Central African Republic\",\"TD\":\"Chad\",\"CL\":\"Chile\",\"CN\":\"China\",\"CX\":\"Christmas Island\",\"CC\":\"Cocos (Keeling) Islands\",\"CO\":\"Colombia\",\"KM\":\"Comoros\",\"CG\":\"Congo\",\"CD\":\"Congo (DRC)\",\"CK\":\"Cook Islands\",\"CR\":\"Costa Rica\",\"CI\":\"Côte d’Ivoire\",\"HR\":\"Croatia\",\"CU\":\"Cuba\",\"CW\":\"Curaçao\",\"CY\":\"Cyprus\",\"CZ\":\"Czech Republic\",\"DK\":\"Denmark\",\"DJ\":\"Djibouti\",\"DM\":\"Dominica\",\"DO\":\"Dominican Republic\",\"EC\":\"Ecuador\",\"EG\":\"Egypt\",\"SV\":\"El Salvador\",\"GQ\":\"Equatorial Guinea\",\"ER\":\"Eritrea\",\"EE\":\"Estonia\",\"ET\":\"Ethiopia\",\"FK\":\"Falkland Islands\",\"FO\":\"Faroe Islands\",\"FJ\":\"Fiji\",\"FI\":\"Finland\",\"FR\":\"France\",\"GF\":\"French Guiana\",\"PF\":\"French Polynesia\",\"TF\":\"French Southern Territories\",\"GA\":\"Gabon\",\"GM\":\"Gambia\",\"GE\":\"Georgia\",\"DE\":\"Germany\",\"GH\":\"Ghana\",\"GI\":\"Gibraltar\",\"GR\":\"Greece\",\"GL\":\"Greenland\",\"GD\":\"Grenada\",\"GP\":\"Guadeloupe\",\"GU\":\"Guam\",\"GT\":\"Guatemala\",\"GG\":\"Guernsey\",\"GN\":\"Guinea\",\"GW\":\"Guinea-Bissau\",\"GY\":\"Guyana\",\"HT\":\"Haiti\",\"HM\":\"Heard Island and McDonald Islands\",\"HN\":\"Honduras\",\"HK\":\"Hong Kong SAR\",\"HU\":\"Hungary\",\"IS\":\"Iceland\",\"IN\":\"India\",\"ID\":\"Indonesia\",\"IR\":\"Iran\",\"IQ\":\"Iraq\",\"IE\":\"Ireland\",\"IM\":\"Isle of Man\",\"IL\":\"Israel\",\"IT\":\"Italy\",\"JM\":\"Jamaica\",\"JP\":\"Japan\",\"JE\":\"Jersey\",\"JO\":\"Jordan\",\"KZ\":\"Kazakhstan\",\"KE\":\"Kenya\",\"KI\":\"Kiribati\",\"KR\":\"Korea\",\"KW\":\"Kuwait\",\"KG\":\"Kyrgyzstan\",\"LA\":\"Laos\",\"LV\":\"Latvia\",\"LB\":\"Lebanon\",\"LS\":\"Lesotho\",\"LR\":\"Liberia\",\"LY\":\"Libya\",\"LI\":\"Liechtenstein\",\"LT\":\"Lithuania\",\"LU\":\"Luxembourg\",\"MO\":\"Macao SAR\",\"MK\":\"North Macedonia\",\"MG\":\"Madagascar\",\"MW\":\"Malawi\",\"MY\":\"Malaysia\",\"MV\":\"Maldives\",\"ML\":\"Mali\",\"MT\":\"Malta\",\"MH\":\"Marshall Islands\",\"MQ\":\"Martinique\",\"MR\":\"Mauritania\",\"MU\":\"Mauritius\",\"YT\":\"Mayotte\",\"MX\":\"Mexico\",\"FM\":\"Micronesia\",\"MD\":\"Moldova\",\"MC\":\"Monaco\",\"MN\":\"Mongolia\",\"ME\":\"Montenegro\",\"MS\":\"Montserrat\",\"MA\":\"Morocco\",\"MZ\":\"Mozambique\",\"MM\":\"Myanmar\",\"NA\":\"Namibia\",\"NR\":\"Nauru\",\"NP\":\"Nepal\",\"NL\":\"Netherlands\",\"NC\":\"New Caledonia\",\"NZ\":\"New Zealand\",\"NI\":\"Nicaragua\",\"NE\":\"Niger\",\"NG\":\"Nigeria\",\"NU\":\"Niue\",\"NF\":\"Norfolk Island\",\"KP\":\"North Korea\",\"MP\":\"Northern Mariana Islands\",\"NO\":\"Norway\",\"OM\":\"Oman\",\"PK\":\"Pakistan\",\"PW\":\"Palau\",\"PS\":\"Palestinian Authority\",\"PA\":\"Panama\",\"PG\":\"Papua New Guinea\",\"PY\":\"Paraguay\",\"PE\":\"Peru\",\"PH\":\"Philippines\",\"PN\":\"Pitcairn Islands\",\"PL\":\"Poland\",\"PT\":\"Portugal\",\"PR\":\"Puerto Rico\",\"QA\":\"Qatar\",\"RE\":\"Réunion\",\"RO\":\"Romania\",\"RU\":\"Russia\",\"RW\":\"Rwanda\",\"BL\":\"Saint Barthélemy\",\"KN\":\"Saint Kitts and Nevis\",\"LC\":\"Saint Lucia\",\"MF\":\"Saint Martin\",\"PM\":\"Saint Pierre and Miquelon\",\"VC\":\"Saint Vincent and the Grenadines\",\"WS\":\"Samoa\",\"SM\":\"San Marino\",\"ST\":\"São Tomé and Príncipe\",\"SA\":\"Saudi Arabia\",\"SN\":\"Senegal\",\"RS\":\"Serbia\",\"SC\":\"Seychelles\",\"SL\":\"Sierra Leone\",\"SG\":\"Singapore\",\"SX\":\"Sint Maarten\",\"SK\":\"Slovakia\",\"SI\":\"Slovenia\",\"SB\":\"Solomon Islands\",\"SO\":\"Somalia\",\"ZA\":\"South Africa\",\"GS\":\"South Georgia and South Sandwich Islands\",\"SS\":\"South Sudan\",\"ES\":\"Spain\",\"LK\":\"Sri Lanka\",\"SH\":\"St Helena, Ascension, Tristan da Cunha\",\"SD\":\"Sudan\",\"SR\":\"Suriname\",\"SJ\":\"Svalbard\",\"SZ\":\"Swaziland\",\"SE\":\"Sweden\",\"CH\":\"Switzerland\",\"SY\":\"Syria\",\"TW\":\"Taiwan\",\"TJ\":\"Tajikistan\",\"TZ\":\"Tanzania\",\"TH\":\"Thailand\",\"TL\":\"Timor-Leste\",\"TG\":\"Togo\",\"TK\":\"Tokelau\",\"TO\":\"Tonga\",\"TT\":\"Trinidad and Tobago\",\"TN\":\"Tunisia\",\"TR\":\"Turkey\",\"TM\":\"Turkmenistan\",\"TC\":\"Turks and Caicos Islands\",\"TV\":\"Tuvalu\",\"UM\":\"U.S. Outlying Islands\",\"VI\":\"U.S. Virgin Islands\",\"UG\":\"Uganda\",\"UA\":\"Ukraine\",\"AE\":\"United Arab Emirates\",\"GB\":\"United Kingdom\",\"US\":\"United States\",\"UY\":\"Uruguay\",\"UZ\":\"Uzbekistan\",\"VU\":\"Vanuatu\",\"VA\":\"Vatican City\",\"VE\":\"Venezuela\",\"VN\":\"Vietnam\",\"WF\":\"Wallis and Futuna\",\"YE\":\"Yemen\",\"ZM\":\"Zambia\",\"ZW\":\"Zimbabwe\"} |
-| **error_448** | O número de telefone que forneceu é incontactável. |
-| **error_449** | O utilizador excedeu o número de tentativas de reprovação. |
+| **paísLista** | Consulte [a lista dos países.](#countries-list) |
+| **error_448** | O número de telefone que forneceu é inacessível. |
+| **error_449** | O utilizador excedeu o número de tentativas de repetição. |
 | **verification_code_input_placeholder_text** | Código de verificação |
 
-O exemplo que se segue mostra a utilização de alguns dos elementos da interface do utilizador na página de inscrição do MFA:
+O exemplo a seguir mostra a utilização de alguns dos elementos da interface do utilizador na página de inscrição do MFA:
 
-![Elementos UX de verificação de e-mail de página de inscrição](./media/localization-string-ids/localization-mfa1.png)
+![Elementos UX de verificação de página de inscrição](./media/localization-string-ids/localization-mfa1.png)
 
-O exemplo que se segue mostra a utilização de alguns dos elementos da interface do utilizador na página de validação do MFA:
+O exemplo a seguir mostra a utilização de alguns dos elementos de interface de utilizador na página de validação do MFA:
 
-![Elementos UX de verificação de e-mail de página de inscrição](./media/localization-string-ids/localization-mfa2.png)
+![Elementos UX de verificação de página de inscrição](./media/localization-string-ids/localization-mfa2.png)
 
-## <a name="verification-display-control-user-interface-elements"></a>Elementos de interface de controlo de ecrã de verificação
+## <a name="verification-display-control-user-interface-elements"></a>Elementos de interface do utilizador do controlo do ecrã de verificação
 
-Seguem-se as IDs para um controlo de visualização de [verificação](display-control-verification.md)
+Seguem-se os IDs para um [controlo de visualização de verificação](display-control-verification.md)
 
 | ID | Valor predefinido |
 | -- | ------------- |
 |verification_control_but_change_claims |Alterar |
-|verification_control_fail_send_code |Não enviou o código, por favor tente mais tarde. |
-|verification_control_fail_verify_code |Não verificou o código, por favor tente mais tarde. |
+|verification_control_fail_send_code |Não conseguiu enviar o código, por favor tente novamente mais tarde. |
+|verification_control_fail_verify_code |Não conseguiu verificar o código, por favor tente novamente mais tarde. |
 |verification_control_but_send_code |Enviar Código |
 |verification_control_but_send_new_code |Enviar Novo Código |
-|verification_control_but_verify_code |Verificar código |
+|verification_control_but_verify_code |Verificar Código |
 |verification_control_code_sent| O código de verificação foi enviado. Por favor, copie-o para a caixa de entrada abaixo. |
 
 ### <a name="example"></a>Exemplo
 
-```XML
+```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
     <LocalizedString ElementType="UxElement" StringId="verification_control_but_change_claims">Change</LocalizedString>
@@ -233,32 +233,145 @@ Seguem-se as IDs para um controlo de visualização de [verificação](display-c
 </LocalizedResources>
 ```
 
-## <a name="one-time-password-error-messages"></a>Uma vez mensagens de erro de senha
-Seguem-se as IDs para uma mensagem de [erro de perfil técnico](one-time-password-technical-profile.md) de uma só vez
+## <a name="restful-service-error-messages"></a>Mensagens de erro de serviço repousante
+
+Seguem-se os IDs para mensagens de erro [de perfil técnico do serviço Restful:](restful-technical-profile.md)
 
 | ID | Valor predefinido |
 | -- | ------------- |
-|UserMessageIfMaxRetryTryTry |Uma palavra-passe de uma vez fornecida verificação ultrapassou o número máximo de tentativas |
-|UserMessageifSessionNão existe |Uma sessão de verificação de senha já expirou |
-|UserMessageifSessionConflict |Uma sessão de verificação de senha sessão tem conflito |
-|UserMessageIfInvalidcode |Uma palavra-passe de uma vez fornecida para verificação é incorreta |
+|DefaultUserMessageIfRequestFailed | Não conseguiu estabelecer a ligação ao ponto final de serviço repousante. URL de serviço repousante:{0} |
+|UserMessageIfCircuitOpen | {0}URL de serviço repousante:{1} |
+|UserMessageIfDnsResolutionFailed | Não conseguiu resolver o nome de anfitrião do ponto final de serviço repousante. URL de serviço repousante:{0} |
+|UserMessageIfRequestTimeout | Não conseguiu estabelecer a ligação ao ponto final de serviço repousante dentro dos segundos limite {0} de tempo. URL de serviço repousante:{1} |
+
+
+### <a name="example"></a>Exemplo
+
+```xml
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="DefaultUserMessageIfRequestFailed">Failed to establish connection to restful service end point.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfCircuitOpen">Unable to connect to the restful service end point.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfDnsResolutionFailed">Failed to resolve the hostname of the restful service endpoint.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfRequestTimeout">Failed to establish connection to restful service end point within timeout limit.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+## <a name="azure-mfa-error-messages"></a>Mensagens de erro do Azure MFA
+
+Seguem-se os IDs para uma [azure MFA mensagens de](multi-factor-auth-technical-profile.md) erro de perfil técnico:
+
+| ID | Valor predefinido |
+| -- | ------------- |
+|UserMessageIfCodntSendSms | Não é possível enviar SMS para o telefone, por favor tente outro número de telefone. |
+|UserMessageIfInvalidFormat | O seu número de telefone não está num formato válido, por favor corrija-o e tente novamente.|
+|UserMessageIfMaxAllowedCodeRetryReached | Código errado introduzido demasiadas vezes, por favor tente novamente mais tarde.|
+|UserMessageIfServerError | Não pode utilizar o serviço MFA, tente novamente mais tarde.|
+|UserMessageIfThrottled | O seu pedido foi acelerado, por favor tente de novo mais tarde.|
+|UserMessageIfWrongCodeEntered|Código errado introduzido, por favor tente de novo.|
+
+### <a name="example"></a>Exemplo
+
+```xml
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfCouldntSendSms">Cannot Send SMS to the phone, please try another phone number.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidFormat">Your phone number is not in a valid format, please correct it and try again.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxAllowedCodeRetryReached">Wrong code entered too many times, please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfServerError">Cannot use MFA service, please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfThrottled">Your request has been throttled, please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">Wrong code entered, please try again.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+## <a name="azure-ad-sspr"></a>SSPR do Azure AD
+
+Seguem-se os IDs para as mensagens de erro [de perfil técnico da Azure AD SSPR:](aad-sspr-technical-profile.md)
+
+| ID | Valor predefinido |
+| -- | ------------- |
+|UserMessageIfChallengeExpired | O código expirou.|
+|UserMessageIfInternalError | O serviço de e-mail encontrou um erro interno, por favor tente novamente mais tarde.|
+|UserMessageIfThrottled | Enviou muitos pedidos, por favor tente de novo mais tarde.|
+|UserMessageIfVerificationFailedNoRetry | Excedeu o número máximo de tentativas de verificação.|
+|UserMessageIfVerificationFailedRetryAllowed | A verificação falhou, por favor tente de novo.|
+
 
 ### <a name="example"></a>Exemplo
 
 ```XML
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
-    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceed the maximum time allowed.</LocalizedString>
-    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceed the number of retries allowed.</LocalizedString>
-    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
-    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInternalError">We are having trouble verifying your email address. Please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfThrottled">There have been too many requests to verify this email address. Please wait a while, then try again.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfChallengeExpired">That code is expired. Please request a new code.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">You've made too many incorrect attempts. Please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
 ```
 
+## <a name="one-time-password-error-messages"></a>Mensagens de erro de senha de uma vez
 
+Seguem-se os IDs para [uma única palavra-passe de](one-time-password-technical-profile.md) mensagens de erro de perfil técnica
 
+| ID | Valor predefinido |
+| -- | ------------- |
+|UserMessageIfMaxRetryAttempted |Uma vez a palavra-passe fornecida excedeu o número máximo de tentativas |
+|UserMessageIfSessionDoesNotExist |Uma vez a sessão de verificação da palavra-passe expirou |
+|UserMessageIfSessionConflict |Uma vez a sessão de verificação de senhas tem conflito |
+|UserMessageIfInvalidCode |Uma palavra-passe de uma vez fornecida para verificação é incorreta |
+|UserMessageIfVerificationFailedRetryAllowed |Este código está incorreto. Tente novamente. | 
 
+### <a name="example"></a>Exemplo
 
+```xml
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceed the maximum time allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceed the number of retries allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
+   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
 
+## <a name="claims-transformations-error-messages"></a>Reclama mensagens de erro de transformações
 
+Seguem-se os IDs para as mensagens de erro de transformação de reclamações:
+
+| ID | Transformação de afirmações | Valor predefinido |
+| -- | ------------- |------------- |
+|UserMessageIfClaimsTransformationBooleanValueIsNotEqual |[AssertBooleanClaimIsEqualToValue](boolean-transformations.md#assertbooleanclaimisequaltovalue) | A comparação do valor da alegação booleana falhou para o tipo de reclamação "inputClaim".| 
+|DateTimeGreaterThan |[AssertDateTimeIsGreaterThan](date-transformations.md#assertdatetimeisgreaterthan) | A comparação de valor de reivindicação falhou: A ópera à esquerda fornecida é maior do que a ópera certa.|
+|UserMessageIfClaimsTransformationStringsAreNotEqual |[AssertStringClaimsAreEqual](string-transformations.md#assertstringclaimsareequal) | A comparação de valor de reclamação falhou usando StringComparison "OrdinalIgnoreCase".|
+
+### <a name="example"></a>Exemplo
+
+```xml
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Your email address hasn't been verified.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="DateTimeGreaterThan">Expiration date must be greater that the current date.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationStringsAreNotEqual">The email entry fields do not match. Please enter the same email address in both fields and try again.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+## <a name="countries-list"></a>Lista de países
+
+Seguem-se os valores countryList utilizados pela autenticação multi-factor.
+
+```JSON
+{"DEFAULT":"Country/Region","AF":"Afghanistan","AX":"Åland Islands","AL":"Albania","DZ":"Algeria","AS":"American Samoa","AD":"Andorra","AO":"Angola","AI":"Anguilla","AQ":"Antarctica","AG":"Antigua and Barbuda","AR":"Argentina","AM":"Armenia","AW":"Aruba","AU":"Australia","AT":"Austria","AZ":"Azerbaijan","BS":"Bahamas","BH":"Bahrain","BD":"Bangladesh","BB":"Barbados","BY":"Belarus","BE":"Belgium","BZ":"Belize","BJ":"Benin","BM":"Bermuda","BT":"Bhutan","BO":"Bolivia","BQ":"Bonaire","BA":"Bosnia and Herzegovina","BW":"Botswana","BV":"Bouvet Island","BR":"Brazil","IO":"British Indian Ocean Territory","VG":"British Virgin Islands","BN":"Brunei","BG":"Bulgaria","BF":"Burkina Faso","BI":"Burundi","CV":"Cabo Verde","KH":"Cambodia","CM":"Cameroon","CA":"Canada","KY":"Cayman Islands","CF":"Central African Republic","TD":"Chad","CL":"Chile","CN":"China","CX":"Christmas Island","CC":"Cocos (Keeling) Islands","CO":"Colombia","KM":"Comoros","CG":"Congo","CD":"Congo (DRC)","CK":"Cook Islands","CR":"Costa Rica","CI":"Côte d'Ivoire","HR":"Croatia","CU":"Cuba","CW":"Curaçao","CY":"Cyprus","CZ":"Czech Republic","DK":"Denmark","DJ":"Djibouti","DM":"Dominica","DO":"Dominican Republic","EC":"Ecuador","EG":"Egypt","SV":"El Salvador","GQ":"Equatorial Guinea","ER":"Eritrea","EE":"Estonia","ET":"Ethiopia","FK":"Falkland Islands","FO":"Faroe Islands","FJ":"Fiji","FI":"Finland","FR":"France","GF":"French Guiana","PF":"French Polynesia","TF":"French Southern Territories","GA":"Gabon","GM":"Gambia","GE":"Georgia","DE":"Germany","GH":"Ghana","GI":"Gibraltar","GR":"Greece","GL":"Greenland","GD":"Grenada","GP":"Guadeloupe","GU":"Guam","GT":"Guatemala","GG":"Guernsey","GN":"Guinea","GW":"Guinea-Bissau","GY":"Guyana","HT":"Haiti","HM":"Heard Island and McDonald Islands","HN":"Honduras","HK":"Hong Kong SAR","HU":"Hungary","IS":"Iceland","IN":"India","ID":"Indonesia","IR":"Iran","IQ":"Iraq","IE":"Ireland","IM":"Isle of Man","IL":"Israel","IT":"Italy","JM":"Jamaica","JP":"Japan","JE":"Jersey","JO":"Jordan","KZ":"Kazakhstan","KE":"Kenya","KI":"Kiribati","KR":"Korea","KW":"Kuwait","KG":"Kyrgyzstan","LA":"Laos","LV":"Latvia","LB":"Lebanon","LS":"Lesotho","LR":"Liberia","LY":"Libya","LI":"Liechtenstein","LT":"Lithuania","LU":"Luxembourg","MO":"Macao SAR","MK":"North Macedonia","MG":"Madagascar","MW":"Malawi","MY":"Malaysia","MV":"Maldives","ML":"Mali","MT":"Malta","MH":"Marshall Islands","MQ":"Martinique","MR":"Mauritania","MU":"Mauritius","YT":"Mayotte","MX":"Mexico","FM":"Micronesia","MD":"Moldova","MC":"Monaco","MN":"Mongolia","ME":"Montenegro","MS":"Montserrat","MA":"Morocco","MZ":"Mozambique","MM":"Myanmar","NA":"Namibia","NR":"Nauru","NP":"Nepal","NL":"Netherlands","NC":"New Caledonia","NZ":"New Zealand","NI":"Nicaragua","NE":"Niger","NG":"Nigeria","NU":"Niue","NF":"Norfolk Island","KP":"North Korea","MP":"Northern Mariana Islands","NO":"Norway","OM":"Oman","PK":"Pakistan","PW":"Palau","PS":"Palestinian Authority","PA":"Panama","PG":"Papua New Guinea","PY":"Paraguay","PE":"Peru","PH":"Philippines","PN":"Pitcairn Islands","PL":"Poland","PT":"Portugal","PR":"Puerto Rico","QA":"Qatar","RE":"Réunion","RO":"Romania","RU":"Russia","RW":"Rwanda","BL":"Saint Barthélemy","KN":"Saint Kitts and Nevis","LC":"Saint Lucia","MF":"Saint Martin","PM":"Saint Pierre and Miquelon","VC":"Saint Vincent and the Grenadines","WS":"Samoa","SM":"San Marino","ST":"São Tomé and Príncipe","SA":"Saudi Arabia","SN":"Senegal","RS":"Serbia","SC":"Seychelles","SL":"Sierra Leone","SG":"Singapore","SX":"Sint Maarten","SK":"Slovakia","SI":"Slovenia","SB":"Solomon Islands","SO":"Somalia","ZA":"South Africa","GS":"South Georgia and South Sandwich Islands","SS":"South Sudan","ES":"Spain","LK":"Sri Lanka","SH":"St Helena, Ascension, Tristan da Cunha","SD":"Sudan","SR":"Suriname","SJ":"Svalbard","SZ":"Swaziland","SE":"Sweden","CH":"Switzerland","SY":"Syria","TW":"Taiwan","TJ":"Tajikistan","TZ":"Tanzania","TH":"Thailand","TL":"Timor-Leste","TG":"Togo","TK":"Tokelau","TO":"Tonga","TT":"Trinidad and Tobago","TN":"Tunisia","TR":"Turkey","TM":"Turkmenistan","TC":"Turks and Caicos Islands","TV":"Tuvalu","UM":"U.S. Outlying Islands","VI":"U.S. Virgin Islands","UG":"Uganda","UA":"Ukraine","AE":"United Arab Emirates","GB":"United Kingdom","US":"United States","UY":"Uruguay","UZ":"Uzbekistan","VU":"Vanuatu","VA":"Vatican City","VE":"Venezuela","VN":"Vietnam","WF":"Wallis and Futuna","YE":"Yemen","ZM":"Zambia","ZW":"Zimbabwe"}
+```
+
+## <a name="next-steps"></a>Próximos passos
+
+Consulte os seguintes artigos para exemplos de localização:
+
+- [Personalização linguística com política personalizada no Azure Ative Directory B2C](custom-policy-localization.md)
+- [Personalização linguística com fluxos de utilizadores no Azure Ative Directory B2C](user-flow-language-customization.md)

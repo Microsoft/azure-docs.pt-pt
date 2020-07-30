@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2910933e2c57a8bc80a220726462b02915c4a8eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81daa7696c645c1353cdd5e6d3cbca90ac4f03da
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80246522"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87388123"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividade de início de sessão no portal do Azure Active Directory
 
@@ -117,7 +117,7 @@ Primeiro, reduzindo os dados reportados a um nível que funcione para si. Em seg
  
 **Estado** - O estado de inscrição que lhe interessa:
 
-- Êxito
+- Success
 
 - Falha
 
@@ -128,7 +128,7 @@ Primeiro, reduzindo os dados reportados a um nível que funcione para si. Em seg
 
 A **Localização** - A localização da ligação foi iniciada a partir de:
 
-- Localidade
+- Cidade
 
 - Estado / Província
 
@@ -146,7 +146,7 @@ A **Localização** - A localização da ligação foi iniciada a partir de:
 ![Filtro de aplicativo de cliente](./media/concept-sign-ins/client-app-filter.png)
 
 
-|Name|Autenticação moderna|Description|
+|Nome|Autenticação moderna|Descrição|
 |---|:-:|---|
 |SMTP autenticado| |Usado pelos clientes POP e IMAP para enviar mensagens de correio e-mail.|
 |Autodiscover| |Utilizado pelos clientes Outlook e EAS para encontrar e conectar-se a caixas de correio em Exchange Online.|
@@ -184,7 +184,7 @@ A **Localização** - A localização da ligação foi iniciada a partir de:
 
 - **Sucesso**: Uma ou mais políticas de acesso condicional aplicadas ao utilizador e à aplicação (mas não necessariamente às outras condições) durante a entrada. 
 
-- **Falha:** Uma ou mais políticas de acesso condicional aplicadas e não foram satisfeitas durante a entrada.
+- **Falha**: A inscrição satisfez o estado de utilização e aplicação de pelo menos uma política de acesso condicional e os controlos de concessão não estão satisfeitos ou definidos para bloquear o acesso.
 
 
 
@@ -233,7 +233,7 @@ Ao clicar num item, obtém mais detalhes sobre a operação de início de sessã
 - ID de Utilizador
 - Utilizador
 - Nome de utilizador
-- ID da aplicação
+- ID da Aplicação
 - Aplicação
 - Cliente
 - Localização
@@ -279,7 +279,7 @@ Pode visualizar registos de atividade do Office 365 a partir do [centro de admin
 
 Também pode aceder aos registos de atividades do Office 365 programáticamente utilizando as [APIs de Gestão do Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Códigos de erro do relatório de atividade de inscrição](reference-sign-ins-error-codes.md)
 * [Políticas de retenção de dados Azure AD](reference-reports-data-retention.md)

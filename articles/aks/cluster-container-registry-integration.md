@@ -5,12 +5,12 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 02/25/2020
-ms.openlocfilehash: e1ddff9a416b55c22fcd2bfaedff32666414e4bf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4338f4ce1fe60a3a9002be93feab134dd2601720
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057255"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406508"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autenticar com o Azure Container Registry a partir do Azure Kubernetes Service
 
@@ -60,7 +60,7 @@ Este passo pode levar vários minutos a ser concluído.
 Integre um ACR existente com clusters AKS existentes fornecendo valores válidos para **acr-name** ou **acr-resource-id** como abaixo.
 
 ```azurecli
-az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acrName>
+az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-name>
 ```
 
 ou,
@@ -72,7 +72,7 @@ az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-resource-id>
 Também pode remover a integração entre um ACR e um cluster AKS com o seguinte
 
 ```azurecli
-az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acrName>
+az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-name>
 ```
 
 ou
@@ -89,7 +89,7 @@ Importe uma imagem do estivador hub para o seu ACR executando o seguinte:
 
 
 ```azurecli
-az acr import  -n <myContainerRegistry> --source docker.io/library/nginx:latest --image nginx:v1
+az acr import  -n <acr-name> --source docker.io/library/nginx:latest --image nginx:v1
 ```
 
 ### <a name="deploy-the-sample-image-from-acr-to-aks"></a>Implementar a imagem da amostra de ACR para AKS
@@ -100,7 +100,7 @@ Certifique-se de que tem as credenciais AKS adequadas
 az aks get-credentials -g myResourceGroup -n myAKSCluster
 ```
 
-Crie um ficheiro chamado **acr-nginx.yaml** que contenha o seguinte:
+Crie um ficheiro chamado **acr-nginx.yaml** que contenha o seguinte. Substitua o nome de recurso do seu registo por **acr-name**. Exemplo: *myContainerRegistry*.
 
 ```yaml
 apiVersion: apps/v1
@@ -121,7 +121,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: <replace this image property with you acr login server, image and tag>
+        image: <acr-name>.azurecr.io/nginx:v1
         ports:
         - containerPort: 80
 ```

@@ -8,12 +8,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: e27c1c4303129467c0bd05152570e26f129585a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 0eab7d743823109ed138ce19f35cea0ffb143422
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186293"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422730"
 ---
 # <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicione uma grelha personalizada à UI do acelerador de solução de monitorização remota
 
@@ -28,7 +29,7 @@ A grelha de exemplo neste artigo exibe os dados do serviço que o Add um serviç
 
 Para completar os passos neste guia de como fazer, precisa do seguinte software instalado na sua máquina de desenvolvimento local:
 
-- [Git](https://git-scm.com/downloads)
+- [Rio Git](https://git-scm.com/downloads)
 - [Node.js](https://nodejs.org/download/)
 
 ## <a name="before-you-start"></a>Antes de começar
@@ -277,7 +278,7 @@ Se o utilizador apenas precisar de agir numa única linha, configurar um link de
     }
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu sobre os recursos disponíveis para ajudá-lo a adicionar ou personalizar páginas na UI web no acelerador de solução de Monitorização Remota.
 

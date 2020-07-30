@@ -7,12 +7,13 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 71748959f8b5350a4bd34349eefedbf9d99c76e5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 33a40e7a0e7e3be4433b3cbd4ba7a8e09a84e689
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083621"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428057"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps-preview"></a>Configurar configurar configurações de aplicações para visualização de aplicações web estáticas Azure
 
@@ -164,7 +165,7 @@ As definições de aplicação estão disponíveis para visualização através 
    az rest --method post --uri "/subscriptions/<YOUR_SUBSCRIPTION_ID>/resourceGroups/<YOUR_RESOURCE_GROUP_NAME>/providers/Microsoft.Web/staticSites/<YOUR_STATIC_SITE_NAME>/listFunctionAppSettings?api-version=2019-12-01-preview"
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Configurar desenvolvimento local](local-development.md)

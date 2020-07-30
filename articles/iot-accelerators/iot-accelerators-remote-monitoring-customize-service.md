@@ -8,12 +8,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: e44aa8ade512a6005959e795cb1d4ad861da1338
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: c214e9f8df88d6f48968e485b23d80c778d4d7ab
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61447051"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422679"
 ---
 # <a name="add-a-custom-service-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicione um serviço personalizado à UI do acelerador de solução de monitorização remota
 
@@ -30,7 +31,7 @@ Numa aplicação React, um serviço normalmente interage com um serviço back-en
 
 Para completar os passos neste guia de como fazer, precisa do seguinte software instalado na sua máquina de desenvolvimento local:
 
-- [Git](https://git-scm.com/downloads)
+- [Rio Git](https://git-scm.com/downloads)
 - [Node.js](https://nodejs.org/download/)
 
 ## <a name="before-you-start"></a>Antes de começar
@@ -112,7 +113,7 @@ const epics = [
 ];
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu sobre os recursos disponíveis para ajudá-lo a adicionar ou personalizar serviços na UI web no acelerador de solução de Monitorização Remota.
 

@@ -1,15 +1,14 @@
 ---
 title: Backups consistentes de aplicação dos LM Linux
 description: Crie cópias de segurança consistentes com aplicações das suas máquinas virtuais Linux para o Azure. Este artigo explica a configuração da estrutura do script para apoiar os LM Linux implantados pelo Azure. Este artigo também inclui informações sobre resolução de problemas.
-ms.reviewer: anuragm
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.openlocfilehash: 8d578df45235b3bef314245e4eb7a0976c4d48d6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1ebf1b4148c43b07c0fddee67970abe8381e4c30
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054851"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407103"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Cópia de segurança consistente com aplicações de VMs Linux do Azure
 
@@ -53,13 +52,13 @@ Os pré-scripts invocam APIs de aplicação nativa, que quiesce os IOs, e lavam 
 
     - **postScriptParams**: Forneça os parâmetros opcionais que precisam de ser passados para o pós-script. Todos os parâmetros devem estar em aspas. Se utilizar vários parâmetros, separe os parâmetros com uma vírgula.
 
-    - **preScriptNoOfRetries**: Desabre o número de vezes que o pré-script deve ser novamente julgado se houver algum erro antes de terminar. Zero significa apenas uma tentativa e nenhuma tentativa se houver uma falha.
+    - **preScriptNoOfRetries**: Desabre o número de vezes que o pré-script deve ser novamente julgado se houver algum erro antes de terminar. Zero significa apenas uma tentativa e nenhuma tentativa se houver um fracasso.
 
-    - **postScriptNoOfRetries**: Desabre o número de vezes que o pós-script deve ser novamente julgado se houver algum erro antes de terminar. Zero significa apenas uma tentativa e nenhuma tentativa se houver uma falha.
+    - **postScriptNoOfRetries**: Desabre o número de vezes que o pós-script deve ser novamente julgado se houver algum erro antes de terminar. Zero significa apenas uma tentativa e nenhuma tentativa se houver um fracasso.
 
     - **timeoutInSegundos**: Especifique os intervalos individuais para o pré-script e o pós-script (o valor máximo pode ser de 1800).
 
-    - **continuarBackupOnFailure**: Defina este valor como **verdadeiro** se quiser que o Azure Backup recue para um sistema de ficheiros consistente/falha de backup consistente se o pré-script ou o pós-script falharem. Definir isto para **falso** falha a cópia de segurança em caso de falha do script (exceto quando tiver um VM de disco único que recue para uma cópia de segurança consistente, independentemente desta definição).
+    - **continuarBackupOnFailure**: Defina este valor como **verdadeiro** se quiser que o Azure Backup recue para um sistema de ficheiros consistente/falha de backup consistente se o pré-script ou o pós-script falharem. Definir isto para **falsa** falha na cópia de segurança se houver uma falha de script (exceto quando tiver um VM de disco único que recue para uma cópia de segurança consistente, independentemente desta definição). Quando o valor **continueBackupOnFailure** for definido como falso, se a cópia de segurança falhar, a operação de backup será novamente tentada com base numa lógica de retenção no serviço (para o número de tentativas estipulado).
 
     - **fsFreezeEnabled**: Especifique se o linux fsfreeze deve ser chamado enquanto estiver a tirar a imagem VM para garantir a consistência do sistema de ficheiros. Recomendamos manter esta definição definida de **forma verdadeira,** a menos que a sua aplicação tenha uma dependência de desativar o fsfreeze.
 
@@ -84,6 +83,6 @@ Certifique-se de que adiciona registos adequados enquanto escreve o seu pré-scr
 | Pré-ScriptTimeout | A execução do pré-script de backup consistente da aplicação. | Verifique o script e aumente o tempo limite no **VMSnapshotScriptPluginConfig.jsno** ficheiro localizado em **/etc/azure**. |
 | Pós-ScriptTimeout | A execução do backup consistente de aplicação pós-script cronometrado. | Verifique o script e aumente o tempo limite no **VMSnapshotScriptPluginConfig.jsno** ficheiro localizado em **/etc/azure**. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Configure o backup VM para um cofre dos Serviços de Recuperação](./backup-azure-vms-first-look-arm.md)

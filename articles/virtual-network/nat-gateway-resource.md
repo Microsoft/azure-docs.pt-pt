@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2020
 ms.author: allensu
-ms.openlocfilehash: 0b025b3e017c8a7702b411e9d91cbdf22f915aba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 983a3e04921bb3d8e804430948013a1b51802727
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549640"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424073"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Projetar redes virtuais com recursos de gateway NAT
 
@@ -28,7 +28,7 @@ Os recursos de gateway NAT fazem parte da [Rede Virtual NAT](nat-overview.md) e 
 
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" width="256" title="Rede Virtual NAT para saída para a Internet">
+  <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs that traffic to and from two subnets of virtual machines and a virtual machine scale set." width="256" title="Rede Virtual NAT para saída para a Internet">
 </p>
 
 *Figura: Rede Virtual NAT para saída para a Internet*
@@ -51,10 +51,10 @@ As rotas definidas pelo utilizador não são necessárias.
 
 O recurso foi concebido para ser simples como pode ver a partir do exemplo do Gestor de Recursos Azure num formato semelhante ao do modelo.  Este formato semelhante ao modelo é mostrado aqui para ilustrar os conceitos e estrutura.  Modifique o exemplo para as suas necessidades.  Este documento não se destina a ser tutorial.
 
-O diagrama seguinte mostra as referências escritas entre os diferentes recursos do Gestor de Recursos Azure.  A seta indica a direção da referência, originária de onde é escrita. Rever 
+O diagrama seguinte mostra as referências escritas entre os diferentes recursos do Gestor de Recursos Azure.  A seta indica a direção da referência, originária de onde é escrita. Revisão 
 
 <p align="center">
-  <img src="media/nat-overview/flow-map.svg" width="256" title="Modelo de objeto NAT de rede virtual">
+  <img src="media/nat-overview/flow-map.svg" alt="Figure depicts a NAT receiving traffic from internal subnets and directing it to a public IP and an IP prefix." width="256" title="Modelo de objeto NAT de rede virtual">
 </p>
 
 *Figura: Modelo de objeto NAT de rede virtual*
@@ -119,7 +119,7 @@ O gateway NAT é compatível com:
 Ao desenvolver uma nova implementação, comece com SKUs padrão.
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" width="256" title="Rede Virtual NAT para saída para a Internet">
+  <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network." width="256" title="Rede Virtual NAT para saída para a Internet">
 </p>
 
 *Figura: Rede Virtual NAT para saída para a Internet*
@@ -129,7 +129,7 @@ O único cenário de saída da Internet fornecido pelo GATEWAY NAT pode ser expa
 #### <a name="nat-and-vm-with-instance-level-public-ip"></a>NAT e VM com IP público de nível de instância
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction2.svg" width="300" title="Rede Virtual NAT e VM com IP público de nível de instância">
+  <img src="media/nat-overview/flow-direction2.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP." width="300" title="Rede Virtual NAT e VM com IP público de nível de instância">
 </p>
 
 *Figura: Virtual Network NAT e VM com IP público de nível de instância*
@@ -144,7 +144,7 @@ A VM utilizará o gateway NAT para a saída.  A entrada originada não é afetad
 #### <a name="nat-and-vm-with-public-load-balancer"></a>NAT e VM com balanceador de carga público
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction3.svg" width="350" title="Rede Virtual NAT e VM com balanceador de carga público">
+  <img src="media/nat-overview/flow-direction3.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with a public load balancer." width="350" title="Rede Virtual NAT e VM com balanceador de carga público">
 </p>
 
 *Figura: Rede Virtual NAT e VM com balanceador de carga público*
@@ -159,7 +159,7 @@ Qualquer configuração de saída de uma regra de equilíbrio de carga ou regras
 #### <a name="nat-and-vm-with-instance-level-public-ip-and-public-load-balancer"></a>NAT e VM com IP público de nível de instância e balanceador de carga público
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction4.svg" width="425" title="Rede Virtual NAT e VM com IP público de nível de instância e balanceador de carga público">
+  <img src="media/nat-overview/flow-direction4.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP and a public load balancer." width="425" title="Rede Virtual NAT e VM com IP público de nível de instância e balanceador de carga público">
 </p>
 
 *Figura: Rede Virtual NAT e VM com IP público de nível de instância e balanceador de carga público*
@@ -182,7 +182,7 @@ Os gateways NAT têm precedência sobre os cenários de saída da sub-rede. O ba
 #### <a name="zone-isolation-with-zonal-stacks"></a>Isolamento de zona com pilhas zonais
 
 <p align="center">
-  <img src="media/nat-overview/az-directions.svg" width="425" title="Rede Virtual NAT com isolamento de zona, criando múltiplos "zonal stacks"">
+  <img src="media/nat-overview/az-directions.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet." width="425" title="Rede Virtual NAT com isolamento de zona, criando múltiplos "zonal stacks"">
 </p>
 
 *Figura: Rede Virtual NAT com isolamento de zona, criando múltiplas "pilhas zonais"*
@@ -210,7 +210,7 @@ Se o seu cenário requer pontos finais de entrada, tem duas opções:
 #### <a name="cross-zone-outbound-scenarios-not-supported"></a>Cenários de saída de zona cruzada não suportados
 
 <p align="center">
-  <img src="media/nat-overview/az-directions2.svg" width="425" title="Rede Virtual NAT não compatível com sub-rede de abranggem de zonas">
+  <img src="media/nat-overview/az-directions2.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet, with the connections between to of the gateways and their subnets broken." width="425" title="Rede Virtual NAT não compatível com sub-rede de abranggem de zonas">
 </p>
 
 *Figura: Rede Virtual NAT não compatível com sub-rede de abranggem de zonas*
@@ -237,7 +237,7 @@ Cada gateway NAT pode suportar 64.000 ligações por endereço IP de saída atri
 
 A tradução de endereços de rede de origem (SNAT) reescreve a origem de um fluxo originário de um endereço IP diferente.  Os recursos de gateway NAT utilizam uma variante do SNAT comumente referida à tradução de endereços portuários (PAT). Pat reescreve o endereço de origem e a porta de origem. Com o SNAT, não há uma relação fixa entre o número de endereços privados e as suas moradas públicas traduzidas.  
 
-### <a name="fundamentals"></a>Fundamentos
+### <a name="fundamentals"></a>Noções Básicas
 
 Vejamos um exemplo de quatro fluxos para explicar o conceito básico.  O gateway NAT está a utilizar o recurso de endereço IP público 65.52.0.2.
 
@@ -268,7 +268,7 @@ O SNAT fornecido pela NAT é diferente do [Balanceador](../load-balancer/load-ba
 A NAT fornece portas SNAT a pedido para novos fluxos de tráfego de saída. Todas as portas SNAT disponíveis em inventário são utilizadas por qualquer máquina virtual em sub-redes configuradas com NAT. 
 
 <p align="center">
-  <img src="media/nat-overview/lb-vnnat-chart.svg" width="550" title="SNAT de saída de rede virtual NAT a pedido">
+  <img src="media/nat-overview/lb-vnnat-chart.svg" alt="Figure depicts inventory of all available SNAT ports used by any virtual machine on subnets configured with N A T." width="550" title="SNAT de saída de rede virtual NAT a pedido">
 </p>
 
 *Figura: Rede Virtual NAT on-demand outbound SNAT*
@@ -276,7 +276,7 @@ A NAT fornece portas SNAT a pedido para novos fluxos de tráfego de saída. Toda
 Qualquer configuração IP de uma máquina virtual pode criar fluxos de saída a pedido, conforme necessário.  A pré-atribuição, por caso, o planeamento, incluindo por exemplo, o pior caso de superprovisionamento, não é necessário.  
 
 <p align="center">
-  <img src="media/nat-overview/exhaustion-threshold.svg" width="550" title="Diferenças nos cenários de exaustão">
+  <img src="media/nat-overview/exhaustion-threshold.svg" alt="Figure depicts inventory of all available SNAT ports used by any virtual machine on subnets configured with N A T with exhaustion threshold." width="550" title="Diferenças nos cenários de exaustão">
 </p>
 
 *Figura: Diferenças nos cenários de exaustão*
@@ -329,7 +329,7 @@ Uma porta SNAT está disponível para reutilização para o mesmo endereço IP d
 
 Queremos saber como podemos melhorar o serviço. Falta-lhe uma capacidade? Faça o seu caso para o que devemos construir a seguir no [UserVoice para NAT](https://aka.ms/natuservoice).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [a rede virtual NAT.](nat-overview.md)
 * Saiba mais [sobre métricas e alertas para os recursos de gateway DA NAT.](nat-metrics.md)

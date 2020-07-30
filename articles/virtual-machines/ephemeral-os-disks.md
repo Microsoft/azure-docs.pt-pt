@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 0058c250c2d1d29061ac7a4130dffedbcf62a249
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4fabaed28ca186f3ca091107e51ed3900168ba41
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87294435"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387732"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Discos EFÉMEROS para VMs Azure
 
@@ -35,7 +35,7 @@ Principais diferenças entre discos de OS persistentes e efémeros:
 |                             | Disco de SO persistente                          | Disco de SO Efémero                              |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
 | **Limite de tamanho para disco de SO**      | 2 TiB                                                                                        | Tamanho da cache para o tamanho VM ou 2TiB, o que for menor. Para o tamanho da **cache em GiB**, ver [DS,](sizes-general.md) [ES,](sizes-memory.md) [M,](sizes-memory.md) [FS](sizes-compute.md)e [GS](sizes-previous-gen.md#gs-series)              |
-| **Tamanhos VM suportados**          | Todos                                                                                          | Tamanhos VM que suportam armazenamento Premium como DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, LSv2, M                                               |
+| **Tamanhos VM suportados**          | Todos                                                                                          | Tamanhos VM que suportam armazenamento Premium como DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
 | **Suporte do tipo de disco**           | Disco de OS gerido e não gerido                                                                | Apenas disco de SO gerido                                                               |
 | **Suporte de região**              | Todas as regiões                                                                                  | Todas as regiões                              |
 | **Persistência de dados**            | Os dados do disco de SO escritos no disco OS são armazenados no Azure Storage                                  | Os dados escritos no disco OS são armazenados no armazenamento local de VM e não são persistidos ao Azure Storage. |
@@ -244,5 +244,5 @@ R: Os discos efémeros não suportam:
 - Azure Site Recovery  
 - Troca de discos de OS 
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Pode criar um VM com um disco efémero de OS utilizando o [Azure CLI](/cli/azure/vm#az-vm-create).

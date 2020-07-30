@@ -7,12 +7,12 @@ ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: d142206a9640ce53ea7463a2c68c5d1c8f64c354
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d1a16da5582e874cecc27443ff62878349c24575
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287195"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424193"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Início Rápido: biblioteca de cliente do armazenamento de blobs do Azure v12 para .NET
 
@@ -230,9 +230,9 @@ Adicione este código ao fim do `Main` método:
 
 ```csharp
 // Download the blob to a local file
-// Append the string "DOWNLOAD" before the .txt extension 
+// Append the string "DOWNLOADED" before the .txt extension 
 // so you can compare the files in the data directory
-string downloadFilePath = localFilePath.Replace(".txt", "DOWNLOAD.txt");
+string downloadFilePath = localFilePath.Replace(".txt", "DOWNLOADED.txt");
 
 Console.WriteLine("\nDownloading blob to\n\t{0}\n", downloadFilePath);
 
@@ -307,7 +307,7 @@ Antes de iniciar o processo de limpeza, verifique se a pasta *de dados* é compo
 
 Depois de verificar os ficheiros, prima a tecla **'Entrar'** para eliminar os ficheiros de teste e terminar a demonstração.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste início rápido, aprendeu a carregar, transferir e listar blobs com o .NET.
 

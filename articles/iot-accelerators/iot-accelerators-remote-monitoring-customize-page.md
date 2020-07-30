@@ -8,12 +8,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: c90f4166bf88a8df18a93e84903c93461b904d2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 8101c01762749c2ceb085516936fa0c421fdb5f3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82187267"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422713"
 ---
 # <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicione uma página personalizada à UI do acelerador de solução de monitorização remota
 
@@ -28,7 +29,7 @@ Outros guias de como adicionar este cenário para adicionar mais funcionalidades
 
 Para completar os passos neste guia de como fazer, precisa do seguinte software instalado na sua máquina de desenvolvimento local:
 
-- [Git](https://git-scm.com/downloads)
+- [Rio Git](https://git-scm.com/downloads)
 - [Node.js](https://nodejs.org/download/)
 
 ## <a name="prepare-a-local-development-environment-for-the-ui"></a>Preparar um ambiente de desenvolvimento local para a UI
@@ -187,7 +188,7 @@ Opcionalmente, pode ligar a sua cópia de execução local do UI web ao acelerad
     REACT_APP_BASE_SERVICE_URL=https://{your solution name}.azurewebsites.net/
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu sobre os recursos disponíveis para ajudá-lo a personalizar a UI web no acelerador de solução de Monitorização Remota.
 

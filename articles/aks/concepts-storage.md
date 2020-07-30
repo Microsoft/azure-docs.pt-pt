@@ -4,12 +4,12 @@ description: Saiba mais sobre o armazenamento no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 643d25e99bef191bfce77f092a9f2218c891a442
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5cf52cb608061498c8e613a3bf1064997acaa128
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84171383"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406967"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de armazenamento para aplicações no Serviço Azure Kubernetes (AKS)
 
@@ -75,6 +75,9 @@ parameters:
   storageaccounttype: Premium_LRS
   kind: Managed
 ```
+
+> [!NOTE]
+> A AKS concilia as classes de armazenamento predefinidos e substituirá quaisquer alterações que fizer para essas aulas de armazenamento.
 
 ## <a name="persistent-volume-claims"></a>Afirmações de volumes persistentes
 

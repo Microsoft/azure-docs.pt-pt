@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fc393279aaa6b293c2eb29099be45385ad08d9a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82304052d6ed0c0169c24c19c58d53548b4479cc
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84731509"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423597"
 ---
 # <a name="bulk-delete-users-in-azure-active-directory"></a>Excluir a granel os utilizadores no Azure Ative Directory
 
@@ -68,7 +68,7 @@ Se houver erros, pode descarregar e ver o ficheiro de resultados na página de r
 
 Pode ver o estado de todos os seus pedidos em massa pendentes na página de resultados da **operação Em Massa.**
 
-   [![](media/users-bulk-delete/bulk-center.png "Check delete status in the Bulk Operations Results page")](media/users-bulk-delete/bulk-center.png#lightbox)
+   [![Verifique o estado de eliminação na página Resultados das Operações em Massa.](media/users-bulk-delete/bulk-center.png)](media/users-bulk-delete/bulk-center.png#lightbox)
 
 Em seguida, pode verificar se os utilizadores que eliminou existem na organização Azure AD, quer no portal Azure, quer utilizando o PowerShell.
 

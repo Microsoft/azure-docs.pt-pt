@@ -10,13 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: trbye
+ms.custom: devx-track-javascript
 zone_pivot_groups: programming-languages-set-two-with-js-spx
-ms.openlocfilehash: 45822c431725ea5ef900f5f1ff39beae76699fbb
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 9f194f348e80f39bbe509f502d6c8d122d4693d7
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391405"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405229"
 ---
 # <a name="quickstart-synthesize-speech-to-a-speaker"></a>Quickstart: Sintetizar o discurso a um orador
 

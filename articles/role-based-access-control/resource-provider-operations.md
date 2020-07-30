@@ -1,5 +1,5 @@
 ---
-title: Operações de fornecedores de recursos do Azure
+title: Operações de fornecedor de recursos Azure
 description: Lista as operações para os fornecedores de recursos Azure.
 services: active-directory
 ms.service: role-based-access-control
@@ -8,14 +8,14 @@ ms.workload: identity
 author: rolyon
 ms.author: rolyon
 ms.date: 07/16/2020
-ms.openlocfilehash: 0fc2039805b155535eeac1d653fc9ecb9e576d5d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d28f852ad4159472b7fcb3289a322db54be8af1e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496949"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387392"
 ---
-# <a name="azure-resource-providers-operations"></a>Operações de fornecedores de recursos do Azure
+# <a name="azure-resource-provider-operations"></a>Operações de fornecedor de recursos Azure
 
 Esta secção lista as operações para os fornecedores de recursos Azure, que são utilizados em funções incorporadas. Você pode usar estas operações em suas [próprias funções personalizadas Azure](custom-roles.md) para fornecer controlo de acesso granular aos recursos em Azure. As operações do fornecedor de recursos estão sempre a evoluir. Para obter as últimas operações, utilize a lista de operações [da Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) ou [do fornecedor az](/cli/azure/provider/operation#az-provider-operation-list).
 
@@ -120,7 +120,7 @@ Clique no nome do fornecedor de recursos na tabela seguinte para ver a lista de 
 | [Microsoft.DevTestLab](#microsoftdevtestlab) |
 | [Microsoft.LabServices](#microsoftlabservices) |
 | [Microsoft.VisualStudio](#microsoftvisualstudio) |
-| **Migrate** |
+| **Migrar** |
 | [Microsoft.Migrate](#microsoftmigrate) |
 | [Microsoft.OffAzure](#microsoftoffazure) |
 | **Monitorização** |
@@ -4850,8 +4850,8 @@ Serviço Azure: [Serviços Cognitivos](../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/NewsSearch/categorysearch/action | Devoluções de notícias para uma categoria fornecida. |
 > | Microsoft.CognitiveServices/accounts/NewsSearch/search/action | Obtenha notícias relevantes para uma determinada consulta. |
 > | Microsoft.CognitiveServices/accounts/NewsSearch/trendingtopics/action | Obtenha tópicos de tendência identificados por Bing. Estes são os mesmos tópicos mostrados no banner na parte inferior da página inicial de Bing. |
-> | Microsoft.CognitiveServices/accounts/QnAMaker/root/action | Criador de FAQ |
-> | Microsoft.CognitiveServices/accounts/QnAMaker.v2/root/action | Criador de FAQ |
+> | Microsoft.CognitiveServices/accounts/QnAMaker/root/action | QnA Maker |
+> | Microsoft.CognitiveServices/accounts/QnAMaker.v2/root/action | QnA Maker |
 > | Microsoft.CognitiveServices/accounts/QnAMaker.v2/alterações/read | Faça o download de alterações a partir do tempo de execução. |
 > | Microsoft.CognitiveServices/accounts/QnAMaker.v2/alterações/write | Substitua os dados de alterações. |
 > | Microsoft.CognitiveServices/accounts/QnAMaker.v2/endpointkeys/read | Obtém chaves de ponto final para um ponto final |
@@ -6607,7 +6607,7 @@ Serviço Azure: [Azure DevOps](https://docs.microsoft.com/azure/devops/)
 > | Microsoft.VisualStudio/Project/Delete | Excluir Projeto |
 > | Microsoft.VisualStudio/Project/Read | Projeto ler |
 
-## <a name="migrate"></a>Migrate
+## <a name="migrate"></a>Migrar
 
 ### <a name="microsoftmigrate"></a>Microsoft.Migrate
 
@@ -6929,7 +6929,7 @@ Serviço Azure: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.OffAzure/VMwareSites/vcenters/read | Obtém as propriedades de um VMware vCenter |
 > | Microsoft.OffAzure/VMwareSites/vcenters/write | Cria ou atualiza o VMware vCenter |
 
-## <a name="monitor"></a>Monitor
+## <a name="monitor"></a>Monitorizar
 
 ### <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 

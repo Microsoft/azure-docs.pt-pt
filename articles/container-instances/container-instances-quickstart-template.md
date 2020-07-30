@@ -4,14 +4,14 @@ description: Neste quickstart, você usa um modelo de Gestor de Recursos Azure p
 services: azure-resource-manager
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-javascript
 ms.date: 04/30/2020
-ms.openlocfilehash: 64f86611e8a60cd3d1463cd2845c034551277bb2
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d09cc1b1dbefa906e938a3721308222d4f63e131
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118465"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87408055"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-an-arm-template"></a>Quickstart: Implementar uma instância de contentor em Azure usando um modelo ARM
 
@@ -19,7 +19,7 @@ Utilize instâncias de contentores Azure para executar recipientes Docker sem se
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aci-linuxcontainer-public-ip%2Fazuredeploy.json)
 
@@ -29,7 +29,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="review-the-template"></a>Rever o modelo
 
-O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-aci-linuxcontainer-public-ip/).
+O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-aci-linuxcontainer-public-ip/).
 
 :::code language="json" source="~/quickstart-templates/101-aci-linuxcontainer-public-ip/azuredeploy.json" range="1-107" highlight="61-100":::
 
@@ -87,7 +87,7 @@ Para visualizar os registos do contentor, em **Definições,** selecione **Conta
 
 ![Registos de contentor no portal do Azure](media/container-instances-quickstart-template/aci-logs.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar o recipiente, na página **'Visão Geral'** para a instância do recipiente, selecione **Delete**. Quando lhe for perguntado, confirme a eliminação.
 

@@ -5,12 +5,13 @@ author: suhuruli
 ms.topic: conceptual
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: c7e2d556c4fb8bebc0b75bdf9d4c209c27f86971
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 74dfe54bf5f842aea59bf6cb35a00aeef81766f1
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82193399"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429004"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurar o ambiente de desenvolvimento no Mac OS X
 > [!div class="op_single_selector"]
@@ -211,7 +212,7 @@ Os atributos são definidos do seguinte modo:
 >Se iniciar o contentor com um nome que não seja `sfonebox`, atualize o valor de nome no ficheiro testclient.sh na sua aplicação Java de atores do Service Fabric.
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 <!-- Links -->
 * [Criar e implementar a sua primeira aplicação Java do Service Fabric no Linux com o Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * [Criar e implementar a sua primeira aplicação Java do Service Fabric no Linux com o plug-in do Service Fabric para Eclipse](service-fabric-get-started-eclipse.md)

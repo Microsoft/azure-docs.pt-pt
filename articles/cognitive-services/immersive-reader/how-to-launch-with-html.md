@@ -9,12 +9,13 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: metan
-ms.openlocfilehash: bc7ab46113e1b819fc71a9f6e8a18400f8acfbef
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: fbe54b3bd6e0fc8c42b4dfc7401be74ae65ce6cd
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75946245"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406933"
 ---
 # <a name="how-to-launch-the-immersive-reader-with-html-content"></a>Como lançar o Leitor Imersivo com conteúdo HTML
 
@@ -22,7 +23,7 @@ Este artigo demonstra como lançar o Leitor Imersivo com conteúdo HTML.
 
 ## <a name="prepare-the-html-content"></a>Preparar o conteúdo HTML
 
-Coloque o conteúdo que pretende renderizar no Leitor Imersivo dentro de um elemento de recipiente. Certifique-se de que o `id`elemento recipiente tem uma . única . O Leitor Imersivo fornece suporte para elementos HTML básicos, consulte a [referência](./reference.md#html-support) para mais informações.
+Coloque o conteúdo que pretende renderizar no Leitor Imersivo dentro de um elemento de recipiente. Certifique-se de que o elemento do recipiente tem um elemento `id` único. O Leitor Imersivo fornece suporte para elementos HTML básicos, consulte a [referência](./reference.md#html-support) para obter mais informações.
 
 ```html
 <div id='immersive-reader-content'>
@@ -38,9 +39,9 @@ Coloque o conteúdo que pretende renderizar no Leitor Imersivo dentro de um elem
 </div>
 ```
 
-## <a name="get-the-html-content-in-javascript"></a>Obtenha o conteúdo HTML no JavaScript
+## <a name="get-the-html-content-in-javascript"></a>Obtenha o conteúdo HTML em JavaScript
 
-Utilize `id` o elemento do recipiente para obter o conteúdo HTML no seu código JavaScript.
+Utilize o `id` elemento do recipiente para obter o conteúdo HTML no seu código JavaScript.
 
 ```javascript
 const htmlContent = document.getElementById('immersive-reader-content').innerHTML;
@@ -48,7 +49,7 @@ const htmlContent = document.getElementById('immersive-reader-content').innerHTM
 
 ## <a name="launch-the-immersive-reader-with-your-html-content"></a>Lance o Leitor Imersivo com o seu conteúdo HTML
 
-Ao `ImmersiveReader.launchAsync`ligar, coloque a `mimeType` propriedade `text/html` do pedaço para permitir a renderização HTML.
+Ao `ImmersiveReader.launchAsync` ligar, desa estale a propriedade do pedaço `mimeType` `text/html` para permitir a renderização html.
 
 ```javascript
 const data = {
@@ -61,6 +62,6 @@ const data = {
 ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, data, YOUR_OPTIONS);
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Explore a [referência SDK do leitor imersivo](./reference.md)

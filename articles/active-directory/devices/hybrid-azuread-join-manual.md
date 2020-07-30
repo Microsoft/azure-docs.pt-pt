@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 007763d65021b0730c6e4e81ada33790d3cf4c02
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b80cd2e40e54837682e72837cf0d1a9058f3a7fc
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025783"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428373"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configurar dispositivos híbridos associados ao Azure Active Directory manualmente.
 
@@ -59,6 +59,9 @@ Certifique-se de que os seguintes URLs estão acessíveis a partir de computador
 * `https://login.microsoftonline.com`
 * `https://device.login.microsoftonline.com`
 * STS da sua organização (para domínios federados), que deve ser incluído nas definições intranet locais do utilizador
+
+> [!WARNING]
+> Se a sua organização utilizar servidores proxy que intercetam tráfego SSL para cenários como prevenção de perda de dados ou restrições de inquilinos AZure AD, certifique-se de que o tráfego para https://device.login.microsoftonline.com ' ' é excluído do break-and-inspect TLS. A não exclusão https://device.login.microsoftonline.com pode causar interferência na autenticação do certificado do cliente, causando problemas com o registo do dispositivo e o acesso condicional baseado no dispositivo.
 
 Se a sua organização planeia utilizar o Seamless SSO, o seguinte URL tem de ser acessível a partir dos computadores dentro da sua organização. Deve também ser adicionado à zona intranet local do utilizador.
 
@@ -615,7 +618,7 @@ Se sentir problemas em completar a ad AD híbrida para dispositivos Windows unid
 - [Resolver problemas de dispositivos associados ao Azure Active Directory híbrido](troubleshoot-hybrid-join-windows-current.md)
 - [O Azure Ative Directory híbrido de resolução de problemas juntou-se a dispositivos de nível inferior](troubleshoot-hybrid-join-windows-legacy.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Introduction to device management in Azure Active Directory](overview.md) (Introdução à gestão de dispositivos no Azure Active Directory)
 

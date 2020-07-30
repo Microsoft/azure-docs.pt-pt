@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: 3c04009da67ad7c0b0b09278c25d75c678e23960
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 5882b79232e858bbc8ad7e0da94ad4b04f5165ca
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87294594"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422985"
 ---
 # <a name="how-to-use-the-shaka-player-with-azure-media-services"></a>Como usar o jogador Shaka com a Azure Media Services
 
@@ -145,7 +146,7 @@ player.configure('drm.advanced.com\\.apple\\.fps\\.1_0.serverCertificate', new U
 
 Para obter mais informações, consulte [a documentação de proteção drm do jogador Shaka](https://shaka-player-demo.appspot.com/docs/api/tutorial-drm-config.html).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Use o Azure Media Player](../azure-media-player/azure-media-player-overview.md)
 * [Quickstart: Encriptar conteúdo](encrypt-content-quickstart.md)

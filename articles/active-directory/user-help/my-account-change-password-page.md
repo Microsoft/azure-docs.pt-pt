@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 10/28/2019
+ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: a93ee781648440a6e656ff8fd948b2eb9e96bd43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1191fdd757b4614eca543660eccddea5c20d033
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83735944"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422521"
 ---
 # <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>Altere a palavra-passe do seu trabalho ou da conta escolar a partir da página Change Password
 
@@ -54,3 +54,5 @@ Depois de alterar a sua palavra-passe, pode:
 - Veja a sua [atividade de inscrição.](my-account-portal-sign-ins-page.md)
 
 - Veja como a sua organização [utiliza os seus dados relacionados com a privacidade.](my-account-portal-privacy-page.md)
+
+- Altere as [definições do portal 'Minha Conta'](my-account-portal-settings.md)

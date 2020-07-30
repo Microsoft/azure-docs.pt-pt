@@ -8,12 +8,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/05/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3820b34a9c79f3b514327fa45a05eebaf8a2a1ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: f10be59501368012b0e4269f402fe258da552e25
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82193178"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422747"
 ---
 # <a name="add-a-custom-flyout-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicione um flyout personalizado à UI do acelerador de solução de monitorização remota
 
@@ -28,7 +29,7 @@ O exemplo flyout neste artigo mostra na página com a grelha que o Add uma grelh
 
 Para completar os passos neste guia de como fazer, precisa do seguinte software instalado na sua máquina de desenvolvimento local:
 
-- [Git](https://git-scm.com/downloads)
+- [Rio Git](https://git-scm.com/downloads)
 - [Node.js](https://nodejs.org/download/)
 
 ## <a name="before-you-start"></a>Antes de começar
@@ -135,7 +136,7 @@ npm start
 
 O comando anterior dirige a UI localmente em `http://localhost:3000/dashboard` . Navegue na página **Exemplo** e clique **em Open Flyout**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu sobre os recursos disponíveis para ajudá-lo a adicionar ou personalizar páginas na UI web no acelerador de solução de Monitorização Remota.
 

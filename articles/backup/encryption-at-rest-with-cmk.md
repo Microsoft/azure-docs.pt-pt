@@ -3,12 +3,12 @@ title: Encriptação de dados de backup usando chaves geridas pelo cliente
 description: Saiba como o Azure Backup permite encriptar os seus dados de backup utilizando teclas geridas pelo cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: c26466582cbe5a10610f6766160c2b0bc51a4828
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1586a40d115a591c474c3bc8c1fed5448eb90bcd
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091101"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87388004"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Encriptação de dados de backup usando chaves geridas pelo cliente
 
@@ -92,7 +92,7 @@ Agora precisa de permitir que o cofre dos Serviços de Recuperação aceda ao Co
 
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Permitir a eliminação suave e a proteção de purga no Cofre da Chave Azure
 
-Tem de ativar a **proteção de eliminação e purga suave** no cofre da chave Azure que armazena a sua chave de encriptação. Pode fazê-lo a partir do Cofre da Chave Azure UI, como mostrado abaixo. (Alternativamente, estas propriedades podem ser definidas enquanto criam o Cofre da Chave). Leia mais sobre estas propriedades do Key Vault [aqui.](../key-vault/general/overview-soft-delete.md)
+Tem de ativar a **proteção de eliminação e purga suave** no cofre da chave Azure que armazena a sua chave de encriptação. Pode fazê-lo a partir do Cofre da Chave Azure UI, como mostrado abaixo. (Alternativamente, estas propriedades podem ser definidas enquanto criam o Cofre da Chave). Leia mais sobre estas propriedades do Key Vault [aqui.](../key-vault/general/soft-delete-overview.md)
 
 ![Permitir a proteção suave de eliminação e purga](./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png)
 
@@ -258,6 +258,6 @@ Não seguir os passos do artigo e continuar a proteger itens pode levar a que o 
 
 A utilização da encriptação CMK para cópia de segurança não incorre em custos adicionais para si. No entanto, pode continuar a incorrer em custos para a utilização do seu Cofre de Chaves Azure, onde a sua chave está armazenada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral das funcionalidades de segurança no Azure Backup](security-overview.md)

@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/01/2019
 ms.author: thweiss
-ms.openlocfilehash: bf109d3f15c9865a8e9ad1d27a1e8d320d172761
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: d692a884688d81fdf16261edff816fa8f0215877
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261839"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422322"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Encontre a taxa da unidade de pedido na Azure Cosmos DB
 
@@ -31,7 +32,7 @@ Atualmente, pode encontrar a taxa de pedido no portal Azure apenas para uma cons
 
 1. Vá ao painel **do Data Explorer** e, em seguida, selecione o recipiente em que pretende trabalhar.
 
-1. Selecione **Nova Consulta SQL**.
+1. Selecione **Nova Consulta SQL**.
 
 1. Introduza uma consulta válida e, em seguida, selecione **Executar Consulta**.
 

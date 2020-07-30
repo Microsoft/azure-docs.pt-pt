@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 236153612f6056e90cb9b5af128f49ed550e3fe9
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 2ef2cc86b3e12149977fa819a7e54ee9a1c0d7ac
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080878"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423988"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Ganhe visibilidade em todo o inquilino para o Azure Security Center
 Este artigo explica como gerir a postura de segurança da sua organização em escala, aplicando políticas de segurança a todas as subscrições da Azure ligadas ao seu inquilino Azure Ative Directory.
@@ -26,7 +26,7 @@ Este artigo explica como gerir a postura de segurança da sua organização em e
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="management-groups"></a>Grupos de gestão
-Os grupos de gestão Azure proporcionam a capacidade de gerir eficientemente o acesso, políticas e relatórios sobre grupos de subscrições, bem como gerir eficazmente toda a propriedade da Azure através da realização de ações no grupo de gestão de raiz. Cada inquilino da AD Azure recebe um único grupo de gestão de alto nível chamado grupo de gestão de raiz. Este grupo de gestão de raiz está incorporado na hierarquia para ter todos os grupos de gestão e subscrições associados ao mesmo. Este grupo permite que políticas globais e atribuições de RBAC sejam aplicadas ao nível do diretório. 
+Os grupos de gestão Azure proporcionam a capacidade de gerir eficientemente o acesso, políticas e relatórios sobre grupos de subscrições, bem como gerir eficazmente toda a propriedade da Azure através da realização de ações no grupo de gestão de raiz. Cada inquilino da AD Azure recebe um único grupo de gestão de alto nível chamado grupo de gestão de raiz. Este grupo de gestão de raiz está incorporado na hierarquia para ter todos os grupos de gestão e subscrições associados ao mesmo. Este grupo permite que políticas globais e atribuições de funções Azure sejam aplicadas ao nível do diretório. 
 
 O grupo de gestão de raiz é criado automaticamente quando faz qualquer uma das seguintes ações: 
 1. Opte por utilizar grupos de gestão Azure navegando para **grupos de gestão** no [portal Azure.](https://portal.azure.com)
@@ -193,4 +193,3 @@ Neste artigo, aprendeu a ganhar visibilidade para o Centro de Segurança Azure. 
 
 > [!div class="nextstepaction"]
 > [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md)
-

@@ -2,13 +2,13 @@
 title: Modelo de exportação no portal Azure
 description: Utilize o portal Azure para exportar um modelo de Gestor de Recursos Azure a partir de recursos na sua subscrição.
 ms.topic: conceptual
-ms.date: 12/12/2019
-ms.openlocfilehash: dbdcaa6e6db4a7a4a958f1be2e9977a14e092663
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.date: 07/29/2020
+ms.openlocfilehash: 0262517df11f0d91920fd7e44f96ff532ffbe63f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057709"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423240"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Exportação única e multi-recursos para um modelo no portal Azure
 
@@ -52,6 +52,8 @@ Ao exportar de um grupo de recursos ou recurso, o modelo exportado é gerado a p
 A funcionalidade do modelo de exportação não suporta a exportação de recursos da Azure Data Factory. Para saber como pode exportar recursos da Data Factory, consulte [Copy ou clone uma fábrica de dados na Azure Data Factory.](https://aka.ms/exportTemplateViaAdf)
 
 Para exportar recursos criados através de um modelo de implementação clássico, deve [migrar para o modelo de implementação do Gestor de Recursos.](https://aka.ms/migrateclassicresourcetoarm)
+
+Se receber um aviso ao exportar um modelo que indique que um tipo de recurso não foi exportado, ainda pode descobrir as propriedades desse recurso. Para saber mais sobre as diferentes opções para visualizar propriedades de recursos, consulte [as propriedades de recursos Discover.](view-resources.md) Também pode olhar para a [API Azure REST](/rest/api/azure/) para o tipo de recurso.
 
 ## <a name="export-template-from-a-resource-group"></a>Modelo de exportação de um grupo de recursos
 

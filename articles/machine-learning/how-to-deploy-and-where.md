@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: f592e265cafc3e56dc0616e6eeb748c851084c32
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fb23893f176a2b51e5917ea5bbcb0e52faa64bf3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317880"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423444"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implementar modelos com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -218,6 +218,8 @@ myenv = Environment.from_conda_specification(name = 'myenv',
                                              file_path = 'path-to-conda-specification-file'
 myenv.register(workspace=ws)
 ```
+
+Para uma discussão aprofundada sobre a utilização e personalização de ambientes Python com Azure Machine Learning, consulte [Criar & utilizar ambientes de software em Azure Machine Learning](how-to-use-environments.md)
 
 ### <a name="2-define-scoring-code"></a><a id="script"></a>2. Defina o código de pontuação
 
@@ -636,7 +638,7 @@ Consulte [o Serviço Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md
 ### <a name="ab-testing-controlled-rollout"></a>Teste a/B (lançamento controlado)
 Para obter mais informações, consulte [o lançamento controlado dos modelos ML](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) para obter mais informações.
 
-## <a name="consume-web-services"></a>Consumir os serviços web
+## <a name="inference-using-web-services"></a>Inferência utilizando serviços web
 
 Cada serviço web implantado fornece um ponto final REST, para que possa criar aplicações de clientes em qualquer linguagem de programação.
 Se tiver ativado a autenticação baseada em chaves para o seu serviço, tem de fornecer uma chave de serviço como símbolo no seu cabeçalho de pedido.
@@ -1233,7 +1235,7 @@ def run(request):
 > A Azure Machine Learning irá encaminhar apenas os pedidos POST e GET para os contentores que executam o serviço de pontuação. Isto pode causar erros devido aos navegadores que usam pedidos OPTIONS para pedidos de CORS pré-voo.
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Como implementar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
 * [Resolução de problemas de implantação](how-to-troubleshoot-deployment.md)

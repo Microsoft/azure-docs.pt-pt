@@ -12,12 +12,13 @@ ms.date: 06/16/2017
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: a1e0e3623692321e5c69e4b9c5a26ff82a1c47a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- devx-track-javascript
+ms.openlocfilehash: 2d5baf0f1c4298d597b620f02f3e463a05203f5a
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81732343"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424039"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>Envie mensagens nuvem-para-dispositivo com IoT Hub (Node.js)
 

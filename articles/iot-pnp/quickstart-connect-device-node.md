@@ -7,13 +7,13 @@ ms.date: 07/10/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
-ms.openlocfilehash: f6a3190ec87c0b06aba8f065a3e7518f4a76cf24
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: 00a748c3c372f1980042cff201edec720587a511
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352989"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422560"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub-nodejs"></a>Quickstart: Ligue uma aplicação de dispositivo IoT Plug e Play Preview à IoT Hub (Node.js)
 
@@ -120,7 +120,7 @@ Depois de iniciar a amostra do cliente do dispositivo, utilize a ferramenta expl
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, aprendeu a ligar um dispositivo IoT Plug e Play a um hub IoT. Para saber mais sobre como construir uma solução que interage com os seus dispositivos IoT Plug e Play, consulte:
 

@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: inhenkel
-ms.openlocfilehash: 61bd0bbe363dc5226463e355aeb6a0ad68fb10a8
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 39c790ea3c7799c59d4b49e3ce3284fb96b8b254
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87294587"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422968"
 ---
 # <a name="how-to-use-the-videojs-player-with-azure-media-services"></a>Como utilizar o jogador Video.js com a Azure Media Services
 
@@ -158,7 +159,7 @@ emeHeaders: {'Authorization': "Bearer=" + "YOUR TOKEN"},
 keySystems: {...
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Use o Azure Media Player](../azure-media-player/azure-media-player-overview.md)  
 - [Quickstart: Encriptar conteúdo](encrypt-content-quickstart.md)

@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 12/04/2018
-ms.openlocfilehash: 6a8770cfaf5acedcf3549d92f1365948acda8bc7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/28/2020
+ms.openlocfilehash: a23330bb00fb06a3ed9d3dfe28666e8f27dae4fa
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84344650"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405046"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Conceber serviços globalmente disponíveis utilizando a Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -58,7 +58,13 @@ Se uma paragem acontecer na região B, o processo de replicação entre a base d
 > Para a recuperação de desastres, recomendamos a configuração com implementação de aplicação limitada a duas regiões. Isto porque a maioria das geografias azures têm apenas duas regiões. Esta configuração não protege a sua aplicação de uma falha catastrófica simultânea de ambas as regiões. Em caso improvável de tal falha, pode recuperar as suas bases de dados numa terceira região utilizando a [operação de geo-restauro.](disaster-recovery-guidance.md#recover-using-geo-restore)
 >
 
- Uma vez atenuada a paralisação, a base de dados secundária ressincroniza automaticamente com a primária. Durante a sincronização, o desempenho do primário pode ser impactado. O impacto específico depende da quantidade de dados adquiridos pela nova primária desde o fracasso. O seguinte diagrama ilustra uma paragem na região secundária:
+ Uma vez atenuada a paralisação, a base de dados secundária ressincroniza automaticamente com a primária. Durante a sincronização, o desempenho do primário pode ser impactado. O impacto específico depende da quantidade de dados adquiridos pela nova primária desde o fracasso. 
+
+> [!NOTE]
+> Após a interrupção ser atenuada, o Gestor de Tráfego começará a encaminhar as ligações para a aplicação na Região A como um ponto final de prioridade mais elevado. Se pretende manter a primária na Região B por um tempo, deve alterar a tabela de prioridades no perfil do Gestor Trafic em conformidade. 
+>
+ 
+ O seguinte diagrama ilustra uma paragem na região secundária:
 
 ![Cenário 1. Configuração após uma paragem na região secundária.](./media/designing-cloud-solutions-for-disaster-recovery/scenario1-c.png)
 

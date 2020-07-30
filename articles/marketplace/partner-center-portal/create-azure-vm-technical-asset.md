@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/13/2020
-ms.openlocfilehash: 69458a7a3f2555a301c1266addfe7c49cb111ef6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 532a2ce429899d3674a8f6d8308188e9b1f737b1
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317761"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407953"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Crie os seus ativos técnicos da Azure Virtual Machine
 
@@ -276,10 +276,10 @@ O processo seguinte generaliza um Linux VM e reimplanta-o como um VM separado. P
     1. No portal Azure, selecione o seu grupo de recursos (RG) e desatribua o VM.
     2. O seu VHD está agora generalizado e pode criar um novo VM utilizando este VHD.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se tiver dificuldades em criar o seu novo VHD baseado em Azure, consulte [questões comuns durante a criação de VHD.](common-issues-during-vhd-creation.md)
 
 Caso contrário:
 
-* [Certifique-se de que a sua imagem VM](get-sas-uri.md) explica como testar e enviar uma imagem VM para certificação Azure Marketplace, incluindo onde obter a Ferramenta de Teste de Certificação para a ferramenta *Certificada Azure* e como usá-la para certificar a sua imagem VM.
+* [Test Virtual Machine (VM) implantado a partir de VHD](azure-vm-image-certification.md) explica como testar e enviar uma imagem VM para certificação Azure Marketplace, incluindo onde obter a Ferramenta de Teste de Certificação para a ferramenta *Certificada Azure* e como usá-la para certificar a sua imagem VM.

@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 3afa43f4db04b8289dea8e3d2d6511efb27b3d28
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: tracking-python, devx-track-javascript
+ms.openlocfilehash: 4cbab08a3a56d2ea81612b27f42571d9925d0745
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104644"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87412937"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mariadb"></a>Como ligar aplicações ao Azure Database for MariaDB
 Este tópico lista os tipos de cadeias de ligação que são suportados pela Base de Dados Azure para MariaDB, juntamente com modelos e exemplos. Pode ter diferentes parâmetros e configurações na sua cadeia de ligação.

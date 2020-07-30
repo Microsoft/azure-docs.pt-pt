@@ -5,18 +5,18 @@ description: Saiba como construir uma aplicação LUIS programáticamente a part
 services: cognitive-services
 author: diberry
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-javascript
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 69eb6c5e5d0139049e252b0a22fefad747429068
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 669c5f1ae6b667073e885a0077e9f3130ba3c4f0
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057743"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405981"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Construa uma aplicação LUIS programáticamente utilizando Node.js
 

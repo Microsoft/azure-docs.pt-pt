@@ -8,12 +8,13 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
-ms.openlocfilehash: 2a7e0932d226b1533c039b8529c2c11de06cf525
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 7ca1620c51640699fe8b31aef3504b8c67185253
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79285152"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423495"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Controle o acesso ao serviço de provisionamento de dispositivos Azure IoT Hub
 
@@ -141,7 +142,7 @@ Os componentes de serviço só podem gerar fichas de segurança utilizando polí
 
 Aqui estão as funções de serviço expostas nos pontos finais:
 
-| Ponto Final | Funcionalidade |
+| Ponto final | Funcionalidade |
 | --- | --- |
 | `{your-service}.azure-devices-provisioning.net/enrollments` |Fornece operações de inscrição de dispositivos com o Serviço de Provisionamento de Dispositivos. |
 | `{your-service}.azure-devices-provisioning.net/enrollmentGroups` |Fornece operações para gerir grupos de inscrição de dispositivos. |

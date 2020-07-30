@@ -6,12 +6,13 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: ded36eeecb14eeac0ce3de37c8d01d99bc31491f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 7e809c1990f31687acb559b5ecd6684bfec52483
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078170"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423274"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guia de referência de Schema para tipos de gatilho e ação em Azure Logic Apps
 
@@ -76,7 +77,7 @@ Cada tipo de gatilho tem uma interface e entradas diferentes que definem o compo
 | [**HTTP**](#http-trigger) | Verifica ou *sonda* qualquer ponto final. Este ponto final deve estar em conformidade com um contrato de gatilho específico, utilizando um `202` padrão assíncrona ou devolvendo uma matriz. | 
 | [**HTTPWebhook**](#http-webhook-trigger) | Cria um ponto final callable para a sua aplicação lógica, mas chama o URL especificado para registar ou não registar. |
 | [**Recorrência**](#recurrence-trigger) | Incêndios baseados num horário definido. Pode definir uma data e hora futuras para disparar este gatilho. Com base na frequência, também pode especificar horas e dias para executar o seu fluxo de trabalho. | 
-| [**Pedido**](#request-trigger)  | Cria um ponto final callable para a sua aplicação lógica e também é conhecido como um gatilho "manual". Por exemplo, consulte [fluxos de trabalho de chamada, gatilho ou ninho com pontos finais HTTP](../logic-apps/logic-apps-http-endpoint.md). | 
+| [**Pedir**](#request-trigger)  | Cria um ponto final callable para a sua aplicação lógica e também é conhecido como um gatilho "manual". Por exemplo, consulte [fluxos de trabalho de chamada, gatilho ou ninho com pontos finais HTTP](../logic-apps/logic-apps-http-endpoint.md). | 
 ||| 
 
 ### <a name="managed-api-triggers"></a>Gatilhos de API geridos
@@ -336,11 +337,11 @@ Este gatilho envia um pedido para o ponto final HTTP ou HTTPS especificado com b
 
 Para funcionar bem com a sua aplicação lógica, o ponto final deve estar em conformidade com um padrão ou contrato específico de gatilho, e reconhecer estas propriedades de resposta:
 
-| Propriedade | Necessário | Descrição |
+| Propriedade | Obrigatório | Descrição |
 |----------|----------|-------------|
-| Código de estado | Yes | O código de estado "200 OK" começa a funcionar. Qualquer outro código de estado não começa a funcionar. |
-| Cabeçalho de retíria | No | O número de segundos até que a sua aplicação lógica volte a sondar o ponto final |
-| Cabeçalho de localização | No | A URL para ligar no próximo intervalo de votação. Se não for especificado, o URL original é utilizado. |
+| Código de estado | Sim | O código de estado "200 OK" começa a funcionar. Qualquer outro código de estado não começa a funcionar. |
+| Cabeçalho de retíria | Não | O número de segundos até que a sua aplicação lógica volte a sondar o ponto final |
+| Cabeçalho de localização | Não | A URL para ligar no próximo intervalo de votação. Se não for especificado, o URL original é utilizado. |
 |||| 
 
 *Exemplo de comportamentos para diferentes pedidos*

@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
-ms.openlocfilehash: c2dcba05e3b1fc5cfc32d6f1b38c22b811b73626
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: f212143d90b6a6bf9c8f1f597c276b9ab4100617
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87353001"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406265"
 ---
 # <a name="iot-plug-and-play-preview-refresh"></a>IoT Plug e Play atualização de pré-visualização
 
@@ -86,7 +86,7 @@ O serviço SDK está disponível em [Node.js](https://github.com/Azure/azure-iot
 
 A extensão [de workbench de dispositivo Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) fornece suporte de autoria para DTDL v1, integração com a versão anterior do repositório de modelos, e geração de código.
 
-Se necessitar de suporte de autoria DTDL v2 no Código VS, instale a nova [extensão DTDL](https://github.com/azure/vscode-dtdl) no Código VS. A extensão não proporciona integração com o repositório de modelo ou geração de código. Gerir modelos no repositório é agora feito usando uma [UI web](https://aka.ms/iotmodelrepo).
+Se necessitar de suporte de autoria DTDL v2 no Código VS, instale a nova [extensão DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) no Código VS. A extensão não proporciona integração com o repositório de modelo ou geração de código. Gerir modelos no repositório é agora feito usando uma [UI web](https://aka.ms/iotmodelrepo).
 
 ## <a name="digital-twin-service-side-rest-apis"></a>APIs de descanso do lado do serviço digital twin
 

@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Realizar uma pesquisa de notícias com Node.js - Bing News Search REST API'
+title: 'Quickstart: Realize uma pesquisa de notícias com Node.js - Bing News Search REST API'
 titleSuffix: Azure Cognitive Services
-description: Use este quickstart para enviar um pedido para a API de pesquisa de notícias bing news usando Node.js, e receber uma resposta JSON.
+description: Utilize este quickstart para enviar um pedido à API de Pesquisa de Notícias Bing usando Node.js e receba uma resposta JSON.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,21 +10,21 @@ ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: seodec2018
-ms.openlocfilehash: 24dd1e719b9eb401038d47c4d1c42139258f36f9
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.custom: seodec2018, devx-track-javascript
+ms.openlocfilehash: d0ed69aecf03e5c8e3a65e3ac532c02c89b65ba8
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872056"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406610"
 ---
-# <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Quickstart: Realizar uma pesquisa de notícias usando node.js e a Bing News Search REST API
+# <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Quickstart: Realize uma pesquisa de notícias usando Node.js e a API de Pesquisa de Notícias Bing
 
 Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa de Notícias Bing. Esta simples aplicação JavaScript envia uma consulta de pesquisa para a API e exibe a resposta JSON.
 
-Embora esta aplicação esteja escrita no JavaScript e seja executado no Node.js, a API é um serviço Web restful compatível com a maioria dos idiomas de programação.
+Embora esta aplicação esteja escrita em JavaScript e seja executado em Node.js, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
-O código fonte desta amostra está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingNewsSearchv7.js).
+O código-fonte desta amostra está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingNewsSearchv7.js).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,14 +35,14 @@ O código fonte desta amostra está disponível no [GitHub](https://github.com/A
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-1. Crie um novo ficheiro JavaScript no seu IDE ou editor favorito e detete teanta a rigor e os requisitos HTTPS.
+1. Crie um novo ficheiro JavaScript no seu IDE ou editor favorito e desaprove os requisitos de rigor e HTTPS.
 
     ```javascript
     'use strict';
     let https = require('https');
     ```
 
-2. Crie variáveis para o ponto final da API, o caminho de pesquisa da API de notícias, a sua chave de subscrição e o termo de pesquisa. Pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso. 
+2. Crie variáveis para o ponto final da API, o caminho de pesquisa da API de notícias, a sua chave de subscrição e o termo de pesquisa. Pode utilizar o ponto final global no seguinte código ou utilizar o ponto final [de subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) apresentado no portal Azure para o seu recurso. 
 
     ```javascript
     let subscriptionKey = 'enter key here';
@@ -53,7 +53,7 @@ O código fonte desta amostra está disponível no [GitHub](https://github.com/A
 
 ## <a name="handle-and-parse-the-response"></a>Processar e analisar a resposta
 
-1. Defina uma função chamada `response_handler` que requer uma chamada HTTP, como `response` parâmetro. 
+1. Defina uma função nomeada `response_handler` que recebe uma chamada HTTP, como `response` parâmetro. 
 
    Adicione código a esta função nos passos que se seguem.
 
@@ -88,7 +88,7 @@ O código fonte desta amostra está disponível no [GitHub](https://github.com/A
      });
     ```
 
-## <a name="example-json-response"></a>Exemplo resposta JSON
+## <a name="example-json-response"></a>Exemplo JSON resposta
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -183,7 +183,7 @@ O código fonte desta amostra está disponível no [GitHub](https://github.com/A
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Criar uma aplicação web de página única](tutorial-bing-news-search-single-page-app.md)

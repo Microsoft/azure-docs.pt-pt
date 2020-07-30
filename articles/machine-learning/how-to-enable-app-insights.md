@@ -11,12 +11,12 @@ author: blackmist
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 2bc3eb72ff0c5d29fd72de848abf87dfe84e2a01
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 88a122a9af4a5edac45a3189df5ffb78fb2ce271
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320226"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423818"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorize e recolha dados dos pontos finais do serviço web ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -128,6 +128,8 @@ Se pretender registar vestígios personalizados, siga o processo de implementaç
 
 3. Construa uma imagem e implemente-a em [AKS ou ACI](how-to-deploy-and-where.md).
 
+Para obter mais informações sobre o registo e recolha de dados, consulte [Ativar o registo no Azure Machine Learning](how-to-enable-logging.md) e [recolher dados de modelos em produção.](how-to-enable-data-collection.md)
+
 ### <a name="disable-tracking-in-python"></a>Desativar o rastreio em Python
 
 Para desativar os Insights de Aplicação Azure, utilize o seguinte código:
@@ -166,7 +168,7 @@ Para vê-lo:
 
     [![Localizar insights de aplicação url](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 
-1. Nas Isights de Aplicação, a partir do **separador Visão Geral** ou na secção __de Monitorização__ na lista à esquerda, selecione __Registos__.
+1. Em Insights de Aplicação, a partir do **separador Visão Geral** ou na secção __de Monitorização__ na lista à esquerda, selecione __Registos__.
 
     [![Separador geral da monitorização](./media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
@@ -200,7 +202,7 @@ O notebook [enable-app-insights-in-production-service.ipynb](https://github.com/
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Veja [como implementar um modelo num cluster de serviços Azure Kubernetes](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service) ou como implementar um modelo para [Azure Container Instances](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-container-instance) para implementar os seus modelos em pontos finais de serviço web, e permitir que o Azure Application Insights aproveite a recolha de dados e a monitorização do ponto final
 * Consulte [MLOps: Gerir, implementar e monitorizar modelos com Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment) para saber mais sobre a alavancagem de dados recolhidos a partir de modelos em produção. Estes dados podem ajudar a melhorar continuamente o seu processo de aprendizagem automática
