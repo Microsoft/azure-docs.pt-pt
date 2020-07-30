@@ -9,12 +9,12 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: c41c3346d04dd1fc00a7ddb9e7fea66f619995e6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c11a0ccb08f03775a07716e6c547d849cda347dd
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496065"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387341"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Azure Synapse Analytics partilhou metadados
 
@@ -40,7 +40,7 @@ O modelo de metadados partilhado suporta o padrão moderno de armazém de dados 
 
 A sincronização do objeto ocorre assíncronia. Os objetos terão um ligeiro atraso de alguns segundos até que apareçam no contexto SQL. Uma vez que apareçam, podem ser questionados, mas não atualizados nem alterados pelos motores SQL que têm acesso aos mesmos.
 
-## <a name="which-metadata-objects-are-shared"></a>Quais objetos de metadados são partilhados
+## <a name="shared-metadata-objects"></a>Objetos de metadados partilhados
 
 A spark permite-lhe criar bases de dados, tabelas externas, tabelas geridas e vistas. Uma vez que as vistas spark requerem um motor Spark para processar a declaração de Definição do Spark SQL, e não podem ser processadas por um motor SQL, apenas as bases de dados e as suas tabelas externas e geridas que utilizam o formato de armazenamento Parquet são partilhadas com o motor SQL do espaço de trabalho. As vistas de faíscas são partilhadas apenas entre os casos da piscina spark.
 

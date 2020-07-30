@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 1/24/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e7f7535cf66da721e1738da6d0efbf335d97a6da
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 50bf1ec7f21ccbc3a3fa8feaea02e45bd08a158a
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134493"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421421"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Preparar a recuperação de desastres para os VMs do Azure
 
@@ -66,12 +66,12 @@ Para que a Recuperação do Site funcione como esperado, é necessário modifica
 
 Se estiver a usar um proxy de firewall baseado em URL para controlar a conectividade de saída, permita o acesso a estes URLs:
 
-| **URL** | **Detalhes** |
-| ------- | ----------- |
-| `*.blob.core.windows.net` | Permite que os dados sejam escritos da VM para a conta de armazenamento em cache na região de origem. |
-| `login.microsoftonline.com` | Fornece autorização e autenticação para os URLs do serviço Site Recovery. |
-| `*.hypervrecoverymanager.windowsazure.com` | Permite que a VM comunique com o serviço Site Recovery. |
-| `*.servicebus.windows.net` | Permite que a VM escreva dados de monitorização e diagnóstico do Site Recovery. |
+| **Nome**                  | **Comercial**                               | **Governo**                                 | **Descrição** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Armazenamento                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Permite que os dados sejam escritos da VM para a conta de armazenamento em cache na região de origem. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fornece autorização e autenticação para os URLs do serviço Site Recovery. |
+| Replicação               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Permite que a VM comunique com o serviço Site Recovery. |
+| Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Permite que a VM escreva dados de monitorização e diagnóstico do Site Recovery. |
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividade de saída para intervalos de endereços IP
 
@@ -94,7 +94,7 @@ O Azure Site Recovery fornece três funções incorporadas para controlar as ope
 
 - **Leitor do Site Recovery** - esta função tem permissões para ver todas as operações de gestão do Site Recovery. Esta função é mais adequada para um executivo de monitorização de TI que pode monitorizar o estado atual da proteção e emitir pedidos de suporte.
 
-Saiba mais sobre [as funções incorporadas do Azure RBAC.](../role-based-access-control/built-in-roles.md)
+Saiba mais sobre [os papéis incorporados do Azure.](../role-based-access-control/built-in-roles.md)
 
 ## <a name="enable-replication-for-a-vm"></a>Ativar a replicação para uma VM
 
@@ -182,7 +182,7 @@ Depois de a replicação estar ativada, pode rastrear o estado do trabalho.
    1. Acompanhe o progresso do trabalho de **proteção de enable** em **Definições**  >  **de**  >  **Empregos Locais de Recuperação de Empregos**.
    1. Em **Definições**  >  **Itens Replicados,** pode ver o estado dos VMs e o progresso da replicação inicial. Selecione o VM para perfurar as suas definições.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, configurou a recuperação após desastre para uma VM do Azure. Agora podes fazer um exercício de recuperação de desastres para verificar se o falhanço funciona como esperado.
 

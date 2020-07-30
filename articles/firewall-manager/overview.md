@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: overview
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 8b457198655af50427545a0e93e2cfe6903131c8
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 37cbc3737b826060e96524528b065bc8d711bd8b
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563747"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87384774"
 ---
 # <a name="what-is-azure-firewall-manager"></a>O que é o Azure Firewall Manager?
 
@@ -76,15 +76,15 @@ As políticas de firewall do Azure podem ser usadas em todas as regiões. Por ex
 
 O Azure Firewall Manager tem os seguintes problemas conhecidos:
 
-|Problema  |Description  |Mitigação  |
+|Problema  |Descrição  |Mitigação  |
 |---------|---------|---------|
 |A divisão do tráfego não está atualmente suportada.|O Escritório 365 e a Divisão de Tráfego Público de Azure não são atualmente apoiados. Como tal, a seleção de um fornecedor de terceiros para V2I ou B2I também envia todo o tráfego Azure Public PaaS e Office 365 através do serviço de parceiros.|A investigar a divisão de trânsito no centro.
 |Um centro virtual seguro por região.|Não se pode ter mais do que um centro virtual seguro por região.|Crie várias WANs virtuais numa região.|
 |As políticas de base devem estar na mesma região que a política local.|Crie todas as suas políticas locais na mesma região que a política de base. Pode ainda aplicar uma política criada numa região num centro seguro de outra região.|A investigar|
-|Comunicação inter-hub não funcionando com Secured Virtual Hub|A comunicação secured Virtual Hub para Secured Virtual Hub ainda não está suportada.|A investigar|
+|Comunicação inter-hub não passando pelo Secured Virtual Hub|A comunicação secured Virtual Hub para Secured Virtual Hub ainda não está suportada, no entanto a comunicação do Hub para o Hub ainda irá funcionar.|A investigar|
 |Todos os Hubs Virtuais Seguros que partilham o mesmo WAN virtual devem estar no mesmo grupo de recursos.|Este comportamento está alinhado com os Hubs WAN Virtuais hoje em dia.|Crie várias WANs virtuais para permitir a criação de Hubs Virtuais Seguros em diferentes grupos de recursos.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Rever [visão geral do Azure Firewall Manager](deployment-overview.md)
 - Saiba mais sobre [os Centros Virtuais Seguros.](secured-virtual-hub.md)

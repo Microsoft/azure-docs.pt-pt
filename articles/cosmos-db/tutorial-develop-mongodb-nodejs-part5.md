@@ -8,14 +8,14 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jopapa
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-javascript
 ms.reviewer: sngun
-ms.openlocfilehash: f77c20faa87adf28a2dda43412a59867309c7cf8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4c64502ac1fa4837d6052fd399fd2c44b6ab4a09
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066915"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423886"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Crie uma aplicação angular com API da Azure Cosmos DB para o MongoDB - Use o Mongoose para ligar à Cosmos DB
 
@@ -238,7 +238,7 @@ Em seguida, executar a aplicação usando os seguintes passos:
 
 Ainda não há heróis armazenados na aplicação. Na próxima parte deste tutorial, adicionaremos a funcionalidade de colocar, empurrar e eliminar. Em seguida, podemos adicionar, atualizar e apagar heróis da UI usando ligações Mongoose para a nossa base de dados Azure Cosmos. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisa dos recursos, pode eliminar o grupo de recursos, a conta DB da Azure Cosmos e todos os recursos relacionados. Utilize os seguintes passos para eliminar o grupo de recursos:
 
@@ -246,7 +246,7 @@ Quando já não precisa dos recursos, pode eliminar o grupo de recursos, a conta
  1. Selecione **Eliminar grupo de recursos**.
  1. Confirme o nome do grupo de recursos para eliminar e selecione **Delete**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Continue a parte 6 do tutorial para adicionar funções de Post, Put e Delete à aplicação:
 

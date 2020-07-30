@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 1869dbd7d6c323feaed849b3d26a360e28b4f509
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: a470166d0ed172d95e80fadeb26139a702f40bb2
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84985767"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387460"
 ---
 # <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Guia de Início Rápido: Utilizar um modelo de domínio com a API REST e o Python na Imagem Digitalizada
 
@@ -90,6 +90,7 @@ image = Image.open(BytesIO(requests.get(image_url).content))
 plt.imshow(image)
 plt.axis("off")
 _ = plt.title(landmark_name, size="x-large", y=-0.1)
+plt.show()
 ```
 
 ## <a name="examine-the-response-for-the-landmarks-sample"></a>Examinar a resposta para o exemplo de marcos
@@ -167,6 +168,7 @@ image = Image.open(BytesIO(requests.get(image_url).content))
 plt.imshow(image)
 plt.axis("off")
 _ = plt.title(celebrity_name, size="x-large", y=-0.1)
+plt.show()
 ```
 
 ## <a name="examine-the-response-for-the-celebrities-sample"></a>Examinar a resposta para o exemplo de celebridades
@@ -199,11 +201,11 @@ O JSON devolve uma resposta de êxito. A página Web de exemplo analisa e aprese
 }
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar dos ficheiros, elimine-os para ambos os exemplos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, explore uma aplicação Python que usa a Visão Computacional para realizar o reconhecimento de caracteres óticos (OCR); criar miniaturas cortadas inteligentemente; e detetar, categorizar, etiquetar e descrever características visuais em imagens.
 
