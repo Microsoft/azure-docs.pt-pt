@@ -11,15 +11,16 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
+- devx-track-javascript
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: e26c3fc9ec420596a4ec152f7f176e44acc7b4c3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 68ea8122164856b09558d9154abb523233f16cb7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321671"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424499"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutorial: utilizar um dispositivo simulado para testar a conectividade com o seu hub do IoT
 
@@ -266,7 +267,7 @@ Além de receber as alterações de propriedades pretendidas à medida que são 
 
 Se já não precisar do Hub IoT, elimine-o, bem como ao grupo de recursos, no portal. Para tal, selecione o grupo de recursos **tutorial-iot-hub-rg** que contém o seu hub do IoT e clique em **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a verificar as chaves do dispositivo, a verificar a conectividade do dispositivo para a cloud, a verificar a conectividade da cloud para o dispositivo e a verificar a sincronização de dispositivos duplos. Para saber mais sobre como monitorizar o seu hub do IoT, aceda ao artigo de procedimentos de monitorização do Hub IoT.
 

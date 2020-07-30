@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 13c5ac4a9b4d1ac996eb4eadc0cecd626964b4e8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 40a2cd5898ede7fc30db9a8475c5ab7cc68095ff
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101811"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337641"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualizar dados com o Power BI
 
@@ -91,8 +91,9 @@ Pode ligar um espaço de trabalho Power BI ao seu espaço de trabalho Azure Syna
 1. Neste local, você pode ver uma história de todas as atividades que estão acontecendo no espaço de trabalho e quais estão ativas agora.
 1. Explore as **corridas**de Pipeline, **aplicações Apache Spark**e **SQL** para ver o que já fez no espaço de trabalho.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
-> [Azure Synapse Analytics (pré-visualização de espaços de trabalho)](overview-what-is.md)
+> [Monitorização](get-started-monitor.md)
+                                 
 
