@@ -26,8 +26,6 @@
       href: how-to-configure-connected-field-services.md
     - name: Ligar dispositivos
       items:
-        - name: Preparar e ligar um DevKit de IoT MXChip
-          href: ../core/howto-connect-devkit.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: "Preparar e ligar um Rigado Cascade\_500"
           href: ../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Monitorizar a conectividade do dispositivo com a CLI do Azure
@@ -78,7 +76,7 @@
           href: ../core/howto-create-and-manage-applications-csp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
     - name: Personalização
       items:
-        - name: "Criar dashboards pessoais do Azure\_IoT Central"
+        - name: Criar dashboards pessoais do Azure IoT Central
           href: ../core/howto-create-personal-dashboards.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Gerir preferências pessoais
           href: ../core/howto-manage-preferences.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
@@ -107,9 +105,9 @@
     - name: SDKs do Azure IoT
       items:
         - name: SDKs do Serviço de IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
         - name: SDKs do Dispositivo IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
     - name: Opções de suporte e ajuda
       href: /azure/iot-fundamentals/iot-support-help
     - name: Pedidos de dados do cliente

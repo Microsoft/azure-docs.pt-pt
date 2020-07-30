@@ -6,7 +6,7 @@
       href: automation-intro.md
     - name: FAQ
       href: automation-faq.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   items:
     - name: Criar uma conta de Automatização
       href: automation-quickstart-create-account.md
@@ -46,6 +46,9 @@
       href: /powershell/scripting/dsc/overview/overview
     - name: Segurança
       items:
+        - name: Controlos de segurança do Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Linha de base de segurança
           href: security-baseline.md
     - name: Segurança de dados
@@ -54,7 +57,7 @@
           href: automation-secure-asset-encryption.md
         - name: Gestão dos dados da Automatização do Azure
           href: automation-managing-data.md
-- name: Manuais de instruções
+- name: Guias de procedimentos
   items:
     - name: Conta de Automatização
       items:
