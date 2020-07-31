@@ -42,6 +42,8 @@
   items:
     - name: Utilizar o Reconhecedor de Formato com o Cognitive Search
       href: 'https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-form'
+    - name: Utilizar o Reconhecedor de Formato com o AI Builder
+      href: tutorial-ai-builder.md
 - name: Guias de procedimentos
   items:
     - name: Criar um conjunto de dados de preparação

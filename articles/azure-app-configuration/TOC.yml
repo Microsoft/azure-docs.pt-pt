@@ -4,6 +4,8 @@
   items:
     - name: Sobre a Configuração da Aplicação Azure
       href: overview.md
+    - name: Melhores práticas
+      href: howto-best-practices.md
     - name: FAQ
       href: faq.md
 - name: Guias de Início Rápido
@@ -34,26 +36,32 @@
           href: quickstart-feature-flag-spring-boot.md
 - name: Tutoriais
   items:
-    - name: Ativar a configuração dinâmica no ASP.NET Core
-      href: enable-dynamic-configuration-aspnet-core.md
-    - name: Ativar a configuração dinâmica numa aplicação .NET Core
-      href: enable-dynamic-configuration-dotnet-core.md
-    - name: Ativar a configuração dinâmica no .NET Framework
-      href: enable-dynamic-configuration-dotnet.md
-    - name: Ativar a configuração dinâmica nas Funções do Azure
-      href: enable-dynamic-configuration-azure-functions-csharp.md
-    - name: Ativar a configuração dinâmica no Spring Boot
-      href: enable-dynamic-configuration-java-spring-app.md
-    - name: Utilizar sinalizadores de funcionalidades numa aplicação .NET Core
-      href: use-feature-flags-dotnet-core.md
-    - name: Utilizar sinalizadores de funcionalidades numa aplicação Spring Boot
-      href: use-feature-flags-spring-boot.md
+    - name: Ativar a configuração dinâmica
+      items:
+        - name: Núcleo de ASP.NET
+          href: enable-dynamic-configuration-aspnet-core.md
+        - name: .NET Core
+          href: enable-dynamic-configuration-dotnet-core.md
+        - name: .NET Framework
+          href: enable-dynamic-configuration-dotnet.md
+        - name: Funções do Azure
+          href: enable-dynamic-configuration-azure-functions-csharp.md
+        - name: Spring Boot
+          href: enable-dynamic-configuration-java-spring-app.md
+    - name: Utilizar sinalizadores de funcionalidades
+      items:
+        - name: .NET Core
+          href: use-feature-flags-dotnet-core.md
+        - name: Spring Boot
+          href: use-feature-flags-spring-boot.md
     - name: Gerir sinalizadores de funcionalidades
       href: manage-feature-flags.md
-    - name: "Utilizar referências do Key Vault no ASP.NET\_Core"
-      href: use-key-vault-references-dotnet-core.md
-    - name: Utilizar referências do Key Vault no Spring Boot
-      href: use-key-vault-references-spring-boot.md
+    - name: Utilizar as referências do Key Vault
+      items:
+        - name: Núcleo de ASP.NET
+          href: use-key-vault-references-dotnet-core.md
+        - name: Spring Boot
+          href: use-key-vault-references-spring-boot.md
     - name: Integrar num pipeline CI/CD
       href: integrate-ci-cd-pipeline.md
     - name: Integrar na implementação do Kubernetes com o Helm
@@ -105,8 +113,6 @@
       href: howto-app-configuration-event.md
     - name: Fazer a cópia de segurança do arquivo de configurações automaticamente
       href: howto-backup-config-store.md
-    - name: Melhores práticas
-      href: howto-best-practices.md
 - name: Referência
   items:
     - name: Configuração
