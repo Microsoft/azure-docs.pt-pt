@@ -7,8 +7,6 @@
 - name: Guias de Início Rápido
   expanded: true
   items:
-    - name: Monitor de Ligação (Pré-visualização)
-      href: connection-monitor-preview.md
     - name: Diagnosticar problema de filtragem de tráfego de VM - Portal
       href: diagnose-vm-network-traffic-filtering-problem.md
     - name: Diagnosticar problema de filtragem de tráfego de VM - PowerShell
@@ -27,6 +25,8 @@
       href: network-watcher-nsg-flow-logging-portal.md
 - name: Conceitos
   items:
+    - name: Monitor de Ligação (Pré-visualização)
+      href: connection-monitor-preview.md
     - name: Diagnosticar problemas de filtragem de tráfego de rede de VM
       href: network-watcher-ip-flow-verify-overview.md
     - name: Diagnosticar problemas de encaminhamento de VM
@@ -162,6 +162,10 @@
       href: view-relative-latencies.md
     - name: Monitorizar desempenho da rede
       href: ../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+    - name: Mover recursos
+      items:
+        - name: Mover os Recursos do Observador de Rede
+          href: resource-move.md
 - name: Referência
   items:
     - name: CLI do Azure
