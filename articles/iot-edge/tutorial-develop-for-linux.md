@@ -4,17 +4,17 @@ description: Este tutorial percorre a criação da sua máquina de desenvolvimen
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/11/2019
+ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ba10ed068e0a537d7a759f533dbada865f639e7b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c6cdde3ae63a2f816db7a978557f72b4b60d2677
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419942"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439129"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Tutorial: Desenvolver módulos IoT Edge para dispositivos Linux
 
@@ -334,7 +334,7 @@ Caso contrário, pode eliminar as configurações locais e os recursos Azure que
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, configura o Código do Estúdio Visual na sua máquina de desenvolvimento e implementou o seu primeiro módulo IoT Edge a partir dele. Agora que conhece os conceitos básicos, tente adicionar funcionalidade a um módulo para que possa analisar os dados que passam por ele. Escolha o seu idioma preferido:
 

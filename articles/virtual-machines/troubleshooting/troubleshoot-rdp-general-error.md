@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: df318fea4960601dcbfa84149fdc47bedc9104a2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f2a1a5f3eaf79a345b0d33f43d260fe6aa15236b
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079830"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439260"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Resolução de problemas num erro geral do PDR em Azure VM
 
@@ -81,7 +81,7 @@ Antes de seguir estes passos, tire uma foto do disco de SO do VM afetado como c�
 1. Verifique se o PDR está desativado por polícias de grupo.
 
     ```
-    REM Get the group policy 
+    REM Get the group policy setting
     reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
     ```
     Se a política de grupo declara que o RDP está desativado (o valor fDenyTSConnections é 0x1), executar o seguinte comando para ativar o serviço TermService. Se a chave de registo não for encontrada, não existe uma política de grupo configurada para desativar o PDR. Pode passar para o próximo passo.

@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 11/07/2019
+ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5d35a4c61f7fe9d316137d2be364baff0b2559db
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 4bed27654b3482300d3d102d545b44373c53dde0
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87414144"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439805"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Tutorial: Desenvolver um módulo de borda C IoT para dispositivos Linux
 
@@ -360,7 +360,7 @@ Caso contrário, pode eliminar as configurações locais e os recursos Azure que
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou uma função do módulo do IoT Edge que contém código para filtrar dados não processados gerados pelo seu dispositivo IoT Edge. Quando estiver pronto para construir os seus próprios módulos, poderá aprender mais sobre [o desenvolvimento dos seus próprios módulos IoT Edge](module-development.md) ou como desenvolver [módulos com Código de Estúdio Visual.](how-to-vs-code-develop-module.md) Por exemplo, os módulos IoT Edge, incluindo o módulo de temperatura simulada, consulte [amostras do módulo IoT Edge](https://github.com/Azure/iotedge/tree/master/edge-modules) e [amostras IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples).
 

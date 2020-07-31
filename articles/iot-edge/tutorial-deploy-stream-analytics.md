@@ -3,16 +3,16 @@ title: Tutorial - Stream Analytics na borda usando Azure IoT Edge
 description: Neste tutorial, você implanta a Azure Stream Analytics como um módulo para um dispositivo IoT Edge
 author: kgremban
 ms.author: kgremban
-ms.date: 11/11/2019
+ms.date: 07/29/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 62ee95db0e3b35c996cb4ee68d772a21c00778fb
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: c259e913a8ee5181bc58aea651af62324cf01fcb
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220278"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439402"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Tutorial: Implementar Azure Stream Analytics como um módulo IoT Edge
 
@@ -68,7 +68,7 @@ Quando cria um trabalho do Azure Stream Analytics para ser executado num disposi
    | ----- | ----- |
    | Subscrição | Escolha a mesma subscrição do hub IoT. |
    | Grupo de recursos | Recomendamos que utilize o mesmo grupo de recursos para todos os seus recursos de teste para os quickstarts e tutoriais IoT Edge. Por exemplo, **IoTEdgeResources**. |
-   | Name | Introduza um nome exclusivo para a conta de armazenamento. |
+   | Nome | Introduza um nome exclusivo para a conta de armazenamento. |
    | Localização | Escolha uma localização perto de si. |
 
 1. Mantenha os valores predefinidos para os outros campos e selecione **Review + Create**.
@@ -119,7 +119,7 @@ Ao utilizar os três elementos, entrada, saída e consulta, esta secção cria u
 
 1. Mantenha os valores predefinidos nos outros campos e selecione **Guardar**.
 
-1. Em **Topologia do Trabalho**, selecione **Consulta**.
+1. Em **Job Topology**, selecione **Consulta**.
 
 1. Substitua o texto predefinido pela seguinte consulta. Se a temperatura média da máquina numa janela de 30 segundos atingir os 70 graus, o código SQL envia um comando de reposição para a saída do alerta. O comando de reposição foi pré-programado no sensor como uma ação que pode ser realizada.
 
@@ -134,7 +134,7 @@ Ao utilizar os três elementos, entrada, saída e consulta, esta secção cria u
     HAVING Avg(machine.temperature) > 70
     ```
 
-1. Selecione **Guardar**.
+1. **Selecione Guardar consulta**.
 
 ### <a name="configure-iot-edge-settings"></a>Configurar as definições do IoT Edge
 
@@ -189,11 +189,11 @@ Neste tutorial, vai implementar dois módulos. O primeiro é **SimulatedTemperat
 
 1. Selecione **Update** ou **Cancele**.
 
-1. Tome nota do nome do seu módulo Stream Analytics porque vai precisar dele no passo seguinte e, em seguida, selecione **Seguinte: Rotas** para continuar.
+1. Tome nota do nome do seu módulo Stream Analytics porque vai precisar dele no próximo passo. Em seguida, selecione **Seguinte: Rotas** para continuar.
 
 1. No separador **Rotas,** define como as mensagens são passadas entre os módulos e o Hub IoT. As mensagens são construídas utilizando pares de nome/valor. Substitua o padrão e o `route` `upstream` nome e os valores pelos pares apresentados na tabela seguinte, os seguintes pares de nome/valor, substituindo as instâncias de _{moduleName}_ pelo nome do seu módulo Azure Stream Analytics.
 
-    | Name | Valor |
+    | Nome | Valor |
     | --- | --- |
     | `telemetryToCloud` | `FROM /messages/modules/SimulatedTemperatureSensor/* INTO $upstream` |
     | `alertsToCloud` | `FROM /messages/modules/{moduleName}/* INTO $upstream` |
@@ -238,7 +238,7 @@ Agora pode ir ao seu dispositivo IoT Edge para verificar a interação entre o m
 
    ![Redefinir a saída do comando em registos de módulos](./media/tutorial-deploy-stream-analytics/docker_log.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se planeia avançar para o próximo artigo recomendado, pode manter os recursos e as configurações que criou e reutilizá-los. Também pode continuar a utilizar o mesmo dispositivo IoT Edge como um dispositivo de teste.
 

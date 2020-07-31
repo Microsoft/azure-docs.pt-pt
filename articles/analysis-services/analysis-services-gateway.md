@@ -4,15 +4,15 @@ description: Um gateway no local é necessário se o seu servidor de Serviços d
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 648646b6f973762245c344cd2629a874a219b170
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee332eb7dea86e07c2d8f9b75a0e152dc7482a41
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76310157"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87438836"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Ligação a fontes de dados no local com gateway de dados no local
 
@@ -28,12 +28,12 @@ Para os Serviços de Análise Azure, a configuração com o gateway pela primeir
 
 - **Criar um recurso de gateway em Azure** - Neste passo, cria-se um recurso de gateway em Azure.
 
-- **Conecte os seus servidores ao seu recurso gateway** - Uma vez que tenha um recurso de gateway, pode começar a ligar servidores ao mesmo. Pode ligar vários servidores e outros recursos desde que estejam na mesma região.
+- **Conecte o recurso gateway aos servidores** - Uma vez que tenha um recurso de gateway, pode começar a ligar os servidores ao mesmo. Pode ligar vários servidores e outros recursos desde que estejam na mesma região.
 
 
 
-## <a name="how-it-works"></a><a name="how-it-works"> </a>Como funciona
-O portal de entrada que instala num computador na sua organização funciona como um serviço Windows, **gateway de dados no local**. Este serviço local é registado com o Serviço Cloud do Gateway através do Azure Service Bus. Em seguida, cria um recurso de gateway de dados no local para a sua subscrição Azure. Os seus servidores Azure Analysis Services estão então ligados ao seu recurso de gateway Azure. Quando os modelos do seu servidor precisam de se ligar às suas fontes de dados no local para consultas ou processamento, uma consulta e fluxo de dados atravessa o recurso gateway, o Azure Service Bus, o serviço de gateway de dados local no local e as suas fontes de dados. 
+## <a name="how-it-works"></a>Como funciona
+O portal de entrada que instala num computador na sua organização funciona como um serviço Windows, **gateway de dados no local**. Este serviço local é registado com o Serviço Cloud do Gateway através do Azure Service Bus. Em seguida, cria um recurso de gateway de dados no local para uma subscrição do Azure. Os seus servidores Azure Analysis Services estão então ligados ao seu recurso de gateway Azure. Quando os modelos do seu servidor precisam de se ligar às suas fontes de dados no local para consultas ou processamento, uma consulta e fluxo de dados atravessa o recurso gateway, o Azure Service Bus, o serviço de gateway de dados local no local e as suas fontes de dados. 
 
 ![Como funciona](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
 
@@ -46,9 +46,13 @@ Fluxo de dados e consultas:
 5. O gateway envia a consulta para a origem de dados para execução.
 6. Os resultados são enviados da origem de dados de volta para o gateway e, em seguida, para o serviço cloud e o seu servidor.
 
-## <a name="installing"></a>Instalar o
+## <a name="installing"></a>Installing
 
 Ao instalar um ambiente de Serviços de Análise Azure, é importante que siga os passos descritos na [Instalação e configuure no local o portal de dados para os Serviços de Análise Azure](analysis-services-gateway-install.md). Este artigo é específico dos Serviços de Análise Azure. Inclui medidas adicionais necessárias para configurar um recurso de gateway de dados no local em Azure e ligar o servidor Azure Analysis Services ao recurso.
+
+## <a name="connecting-to-a-gateway-resource-in-a-different-subscription"></a>Conectar-se a um recurso de gateway numa subscrição diferente
+
+Recomenda-se que crie o seu recurso Azure Gateway na mesma subscrição que o seu servidor. No entanto, pode configurar os seus servidores para se conectarem a um recurso de gateway noutra subscrição. A ligação a um recurso de gateway noutra subscrição não é suportada ao configurar as definições do servidor existente ou criar um novo servidor no portal, mas pode ser configurado utilizando o PowerShell. Para saber mais, consulte [o recurso De gateway connect para o servidor.](analysis-services-gateway-install.md#connect-gateway-resource-to-server)
 
 ## <a name="ports-and-communication-settings"></a>Portas e configurações de comunicação
 
@@ -71,9 +75,9 @@ Seguem-se os nomes de domínio totalmente qualificados utilizados pelo gateway.
 | login.microsoftonline.com |443 |HTTPS |
 | *.msftncsi.com |443 |Utilizado para testar a conectividade à Internet se o serviço Power BI não conseguir aceder ao gateway. |
 | *.microsoftonline-p.com |443 |Utilizado para autenticação, consoante a configuração. |
-| dc.services.visualstudio.com  |443 |Usado pela AppInsights para recolher telemetria. |
+| dc.services.visualstudio.com    |443 |Usado pela AppInsights para recolher telemetria. |
 
-### <a name="forcing-https-communication-with-azure-service-bus"></a><a name="force-https"></a>Forçar a comunicação HTTPS com o Azure Service Bus
+### <a name="forcing-https-communication-with-azure-service-bus"></a>Forçar a comunicação HTTPS com o Azure Service Bus
 
 Pode forçar a porta de entrada a comunicar com a Azure Service Bus utilizando HTTPS em vez de TCP direto; no entanto, fazê-lo pode reduzir consideravelmente o desempenho. Pode modificar o ficheiro *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* alterando o valor de `AutoDetect` `Https` . Este ficheiro está tipicamente localizado em *C:\Program Files\On-in-ins data gateway*.
 
@@ -83,7 +87,7 @@ Pode forçar a porta de entrada a comunicar com a Azure Service Bus utilizando H
 </setting>
 ```
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 
 Os seguintes artigos estão incluídos no conteúdo geral do portal de dados on-ins que se aplica a todos os serviços que o gateway suporta:
 

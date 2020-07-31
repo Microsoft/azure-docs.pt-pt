@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 07/30/2020
 ms.author: absha
-ms.openlocfilehash: 20d1dfea251fdfd0bd6e8432d1ea0c7af7284cb5
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 9315884db30c053d86c889ff3b45aaea17d48b17
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428178"
+ms.locfileid: "87438907"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do Gateway de Aplicação
 
@@ -65,7 +65,7 @@ Para este cenário, utilize NSGs na sub-rede Do Gateway de Aplicação. Colocar 
 2. Permitir pedidos de entrada de fonte como etiqueta de serviço **GatewayManager** e destino como **Todas** as portas e portos de destino como 65503-65534 para o Gateway de Aplicação v1 SKU, e portas 65200-65535 para v2 SKU para [comunicação de estado de saúde back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Esta gama portuária é necessária para a comunicação da infraestrutura Azure. Estas portas estão protegidas (bloqueadas) pelos certificados Azure. Sem certificados adequados, as entidades externas não podem iniciar alterações nesses pontos finais.
 3. Permitir a entrada de sondas Azure Load Balancer *(AzureLoadBalancer* tag) e o tráfego de rede virtual de entrada *(virtualNetwork* tag) no [grupo de segurança](https://docs.microsoft.com/azure/virtual-network/security-overview)da rede .
 4. Bloqueie todo o tráfego de entrada usando uma regra de negação.
-5. Permitir tráfego de saída para a internet para todos os destinos.
+5. Permitir tráfego de saída para a Internet para todos os destinos.
 
 #### <a name="user-defined-routes-supported-on-the-application-gateway-subnet"></a>Rotas definidas pelo utilizador suportadas na sub-rede do Gateway de Aplicação
 
@@ -122,11 +122,19 @@ Para este cenário, utilize NSGs na sub-rede Do Gateway de Aplicação. Colocar 
 
 ## <a name="front-end-ip"></a>IP frontal
 
-Pode configurar a porta de aplicação para ter um endereço IP público, um endereço IP privado ou ambos. É necessário um IP público quando acolhe uma parte traseira que os clientes devem aceder através da internet através de um IP virtual (VIP) virado para a Internet. 
+Pode configurar a porta de aplicação para ter um endereço IP público, um endereço IP privado ou ambos. É necessário um IP público quando acolhe uma parte traseira que os clientes devem aceder através da Internet através de um IP virtual (VIP) virado para a Internet.
 
-Um IP público não é necessário para um ponto final interno que não esteja exposto à internet. É conhecido como um *ponto final interno de load-balancer* (ILB) ou frontend IP privado. Um gateway de aplicações ILB é útil para aplicações internas de linha de negócio que não estão expostas à internet. Também é útil para serviços e níveis numa aplicação de vários níveis dentro de uma fronteira de segurança que não estão expostos à internet, mas que requerem distribuição de carga de robin redondo, adesivo de sessão ou rescisão de TLS.
+> [!NOTE]
+> Atualmente, o Gateway V2 da aplicação não suporta apenas o modo IP privado. Suporta as seguintes combinações:
+>* IP privado e IP Público
+>* APENAS IP público
+>
+> Para obter mais informações, consulte [Perguntas frequentes sobre o Gateway de Aplicações.](application-gateway-faq.md#how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address)
 
-Apenas 1 endereço IP público ou um endereço IP privado é suportado. Escolha o IP frontal quando criar o gateway de aplicações.
+
+Um IP público não é necessário para um ponto final interno que não esteja exposto à Internet. É conhecido como um *ponto final interno de load-balancer* (ILB) ou frontend IP privado. Um gateway de aplicações ILB é útil para aplicações internas de linha de negócio que não estão expostas à Internet. Também é útil para serviços e níveis numa aplicação de vários níveis dentro de uma fronteira de segurança que não estão expostos à Internet, mas que requerem distribuição de carga de robin redondo, adesivo de sessão ou rescisão de TLS.
+
+Apenas um endereço IP público ou um endereço IP privado é suportado. Escolha o IP frontal quando criar o gateway de aplicações.
 
 - Para um IP público, pode criar um novo endereço IP público ou utilizar um IP público existente no mesmo local que o gateway de aplicações. Para mais informações, consulte [o endereço IP público estático vs. dinâmico](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-versus-dynamic-public-ip-address).
 
@@ -395,7 +403,7 @@ Uma porta de aplicação monitoriza a saúde de todos os recursos no seu final p
 > [!NOTE]
 > Depois de criar uma sonda de saúde personalizada, tem de a associar a uma definição HTTP de fundo. Uma sonda personalizada não monitorizará a saúde da piscina traseira a menos que a definição HTTP correspondente esteja explicitamente associada a um ouvinte usando uma regra.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que sabe sobre os componentes do Application Gateway, pode:
 

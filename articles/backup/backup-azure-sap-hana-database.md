@@ -3,12 +3,12 @@ title: Faça o backup de uma base de dados SAP HANA para Azure com Azure Backup
 description: Neste artigo, aprenda a fazer backup de uma base de dados SAP HANA para máquinas virtuais Azure com o serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 273ba40feee01c2dd2bfe68d1660a5c94f254062
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2f42b119c361eaddcb84dda738b50c8accc84f9c
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513879"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439751"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados SAP HANA nas VMs do Azure
 
@@ -25,7 +25,7 @@ Neste artigo, aprenderá a:
 > * Executar um trabalho de reserva a pedido
 
 >[!NOTE]
->[Começa](./tutorial-backup-sap-hana-db.md) com a pré-visualização de backup SAP HANA para RHEL (7.4, 7.6, 7.7 ou 8.1). Para mais perguntas, escreva-nos em [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
+>A partir de 1 de agosto de 2020, o backup SAP HANA para a RHEL (7.4, 7.6, 7,7 & 8.1) está geralmente disponível.
 
 >[!NOTE]
 >**A exclusão suave para o servidor SQL em Azure VM e a eliminação suave para as cargas de trabalho SAP HANA em Azure VM** já está disponível na pré-visualização.<br>
@@ -67,7 +67,7 @@ Se utilizar grupos de segurança de rede (NSG), utilize a etiqueta de serviço *
 
 1. Clique **em Adicionar** para salvar a regra de segurança de saída recém-criada.
 
-Pode igualmente criar regras de segurança de saída NSG para Azure Storage e Azure AD.
+Pode igualmente criar regras de segurança de saída NSG para Azure Storage e Azure AD. Para obter mais informações sobre etiquetas de serviço, consulte [este artigo.](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
 
 #### <a name="azure-firewall-tags"></a>Tags Azure Firewall
 
@@ -211,7 +211,7 @@ Se quiser fazer uma cópia de segurança local (usando o HANA Studio) de uma bas
     * Desa parte **log_backup_using_backint** a **True**.
     * De **catalog_backup_using_backint** catalog_backup_using_backint a **True**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como restaurar as [bases de dados SAP HANA em execução em VMs Azure](./sap-hana-db-restore.md)
 * Saiba como [gerir as bases de dados SAP HANA que são apoiadas através do Azure Backup](./sap-hana-db-manage.md)

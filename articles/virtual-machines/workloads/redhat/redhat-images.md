@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: de7ead8acd059d957673b2f063dd3d330cf473f5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9aa0ca41f63da94e2dedaffe65ea518b8adff0dc
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525505"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439472"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Visão geral das imagens do Red Hat Enterprise Linux
 
@@ -100,6 +100,9 @@ Para imagens RHEL 7.x, existem alguns tipos de imagem diferentes. A tabela segui
 
 ## <a name="rhel-8-image-types"></a>TIPOS DE IMAGEM RHEL 8
 
+>[!NOTE]
+> A Red Hat recomenda a utilização de Grubby para configurar os parâmetros da linha de comando do núcleo em RHEL 8+. Mais detalhes estão disponíveis [aqui.](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/configuring-kernel-command-line-parameters_managing-monitoring-and-updating-the-kernel)
+
 Os detalhes para os tipos de imagem RHEL 8 estão abaixo.
 
 |Publisher | Oferta | Valor SKU | Versão | Detalhes
@@ -142,7 +145,7 @@ As informações no quadro seguinte aplicam-se às imagens RHEL que estão ligad
 >
 > Para obter mais informações sobre a disponibilidade da RHEL EUS, consulte [o ciclo de vida da Red Hat Enterprise Linux.](https://access.redhat.com/support/policy/updates/errata)
 
-Versão menor |Exemplo de imagem eus              |Estatuto DA UE                                                   |
+Versão secundária |Exemplo de imagem eus              |Estatuto DA UE                                                   |
 :-------------|:------------------------------|:------------------------------------------------------------|
 RHEL 7.4      |RedHat:RHEL:7.4:7.4.2019041718 | As imagens publicadas em abril de 2019 e mais tarde são EUS por defeito.|
 RHEL 7.5      |RedHat:RHEL:7.5:7.5.2019060305 | As imagens publicadas em junho de 2019 e posteriormente são EUS por defeito. |
@@ -177,7 +180,7 @@ Atualizamos apenas a versão menor atual numa dada família de imagens. Com o la
 
 A política atual é manter todas as imagens publicadas anteriormente. Reservamo-nos o direito de remover imagens que são conhecidas por causar problemas de qualquer tipo. Por exemplo, imagens com configurações incorretas devido a atualizações subsequentes da plataforma ou componentes podem ser removidas. As imagens que podem ser removidas seguem a atual política do Azure Marketplace para fornecer notificações até 30 dias antes da remoção da imagem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para ver a lista completa de imagens RHEL em Azure, consulte [as imagens red hat enterprise Linux (RHEL) disponíveis em Azure](./redhat-imagelist.md).
 * Para saber mais sobre a Infraestrutura de Atualização do Chapéu Vermelho Azure, consulte [a Infraestrutura red hat update para VMs RHEL a pedido em Azure](https://aka.ms/rhui-update).

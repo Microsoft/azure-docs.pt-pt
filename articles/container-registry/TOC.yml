@@ -8,7 +8,7 @@
       items:
         - name: Acerca do Container Registry
           href: container-registry-intro.md
-    - name: Guias de Início Rápido
+    - name: Inícios rápidos
       expanded: true
       items:
         - name: Criar registo de contentor - CLI
@@ -45,6 +45,9 @@
       items:
         - name: Segurança
           items:
+            - name: Controlos de segurança do Azure Policy
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./security-controls-policy.md
             - name: Linha de base de segurança
               href: security-baseline.md
         - name: Escalões e limites do registo de contentor

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2020
 ms.author: memildin
-ms.openlocfilehash: 17b54eb747e3ddd3b381659031171bc795b61f54
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: bf503cf90df7b08e5a957416d66eae2f1a599bed
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430478"
+ms.locfileid: "87438943"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -32,11 +32,11 @@ Esta página é atualizada regularmente, por isso revisite-a com frequência. Se
 ## <a name="july-2020"></a>Julho de 2020
 
 As atualizações em julho incluem:
-- [Avaliação de vulnerabilidade para máquinas virtuais já está disponível para imagens não marketplace](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)auto        
+- [Avaliação de vulnerabilidade para máquinas virtuais já está disponível para imagens não-marketplace](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)
 - [Proteção contra ameaças para o Azure Storage expandido para incluir ficheiros Azure e Azure Data Lake Storage Gen2 (pré-visualização)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
 - [Oito novas recomendações para permitir funcionalidades de proteção de ameaças](#eight-new-recommendations-to-enable-threat-protection-features)
 - [Melhorias na segurança do contentor - digitalização mais rápida do registo e documentação atualizada](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
-- [Nova recomendação para atualizar as regras de controlo de aplicações adaptativas](#new-recommendation-to-update-your-adaptive-application-controls-rules)
+- [Controlos de aplicações adaptativos atualizados com uma nova recomendação e suporte para wildcards nas regras de caminho](#adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules)
 - [Seis políticas para a segurança avançada de dados SQL depreciadas](#six-policies-for-sql-advanced-data-security-deprecated)
 
 
@@ -115,11 +115,16 @@ Saiba mais sobre a segurança do contentor do Security Center nos seguintes arti
 
 
 
-### <a name="new-recommendation-to-update-your-adaptive-application-controls-rules"></a>Nova recomendação para atualizar as regras de controlo de aplicações adaptativas
+### <a name="adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules"></a>Controlos de aplicações adaptativos atualizados com uma nova recomendação e suporte para wildcards nas regras de caminho
 
-A funcionalidade de controlos de aplicação adaptativa monitoriza continuamente a atividade das máquinas em grupos configurados. A partir desta atualização, você será notificado de um comportamento potencialmente legítimo que não foi permitido anteriormente, e que pode causar falsos alertas positivos.
+A funcionalidade de controlos de aplicações adaptativas recebeu duas atualizações significativas:
 
-A nova recomendação, **as regras Allowlist na sua política de controlo de aplicações adaptativas devem ser atualizadas,** leva-o a adicionar novas regras à política existente para reduzir o número de falsos positivos nos alertas de violação de controlos de aplicações adaptativos.
+- Uma nova recomendação identifica um comportamento potencialmente legítimo que não foi permitido anteriormente. A nova recomendação, **as regras Allowlist na sua política de controlo de aplicações adaptativas devem ser atualizadas,** leva-o a adicionar novas regras à política existente para reduzir o número de falsos positivos nos alertas de violação de controlos de aplicações adaptativos.
+
+- As regras do caminho agora suportam wildcards. A partir desta atualização, pode configurar as regras de caminho permitidas usando wildcards. Há dois cenários apoiados:
+
+    - Usando um wildcard no final de um caminho para permitir todos os executáveis dentro desta pasta e sub-pastas
+    - Utilizar um wildcard no meio de um caminho para permitir um nome executável conhecido com um nome de pasta em mudança (por exemplo, pastas pessoais de utilizador com nomes de pastas geradas automaticamente, executáveis, etc. 
 
 [Saiba mais sobre controlos de aplicações adaptativos.](security-center-adaptive-application.md)
 

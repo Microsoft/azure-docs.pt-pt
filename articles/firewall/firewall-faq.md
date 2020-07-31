@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 07/30/2020
 ms.author: victorh
-ms.openlocfilehash: bd849a413d718ba5a25839c50c63ec2ad39be440
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 3f2b844163abce0946dc5df29c3121691e83035b
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128102"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439216"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -168,7 +168,9 @@ A capacidade inicial de produção do Azure Firewall é de 2,5 - 3 Gbps e escama
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Quanto tempo demora a Azure Firewall a escalonar?
 
-O Azure Firewall escala gradualmente quando o consumo médio de produção ou CPU está em 60%. A escala leva de 5 a 7 minutos. Ao testar o desempenho, certifique-se de testar durante pelo menos 10 a 15 minutos e iniciar novas ligações para tirar partido dos novos nós de Firewall criados.
+O Azure Firewall escala gradualmente quando o consumo médio de produção ou CPU está em 60%. Uma potência máxima de implantação predefinida é de aproximadamente 2,5 - 3 Gbps e começa a escalar quando atinge 60% desse número. A escala leva de 5 a 7 minutos. 
+
+Ao testar o desempenho, certifique-se de testar durante pelo menos 10 a 15 minutos e iniciar novas ligações para tirar partido dos novos nós de Firewall criados.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>O Azure Firewall permite o acesso ao Ative Directory por defeito?
 
@@ -219,4 +221,4 @@ Não, atualmente tem de implantar o Azure Firewall com um endereço IP público.
 
 ## <a name="where-does-azure-firewall-store-customer-data"></a>Onde é que a Azure Firewall armazena os dados dos clientes?
 
-O Azure Firewall não move nem armazena os dados dos clientes para fora da região em que está implantado.
+O Azure Firewall não move nem armazena os dados dos clientes para fora da região onde está implantado.

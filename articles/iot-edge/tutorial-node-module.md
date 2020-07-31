@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 01/04/2019
+ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, tracking-python, devx-track-javascript
-ms.openlocfilehash: 01c7973efd2619a37ea77dfe4dad131b14144991
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c72cde577ee51353dc4193adaac0e3b5b585fa47
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420146"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439644"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-for-linux-devices"></a>Tutorial: Desenvolver e implementar um módulo IoT Edge Node.js para dispositivos Linux
 
@@ -86,13 +86,15 @@ Utilize o **npm** para criar um modelo de solução de Node.js que possa servir 
    | Indicar um nome para a solução | Introduza um nome descritivo para a sua solução ou aceite a **solução edges padrão**. |
    | Selecionar modelo de módulo | Escolha **Node.js Módulo.** |
    | Indicar um nome para o módulo | Atribua o nome **NodeModule** ao módulo. |
-   | Indicar o repositório de imagens do Docker para o módulo | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. A sua imagem de contentor está pré-apovoada do nome que forneceu no último passo. Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. Pode obter o servidor de início de sessão na página Overview (Descrição Geral) do registo de contentor no portal do Azure. <br><br>O repositório de imagem final parece \<registry name\> .azurecr.io/nodemodule. |
+   | Indicar o repositório de imagens do Docker para o módulo | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. A sua imagem de contentor está pré-apovoada do nome que forneceu no último passo. Substitua **o local:5000** pelo valor do **servidor login** do registo do seu contentor Azure. Pode recuperar o servidor 'Iniciar sessão' a partir da página de visão geral do seu registo de contentores no portal Azure. <br><br>O repositório de imagem final parece \<registry name\> .azurecr.io/nodemodule. |
 
    ![Fornecer repositório de imagens do Docker](./media/tutorial-node-module/repository.png)
 
 ### <a name="add-your-registry-credentials"></a>Adicionar as credenciais do registo
 
 O ficheiro de ambiente armazena as credenciais do seu repositório de contentor e partilha-as com o runtime do IoT Edge. O runtime precisa destas credenciais para solicitar as imagens privadas para o dispositivo IoT Edge.
+
+A extensão IoT Edge tenta retirar as credenciais de registo do seu contentor do Azure e povoá-las no ficheiro ambiente. Verifique se as suas credenciais já estão incluídas. Caso contrário, adicione-os agora:
 
 1. No explorador de código VS, abra o ficheiro **.env.**
 2. Atualize os campos com os valores **nome de utilizador** e **palavra-passe** que copiou do seu Azure Container Registry.
@@ -187,7 +189,7 @@ Na secção anterior, criou uma solução IoT Edge e adicionou código ao NodeMo
 
 1. Abra o terminal integrado do Código VS selecionando o Terminal **de Visualização**  >  **Terminal**.
 
-1. Inscreva-se no Docker introduzindo o seguinte comando no terminal. Inicie sessão com o nome de utilizador, palavra-passe e servidor de login do seu registo de contentores Azure. Pode recuperar estes valores a partir da secção de **teclas de acesso** do seu registo no portal Azure.
+2. Inscreva-se no Docker introduzindo o seguinte comando no terminal. Inicie sessão com o nome de utilizador, palavra-passe e servidor de login do seu registo de contentores Azure. Pode recuperar estes valores a partir da secção de **teclas de acesso** do seu registo no portal Azure.
 
    ```bash
    docker login -u <ACR username> -p <ACR password> <ACR login server>
@@ -195,23 +197,27 @@ Na secção anterior, criou uma solução IoT Edge e adicionou código ao NodeMo
 
    Pode receber um aviso de segurança recomendando a utilização de `--password-stdin` . Embora essa melhor prática seja recomendada para cenários de produção, está fora do âmbito deste tutorial. Para mais informações, consulte a referência de login do [estivador.](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)
 
-1. No explorador de código VS, clique com o botão direito **no ficheirodeployment.template.js** e selecione a **solução Build and Push IoT Edge**.
+3. No explorador de código VS, clique com o botão direito **no ficheirodeployment.template.js** e selecione a **Solução de Borda De Construção e Pressão IoT**.
 
    O comando de construção e pressão inicia três operações. Em primeiro lugar, cria uma nova pasta na solução chamada **config** que detém o manifesto de implantação completo, construído a partir de informações no modelo de implementação e outros ficheiros de solução. Em segundo lugar, funciona `docker build` para construir a imagem do contentor com base no arquivo apropriado para a arquitetura do seu alvo. Em seguida, corre `docker push` para empurrar o repositório de imagem para o seu registo de contentores.
 
+   Este processo pode demorar vários minutos na primeira vez, mas é mais rápido da próxima vez que executar os comandos.
+
 ## <a name="deploy-modules-to-device"></a>Implementar módulos para dispositivo
 
-Utilize o explorador visual Studio Code e a extensão Azure IoT Tools para implantar o projeto do módulo no seu dispositivo IoT Edge. Já tem um manifesto de implantação preparado para o seu cenário, o **deployment.jsficheiro na** pasta config. Agora tudo o que precisa de fazer é selecionar um dispositivo para receber a implementação.
+Utilize o explorador visual Studio Code e a extensão Azure IoT Tools para implantar o projeto do módulo no seu dispositivo IoT Edge. Já tem um manifesto de implantação preparado para o seu cenário, o **deployment.amd64.jsficheiro na** pasta config. Agora tudo o que precisa de fazer é selecionar um dispositivo para receber a implementação.
 
 Certifique-se de que o seu dispositivo IoT Edge está a funcionar.
 
-1. No explorador visual Studio Code, expanda a secção **de Dispositivos hub Azure IoT** para ver a sua lista de dispositivos IoT.
+1. No explorador visual Studio Code, na secção **Azure IoT Hub,** expanda **os Dispositivos** para ver a sua lista de dispositivos IoT.
 
 2. Carregue com o botão direito do rato no nome do seu dispositivo do IoT Edge e, em seguida, selecione **Criar Implementação para o Dispositivo Único**.
 
-3. Selecione o ficheiro **deployment.json** na pasta **config** e, em seguida, clique em **Selecionar Manifesto de Implementação do Edge**. Não utilize o ficheiro deployment.template.json.
+3. Selecione a **deployment.amd64.jsno** ficheiro na pasta **config** e, em seguida, clique em **Select Edge Deployment Manifest**. Não utilize o ficheiro deployment.template.json.
 
-4. Clique no botão Atualizar. Deverá ver o novo **NodeModule** a funcionar juntamente com o módulo **SimuladoSteperatureSensor** e o **$edgeAgent** e **$edgeHub**.
+4. Sob o seu dispositivo, expanda **os Módulos** para ver uma lista de módulos implantados e em funcionamento. Clique no botão Atualizar. Deverá ver o novo **NodeModule** a funcionar juntamente com o módulo **SimuladoSteperatureSensor** e o **$edgeAgent** e **$edgeHub**.
+
+    Pode levar alguns minutos para os módulos começarem. O tempo de execução IoT Edge precisa de receber o seu novo manifesto de implantação, retirar as imagens do módulo do tempo de funcionamento do contentor e, em seguida, iniciar cada novo módulo.
 
 ## <a name="view-the-generated-data"></a>Ver os dados gerados
 
@@ -247,7 +253,7 @@ Caso contrário, pode eliminar as configurações locais e os recursos do Azure 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou uma função do módulo do IoT Edge que contém código para filtrar dados não processados gerados pelo seu dispositivo IoT Edge. Quando estiver pronto para construir os seus próprios módulos, poderá aprender mais sobre [o desenvolvimento dos seus próprios módulos IoT Edge](module-development.md) ou como desenvolver [módulos com Código de Estúdio Visual.](how-to-vs-code-develop-module.md) Por exemplo, os módulos IoT Edge, incluindo o módulo de temperatura simulada, consulte as amostras do [módulo IoT Edge](https://github.com/Azure/iotedge/tree/master/edge-modules).
 

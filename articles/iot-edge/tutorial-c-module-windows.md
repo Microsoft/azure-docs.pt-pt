@@ -1,6 +1,6 @@
 ---
-title: Tutorial desenvolve módulo C para Windows - Azure IoT Edge [ Microsoft Docs
-description: Este tutorial mostra-lhe como criar um módulo IoT Edge com código C e implementá-lo num dispositivo Windows que executa O IoT Edge
+title: Tutorial desenvolver módulo C para Windows - Azure IoT Edge / Microsoft Docs
+description: Este tutorial mostra-lhe como criar um módulo IoT Edge com código C e implantá-lo num dispositivo Windows que executa o IoT Edge
 services: iot-edge
 author: shizn
 manager: philmea
@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 09d039801107a44df4f3bf3745a1e074e6d708b8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2da31944a58fb3e5834938b7de32348f30ed7e25
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76760969"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439808"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desenvolver um módulo C IoT Edge para dispositivos Windows
 
@@ -25,7 +25,7 @@ Pode utilizar os módulos do Azure IoT Edge para implementar código que aplica 
 > [!div class="checklist"]
 >
 > * Use o Visual Studio para criar um módulo IoT Edge baseado no C SDK.
-> * Use visual studio e Docker para criar uma imagem Docker e publicá-la no seu registo.
+> * Use o Visual Studio e o Docker para criar uma imagem docker e publicá-la no seu registo.
 > * Implemente o módulo no seu dispositivo IoT Edge.
 > * Veja os dados gerados.
 
@@ -35,24 +35,24 @@ O módulo do IoT Edge que criou neste tutorial filtra os dados de temperatura qu
 
 ## <a name="solution-scope"></a>Âmbito de solução
 
-Este tutorial demonstra como desenvolver um módulo em **C** utilizando o **Visual Studio 2019** e implementá-lo num dispositivo **Windows**. Se estiver a desenvolver módulos para dispositivos Linux, vá desenvolver [um módulo C IoT Edge para dispositivos Linux.](tutorial-c-module.md)
+Este tutorial demonstra como desenvolver um módulo em **C** utilizando **o Visual Studio 2019** e implantá-lo num **dispositivo Windows**. Se estiver a desenvolver módulos para dispositivos Linux, vá ao [Develop a C IoT Edge module para dispositivos Linux.](tutorial-c-module.md)
 
-Utilize a tabela seguinte para compreender as suas opções de desenvolvimento e implementação de módulos C para dispositivos Windows:
+Utilize a seguinte tabela para compreender as suas opções de desenvolvimento e implantação de módulos C para dispositivos Windows:
 
 | C | Visual Studio Code | Estúdio Visual 2017/2019 |
 | -- | ------------------ | ------------------ |
-| **Janelas AMD64** |  | ![Desenvolver módulos C para WinAMD64 em Estúdio Visual](./media/tutorial-c-module/green-check.png) |
+| **Windows AMD64** |  | ![Desenvolver módulos C para WinAMD64 em Estúdio Visual](./media/tutorial-c-module/green-check.png) |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de iniciar este tutorial, deveria ter passado pelo tutorial anterior para configurar o seu ambiente de desenvolvimento para o desenvolvimento de contentores Windows: [Desenvolver módulos IoT Edge para dispositivos Windows](tutorial-develop-for-windows.md). Após completar esse tutorial, deve ter os seguintes pré-requisitos no lugar:
+Antes de iniciar este tutorial, deveria ter passado pelo tutorial anterior para configurar o seu ambiente de desenvolvimento para o desenvolvimento de contentores Windows: [Desenvolver módulos IoT Edge para dispositivos Windows](tutorial-develop-for-windows.md). Depois de completar este tutorial, deverá ter os seguintes pré-requisitos no lugar:
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão gratuito ou standard no Azure.
-* Um [dispositivo Windows que executa o Edge Azure IoT](quickstart.md).
-* Um registo de contentores, como o Registo de [Contentores Azure.](https://docs.microsoft.com/azure/container-registry/)
+* Um [dispositivo Windows em execução Azure IoT Edge](quickstart.md).
+* Um registo de contentores, como [o Registo de Contentores de Azure.](https://docs.microsoft.com/azure/container-registry/)
 * [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) configurado com a extensão [Azure IoT Edge Tools.](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools)
 * [Docker Desktop](https://docs.docker.com/docker-for-windows/install/) configurado para executar recipientes Windows.
-* Instale o Azure IoT C SDK para Windows x64 através de vcpkg:
+* Instale o Azure IoT C SDK para windows x64 através de vcpkg:
 
    ```powershell
    git clone https://github.com/Microsoft/vcpkg
@@ -63,23 +63,23 @@ Antes de iniciar este tutorial, deveria ter passado pelo tutorial anterior para 
    ```
 
 > [!TIP]
-> Se estiver a utilizar o Visual Studio 2017 (versão 15.7 ou superior), por favor, descarregue e [instale ferramentas de borda Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) para VS 2017 a partir do mercado do Estúdio Visual 2017
+> Se estiver a utilizar o Visual Studio 2017 (versão 15.7 ou superior), por favor descarregue e instale [ferramentas de borda Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) para VS 2017 a partir do mercado do Estúdio Visual
 
 ## <a name="create-a-module-project"></a>Criar um projeto de módulo
 
-Os passos seguintes criam um projeto de módulo IoT Edge que é baseado no C SDK utilizando o Visual Studio e a extensão Azure IoT Edge Tools. Assim que tiver um modelo de projeto criado, adicione um novo código para que o módulo filtre as mensagens com base nas suas propriedades relatadas.
+Os passos seguintes criam um projeto de módulo IoT Edge baseado no C SDK utilizando o Visual Studio e a extensão Azure IoT Edge Tools. Assim que tiver um modelo de projeto criado, adicione um novo código para que o módulo filtra as mensagens com base nas suas propriedades relatadas.
 
 ### <a name="create-a-new-project"></a>Criar um novo projeto
 
 Crie um modelo de solução C que pode personalizar com o seu próprio código.
 
-1. Lançar O Estúdio Visual 2019 e selecionar **Criar Novo Projeto.**
+1. Lançar Visual Studio 2019 e selecionar **Criar Novo Projeto.**
 
-2. Procure **ioT Edge** e escolha o projeto **Azure IoT Edge (Windows amd64).** Clique em **Seguinte**.
+2. Procure **por IoT Edge** e escolha o projeto **Azure IoT Edge (Windows amd64).** Clique em **Seguinte**.
 
    ![Criar um novo projeto Azure IoT Edge](./media/tutorial-c-module-windows/new-project.png)
 
-3. Mude o nome do projeto e solução para algo descritivo como **o CTutorialApp**. Clique em **Criar** para criar o projeto.
+3. Mude o nome do projeto e da solução para algo descritivo como **o CTutorialApp.** Clique em **Criar** para criar o projeto.
 
    ![Configure um novo projeto Azure IoT Edge](./media/tutorial-c-module-windows/configure-project.png)
 
@@ -87,21 +87,21 @@ Crie um modelo de solução C que pode personalizar com o seu próprio código.
 
    | Campo | Valor |
    | ----- | ----- |
-   | Selecione um modelo | Selecione **Módulo C**. |
+   | Selecione um modelo | Selecione **O Módulo C**. |
    | Nome do projeto do módulo | Dê o nome **CModule** ao módulo. |
-   | Repositório de imagem docker | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. A sua imagem de contentor é pré-povoada a partir do valor do nome do projeto do módulo. Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. Pode obter o servidor de início de sessão na página Overview (Descrição Geral) do registo de contentor no portal do Azure. <br><br> O repositório de \<imagem final\>parece o nome do registo .azurecr.io/cmodule. |
+   | Repositório de imagem de estivador | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. A sua imagem de recipiente é pré-apultada do valor do nome do projeto do módulo. Substitua **o local:5000** pelo valor do **servidor login** do registo do seu contentor Azure. Pode recuperar o servidor 'Iniciar sessão' a partir da página de visão geral do seu registo de contentores no portal Azure. <br><br> O repositório de imagens final parece \<registry name\> .azurecr.io/cmodule. |
 
-   ![Configure o seu projeto para dispositivo-alvo, tipo de módulo e registo de contentores](./media/tutorial-c-module-windows/add-application-and-module.png)
+   ![Configure o seu projeto para dispositivo alvo, tipo de módulo e registo de contentores](./media/tutorial-c-module-windows/add-application-and-module.png)
 
-5. Selecione **Adicionar** para criar o projeto.
+5. **Selecione Adicionar** para criar o projeto.
 
 ### <a name="add-your-registry-credentials"></a>Adicionar as credenciais do registo
 
-O manifesto de implantação partilha as credenciais para o seu registo de contentores com o tempo de execução do IoT Edge. O runtime precisa destas credenciais para solicitar as imagens privadas para o dispositivo IoT Edge. Utilize as credenciais da secção de chaves de **acesso** do seu registo de contentores Azure.
+O manifesto de implantação partilha as credenciais para o seu registo de contentores com o tempo de execução IoT Edge. O runtime precisa destas credenciais para solicitar as imagens privadas para o dispositivo IoT Edge. Utilize as credenciais da secção de **chaves de acesso** do seu registo de contentores Azure.
 
-1. No explorador de soluções Visual Studio, abra o ficheiro **deployment.template.json.**
+1. No explorador de soluções Visual Studio, abra a **deployment.template.jsem** arquivo.
 
-2. Encontre a propriedade **registryCredenciais** no $edgeAgent propriedades desejadas. Deverá ter o seu endereço de registo preenchido automaticamente a partir das informações que forneceu na criação do projeto. O nome de utilizador e os campos de palavra-passe devem conter nomes variáveis. Por exemplo:
+2. Encontre a **propriedade registroscredentais** nas propriedades $edgeAgent desejadas. Deverá ter o seu endereço de registo preenchido automaticamente a partir das informações que forneceu ao criar o projeto. Os campos de nome de utilizador e palavra-passe devem conter nomes variáveis. Por exemplo:
 
    ```json
    "registryCredentials": {
@@ -113,21 +113,21 @@ O manifesto de implantação partilha as credenciais para o seu registo de conte
    }
    ```
 
-3. Abra o ficheiro **.env** na solução do módulo. (Está escondido por defeito no Solution Explorer, por isso poderá ser necessário selecionar o botão **Mostrar Todos os Ficheiros** para o exibir.) O ficheiro .env deve conter o mesmo nome de utilizador e variáveis de palavra-passe que viu no ficheiro deployment.template.json.
+3. Abra o ficheiro **.env** na solução do módulo. (Está escondido por padrão no Solution Explorer, pelo que poderá ser necessário selecionar o botão **Mostrar Todos os Ficheiros** para o exibir.) O ficheiro .env deve conter o mesmo nome de utilizador e variáveis de palavra-passe que viu no deployment.template.jsficheiro.
 
-4. Adicione o nome de **utilizador** e os valores de **palavra-passe** do seu registo de contentores Azure.
+4. Adicione o **nome de utilizador** e os valores de **palavra-passe** do seu registo de contentores Azure.
 
 5. Guarde as alterações no ficheiro .env.
 
 ### <a name="update-the-module-with-custom-code"></a>Atualizar o módulo com o código personalizado
 
-O código do módulo predefinido recebe mensagens numa fila de entrada e passa-as através de uma fila de saída. Vamos adicionar um código adicional para que o módulo processe as mensagens na borda antes de reencaminhar para o IoT Hub. Atualize o módulo de modo a analisar os dados de temperatura em cada mensagem e só envia a mensagem para o Hub IoT se a temperatura exceder um determinado limiar.
+O código do módulo predefinido recebe mensagens numa fila de entrada e transmite-as através de uma fila de saída. Vamos adicionar algum código adicional para que o módulo processe as mensagens na borda antes de encaminhá-las para o IoT Hub. Atualize o módulo de modo a analisar os dados de temperatura em cada mensagem e só envie a mensagem para o IoT Hub se a temperatura exceder um determinado limiar.
 
 1. Os dados do sensor neste cenário estão no formato JSON. Para filtrar mensagens no formato JSON, importe uma biblioteca JSON para C. Este tutorial utiliza o Parson.
 
-   1. Faça o download do [repositório Parson GitHub.](https://github.com/kgabis/parson) Copie os **ficheiros parson.c** e **parson.h** no projeto **CModule.**
+   1. Descarregue o [repositório Do Pároco GitHub.](https://github.com/kgabis/parson) Copie os ficheiros **parson.c** e **parson.h** no projeto **CModule.**
 
-   2. No Estúdio Visual, abra o ficheiro **CMakeLists.txt** da pasta do projeto CModule. Na parte superior do ficheiro, importe os ficheiros do Parson como uma biblioteca chamada **my_parson**.
+   2. No Visual Studio, abra o ficheiro **CMakeLists.txt** da pasta do projeto CModule. Na parte superior do ficheiro, importe os ficheiros do Parson como uma biblioteca chamada **my_parson**.
 
       ```txt
       add_library(my_parson
@@ -140,19 +140,19 @@ O código do módulo predefinido recebe mensagens numa fila de entrada e passa-a
 
    4. Guarde o ficheiro **CMakeLists.txt**.
 
-   5. Abrir **CModule** > **main.c**. Na parte inferior da lista de declarações incluina, adicione uma nova para incluir `parson.h` para suporte JSON:
+   5. Open **CModule**  >  **main.c**. Na parte inferior da lista de declarações incluem-se, adicione uma nova para incluir `parson.h` para o suporte JSON:
 
       ```c
       #include "parson.h"
       ```
 
-2. No ficheiro **main.c,** adicione uma `temperatureThreshold` variável global chamada ao lado da variável MensagensReceivedByInput1Queue. Esta variável define o valor que a temperatura medida deve exceder, para que os dados sejam enviados para o Hub IoT.
+2. No ficheiro **main.c,** adicione uma variável global chamada `temperatureThreshold` ao lado da variável MessagesReceivedByInput1Queue. Esta variável define o valor que a temperatura medida deve exceder, para que os dados sejam enviados para o Hub IoT.
 
     ```c
     static double temperatureThreshold = 25;
     ```
 
-3. Encontre `CreateMessageInstance` a função em main.c. Substitua a declaração interna do outro lado pelo seguinte código que adiciona algumas linhas de funcionalidade:
+3. Encontre a `CreateMessageInstance` função em main.c. Substitua a declaração interna por outro código que adiciona algumas linhas de funcionalidade:
 
    ```c
    if ((messageInstance->messageHandle = IoTHubMessage_Clone(message)) == NULL)
@@ -171,9 +171,9 @@ O código do módulo predefinido recebe mensagens numa fila de entrada e passa-a
    }
    ```
 
-   As novas linhas de código na outra declaração adicionam um novo imóvel à mensagem, que rotula a mensagem como um alerta. Este código rotula todas as mensagens como alertas, porque vamos adicionar funcionalidade que só envia mensagens para o IoT Hub se reportarem temperaturas elevadas.
+   As novas linhas de código na outra declaração adicionam uma nova propriedade à mensagem, que rotula a mensagem como um alerta. Este código rotula todas as mensagens como alertas, porque adicionamos funcionalidade que só envia mensagens para o IoT Hub se reportarem temperaturas elevadas.
 
-4. Encontre `InputQueue1Callback` a função e substitua toda a função pelo seguinte código. Esta função implementa o filtro de mensagens real. Quando uma mensagem é recebida, verifica se a temperatura reportada excede o limiar. Se sim, então reencaminha a mensagem através da sua fila de saída. Se não, ignora a mensagem.
+4. Encontre a `InputQueue1Callback` função e substitua toda a função pelo seguinte código. Esta função implementa o filtro de mensagens real. Quando uma mensagem é recebida, verifica se a temperatura reportada excede o limiar. Se sim, então encaminha a mensagem através da sua fila de saída. Se não, então ignora a mensagem.
 
     ```c
     static unsigned char *bytearray_to_str(const unsigned char *buffer, size_t len)
@@ -268,7 +268,7 @@ O código do módulo predefinido recebe mensagens numa fila de entrada e passa-a
     }
     ```
 
-6. Encontre `SetupCallbacksForModule` a função. Substitua a função pelo seguinte código que adiciona outra **declaração para** verificar se o módulo gémeo foi atualizado.
+6. Encontre a `SetupCallbacksForModule` função. Substitua a função pelo seguinte código que adiciona **mais** uma se a declaração verificar se o módulo twin foi atualizado.
 
    ```c
    static int SetupCallbacksForModule(IOTHUB_MODULE_CLIENT_LL_HANDLE iotHubModuleClientHandle)
@@ -296,7 +296,7 @@ O código do módulo predefinido recebe mensagens numa fila de entrada e passa-a
 
 7. Guarde o ficheiro main.c.
 
-8. Abra o ficheiro **deployment.template.json.**
+8. Abra a **deployment.template.jsarquivada.**
 
 9. Adicione o módulo duplo CModule ao manifesto da implementação. Insira o seguinte conteúdo JSON na parte inferior da secção `moduleContent`, após o módulo duplo `$edgeHub`:
 
@@ -316,35 +316,47 @@ O código do módulo predefinido recebe mensagens numa fila de entrada e passa-a
 
 Na secção anterior, criou uma solução IoT Edge e adicionou código ao **CModule** para filtrar mensagens onde a temperatura da máquina reportada está abaixo do limiar aceitável. Agora, tem de criar a solução como uma imagem de contentor e enviá-la para o registo de contentor.
 
-1. Use o seguinte comando para iniciar sessão com o Docker na sua máquina de desenvolvimento. Inicie sessão com o nome de utilizador, palavra-passe e servidor de login do registo de contentores Azure. Pode recuperar estes valores a partir da secção de chaves de **acesso** do seu registo no portal Azure.
+### <a name="sign-in-to-docker"></a>Inscreva-se no Docker
+
+Forneça as suas credenciais de registo de contentores ao Docker na sua máquina de desenvolvimento para que possa empurrar a imagem do seu recipiente para ser armazenado no registo.
+
+1. Abrir PowerShell ou um pedido de comando.
+
+2. Inscreva-se no Docker com as credenciais de registo do contentor Azure que guardou depois de criar o registo.
 
    ```cmd
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   Pode receber um aviso de segurança `--password-stdin`recomendando a utilização de . Embora essa melhor prática seja recomendada para cenários de produção, está fora do âmbito deste tutorial. Para mais informações, consulte a referência de login do [estivador.](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)
+   Pode receber um aviso de segurança recomendando a utilização de `--password-stdin` . Embora essa melhor prática seja recomendada para cenários de produção, está fora do âmbito deste tutorial. Para mais informações, consulte a referência de login do [estivador.](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)
 
-2. No explorador de soluções Visual Studio, clique no nome do projeto que pretende construir. O nome predefinido é **AzureIotEdgeApp1** e uma vez que está a construir um módulo Windows, a extensão deve ser **Windows.Amd64**.
+### <a name="build-and-push"></a>Construir e empurrar
 
-3. Selecione Módulos de **arestas de construção e empurre ioT**.
+A sua máquina de desenvolvimento tem agora acesso ao seu registo de contentores, e os seus dispositivos IoT Edge também. É hora de transformar o código do projeto numa imagem de contentor.
 
-   O comando de construção e impulso inicia três operações. Em primeiro lugar, cria uma nova pasta na solução chamada **config** que detém o manifesto de implantação completo, construído a partir de informação no modelo de implementação, e outros ficheiros de solução. Em segundo `docker build` lugar, funciona para construir a imagem do recipiente com base no arquivo apropriado para a sua arquitetura alvo. Em seguida, `docker push` corre para empurrar o repositório de imagem para o seu registo de contentores.
+1. No explorador de soluções Visual Studio, clique com o botão direito no nome do projeto que pretende construir. O nome padrão é **AzureIotEdgeApp1**. Para este tutorial, foi escolhido o nome **CTutorialApp.** Uma vez que está a construir um módulo Windows, a extensão deve ser **Windows.Amd64**.
+
+2. Selecione **Módulos de Borda IoT**de construção e push .
+
+   O comando de construção e pressão inicia três operações. Em primeiro lugar, cria uma nova pasta na solução chamada **config** que detém o manifesto de implantação completo, construído a partir de informações no modelo de implementação e outros ficheiros de solução. Em segundo lugar, funciona `docker build` para construir a imagem do contentor com base no arquivo apropriado para a arquitetura do seu alvo. Em seguida, corre `docker push` para empurrar o repositório de imagem para o seu registo de contentores.
+
+   Este processo pode demorar vários minutos na primeira vez, mas é mais rápido da próxima vez que executar os comandos.
 
 ## <a name="deploy-modules-to-device"></a>Implementar módulos para dispositivo
 
-Utilize o explorador de nuvem visual studio e a extensão Azure IoT Edge Tools para implementar o projeto do módulo para o seu dispositivo IoT Edge. Já tem um manifesto de implantação preparado para o seu cenário, o ficheiro **deployment.json** na pasta config. Agora tudo o que precisa de fazer é selecionar um dispositivo para receber a implementação.
+Utilize o explorador de nuvem Visual Studio e a extensão Azure IoT Edge Tools para implantar o projeto do módulo no seu dispositivo IoT Edge. Já tem um manifesto de implantação preparado para o seu cenário, o **deployment.windows-amd64.jsficheiro na** pasta config. Agora tudo o que precisa de fazer é selecionar um dispositivo para receber a implementação.
 
 Certifique-se de que o seu dispositivo IoT Edge está a funcionar.
 
-1. No visual studio cloud explorer, expanda os recursos para ver a sua lista de dispositivos IoT.
+1. No explorador de nuvem Visual Studio, expanda os recursos para ver a sua lista de dispositivos IoT.
 
-2. Clique no nome do dispositivo IoT Edge que pretende receber a implementação.
+2. Clique com o botão direito no nome do dispositivo IoT Edge que deseja receber a implementação.
 
-3. Selecione **Criar implementação**.
+3. Selecione **Criar Implementação**.
 
 4. No explorador de ficheiros, selecione o ficheiro **deployment.windows-amd64** na pasta config da sua solução.
 
-5. Refresque o explorador de nuvens para ver os módulos implantados listados sob o seu dispositivo.
+5. Refresque o explorador de nuvem para ver os módulos implantados listados no seu dispositivo.
 
 ## <a name="view-generated-data"></a>Ver os dados gerados
 
@@ -352,29 +364,29 @@ Depois de aplicar o manifesto de implementação no seu dispositivo IoT Edge, o 
 
 Pode utilizar a extensão IoT Edge Tools para visualizar as mensagens à medida que chegam ao seu Hub IoT.
 
-1. No explorador de nuvem do Estúdio Visual, selecione o nome do seu dispositivo IoT Edge.
+1. No explorador de nuvem Visual Studio, selecione o nome do seu dispositivo IoT Edge.
 
-2. Na lista **de Ações,** selecione **Iniciar monitorização do ponto final**do evento incorporado .
+2. Na lista **de Ações,** selecione **Start Monitoring Built-in Event Endpoint**.
 
-3. Veja as mensagens que chegam ao seu Hub IoT. Pode demorar algum tempo até as mensagens chegarem, porque o dispositivo IoT Edge tem de receber a sua nova implementação e iniciar todos os módulos. Em seguida, as alterações que fizemos ao código CModule aguardem até que a temperatura da máquina atinja os 25 graus antes de enviar mensagens. Também adiciona o tipo de mensagem **Alerta** a quaisquer mensagens que atingem esse limiar de temperatura.
+3. Veja as mensagens que chegam ao seu Hub IoT. Pode demorar algum tempo até que as mensagens cheguem, porque o dispositivo IoT Edge tem de receber a sua nova implementação e iniciar todos os módulos. Em seguida, as alterações que fizemos ao código CModule aguardem até que a temperatura da máquina atinja os 25 graus antes de enviar mensagens. Adiciona também o tipo de mensagem **Alerta** a todas as mensagens que atinjam esse limiar de temperatura.
 
    ![Ver mensagens que chegam ao IoT Hub](./media/tutorial-c-module-windows/view-d2c-message.png)
 
 ## <a name="edit-the-module-twin"></a>Editar o módulo twin
 
-Usamos o módulo CModule twin para definir o limiar de temperatura a 25 graus. Pode utilizar o módulo twin para alterar a funcionalidade sem ter de atualizar o código do módulo.
+Usamos o módulo CModule twin para definir o limiar de temperatura em 25 graus. Pode utilizar o módulo twin para alterar a funcionalidade sem ter de atualizar o código do módulo.
 
-1. No Estúdio Visual, abra o ficheiro **deployment.windows-amd64.json.** (Não o ficheiro de implementação.modelo. Se não vir o manifesto de implantação no ficheiro config no explorador de soluções, selecione o ícone **mostrar todos os ficheiros** na barra de ferramentas do explorador.)
+1. No Visual Studio, abra a **deployment.windows-amd64.jsem** arquivo. (Não o ficheiro de implementação.modelo. Se não vir o manifesto de implantação no ficheiro config no explorador de solução, selecione o ícone **mostrar todos os ficheiros** na barra de ferramentas do explorador.)
 
-2. Encontre o CModule twin e altere o valor do parâmetro **de temperaturaLimiar** para uma nova temperatura de 5 graus a 10 graus superior à temperatura mais recente.
+2. Encontre o gémeo CModule e altere o valor do parâmetro **de temperaturaStenha** um novo ponto de temperatura de 5 a 10 graus mais alto do que a última temperatura reportada.
 
-3. Guarde o ficheiro **deployment.windows-amd64.json.**
+3. Guarde o **deployment.windows-amd64.jsarquivado.**
 
-4. Siga novamente os passos de implementação para aplicar o manifesto de implementação atualizado no seu dispositivo.
+4. Siga novamente os passos de implantação para aplicar o manifesto de implantação atualizado no seu dispositivo.
 
-5. Monitorize as mensagens de entrada do dispositivo para a nuvem. Deve ver as mensagens pararem até que o novo limiar de temperatura seja atingido.
+5. Monitorize as mensagens de entrada de dispositivo para nuvem. Deve ver as mensagens paradas até que o novo limiar de temperatura seja atingido.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se planeia avançar para o próximo artigo recomendado, pode manter os recursos e as configurações que criou e reutilizá-los. Também pode continuar a utilizar o mesmo dispositivo IoT Edge como um dispositivo de teste.
 
@@ -384,12 +396,12 @@ Caso contrário, pode eliminar as configurações locais e os recursos Azure que
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, criou uma função do módulo do IoT Edge com código para filtrar os dados não processados que são gerados pelo seu dispositivo IoT Edge. Quando estiver pronto para construir os seus próprios módulos, poderá aprender mais sobre o desenvolvimento dos [seus próprios módulos IoT Edge](module-development.md) ou como [desenvolver módulos com o Visual Studio](how-to-visual-studio-develop-module.md). Por exemplo, os módulos IoT Edge, incluindo o módulo de temperatura simulado, consulte amostras de [módulos IoT Edge](https://github.com/Azure/iotedge/tree/master/edge-modules) e [amostras de SDK IoT C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples).
+Neste tutorial, criou uma função do módulo do IoT Edge com código para filtrar os dados não processados que são gerados pelo seu dispositivo IoT Edge. Quando estiver pronto para construir os seus próprios módulos, poderá aprender mais sobre [o desenvolvimento dos seus próprios módulos IoT Edge](module-development.md) ou como desenvolver [módulos com o Visual Studio.](how-to-visual-studio-develop-module.md) Por exemplo, os módulos IoT Edge, incluindo o módulo de temperatura simulada, consulte [amostras do módulo IoT Edge](https://github.com/Azure/iotedge/tree/master/edge-modules) e [amostras IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples).
 
-Pode continuar com os próximos tutoriais para saber como o Azure IoT Edge pode ajudá-lo a implementar serviços de nuvem Azure para processar e analisar dados no limite.
+Pode continuar nos próximos tutoriais para saber como o Azure IoT Edge pode ajudá-lo a implementar serviços em nuvem Azure para processar e analisar dados no limite.
 
 > [!div class="nextstepaction"]
-> [Funções](tutorial-deploy-function.md)
-> [Stream Analytics](tutorial-deploy-stream-analytics.md)
-> [Machine Learning](tutorial-deploy-machine-learning.md)
-> [Custom Vision Service](tutorial-deploy-custom-vision.md)
+> [Funções](tutorial-deploy-function.md) 
+>  [Stream Analytics](tutorial-deploy-stream-analytics.md) 
+>  [Aprendizagem automática](tutorial-deploy-machine-learning.md) 
+>  [Serviço de Visão Personalizada](tutorial-deploy-custom-vision.md)

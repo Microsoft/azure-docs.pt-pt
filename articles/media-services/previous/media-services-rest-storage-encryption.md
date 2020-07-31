@@ -14,20 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 0e477b95f43c091bf17ec54d2fef9f971d5f6986
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 761a508543af79f3a242bfa2133e22a00b0ca689
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000165"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439613"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Encriptar o seu conteúdo com encriptação de armazenamento 
 
 > [!NOTE]
 > Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Não estão a ser adicionadas novas funcionalidades ou funcionalidades aos Serviços de Comunicação Social v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
->   
-
-É altamente recomendado encriptar o seu conteúdo localmente usando encriptação de bits AES-256 e, em seguida, carregá-lo para o Azure Storage onde é armazenado encriptado em repouso.
+>
 
 Este artigo dá uma visão geral da encriptação de armazenamento AMS e mostra-lhe como carregar o conteúdo encriptado de armazenamento:
 
@@ -203,7 +201,7 @@ Um dos valores que deve definir ao criar a tecla de conteúdo é o tipo. Ao util
 
 O exemplo a seguir mostra como criar uma **ContentKey** com um **ContentKeyType** definido para encriptação de armazenamento ("1") e o **ProtectionKeyType** definido para "0" para indicar que o ID da chave de proteção é a impressão digital do certificado X.509.  
 
-Pedido
+Pedir
 
 ```console
 POST https://media.windows.net/api/ContentKeys HTTP/1.1

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 075837d0c382f5bc6f436a63dfe227c17f0a57a3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f3eacbe6f93388756ce26324babeb2ca38bd09a5
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128663"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87438896"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Access and identity options for Azure Kubernetes Service (AKS) (Opções de acesso e de identidade do Azure Kubernetes Service (AKS))
 
@@ -74,8 +74,6 @@ A segurança dos clusters AKS pode ser reforçada com a integração do Azure At
 Com clusters AKS integrados em Azure, pode conceder aos utilizadores ou grupos acesso aos recursos de Kubernetes dentro de um espaço de nome ou em todo o cluster. Para obter um `kubectl` contexto de configuração, um utilizador pode executar o comando [az aks get-credentials.][az-aks-get-credentials] Quando um utilizador interage com o cluster AKS, `kubectl` é-lhes solicitado que assinem com as suas credenciais AD AZure. Esta abordagem fornece uma única fonte para a gestão da conta de utilizador e credenciais de senha. O utilizador só pode aceder aos recursos definidos pelo administrador do cluster.
 
 A autenticação AZure AD é fornecida aos clusters AKS com OpenID Connect. OpenID Connect é uma camada de identidade construída em cima do protocolo OAuth 2.0. Para obter mais informações sobre o OpenID Connect, consulte a [documentação de ligação Open ID][openid-connect]. A partir do interior do cluster Kubernetes, [a Autenticação Token Webhook][webhook-token-docs] é usada para verificar fichas de autenticação. A autenticação de ficha webhook é configurada e gerida como parte do cluster AKS.
-
-A partir do interior do cluster Kubernetes, a Autenticação Token Webhook é usada para verificar fichas de autenticação. A autenticação de ficha webhook é configurada e gerida como parte do cluster AKS.
 
 ### <a name="webhook-and-api-server"></a>Servidor Webhook e API
 
