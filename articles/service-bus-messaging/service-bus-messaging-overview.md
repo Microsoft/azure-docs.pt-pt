@@ -3,12 +3,12 @@ title: Descrição geral de mensagens do Service Bus do Azure | Microsoft Docs
 description: Este artigo fornece uma visão geral de alto nível da Azure Service Bus, um corretor de mensagens de integração empresarial totalmente gerido.
 ms.topic: overview
 ms.date: 06/23/2020
-ms.openlocfilehash: 8583996cde23b056261662a0640aa310e63d45a9
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 5adcdf10898a7b0ee2d551a3a24b9f80195d645f
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341659"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449114"
 ---
 # <a name="what-is-azure-service-bus"></a>O que é o Azure Service Bus?
 
@@ -31,7 +31,7 @@ Um espaço de nome é um recipiente para todos os componentes de mensagens. Vár
 
 As mensagens são enviadas e recebidas de *filas*. As filas armazenam mensagens até que a aplicação recetora esteja disponível para as receber e processar.
 
-![Filas](./media/service-bus-messaging-overview/about-service-bus-queue.png)
+![Fila](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
 As mensagens nas filas são encomendadas e anotados à chegada. Depois de aceite, a mensagem é guardada em segurança no armazenamento redundante. As mensagens são entregues no modo *de puxar,* apenas entregando mensagens quando solicitadas.
 
@@ -92,7 +92,7 @@ Um erro pode levar o cliente a ter dúvidas sobre o resultado de uma operação 
 ### <a name="security-protocols"></a>Protocolos de segurança
 <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>
 
-O Service Bus suporta protocolos de segurança como [Assinaturas de Acesso Partilhado](service-bus-sas.md) (SAS), [Controlo de Acesso Baseado em Funções](authenticate-application.md) (RBAC) e [Identidades geridas para os recursos do Azure](service-bus-managed-service-identity.md).
+A Service Bus suporta protocolos de segurança como [assinaturas de acesso partilhado](service-bus-sas.md) (SAS), [controlo de acesso baseado em funções (Azure RBAC)](authenticate-application.md) (RBAC) e [identidades geridas para recursos Azure.](service-bus-managed-service-identity.md)
 
 ### <a name="geo-disaster-recovery"></a>Recuperação após desastre geográfica
 
@@ -111,7 +111,7 @@ A Service Bus suporta bibliotecas de clientes para [.NET,](https://github.com/Az
 O Service Bus integra-se totalmente nos seguintes serviços do Azure:
 
 * [Event Grid](https://azure.microsoft.com/services/event-grid/)
-* [Aplicações Lógicas](https://azure.microsoft.com/services/logic-apps/)
+* [Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Funções do Azure](https://azure.microsoft.com/services/functions/)
 * [Dynamics 365](https://dynamics.microsoft.com)
 * [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)

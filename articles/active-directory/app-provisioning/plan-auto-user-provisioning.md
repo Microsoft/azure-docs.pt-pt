@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: dd5248996661be6d4ace81afd7ab942ab70eb4ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cecea24fe002ee64d54052635a6d7dec982aeee2
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781638"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445658"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planear uma implementação de aprovisionamento automático de utilizadores
 
@@ -26,7 +26,7 @@ O provisionamento automático do utilizador (Azure AD) simplifica este processo 
 
 Consulte [automatizar o fornecimento de utilizadores e desprovisionar as aplicações saaS com o Azure Ative Directory](../app-provisioning/user-provisioning.md) para entender melhor a funcionalidade.
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>Saiba mais
 
 O fornecimento de utilizadores cria uma base para a governação de identidade em curso e melhora a qualidade dos processos de negócio que dependem de dados de identidade autorizados.
 
@@ -256,7 +256,7 @@ Escolha os passos que se alinham com os requisitos da sua solução.
 
 Quando o serviço de fornecimento AZure AD funciona pela primeira vez, o ciclo inicial contra o sistema de origem e os sistemas-alvo cria uma imagem de todos os objetos do utilizador para cada sistema alvo.
 
-Ao permitir o provisionamento automático para uma aplicação, o ciclo inicial pode demorar entre 20 minutos e várias horas. A duração depende da dimensão do diretório Azure AD e do número de utilizadores em possibilidade de provisionamento. Ver [Como melhorar o desempenho do provisionamento](../app-provisioning/application-provisioning-when-will-provisioning-finish.md).
+Ao permitir o provisionamento automático para uma aplicação, o ciclo inicial pode demorar entre 20 minutos e várias horas. A duração depende da dimensão do diretório Azure AD e do número de utilizadores em possibilidade de provisionamento.
 
 O serviço de fornecimento armazena o estado de ambos os sistemas após o ciclo inicial, melhorando o desempenho dos ciclos incrementais subsequentes.
 
@@ -300,8 +300,6 @@ Consulte os seguintes links para resolver problemas que possam surgir durante o 
 
 * [Sync um atributo do seu Ative Directy no local para Azure AD para provisionamento a uma aplicação](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md)
 
-* [O fornecimento de utilizadores a uma aplicação da Galeria AD Azure está a demorar horas ou mais](../app-provisioning/application-provisioning-when-will-provisioning-finish.md)
-
 * [Credenciais de administrador de poupança de problemas ao mesmo tempo que configura o fornecimento do utilizador a uma aplicação da Galeria do Diretório Ativo Azure](../app-provisioning/application-provisioning-config-problem-storage-limit.md)
 
 * [Nenhum utilizadores está a ser a provisionado para uma aplicação da Galeria AD Azure](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md)
@@ -326,7 +324,7 @@ Consulte os seguintes links para resolver problemas que possam surgir durante o 
 
 * [Stack transbordar Azure AD fórum](https://stackoverflow.com/questions/tagged/azure-active-directory)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Configure o provisionamento automático do utilizador](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 
 * [Exporte ou importe a sua configuração de provisionamento utilizando a Microsoft Graph API](../app-provisioning/export-import-provisioning-configuration.md)

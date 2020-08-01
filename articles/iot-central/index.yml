@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: 0c433c2d09f101a9ab3fb9d1225e47741908b3bf
-  ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+  ms.openlocfilehash: 4b77c2d724a8540c0e43c45690877367a4b72416
+  ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/29/2020
-  ms.locfileid: "82562190"
+  ms.lasthandoff: 07/28/2020
+  ms.locfileid: "87337029"
 highlightedContent:
   items:
   - title: O que é o IoT Central?
@@ -43,9 +43,6 @@ conceptualContent:
     - url: ./core/howto-set-up-template.md
       itemType: how-to-guide
       text: Configurar um modelo de dispositivo
-    - url: ./core/tutorial-connect-pnp-device.md
-      itemType: tutorial
-      text: Ligar um dispositivo Plug and Play IoT (pré-visualização)
     footerLink:
       url: ./core/index.yml
       text: Ver mais

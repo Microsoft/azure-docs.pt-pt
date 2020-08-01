@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: 091a5d33e49e2abe811bf3cc250d04d69506165d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dfbe1e7fdfca6f9959218f47d903301cb4b6d899
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011639"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448381"
 ---
 # <a name="media-services-v2-vs-v3"></a>Serviços de Mídia v2 vs. v3
 
@@ -83,7 +83,8 @@ A API v3 tem as seguintes lacunas de características no que diz respeito à API
     * Inserção de uma faixa de áudio silenciosa quando a entrada não tem áudio
     * Inserir uma faixa de vídeo quando a entrada não tem vídeo
 * Eventos ao vivo com transcoding atualmente não suportam inserção de ardósia a meio do fluxo e inserção de marcador de anúncios através da chamada API. 
- 
+* Consulte o `https://github.com/Azure-Samples/media-services-v2-dotnet-core-restsharp-sample.git` código de amostra para as melhores práticas e padrões relativos à utilização da API V2 REST em . NETCore SDK.
+
 ## <a name="asset-specific-changes"></a>Alterações específicas do ativo
 
 ### <a name="map-v3-asset-properties-to-v2"></a>Mapear propriedades de ativos v3 para v2

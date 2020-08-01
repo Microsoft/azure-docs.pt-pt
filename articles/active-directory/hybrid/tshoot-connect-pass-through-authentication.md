@@ -16,12 +16,12 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: baf3566e90802f73accdd27f1cd5435e4af7b9be
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f480118aaabf24bd7c5ca472bf04b12ee1405010
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281825"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446986"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Resolver problemas da Autenticação Pass-through do Azure Active Directory
 
@@ -74,10 +74,8 @@ Para confirmar que este é o problema, primeiro teste que o agente de autentica�
 
 Se obtém o mesmo erro de nome de utilizador/palavra-passe, isto significa que o agente de autenticação Pass-through está a funcionar corretamente e o problema pode ser que a UPN no local não seja encaminhável. Para saber mais, consulte [o ID de Login Alternativo Configurado.]( https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More)
 
-
-
-
-
+> [!IMPORTANT]
+> Se o servidor AZure AD Connect não estiver ligado ao domínio, ocorre um requisito mencionado no [Azure AD Connect: Pré-requisitos](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#installation-prerequisites), ocorre o número de nome de utilizador/palavra-passe inválido.
 
 ### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Razões de falha de inscrição no centro de administração do Azure Ative (precisa de licença Premium)
 

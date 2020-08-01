@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 1063f7189de4bdf1aaca4a6d72c979476433c32f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 493c77a8f875018627bfe3167e66addeaf65d089
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098271"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445783"
 ---
 # <a name="frequently-asked-questions---azure-key-vault-certificate-import"></a>Perguntas frequentes - Importação de Certificado de Cofre chave Azure
 
@@ -64,6 +64,9 @@ Sim, pode importar certificados de qualquer AC, mas o cofre-chave não poderá r
 
 ### <a name="if-i-import-a-certificate-from-a-partner-ca-will-the-auto-renew-feature-still-work"></a>Se eu importar um certificado de um parceiro CA, a função de renovação automática ainda funcionará?
 Sim, tem de se certificar de que uma vez carregado especifique a autorotação na política de emissão do certificado. Além disso, as alterações serão refletidas até à versão do próximo ciclo ou certificado.
+
+### <a name="unable-to-see-the-app-service-certificate-imported-to-key-vault"></a>Não é possível ver o Certificado de Serviço de Aplicação importado para o Cofre-Chave? 
+Se o certificado foi importado com sucesso, por favor reveja em under secrets blade.
 
 
 ## <a name="next-steps"></a>Passos seguintes

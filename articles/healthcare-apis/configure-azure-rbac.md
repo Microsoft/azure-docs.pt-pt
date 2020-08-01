@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Role Based Access Control (RBAC) para AZure API para FHIR
+title: Configure Azure controlo de acesso baseado em funções (Azure RBAC) para Azure API para FHIR
 description: Este artigo descreve como configurar o Azure RBAC para a AZure API para o plano de dados FHIR
 author: hansenms
 ms.service: healthcare-apis
@@ -7,16 +7,16 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/15/2020
 ms.author: mihansen
-ms.openlocfilehash: 3fbbfd931efb0e570bc96639bc6b7943fddc0237
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a3cdb5a640e09c0095db79f5e3a43b455a1a5705
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87417680"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447159"
 ---
 # <a name="configure-azure-rbac-for-fhir"></a>Configure Azure RBAC para FHIR 
 
-Neste artigo, você aprenderá a usar [o Azure Role Based Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/) para atribuir acesso à AZure API para o plano de dados FHIR. O Azure RBAC é o método preferido para atribuir o acesso a um plano de dados quando os utilizadores de planos de dados são geridos no inquilino do Azure Ative Directory associado à sua assinatura Azure. Se estiver a utilizar um inquilino externo do Azure Ative Directory, consulte a [referência de atribuição local do RBAC](configure-local-rbac.md).
+Neste artigo, você aprenderá a usar o [controlo de acesso baseado em funções Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/) para atribuir acesso à AZure API para plano de dados FHIR. O Azure RBAC é o método preferido para atribuir o acesso a um plano de dados quando os utilizadores de planos de dados são geridos no inquilino do Azure Ative Directory associado à sua assinatura Azure. Se estiver a utilizar um inquilino externo do Azure Ative Directory, consulte a [referência de atribuição local do RBAC](configure-local-rbac.md).
 
 ## <a name="confirm-azure-rbac-mode"></a>Confirme o modo Azure RBAC
 
@@ -51,7 +51,7 @@ Na caixa **Select,** procure um utilizador, um responsável de serviço ou um gr
 
 A Azure API para fHIR irá cache decisões por até 5 minutos. Se conceder a um utilizador acesso ao servidor FHIR adicionando-os à lista de IDs de objetos permitidos, ou removê-los da lista, deverá esperar que leve até cinco minutos para que as alterações nas permissões se propaguem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a atribuir papéis de Azure RBAC para o plano de dados FHIR. Em seguida, saiba mais sobre as definições adicionais para a AZure API para FHIR:
  

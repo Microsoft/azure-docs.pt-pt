@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: f9bfd601642ff9d6b5b5c5a1c2c508d1821e19c7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 64798e22a893c87a17e3f17077860537c7694c40
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042187"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448196"
 ---
 # <a name="use-an-app-service-environment"></a>Utilizar um Ambiente do Serviço de Aplicações
 
@@ -126,15 +126,15 @@ Quando utiliza um ASE Externo, as aplicações feitas no seu ASE estão registad
 
 Para configurar o DNS no seu próprio servidor DNS com o seu ILB ASE:
 
-1. criar uma zona para <ASE name> .appserviceenvironment.net
+1. criar uma zona para &lt; o nome ASE &gt; .appserviceenvironment.net
 1. criar um registo A naquela zona que aponta * para o endereço IP ILB
 1. criar um registo A naquela zona que aponta @ para o endereço IP ILB
-1. criar uma zona em <ASE name> .appserviceenvironment.net nomeado scm
+1. criar uma zona em &lt; nome ASE &gt; .appserviceenvironment.net nomeado scm
 1. criar um registo A na zona scm que aponta * para o endereço IP ILB
 
 Para configurar DNS em zonas privadas Azure DNS:
 
-1. criar uma zona privada Azure DNS chamada <ASE name> .appserviceenvironment.net
+1. criar uma zona privada Azure DNS chamada &lt; ase nome &gt; .appserviceenvironment.net
 1. criar um registo A naquela zona que aponta * para o endereço IP ILB
 1. criar um registo A naquela zona que aponta @ para o endereço IP ILB
 1. criar um registo A nessa zona que aponta *.scm para o endereço IP ILB

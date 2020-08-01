@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3cac20e33ff865058ce41799ae8841a05716edc9
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: f4f79a28dbe8a49e608ca6fae1781a1e19646619
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045081"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448881"
 ---
 # <a name="troubleshoot-input-connections"></a>Resolver problemas em ligações de entrada
 
@@ -71,7 +71,7 @@ AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1.
 
 Para adicionar um novo grupo de consumidores na sua instância Event Hubs, siga estes passos:
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 
 2. Localize o seu Centro de Eventos.
 
@@ -161,11 +161,15 @@ SELECT foo FROM DataTwo
 
 ```
 
+## <a name="readers-per-partition-exceeds-iot-hub-limit"></a>Leitores por partição excedem limite do IoT Hub
+
+Os trabalhos de Stream Analytics usam o [ponto de final compatível com o Centro](../iot-hub/iot-hub-devguide-messages-read-builtin.md) de Eventos do IoT Hub para conectar e ler eventos a partir do IoT Hub. Se a sua leitura por partição exceder os limites do IoT Hub, pode utilizar as [soluções para](#readers-per-partition-exceeds-event-hubs-limit) o Event Hub resolvê-lo. Pode criar um grupo de consumidores para o ponto final incorporado através da sessão de ponto final do portal IoT Hub ou através do [IoT Hub SDK](https://docs.microsoft.com/rest/api/iothub/IotHubResource/CreateEventHubConsumerGroup).
+
 ## <a name="get-help"></a>Obter ajuda
 
 Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

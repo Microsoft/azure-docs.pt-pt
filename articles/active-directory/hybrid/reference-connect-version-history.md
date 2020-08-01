@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72acf60bd9bc5baeba37d8ccffa79fe597954f16
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 04f97dc7296dd2ca9e9f869373cbf82838aa79f5
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230388"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445320"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de versões
 A equipa do Azure Ative Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -47,6 +47,20 @@ Nem todas as versões do Azure AD Connect serão disponibilizadas para atualiza�
 >Se tiver ativado o Azure AD Connect para sincronização, em breve começará automaticamente a receber notificações de Saúde que o avisam sobre as próximas depreciações quando estiver a executar uma das versões mais antigas.
 >
 >Consulte [este artigo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) para saber mais sobre como atualizar o Azure AD Connect para a versão mais recente.
+
+## <a name="15450"></a>1.5.45.0
+
+### <a name="release-status"></a>Estado de lançamento
+07/29/2020: Lançamento para download
+
+### <a name="functional-changes"></a>Alterações funcionais
+Isto é uma correção de erros. Não há alterações funcionais nesta versão.
+
+### <a name="fixed-issues"></a>Problemas corrigidos
+
+- Corrigiu um problema em que a administração não pode ativar "Sem emenda Single Sign On" se a conta de computador AZUREADSSOACC já estiver presente no "Ative Directory".
+- Corrigiu um problema que causou um erro de encenação durante a importação delta da V2 API para um objeto conflituoso que foi reparado através do portal de saúde.
+- Fixou um problema na configuração de importação/exportação em que a regra de produtos personalizados com deficiência foi importada conforme habilitado.
 
 ## <a name="15420"></a>1.5.42.0
 
@@ -1186,7 +1200,7 @@ Lançado: agosto 2016
 
 * As alterações ao intervalo de sincronização só ocorrem depois de concluído o ciclo de sincronização seguinte.
 * O assistente Azure AD Connect não aceita uma conta AZure AD cujo nome de utilizador começa com um sublinhado ( \_ ).
-* O assistente Azure AD Connect não autentica a conta Azure AD se a palavra-passe da conta contiver demasiados caracteres especiais. Mensagem de erro "Incapaz de validar credenciais. Ocorreu um erro inesperado." é devolvido.
+* O assistente Azure AD Connect não autentica a conta Azure AD se a palavra-passe da conta contiver demasiados caracteres especiais. Mensagem de erro "Incapaz de validar credenciais. Ocorreu um erro inesperado." do produto".
 * Desinstalar o servidor de staging desativa a sincronização de palavras-passe no inquilino Azure AD e faz com que a sincronização da palavra-passe falhe com o servidor ativo.
 * A sincronização da palavra-passe falha em casos incomuns quando não há hash de senha armazenado no utilizador.
 * Quando o servidor AD Connect Azure está ativado para o modo de paragem, a desativação da palavra-passe não é temporariamente desativada.

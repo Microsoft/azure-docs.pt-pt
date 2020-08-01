@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 31c769039009889559b6aa05bb76139d63c42feb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 634f200280a85ff865741cd03905101ff1e5c19f
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015022"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448050"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementar um trabalhador de runbook híbrido windows
 
@@ -28,7 +28,7 @@ O papel de Trabalhador de Runbook Híbrido depende de um espaço de trabalho Azu
 
 Se não tiver um espaço de trabalho do Azure Monitor Log Analytics, reveja a orientação de [design do Registo do Monitor Azure](../azure-monitor/platform/design-logs-deployment.md) antes de criar o espaço de trabalho.
 
-Se tiver um espaço de trabalho, mas não estiver ligado à sua conta de Automação, permitir uma funcionalidade de Automação adiciona funcionalidade para a Azure Automation, incluindo suporte para o Trabalhador de Runbook Híbrido. Quando ativa uma das funcionalidades da Azure Automation no seu espaço de trabalho Log Analytics, especificamente [Gestão de Atualização](automation-update-management.md) ou [Rastreio e Inventário de Alterações,](change-tracking.md)os componentes do trabalhador são automaticamente empurrados para a máquina do agente.
+Se tiver um espaço de trabalho, mas não estiver ligado à sua conta de Automação, permitir uma funcionalidade de Automação adiciona funcionalidade para a Azure Automation, incluindo suporte para o Trabalhador de Runbook Híbrido. Quando ativa uma das funcionalidades da Azure Automation no seu espaço de trabalho Log Analytics, especificamente [Gestão de Atualização](update-management/update-mgmt-overview.md) ou [Rastreio e Inventário de Alterações,](change-tracking.md)os componentes do trabalhador são automaticamente empurrados para a máquina do agente.
 
    Para adicionar a função de Gestão de Atualização ao seu espaço de trabalho, execute o seguinte cmdlet PowerShell:
 
@@ -77,7 +77,7 @@ Para obter mais requisitos de networking para o Trabalhador de Runbook Híbrido,
 Pode adicionar a máquina de trabalhadores a um grupo híbrido de trabalhadores na sua conta de Automação. Note que deve apoiar os runbooks da Automação desde que utilize a mesma conta tanto para a funcionalidade Azure Automation como para a associação do grupo Híbrido Runbook Worker. Esta funcionalidade foi adicionada à versão 7.2.12024.0 da Função de Trabalho de Runbook Híbrida.
 
 >[!NOTE]
->Permitir que a Azure Automation [Update Management](automation-update-management.md) configura automaticamente qualquer máquina Windows que esteja ligada ao seu espaço de trabalho Log Analytics como um Trabalhador De Runbook Híbrido para suportar a gestão das suas atualizações do sistema operativo. No entanto, este trabalhador não está registado em nenhum grupo híbrido de trabalhadores de runbook já definidos na sua conta Automation.
+>Permitir que a Azure Automation [Update Management](update-management/update-mgmt-overview.md) configura automaticamente qualquer máquina Windows que esteja ligada ao seu espaço de trabalho Log Analytics como um Trabalhador De Runbook Híbrido para suportar a gestão das suas atualizações do sistema operativo. No entanto, este trabalhador não está registado em nenhum grupo híbrido de trabalhadores de runbook já definidos na sua conta Automation.
 
 ## <a name="enabling-machines-for-management-with-azure-automation-state-configuration"></a>Habilitação de máquinas para gestão com Configuração do Estado da Automação Azure
 
@@ -169,7 +169,7 @@ Heartbeat
 
 Nos resultados da pesquisa, deverá consultar os registos de batimentos cardíacos da máquina, indicando que está ligado e a reportar ao serviço. Por defeito, cada agente encaminha um registo de batimentos cardíacos para o seu espaço de trabalho atribuído. Utilize os seguintes passos para completar a instalação e configuração do agente.
 
-1. Ativar a função para adicionar a máquina do agente. Para a Gestão de Atualizações e VMs Azure, consulte [Enable Azure VMs](automation-onboard-solutions-from-automation-account.md#enable-azure-vms), e para VMs não-Azure ver [Ativar máquinas no espaço de trabalho](automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace). Para Alter tracking e VMs Azure, consulte [Enable Azure VMs](automation-enable-changes-from-auto-acct.md#enable-azure-vms), e para VMs não-Azure ver [Ativar máquinas no espaço de trabalho](automation-enable-changes-from-auto-acct.md#enable-machines-in-the-workspace).
+1. Ativar a função para adicionar a máquina do agente. Para a Gestão de Atualizações e VMs Azure, consulte [Ativar a Gestão de Atualização a partir de uma conta de Automação](update-management/update-mgmt-enable-automation-account.md), Ative a Gestão de [Atualizações navegando no portal Azure](update-management/update-mgmt-enable-portal.md), [Enable Update Management a partir de um runbook](update-management/update-mgmt-enable-runbook.md), ou Enable Update Management a partir de um [VM Azure](update-management/update-mgmt-enable-vm.md). Para Alter tracking e VMs Azure, consulte [Enable Azure VMs](automation-enable-changes-from-auto-acct.md#enable-azure-vms), e para VMs não-Azure ver [Ativar máquinas no espaço de trabalho](automation-enable-changes-from-auto-acct.md#enable-machines-in-the-workspace).
 
 2. Para confirmar a versão do Trabalhador de Runbook Híbrido, navegue `C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\` e note a subpasta da **versão.**
 

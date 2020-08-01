@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
-ms.openlocfilehash: b33bd5ba20e21d757e412e9dac7c474308c4561d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9c4e9676208a5d2cfa8c0c04a97675a3c634e3d5
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077165"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446794"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Portal OMS movendo-se para Azure
 
@@ -32,7 +32,7 @@ Estão a ser anunciadas as seguintes alterações com a depreciação do portal 
 - A [Aplicação Móvel OMS](#oms-mobile-app) está a ser depreciada. 
 - A [solução NSG está a ser substituída por](#azure-network-security-group-analytics) uma funcionalidade melhorada disponível através da solução Traffic Analytics.
 - As novas ligações do Gestor de Operações do System Center para o Log Analytics requerem [pacotes de gestão atualizados.](#system-center-operations-manager)
-- Consulte [a Migração das suas Implementações de Atualização OMS para Azure](../../automation/migrate-oms-update-deployments.md) para obter mais detalhes sobre as alterações à [Gestão de Atualização](../../automation/automation-update-management.md).
+- Consulte [a Migração das suas Implementações de Atualização OMS para Azure](../../automation/migrate-oms-update-deployments.md) para obter mais detalhes sobre as alterações à [Gestão de Atualização](../../automation/update-management/update-mgmt-overview.md).
 
 
 ## <a name="what-should-i-do-now"></a>O que devo fazer agora?

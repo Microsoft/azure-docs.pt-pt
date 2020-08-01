@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 31dfae60b1967e221e294195f66bb7fe59a15e64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69926671730e41845cd28df3108ec86b24a57075
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84187527"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448524"
 ---
 # <a name="network-topologies-for-azure-sql-managed-instance-migrations-using-azure-database-migration-service"></a>Topologias de rede para migrações de instância gerida Azure SQL utilizando o Serviço de Migração da Base de Dados Azure
 
@@ -39,7 +39,7 @@ Utilize esta topologia se o seu Azure SQL Managed Instance estiver ligado à sua
 Utilize esta topologia da rede se o seu ambiente necessitar de um ou mais dos seguintes cenários:
 
 - O SQL Managed Instance está isolado da conectividade no local, mas a sua instância do Serviço de Migração da Base de Dados Azure está ligada à rede no local.
-- Se as políticas de Controlo de Acesso Baseado em Fun (RBAC) estiverem em vigor e precisar de limitar os utilizadores a aceder à mesma subscrição que está a hospedar a SQL Managed Instance.
+- Se as políticas de controlo de acesso baseado em funções (Azure RBAC) estiverem em vigor e precisar de limitar os utilizadores a aceder à mesma subscrição que está a hospedar a SQL Managed Instance.
 - As redes virtuais utilizadas para o SQL Managed Instance e o Azure Database Migration Service estão em diferentes subscrições.
 
 ![Topologia da Rede para Instância Gerida isolada da rede de instalações](media/resource-network-topologies/mi-isolated-workload.png)
@@ -64,7 +64,7 @@ Utilize esta topologia se o SqL Server de origem estiver hospedado num Azure VM 
 Utilize esta topologia da rede se o seu ambiente necessitar de um ou mais dos seguintes cenários:
 
 - O SQL Managed Instance é a provisionado numa rede virtual isolada.
-- Se as políticas de Controlo de Acesso Baseado em Fun (RBAC) estiverem em vigor e precisar de limitar os utilizadores a aceder à mesma subscrição que está a hospedar a SQL Managed Instance.
+- Se as políticas de controlo de acesso baseado em funções (Azure RBAC) estiverem em vigor e precisar de limitar os utilizadores a aceder à mesma subscrição que está a hospedar a SQL Managed Instance.
 - As redes virtuais utilizadas para o SQL Managed Instance e o Azure Database Migration Service estão em diferentes subscrições.
 
 ![Topologia da rede para migrações cloud-to-cloud com um VNet isolado](media/resource-network-topologies/cloud-to-cloud-isolated.png)
@@ -96,7 +96,7 @@ Utilize esta topologia da rede se o seu ambiente necessitar de um ou mais dos se
 - [Visão geral dos pré-requisitos para a utilização do Serviço de Migração da Base de Dados Azure](https://docs.microsoft.com/azure/dms/pre-reqs)
 - [Criar uma rede virtual com o portal do Azure](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma visão geral do Serviço de Migração da Base de Dados Azure, consulte o artigo [O que é o Serviço de Migração da Base de Dados Azure?](dms-overview.md)
 - Para obter informações sobre a disponibilidade regional do Serviço de Migração da Base de Dados Azure, consulte os [Produtos disponíveis por página da região.](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration)

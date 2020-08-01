@@ -8,12 +8,12 @@ ms.date: 08/20/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: f4e6e2f2732d1c90e8fe669788d82692c8016fd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce0c16d43e6de9bada5d747949e370eb83f85826
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463455"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446854"
 ---
 # <a name="copy-a-blob-with-net"></a>Copiar uma bolha com .NET
 
@@ -23,7 +23,7 @@ Este artigo demonstra como copiar uma bolha com uma conta de Armazenamento Azure
 
 Quando se copia uma bolha na mesma conta de armazenamento, trata-se de uma operação sincronizada. Quando se copia através das contas, é uma operação assíncronea. Os métodos [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) e [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) devolvem um valor de ID de cópia que é usado para verificar o estado ou abortar a operação de cópia.
 
-A bolha de origem para uma operação de cópia pode ser uma bolha de bloco, uma bolha de apêndice, uma bolha de página ou uma foto instantânea. Se a bolha de destino já existir, deve ser do mesmo tipo de bolha que a bolha de origem. Qualquer mancha de destino existente será substituída. 
+A bolha de origem para uma operação de cópia pode ser uma bolha de bloco, uma bolha de apêndice, uma bolha de página ou uma foto instantânea. Se a bolha de destino já existir, deve ser do mesmo tipo de bolha que a bolha de origem. Uma bolha de destino existente será substituída.
 
 A bolha de destino não pode ser modificada enquanto uma operação de cópia estiver em andamento. Uma bolha de destino só pode ter uma excelente operação de bolha de cópia. Por outras palavras, uma bolha não pode ser o destino para várias operações pendentes de cópia.
 
@@ -35,18 +35,18 @@ Para todos os tipos de bolhas, pode verificar a propriedade [CopyState.Status](/
 
 Uma operação de cópia pode assumir qualquer um dos seguintes formulários:
 
-  - Pode copiar uma bolha de origem para uma bolha de destino com um nome diferente. A bolha de destino pode ser uma bolha existente do mesmo tipo blob (bloco, apêndice ou página), ou pode ser uma nova bolha criada pela operação de cópia.
-  - Pode copiar uma bolha de origem para uma bolha de destino com o mesmo nome, substituindo efetivamente a bolha de destino. Tal operação de cópia remove quaisquer blocos não comprometidos e substitui os metadados da blob de destino.
-  - Pode copiar um ficheiro de origem no serviço Azure File para uma bolha de destino. A bolha de destino pode ser uma bolha de bloco existente, ou pode ser uma nova bolha de bloco criada pela operação de cópia. A cópia de ficheiros para bolhas de página ou bolhas de apêndice não é suportada.
-  - Pode copiar uma imagem sobre a bolha de base. Ao promover um instantâneo para a posição da bolha de base, pode restaurar uma versão anterior de uma bolha.
-  - Pode copiar uma imagem instantânea para uma bolha de destino com um nome diferente. A bolha de destino resultante é uma bolha de escrever e não um instantâneo.
+- Pode copiar uma bolha de origem para uma bolha de destino com um nome diferente. A bolha de destino pode ser uma bolha existente do mesmo tipo blob (bloco, apêndice ou página), ou pode ser uma nova bolha criada pela operação de cópia.
+- Pode copiar uma bolha de origem para uma bolha de destino com o mesmo nome, substituindo efetivamente a bolha de destino. Tal operação de cópia remove quaisquer blocos não comprometidos e substitui os metadados da blob de destino.
+- Pode copiar um ficheiro de origem no serviço Azure File para uma bolha de destino. A bolha de destino pode ser uma bolha de bloco existente, ou pode ser uma nova bolha de bloco criada pela operação de cópia. A cópia de ficheiros para bolhas de página ou bolhas de apêndice não é suportada.
+- Pode copiar uma imagem sobre a bolha de base. Ao promover um instantâneo para a posição da bolha de base, pode restaurar uma versão anterior de uma bolha.
+- Pode copiar uma imagem instantânea para uma bolha de destino com um nome diferente. A bolha de destino resultante é uma bolha de escrever e não um instantâneo.
 
 ## <a name="copy-a-blob"></a>Copiar uma bolha
 
 Para copiar uma bolha, ligue para um dos seguintes métodos:
 
- - [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet)
- - [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet)
+- [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet)
+- [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet)
 
 O seguinte exemplo de código obtém uma referência a uma bolha criada anteriormente e copia-a para uma nova bolha no mesmo recipiente:
 
@@ -129,7 +129,7 @@ if (destBlob.CopyState.Status == CopyStatus.Pending)
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os seguintes tópicos contêm informações sobre a cópia de blobs e o aborto das operações de cópia em curso utilizando as APIs do Azure REST.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 49a40d78b4ba3bc1e90bb341cca90bece0b998a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03258bf204491afce4635828b3a33a06886aca2d
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81450042"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448402"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Melhores práticas de segurança para cargas de trabalho IaaS no Azure
 Este artigo descreve as melhores práticas de segurança para VMs e sistemas operativos.
@@ -84,7 +84,7 @@ Pode integrar soluções de Antimalware e parceiros da Microsoft com [o Azure Se
 Os VMs Azure, como todos os VMs no local, devem ser geridos pelo utilizador. O Azure não emite atualizações do Windows para as VMs. Precisa de gerir as atualizações de VM.
 
 **Melhores práticas**: Mantenha os seus VMs atuais.   
-**Detalhe**: Utilize a solução [de Gestão](../../automation/automation-update-management.md) de Atualização na Azure Automation para gerir as atualizações do sistema operativo para os seus computadores Windows e Linux que são implantados em Azure, em ambientes no local ou em outros fornecedores de nuvem. Pode rapidamente avaliar o estado das atualizações disponíveis em todos os computadores agente e gerir o processo de instalação de atualizações necessárias para os servidores.
+**Detalhe**: Utilize a solução [de Gestão](../../automation/update-management/update-mgmt-overview.md) de Atualização na Azure Automation para gerir as atualizações do sistema operativo para os seus computadores Windows e Linux que são implantados em Azure, em ambientes no local ou em outros fornecedores de nuvem. Pode rapidamente avaliar o estado das atualizações disponíveis em todos os computadores agente e gerir o processo de instalação de atualizações necessárias para os servidores.
 
 Os computadores que são geridos pela Gestão de Atualizações utilizam as seguintes configurações para realizar a avaliação e as implementações de atualização:
 

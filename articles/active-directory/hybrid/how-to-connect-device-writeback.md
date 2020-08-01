@@ -16,12 +16,12 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 043c30af6d28e61a532c8030dabdc17b73303e7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b139441adb02f5fb33ae8c4a70aaa9b423f0d0e
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360134"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447091"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Ativar a gravação do dispositivo
 > [!NOTE]
@@ -61,7 +61,7 @@ Instale o Azure AD Connect utilizando configurações personalizadas ou expressa
 
     a. **Fornecer credenciais de administrador da empresa**: Se as credenciais de administrador da empresa forem fornecidas para a floresta onde os dispositivos precisam de ser reencamidas, o Azure AD Connect preparará a floresta automaticamente durante a configuração da gravação do dispositivo.
 
-    b. **Descarregue o script PowerShell**: Azure AD Connect gera automaticamente um script PowerShell que pode preparar o diretório ativo para a gravação do dispositivo. Caso as credenciais de administrador da empresa não possam ser fornecidas no Azure AD Connect, sugere-se que descarregue o script PowerShell. Forneça o script powerShell descarregado **CreateDeviceContainer.psq** ao administrador da empresa da floresta onde os dispositivos serão recritos.
+    b. **Descarregue o script PowerShell**: Azure AD Connect gera automaticamente um script PowerShell que pode preparar o diretório ativo para a gravação do dispositivo. Caso as credenciais de administrador da empresa não possam ser fornecidas no Azure AD Connect, sugere-se que descarregue o script PowerShell. Forneça o script powerShell descarregado **CreateDeviceContainer.ps1** ao administrador da empresa da floresta onde os dispositivos serão descritos de volta.
     ![Preparar floresta de diretório ativo](./media/how-to-connect-device-writeback/devicecontainercreds.png)
     
     São realizadas as seguintes operações para a preparação da floresta de diretório ativo:
@@ -129,6 +129,6 @@ Verifique a configuração no Ative Directory:
 * [Gestão de risco com acesso condicional](../active-directory-conditional-access-azure-portal.md)
 * [Criação de Acesso Condicional no local utilizando o registo de dispositivos de diretório ativo Azure](../../active-directory/active-directory-device-registration-on-premises-setup.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).
 

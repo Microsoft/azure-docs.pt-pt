@@ -1,14 +1,14 @@
 ---
 title: Colaboração na base de conhecimento - QnA Maker
-description: O QnA Maker permite que várias pessoas colaborem numa base de conhecimento. Esta funcionalidade é fornecida com o Azure Role-Based Access Control.
+description: O QnA Maker permite que várias pessoas colaborem numa base de conhecimento. Esta funcionalidade é fornecida com o controlo de acesso baseado em funções Azure (Azure RBAC).
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 4c550a36dd045873df4bc4a382e1c884466f95ad
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 20eb58f346322cb78bff85af3d6a0d366090763d
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054045"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446947"
 ---
 # <a name="collaboration-with-authors-and-editors"></a>Colaboração com autores e editores
 

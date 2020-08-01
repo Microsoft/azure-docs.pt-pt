@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/01/2020
 ms.author: juliako
-ms.openlocfilehash: e358742635d9ed939bbc62bb0d54e8169382e7de
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c2845cd0fad8375db67d1aa86333f144222dc0aa
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043501"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446333"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
 # <a name="azure-media-services-quotas-and-limits"></a>Quotas e limites da Azure Media Services
@@ -28,14 +28,14 @@ Este artigo lista alguns dos limites mais comuns da Microsoft Azure Media Servic
 
 ## <a name="account-limits"></a>Limites de conta
 
-| Recurso | Limite Predefinido | 
-| --- | --- | 
+| Recurso | Limite Predefinido |
+| --- | --- |
 | [Contas de Serviços de Mídia](media-services-account-concept.md) numa única subscrição | 25 (fixo) |
 
 ## <a name="asset-limits"></a>Limites de ativos
 
-| Recurso | Limite Predefinido | 
-| --- | --- | 
+| Recurso | Limite Predefinido |
+| --- | --- |
 | [Ativos](assets-concept.md) por conta de Serviços de Media | 1 000 000|
 
 ## <a name="storage-limits"></a>Limites de armazenamento
@@ -86,9 +86,10 @@ Qualquer registo de Trabalho na sua conta com mais de 90 dias será automaticame
 
 ## <a name="packaging--delivery-limits"></a>Limites de entrega de & de embalagem
 
-| Recurso | Limite Predefinido | 
-| --- | --- | 
+| Recurso | Limite Predefinido |
+| --- | --- |
 | [Streaming Endpoints](streaming-endpoint-concept.md) (parado ou em execução) por conta de Serviços de Mídia|2 |
+| Unidades de streaming premium | 10 |
 | [Filtros do Manifesto Dinâmico](filters-dynamic-manifest-overview.md)|100|
 | [Políticas de streaming](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
 | [Localizadores de streaming exclusivos associados](streaming-locators-concept.md) a um Ativo de uma só vez | 100<sup>(7)</sup> (fixo) |

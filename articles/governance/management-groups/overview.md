@@ -3,12 +3,12 @@ title: Organize os seus recursos com grupos de gestão - Azure Governance
 description: Saiba mais sobre os grupos de gestão, como as permissões destes funcionam e como utilizá-los.
 ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: 8c8c254b2156a6f710c7130503b7c2a18d7168b0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 7c6d5d752886f47da1321289696feb4261abe7e5
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420520"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447107"
 ---
 # <a name="what-are-azure-management-groups"></a>O que são grupos de gestão Azure?
 
@@ -82,7 +82,7 @@ Se tiver dúvidas sobre este processo de preenchimento, contacte: `managementgro
   
 ## <a name="management-group-access"></a>Acesso de grupo de gestão
 
-Os grupos de gestão do Azure suportam o [Controlo de Acesso Baseado em Funções (RBAC)](../../role-based-access-control/overview.md) para todos os acessos de recursos e definições de função.
+Os grupos de gestão Azure apoiam [o controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md) para todos os acessos de recursos e definições de funções.
 Estas permissões são herdadas pelos recursos subordinados existentes na hierarquia. Qualquer papel da RBAC pode ser atribuído a um grupo de gestão que herdará a hierarquia aos recursos. Por exemplo, a função RBAC de contribuidor de VM pode ser atribuída a um grupo de gestão. Esta função não desempenha qualquer ação no grupo de gestão, mas será herdada por todas as VMs nesse grupo de gestão.
 
 A tabela seguinte mostra a lista de funções e as ações suportadas nos grupos de gestão.
@@ -90,7 +90,7 @@ A tabela seguinte mostra a lista de funções e as ações suportadas nos grupos
 | Nome da Função RBAC             | Criar | Mudar o Nome | Mover-se\*\* | Eliminar | Atribuir Acesso | Atribuir Política | Ler  |
 |:-------------------------- |:------:|:------:|:--------:|:------:|:-------------:| :------------:|:-----:|
 |Proprietário                       | X      | X      | X        | X      | X             | X             | X     |
-|Contribuidor                 | X      | X      | X        | X      |               |               | X     |
+|Contribuinte                 | X      | X      | X        | X      |               |               | X     |
 |Colaborador da MG\*            | X      | X      | X        | X      |               |               | X     |
 |Leitor                      |        |        |          |        |               |               | X     |
 |Leitor MG\*                 |        |        |          |        |               |               | X     |
@@ -193,7 +193,7 @@ Os grupos de gestão são suportados no [Registo de Atividades do Azure](../../a
 
 Quando quiser consultar Grupos de Gestão fora do portal do Azure, o âmbito de destino dos grupos de gestão é semelhante a **"/ providers/Microsoft.Management/managementGroups/{yourMgID}"**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os grupos de gestão, veja:
 

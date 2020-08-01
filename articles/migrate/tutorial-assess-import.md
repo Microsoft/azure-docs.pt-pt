@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 98675b0f986ecb78ff122ed052a01d521aac1f6f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 40dd81b9eb7ff2b20abb1bf3ea4337b63fb2a831
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114215"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447086"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Avaliar servidores utilizando dados importados
 
@@ -110,7 +110,7 @@ A tabela seguinte resume os campos de ficheiros a preencher:
 **Núcleos** | Sim | Número de núcleos de processador atribuídos ao servidor.
 **Memória** | Sim | RAM total, em MB, alocado ao servidor.
 **Nome do SO** | Sim | Sistema operativo do servidor. <br/> Os nomes do sistema operativo que correspondam ou contenham os nomes [desta](#supported-operating-system-names) lista são reconhecidos pela avaliação.
-**Versão do SO** | Não | Versão do sistema operativo do servidor.
+**Versão OS** | Não | Versão do sistema operativo do servidor.
 **Arquitetura de OS** | Não | Arquitetura de SERVIDOR OS <br/> Valores válidos são: x64, x86, amd64, 32-bit ou 64-bit
 **Número de discos** | Não | Não é necessário se forem fornecidos detalhes individuais do disco.
 **Disco 1 tamanho**  | Não | Tamanho máximo do disco, em GB.<br/>Pode adicionar detalhes para mais discos [adicionando colunas](#add-multiple-disks) no modelo. Pode somar até oito discos.
@@ -152,7 +152,7 @@ Por exemplo, para especificar todos os campos para um segundo disco, adicione es
 Depois de adicionar informações ao modelo CSV, importe os servidores na Avaliação do Servidor.
 
 1. Em Azure Migrate, em **máquinas Discover,** vá para o modelo completo.
-2. Selecione **Importar**.
+2. Selecione **Import** (Importar).
 3. O estado de importação é indicado.
     - Se os avisos aparecerem no estado, pode corrigi-los ou continuar sem os abordar.
     - Para melhorar a precisão da avaliação, melhore as informações do servidor como sugerido nos avisos.
@@ -182,7 +182,7 @@ Pode criar dois tipos de avaliações utilizando a Avaliação do Servidor.
 
 **Tipo de Avaliação** | **Detalhes**
 --- | --- 
-**VM do Azure** | Avaliações para migrar os seus servidores no local para máquinas virtuais Azure. <br/><br/> Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md)no local, [VMs hiper-V](how-to-set-up-appliance-hyper-v.md)e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para Azure utilizando este tipo de avaliação. (concepts-assessment-calculation.md)
+**VM do Azure** | Avaliações para migrar os seus servidores no local para máquinas virtuais Azure. <br/><br/> Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md)no local, [VMs hiper-V](how-to-set-up-appliance-hyper-v.md)e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para Azure utilizando este tipo de avaliação.
 **Solução VMware no Azure (AVS)** | Avaliações para migrar os seus servidores no local para [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md) no local para migração para Azure VMware Solution (AVS) utilizando este tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
 
 ### <a name="sizing-criteria"></a>Critérios de dimensionamento
@@ -424,7 +424,7 @@ Os nomes do sistema operativo fornecidos no CSV devem coincidir ou conter os nom
    :::column-end:::
 :::row-end:::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial:
 

@@ -7,13 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 07/16/2020
-ms.openlocfilehash: c0a397ac71c7c466145357093b6c22f78e627d1c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/29/2020
+ms.custom: generated
+ms.openlocfilehash: edf0d0085a8f1f9446e9c699c15b1eebb0a2d004
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511590"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448890"
 ---
 # <a name="azure-built-in-roles"></a>Funções incorporadas do Azure
 
@@ -38,7 +39,7 @@ A tabela seguinte fornece uma breve descrição e a identificação única de ca
 > | [Login de administrador de máquina virtual](#virtual-machine-administrator-login) | Ver Máquinas Virtuais no portal e iniciar sessão como administrador | 1c0163c0-47e6-4577-8991-ea5c82e286e4 |
 > | [Contribuidor de Máquina Virtual](#virtual-machine-contributor) | Permite-lhe gerir máquinas virtuais, mas não acesso a elas, e não à rede virtual ou à conta de armazenamento a que estão ligadas. | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
 > | [Início de sessão do utilizador de máquina virtual](#virtual-machine-user-login) | Ver Máquinas Virtuais no portal e iniciar sessão como um utilizador regular. | fb879df8-f326-4884-b1cf-06f3ad86be52 |
-> | **Redes** |  |  |
+> | **Rede** |  |  |
 > | [Colaborador de Ponto Final cdn](#cdn-endpoint-contributor) | Pode gerir os pontos finais da CDN, mas não pode dar acesso a outros utilizadores. | 426e0c7f-0c7e-4658-b36f-ff54d6c29b45 |
 > | [Leitor de ponto final CDN](#cdn-endpoint-reader) | Pode ver os pontos finais do CDN, mas não pode fazer alterações. | 871e35f6-b5c1-49cc-a043-bde969a0f2cd |
 > | [Colaborador de perfil CDN](#cdn-profile-contributor) | Pode gerir perfis de CDN e seus pontos finais, mas não pode dar acesso a outros utilizadores. | ec156ff8-a8d1-4d15-830c-5b80698ca432 |
@@ -149,9 +150,9 @@ A tabela seguinte fornece uma breve descrição e a identificação única de ca
 > | [Colaborador de Identidade Gerido](#managed-identity-contributor) | Criar, Ler, Atualizar e Eliminar Identidade Atribuída ao Utilizador | e40ec5ca-96e0-45a2-b4ff-59039f2c2b59 |
 > | [Operador de identidade gerido](#managed-identity-operator) | Ler e atribuir identidade atribuída ao utilizador | f1a07417-d97a-45cb-824c-7a7467783830 |
 > | **Segurança** |  |  |
-> | [Colaborador Azure Sentinel](#azure-sentinel-contributor) | Colaborador Azure Sentinel | ab8e14d6-4a74-4a29-9ba8-549422addade |
-> | [Azure Sentinel Reader](#azure-sentinel-reader) | Azure Sentinel Reader | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
-> | [Azure Sentinel Responder](#azure-sentinel-responder) | Azure Sentinel Responder | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
+> | [Contribuidor do Azure Sentinel](#azure-sentinel-contributor) | Contribuidor do Azure Sentinel | ab8e14d6-4a74-4a29-9ba8-549422addade |
+> | [Leitor do Azure Sentinel](#azure-sentinel-reader) | Leitor do Azure Sentinel | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
+> | [Dispositivo de Resposta do Azure Sentinel](#azure-sentinel-responder) | Dispositivo de Resposta do Azure Sentinel | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
 > | [Contribuidor do Cofre Chave](#key-vault-contributor) | Permite-lhe gerir cofres chave, mas não acesso a eles. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
 > | [Administrador de Segurança](#security-admin) | Ver e atualizar permissões para o Centro de Segurança. As mesmas permissões que a função de Leitor de Segurança também podem atualizar a política de segurança e rejeitar alertas e recomendações. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | [Contribuinte de Avaliação de Segurança](#security-assessment-contributor) | Permite-lhe fazer avaliações para o Centro de Segurança | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
@@ -180,6 +181,7 @@ A tabela seguinte fornece uma breve descrição e a identificação única de ca
 > | [Contribuidor para a Gestão de Custos](#cost-management-contributor) | Pode ver os custos e gerir a configuração dos custos (por exemplo, orçamentos, exportações) | 434105ed-43f6-45c7-a02f-909b2ba83430 |
 > | [Leitor de Gestão de Custos](#cost-management-reader) | Pode ver dados de custos e configuração (por exemplo, orçamentos, exportações) | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
 > | [Administrador de Definições de Hierarquia](#hierarchy-settings-administrator) | Permite aos utilizadores editar e eliminar Definições de Hierarquia | 350f8d15-c687-4448-8ae1-157740a3936d |
+> | [Kubernetes Cluster - Azure Arc Onboarding](#kubernetes-cluster---azure-arc-onboarding) | Definição de função para autorizar qualquer utilizador/serviço para criar recurso connectedClusters | 34e09817-6cbe-4d01-b1a2-e0eac5743d41 |
 > | [Papel de Contribuinte de Aplicação Gerido](#managed-application-contributor-role) | Permite criar recursos de aplicação geridos. | 641177b8-a67a-45b9-a033-47bc880bb21e |
 > | [Papel do operador de aplicação gerido](#managed-application-operator-role) | Permite-lhe ler e executar ações sobre recursos de aplicação gerida | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | [Leitor de Aplicações Geridas](#managed-applications-reader) | Permite-lhe ler recursos numa aplicação gerida e solicitar acesso ao JIT. | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
@@ -194,7 +196,7 @@ A tabela seguinte fornece uma breve descrição e a identificação única de ca
 > | [Leitor de Recuperação de Site](#site-recovery-reader) | Permite-lhe ver o estado de Recuperação do Site, mas não realizar outras operações de gestão | dbaa88c4-0c30-4179-9fb3-46319faa6149 |
 > | [Colaborador de Pedido de Apoio](#support-request-contributor) | Permite criar e gerir pedidos de Suporte | cfd33db0-3dd1-45e3-aa9d-cdbdf3b6f24e |
 > | [Colaborador da Tag](#tag-contributor) | Permite-lhe gerir etiquetas em entidades, sem fornecer acesso às próprias entidades. | 4a9ae827-6dc8-4573-8ac7-8239d42aa03f |
-> | **Outros** |  |  |
+> | **Outro** |  |  |
 > | [Colaborador bizTalk](#biztalk-contributor) | Permite-lhe gerir os serviços BizTalk, mas não ter acesso aos mesmos. | 5e3c6656-6cfa-4708-81fe-0de47ac73342 |
 > | [Utilizador de Virtualização de Desktop](#desktop-virtualization-user) | Permite ao utilizador utilizar as aplicações num grupo de aplicações. | 1d18fff3-a72a-46b5-b4a9-0b38a3cd7e63 |
 > | [Colaborador de Coleções de Trabalho do Programador](#scheduler-job-collections-contributor) | Permite-lhe gerir as coleções de emprego do Scheduler, mas não ter acesso a elas. | 188a0f2f-5c9e-469b-ae67-2aaa5ce574b94 |
@@ -666,7 +668,7 @@ Ver Máquinas Virtuais no portal e iniciar sessão como um utilizador regular. [
 }
 ```
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 
 
 ### <a name="cdn-endpoint-contributor"></a>Colaborador de Ponto Final cdn
@@ -3097,7 +3099,7 @@ Listar ação credencial do utilizador do cluster. [Saiba mais](../aks/control-k
 
 ### <a name="azure-kubernetes-service-contributor-role"></a>Papel de Colaborador de Serviço Azure Kubernetes
 
-Concede acesso à leitura e escreva clusters de serviçoS Azure Kubernetes
+Concede acesso à leitura e escreva clusters de serviço Azure Kubernetes [Saiba mais](../aks/concepts-identity.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -3140,7 +3142,7 @@ Concede acesso à leitura e escreva clusters de serviçoS Azure Kubernetes
 
 ### <a name="azure-kubernetes-service-rbac-admin"></a>Azure Kubernetes Serviço RBAC Administrador
 
-Permite-lhe gerir todos os recursos em cluster/namespace, exceto atualizar ou eliminar quotas de recursos e espaços de nome. [Saiba mais](../aks/concepts-identity.md)
+Permite-lhe gerir todos os recursos em cluster/namespace, exceto atualizar ou eliminar quotas de recursos e espaços de nome. [Saiba mais](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -3203,7 +3205,7 @@ Permite-lhe gerir todos os recursos em cluster/namespace, exceto atualizar ou el
 
 ### <a name="azure-kubernetes-service-rbac-cluster-admin"></a>Azure Kubernetes Serviço RBAC Cluster Admin
 
-Permite-lhe gerir todos os recursos do cluster. [Saiba mais](../aks/concepts-identity.md)
+Permite-lhe gerir todos os recursos do cluster. [Saiba mais](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -3258,7 +3260,7 @@ Permite-lhe gerir todos os recursos do cluster. [Saiba mais](../aks/concepts-ide
 
 ### <a name="azure-kubernetes-service-rbac-reader"></a>Azure Kubernetes Service RBAC Reader
 
-Permite-lhe ver todos os recursos no cluster/namespace, exceto segredos. [Saiba mais](../aks/concepts-identity.md)
+Permite-lhe ver todos os recursos no cluster/namespace, exceto segredos. [Saiba mais](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -3319,7 +3321,7 @@ Permite-lhe ver todos os recursos no cluster/namespace, exceto segredos. [Saiba 
 
 ### <a name="azure-kubernetes-service-rbac-writer"></a>Azure Kubernetes Service RBAC Writer
 
-Permite-lhe atualizar tudo no cluster/namespace, exceto quotas de recursos, espaços de nome, políticas de segurança de pod, pedidos de assinatura de certificados, (cluster)funções e (cluster)role bindings. [Saiba mais](../aks/concepts-identity.md)
+Permite-lhe atualizar tudo no cluster/namespace, exceto quotas de recursos, espaços de nome, políticas de segurança de pod, pedidos de assinatura de certificados, (cluster)funções e (cluster)role bindings. [Saiba mais](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -6063,7 +6065,7 @@ Ler e atribuir identidade atribuída ao utilizador [Saiba mais](../active-direct
 ## <a name="security"></a>Segurança
 
 
-### <a name="azure-sentinel-contributor"></a>Colaborador Azure Sentinel
+### <a name="azure-sentinel-contributor"></a>Contribuidor do Azure Sentinel
 
 Azure Sentinel Colaborador [Saiba mais](../sentinel/roles.md)
 
@@ -6128,7 +6130,7 @@ Azure Sentinel Colaborador [Saiba mais](../sentinel/roles.md)
 }
 ```
 
-### <a name="azure-sentinel-reader"></a>Azure Sentinel Reader
+### <a name="azure-sentinel-reader"></a>Leitor do Azure Sentinel
 
 Azure Sentinel Reader [Saiba mais](../sentinel/roles.md)
 
@@ -6197,7 +6199,7 @@ Azure Sentinel Reader [Saiba mais](../sentinel/roles.md)
 }
 ```
 
-### <a name="azure-sentinel-responder"></a>Azure Sentinel Responder
+### <a name="azure-sentinel-responder"></a>Dispositivo de Resposta do Azure Sentinel
 
 Azure Sentinel Responder [Saiba mais](../sentinel/roles.md)
 
@@ -6486,12 +6488,12 @@ Ver permissões para o Centro de Segurança. Pode ver recomendações, alertas, 
 > | Ações | Descrição |
 > | --- | --- |
 > | [Microsoft.Autorização](resource-provider-operations.md#microsoftauthorization)/*/ler | Ler papéis e atribuições de funções |
-> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerir um alerta métrico clássico |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/read | Leia um alerta métrico clássico |
 > | [Microsoft.operationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/*/read | Ver dados de análise de registo |
-> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Criar e gerir uma implantação |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/*/read |  |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscrições/resourceGroups/read | Obtém ou lista grupos de recursos. |
 > | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/*/read | Ler componentes e políticas de segurança |
-> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um bilhete de apoio |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/*/read |  |
 > | [Microsoft.Management](resource-provider-operations.md#microsoftmanagement)/managementGroups/read | Listar grupos de gestão para o utilizador autenticado. |
 > | **NotActions** |  |
 > | *nenhum* |  |
@@ -6512,12 +6514,12 @@ Ver permissões para o Centro de Segurança. Pode ver recomendações, alertas, 
     {
       "actions": [
         "Microsoft.Authorization/*/read",
-        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Insights/alertRules/read",
         "Microsoft.operationalInsights/workspaces/*/read",
-        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/deployments/*/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Security/*/read",
-        "Microsoft.Support/*",
+        "Microsoft.Support/*/read",
         "Microsoft.Management/managementGroups/read"
       ],
       "notActions": [],
@@ -6688,7 +6690,7 @@ Permite criar novos laboratórios sob as suas contas do Azure Lab. [Saiba mais](
 }
 ```
 
-## <a name="monitor"></a>Monitor
+## <a name="monitor"></a>Monitorizar
 
 
 ### <a name="application-insights-component-contributor"></a>Contribuinte componente de insights de aplicação
@@ -7641,6 +7643,61 @@ Permite aos utilizadores editar e eliminar Definições de Hierarquia
     }
   ],
   "roleName": "Hierarchy Settings Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="kubernetes-cluster---azure-arc-onboarding"></a>Kubernetes Cluster - Azure Arc Onboarding
+
+Definição de função para autorizar qualquer utilizador/serviço para criar recurso connectedClusters [Saiba mais](../azure-arc/kubernetes/connect-cluster.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft.Autorização](resource-provider-operations.md#microsoftauthorization)/*/ler | Ler papéis e atribuições de funções |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerir um alerta métrico clássico |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/write | Cria ou atualiza uma implementação. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscrições/operaçãoresults/read | Obtenha os resultados da operação de subscrição. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscrições/ler | Obtém a lista de assinaturas. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscrições/resourceGroups/read | Obtém ou lista grupos de recursos. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/Write | Escreveclusters conectados |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/read | Lerclusters conectados |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um bilhete de apoio |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Role definition to authorize any user/service to create connectedClusters resource",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/34e09817-6cbe-4d01-b1a2-e0eac5743d41",
+  "name": "34e09817-6cbe-4d01-b1a2-e0eac5743d41",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/write",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Kubernetes/connectedClusters/Write",
+        "Microsoft.Kubernetes/connectedClusters/read",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Kubernetes Cluster - Azure Arc Onboarding",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -8644,7 +8701,7 @@ Permite-lhe gerir as coleções de emprego do Scheduler, mas não ter acesso a e
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Combine o fornecedor de recursos ao serviço](../azure-resource-manager/management/azure-services-resource-providers.md)
 - [Funções personalizadas do Azure](custom-roles.md)

@@ -58,8 +58,6 @@
               href: scenario-route-through-nva.md
             - name: Encaminhar através de NVA - personalizado (Pré-visualização)
               href: scenario-route-through-nvas-custom.md
-            - name: Azure Firewall - Interhub (Pré-visualização)
-              href: scenario-route-between-hubs-firewall.md
             - name: Azure Firewall - personalizado
               href: scenario-route-between-vnets-firewall.md
     - name: Monitorização

@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 48441a48fe6f72e88e080967451d9904c3e586b2
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 65d7845763b60a66f396d9081f3c9c6e1d04c1bc
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372331"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447249"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Visão geral das opções de autenticação baseadas na identidade do Azure Files para acesso AMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -44,7 +44,7 @@ Para saber como ativar a autenticação Azure AD DS para ações de ficheiros Az
 
     No local, a integração dos Serviços de Domínio do Diretório Ativo (DS AD) com a Azure Files fornece os métodos para armazenar dados de diretórios, disponibilizando-os aos utilizadores e administradores da rede. A segurança é integrada com DS AD através da autenticação de logon e controlo de acesso a objetos no diretório. Com uma única rede, os administradores podem gerir dados de diretório e organização em toda a sua rede, e os utilizadores de rede autorizados podem aceder a recursos em qualquer parte da rede. A DS AD é comumente adotada por empresas em ambientes no local e as credenciais de DS AD são usadas como identidade para controlo de acesso. Para obter mais informações, consulte a [visão geral dos serviços de domínio do diretório ativo.](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)
 
--   **Controlo de Acesso Baseado em Função Azure (RBAC)**
+-   **Controlo de acesso baseado em funções Azure (Azure RBAC)**
 
     O controlo de acesso baseado em funções Azure (Azure RBAC) permite uma gestão de acesso de grãos finos para o Azure. Utilizando o RBAC, pode gerir o acesso aos recursos, concedendo aos utilizadores o menor número de permissões necessárias para executar os seus trabalhos. Para obter mais informações sobre o RBAC, veja [o que é o controlo de acesso baseado em funções (Azure RBAC) em Azure?](../../role-based-access-control/overview.md)
 

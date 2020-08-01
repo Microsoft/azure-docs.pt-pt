@@ -3,12 +3,12 @@ title: 'Tutorial: Enviar eventos personalizados para conexão híbrida - Grade d
 description: 'Tutorial: Use a Azure Event Grid e a Azure CLI para publicar um tópico e subscrever esse evento. Uma ligação híbrida serve para o ponto final.'
 ms.date: 07/07/2020
 ms.topic: tutorial
-ms.openlocfilehash: 208d8584736a0d7ff591c3a8ed7a08bcbf6dcba4
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: acb3f3021722a612d6f07ec83d344f4be62c60f3
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114912"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87459509"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Tutorial: Encaminhar eventos personalizados para Azure Relay Hybrid Connections com Azure CLI e Grade de Eventos
 
@@ -16,7 +16,7 @@ O Azure Event Grid é um serviço de eventos para a cloud. As Ligações Híbrid
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que já tem uma ligação híbrida e uma aplicação de serviço de escuta. Para começar a trabalhar com ligações híbridas, veja [Introdução às Ligações Híbridas de Reencaminhamento - .NET](../service-bus-relay/relay-hybrid-connections-dotnet-get-started.md) ou [Introdução às Ligações Híbridas de Reencaminhamento - Nó](../service-bus-relay/relay-hybrid-connections-node-get-started.md).
+Este artigo pressupõe que já tem uma ligação híbrida e uma aplicação de serviço de escuta. Para começar a trabalhar com ligações híbridas, veja [Introdução às Ligações Híbridas de Reencaminhamento - .NET](/azure/azure-relay/relay-hybrid-connections-dotnet-get-started) ou [Introdução às Ligações Híbridas de Reencaminhamento - Nó](/azure/azure-relay/relay-hybrid-connections-node-get-started).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -104,14 +104,14 @@ curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 
 A aplicação de serviço de escuta deverá receber a mensagem de evento.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se quiser continuar a trabalhar com este evento, não limpe os recursos criados neste artigo. Caso contrário, utilize o comando seguinte para eliminar os recursos que criou neste artigo.
 
 ```azurecli-interactive
 az group delete --name gridResourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que sabe como criar tópicos e subscrições de eventos, saiba mais sobre o que o Event Grid pode ajudá-lo a fazer:
 

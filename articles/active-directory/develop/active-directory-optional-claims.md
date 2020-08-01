@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/11/2020
+ms.date: 07/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: f751c45b12ec2c8f6f09080b01b24f59af1fc0d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd181e87305f3d32fb301c8b563b7330e09b43d6
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478336"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445587"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Como: Fornecer reclamações opcionais à sua app AD Azure
 
@@ -49,16 +49,14 @@ O conjunto de reclamações opcionais disponíveis por padrão para aplicações
 
 **Quadro 2: v1.0 e v2.0 conjunto de reclamações opcionais**
 
-| Name                       |  Descrição   | Tipo token | Tipo de utilizador | Notas  |
+| Nome                       |  Descrição   | Tipo token | Tipo de utilizador | Notas  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Hora em que o utilizador foi autenticado pela última vez. Consulte a especificação openID connect.| JWT        |           |  |
 | `tenant_region_scope`      | Região do inquilino de recursos | JWT        |           | |
-| `home_oid`                 | Para os utilizadores convidados, o iD do objeto do utilizador no inquilino do utilizador.| JWT        |           | |
 | `sid`                      | ID de sessão, usado para a sessão de sessão de sessão. | JWT        |  Contas pessoais e azure AD.   |         |
 | `platf`                    | Plataforma de dispositivo    | JWT        |           | Restrito a dispositivos geridos que possam verificar o tipo de dispositivo.|
 | `verified_primary_email`   | Proveniente do Correio da AustráliaRritativa Primária do utilizador      | JWT        |           |         |
 | `verified_secondary_email` | Proveniente do Correio Secundário de Autoritária do Utilizador   | JWT        |           |        |
-| `enfpolids`                | Identificações de política forçadas. Uma lista dos IDs de política que foram avaliados para o utilizador atual. | JWT |  |  |
 | `vnet`                     | Informações do especificador VNET. | JWT        |           |      |
 | `fwd`                      | Endereço IP.| JWT    |   | Adiciona o endereço IPv4 original do cliente que solicita (quando dentro de um VNET) |
 | `ctry`                     | País/região do utilizador | JWT |  | A Azure AD devolve a `ctry` reclamação opcional se estiver presente e o valor da reclamação for um código padrão de dois letras país/região, como FR, JP, SZ, e assim por diante. |
@@ -68,8 +66,8 @@ O conjunto de reclamações opcionais disponíveis por padrão para aplicações
 | `xms_tpl`                  | Língua preferida do inquilino| JWT | | A linguagem preferida do inquilino de recursos, se definido. LL formatado ("en"). |
 | `ztdid`                    | ID de implementação de toque zero | JWT | | A identidade do dispositivo utilizada para [o Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
 | `email`                    | O e-mail endereçada para este utilizador, se o utilizador tiver um.  | JWT | MSA, Azure AD | Este valor é incluído por padrão se o utilizador for um hóspede no inquilino.  Para os utilizadores geridos (os utilizadores dentro do arrendatário), este deve ser solicitado através desta reclamação opcional ou, apenas em v2.0, com o âmbito OpenID.  Para os utilizadores geridos, o endereço de e-mail deve ser definido no [portal de administração do Office](https://portal.office.com/adminportal/home#/users).|
-| `groups`| Formatação opcional para reclamações em grupo |JWT| |Utilizado em conjunto com o GrupoMembershipClas definindo no manifesto de [aplicação,](reference-app-manifest.md)que também deve ser definido. Para mais detalhes consulte [as reclamações do Grupo](#configuring-groups-optional-claims) abaixo. Para obter mais informações sobre reclamações em grupo, consulte [Como configurar as reclamações do grupo](../hybrid/how-to-connect-fed-group-claims.md)
 | `acct`                | Estado da conta dos utilizadores no inquilino | JWT | | Se o utilizador for membro do arrendatário, o valor é `0` . Se são um hóspede, o valor `1` é. |
+| `groups`| Formatação opcional para reclamações em grupo |JWT| |Utilizado em conjunto com o GrupoMembershipClas definindo no manifesto de [aplicação,](reference-app-manifest.md)que também deve ser definido. Para mais detalhes consulte [as reclamações do Grupo](#configuring-groups-optional-claims) abaixo. Para obter mais informações sobre reclamações em grupo, consulte [Como configurar as reclamações do grupo](../hybrid/how-to-connect-fed-group-claims.md)
 | `upn`                      | UserPrincipalName | JWT  |           | Embora esta alegação seja automaticamente incluída, pode especirá-la como uma reivindicação opcional para anexar propriedades adicionais para modificar o seu comportamento no caso do utilizador convidado.  |
 | `idtyp`                    | Tipo token   | Fichas de acesso JWT | Especial: apenas em fichas de acesso só para aplicações |  Valor é `app` quando o token é um símbolo apenas de aplicação. Esta é a forma mais precisa de uma API determinar se um token é um token de aplicação ou um token app+user.|
 
@@ -79,7 +77,7 @@ Estas reclamações estão sempre incluídas em fichas AD v1.0 Azure, mas não i
 
 **Quadro 3: v2.0 apenas pedidos opcionais**
 
-| Reivindicação JWT     | Name                            | Descrição                                | Notas |
+| Reivindicação JWT     | Nome                            | Descrição                                | Notas |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | Endereço IP                      | O endereço IP do cliente iniciou a sua sessão.   |       |
 | `onprem_sid`  | Identificador de Segurança no Local |                                             |       |
@@ -127,7 +125,7 @@ Este objeto OpcionalClaims faz com que o símbolo de identificação devolvido a
 
 Pode configurar reclamações opcionais para a sua aplicação através do UI ou manifesto de aplicação.
 
-1. Vá ao [portal Azure.](https://portal.azure.com) Procure e selecione **Azure Active Directory**.
+1. Aceda ao [portal do Azure](https://portal.azure.com). Procure e selecione **Azure Active Directory**.
 1. A partir da secção **Gerir,** selecione **registos de Aplicações.**
 1. Selecione a aplicação para a inscrição que pretende configurar pedidos opcionais na lista.
 
@@ -185,7 +183,7 @@ Declara os pedidos facultativos solicitados por um pedido. Uma aplicação pode 
 
 **Quadro 5: OpcionaisClaims tipo propriedades**
 
-| Name          | Tipo                       | Descrição                                           |
+| Nome          | Tipo                       | Description                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Coleção (OpcionalClaim) | As reclamações opcionais devolvidas no token JWT ID.     |
 | `accessToken` | Coleção (OpcionalClaim) | As reclamações opcionais devolvidas no token de acesso JWT. |
@@ -198,7 +196,7 @@ Se suportado por uma reclamação específica, também pode modificar o comporta
 
 **Quadro 6: Propriedades do tipo OpcionalClaim**
 
-| Name                   | Tipo                    | Descrição                                                                                                                                                                                                                                                                                                   |
+| Nome                   | Tipo                    | Description                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | O nome da reclamação opcional.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | A fonte (objeto de diretório) da reclamação. Existem reclamações predefinidas e reclamações definidas pelo utilizador a partir de propriedades de extensão. Se o valor de origem for nulo, o pedido é uma reclamação opcional predefinida. Se o valor de origem for o utilizador, o valor na propriedade do nome é a propriedade de extensão do objeto do utilizador. |
@@ -234,7 +232,7 @@ Esta secção abrange as opções de configuração em pedidos opcionais para al
 
 **Configurar reivindicações opcionais de grupos através da UI:**
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com)
+1. Inicie sessão no [portal do Azure](https://portal.azure.com)
 1. Depois de autenticar, escolha o seu inquilino Azure AD selecionando-o a partir do canto superior direito da página
 1. Selecione **Azure Ative Directory** a partir do menu à esquerda
 1. Na secção **Gerir,** selecione **registos de Aplicações**
@@ -247,7 +245,7 @@ Esta secção abrange as opções de configuração em pedidos opcionais para al
 
 **Configurar pedidos opcionais de grupos através do manifesto de aplicação:**
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com)
+1. Inicie sessão no [portal do Azure](https://portal.azure.com)
 1. Depois de autenticar, escolha o seu inquilino Azure AD selecionando-o a partir do canto superior direito da página
 1. Selecione **Azure Ative Directory** a partir do menu à esquerda
 1. Selecione a aplicação para a inscrição que pretende configurar pedidos opcionais na lista
@@ -377,7 +375,7 @@ No exemplo abaixo, utilizará a **configuração Token** UI e **Manifesto** para
 
 **Configuração de UI:**
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com)
+1. Inicie sessão no [portal do Azure](https://portal.azure.com)
 
 1. Depois de autenticar, escolha o seu inquilino Azure AD selecionando-o no canto superior direito da página.
 
@@ -437,7 +435,7 @@ No exemplo abaixo, utilizará a **configuração Token** UI e **Manifesto** para
 
 1. Quando terminar de atualizar o manifesto, **selecione Guardar** para guardar o manifesto.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as reclamações padrão fornecidas pela Azure AD.
 

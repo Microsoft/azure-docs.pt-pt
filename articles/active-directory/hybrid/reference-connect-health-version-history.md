@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 03/20/2019
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ace8d170a5ba48c00775c3b376df8bb70a337d5d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31388f27eddcef2c75d4ad4d2030655b35f6aa1c
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76897027"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446955"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Histórico do Lançamento de Versões
 A equipa do Azure Ative Directory atualiza regularmente o Azure AD Connect Health com novas funcionalidades e funcionalidades. Este artigo lista as versões e funcionalidades que foram lançadas.  
@@ -93,7 +93,7 @@ Azure AD Connect Health for Sync está integrado com a instalação Azure AD Con
 *  Azure AD Connect Health agent for Sync (versão 3.1.7.0) lançado com a versão AZURE AD Connect versão 1.1.880.0    
    1. Hotfix para [alta emissão de CPU de agente de monitorização com lançamentos KB.Net Framework](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)
 
-## <a name="june-2018"></a>Junho de 2018 
+## <a name="june-2018"></a>junho de 2018 
 **Novas funcionalidades de pré-visualização:** 
 * Azure AD Connect Health for Sync - Diagnosticar e remediar erros de sincronização de atributos duplicados do portal 
 
@@ -109,7 +109,7 @@ Azure AD Connect Health for Sync está integrado com a instalação Azure AD Con
   1. Hotfix para gestão de memória de agente e alertas relacionados especificamente para a versão 3.0.244.0
 
 
-## <a name="may-2018"></a>May 2018
+## <a name="may-2018"></a>Maio de 2018
 **Atualização do Agente:**
 * Azure AD Connect Health agent for AD DS (versão 3.0.244.0)
   1. Melhoria da privacidade do agente  
@@ -217,7 +217,7 @@ Azure AD Connect Health for Sync está integrado com a instalação Azure AD Con
 ## <a name="november-2015"></a>Novembro de 2015
 **Novas funcionalidades:**
 
-* Suporte para [controlo de acesso baseado em funções](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)
+* Suporte ao [controlo de acesso baseado em funções Azure (Azure RBAC)](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)
 
 **Novas funcionalidades de pré-visualização:**
 
@@ -251,6 +251,5 @@ Azure AD Connect Health for Sync está integrado com a instalação Azure AD Con
 * Tendências no pedido falhado nos servidores AD FS agrupados por Aplicações, Tipos de Erro, etc.
 * Implementação de agente mais simples usando credenciais de administração global da Azure AD.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre [a sua infraestrutura de identidade no local e serviços de sincronização na nuvem.](whatis-hybrid-identity-health.md)
-

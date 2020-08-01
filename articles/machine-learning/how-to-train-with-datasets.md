@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 04/20/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: d22afd60d4c89c842d78d5803b4d04965eca6fda
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 47dec238474558869d6c8f7fc876e72bb5be6ff5
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320855"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87457656"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Treine com conjuntos de dados em Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -191,14 +191,24 @@ y_train = load_data(y_train_path, True).reshape(-1)
 y_test = load_data(y_test, True).reshape(-1)
 ```
 
+## <a name="accessing-source-code-during-training"></a>Aceder ao código fonte durante o treino
+
+O armazenamento Azure Blob tem velocidades de produção mais altas do que uma partilha de ficheiros Azure e irá escalar para um grande número de empregos iniciados em paralelo. Por esta razão, recomendamos configurar as suas corridas para utilizar o armazenamento Blob para transferir ficheiros de código fonte.
+
+O exemplo de código a seguir especifica na configuração de execução que blob datastore para usar para transferências de código fonte.
+
+```python 
+# workspaceblobstore is the default blob storage
+run_config.source_directory_data_store = "workspaceblobstore" 
+```
 
 ## <a name="mount-vs-download"></a>Monte vs download
 
 A montagem ou descarregamento de ficheiros de qualquer formato são suportados para conjuntos de dados criados a partir do armazenamento de Azure Blob, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database e Azure Database for PostgreSQL. 
 
-Quando monta um conjunto de dados, anexa os ficheiros referenciados pelo conjunto de dados a um diretório (ponto de montagem) e disponibiliza-os no alvo do cálculo. A montagem é suportada para computas baseadas em Linux, incluindo Azure Machine Learning Compute, máquinas virtuais e HDInsight. 
+Quando **monta** um conjunto de dados, anexa os ficheiros referenciados pelo conjunto de dados a um diretório (ponto de montagem) e disponibiliza-os no alvo do cálculo. A montagem é suportada para computas baseadas em Linux, incluindo Azure Machine Learning Compute, máquinas virtuais e HDInsight. 
 
-Quando descarrega um conjunto de dados, todos os ficheiros referenciados pelo conjunto de dados serão descarregados para o alvo do cálculo. O download é suportado para todos os tipos de computação. 
+Quando **descarrega** um conjunto de dados, todos os ficheiros referenciados pelo conjunto de dados serão descarregados para o alvo do cálculo. O download é suportado para todos os tipos de computação. 
 
 Se o seu script processar todos os ficheiros referenciados pelo conjunto de dados e o seu disco de computação puder encaixar no conjunto de dados completo, recomenda-se o download para evitar a sobrecarga de dados de streaming dos serviços de armazenamento. Se o tamanho dos dados exceder o tamanho do disco computacional, o download não é possível. Para este cenário, recomendamos a montagem, uma vez que apenas os ficheiros de dados utilizados pelo seu script são carregados no momento do processamento.
 
@@ -228,4 +238,4 @@ Os [cadernos de conjuntos de dados](https://aka.ms/dataset-tutorial) demonstram 
 
 * [Treinar modelos de classificação de imagem](https://aka.ms/filedataset-samplenotebook) com FileDatasets.
 
-* [Treine com conjuntos de dados utilizando gasodutos.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb)
+* [Treine com conjuntos de dados utilizando gasodutos.](how-to-create-your-first-pipeline.md)

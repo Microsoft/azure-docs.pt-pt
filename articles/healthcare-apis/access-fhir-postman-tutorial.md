@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: mihansen
 author: hansenms
 ms.date: 02/07/2019
-ms.openlocfilehash: 684f85042fd09c14621801ec017fea0e632f2598
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: f6c3b1f4c24ad2bce68c1cff7b22f0059d3534a2
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "84872678"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446055"
 ---
 # <a name="access-azure-api-for-fhir-with-postman"></a>Acesso Azure API para FHIR com Carteiro
 
@@ -108,7 +108,7 @@ Se inspecionar o token de acesso com uma ferramenta [https://jwt.ms](https://jwt
 }
 ```
 
-Em situações de resolução de problemas, validar que tem o público correto `aud` (reivindicação) é um bom lugar para começar. Se o seu token for do emitente correto `iss` (reclamação) e tiver o público correto `aud` (reivindicação), mas ainda não conseguir aceder à API FHIR, é provável que o utilizador ou o principal de serviço `oid` (reclamação) não tenham acesso ao plano de dados FHIR. Recomendamos que [utilize o Controlo de Acesso Baseado em Funções Azure](configure-azure-rbac.md) para atribuir funções de plano de dados aos utilizadores. Se estiver a utilizar um inquilino de diretório Azure Ative externo e secundário para o seu plano de dados, terá de [configurar as atribuições locais do RBAC](configure-local-rbac.md).
+Em situações de resolução de problemas, validar que tem o público correto `aud` (reivindicação) é um bom lugar para começar. Se o seu token for do emitente correto `iss` (reclamação) e tiver o público correto `aud` (reivindicação), mas ainda não conseguir aceder à API FHIR, é provável que o utilizador ou o principal de serviço `oid` (reclamação) não tenham acesso ao plano de dados FHIR. Recomendamos que utilize o [controlo de acesso baseado em funções (Azure RBAC)](configure-azure-rbac.md) para atribuir funções de plano de dados aos utilizadores. Se estiver a utilizar um inquilino de diretório Azure Ative externo e secundário para o seu plano de dados, terá de [configurar as atribuições locais do RBAC](configure-local-rbac.md).
 
 Também é possível [obter um símbolo para a AZure API para fHIR usando o Azure CLI](get-healthcare-apis-access-token-cli.md). Se estiver a utilizar um símbolo obtido com o CLI Azure, deverá utilizar o tipo de Autorização "Token portador" e colar o token diretamente.
 

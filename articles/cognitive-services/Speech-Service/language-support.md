@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: eb9e0f126a25bfb0f2db18074bd7200e1a7c2001
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 8e3f33e8f453ffd6eedaeb75a041af7ec11b4e39
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087151"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87457809"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Suporte linguístico e de voz para o serviço de fala
 
@@ -36,7 +36,7 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Região  | Linguagem                          | Personalizações                                    |
+| Região  | Idioma                          | Personalizações                                    |
 |---------|-----------------------------------|---------------------------------------------------|
 | `ar-AE` | Árabe (EAU)                      | Não                                                |
 | `ar-BH` | Árabe (Bahrein), padrão moderno | Modelo de linguagem                                    |
@@ -50,21 +50,47 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-SA` | Árabe (Arábia Saudita)             | Não                                                |
 | `ar-SY` | Árabe (Síria)                    | Modelo de linguagem                                    |
 | `ca-ES` | Catalão                           | Modelo de linguagem                                    |
+| `cs-CZ` | Checo (República Checa)            | Modelo de linguagem                                    | 
 | `da-DK` | Dinamarquês (Dinamarca)                  | Modelo de linguagem                                    |
 | `de-DE` | Alemão (Alemanha)                  | Modelo acústico<br>Modelo de linguagem<br>Pronúncia |
 | `en-AU` | Inglês (Austrália)               | Modelo acústico<br>Modelo de linguagem                  |
 | `en-CA` | Inglês (Canadá)                  | Modelo acústico<br>Modelo de linguagem                  |
 | `en-GB` | Inglês (Reino Unido)          | Modelo acústico<br>Modelo de linguagem<br>Pronúncia |
+| `en-HK` | Inglês (Hong Kong)               | Modelo de linguagem                                    | 
+| `en-IE` | Inglês (Irlanda)                 | Modelo de linguagem                                    | 
 | `en-IN` | Inglês (Índia)                   | Modelo acústico<br>Modelo de linguagem                  |
 | `en-NZ` | Inglês (Nova Zelândia)             | Modelo acústico<br>Modelo de linguagem                  |
+| `en-PH` | Inglês (Filipinas)             | Modelo de linguagem                                    | 
+| `en-SG` | Inglês (Singapura)               | Modelo de linguagem                                    | 
 | `en-US` | Inglês (Estados Unidos)           | Modelo acústico<br>Modelo de linguagem<br>Pronúncia |
+| `en-ZA` | Inglês (África do Sul)            | Modelo de linguagem                                    | 
+| `es-AR` | Espanhol (Argentina)               | Modelo de linguagem                                    | 
+| `es-BO` | Espanhol (Bolívia)                 | Modelo de linguagem                                    | 
+| `es-CL` | Espanhol (Chile)                   | Modelo de linguagem                                    | 
+| `es-CO` | Espanhol (Colômbia)                | Modelo de linguagem                                    | 
+| `es-CR` | Espanhol (Costa Rica)              | Modelo de linguagem                                    | 
+| `es-CU` | Espanhol (Cuba)                    | Modelo de linguagem                                    | 
+| `es-DO` | Espanhol (República Dominicana)      | Modelo de linguagem                                    | 
+| `es-EC` | Espanhol (Equador)                 | Modelo de linguagem                                    | 
 | `es-ES` | Espanhol (Espanha)                   | Modelo acústico<br>Modelo de linguagem                  |
+| `es-GT` | Espanhol (Guatemala)               | Modelo de linguagem                                    | 
+| `es-HN` | Espanhol (Honduras)                | Modelo de linguagem                                    | 
 | `es-MX` | Espanhol (México)                  | Modelo acústico<br>Modelo de linguagem                  |
+| `es-NI` | Espanhol (Nicarágua)               | Modelo de linguagem                                    | 
+| `es-PA` | Espanhol (Panamá)                  | Modelo de linguagem                                    | 
+| `es-PE` | Espanhol (Peru)                    | Modelo de linguagem                                    | 
+| `es-PR` | Espanhol (Porto Rico)             | Modelo de linguagem                                    | 
+| `es-PY` | Espanhol (Paraguai)                | Modelo de linguagem                                    | 
+| `es-SV` | Espanhol (El Salvador)             | Modelo de linguagem                                    | 
+| `es-US` | Espanhol (EUA)                     | Modelo de linguagem                                    | 
+| `es-UY` | Espanhol (Uruguai)                 | Modelo de linguagem                                    | 
+| `es-VE` | Espanhol (Venezuela)               | Modelo de linguagem                                    | 
 | `fi-FI` | Finlandês (Finlândia)                 | Modelo de linguagem                                    |
 | `fr-CA` | Francês (Canadá)                   | Modelo acústico<br>Modelo de linguagem                  |
 | `fr-FR` | Francês (França)                   | Modelo acústico<br>Modelo de linguagem<br>Pronúncia |
 | `gu-IN` | Gujarati (indiano)                 | Modelo de linguagem                                    |
 | `hi-IN` | Hindi (Índia)                     | Modelo acústico<br>Modelo de linguagem                  |
+| `hu-HU` | Húngaro (Hungria)               | Modelo de linguagem                                    | 
 | `it-IT` | Italiano (Itália)                   | Modelo acústico<br>Modelo de linguagem<br>Pronúncia |
 | `ja-JP` | Japonês (Japão)                  | Modelo de linguagem                                    |
 | `ko-KR` | Coreano (Coreia)                    | Modelo de linguagem                                    |
@@ -99,7 +125,7 @@ As vozes neurais podem ser usadas para tornar as interações com chatbots e ass
 
 Para obter mais informações sobre a disponibilidade regional, consulte [as regiões.](regions.md#standard-and-neural-voices)
 
-|Região  | Linguagem            | Género | Nome de voz | Suporte de estilo |
+|Região  | Idioma            | Sexo | Nome de voz | Suporte de estilo |
 |--|--|--|--|--|
 | `ar-EG` | Árabe (Egito)                  | Mulheres | `ar-EG-SalmaNeural`      | Geral |
 | `ar-SA` | Árabe (Arábia Saudita)           | Mulheres | `ar-SA-ZariyahNeura`     | Geral |
@@ -150,7 +176,7 @@ Para aprender como pode configurar e ajustar vozes neurais, consulte a [linguage
 
 Mais de 75 vozes padrão estão disponíveis em mais de 45 línguas e locais, que permitem converter texto em discurso sintetizado. Para obter mais informações sobre a disponibilidade regional, consulte [as regiões.](regions.md#standard-and-neural-voices)
 
-| Região | Linguagem | Género | Nome de voz |
+| Região | Idioma | Sexo | Nome de voz |
 |--|--|--|--|
 | <sup>1</sup>`ar-EG` | Árabe (Egito) | Mulheres | "ar-EG-Hoda" |
 | `ar-SA` | Árabe (Arábia Saudita) | Homens | "ar-SA-Naayf" |
@@ -332,7 +358,7 @@ A API **de Tradução de Discursos** apoia diferentes línguas para a tradução
 
 Consulte a tabela seguinte para as línguas suportadas para as várias APIs de reconhecimento de altifalantes. Consulte a [visão geral](speaker-recognition-overview.md) para obter informações adicionais sobre o reconhecimento de colunas.
 
-| Região | Linguagem | Verificação dependente de texto | Verificação independente de texto | Identificação independente de texto |
+| Região | Idioma | Verificação dependente de texto | Verificação independente de texto | Identificação independente de texto |
 |----|----|----|----|----|
 | pt-PT | Inglês (E.U.A.) | sim | sim | sim |
 |zh-CN  |Chinês (mandarim, simplificado)|    n/a|    sim|    sim|

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 34c0c52945abc6e0ab74b1cb180581c76464bee8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c2a49c76e6fdb7f957c026e8f8220cd29a7b35d8
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75749952"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448375"
 ---
 # <a name="azure-operational-security"></a>Segurança Operacional Azure
 ## <a name="introduction"></a>Introdução
@@ -66,12 +66,12 @@ Com registos Azure Monitor, pode gerir qualquer instância em qualquer nuvem, in
 
 A funcionalidade principal dos registos do Azure Monitor é fornecida por um conjunto de serviços que funcionam em Azure. Cada serviço proporciona uma função de gestão específica e pode combinar serviços para alcançar cenários de gestão diferentes.
 
-| Serviço  | Descrição|
+| Serviço  | Description|
 | :------------- | :-------------|
 | Registos do Azure Monitor | Monitorizar e analisar a disponibilidade e o desempenho de diferentes recursos, incluindo computadores e máquinas virtuais. |
 |Automatização | Automatizar processos manuais e impor configurações para computadores e máquinas virtuais. |
 | Backup | Fazer o back up e restaurar os dados críticos. |
-| Recuperação de sites | Providenciar elevada disponibilidade para aplicações críticas. |
+| Site Recovery | Providenciar elevada disponibilidade para aplicações críticas. |
 
 ### <a name="azure-monitor-logs"></a>Registos do Azure Monitor
 
@@ -108,7 +108,7 @@ Os dados protegidos no Azure Backup são armazenados num cofre de cópias de seg
 
 ![Soluções de Gestão](./media/operational-security/azure-operational-security-fig4.png)
 
-Um bom exemplo de uma solução que utiliza vários serviços para fornecer funcionalidades adicionais é a [solução de Gestão de Atualização.](../../automation/automation-update-management.md) Esta solução utiliza o agente [de registos Azure Monitor](../../log-analytics/log-analytics-queries.md) para windows e Linux para recolher informações sobre as atualizações necessárias em cada agente. Escreve estes dados para o repositório de registos do Azure Monitor onde pode analisá-los com um dashboard incluído.
+Um bom exemplo de uma solução que utiliza vários serviços para fornecer funcionalidades adicionais é a [solução de Gestão de Atualização.](../../automation/update-management/update-mgmt-overview.md) Esta solução utiliza o agente [de registos Azure Monitor](../../log-analytics/log-analytics-queries.md) para windows e Linux para recolher informações sobre as atualizações necessárias em cada agente. Escreve estes dados para o repositório de registos do Azure Monitor onde pode analisá-los com um dashboard incluído.
 
 Quando cria uma implementação, os runbooks na [Azure Automation](../../automation/automation-intro.md) são utilizados para instalar as atualizações necessárias. Todo este processo é gerido no portal e não tem de se preocupar com os detalhes subjacentes.
 

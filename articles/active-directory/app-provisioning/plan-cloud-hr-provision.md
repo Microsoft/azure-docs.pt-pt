@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 09ecaf327b2030a77f8a91d99f291cebb0281235
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8dd108e8c2877c7fe459819bf01b0e5b206cd9c0
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781604"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445571"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planeie a aplicação de RH em nuvem para o provisionamento do utilizador do Azure Ative Directory
 
@@ -52,7 +52,7 @@ A integração de aplicativos hr em nuvem com o fornecimento de utilizadores AZu
 - Exija que os utilizadores se juntem, se movam e que os utilizadores sejam sincronizados com uma ou mais florestas, domínios e OUs do Ative Directory, com base apenas em informações de alteração detetadas na aplicação cloud HR.
 - Use o Office 365 para e-mail.
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>Saiba mais
 
 O fornecimento de utilizadores cria uma base para a governação da identidade em curso. Melhora a qualidade dos processos de negócio que dependem de dados de identidade autoritários.
 
@@ -257,7 +257,7 @@ Por predefinição, a aplicação de conector de provisionamento mapeia o estado
 
 Quando iniciar o processo Joiners-Leavers, reúna os seguintes requisitos.
 
-| Processo | Requirements |
+| Processo | Requisitos |
 | - | - |
 | **Marceneiros** | Do ponto de vista do ciclo de vida da identidade, como lida com as recontratadas? As recontratadas mantêm as suas antigas identificações de empregados? |
 | | Processa contratações futuras e cria contas de Ative Directory para elas com antecedência? Estas contas são criadas num estado ativado ou deficiente? |
@@ -276,7 +276,7 @@ Cada aplicativo hr em nuvem envia com app de RH em nuvem padrão para mapeamento
 
 Quando iniciar o processo Joiners-Movers-Leavers, reúna os seguintes requisitos.
 
-| Processo | Requirements |
+| Processo | Requisitos |
 | - | - |
 | **Marceneiros** | O processo de criação de conta Ative Directory é manual, automatizado ou parcialmente automatizado? |
 | | Planeia propagar atributos personalizados da aplicação cloud HR para Ative Directory? |
@@ -404,7 +404,6 @@ Para resolver problemas que possam surgir durante o provisionamento, consulte os
 
 - [Problema de configuração do fornecimento de um utilizador a uma aplicação da Galeria AD Azure](application-provisioning-config-problem.md)
 - [Sync um atributo do seu Ative Directy no local para Azure AD para provisionamento a uma aplicação](user-provisioning-sync-attributes-for-mapping.md)
-- [O fornecimento de utilizadores a uma aplicação da Galeria AD Azure está a demorar horas ou mais](application-provisioning-when-will-provisioning-finish.md)
 - [Credenciais de administrador de poupança de problemas ao mesmo tempo que configura o fornecimento do utilizador a uma aplicação da Galeria do Diretório Ativo Azure](application-provisioning-config-problem-storage-limit.md)
 - [Nenhum utilizadores está a ser a provisionado para uma aplicação da Galeria AD Azure](application-provisioning-config-problem-no-users-provisioned.md)
 - [O conjunto errado de utilizadores está a ser a provisionado para uma aplicação da Galeria AD Azure](application-provisioning-config-problem-wrong-users-provisioned.md)
@@ -414,7 +413,7 @@ Para resolver problemas que possam surgir durante o provisionamento, consulte os
 - [Compreensão de registos para operações de atualização do Gestor](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-manager-update-operations)
 - [Resolução de erros geralmente encontrados](../saas-apps/workday-inbound-tutorial.md#resolving-commonly-encountered-errors)
 
-### <a name="next-steps"></a>Próximos passos
+### <a name="next-steps"></a>Passos seguintes
 
 - [Expressãos de escrita para mapeamentos de atributos](functions-for-customizing-application-data.md)
 - [Visão geral da API de sincronização AZure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)

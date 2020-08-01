@@ -8,12 +8,12 @@ ms.reviewer: mihansen
 ms.author: cavoeg
 author: CaitlinV39
 ms.date: 11/22/2019
-ms.openlocfilehash: 896d5bafd879ff3ba09bd5b8922cde4cd8345689
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64bdc60f8f9e291c4dc084b23f8ec5054cdc528f
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871953"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447263"
 ---
 # <a name="additional-settings-for-azure-api-for-fhir"></a>Definições adicionais para Azure API para FHIR
 
@@ -29,7 +29,7 @@ Para obter mais informações sobre como alterar as definições predefinidas, c
 
 ## <a name="access-control"></a>Controlo de acesso
 
-A Azure API para FHIR só permitirá aos utilizadores autorizados o acesso à API FHIR. Pode configurar utilizadores autorizados através de dois mecanismos diferentes. A forma primária e recomendada de configurar o controlo de acesso está a utilizar [o Azure Role Based Access Control (RBAC),](https://docs.microsoft.com/azure/role-based-access-control/)que é acessível através da lâmina de controlo de **acesso (IAM).** O Azure RBAC só funciona se quiser garantir o acesso a um plano de dados utilizando o inquilino do Azure Ative Directory associado à sua subscrição. Se desejar utilizar um inquilino diferente, a Azure API para FHIR oferece um mecanismo local de controlo de acesso a plano de dados FHIR. As opções de configuração não são tão ricas quando se utiliza o mecanismo LOCAL RBAC. Para mais detalhes, escolha uma das seguintes opções:
+A Azure API para FHIR só permitirá aos utilizadores autorizados o acesso à API FHIR. Pode configurar utilizadores autorizados através de dois mecanismos diferentes. A forma primária e recomendada de configurar o controlo de acesso está a utilizar o [controlo de acesso baseado em funções Azure (Azure RBAC),](https://docs.microsoft.com/azure/role-based-access-control/)que é acessível através da lâmina de controlo de acesso **(IAM).** O Azure RBAC só funciona se quiser garantir o acesso a um plano de dados utilizando o inquilino do Azure Ative Directory associado à sua subscrição. Se desejar utilizar um inquilino diferente, a Azure API para FHIR oferece um mecanismo local de controlo de acesso a plano de dados FHIR. As opções de configuração não são tão ricas quando se utiliza o mecanismo LOCAL RBAC. Para mais detalhes, escolha uma das seguintes opções:
 
 * [Azure RBAC para plano de dados FHIR](configure-azure-rbac.md). Esta é a opção preferida quando está a utilizar o inquilino do Azure Ative Directory associado à sua subscrição.
 * [Controlo local de acesso a plano de dados FHIR](configure-local-rbac.md). Utilize esta opção apenas quando precisar de utilizar um inquilino externo do Azure Ative Directory para o controlo de acesso a planos de dados. 

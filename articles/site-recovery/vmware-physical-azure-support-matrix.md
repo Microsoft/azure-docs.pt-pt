@@ -3,12 +3,12 @@ title: Matriz de suporte para vMware/recuperação de desastres físicos na recu
 description: Resume o suporte para a recuperação de desastres de VMware VMs e servidor físico para Azure usando a Recuperação do Site Azure.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: c7eebfee771a9c65901bd89336e49c026a944a65
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 56c86993e4e98764bc7e3ce04180f9e870cc612d
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528864"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87458030"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastres de VMware VMs e servidores físicos para Azure
 
@@ -91,7 +91,7 @@ Linux: CentOS | 5.2 a 5.11</b><br/> 6.1 a 6.10</b><br/> 7.0 a 7.8<br/> <br/> 8.0
 Ubuntu | Ubuntu 14.04 servidor LTS [(versões de kernel suportados por revisão)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 servidor LTS [(versões de kernel suportados por revisão)](#ubuntu-kernel-versions) </br> Ubuntu 18.04 servidor LTS [(versões de kernel suportados por revisão)](#ubuntu-kernel-versions)
 Debian | Debian 7/Debian 8 (inclui suporte para todos os 7. *x,* 8. *versões x* [(versões de kernel suportadas pela revisão)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4, [SP5](https://support.microsoft.com/help/4570609) [(versões de kernel suportadas pela revisão)](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15, 15 SP1 [(versões de kernel suportadas pela revisão)](#suse-linux-enterprise-server-15-supported-kernel-versions)<br/> SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4<br/> O upgrade de máquinas replicadas do SUSE Linux Enterprise Server 11 SP3 para SP4 não é suportado. Para atualizar, desative a replicação e reativa após a atualização.
-Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) [7.8](https://support.microsoft.com/help/4573888/), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8.2](https://support.microsoft.com/help/4573888/) <br/><br/> Executando o núcleo compatível com chapéu vermelho ou desbloqueio de kernel da empresa inquebrável 3, 4 & 5 (UEK3, UEK4, UEK5)
+Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [8.0](https://support.microsoft.com/help/4573888/), [8.2](https://support.microsoft.com/help/4573888/)  <br/> Executando o núcleo compatível com chapéu vermelho ou desbloqueio de kernel da empresa inquebrável 3, 4 & 5 (UEK3, UEK4, UEK5)<br/><br/>[8.1](https://support.microsoft.com/help/4573888/)<br/>Funcionando em todos os núcleos UEK e kernel RedHat <= 3.10.0-1062.* são suportados. O apoio ao resto dos núcleos RedHat estará disponível em 9.36, previsto para o final de agosto.
 
 > [!Note]
 > Para cada uma das versões do Windows, a Azure Site Recovery apenas suporta [construções de Canais de Manutenção a Longo Prazo (LTSC).](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc)  Os lançamentos [semi-anuais do Canal](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) não são atualmente suportados neste momento.
@@ -174,16 +174,16 @@ Adicione o disco em VM replicado | Não suportado.<br/> Desative a replicação 
 **Componente** | **Suportado**
 --- | ---
 Equipa NIC de rede de anfitriões | Suportado para VMware VMs. <br/><br/>Não suportado para a replicação da máquina física.
-Rede de anfitriões VLAN | Yes.
-Rede de anfitriões IPv4 | Yes.
+Rede de anfitriões VLAN | Sim.
+Rede de anfitriões IPv4 | Sim.
 Rede de anfitriões IPv6 | Não.
 Rede de hóspedes/servidor NIC Teaming | Não.
-Rede de hóspedes/servidores IPv4 | Yes.
+Rede de hóspedes/servidores IPv4 | Sim.
 Rede de hóspedes/servidores IPv6 | Não.
-IP estático de rede de hóspedes/servidor (Windows) | Yes.
-IP estático de rede de hóspedes/servidor (Linux) | Yes. <br/><br/>Os VMs estão configurados para usar o DHCP no failback.
-Rede de hóspedes/servidores múltiplos NICs | Yes.
-Acesso de ligação privada ao serviço de Recuperação de Sítios | Yes. [Saiba mais](hybrid-how-to-enable-replication-private-endpoints.md).
+IP estático de rede de hóspedes/servidor (Windows) | Sim.
+IP estático de rede de hóspedes/servidor (Linux) | Sim. <br/><br/>Os VMs estão configurados para usar o DHCP no failback.
+Rede de hóspedes/servidores múltiplos NICs | Sim.
+Acesso de ligação privada ao serviço de Recuperação de Sítios | Sim. [Saiba mais](hybrid-how-to-enable-replication-private-endpoints.md).
 
 
 ## <a name="azure-vm-network-after-failover"></a>Rede Azure VM (após falha)
@@ -193,7 +193,7 @@ Acesso de ligação privada ao serviço de Recuperação de Sítios | Yes. [Saib
 Azure ExpressRoute | Sim
 ILB | Sim
 ELB | Sim
-Gestor de Tráfego do Azure | Sim
+Traffic Manager do Azure | Sim
 Multi-NIC | Sim
 Endereço IP reservado | Sim
 IPv4 | Sim
@@ -255,7 +255,7 @@ Dupla encriptação em repouso | Sim (via módulo PowerShell Az 3.3.0 em diante)
 Armazenamento Premium | Sim
 Opção de transferência segura | Sim
 Serviço de importação/exportação | Não
-Firewalls de armazenamento Azure para VNets | Yes.<br/> Configurado na conta de armazenamento/cache-alvo (utilizada para armazenar dados de replicação).
+Firewalls de armazenamento Azure para VNets | Sim.<br/> Configurado na conta de armazenamento/cache-alvo (utilizada para armazenar dados de replicação).
 Contas de armazenamento v2 para fins gerais (camadas quentes e frescas) | Sim (Os custos de transação são substancialmente mais elevados para o V2 em comparação com v1)
 
 ## <a name="azure-compute"></a>Azure compute
@@ -335,7 +335,7 @@ Serviço de Mobilidade | Instalado em VMware VM ou servidores físicos que prete
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Saiba como](tutorial-prepare-azure.md) preparar o Azure para a recuperação de desastres de VMware VMs.
 
 [9.32 UR]: https://support.microsoft.com/en-in/help/4538187/update-rollup-44-for-azure-site-recovery

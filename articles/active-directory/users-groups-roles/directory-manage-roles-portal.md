@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e067e8d56f8a928f952648fc76cd5d6b7a1afe7
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: fea05ada52ba4281acb3451769446d7f0bad790d
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221287"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448731"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Ver e atribuir funções de administrador no Azure Ative Directory
 
@@ -56,6 +56,12 @@ Se for administrador global ou administrador privilegiado, pode facilmente adici
 Ao visualizar os membros de uma função, **selecione Descrição** para ver a lista completa de permissões concedidas pela atribuição de funções. A página inclui links para documentação relevante para ajudar a guiá-lo através de funções de diretório de gestão.
 
 ![lista de permissões para um papel de administrador](./media/directory-manage-roles-portal/role-description.png)
+
+## <a name="download-role-assignments"></a>Descarregue atribuições de funções
+
+Para descarregar todas as atribuições para uma função específica, na página **Roles e administradores,** selecione uma função e, em seguida, selecione **descarregamento de atribuições de funções**. Um ficheiro CSV que lista atribuições em todos os âmbitos para essa função é descarregado.
+
+![baixar todas as atribuições para um papel](./media/directory-manage-roles-portal/download-role-assignments.png)
 
 ## <a name="assign-a-role"></a>Atribuir um papel
 

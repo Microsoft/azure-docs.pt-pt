@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9bd6a7ff943b5f3750ce8aaeada32010b88272c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c8238e6e0b52a625c76f79fa0dd5a91dd640fb8
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83745632"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447837"
 ---
 # <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Migrar Azure Monitor regista atualização de implementações para o portal Azure
 
@@ -19,7 +19,7 @@ O portal Da Suite de Gestão de Operações (OMS) está a ser [depreciado.](../a
 ## <a name="key-information"></a>Informações-chave
 
 * As missões existentes continuarão a funcionar. Uma vez recriado a implantação em Azure, pode eliminar a sua antiga implantação.
-* Todas as funcionalidades existentes que tinha no OMS estão disponíveis no Azure. Para saber mais sobre a Gestão de Atualização, consulte [a visão geral da Gestão de Atualização](automation-update-management.md).
+* Todas as funcionalidades existentes que tinha no OMS estão disponíveis no Azure. Para saber mais sobre a Gestão de Atualização, consulte [a visão geral da Gestão de Atualização](update-management/update-mgmt-overview.md).
 
 ## <a name="access-the-azure-portal"></a>Aceder ao portal do Azure
 
@@ -57,7 +57,7 @@ Para utilizar esta pesquisa guardada existente, siga estes passos:
 
     | Propriedade | Descrição |
     | --- | --- |
-    |Name |O nome exclusivo para identificar a implementação de atualizações. |
+    |Nome |O nome exclusivo para identificar a implementação de atualizações. |
     |Sistema Operativo| Selecione **Linux** ou **Windows**.|
     |Máquinas a atualizar |Selecione uma pesquisa guardada, grupo importado ou escolha a Máquina a partir do dropdown e selecione máquinas individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**.</br> Para conhecer os diferentes métodos de criação de grupos informáticos em registos do Monitor Azure, consulte [grupos de computador em registos do Monitor Azure](../azure-monitor/platform/computer-groups.md) |
     |Classificações de atualizações|Selecione todas as classificações de atualização que necessita. O CentOS não suporta isto fora da caixa.|
@@ -72,6 +72,6 @@ Para utilizar esta pesquisa guardada existente, siga estes passos:
 
 5. Como mencionado anteriormente, uma vez configuradas as suas novas implementações através do portal Azure, pode remover as implementações existentes do portal Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre a Gestão de Atualização na Azure Automation, consulte [a visão geral da Gestão de Atualização](automation-update-management.md).
+Para saber mais sobre a Gestão de Atualização na Azure Automation, consulte [a visão geral da Gestão de Atualização](update-management/update-mgmt-overview.md).

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: b08670c51b56f01ad1193d2729ecc77821242a19
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: ae3d0ac6fb332fa17fbe938572b94c51e0785089
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200747"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449023"
 ---
 # <a name="tutorial-interfaces-and-custom-models"></a>Tutorial: Interfaces e modelos personalizados
 
@@ -33,7 +33,7 @@ O Mixed Reality Toolkit (MRTK) é um kit de ferramentas de plataforma cruzada pa
 
 Para adicionar MRTK, siga os [passos exigidos listados](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html#required) em [Começar com MRTK](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html).
 
-Estes passos são:
+Esses passos são:
  - [Receba os mais recentes pacotes mrtk unidade](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html#get-the-latest-mrtk-unity-packages)
      - Apesar de dizer "o mais recente", isto é para a versão 2.3.
      - Só usamos o pacote da *Fundação* neste tutorial. As *extensões,* *ferramentas*e *pacotes exemplos* não são necessárias.
@@ -75,14 +75,14 @@ Agora pode adicionar o **AppMenu** pré-fabricado à cena, para obter feedback v
 1. Localizar o **prefácio appMenu** em *Ativos/RemoteRenderingTutorial/Prefabs/AppMenu*
 1. Arraste o **prefácio appMenu** para o local.
 1. É provável que veja um diálogo para o **Importador de TMP,** já que é a primeira vez que estamos a incluir os ativos da *Text Mesh Pro* no local. Siga as instruções para **importar a Import TMP Essentials**. Em seguida, feche o diálogo do importador, os exemplos e extras não são necessários.
-1. O **AppMenu** está configurado para ligar automaticamente e fornecer o modal para consentir a ligação a uma Sessão, para que possamos remover o bypass colocado mais cedo. No **RemoteRenderingCoordinator** GameObject, remova o bypass para autorização que implementámos anteriormente, premindo o botão '-' no evento **De Autorização De Pedido.\**
- ![Remover o bypass ](./media/remove-bypass-event.png) .\
+1. O **AppMenu** está configurado para ligar automaticamente e fornecer o modal para consentir a ligação a uma Sessão, para que possamos remover o bypass colocado mais cedo. No **RemoteRenderingCoordinator** GameObject, remova o bypass para autorização que implementamos anteriormente, premindo o botão '-' no evento **Autorização De Pedido.**
+ ![Remover o bypass ](./media/remove-bypass-event.png) .
 1. Teste o controlador de visualização pressionando **Play** no Editor de Unidade.
 1. No Editor, agora que o MRTK está configurado, pode utilizar as teclas WASD para alterar a posição da sua visão e premir o botão do rato direito + mover o rato para alterar a direção de visualização. Tente "dirigir" ao redor do local um pouco para sentir os controlos.
 1. No dispositivo, pode levantar a palma da mão para convocar o **AppMenu,** no Editor de Unidade, utilizar o 'M' da chave quente.
 1. Se perdeu de vista o menu, prima a tecla 'M' para convocar o menu. O menu será colocado perto da câmara para facilitar a interação.
-1. A autorização irá agora mostrar como um pedido à direita do **AppMenu,** a partir de agora, você vai usá-lo para autorizar a app para gerir sessões de renderização remota.\
- ![UI autorizar](./media/authorize-request-ui.png)\
+1. A autorização irá agora mostrar como um pedido à direita do **AppMenu**, a partir de agora, irá utilizar esta para autorizar a aplicação a gerir sessões de renderização remotas.
+ ![UI autorizar](./media/authorize-request-ui.png)
 1. Impedir a Unidade de jogar para continuar com o tutorial.
 
 ## <a name="manage-model-state"></a>Gerir o estado do modelo
@@ -255,11 +255,11 @@ Nos termos mais básicos, o **RemoteRenderedModel** detém os dados necessários
 Vamos testar o novo script carregando o modelo de teste novamente. Criaremos um Game Object para conter o script e ser um dos pais do modelo de teste.
 
 1. Crie um novo Objeto de Jogo vazio na cena e nomeie-o **TestModel**.
-1. Adicione o script *RemoteRenderedModel* ao **TestModel**.\
+1. Adicione o script *RemoteRenderedModel* ao **TestModel**.
 ![Adicionar componente RemoteRenderedModel](./media/add-remote-rendered-model-script.png)
-1. Preencha `Model Display Name` o e o " `Model Path` *TestModel*" e "*builtin://Engine*" respectivamente.
+1. Preencha `Model Display Name` o e o com " `Model Path` *TestModel*" e "*builtin://Engine*" respectivamente.
 ![Especifique detalhes do modelo](./media/add-model-script.png)
-1. Posicione o objeto **TestModel** na frente da câmara, na **posição x = 0, y = 0, z = 3**.\
+1. Posicione o objeto **TestModel** na frente da câmara, na **posição x = 0, y = 0, z = 3**.
 ![Objeto de posição](./media/test-model-position.png)
 1. Certifique-se de que **o Carregamento Automaticamente** está ligado.
 1. Pressione **play** no Editor de Unidade para testar a aplicação.
@@ -280,7 +280,7 @@ Siga os passos especificados no [Quickstart: Converta um modelo para renderizaç
 ## <a name="load-and-rendering-a-custom-model"></a>Carregar e renderizar um modelo personalizado
 
 1. Crie um novo GameObject vazio na cena e dê-lhe um nome semelhante ao seu modelo personalizado.
-1. Adicione o script *RemoteRenderedModel* ao recém-criado GameObject.\
+1. Adicione o script *RemoteRenderedModel* ao recém-criado GameObject.
  ![Adicionar componente RemoteRenderedModel](./media/add-remote-rendered-model-script.png)
 1. Preencha o `Model Display Name` nome adequado para o seu modelo.
 1. Preencha o `Model Path` com o URI de Assinatura de *Acesso Partilhado (SAS)* do modelo que criou nos degraus de ingestão acima.

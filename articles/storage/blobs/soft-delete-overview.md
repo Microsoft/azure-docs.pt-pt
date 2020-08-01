@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f8e84e845910b8f84a9b3f84ad414f2ecdd250a5
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 4f75b9af6e9b2f92818fd8ec16d59db2f1bd0075
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223793"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446868"
 ---
 # <a name="soft-delete-for-blob-storage"></a>Excluir suave para armazenamento Blob
 
@@ -93,7 +93,7 @@ Os seguintes detalhes da tabela são comportamentos esperados quando a eliminaç
 | [Colocar Bloco](/rest/api/storageservices/put-block) | Blobs de blocos | Cria um novo bloco para ser cometido como parte de uma bolha de bloco. | Se usado para comprometer um bloqueio a uma bolha que está ativa, não há nenhuma mudança. Se usado para comprometer um bloco a uma bolha que é suavemente eliminada, uma nova bolha é criada e um instantâneo é gerado automaticamente para capturar o estado da bolha suave apagada. |
 | [Colocar lista de blocos](/rest/api/storageservices/put-block-list) | Blobs de blocos | Compromete uma bolha especificando o conjunto de IDs de bloco que compõem a bolha de bloco. | Se for utilizado para substituir uma bolha existente, uma imagem do estado da bolha antes da chamada é gerada automaticamente. Isto também se aplica a uma bolha previamente macia apagada se e somente se for uma bolha de bloco. Se for substituído por uma bolha de um tipo diferente, todos os dados eliminados suaves existentes serão expirados permanentemente. |
 | [Colocar página](/rest/api/storageservices/put-page) | Blobs de páginas | Escreve uma gama de páginas para uma bolha de página. | Sem mudanças. Os dados do blob da página que são substituídos ou limpos utilizando esta operação não são guardados e não são recuperáveis. |
-| [Bloco de Apêndice](/rest/api/storageservices/append-block) | Blobs de acréscimo | Escreve um bloco de dados para o fim de uma Blob de Apêndice | Sem mudanças. |
+| [Bloco de Apêndice](/rest/api/storageservices/append-block) | Blobs de acréscimo | Escreve um bloco de dados para o fim de uma bolha de apêndice | Sem mudanças. |
 | [Definir propriedades blob](/rest/api/storageservices/set-blob-properties) | Bloco, apêndice e bolhas de página | Define valores para as propriedades do sistema definidas para uma bolha. | Sem mudanças. As propriedades de bolhas sobreescritas não são recuperáveis. |
 | [Definir metadados blob](/rest/api/storageservices/set-blob-metadata) | Bloco, apêndice e bolhas de página | Define os metadados definidos pelo utilizador para a bolha especificada como um ou mais pares de valor-nome. | Sem mudanças. Os metadados blob sobrescritos não são recuperáveis. |
 

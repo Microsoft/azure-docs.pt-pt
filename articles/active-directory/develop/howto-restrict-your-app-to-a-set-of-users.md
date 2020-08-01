@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: da09f78817e1271832397b4a130195385207645f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e20b2f8c0e12fdb23668d16e2cbd7936cc4e48c
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477792"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445465"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Como: Restringir a sua app Azure AD a um conjunto de utilizadores num inquilino AZure AD
 
@@ -26,7 +26,7 @@ As aplicações registadas num inquilino do Azure Ative Directory (Azure AD) est
 
 Da mesma forma, no caso de uma app [multi-inquilino,](howto-convert-app-to-be-multi-tenant.md) todos os utilizadores do inquilino AZure AD onde esta aplicação é aprovisionada poderão aceder a esta aplicação assim que autenticarem com sucesso no respetivo inquilino.
 
-Os administradores e desenvolvedores de inquilinos têm muitas vezes requisitos em que uma aplicação deve ser restrita a um determinado conjunto de utilizadores. Os desenvolvedores podem realizar o mesmo usando padrões de autorização populares como Role Based Access Control (RBAC), mas esta abordagem requer uma quantidade significativa de trabalho em parte do desenvolvedor.
+Os administradores e desenvolvedores de inquilinos têm muitas vezes requisitos em que uma aplicação deve ser restrita a um determinado conjunto de utilizadores. Os desenvolvedores podem realizar o mesmo usando padrões de autorização populares como o controlo de acesso baseado em funções Azure (Azure RBAC), mas esta abordagem requer uma quantidade significativa de trabalho em parte do desenvolvedor.
 
 Os administradores e desenvolvedores de inquilinos podem restringir uma aplicação a um conjunto específico de utilizadores ou grupos de segurança no inquilino, usando esta funcionalidade incorporada do Azure AD também.
 
@@ -65,7 +65,7 @@ Existem duas formas de criar uma aplicação com a atribuição do utilizador at
 1. Localizar a **definição de atribuição do utilizador necessária?** **Yes** Quando esta opção for definida como **Sim,** os utilizadores do arrendatário devem primeiro ser designados para esta aplicação ou não poderão iniciar sessão nesta aplicação.
 1. **Selecione Guardar** para guardar esta alteração de configuração.
 
-### <a name="app-registration"></a>Registo de aplicações
+### <a name="app-registration"></a>Registo da aplicação
 
 1. Vá ao [**portal Azure.**](https://portal.azure.com/)
 1. Na barra superior, selecione a conta de inscrito. 

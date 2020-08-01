@@ -1,5 +1,5 @@
 ---
-title: Configure o controlo local de acesso baseado em funções (RBAC) para AZure API para FHIR
+title: Configure o controlo de acesso local baseado em funções (RBAC local) para a Azure API para fHIR
 description: Este artigo descreve como configurar a API Azure para a FHIR usar um inquilino externo da AD Azure para o plano de dados
 author: hansenms
 ms.service: healthcare-apis
@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/15/2020
 ms.author: mihansen
-ms.openlocfilehash: 8aa454e272e0dbf4c69941c35a63ee036c16f78f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 11e7d31385140206070e3b415224ccca725d110f
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422577"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446913"
 ---
 # <a name="configure-local-rbac-for-fhir"></a>Configurar o RBAC local para fHIR 
 
@@ -63,7 +63,7 @@ Depois de introduzir os IDs de objetos necessários, clique em **Guardar** e agu
 
 A Azure API para fHIR irá cache decisões por até 5 minutos. Se conceder a um utilizador acesso ao servidor FHIR adicionando-os à lista de IDs de objetos permitidos, ou removê-los da lista, deverá esperar que leve até cinco minutos para que as alterações nas permissões se propaguem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu a atribuir o acesso de avião de dados FHIR usando um inquilino externo (secundário) Azure Ative Directory. Em seguida, saiba mais sobre as definições adicionais para a AZure API para FHIR:
  

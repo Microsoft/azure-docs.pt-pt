@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 4928938c38df8a1ed0f1e31c73e755a4f7f6c371
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ea951943c3f48443e4348d633c16ed61303f7aa8
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367635"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449051"
 ---
 # <a name="tutorial-manipulating-models"></a>Tutorial: Manipular modelos
 
@@ -332,18 +332,14 @@ Quando um elenco de raios é concluído com sucesso no **RemoteRayCastPointerHan
 
 2. No **TestModel** GameObject criado anteriormente, adicione tanto o componente **RemoteRayCastPointerHandler** como o componente **RemoteEntityHelper.**
 1. Atribua o `EntityToDebugLog` método ao `OnRemoteEntityClicked` evento. Quando o tipo de saída do evento e o tipo de entrada do método coincidirem, podemos usar a ligação dinâmica do evento da Unidade, que passará automaticamente o valor do evento para o método.
-    1. Criar um novo campo de retorno\
-    ![Adicionar retorno](./media/add-callback-remote-entity-clicked.png)
-    1. Arraste o componente **do Helper de Entidade Remota** no campo Object, para fazer referência ao GameObject principal\
-    ![Atribuir objeto](./media/assign-object.png)
-    1. Atribua o `EntityToDebugLog` como retorno de chamada\
-    ![Atribuir retorno](./media/remote-entity-event.png)
+    1. Criar um novo campo de retorno ![ Adicionar callback](./media/add-callback-remote-entity-clicked.png)
+    1. Arraste o componente **do Helper de Entidade Remota** no campo Object, para fazer referência ao objeto de atribuição de gameObject ![ pai](./media/assign-object.png)
+    1. Atribua o `EntityToDebugLog` como retorno de retorno Atribuir ![ retorno](./media/remote-entity-event.png)
 1. Pressione o editor de unidade para iniciar a cena, ligue-se a uma sessão remota e carregue o modelo de teste.
 1. Utilizando a simulação manual do MRTK, pressione e segure a tecla Shift esquerda.
 1. Guie a mão simulada para que o raio de mão esteja apontando para o modelo de teste.
 1. Clique longo para simular um toque de ar, executando o `OnPointerClicked` evento.
-1. Observe a Consola de Unidade para obter uma mensagem de registo com o nome da entidade infantil selecionada. Por exemplo:\
-![Exemplo de entidade infantil](./media/child-entity-example.png)
+1. Observe a Consola de Unidade para obter uma mensagem de registo com o nome da entidade infantil selecionada. Por exemplo: ![ Exemplo de entidade infantil](./media/child-entity-example.png)
 
 ## <a name="synchronizing-the-remote-object-graph-into-the-unity-hierarchy"></a>Sincronizar o gráfico de objeto remoto na hierarquia da Unidade
 
@@ -351,9 +347,9 @@ Até agora, só vimos um único GameObject local representando todo o modelo. Is
 
 1. Inicie a cena e carregue o modelo de teste.
 1. Expanda as crianças do **TestModel** GameObject na hierarquia da Unidade e selecione o **TestModel_Entity** GameObject.
-1. No Inspetor, clique no botão *Mostrar Crianças.\*
+1. No Inspetor, clique no botão *Mostrar Crianças.*
 ![Mostrar às crianças](./media/show-remote-children.png)
-1. Continue a expandir as crianças na hierarquia e clicando no *Show Children* até que seja mostrada uma grande lista de crianças.\
+1. Continue a expandir as crianças na hierarquia e a clicar no *Show Children* até que seja mostrada uma grande lista de crianças.
 ![Todas as crianças](./media/test-model-children.png)
 
 Uma lista de dezenas de entidades irá agora povoar a hierarquia. A seleção de um deles mostrará os `Transform` componentes e componentes no `RemoteEntitySyncObject` Inspetor. Por predefinição, cada entidade não é sincronizada automaticamente em cada frame, pelo que as alterações locais ao `Transform` servidor não são sincronizadas. Podes verificar *o Sync Every Frame* e depois mover, escalar ou rodar a transformação na vista Cena, não verás o modelo renderizado na vista de cena, vês a vista do Jogo para ver a posição e a atualização visual do modelo.
@@ -371,13 +367,13 @@ O mesmo processo pode ser feito programáticamente e é o primeiro passo para mo
     }
     ```
 
-1. Adicione uma chamada adicional ao evento **RemoteRayCastPointerHandler,** `OnRemoteEntityClicked` definindo-o para `MakeSyncedGameObject` .\
+1. Adicione uma chamada adicional ao evento **RemoteRayCastPointerHandler,** `OnRemoteEntityClicked` definindo-o para `MakeSyncedGameObject` .
 ![Retorno adicional](./media/additional-callback.png)
 1. Utilizando a simulação manual do MRTK, pressione e segure a tecla Shift esquerda.
 1. Guie a mão simulada para que o raio de mão esteja apontando para o modelo de teste.
 1. Clique longo para simular um toque de ar, executando o `OnPointerClicked` evento.
-1. Verifique e expanda a Hierarquia para ver um novo objeto infantil, representando a entidade clicada.\
-![Representação do GameObject](./media/gameobject-representing-entity.png)\
+1. Verifique e expanda a Hierarquia para ver um novo objeto infantil, representando a entidade clicada.
+![Representação do GameObject](./media/gameobject-representing-entity.png)
 1. Após o teste, remova a chamada para `MakeSyncedGameObject` , uma vez que vamos incorporar isto como parte de outros efeitos mais tarde.
 
 > [!NOTE]
@@ -385,7 +381,7 @@ O mesmo processo pode ser feito programáticamente e é o primeiro passo para mo
 
 Criar um caso local e torná-lo automaticamente sincronizado é o primeiro passo na manipulação de subinsícopas. As mesmas técnicas que usamos para manipular o modelo como um todo também podem ser usadas nas sub-entidades. Por exemplo, depois de criar uma instância local sincronizada de uma entidade, você poderia consultar os seus limites e adicionar manipuladores de manipulação para permitir que ele fosse movido pelos raios de mão do utilizador.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora pode manipular e interagir com os seus modelos remotamente renderizados! No próximo tutorial, cobriremos materiais modificados, alterando a iluminação e aplicando efeitos em modelos renderizados remotamente.
 

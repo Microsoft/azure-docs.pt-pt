@@ -3,12 +3,12 @@ title: Linha de Base de Segurança Azure para Azure DevTest Labs
 description: Linha de Base de Segurança Azure para Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 7f0dc1fb18740e2b0611b5954821a5ceda2d2657
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: b392af17a24b0a5aabdd245af236caa743762244
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387834"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448966"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Linha de Base de Segurança Azure para Azure DevTest Labs
 
@@ -275,7 +275,7 @@ A Microsoft realiza a gestão de vulnerabilidades nos recursos subjacentes que s
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2: Implementar solução automatizada de gestão de correção do sistema operativo
 **Orientação:** Utilize o Azure Update Management para garantir que as atualizações de segurança mais recentes são instaladas nos seus VMs Windows e Linux alojados nos Laboratórios DevTest. Para os VMs do Windows, certifique-se de que o Windows Update foi ativado e definido para atualizar automaticamente. Esta definição não está atualmente disponível para configurar através da DevTest Labs, no entanto a administração de administração/subscrição de laboratório pode configurar esta definição nos VMs de computação subjacentes na sua subscrição. 
 
-- [Como configurar a Gestão de Atualização para VMs em Azure](../automation/automation-update-management.md)
+- [Como configurar a Gestão de Atualização para VMs em Azure](../automation/update-management/update-mgmt-overview.md)
 - [Compreenda as políticas de segurança do Azure monitorizadas pelo Security Center](../security-center/security-center-policy-definitions.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
@@ -289,8 +289,8 @@ Saiba mais sobre [a DevTest Labs Image Factory](image-factory-create.md), que é
 
 Como administrador de subscrição, também pode utilizar a solução Azure Update Management para gerir atualizações e patches para VMs da DevTest Labs. A Update Management baseia-se no repositório de atualização configurado localmente para corrigir sistemas Windows suportados. Ferramentas como o System Center Updates Publisher (Editor de Atualizações) permitem-lhe publicar atualizações personalizadas nos Serviços de Atualização do Servidor do Windows (WSUS). Este cenário permite que a Gestão de Atualização remendo máquinas que usam o Gestor de Configuração como repositório de atualização com software de terceiros.
 
-- [Solução de Gestão de Atualização em Azure](../automation/automation-update-management.md)
-- [Gerir atualizações e patches para os seus VMs Azure](../automation/automation-tutorial-update-management.md)
+- [Solução de Gestão de Atualização em Azure](../automation/update-management/update-mgmt-overview.md)
+- [Gerir atualizações e patches para os seus VMs](../automation/update-management/update-mgmt-overview.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
 

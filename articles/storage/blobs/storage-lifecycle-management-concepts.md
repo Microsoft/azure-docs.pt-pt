@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 6285c25c44b7b8c5b2c1d9c148424fc36912b57c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 624b8e18f8c0fb523c27c41ce9c10af93c8b6190
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528716"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446673"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerir o ciclo de vida do Armazenamento de Blobs do Azure
 
@@ -232,7 +232,7 @@ Uma política é uma coleção de regras:
 
 Cada regra dentro da política tem vários parâmetros:
 
-| Nome do parâmetro | Tipo de parâmetro | Notas | Necessário |
+| Nome do parâmetro | Tipo de parâmetro | Notas | Obrigatório |
 |----------------|----------------|-------|----------|
 | `name`         | Cadeia |Um nome de regra pode incluir até 256 caracteres alfanuméricos. O nome da regra é sensível a casos.  Deve ser único dentro de uma política. | Verdadeiro |
 | `enabled`      | Booleano | Um boolean opcional para permitir que uma regra seja temporariamente desativada. O valor predefinido é verdadeiro se não estiver definido. | Falso | 
@@ -248,7 +248,8 @@ Cada definição de regras inclui um conjunto de filtros e um conjunto de ação
 A seguinte regra de amostra filtra a conta para executar as ações em objetos que existem no interior `container1` e começar por `foo` .  
 
 >[!NOTE]
->A gestão do ciclo de vida só suporta o tipo de bolha de bloco.  
+>- A gestão do ciclo de vida só suporta o tipo de bolha de bloco.<br>
+>- A gestão do ciclo de vida não afeta recipientes do sistema como $logs e $web.
 
 - Bolha de nível para arrefecer nível 30 dias após a última modificação
 - Bolha de nível para arquivar nível 90 dias após a última modificação
@@ -483,7 +484,7 @@ A política atualizada leva até 24 horas para entrar em vigor. Uma vez que a po
 **Rehisquirei manualmente uma bolha arquivada, como posso evitar que seja transferida temporariamente para o nível do Arquivo?**  
 Quando uma bolha é movida de um nível de acesso para outro, o seu último tempo de modificação não muda. Se reidratar manualmente uma bolha arquivada para o nível quente, ela seria transferida de volta para o nível de arquivo pelo motor de gestão do ciclo de vida. Desative a regra que afeta esta bolha temporariamente para evitar que seja arquivada novamente. Volte a ativar a regra quando a bolha pode ser deslocal para o nível de arquivo com segurança. Também pode copiar a bolha para outro local se precisar de permanecer permanentemente em camadas quentes ou frias.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como recuperar dados após a eliminação acidental:
 

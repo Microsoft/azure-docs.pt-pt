@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2019
 ms.author: rogardle
 ms.custom: ''
-ms.openlocfilehash: dd5e3cf8ce9e52768c28598a819a28ad1ec4413c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4be24d645d2145ee07f9b9a4696b825a26dcf5c9
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525522"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448760"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Arquiteturas de referência para Oracle Database Enterprise Edition em Azure
 
@@ -211,7 +211,7 @@ Durante o pedido inicial, o servidor de aplicações conecta-se ao diretor de fr
 
 Ao implementar as suas cargas de trabalho da Oracle para o Azure, a Microsoft cuida de todos os patchings de nível OS do hospedeiro. Qualquer manutenção planeada ao nível do SO é comunicada antecipadamente aos clientes para permitir ao cliente esta manutenção planeada. Dois servidores de duas zonas de disponibilidade diferentes nunca são remendados simultaneamente. Consulte [Gerir a disponibilidade de máquinas virtuais](../../../virtual-machines/linux/manage-availability.md) para obter mais detalhes sobre manutenção e remendos em VM. 
 
-Remendar o seu sistema operativo de máquina virtual pode ser automatizado utilizando [a Azure Automation](../../../automation/automation-tutorial-update-management.md). Remendar e manter a base de dados Oracle pode ser automatizado e programado utilizando [a Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) ou [a Azure Automation](../../../automation/automation-tutorial-update-management.md) para minimizar o tempo de inatividade. Consulte [a Entrega Contínua e As Implementações Azuis/Verdes](/azure/devops/learn/what-is-continuous-delivery) para entender como pode ser usada no contexto das suas bases de dados Oráculos.
+Remendar o sistema operativo da máquina virtual pode ser automatizado utilizando [a Azure Automation Update Management](../../../automation/update-management/update-mgmt-overview.md). Remendar e manter a base de dados oracle pode ser automatizado e programado usando [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) ou [Azure Automation Update Management](../../../automation/update-management/update-mgmt-overview.md) para minimizar o tempo de inatividade. Consulte [a Entrega Contínua e As Implementações Azuis/Verdes](/azure/devops/learn/what-is-continuous-delivery) para entender como pode ser usada no contexto das suas bases de dados Oráculos.
 
 ## <a name="architecture-and-design-considerations"></a>Considerações de arquitetura e design
 
@@ -226,7 +226,7 @@ Remendar o seu sistema operativo de máquina virtual pode ser automatizado utili
 - Utilize [pipelines Azure](/azure/devops/pipelines/get-started/what-is-azure-pipelines) para gerir remendos e atualizações na sua base de dados sem qualquer tempo de inatividade.
 - Ajuste o seu código de aplicação para adicionar padrões nativos da nuvem, tais como padrão de [retrip,](/azure/architecture/patterns/retry) [padrão de disjuntor](/azure/architecture/patterns/circuit-breaker)de circuitos, e outros padrões definidos no [guia Cloud Design Patterns](/azure/architecture/patterns/) que podem ajudar a sua aplicação a ser mais resistente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Reveja os seguintes artigos de referência da Oracle que se aplicam ao seu cenário.
 

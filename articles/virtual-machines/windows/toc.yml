@@ -848,7 +848,7 @@
         - name: Carregar um VHD para um disco - PowerShell
           href: disks-upload-vhd-to-managed-disk-powershell.md
         - name: Importar/exportar um disco de forma segura - Portal
-          href: ../disks-enable-private-links-for-import-export-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../disks-enable-private-links-for-import-export-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Redimensionar um disco
           href: expand-os-disk.md
         - name: Utilizar o Explorador de Armazenamento para gerir discos

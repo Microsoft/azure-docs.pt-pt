@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 0bcc67e80861df2827237298444175c3abdb6602
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3195c27351ba6110c784ddd8a10ea9ddfb0d903a
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084058"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447353"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na Nuvem Pública de Azure
 
@@ -76,7 +76,7 @@ O Azure RBAC tem três funções básicas que se aplicam a todos os tipos de rec
 
 - **O leitor** pode ver os recursos Azure existentes.
 
-![Controlo de Acesso Baseado em Funções do Azure](./media/isolation-choices/azure-isolation-fig3.png)
+![Controlo de acesso baseado em funções Azure (Azure RBAC)](./media/isolation-choices/azure-isolation-fig3.png)
 
 O resto das funções da RBAC no Azure permitem a gestão de recursos específicos do Azure. Por exemplo, a função Contribuidor de Máquina Virtual permite ao utilizador criar e gerir máquinas virtuais. Não lhes dá acesso à Rede Virtual Azure ou à sub-rede a que a máquina virtual se conecta.
 
@@ -219,7 +219,7 @@ A encriptação em trânsito é um mecanismo de proteção dos dados quando são
 - [Encriptação de](../../storage/blobs/security-recommendations.md)fios , como encriptação SMB 3.0 para ações do Ficheiro Azure.
 - [Encriptação do lado do cliente](../../storage/blobs/security-recommendations.md), para encriptar os dados antes de serem transferidos para o armazenamento e para desencriptar os dados após a sua transferência para fora do armazenamento.
 
-#### <a name="encryption-at-rest"></a>Encriptação Inativa
+#### <a name="encryption-at-rest"></a>Encriptação em Repouso
 
 Para muitas organizações, [a encriptação de dados em repouso](isolation-choices.md) é um passo obrigatório para a privacidade dos dados, conformidade e soberania de dados. Existem três funcionalidades do Azure que fornecem encriptação de dados que estão "em repouso":
 
@@ -273,7 +273,7 @@ Os servidores e bases de dados lógicos do SQL são conceitos específicos da Ba
 
 Os servidores na Base de Dados SQL não são casos físicos ou VM, em vez disso são coleções de bases de dados, partilha de políticas de gestão e segurança, que são armazenadas na chamada base de dados "lógico mestre".
 
-![Base de Dados SQL](./media/isolation-choices/azure-isolation-fig11.png)
+![SQL Database](./media/isolation-choices/azure-isolation-fig11.png)
 
 As bases de dados lógicos incluem:
 

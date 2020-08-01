@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: dd179160ad6796da40a5b98e89a10999ad0445d1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e50c1e3efc33fb761068b3009979079b2ba4b760
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070564"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447148"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Utilize o emulador de armazenamento Azure para desenvolvimento e teste
 
@@ -210,7 +210,7 @@ As seguintes diferenças aplicam-se ao armazenamento blob no emulador:
 * A cópia incremental permite que as imagens de bolhas substituídas sejam copiadas, o que devolve uma falha no serviço.
 * Obter Gamas de Página O Diff não funciona entre instantâneos copiados usando o Incho de Cópia Incremental.
 * Uma operação Put Blob pode ter sucesso contra uma bolha que existe no emulador de armazenamento com um arrendamento ativo, mesmo que o ID do arrendamento não tenha sido especificado no pedido.
-* As operações do Apêndio Blob não são suportadas pelo emulador. Tentar uma operação num apêndice blob devolve um erro do FeatureNotSupportedByEmulator (código de estado HTTP 400 - Mau Pedido).
+* As operações de bolhas de apêndice não são suportadas pelo emulador. Tentar uma operação num apêndice blob devolve um erro do FeatureNotSupportedByEmulator (código de estado HTTP 400 - Mau Pedido).
 
 ### <a name="differences-for-table-storage"></a>Diferenças para o armazenamento de mesa
 
@@ -304,7 +304,7 @@ Não existem diferenças específicas para o armazenamento da fila no emulador.
 
 ### <a name="version-41"></a>Versão 4.1
 
-* O emulador de armazenamento suporta agora a versão 2015-02-21 dos serviços de armazenamento nos pontos finais blob, queue e table. Não suporta as novas funcionalidades da Append Blob.
+* O emulador de armazenamento suporta agora a versão 2015-02-21 dos serviços de armazenamento nos pontos finais blob, queue e table. Não suporta as novas funcionalidades de blob do apêndice.
 * O emulador devolve agora uma mensagem de erro significativa para versões não suportadas de serviços de armazenamento. Recomendamos a utilização da versão mais recente do emulador. Se tiver um erro do VersionNotSupportedByEmulator (código de estado HTTP 400 - Mau Pedido), descarregue a versão mais recente do emulador.
 * Corrigiu um erro em que uma condição de regata fez com que os dados da entidade da tabela fossem incorretos durante operações de fusão simultânea.
 

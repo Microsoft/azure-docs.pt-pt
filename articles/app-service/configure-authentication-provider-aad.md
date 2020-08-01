@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: c3892cfe3f8bd6966f5bd00c0747590eef3bc50d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d5348f8abe8d30c7f23882974b8c121af39636c
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83860529"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448151"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configure o seu Serviço de Aplicações ou app Azure Functions para usar o login AZure AD
 
@@ -70,7 +70,7 @@ Vai precisar das seguintes informações quando configurar a sua aplicação De 
 - Segredo do cliente (opcional)
 - ID uri de aplicação
 
-Executar os seguintes passos:
+Efetue os seguintes passos:
 
 1. Inscreva-se no [portal Azure,]procure e selecione **Serviços de Aplicações**e, em seguida, selecione a sua aplicação. Note o **URL**da sua aplicação. Você vai usá-lo para configurar o seu registo de aplicativo Azure Ative Directory.
 1. Selecione **Azure Ative Directory**  >  **App registra**  >  **novo registo**.
@@ -78,7 +78,7 @@ Executar os seguintes passos:
 1. In **Redirect URI**, selecione **Web** e type `<app-url>/.auth/login/aad/callback` . Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 1. Selecione **Criar**.
 1. Após a criação do registo da aplicação, copie o **ID da Aplicação (cliente)** e o ID do **Diretório (inquilino)** para mais tarde.
-1. Selecione **autenticação**. Ao abrigo **da concessão implícita**, permita **que os tokens de ID** permitam iniciar ins ins de utilizador OpenID Connect a partir do Serviço de Aplicações.
+1. Selecione **Autenticação**. Ao abrigo **da concessão implícita**, permita **que os tokens de ID** permitam iniciar ins ins de utilizador OpenID Connect a partir do Serviço de Aplicações.
 1. (Opcional) **Selecione Branding**. No **URL da página inicial,** insira o URL da sua aplicação de Serviço de Aplicações e selecione **Save**.
 1. Selecione **Expor um**conjunto de  >  **API**. Para uma aplicação de inquilino único, cole no URL da sua app App Service e selecione **Save** and for multi-tenant app, pasta no URL que se baseia num dos domínios verificados pelo inquilino e, em seguida, selecione **Save.**
 
@@ -103,7 +103,7 @@ Executar os seguintes passos:
     |Campo|Descrição|
     |-|-|
     |ID de Cliente| Utilize o ID de **Aplicação (cliente)** do registo da aplicação. |
-    |Url emitente| Use `<authentication-endpoint>/<tenant-id>/v2.0` , e *\<authentication-endpoint>* substitua-o pelo ponto final de [autenticação para o seu ambiente em nuvem](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (por exemplo, " para a https://login.microsoft.com Azure global), substituindo também *\<tenant-id>* pelo ID do **Diretório (inquilino)** no qual foi criado o registo da aplicação. Este valor é usado para redirecionar os utilizadores para o inquilino AZure AD correto, bem como para baixar os metadados apropriados para determinar as chaves de assinatura de token apropriadas e o valor de reclamação do emitente simbólico, por exemplo. A `/v2.0` secção pode ser omitida para aplicações utilizando AAD v1. |
+    |Url emitente| Use `<authentication-endpoint>/<tenant-id>/v2.0` , e *\<authentication-endpoint>* substitua-o pelo ponto final de [autenticação para o seu ambiente em nuvem](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (por exemplo, " para a https://login.microsoft.com Azure global), substituindo também *\<tenant-id>* pelo ID do **Diretório (inquilino)** no qual foi criado o registo da aplicação. Este valor é usado para redirecionar os utilizadores para o inquilino AZure AD correto, bem como para baixar os metadados apropriados para determinar as chaves de assinatura de token apropriadas e o valor de reclamação do emitente simbólico, por exemplo. Para aplicações que usam Azure AD v1 e para aplicações Azure Functions, `/v2.0` omite no URL.|
     |Segredo do Cliente (Opcional)| Use o segredo do cliente que gerou no registo da aplicação.|
     |Audiências token permitidas| Se se trata de uma aplicação de cloud ou servidor e pretender permitir fichas de autenticação a partir de uma aplicação web, adicione aqui o **ID URI** da aplicação web. O **ID do Cliente** configurado é *sempre* implicitamente considerado como um público permitido. |
 
@@ -154,7 +154,7 @@ Neste momento, isto permite que _qualquer_ aplicação do cliente no seu inquili
 
 Agora configuraste uma aplicação para clientes daemon que pode aceder à tua aplicação de Serviço de Aplicações usando a sua própria identidade.
 
-## <a name="next-steps"></a><a name="related-content"> </a>Próximos passos
+## <a name="next-steps"></a><a name="related-content"> </a>Passos seguintes
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 * [Tutorial: Autenticar e autorizar utilizadores ponto a ponto no Serviço de Aplicações do Azure](app-service-web-tutorial-auth-aad.md)

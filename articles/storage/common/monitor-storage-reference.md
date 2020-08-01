@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: fa8838dd5eca03d9dd85e424f0163eb9ca8ed5e2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 28a127b4debeacd2562867008bc594897558d50d
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077856"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446839"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Referência de dados de monitorização do armazenamento Azure
 
@@ -104,7 +104,7 @@ O Azure Storage suporta as seguintes dimensões para métricas no Azure Monitor.
 
 | Nome da dimensão | Descrição |
 | ------------------- | ----------------- |
-| **BlobType** | O tipo de bolha apenas para métricas Blob. Os valores suportados são **BlockBlob,** **PageBlob**e **Azure Data Lake Storage**. Append Blob está incluído no BlockBlob. |
+| **BlobType** | O tipo de bolha apenas para métricas Blob. Os valores suportados são **BlockBlob,** **PageBlob**e **Azure Data Lake Storage**. As bolhas de apêndice estão incluídas no **BlockBlob.** |
 | **BlobTier** | O armazenamento Azure oferece diferentes níveis de acesso, que permitem armazenar dados de objetos blob da forma mais rentável. Veja mais na [camada de blob de armazenamento Azure](../blobs/storage-blob-storage-tiers.md). Os valores suportados incluem: <br/> <li>**Quente**: Nível quente</li> <li>**Cool**: Cool tier</li> <li>**Arquivo**: Nível de arquivo</li> <li>**Premium**: Nível premium para bolha de bloco</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Tipos de nível para bolha de página premium</li> <li>**Standard**: Tipo de nível para página padrão Blob</li> <li>**Untiered**: Tipo de nível para fins gerais conta de armazenamento v1</li> |
 | **GeoTipo** | Transação do cluster primário ou secundário. Os valores disponíveis incluem **Primário** e **Secundário.** Aplica-se ao Read Access Geo Redundant Storage (RA-GRS) ao ler objetos de inquilino secundário. |
 | **Tipo de Resposta** | Tipo de resposta a transações. Os valores disponíveis incluem: <br/><br/> <li>**ServerOtherError**: todos os outros erros do lado do servidor, exceto os descritos </li> <li>**ServerBusyError**: pedido autenticado que devolveu um código de estado HTTP 503. </li> <li>**ServerTimeoutError**: pedido autenticado com tempo limite excedido que devolveu um código de estado HTTP 500. O tempo limite excedido ocorreu devido a um erro de servidor. </li> <li>**AuthorizationError**: pedido autenticado que falhou devido a acesso não autorizado a dados ou a uma falha de autorização. </li> <li>**NetworkError**: pedido autenticado que falhou devido a erros de rede. Ocorre normalmente quando um cliente fecha prematuramente uma ligação antes da expiração do tempo limite. </li><li>**ClientAccountBandwidthThrottlingError**: O pedido é acelerado em largura de banda por exceder os [limites de escalabilidade da conta de armazenamento](scalability-targets-standard-account.md).</li><li>**ClientAccountRequestThrottlingError**: O pedido é acelerado na taxa de pedido para exceder os [limites de escalabilidade da conta de armazenamento](scalability-targets-standard-account.md).<li>**ClientThrottlingError**: Outro erro de estrangulamento do lado do cliente. O ClientAccountBandwidthThrottlingError e o ClientAccountRequestThrottlingError estão excluídos.</li> <li>**ClientTimeoutError**: pedido autenticado com tempo limite excedido que devolveu um código de estado HTTP 500. Se o tempo limite da rede do cliente ou do pedido estiver definido como um valor inferior ao esperado pelo serviço de armazenamento, trata-se de um tempo limite esperado. Caso contrário, é reportado como um ServerTimeoutError. </li> <li>**ClientOtherError**: todos os outros erros do lado do cliente, exceto os descritos. </li> <li>**Success**: pedido com êxito</li> <li> **SuccessWithThrottling**: Pedido de sucesso quando um cliente SMB é estrangulado na primeira tentativa, mas consegue após retrações.</li> |
@@ -275,7 +275,7 @@ A tabela que se segue lista as propriedades dos registos de recursos de armazena
 |**smbCommandMajor uint32** | Valor no **SMB2_HEADER.Comando**. Atualmente, este é um número entre 0 e 18 inclusive. Por exemplo: `0x6` |
 |**smbCommandMinor** | A subclasse de **SmbCommandMajor,** se for caso disso. Por exemplo: `DirectoryCloseAndDelete` |
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - Consulte [o Monitor Azure Storage](monitor-storage.md) para obter uma descrição da monitorização do armazenamento do Azure.
 - Consulte [os recursos de Monitor Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) para obter informações sobre a monitorização dos recursos do Azure.

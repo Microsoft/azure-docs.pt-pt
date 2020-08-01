@@ -10,12 +10,12 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 3858a5a3b39c7ecaaad17a6bb6c313caf7bbc0ae
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 05a21ce10db2822c963f1b375842e9a7233e0816
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326992"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87457826"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer-preview"></a>Transforme dados em Azure Machine Learning designer (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -112,7 +112,7 @@ Agora que o seu pipeline está configurado para dividir os dados, precisa de esp
     **Formato de ficheiro**: csv
 
     > [!NOTE]
-    > Este artigo pressupõe que você tem acesso a uma datastore registrada no atual espaço de trabalho Azure Machine Learning. Para obter instruções sobre como configurar uma loja de dados, consulte [os serviços de armazenamento Connect to Azure](how-to-access-data.md#azure-machine-learning-studio).
+    > Este artigo pressupõe que você tem acesso a uma datastore registrada no atual espaço de trabalho Azure Machine Learning. Para obter instruções sobre como configurar uma loja de dados, consulte [os serviços de armazenamento Connect to Azure](how-to-access-data.md#studio).
 
     Se não tiver uma loja de dados, pode criar uma agora. Por exemplo, este artigo irá guardar os conjuntos de dados para a conta de armazenamento de bolhas predefinida associada ao espaço de trabalho. Guardará os conjuntos de dados no `azureml` recipiente numa nova pasta chamada `data` .
 

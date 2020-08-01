@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: fba16f9245c8d438268338329ebadad7a57ef206
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: e0a1f97cc7467d115ecc8462a301e45f90d73818
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131927"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449154"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Encriptação do lado do servidor do armazenamento do disco Azure
 
@@ -31,7 +31,7 @@ As secções seguintes descrevem cada uma das opções para a gestão das chaves
 
 ### <a name="platform-managed-keys"></a>Chaves geridas pela plataforma
 
-Por predefinição, os discos geridos utilizam chaves de encriptação geridas pela plataforma. A partir de 10 de junho de 2017, todos os novos discos geridos, instantâneos, imagens e novos dados escritos para discos geridos existentes são automaticamente encriptados em repouso com chaves geridas pela plataforma.
+Por predefinição, os discos geridos utilizam chaves de encriptação geridas pela plataforma. Todos os discos geridos, instantâneos, imagens e dados escritos para discos geridos existentes são automaticamente encriptados em repouso com teclas geridas pela plataforma.
 
 ### <a name="customer-managed-keys"></a>Chaves geridas pelo cliente
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: b914292e03078021c02d777505543a537b50260f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16cba1896a9e9e4038091769fb78ca0c0469710e
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367619"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448829"
 ---
 # <a name="tutorial-configure-iprova-for-automatic-user-provisioning"></a>Tutorial: Configurar iProva para fornecimento automático de utilizadores
 
@@ -76,7 +76,7 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 
 Adicione iProva da galeria de aplicações AZure AD para começar a gerir o provisionamento ao iProva. Se tiver configurado previamente o iProva para SSO, pode utilizar a mesma aplicação. No entanto, recomenda-se que crie uma aplicação separada ao testar inicialmente a integração. Saiba mais sobre a adição de uma aplicação na galeria [aqui.](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app) 
 
-## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passo 4. Definir quem estará no âmbito do provisionamento 
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passo 4: Definir quem estará no âmbito do provisionamento 
 
 O serviço de prestação de Ad Azure permite-lhe atear âmbito a quem será a provisionado com base na atribuição à aplicação e ou com base em atributos do utilizador/grupo. Se optar por escolher o âmbito de aplicação de quem será aprovisionado na sua aplicação com base na atribuição, pode utilizar os [seguintes passos](../manage-apps/assign-user-or-group-access-portal.md) para atribuir utilizadores e grupos à aplicação. Se optar por escolher o âmbito de aplicação de quem será a provisionado apenas com base em atributos do utilizador ou grupo, pode utilizar um filtro de deteção como descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
@@ -123,34 +123,33 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
    |Atributo|Tipo|
    |---|---|
    |ativo|Booleano|
-   |displayName|String|
-   |título|String|
-   |e-mails[tipo eq "work"].value|String|
-   |preferiuLanguage|String|
-   |userName|String|
-   |endereços[tipo eq "work"].país|String|
-   |endereços[tipo eq "work"].localidade|String|
-   |endereços[tipo eq "work"].postalCode|String|
-   |endereços[tipo eq "work"].formatado|String|
-   |endereços[tipo eq "work"].região|String|
-   |endereços[tipo eq "work"].streetAddress|String|
-   |endereços[tipo eq "outros"].formatados|String|
-   |nome.dado Nome|String|
-   |nome.famíliaName|String|
-   |nome.formatado|String|
-   |números de telefone[tipo eq "fax"].valor|String|
-   |números de telefone[tipo eq "mobile"].valor|String|
-   |phoneNumbers[tipo eq "work"].value|String|
-   |externoId|String|
-   |papéis[eq primário "True"].display|String|
-   |papéis[eq primário "Verdadeiro"].tipo|String|
-   |papéis[eq primário "Verdadeiro"].valor|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referência|
+   |displayName|Cadeia|
+   |título|Cadeia|
+   |e-mails[tipo eq "work"].value|Cadeia|
+   |preferiuLanguage|Cadeia|
+   |userName|Cadeia|
+   |endereços[tipo eq "work"].país|Cadeia|
+   |endereços[tipo eq "work"].localidade|Cadeia|
+   |endereços[tipo eq "work"].postalCode|Cadeia|
+   |endereços[tipo eq "work"].formatado|Cadeia|
+   |endereços[tipo eq "work"].região|Cadeia|
+   |endereços[tipo eq "work"].streetAddress|Cadeia|
+   |endereços[tipo eq "outros"].formatados|Cadeia|
+   |nome.dado Nome|Cadeia|
+   |nome.famíliaName|Cadeia|
+   |nome.formatado|Cadeia|
+   |números de telefone[tipo eq "fax"].valor|Cadeia|
+   |números de telefone[tipo eq "mobile"].valor|Cadeia|
+   |phoneNumbers[tipo eq "work"].value|Cadeia|
+   |externoId|Cadeia|
+   |papéis[eq primário "True"].display|Cadeia|
+   |papéis[eq primário "Verdadeiro"].tipo|Cadeia|
+   |papéis[eq primário "Verdadeiro"].valor|Cadeia|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|Cadeia|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|Cadeia|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|Cadeia|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|Cadeia|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|Cadeia|
 
 
 10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups para iProva**.
@@ -159,7 +158,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
       |Atributo|Tipo|
       |---|---|
-      |displayName|String|
+      |displayName|Cadeia|
       |membros|Referência|
 
 12. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro de escotagem](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -195,7 +194,7 @@ Depois de configurar o provisionamento, utilize os seguintes recursos para monit
 * [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 

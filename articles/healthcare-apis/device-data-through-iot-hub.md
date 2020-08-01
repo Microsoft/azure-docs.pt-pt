@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: tutorial
 ms.date: 06/27/2020
 ms.author: punagpal
-ms.openlocfilehash: aeed0c90eeecd59e23a1d87a3ebc1e1a836a84ec
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: d606cd4f5c4b901c060c97d73524997b94eaf225
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116846"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446289"
 ---
 # <a name="tutorial-receive-device-data-through-azure-iot-hub"></a>Tutorial: Receba dados do dispositivo através do Azure IoT Hub
 
@@ -51,7 +51,7 @@ Aqui está a lista de parâmetros a utilizar com o comando para criar um ponto f
 |Parâmetro PowerShell|Parâmetro CLI|Descrição|
 |---|---|---|
 |ResourceGroupName|resource-group|Nome do grupo de recursos do seu recurso IoT Hub.|
-|Name|nome do hub|Nome do seu recurso IoT Hub.|
+|Nome|nome do hub|Nome do seu recurso IoT Hub.|
 |Nome de ponto final|nome de ponto final|Use um nome que gostaria de atribuir ao ponto final que está a ser criado.|
 |Tipo de ponto final|endpoint-type|Tipo de ponto final com o que o IoT Hub precisa de se conectar. Utilize o valor literal de "EventHub" para PowerShell e "eventhub" para CLI.|
 |EndpointResourceGroup|endpoint-recursos-grupo|Nome do grupo de recursos para a AZure API do seu IoT Connector para recurso FHIR. Pode obter este valor na página geral da Azure API para FHIR.|
@@ -66,7 +66,7 @@ Aqui está a lista de parâmetros a utilizar com o comando para criar um ponto f
 |Parâmetro PowerShell|Parâmetro CLI|Descrição|
 |---|---|---|
 |ResourceGroupName|g|Nome do grupo de recursos do seu recurso IoT Hub.|
-|Name|nome do hub|Nome do seu recurso IoT Hub.|
+|Nome|nome do hub|Nome do seu recurso IoT Hub.|
 |Nome de ponto final|nome de ponto final|Nome do ponto final que criou acima.|
 |Nome da Rota|nome de rota|Um nome que pretende atribuir à rota de mensagem que está a ser criada.|
 |Origem|fonte-tipo|Tipo de dados para enviar para o ponto final. Utilize o valor literal de "DeviceMessages" para PowerShell e "devicemessages" para OCli.|
@@ -96,7 +96,7 @@ Utilize o seu dispositivo (real ou simulado) para enviar a mensagem de frequênc
 Pode ver os recursos de observação FHIR criados pelo conector IoT na Azure API para fHIR usando o Carteiro. Confenda o seu [Carteiro para aceder à Azure API para FHIR](access-fhir-postman-tutorial.md) e faça um `GET` pedido para `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` visualizar os recursos de FHIR de observação com o valor da frequência cardíaca submetido na mensagem da amostra acima.
 
 > [!TIP]
-> Certifique-se de que o seu utilizador tem acesso adequado à Azure API para o plano de dados FHIR. Utilize [o Controlo de Acesso Baseado em Funções Azure](configure-azure-rbac.md) para atribuir as funções necessárias do plano de dados.
+> Certifique-se de que o seu utilizador tem acesso adequado à Azure API para o plano de dados FHIR. Utilize [o controlo de acesso baseado em funções Azure (Azure RBAC)](configure-azure-rbac.md) para atribuir as funções necessárias do plano de dados.
 
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -114,4 +114,3 @@ Aprenda a configurar o Conector IoT utilizando modelos de mapeamento de disposit
 >[Modelos de mapeamento do Conector IoT](iot-mapping-templates.md)
 
 FHIR é a marca registada do HL7 e é utilizada com a permissão do HL7.
-

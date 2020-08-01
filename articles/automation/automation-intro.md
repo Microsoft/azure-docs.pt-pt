@@ -7,12 +7,12 @@ keywords: automação azul, DSC, powershell, configuração do estado, gestão d
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 30cfadcec1f0c28a463740ddaefa8fc76f04af3f
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: d10570efe49203f879cdceae776af5c3bc6991c0
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186185"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448070"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Uma introdução à Automatização do Azure
 
@@ -43,7 +43,7 @@ O Change Tracking and Inventory combina funções de rastreio e inventário de a
 
 ## <a name="update-management"></a>Gestão de atualizações
 
-A Azure Automation inclui a funcionalidade [de Gestão de Atualização](automation-update-management.md) para sistemas Windows e Linux em ambientes híbridos. A Gestão de Atualização dá-lhe visibilidade para atualizar a conformidade entre O Azure e outras nuvens, e no local. A funcionalidade permite criar implementações programadas que orquestram a instalação de atualizações dentro de uma janela de manutenção definida. Se uma atualização não for instalada numa máquina, pode utilizar a funcionalidade De Gestão de Atualização para a excluir de uma implementação.
+A Azure Automation inclui a funcionalidade [de Gestão de Atualização](update-management/update-mgmt-overview.md) para sistemas Windows e Linux em ambientes híbridos. A Gestão de Atualização dá-lhe visibilidade para atualizar a conformidade entre O Azure e outras nuvens, e no local. A funcionalidade permite criar implementações programadas que orquestram a instalação de atualizações dentro de uma janela de manutenção definida. Se uma atualização não for instalada numa máquina, pode utilizar a funcionalidade De Gestão de Atualização para a excluir de uma implementação.
 
 ## <a name="shared-capabilities"></a>Capacidades partilhadas
 

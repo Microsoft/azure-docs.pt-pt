@@ -10,12 +10,12 @@ ms.date: 06/12/2020
 ms.topic: conceptual
 manager: carmonm
 ms.custom: references_regions
-ms.openlocfilehash: a8b5f14147ee748f5d32d794f51d5437eeddfb51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e5cad25c80661f9e707f545929e6ffcb00a1e42
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261193"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447859"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regiões suportadas para a área de trabalho do Log Analytics ligada
 
@@ -78,11 +78,11 @@ Com as funcionalidades removidas, pode seguir os passos abaixo para desvincular 
 
 Em alternativa, pode desvincular o seu espaço de trabalho da sua conta Automation dentro do espaço de trabalho.
 
-1. No espaço de trabalho, selecione **a Conta de Automação** em **Recursos Relacionados.** 
+1. No espaço de trabalho, selecione **a Conta de Automação** em **Recursos Relacionados.**
 2. Na página 'Conta Dem automação', selecione **'Desvincular'.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre a Gestão de Atualização na [visão geral da Gestão de Atualização](../automation-update-management.md).
+* Saiba mais sobre a Gestão de Atualização na [visão geral da Gestão de Atualização](../update-management/update-mgmt-overview.md).
 * Saiba mais sobre o Rastreio de Alterações e Inventário na [visão geral do Change Tracking e do Inventário](../change-tracking.md).
 * Saiba mais sobre VMs de início/paragem durante as horas de folga em [VMs de início/paragem durante a visão geral fora de horas](../automation-solution-vm-management.md).

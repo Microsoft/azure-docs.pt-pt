@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: Pré-requisitos e hardware Microsoft Docs'
-description: Este tópico descreve os pré-requisitos e os requisitos de hardware para Azure AD Connect
+description: Este artigo descreve os pré-requisitos e os requisitos de hardware para Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,207 +16,208 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11d5c1bb133f0aea241fbc55f96ab5f8818e5ed6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b33b3e406e21f5bc2a4128fdd7dc9930fa3e0c32
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518118"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447005"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos do Azure AD Connect
-Este tópico descreve os requisitos prévios e os requisitos de hardware para Azure AD Connect.
+Este artigo descreve os pré-requisitos e os requisitos de hardware para a Azure Ative Directory (Azure AD) Connect.
 
 ## <a name="before-you-install-azure-ad-connect"></a>Antes de instalar o Azure AD Connect
 Antes de instalar o Azure AD Connect, há algumas coisas que precisa.
 
 ### <a name="azure-ad"></a>Azure AD
-* Um inquilino do Azure AD. Arranja-se um com um [julgamento gratuito do Azure.](https://azure.microsoft.com/pricing/free-trial/) Pode utilizar um dos seguintes portais para gerir o Azure AD Connect:
+* Precisa de um inquilino da AD AZure. Arranja-se um com um [julgamento gratuito do Azure.](https://azure.microsoft.com/pricing/free-trial/) Pode utilizar um dos seguintes portais para gerir o Azure AD Connect:
   * O [portal Azure.](https://portal.azure.com)
-  * O [portal do Escritório.](https://portal.office.com)  
-* [Adicione e verifique o domínio](../active-directory-domains-add-azure-portal.md) que pretende utilizar no Azure AD. Por exemplo, se planeia utilizar contoso.com para os seus utilizadores, certifique-se de que este domínio foi verificado e não está apenas a utilizar o domínio contoso.onmicrosoft.com predefinido.
-* Um inquilino AZURE AD permite por defeito 50k objetos. Quando verifica o seu domínio, o limite é aumentado para 300 mil objetos. Se precisa de ainda mais objetos em Azure AD, então precisa abrir um caso de suporte para aumentar ainda mais o limite. Se precisa de mais de 500 mil objetos, então precisa de uma licença, como o Office 365, Azure AD Premium ou Enterprise Mobility and Security.
+  * O [portal do Escritório.](https://portal.office.com)
+* [Adicione e verifique o domínio](../active-directory-domains-add-azure-portal.md) que pretende utilizar no Azure AD. Por exemplo, se planeia utilizar contoso.com para os seus utilizadores, certifique-se de que este domínio foi verificado e que não está a utilizar apenas o domínio contoso.onmicrosoft.com predefinido.
+* Um inquilino da AD Azure permite, por defeito, 50.000 objetos. Quando verifica o seu domínio, o limite aumenta para 300.000 objetos. Se precisar de ainda mais objetos em Azure AD, abra um caso de suporte para aumentar ainda mais o limite. Se precisar de mais de 500.000 objetos, precisa de uma licença, como o Office 365, Azure AD Premium ou Enterprise Mobility + Security.
 
 ### <a name="prepare-your-on-premises-data"></a>Prepare os seus dados no local
 * Utilize [o IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) para identificar erros como duplicados e problemas de formatação no seu diretório antes de sincronizar com a AD E o Office 365.
-* Reveja [as funcionalidades de sincronização opcionais que pode ativar no AZure AD](how-to-connect-syncservice-features.md) e avalie quais as funcionalidades que deve ativar.
+* Reveja [as funcionalidades de sincronização opcionais que pode ativar em Ad Azure](how-to-connect-syncservice-features.md)e avalie quais as funcionalidades que deve ativar.
 
 ### <a name="on-premises-active-directory"></a>Active Directory no local
-* A versão de esquema AD e o nível funcional da floresta devem ser o Windows Server 2003 ou mais tarde. Os controladores de domínio podem executar qualquer versão desde que os requisitos de esquema e nível da floresta sejam cumpridos.
-* Se pretender utilizar a gravação da **palavra-passe**de recurso, os Controladores de Domínio devem estar no Windows Server 2008 R2 ou posteriormente.
-* O controlador de domínio utilizado pela Azure AD deve ser writable. Não é **suportado** para utilizar um RODC (controlador de domínio apenas para leitura) e o Azure AD Connect não segue quaisquer redirecionamentos de escrita.
-* Não é **suportado** para utilizar florestas/domínios no local utilizando "pontilhados" (o nome contém um período ".") Nomes da NetBios.
-* Recomenda-se [ativar o caixote de reciclagem ative directory](how-to-connect-sync-recycle-bin.md).
+* A versão de esquema de Ative Directory e o nível funcional da floresta devem ser o Windows Server 2003 ou mais tarde. Os controladores de domínio podem executar qualquer versão desde que a versão do esquema e os requisitos de nível florestal estejam cumpridos.
+* Se pretender utilizar a gravação da *palavra-passe*de recurso, os controladores de domínio devem estar no Windows Server 2008 R2 ou posteriormente.
+* O controlador de domínio utilizado pela Azure AD deve ser writable. A utilização de um controlador de domínio apenas de leitura (RODC) *não é suportada*, e o Azure AD Connect não segue quaisquer redirecionamentos de escrita.
+* Utilizando florestas ou domínios no local utilizando "pontilhados" (o nome contém um período ".") Os nomes da NetBIOS *não são suportados.*
+* Recomendamos que [ative o caixote de reciclagem ative directory](how-to-connect-sync-recycle-bin.md).
 
 ### <a name="azure-ad-connect-server"></a>Servidor Azure Ad Connect
-O servidor Azure AD Connect contém dados de identidade críticos. É importante que o acesso administrativo a este servidor seja devidamente assegurado, seguindo as diretrizes documentadas na [garantia de acesso privilegiado](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access). 
+O servidor Azure AD Connect contém dados de identidade críticos. É importante que o acesso administrativo a este servidor seja devidamente assegurado. Siga as orientações para [garantir o acesso privilegiado.](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access) 
 
-O servidor Azure AD Connect deve ser tratado como um componente tier 0, conforme documentado no [modelo de nível administrativo](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)do Diretório Ativo .  
+O servidor Azure AD Connect deve ser tratado como um componente de Nível 0, conforme documentado no [modelo de nível administrativo](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) do Diretório Ativo 
 
-Para ler mais sobre a segurança do seu ambiente de Diretório Ativo, consulte [as Melhores Práticas para Garantir o Diretório Ativo.](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory)
+Para ler mais sobre a segurança do seu ambiente de Diretório Ativo, consulte [as melhores práticas para garantir o Ative Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
-#### <a name="installation-prerequisites"></a>Pré-requisitos de instalação 
+#### <a name="installation-prerequisites"></a>Pré-requisitos de instalação
 
-- O Azure AD Connect deve ser instalado num domínio ligado ao Windows Server 2012 ou posteriormente. 
-- O Azure AD Connect não pode ser instalado no Small Business Server ou no Windows Server Essentials antes de 2019 (o Windows Server Essentials 2019 é suportado). O servidor deve estar a utilizar o padrão do Windows Server ou melhor.  
-- O servidor Azure AD Connect deve ter um GUI completo instalado. Não é suportado para instalar O AZure AD Connect no Windows Server Core. 
-- O servidor Azure AD Connect não deve ter a Política do Grupo de Transcrição powerShell ativada se estiver a utilizar o assistente AZure AD Connect para gerir a configuração ADFS. Pode ativar a transcrição powerShell se estiver a utilizar o assistente Azure AD Connect para gerir a configuração de sincronização. 
-- Se os Serviços da Federação De Diretório Ativo estiverem a ser implementados, então: 
-    - os servidores onde estão instalados O FS ou o Proxy da Aplicação Web devem ser o Windows Server 2012 R2 ou mais tarde. A gestão remota do Windows deve ser ativada nestes servidores para instalação remota. 
-    - tem de configurar certificados TLS/SSL.  Consulte [a Gestão de Protocolos SSL/TLS e Suítes Cifra para AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) e [Certificação de SSL em AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
-    - tem de configurar a resolução do nome. 
-- Se os seus administradores globais tiverem MFA ativado, então o URL https://secure.aadcdn.microsoftonline-p.com **deve** estar na lista de sites fidedignos. É-lhe pedido que adicione este site à lista de sites fidedignos quando é solicitado para um desafio MFA e não foi adicionado antes. Pode utilizar o Internet Explorer para o adicionar aos seus sites de confiança.  
+- O Azure AD Connect deve ser instalado num Windows Server 2012 ou mais tarde. 
+- O Azure AD Connect não pode ser instalado no Small Business Server ou no Windows Server Essentials antes de 2019 (o Windows Server Essentials 2019 é suportado). O servidor deve estar a utilizar o padrão do Windows Server ou melhor. 
+- O servidor Azure AD Connect deve ter um GUI completo instalado. A instalação do Azure AD Connect no Windows Server Core não é suportada. 
+- O servidor Azure AD Connect não deve ter a Política do Grupo de Transcrição powerShell ativada se utilizar o assistente Azure AD Connect para gerir a configuração de Serviços da Federação de Diretórios Ativos (AD FS). Pode ativar a transcrição powerShell se utilizar o assistente Azure AD Connect para gerir a configuração de sincronização. 
+- Se a AD FS estiver a ser implantada: 
+    - Os servidores onde estão instalados O FS ou o Proxy da Aplicação Web devem ser o Windows Server 2012 R2 ou mais tarde. A gestão remota do Windows deve ser ativada nestes servidores para instalação remota. 
+    - Tem de configurar os certificados TLS/SSL. Para obter mais informações, consulte [os protocolos SSL/TLS de Gestão e suítes de cifra para](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) certificados AD FS e Managing [SSL em AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
+    - Tem de configurar a resolução do nome. 
+- Se os seus administradores globais tiverem MFA ativado, o URL https://secure.aadcdn.microsoftonline-p.com *deve* estar na lista de sites fidedignos. É-lhe pedido que adicione este site à lista de sites fidedignos quando é solicitado para um desafio de MFA e não foi adicionado antes. Pode utilizar o Internet Explorer para o adicionar aos seus sites de confiança.
 
-#### <a name="hardening-your-azure-ad-connect-server"></a>Endurecendo o servidor AZure AD Connect 
-A Microsoft recomenda endurecer o seu servidor Azure AD Connect para diminuir a superfície de ataque de segurança para este componente crítico do seu ambiente de TI. Seguir as recomendações abaixo ajudará a mitigar alguns riscos de segurança para a sua organização.
+#### <a name="harden-your-azure-ad-connect-server"></a>Endureça o servidor AZure AD Connect 
+Recomendamos que endureça o servidor Azure AD Connect para diminuir a superfície de ataque de segurança para este componente crítico do seu ambiente de TI. Seguir estas recomendações ajudará a mitigar alguns riscos de segurança para a sua organização.
 
-- Tem de tratar o AZure AD Connect o mesmo que um Controlador de Domínio e outros recursos de Nível 0:https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material 
-- Deve restringir o acesso administrativo ao servidor Azure AD Connect apenas a administradores de domínio ou a outros grupos de segurança bem controlados.
-- Deve criar uma [conta dedicada a todo o pessoal com acesso privilegiado.](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access) Os administradores não devem estar a navegar na web, a verificar o seu email e a fazer tarefas de produtividade diárias com contas altamente privilegiadas.
-- Deve seguir as orientações fornecidas na [Garantia de acesso privilegiado.](https://docs.microsoft.com/windows-server/security/credentials-protection-and-management/how-to-configure-protected-accounts) 
-- Deve certificar-se de que todas as máquinas têm uma senha de administrador local única. A [Solução de Senha do Administrador Local (LAPS)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) pode configurar senhas aleatórias únicas em cada estação de trabalho e o servidor armazená-las em Ative Directory (AD) protegidas por um ACL. Apenas os utilizadores autorizados elegíveis podem ler ou solicitar o reset destas senhas de conta de administrador local. Pode obter o LAPS para utilização em estações de trabalho e servidores a partir do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=46899#:~:text=The%20%22Local%20Administrator%20Password%20Solution,it%20or%20request%20its%20reset.). Orientações adicionais para operar um ambiente com LAPS e PAWs podem ser encontradas em [normas operacionais baseadas no princípio da fonte limpa.](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle) 
-- Deve implementar estações de trabalho de [acesso privilegiados dedicadas (PAW)](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations) para todo o pessoal com acesso privilegiado aos sistemas de informação da sua organização. 
-- Deve seguir estas [diretrizes adicionais](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) para reduzir a superfície de ataque do seu ambiente ative directory.
+- Trate o Azure AD Connect o mesmo que um controlador de domínio e outros recursos tier 0. Para obter mais informações, consulte [o modelo de nível administrativo ative diretório.](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)
+- Restringir o acesso administrativo ao servidor Azure AD Connect apenas a administradores de domínio ou a outros grupos de segurança bem controlados.
+- Crie uma [conta dedicada para todo o pessoal com acesso privilegiado.](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access) Os administradores não devem estar a navegar na web, a verificar o seu email e a fazer tarefas de produtividade diárias com contas altamente privilegiadas.
+- Siga as orientações fornecidas na [Garantia de acesso privilegiado.](https://docs.microsoft.com/windows-server/security/credentials-protection-and-management/how-to-configure-protected-accounts) 
+- Certifique-se de que cada máquina tem uma senha de administrador local única. Para obter mais informações, consulte [a Solução de Senha do Administrador Local (LAPS)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) pode configurar senhas aleatórias únicas em cada estação de trabalho e servidor armazená-las em Ative Directory protegida por um ACL. Apenas os utilizadores autorizados elegíveis podem ler ou solicitar o reset destas senhas de conta de administrador local. Pode obter o LAPS para utilização em estações de trabalho e servidores a partir do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=46899#:~:text=The%20%22Local%20Administrator%20Password%20Solution,it%20or%20request%20its%20reset.). Orientações adicionais para operar um ambiente com LAPS e postos de trabalho privilegiados de acesso (PAWs) podem ser encontrados em [normas operacionais baseadas no princípio da fonte limpa.](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle) 
+- Implementar estações de [trabalho privilegiadas dedicadas](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations) para todos os funcionários com acesso privilegiado aos sistemas de informação da sua organização. 
+- Siga estas [diretrizes adicionais](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) para reduzir a superfície de ataque do seu ambiente ative Directory.
 
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server used by Azure AD Connect (SQL Server utilizado pelo Azure AD Connect)
-* O Azure AD Connect necessita de uma base de dados do SQL Server para armazenar dados de identidade. Por predefinição, é instalado um SQL Server 2012 Express LocalDB (uma versão luminosa do SQL Server Express). O SQL Server Express tem um limite de tamanho de 10GB que lhe permite gerir aproximadamente 100.000 objetos. Se precisar de gerir um volume mais elevado de objetos de diretório, tem de apontar o assistente de instalação para uma instalação diferente do SQL Server. O tipo de instalação do SQL Server pode ter impacto no [desempenho do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors#sql-database-factors).
-* Se utilizar uma instalação diferente do SQL Server, então estes requisitos aplicam-se:
-  * O Azure AD Connect suporta todas as versões do Microsoft SQL Server de 2012 (com o mais recente Service Pack) para o SQL Server 2019. A Base de Dados SQL do Microsoft Azure não é **suportada** como base de dados.
-  * Deve usar uma colagem SQL insensível. Estas colagens são identificadas com um \_ CI_ em seu nome. Não é **apoiado** para utilizar uma colagem sensível a casos, identificada por \_ CS_ em seu nome.
-  * Só pode ter um motor de sincronização por exemplo DE SQL. Não é **suportado** para partilhar um exemplo SQL com FIM/MIM Sync, DirSync ou Azure AD Sync.
+* O Azure AD Connect necessita de uma base de dados do SQL Server para armazenar dados de identidade. Por predefinição, é instalado um SQL Server 2012 Express LocalDB (uma versão luminosa do SQL Server Express). O SQL Server Express tem um limite de tamanho de 10 GB que lhe permite gerir aproximadamente 100.000 objetos. Se necessitar de gerir um volume mais elevado de objetos de diretório, aponte o assistente de instalação para uma instalação diferente do SQL Server. O tipo de instalação do SQL Server pode ter impacto no [desempenho do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors#sql-database-factors).
+* Se utilizar uma instalação diferente do SQL Server, estes requisitos aplicam-se:
+  * O Azure AD Connect suporta todas as versões do SQL Server desde 2012 (com o mais recente pacote de serviços) até ao SQL Server 2019. A base de dados Azure SQL *não é suportada* como base de dados.
+  * Deve usar uma colagem SQL insensível. Estas colagens são identificadas com um \_ CI_ em seu nome. A utilização de uma colagem sensível a casos identificada por \_ CS_ em seu nome não é *suportada.*
+  * Só pode ter um motor de sincronização por exemplo DE SQL. Partilhar um exemplo SQL com FIM/MIM Sync, DirSync ou Azure AD Sync *não é suportado*.
 
 ### <a name="accounts"></a>Contas
-* Um administrador global da Azure AD para o inquilino AZURE AD com o que deseja integrar. Esta conta deve ser uma **conta de escola ou organização** e não pode ser uma conta **Microsoft**.
-* Se utilizar [definições expressas](reference-connect-accounts-permissions.md#express-settings-installation) ou atualizações a partir da DirSync, terá de ter uma conta de Administrador Empresarial para o seu Ative Directory no local.
-* Se utilizar o caminho de instalação de definições personalizadas, terá mais opções. Para obter mais informações, consulte [as definições de instalação personalizadas.](reference-connect-accounts-permissions.md#custom-installation-settings)
+* Você deve ter uma conta Azure AD Global Administrator para o inquilino AZURE AD com o que você quer integrar. Esta conta deve ser uma *conta de escola ou organização* e não pode ser uma conta *microsoft*.
+* Se utilizar [definições expressas](reference-connect-accounts-permissions.md#express-settings-installation) ou atualizações a partir da DirSync, tem de ter uma conta de Administrador Empresarial para o seu Ative Directory no local.
+* Se utilizar o caminho de instalação de definições personalizadas, tem mais opções. Para obter mais informações, consulte [as definições de instalação personalizadas.](reference-connect-accounts-permissions.md#custom-installation-settings)
 
 ### <a name="connectivity"></a>Conectividade
 * O servidor Azure AD Connect necessita de resolução DNS tanto para intranet como para internet. O servidor DNS deve ser capaz de resolver nomes tanto para o seu Diretório Ativo no local como para os pontos finais Azure AD.
-* Se tiver firewalls na sua Intranet e precisar de abrir portas entre os servidores AZure AD Connect e os seus controladores de domínio, consulte as [portas de ligação AD Azure](reference-connect-ports.md) para obter mais informações.
-* Se o seu limite de procuração ou firewall a que urls podem ser acedidos, então os URLs documentados nos [intervalos de URLs e endereço IP do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) devem ser abertos.
-  * Se estiver a utilizar a Cloud microsoft na Alemanha ou a nuvem do Governo do Microsoft Azure, consulte as considerações do [serviço de sincronização Azure AD Connect](reference-connect-instances.md) para URLs.
+* Se tiver firewalls na sua intranet e precisar de abrir portas entre os servidores AZure AD Connect e os seus controladores de domínio, consulte [as portas AZure AD Connect](reference-connect-ports.md) para obter mais informações.
+* Se o seu limite de procuração ou firewall a que os URLs podem ser acedidos, os URLs documentados nos [intervalos de URLs e endereço IP do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) devem ser abertos.
+  * Se estiver a utilizar a nuvem da Microsoft na Alemanha ou a nuvem do Governo do Microsoft Azure, consulte as considerações do [serviço de sincronização Azure AD Connect](reference-connect-instances.md) para URLs.
 * O Azure AD Connect (versão 1.1.614.0 e depois) utiliza por predefinição o TLS 1.2 para encriptar a comunicação entre o motor de sincronização e o AD AZure. Se o TLS 1.2 não estiver disponível no sistema operativo subjacente, o Azure AD Connect recua gradualmente aos protocolos mais antigos (TLS 1.1 e TLS 1.0).
 * Antes da versão 1.1.614.0, o Azure AD Connect por predefinição utiliza o TLS 1.0 para encriptar a comunicação entre o motor de sincronização e o AD Azure. Para alterar para TLS 1.2, siga os passos em [Enable TLS 1.2 para Azure AD Connect](#enable-tls-12-for-azure-ad-connect).
-* Se estiver a utilizar um representante de saída para a ligação à Internet, deve ser adicionada a seguinte definição no ficheiro **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** para o assistente de instalação e para a sincronização Azure AD Connect para poder ligar-se à Internet e ao Azure AD. Este texto deve ser introduzido na parte inferior do ficheiro. Neste código, &lt; o PROXYADDRESS &gt; representa o endereço IP ou nome de anfitrião proxy.
+* Se estiver a utilizar um representante de saída para se ligar à internet, deve ser adicionada a seguinte definição no ficheiro **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** para que o assistente de instalação e a sincronização AD Connect Azure possam ligar-se à internet e ao Azure AD. Este texto deve ser introduzido na parte inferior do ficheiro. Neste código, * &lt; o PROXYADDRESS &gt; * representa o endereço IP ou nome de anfitrião proxy.
 
-```
-    <system.net>
-        <defaultProxy>
-            <proxy
-            usesystemdefault="true"
-            proxyaddress="http://<PROXYADDRESS>:<PROXYPORT>"
-            bypassonlocal="true"
-            />
-        </defaultProxy>
-    </system.net>
-```
+    ```
+        <system.net>
+            <defaultProxy>
+                <proxy
+                usesystemdefault="true"
+                proxyaddress="http://<PROXYADDRESS>:<PROXYPORT>"
+                bypassonlocal="true"
+                />
+            </defaultProxy>
+        </system.net>
+    ```
 
-* Se o seu servidor proxy necessitar de autenticação, então a [conta de serviço](reference-connect-accounts-permissions.md#adsync-service-account) deve estar localizada no domínio e deve utilizar o caminho de instalação de configurações personalizadas para especificar uma conta de serviço [personalizada](how-to-connect-install-custom.md#install-required-components). Também precisa de uma mudança diferente para machine.config. Com esta alteração no machine.config, o assistente de instalação e o motor de sincronização respondem aos pedidos de autenticação do servidor proxy. Em todas as páginas de assistente de instalação, excluindo a página **Configure,** são utilizadas as credenciais assinadas no utilizador. Na página **Configure** no final do assistente de instalação, o contexto é alterado para a [conta de serviço](reference-connect-accounts-permissions.md#adsync-service-account) que foi criada por si. A secção machine.config deve ser assim.
+* Se o seu servidor proxy necessitar de autenticação, a [conta de serviço](reference-connect-accounts-permissions.md#adsync-service-account) deve estar localizada no domínio. Utilize o caminho de instalação de definições personalizadas para especificar uma [conta de serviço personalizada.](how-to-connect-install-custom.md#install-required-components) Também precisa de uma mudança diferente para machine.config. Com esta alteração no machine.config, o assistente de instalação e o motor de sincronização respondem aos pedidos de autenticação do servidor proxy. Em todas as páginas de assistente de instalação, excluindo a página **Configure,** são utilizadas as credenciais do utilizador inscrito. Na página **Configure** no final do assistente de instalação, o contexto é alterado para a [conta de serviço](reference-connect-accounts-permissions.md#adsync-service-account) que criou. A secção machine.config deve ser assim:
 
-```
-    <system.net>
-        <defaultProxy enabled="true" useDefaultCredentials="true">
-            <proxy
-            usesystemdefault="true"
-            proxyaddress="http://<PROXYADDRESS>:<PROXYPORT>"
-            bypassonlocal="true"
-            />
-        </defaultProxy>
-    </system.net>
-```
+    ```
+        <system.net>
+            <defaultProxy enabled="true" useDefaultCredentials="true">
+                <proxy
+                usesystemdefault="true"
+                proxyaddress="http://<PROXYADDRESS>:<PROXYPORT>"
+                bypassonlocal="true"
+                />
+            </defaultProxy>
+        </system.net>
+    ```
 
-* Quando o Azure AD Connect envia um pedido web para a Azure AD como parte da sincronização do diretório, o Azure AD pode demorar até 5 minutos para responder. É comum que os servidores proxy tenham uma configuração de tempo de intervalo de inatividade de ligação. Certifique-se de que a configuração está definida para pelo menos 6 minutos ou mais.
+* Quando o Azure AD Connect envia um pedido web para a Azure AD como parte da sincronização do diretório, o Azure AD pode demorar até 5 minutos para responder. É comum que os servidores proxy tenham uma configuração de tempo de intervalo de ligação. Certifique-se de que a configuração está definida para pelo menos 6 minutos ou mais.
 
-Para obter mais informações, consulte a MSDN sobre o [elemento de procuração predefinido](https://msdn.microsoft.com/library/kd3cf2ex.aspx).  
+Para obter mais informações, consulte a MSDN sobre o [elemento proxy predefinido](https://msdn.microsoft.com/library/kd3cf2ex.aspx).
 Para obter mais informações quando tiver problemas de conectividade, consulte [problemas de conectividade de resolução de problemas](tshoot-connect-connectivity.md).
 
 ### <a name="other"></a>Outros
-* Opcional: Uma conta de utilizador de teste para verificar a sincronização.
+Opcional: Utilize uma conta de utilizador de teste para verificar a sincronização.
 
 ## <a name="component-prerequisites"></a>Pré-requisitos de componentes
 ### <a name="powershell-and-net-framework"></a>PowerShell e .NET Framework
-O Azure AD Connect depende do Microsoft PowerShell e do .NET Framework 4.5.1. Precisa desta versão ou de uma versão posterior instalada no seu servidor. Dependendo da versão do Windows Server, faça o seguinte:
+O Azure AD Connect depende do Microsoft PowerShell e do .NET Framework 4.5.1. Precisa desta versão ou de uma versão posterior instalada no seu servidor. Dependendo da versão do Windows Server, tome as seguintes ações:
 
-* Windows Server 2012R2
+* Windows Server 2012 R2
   * O Microsoft PowerShell é instalado por defeito. nenhuma ação necessária.
-  * .NET Framework 4.5.1 e lançamentos posteriores são oferecidos através do Windows Update. Certifique-se de que instalou as últimas atualizações do Windows Server no Painel de Controlo.
+  * .NET Framework 4.5.1 e lançamentos posteriores são oferecidos através do Windows Update. Certifique-se de que instalou as últimas atualizações no Windows Server no Painel de Controlo.
 * Windows Server 2012
-  * A versão mais recente do Microsoft PowerShell está disponível no **Windows Management Framework 4.0**, disponível no [Microsoft Download Center](https://www.microsoft.com/downloads).
+  * A versão mais recente do Microsoft PowerShell está disponível no Windows Management Framework 4.0, disponível no [Microsoft Download Center](https://www.microsoft.com/downloads).
   * .NET Framework 4.5.1 e as versões posteriores estão disponíveis no [Microsoft Download Center](https://www.microsoft.com/downloads).
 
 
 ### <a name="enable-tls-12-for-azure-ad-connect"></a>Ativar TLS 1.2 para Azure AD Connect
-Antes da versão 1.1.614.0, o Azure AD Connect por predefinição utiliza o TLS 1.0 para encriptar a comunicação entre o servidor do motor de sincronização e o Ad AZure. Pode alterá-lo configurando aplicações .NET para utilizar o TLS 1.2 por predefinição no servidor. Mais informações sobre o TLS 1.2 podem ser encontradas no [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358).
+Antes da versão 1.1.614.0, o Azure AD Connect por predefinição utiliza o TLS 1.0 para encriptar a comunicação entre o servidor do motor de sincronização e o Ad AZure. Pode configurar aplicações .NET para utilizar o TLS 1.2 por predefinição no servidor. Para obter mais informações sobre o TLS 1.2, consulte [o Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358).
 
-1.  Certifique-se de que tem o hotfix .NET 4.5.1 instalado para o seu sistema operativo, consulte o [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358). Pode ter este hotfix ou um desbloqueio posterior já instalado no seu servidor.
+1. Certifique-se de que tem o hotfix .NET 4.5.1 instalado para o seu sistema operativo. Para mais informações, consulte [o Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358). Pode ter este hotfix ou um desbloqueio posterior já instalado no seu servidor.
+
+1. Para todos os sistemas operativos, esta tecla de registo e reinicie o servidor.
     ```
-2. For all operating systems, set this registry key and restart the server.
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319
+    "SchUseStrongCrypto"=dword:00000001
     ```
-    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft \. NETFramework\v4.0.30319 "SchUseStrongCrypto"=dword:0000001
-    ```
-4. If you also want to enable TLS 1.2 between the sync engine server and a remote SQL Server, then make sure you have the required versions installed for [TLS 1.2 support for Microsoft SQL Server](https://support.microsoft.com/kb/3135244).
+1. Se também pretende ativar o TLS 1.2 entre o servidor do motor de sincronização e um servidor SQL remoto, certifique-se de que tem as versões necessárias instaladas para [suporte TLS 1.2 para o Microsoft SQL Server](https://support.microsoft.com/kb/3135244).
 
-## Prerequisites for federation installation and configuration
-### Windows Remote Management
-When using Azure AD Connect to deploy Active Directory Federation Services or the Web Application Proxy, check these requirements:
+## <a name="prerequisites-for-federation-installation-and-configuration"></a>Pré-requisitos para a instalação e configuração da federação
+### <a name="windows-remote-management"></a>Gestão Remota do Windows
+Quando utilizar o Azure AD Connect para implementar O FS AD ou o Proxy da Aplicação Web (WAP), verifique estes requisitos:
 
-* If the target server is domain joined, then ensure that Windows Remote Managed is enabled
-  * In an elevated PowerShell command window, use command `Enable-PSRemoting –force`
-* If the target server is a non-domain joined WAP machine, then there are a couple of additional requirements
-  * On the target machine (WAP machine):
-    * Ensure the winrm (Windows Remote Management / WS-Management) service is running via the Services snap-in
-    * In an elevated PowerShell command window, use command `Enable-PSRemoting –force`
-  * On the machine on which the wizard is running (if the target machine is non-domain joined or untrusted domain):
-    * In an elevated PowerShell command window, use the command `Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
-    * In Server Manager:
-      * add DMZ WAP host to machine pool (server manager -> Manage -> Add Servers...use DNS tab)
-      * Server Manager All Servers tab: right click WAP server and choose Manage As..., enter local (not domain) creds for the WAP machine
-      * To validate remote PowerShell connectivity, in the Server Manager All Servers tab: right click WAP server and choose Windows PowerShell. A remote PowerShell session should open to ensure remote PowerShell sessions can be established.
+* Se o servidor alvo estiver unido ao domínio, certifique-se de que o Windows Remote Managed está ativado.
+  * Numa janela de comando PowerShell elevada, utilize o comando `Enable-PSRemoting –force` .
+* Se o servidor alvo for uma máquina WAP não-de-domínio, existem alguns requisitos adicionais:
+  * Na máquina-alvo (máquina WAP):
+    * Certifique-se de que o serviço de Gestão Remota do Windows/WS (WinRM) está a ser gerido através do snap-in dos Serviços.
+    * Numa janela de comando PowerShell elevada, utilize o comando `Enable-PSRemoting –force` .
+  * Na máquina em que o assistente está em funcionamento (se a máquina-alvo não estiver de domínio ou se for um domínio não fided o domínio):
+    * Numa janela de comando PowerShell elevada, utilize o comando `Set-Item.WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate` .
+    * No gestor do servidor:
+      * Adicione um anfitrião DMZ WAP a uma piscina de máquinas. No gestor do servidor, selecione **Gerir**  >  **Servidores de Adicionar**e, em seguida, use o **separador DNS.**
+      * No **separador 'Gestor do Servidor' Todos os Servidores,** clique no servidor WAP e selecione **'Gerir's Como**. Introduza credenciais locais (não domínio) para a máquina WAP.
+      * Para validar a conectividade remota powerShell, no separador Gestor do **Servidor Todos os Servidores,** clique com o botão direito no servidor WAP e selecione **Windows PowerShell**. Uma sessão powerShell remota deve ser aberta para garantir que sessões remotas do PowerShell possam ser estabelecidas.
 
-### TLS/SSL Certificate Requirements
-* It's strongly recommended to use the same TLS/SSL certificate across all nodes of your AD FS farm and all Web Application proxy servers.
-* The certificate must be an X509 certificate.
-* You can use a self-signed certificate on federation servers in a test lab environment. However, for a production environment, we recommend that you obtain the certificate from a public CA.
-  * If using a certificate that is not publicly trusted, ensure that the certificate installed on each Web Application Proxy server is trusted on both the local server and on all federation servers
-* The identity of the certificate must match the federation service name (for example, sts.contoso.com).
-  * The identity is either a subject alternative name (SAN) extension of type dNSName or, if there are no SAN entries, the subject name specified as a common name.  
-  * Multiple SAN entries can be present in the certificate, provided one of them matches the federation service name.
-  * If you are planning to use Workplace Join, an additional SAN is required with the value **enterpriseregistration.** followed by the User Principal Name (UPN) suffix of your organization, for example, **enterpriseregistration.contoso.com**.
-* Certificates based on CryptoAPI next generation (CNG) keys and key storage providers are not supported. This means you must use a certificate based on a CSP (cryptographic service provider) and not a KSP (key storage provider).
-* Wild-card certificates are supported.
+### <a name="tlsssl-certificate-requirements"></a>Requisitos de certificado TLS/SSL
+* Recomendamos que utilize o mesmo certificado TLS/SSL em todos os nós da sua fazenda AD FS e todos os servidores Proxy de aplicações web.
+* O certificado deve ser um certificado X509.
+* Você pode usar um certificado auto-assinado em servidores da federação em um ambiente de laboratório de teste. Para um ambiente de produção, recomendamos que obtenha o certificado de uma autoridade de certificados públicos.
+  * Se estiver a utilizar um certificado que não seja de confiança pública, certifique-se de que o certificado instalado em cada servidor Proxy da Aplicação Web é confiável tanto no servidor local como em todos os servidores da federação.
+* A identidade do certificado deve corresponder ao nome de serviço da federação (por exemplo, sts.contoso.com).
+  * A identidade é ou uma extensão de nome alternativo (SAN) do tipo dNSName ou, se não houver entradas SAN, o nome do sujeito é especificado como um nome comum.
+  * Várias entradas SAN podem estar presentes no certificado desde que uma delas corresponda ao nome de serviço da federação.
+  * Se você está planejando usar Workplace Join, um SAN adicional é necessário com o **valor enterpriseregistration.** seguido pelo sufixo principal do utilizador (UPN) da sua organização, por exemplo, enterpriseregistration.contoso.com.
+* Os certificados baseados em teclas de próxima geração da CryptoAPI (GNG) e fornecedores de armazenamento chave (KSPs) não são suportados. Como resultado, deve utilizar um certificado baseado num prestador de serviços criptográfico (CSP) e não num KSP.
+* Os certificados wild-card são suportados.
 
-### Name resolution for federation servers
-* Set up DNS records for the AD FS federation service name (for example sts.contoso.com) for both the intranet (your internal DNS server) and the extranet (public DNS through your domain registrar). For the intranet DNS record, ensure that you use A records and not CNAME records. This is required for windows authentication to work correctly from your domain joined machine.
-* If you are deploying more than one AD FS server or Web Application Proxy server, then ensure that you have configured your load balancer and that the DNS records for the AD FS federation service name (for example sts.contoso.com) point to the load balancer.
-* For windows integrated authentication to work for browser applications using Internet Explorer in your intranet, ensure that the AD FS federation service name (for example sts.contoso.com) is added to the intranet zone in IE. This can be controlled via group policy and deployed to all your domain joined computers.
+### <a name="name-resolution-for-federation-servers"></a>Resolução de nomes para servidores da federação
+* Configurar registos DNS para o nome AD FS (por exemplo, sts.contoso.com) tanto para a intranet (o seu servidor DNS interno) como para a extranet (DNS público através do seu registo de domínio). Para o registo intranet DNS, certifique-se de que utiliza registos A e não de CNAME. A utilização de registos A é necessária para que a autenticação do Windows funcione corretamente a partir da sua máquina de união de domínios.
+* Se estiver a implementar mais de um servidor AD FS ou servidor Proxy de aplicações web, certifique-se de que configura o seu equilibrador de carga e que os registos DNS para o nome AD FS (por exemplo, sts.contoso.com) apontam para o balançador de carga.
+* Para a autenticação integrada do Windows funcionar para aplicações de navegador utilizando o Internet Explorer na sua intranet, certifique-se de que o nome AD FS (por exemplo, sts.contoso.com) é adicionado à zona intranet no Internet Explorer. Este requisito pode ser controlado através da Política de Grupo e implementado em todos os seus computadores unidos pelo domínio.
 
-## Azure AD Connect supporting components
-The following is a list of components that Azure AD Connect installs on the server where Azure AD Connect is installed. This list is for a basic Express installation. If you choose to use a different SQL Server on the Install synchronization services page, then SQL Express LocalDB is not installed locally.
+## <a name="azure-ad-connect-supporting-components"></a>Componentes de suporte AD AD AD
+O Azure AD Connect instala os seguintes componentes no servidor onde o Azure AD Connect está instalado. Esta lista destina-se a uma instalação básica do Expresso. Se optar por utilizar um servidor SQL diferente na página de **serviços de sincronização instalar,** o SQL Express LocalDB não está instalado localmente.
 
 * Azure AD Connect Health
-* Microsoft SQL Server 2012 Command Line Utilities
+* Utilitários da linha de comando Microsoft SQL Server 2012
 * Microsoft SQL Server 2012 Express LocalDB
-* Microsoft SQL Server 2012 Native Client
-* Microsoft Visual C++ 2013 Redistribution Package
+* Microsoft SQL Server 2012 Cliente Nativo
+* Pacote de redistribuição Do Microsoft Visual C++ 2013
 
-## Hardware requirements for Azure AD Connect
-The table below shows the minimum requirements for the Azure AD Connect sync computer.
+## <a name="hardware-requirements-for-azure-ad-connect"></a>Requisitos de hardware para Azure AD Connect
+A tabela a seguir mostra os requisitos mínimos para o computador sincronizado Azure AD Connect.
 
-| Number of objects in Active Directory | CPU | Memory | Hard drive size |
+| Número de objetos no Diretório Ativo | CPU | Memória | Tamanho do disco rígido |
 | --- | --- | --- | --- |
-| Fewer than 10,000 |1.6 GHz |4 GB |70 GB |
-| 10,000–50,000 |1.6 GHz |4 GB |70 GB |
-| 50,000–100,000 |1.6 GHz |16 GB |100 GB |
-| For 100,000 or more objects the full version of SQL Server is required | | | |
-| 100,000–300,000 |1.6 GHz |32 GB |300 GB |
-| 300,000–600,000 |1.6 GHz |32 GB |450 GB |
-| More than 600,000 |1.6 GHz |32 GB |500 GB |
+| Menos de 10.000 |1,6 GHz |4GB |70 GB |
+| 10,000–50,000 |1,6 GHz |4GB |70 GB |
+| 50,000–100,000 |1,6 GHz |16 GB |100 GB |
+| Para 100.000 ou mais objetos, a versão completa do SQL Server é necessária | | | |
+| 100,000–300,000 |1,6 GHz |32 GB |300 GB |
+| 300,000–600,000 |1,6 GHz |32 GB |450 GB |
+| Mais de 600.000 |1,6 GHz |32 GB |500 GB |
 
-The minimum requirements for computers running AD FS or Web Application Proxy Servers is the following:
+Os requisitos mínimos para computadores que executam servidores de procuração de AD FS ou aplicação web são:
 
-* CPU: Dual core 1.6 GHz or higher
-* MEMORY: 2 GB or higher
-* Azure VM: A2 configuration or higher
+* CPU: Núcleo duplo 1,6 GHz ou superior
+* Memória: 2 GB ou superior
+* Azure VM: Configuração A2 ou superior
 
-## Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
+## <a name="next-steps"></a>Passos seguintes
+Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

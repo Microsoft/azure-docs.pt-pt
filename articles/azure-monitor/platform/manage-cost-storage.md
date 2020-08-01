@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: bba634fa20c3bab6e3763f6cedcbeb77f4546098
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: bbc6b4c1317ac31d6262892ac32e2d45cf4863db
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327876"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449078"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerir a utilização e os custos com registos do Monitor Azure    
 
@@ -579,7 +579,7 @@ Para alertar se o volume de dados faturado nas últimas 24 horas foi superior a 
 - **Definir condição de alerta** especifique a sua área de trabalho do Log Analytics como o destino de recursos.
 - **Critérios de alerta** especifique o seguinte:
    - **Nome do Sinal** selecione **Pesquisa de registos personalizada**
-   - **Consulta de pesquisa** para `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . Se quiser uma divergência 
+   - **Consulta de pesquisa** para `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . 
    - A **Lógica de alerta** é **Baseada no** *número de resultados* e a **Condição** é *Maior do que* um **Limiar** de *0*
    - **Período** de tempo de *1440* minutos e **frequência de alerta** a cada *1440* minutos para correr uma vez por dia.
 - **Definir detalhes do alerta** especifique o seguinte:

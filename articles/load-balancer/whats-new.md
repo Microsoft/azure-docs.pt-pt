@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: overview
 ms.date: 07/07/2020
 ms.author: anavin
-ms.openlocfilehash: 8b44dc230dbee1b29b9889a1b81e35ebe25f6b97
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 24c5133b9c012b628e43e956c56d5112e1ad4649
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078687"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447035"
 ---
 # <a name="whats-new-in-azure-load-balancer"></a>Quais as novidades no Azure Load Balancer?
 
@@ -34,6 +34,16 @@ Também pode encontrar as últimas atualizações do Azure Load Balancer e subsc
 | Validação | Adição de validação para portas HA | Foi adicionada uma validação para garantir que as regras portuárias ha e as regras portuárias não HA só são configuráveis quando o IP flutuante está ativado. Anteriormente, esta configuração passaria, mas não funcionaria como pretendido. Não foi feita qualquer alteração à funcionalidade. Pode aprender mais [aqui](load-balancer-ha-ports-overview.md#limitations)| Junho de 2020 |
 | Funcionalidade| Suporte IPv6 para Azure Load Balancer (geralmente disponível) | Pode ter endereços IPv6 como frontend para os seus Balançadores de Carga Azure. Saiba como [criar uma aplicação de pilha dupla aqui](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) |Abril de 2020|
 | Funcionalidade| Resets TCP no tempo limite de marcha lenta (geralmente disponível)| Utilize resets TCP para criar um comportamento de aplicação mais previsível. [Saiba mais](load-balancer-tcp-reset.md)| Fevereiro de 2020 |
+
+## <a name="known-issues"></a>Problemas conhecidos
+
+O grupo de produtos está a trabalhar ativamente em resoluções para as seguintes questões conhecidas:
+
+|Problema |Descrição  |Mitigação  |
+| ---------- |---------|---------|
+| Exportação log Analytics | Log Analytics não pode exportar métricas para balanceadores de carga padrão nem registos de estado da sonda de saúde para balanceador de carga básica  | [Utilize o Azure Monitor para métricas multidimensionais para o seu Balancer de Carga Padrão](load-balancer-standard-diagnostics.md). Embora não seja capaz de utilizar o Log Analytics para monitorização, o Azure Monitor fornece visualização para um conjunto rico de métricas multidimensionais. Pode alavancar o painel de métricas pré-configurado através da sub-lâmina insights do seu Balancer de Carga. Se utilizar o [upgrade](upgrade-basic-standard.md) do Balancer de Carga Básica para standard para monitorização de métricas de nível de produção.
+
+  
 
 ## <a name="next-steps"></a>Passos seguintes
 

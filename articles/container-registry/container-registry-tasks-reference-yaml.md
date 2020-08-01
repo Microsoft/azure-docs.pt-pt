@@ -2,13 +2,13 @@
 title: Referência YAML - Tarefas ACR
 description: Referência para definir tarefas em YAML para tarefas ACR, incluindo propriedades de tarefas, tipos de passos, propriedades de passos e variáveis incorporadas.
 ms.topic: article
-ms.date: 10/23/2019
-ms.openlocfilehash: 11771c32db3b3d7c975c0262bda228903a58978f
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.date: 07/08/2020
+ms.openlocfilehash: 1d680fd8512ec96fa4fb5762e4a3552e5e2e4dd3
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171062"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446926"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referência de tarefas ACR: YAML
 
@@ -18,7 +18,7 @@ Este artigo contém referência para a criação de ficheiros YAML de tarefas de
 
 ## <a name="acr-taskyaml-file-format"></a>formato de ficheiro acr-task.yaml
 
-A ACR Tasks suporta a declaração de tarefa em várias etapas na sintaxe YAML padrão. Define os passos de uma tarefa num ficheiro YAML. Em seguida, pode executar a tarefa manualmente, passando o ficheiro para o comando [de execução az acr.][az-acr-run] Ou, use o ficheiro para criar uma tarefa com [a az acr task create][az-acr-task-create] que é ativada automaticamente numa atualização de imagem git ou base. Embora este artigo se refira a `acr-task.yaml` um ficheiro que contém os passos, a ACR Tasks suporta qualquer nome de ficheiro válido com uma [extensão suportada](#supported-task-filename-extensions).
+A ACR Tasks suporta a declaração de tarefa em várias etapas na sintaxe YAML padrão. Define os passos de uma tarefa num ficheiro YAML. Em seguida, pode executar a tarefa manualmente, passando o ficheiro para o comando [de execução az acr.][az-acr-run] Ou, use o ficheiro para criar uma tarefa com [a az acr task create][az-acr-task-create] que é ativada automaticamente em um compromisso Git, uma atualização de imagem base ou um horário. Embora este artigo se refira a `acr-task.yaml` um ficheiro que contém os passos, a ACR Tasks suporta qualquer nome de ficheiro válido com uma [extensão suportada](#supported-task-filename-extensions).
 
 Os primitivos de alto nível são propriedades de `acr-task.yaml` **tarefa,** **tipos de passos,** e propriedades **de passos:**
 
@@ -77,12 +77,13 @@ As propriedades de tarefas normalmente aparecem no topo de um `acr-task.yaml` fi
 
 | Propriedade | Tipo | Opcional | Descrição | Substituição suportada | Valor predefinido |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
-| `version` | string | Yes | A versão do `acr-task.yaml` ficheiro analisada pelo serviço ACR Tasks. Enquanto a ACR Tasks se esforça para manter a retrocompatibilidade, este valor permite que as Tarefas ACR mantenham a compatibilidade dentro de uma versão definida. Se não for especificado, predefine a versão mais recente. | Não | Nenhum |
-| `stepTimeout` | int (segundos) | Yes | O número máximo de segundos que um passo pode correr. Se a propriedade for especificada numa tarefa, define a propriedade padrão `timeout` de todos os degraus. Se a `timeout` propriedade for especificada num degrau, substitui a propriedade fornecida pela tarefa. | Yes | 600 (10 minutos) |
-| `workingDirectory` | string | Yes | O diretório de trabalho do contentor durante o tempo de funcionamento. Se a propriedade for especificada numa tarefa, define a propriedade padrão `workingDirectory` de todos os degraus. Se especificado em um passo, substitui a propriedade fornecida pela tarefa. | Yes | `/workspace` |
-| `env` | [corda, corda, ...] | Yes |  Matriz de cordas em `key=value` formato que definem as variáveis ambientais para a tarefa. Se a propriedade for especificada numa tarefa, define a propriedade padrão `env` de todos os degraus. Se especificado num passo, substitui quaisquer variáveis ambientais herdadas da tarefa. | Nenhum |
-| `secrets` | [segredo, segredo, ...] | Yes | Conjunto de objetos [secretos.](#secret) | Nenhum |
-| `networks` | [rede, rede, ...] | Yes | Conjunto de objetos de [rede.](#network) | Nenhum |
+| `version` | cadeia | Sim | A versão do `acr-task.yaml` ficheiro analisada pelo serviço ACR Tasks. Enquanto a ACR Tasks se esforça para manter a retrocompatibilidade, este valor permite que as Tarefas ACR mantenham a compatibilidade dentro de uma versão definida. Se não for especificado, predefine a versão mais recente. | Não | Nenhum |
+| `stepTimeout` | int (segundos) | Sim | O número máximo de segundos que um passo pode correr. Se a propriedade for especificada numa tarefa, define a propriedade padrão `timeout` de todos os degraus. Se a `timeout` propriedade for especificada num degrau, substitui a propriedade fornecida pela tarefa. | Sim | 600 (10 minutos) |
+| `workingDirectory` | cadeia | Sim | O diretório de trabalho do contentor durante o tempo de funcionamento. Se a propriedade for especificada numa tarefa, define a propriedade padrão `workingDirectory` de todos os degraus. Se especificado em um passo, substitui a propriedade fornecida pela tarefa. | Sim | `/workspace` |
+| `env` | [corda, corda, ...] | Sim |  Matriz de cordas em `key=value` formato que definem as variáveis ambientais para a tarefa. Se a propriedade for especificada numa tarefa, define a propriedade padrão `env` de todos os degraus. Se especificado num passo, substitui quaisquer variáveis ambientais herdadas da tarefa. | Sim | Nenhum |
+| `secrets` | [segredo, segredo, ...] | Sim | Conjunto de objetos [secretos.](#secret) Não | Nenhum |
+| `networks` | [rede, rede, ...] | Sim | Conjunto de objetos de [rede.](#network) Não | Nenhum |
+| `volumes` | [volume, volume, ...] | Sim | Conjunto de objetos de [volume.](#volume) Especifica volumes com conteúdo de origem para montar a um passo. | Não | Nenhum |
 
 ### <a name="secret"></a>segredo
 
@@ -91,8 +92,8 @@ O objeto secreto tem as seguintes propriedades.
 | Propriedade | Tipo | Opcional | Descrição | Valor predefinido |
 | -------- | ---- | -------- | ----------- | ------- |
 | `id` | cadeia (de carateres) | No | O identificador do segredo. | Nenhum |
-| `keyvault` | string | Yes | A URL secreta do cofre da chave azul. | Nenhum |
-| `clientID` | string | Yes | Identificação do cliente da [identidade gerida atribuída pelo utilizador](container-registry-tasks-authentication-managed-identity.md) para os recursos da Azure. | Nenhum |
+| `keyvault` | cadeia | Sim | A URL secreta do cofre da chave azul. | Nenhum |
+| `clientID` | cadeia | Sim | Identificação do cliente da [identidade gerida atribuída pelo utilizador](container-registry-tasks-authentication-managed-identity.md) para os recursos da Azure. | Nenhum |
 
 ### <a name="network"></a>network
 
@@ -101,10 +102,19 @@ O objeto de rede tem as seguintes propriedades.
 | Propriedade | Tipo | Opcional | Descrição | Valor predefinido |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | cadeia (de carateres) | No | O nome da rede. | Nenhum |
-| `driver` | string | Yes | O motorista para gerir a rede. | Nenhum |
-| `ipv6` | bool | Yes | Se a rede IPv6 está ativada. | `false` |
-| `skipCreation` | bool | Yes | Se saltar a criação de rede. | `false` |
-| `isDefault` | bool | Yes | Se a rede é uma rede padrão fornecida com registo de contentores Azure | `false` |
+| `driver` | cadeia | Sim | O motorista para gerir a rede. | Nenhum |
+| `ipv6` | bool | Sim | Se a rede IPv6 está ativada. | `false` |
+| `skipCreation` | bool | Sim | Se saltar a criação de rede. | `false` |
+| `isDefault` | bool | Sim | Se a rede é uma rede predefinida fornecida com registo de contentores Azure. | `false` |
+
+### <a name="volume"></a>volume
+
+O objeto de volume tem as seguintes propriedades.
+
+| Propriedade | Tipo | Opcional | Descrição | Valor predefinido |
+| -------- | ---- | -------- | ----------- | ------- | 
+| `name` | cadeia (de carateres) | No | O nome do volume a montar. Pode conter apenas caracteres alfanuméricos, '-', e '_'. | Nenhum |
+| `secret` | mapa[cadeia]cadeia | Não | Cada chave do mapa é o nome de um ficheiro criado e povoado no volume. Cada valor é a versão de corda do segredo. Os valores secretos devem ser codificados na Base64. | Nenhum |
 
 ## <a name="task-step-types"></a>Tipos de etapas de tarefa
 
@@ -133,8 +143,8 @@ O `build` tipo de passo suporta os parâmetros na tabela seguinte. O `build` tip
 
 | Parâmetro | Descrição | Opcional |
 | --------- | ----------- | :-------: |
-| `-t`&#124;`--image` | Define a plena qualificação `image:tag` da imagem construída.<br /><br />Como as imagens podem ser usadas para validações de tarefas internas, tais como testes funcionais, nem todas as imagens requerem `push` um registo. No entanto, para exemplo de uma imagem dentro de uma execução de Tarefa, a imagem precisa de um nome para referência.<br /><br />Ao contrário de `az acr build` , executar tarefas ACR não fornece um comportamento de pressão padrão. Com as Tarefas ACR, o cenário padrão assume a capacidade de construir, validar e, em seguida, empurrar uma imagem. Veja [o impulso](#push) para como empurrar opcionalmente imagens construídas. | Yes |
-| `-f`&#124;`--file` | Especifica que o Dockerfile passou para `docker build` . Se não for especificado, assume-se o Ficheiro Docker na raiz do contexto. Para especificar um Dockerfile, passe o nome de ficheiro relativo à raiz do contexto. | Yes |
+| `-t`&#124;`--image` | Define a plena qualificação `image:tag` da imagem construída.<br /><br />Como as imagens podem ser usadas para validações de tarefas internas, tais como testes funcionais, nem todas as imagens requerem `push` um registo. No entanto, para exemplo de uma imagem dentro de uma execução de Tarefa, a imagem precisa de um nome para referência.<br /><br />Ao contrário de `az acr build` , executar tarefas ACR não fornece um comportamento de pressão padrão. Com as Tarefas ACR, o cenário padrão assume a capacidade de construir, validar e, em seguida, empurrar uma imagem. Veja [o impulso](#push) para como empurrar opcionalmente imagens construídas. | Sim |
+| `-f`&#124;`--file` | Especifica que o Dockerfile passou para `docker build` . Se não for especificado, assume-se o Ficheiro Docker na raiz do contexto. Para especificar um Dockerfile, passe o nome de ficheiro relativo à raiz do contexto. | Sim |
 | `context` | O diretório de raiz passou para `docker build` . O diretório de raiz de cada tarefa está definido para uma [direção](#task-step-properties)de trabalho partilhada, e inclui a raiz do diretório clonado de Git associado. | Não |
 
 ### <a name="properties-build"></a>Propriedades: construir
@@ -145,12 +155,12 @@ O `build` tipo de passo suporta as seguintes propriedades. Encontre detalhes des
 | -------- | ---- | -------- |
 | `detach` | bool | Opcional |
 | `disableWorkingDirectoryOverride` | bool | Opcional |
-| `entryPoint` | string | Opcional |
+| `entryPoint` | cadeia | Opcional |
 | `env` | [corda, corda, ...] | Opcional |
 | `expose` | [corda, corda, ...] | Opcional |
-| `id` | string | Opcional |
+| `id` | cadeia | Opcional |
 | `ignoreErrors` | bool | Opcional |
-| `isolation` | string | Opcional |
+| `isolation` | cadeia | Opcional |
 | `keep` | bool | Opcional |
 | `network` | objeto | Opcional |
 | `ports` | [corda, corda, ...] | Opcional |
@@ -161,8 +171,9 @@ O `build` tipo de passo suporta as seguintes propriedades. Encontre detalhes des
 | `secret` | objeto | Opcional |
 | `startDelay` | int (segundos) | Opcional |
 | `timeout` | int (segundos) | Opcional |
+| `volumeMount` | objeto | Opcional |
 | `when` | [corda, corda, ...] | Opcional |
-| `workingDirectory` | string | Opcional |
+| `workingDirectory` | cadeia | Opcional |
 
 ### <a name="examples-build"></a>Exemplos: construir
 
@@ -216,7 +227,7 @@ O `push` tipo de passo suporta as seguintes propriedades. Encontre detalhes dest
 | Propriedade | Tipo | Necessário |
 | -------- | ---- | -------- |
 | `env` | [corda, corda, ...] | Opcional |
-| `id` | string | Opcional |
+| `id` | cadeia | Opcional |
 | `ignoreErrors` | bool | Opcional |
 | `startDelay` | int (segundos) | Opcional |
 | `timeout` | int (segundos) | Opcional |
@@ -262,12 +273,12 @@ O `cmd` tipo de passo suporta as seguintes propriedades:
 | -------- | ---- | -------- |
 | `detach` | bool | Opcional |
 | `disableWorkingDirectoryOverride` | bool | Opcional |
-| `entryPoint` | string | Opcional |
+| `entryPoint` | cadeia | Opcional |
 | `env` | [corda, corda, ...] | Opcional |
 | `expose` | [corda, corda, ...] | Opcional |
-| `id` | string | Opcional |
+| `id` | cadeia | Opcional |
 | `ignoreErrors` | bool | Opcional |
-| `isolation` | string | Opcional |
+| `isolation` | cadeia | Opcional |
 | `keep` | bool | Opcional |
 | `network` | objeto | Opcional |
 | `ports` | [corda, corda, ...] | Opcional |
@@ -278,8 +289,9 @@ O `cmd` tipo de passo suporta as seguintes propriedades:
 | `secret` | objeto | Opcional |
 | `startDelay` | int (segundos) | Opcional |
 | `timeout` | int (segundos) | Opcional |
+| `volumeMount` | objeto | Opcional |
 | `when` | [corda, corda, ...] | Opcional |
-| `workingDirectory` | string | Opcional |
+| `workingDirectory` | cadeia | Opcional |
 
 Pode encontrar detalhes destas propriedades na secção de propriedades do [passo de tarefa](#task-step-properties) deste artigo.
 
@@ -352,34 +364,76 @@ Ao utilizar a convenção de referência de `docker run` imagem padrão, pode ex
       - cmd: $Registry/myimage:mytag
     ```
 
+#### <a name="access-secret-volumes"></a>Aceder a volumes secretos
+
+A `volumes` propriedade permite que volumes e seus conteúdos secretos sejam especificados e `build` `cmd` passos em uma tarefa. Dentro de cada etapa, uma propriedade opcional `volumeMounts` lista os volumes e os caminhos correspondentes do contentor para montar no recipiente nesse degrau. Os segredos são fornecidos como ficheiros no caminho de montagem de cada volume.
+
+Execute uma tarefa e monte dois segredos a um passo: um armazenado num cofre chave e outro especificado na linha de comando:
+
+```azurecli
+az acr run -f mounts-secrets.yaml --set-secret mysecret=abcdefg123456 https://github.com/Azure-Samples/acr-tasks.git
+```
+
+<!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/mounts-secrets.yaml -->
+<!-- [!code-yml[task](~/acr-tasks/mounts-secrets.yaml)] -->
+
+```yml
+# This template demonstrates mounting a custom volume into a container at a CMD step
+secrets:
+  - id: sampleSecret
+    keyvault: https://myacbvault2.vault.azure.net/secrets/SampleSecret
+
+volumes:
+  - name: mysecrets
+    secret:
+      mysecret1: {{.Secrets.sampleSecret | b64enc}}
+      mysecret2: {{.Values.mysecret | b64enc}}
+
+steps:
+  - cmd: bash cat /run/test/mysecret1 /run/test/mysecret2
+    volumeMounts:
+      - name: mysecrets
+        mountPath: /run/test
+```
+
 ## <a name="task-step-properties"></a>Propriedades do passo de tarefa
 
 Cada tipo de passo suporta várias propriedades adequadas para o seu tipo. A tabela a seguir define todas as propriedades de passo disponíveis. Nem todos os tipos de passo suportam todas as propriedades. Para ver quais destas propriedades estão disponíveis para cada tipo de passo, consulte o [cmd,](#cmd) [construa](#build)e [empurre](#push) as secções de referência do tipo passo.
 
 | Propriedade | Tipo | Opcional | Descrição | Valor predefinido |
 | -------- | ---- | -------- | ----------- | ------- |
-| `detach` | bool | Yes | Se o recipiente deve ser desligado durante o funcionamento. | `false` |
-| `disableWorkingDirectoryOverride` | bool | Yes | Se desativar a `workingDirectory` funcionalidade de substituição. Utilize isto em combinação com `workingDirectory` o controlo total sobre o diretório de trabalho do contentor. | `false` |
-| `entryPoint` | string | Yes | Sobrepõe-se ao `[ENTRYPOINT]` contentor de um degrau. | Nenhum |
-| `env` | [corda, corda, ...] | Yes | Matriz de cordas em `key=value` formato que definem as variáveis ambientais para o passo. | Nenhum |
-| `expose` | [corda, corda, ...] | Yes | Matriz de portas expostas do recipiente. |  Nenhum |
-| [`id`](#example-id) | string | Yes | Identifica exclusivamente o passo dentro da tarefa. Outros passos na tarefa podem fazer referência a um `id` passo, como por exemplo, para verificação de dependência com `when` .<br /><br />É `id` também o nome do recipiente de funcionamento. Os processos em execução em outros contentores na tarefa podem referir-se ao `id` nome de anfitrião do DNS, ou para aceder a ele com registos de estivadores [id], por exemplo. | `acb_step_%d`, onde `%d` está o índice baseado em 0 do degrau de cima para baixo no ficheiro YAML |
-| `ignoreErrors` | bool | Yes | Se marcar o passo como bem sucedido, independentemente de ter ocorrido um erro durante a execução do contentor. | `false` |
-| `isolation` | string | Yes | O nível de isolamento do contentor. | `default` |
-| `keep` | bool | Yes | Se o contentor do degrau deve ser mantido após a execução. | `false` |
-| `network` | objeto | Yes | Identifica uma rede em que o contentor funciona. | Nenhum |
-| `ports` | [corda, corda, ...] | Yes | Conjunto de portas que são publicadas do recipiente para o hospedeiro. |  Nenhum |
-| `pull` | bool | Yes | Se forçar um puxão do recipiente antes de executá-lo para evitar qualquer comportamento de caching. | `false` |
-| `privileged` | bool | Yes | Se deve executar o recipiente em modo privilegiado. | `false` |
-| `repeat` | int | Yes | O número de retretes para repetir a execução de um contentor. | 0 |
-| `retries` | int | Yes | O número de retrações para tentar se um contentor falhar a sua execução. Uma nova tentativa só é tentada se o código de saída de um contentor não for zero. | 0 |
-| `retryDelay` | int (segundos) | Yes | O atraso em segundos entre as retretes da execução de um contentor. | 0 |
-| `secret` | objeto | Yes | Identifica um cofre de chaves Azure ou [identidade gerida para os recursos da Azure.](container-registry-tasks-authentication-managed-identity.md) | Nenhum |
-| `startDelay` | int (segundos) | Yes | Número de segundos para atrasar a execução de um contentor. | 0 |
-| `timeout` | int (segundos) | Yes | O número máximo de segundos que um passo pode executar antes de ser terminado. | 600 |
-| [`when`](#example-when) | [corda, corda, ...] | Yes | Configura a dependência de um passo em um ou mais passos dentro da tarefa. | Nenhum |
-| `user` | string | Yes | O nome de utilizador ou UID de um recipiente | Nenhum |
-| `workingDirectory` | string | Yes | Define o diretório de trabalho para um passo. Por predefinição, a ACR Tasks cria um diretório de raiz como diretório de trabalho. No entanto, se a sua construção tiver vários passos, os passos anteriores podem partilhar artefactos com passos posteriores especificando o mesmo diretório de trabalho. | `/workspace` |
+| `detach` | bool | Sim | Se o recipiente deve ser desligado durante o funcionamento. | `false` |
+| `disableWorkingDirectoryOverride` | bool | Sim | Se desativar a `workingDirectory` funcionalidade de substituição. Utilize isto em combinação com `workingDirectory` o controlo total sobre o diretório de trabalho do contentor. | `false` |
+| `entryPoint` | cadeia | Sim | Sobrepõe-se ao `[ENTRYPOINT]` contentor de um degrau. | Nenhum |
+| `env` | [corda, corda, ...] | Sim | Matriz de cordas em `key=value` formato que definem as variáveis ambientais para o passo. | Nenhum |
+| `expose` | [corda, corda, ...] | Sim | Matriz de portas expostas do recipiente. |  Nenhum |
+| [`id`](#example-id) | cadeia | Sim | Identifica exclusivamente o passo dentro da tarefa. Outros passos na tarefa podem fazer referência a um `id` passo, como por exemplo, para verificação de dependência com `when` .<br /><br />É `id` também o nome do recipiente de funcionamento. Os processos em execução em outros contentores na tarefa podem referir-se ao `id` nome de anfitrião do DNS, ou para aceder a ele com registos de estivadores [id], por exemplo. | `acb_step_%d`, onde `%d` está o índice baseado em 0 do degrau de cima para baixo no ficheiro YAML |
+| `ignoreErrors` | bool | Sim | Se marcar o passo como bem sucedido, independentemente de ter ocorrido um erro durante a execução do contentor. | `false` |
+| `isolation` | cadeia | Sim | O nível de isolamento do contentor. | `default` |
+| `keep` | bool | Sim | Se o contentor do degrau deve ser mantido após a execução. | `false` |
+| `network` | objeto | Sim | Identifica uma rede em que o contentor funciona. | Nenhum |
+| `ports` | [corda, corda, ...] | Sim | Conjunto de portas que são publicadas do recipiente para o hospedeiro. |  Nenhum |
+| `pull` | bool | Sim | Se forçar um puxão do recipiente antes de executá-lo para evitar qualquer comportamento de caching. | `false` |
+| `privileged` | bool | Sim | Se deve executar o recipiente em modo privilegiado. | `false` |
+| `repeat` | int | Sim | O número de retretes para repetir a execução de um contentor. | 0 |
+| `retries` | int | Sim | O número de retrações para tentar se um contentor falhar a sua execução. Uma nova tentativa só é tentada se o código de saída de um contentor não for zero. | 0 |
+| `retryDelay` | int (segundos) | Sim | O atraso em segundos entre as retretes da execução de um contentor. | 0 |
+| `secret` | objeto | Sim | Identifica um cofre de chaves Azure ou [identidade gerida para os recursos da Azure.](container-registry-tasks-authentication-managed-identity.md) | Nenhum |
+| `startDelay` | int (segundos) | Sim | Número de segundos para atrasar a execução de um contentor. | 0 |
+| `timeout` | int (segundos) | Sim | O número máximo de segundos que um passo pode executar antes de ser terminado. | 600 |
+| [`when`](#example-when) | [corda, corda, ...] | Sim | Configura a dependência de um passo em um ou mais passos dentro da tarefa. | Nenhum |
+| `user` | cadeia | Sim | O nome de utilizador ou UID de um recipiente | Nenhum |
+| `volumeMounts` | objeto | Não | Matriz de [volumePerss.](#volumemount) | Nenhum |
+| `workingDirectory` | cadeia | Sim | Define o diretório de trabalho para um passo. Por predefinição, a ACR Tasks cria um diretório de raiz como diretório de trabalho. No entanto, se a sua construção tiver vários passos, os passos anteriores podem partilhar artefactos com passos posteriores especificando o mesmo diretório de trabalho. | `/workspace` |
+
+### <a name="volumemount"></a>volumeMont
+
+O objeto volumeMount tem as seguintes propriedades.
+
+| Propriedade | Tipo | Opcional | Descrição | Valor predefinido |
+| -------- | ---- | -------- | ----------- | ------- | 
+| `name` | cadeia (de carateres) | No | O nome do volume a montar. Deve corresponder exatamente o nome de uma `volumes` propriedade. | Nenhum |
+| `mountPath`   | cadeia | não | O caminho absoluto para montar ficheiros no recipiente.  | Nenhum |
 
 ### <a name="examples-task-step-properties"></a>Exemplos: Propriedades do passo de tarefa
 
@@ -454,7 +508,7 @@ As Tarefas ACR incluem um conjunto predefinido de variáveis que estão disponí
 * `Run.Branch`
 * `Run.TaskName`
 
-Os nomes variáveis são geralmente autoexplicativos. Seguem-se detalhes para variáveis comumente utilizadas. A partir da versão `v1.1.0` YAML, pode utilizar um pseudónimo de [tarefa](#aliases) abreviado e predefinido no lugar da maioria das variáveis executadas. Por exemplo, no lugar `{{.Run.Registry}}` de, use o `$Registry` pseudónimo.
+Os nomes variáveis são geralmente autoexplicativos. Os detalhes seguem para variáveis comumente usadas. A partir da versão `v1.1.0` YAML, pode utilizar um pseudónimo de [tarefa](#aliases) abreviado e predefinido no lugar da maioria das variáveis executadas. Por exemplo, no lugar `{{.Run.Registry}}` de, use o `$Registry` pseudónimo.
 
 ### <a name="runid"></a>Run.ID
 

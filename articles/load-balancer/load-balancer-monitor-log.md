@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 351307132e231f1fc6639333e6839848ac933337
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: b49669dac2b28dac631f71b9cd07c0851ff8df05
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420911"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448839"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Registos do Azure Monitor para o Balanceador de Carga Básico público
 
@@ -29,7 +29,7 @@ Pode utilizar diferentes tipos de registos em Azure para gerir e resolver proble
 * **Registos de sondas de saúde:** Pode utilizar este registo para visualizar problemas detetados pela sua sonda de saúde, como o número de casos na sua piscina de backend que não estão a receber pedidos do equilibrador de carga devido a falhas na sonda de saúde. Este registo é escrito quando há uma alteração no estado da sonda de saúde.
 
 > [!IMPORTANT]
-> Atualmente, os registos do Azure Monitor funcionam apenas para os equilibros de carga básicos públicos. Os registos só estão disponíveis para os recursos implantados no modelo de implementação do Gestor de Recursos. Não é possível utilizar registos de recursos no modelo clássico de implantação. Para obter mais informações sobre os modelos de implementação, consulte [a implementação do Understanding Resource Manager e a implementação clássica.](../azure-resource-manager/management/deployment-models.md)
+> **Os registos de eventos de sonda de saúde não estão atualmente funcionais e estão listados nas [edições conhecidas para o Balançador de Carga Azure](whats-new.md#known-issues).** Atualmente, os registos do Azure Monitor funcionam apenas para os equilibros de carga básicos públicos. Os registos só estão disponíveis para os recursos implantados no modelo de implementação do Gestor de Recursos. Não é possível utilizar registos de recursos no modelo clássico de implantação. Para obter mais informações sobre os modelos de implementação, consulte [a implementação do Understanding Resource Manager e a implementação clássica.](../azure-resource-manager/management/deployment-models.md)
 
 ## <a name="enable-logging"></a>Ativar registo
 
@@ -173,6 +173,6 @@ Quando a informação de diagnóstico é transmitida para um centro de eventos, 
 ## <a name="send-to-log-analytics"></a>Enviar para o Log Analytics
 Os recursos em Azure podem ter as suas informações de diagnóstico enviadas diretamente para um espaço de trabalho log analytics onde podem ser executadas consultas complexas contra a informação para resolução de problemas e análise.  Para obter mais informações, consulte [registos de recursos do Collect Azure no espaço de trabalho do Log Analytics no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Compreender as sondas do balanceador de carga](load-balancer-custom-probe-overview.md)

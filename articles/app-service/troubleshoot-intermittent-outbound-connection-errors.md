@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations
-ms.openlocfilehash: 4d337c9cff4b0d7dbfb18a7ba0cf213265286017
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5e1f2108c5607917c77330f362952f960e57e03a
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289151"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447916"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Resolução de problemas erros de ligação intermitente de saída no Serviço de Aplicações Azure
 
@@ -38,7 +38,7 @@ Quando as aplicações ou funções abrem rapidamente uma nova ligação, podem 
 
 ## <a name="avoiding-the-problem"></a>Evitando o problema
 
-Se o seu destino for um serviço Azure que suporta pontos finais de serviço, pode evitar problemas de exaustão da porta SNAT utilizando pontos finais [de Integração VNet](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) e serviço. Quando utilizar a VNet Integration e colocar pontos finais de serviço na sub-rede de integração, o tráfego de saída da sua aplicação para esses serviços não terá restrições de saída da porta SNAT.
+Se o seu destino for um serviço Azure que suporta pontos finais de serviço, pode evitar problemas de exaustão da porta SNAT utilizando pontos finais [regionais de Integração VNet](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) e serviços ou pontos finais privados. Quando utilizar a Integração Regional vNet e colocar pontos finais de serviço na sub-rede de integração, o tráfego de saída da sua aplicação para esses serviços não terá restrições de saída da porta SNAT. Da mesma forma, se utilizar a Integração Regional de VNet e pontos finais privados, não terá quaisquer problemas de saída da porta SNAT para esse destino. 
 
 Evitar o problema da porta SNAT significa evitar a criação de novas ligações repetidamente ao mesmo hospedeiro e porto.
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 4eee6aeaff045264c8d23276ac91a83592ddc601
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 297241c5f939ae15fc77b29614b55d9b2bd63c84
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207801"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445902"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Tutorial: Assegurar a renderização remota do Azure e o armazenamento do modelo
 
@@ -143,7 +143,7 @@ Vamos modificar **o RemoteRenderingCoordinator** para carregar um modelo persona
     }
     ```
 
-    Este código adiciona três variáveis de corda adicionais ao seu componente **RemoteRenderingCoordinator.\**
+    Este código adiciona três variáveis de corda adicionais ao seu componente **RemoteRenderingCoordinator.**
     ![Modelo ligado](./media/storage-account-linked-model.png)
 
 1. Adicione os seus valores ao componente **RemoteRenderingCoordinator.** Depois de ter seguido o [Quickstart para conversão de modelos,](../../../quickstarts/convert-model.md)os seus valores devem ser:
@@ -156,7 +156,7 @@ Vamos modificar **o RemoteRenderingCoordinator** para carregar um modelo persona
     > Se [executar **Conversion.ps1** o](../../../quickstarts/convert-model.md#run-the-conversion)Conversion.ps1script, sem o argumento "UseContainerSas", o script irá descoduar todos os valores acima para o seu em vez do token SAS. ![Modelo ligado](./media/converted-output.png)
 1. Por enquanto, remova ou desative o GameObject **TestModel,** para abrir espaço para o seu modelo personalizado carregar.
 1. Toque a cena e ligue-se a uma sessão remota.
-1. Clique no seu **RemoteRenderingCoordinator** e selecione **Load Linked Custom Model**.\
+1. Clique no seu **RemoteRenderingCoordinator** e selecione **Load Linked Custom Model**.
     ![Modelo ligado à carga](./media/load-linked-model.png)
 
 Estas medidas aumentaram a segurança do pedido removendo o token SAS da aplicação local.
@@ -176,16 +176,13 @@ O script **RemoteRenderingCoordinator** tem um delegado chamado **ARRCredentialG
 1. Siga a [autenticação como: Configurar a autenticação - Autenticação para aplicações implementadas](../../../how-tos/authentication.md#authentication-for-deployed-applications), especificamente seguirá as instruções enumeradas na documentação Azure Spatial Anchors [Azure AD autenticação](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication)do utilizador . O que envolve registar uma nova aplicação do Azure Ative Directory e configurar o acesso à sua instância ARR.
 1. Depois de configurar a nova aplicação AAD, verifique se a sua aplicação AAD se parece com as seguintes imagens:
 
-    **AAD Aplicação -Autenticação >**\
-    ![Autenticação de aplicativos](./media/app-authentication-public.png)
+    **AAD Aplicação -Autenticação** ![ > Autenticação de aplicativos](./media/app-authentication-public.png)
 
-    **Permissões AAD -> API**\
-    ![APIs de aplicações](./media/request-api-permissions-step-five.png)
+    Permissões AAD **-> API** ![ APIs de aplicações](./media/request-api-permissions-step-five.png)
 
 1. Depois de configurar a sua conta de renderização remota, verifique se a sua configuração se parece com a seguinte imagem:
 
-    **AAR -> AccessControl (IAM)**\
-    ![Papel ARR](./media/azure-remote-rendering-role-assignment-complete.png)
+    **AAR -> AccessControl (IAM)** ![ Papel ARR](./media/azure-remote-rendering-role-assignment-complete.png)
 
     >[!NOTE]
     > Uma função *de Proprietário* não é suficiente para gerir sessões através da aplicação do cliente. Para cada utilizador pretende conceder a capacidade de gerir sessões deve fornecer a função **Cliente de Renderização Remota**. Para cada utilizador que pretende gerir sessões e converter modelos, tem de fornecer o papel **administrador de renderização remota**.
@@ -356,10 +353,8 @@ No Editor de Unidade, quando a AAD Auth estiver ativa, terá de autenticar sempr
 
 1. Press Play no Editor de Unidade e consentimento para executar uma sessão.
     Uma vez que o componente **AADAuthentication** tem um controlador de visualização, o seu automaticamente ligado para apresentar um pedido após o painel modal de autorização de sessão.
-1. Siga as instruções encontradas no painel à direita do **AppMenu**.\
-    Devias ver algo parecido com isto:
-    ![Componente auth AAD](./media/device-flow-instructions.png)\
-    Depois de introduzir o fornecido codificado no seu dispositivo secundário (ou navegador no mesmo dispositivo) e iniciar sessão com as suas credenciais, um Access Token será devolvido à aplicação de solicitação, neste caso, o Editor de Unidade.
+1. Siga as instruções encontradas no painel à direita do **AppMenu**.
+    Deverá ver algo semelhante a isto: ![ Componente auth AAD ](./media/device-flow-instructions.png) Depois de introduzir o fornecido codificado no seu dispositivo secundário (ou browser no mesmo dispositivo) e iniciar sessão com as suas credenciais, um Access Token será devolvido à aplicação de solicitação, neste caso, o Editor de Unidade.
 1. Depois deste ponto, tudo o que está no pedido deve proceder normalmente. Verifique se a Consola de Unidade se não está a progredir nas fases como esperado.
 
 ## <a name="build-to-device"></a>Construir para dispositivo

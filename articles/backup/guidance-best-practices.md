@@ -1,14 +1,14 @@
 ---
-title: Orientação e boas práticas
+title: Documentação de orientação e melhores práticas
 description: Descubra as melhores práticas e orientação para apoiar a nuvem e a carga de trabalho no local para a nuvem
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 4a5f7e1f55eb5b4a68ee889ef6e1378eb573a6a5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d0ce7877ebd33385deb98977c9439bf8a05b5325
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099181"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447283"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Nuvem de backup e cargas de trabalho no local para cloud
 
@@ -137,7 +137,7 @@ Para ajudá-lo a proteger os seus dados de backup e a satisfazer as necessidades
 
 ### <a name="authentication-and-authorization"></a>Autenticação e autorização
 
-* O Azure Role-Based Access Control (RBAC) permite uma gestão de acessos finos, a segregação de deveres dentro da sua equipa e a concessão apenas da quantidade de acesso aos utilizadores necessários para desempenharem os seus trabalhos. [Saiba mais aqui.](backup-rbac-rs-vault.md)
+* O controlo de acesso baseado em funções (Azure RBAC) permite uma gestão de acessos finos, a segregação de deveres dentro da sua equipa e a concessão apenas da quantidade de acesso aos utilizadores necessários para desempenharem os seus trabalhos. [Saiba mais aqui.](backup-rbac-rs-vault.md)
 
 * A Azure Backup fornece três funções incorporadas para controlar operações de gestão de backup: colaboradores de backup, operadores e leitores. [Saiba mais aqui.](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions)
 

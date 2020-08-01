@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: eb5eb18351f6411a8049e962deed35e5d8f181d9
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 62b60afb7dc4adb70a0963984ee7848ab056e823
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185250"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447833"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gerir livros de execução na Azure Automation
 
@@ -69,7 +69,7 @@ Pode utilizar o seguinte procedimento para importar um ficheiro de script para a
 4. Clique **no ficheiro Runbook** e selecione o ficheiro para importar.
 5. Se o campo **Nome** estiver ativado, tem a opção de alterar o nome do livro de verificação. O nome deve começar com uma letra e pode conter letras, números, sublinhados e traços.
 6. O [tipo de runbook](automation-runbook-types.md) é selecionado automaticamente, mas pode alterar o tipo depois de ter em conta as restrições aplicáveis.
-7. Clique em **Criar**. O novo runbook aparece na lista de runbooks para a conta Automation.
+7. Clique em **Create** (Criar). O novo runbook aparece na lista de runbooks para a conta Automation.
 8. Tem de [publicar o livro de recortes](#publish-a-runbook) antes de o poder executar.
 
 > [!NOTE]
@@ -226,7 +226,7 @@ Para usar um script personalizado:
 
 1. Criar uma conta De Automação e obter uma [função contribuinte.](automation-role-based-access-control.md)
 2. [Ligue a conta ao espaço de trabalho Azure.](../security-center/security-center-enable-data-collection.md)
-3. Ativar [o Trabalhador de Runbook Híbrido,](automation-hybrid-runbook-worker.md) [a Gestão de Atualização](automation-update-management.md)ou outra funcionalidade de Automação. 
+3. Ativar [o Trabalhador de Runbook Híbrido,](automation-hybrid-runbook-worker.md) [a Gestão de Atualização](update-management/update-mgmt-overview.md)ou outra funcionalidade de Automação. 
 4. Se numa máquina Linux, precisa de permissões elevadas. Faça login para [desativar as verificações de assinaturas.](automation-linux-hrw-install.md#turn-off-signature-validation)
 
 ## <a name="test-a-runbook"></a>Testar um runbook

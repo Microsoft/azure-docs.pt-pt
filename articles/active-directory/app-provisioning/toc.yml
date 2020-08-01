@@ -69,8 +69,6 @@
           href: application-provisioning-config-problem-wrong-users-provisioned.md
         - name: Atributo de origem em falta
           href: user-provisioning-sync-attributes-for-mapping.md
-        - name: A tarefa de aprovisionamento está lenta
-          href: application-provisioning-when-will-provisioning-finish.md
         - name: Registos de aprovisionamento
           href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/app-provisioning/context/app-provisioning-context
     - name: Criar um ponto final SCIM e configurar o aprovisionamento

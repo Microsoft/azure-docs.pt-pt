@@ -3,12 +3,12 @@ title: Use aplicativo web - Personalizer
 description: Personalize uma aplicação web C# .NET com um loop Personalizer para fornecer o conteúdo correto a um utilizador com base em ações (com funcionalidades) e funcionalidades de contexto.
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: b8b5c005f7003f9b0d9ac228c5a5961c80c85599
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 6e3373ef8ace401ff40b3d48026fc46b96f1ad79
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133134"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446369"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Tutorial: Adicione Personalizer a uma aplicação web .NET
 
@@ -41,7 +41,7 @@ Neste tutorial, as ações são tipos de comida:
 * café
 * sopa
 
-Para ajudar o Personaler a aprender sobre as suas ações, envie ambas as ações __com funcionalidades_ e _funcionalidades_ de contexto com cada pedido de API do Rank.
+Para ajudar o Personaler a aprender sobre as suas ações, envie ambas _as ações com funcionalidades_ e _funcionalidades de contexto_ com cada pedido de API do Rank.
 
 Uma **característica** do modelo é a informação sobre a ação ou contexto que pode ser agregado (agrupado) entre membros da sua base de utilizadores de aplicações web. Uma funcionalidade _não é_ individualmente específica (como um ID do utilizador) ou altamente específica (por exemplo, uma hora exata do dia).
 
@@ -579,7 +579,7 @@ As definições adicionais para jogar incluem:
 * Percentagem de exploração
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar este tutorial, limpe os seguintes recursos:
 

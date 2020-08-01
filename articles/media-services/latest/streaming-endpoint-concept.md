@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 030a10e9138af32ee848009a14216c37567d9d2d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6d725ed8a69e2dfed6f5197db731f4adac57e2e2
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092002"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446212"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Streaming Endpoints (Origem) em Azure Media Services
 
@@ -46,6 +46,8 @@ Ao utilizar o ponto final de streaming `servicename` predefinido, é omitido de 
 ## <a name="types"></a>Tipos
 
 Existem dois tipos **de Ponto final de streaming:** **Standard** (pré-visualização) e **Premium**. O tipo é definido pelo número de unidades de escala ( `scaleUnits` ) que atribui para o ponto final de streaming.
+
+O limite máximo da unidade de streaming é geralmente de 10. Contacte-nos [aqui](https://azure.microsoft.com/support/create-ticket/) para elevar o limite da sua conta.
 
 A tabela descreve os tipos:
 
@@ -163,7 +165,7 @@ Consulte os seguintes artigos:
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 [Empacotamento dinâmico](dynamic-packaging-overview.md)
 

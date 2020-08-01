@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 3b86c249630f7bfa5c2d319577c66d750b0f6268
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 948ada46085d83c8cf453cdde23cb407ea2dd2d8
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045905"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447700"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Linha de segurança Azure para Automação
 
@@ -220,7 +220,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 * [Regiões suportadas para a área de trabalho do Log Analytics ligada](./how-to/region-mappings.md)
 
-* [Registos de gestão de atualização de consulta](./automation-update-management-query-logs.md)
+* [Registos de gestão de atualização de consulta](./update-management/update-mgmt-query-logs.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -646,9 +646,9 @@ Ao utilizar os Trabalhadores de Runbook Híbridos, os discos virtuais nas máqui
 
 Se estiver a utilizar trabalhadores híbridos com o apoio de máquinas virtuais Azure, utilize a Azure Update Management para gerir atualizações e patches para as suas máquinas virtuais. A Update Management baseia-se no repositório de atualização configurado localmente para corrigir sistemas Windows suportados. Ferramentas como o System Center Updates Publisher (Editor de Atualizações) permitem-lhe publicar atualizações personalizadas nos Serviços de Atualização do Servidor do Windows (WSUS). Este cenário permite que a Gestão de Atualização remendo máquinas que usam o Gestor de Configuração como repositório de atualização com software de terceiros.
 
-* [Gestão de Atualização em Azure](./automation-update-management.md)
+* [Gestão de Atualização em Azure](./update-management/update-mgmt-overview.md)
 
-* [Gerir atualizações e patches para os seus VMs Azure](./automation-tutorial-update-management.md)
+* [Gerir atualizações e patches para os seus VMs](./update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -660,9 +660,9 @@ Se estiver a utilizar trabalhadores híbridos com o apoio de máquinas virtuais 
 
 Se estiver a utilizar trabalhadores híbridos com o apoio de máquinas virtuais Azure, então pode utilizar o Azure Update Management para gerir atualizações e patches para as suas máquinas virtuais. A Update Management baseia-se no repositório de atualização configurado localmente para corrigir sistemas Windows suportados. Ferramentas como o System Center Updates Publisher (Editor de Atualizações) permite-lhe publicar atualizações personalizadas nos Serviços de Atualização do Servidor do Windows (WSUS). Este cenário permite que a Gestão de Atualização remendo máquinas que usam o Gestor de Configuração como repositório de atualização com software de terceiros.
 
-* [Solução de Gestão de Atualização em Azure](./automation-update-management.md)
+* [Solução de Gestão de Atualização em Azure](./update-management/update-mgmt-overview.md)
 
-* [Gerir atualizações e patches para os seus VMs Azure](./automation-tutorial-update-management.md)
+* [Gerir atualizações e patches para os seus VMs Azure](./update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 

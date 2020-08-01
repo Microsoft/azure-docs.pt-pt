@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: ricarlse
 ms.custom: seodec18
-ms.openlocfilehash: 5bf7a1e3cc2bfa8ccf42d05e199c58b8c9314fce
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 99b51610e41aaf8358e7e3069d38dfd8c68ae422
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281706"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446769"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute para Fornecedores de Soluções em Nuvem (CSP)
 A Microsoft fornece serviços de hiper escala para revendedores e distribuidores (CSP) tradicionais de forma a aprovisionar novos serviços e soluções para os seus clientes sem a necessidade de investir no desenvolvimento destes novos serviços. Para permitir que o Fornecedor de Soluções em Nuvem (CSP) possa gerir diretamente estes novos serviços, a Microsoft disponibiliza programas e APIs que permitem ao CSP gerir os recursos do Microsoft Azure em nome dos seus clientes. Um destes recursos é o ExpressRoute. O ExpressRoute permite ao CSP ligar os recursos existentes do cliente aos serviços do Azure. O ExpressRoute é uma ligação privada de comunicações de alta velocidade para serviços no Azure. 
@@ -60,7 +60,7 @@ Este cenário de conectividade exige que o cliente se ligue diretamente através
 
 A escolha entre estas duas opções baseia-se nas necessidades do seu cliente e suas necessidades atuais para fornecer serviços do Azure Os detalhes destes modelos e o controlo de acesso baseado na função associada, funcionamento em rede e padrões de estrutura de identidade são abordados em detalhe nas seguintes ligações:
 
-* **Controlo de acesso baseado na função (RBAC)** – O RBAC baseia-se no Azure Active Directory.  Para obter mais informações sobre o Azure RBAC, veja [aqui](../role-based-access-control/role-assignments-portal.md).
+* **Azure controlo de acesso baseado em funções (Azure RBAC)** – O RBAC baseia-se no Azure Ative Directory.  Para obter mais informações sobre o Azure RBAC, veja [aqui](../role-based-access-control/role-assignments-portal.md).
 * **Funcionamento em Rede** – Aborda os vários tópicos do funcionamento em rede no Microsoft Azure.
 * **Azure Active Directory (Azure AD)** – Azure AD fornece a gestão de identidade para o Microsoft Azure e aplicações SaaS de terceiros. Para obter mais informações sobre o Azure AD, veja [aqui](https://azure.microsoft.com/documentation/services/active-directory/).  
 
