@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.date: 07/20/2020
-ms.author: amsriva
+ms.author: surmb
 ms.topic: conceptual
-ms.openlocfilehash: 23f76f18256ecadcbef59a498292222ea358008f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 53f6f37454de886934a483b40daad24204958baf
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290978"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474330"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Alojamento de vários sites do Gateway de Aplicação
 
@@ -42,6 +42,7 @@ Utilizando um personagem wildcard no nome do anfitrião, pode combinar vários n
 
 >[!NOTE]
 >Esta funcionalidade está atualmente disponível apenas através do [Azure PowerShell](tutorial-multiple-sites-powershell.md) e [do Azure CLI.](tutorial-multiple-sites-cli.md) O apoio ao portal está para breve.
+> Por favor, note que, uma vez que o suporte ao portal não está totalmente disponível, se estiver a utilizar apenas o parâmetro HostNames, o ouvinte aparecerá como um ouvinte básico no portal e a coluna de nome anfitrião da visualização da lista de ouvintes não mostrará os nomes dos anfitriões que estão configurados. Para quaisquer alterações a um ouvinte wildcard, certifique-se de que utiliza o Azure PowerShell ou o CLI até que seja suportado no portal.
 
 Em [Azure PowerShell,](tutorial-multiple-sites-powershell.md)deve utilizar `-HostNames` em vez de `-HostName` . Com hostNames, pode mencionar até 5 nomes de anfitriões como valores separados por vírgula e usar caracteres wildcard. Por exemplo, `-HostNames "*.contoso.com,*.fabrikam.com"`
 

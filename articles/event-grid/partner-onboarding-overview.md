@@ -3,12 +3,12 @@ title: A bordo como parceiro da Azure Event Grid
 description: A bordo como um tipo de parceiro Azure Event Grid. Compreenda o modelo de recursos e o fluxo de publicação para tópicos parceiros.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 8003e3e6a28b0e6a05d553be01c171029e244d74
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: bf4534849ae29d89524a877ca410d25c74637c94
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116119"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461260"
 ---
 # <a name="onboard-as-an-azure-event-grid-partner"></a>A bordo como parceiro da Azure Event Grid
 
@@ -144,8 +144,8 @@ Depois de colocar no ponto final do ParceiroNamespace, recebe uma resposta. A re
 
 | Resultado                             | Resposta              |
 |------------------------------------|-----------------------|
-| Êxito                            | 200 OK                |
-| Os dados do evento têm formato incorreto    | 400 Mau Pedido       |
+| Success                            | 200 OK                |
+| Os dados do evento têm formato incorreto    | 400 Pedido Incorreto       |
 | Chave de acesso inválida                 | 401 Não Autorizado      |
 | Ponto final incorreto                 | 404 Não Encontrado         |
 | Matriz ou evento excede limites de tamanho | 413 Carga Útil Demasiado Grande |
@@ -155,8 +155,8 @@ Depois de colocar no ponto final do ParceiroNamespace, recebe uma resposta. A re
   * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/master/specification/eventgrid/resource-manager/Microsoft.EventGrid/preview/2020-04-01-preview/EventGrid.json)
   * [Modelo ARM](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions)
   * [Esquema de modelo de ARM](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
-  * [APIs REST](https://docs.microsoft.com/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
-  * [Extensão CLI](https://docs.microsoft.com/cli/azure/ext/eventgrid/?view=azure-cli-latest)
+  * [APIs REST](/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
+  * [Extensão CLI](/cli/azure/ext/eventgrid/?view=azure-cli-latest)
 
 ### <a name="sdks"></a>SDKs
   * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/5.3.1-preview)
@@ -167,7 +167,7 @@ Depois de colocar no ponto final do ParceiroNamespace, recebe uma resposta. A re
   * [Ir](https://github.com/Azure/azure-sdk-for-go)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Visão geral dos tópicos do parceiro](partner-topics-overview.md)
 - [Formulário de tópicos de parceiros no formato de embarque](https://aka.ms/gridpartnerform)
 - [Tópico parceiro Auth0](auth0-overview.md)

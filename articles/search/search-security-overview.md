@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/03/2020
-ms.openlocfilehash: 55ee6e99cdf6d77ea1e78799e016d4c276e85fcd
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.date: 07/30/2020
+ms.openlocfilehash: 9fe9a431d7bbc3b0d3b4b95d9883ed8b5a1f4704
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423869"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475435"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Segurança em Azure Cognitive Search - visão geral
 
 Este artigo descreve as principais funcionalidades de segurança na Azure Cognitive Search que podem proteger conteúdos e operações. 
 
-+ Na camada de armazenamento, a encriptação em repouso é um dado adquirido ao nível da plataforma, mas a Cognitive Search também oferece uma opção de "dupla encriptação" para clientes que querem a dupla proteção de chaves de propriedade do utilizador e geridas pela Microsoft.
++ Na camada de armazenamento, a encriptação em repouso é um dado adquirido ao nível da plataforma, mas a Cognitive Search também oferece chaves geridas pelo cliente através do Azure Key Vault para uma camada de encriptação adicional.
 
 + A segurança de entrada protege o ponto final do serviço de pesquisa em níveis crescentes de segurança: desde as chaves da API a pedido, às regras de entrada na firewall, aos pontos finais privados que protegem totalmente o seu serviço da internet pública.
 
@@ -124,6 +124,10 @@ Em contrapartida, os direitos de administração sobre os conteúdos alojados no
 ## <a name="certifications-and-compliance"></a>Certificações e conformidade
 
 A Azure Cognitive Search foi certificada em conformidade com vários padrões globais, regionais e específicos da indústria tanto para a nuvem pública como para o Governo de Azure. Para a lista completa, descarregue o papel branco [ **microsoft Azure Compliance Offers** ](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/) da página oficial dos relatórios da Auditoria.
+
+Para o cumprimento, pode utilizar a [Azure Policy](../governance/policy/overview.md) para o ajudar a implementar as melhores práticas de alta segurança do [Azure Security Benchmark](../security/benchmarks/introduction.md). A Azure Security Benchmark é uma coleção de recomendações de segurança, codificadas em controlos de segurança que mapeiam para ações-chave que deve tomar para mitigar ameaças a serviços e dados. Existem atualmente 11 controlos de segurança, incluindo [Segurança de Rede,](../security/benchmarks/security-control-network-security.md) [Registo e Monitorização,](../security/benchmarks/security-control-logging-monitoring.md)e Proteção de [Dados](../security/benchmarks/security-control-data-protection.md) para citar alguns.
+
+A Azure Policy é uma capacidade incorporada no Azure que o ajuda a gerir o cumprimento de vários padrões, incluindo os da Azure Security Benchmark. Para referências bem conhecidas, a Azure Policy fornece definições incorporadas para que possa criar políticas mais facilmente. Para a Azure Cognitive Search, existe atualmente uma definição incorporada para a exploração de diagnóstico, o que significa que pode atribuir uma política que identifique e corrija qualquer serviço de pesquisa que não esteja em conformidade com o controlo de segurança de registo e monitorização. Para obter mais informações, consulte [os controlos de conformidade regulamentar da Política Azure para a pesquisa cognitiva Azure](security-controls-policy.md).
 
 ## <a name="see-also"></a>Veja também
 

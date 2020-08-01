@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 07/30/2020
 ms.author: apimpm
-ms.openlocfilehash: 43dc0020f64a80e10f179fd194c4878f2fec41ad
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e7f2fb966aa323063220bc798706c8401745ba20
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243210"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461005"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Como delegar o registo do utilizador e a subscrição do produto
 
@@ -49,8 +49,6 @@ Agora precisa de criar o ponto final da **delegação.** Tem de realizar uma sé
 1. Receber um pedido no seguinte formulário:
    
    > *http: \/ /www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL da página de origem}&salt={string}&sig={string}*
-   > 
-   > 
    
     Parâmetros de consulta para o caso de inscrição/inscrição:
    
@@ -84,6 +82,7 @@ Além da operação **SignIn,** pode ainda efetuar a gestão da conta seguindo o
 * **ChangePassword**
 * **ChangeProfile**
 * **CloseAccount**
+* **SignOut**
 
 Deve passar os seguintes parâmetros de consulta para operações de gestão de conta.
 
@@ -93,6 +92,7 @@ Deve passar os seguintes parâmetros de consulta para operações de gestão de 
 * **sig**: um haxixe de segurança computado para ser usado para comparação com o seu próprio haxixe computado
 
 ## <a name="delegating-product-subscription"></a><a name="delegate-product-subscription"> </a>Delegando a subscrição do produto
+
 Delegar a subscrição do produto funciona da mesma forma para delegar o sinal do utilizador dentro/-up. O fluxo de trabalho final seria o seguinte:
 
 1. O desenvolvedor seleciona um produto no portal de desenvolvimento da API Management e clica no botão Subscrever.
@@ -114,9 +114,9 @@ Em seguida, certifique-se de que o ponto final da delegação faz as seguintes a
      * "Subscrever": um pedido de subscrição do utilizador a um determinado produto com ID fornecido (ver abaixo)
      * "Cancelar a subscrição": um pedido para cancelar a subscrição de um utilizador de um produto
      * "Renovar": um pedido de renovação de uma subscrição (por exemplo, que pode estar a expirar)
-   * **productId**: o ID do produto que o utilizador solicitou para subscrever
+   * **productId**: on *Subscribe* - o ID do produto que o utilizador solicitou para subscrever
    * **subscriçãoId**: em *Cancelar* e *Renovar* - o ID da subscrição do produto
-   * **userId**: o ID do utilizador é feito para
+   * **userId**: on *Subscribe* - o ID do utilizador o pedido é feito para
    * **sal:** uma corda de sal especial usada para calcular um haxixe de segurança
    * **sig**: um haxixe de segurança computado para ser usado para comparação com o seu próprio haxixe computado
 

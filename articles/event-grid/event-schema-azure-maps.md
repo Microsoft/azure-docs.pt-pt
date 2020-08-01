@@ -3,16 +3,16 @@ title: Azure Maps como fonte de grade de eventos
 description: Descreve as propriedades e esquemas fornecidos para eventos Azure Maps com Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 8aa29d003483536ef33a32616af1553e1bbe8204
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 4203bdf5222278b698d656835afebd9769557303
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106693"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461991"
 ---
 # <a name="azure-maps-as-an-event-grid-source"></a>Azure Maps como fonte de grade de eventos
 
-Este artigo fornece as propriedades e esquema para eventos Azure Maps. Para uma introdução aos esquemas de eventos, consulte [o esquema do evento Azure Event Grid](https://docs.microsoft.com/azure/event-grid/event-schema). Também lhe dá uma lista de partidas rápidas e tutoriais para usar o Azure Maps como fonte de evento.
+Este artigo fornece as propriedades e esquema para eventos Azure Maps. Para uma introdução aos esquemas de eventos, consulte [o esquema do evento Azure Event Grid](./event-schema.md). Também lhe dá uma lista de partidas rápidas e tutoriais para usar o Azure Maps como fonte de evento.
 
 ## <a name="event-grid-event-schema"></a>Esquema de eventos do Event Grid
 
@@ -100,57 +100,57 @@ O exemplo a seguir mostra esquema para **GeofenceResult**
 
 Um evento tem os seguintes dados de alto nível:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| tópico | string | Caminho completo de recursos para a fonte do evento. Este campo não é escrito. O Event Grid fornece este valor. |
-| Assunto | string | Caminho definido pelo publicador para o assunto do evento. |
-| eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
-| eventTime | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
-| ID | string | Identificador único para o evento. |
+| tópico | cadeia | Caminho completo de recursos para a fonte do evento. Este campo não é escrito. O Event Grid fornece este valor. |
+| subject | cadeia | Caminho definido pelo publicador para o assunto do evento. |
+| eventType | cadeia | Um dos tipos de eventos registados para esta origem de evento. |
+| eventTime | cadeia | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
+| ID | cadeia | Identificador único para o evento. |
 | dados | objeto | Dados de eventos geofencing. |
-| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | string | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
+| dataVersion | cadeia | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | cadeia | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| apiCategoria | string | Categoria API do evento. |
-| apiName | string | Nome da API do evento. |
+| apiCategoria | cadeia | Categoria API do evento. |
+| apiName | cadeia | Nome da API do evento. |
 | issues | objeto | Lista as questões encontradas durante o processamento. Se algum problema for devolvido, então não haverá geometrias devolvidas com a resposta. |
 | responseCode | número | Código de resposta HTTP |
 | geometrias | objeto | Lista as geometrias da cerca que contêm a posição da coordenada ou sobrepõem o searchBuffer em torno da posição. |
 
 O objeto de erro é devolvido quando ocorre um erro na API do Mapa. O objeto de erro tem as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
 | erro | ErrorDetails |Este objeto é devolvido quando ocorre um erro na API do Mapa  |
 
 O objeto ErrorDetails é devolvido quando ocorre um erro na API do Mapa. O ErrorDetails ou o objeto tem as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| code | string | O código de estado HTTP. |
-| message | string | Se disponível, uma descrição legível humana do erro. |
+| code | cadeia | O código de estado HTTP. |
+| message | cadeia | Se disponível, uma descrição legível humana do erro. |
 | interior | InteriorError | Se disponível, um objeto que contenha informações específicas do serviço sobre o erro. |
 
 O InnerError é um objeto que contém informações específicas do serviço sobre o erro. O objeto InnerError tem as seguintes propriedades: 
 
 | Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| code | string | A mensagem de erro. |
+| code | cadeia | A mensagem de erro. |
 
 O objeto de geometria, lista iDs de geometria das geosfências que expiraram em relação ao tempo de utilização no pedido. O objeto de geometria tem itens de geometria com as seguintes propriedades: 
 
 | Propriedade | Tipo | Description |
 |:-------- |:---- |:----------- |
-| deviceid | string | Identificação do dispositivo. |
-| distância | string | <p>Distância da coordenada até à fronteira mais próxima da geofence. Positivo significa que a coordenada está fora da geofência. Se a coordenada estiver fora da geofence, mas mais do que o valor de searchBuffer longe da fronteira de geofência mais próxima, então o valor é 999. Negativo significa que a coordenada está dentro da geofência. Se a coordenada estiver dentro do polígono, mas mais do que o valor de searchBuffer longe da fronteira geofencing mais próxima, então o valor é -999. Um valor de 999 significa que há uma grande confiança que a coordenada está bem fora da geo-fence. Um valor de -999 significa que há uma grande confiança que a coordenada está bem dentro da geofência.<p> |
-| geometria |string | O id único identifica a geometria da geofência. |
+| deviceid | cadeia | Identificação do dispositivo. |
+| distância | cadeia | <p>Distância da coordenada até à fronteira mais próxima da geofence. Positivo significa que a coordenada está fora da geofência. Se a coordenada estiver fora da geofence, mas mais do que o valor de searchBuffer longe da fronteira de geofência mais próxima, então o valor é 999. Negativo significa que a coordenada está dentro da geofência. Se a coordenada estiver dentro do polígono, mas mais do que o valor de searchBuffer longe da fronteira geofencing mais próxima, então o valor é -999. Um valor de 999 significa que há uma grande confiança que a coordenada está bem fora da geo-fence. Um valor de -999 significa que há uma grande confiança que a coordenada está bem dentro da geofência.<p> |
+| geometria |cadeia | O id único identifica a geometria da geofência. |
 | nearestlat | número | Latitude do ponto mais próximo da geometria. |
 | nearestlon | número | Longitude do ponto mais próximo da geometria. |
-| udId | string | O id único devolvido do serviço de upload do utilizador ao carregar um geofence. Não será incluída na API de geofencing pós-api. |
+| udId | cadeia | O id único devolvido do serviço de upload do utilizador ao carregar um geofence. Não será incluída na API de geofencing pós-api. |
 
 O objeto de dados tem as seguintes propriedades:
 
@@ -167,7 +167,7 @@ O objeto de dados tem as seguintes propriedades:
 | [Reagir aos eventos do Azure Maps utilizando a Grade de Eventos](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Visão geral da integração dos Mapas Azure com a Grade de Eventos. |
 | [Tutorial: Criar uma geofence](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Este tutorial acompanha-o através dos passos básicos para configurar a geofence usando o Azure Maps. Utiliza a Grelha de Eventos Azure para transmitir os resultados da geofência e configura uma notificação com base nos resultados da geofence. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grade de Eventos?](overview.md)
 * Para obter mais informações sobre a criação de uma subscrição da Azure Event Grid, consulte [o esquema de subscrição da Event Grid](subscription-creation-schema.md).

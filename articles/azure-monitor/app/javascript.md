@@ -2,16 +2,14 @@
 title: Azure Application Insights para aplicações web JavaScript
 description: Obtenha a visualização da página e as contagens de sessão, dados do cliente web, aplicações de página única (SPA) e rastreiem padrões de utilização. Detete exceções e problemas de desempenho em páginas Web de JavaScript.
 ms.topic: conceptual
-author: Dawgfan
-ms.author: mmcc
 ms.date: 09/20/2019
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 8cd0c7c73ac4f5c531d91d7e458300ab1b0ad1af
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 063d648c68431dd84fd1aeb88b85bc68f2acbe62
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371486"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475758"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas Web
 
@@ -342,7 +340,9 @@ Isto NÃO significa que apenas suportaremos o conjunto comum mais baixo de funci
 
 ## <a name="open-source-sdk"></a>SDK de código aberto
 
-O App Insights JavaScript SDK é de código aberto para visualizar o código fonte ou para contribuir para o projeto visitar o [repositório oficial](https://github.com/Microsoft/ApplicationInsights-JS)do GitHub .
+O App Insights JavaScript SDK é de código aberto para visualizar o código fonte ou para contribuir para o projeto visitar o [repositório oficial](https://github.com/Microsoft/ApplicationInsights-JS)do GitHub . 
+
+Para obter as últimas atualizações e correções de erro [consulte as notas de lançamento](./release-notes.md).
 
 ## <a name="next-steps"></a><a name="next"></a>Próximos passos
 * [Controlar a utilização](usage-overview.md)

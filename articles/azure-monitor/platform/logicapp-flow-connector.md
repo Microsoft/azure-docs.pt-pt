@@ -7,15 +7,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 6048b5f0a3702e95cef9175933041fe36f2f07bb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2ef7095d186902425adb5065c470325be1283023
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081564"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475741"
 ---
-# <a name="azure-monitor-logs-connector-for-logic-apps-and-flow"></a>Conector de registos Azure Monitor para Apps lógicas e fluxo
-[As Azure Logic Apps](../../logic-apps/index.yml) e [Power Automamate](https://ms.flow.microsoft.com) permitem criar fluxos de trabalho automatizados usando centenas de ações para uma variedade de serviços. O conector Azure Monitor Logs permite-lhe construir fluxos de trabalho que recuperem dados de um espaço de trabalho do Log Analytics ou de uma aplicação de Insights de Aplicação no Azure Monitor. Este artigo descreve as ações incluídas com o conector e fornece uma passagem para construir um fluxo de trabalho usando estes dados.
+# <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Conector de registos Azure Monitor para Apps Lógicas e Automatização de Energia
+[As Azure Logic Apps](../../logic-apps/index.yml) e [Power Automamate](https://flow.microsoft.com) permitem criar fluxos de trabalho automatizados usando centenas de ações para uma variedade de serviços. O conector Azure Monitor Logs permite-lhe construir fluxos de trabalho que recuperem dados de um espaço de trabalho do Log Analytics ou de uma aplicação de Insights de Aplicação no Azure Monitor. Este artigo descreve as ações incluídas com o conector e fornece uma passagem para construir um fluxo de trabalho usando estes dados.
 
 Por exemplo, pode criar uma aplicação lógica para utilizar os dados de registo do Azure Monitor numa notificação de e-mail do Office 365, criar um bug em Azure DevOps ou publicar uma mensagem Slack.  Pode desencadear um fluxo de trabalho por um horário simples ou a partir de alguma ação num serviço conectado, como quando um correio ou um tweet são recebidos. 
 
@@ -126,4 +126,4 @@ Quando a aplicação lógica estiver concluída, verifique o correio do destinat
 
 - Saiba mais sobre [consultas de registo no Azure Monitor](../log-query/log-query-overview.md).
 - Saiba mais sobre [aplicações lógicas](../../logic-apps/index.yml)
-- Saiba mais sobre [o Microsoft Flow.](https://ms.flow.microsoft.com)
+- Saiba mais sobre [o Power Automamate](https://flow.microsoft.com).

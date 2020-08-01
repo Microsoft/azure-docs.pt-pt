@@ -3,12 +3,12 @@ title: Azure Application Insights for ASP.NET Core applications [ Microsoft Docs
 description: Monitorize ASP.NET aplicações web Core para disponibilidade, desempenho e utilização.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 770cc3f34487f837631a98c6f652d8746ae2c2df
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 1a9bc3e46e108c50b36e0318e0f9a51a94e83573
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321399"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475520"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Insights de Aplicação para aplicações core ASP.NET
 
@@ -367,7 +367,7 @@ O acima referido não impede que quaisquer módulos de recolha de automóveis re
 
 ### <a name="does-application-insights-support-aspnet-core-3x"></a>O Application Insights suporta ASP.NET Core 3.X?
 
-Yes. Atualização para [Insights de Aplicação SDK para ASP.NET](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versão Core 2.8.0 ou superior. Versões mais antigas do SDK não suportam ASP.NET Core 3.X.
+Sim. Atualização para [Insights de Aplicação SDK para ASP.NET](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versão Core 2.8.0 ou superior. Versões mais antigas do SDK não suportam ASP.NET Core 3.X.
 
 Além disso, se estiver a utilizar instruções baseadas no Visual Studio a partir [daqui,](#enable-application-insights-server-side-telemetry-visual-studio)atualize a versão mais recente do Visual Studio 2019 (16.3.0) a bordo. Versões anteriores do Visual Studio não suportam a bordo automática para ASP.NET aplicações Core 3.X.
 
@@ -428,7 +428,7 @@ A `Microsoft.AspNetCore.All` metapackage 2.0 incluía o Application Insights SDK
 
 ### <a name="if-i-run-my-application-in-linux-are-all-features-supported"></a>Se eu executar a minha candidatura no Linux, todas as funcionalidades são suportadas?
 
-Yes. Suporte de funcionalidades para o SDK é o mesmo em todas as plataformas, com as seguintes exceções:
+Sim. Suporte de funcionalidades para o SDK é o mesmo em todas as plataformas, com as seguintes exceções:
 
 * O SDK recolhe [contadores de eventos](./eventcounters.md) no Linux porque [os Contadores de Desempenho](./performance-counters.md) só são suportados no Windows. A maioria das métricas são as mesmas.
 * Apesar de `ServerTelemetryChannel` estar ativado por padrão, se a aplicação estiver em execução no Linux ou no MacOS, o canal não cria automaticamente uma pasta de armazenamento local para manter a telemetria temporariamente se houver problemas de rede. Devido a esta limitação, a telemetria perde-se quando existem problemas temporários de rede ou servidor. Para contornar esta questão, configuure uma pasta local para o canal:
@@ -455,7 +455,9 @@ Este SDK requer `HttpContext` , e, portanto, não funciona em nenhuma aplicaçã
 
 ## <a name="open-source-sdk"></a>SDK de código aberto
 
-[Leia e contribua para o código.](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates)
+* [Leia e contribua para o código.](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates)
+
+Para obter as últimas atualizações e correções de erro [consulte as notas de lançamento](./release-notes.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

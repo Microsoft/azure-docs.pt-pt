@@ -2,15 +2,15 @@
 title: 'Quickstart: Criar e utilizar o ciclo de aprendizagem com a SDK - Personalizer'
 description: Este quickstart mostra-lhe como criar e gerir a sua base de conhecimentos utilizando o cliente SDK.
 ms.topic: quickstart
-ms.date: 04/27/2020
+ms.date: 07/30/2020
 ms.custom: tracking-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: 6a683a88a335c04eb1f1eb0b5bc74e80e2125c76
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 05657d350616502c3d32b500a32b394a748ab2f6
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407778"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461134"
 ---
 # <a name="quickstart-personalizer-client-library"></a>Quickstart: Biblioteca de clientes personalizado
 
@@ -40,7 +40,7 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 * [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 >[Como funciona o Personalizador](how-personalizer-works.md)

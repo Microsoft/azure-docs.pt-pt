@@ -3,12 +3,12 @@ title: Recuperação de desastres para tópicos personalizados na Grelha de Even
 description: Este tutorial irá acompanhá-lo como configurar a sua arquitetura de eventos para recuperar se o serviço de Grade de Eventos se tornar insalubre numa região.
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.openlocfilehash: da796a9ac4d03f7ad6999b8fa4530fddfb60cbfe
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: dc893973fe1f6367cd9b95de2014d92c045056f4
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420265"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461685"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Construa a sua própria recuperação de desastres para tópicos personalizados na Grade de Eventos
 A recuperação de desastres centra-se na recuperação de uma grave perda de funcionalidade de aplicação. Este tutorial irá acompanhá-lo como configurar a sua arquitetura de eventos para recuperar se o serviço de Grade de Eventos se tornar insalubre numa determinada região.
@@ -203,8 +203,8 @@ Há muitas maneiras de estender esta amostra com base nas suas necessidades. Par
 
 Da mesma forma, pode querer implementar uma lógica de failback baseada nas suas necessidades específicas. Se a publicação no centro de dados mais próximo é fundamental para reduzir a latência, pode sondar periodicamente a api de saúde de um tópico que falhou. Uma vez saudável de novo, saberá que é seguro falhar no centro de dados mais próximo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [receber eventos num ponto final http](./receive-events.md)
 - Descubra como [encaminhar eventos para Conexões Híbridas](./custom-event-to-hybrid-connection.md)
-- Saiba mais sobre [a recuperação de desastres usando Azure DNS e Traffic Manager](https://docs.microsoft.com/azure/networking/disaster-recovery-dns-traffic-manager)
+- Saiba mais sobre [a recuperação de desastres usando Azure DNS e Traffic Manager](../networking/disaster-recovery-dns-traffic-manager.md)

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 6b9cf3f76afecb1e6f7ad00a18eb7290b8decb5f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 06c4ecd92368487af3110e84391ec721700a95aa
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056051"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461175"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento Azure Blob para Funções Azure
 
@@ -331,7 +331,7 @@ O exemplo a seguir dispara apenas em bolhas no `input` recipiente que começam c
 "path": "input/original-{name}",
 ```
 
-Se o nome da bolha for *original-Blob1.txt, *o valor da `name` variável no código de função é `Blob1` .
+Se o nome da bolha for *original-Blob1.txt, *o valor da `name` variável no código de função é `Blob1.txt` .
 
 ### <a name="filter-on-file-type"></a>Filtro no tipo de ficheiro
 

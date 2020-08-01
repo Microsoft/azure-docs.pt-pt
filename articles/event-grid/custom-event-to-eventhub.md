@@ -3,12 +3,12 @@ title: 'Quickstart: Enviar eventos personalizados para Centros de Eventos - Grad
 description: 'Quickstart: Use Azure Event Grid e Azure CLI para publicar um tópico e subscrever esse evento. É utilizado um hub de eventos para o ponto final.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 77268dde90959298c76813fb146e972ecfa3685d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 1d27ebe0151c6a49d21975216e146f1daa20e4e2
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104100"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87462042"
 ---
 # <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Quickstart: Encaminhe eventos personalizados para Azure Event Hubs com Azure CLI e Grade de Eventos
 
@@ -97,18 +97,18 @@ Navegue para o hub de eventos no portal e repare que o Event Grid enviou esses t
 
 Normalmente, cria uma aplicação que obtém os eventos do hub de eventos. Para criar uma aplicação que obtém mensagens de um hub de eventos, veja:
 
-* [Começar a receber mensagens com o Anfitrião do Processador de Eventos em .NET Standard](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
-* [Receber eventos de Hubs de Eventos do Azure com o Java](../event-hubs/event-hubs-java-get-started-receive-eph.md)
+* [Começar a receber mensagens com o Anfitrião do Processador de Eventos em .NET Standard](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+* [Receber eventos de Hubs de Eventos do Azure com o Java](../event-hubs/event-hubs-java-get-started-send.md)
 * [Receber eventos dos Hubs de Eventos com o Apache Storm](../event-hubs/event-hubs-storm-getstarted-receive.md)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se quiser continuar a trabalhar com este evento, não limpe os recursos criados neste artigo. Caso contrário, utilize o comando seguinte para eliminar os recursos que criou neste artigo.
 
 ```azurecli-interactive
 az group delete --name gridResourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que sabe como criar tópicos e subscrições de eventos, saiba mais sobre o que o Event Grid pode ajudá-lo a fazer:
 

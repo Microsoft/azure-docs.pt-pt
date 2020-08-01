@@ -2,13 +2,13 @@
 title: Controlo de acesso a autocarros da Azure Service com assinaturas de acesso partilhado
 description: Visão geral do controlo de acesso do Service Bus utilizando a visão geral do Shared Access Signatures, detalhes sobre a autorização da SAS com a Azure Service Bus.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: e0d8abcd5693ac20c79a1357eb066e3ae8dcdfe8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/30/2020
+ms.openlocfilehash: b75f1ec3a1aac36124287523140c24d468329aaa
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340961"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460699"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controlo de acesso de ônibus de serviço com assinaturas de acesso compartilhado
 
@@ -49,7 +49,7 @@ Uma política de espaço de nome ou de entidade pode manter até 12 regras de Au
 
 Uma regra de autorização é atribuída a uma *chave primária* e uma *chave secundária.* Estas são chaves criptograficamente fortes. Não os perca nem os divulgue - estarão sempre disponíveis no [portal Azure][Azure portal]. Podes usar qualquer uma das chaves geradas, e podes regenera-las a qualquer momento. Se regenerar ou alterar uma chave na política, todos os tokens previamente emitidos com base nessa chave tornam-se instantaneamente inválidos. No entanto, as ligações em curso criadas com base em tais fichas continuarão a funcionar até que o token expire.
 
-Quando cria um espaço de nomes de Service Bus, uma regra de política chamada **RootManageSharedAccessKey** é criada automaticamente para o espaço de nomes. Esta política tem permissões de Gestão para todo o espaço de nome. Recomenda-se que trate esta regra como uma conta **de raiz** administrativa e não a utilize na sua aplicação. Pode criar regras de política adicionais no **separador Configurar** para o espaço de nomes no portal, via Powershell ou Azure CLI.
+Quando cria um espaço de nomes de Service Bus, uma regra de política chamada **RootManageSharedAccessKey** é criada automaticamente para o espaço de nomes. Esta política tem permissões de Gestão para todo o espaço de nome. Recomenda-se que trate esta regra como uma conta **de raiz** administrativa e não a utilize na sua aplicação. Pode criar regras de política adicionais no **separador Configurar** para o espaço de nomes no portal, via PowerShell ou Azure CLI.
 
 ## <a name="configuration-for-shared-access-signature-authentication"></a>Configuração para autenticação de assinatura de acesso partilhado
 
@@ -89,6 +89,9 @@ O recurso URI é o URI completo do recurso Service Bus a que o acesso é reclama
 A regra de autorização de acesso partilhado utilizada para a assinatura deve ser configurada na entidade especificada por este URI, ou por um dos seus pais hierárquicos. Por exemplo, `http://contoso.servicebus.windows.net/contosoTopics/T1` ou `http://contoso.servicebus.windows.net` no exemplo anterior.
 
 Um token SAS é válido para todos os recursos pré-fixados com o `<resourceURI>` usado no `signature-string` .
+
+> [!NOTE]
+> Por exemplo, gerar um token SAS utilizando diferentes linguagens de programação, consulte [Generate SAS token](/rest/api/eventhub/generate-sas-token). 
 
 ## <a name="regenerating-keys"></a>Chaves regeneradoras
 
@@ -177,7 +180,7 @@ Se você der a um remetente ou cliente um sinal SAS, eles não têm a chave dire
 
 ## <a name="use-the-shared-access-signature-at-amqp-level"></a>Utilize a Assinatura de Acesso Partilhado (ao nível amQP)
 
-Na secção anterior, viu como utilizar o token SAS com um pedido HTTP POST para envio de dados para o Service Bus. Como sabe, pode aceder ao Service Bus utilizando o Protocolo de Fila de Mensagens Avançadas (AMQP) que é o protocolo preferido a utilizar por razões de desempenho, em muitos cenários. O uso de ficha sas com AMQP é descrito no documento [AMQP Claim-Based Security Version 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) que está em projeto de funcionamento desde 2013, mas bem apoiado pela Azure hoje.
+Na secção anterior, viu como utilizar o token SAS com um pedido HTTP POST para envio de dados para o Service Bus. Como sabe, pode aceder ao Service Bus utilizando o Protocolo de Fila de Mensagens Avançadas (AMQP) que é o protocolo preferido a utilizar por razões de desempenho, em muitos cenários. O uso de ficha sas com AMQP é descrito no documento [AMQP Claim-Based Security Version 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) que está em funcionamento desde 2013 mas é apoiado pela Azure hoje.
 
 Antes de começar a enviar dados para a Service Bus, a editora deve enviar o token SAS dentro de uma mensagem AMQP para um nó AMQP bem definido chamado **$cbs** (pode vê-lo como uma fila "especial" usada pelo serviço para adquirir e validar todos os tokens SAS). O editor deve especificar o campo **AnswerTo** dentro da mensagem AMQP; este é o nó em que o serviço responde ao editor com o resultado da validação simbólica (um simples padrão de pedido/resposta entre editor e serviço). Este nó de resposta é criado "on the fly", falando sobre a "criação dinâmica do nó remoto" como descrito pela especificação AMQP 1.0. Depois de verificar se o token SAS é válido, o editor pode avançar e começar a enviar dados para o serviço.
 
@@ -259,7 +262,7 @@ A tabela a seguir mostra os direitos de acesso necessários para várias operaç
 | Enumerar Políticas Privadas |Gerir |Qualquer endereço de espaço de nome |
 | Comece a ouvir em um espaço de nome |Escutar |Qualquer endereço de espaço de nome |
 | Enviar mensagens a um ouvinte num espaço de nome |Enviar |Qualquer endereço de espaço de nome |
-| **Filas** | | |
+| **Fila** | | |
 | Criar uma fila |Gerir |Qualquer endereço de espaço de nome |
 | Eliminar uma fila |Gerir |Qualquer endereço de fila válido |
 | Enumerar filas |Gerir |/$Resources/Filas |
@@ -295,7 +298,7 @@ A tabela a seguir mostra os direitos de acesso necessários para várias operaç
 | Eliminar uma regra |Gerir |.. /myTopic/Subscrições/mySubscription |
 | Enumerar regras |Gerir ou Ouvir |.. /myTopic/Subscrições/mySubscription/Regras
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre mensagens do Service Bus, consulte os seguintes tópicos.
 

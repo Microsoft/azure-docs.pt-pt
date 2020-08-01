@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 07/30/2020
 ms.author: victorh
-ms.openlocfilehash: 20372d9584becf18c65e13c81b99403ce88d27e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5192ecb31c71364bdf1301b13da0b0742625d44f
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85569046"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460138"
 ---
 # <a name="ip-groups-in-azure-firewall-policy"></a>Grupos IP na política de Firewall Azure
 
@@ -27,7 +27,7 @@ Um Grupo IP pode ter um único endereço IP, vários endereços IP ou um ou mais
 
 Os grupos IP podem ser reutilizados em Azure Firewall DNAT, rede e regras de aplicação para várias firewalls em regiões e subscrições em Azure. Os nomes de grupo devem ser únicos. Pode configurar um Grupo IP no portal Azure, Azure CLI ou REST API. Um modelo de amostra é fornecido para ajudá-lo a começar.
 
-## <a name="sample-format"></a>Formato de amostra
+## <a name="sample-format"></a>Sample format (Formato de exemplo)
 
 Os seguintes exemplos de formato de endereço IPv4 são válidos para serem utilizados em grupos IP:
 
@@ -66,43 +66,7 @@ Pode agora selecionar **o Grupo IP** como tipo de **Fonte** ou **tipo destino** 
 
 ## <a name="ip-address-limits"></a>Limites de endereço IP
 
-Para 50 Grupos IP ou menos, você pode ter um máximo de 5000 endereços IP individuais cada instância de firewall. Para 51 a 100 Grupos IP, você pode ter 500 endereço IP individuais cada instância de firewall.
-
-### <a name="examples"></a>Exemplos
-
-#### <a name="example-1-supported"></a>Exemplo 1: suportado
-
-|Grupos IP  |Endereços IP  |Anotações  |Regra  |
-|---------|---------|---------|---------|
-|IPGroup1 |4096     |10.0.0.0/20  |Regra1|
-|IPGroup2     |3|196.0.0.0 - 196.0.0.2|Regra1|
-|IPGroup3     |1|1.2.3.4|Regra1|
-|     |**Total 4100**|         |         |
-|     |         |         |         |
-
-#### <a name="example-2-supported"></a>Exemplo 2: suportado
-
-|Grupos IP  |Endereços IP  |Anotações  |Regra  |
-|---------|---------|---------|---------|
-|IPGroup1 |4096     |10.0.0.0/20  |Regra1|
-|IPGroup2     |4096|11.0.0.0/20|Regra1|
-|     |**Total 8192**|         |         |
-
-#### <a name="example-3-not-supported"></a>Exemplo 3: não suportado
-
-|Grupos IP  |Endereços IP  |Anotações  |Regra  |
-|---------|---------|---------|---------|
-|IPGroup1 |8192     |10.0.0.0/20, 11.0.0.0/20  |Regra1|
-|     |**Total 8192**|||
-
-#### <a name="example-4-supported"></a>Exemplo 4: suportado
-
-|Grupos IP  |Endereços IP  |Anotações  |Regra  |
-|---------|---------|---------|---------|
-|IPGroup1 |4096     |10.0.0.0/20  |Regra1|
-|IPGroup2     |4096|11.0.0.0/20|Regra2|
-|     |**Total 8192**|         |         |
-
+Pode ter um máximo de 100 Grupos IP por firewall com um máximo de 5000 endereços IP individuais ou prefixos IP por cada Grupo IP.
 
 ## <a name="related-azure-powershell-cmdlets"></a>Relacionados Cmdlets Azure PowerShell
 
@@ -116,6 +80,6 @@ Os seguintes cmdlets Azure PowerShell podem ser usados para criar e gerir grupos
 - [New-AzFirewallPolicyApplicationRule](https://docs.microsoft.com/powershell/module/az.network/new-azfirewallpolicyapplicationrule?view=azps-3.4.0)
 - [New-AzFirewallPolicyNatrule](https://docs.microsoft.com/powershell/module/az.network/new-azfirewallpolicynatrule?view=azps-3.4.0)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Tutorial: Proteja o seu WAN virtual usando o Azure Firewall Manager](secure-cloud-network.md)

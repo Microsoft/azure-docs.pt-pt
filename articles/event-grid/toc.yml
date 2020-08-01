@@ -93,7 +93,7 @@
     - name: Modelos do Resource Manager
       href: template-samples.md
     - name: Exemplos de código
-      href: 'https://docs.microsoft.com/samples/browse/?term=Event%20Grid'
+      href: /samples/browse/?term=Event+Grid
     - name: Incorporações do Azure Policy
       href: ./policy-samples.md
 - name: Conceitos

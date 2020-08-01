@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: f9d736098e42bf5ca07eca0cb952275c5e39c2a9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 1864ce5a3c1b5b0b2e0cfe757e66fca2074b764c
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125195"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475811"
 ---
-# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Quickstart: Criar um equilibrador de carga para carregar VMs de equilíbrio utilizando o portal Azure
+# <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Quickstart: Criar um equilibrador de carga público para carregar VMs de equilíbrio utilizando o portal Azure
 
 Começa com o Azure Load Balancer utilizando o portal Azure para criar um equilibrador de carga pública e três máquinas virtuais.
 
@@ -36,7 +36,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 ---
 
-# <a name="option-1-default-create-a-load-balancer-standard-sku"></a>[Opção 1 (padrão): Criar um equilibrador de carga (Standard SKU)](#tab/option-1-create-load-balancer-standard)
+# <a name="option-1-default-create-a-public-load-balancer-standard-sku"></a>[Opção 1 (padrão): Criar um balanceador de carga pública (Standard SKU)](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
 >Recomenda-se o balanceador de carga SKU standard para cargas de trabalho de produção.  Para obter mais informações sobre skus, consulte **[skus de balançadores de carga Azure.](skus.md)**
@@ -55,7 +55,7 @@ Quando cria um equilibrador de carga público, cria um novo endereço IP públic
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
     | Grupo de recursos         | **Selecione Criar novo** e insira o **myResourceGroupLB** na caixa de texto.|
-    | Name                   | Insira **o myLoadBalancer**                                   |
+    | Nome                   | Insira **o myLoadBalancer**                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Tipo          | Selecione **Público**.                                        |
     | SKU           | Selecione **Standard** |
@@ -76,7 +76,7 @@ Nesta secção, configura:
 
 * Ajustes do balançador de carga para um pool de endereço de backend.
 * Uma sonda de saúde.
-* Uma regra do balançador de carga e uma regra de saída automática.
+* Uma regra do equilíbrio de carga.
 
 ### <a name="create-a-backend-pool"></a>Criar um conjunto de back-ends
 
@@ -233,7 +233,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
 
     | Definição | VM 2| VM 3|
     | ------- | ----- |---|
-    | Name |  **myVM2** |**myVM3**|
+    | Nome |  **myVM2** |**myVM3**|
     | Zona de disponibilidade | **2** |**3**|
     | Grupo de segurança de rede | Selecione o **myNSG** existente| Selecione o **myNSG** existente|
 
@@ -281,7 +281,7 @@ Para obter mais informações sobre as ligações de saída, consulte [as ligaç
 
 8. Selecione **Guardar**.
 
-# <a name="option-2-create-a-load-balancer-basic-sku"></a>[Opção 2: Criar um equilibrador de carga (SKU Básico)](#tab/option-1-create-load-balancer-basic)
+# <a name="option-2-create-a-public-load-balancer-basic-sku"></a>[Opção 2: Criar um equilibrador de carga pública (SKU Básico)](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
 >Recomenda-se o balanceador de carga SKU standard para cargas de trabalho de produção.  Para obter mais informações sobre skus, consulte **[skus de balançadores de carga Azure.](skus.md)**
@@ -300,7 +300,7 @@ Quando cria um equilibrador de carga público, cria um novo endereço IP públic
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
     | Grupo de recursos         | **Selecione Criar novo** e **digite o myResourceGroupLB** na caixa de texto.|
-    | Name                   | Insira **o myLoadBalancer**                                   |
+    | Nome                   | Insira **o myLoadBalancer**                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Tipo          | Selecione **Público**.                                        |
     | SKU           | Selecione **Basic** |
@@ -468,8 +468,9 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
 5. Selecione o separador **Gestão** ou selecione **'Gestão**  >  **Seguinte'.**
 
 6. No separador **Gestão,** selecione ou introduza:
+    
     | Definição | Valor |
-    |-|-|
+    |---|---|
     | **Monitorização** | |
     | Diagnósticos de arranque. | Selecione **Off** |
 
@@ -481,9 +482,27 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
 
     | Definição | VM 2| VM 3|
     | ------- | ----- |---|
-    | Name |  **myVM2** |**myVM3**|
+    | Nome |  **myVM2** |**myVM3**|
     | Conjunto de disponibilidade| Selecione **mySIlabilitySet** | Selecione **mySIlabilitySet**|
     | Grupo de segurança de rede | Selecione o **myNSG** existente| Selecione o **myNSG** existente|
+
+### <a name="add-virtual-machines-to-the-backend-pool"></a>Adicione máquinas virtuais à piscina de backend
+
+Os VMs criados nos passos anteriores devem ser adicionados ao pool de backend do **myLoadBalancer**.
+
+1. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos**e, em seguida, selecione **myLoadBalancer** na lista de recursos.
+
+2. Em **Definições**, selecione **backend pools**e, em seguida, selecione **myBackendPool**.
+
+3. Selecione **máquinas virtuais** em **Associado a**.
+
+4. Na secção **máquinas Virtuais,** selecione **+ Adicionar**.
+
+5. Selecione as caixas ao lado **do myVM1,** **myVM2,** e **myVM3**.
+
+6. Selecione **Adicionar**.
+
+7. Selecione **Guardar**.
 
 ---
 
@@ -530,7 +549,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
 
 Para ver o balanceador de carga distribuir tráfego através dos três VMs, pode personalizar a página padrão de cada servidor Web IIS de cada VM e, em seguida, refrescar o seu navegador web a partir da máquina do cliente.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos, carregue o Balancer e todos os recursos relacionados. Para tal, selecione o grupo de recursos **myResourceGroupLB** que contém os recursos e, em seguida, selecione **Delete**.
 

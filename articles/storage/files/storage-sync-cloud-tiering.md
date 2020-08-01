@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 23e98c40420a5f1ed9b048d5530eacfe5eedfb32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74887e6ee4656091aa647b481bc406dcc23b9c12
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85413982"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460087"
 ---
 # <a name="cloud-tiering-overview"></a>Visão geral do tiering da nuvem
 O tiering em nuvem é uma funcionalidade opcional do Azure File Sync, no qual os ficheiros frequentemente acedidos são cached localmente no servidor, enquanto todos os outros ficheiros são hierárquicos para Ficheiros Azure baseados em definições de política. Quando um ficheiro é hierarquizado, o filtro do sistema de ficheiros Azure File Sync (StorageSync.sys) substitui o ficheiro localmente por um ponteiro ou ponto de reparse. O ponto de reparse representa um URL para o ficheiro em Ficheiros Azure. Um ficheiro hierárquico tem o atributo "offline" e o atributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS definido no NTFS para que as aplicações de terceiros possam identificar de forma segura ficheiros hierárquicos.
@@ -40,16 +40,19 @@ O tiering em nuvem não depende da funcionalidade NTFS para rastrear a última v
 <a id="tiering-minimum-file-size"></a>
 ### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>Qual é o tamanho mínimo do ficheiro para um ficheiro de nível?
 
-Para as versões 9 e mais recentes, o tamanho mínimo do ficheiro para um ficheiro é baseado no tamanho do cluster do sistema de ficheiros. A tabela a seguir ilustra os tamanhos mínimos de ficheiro que podem ser nivelados, com base no tamanho do cluster de volume:
+Para as versões 9 e mais recentes, o tamanho mínimo do ficheiro para um ficheiro é baseado no tamanho do cluster do sistema de ficheiros. O tamanho mínimo do ficheiro elegível para o tiering da nuvem é calculado em 2x o tamanho do cluster e no mínimo 8 KB. A tabela a seguir ilustra os tamanhos mínimos de ficheiro que podem ser nivelados, com base no tamanho do cluster de volume:
 
 |Tamanho do cluster de volume (Bytes) |Arquivos deste tamanho ou maior podem ser hierarquizados  |
 |----------------------------|---------|
-|4 KB (4096)                 | 8 KB    |
+|4 KB ou menor (4096)      | 8 KB    |
 |8 KB (8192)                 | 16 KB   |
 |16 KB (16384)               | 32 KB   |
-|32 KB (32768) e maior    | 64 KB   |
+|32 KB (32768)               | 64 KB   |
+|64 KB (65536)               | 128 KB  |
 
-Todos os sistemas de ficheiros utilizados pelo Windows organizam o seu disco rígido com base no tamanho do cluster (também conhecido como tamanho da unidade de atribuição). O tamanho do cluster representa a menor quantidade de espaço em disco que pode ser usado para segurar um ficheiro. Quando os tamanhos dos ficheiros não saem para um múltiplo do tamanho do cluster, deve ser utilizado espaço adicional para segurar o ficheiro (até ao próximo múltiplo do tamanho do cluster).
+Com o Windows Server 2019 e o agente Azure File Sync versão 12 e mais recentes, os tamanhos de cluster até 2 MB também são suportados e o tiering nesses tamanhos de cluster maiores funciona da mesma forma. As versões de sistema operativo ou agente mais antigas suportam tamanhos de cluster até 64 KB.
+
+Todos os sistemas de ficheiros utilizados pelo Windows, organizem o seu disco rígido com base no tamanho do cluster (também conhecido como tamanho da unidade de atribuição). O tamanho do cluster representa a menor quantidade de espaço em disco que pode ser usado para segurar um ficheiro. Quando os tamanhos dos ficheiros não saem para um múltiplo do tamanho do cluster, deve ser usado espaço adicional para segurar o ficheiro - até ao próximo múltiplo do tamanho do cluster.
 
 O Azure File Sync é suportado em volumes NTFS com Windows Server 2012 R2 e mais recentes. A tabela seguinte descreve os tamanhos de cluster padrão quando cria um novo volume NTFS. 
 
@@ -62,7 +65,9 @@ O Azure File Sync é suportado em volumes NTFS com Windows Server 2012 R2 e mais
 |128TB - 256 TB | 64 KB         |
 |> 256 TB       | Não suportado |
 
-É possível que, após a criação do volume, tenha formatado manualmente o volume com um tamanho de cluster diferente (unidade de atribuição). Se o seu volume provém de uma versão mais antiga do Windows, os tamanhos de cluster padrão também podem ser diferentes. [Este artigo tem mais detalhes sobre os tamanhos de cluster padrão.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat)
+É possível que, após a criação do volume, formatesse manualmente o volume com um tamanho de cluster diferente. Se o seu volume provém de uma versão mais antiga do Windows, os tamanhos de cluster padrão também podem ser diferentes. [Este artigo tem mais detalhes sobre os tamanhos de cluster padrão.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat) Mesmo que escolha um tamanho de cluster inferior a 4 KB, um limite de 8 KB como o menor tamanho de ficheiro que pode ser nivelado, ainda se aplica. (Mesmo que tecnicamente o tamanho do cluster de 2x equivalesse a menos de 8 KB.)
+
+A razão para o mínimo absoluto encontra-se na forma como o NTFS armazena ficheiros extremamente pequenos - 1 KB a 4 ficheiros de tamanho KB. Dependendo de outros parâmetros do volume, é possível que os pequenos ficheiros não sejam armazenados num cluster no disco. É possivelmente mais eficiente armazenar tais ficheiros diretamente na Master File Table do volume ou "MFT record". O ponto de reparse de nivelamento de nuvens é sempre armazenado no disco e ocupa exatamente um cluster. A nivelação de ficheiros tão pequenos pode acabar sem poupanças de espaço. Casos extremos podem até acabar por usar mais espaço com o tiering de nuvens ativado. Para evitar isso, o menor tamanho de um ficheiro que o nível da nuvem irá tiering, é de 8 KB em um tamanho de cluster de 4 KB ou menor.
 
 <a id="afs-volume-free-space"></a>
 ### <a name="how-does-the-volume-free-space-tiering-policy-work"></a>Como funciona a política de arrumo de espaço livre no volume?
@@ -95,7 +100,7 @@ Get-StorageSyncHeatStoreInformation '<LocalServerEndpointPath>'
 
 Tenha em mente que a política de espaço livre de volume tem sempre precedência, e quando não há espaço livre suficiente no volume para reter tantos dias de ficheiros como descrito pela política de data, o Azure File Sync continuará a nivelar os ficheiros mais frios até que a percentagem de espaço livre de volume seja satisfeita.
 
-Por exemplo, digamos que tem uma política de tiering baseada em datas de 60 dias e uma política de espaço livre de volume de 20%. Se, após a aplicação da política de data, houver menos de 20% de espaço livre no volume, a política de espaço livre de volume entrará em vigor e anulará a política de data. Isto resultará na divisão de mais ficheiros, de modo a que a quantidade de dados mantidos no servidor possa ser reduzida de 60 dias de dados para 45 dias. Inversamente, esta política forçará o tiering de ficheiros que ficam fora do seu intervalo de tempo mesmo que não tenha atingido o seu limiar de espaço livre – por isso, um ficheiro com 61 dias será tiered mesmo que o seu volume esteja vazio.
+Por exemplo, digamos que tem uma política de tiering baseada em datas de 60 dias e uma política de espaço livre de volume de 20%. Se depois de aplicar a política de data, houver menos de 20% de espaço livre no volume, a política de espaço livre de volume entrará em vigor e anulará a política de data. Isto resultará na divisão de mais ficheiros, de modo a que a quantidade de dados mantidos no servidor possa ser reduzida de 60 dias de dados para 45 dias. Inversamente, esta política forçará o tiering de ficheiros que ficam fora do seu intervalo de tempo mesmo que não tenha atingido o seu limiar de espaço livre – por isso, um ficheiro com 61 dias será tiered mesmo que o seu volume esteja vazio.
 
 <a id="volume-free-space-guidelines"></a>
 ### <a name="how-do-i-determine-the-appropriate-amount-of-volume-free-space"></a>Como posso determinar a quantidade adequada de espaço livre no volume?

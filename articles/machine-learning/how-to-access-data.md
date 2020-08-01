@@ -9,21 +9,23 @@ ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
-ms.date: 07/08/2020
+ms.date: 07/22/2020
 ms.custom: how-to, seodec18, tracking-python
-ms.openlocfilehash: 45fb9ef25bdfa43db9c167d58011fc6196020b65
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ca7feacf5d631b4e85a0b3f4e7a039bbb79abe45
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321637"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460206"
 ---
 # <a name="connect-to-azure-storage-services"></a>Ligar aos serviços de armazenamento Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, saiba como **ligar-se aos serviços de armazenamento Azure através das lojas de dados Azure Machine Learning**. As datas armazenam informações de conexão, como o ID de subscrição e a autorização simbólica no cofre de [chaves](https://azure.microsoft.com/services/key-vault/) associado ao espaço de trabalho, para que possa aceder de forma segura ao seu armazenamento sem ter de os codificar nos scripts. 
+Neste artigo, saiba como **ligar-se aos serviços de armazenamento Azure através das lojas de dados Azure Machine Learning**. As datas conectam-se de forma segura ao seu serviço de armazenamento Azure sem colocar em risco as suas credenciais de autenticação e a integridade da sua fonte de dados original. Armazenam informações de ligação, como o ID de subscrição e a autorização simbólica no [cofre-chave](https://azure.microsoft.com/services/key-vault/) associado ao espaço de trabalho, para que possa aceder de forma segura ao seu armazenamento sem ter de os codificar nos scripts. Você pode usar o [Azure Machine Learning Python SDK](#python) ou o [estúdio Azure Machine Learning](#studio) para criar e registar datastores.
 
-**Para soluções de armazenamento não suportadas**, e para poupar o custo da saída de dados durante as experiências de ML, [mova os seus dados](#move) para uma solução de armazenamento Azure suportada.  Pode criar datastores a partir [destas soluções de armazenamento Azure](#matrix). 
+Se preferir criar e gerir as datastores utilizando a extensão do Código VS de Aprendizagem de Máquinas Azure; visite a [gestão de recursos do Código VS como orientar](how-to-manage-resources-vscode.md#datastores) para saber mais.
+
+Pode criar datastores a partir [destas soluções de armazenamento Azure](#matrix). **Para soluções de armazenamento não suportadas**, e para poupar o custo da saída de dados durante as experiências de ML, [mova os seus dados](#move) para uma solução de armazenamento Azure suportada.  
 
 Para entender onde as datas-tores se encaixam no fluxo de trabalho global de acesso a dados da Azure Machine Learning, consulte o artigo [de dados de acesso seguro.](concept-data.md#data-workflow)
 
@@ -32,13 +34,15 @@ Para entender onde as datas-tores se encaixam no fluxo de trabalho global de ace
 Precisará:
 - Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
-- Uma conta de armazenamento Azure com um [recipiente de blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) ou [uma partilha de ficheiros Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
+- Uma conta de armazenamento Azure com um [tipo de armazenamento suportado](#matrix).
 
 - O [Azure Machine Learning SDK para Python,](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)ou acesso ao [estúdio Azure Machine Learning.](https://ml.azure.com/)
 
 - Uma área de trabalho do Azure Machine Learning.
   
-  Ou [cria um espaço de trabalho de aprendizagem automática Azure](how-to-manage-workspace.md) ou utiliza um existente através do Python SDK. Importe a `Workspace` classe e `Datastore` carregue as suas informações de subscrição do ficheiro `config.json` utilizando a função `from_config()` . Isto procura o ficheiro JSON no diretório atual por predefinição, mas também pode especificar um parâmetro de caminho para apontar para o ficheiro usando `from_config(path="your/file/path")` .
+  Ou [cria um espaço de trabalho de aprendizagem automática Azure](how-to-manage-workspace.md) ou utiliza um existente através do Python SDK. 
+
+    Importe a `Workspace` classe e `Datastore` carregue as suas informações de subscrição do ficheiro `config.json` utilizando a função `from_config()` . Isto procura o ficheiro JSON no diretório atual por predefinição, mas também pode especificar um parâmetro de caminho para apontar para o ficheiro usando `from_config(path="your/file/path")` .
 
    ```Python
    import azureml.core
@@ -46,6 +50,12 @@ Precisará:
         
    ws = Workspace.from_config()
    ```
+
+    Quando cria um espaço de trabalho, um recipiente de blob Azure e uma partilha de ficheiros Azure são automaticamente registados como datastores para o espaço de trabalho. São nomeados `workspaceblobstore` `workspacefilestore` e, respectivamente. É `workspaceblobstore` usado para armazenar artefactos do espaço de trabalho e seus registos de experiências de aprendizagem automática. Também é definido como a **datastore padrão** e não pode ser eliminado do espaço de trabalho. O `workspacefilestore` é usado para armazenar cadernos e scripts R autorizados através de instância [computacional](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#accessing-files).
+    
+    > [!NOTE]
+    > O designer de Machine Learning (pré-visualização) criará uma datastore com o nome **azureml_globaldatasets** automaticamente quando abrir uma amostra na página inicial do designer. Esta loja de dados contém apenas conjuntos de dados de amostra. Não **do not** utilize esta loja de dados para qualquer acesso confidencial aos dados.
+
 <a name="matrix"></a>
 
 ## <a name="supported-data-storage-service-types"></a>Tipos de serviços de armazenamento de dados suportados
@@ -72,33 +82,23 @@ Recomendamos a criação de uma loja de dados para um [recipiente Azure Blob](ht
 
 [A azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction?toc=/azure/storage/blobs/toc.json) é construída em cima do armazenamento Azure Blob e projetada para análise de big data da empresa. Uma parte fundamental do Data Lake Storage Gen2 é a adição de um [espaço hierárquico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) de nomes para o armazenamento blob. O espaço hierárquico organiza objetos/ficheiros numa hierarquia de diretórios para um acesso eficiente aos dados.
 
-Quando cria um espaço de trabalho, um recipiente de blob Azure e uma partilha de ficheiros Azure são automaticamente registados no espaço de trabalho. São nomeados `workspaceblobstore` `workspacefilestore` e, respectivamente. `workspaceblobstore`é usado para armazenar artefactos do espaço de trabalho e seus registos de experiências de aprendizagem automática. `workspacefilestore`é usado para armazenar cadernos e scripts R autorizados através de [instância computacional](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#accessing-files). O `workspaceblobstore` recipiente é definido como a datastore predefinido e não pode ser eliminado do espaço de trabalho.
+## <a name="storage-access-and-permissions"></a>Acesso ao armazenamento e permissões
 
-> [!IMPORTANT]
-> O designer de Machine Learning (pré-visualização) criará uma datastore com o nome **azureml_globaldatasets** automaticamente quando abrir uma amostra na página inicial do designer. Esta loja de dados contém apenas conjuntos de dados de amostra. Não **do not** utilize esta loja de dados para qualquer acesso confidencial aos dados.
-> ![Datastore criado automaticamente para conjuntos de dados de amostras de designers](media/how-to-access-data/datastore-designer-sample.png)
+Para garantir uma ligação segura ao seu serviço de armazenamento Azure, o Azure Machine Learning requer que tenha permissão para aceder ao recipiente de armazenamento de dados correspondente. Este acesso depende das credenciais de autenticação utilizadas para registar a datastore. 
 
-<a name="access"></a>
+### <a name="virtual-network"></a>Rede virtual 
 
-## <a name="create-and-register-datastores"></a>Criar e registar datastores
+Se a sua conta de armazenamento de dados estiver numa **rede virtual,** são necessários passos de configuração adicionais para garantir que o Azure Machine Learning tenha acesso aos seus dados. Consulte [o isolamento da rede & privacidade](how-to-enable-virtual-network.md#machine-learning-studio) para garantir que os passos de configuração apropriados são aplicados quando cria e regista a sua datastore.  
 
-Quando regista uma solução de armazenamento Azure como uma datastore, cria e regista automaticamente essa datastore para um espaço de trabalho específico. Pode criar e registar datastores para um espaço de trabalho utilizando o estúdio [Python SDK](#python-sdk) ou [Azure Machine Learning](#azure-machine-learning-studio).
+### <a name="access-validation"></a>Validação de acesso
 
->[!IMPORTANT]
-> Como parte do processo inicial de criação e registo de datastore, a Azure Machine Learning valida que o serviço de armazenamento subjacente existe e que o utilizador fornecido principal (nome de utilizador, principal de serviço ou ficha SAS) tem acesso a esse armazenamento. No entanto, para a Azure Data Lake Storage Gen 1 e 2 datastores, esta validação acontece mais tarde, quando métodos de acesso a dados como [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py) ou [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-) são chamados. 
-<br><br>
-Após a criação da datastore, esta validação é realizada apenas para métodos que requerem acesso ao recipiente de armazenamento subjacente, **e não** cada vez que os objetos da loja de dados são recuperados. Por exemplo, a validação acontece se pretender descarregar ficheiros da sua datastore; mas se apenas quiser alterar a sua datastore padrão, então a validação não acontece.
+**Como parte do processo inicial de criação e registo de datastore, o**Azure Machine Learning valida automaticamente que o serviço de armazenamento subjacente existe e o utilizador fornecido principal (nome de utilizador, principal de serviço ou token SAS) tem acesso ao armazenamento especificado.
 
-### <a name="python-sdk"></a>SDK Python
+**Após a criação da datastore,** esta validação é realizada apenas para métodos que requerem acesso ao recipiente de armazenamento subjacente, **e não** cada vez que os objetos da datas são recuperados. Por exemplo, a validação acontece se pretender descarregar ficheiros da sua datastore; mas se apenas quiser alterar a sua datastore padrão, então a validação não acontece.
 
-Todos os métodos de registo estão na [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) classe e têm o `register_azure_*` formulário.
+Para autenticar o seu acesso ao serviço de armazenamento subjacente, pode fornecer a sua chave de conta, fichas de acesso partilhada (SAS) ou principal de serviço no método correspondente `register_azure_*()` do tipo de loja de dados que pretende criar. A [matriz do tipo de armazenamento](#matrix) lista os tipos de autenticação suportados que correspondem a cada tipo de datastore.
 
-> [!IMPORTANT]
-> Se planeia criar uma loja de dados para contas de armazenamento que se encontram numa rede virtual, consulte os dados do Access numa secção [de rede virtual.](#access-data-in-a-virtual-network)
-
-Pode encontrar a informação necessária para preencher o `register_azure_*()` método no [portal Azure](https://portal.azure.com).
-
-* O nome datastore deve consistir apenas em letras minúsculas, dígitos e sublinhados. 
+Pode encontrar a chave de conta, o token SAS e informações principais do serviço no seu [portal Azure.](https://portal.azure.com)
 
 * Se pretender utilizar uma chave de conta ou um sinal SAS para autenticação, selecione **Contas de Armazenamento** no painel esquerdo e escolha a conta de armazenamento que pretende registar. 
   * A **página 'Vista Geral'** fornece informações como o nome da conta, o contentor e o nome da partilha de ficheiros. 
@@ -111,11 +111,30 @@ Pode encontrar a informação necessária para preencher o `register_azure_*()` 
 > [!IMPORTANT]
 > Por razões de segurança, poderá ter de alterar as suas chaves de acesso para uma conta de Armazenamento Azure (chave de conta ou ficha SAS). Ao fazê-lo, certifique-se de sincronizar as novas credenciais com o seu espaço de trabalho e as datas-tores que lhe estão ligadas. Saiba como sincronizar as suas credenciais atualizadas com [estes passos.](how-to-change-storage-access-key.md) 
 
-Os exemplos a seguir mostram como registar um recipiente de blob Azure, uma partilha de ficheiros Azure, e Azure Data Lake Storage Generation 2 como uma datastore. Os parâmetros fornecidos nestes exemplos são os **parâmetros necessários** para criar e registar uma datastore. 
+### <a name="permissions"></a>Permissões
 
-Para criar datastores para outros serviços de armazenamento e ver parâmetros opcionais para estes métodos, consulte a [documentação de referência para os `register_azure_*` métodos aplicáveis.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#methods)
+Para o recipiente blob Azure e o armazenamento Azure Data Lake Gen 2 certifique-se de que as suas credenciais de autenticação têm acesso **ao Storage Blob Data Reader.** Saiba mais sobre [o Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). 
 
-#### <a name="blob-container"></a>Contentor de blobs
+<a name="python"></a>
+
+## <a name="create-and-register-datastores-via-the-sdk"></a>Criar e registar datastores através do SDK
+
+Quando regista uma solução de armazenamento Azure como uma datastore, cria e regista automaticamente essa datastore para um espaço de trabalho específico. Reveja a secção [de acesso ao armazenamento & permissões](#storage-access-and-permissions) para saber onde encontrar as credenciais de autenticação necessárias.
+
+Dentro desta secção encontram-se exemplos de como criar e registar uma loja de dados através do Python SDK para os seguintes tipos de armazenamento. Os parâmetros fornecidos nestes exemplos são os **parâmetros necessários** para criar e registar uma datastore.
+
+* [Recipiente de bolhas Azure](#azure-blob-container)
+* [Azure partilha de ficheiros](#azure-file-share)
+* [Azure Data Lake Storage Generation 2](#azure-data-lake-storage-generation-2)
+
+ Para criar datastores para outros serviços de armazenamento suportados, consulte a [documentação de referência para os `register_azure_*` métodos aplicáveis.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#methods)
+
+Se preferir uma experiência de código baixo, consulte [Criar datastores no estúdio Azure Machine Learning](#studio).
+
+> [!NOTE]
+> O nome datastore deve consistir apenas em letras minúsculas, dígitos e sublinhados. 
+
+### <a name="azure-blob-container"></a>Recipiente de bolhas Azure
 
 Para registar um recipiente de bolhas Azure como uma loja de dados, utilize [`register_azure_blob_container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-) .
 
@@ -133,9 +152,8 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
                                                          account_name=account_name,
                                                          account_key=account_key)
 ```
-Se o seu recipiente de bolhas estiver na rede virtual, inclua o parâmetro `skip_validation=True` no seu [`register_azure_blob_container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-) método. 
 
-#### <a name="file-share"></a>Partilha de ficheiros
+### <a name="azure-file-share"></a>Partilha de ficheiros do Azure
 
 Para registar uma partilha de ficheiros Azure como uma datastore, utilize [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-) . 
 
@@ -153,11 +171,12 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
                                                      account_name=account_name,
                                                      account_key=account_key)
 ```
-Se a sua partilha de ficheiros estiver na rede virtual, inclua o parâmetro `skip_validation=True` no seu [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-) método. 
 
-#### <a name="azure-data-lake-storage-generation-2"></a>Azure Data Lake Storage Generation 2
+### <a name="azure-data-lake-storage-generation-2"></a>Azure Data Lake Storage Generation 2
 
-Para uma data-loja de dados Azure Data Lake Storage Generation 2 (ADLS Gen 2), utilize [register_azure_data_lake_gen2()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) para registar uma loja de dados credenciais ligada a um armazenamento Azure DataLake Gen 2 com [permissões principais](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)de serviço. Para utilizar o seu principal de serviço, tem de registar a [sua candidatura](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) e conceder ao titular do serviço o acesso do Leitor *de Dados blob de armazenamento.* Saiba mais sobre [o controlo de acesso configurado para a ADLS Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
+Para uma data-loja de dados Azure Data Lake Storage Generation 2 (ADLS Gen 2), utilize [register_azure_data_lake_gen2()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) para registar uma loja de dados credenciais ligada a um armazenamento Azure DataLake Gen 2 com [permissões principais](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)de serviço. 
+
+Para utilizar o seu principal de serviço, tem de registar a [sua candidatura](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) e conceder ao titular do serviço o acesso do Leitor **de Dados blob de armazenamento.** Saiba mais sobre [o controlo de acesso configurado para a ADLS Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
 
 O código a seguir cria e regista a `adlsgen2_datastore_name` datastore para o `ws` espaço de trabalho. Esta loja de dados acede ao sistema de ficheiros `test` na `account_name` conta de armazenamento, utilizando as credenciais principais do serviço fornecido.
 
@@ -181,9 +200,11 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
                                                              client_secret=client_secret) # the secret of service principal
 ```
 
-### <a name="azure-machine-learning-studio"></a>Azure Machine Learning studio 
+<a name="studio"></a>
 
-Crie uma nova loja de dados em alguns passos no estúdio Azure Machine Learning:
+## <a name="create-datastores-in-the-studio"></a>Criar lojas de dados no estúdio 
+
+Crie uma nova loja de dados em alguns passos com o estúdio Azure Machine Learning.
 
 > [!IMPORTANT]
 > Se a sua conta de armazenamento de dados estiver numa rede virtual, são necessários passos de configuração adicionais para garantir que o estúdio tem acesso aos seus dados. Consulte [o isolamento da rede & privacidade](how-to-enable-virtual-network.md#machine-learning-studio) para garantir que são aplicadas as etapas de configuração adequadas. 
@@ -191,24 +212,17 @@ Crie uma nova loja de dados em alguns passos no estúdio Azure Machine Learning:
 1. Inscreva-se no [estúdio Azure Machine Learning](https://ml.azure.com/).
 1. Selecione **Datastores** no painel esquerdo em **Manage**.
 1. Selecione **+ Nova loja de dados**.
-1. Preencha o formulário para uma nova datastore. O formulário atualiza-se inteligentemente com base nas suas seleções para o tipo de armazenamento Eszure e tipo de autenticação.
-  
-Pode encontrar a informação de que necessita para preencher o formulário no [portal Azure](https://portal.azure.com). Selecione **Contas de Armazenamento** no painel esquerdo e escolha a conta de armazenamento que pretende registar. A **página 'Vista Geral'** fornece informações como o nome da conta, o contentor e o nome da partilha de ficheiros. 
-
-* Para itens de autenticação, como chave de conta ou ficha SAS, aceda às **teclas de acesso** no painel **de Definições.** 
-
-* Para itens principais de serviço como, ID do inquilino e ID do cliente, vá às suas **inscrições da App** e selecione qual a aplicação que pretende utilizar. A sua página **geral** correspondente conterá estes itens. 
-
-> [!IMPORTANT]
-> Por razões de segurança, poderá ter de alterar as suas chaves de acesso para uma conta de Armazenamento Azure (chave de conta ou ficha SAS). Ao fazê-lo, certifique-se de sincronizar as novas credenciais com o seu espaço de trabalho e as datas-tores que lhe estão ligadas. Saiba como sincronizar as suas credenciais atualizadas com [estes passos.](how-to-change-storage-access-key.md) 
+1. Preencha o formulário para uma nova datastore. O formulário atualiza-se inteligentemente com base nas suas seleções para o tipo de armazenamento Eszure e tipo de autenticação. Consulte a [secção de acesso ao armazenamento e permissões](#access-validation) para saber onde encontrar as credenciais de autenticação que necessita para preencher este formulário.
 
 O exemplo a seguir demonstra como é a forma quando cria uma loja **de dados azure blob**: 
     
 ![Formulário para uma nova datastore](media/how-to-access-data/new-datastore-form.png)
 
-### <a name="vs-code"></a>Código VS
+<a name="train"></a>
 
-Pode criar e gerir as datas-tores utilizando a extensão do Código VS de Aprendizagem de Máquinas Azure. Visite o [guia de gestão de recursos do Código VS para](how-to-manage-resources-vscode.md#datastores) saber mais.
+## <a name="use-data-in-your-datastores"></a>Utilize dados nas suas datastores
+
+Depois de criar uma loja de dados, [crie um conjunto de dados Azure Machine Learning](how-to-create-register-datasets.md) para interagir com os seus dados. Os conjuntos de dados embalam os seus dados num objeto consumível avaliado preguiçosamente para tarefas de aprendizagem automática, como o treino. Também fornecem a capacidade de [descarregar ou montar](how-to-train-with-datasets.md#mount-vs-download) ficheiros de qualquer formato a partir de serviços de armazenamento Azure Blob e ADLS Gen 2. Também pode usá-los para carregar dados tabulares num pandas ou No Spark DataFrame.
 
 <a name="get"></a>
 
@@ -240,58 +254,6 @@ Também pode alterar a loja de dados predefinido com o seguinte código. Esta ca
  ws.set_default_datastore(new_default_datastore)
 ```
 
-<a name="up-and-down"></a>
-## <a name="upload-and-download-data"></a>Carregar e transferir dados
-
-Os [`upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#upload-src-dir--target-path-none--overwrite-false--show-progress-true-) [`download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) métodos e métodos descritos nos seguintes exemplos são específicos e funcionam de forma idêntica para as classes [AzureBlobDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py) e [AzureFileDatastore.](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py)
-
-> [!NOTE]
-> O upload para as datas do AzureDataLakeGen2 não é suportado neste momento.
-
-### <a name="upload"></a>Carregar
-
-Faça o upload de um diretório ou de ficheiros individuais para a loja de dados utilizando o Python SDK:
-
-```Python
-datastore.upload(src_dir='your source directory',
-                 target_path='your target path',
-                 overwrite=True,
-                 show_progress=True)
-```
-
-O `target_path` parâmetro especifica a localização na partilha de ficheiros (ou recipiente blob) para carregar. É por `None` defeito, para que os dados são carregados para raiz. Se, `overwrite=True` quaisquer dados existentes `target_path` forem substituídos.
-
-Também pode fazer o upload de uma lista de ficheiros individuais para a datastore através do `upload_files()` método.
-
-### <a name="download"></a>Download
-
-Descarregue os dados de uma loja de dados para o seu sistema de ficheiros local:
-
-```Python
-datastore.download(target_path='your target path',
-                   prefix='your prefix',
-                   show_progress=True)
-```
-
-O `target_path` parâmetro é a localização do diretório local para descarregar os dados para. Para especificar um caminho para a pasta na partilha de ficheiros (ou recipiente blob) para descarregar, forneça esse caminho para `prefix` . Se `prefix` for , todo o conteúdo da sua partilha de `None` ficheiros (ou recipiente blob) será descarregado.
-
-<a name="train"></a>
-
-## <a name="access-your-data-during-training"></a>Aceda aos seus dados durante o treino
-
-Para interagir com os dados nas suas datastores ou para embalar os seus dados num objeto consumível para tarefas de aprendizagem automática, como formação, [criar um conjunto de dados de aprendizagem automática Azure](how-to-create-register-datasets.md). Os conjuntos de dados fornecem funções que carregam dados tabulares num panda ou Nodilho de Dados. Os conjuntos de dados também fornecem a capacidade de descarregar ou montar ficheiros de qualquer formato a partir do armazenamento Azure Blob, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database e Azure Database for PostgreSQL. [Saiba mais sobre como treinar com conjuntos de dados.](how-to-train-with-datasets.md)
-
-### <a name="accessing-source-code-during-training"></a>Aceder ao código fonte durante o treino
-
-O armazenamento Azure Blob tem velocidades de produção mais altas do que uma partilha de ficheiros Azure e irá escalar para um grande número de empregos iniciados em paralelo. Por esta razão, recomendamos configurar as suas corridas para utilizar o armazenamento Blob para transferir ficheiros de código fonte.
-
-O exemplo de código a seguir especifica na configuração de execução que blob datastore para usar para transferências de código fonte.
-
-```python 
-# workspaceblobstore is the default blob storage
-run_config.source_directory_data_store = "workspaceblobstore" 
-```
-
 ## <a name="access-data-during-scoring"></a>Aceder aos dados durante a pontuação
 
 A Azure Machine Learning fornece várias formas de usar os seus modelos para pontuar. Alguns destes métodos não fornecem acesso a datastores. Utilize a seguinte tabela para entender quais os métodos que lhe permitem aceder às datastores durante a pontuação:
@@ -303,11 +265,6 @@ A Azure Machine Learning fornece várias formas de usar os seus modelos para pon
 | [Módulo Azure IoT Edge](how-to-deploy-and-where.md) | &nbsp; | Implementar modelos para dispositivos IoT Edge. |
 
 Para situações em que o SDK não fornece acesso às datastores, poderá ser capaz de criar código personalizado utilizando o Azure SDK relevante para aceder aos dados. Por exemplo, o [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python) é uma biblioteca de clientes que pode utilizar para aceder a dados armazenados em bolhas ou ficheiros.
-
-
-## <a name="access-data-in-a-virtual-network"></a>Aceder a dados numa rede virtual
-
-Se o seu armazenamento estiver por detrás de uma rede virtual, deve realizar etapas de configuração adicionais para que o seu espaço de trabalho e datastore acedam aos seus dados. Para obter mais informações sobre como utilizar datastores e conjuntos de dados numa rede virtual, consulte [o isolamento da Rede durante o treino & inferência com redes virtuais privadas](how-to-enable-virtual-network.md#use-datastores-and-datasets).
 
 <a name="move"></a>
 

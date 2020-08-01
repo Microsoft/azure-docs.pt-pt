@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/06/2019
-ms.openlocfilehash: 4a763a3bb4d46ba03808423d4d1283381c1174a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 02ec26c80a8a64f88a30ded2067a377c292d621d
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81605401"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475605"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapeamento do fluxo de dados Modo Debug
 
@@ -25,7 +25,7 @@ O modo de depuração do fluxo de dados da Azure Data Factory permite-lhe ver in
 
 ![Debug slider](media/data-flow/debugbutton.png "Debug slider")
 
-Assim que ligar o slider, ser-lhe-á solicitado que selecione qual a configuração de tempo de execução de integração que pretende utilizar. Se o AutoResolveIntegrationRuntime for escolhido, um cluster com oito núcleos de cálculo geral com um tempo de vida de 60 minutos será girado. Para obter mais informações sobre os tempos de execução do fluxo de dados, consulte [o desempenho do fluxo de dados](concepts-data-flow-performance.md#increasing-compute-size-in-azure-integration-runtime).
+Assim que ligar o slider, ser-lhe-á solicitado que selecione qual a configuração de tempo de execução de integração que pretende utilizar. Se o AutoResolveIntegrationRuntime for escolhido, um cluster com oito núcleos de cálculo geral com um tempo de vida de 60 minutos será girado. Para obter mais informações sobre os tempos de execução do fluxo de dados, consulte [o desempenho do fluxo de dados](concepts-data-flow-performance.md#ir).
 
 ![Seleção de DEBUG IR](media/data-flow/debugbutton2.png "Seleção de DEBUG IR")
 
@@ -87,7 +87,7 @@ Selecionar uma coluna no seu separador de pré-visualização de dados e clicar 
 
 ![Estatísticas da coluna](media/data-flow/stats.png "Estatísticas da coluna")
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Assim que terminar de construir e depurar o fluxo de dados, [execute-o a partir de um oleoduto.](control-flow-execute-data-flow-activity.md)
 * Ao testar o seu pipeline com um fluxo de dados, utilize a [opção de execução de execução do pipeline Debug.](iterative-development-debugging.md)

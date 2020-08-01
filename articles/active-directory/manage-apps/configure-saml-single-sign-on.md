@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 1abde88b653ae0f0ef3651b161e806047e143078
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 82b10525fe4d8b9db88300b61ae2da6630030dfd
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87418785"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461192"
 ---
 # <a name="configure-saml-based-single-sign-on"></a>Configurar o início de sessão único baseado em SAML
 
@@ -25,7 +25,7 @@ Na [série quickstart](view-applications-portal.md) sobre gestão de aplicaçõe
 
 ## <a name="before-you-begin"></a>Before you begin
 
-A utilização do Azure AD como fornecedor de identidade e a configuração de um único sindes (SSO) pode ser simples ou complexa dependendo da aplicação que está a ser utilizada. Algumas aplicações podem ser criadas com apenas algumas ações. Outros requerem uma configuração aprofundada. Para acelerar rapidamente, caminhe pela [série quickstart](view-applications-portal.md) sobre gestão de aplicações. Se a aplicação que está a adicionar é simples, então provavelmente não precisa ler este artigo. Se a aplicação que está a adicionar requer uma configuração personalizada para SSO baseado em SAML, então este artigo é para si.
+A utilização do Azure AD como seu Fornecedor de Identidade (IdP) e a configuração de uma única inscrição (SSO) pode ser simples ou complexa dependendo da aplicação que está a ser utilizada. Algumas aplicações podem ser criadas com apenas algumas ações. Outros requerem uma configuração aprofundada. Para acelerar rapidamente, caminhe pela [série quickstart](view-applications-portal.md) sobre gestão de aplicações. Se a aplicação que está a adicionar é simples, então provavelmente não precisa ler este artigo. Se a aplicação que está a adicionar requer uma configuração personalizada para SSO baseado em SAML, então este artigo é para si.
 
 Na [série quickstart,](view-applications-portal.md)há um artigo sobre configurar um único sign-on. Nele, aprende-se a aceder à página de configuração SAML para uma aplicação. A página de configuração SAML inclui cinco secções. Estas secções são discutidas em detalhe neste artigo.
 
@@ -129,7 +129,7 @@ Se aparecer uma mensagem de erro, complete os seguintes passos:
 Para obter mais informações, consulte [o único sign-on baseado em Debug SAML para aplicações no Azure Ative Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Quickstart Series em Gestão de Aplicações](view-applications-portal.md)
 - [Atribuir utilizadores ou grupos à aplicação](methods-for-assigning-users-and-groups.md)

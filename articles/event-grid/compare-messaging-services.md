@@ -3,20 +3,20 @@ title: Comparar serviços de mensagens do Azure
 description: Descreve os três serviços de mensagens Azure - Azure Event Grid, Event Hubs e Service Bus. Recomenda que serviço utilizar para diferentes cenários.
 ms.topic: overview
 ms.date: 07/07/2020
-ms.openlocfilehash: 9c539accbc41f56e4421b9e793c25496987363aa
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7a3a0cd7f63a67206053ae55f33bd71aee2c19c6
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101380"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460410"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Escolha entre serviços de mensagens Azure - Event Grid, Event Hubs e Service Bus
 
 O Azure oferece três serviços que ajudam a entregar mensagens de eventos numa solução. Esses serviços são:
 
-* [Event Grid](/azure/event-grid/)
-* [Hubs de Eventos](/azure/event-hubs/)
-* [Service Bus](/azure/service-bus-messaging/)
+* [Event Grid](./index.yml)
+* [Hubs de Eventos](../event-hubs/index.yml)
+* [Service Bus](../service-bus-messaging/index.yml)
 
 Embora tenham alguns semelhanças, cada serviço foi concebido para determinados cenários. Este artigo descreve as diferenças entre esses serviços e ajuda-o a compreender qual escolher para a sua aplicação. Em muitos casos, os serviços de mensagens são complementares e podem ser utilizados em conjunto.
 
@@ -90,7 +90,7 @@ Noutros casos, pode utilizá-los ao mesmo tempo para formar um pipeline de event
 
 ![Descrição geral dos dados de fluxo](./media/compare-messaging-services/overview.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos: 
 - [Opções de mensagens assíncronas em Azure](/azure/architecture/guide/technology-choices/messaging)
 - [Eventos, Pontos de Dados e Mensagens - Escolher o serviço de mensagens Azure certo para os seus dados.](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/)

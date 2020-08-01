@@ -7,14 +7,14 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b06edb83e85ef6d56cf8bf8f91551fe99535eba1
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 126673391b49f884a51521d462060c425a314667
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352422"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475673"
 ---
-# <a name="iot-plug-and-play-conventions"></a>Convenções IoT Plug and Play
+# <a name="iot-plug-and-play-conventions"></a>Convenções do IoT Plug and Play
 
 Os dispositivos IoT Plug e Play Preview devem seguir um conjunto de convenções quando trocam mensagens com um hub IoT. Os dispositivos IoT Plug e Play Preview utilizam o protocolo MQTT para comunicar com o IoT Hub.
 
@@ -25,11 +25,11 @@ Você descreve a telemetria, propriedades e comandos que um dispositivo IoT Plug
 
 Para obter mais informações, consulte [componentes IoT Plug e Play nos modelos.](concepts-components.md)
 
-## <a name="model-discovery"></a>Deteção de modelos
+## <a name="identify-the-model"></a>Identificar o modelo
 
 Para anunciar o modelo que implementa, um dispositivo IoT Plug and Play inclui o ID do modelo no pacote de conexão MQTT adicionando `model-id` ao `USERNAME` campo.
 
-Para descobrir o modelo que um dispositivo implementa, um serviço pode obter o ID do modelo a partir de:
+Para identificar o modelo que um dispositivo implementa, um serviço pode obter o ID do modelo a partir de:
 
 - O `modelId` dispositivo twin field.
 - O campo digital `$metadata.$model` gémeo.

@@ -3,12 +3,12 @@ title: Publicar eventos com domínios de eventos com Azure Event Grid
 description: Mostra como gerir grandes conjuntos de tópicos em Azure Event Grid e publicar eventos para eles usando domínios de eventos.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: eae467c1c4cc1257e7a5205dd5efda40490f7908
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: ce1cc9c2b09dd6b0c9508ad6b0597428bd355d4b
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423648"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460563"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Gerir tópicos e publicar eventos usando domínios de eventos
 
@@ -78,7 +78,7 @@ Note o `endpoint` e como eles são `id` obrigados a gerir o domínio e publicar 
 
 ## <a name="manage-access-to-topics"></a>Gerir o acesso a tópicos
 
-Gerir o acesso a tópicos é feito através da [atribuição de funções.](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) A atribuição de funções utiliza o controlo de acesso baseado em funções para limitar as operações nos recursos da Azure a utilizadores autorizados num determinado âmbito.
+Gerir o acesso a tópicos é feito através da [atribuição de funções.](../role-based-access-control/role-assignments-cli.md) A atribuição de funções utiliza o controlo de acesso baseado em funções para limitar as operações nos recursos da Azure a utilizadores autorizados num determinado âmbito.
 
 O Event Grid tem duas funções incorporadas, que podes usar para atribuir acesso a determinados utilizadores em vários tópicos dentro de um domínio. Estas funções são `EventGrid EventSubscription Contributor (Preview)` , que permite a criação e eliminação de subscrições, e , que `EventGrid EventSubscription Reader (Preview)` apenas permite a listagem de subscrições de eventos.
 
@@ -208,6 +208,6 @@ Get-AzureRmEventGridDomainKey `
 
 E, em seguida, use o seu método favorito de fazer um HTTP POST para publicar os seus eventos no seu domínio De Grelha de Eventos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre conceitos de alto nível em domínios de eventos e por que eles são úteis, consulte a [visão geral conceptual dos Domínios de Eventos.](event-domains.md)

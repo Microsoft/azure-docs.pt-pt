@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/16/2020
+ms.date: 07/10/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71d0a1f2551338207a71b6c547d9c2cd57fea777
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 918675b111b7b1b85669692b63fed683ea2831f8
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284392"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475639"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Atribuir funções âmbito a uma unidade administrativa
 
@@ -46,7 +46,7 @@ Vá ao **Azure AD > Unidades Administrativas** no portal. Selecione a unidade ad
 
 ![Selecione uma unidade administrativa para alterar o âmbito de função](./media/roles-admin-units-assign-roles/select-role-to-scope.png)
 
-Selecione a função a atribuir e, em seguida, **selecione atribuir atribuições .** Isto irá deslizar um painel à direita onde pode selecionar um ou mais utilizadores a atribuir à função.
+Selecione a função a atribuir e, em seguida, **selecione atribuir atribuições .** Abre-se um painel à direita, onde pode selecionar um ou mais utilizadores a atribuir à função.
 
 ![Selecione a função para o âmbito e, em seguida, selecione atribuições adicionar](./media/roles-admin-units-assign-roles/select-add-assignment.png)
 
@@ -104,4 +104,5 @@ Request body
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Resolução de problemas das unidades administrativas e FAQ](roles-admin-units-faq-troubleshoot.md)
+- [Use grupos de nuvem para gerir atribuições de funções](roles-groups-concept.md)
+- [Funções de resolução de problemas atribuídas a grupos de nuvem](roles-groups-faq-troubleshooting.md)

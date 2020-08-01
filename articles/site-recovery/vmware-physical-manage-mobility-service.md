@@ -7,17 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 9be758c286e072b0fbefc5f8b20b7accc4e6741b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff77d6cad60b459b1fe6a4f83641c7aebe204dfa
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79256968"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460104"
 ---
 # <a name="manage-the-mobility-agent"></a>Gerir o Agente de mobilidade 
 
 Configura o agente de mobilidade no seu servidor quando utiliza a Recuperação do Site Azure para a recuperação de desastres de VMware VMs e servidores físicos para o Azure. O agente de mobilidade coordena as comunicações entre a sua máquina protegida, o servidor de processamento de configuração/servidor de processo de escala e gere a replicação de dados. Este artigo resume tarefas comuns para gerir o agente de mobilidade depois de ser implementado.
 
+>[!TIP]
+>Para descarregar o instalador para um desativo OS/Linux específico, consulte as orientações [aqui](vmware-physical-mobility-service-overview.md#locate-installer-files). Para atualizar automaticamente a partir do portal, não necessita de descarregar o instalador. [A ASR rescaia automaticamente o instalador do servidor de configuração e atualiza o agente](#update-mobility-service-from-azure-portal).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -33,7 +35,7 @@ Configura o agente de mobilidade no seu servidor quando utiliza a Recuperação 
 
      ![Lista de VM de itens replicados](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
-5. O trabalho do Serviço de Mobilidade de Atualização começa para cada uma das máquinas selecionadas.
+5. O trabalho do Serviço de Mobilidade de Atualização começa para cada uma das máquinas selecionadas. O agente de mobilidade é atualizado para a versão do servidor de configuração. Por exemplo, se o servidor de configuração estiver na versão 9.33, o agente de mobilidade num VM protegido também é atualizado para a versão 9.33.
 
 ## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>Atualizar o serviço de mobilidade através do script powershell no servidor do Windows
 
@@ -89,7 +91,7 @@ O fornecedor Azure Site Recovery VSS é necessário na máquina de origem para g
 3. Executar o script InMageVSSProvider_Uninstall.cmd . Isto irá desinstalar o serviço se já existir.
 4. Executar o script InMageVSSProvider_Install.cmd para instalar manualmente o fornecedor VSS.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configurar a recuperação de desastres para VMware VMs](vmware-azure-tutorial.md)
 - [Configurar a recuperação de desastres para servidores físicos](physical-azure-disaster-recovery.md)

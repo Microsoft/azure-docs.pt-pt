@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: b47c6c7d2137737021766f239fdb6ab1c64bd12f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f9598ad508e3760bf1bad04f8694838465e4961f
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422866"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460988"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Resolver problemas de avaliação/visualização de dependência
 
@@ -66,6 +66,9 @@ No caso de VMware e VMs hiper-V, a avaliação do servidor marca os VMs do Linux
 
 Esta lacuna pode ser resolvida permitindo a descoberta de [aplicações](./how-to-discover-applications.md) nos VMware VMs. A Avaliação do Servidor utiliza o sistema operativo detetado a partir do VM utilizando as credenciais de hóspedes fornecidas. Estes dados do sistema operativo identificam as informações adequadas do SISTEMA no caso dos VMs windows e Linux.
 
+## <a name="operating-system-version-not-available"></a>Versão do sistema operativo não disponível
+
+Para servidores físicos, devem estar disponíveis informações de versão menor do sistema operativo. Se não estiver disponível, contacte o Microsoft Support. Para máquinas VMware, a Avaliação do Servidor utiliza as informações do sistema operativo especificadas para o VM no vCenter Server. No entanto, o vCenter Server não fornece a versão menor para sistemas operativos. Para descobrir a versão menor, é necessário configurar a [descoberta da aplicação.](./how-to-discover-applications.md) Para os VMs Hiper-V, a descoberta da versão menor do sistema operativo não é suportada. 
 
 ## <a name="azure-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>SKUs Azure maiores do que no local numa avaliação de Azure VM
 
@@ -212,6 +215,6 @@ Recolher registos de tráfego de rede da seguinte forma:
 - Para os VMs Hiper-V, os dados do sistema operativo são recolhidos a partir do anfitrião Hyper-V
 - Para servidores físicos, é recolhido do servidor.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar](how-to-create-assessment.md) ou [personalizar](how-to-modify-assessment.md) uma avaliação.

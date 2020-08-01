@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.openlocfilehash: 419c3f21c8606bb16112fd18cfe141655fd7b868
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f735668e1519a6a12082537dabfe17be3e96ffdd
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84168153"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460016"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB Table .NET API: Baixar e lançar notas
 
@@ -82,10 +82,7 @@ A Microsoft fornece a notificação com pelo menos **12 meses** de antecedência
 
 A `Microsoft.Azure.CosmosDB.Table` biblioteca está atualmente disponível apenas para .NET Framework, e está em modo de manutenção e será depreciada em breve. Novas funcionalidades e funcionalidades e otimizações só são adicionadas à biblioteca .NET Standard [Microsoft.Azure.Cosmos.Table,](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)como tal é recomendado que faça upgrade para [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table).
 
-O pacote [de pré-visualização WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) foi depreciado. O WindowsAzure.Storage-PremiumTable SDK será retirado no dia 15 de novembro de 2018, altura em que os pedidos para o SDK reformado não serão permitidos. 
-
-Quaisquer pedidos à Azure Cosmos DB usando um SDK reformado são rejeitados pelo serviço.
-<br/>
+O pacote [de pré-visualização WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) foi depreciado. O WindowsAzure.Storage-PremiumTable SDK será retirado no dia 15 de novembro de 2018, altura em que os pedidos para o SDK reformado não serão permitidos.
 
 | Versão | Data de Lançamento | Data de Extinção |
 | --- | --- | --- |

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16203ab972f6117cec41e43ee5dd89cda7e95ede
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4c4b9ae0ed682d6b34099c8eff941f1d0b6cabad
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025703"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461770"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planeie o seu Azure Ative Directory híbrido junte-se à implementação
 
@@ -121,6 +121,9 @@ A Hybrid AZure AD junta-se a obras com ambientes geridos e federados, dependendo
 Um ambiente gerido pode ser implementado através do [Password Hash Sync (PHS)](/azure/active-directory/hybrid/whatis-phs) ou [do Passe Através da Autenticação (PTA)](/azure/active-directory/hybrid/how-to-connect-pta) com [sinal único sem costura .](/azure/active-directory/hybrid/how-to-connect-sso)
 
 Estes cenários não requerem que configures um servidor da federação para autenticação.
+
+> [!NOTE]
+> [A autenticação em nuvem utilizando o lançamento encenado](/hybrid/how-to-connect-staged-rollout) só é suportada a partir da atualização do Windows 10 1903
 
 ### <a name="federated-environment"></a>Ambiente federado
 

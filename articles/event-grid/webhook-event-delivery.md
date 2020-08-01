@@ -3,19 +3,19 @@ title: Entrega de eventos WebHook
 description: Este artigo descreve a entrega de eventos WebHook e a validação do ponto final quando se utiliza webhooks.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: b616c82092ad896da82d0f98f37e3c45f3ba1014
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e9a52d0cb3e4e880d91e1b748d97ef3041298930
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118958"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461243"
 ---
 # <a name="webhook-event-delivery"></a>Entrega do Evento Webhook
 Webhooks são uma das muitas formas de receber eventos da Azure Event Grid. Quando um novo evento estiver pronto, o serviço de Rede de Eventos POSTs um pedido HTTP para o ponto final configurado com o evento no organismo de pedido.
 
 Como muitos outros serviços que suportam webhooks, o Event Grid requer que você prove a propriedade do seu ponto final webhook antes que comece a entregar eventos a esse ponto final. Este requisito impede que um utilizador malicioso inunde o seu ponto final com eventos. Quando utiliza qualquer um dos três serviços Azure listados abaixo, a infraestrutura Azure lida automaticamente com esta validação:
 
-- Aplicativos Azure Logic com [Conector de Grelha de Evento](https://docs.microsoft.com/connectors/azureeventgrid/)
+- Aplicativos Azure Logic com [Conector de Grelha de Evento](/connectors/azureeventgrid/)
 - Azure Automation via [webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
 - Funções Azure com [gatilho de grelha de evento](../azure-functions/functions-bindings-event-grid.md)
 
@@ -81,9 +81,9 @@ Ou, pode validar manualmente a subscrição enviando um pedido GET para o URL de
 Para um exemplo de manuseamento do aperto de mão de validação de assinatura, consulte uma [amostra C#](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
 ## <a name="endpoint-validation-with-cloudevents-v10"></a>Validação de ponto final com CloudEvents v1.0
-Se já está familiarizado com a Grade de Eventos, poderá estar ciente do aperto de mão de validação de ponto final da Event Grid para prevenir abusos. O CloudEvents v1.0 implementa a sua própria [semântica de proteção contra abusos](webhook-event-delivery.md) utilizando o método HTTP OPTIONS. Pode ler mais sobre o assunto [aqui](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Ao utilizar o esquema cloudEvents para saída, a Grade de Eventos utiliza com a proteção de abuso cloudEvents v1.0 em vez do mecanismo de validação da Grelha de Eventos.
+Se já está familiarizado com a Grade de Eventos, poderá estar ciente do aperto de mão de validação de ponto final da Event Grid para prevenir abusos. O CloudEvents v1.0 implementa a sua própria [semântica de proteção contra abusos](webhook-event-delivery.md) utilizando o método HTTP OPTIONS. Pode ler mais [aqui.](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection) Ao utilizar o esquema cloudEvents para saída, a Grade de Eventos utiliza com a proteção de abuso cloudEvents v1.0 em vez do mecanismo de validação da Grelha de Eventos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte o seguinte artigo para saber como resolver as validações de subscrição de eventos: 
 
 [Validações de subscrição de eventos de resolução de problemas](troubleshoot-subscription-validation.md)

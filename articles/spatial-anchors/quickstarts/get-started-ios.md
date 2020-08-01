@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Criar uma aplicação iOS'
-description: Neste arranque rápido, aprende-se a construir uma aplicação iOS utilizando âncoras espaciais.
+title: 'Quickstart: Criar uma aplicação para iOS'
+description: Aprenda a criar uma aplicação iOS utilizando âncoras espaciais Azure programáticamente em Swift ou Objective-C.
 author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
@@ -9,16 +9,16 @@ ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.custom: has-adal-ref
-ms.openlocfilehash: 542b5168bb70d876d91f8a747a230f2b754568e9
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 99f3b5bc763c6ffb43fd143cf394be9157b2c83f
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873109"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460274"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Quickstart: Criar uma aplicação iOS com âncoras espaciais Azure, em Swift ou Objective-C
 
-Este quickstart cobre como criar uma aplicação iOS utilizando [âncoras espaciais Azure](../overview.md) em Swift ou Objective-C. O Azure Spatial Anchors é um serviço de desenvolvimento de plataformas cruzadas que permite criar experiências de realidade mista utilizando objetos que persistem a sua localização através de dispositivos ao longo do tempo. Quando terminar, terá uma aplicação ARKit iOS que pode guardar e recordar uma âncora espacial.
+Este quickstart abrange como criar uma aplicação iOS usando [âncoras espaciais Azure](../overview.md) em Swift ou Objective-C. Azure Spatial Anchors é um serviço de desenvolvedor de plataformas cruzadas que permite criar experiências de realidade mista usando objetos que persistem a sua localização através dos dispositivos ao longo do tempo. Quando terminar, terá uma aplicação ARKit iOS que pode guardar e recordar uma âncora espacial.
 
 Vai aprender a:
 
@@ -33,22 +33,22 @@ Vai aprender a:
 
 Para concluir este início rápido, certifique-se de que tem:
 
-- Um desenvolvedor ativou a máquina macOS com a versão mais recente de <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a> e <a href="https://cocoapods.org" target="_blank">CocoaPods instaladas.</a>
+- Um desenvolvedor permitiu que a máquina macOS com a versão mais recente de <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a> e <a href="https://cocoapods.org" target="_blank">CocoaPods instalada.</a>
 - Git instalado via HomeBrew:
   1. Introduza o seguinte comando como uma única linha no terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` . 
   1. Execute `brew install git` e `brew install git-lfs`.
   1. Atualize o seu git config com `git lfs install` (para o utilizador atual) ou `git lfs install --system` (para todo o sistema).
-- Um desenvolvedor ativou o dispositivo <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">iOS compatível com ARKit.</a>
+- Um desenvolvedor permitiu que o dispositivo iOS <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">compatível com ARKit.</a>
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-## <a name="open-the-sample-project"></a>Abra o projeto da amostra
+## <a name="open-the-sample-project"></a>Abra o projeto de amostra
 
-Utilize o Terminal para realizar as seguintes ações.
+Utilize o Terminal para executar as seguintes ações.
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-Instale as cápsulas necessárias utilizando CocoaPods:
+Instale as cápsulas necessárias utilizando cacau:
 
 # <a name="swift"></a>[Swift](#tab/openproject-swift)
 
@@ -68,12 +68,12 @@ cd ./iOS/Objective-C/
 
 ---
 
-Corra `pod install --repo-update` para instalar os CocoaPods para o projeto.
+Corra `pod install --repo-update` para instalar os Cacau para o projeto.
 
-Agora abra o `.xcworkspace` xcode.
+Agora abra o `.xcworkspace` código de acesso.
 
 > [!NOTE]
-> Veja aqui os [passos](#cocoapods-issues-on-macos-catalina-1015) de resolução de problemas se tiver problemas com o CocoaPod depois de atualizar para macOS Catalina (10.15).
+> Consulte [aqui](#cocoapods-issues-on-macos-catalina-1015) os passos de resolução de problemas se tiver problemas com o Cacau depois de atualizar para o macOS Catalina (10.15).
 
 # <a name="swift"></a>[Swift](#tab/openproject-swift)
 
@@ -89,52 +89,52 @@ open ./SampleObjC.xcworkspace
 
 ---
 
-## <a name="configure-account-identifier-and-key"></a>Configurar identificador de conta e chave
+## <a name="configure-account-identifier-and-key"></a>Configure identificador de conta e chave
 
-O próximo passo é configurar a aplicação para utilizar o identificador de conta e a chave de conta. Copiou-os para um editor de texto ao [criar o recurso Spatial Anchors.](#create-a-spatial-anchors-resource)
+O próximo passo é configurar a app para usar o identificador de conta e a chave da conta. Copiou-os para um editor de texto ao [configurar o recurso Spatial Anchors](#create-a-spatial-anchors-resource).
 
 # <a name="swift"></a>[Swift](#tab/openproject-swift)
 
 Abra `iOS/Swift/SampleSwift/ViewControllers/BaseViewController.swift`.
 
-Localize o `spatialAnchorsAccountKey` campo e `Set me` substitua-o pela chave da conta.
+Localize o `spatialAnchorsAccountKey` campo e `Set me` substitua-o pela chave de conta.
 
 Localize o `spatialAnchorsAccountId` campo e `Set me` substitua-o pelo identificador de conta.
 
-Localize `startSession()` e adicione a seguinte linha, substituindo no domínio da sua conta anterior: `cloudSession!.configuration.accountDomain = "MyAccountDomain";` .
+Localize `startSession()` e adicione a seguinte linha, substituindo no domínio da sua conta anteriormente: `cloudSession!.configuration.accountDomain = "MyAccountDomain";` .
 
 # <a name="objective-c"></a>[Objective-C](#tab/openproject-objc)
 
 Abra `iOS/Objective-C/SampleObjC/BaseViewController.m`.
 
-Localize o `SpatialAnchorsAccountKey` campo e `Set me` substitua-o pela chave da conta.
+Localize o `SpatialAnchorsAccountKey` campo e `Set me` substitua-o pela chave de conta.
 
 Localize o `SpatialAnchorsAccountId` campo e `Set me` substitua-o pelo identificador de conta.
 
-Localize `startSession()` e adicione a seguinte linha, substituindo no domínio da sua conta anterior: `_cloudSession.configuration.accountDomain = @"MyAccountDomain";` .
+Localize `startSession()` e adicione a seguinte linha, substituindo no domínio da sua conta anteriormente: `_cloudSession.configuration.accountDomain = @"MyAccountDomain";` .
 
 ---
 
 ## <a name="deploy-the-app-to-your-ios-device"></a>Implemente a aplicação para o seu dispositivo iOS
 
-Ligue o dispositivo iOS ao Mac e detete **tede** o esquema ativo para o seu dispositivo iOS.
+Ligue o dispositivo iOS ao Mac e desaponda o **esquema ativo** ao seu dispositivo iOS.
 
 ![Selecione o dispositivo](./media/get-started-ios/select-device.png)
 
-Selecione **Construir e, em seguida, executar o esquema atual**.
+Selecione **Build e, em seguida, executar o esquema atual**.
 
 ![Implementar e executar](./media/get-started-ios/deploy-run.png)
 
 > [!NOTE]
-> Se vir um `library not found for -lPods-SampleObjC` erro, provavelmente abriu o `.xcodeproj` ficheiro em vez do `.xcworkspace` . Abra o `.xcworkspace` e tente de novo.
+> Se vir um `library not found for -lPods-SampleObjC` erro, é provável que tenha aberto o `.xcodeproj` ficheiro em vez do `.xcworkspace` . Abra o `.xcworkspace` e tente de novo.
 
 No Xcode, pare a aplicação premindo **Stop**.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-### <a name="cocoapods-issues-on-macos-catalina-1015"></a>Problemas de CocoaPods no macOS Catalina (10.15)
+### <a name="cocoapods-issues-on-macos-catalina-1015"></a>Problemas de cacau no macOS Catalina (10.15)
 
-Se atualizou recentemente o macOS Catalina (10.15) e mandou instalar previamente cocoaPods, os CocoaPods podem estar em estado de sabotado e não configurar corretamente as suas cápsulas e ficheiros de `.xcworkspace` projeto. Para resolver este problema, terá de reinstalar os CocoaPods executando os seguintes comandos:
+Se recentemente atualizado para o macOS Catalina (10.15) e tiver os Cacau instalados previamente, os CocoaPods podem estar em estado de avaria e não configurar adequadamente os seus pods e `.xcworkspace` ficheiros de projeto. Para resolver este problema, terá de reinstalar cacau executando os seguintes comandos:
 
 ```shell
 brew update
@@ -142,14 +142,14 @@ brew install cocoapods --build-from-source
 brew link --overwrite cocoapods
 ```
 
-### <a name="app-crashes-when-deploying-to-ios-1031-from-a-personal-provisioning-profiledeveloper-account"></a>Falha na aplicação ao ser implantado no iOS 10.3.1 a partir de uma conta pessoal de fornecimento de perfil/desenvolvedor 
+### <a name="app-crashes-when-deploying-to-ios-1031-from-a-personal-provisioning-profiledeveloper-account"></a>A aplicação falha ao ser implantada no iOS 10.3.1 a partir de um perfil de provisionamento pessoal/conta de programador 
 
-Se implementar a sua aplicação iOS no iOS 10.3.1 a partir de uma conta pessoal de perfil/desenvolvedor, poderá ver este erro: `Library not loaded: @rpath/ADAL...` . 
+Se implementar a sua aplicação iOS no iOS 10.3.1 a partir de uma conta pessoal de provisão/programador, poderá ver este erro: `Library not loaded: @rpath/ADAL...` . 
 
-Para resolver a questão:
+Para resolver o problema:
 
-- Utilize um perfil de provisionamento que não seja um perfil de Equipa Pessoal (conta de desenvolvedor pago).
-- Implemente a sua aplicação para um dispositivo iOS que execute o iOS 13.3 ou mais cedo, ou para um que execute a versão beta ou versão de lançamento do iOS 13.4.
+- Utilize um perfil de provisionamento que não seja um perfil de Equipa Pessoal (conta de programador paga).
+- Implemente a sua aplicação para um dispositivo iOS que executa o iOS 13.3 ou mais cedo, ou para um que executa a versão beta ou versão de lançamento do iOS 13.4.
 - Leia mais sobre este assunto no [Stack Overflow](https://stackoverflow.com/questions/60015309/running-ios-apps-causes-runtime-error-for-frameworks-code-signature-invalid).
 
 
@@ -158,4 +158,4 @@ Para resolver a questão:
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 
 > [!div class="nextstepaction"]
-> [Tutorial: Partilhar âncoras espaciais em dispositivos](../tutorials/tutorial-share-anchors-across-devices.md)
+> [Tutorial: Partilhar Âncoras Espaciais através de dispositivos](../tutorials/tutorial-share-anchors-across-devices.md)

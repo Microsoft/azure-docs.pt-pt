@@ -7,16 +7,16 @@ ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 3699213fe61c64d7677ba026a8df54ccbbfe4b33
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: dadb1f044547acd6e5f0d274143123e89d7dae46
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352362"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475486"
 ---
 # <a name="install-and-use-the-azure-iot-extension-for-the-azure-cli"></a>Instale e utilize a extensão Azure IoT para o Azure CLI
 
-[O Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) é uma ferramenta de linha de comando de plataforma cruzada de código aberto para gerir recursos Azure, como o IoT Hub. O Azure CLI está disponível em Windows, Linux e MacOS. O Azure CLI também está pré-instalado na [Azure Cloud Shell](https://shell.azure.com). O Azure CLI permite-lhe gerir os recursos do Azure IoT Hub, instâncias do Serviço de Provisionamento de Dispositivos e centros ligados sem instalar quaisquer extensões.
+[O Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) é uma ferramenta de linha de comando de plataforma cruzada de código aberto para gerir recursos Azure, como o IoT Hub. O Azure CLI está disponível em Windows, Linux e macOS. O Azure CLI permite-lhe gerir os recursos do Azure IoT Hub, instâncias do Serviço de Provisionamento de Dispositivos e centros ligados sem instalar quaisquer extensões.
 
 A extensão Azure IoT para o Azure CLI é uma ferramenta de linha de comando para interagir e testar dispositivos IoT Plug e Reprodução. Pode utilizar a extensão para:
 
@@ -51,9 +51,6 @@ Para iniciar súm na sua subscrição Azure, execute o seguinte comando:
 ```azurecli
 az login
 ```
-
-> [!NOTE]
-> Se estiver a usar a casca de nuvem Azure, está automaticamente inscrito e não precisa de executar o comando anterior.
 
 Para utilizar a extensão Azure IoT para o CLI Azure, você precisa:
 
@@ -109,6 +106,65 @@ Monitorize todos os eventos IoT Plug e Play digital twin de um dispositivo e int
 az iot hub monitor-events -n {iothub_name} -d {device_id} -i {interface_id}
 ```
 
+### <a name="manage-models-in-the-model-repository"></a>Gerir modelos no repositório de modelos
+
+Pode utilizar os comandos de repositório do modelo Azure CLI para gerir os modelos no repositório.
+
+#### <a name="create-model-repository"></a>Criar repositório de modelos
+
+Crie um novo repositório de empresa IoT Plug and Play para o seu inquilino se for o primeiro utilizador no seu inquilino:
+
+```azurecli
+az iot pnp repo create
+```
+
+#### <a name="manage-model-repository-tenant-roles"></a>Gerir funções de inquilino de repositório de modelos
+
+Crie uma atribuição de funções para um utilizador ou principal de serviço a um recurso específico.
+
+Por exemplo, dar user@consoso.com o papel de **ModelCreator** para o inquilino:
+
+```azurecli
+az iot pnp role-assignment create --resource-id {tenant_id} --resource-type Tenant --subject-id {user@contoso.com} --subject-type User --role ModelsCreator
+```
+
+Ou dar user@consoso.com o papel de **ModeloAdministrador** para um modelo específico:
+
+```azurecli
+az iot pnp role-assignment create --resource-id {model_id} --resource-type Model --subject-id {user@contoso.com} --subject-type User --role ModelAdministrator
+```
+
+#### <a name="create-a-model"></a>Criar um modelo
+
+Criar um novo modelo no repositório da empresa:
+
+```azurecli
+az iot pnp model create --model {model_json or path_to_file}
+```
+
+#### <a name="search-a-model"></a>Pesquisar um modelo
+
+Modelos de lista que correspondem a uma palavra-chave específica:
+
+```azurecli
+az iot pnp model list -q {search_keyword}
+```
+
+#### <a name="publish-a-model"></a>Publicar um modelo
+
+Publique um modelo de dispositivo localizado no repositório da empresa para o repositório público.
+
+Por exemplo, tornar público o modelo com `dtmi:com:example:ClimateSensor;1` ID:
+
+```azurecli
+az iot pnp model publish --dtmi "dtmi:com:example:ClimateSensor;1"
+```
+
+Para publicar um modelo, devem ser cumpridos os seguintes requisitos:
+
+- A empresa ou inquilino da organização deve ser um Parceiro Microsoft. 
+- O utilizador ou o principal de serviço devem ser membros da função **de Editor** do repositório.
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo de como fazer, aprendeu a instalar e utilizar a extensão Azure IoT para que o CLI Azure interaja com os seus dispositivos Plug and Play. Um próximo passo sugerido é aprender a usar o [explorador Azure IoT com os seus dispositivos](./howto-use-iot-explorer.md).
+Neste artigo de como fazer, aprendeu a instalar e utilizar a extensão Azure IoT para que o CLI Azure interaja com os seus dispositivos IoT Plug e Play. Um próximo passo sugerido é aprender a usar o [explorador Azure IoT com os seus dispositivos](./howto-use-iot-explorer.md).

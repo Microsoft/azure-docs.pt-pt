@@ -5,22 +5,23 @@ services: azure-portal
 keywords: configurações, timeout, linguagem, regional
 author: mgblythe
 ms.author: mblythe
-ms.date: 12/19/2019
+ms.date: 07/30/2020
 ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: d4c675ab18a7a9231229ce0c7de9a7450dc1baa8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8ce638bf61c69fb732d94d537218aabaeaa9a7c
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763963"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461947"
 ---
 # <a name="set-your-azure-portal-preferences"></a>Definir as preferências do portal do Azure
 
 Pode alterar as definições predefinidas do portal Azure para satisfazer as suas preferências. Cada uma das definições listadas abaixo pode ser alterada:
 
 * [Tempo de ssões inativos](#change-the-idle-duration-for-inactive-sign-out)
+* [Subscrição padrão](#choose-your-default-subscription)
 * [Vista padrão](#choose-your-default-view)
 * [Modo de menu portal](#choose-a-portal-menu-mode)
 * [Cor e tema de alto contraste](#choose-a-theme)
@@ -55,9 +56,21 @@ Se o seu administrador tiver ativado uma política de tempo de tempo de inativid
 > Se você é um administrador, e deseja impor uma definição de tempo inativa para todos os utilizadores do portal Azure, consulte [o tempo de inatividade de nível de diretório definido para os utilizadores do portal Azure](admin-timeout.md)
 >
 
+### <a name="choose-your-default-subscription"></a>Escolha a sua subscrição padrão
+
+Pode alterar a subscrição que abre por predefinição quando iniciar sedições no portal Azure. Isto é útil se tiver uma subscrição primária com a qual trabalha, mas use outros ocasionalmente. 
+
+:::image type="content" source="media/set-preferences/filter-subscription-default-view.png" alt-text="Filtrar a lista de recursos por subscrição.":::
+
+1. Selecione o ícone do diretório e do filtro de subscrição na navegação superior.
+1. Selecione as subscrições que pretende como as subscrições predefinidos quando lançar o portal. 
+
+    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Selecione as subscrições que pretende como as subscrições predefinidos quando lançar o portal."::: 
+
+
 ### <a name="choose-your-default-view"></a>Escolha a sua vista padrão 
 
-Pode alterar a página que abre por predefinição quando o seu sômbro no portal Azure.
+Pode alterar a página que abre por predefinição quando iniciar sação no portal Azure.
 
    ![Screenshot mostrando as definições do portal Azure com vista padrão realçada](./media/set-preferences/default-view.png)
 
@@ -119,7 +132,7 @@ Selecione **Aplicar** para atualizar as definições do seu idioma e formato reg
 >Estas configurações linguísticas e regionais afetam apenas o portal Azure. Os links de documentação que abrem num novo separador ou janela utilizarão as definições de idioma do seu navegador para determinar o idioma a exibir.
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar e partilhar dashboards personalizados](azure-portal-dashboards.md)
 * [Séries de vídeos de procedimentos do portal do Azure](azure-portal-video-series.md)

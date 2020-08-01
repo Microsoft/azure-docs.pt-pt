@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/09/2020
-ms.openlocfilehash: e8efb43ac0711bac1324ac2c9e3b59373ce59419
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 850879675d4554329f24c86f2ac28660b303084c
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84635135"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475571"
 ---
 # <a name="what-are-mapping-data-flows"></a>O que são fluxos de dados de mapeamento?
 
@@ -93,41 +93,9 @@ O primeiro separador no painel de configuração de cada transformação contém
 
 #### <a name="optimize"></a>Otimizar
 
-O **separador Otimize** contém configurações para configurar esquemas de partição.
+O **separador Otimize** contém configurações para configurar esquemas de partição. Para saber mais sobre como otimizar os fluxos de dados, consulte o guia de desempenho do [fluxo de dados de mapeamento.](concepts-data-flow-performance.md)
 
-![Otimizar](media/data-flow/optimize1.png "Otimizar")
-
-A definição predefinida é **utilizar a partição atual,** que instrui a Azure Data Factory a utilizar o esquema de partição nativo dos fluxos de dados em execução no Spark. Na maioria dos cenários, recomendamos este cenário.
-
-Há casos em que se pode querer ajustar a partição. Por exemplo, se quiser fazer as suas transformações num único ficheiro no lago, selecione **A partição única** numa transformação de pia.
-
-Outro caso em que se pode querer controlar os esquemas de partição é otimizar o desempenho. A regulação da partição proporciona controlo sobre a distribuição dos seus dados através de nós de computação e otimizações de localidade de dados que podem ter efeitos positivos e negativos no desempenho global do fluxo de dados. Para obter mais informações, consulte o guia de desempenho do [fluxo de dados.](concepts-data-flow-performance.md)
-
-Para alterar a partição em qualquer transformação, selecione o **separador Otimize** e selecione o botão de rádio **De Divisão de Divisão.** É-lhe apresentada uma série de opções para a partilha. O melhor método de partição difere com base nos seus volumes de dados, chaves de candidatos, valores nulos e cardinalidade. 
-
-Uma boa prática é começar com a partição padrão e, em seguida, experimentar diferentes opções de partição. Pode testar utilizando corridas de depuração de gasodutos e ver o tempo de execução e a utilização da partição em cada agrupamento de transformação a partir da vista de monitorização. Para obter mais informações, consulte [os fluxos de dados de monitorização.](concepts-data-flow-monitoring.md)
-
-Estão disponíveis as seguintes opções de partição.
-
-##### <a name="round-robin"></a>Robin redondo 
-
-Robin redondo é uma simples divisória que distribui automaticamente os dados igualmente através de divisórias. Use o rodapé quando não tiver bons candidatos-chave para implementar uma estratégia sólida e inteligente de partição. Pode definir o número de divisórias físicas.
-
-##### <a name="hash"></a>Hash
-
-A Azure Data Factory produz um haxixe de colunas para produzir divisórias uniformes de tal forma que as linhas com valores semelhantes caem na mesma partição. Quando utilizar a opção Hash, teste se possível distorcer a partição. Pode definir o número de divisórias físicas.
-
-##### <a name="dynamic-range"></a>Gama dinâmica
-
-A gama dinâmica utiliza gamas dinâmicas Spark com base nas colunas ou expressões que fornece. Pode definir o número de divisórias físicas. 
-
-##### <a name="fixed-range"></a>Gama fixa
-
-Construa uma expressão que forneça um intervalo fixo para valores dentro das colunas de dados divididas. Para evitar distorções de partição, deve ter uma boa compreensão dos seus dados antes de utilizar esta opção. Os valores que introduz para a expressão são utilizados como parte de uma função de partição. Pode definir o número de divisórias físicas.
-
-##### <a name="key"></a>Chave
-
-Se tiver uma boa compreensão da cardinalidade dos seus dados, a divisão chave pode ser uma boa estratégia. A divisória de chaves cria divisórias para cada valor único na sua coluna. Não é possível definir o número de divisórias porque o número baseia-se em valores únicos nos dados.
+![Otimizar](media/data-flow/optimize.png "Otimizar")
 
 #### <a name="inspect"></a>Inspecione
 
@@ -151,7 +119,7 @@ Se ocultar o seu gráfico, pode navegar pelos seus nós de transformação later
 
 ![Botões anteriores e seguintes](media/data-flow/showhide.png "botões anteriores e próximos")
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Aprenda a criar uma [transformação de origem.](data-flow-source.md)
 * Saiba como construir os fluxos de dados no [modo de depuragem](concepts-data-flow-debug-mode.md).

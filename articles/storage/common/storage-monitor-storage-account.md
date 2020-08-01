@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 6f53d5ec2d73c9edbb7e24c24107b2a6d6deb167
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46ff6fb26cf568474b24d941e4a174b425bf5207
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83684671"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474364"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorizar uma conta de armazenamento no portal do Azure
 
@@ -141,10 +141,10 @@ Pode instruir o Azure Storage para guardar registos de diagnósticos para ler, e
     ![Configurar o registo no portal Azure.](./media/storage-monitor-storage-account/enable-diagnostics.png)
 1. Clique em **Guardar**.
 
-Os registos de diagnóstico são guardados num recipiente de bolhas denominado *$logs* na sua conta de armazenamento. Pode visualizar os dados de registo utilizando um explorador de armazenamento como o [Microsoft Storage Explorer,](https://storageexplorer.com)ou utilizar programáticamente a biblioteca do cliente de armazenamento ou o PowerShell.
+Os registos de diagnóstico são guardados num recipiente de bolhas denominado *$logs* na sua conta de armazenamento. Pode visualizar os dados de registo utilizando um explorador de armazenamento como o [Microsoft Azure Storage Explorer,](https://storageexplorer.com)ou utilizar programáticamente a biblioteca do cliente de armazenamento ou o PowerShell.
 
 Para obter informações sobre o acesso ao recipiente $logs, consulte [o registo de análises de armazenamento](storage-analytics-logging.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Encontre mais detalhes sobre [métricas, login e faturação](storage-analytics.md) para Storage Analytics.

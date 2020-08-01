@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 137cbec270b40042503fc7687c9deb39b0df1aa4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b4a3e8c71757417240af2719c317bbbd49cef9fc
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243295"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475775"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Subscrições na Gestão de API do Azure
 

@@ -3,16 +3,16 @@ title: Trocar mensagens com o Azure Service Bus
 description: Crie tarefas automatizadas e fluxos de trabalho que enviem e recebam mensagens utilizando o Azure Service Bus em Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/19/2019
+ms.date: 07/31/2020
 tags: connectors
-ms.openlocfilehash: 870ec6997b0abf5afc1c1bfa788bbca18c08ead7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 768186d4b1cf9ac62d4ffdb0af8fdb3df04e9b19
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284001"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461639"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Troque mensagens na nuvem usando Azure Logic Apps e Azure Service Bus
 
@@ -31,7 +31,7 @@ Pode utilizar gatilhos que obtenham respostas da Service Bus e disponibilize a s
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
+* Uma conta e subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
 * Um espaço de nome de ônibus de serviço e entidade de mensagens, como uma fila. Estes itens e a sua aplicação lógica precisam de utilizar a mesma subscrição do Azure. Se não tiver estes itens, aprenda a criar o seu espaço de [nomes de Service Bus e uma fila.](../service-bus-messaging/service-bus-create-namespace-portal.md)
 
@@ -45,7 +45,7 @@ Pode utilizar gatilhos que obtenham respostas da Service Bus e disponibilize a s
 
 Confirme que a sua aplicação lógica tem permissões para aceder ao seu espaço de nomes de Service Bus.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. No [portal Azure,](https://portal.azure.com)inscreva-se na sua conta Azure.
 
 1. Vá ao seu *espaço de nomes*de Service Bus . Na página do espaço de nomes, em **Definições,** **selecione Políticas de acesso partilhado**. Em **Sinistros,** verifique se tem permissões **de Gestão** para esse espaço de nome.
 
@@ -54,7 +54,7 @@ Confirme que a sua aplicação lógica tem permissões para aceder ao seu espaç
 1. Obtenha a cadeia de ligação para o seu espaço de nomes de Service Bus. Precisa desta cadeia quando fornece as informações de ligação na sua aplicação lógica.
 
    1. No painel **de políticas de acesso partilhado,** selecione **RootManageSharedAccessKey**.
-   
+
    1. Ao lado da sua cadeia de ligação primária, selecione o botão de cópia. Guarde o fio de ligação para utilização posterior.
 
       ![Cadeia de conexão de espaço de nome do serviço de cópia do serviço de serviço](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
@@ -171,4 +171,3 @@ Para outros detalhes técnicos sobre gatilhos, ações e limites, descritos pela
 ## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [outros conectores de Apps Lógicas](../connectors/apis-list.md)
-

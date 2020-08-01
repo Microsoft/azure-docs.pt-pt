@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/28/2020
-ms.openlocfilehash: 904b3ce1c2d05d713ee1ae99662148217f2a358e
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: d0fd11ce5b25b8796b07176a4ba83091a8f7cc0b
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337828"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461022"
 ---
 # <a name="export-data-module"></a>Módulo de Dados de Exportação
 
@@ -26,8 +26,8 @@ Este módulo suporta a exportação dos seus dados para os seguintes serviços d
 
 - Recipiente Azure Blob
 - Partilha de Ficheiros do Azure
-- Azure Data Lake
-- Azure Data Lake Gen2
+- Armazenamento do Azure Data Lake Ger1
+- Armazenamento do Azure Data Lake Ger2
 - Base de dados SQL do Azure
 
 Antes de exportar os seus dados, tem de registar primeiro uma loja de dados no seu espaço de trabalho Azure Machine Learning. Para mais informações, consulte [os dados do Access nos serviços de armazenamento Azure.](../how-to-access-data.md)
@@ -43,7 +43,7 @@ Antes de exportar os seus dados, tem de registar primeiro uma loja de dados no s
 1. Para **datastore,** selecione uma datastore existente da lista de dropdown. Também pode criar uma nova loja de dados. Verifique como visita os [dados do Access nos serviços de armazenamento Azure.](../how-to-access-data.md)
 
     > [!NOTE]
-    > Não são suportados dados de exportação de um determinado tipo de dados para uma coluna de base de dados SQL especificada como outro tipo de dados.
+    > Não são suportados dados de exportação de um determinado tipo de dados para uma coluna de base de dados SQL especificada como outro tipo de dados. A tabela-alvo não precisa de existir primeiro.
 
 1. A caixa de verificação, **Regenerar a produção,** decide se executa o módulo para regenerar a saída em tempo de execução. 
 

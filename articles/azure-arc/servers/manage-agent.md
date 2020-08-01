@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/14/2020
+ms.date: 07/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 122f88e8bf14d3e3b082930716cffc3621afd336
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 80c133eceb6af419d0eb5aa35ff784a0f9321d37
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067704"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474959"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gerir e manter o agente da Máquina Conectada
 
@@ -181,6 +181,9 @@ Para desligar com as suas credenciais elevadas registadas (interativas), executa
 `azcmagent disconnect --tenant-id <tenantID>`
 
 ### <a name="reconnect"></a>Restabelecer ligação
+
+> [!WARNING]
+> O `reconnect` comando é precotado e não deve ser usado. O comando será removido numa futura libertação do agente e os agentes existentes não poderão completar o pedido de reconexão. Em vez disso, [desligue](#disconnect) a máquina e [volte a ligá-la.](#connect)
 
 Este parâmetro reconecta a máquina já registada ou conectada com o Arco Azure para servidores (pré-visualização). Isto pode ser necessário se a máquina tiver sido desligada, pelo menos, 45 dias, para que o seu certificado expire. Este parâmetro utiliza as opções de autenticação fornecidas para recuperar novas credenciais correspondentes ao recurso Azure Resource Manager que representa esta máquina.
 

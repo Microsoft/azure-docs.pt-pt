@@ -1,83 +1,48 @@
 ---
-title: Implementar IoT Plug e Play Preview modelo de descoberta / Microsoft Docs
-description: Como construtor de soluções, saiba como pode implementar a descoberta do modelo IoT Plug e Play na sua solução.
-author: prashmo
-ms.author: prashmo
+title: Use os modelos IoT Plug e Play numa solução Microsoft Docs
+description: Como construtor de soluções, saiba como pode utilizar os modelos IoT Plug e Play na sua solução IoT.
+author: arunmannengal
+ms.author: arunmann
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 364b85a8ead09858b97d5d7e6ca8c130b9960b2c
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 4cdd6f63c9e5e717a533b88702b2886387fe3e39
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337386"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475248"
 ---
-# <a name="implement-iot-plug-and-play-preview-model-discovery-in-an-iot-solution"></a>Implementar ioT plug e reproduzir a descoberta do modelo de pré-visualização numa solução IoT
+# <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Use modelos IoT Plug e Play numa solução IoT
 
-Este artigo descreve como, como construtor de soluções, pode implementar a descoberta do modelo IoT Plug e Play Preview numa solução IoT. A descoberta do modelo descreve como:
+Este artigo descreve como, numa solução IoT, pode identificar o ID do modelo de um dispositivo IoT Plug and Play e, em seguida, recuperar a definição do seu modelo.
 
-- Os dispositivos IoT Plug e Play registam o seu ID de modelo.
-- Uma solução IoT recupera as interfaces implementadas pelo dispositivo.
+Existem duas grandes categorias de uma solução IoT:
 
-Existem duas grandes categorias de solução IoT:
+- Uma *solução construída de propósito* funciona com um conjunto conhecido de modelos para os dispositivos IoT Plug e Play que se ligarão à solução. Utiliza-se estes modelos quando desenvolve a solução.
 
-- Uma *solução IoT construída de propósito* funciona com um conjunto conhecido de modelos ioT plug e play device.
+- Uma solução *orientada para o modelo* pode funcionar com o modelo de qualquer dispositivo IoT Plug and Play. Construir uma solução orientada para modelos é mais complexo, mas o benefício é que a sua solução funciona com quaisquer dispositivos que possam ser adicionados no futuro. Uma solução IoT orientada por modelo recupera um modelo e utiliza-o para determinar a telemetria, propriedades e comandos que o dispositivo implementa.
 
-- Uma *solução IoT orientada por modelos* pode funcionar com qualquer dispositivo IoT Plug e Play. Construir uma solução orientada para o modelo é mais complexo, mas o benefício é que a sua solução funciona com quaisquer dispositivos adicionados no futuro.
+Para utilizar um modelo IoT Plug and Play, uma solução IoT:
 
-    Para construir uma solução IoT orientada por modelos, é necessário criar lógica contra os primitivos da interface IoT Plug e Play: telemetria, propriedades e comandos. A lógica da sua solução representa um dispositivo combinando múltiplas capacidades de telemetria, propriedade e comando.
+1. Identifica o modelo ID do modelo implementado pelo dispositivo IoT Plug e Play ligado à solução.
 
-Este artigo descreve como implementar a descoberta de modelos em ambos os tipos de solução.
+1. Utiliza o ID do modelo para recuperar a definição de modelo do dispositivo conectado a partir de um repositório de modelo ou loja personalizada.
 
-## <a name="model-discovery"></a>Deteção de modelos
+## <a name="identify-model-id"></a>Identificar iD do modelo
 
-Para descobrir o modelo que um dispositivo implementa, uma solução pode obter o ID do modelo usando a descoberta baseada em eventos ou descobertas de duas bases:
+Quando um dispositivo IoT Plug and Play se conecta ao IoT Hub, regista o ID do modelo que implementa com o IoT Hub.
 
-### <a name="event-based-discovery"></a>Descoberta baseada em eventos
+O IoT Hub notifica a solução com o ID do modelo do dispositivo como parte do fluxo de ligação do dispositivo.
 
-Quando um dispositivo IoT Plug and Play se conecta ao IoT Hub, regista o modelo que implementa. Este registo resulta numa notificação [de evento de alteração Digital Twin.](concepts-digital-twin.md#digital-twin-change-events) Para aprender a permitir o encaminhamento para eventos digitais gémeos, consulte [o encaminhamento de mensagens IoT Hub para enviar mensagens dispositivo-a-nuvem para diferentes pontos finais](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events).
+Uma solução pode obter o ID do modelo do dispositivo IoT Plug and Play utilizando um dos três métodos seguintes:
 
-A solução pode utilizar o evento mostrado no seguinte corte para aprender sobre o dispositivo IoT Plug e Play que está a ligar e obter o seu ID modelo:
+### <a name="get-device-twin-api"></a>Obter Dispositivo Twin API
 
-```json
-iothub-connection-device-id:sample-device
-iothub-enqueuedtime:7/22/2020 8:02:27 PM
-iothub-message-source:digitalTwinChangeEvents
-correlation-id:100f322dc2c5
-content-type:application/json-patch+json
-content-encoding:utf-8
-[
-  {
-    "op": "replace",
-    "path": "/$metadata/$model",
-    "value": "dtmi:com:example:TemperatureController;1"
-  }
-]
-```
+A solução pode utilizar o [Get Device Twin](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin) API para recuperar o ID do modelo do dispositivo IoT Plug and Play.
 
-Este evento é acionado quando o ID do modelo do dispositivo é adicionado ou atualizado.
-
-### <a name="twin-based-discovery"></a>Descoberta de duas bases
-
-Se a solução quiser saber sobre as capacidades de um determinado dispositivo, pode utilizar a [API Get Digital Twin](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin/getdigitaltwin) para recuperar a informação.
-
-No seguinte snippet digital twin, `$metadata.$model` contém o ID do modelo de um dispositivo IoT Plug and Play:
-
-```json
-{
-    "$dtId": "sample-device",
-    "$metadata": {
-        "$model": "dtmi:com:example:TemperatureController;1",
-        "serialNumber": {
-            "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
-        }
-    }
-}
-```
-
-A solução também pode usar **a Get Twin** para recuperar o ID do modelo gémeo do dispositivo, como mostrado no seguinte corte:
+No seguinte corte de resposta dupla do dispositivo, `modelId` contém o ID do modelo de um dispositivo IoT Plug and Play:
 
 ```json
 {
@@ -101,16 +66,79 @@ A solução também pode usar **a Get Twin** para recuperar o ID do modelo géme
 }
 ```
 
-## <a name="model-resolution"></a>Resolução de modelos
+### <a name="get-digital-twin-api"></a>Obtenha API Digital Twin
 
-Uma solução utiliza a resolução do modelo para ter acesso às interfaces que compõem um modelo a partir do ID do modelo. 
+A solução pode utilizar a [API Get Digital Twin](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin/getdigitaltwin) para recuperar o ID do modelo implementado pelo dispositivo IoT Plug and Play.
 
-- As soluções podem optar por armazenar estas interfaces como ficheiros numa pasta local. 
-- As soluções podem utilizar o [repositório do modelo.](concepts-model-repository.md)
+No seguinte corte de resposta digital twin, `$metadata.$model` contém o ID do modelo de um dispositivo IoT Plug and Play:
+
+```json
+{
+    "$dtId": "sample-device",
+    "$metadata": {
+        "$model": "dtmi:com:example:TemperatureController;1",
+        "serialNumber": {
+            "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
+        }
+    }
+}
+```
+
+### <a name="digital-twin-change-event-notification"></a>Notificação digital de evento de mudança de gémeos
+
+Uma ligação do dispositivo resulta numa notificação [de evento de alteração Digital Twin.](concepts-digital-twin.md#digital-twin-change-events) Uma solução precisa subscrever esta notificação do evento. Para aprender a permitir o encaminhamento para eventos digitais gémeos, consulte [o encaminhamento de mensagens IoT Hub para enviar mensagens dispositivo-a-nuvem para diferentes pontos finais](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events).
+
+A solução pode utilizar o evento mostrado no seguinte corte para aprender sobre o dispositivo IoT Plug and Play que está a ligar e obter o seu ID modelo:
+
+```json
+iothub-connection-device-id:sample-device
+iothub-enqueuedtime:7/22/2020 8:02:27 PM
+iothub-message-source:digitalTwinChangeEvents
+correlation-id:100f322dc2c5
+content-type:application/json-patch+json
+content-encoding:utf-8
+[
+  {
+    "op": "replace",
+    "path": "/$metadata/$model",
+    "value": "dtmi:com:example:TemperatureController;1"
+  }
+]
+```
+
+## <a name="retrieve-a-model-definition"></a>Recuperar uma definição de modelo
+
+Uma solução utiliza o ID do modelo acima identificado para recuperar a definição do modelo correspondente.
+
+Uma solução pode obter a definição do modelo utilizando uma das seguintes opções:
+
+### <a name="model-repository"></a>Repositório de modelos
+
+As soluções podem usar o [repositório do modelo](concepts-model-repository.md) para recuperar modelos. Quer os construtores de dispositivos quer os construtores de soluções devem enviar previamente os seus modelos para o repositório para que a solução os possa recuperar.
+
+Depois de identificar o ID do modelo para uma nova ligação ao dispositivo, siga estes passos:
+
+1. Recupere a definição do modelo utilizando o ID do modelo a partir do repositório do modelo. Para mais informações, consulte [Get Models](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync).
+
+1. Utilizando a definição de modelo do dispositivo conectado, pode enumerar as capacidades do dispositivo.
+
+1. Utilizando as capacidades enumeradas do dispositivo, pode permitir que os utilizadores [interajam com o dispositivo](quickstart-service-node.md).
+
+### <a name="custom-store"></a>Loja personalizada
+
+As soluções podem armazenar estas definições de modelos num sistema de ficheiros local, numa loja de ficheiros públicos, ou usar uma implementação personalizada.
+
+Depois de identificar o ID do modelo para uma nova ligação ao dispositivo, siga estes passos:
+
+1. Recupere a definição do modelo utilizando o ID do modelo na sua loja personalizada.
+
+1. Utilizando a definição de modelo do dispositivo conectado, pode enumerar as capacidades do dispositivo. 
+
+1. Utilizando as capacidades enumeradas do dispositivo, pode permitir que os utilizadores [interajam com o dispositivo](quickstart-service-node.md).  
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que aprendeu sobre a descoberta de modelos uma solução IoT, saiba mais sobre a [plataforma Azure IoT](overview-iot-plug-and-play.md) para usar outras capacidades para a sua solução.
+Agora que aprendeu a integrar os modelos IoT Plug e Play numa solução IoT, alguns dos próximos passos sugeridos são:
 
 - [Interaja com um dispositivo a partir da sua solução](quickstart-service-node.md)
 - [IoT Digital Twin REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)

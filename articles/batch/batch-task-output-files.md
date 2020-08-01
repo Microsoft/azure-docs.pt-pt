@@ -2,14 +2,14 @@
 title: Persistir dados de saída para Azure Storage com API de serviço batch
 description: Saiba como utilizar a API do serviço Batch para persistir os dados de tarefa e saída de trabalho do Lote para o Azure Storage.
 ms.topic: how-to
-ms.date: 03/05/2019
+ms.date: 07/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 24e9f242b3c71965984534ac986031757bbc8420
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 964ffea2ed1536dc1851aefc03c735cb08ba7ed7
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143519"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475622"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Persistir dados de tarefas para o Azure Storage com o serviço Batch API
 
@@ -19,6 +19,9 @@ O serviço Batch API suporta dados de saída persistentes para O Armazenamento A
 
 Uma vantagem em utilizar a API do serviço Batch para persistir na saída da tarefa é que não precisa de modificar a aplicação que a tarefa está a executar. Em vez disso, com algumas modificações na aplicação do seu cliente, pode persistir a saída da tarefa a partir do mesmo código que cria a tarefa.
 
+> [!IMPORTANT]
+> Os dados de tarefas persistentes para o Azure Storage com o serviço Batch API não funcionam com piscinas criadas antes [de 1 de fevereiro de 2018](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md#1204).
+
 ## <a name="when-do-i-use-the-batch-service-api-to-persist-task-output"></a>Quando é que uso a API de serviço de lote para persistir na saída da tarefa?
 
 O Azure Batch fornece mais de uma forma de persistir na saída da tarefa. A utilização do serviço De lote API é uma abordagem conveniente que se adequa melhor a estes cenários:
@@ -26,9 +29,9 @@ O Azure Batch fornece mais de uma forma de persistir na saída da tarefa. A util
 - Pretende escrever código para persistir a saída de tarefa a partir da aplicação do seu cliente, sem modificar a aplicação que a sua tarefa está a executar.
 - Pretende persistir na saída das tarefas do Batch e das tarefas de gestor de emprego em piscinas criadas com a configuração da máquina virtual.
 - Pretende persistir na saída para um recipiente de armazenamento Azure com um nome arbitrário.
-- Pretende persistir na saída para um recipiente de armazenamento Azure nomeado de acordo com a [norma de Convenções de Ficheiros de Lote](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files). 
+- Pretende persistir na saída para um recipiente de armazenamento Azure nomeado de acordo com a [norma de Convenções de Ficheiros de Lote](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files).
 
-Se o seu cenário diferir dos listados acima, poderá ter de considerar uma abordagem diferente. Por exemplo, o serviço De lote API não suporta atualmente a saída de streaming para o Azure Storage enquanto a tarefa estiver em execução. Para transmitir a saída, considere a utilização da biblioteca de Convenções de Ficheiros de Lote, disponível para .NET. Para outras línguas, terá de implementar a sua própria solução. Para obter mais informações sobre outras opções para a produção de tarefas persistentes, consulte [a saída de trabalho e tarefa persistente para o Azure Storage](batch-task-output.md).
+Se o seu cenário diferir dos listados acima, poderá ter de considerar uma abordagem diferente. Por exemplo, o serviço De lote API não suporta atualmente a saída de streaming para o Azure Storage enquanto a tarefa estiver em execução. Para transmitir a saída, considere a utilização da biblioteca de Convenções de Ficheiros de Lote, disponível para .NET. Para outras línguas, terá de implementar a sua própria solução. Para obter informações sobre outras opções para a saída de tarefas persistentes, consulte [a saída de trabalho e tarefa persistente para o Azure Storage](batch-task-output.md).
 
 ## <a name="create-a-container-in-azure-storage"></a>Criar um recipiente no Azure Storage
 
@@ -88,6 +91,9 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
             uploadCondition: OutputFileUploadCondition.TaskCompletion)),
 }
 ```
+
+> [!NOTE]
+> Se utilizar este exemplo com o Linux, certifique-se de que muda as costas para as barras dianteiras.
 
 ### <a name="specify-a-file-pattern-for-matching"></a>Especifique um padrão de ficheiro para combinar
 
@@ -169,7 +175,7 @@ Se estiver a desenvolver-se numa língua diferente de C#, terá de implementar o
 
 ## <a name="code-sample"></a>Exemplo de código
 
-O projeto de amostra [persistOutputs][github_persistoutputs] é uma das amostras de código do [Azure Batch][github_samples] no GitHub. Esta solução Visual Studio demonstra como utilizar a biblioteca de clientes Batch para .NET para persistir a saída da tarefa para armazenamento durável. Para executar a amostra, siga estes passos:
+O projeto de amostra [persistOutputs](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs) é uma das amostras de código do [Azure Batch](https://github.com/Azure/azure-batch-samples) no GitHub. Esta solução Visual Studio demonstra como utilizar a biblioteca de clientes Batch para .NET para persistir a saída da tarefa para armazenamento durável. Para executar a amostra, siga estes passos:
 
 1. Abra o projeto no **Visual Studio 2019.**
 2. Adicione **as suas credenciais** de conta de lote e armazenamento a **AccountSettings.settings** no projeto Microsoft.Azure.Batch.Samples.Common.
@@ -181,8 +187,5 @@ O projeto de amostra [persistOutputs][github_persistoutputs] é uma das amostras
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter mais informações sobre a saída de tarefas persistentes com a biblioteca de Convenções de Ficheiros para .NET, consulte [os dados de trabalho e de tarefa de Persistência para O Armazenamento do Azure com a biblioteca de Convenções de Ficheiros de Lote para .NET](batch-task-output-file-conventions.md).
-- Para obter informações sobre outras abordagens para a persistência dos dados de saída em Azure Batch, consulte [a produção de trabalho e tarefa persistente para o Azure Storage](batch-task-output.md).
-
-[github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs
-[github_samples]: https://github.com/Azure/azure-batch-samples
+- Para saber mais sobre a persistência na saída de tarefas com a biblioteca de Convenções de Ficheiros para .NET, consulte [os dados de trabalho e tarefa de Persistência para O Armazenamento do Azure com a biblioteca de Convenções de Ficheiros de Lote para .NET](batch-task-output-file-conventions.md).
+- Para saber mais sobre outras abordagens para a persistência de dados de saída em Azure Batch, consulte [a produção de trabalho e tarefa persistente para o Azure Storage](batch-task-output.md).

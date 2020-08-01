@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 6cd4d64361e1975a6752ff3a15600923ce3fdf98
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 45da3ec95167cbb4fa087435e0e88f85c0eb6463
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322895"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461056"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 para Core (SQL) API: notas de lançamento e recursos
 > [!div class="op_single_selector"]
@@ -138,6 +138,7 @@ O Azure Cosmos DB Java SDK v4 para Core (SQL) combina uma API Async e uma API sy
 * Otimização de consultas removendo serialização dupla/deserialização. 
 * Otimizações de cabeçalhos de resposta removendo cópias desnecessárias para trás e para a frente. 
 * Serialização `ByteBuffer` otimizada/deserialização removendo as instantâneas de cordas intermédias.
+
 #### <a name="key-bug-fixes"></a>Correções de erros de chaves
 * Ligação FixaPolítica `toString()` Exceção de ponteiro nulo.
 * Problema fixo com análise de resultados de consulta em caso de ordem de valor por consultas. 

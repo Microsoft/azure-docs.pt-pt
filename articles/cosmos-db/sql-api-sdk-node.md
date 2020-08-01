@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 64bc8e76a4dcce963251219528bd93dd786f01cf
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: ddbbb9f39dd17daf5c500bf582c100b4e1754a15
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419619"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461362"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK para API SQL: Lançar notas e recursos
 > [!div class="op_single_selector"]
@@ -410,17 +410,8 @@ Nem sempre as mudanças mais visíveis, mas ajudam a nossa equipa a enviar melho
 * GA SDK.
 
 ## <a name="release--retirement-dates"></a>Liberação & Datas de Reforma
-A Microsoft fornece a notificação com pelo menos **12 meses** de antecedência para retirar um SDK de forma a suavizar a transição para uma versão mais recente/suportada.
 
-Novas funcionalidades e funcionalidades e otimizações são adicionadas apenas ao SDK atual, como tal é recomendado que você sempre atualize para a versão SDK mais recente o mais cedo possível.
-
-Qualquer pedido à Cosmos DB usando um SDK reformado será rejeitado pelo serviço.
-
-> [!WARNING]
-> Todas as versões **1.x** do cliente nó SDK para a SQL API serão aposentadas no dia **30 de agosto de 2020**. Isto afeta apenas o Nó SDK do lado do cliente e não afeta scripts do lado do servidor (procedimentos armazenados, gatilhos e UDFs).
-> 
->
-<br/>
+A Microsoft fornece a notificação com pelo menos **12 meses** de antecedência para retirar um SDK de forma a suavizar a transição para uma versão mais recente/suportada. Novas funcionalidades e funcionalidades e otimizações são adicionadas apenas ao SDK atual, como tal é recomendado que você sempre atualize para a versão SDK mais recente o mais cedo possível.
 
 | Versão | Data de Lançamento | Data de Extinção |
 | --- | --- | --- |

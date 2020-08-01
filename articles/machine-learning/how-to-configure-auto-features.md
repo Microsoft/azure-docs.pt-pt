@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: b01d6c36b31ef4f03522d03ca327439cfa31be8d
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 1c26164ed7a2b7c335d3977e143fcef28c8955db
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373747"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475826"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Caracterização na aprendizagem automática de máquinas
 
@@ -64,7 +64,7 @@ A tabela seguinte resume técnicas que são automaticamente aplicadas aos seus d
 | ------------- | ------------- |
 |**Largar altas características de cardinalidade ou nenhuma variação*** |Largue estas funcionalidades dos conjuntos de treino e validação. Aplica-se a características com todos os valores em falta, com o mesmo valor em todas as linhas, ou com elevado cardinalício (por exemplo, hashes, IDs ou GUIDs).|
 |**Imputar valores em falta*** |Para características numéricas, imputar com a média de valores na coluna.<br/><br/>Para características categóricas, imputar com o valor mais frequente.|
-|**Gerar funcionalidades adicionais*** |Para as características datetime: Ano, mês, dia, dia da semana, dia do ano, quarto, semana do ano, Hora, Minuto, Segundo.<br/><br/>Para funcionalidades de texto: Frequência de prazo baseada em unigramas, bigrams e trigramas. Saiba mais sobre [como isto é feito com o BERT.](#bert-integration)|
+|**Gerar funcionalidades adicionais*** |Para as características datetime: Ano, mês, dia, dia da semana, dia do ano, quarto, semana do ano, Hora, Minuto, Segundo.<br><br> *Para as tarefas de previsão,* estas funcionalidades adicionais do DateTime são criadas: ISO ano, meio - semestre, mês civil como string, semana, dia da semana como string, Dia do trimestre, Dia do ano, AM/PM (0 se a hora é antes do meio-dia (12 horas), 1 de outra forma), AM/PM como corda, Hora do Dia (12horas base)<br/><br/>Para funcionalidades de texto: Frequência de prazo baseada em unigramas, bigrams e trigramas. Saiba mais sobre [como isto é feito com o BERT.](#bert-integration)|
 |**Transformar e codificar***|Transforme características numéricas que têm poucos valores únicos em características categóricas.<br/><br/>A codificação de um só calor é usada para características categóricas de baixa cardinalidade. A codificação de haxixe é usada para características categóricas de alto cardeal.|
 |**Incorporações de palavras**|Um text featurizer converte vetores de fichas de texto em vetores de frase usando um modelo pré-treinado. O vetor incorporado de cada palavra em um documento é agregado com o resto para produzir um vetor de recursos documentais.|
 |**Codificações de alvos**|Para características categóricas, este passo mapeia cada categoria com um valor-alvo médio para problemas de regressão, e para a probabilidade de classe para cada classe para problemas de classificação. A ponderação baseada em frequências e a validação cruzada k-fold são aplicadas para reduzir a sobremontagem do mapeamento e do ruído causados por categorias de dados escassas.|
@@ -163,9 +163,11 @@ text_transformations_used
 
 3. No passo de varrimento da funcionalidade, o AutoML compara o BERT com a linha de base (características do saco de palavras + incorporações de palavras pré-treinadas) numa amostra dos dados e determina se o BERT daria melhorias de precisão. Se determinar que o BERT tem um desempenho melhor do que a linha de base, a AutoML utiliza então o BERT para a caracterização de texto como a melhor estratégia de caracterização e procede com a adição de todos os dados. Nesse caso, verá o "PretreinadoTextDNNTransformer" no modelo final.
 
+BERT geralmente corre mais tempo do que a maioria dos outros aperitivos. Pode ser acelerado fornecendo mais computação no seu cluster. O AutoML distribuirá o treino BERT por vários nosdes se estiverem disponíveis (até um máximo de 8 nóns). Isto pode ser feito definindo [max_concurrent_iterations](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) para mais de 1. Para um melhor desempenho, recomendamos a utilização de skus com capacidades de RDMA (como "STANDARD_NC24r" ou "STANDARD_NC24rs_V3")
+
 A AutoML suporta atualmente cerca de 100 idiomas e, dependendo do idioma do conjunto de dados, o AutoML escolhe o modelo BERT apropriado. Para os dados alemães, utilizamos o modelo BERT alemão. Para inglês, usamos o modelo BERT inglês. Para todas as outras línguas, usamos o modelo BERT multilíngue.
 
-No código seguinte, é acionado o modelo BERT alemão, uma vez que a língua de conjunto de dados é especificada para 'deu', o código linguístico de 3 letras para alemão de acordo com a [classificação ISO](https://iso639-3.sil.org/code/hbs):
+No código seguinte, é acionado o modelo BERT alemão, uma vez que a língua de conjunto de dados é especificada para 'deu', o código linguístico de 3 letras para alemão de acordo com a [classificação ISO](https://iso639-3.sil.org/code/deu):
 
 ```python
 from azureml.automl.core.featurization import FeaturizationConfig

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/13/2020
-ms.openlocfilehash: 532a2ce429899d3674a8f6d8308188e9b1f737b1
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: afc012329d0d9e337dfca93a88615ba7c28f1754
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407953"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460376"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Crie os seus ativos técnicos da Azure Virtual Machine
 
@@ -77,6 +77,7 @@ Selecione o sistema de funcionamento do Windows ou o Linux como base.
 O sistema operativo VHD para a sua imagem VM baseada no Windows deve basear-se numa imagem base aprovada pelo Azure que contenha servidor do Windows ou SQL Server. Para começar, crie um VM a partir de uma das seguintes imagens do portal Azure:
 
 * Windows Server ([2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016), [2012 R2 Datacenter](https://www.microsoft.com/cloud-platform/windows-server-pricing), [2012 Datacenter](https://www.microsoft.com/cloud-platform/windows-server-pricing), [2008 R2 SP1](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview))
+* [Windows 10 IoT Enterprise](/windows/iot-core/windows-iot-enterprise)
 * [SQL Server 2014](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md) (Empresa, Standard, Web)
 * [SQL Server 2012 SP2](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md) (Enterprise, Standard, Web)
 
@@ -276,7 +277,7 @@ O processo seguinte generaliza um Linux VM e reimplanta-o como um VM separado. P
     1. No portal Azure, selecione o seu grupo de recursos (RG) e desatribua o VM.
     2. O seu VHD está agora generalizado e pode criar um novo VM utilizando este VHD.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver dificuldades em criar o seu novo VHD baseado em Azure, consulte [questões comuns durante a criação de VHD.](common-issues-during-vhd-creation.md)
 

@@ -3,16 +3,16 @@ title: Entrega segura da WebHook com Azure AD na grelha de eventos Azure
 description: Descreve como entregar eventos a pontos finais HTTPS protegidos pelo Azure Ative Directory usando a Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: b0503d7da9e191e9d6764076392ead8faa5109a1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 90d06f203bc93177101a87a7a774d816b11b16f6
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119128"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460716"
 ---
-# <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publicar eventos para Azure Ative Directory pontos finais protegidos
+# <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publicar eventos nos pontos finais protegidos do Azure Active Directory
 
-Este artigo descreve como aproveitar o Azure Ative Directory para garantir a ligação entre a subscrição do evento e o ponto final do seu webhook. Para obter uma visão geral das aplicações ad da Azure e dos principais serviços, consulte a [plataforma de identidade da Microsoft (v2.0).](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
+Este artigo descreve como aproveitar o Azure Ative Directory para garantir a ligação entre a subscrição do evento e o ponto final do seu webhook. Para obter uma visão geral das aplicações ad da Azure e dos principais serviços, consulte a [plataforma de identidade da Microsoft (v2.0).](../active-directory/develop/v2-overview.md)
 
 Este artigo utiliza o portal Azure para demonstração, no entanto a funcionalidade também pode ser ativada usando CLI, PowerShell ou os SDKs.
 
@@ -28,7 +28,7 @@ Comece por criar uma aplicação AD AZure para o seu ponto final protegido. Cons
 Utilize o script PowerShell abaixo para criar um papel e um principal de serviço na sua Aplicação AD Azure. Você precisará do ID do inquilino e ID de objeto da sua aplicação AD Azure:
 
    > [!NOTE]
-   > Você deve ser um membro da função de [Administrador de Aplicação AD Azure](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) para executar este script.
+   > Você deve ser um membro da função de [Administrador de Aplicação AD Azure](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles) para executar este script.
     
 1. Modifique o $myTenantId do script PowerShell para usar o seu ID do inquilino Azure.
 1. Modifique o $myAzureADApplicationObjectId do script PowerShell para utilizar o ID do objeto da sua aplicação AD Azure
@@ -119,7 +119,7 @@ No separador funcionalidades adicionais, verifique a caixa para "Utilizar a aute
 
     ![Ação Segura webhook](./media/secure-webhook-delivery/aad-configuration.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre a monitorização das entregas de eventos, consulte [a entrega de mensagens monitor a Grelha de Eventos](monitor-event-delivery.md).
 * Para obter mais informações sobre a chave de autenticação, consulte [a segurança e a autenticação da Grade de Eventos.](security-authentication.md)

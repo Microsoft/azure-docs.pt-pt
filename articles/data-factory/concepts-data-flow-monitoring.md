@@ -1,19 +1,19 @@
 ---
-title: Mapeamento do fluxo de dados Monitorização Visual
-description: Como monitorizar visualmente os fluxos de dados da fábrica de dados do Azure
+title: Monitorização dos fluxos de dados de mapeamento
+description: Como monitorizar visualmente os fluxos de dados de mapeamento na Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/03/2020
-ms.openlocfilehash: 1126f73b4d2e51e952a7cf971363020242838c34
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ad5fb077596b6cc444c1c4df81af32cbcfa7c1db
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958906"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475554"
 ---
 # <a name="monitor-data-flows"></a>Monitorize fluxos de dados
 
@@ -27,7 +27,7 @@ Quando executa o seu oleoduto, pode monitorizar o gasoduto e todas as atividades
 
 Vê-se estatísticas a este nível, incluindo os tempos de execução e o estado. O ID de execução ao nível de atividade é diferente do ID de execução ao nível do gasoduto. O Run ID no nível anterior é para o gasoduto. A seleção dos óculos dá-lhe detalhes profundos sobre a execução do fluxo de dados.
 
-![Monitorização do fluxo de dados](media/data-flow/mon002.png "Monitorização de Fluxo de Dados")
+![Monitorização do fluxo de dados](media/data-flow/monitoring-details.png "Monitorização de Fluxo de Dados")
 
 Quando está na vista de monitorização do nó gráfico, pode ver uma versão simplificada apenas do seu gráfico de fluxo de dados.
 

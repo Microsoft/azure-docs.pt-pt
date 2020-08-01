@@ -1,18 +1,18 @@
 ---
 title: Compreender conceitos do Repositório do Modelo Azure IoT Microsoft Docs
 description: Como desenvolvedor de soluções ou profissional de TI, conheça os conceitos básicos do Repositório de Modelos Azure IoT.
-author: JimacoMS3
-ms.author: v-jambra
+author: prashmo
+ms.author: prashmo
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 53ae5bf15c303f26d48550734f46e69ef1fcdd75
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 7d736721e2676a42da90aead3144f8016329f730
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352485"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475503"
 ---
 # <a name="azure-iot-model-repository"></a>Repositório de modelo Azure IoT
 
@@ -42,7 +42,7 @@ Para visualizar um modelo público programáticamente utilizando a API REST, con
 
 ```csharp
 var httpClient = new HttpClient();
-httpClient.BaseAddress = new Uri("<url>");
+httpClient.BaseAddress = new Uri("https://repo.azureiotrepository.com");
 
 var modelId = "dtmi:com:mxchip:model;1";
 var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-05-01-preview").ConfigureAwait(false);
@@ -68,7 +68,7 @@ Para aprender a configurar um inquilino AZure AD e como criar um utilizador ou d
 
 A tabela seguinte resume as capacidades suportadas no repositório do modelo da empresa e as suas permissões associadas:
 
-| Capacidade  | Permissão| Descrição|
+| Funcionalidade  | Permissão| Descrição|
 |-------------|-----------|------------|
 |Ler Modelos|Ler Modelos|Por padrão, todos os utilizadores do arrendatário da empresa podem ver os seus modelos da empresa. Além disso, o utilizador também pode ver os modelos(s) privados que lhes são partilhados por outras empresas.|
 |Gerir o Acesso|Gerir o Acesso|Gerir a atribuição da função do utilizador (adicionar ou remover) para outros utilizadores da organização.|
@@ -77,7 +77,7 @@ A tabela seguinte resume as capacidades suportadas no repositório do modelo da 
 
 A tabela seguinte resume as funções apoiadas e as suas capacidades no repositório de modelos que podem ser utilizados para a gestão de acessos.
 
-|Função|Capacidade|
+|Função|Funcionalidade|
 |----|----------|
 |InquilinoAdministrator|Gerir o Acesso, Ler Modelos|
 |Creator|Criar modelos, ler modelos|

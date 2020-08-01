@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 0f19d63bd5f22dc7bc60ceb76ef5bdbeff717dbb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4ee970f7e4a1228d40a284372300ed9e95c00b7e
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325734"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460393"
 ---
 # <a name="payout-summary-overview"></a>Descrição geral do resumo de dividendos
 
@@ -23,7 +23,7 @@ Se vender ofertas no Azure Marketplace, também verá informações sobre pagame
 > [!NOTE]
 > Para ser elegível para pagamento, as suas receitas devem atingir o limiar de [pagamento](./payment-thresholds-methods-timeframes.md) de $50. Para obter mais informações sobre o limiar de pagamento, consulte o [Microsoft Azure Marketplace Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt).
 
-Todos os relatórios e insights para a opção de publicação de transações estão disponíveis na secção Analytics do Partner Center, acedida utilizando este ícone no canto superior direito do portal:
+Para ver os detalhes do pagamento, inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home) e selecione o ícone de pagamento no canto superior direito do ecrã:
 
 ![Ilustra o ícone Payout no canto superior direito do portal Partner Center.](./media/payout-overview.png)
 

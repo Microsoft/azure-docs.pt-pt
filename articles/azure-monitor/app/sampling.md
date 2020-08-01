@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4e2557b114b5eb90b03e59dc64cbd6e69c7dd9a4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4a618b00b211ce65b170379cc14d6b83a1183d28
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326584"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460361"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -78,7 +78,7 @@ In [`ApplicationInsights.config`](./configuration-with-applicationinsights-confi
 
 * `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
   
-    A taxa-alvo que o algoritmo adaptativo visa **em cada anfitrião do servidor**. Se a sua aplicação web for executado em muitos anfitriões, reduza este valor de modo a permanecer dentro da sua taxa de tráfego alvo no portal Application Insights.
+    A taxa-alvo de [operações lógicas](./correlation.md#data-model-for-telemetry-correlation) que o algoritmo adaptativo pretende recolher **em cada anfitrião do servidor**. Se a sua aplicação web for executado em muitos anfitriões, reduza este valor de modo a permanecer dentro da sua taxa de tráfego alvo no portal Application Insights.
 
 * `<EvaluationInterval>00:00:15</EvaluationInterval>` 
   

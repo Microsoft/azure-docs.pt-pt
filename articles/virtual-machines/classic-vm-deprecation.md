@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 6ddc9299f72e8a0b25e8b1f85968933bd6868af8
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d86805975b082136879c0a98ce2817f4f491a9a0
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288530"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461209"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>Migrar os seus recursos IaaS para o Azure Resource Manager até 1 de março de 2023 
 
@@ -43,6 +43,8 @@ Os seguintes serviços e funcionalidades da Azure **NÃO** serão impactados por
 
 - Para mais informações, consulte as [perguntas frequentes sobre a migração clássica para a migração do Azure Resource Manager](./windows/migration-classic-resource-manager-faq.md)
 
-- Para questões técnicas, problemas e adição de subscrições à lista de admissões, [suporte de contacto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+- Para questões técnicas, problemas e adição de subscrições à lista de admissões, [suporte de contacto](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"8a82f77d-c3ab-7b08-d915-776b4ff64ff4"}).
+
+- Para assistência durante a migração, [contacte o apoio à migração](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"1135e3d0-20e2-aec5-4ef0-55fd3dae2d58"})
 
 - Para outras questões que não fazem parte das FAQ e feedback, comente abaixo.

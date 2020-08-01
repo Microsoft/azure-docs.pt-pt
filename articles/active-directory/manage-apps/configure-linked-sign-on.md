@@ -1,6 +1,6 @@
 ---
-title: Linked-on para aplicações AD Azure - plataforma de identidade da Microsoft
-description: Configurar um único sign-on (SSO) ligado às suas aplicações empresariais AZure AD na plataforma de identidade microsoft (Azure AD)
+title: Configurar o sign-on ligado no Azure Ative Directory
+description: Configurar o sinal de inscrição ligado em Azure AD.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -8,46 +8,49 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/08/2019
+ms.date: 07/30/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cfcece43ae1b7d7bcf0c38feba14f1e82b29f18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2269a8f7f58d35fee5e2ca30a77af5e8cba83678
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763487"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87459339"
 ---
 # <a name="configure-linked-sign-on"></a>Configurar o início de sessão ligado
 
-Quando adiciona uma aplicação web de galeria ou não galeria, uma das opções de inscrição única disponíveis para si está [ligada ao sign-on](what-is-single-sign-on.md). Selecione esta opção para adicionar um link à aplicação no Painel de Acesso AD AD da sua organização ou no portal Office 365. Pode utilizar este método para adicionar links a aplicações web personalizadas que atualmente utilizam serviços da Federação de Diretórios Ativos (ou outro serviço de federação) em vez de Azure AD para autenticação. Ou, pode adicionar links profundos a páginas específicas do SharePoint ou a outras páginas web que apenas pretende aparecer nos Painéis de Acesso do utilizador.
+Na [série quickstart](view-applications-portal.md) sobre gestão de aplicações, aprendeu a usar a Azure AD como Fornecedor de Identidade (IdP) para uma aplicação. No guia quickstart, você configura SSO baseado em SAML. Outra opção é **o Linked**. Este artigo entra em mais detalhes sobre a opção ligada.
+
+A opção **Linked** permite configurar o local alvo quando um utilizador seleciona a aplicação no portal [My Apps](https://myapplications.microsoft.com/) ou Office 365 da sua organização.
+
+Alguns cenários comuns em que a opção de ligação é valiosa incluem:
+- Adicione um link a uma aplicação web personalizada que atualmente utiliza a federação, como o Ative Directory Federation Services (AD FS).
+- Adicione links profundos a páginas específicas do SharePoint ou a outras páginas web que apenas pretende aparecer nos Painéis de Acesso do utilizador.
+- Adicione um link a uma aplicação que não requer autenticação. 
+ 
+ A opção **Linked** não fornece funcionalidade de inscrição através de credenciais AZure AD. Mas, ainda pode utilizar algumas das outras funcionalidades das aplicações da **Enterprise.** Por exemplo, pode usar registos de auditoria e adicionar um logotipo personalizado e nome de aplicação.
 
 ## <a name="before-you-begin"></a>Before you begin
 
-Se a aplicação não tiver sido adicionada ao seu inquilino Azure AD, consulte [Adicionar uma aplicação](add-gallery-app.md) de galeria ou [adicionar uma aplicação não-galeria](add-non-gallery-app.md).
+Para acelerar rapidamente, caminhe pela [série quickstart](view-applications-portal.md) sobre gestão de aplicações. No arranque rápido, onde configurar um único sign-on, também encontrará a opção **Linked.** 
 
-### <a name="open-the-app-and-select-linked-sign-on"></a>Abra a aplicação e selecione o sign-on ligado
+A opção **Linked** não fornece funcionalidade de inscrição através do Azure AD. A opção simplesmente define a localização para onde os utilizadores serão enviados quando selecionarem a aplicação nas [Minhas Apps](https://myapplications.microsoft.com/) ou no launcher da aplicação Microsoft 365.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador de aplicações em nuvem ou como administrador de aplicação para o seu inquilino AZure AD.
+> [!IMPORTANT] 
+> Existem alguns cenários em que a opção **de inscrição única** não estará na navegação para uma aplicação em **aplicações da Enterprise.** 
+>
+> Se a aplicação foi registada usando **registos de Aplicações,** então a capacidade de inscrição única é configurada para utilizar o OIDC OAuth por padrão. Neste caso, a opção **de inscrição única** não aparecerá na navegação ao abrigo das **aplicações da Enterprise.** Quando utiliza **as inscrições da App** para adicionar a sua aplicação personalizada, configura as opções no ficheiro manifesto. Para saber mais sobre o ficheiro manifesto, consulte o [manifesto da aplicação Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Para saber mais sobre os padrões SSO, consulte [autenticação e autorização utilizando a plataforma de identidade da Microsoft.](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform) 
+>
+> Outros cenários em que o único sinal de sessão estará ausente da navegação incluem quando uma aplicação é hospedada noutro inquilino ou se a sua conta não tiver as permissões necessárias (Administrador Global, Administrador de Aplicação **cloud,** Administrador de Aplicação ou proprietário do principal de serviço). As permissões também podem causar um cenário em que pode abrir **o single de sposição,** mas não será capaz de economizar. Para saber mais sobre as funções administrativas da Azure AD, consulte https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
 
-1. Navegue para aplicações **da Azure Ative Directory**  >  **Enterprise**. Aparece uma amostra aleatória das aplicações no seu inquilino AZure AD. 
+### <a name="configure-link"></a>Ligação de configuração
 
-1. No menu **'Tipo de Aplicação',** selecione **Todas as aplicações**e, em seguida, selecione **Aplicar**.
-
-1. Introduza o nome da aplicação na caixa de pesquisa e, em seguida, selecione a aplicação a partir dos resultados.
-
-1. Na secção **'Gerir',** selecione **'Único's sign-on'**. 
-
-1. Selecione **Linked**.
-
-1. Introduza o URL da aplicação para ligar. Digite o URL e **selecione Guardar**. 
+Para definir um link para uma aplicação, selecione **Linked** na página **de sign-on único.** Em seguida, introduza o link e **selecione Guardar**. Precisa de um lembrete de onde encontrar estas opções? Confira a [série quickstart](view-applications-portal.md).
  
-1. Pode atribuir utilizadores e grupos à aplicação, o que faz com que a aplicação apareça no [lançador de aplicações office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou no [painel de acesso AZure AD](end-user-experiences.md) para esses utilizadores.
+Depois de configurar uma aplicação, atribua-lhe utilizadores e grupos. Quando atribuímos os utilizadores, pode controlar quando a aplicação aparece nas [Minhas Apps](https://myapplications.microsoft.com/) ou no launcher da aplicação Microsoft 365.
 
-1. Selecione **Guardar**.
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atribuir utilizadores ou grupos à aplicação](methods-for-assigning-users-and-groups.md)
 - [Configurar o provisionamento automático da conta de utilizador](../app-provisioning/configure-automatic-user-provisioning-portal.md)
