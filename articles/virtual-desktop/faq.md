@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 721f9c623255b964e38da1c0f4b7bbf72d0c721d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6867d24d84f6dfb51b2ca7b86ec882102b96552b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075629"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504420"
 ---
-# <a name="windows-virtual-desktop-faq"></a>Windows Virtual Desktop FAQ
+# <a name="windows-virtual-desktop-faq"></a>FAQ do Windows Virtual Desktop
 
 Este artigo responde a perguntas frequentes e explica as melhores práticas para o Windows Virtual Desktop.
 
@@ -46,7 +46,7 @@ Para restringir um administrador apenas para gerir as sessões de utilizador, co
 
 ## <a name="does-windows-virtual-desktop-support-split-azure-active-directory-models"></a>O suporte virtual do Windows desktop divide os modelos Azure Ative Directory?
 
-Quando um utilizador é atribuído a um grupo de aplicações, o serviço faz uma simples atribuição de função de controlo de acesso baseado em funções Azure (RBAC). Como resultado, o Azure Ative Directory (AD) do utilizador e o AD Azure do grupo de aplicações devem estar no mesmo local. Todos os objetos de serviço, tais como piscinas de anfitriões, grupos de aplicações e espaços de trabalho, também devem estar no mesmo AD Azure que o utilizador.
+Quando um utilizador é atribuído a um grupo de aplicações, o serviço faz uma simples atribuição de funções Azure. Como resultado, o Azure Ative Directory (AD) do utilizador e o AD Azure do grupo de aplicações devem estar no mesmo local. Todos os objetos de serviço, tais como piscinas de anfitriões, grupos de aplicações e espaços de trabalho, também devem estar no mesmo AD Azure que o utilizador.
 
 Pode criar máquinas virtuais (VMs) num AD Azure diferente, desde que sincronize o Ative Directory com o AD Azure do utilizador na mesma rede virtual (VNET).
 

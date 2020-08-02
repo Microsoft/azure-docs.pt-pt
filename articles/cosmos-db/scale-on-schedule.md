@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 9f538b02e81d885e22a6417d7c1f139c22635b0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 670a38b48ee89930078078dc4a8ac1a2876648e2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262485"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503740"
 ---
 # <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>Escala A produção DB do Cosmos da escala utilizando o gatilho do temporizador de funções Azure
 
 O desempenho de uma conta Azure Cosmos baseia-se no montante de produção provisitada expressa nas Unidades de Pedido por segundo (RU/s). O provisionamento encontra-se numa segunda granularidade e é faturado com base no RU/s mais elevado por hora. Este modelo de capacidade a provisionada permite que o serviço forneça uma produção previsível e consistente, baixa latência garantida e elevada disponibilidade. A maioria das cargas de trabalho de produção destas características. No entanto, em ambientes de desenvolvimento e testes onde a Azure Cosmos DB só é usada durante o horário de trabalho, pode aumentar a produção de manhã e reduzir a escala à noite após o horário de trabalho.
 
-Pode definir a produção através de [Modelos de Gestor de Recursos Azure,](resource-manager-samples.md) [Azure CLI](cli-samples.md)e [PowerShell,](powershell-samples-sql.md)para contas API core (SQL) ou utilizando os DB SDKs Azure Cosmos específicos da língua. O benefício da utilização de modelos de gestores de recursos, Azure CLI ou PowerShell é que suportam todos os APIs de modelos DB do Azure Cosmos.
+Pode definir a produção através de [Modelos de Gestor de Recursos Azure,](resource-manager-samples.md) [Azure CLI](cli-samples.md)e [PowerShell,](powershell-samples.md)para contas API core (SQL) ou utilizando os DB SDKs Azure Cosmos específicos da língua. O benefício da utilização de modelos de gestores de recursos, Azure CLI ou PowerShell é que suportam todos os APIs de modelos DB do Azure Cosmos.
 
 ## <a name="throughput-scheduler-sample-project"></a>Projeto de amostra de programador de saída
 

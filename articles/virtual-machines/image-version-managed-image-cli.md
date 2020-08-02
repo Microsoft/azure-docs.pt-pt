@@ -9,12 +9,13 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 2ef54da76750617a77c4b2e117b694cb170ff752
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 8631a411b26f91bc72e23ac7ff9fb2278f61168c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502899"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502890"
 ---
 # <a name="migrate-from-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Migrar de uma imagem gerida para uma versão de imagem usando o Azure CLI
 Se tiver uma imagem gerida existente que gostaria de migrar para uma Galeria de Imagens Partilhadas, pode criar uma imagem da Galeria de Imagens Partilhada diretamente a partir da imagem gerida. Depois de ter testado a sua nova imagem, pode eliminar a imagem gerida pela fonte. Também pode migrar de uma imagem gerida para uma Galeria de Imagens Partilhadas utilizando [o PowerShell.](image-version-managed-image-powershell.md)
@@ -95,7 +96,7 @@ az sig image-version create \
 > Também pode armazenar todas as réplicas da sua versão de imagem no [Armazenamento Redundante da Zona,](../storage/common/storage-redundancy.md) adicionando `--storage-account-type standard_zrs` quando cria a versão de imagem.
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Criar um VM a partir de uma [versão de imagem generalizada](vm-generalized-image-version-cli.md).
 

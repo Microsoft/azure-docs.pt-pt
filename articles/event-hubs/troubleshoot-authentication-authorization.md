@@ -3,18 +3,18 @@ title: Problemas de autenticação e autorização - Azure Event Hubs
 description: Este artigo fornece informações sobre problemas de autenticação e autorização com os Hubs de Eventos Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 1c053f60c877cdd26655948c37ab81a5e4d61cf0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6fca0c29c20e2bfe0c3ec64e3068b61bd5147bdb
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322413"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502108"
 ---
 # <a name="troubleshoot-authentication-and-authorization-issues---azure-event-hubs"></a>Problemas de autenticação e autorização - Azure Event Hubs
 O artigo [de conectividade Troubleshoot](troubleshooting-guide.md) fornece dicas para resolver problemas de conectividade com os Azure Event Hubs. Este artigo fornece dicas e recomendações para resolver problemas de problemas de autenticação e problemas de autorização com a Azure Event Hubs. 
 
 ## <a name="if-you-are-using-azure-active-directory"></a>Se estiver a utilizar o Azure Ative Directory
-Se estiver a utilizar o Azure Ative Directory (Azure AD) para autenticar e autorizar com a Azure Event Hubs, confirme que a identidade que acede ao centro de eventos é membro da função de **controlo de acesso (RBAC)** baseada na função certa no âmbito de **recursos** certos (grupo de consumidores, centro de eventos, espaço de identificação, grupo de recursos ou subscrição).
+Se estiver a utilizar o Azure Ative Directory (Azure AD) para autenticar e autorizar com a Azure Event Hubs, confirme que a identidade que acede ao centro de eventos é membro da **função Azure** certa no âmbito de **recursos** certos (grupo de consumidores, centro de eventos, espaço de identificação, grupo de recursos ou subscrição).
 
 ### <a name="rbac-roles"></a>Funções RBAC
 - [Azure Event Hubs Data proprietário](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) para acesso completo aos recursos do Event Hubs.
@@ -46,7 +46,7 @@ Para obter mais informações, veja os seguintes artigos:
 - [Autenticar utilizando assinaturas de acesso partilhado (SAS)](authenticate-shared-access-signature.md). 
 - [Autorizar o acesso aos recursos do Event Hubs utilizando assinaturas de acesso partilhado](authorize-access-shared-access-signature.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos:
 

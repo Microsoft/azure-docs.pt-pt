@@ -8,15 +8,15 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: abf7e864398d48742e0cbf99a9a7b7dae56b9c5d
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: ebf687716c8898acffb5e081fbf2f6217fe0f943
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100928"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503128"
 ---
 # <a name="tutorial-import-a-certificate-in-azure-key-vault"></a>Tutorial: Importar um certificado no Cofre da Chave Azure
 
@@ -78,7 +78,7 @@ Para importar um certificado para o cofre, é necessário ter um ficheiro de cer
     - **Denominação do certificado**: ExemploCertificado.
     - **Upload Certificate File**: selecione o ficheiro de certificado do disco
     - **Senha** : Se estiver a carregar um ficheiro de certificado protegido por palavra-passe, forneça esta palavra-passe aqui. Caso contrário, deixe-o em branco. Uma vez que o ficheiro de certificado é importado com sucesso, o cofre-chave removerá essa palavra-passe.
-4. Clique em **Criar**.
+4. Clique em **Create** (Criar).
 
 ![Propriedades de certificados](../media/certificates/tutorial-import-cert/cert-import.png)
 
@@ -90,7 +90,7 @@ Assim que receber a mensagem de que o certificado foi importado com sucesso, pod
 
 ## <a name="import-a-certificate-using-azure-cli"></a>Importar um certificado utilizando o Azure CLI
 
-Importe um certificado num cofre de chaves especificado. Para importar um certificado válido existente, contendo uma chave privada, para o Cofre da Chave Azure, o ficheiro a importar pode ser em formato PFX ou PEM. Se o certificado estiver em formato PEM, o ficheiro PEM deve conter a chave, bem como os certificados x509. Esta operação requer os certificados/permissão de importação.
+Importe um certificado num cofre de chaves especificado. Para importar um certificado válido existente, contendo uma chave privada, para o Cofre da Chave Azure, o ficheiro a importar pode ser em formato PFX ou PEM. Se o certificado estiver em formato PEM, o ficheiro PEM deve conter a chave, bem como os certificados x509. Esta operação requer a permissão certificados/importar.
 
 ```azurecli
 az keyvault certificate import --file
@@ -138,7 +138,7 @@ Import-AzureKeyVaultCertificate
 Saiba mais sobre os [parâmetros.](https://docs.microsoft.com/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0)
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Outros inícios rápidos e tutoriais do Key Vault têm por base este início rápido. Se quiser continuar a trabalhar com os inícios rápidos e tutoriais subsequentes, pode manter estes recursos.
 Quando já não for necessário, elimine o grupo de recursos, que elimina o Key Vault e todos os recursos relacionados. Para eliminar o grupo de recursos através do portal:

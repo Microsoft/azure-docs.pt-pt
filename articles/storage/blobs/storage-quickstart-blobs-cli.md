@@ -9,12 +9,13 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 06/04/2020
 ms.author: tamram
-ms.openlocfilehash: 471a8018a608da818f5961973f23123874c63427
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 623eb7cdc9b2ff3df6bf2cbf9f337c262fecf060
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434463"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501275"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Quickstart: Criar, transferir e listar bolhas com Azure CLI
 
@@ -155,7 +156,7 @@ azcopy login
 azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender eliminar os recursos que criou como parte deste arranque rápido, incluindo a conta de armazenamento, elimine o grupo de recursos utilizando o comando de eliminação do [grupo az.](/cli/azure/group) Lembre-se de substituir os valores do espaço reservado nos suportes angulares com os seus próprios valores:
 

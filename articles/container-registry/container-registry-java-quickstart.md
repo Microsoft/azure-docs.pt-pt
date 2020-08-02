@@ -2,16 +2,16 @@
 title: Quickstart - Construa e empurre imagens de contentores de Java para o registo do contentor de Azure usando Maven e Jib
 description: Construa uma aplicação Java contentorizada e empurre-a para o Registo do Contentor Azure utilizando o plugin Maven Jib.
 author: KarlErickson
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ms.author: karler
 ms.topic: quickstart
 ms.date: 02/26/2020
-ms.openlocfilehash: 9310fb92b4b0ad1163d343f13daf42c15923ec20
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e87e2d59dd70fbf96c04d9cd467594aa6576639b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327417"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501309"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>Quickstart: Construa e empurre imagens de contentores de Java para o registo do contentor de Azure
 

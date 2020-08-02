@@ -6,13 +6,13 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: brendm
-ms.custom: devx-track-java
-ms.openlocfilehash: 7057138709f97c2eba2b2301d8363e2524a2042a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: da1fa8306630fe84efeb208883fb9ed3979be491
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071103"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504590"
 ---
 # <a name="quickstart-launch-your-spring-cloud-application-from-source-code"></a>Quickstart: Lance a sua aplicação Cloud primavera a partir do código fonte
 

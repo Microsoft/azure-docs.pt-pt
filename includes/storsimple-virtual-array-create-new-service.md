@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: storage
 author: alkohli
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: 4ba5c8b69776b39d8a6640744b0c24600f3a0d5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7bdeeedaac65f67a3224e824c19e8cad794682b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67184446"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507424"
 ---
 #### <a name="to-create-a-new-service"></a>Para criar um novo serviço
 
@@ -29,7 +29,7 @@ ms.locfileid: "67184446"
 
     2.  Escolha uma **Subscrição** na lista pendente. A subscrição está ligada à sua conta de faturação. Este campo não estará presente se tiver apenas uma subscrição.
 
-    3.  Para **o grupo de recursos,** selecione um grupo existente ou crie um novo grupo. Para obter mais informações, veja [Azure resource groups](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/) (Grupos de recursos do Azure).
+    3.  Para **o grupo de recursos,** selecione um grupo existente ou crie um novo grupo. Para obter mais informações, veja [Azure resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal) (Grupos de recursos do Azure).
 
     4.  Forneça uma **Localização** para o serviço. Consulte [as Regiões Azure](https://azure.microsoft.com/regions/#services) para obter mais informações sobre quais os serviços disponíveis em que região. Em geral, escolha um **Local** mais próximo da região geográfica onde pretende implantar o seu dispositivo. Pode também querer ter em conta o seguinte:
 

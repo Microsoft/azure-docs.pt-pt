@@ -7,13 +7,13 @@ ms.subservice: imaging
 ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.custom: legacy
-ms.openlocfilehash: 26c8a8746fe748585f36e5282ad6e694cdcef1f6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: legacy, devx-track-azurecli
+ms.openlocfilehash: 376d9d76633060f504454f85841b9c15bafc6685
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494467"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503043"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Como criar uma imagem gerida de uma máquina virtual ou VHD
 
@@ -136,5 +136,5 @@ az vm show \
    --show-details
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para criar, armazenar e partilhar imagens em escala, consulte [galerias de imagem partilhadas.](../shared-images-cli.md)

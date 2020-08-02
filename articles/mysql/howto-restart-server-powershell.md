@@ -6,12 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 4/28/2020
-ms.openlocfilehash: faefdfb93257521c9c687045c1467c5d2d0f84ab
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 71d10078a704b2905cf055347f5ed4272ca8ef72
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107942"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502788"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-powershell"></a>Reinicie a base de dados do Azure para o servidor MySQL utilizando o PowerShell
 
@@ -44,7 +45,7 @@ Reiniciar o servidor com o seguinte comando:
 Restart-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar uma base de dados Azure para servidor MySQL utilizando PowerShell](quickstart-create-mysql-server-database-using-azure-powershell.md)

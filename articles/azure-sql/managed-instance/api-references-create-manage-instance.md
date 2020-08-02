@@ -4,19 +4,19 @@ description: Saiba como criar e configurar instâncias geridas de Azure SQL Mana
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
-ms.custom: ''
+ms.custom: devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 3f0eb2c1ecb26475b25cd5ca41c9c61d5e2b47a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8cc2930422bf644f217737d0f0ba585c243575ee
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695611"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503009"
 ---
 # <a name="managed-api-reference-for-azure-sql-managed-instance"></a>Referência API gerida para Azure SQL Caso Gerido
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -96,7 +96,7 @@ Para criar e configurar casos geridos, utilize estes pedidos de API REST.
 |[Instâncias geridas - Lista por Grupo de Recursos](https://docs.microsoft.com/rest/api/sql/managedinstances/listbyresourcegroup)|Devolve uma lista de casos geridos num grupo de recursos.|
 |[Casos Geridos - Atualização](https://docs.microsoft.com/rest/api/sql/managedinstances/update)|Atualiza um caso gerido.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber sobre a migração de uma base de dados do SQL Server para Azure, consulte [a Migração para a Base de Dados SQL Azure](../database/migrate-to-database-from-sql-server.md).
 - Para obter informações sobre as funcionalidades suportadas, veja [Funcionalidades](../database/features-comparison.md).

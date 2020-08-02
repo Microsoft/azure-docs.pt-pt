@@ -4,13 +4,13 @@ description: Crie um membro do Serviço Azure Blockchain para um consórcio bloc
 ms.date: 07/23/2020
 ms.topic: quickstart
 ms.reviewer: ravastra
-ms.custom: references_regions
-ms.openlocfilehash: 2514447eaceb83da0bee81c1475a3137f0d1af07
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: f97aab59d38e9b15838a78d0227bc2848615cd92
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170654"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504369"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Quickstart: Criar um membro blockchain do Azure Blockchain Service usando O Azure CLI
 
@@ -85,7 +85,7 @@ az blockchain member create \
 | Parâmetro | Descrição |
 |---------|-------------|
 | **grupo de recursos** | Nome do grupo de recursos onde são criados os recursos do Serviço Azure Blockchain. Utilize o grupo de recursos que criou na secção anterior.
-| **name** | Um nome único que identifica o seu membro blockchain do Azure Blockchain Service. O nome é usado para o endereço de ponto final público. Por exemplo, `myblockchainmember.blockchain.azure.com`.
+| **nome** | Um nome único que identifica o seu membro blockchain do Azure Blockchain Service. O nome é usado para o endereço de ponto final público. Por exemplo, `myblockchainmember.blockchain.azure.com`.
 | **localização** | Região de Azure onde o membro blockchain é criado. Por exemplo, `westus2`. Escolha a localização que estiver mais próxima dos seus utilizadores ou das suas outras aplicações do Azure. As funcionalidades podem não estar disponíveis em algumas regiões. O Azure Blockchain Data Manager está disponível nas seguintes regiões de Azure: Leste dos EUA e Europa Ocidental.
 | **palavra-passe** | A palavra-passe para o nó de transação padrão do membro. Utilize a palavra-passe para autenticação básica ao ligar-se ao ponto final público do nó de transação padrão do membro blockchain.
 | **protocolo** | Protocolo blockchain. Atualmente, o protocolo *Qurum* é suportado.
@@ -107,7 +107,7 @@ az group delete \
                  --yes
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, você lançou um membro do Azure Blockchain Service e um novo consórcio. Experimente o próximo quickstart para usar o Kit de Desenvolvimento Azure Blockchain para o Ethereum para se ligar a um membro do Serviço Azure Blockchain.
 

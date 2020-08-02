@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.date: 06/16/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 1b21141a4b3f9ae92cdcf1d5a93a457012cb136a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e4bca058f554f60dfa5c237633d1fecf06dfea7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506615"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507631"
 ---
 ### <a name="general-requirements"></a>Requisitos gerais
 
@@ -89,7 +89,7 @@ Configure o tráfego de entrada na porta 3389 (Windows) ou 22 (Linux) apenas se 
 
 `/subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.ClassicNetwork /virtualNetworks/{network}/subnets/{subnet}`
 
-**Permissões**  - O principal de serviço `Microsoft Azure Batch` tem de ter a função de Controlo de Acesso Baseado em Funções (RBAC) `Classic Virtual Machine Contributor` na VNet especificada.
+**Permissões** - O `Microsoft Azure Batch` diretor de serviço deve ter a `Classic Virtual Machine Contributor` função Azure para o VNet especificado.
 
 #### <a name="network-security-groups"></a>Grupos de segurança de rede
 

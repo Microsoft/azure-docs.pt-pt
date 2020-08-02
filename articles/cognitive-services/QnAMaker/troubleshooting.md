@@ -3,12 +3,12 @@ title: Resolução de problemas - QnA Maker
 description: A lista com curadoria das perguntas mais frequentes sobre o serviço QnA Maker irá ajudá-lo a adotar o serviço de forma mais rápida e com melhores resultados.
 ms.topic: troubleshooting
 ms.date: 03/25/2020
-ms.openlocfilehash: ec994677b17ee21dbf4ee6091be3bdf943572b2e
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 50823e29eb5c276c00a1c8f0e3227ec67999a703
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131995"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502584"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Resolução de problemas para o Criador QnA
 
@@ -87,7 +87,7 @@ Todos os deletes são permanentes, incluindo pares de perguntas e respostas, fic
 <details>
 <summary><b>Pode partilhar uma base de conhecimento com um contribuinte que não esteja no mesmo inquilino da AAD, para modificar uma base de conhecimento?</b></summary>
 
-**Resposta**: A partilha baseia-se no controlo de acesso baseado em funções Azure (RBAC). Se puder partilhar _qualquer_ recurso em Azure com outro utilizador, também pode partilhar o QnA Maker.
+**Resposta**: A partilha baseia-se no controlo de acesso baseado em funções Azure (Azure RBAC). Se puder partilhar _qualquer_ recurso em Azure com outro utilizador, também pode partilhar o QnA Maker.
 
 </details>
 

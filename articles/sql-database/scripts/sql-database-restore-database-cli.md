@@ -4,19 +4,19 @@ description: Azure CLI exemplo script para restaurar uma base de dados em Azure 
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
-ms.custom: ''
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
-ms.openlocfilehash: a03dd719dfeebfaf76a3f33748715d8c31df8ff5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 363278e0b9969dad652dd00debe4ffc0138e9a97
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070827"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503791"
 ---
 # <a name="use-cli-to-restore-a-single-database-in-azure-sql-database-to-an-earlier-point-in-time"></a>Utilize o CLI para restaurar uma única base de dados na Base de Dados Azure SQL para um ponto anterior no tempo
 

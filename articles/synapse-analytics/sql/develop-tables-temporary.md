@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 9e871b7959c11d7fbae650abf8394811b9088ed1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c6c0e86bc372790cda2de4ff4c1274f414a01ab0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020565"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503213"
 ---
 # <a name="temporary-tables-in-synapse-sql"></a>Tabelas temporárias em Synapse SQL
 
@@ -23,7 +23,7 @@ Este artigo contém orientações essenciais para a utilização de tabelas temp
 
 Tanto a piscina SQL como os recursos SQL on-demand (pré-visualização) podem utilizar tabelas temporárias. A SQL on demand tem limitações que são discutidas no final deste artigo. 
 
-## <a name="what-are-temporary-tables"></a>O que são mesas temporárias?
+## <a name="temporary-tables"></a>Tabelas temporárias
 
 As tabelas temporárias são úteis no processamento de dados, especialmente durante a transformação onde os resultados intermédios são transitórios. Com o Synapse SQL, existem tabelas temporárias ao nível da sessão.  Só são visíveis para a sessão em que foram criados. Como tal, são automaticamente largados quando a sessão termina. 
 
@@ -98,7 +98,7 @@ GROUP BY
 > 
 > 
 
-### <a name="dropping-temporary-tables"></a>Largando mesas temporárias
+### <a name="drop-temporary-tables"></a>Deixe cair as tabelas temporárias
 Quando uma nova sessão é criada, não devem existir mesas temporárias.  No entanto, se estiver a ligar para o mesmo procedimento armazenado que cria um temporário com o mesmo nome, para garantir que as suas `CREATE TABLE` declarações são bem sucedidas, utilize uma verificação simples de pré-existência `DROP` com: 
 
 ```sql
@@ -116,7 +116,7 @@ No desenvolvimento de procedimentos armazenados, é comum ver os comandos de que
 DROP TABLE #stats_ddl
 ```
 
-### <a name="modularizing-code"></a>Código modularizador
+### <a name="modularize-code"></a>Código modularizo
 As tabelas temporárias podem ser usadas em qualquer lugar numa sessão de utilizador. Esta capacidade pode então ser explorada para ajudá-lo a modular o seu código de aplicação.  Para demonstrar, o seguinte procedimento armazenado gera DDL para atualizar todas as estatísticas da base de dados por nome estatístico:
 
 ```sql

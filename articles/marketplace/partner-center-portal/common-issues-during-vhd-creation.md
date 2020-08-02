@@ -7,12 +7,12 @@ ms.topic: guide
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/09/2020
-ms.openlocfilehash: d717d93b616e8acd296c89322b7277cda5ade3a3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 273e6560cd4a9efeac6704ca5d44772248c26050
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324000"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504318"
 ---
 # <a name="common-issues-during-vhd-creation"></a>Questões comuns durante a criação de VHD
 
@@ -34,8 +34,8 @@ Não podes. Após a criação de um VM, os utilizadores (incluindo os proprietá
 
 Estes artigos explicam como executar resets RDS para VMs baseados no Windows e Linux:
 
-* [Como repor o serviço Ambiente de Trabalho Remoto ou a respetiva palavra-passe de início de sessão numa VM do Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-reset-rdp/)
-* [Como redefinir uma palavra-passe Linux VM ou uma chave SSH, corrigir a configuração SSH e verificar a consistência do disco utilizando a extensão VMAccess](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-reset-access/)
+* [Como repor o serviço Ambiente de Trabalho Remoto ou a respetiva palavra-passe de início de sessão numa VM do Windows](/azure/virtual-machines/troubleshooting/reset-rdp)
+* [Como redefinir uma palavra-passe Linux VM ou uma chave SSH, corrigir a configuração SSH e verificar a consistência do disco utilizando a extensão VMAccess](/azure/virtual-machines/extensions/vmaccess)
 
 ## <a name="how-do-i-generate-new-ssh-certificates"></a>Como gerarei novos certificados SSH?
 
@@ -59,7 +59,7 @@ Sim, se hospedado no Azure. A Azure atribui um identificador único, chamado [Az
 
 ## <a name="in-a-vm-how-do-i-manage-the-custom-script-extension-in-the-startup-task"></a>Num VM, como posso gerir a extensão de script personalizado na tarefa de arranque?
 
-Para obter detalhes sobre a utilização da extensão de script personalizada utilizando o módulo Azure PowerShell, os modelos do Gestor de Recursos Azure e os passos de resolução de problemas nos sistemas Windows, consulte [a extensão de script personalizada para windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/).
+Para obter detalhes sobre a utilização da extensão de script personalizada utilizando o módulo Azure PowerShell, os modelos do Gestor de Recursos Azure e os passos de resolução de problemas nos sistemas Windows, consulte [a extensão de script personalizada para windows](/azure/virtual-machines/extensions/custom-script-windows).
 
 ## <a name="are-32-bit-applications-or-services-supported-in-azure-marketplace"></a>As aplicações ou serviços de 32 bits são suportados no Azure Marketplace?
 

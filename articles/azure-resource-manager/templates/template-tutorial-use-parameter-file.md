@@ -1,26 +1,27 @@
 ---
-title: Tutorial - use ficheiro de parâmetro para implementar modelo
-description: Utilize ficheiros de parâmetros que contenham os valores a utilizar para a implementação do seu modelo de Gestor de Recursos Azure.
+title: Tutorial - use o arquivo de parâmetros para implementar o modelo
+description: Utilize ficheiros de parâmetros que contenham os valores a utilizar para implantar o seu modelo de Gestor de Recursos Azure.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b91041b96a3819dbace3898d92226f0351f0f973
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: bd7917a96550d45b14eb5a5b5cae1ac957aa78b5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80411509"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502805"
 ---
-# <a name="tutorial-use-parameter-files-to-deploy-your-arm-template"></a>Tutorial: Utilize ficheiros de parâmetros para implementar o seu modelo ARM
+# <a name="tutorial-use-parameter-files-to-deploy-your-arm-template"></a>Tutorial: Use ficheiros de parâmetros para implementar o seu modelo ARM
 
-Neste tutorial, aprende-se a utilizar [ficheiros de parâmetros](parameter-files.md) para armazenar os valores que passa durante a implementação. Nos tutoriais anteriores, utilizou parâmetros inline com o seu comando de implantação. Esta abordagem funcionou para testar o seu modelo de Gestor de Recursos Azure (ARM), mas ao automatizar implementações pode ser mais fácil passar um conjunto de valores para o seu ambiente. Os ficheiros de parâmetros facilitam o pacote de valores de parâmetros para um ambiente específico. Neste tutorial, você vai criar arquivos de parâmetros para ambientes de desenvolvimento e produção. Leva cerca de **12 minutos** para ser concluído.
+Neste tutorial, aprende-se a usar [ficheiros de parâmetros](parameter-files.md) para armazenar os valores que transmite durante a implementação. Nos tutoriais anteriores, utilizou parâmetros inline com o seu comando de implantação. Esta abordagem funcionou para testar o seu modelo Azure Resource Manager (ARM), mas ao automatizar implementações pode ser mais fácil passar um conjunto de valores para o seu ambiente. Os ficheiros de parâmetros facilitam a embalagem dos valores dos parâmetros para um ambiente específico. Neste tutorial, criará ficheiros de parâmetros para ambientes de desenvolvimento e produção. Leva cerca de **12 minutos** para ser completado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Recomendamos que complete o [tutorial sobre etiquetas,](template-tutorial-add-tags.md)mas não é necessário.
+Recomendamos que complete o [tutorial sobre tags,](template-tutorial-add-tags.md)mas não é necessário.
 
-Tem de ter o Código do Estúdio Visual com a extensão ferramentas do Gestor de Recursos e o Azure PowerShell ou o Azure CLI. Para mais informações, consulte [as ferramentas](template-tutorial-create-first-template.md#get-tools)do modelo.
+Você deve ter Código de Estúdio Visual com a extensão de Ferramentas gestor de recursos, e ou Azure PowerShell ou Azure CLI. Para obter mais informações, consulte [as ferramentas do modelo.](template-tutorial-create-first-template.md#get-tools)
 
 ## <a name="review-template"></a>Modelo de revisão
 
@@ -32,27 +33,27 @@ Este modelo funciona bem, mas agora você quer gerir facilmente os parâmetros q
 
 ## <a name="add-parameter-files"></a>Adicionar ficheiros de parâmetros
 
-Os ficheiros do parâmetro são ficheiros JSON com uma estrutura semelhante ao seu modelo. No ficheiro, fornece os valores do parâmetro que pretende passar durante a implementação.
+Os ficheiros de parâmetros são ficheiros JSON com uma estrutura semelhante ao seu modelo. No ficheiro, fornece os valores de parâmetro que pretende transmitir durante a implementação.
 
-No Código VS, crie um novo ficheiro com o seguinte conteúdo. Guarde o ficheiro com o nome **azuredeploy.parameters.dev.json**.
+No Código VS, crie um novo ficheiro com o seguinte conteúdo. Guarde o ficheiro com o nome **azuredeploy.parameters.dev.jsligado**.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.dev.json":::
 
-Este ficheiro é o seu ficheiro de parâmetros para o ambiente de desenvolvimento. Note que usa Standard_LRS para a conta de armazenamento, nomeia recursos com um prefixo **de v,** e define a etiqueta **Ambiente** para **Dev**.
+Este ficheiro é o seu arquivo de parâmetros para o ambiente de desenvolvimento. Note que utiliza Standard_LRS para a conta de armazenamento, nomeia recursos com um prefixo **dev,** e define a etiqueta **Ambiente** para **Dev**.
 
-Mais uma vez, crie um novo ficheiro com o seguinte conteúdo. Guarde o ficheiro com o nome **azuredeploy.parameters.prod.json**.
+Mais uma vez, crie um novo ficheiro com o seguinte conteúdo. Guarde o ficheiro com o nome **azuredeploy.parameters.prod.jsligado**.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.prod.json":::
 
-Este ficheiro é o seu ficheiro de parâmetros para o ambiente de produção. Note que utiliza Standard_GRS para a conta de armazenamento, nomeia recursos com prefixo **contoso,** e define a etiqueta **Ambiente** para **produção.** Num ambiente de produção real, você também gostaria de usar um serviço de aplicações com um SKU que não seja gratuito, mas continuaremos a usar esse SKU para este tutorial.
+Este ficheiro é o seu arquivo de parâmetros para o ambiente de produção. Note que utiliza Standard_GRS para a conta de armazenamento, nomeia recursos com um prefixo **contoso,** e define a etiqueta **Ambiente** para **a Produção.** Num ambiente de produção real, você também gostaria de usar um serviço de aplicações com um SKU diferente de gratuito, mas continuaremos a usar esse SKU para este tutorial.
 
 ## <a name="deploy-template"></a>Implementar o modelo
 
-Utilize o Azure CLI ou o Azure PowerShell para implementar o modelo.
+Utilize o Azure CLI ou o Azure PowerShell para implantar o gabarito.
 
-Como teste final do seu modelo, vamos criar dois novos grupos de recursos. Um para o ambiente de dev e outro para o ambiente de produção.
+Como um teste final do seu modelo, vamos criar dois novos grupos de recursos. Um para o ambiente dev e outro para o ambiente de produção.
 
-Primeiro, vamos para o ambiente de dev.
+Primeiro, vamos para o ambiente dev.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -71,7 +72,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para executar este comando de implantação, deve ter a [versão mais recente](/cli/azure/install-azure-cli) do Azure CLI.
+Para executar este comando de implementação, tem de ter a [versão mais recente](/cli/azure/install-azure-cli) da CLI do Azure.
 
 ```azurecli
 templateFile="{path-to-the-template-file}"
@@ -88,7 +89,7 @@ az deployment group create \
 
 ---
 
-Agora, vamos para o ambiente de produção.
+Agora, vamos implantar-nos no ambiente de produção.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -121,29 +122,29 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se a implantação falhar, utilize o interruptor **de depuração** com o comando de implantação para mostrar os registos de depuração.  Também pode utilizar o interruptor **verboso** para mostrar os registos completos de depuração.
+> Se a implementação falhar, utilize o interruptor **de depuração** com o comando de implantação para mostrar os registos de depuração.  Também pode utilizar o interruptor **verboso** para mostrar os registos completos do depurg.
 
 ## <a name="verify-deployment"></a>Verificar a implementação
 
-Pode verificar a implantação explorando os grupos de recursos a partir do portal Azure.
+Pode verificar a implementação explorando os grupos de recursos a partir do portal Azure.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. A partir do menu esquerdo, selecione **Grupos de Recursos**.
-1. Vê os dois novos grupos de recursos que implantou neste tutorial.
-1. Selecione um grupo de recursos e veja os recursos implantados. Note que correspondem aos valores especificados no seu ficheiro de parâmetros para esse ambiente.
+1. A partir do menu esquerdo, selecione **Grupos de Recursos.**
+1. Vê os dois novos grupos de recursos que implementou neste tutorial.
+1. Selecione qualquer um dos grupos de recursos e veja os recursos implantados. Note que correspondem aos valores especificados no seu ficheiro de parâmetros para esse ambiente.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-1. A partir do portal Azure, selecione **Grupo Recurso** do menu esquerdo.
+1. A partir do portal Azure, selecione Grupo de **Recursos** do menu esquerdo.
 2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**. Se tiver concluído esta série, tem três grupos de recursos para eliminar - myResourceGroup, myResourceGroupDev e myResourceGroupProd.
 3. Selecione o nome do grupo de recursos.
-4. **Selecione Eliminar** o grupo de recursos do menu superior.
+4. **Selecione Eliminar o grupo** de recursos do menu superior.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Parabéns, terminou esta introdução para implementar modelos para o Azure. Informe-nos se tiver algum comentário e sugestões na secção de feedback. Obrigado!
+Parabéns, terminou esta introdução para implementar modelos para Azure. Informe-nos se tiver algum comentário e sugestões na secção de comentários. Obrigado!
 
-A próxima série tutorial entra em mais detalhes sobre a implantação de modelos.
+A próxima série tutorial vai para mais detalhes sobre a implementação de modelos.
 
 > [!div class="nextstepaction"]
 > [Implementar um modelo local](./deployment-tutorial-local-template.md)

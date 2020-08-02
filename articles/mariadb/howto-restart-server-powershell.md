@@ -6,12 +6,13 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 5/26/2020
-ms.openlocfilehash: 1cf5cf3f34f2986bbc18b5293dad4862c24f47a2
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 37fb724b83e80c1265755e6440f152143d419051
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121083"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503077"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-powershell"></a>Reinicie a base de dados do Azure para o servidor MariaDB utilizando o PowerShell
 
@@ -44,7 +45,7 @@ Reiniciar o servidor com o seguinte comando:
 Restart-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar uma base de dados Azure para servidor MariaDB utilizando PowerShell](quickstart-create-mariadb-server-database-using-azure-powershell.md)
