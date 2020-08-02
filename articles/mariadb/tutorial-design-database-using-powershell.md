@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: Design a server - Azure PowerShell - Base de Dados Azure para MariaDB'
-description: Este tutorial explica como criar e gerir a Base de Dados Azure para o servidor MariaDB e base de dados usando o PowerShell.
+title: 'Tutorial: Desenhe um servidor - Azure PowerShell - Azure Database for MariaDB'
+description: Este tutorial explica como criar e gerir a Base de Dados Azure para o servidor e base de dados MariaDB utilizando o PowerShell.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 05/26/2020
-ms.custom: mvc
-ms.openlocfilehash: 6af5fa85306db885359d3de66a9a50f187015b75
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 6c17c746dfe0ce81da4cfe486b830837c37cdda4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053316"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496037"
 ---
-# <a name="tutorial-design-an-azure-database-for-mariadb-using-powershell"></a>Tutorial: Designar uma Base de Dados Azure para MariaDB utilizando powerShell
+# <a name="tutorial-design-an-azure-database-for-mariadb-using-powershell"></a>Tutorial: Desenhe uma base de dados Azure para MariaDB usando PowerShell
 
-Azure Database for MariaDB é um serviço de base de dados relacional na nuvem da Microsoft baseado no motor de base de dados MariaDB Community Edition. Neste tutorial, você usa powerShell e outros utilitários para aprender a:
+Azure Database for MariaDB é um serviço de base de dados relacional na nuvem da Microsoft com base no motor de base de dados MariaDB Community Edition. Neste tutorial, você usa PowerShell e outros utilitários para aprender a:
 
 > [!div class="checklist"]
 > - Criar um Azure Database for MariaDB
@@ -30,15 +30,15 @@ Azure Database for MariaDB é um serviço de base de dados relacional na nuvem d
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-Se optar por utilizar o PowerShell localmente, este artigo requer que instale o módulo Az PowerShell e se ligue à sua conta Azure utilizando o cmdlet [Connect-AzAccount.](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) Para obter mais informações sobre a instalação do módulo Az PowerShell, consulte [Instalar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Se optar por utilizar o PowerShell localmente, este artigo requer que instale o módulo Az PowerShell e se conecte à sua conta Azure utilizando o cmdlet [Connect-AzAccount.](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) Para obter mais informações sobre a instalação do módulo Az PowerShell, consulte [instalar a Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
 > Enquanto o módulo Az.MariaDb PowerShell estiver em pré-visualização, deve instalá-lo separadamente do módulo Az PowerShell utilizando o seguinte comando: `Install-Module -Name Az.MariaDb -AllowPrerelease` .
-> Uma vez que o módulo Az.MariaDb PowerShell esteja geralmente disponível, torna-se parte das futuras versões do módulo Az PowerShell e disponível de forma nativa a partir de dentro da Azure Cloud Shell.
+> Uma vez que o módulo Az.MariaDb PowerShell está geralmente disponível, torna-se parte de futuros lançamentos do módulo Az PowerShell e disponível nativamente a partir de Azure Cloud Shell.
 
-Se esta for a sua primeira utilização da Base de Dados Azure para o serviço MariaDB, deve registar o fornecedor de recursos **Microsoft.DBforMariaDB.**
+Se esta for a sua primeira utilização da Base de Dados Azure para o serviço MariaDB, tem de registar o fornecedor de recursos **Microsoft.DBforMariaDB.**
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.DBforMariaDB
@@ -46,7 +46,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.DBforMariaDB
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Se tiver várias subscrições azure, escolha a subscrição adequada na qual os recursos devem ser faturados. Selecione um ID de subscrição específico utilizando o cmdlet [Set-AzContext.](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext)
+Se tiver várias subscrições do Azure, escolha a subscrição adequada na qual os recursos devem ser faturados. Selecione um ID de subscrição específico utilizando o [cmdlet Set-AzContext.](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext)
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
@@ -54,9 +54,9 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de [recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) utilizando o cmdlet [New-AzResourceGroup.](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos como um grupo.
+Criar um [grupo de recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) utilizando o cmdlet [New-AzResourceGroup.](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos como um grupo.
 
-O exemplo seguinte cria um grupo de recursos chamado **myresourcegroup** na região **dos EUA Ocidentais.**
+O exemplo a seguir cria um grupo de recursos chamado **myresourcegroup** na região **oeste dos EUA.**
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myresourcegroup -Location westus
@@ -66,7 +66,7 @@ New-AzResourceGroup -Name myresourcegroup -Location westus
 
 Crie uma Base de Dados Azure para o servidor MariaDB com o `New-AzMariaDbServer` cmdlet. Cada servidor pode gerir múltiplas bases de dados. Geralmente, é utilizada uma base de dados em separado para cada projeto ou para cada utilizador.
 
-O exemplo seguinte cria um servidor MariaDB na região **oeste dos EUA** nomeado **mydemoserver** no grupo de recursos **myresourcegroup** com um login de servidor de **myadmin**. É um servidor Gen 5 no nível de preços de uso geral com 2 vCores e backups geo-redundantes habilitados. Documente a palavra-passe utilizada na primeira linha do exemplo, uma vez que esta é a palavra-passe para a conta de administração do servidor MariaDB.
+O exemplo a seguir cria um servidor MariaDB na região **oeste dos EUA** chamado **mydemoserver** no grupo de recursos **myresourcegroup** com um login de administração de servidor de **myadmin**. É um servidor Gen 5 no nível de preços de uso geral com 2 vCores e backups geo-redundantes ativados. Documente a palavra-passe utilizada na primeira linha do exemplo, uma vez que esta é a palavra-passe para a conta de administração do servidor MariaDB.
 
 > [!TIP]
 > Um nome de servidor é mapeado para um nome DNS e tem de ser globalmente exclusivo no Azure.
@@ -76,35 +76,35 @@ $Password = Read-Host -Prompt 'Please enter your password' -AsSecureString
 New-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup -Sku GP_Gen5_2 -GeoRedundantBackup Enabled -Location westus -AdministratorUsername myadmin -AdministratorLoginPassword $Password
 ```
 
-O valor do parâmetro **Sku** segue os vCores de ** \_ geração de \_ calculadores** de nível de preços da convenção, como mostram os seguintes exemplos.
+O valor do parâmetro **Sku** segue os ** \_ \_ vCores de geração de cálculo de nível de** preços da convenção, como mostrado nos seguintes exemplos.
 
 - `-Sku B_Gen5_1`mapas para Basic, Gen 5 e 1 vCore. Esta opção é a mais pequena SKU disponível.
 - `-Sku GP_Gen5_32` mapeia para Fins Gerais, Ger 5 e 32 vCores.
-- `-Sku MO_Gen5_2` mapeia para Otimizada para Memória, Ger 5 e 2 vCores.
+- `-Sku MO_Gen5_2` mapeia para Otimizada para Memória, Ger 5 e 2 vCores.
 
-Para obter informações sobre valores **sku** válidos por região e para níveis, consulte a Base de [Dados Azure para os níveis](./concepts-pricing-tiers.md)de preços MariaDB .
+Para obter informações sobre valores **válidos de Sku** por região e para níveis, consulte [a Base de Dados Azure para os níveis de preços mariaDB](./concepts-pricing-tiers.md).
 
-Considere utilizar o nível de preços básicos se a computação leve e o I/O forem adequados para a sua carga de trabalho.
+Considere usar o nível básico de preços se o cálculo leve e a I/O forem adequados para a sua carga de trabalho.
 
 > [!IMPORTANT]
-> Os servidores criados no nível de preços básicos não podem ser posteriormente dimensionados para fins gerais ou memória otimizados e não podem ser geo-replicados.
+> Os servidores criados no nível de preços básicos não podem ser posteriormente dimensionados para fins gerais ou memória- otimizados e não podem ser geo-replicados.
 
 ## <a name="configure-a-firewall-rule"></a>Configurar uma regra de firewall
 
-Crie uma base de dados Azure para a regra de firewall do nível do servidor MariaDB utilizando o `New-AzMariaDbFirewallRule` cmdlet. Uma regra de firewall ao nível do servidor permite que uma aplicação externa, como a ferramenta de linha de comando ou a `mysql` bancada de trabalho MariaDB, se conectem ao seu servidor através da Base de Dados Azure para firewall de serviço MariaDB.
+Crie uma base de dados Azure para a regra de firewall de nível de servidor MariaDB utilizando o `New-AzMariaDbFirewallRule` cmdlet. Uma regra de firewall ao nível do servidor permite que uma aplicação externa, como a ferramenta de linha de comando ou a `mysql` bancada De trabalho MariaDB, se conecte ao seu servidor através da base de dados Azure para firewall de serviço MariaDB.
 
-O exemplo seguinte cria uma regra de firewall chamada **AllowMyIP** que permite ligações a partir de um endereço IP específico, 192.168.0.1. Substitua um endereço IP ou uma gama de endereços IP que correspondam à localização a que está a ligar.
+O exemplo a seguir cria uma regra de firewall chamada **AllowMyIP** que permite ligações a partir de um endereço IP específico, 192.168.0.1. Substitua um endereço IP ou um conjunto de endereços IP que correspondam à localização a que está a ligar.
 
 ```azurepowershell-interactive
 New-AzMariaDbFirewallRule -Name AllowMyIP -ResourceGroupName myresourcegroup -ServerName mydemoserver -StartIPAddress 192.168.0.1 -EndIPAddress 192.168.0.1
 ```
 
 > [!NOTE]
-> As ligações à Azure Database for MariaDB comunicam através da porta 3306. Se tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 3306 poderá não ser permitido. Neste cenário, só é possível ligar ao servidor se o seu departamento de TI abrir a porta 3306.
+> As ligações à Azure Database for MariaDB comunicam através da porta 3306. Se tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 3306 poderá não ser permitido. Neste cenário, só pode ligar-se ao servidor se o seu departamento de TI abrir a porta 3306.
 
 ## <a name="get-the-connection-information"></a>Obter as informações da ligação
 
-Para ligar ao seu servidor, terá de fornecer credenciais de acesso e informações de anfitrião. Utilize o seguinte exemplo para determinar as informações de ligação. Tome nota dos valores para **FullQualifiedDomainName** e **AdministratorLogin**.
+Para ligar ao seu servidor, terá de fornecer credenciais de acesso e informações de anfitrião. Utilize o seguinte exemplo para determinar as informações de ligação. Tome nota dos valores do Nome e **DoMinínia Totalmente Qualificados** e **DoMinância**.
 
 ```azurepowershell-interactive
 Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
@@ -119,7 +119,7 @@ mydemoserver.mariadb.database.azure.com       myadmin
 
 ## <a name="connect-to-the-server-using-the-mysql-command-line-tool"></a>Ligue-se ao servidor utilizando a ferramenta de linha de comando mysql
 
-Ligue-se ao seu servidor utilizando a `mysql` ferramenta de linha de comando. Para descarregar e instalar a ferramenta de linha de comando, consulte [Downloads comunitários MariaDB](https://dev.mysql.com/downloads/shell/). Também pode aceder a uma versão pré-instalada da `mysql` ferramenta de linha de comando em Azure Cloud Shell selecionando o botão Try **It** numa amostra de código neste artigo. Outras formas de aceder ao Azure Cloud Shell são selecionar o botão **>_** na barra de ferramentas superior direita no portal Azure ou visitando [shell.azure.com](https://shell.azure.com/).
+Ligue-se ao seu servidor utilizando a `mysql` ferramenta de linha de comando. Para descarregar e instalar a ferramenta de linha de comando, consulte [as Transferências Comunitárias MariaDB](https://dev.mysql.com/downloads/shell/). Também pode aceder a uma versão pré-instalada da ferramenta de `mysql` linha de comando em Azure Cloud Shell selecionando o botão Try **It** numa amostra de código neste artigo. Outras formas de aceder à Azure Cloud Shell são selecionar o botão **>_** na barra de ferramentas superior direita no portal Azure ou visitando [shell.azure.com](https://shell.azure.com/).
 
 ```azurepowershell-interactive
 mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
@@ -141,7 +141,7 @@ mysql> USE mysampledb;
 
 ## <a name="create-tables-in-the-database"></a>Criar tabelas na base de dados
 
-Agora que sabe como ligar-se à base de dados Azure para a base de dados MariaDB, complete algumas tarefas básicas.
+Agora que sabe como ligar-se à Base de Dados Azure para a base de dados MariaDB, preencha algumas tarefas básicas.
 
 Em primeiro lugar, crie uma tabela e carregue-a com alguns dados. Vamos criar uma tabela que armazena informações de inventário.
 
@@ -186,13 +186,13 @@ SELECT * FROM inventory;
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>Restaurar uma base de dados para um ponto anterior no tempo
 
-Pode restaurar o servidor num ponto-a-tempo anterior. Os dados restaurados são copiados para um novo servidor, e o servidor existente é deixado inalterado. Por exemplo, se uma mesa for acidentalmente largada, pode restaurar até ao momento em que agotou aquecência. Em seguida, pode recuperar a tabela em falta e os dados da cópia restaurada do servidor.
+Pode restaurar o servidor para um ponto-a-tempo anterior. Os dados restaurados são copiados para um novo servidor, e o servidor existente permanece inalterado. Por exemplo, se uma mesa for acidentalmente largada, pode restaurar a hora em que ocorreu a queda. Em seguida, pode recuperar a tabela e os dados em falta a partir da cópia restaurada do servidor.
 
 Para restaurar o servidor, utilize o `Restore-AzMariaDbServer` cmdlet PowerShell.
 
 ### <a name="run-the-restore-command"></a>Executar o comando de restauro
 
-Para restaurar o servidor, execute o seguinte exemplo a partir do PowerShell.
+Para restaurar o servidor, execute o seguinte exemplo da PowerShell.
 
 ```azurepowershell-interactive
 $restorePointInTime = (Get-Date).AddMinutes(-10)
@@ -200,15 +200,15 @@ Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
   Restore-AzMariaDbServer -Name mydemoserver-restored -ResourceGroupName myresourcegroup -RestorePointInTime $restorePointInTime -UsePointInTimeRestore
 ```
 
-Quando restaura um servidor para um momento anterior, é criado um novo servidor. O servidor original e as suas bases de dados do ponto de vista especificado são copiados para o novo servidor.
+Quando restaura um servidor a um ponto-a-tempo anterior, é criado um novo servidor. O servidor original e as suas bases de dados a partir do ponto-a-tempo especificado são copiados para o novo servidor.
 
-Os valores de nível de localização e de preços para o servidor restaurado permanecem os mesmos que o servidor original.
+Os valores de localização e de nível de preços do servidor restaurado permanecem os mesmos que o servidor original.
 
-Após o final do processo de restauro, localize o novo servidor e verifique se os dados são restaurados como esperado. O novo servidor tem o mesmo nome de login de servidor e senha que era válido para o servidor existente no momento em que o restauro foi iniciado. A palavra-passe pode ser alterada a partir da página **de visão geral** do novo servidor.
+Após o fim do processo de restauro, localize o novo servidor e verifique se os dados são restaurados como esperado. O novo servidor tem o mesmo nome de login de administrador do servidor e senha que era válido para o servidor existente no momento em que a restauração foi iniciada. A palavra-passe pode ser alterada a partir da página **geral** do novo servidor.
 
-O novo servidor criado durante uma restauração não tem os pontos finais do serviço VNet que existiam no servidor original. Estas regras devem ser configuradas separadamente para o novo servidor. As regras de firewall do servidor original são restauradas.
+O novo servidor criado durante uma restauração não possui os pontos finais do serviço VNet que existiam no servidor original. Estas regras devem ser configuras separadamente para o novo servidor. As regras de firewall do servidor original são restauradas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Como fazer cópias e restaurar uma Base de Dados Azure para o servidor MariaDB utilizando o PowerShell](howto-restore-server-powershell.md)
+> [Como fazer o back up e restaurar uma Base de Dados Azure para o servidor MariaDB usando o PowerShell](howto-restore-server-powershell.md)

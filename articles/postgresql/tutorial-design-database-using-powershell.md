@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 06/08/2020
-ms.custom: mvc
-ms.openlocfilehash: 67949cef755bb2dbefb62a69e6b394ebd74ea7f0
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: b424213a1041c426653e5cb455615111c265746a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84740392"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500066"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-powershell"></a>Tutorial: Desenhe uma base de dados Azure para PostgreSQL - Servidor Único usando PowerShell
 
@@ -62,7 +62,7 @@ O exemplo a seguir cria um grupo de recursos chamado **myresourcegroup** na regi
 New-AzResourceGroup -Name myresourcegroup -Location westus
 ```
 
-## <a name="create-an-azure-database-for-postgresql-server"></a>Criar uma Base de Dados do Azure para o servidor PostgreSQL
+## <a name="create-an-azure-database-for-postgresql-server"></a>Criar um servidor da Base de Dados do Azure para PostgreSQL
 
 Crie uma Base de Dados Azure para o servidor PostgreSQL com o `New-AzPostgreSqlServer` cmdlet. Cada servidor pode gerir múltiplas bases de dados. Geralmente, é utilizada uma base de dados em separado para cada projeto ou para cada utilizador.
 
@@ -80,7 +80,7 @@ O valor do parâmetro **Sku** segue os ** \_ \_ vCores de geração de cálculo 
 
 - `-Sku B_Gen5_1`mapas para Basic, Gen 5 e 1 vCore. Esta opção é a mais pequena SKU disponível.
 - `-Sku GP_Gen5_32` mapeia para Fins Gerais, Ger 5 e 32 vCores.
-- `-Sku MO_Gen5_2` mapeia para Otimizada para Memória, Ger 5 e 2 vCores.
+- `-Sku MO_Gen5_2` mapeia para Otimizada para Memória, Ger 5 e 2 vCores.
 
 Para obter informações sobre valores **válidos de Sku** por região e para níveis, consulte [a Base de Dados Azure para os níveis de preços pós-SQL](./concepts-pricing-tiers.md).
 

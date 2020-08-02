@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Criar uma zona EDN Azure e gravar - Azure CLI'
+title: 'Quickstart: Crie uma zona de DNS Azure e grave - Azure CLI'
 titleSuffix: Azure DNS
 description: Início Rápido - Saiba como criar uma zona DNS e o registar no DNS do Azure. Este é um guia passo a passo para criar e gerir a sua primeira zona DNS e registar com a CLI do Azure.
 services: dns
@@ -8,12 +8,13 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: rohink
-ms.openlocfilehash: e6904c013cf2ed897bdc7c8b32f04fe500fc31d9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: a15209351f95e44c7cf10993513e03ba35b53d27
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76937203"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494371"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Início Rápido: criar uma zona DNS do Azure e registar com a CLI do Azure
 
@@ -25,7 +26,7 @@ O Azure DNS também suporta zonas privadas de DNS. Para saber mais sobre zonas D
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-the-resource-group"></a>Criar o grupo de recursos
 
@@ -39,7 +40,7 @@ az group create --name MyResourceGroup --location "East US"
 
 Uma zona DNS é criada ao utilizar o comando `az network dns zone create`. Para ver a ajuda deste comando, escreva `az network dns zone create -h`.
 
-O exemplo seguinte cria uma zona DNS chamada *contoso.xyz* no grupo de recursos *MyResourceGroup*. Utilize o exemplo para criar uma zona DNS, substituindo os valores pelos seus.
+O exemplo a seguir cria uma zona DE DNS chamada *contoso.xyz* no grupo de recursos *MyResourceGroup*. Utilize o exemplo para criar uma zona DNS, substituindo os valores pelos seus.
 
 ```azurecli
 az network dns zone create -g MyResourceGroup -n contoso.xyz
@@ -49,7 +50,7 @@ az network dns zone create -g MyResourceGroup -n contoso.xyz
 
 Para criar um registo DNS, utilize o comando `az network dns record-set [record type] add-record`. Para obter ajuda com os registos A, veja `azure network dns record-set A add-record -h`.
 
-O exemplo seguinte cria um registo com o nome relativo "www" na Zona DNS "contoso.xyz" no grupo de recursos "MyResourceGroup". O nome totalmente qualificado do conjunto de discos é "www.contoso.xyz". O tipo de disco é "A", com endereço IP "10.10.10.10.10", e um TTL predefinido de 3600 segundos (1 hora).
+O exemplo a seguir cria um registo com o nome relativo "www" na Zona DNS "contoso.xyz" no grupo de recursos "MyResourceGroup". O nome totalmente qualificado do conjunto de discos é "www.contoso.xyz". O tipo de gravação é "A", com endereço IP "10.10.10.10", e um TTL padrão de 3600 segundos (1 hora).
 
 ```azurecli
 az network dns record-set a add-record -g MyResourceGroup -z contoso.xyz -n www -a 10.10.10.10
@@ -65,17 +66,17 @@ az network dns record-set list -g MyResourceGroup -z contoso.xyz
 
 ## <a name="test-the-name-resolution"></a>Testar a resolução de nomes
 
-Agora que tem uma zona de DNS de teste com um registo 'A' de teste, pode testar a resolução de nomecom uma ferramenta chamada *nslookup*. 
+Agora que tem uma zona de DNS de teste com um registo de teste 'A', pode testar a resolução do nome com uma ferramenta chamada *nslookup*. 
 
-**Para testar a resolução de nomes DNS:**
+**Para testar a resolução do nome DNS:**
 
-1. Execute o seguinte cmdlet para obter a lista de servidores de nome para a sua zona:
+1. Executar o seguinte cmdlet para obter a lista de servidores de nome para a sua zona:
 
    ```azurecli
    az network dns record-set ns show --resource-group MyResourceGroup --zone-name contoso.xyz --name @
    ```
 
-1. Copie um dos nomes do servidor de nome sada da saída do passo anterior.
+1. Copie um dos nomes do servidor de nomes da saída do passo anterior.
 
 1. Abra um pedido de comando e executar o seguinte comando:
 
@@ -89,11 +90,11 @@ Agora que tem uma zona de DNS de teste com um registo 'A' de teste, pode testar 
    nslookup www.contoso.xyz ns1-08.azure-dns.com.
    ```
 
-   Devia ver algo como o seguinte ecrã:
+   Deve ver algo como o seguinte ecrã:
 
    ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
 
-O nome de anfitrião **www\.contoso.xyz** resolve-se em **10.10.10.10.10**, tal como o configura. Este resultado verifica que a resolução de nomes está a funcionar corretamente.
+O nome de anfitrião **www \. contoso.xyz** resolve para **10.10.10.10**, tal como o configuraste. Este resultado verifica que a resolução de nomes está a funcionar corretamente.
 
 ## <a name="delete-all-resources"></a>Eliminar todos os recursos
 

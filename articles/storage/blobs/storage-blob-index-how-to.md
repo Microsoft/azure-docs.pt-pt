@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: hux
-ms.openlocfilehash: d4ea5889cbecbbb8609f90eed83ec9bd6b0032f9
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 57366011c93065803162164c03c7878e1610af9f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448235"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500390"
 ---
 # <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Utilize tags blob index (Preview) para gerir e encontrar dados sobre o armazenamento do Azure Blob
 
@@ -32,11 +32,9 @@ Para saber mais sobre o Índice Blob, consulte [Gerir e encontrar dados sobre o 
 # <a name="net"></a>[.NET](#tab/net)
 Uma vez que o Blob Index está em pré-visualização pública, o pacote de armazenamento .NET é lançado no feed NuGet de pré-visualização. Esta biblioteca está sujeita a mudanças entre agora e quando se tornar oficial. 
 
-1. No Visual Studio, adicione o URL às fontes de `https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json` pacotes NuGet. 
+1. Crie o seu projeto Visual Studio para começar com a biblioteca de clientes de armazenamento Azure Blob v12 para .NET. Para saber mais, consulte [.NET Quickstart](storage-quickstart-blobs-dotnet.md)
 
-   Para saber como, consulte [as fontes de pacote.](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources)
-
-2. No NuGet Package Manager, encontre o pacote **Azure.Storage.Blobs** e instale a versão **12.5.0-dev.20200422.2** para o seu projeto. Também pode executar o comando```Install-Package Azure.Storage.Blobs -Version 12.5.0-dev.20200422.2```
+2. No Gestor de Pacotes NuGet, encontre o pacote **Azure.Storage.Blobs** e instale a versão **12.5.0-preview.6** ou mais recente no seu projeto. Também pode executar o comando```Install-Package Azure.Storage.Blobs -Version 12.5.0-preview.6```
 
    Para saber como, consulte [Localizar e instalar um pacote.](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package)
 

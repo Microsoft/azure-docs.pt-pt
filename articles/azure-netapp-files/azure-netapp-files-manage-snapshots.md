@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: caa73b5a86c5c245aefd18de9b60ec49616b3b84
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7d583172fe4021a2709a4d58b5488e9bc3898919
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281553"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497601"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerir instantâneos com o Azure NetApp Files
 
@@ -47,8 +47,22 @@ Pode criar instantâneos de volume a pedido.
 
 Pode agendar as imagens de volume a serem tomadas automaticamente utilizando políticas de instantâneo. Também pode modificar uma política de instantâneos conforme necessário, ou eliminar uma política de instantâneos de que já não precisa.  
 
-> [!IMPORTANT] 
-> A utilização da funcionalidade de política instantânea requer uma lista de whitelisting. Envie um e-mail anffeedback@microsoft.com com o seu ID de subscrição para solicitar esta funcionalidade.
+### <a name="register-the-feature"></a>Registar a funcionalidade
+
+1. A funcionalidade **de política instantânea** está atualmente em pré-visualização. Se esta for a sua primeira utilização, registe a funcionalidade antes de a utilizar: 
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
+    ```
+
+2. Verifique o estado do registo da funcionalidade: 
+
+    > [!NOTE]
+    > O **Estado de Registo** pode estar no estado por `Registering` alguns minutos antes de mudar para `Registered` . Aguarde até que o estado seja **registado** antes de continuar.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
+    ```
 
 ### <a name="create-a-snapshot-policy"></a>Criar uma política instantânea 
 
@@ -80,7 +94,7 @@ Uma política instantânea permite especificar a frequência de criação instan
 
     ![Política de instantâneo mensal](../media/azure-netapp-files/snapshot-policy-monthly.png) 
 
-4.  Clique em **Save** (Guardar).  
+4.  Clique em **Guardar**.  
 
 Se precisar de criar políticas de instantâneo adicionais, repita o Passo 3.
 As políticas que criou aparecem na página de política do Snapshot.

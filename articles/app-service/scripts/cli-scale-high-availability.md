@@ -1,6 +1,6 @@
 ---
 title: 'CLI: App de escala com Gestor de Tráfego'
-description: Aprenda a utilizar o Azure CLI para automatizar a implementação e gestão da sua app App Service. Esta amostra mostra como escalar um mundo com o Gestor de Tráfego.
+description: Saiba como utilizar o Azure CLI para automatizar a implementação e gestão da sua aplicação De Serviço de Aplicações. Esta amostra mostra como escalar um mundo inteiro com o Traffic Manager.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: e4033a50-0e05-4505-8ce8-c876204b2acc
@@ -8,17 +8,17 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: mvc, seodec18
-ms.openlocfilehash: fcd82297ae698707503a69d9e47f6ca4241d6db9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: b0801d00e8b7e33b34ccae9023de4d85f81b3eea
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80044869"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495459"
 ---
-# <a name="scale-an-app-service-app-worldwide-with-a-high-availability-architecture-using-azure-cli"></a>Escala uma app de serviço de aplicações em todo o mundo com uma arquitetura de alta disponibilidade usando o Azure CLI
+# <a name="scale-an-app-service-app-worldwide-with-a-high-availability-architecture-using-azure-cli"></a>Dimensione uma aplicação de Serviço de Aplicações em todo o mundo com uma arquitetura de alta disponibilidade usando O Azure CLI
 
-Este script de amostra cria um grupo de recursos, dois planos de Serviço de Aplicações, duas aplicações, um perfil de gestor de tráfego e dois pontos finais do gestor de tráfego. Uma vez que o exercício esteja concluído, você tem uma arquitetura de alta disponível, que fornece a disponibilidade global da sua app com base na menor latência da rede.
+Este script de amostra cria um grupo de recursos, dois planos de Serviço de Aplicações, duas aplicações, um perfil de gestor de tráfego e dois pontos finais de gestor de tráfego. Uma vez que o exercício esteja concluído, você tem uma arquitetura altamente disponível, que fornece disponibilidade global da sua app com base na latência de rede mais baixa.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -34,7 +34,7 @@ Se optar por instalar e utilizar a CLI localmente, precisa da versão 2.0 ou pos
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para criar um grupo de recursos, app app App Service, perfil de gestor de tráfego e todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
+Este script utiliza os seguintes comandos para criar um grupo de recursos, app App Service, perfil de gestor de tráfego e todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|

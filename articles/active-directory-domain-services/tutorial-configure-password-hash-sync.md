@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: e9d6f31674db0744e220a9cd88033a32bb5c1e17
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 02828e0c159e2d30dacc5759f1239dae1268dac5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024694"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87491787"
 ---
 # <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Tutorial: Permitir a sincronização de palavras-passe em Azure Ative Directory Domain Services para ambientes híbridos
 
@@ -22,7 +22,7 @@ Para ambientes híbridos, um inquilino do Azure Ative Directory (Azure AD) pode 
 
 Para utilizar o Azure AD DS com contas sincronizadas a partir de um ambiente AD DS no local, é necessário configurar o Azure AD Connect para sincronizar as hashes de palavra-passe necessárias para a autenticação NTLM e Kerberos. Depois de configurado O Azure AD Connect, um evento de criação de conta no local ou de mudança de palavra-passe também sincroniza a palavra-passe do legado hashes para Azure AD.
 
-Não precisa de executar estes passos se utilizar contas apenas na nuvem sem ambiente AD DS no local.
+Não precisa de executar estes passos se utilizar contas apenas em nuvem sem ambiente AD DS no local, ou se utilizar uma *floresta de recursos.* Para domínios geridos que utilizam uma floresta de recursos, as hashes de senha no local nunca são sincronizadas. A autenticação para contas no local utiliza o(s) forest trust(s) de volta aos seus próprios controladores de domínio AD DS.
 
 Neste tutorial, aprende-se:
 
@@ -99,7 +99,7 @@ Com o Azure AD Connect instalado e configurado para sincronizar com a Azure AD, 
 
     Dependendo do tamanho do seu diretório em termos de número de contas e grupos, a sincronização da palavra-passe do legado hashes para Azure AD pode demorar algum tempo. As palavras-passe são então sincronizadas ao domínio gerido depois de sincronizadas com a Azure AD.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu:
 

@@ -1,22 +1,22 @@
 ---
-title: Script Azure CLI - Escala e monitor Azure Database para PostgreSQL
+title: Script Azure CLI - Escalar e monitorizar base de dados de Azure para PostgreSQL
 description: Script de Exemplo da CLI do Azure - Dimensionar um servidor da Base de Dados do Azure para PostgreSQL para um nível de desempenho diferente depois de consultar as métricas.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.topic: sample
 ms.date: 08/07/2019
-ms.openlocfilehash: 24aaf461576e6e043979660f9de968358763e003
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 23dae705f10ecca9119932640383c93ab80d1d21
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68882993"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496496"
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Monitorizar e dimensionar um único servidor PostgreSQL com a CLI do Azure
-Esta amostra de script CLI escala a computação e o armazenamento para uma única Base de Dados Azure para servidor PostgreSQL após consulta das métricas. A computação pode escalar para cima ou para baixo. O armazenamento só pode aumentar. 
+Esta amostra de script CLI escala o cálculo e armazenamento para uma única base de dados Azure para servidor PostgreSQL após consulta das métricas. O cálculo pode escalar para cima ou para baixo. O armazenamento só pode aumentar. 
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
@@ -37,11 +37,11 @@ Este script utiliza os comandos descritos na tabela seguinte:
 |---|---|
 | [az group create](/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) | Cria um servidor PostgreSQL que aloja as bases de dados. |
-| [az postgres atualização servidor](/cli/azure/postgres/server#az-postgres-server-update) | Atualiza propriedades do servidor PostgreSQL. |
+| [az postgres servidor atualização](/cli/azure/postgres/server#az-postgres-server-update) | Atualiza as propriedades do servidor PostgreSQL. |
 | [az monitor metrics list](/cli/azure/monitor/metrics) | Liste o valor métrico dos recursos. |
 | [az group delete](/cli/azure/group) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes
-- Saiba mais sobre [a Base de Dados Azure para computação e armazenamento PostgreSQL](../concepts-pricing-tiers.md)
+- Saiba mais sobre [a Azure Database para computação e armazenamento pósgresQL](../concepts-pricing-tiers.md)
 - Experimente scripts adicionais: [Amostras da CLI do Azure para a Base de Dados do Azure para PostgreSQL](../sample-scripts-azure-cli.md)
 - Saiba mais sobre o [Azure CLI](/cli/azure)

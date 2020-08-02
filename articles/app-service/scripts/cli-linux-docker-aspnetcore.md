@@ -1,6 +1,6 @@
 ---
-title: 'CLI: Criar ASP.NET aplicação Core do Docker'
-description: Aprenda a utilizar o Azure CLI para automatizar a implementação e gestão da sua app App Service. Esta amostra mostra como criar uma aplicação ASP.NET Core a partir do Docker Hub.
+title: 'CLI: Criar ASP.NET aplicação Core a partir de Docker'
+description: Saiba como utilizar o Azure CLI para automatizar a implementação e gestão da sua aplicação De Serviço de Aplicações. Esta amostra mostra como criar uma aplicação core ASP.NET do Docker Hub.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 3a2d1983-ff7b-476a-ac44-49ec2aabb31a
@@ -8,15 +8,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 8eb95644db5b1cb00ef6e245db6197cf2a2f301b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: d0872657bbca169ab1671b1f44c36c967e71fa63
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80044758"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495491"
 ---
-# <a name="create-an-aspnet-core-app-in-a-docker-container-from-docker-hub-using-azure-cli"></a>Crie uma app ASP.NET Core num recipiente Docker do Docker Hub usando o Azure CLI
+# <a name="create-an-aspnet-core-app-in-a-docker-container-from-docker-hub-using-azure-cli"></a>Crie uma aplicação core ASP.NET num recipiente Docker do Docker Hub usando o Azure CLI
 
 Este script de amostra cria um grupo de recursos, um plano de Serviço de Aplicações Linux e uma aplicação. Em seguida, implementa uma aplicação ASP.NET Core com um Contentor do Docker.
 
@@ -34,7 +34,7 @@ Se optar por instalar e utilizar a CLI localmente, precisa da versão 2.0 ou pos
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para criar um grupo de recursos, app app App Service e todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
+Este script utiliza os seguintes comandos para criar um grupo de recursos, app App Service e todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|

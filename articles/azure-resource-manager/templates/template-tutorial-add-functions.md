@@ -1,26 +1,27 @@
 ---
-title: Tutorial - adicionar funções de modelo
+title: Tutorial - adicione funções de modelo
 description: Adicione funções de modelo ao seu modelo de Gestor de Recursos Azure para construir valores.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e4984b286bf031b66272919a487d09a90f972ce0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: fe6185f0e7d6ee570c1491f3b21b6aebe4f090ae
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80410967"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497567"
 ---
-# <a name="tutorial-add-template-functions-to-your-arm-template"></a>Tutorial: Adicionar funções de modelo ao seu modelo ARM
+# <a name="tutorial-add-template-functions-to-your-arm-template"></a>Tutorial: Adicione funções de modelo ao seu modelo ARM
 
-Neste tutorial, aprende a adicionar [funções](template-functions.md) de modelo ao seu modelo De gestor de recursos (ARM) Azure. Usa funções para construir valores dinâmicos. Além destas funções de modelo fornecidas pelo sistema, também pode criar [funções definidas pelo utilizador.](./template-user-defined-functions.md) Este tutorial leva **7 minutos** para ser concluído.
+Neste tutorial, você aprende a adicionar [funções de modelo](template-functions.md) ao seu modelo Azure Resource Manager (ARM). Utiliza-se funções para construir valores dinâmicos. Além destas funções de modelo fornecidas pelo sistema, também pode criar [funções definidas pelo utilizador](./template-user-defined-functions.md). Este tutorial leva **7 minutos** para ser concluído.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Recomendamos que complete o [tutorial sobre parâmetros,](template-tutorial-add-parameters.md)mas não é necessário.
 
-Tem de ter o Código do Estúdio Visual com a extensão ferramentas do Gestor de Recursos e o Azure PowerShell ou o Azure CLI. Para mais informações, consulte [as ferramentas](template-tutorial-create-first-template.md#get-tools)do modelo.
+Você deve ter Código de Estúdio Visual com a extensão de Ferramentas gestor de recursos, e ou Azure PowerShell ou Azure CLI. Para obter mais informações, consulte [as ferramentas do modelo.](template-tutorial-create-first-template.md#get-tools)
 
 ## <a name="review-template"></a>Modelo de revisão
 
@@ -28,15 +29,15 @@ No final do tutorial anterior, o seu modelo tinha o seguinte JSON:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json":::
 
-A localização da conta de armazenamento está codificada para **os EUA Orientais.** No entanto, poderá ter de implementar a conta de armazenamento para outras regiões. Está novamente a enfrentar um problema do seu modelo sem flexibilidade. Poderia adicionar um parâmetro para a localização, mas seria ótimo se o seu valor padrão fizesse mais sentido do que apenas um valor codificado.
+A localização da conta de armazenamento é codificada para os **EUA.** No entanto, poderá ser necessário implantar a conta de armazenamento noutras regiões. Está novamente a enfrentar um problema do seu modelo sem flexibilidade. Pode adicionar um parâmetro para a localização, mas seria ótimo se o seu valor padrão fizesse mais sentido do que apenas um valor codificado.
 
 ## <a name="use-function"></a>Função de utilização
 
-Se já completou o tutorial anterior nesta série, já usou uma função. Quando adicionou **"[parâmetros('storageName']",** utilizou a função [de parâmetros.](template-functions-deployment.md#parameters) Os suportes indicam que a sintaxe dentro dos suportes é uma [expressão de modelo](template-expressions.md). O Gestor de Recursos resolve a sintaxe em vez de a tratar como um valor literal.
+Se completou o tutorial anterior nesta série, já utilizou uma função. Quando adicionou **"[parâmetros('storageName')",** utilizou a função [de parâmetros.](template-functions-deployment.md#parameters) Os suportes indicam que a sintaxe dentro dos suportes é uma [expressão do modelo](template-expressions.md). O Gestor de Recursos resolve a sintaxe em vez de a tratar como um valor literal.
 
-As funções adicionam flexibilidade ao seu modelo obtendo dinamicamente valores durante a implementação. Neste tutorial, você usa uma função para obter a localização do grupo de recursos que você está usando para implementação.
+As funções adicionam flexibilidade ao seu modelo obtendo valores dinamicamente durante a implementação. Neste tutorial, você usa uma função para obter a localização do grupo de recursos que você está usando para implantação.
 
-O exemplo seguinte realça as alterações para adicionar um parâmetro chamado **localização**.  O valor padrão do parâmetro chama a função [de recursoGroup.](template-functions-resource.md#resourcegroup) Esta função devolve um objeto com informações sobre o grupo de recursos que está a ser utilizado para a implantação. Uma das propriedades do objeto é uma propriedade de localização. Quando utiliza o valor predefinido, a localização da conta de armazenamento tem a mesma localização que o grupo de recursos. Os recursos dentro de um grupo de recursos não têm de partilhar o mesmo local. Também pode fornecer um local diferente quando necessário.
+O exemplo a seguir destaca as alterações para adicionar um parâmetro chamado **localização**.  O valor predefinido do parâmetro chama a função [grupo de recursos.](template-functions-resource.md#resourcegroup) Esta função devolve um objeto com informações sobre o grupo de recursos que está a ser utilizado para a implantação. Uma das propriedades do objeto é uma propriedade de localização. Quando utiliza o valor predefinido, a localização da conta de armazenamento tem a mesma localização que o grupo de recursos. Os recursos dentro de um grupo de recursos não têm que partilhar o mesmo local. Também pode fornecer uma localização diferente quando necessário.
 
 Copie todo o ficheiro e substitua o seu modelo pelo seu conteúdo.
 
@@ -44,9 +45,9 @@ Copie todo o ficheiro e substitua o seu modelo pelo seu conteúdo.
 
 ## <a name="deploy-template"></a>Implementar o modelo
 
-Nos tutoriais anteriores, criou uma conta de armazenamento no Leste dos EUA, mas o seu grupo de recursos foi criado nos EUA Centrais. Para este tutorial, a sua conta de armazenamento é criada na mesma região que o grupo de recursos. Use o valor padrão para a localização, para que não precise fornecer esse valor de parâmetro. Você deve fornecer um novo nome para a conta de armazenamento porque você está criando uma conta de armazenamento em um local diferente. Por exemplo, utilize a **loja2** como prefixo em vez de **armazenar1**.
+Nos tutoriais anteriores, criou uma conta de armazenamento no Leste dos EUA, mas o seu grupo de recursos foi criado nos EUA Centrais. Para este tutorial, a sua conta de armazenamento é criada na mesma região que o grupo de recursos. Use o valor padrão para a localização, para que não seja necessário fornecer esse valor de parâmetro. Você deve fornecer um novo nome para a conta de armazenamento porque você está criando uma conta de armazenamento em um local diferente. Por exemplo, utilize **a loja2** como prefixo em vez de **armazenar1**.
 
-Se ainda não criou o grupo de recursos, consulte o [grupo de recursos Create](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que definiu a variável **modeloFile** para o caminho para o ficheiro do modelo, como mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
+Se não criou o grupo de recursos, consulte [criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que definiu a variável **modeloFile** para o caminho para o ficheiro do modelo, como mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -60,7 +61,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para executar este comando de implantação, deve ter a [versão mais recente](/cli/azure/install-azure-cli) do Azure CLI.
+Para executar este comando de implementação, tem de ter a [versão mais recente](/cli/azure/install-azure-cli) da CLI do Azure.
 
 ```azurecli
 az deployment group create \
@@ -73,31 +74,31 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se a implantação falhar, utilize o interruptor **de depuração** com o comando de implantação para mostrar os registos de depuração.  Também pode utilizar o interruptor **verboso** para mostrar os registos completos de depuração.
+> Se a implementação falhar, utilize o interruptor **de depuração** com o comando de implantação para mostrar os registos de depuração.  Também pode utilizar o interruptor **verboso** para mostrar os registos completos do depurg.
 
 ## <a name="verify-deployment"></a>Verificar a implementação
 
-Pode verificar a implantação explorando o grupo de recursos a partir do portal Azure.
+Pode verificar a implementação explorando o grupo de recursos a partir do portal Azure.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. A partir do menu esquerdo, selecione **Grupos de Recursos**.
+1. A partir do menu esquerdo, selecione **Grupos de Recursos.**
 1. Selecione o grupo de recursos para o quais foi implantado.
 1. Você vê que um recurso de conta de armazenamento foi implementado e tem a mesma localização que o grupo de recursos.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se está saindo para o próximo tutorial, não precisa de apagar o grupo de recursos.
+Se está a avançar para o próximo tutorial, não precisa de eliminar o grupo de recursos.
 
-Se estás a parar agora, talvez queiras limpar os recursos que implantaste ao apagar o grupo de recursos.
+Se estás a parar agora, talvez queiras limpar os recursos que mobilizaste, eliminando o grupo de recursos.
 
-1. A partir do portal Azure, selecione **Grupo Recurso** do menu esquerdo.
+1. A partir do portal Azure, selecione Grupo de **Recursos** do menu esquerdo.
 2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
 3. Selecione o nome do grupo de recursos.
-4. **Selecione Eliminar** o grupo de recursos do menu superior.
+4. **Selecione Eliminar o grupo** de recursos do menu superior.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, utilizou uma função ao definir o valor padrão para um parâmetro. Nesta série tutorial, continuará a usar funções. No final da série, irá adicionar funções a todas as secções do modelo.
+Neste tutorial, utilizou uma função ao definir o valor predefinido para um parâmetro. Nesta série tutorial, continuará a utilizar funções. No final da série, irá adicionar funções a todas as secções do modelo.
 
 > [!div class="nextstepaction"]
 > [Adicionar variáveis](template-tutorial-add-variables.md)

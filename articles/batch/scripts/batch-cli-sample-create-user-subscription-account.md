@@ -3,12 +3,13 @@ title: Exemplo de script do Azure CLI - Criar conta Batch - subscrição do util
 description: Este script cria uma conta do Azure Batch no modo de subscrição do utilizador. Esta conta atribui nós computacional à sua subscrição.
 ms.topic: sample
 ms.date: 01/29/2018
-ms.openlocfilehash: e589361da8442107f06a0933a1f1ac79a88945ff
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 1c60b9c3de5f2370d7bbc557d36db61d23d32ccf
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964081"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494405"
 ---
 # <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>Exemplo da CLI: Criar uma conta do Batch no modo de subscrição do utilizador
 

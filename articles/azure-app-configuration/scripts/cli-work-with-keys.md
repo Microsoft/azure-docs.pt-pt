@@ -1,7 +1,7 @@
 ---
-title: Amostra de script Azure CLI - Trabalhar com valores-chave na Loja de Configuração de Aplicações
+title: Amostra de script Azure CLI - Trabalhe com valores-chave na Loja de Configuração de Aplicações
 titleSuffix: Azure App Configuration
-description: Utilize o script Azure CLI para criar, visualizar, atualizar e eliminar valores-chave da loja de configuração de aplicações
+description: Utilize o script Azure CLI para criar, visualizar, atualizar e eliminar valores-chave da loja de Configuração de Aplicações
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
@@ -9,20 +9,21 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 1a4edabe666a554ccd01d110f0f71226221dfc67
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: e3407a1da469bf4f31e5d54d83ee837bddbafffc
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77523658"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494762"
 ---
-# <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Trabalhe com valores-chave numa loja de configuração de aplicações azure
+# <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Trabalhe com valores-chave numa loja de configuração de aplicações Azure
 
-Este script de amostra mostra como:
-* Criar um novo par de valor-chave
-* Enumerar todos os pares de valor-chave existentes
+Este guião da amostra mostra como:
+* Criar um novo par de valores-chave
+* Listar todos os pares de valores-chave existentes
 * Atualizar o valor de uma chave recém-criada
-* Eliminar o novo par de valor-chave
+* Eliminar o novo par de valores-chave
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -79,16 +80,16 @@ az appconfig kv list --name $appConfigName
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Esta tabela lista os comandos usados no nosso script de amostra. 
+Esta tabela lista os comandos utilizados no nosso script de amostra. 
 
 | Comando | Notas |
 |---|---|
 | [az appconfig kv conjunto](/cli/azure/appconfig/kv#az-appconfig-kv-set) | Criar ou atualizar um par de valor-chave. |
-| [az appconfig kv lista](/cli/azure/appconfig/kv#az-appconfig-kv-list) | Liste os pares de valor-chave numa loja de configuração de aplicações. |
+| [az appconfig kv lista](/cli/azure/appconfig/kv#az-appconfig-kv-list) | Listar pares de valores-chave numa loja de configuração de aplicações. |
 | [az appconfig kv excluir](/cli/azure/appconfig/kv#az-appconfig-kv-delete) | Apague um par de valor-chave. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
-Amostras adicionais de script cli configuração de aplicativos podem ser encontradas nas amostras CLI de configuração de [aplicação azure](../cli-samples.md).
+As amostras de script CLI de configuração de aplicação adicionais podem ser encontradas nas [amostras CLI de Configuração de Aplicação Azure](../cli-samples.md).

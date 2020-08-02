@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/04/2020
 ms.author: mjbrown
-ms.openlocfilehash: a061676714c35b4e8868ce3df9c71be05297ba99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 995e5a1a87ee332c48641f42c4134e3e58f11cfa
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261669"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495425"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Configure o acesso a partir de redes virtuais (VNet)
 
@@ -306,6 +307,6 @@ Antes de prosseguir, ative o ponto de terminação do serviço Azure Cosmos DB n
 
 1. Remova a regra de firewall IP para a sub-rede das regras de Firewall da conta Azure Cosmos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para configurar uma firewall para Azure Cosmos DB, consulte o artigo de suporte da [Firewall.](firewall-support.md)

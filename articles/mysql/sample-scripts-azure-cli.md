@@ -6,14 +6,14 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 12/02/2019
-ms.openlocfilehash: 467d14e1f00e88999e130d28ee0e5a00dac47825
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: db762b62af610559391552451df7402d9e84ab22
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120964"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495353"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mysql"></a>Exemplo da CLI do Azure para a Base de Dados do Azure para MySQL 
 A tabela seguinte inclui ligações para scripts da CLI do Azure de exemplo para a Base de Dados do Azure para MySQL.

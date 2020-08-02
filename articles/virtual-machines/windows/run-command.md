@@ -7,13 +7,14 @@ author: bobbytreed
 ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 manager: carmonm
-ms.openlocfilehash: 76ff9ff9479351eb3ec2a0e973fe3c44562adf55
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dd1e20504d96b55d6a450512ea287b9352fb043a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508428"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496938"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Executar scripts PowerShell no seu Windows VM utilizando o Comando Run
 
@@ -108,6 +109,6 @@ Executar um comando requer a `Microsoft.Compute/virtualMachines/runCommand/actio
 
 Pode utilizar uma das [funções incorporadas](../../role-based-access-control/built-in-roles.md) ou criar um [papel personalizado](../../role-based-access-control/custom-roles.md) para utilizar o Comando Run.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber sobre outras formas de executar scripts e comandos remotamente no seu VM, consulte [scripts executar no seu VM do Windows](run-scripts-in-vm.md).

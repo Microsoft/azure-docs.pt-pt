@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: dd1e387727b0a80781b1103ddfb40afcbce8fce8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 8083edaf647f52a07d55dddf21fe5751340783be
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386627"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496241"
 ---
 # <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Ficheiros De consulta Parquet utilizando SQL on-demand (pré-visualização) em Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ Neste artigo, você aprenderá a escrever uma consulta usando SQL on demand (pr�
 
 `OPENROWSET`função permite-lhe ler o conteúdo do ficheiro parquet fornecendo o URL ao seu ficheiro.
 
-### <a name="reading-parquet-file"></a>Arquivo de parquet de leitura
+### <a name="read-parquet-file"></a>Leia o arquivo parquet
 
 A maneira mais fácil de ver o conteúdo do seu ficheiro é fornecer URL de `PARQUET` ficheiro para funcionar e `OPENROWSET` especificar o parquet `FORMAT` . Se o ficheiro estiver disponível publicamente ou se a sua identidade AZure AD puder aceder a este ficheiro, deverá poder ver o conteúdo do ficheiro utilizando a consulta como a apresentada no seguinte exemplo:
 
@@ -37,7 +37,7 @@ from openrowset(
 
 Certifique-se de que acede a este ficheiro. Se o seu ficheiro estiver protegido com a chave SAS ou identidade Azure personalizada, terá de configurar a [credencial de nível do servidor para iniciar sessão de sessão](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
-### <a name="using-data-source"></a>Usando a fonte de dados
+### <a name="data-source-usage"></a>Utilização de fontes de dados
 
 Exemplo anterior utiliza o caminho completo para o ficheiro. Como alternativa, pode criar uma fonte de dados externa com a localização que aponta para a pasta raiz do armazenamento, e utilizar essa fonte de dados e o caminho relativo para o ficheiro em `OPENROWSET` função:
 
@@ -193,6 +193,6 @@ Os ficheiros parquet contêm descrições de tipo para cada coluna. A tabela a s
 |[Tipo complexo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LISTA |varchar(máx), serializado em JSON |
 |[Tipo complexo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAPA|varchar(máx), serializado em JSON |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Avance para o próximo artigo para aprender a [questionar os tipos aninhados de Parquet](query-parquet-nested-types.md).

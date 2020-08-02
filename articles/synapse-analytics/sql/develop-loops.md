@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ec15f87bdbf381b71faa7cefd986dd5e55e17a19
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9db7f2016de01edbedfa9e7d7254561fea957d2a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964996"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495306"
 ---
 # <a name="use-t-sql-loops-in-synapse-sql"></a>Utilize laços T-SQL em Sinaapse SQL
 Este artigo fornece-lhe dicas essenciais para a utilização de laços T-SQL, substituição de cursores e desenvolvimento de soluções relacionadas com piscina SQL em Synapse SQL.
@@ -26,7 +26,7 @@ O SQL de Sinapse suporta o loop [WHILE](https://docs.microsoft.com/sql/t-sql/lan
 
 Os loops na piscina SQL são úteis para substituir cursores definidos no código SQL. Felizmente, quase todos os cursores que estão escritos no código SQL são da variedade rápida e só de leitura. Assim, os loops [WHILE] são uma ótima alternativa para substituir cursores.
 
-## <a name="replacing-cursors-in-sql-pool"></a>Substituição de cursores na piscina SQL
+## <a name="replace-cursors-in-sql-pool"></a>Substitua os cursores na piscina SQL
 
 Antes de mergulhar, a seguinte pergunta deve ser considerada: "Poderia este cursor ser reescrito para usar operações baseadas em conjunto?" Em muitos casos, a resposta é sim e é frequentemente a melhor abordagem. Uma operação baseada em conjunto executa frequentemente mais rápido do que uma abordagem iterativa, linha a linha.
 
@@ -72,6 +72,6 @@ Finalmente deixe cair a tabela temporária criada no primeiro passo
 DROP TABLE #tbl;
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais dicas de desenvolvimento, consulte [a visão geral do desenvolvimento.](develop-overview.md)

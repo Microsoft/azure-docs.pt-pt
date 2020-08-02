@@ -8,13 +8,14 @@ ms.date: 04/21/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
+ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 4ca22c39fcd7b488f527326e4fdeaa56b0485cb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc01c283fd4e2b6e3494c18c1908152aecee2c5f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84220297"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489117"
 ---
 # <a name="monitor-iot-edge-deployments"></a>Monitorizar implementações do IoT Edge
 
@@ -24,7 +25,7 @@ Ambos os dispositivos e módulos têm dados semelhantes, como a conectividade, p
 
 O serviço IoT Hub recolhe dados relatados por gémeos de dispositivos e módulos e fornece contagens dos vários estados que os dispositivos podem ter. O serviço IoT Hub organiza estes dados em quatro grupos de métricas:
 
-| Tipo | Descrição |
+| Tipo | Description |
 | --- | ---|
 | Direcionado | Mostra os dispositivos IoT Edge que correspondem à condição de alvo de implantação. |
 | Aplicado | Mostra os dispositivos IoT Edge direcionados que não são alvo de outra implementação de maior prioridade. |
@@ -99,6 +100,6 @@ O comando show-metric de implantação requer os seguintes parâmetros:
 
 Para escoar alterações na sua implementação, consulte [Modificar uma implementação](how-to-deploy-cli-at-scale.md#modify-a-deployment).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aprenda a [monitorizar os gémeos módulos](how-to-monitor-module-twins.md), principalmente os módulos de execução IoT Edge Agent e IoT Edge Hub, para a conectividade e saúde das suas implementações IoT Edge.

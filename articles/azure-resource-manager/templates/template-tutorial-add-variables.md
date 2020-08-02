@@ -5,22 +5,23 @@ author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b1df86e5b593edec784de21e21a4399274d820bb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 9607ddd4a44af6a515080d4fd6f0c475268470b9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80411692"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497499"
 ---
 # <a name="tutorial-add-variables-to-your-arm-template"></a>Tutorial: Adicione variáveis ao seu modelo ARM
 
-Neste tutorial, aprende a adicionar uma variável ao seu modelo de Gestor de Recursos Azure (ARM). As variáveis simplificam os seus modelos, permitindo-lhe escrever uma expressão uma vez e reutilizá-la ao longo do modelo. Este tutorial leva **7 minutos** para ser concluído.
+Neste tutorial, aprende-se a adicionar uma variável ao seu modelo Azure Resource Manager (ARM). As variáveis simplificam os seus modelos, permitindo-lhe escrever uma expressão uma vez e reutilizá-la ao longo do modelo. Este tutorial leva **7 minutos** para ser concluído.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Recomendamos que complete o [tutorial sobre funções,](template-tutorial-add-functions.md)mas não é necessário.
 
-Tem de ter o Código do Estúdio Visual com a extensão ferramentas do Gestor de Recursos e o Azure PowerShell ou o Azure CLI. Para mais informações, consulte [as ferramentas](template-tutorial-create-first-template.md#get-tools)do modelo.
+Você deve ter Código de Estúdio Visual com a extensão de Ferramentas gestor de recursos, e ou Azure PowerShell ou Azure CLI. Para obter mais informações, consulte [as ferramentas do modelo.](template-tutorial-create-first-template.md#get-tools)
 
 ## <a name="review-template"></a>Modelo de revisão
 
@@ -28,33 +29,33 @@ No final do tutorial anterior, o seu modelo tinha o seguinte JSON:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json":::
 
-O parâmetro para o nome da conta de armazenamento é difícil de usar porque você tem que fornecer um nome único. Se já completou os tutoriais anteriores desta série, provavelmente está cansado de adivinhar um nome único. Resolve-se este problema adicionando uma variável que constrói um nome único para a conta de armazenamento.
+O parâmetro para o nome da conta de armazenamento é difícil de usar porque você tem que fornecer um nome único. Se completou os tutoriais anteriores desta série, provavelmente está cansado de adivinhar um nome único. Resolve-se este problema adicionando uma variável que constrói um nome único para a conta de armazenamento.
 
-## <a name="use-variable"></a>Usar variável
+## <a name="use-variable"></a>Utilizar variável
 
-O exemplo seguinte realça as alterações para adicionar uma variável ao seu modelo que cria um nome de conta de armazenamento único. Copie todo o ficheiro e substitua o seu modelo pelo seu conteúdo.
+O exemplo a seguir destaca as alterações para adicionar uma variável ao seu modelo que cria um nome de conta de armazenamento único. Copie todo o ficheiro e substitua o seu modelo pelo seu conteúdo.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json" range="1-47" highlight="5-9,29-31,36":::
 
-Note que inclui uma variável chamada **UniqueStorageName**. Esta variável usa quatro funções para construir um valor de cadeia.
+Note que inclui uma variável chamada **UntorageName**. Esta variável usa quatro funções para construir um valor de corda.
 
-Já está familiarizado com a função de [parâmetros,](template-functions-deployment.md#parameters) por isso não vamos examiná-la.
+Já está familiarizado com a função dos [parâmetros,](template-functions-deployment.md#parameters) por isso não vamos examiná-la.
 
-Também está familiarizado com a função [de recursoGroup.](template-functions-resource.md#resourcegroup) Neste caso, obtém-se a propriedade **id** em vez da propriedade de **localização,** como mostra o tutorial anterior. A propriedade **id** devolve o identificador completo do grupo de recursos, incluindo o ID de subscrição e o nome do grupo de recursos.
+Também está familiarizado com a função [grupo de recursos.](template-functions-resource.md#resourcegroup) Neste caso, obtém-se a propriedade **de id** em vez da propriedade de **localização,** como mostrado no tutorial anterior. A propriedade **id** devolve o identificador completo do grupo de recursos, incluindo o ID de subscrição e o nome do grupo de recursos.
 
-A função [String única](template-functions-string.md#uniquestring) cria um valor hash de 13 caracteres. O valor devolvido é determinado pelos parâmetros que passa. Para este tutorial, você usa o ID do grupo de recursos como a entrada para o valor do haxixe. Isso significa que você poderia implementar este modelo para diferentes grupos de recursos e obter um valor de cadeia único diferente. No entanto, obtém o mesmo valor se se deslocar para o mesmo grupo de recursos.
+A função [unímos o adc de 13](template-functions-string.md#uniquestring) caracteres cria um valor de haxixe de 13 caracteres. O valor devolvido é determinado pelos parâmetros que se passam. Para este tutorial, utilize o ID do grupo de recursos como entrada para o valor do haxixe. Isto significa que você poderia implementar este modelo para diferentes grupos de recursos e obter um valor de cadeia único diferente. No entanto, obtém o mesmo valor se implementar para o mesmo grupo de recursos.
 
-A função [concat](template-functions-string.md#concat) toma valores e combina-os. Para esta variável, retira a corda do parâmetro e a corda da função String única, e combina-as numa só corda.
+A função [concat](template-functions-string.md#concat) toma valores e combina-os. Para esta variável, pega a corda a partir do parâmetro e da corda da função unímos deString, e combina-as numa corda.
 
-O parâmetro **de prefixo de armazenamento** permite-lhe passar num prefixo que o ajuda a identificar contas de armazenamento. Pode criar a sua própria convenção de nomeação que facilita a identificação de contas de armazenamento após a implantação de uma longa lista de recursos.
+O parâmetro **de armazenamentoPrefix** permite-lhe passar num prefixo que o ajuda a identificar contas de armazenamento. Você pode criar a sua própria convenção de nomeação que facilita a identificação de contas de armazenamento após a implantação de uma longa lista de recursos.
 
 Finalmente, note que o nome de armazenamento está agora definido para a variável em vez de um parâmetro.
 
 ## <a name="deploy-template"></a>Implementar o modelo
 
-Vamos colocar o modelo. A implementação deste modelo é mais fácil do que os modelos anteriores porque fornece apenas o prefixo para o nome de armazenamento.
+Vamos implementar o modelo. A implementação deste modelo é mais fácil do que os modelos anteriores porque fornece apenas o prefixo para o nome de armazenamento.
 
-Se ainda não criou o grupo de recursos, consulte o [grupo de recursos Create](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que definiu a variável **modeloFile** para o caminho para o ficheiro do modelo, como mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
+Se não criou o grupo de recursos, consulte [criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que definiu a variável **modeloFile** para o caminho para o ficheiro do modelo, como mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -69,7 +70,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para executar este comando de implantação, deve ter a [versão mais recente](/cli/azure/install-azure-cli) do Azure CLI.
+Para executar este comando de implementação, tem de ter a [versão mais recente](/cli/azure/install-azure-cli) da CLI do Azure.
 
 ```azurecli
 az deployment group create \
@@ -82,31 +83,31 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se a implantação falhar, utilize o interruptor **de depuração** com o comando de implantação para mostrar os registos de depuração.  Também pode utilizar o interruptor **verboso** para mostrar os registos completos de depuração.
+> Se a implementação falhar, utilize o interruptor **de depuração** com o comando de implantação para mostrar os registos de depuração.  Também pode utilizar o interruptor **verboso** para mostrar os registos completos do depurg.
 
 ## <a name="verify-deployment"></a>Verificar a implementação
 
-Pode verificar a implantação explorando o grupo de recursos a partir do portal Azure.
+Pode verificar a implementação explorando o grupo de recursos a partir do portal Azure.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. A partir do menu esquerdo, selecione **Grupos de Recursos**.
+1. A partir do menu esquerdo, selecione **Grupos de Recursos.**
 1. Selecione o grupo de recursos para o quais foi implantado.
-1. Sabe que foi implementado um recurso de conta de armazenamento. O nome da conta de armazenamento é **loja** mais uma série de caracteres aleatórios.
+1. Vê que foi implantado um recurso de conta de armazenamento. O nome da conta de armazenamento é **loja** mais uma série de caracteres aleatórios.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se está saindo para o próximo tutorial, não precisa de apagar o grupo de recursos.
+Se está a avançar para o próximo tutorial, não precisa de eliminar o grupo de recursos.
 
-Se estás a parar agora, talvez queiras limpar os recursos que implantaste ao apagar o grupo de recursos.
+Se estás a parar agora, talvez queiras limpar os recursos que mobilizaste, eliminando o grupo de recursos.
 
-1. A partir do portal Azure, selecione **Grupo Recurso** do menu esquerdo.
+1. A partir do portal Azure, selecione Grupo de **Recursos** do menu esquerdo.
 2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
 3. Selecione o nome do grupo de recursos.
-4. **Selecione Eliminar** o grupo de recursos do menu superior.
+4. **Selecione Eliminar o grupo** de recursos do menu superior.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, adicionou uma variável que cria um nome único para uma conta de armazenamento. No próximo tutorial, devolve-se um valor da conta de armazenamento implantada.
+Neste tutorial, adicionou uma variável que cria um nome único para uma conta de armazenamento. No tutorial seguinte, devolve-se um valor da conta de armazenamento implantada.
 
 > [!div class="nextstepaction"]
 > [Adicionar saídas](template-tutorial-add-outputs.md)

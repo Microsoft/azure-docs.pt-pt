@@ -3,12 +3,13 @@ title: 'Tutorial: Gerir o SAP HANA DB com recurso ao CLI'
 description: Neste tutorial, aprenda a gerir bases de dados SAP HANA com apoio em execução num Azure VM utilizando O Azure CLI.
 ms.topic: tutorial
 ms.date: 12/4/2019
-ms.openlocfilehash: 40cfb46faf993a995248d79d60c62de912bd88ee
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: c47f03b2ac1640c12a833f8bdb53b5d6493d7eb6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538144"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489440"
 ---
 # <a name="tutorial-manage-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Gerir bases de dados SAP HANA num Azure VM utilizando O Azure CLI
 
@@ -195,7 +196,7 @@ b2a7f108-1020-4529-870f-6c4c43e2bb9e  saphanaResourceGroup
 
 Para verificar o estado desta operação, utilize o cmdlet [de trabalho de reserva az.](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber como fazer backup de uma base de dados SAP HANA em execução em Azure VM usando o portal Azure, consulte as [bases de dados de Backup SAP HANA em VMs Azure](./backup-azure-sap-hana-database.md)
 

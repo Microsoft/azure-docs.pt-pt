@@ -1,15 +1,15 @@
 ---
-title: Criar uma aplicação de função com o Azure Cosmos DB - Azure CLI
+title: Criar uma app de função com Azure Cosmos DB - Azure CLI
 description: Exemplo do Script da CLI do Azure - Criar uma Função do Azure que se liga a um Azure Cosmos DB
 ms.topic: sample
 ms.date: 07/03/2018
-ms.custom: mvc
-ms.openlocfilehash: 5ee80283ed39789eabb702a48aa97f678a6409f9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 440767159ec1321d9b157f53408dbff8f9706eec
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75922718"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498570"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Criar uma Função do Azure que se liga a um Azure Cosmos DB
 
@@ -37,11 +37,11 @@ Este script utiliza os seguintes comandos: cada comando na tabela está ligado a
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Criar um grupo de recursos com localização |
 | [az storage accounts create](/cli/azure/storage/account#az-storage-account-create) | Criar uma conta de armazenamento |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Cria uma aplicação de função no plano de [consumo](../functions-scale.md#consumption-plan)sem servidores. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Cria uma aplicação de função no [plano de consumo](../functions-scale.md#consumption-plan)sem servidor. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Crie uma base de dados do Azure Cosmos DB. |
-| [az cosmosdb show](/cli/azure/cosmosdb#az-cosmosdb-show)| Obtém a ligação da conta da base de dados. |
-| [az cosmosdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys)| Tem as chaves da base de dados. |
-| [az functionapp config conjunto de definições](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) | Define a cadeia de ligação como uma definição de aplicação na aplicação de função. |
+| [az cosmosdb show](/cli/azure/cosmosdb#az-cosmosdb-show)| Obtém a ligação da conta de base de dados. |
+| [az cosmosdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys)| As chaves da base de dados. |
+| [az functionapp config conjunto de appsettings](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) | Define a cadeia de ligação como uma definição de aplicação na aplicação de função. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

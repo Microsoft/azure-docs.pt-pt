@@ -7,17 +7,17 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: fbd11c279708cd828693baab3f9f6df91515bc48
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 703a6afdc12c8a9863ff0f480ec7a577ec31ef77
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133898"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496003"
 ---
 # <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>Arquitetura - Replicação hiper-V para um local secundário
 
 Este artigo descreve os componentes e os processos envolvidos ao replicar máquinas virtuais (VMs) de Hyper-V no local em clouds do System Center Virtual Machine Manager (VMM) para um site de VMM secundário com o serviço [Azure Site Recovery](site-recovery-overview.md) no portal do Azure.
-a
+um
 
 ## <a name="architectural-components"></a>Componentes da arquitetura
 
@@ -32,7 +32,7 @@ A tabela e o gráfico seguintes proporcionam uma visão de alto nível dos compo
 
 **No local para a arquitetura no local**
 
-![Local para local](./media/hyper-v-vmm-architecture/arch-onprem-onprem.png)
+![Diagrama mostrando no local a proteção no local.](./media/hyper-v-vmm-architecture/arch-onprem-onprem.png)
 
 ## <a name="replication-process"></a>Processo de replicação
 
@@ -56,7 +56,7 @@ A tabela e o gráfico seguintes proporcionam uma visão de alto nível dos compo
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 
 Siga [este tutorial](hyper-v-vmm-disaster-recovery.md) para permitir a replicação do Hiper-V entre as nuvens de VMM.

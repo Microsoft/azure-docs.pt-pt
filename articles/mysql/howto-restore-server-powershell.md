@@ -7,12 +7,13 @@ ms.service: mysql
 ms.devlang: azurepowershel
 ms.topic: how-to
 ms.date: 4/28/2020
-ms.openlocfilehash: 85c04c875e543a5c41e9ad5e736a7de77ac1dad0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0f85283ad90f219dfbf404c437a843e1191b19fa
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119876"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498740"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mysql-server-using-powershell"></a>Como fazer o back up e restaurar uma Base de Dados Azure para o servidor MySQL usando o PowerShell
 
@@ -77,7 +78,7 @@ O conjunto de **parâmetros PointInTimeRestore** do `Restore-AzMySqlServer` cmdl
 | Definição | Valor sugerido | Descrição  |
 | --- | --- | --- |
 | ResourceGroupName |  myResourceGroup |  O grupo de recursos onde existe o servidor de origem.  |
-| Name | mydemoserver-restored | O nome do novo servidor que é criado pelo comando restore. |
+| Nome | mydemoserver-restored | O nome do novo servidor que é criado pelo comando restore. |
 | RestaurarPointInTime | 2020-03-13T13:59:00Z | Selecione um ponto no tempo para restaurar. Esta data e hora têm de estar dentro do período de retenção de cópias de segurança do servidor de origem. Utilize o formato de data e hora ISO8601. Por exemplo, pode utilizar o seu próprio fuso horário local, como **2020-03-13T05:59:00-08:00**. Também pode utilizar o formato UTC Zulu, por exemplo, **2018-03-13T13:59:00Z**. |
 | UsePointInTimeRestore | `<SwitchParameter>` | Utilize o modo ponto-a-tempo para restaurar. |
 
@@ -119,7 +120,7 @@ O conjunto de **parâmetros GeoRestore** do `Restore-AzMySqlServer` cmdlet reque
 | Definição | Valor sugerido | Descrição  |
 | --- | --- | --- |
 |ResourceGroupName | myResourceGroup | O nome do grupo de recursos a que pertence o novo servidor pertence.|
-|Name | mydemoserver-georestored | O nome do novo servidor. |
+|Nome | mydemoserver-georestored | O nome do novo servidor. |
 |Localização | eastus | A localização do novo servidor. |
 |UseGeoRestore | `<SwitchParameter>` | Utilize o modo geo para restaurar. |
 
@@ -129,7 +130,7 @@ Após o fim do processo de restauro, localize o novo servidor e verifique se os 
 
 O novo servidor criado durante uma restauração não possui os pontos finais do serviço VNet que existiam no servidor original. Estas regras devem ser configuras separadamente para este novo servidor. As regras de firewall do servidor original são restauradas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Personalize a Base de Dados de Azure para os parâmetros do servidor MySQL utilizando o PowerShell](howto-configure-server-parameters-using-powershell.md)

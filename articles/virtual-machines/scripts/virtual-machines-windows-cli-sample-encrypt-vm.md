@@ -14,12 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 8703e62aa7880fdddc347fa96edc213d9d54eab2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 0ea6bc61aae45386d2a7b90a32f66ad5de342107
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86501182"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494541"
 ---
 # <a name="encrypt-a-windows-virtual-machine-in-azure"></a>Encriptar uma máquina virtual do Windows no Azure
 
@@ -57,7 +58,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, o Azu
 | [az vm encryption show](/cli/azure/vm/encryption) | Mostra o estado do processo de encriptação da VM. |
 | [az group delete](/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

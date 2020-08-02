@@ -8,12 +8,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: c36df4745e276471e35addf4774470dbaaa9e150
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1099c4e4dd69a8dc8caee96ec5dda633ce8b9d12
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080714"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496207"
 ---
 # <a name="database-collation-support-for-synapse-sql"></a>Suporte de colagem de base de dados para Sinaapse SQL
 
@@ -23,7 +23,7 @@ Pode alterar a colagem da base de dados predefinida a partir do portal Azure qua
 
 Pode especificar a colisão padrão da base de dados synapse SQL a pedido no momento da criação utilizando a declaração CREATE DATABASE.
 
-## <a name="changing-collation"></a>Mudança de colagem
+## <a name="change-collation"></a>Alterar colagem
 Para alterar a colagem padrão para base de dados de piscinas SQL, você simples atualização para o campo Collation na experiência de provisionamento. Por exemplo, se quisesse alterar a colagem por defeito para sensível a casos, simplesmente mudaria o nome da Collation de SQL_Latin1_General_CP1_CI_AS para SQL_Latin1_General_CP1_CS_AS. 
 
 Para alterar a colagem predefinida para base de dados a pedido do SQL, pode utilizar a declaração ALTER DATABASE.
@@ -104,7 +104,7 @@ Além disso, a piscina SQL não suporta os seguintes tipos de colagem:
 *    SQL_EBCDIC277_2_CP1_CS_AS
 *    UTF-8
 
-## <a name="checking-the-current-collation"></a>Verificação da atual colagem
+## <a name="check-the-current-collation"></a>Verifique a atual colagem
 Para verificar a colagem atual da base de dados, pode executar o seguinte corte T-SQL:
 ```sql
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;

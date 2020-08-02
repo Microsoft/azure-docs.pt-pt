@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2a7709cf0522727257025b2dddc495b20fe8448
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0be99a673fe3d062e114f375891f3c821c118d76
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763759"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499505"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Erro inesperado ao efetuar o consentimento de uma aplicação
 
@@ -38,6 +38,8 @@ Certas condições devem ser verdadeiras para que um utilizador consinta nas per
 Este erro ocorre quando um utilizador que não é administrador da empresa tenta usar uma aplicação que está a solicitar permissões que só um administrador pode conceder. Este erro pode ser resolvido por um administrador que concede acesso ao pedido em nome da sua organização.
 
 Este erro também pode ocorrer quando um utilizador é impedido de consentir com uma aplicação devido à Microsoft detetar que o pedido de permissões é arriscado. Neste caso, será também registado um evento de auditoria com uma categoria de "Gestação de Aplicações", Tipo de Atividade de "Consentimento à aplicação" e Razão de Estado de "Aplicação arriscada detetada".
+
+Outro cenário em que este erro pode ocorrer é quando a atribuição do utilizador é necessária para a aplicação, mas não foi fornecido nenhum consentimento do administrador. Neste caso, o administrador deve primeiro fornecer o consentimento do administrador.   
 
 ## <a name="policy-prevents-granting-permissions-error"></a>A política impede a concessão de permissões de erro
 * **AADSTS90093:** Um administrador do &lt; InquilinaDisplayMe &gt; definiu uma política que o impede de conceder &lt; o nome da app as &gt; permissões que está a solicitar. Contacte um administrador do &lt; TenantDisplayName, &gt; que pode conceder permissões a esta aplicação em seu nome.
@@ -76,7 +78,7 @@ Todos estes erros ocorrem quando a aplicação que um utilizador está a tentar 
 
     -   Adicionar o pedido da Galeria de Aplicações AD Azure
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 
 [Aplicativos, permissões e consentimento no Azure Ative Directory (v1 endpoint)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)<br>
 

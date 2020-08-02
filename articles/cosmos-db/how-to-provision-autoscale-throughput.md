@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/29/2020
-ms.openlocfilehash: e8dadbad309a146500db342f55bee9339fde6172
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 07/30/2020
+ms.openlocfilehash: dba0fccaa3eb79ad297ce80462efea5b69a4a009
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430983"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497057"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Provisão de produção automática na base de dados ou contentor em Azure Cosmos DB
 
@@ -244,11 +244,11 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 
 ## <a name="cassandra-api"></a>API de Cassandra
 
-As contas DB da Azure Cosmos para a API cassandra podem ser aprovisionadas para autoescalação utilizando [os comandos CQL, modelos](manage-scale-cassandra.md#use-autoscale) [Azure CLI](cli-samples.md)ou [Azure Resource Manager](resource-manager-samples.md).
+As contas DB da Azure Cosmos para a API cassandra podem ser aprovisionadas para autoescalação utilizando [os modelos CQL](manage-scale-cassandra.md#use-autoscale), [Azure CLI,](cli-samples.md) [Azure PowerShell](powershell-samples.md) ou [Azure Resource Manager](resource-manager-samples.md).
 
 ## <a name="azure-cosmos-db-api-for-mongodb"></a>API do Azure Cosmos DB para MongoDB
 
-As contas DB da Azure Cosmos para a MongoDB API podem ser previstas para autoescala utilizando [os comandos de extensão MongoDB, modelos](mongodb-custom-commands.md) [Azure CLI](cli-samples.md)ou [Azure Resource Manager](resource-manager-samples.md).
+As contas DB da Azure Cosmos para a MongoDB API podem ser previstas para escala automática utilizando [os comandos de extensão MongoDB,](mongodb-custom-commands.md) [Azure CLI,](cli-samples.md) [Azure PowerShell](powershell-samples.md) ou [Azure Resource Manager](resource-manager-samples.md).
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 
@@ -258,7 +258,11 @@ Os modelos do Gestor de Recursos Azure podem ser usados para obter rendimento de
 
 O Azure CLI pode ser usado para provisões de viação de escala automática numa base de dados ou recursos de nível de contentor para todas as APIs Azure Cosmos DB. Para amostras consulte [amostras do Azure CLI para Azure Cosmos DB](cli-samples.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="azure-powershell"></a>Azure PowerShell
+
+O Azure PowerShell pode ser utilizado para a disponibilização de produção de escala automática numa base de dados ou recursos de nível de contentor para todas as APIs DB do Azure Cosmos. Para amostras consulte [as amostras Azure PowerShell para Azure Cosmos DB](powershell-samples.md).
+
+## <a name="next-steps"></a>Passos seguintes
 
 * Conheça os [benefícios da produção aussitada com autoescala.](provision-throughput-autoscale.md#benefits-of-autoscale)
 * Saiba como escolher entre a [produção manual e autoescala.](how-to-choose-offer.md)

@@ -5,19 +5,19 @@ description: Exemplos de scripts Azure CLI para criar e gerir a Base de Dados Az
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
-ms.custom: overview-samples, mvc, sqldbrb=2
+ms.custom: overview-samples, mvc, sqldbrb=2, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: cc762c3c10c087a8c0db5bd17f9c38b8f9d26134
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 893ea607b322c2f9b2d8a4e8b5b087e21c476d98
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982809"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497176"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Amostras de Azure CLI para Azure SQL Database e SQL Managed Instance 
  
@@ -35,7 +35,7 @@ Se optar por instalar e usar a CLI localmente, este tópico requer a execução 
 
 A tabela seguinte inclui links para exemplos de scripts Azure CLI para gerir bases de dados individuais e aginhadas na Base de Dados Azure SQL. 
 
-|Área|Description|
+|Área|Descrição|
 |---|---|
 |**Criar bases de dados na Base de Dados Azure SQL**||
 | [Criar uma base de dados e configurar uma regra de firewall](scripts/create-and-configure-database-cli.md) | Cria uma Base de Dados SQL e configura uma regra de firewall ao nível do servidor. |
@@ -63,7 +63,7 @@ Saiba mais sobre a [AZure CLI API de uma única base de dados.](single-database-
 
 A tabela seguinte inclui links para exemplos de scripts Azure CLI para Azure SQL Managed Instance.
 
-|Área|Description|
+|Área|Descrição|
 |---|---|
 | **Criar uma sql gestd managing instance**||
 | [Criar uma sql gestd managing instance](../../sql-database/scripts/sql-database-create-configure-managed-instance-cli.md)| Cria uma SQL Managed Instance. |

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 347232d452b5d309da7cdb7c8fe34f0e41abde00
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 86223c35118c9c54be49fa830a264a0059ef3937
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025343"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494439"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma subscrição do Azure ao inquilino do Azure Active Directory
 
@@ -95,6 +95,6 @@ Depois de associar uma subscrição a um diretório diferente, poderá ter de fa
 
 - Para criar um novo inquilino AZure AD, consulte [Quickstart: Criar um novo inquilino no Azure Ative Directory](active-directory-access-create-new-tenant.md).
 
-- Para saber mais sobre como o Microsoft Azure controla o acesso a recursos, consulte [as funções de administrador de subscrição Clássica, funções de administrador do Azure RBAC e funções de administrador de AD Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+- Para saber mais sobre como o Microsoft Azure controla o acesso a recursos, consulte [as funções de administrador de subscrição Clássica, funções de Azure e administrador ad AZure](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 - Para saber mais sobre como atribuir funções em Azure AD, consulte [funções de administrador e não administrador para utilizadores com Diretório Ativo Azure](active-directory-users-assign-role-azure-portal.md).

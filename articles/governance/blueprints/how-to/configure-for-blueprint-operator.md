@@ -1,14 +1,14 @@
 ---
 title: Configurar o seu ambiente para o Operador de Blueprint
-description: Aprenda a configurar o seu ambiente Azure para utilização com a função de controlo de acesso incorporado (RBAC) do Operador De Plantas.
+description: Aprenda a configurar o seu ambiente Azure para utilização com o papel incorporado do Operador de Plantas.
 ms.date: 05/06/2020
 ms.topic: how-to
-ms.openlocfilehash: a61997f5e3247e5b42d5e2f07c0fc38cc1b5114d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9390958507a135497c4c48a260a44bc0f4492ffa
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82864016"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499811"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>Configurar o seu ambiente para um Operador Blueprint
 

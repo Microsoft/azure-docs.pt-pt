@@ -4,19 +4,19 @@ description: Azure CLI exemplo script para criar um exemplo gerido em Azure SQL 
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
-ms.custom: ''
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/25/2019
-ms.openlocfilehash: 9d0058fd90590b10a0d5745bce1875db9ad35745
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 54e1aa993f177a4d3bc255287ae8c2fb14cf65af
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518899"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497278"
 ---
 # <a name="use-cli-to-create-an-azure-sql-managed-instance"></a>Utilize o CLI para criar uma instância gerida Azure SQL
 
@@ -56,7 +56,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [az rede rota-mesa](/cli/azure/network/route-table) | Comandos de tabela de rota de rede. |
 | [az sql mi](/cli/azure/sql/mi) | Comandos sql Gestd Instance. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

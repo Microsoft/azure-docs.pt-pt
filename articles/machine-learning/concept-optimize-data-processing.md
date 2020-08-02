@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: f95c4256f4a0a3fdf410efecf9c22d578d1963a2
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 6bb85ada5ab1cd443d47ed85024b45d98354e97f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461804"
+ms.locfileid: "87500968"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Otimizar o processamento de dados com a Azure Machine Learning
 
@@ -64,7 +64,6 @@ Se as recomendações anteriores não forem suficientes, e não conseguires uma 
 * Utilize uma estrutura como `Spark` ou para processar os `Dask` dados 'fora da memória'. Nesta opção, o dataframe é carregado na partição RAM por partição e processado, com o resultado final a ser recolhido no final.  
 
 * Dimensione para um cluster usando uma estrutura distribuída. Nesta opção, as cargas de processamento de dados são divididas e processadas em vários CPUs que funcionam em paralelo, com o resultado final recolhido no final.
-
 
 ### <a name="recommended-distributed-frameworks"></a>Quadros distribuídos recomendados
 

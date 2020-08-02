@@ -8,12 +8,13 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: mihansen
-ms.openlocfilehash: f8047ebeb8e47f609db79e3ac1235b5cd65a4fd4
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: dc65bedc8b008d9628d09ef3e4bfc7cc6ea12e95
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "84820229"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495255"
 ---
 # <a name="quickstart-deploy-open-source-fhir-server-using-azure-cli"></a>Quickstart: Implementar o servidor FHIR open source usando O Azure CLI
 
@@ -44,14 +45,14 @@ az group deployment create -g $servicename --template-uri https://raw.githubuser
 
 Obtenha uma declaração de capacidade do servidor FHIR com:
 
-```console
+```azurecli-interactive
 metadataurl="https://${servicename}.azurewebsites.net/metadata"
 curl --url $metadataurl
 ```
 
 Levará um minuto ou mais para o servidor responder pela primeira vez.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não continuar a utilizar esta aplicação, elimine o grupo de recursos com os seguintes passos:
 

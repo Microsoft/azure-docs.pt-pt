@@ -3,12 +3,13 @@ title: Exemplo de script do Azure CLI - Piscina linux em lote
 description: Este script demonstra alguns dos comandos disponíveis no CLI Azure para criar e gerir um conjunto de nós de computação Linux em Azure Batch.
 ms.topic: sample
 ms.date: 01/29/2018
-ms.openlocfilehash: 21236ef2f314cb1306adc7346e620b80db540034
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 7aba6e64fdf39a069eb010ef032fcc5391fd47ee
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964065"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494393"
 ---
 # <a name="cli-example-create-and-manage-a-linux-pool-in-azure-batch"></a>Exemplo da CLI: Criar e gerir um conjunto do Linux no Azure Batch
 

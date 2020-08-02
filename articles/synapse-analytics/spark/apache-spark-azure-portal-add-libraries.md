@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: b0231b28894ea7233e5f6e588300f03cb8784e5b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c0d34d80df77b5c6fcdefc39b3bc3b1619a93705
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036459"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496258"
 ---
 # <a name="add-and-manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Adicione e gere bibliotecas para Apache Spark em Azure Synapse Analytics
 
@@ -21,7 +21,7 @@ Apache Spark depende de muitas bibliotecas para fornecer funcionalidades. Estas 
 
 Os pacotes Python podem ser adicionados ao nível da piscina Spark (pré-visualização) e os pacotes baseados em .jar podem ser adicionados ao nível de definição de trabalho spark.
 
-## <a name="adding-or-updating-python-libraries"></a>Adicionar ou atualizar bibliotecas Python
+## <a name="add-or-update-python-libraries"></a>Adicionar ou atualizar bibliotecas Python
 
 Apache Spark in Azure Synapse Analytics tem uma instalação completa de Anacondas mais bibliotecas adicionais. A lista completa de bibliotecas pode ser encontrada no [suporte da versão Apache Spark.](apache-spark-version-support.md)
 
@@ -51,7 +51,7 @@ Faça o upload do ficheiro de configuração do ambiente utilizando o seletor de
 
 ![Adicionar bibliotecas Python](./media/apache-spark-azure-portal-add-libraries/add-python-libraries.png "Adicionar bibliotecas Python")
 
-### <a name="verifying-installed-libraries"></a>Verificação das bibliotecas instaladas
+### <a name="verify-installed-libraries"></a>Verificar bibliotecas instaladas
 
 Para verificar se as versões corretas das bibliotecas corretas são instaladas, executar o seguinte código
 

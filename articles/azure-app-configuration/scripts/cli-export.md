@@ -1,7 +1,7 @@
 ---
-title: Amostra de script Azure CLI - Exportação de uma Loja de Configuração de Aplicações Azure
+title: Amostra de script Azure CLI - Exportação de uma Loja de Configuração de Aplicativos Azure
 titleSuffix: Azure App Configuration
-description: Utilize o script Azure CLI para exportar a configuração da Configuração da App Azure
+description: Use o script Azure CLI para exportar a configuração da Configuração da Aplicação Azure
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
@@ -9,14 +9,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 3e014504fc1e94c3b323a49b408fa992de00d14a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 991471f43c92b12073062db1e4e5fdb32fb4b0f6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77523629"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494796"
 ---
-# <a name="export-from-an-azure-app-configuration-store"></a>Exportação de uma loja de configuração de aplicações Azure
+# <a name="export-from-an-azure-app-configuration-store"></a>Exportação de uma loja de configuração de aplicativos Azure
 
 Este script de amostra exporta valores-chave de uma loja de configuração de aplicações Azure.
 
@@ -43,10 +44,10 @@ Este script utiliza os seguintes comandos para exportar a partir de uma loja de 
 
 | Comando | Notas |
 |---|---|
-| [az appconfig kv exportação](/cli/azure/appconfig/kv#az-appconfig-kv-export) | Exportações de um recurso de loja de configuração de aplicações. |
+| [exportação az appconfig kv](/cli/azure/appconfig/kv#az-appconfig-kv-export) | Exportações de um recurso de loja de configuração de aplicativos. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
-Amostras adicionais de script cli configuração de aplicativos podem ser encontradas nas amostras CLI de configuração de [aplicação azure](../cli-samples.md).
+As amostras de script CLI de configuração de aplicação adicionais podem ser encontradas nas [amostras CLI de Configuração de Aplicação Azure](../cli-samples.md).

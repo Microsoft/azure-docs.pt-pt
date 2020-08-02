@@ -4,12 +4,12 @@ description: Azure Service Fabric Reliable State Manager and Reliable Collection
 ms.topic: conceptual
 ms.date: 5/1/2017
 ms.custom: sfrev
-ms.openlocfilehash: c7d0970918b0fc60f1208b5997d696a57e5bc698
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d1094462ebabcea1fbead3d5b30fdfb8dda6463a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245114"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500287"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transações e modos de bloqueio em Azure Service Fabric Reliable Collections
 
@@ -77,7 +77,7 @@ A matriz de compatibilidade do bloqueio pode ser encontrada na tabela seguinte:
 O argumento de tempo limite em APIs de Cobranças Fiáveis é utilizado para a deteção de impasses.
 Por exemplo, duas transações (T1 e T2) estão a tentar ler e atualizar o K1.
 É possível que fiquem num impasse, porque ambos acabam por ter a fechadura partilhada.
-Neste caso, uma ou ambas as operações vão esgotar-se. Neste cenário, uma fechadura de atualização poderia evitar tal impasse.
+Neste caso, uma ou ambas as operações vão esgotar-se. Neste cenário, um bloqueio de Atualização poderia evitar tal impasse.
 
 ## <a name="next-steps"></a>Passos seguintes
 

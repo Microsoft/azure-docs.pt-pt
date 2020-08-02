@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: Designar uma Base de Dados Azure para MariaDB - Azure CLI'
-description: Este tutorial explica como criar e gerir a Base de Dados Azure para o servidor MariaDB e base de dados usando o Azure CLI a partir da linha de comando.
+title: 'Tutorial: Desenhe uma Base de Dados Azure para MariaDB - Azure CLI'
+description: Este tutorial explica como criar e gerir a Base de Dados Azure para servidor e base de dados MariaDB utilizando o Azure CLI a partir da linha de comando.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 3/18/2020
-ms.custom: mvc
-ms.openlocfilehash: 455d7a0c1b3826060ade1083ec6eea99e397574b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: f08f9065b2a7361294a2f6257c85be772d0f7119
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79534852"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496088"
 ---
-# <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Tutorial: Conceber uma Base de Dados Azure para MariaDB utilizando o Azure CLI
+# <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Tutorial: Desenhe uma base de dados Azure para MariaDB usando Azure CLI
 
-Azure Database for MariaDB é um serviço de base de dados relacional na nuvem da Microsoft baseado no motor de base de dados MariaDB Community Edition. Neste tutorial, utiliza a CLI do Azure (interface de linha de comandos) e outros utilitários para saber como:
+Azure Database for MariaDB é um serviço de base de dados relacional na nuvem da Microsoft com base no motor de base de dados MariaDB Community Edition. Neste tutorial, utiliza a CLI do Azure (interface de linha de comandos) e outros utilitários para saber como:
 
 > [!div class="checklist"]
 > * Criar um Azure Database for MariaDB
@@ -51,9 +51,9 @@ az group create --name myresourcegroup --location westus
 ```
 
 ## <a name="create-an-azure-database-for-mariadb-server"></a>Criar um Azure Database for MariaDB Server
-Crie uma Base de Dados `az mariadb server create` Azure para servidor MariaDB com o comando. Cada servidor pode gerir múltiplas bases de dados. Geralmente, é utilizada uma base de dados em separado para cada projeto ou para cada utilizador.
+Crie uma Base de Dados Azure para o servidor MariaDB com o `az mariadb server create` comando. Cada servidor pode gerir múltiplas bases de dados. Geralmente, é utilizada uma base de dados em separado para cada projeto ou para cada utilizador.
 
-O exemplo seguinte cria uma Base de `westus` Dados Azure `myresourcegroup` para `mydemoserver`servidor MariaDB localizado no grupo de recursos com nome . O servidor tem um início de sessão de administrador com o nome `myadmin`. É um Propósito Geral, servidor Gen 5 com 2 vCores. Substitua `<server_admin_password>` pelo seu próprio valor.
+O exemplo a seguir cria uma Base de Dados Azure para servidor MariaDB localizado `westus` no grupo de recursos com nome `myresourcegroup` `mydemoserver` . O servidor tem um início de sessão de administrador com o nome `myadmin`. É um servidor De Propósito Geral, Gen 5 com 2 vCores. Substitua `<server_admin_password>` pelo seu próprio valor.
 
 ```azurecli-interactive
 az mariadb server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 10.2
@@ -61,7 +61,7 @@ az mariadb server create --resource-group myresourcegroup --name mydemoserver --
 O valor do parâmetro sku-name segue a convenção {escalão de preço} \_ {geração de computação} \_ {vCores}, conforme os exemplos abaixo:
 + `--sku-name B_Gen5_4` mapeia para Básico, Ger 5 e 4 vCores.
 + `--sku-name GP_Gen5_32` mapeia para Fins Gerais, Ger 5 e 32 vCores.
-+ `--sku-name MO_Gen5_2` mapeia para Otimizada para Memória, Ger 5 e 2 vCores.
++ `--sku-name MO_Gen5_2` mapeia para Otimizada para Memória, Ger 5 e 2 vCores.
 
 Leia a documentação dos [escalões de preços](./concepts-pricing-tiers.md) para entender os valores válidos por região e por escalão.
 
@@ -70,7 +70,7 @@ Leia a documentação dos [escalões de preços](./concepts-pricing-tiers.md) pa
 
 
 ## <a name="configure-firewall-rule"></a>Configurar a regra de firewall
-Crie uma Base de Dados Azure para `az mariadb server firewall-rule create` a regra de firewall do nível do servidor MariaDB com o comando. Uma regra de firewall ao nível do servidor permite que uma aplicação externa, como a ferramenta de linha de comando **mysql** ou a bancada de trabalho MySQL, se conectem ao seu servidor através da firewall de serviço Azure MariaDB.
+Crie uma base de dados Azure para a regra de firewall de nível de servidor MariaDB com o `az mariadb server firewall-rule create` comando. Uma regra de firewall ao nível do servidor permite que uma aplicação externa, como a ferramenta **mysql** command-line ou a bancada MySQL Workbench, se conecte ao seu servidor através da firewall de serviço Azure MariaDB.
 
 O exemplo seguinte cria uma regra de firewall chamada `AllowMyIP` que permite ligações a partir de um endereço IP específico, 192.168.0.1. Substitua o endereço IP ou intervalo de endereços IP que correspondem ao local onde os irá ligar.
 
@@ -133,7 +133,7 @@ mysql> USE mysampledb;
 ```
 
 ## <a name="create-tables-in-the-database"></a>Criar tabelas na base de dados
-Agora que sabe como ligar-se à base de dados Azure para a base de dados MariaDB, complete algumas tarefas básicas.
+Agora que sabe como ligar-se à Base de Dados Azure para a base de dados MariaDB, preencha algumas tarefas básicas.
 
 Em primeiro lugar, crie uma tabela e carregue-a com alguns dados. Vamos criar uma tabela que armazena informações de inventário.
 ```sql
@@ -170,7 +170,7 @@ SELECT * FROM inventory;
 ```
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>Restaurar uma base de dados para um ponto anterior no tempo
-Imagine que eliminou acidentalmente esta tabela. É algo de que não é fácil recuperar. A Base de Dados Azure para MariaDB permite-lhe voltar a qualquer momento nos últimos 35 dias e restaurar este ponto a tempo para um novo servidor. Pode utilizar este servidor novo para recuperar os dados eliminados. Os passos seguintes restauram o servidor de exemplo para um ponto antes da tabela ter sido adicionada.
+Imagine que eliminou acidentalmente esta tabela. É algo de que não é fácil recuperar. A Azure Database for MariaDB permite-lhe voltar a qualquer ponto no tempo nos últimos 35 dias e restaurar este ponto no tempo para um novo servidor. Pode utilizar este servidor novo para recuperar os dados eliminados. Os passos seguintes restauram o servidor de exemplo para um ponto antes da tabela ter sido adicionada.
 
 Para o restauro, precisa das seguintes informações:
 
@@ -188,7 +188,7 @@ O comando `az mariadb server restore` precisa dos seguintes parâmetros:
 | Definição | Valor sugerido | Descrição  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  O grupo de recursos no qual se encontra o servidor de origem.  |
-| nome | mydemoserver-restored | O nome do novo servidor que é criado pelo comando restore. |
+| name | mydemoserver-restored | O nome do novo servidor que é criado pelo comando restore. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | Selecione um ponto anterior no tempo para o qual restaurar. Esta data e hora têm de estar dentro do período de retenção de cópias de segurança do servidor de origem. Utilize o formato de data e hora ISO8601. Por exemplo, pode utilizar o seu fuso horário local, como `2017-04-13T05:59:00-08:00`, ou utilizar o formato UTC Zulu `2017-04-13T13:59:00Z`. |
 | source-server | mydemoserver | O nome ou ID do servidor de origem do qual pretende restaurar. |
 

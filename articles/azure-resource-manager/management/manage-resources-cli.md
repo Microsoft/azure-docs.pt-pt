@@ -5,12 +5,13 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: edd424d7d64e484f3b42084d1aa0744ec522bf92
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 1a696827cefca53586f14d4ea118094a4718212f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366822"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87491549"
 ---
 # <a name="manage-azure-resources-by-using-azure-cli"></a>Gerir os recursos do Azure utilizando o Azure CLI
 

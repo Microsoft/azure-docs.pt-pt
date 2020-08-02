@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: c0426872c29fa126514f22a5f4fb57f19903c967
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 43942c20a353ff69383f3e721679e4c95ab9d230
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021669"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495948"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Configurar endereço IP para ligar a um site secundário no local após falha
 
@@ -63,11 +63,11 @@ Os gráficos que se seguem ilustram as sub-redes antes e depois do failover.
 
 **Antes do failover**
 
-![Antes do failover](./media/hyper-v-vmm-networking/network-design2.png)
+![Diagrama mostrando as sub-redes antes do failover.](./media/hyper-v-vmm-networking/network-design2.png)
 
 **Depois do failover**
 
-![Depois do failover](./media/hyper-v-vmm-networking/network-design3.png)
+![Diagrama mostrando as sub-redes após a falha.](./media/hyper-v-vmm-networking/network-design3.png)
 
 Após o failover, a Recuperação do Site atribui um endereço IP para cada interface de rede no VM. O endereço é atribuído a partir do conjunto de endereços IP estático na rede relevante, para cada instância VM.
 
@@ -118,11 +118,11 @@ Neste exemplo, temos diferentes endereços IP em sites primários e secundários
 
 **Antes do failover**
 
-![Endereço IP diferente - antes do failover](./media/hyper-v-vmm-networking/network-design10.png)
+![Diagrama mostrando diferentes endereços IP antes do failover.](./media/hyper-v-vmm-networking/network-design10.png)
 
 **Depois do failover**
 
-![Endereço IP diferente - após falha](./media/hyper-v-vmm-networking/network-design11.png)
+![Diagrama mostrando diferentes endereços IP após a falha.](./media/hyper-v-vmm-networking/network-design11.png)
 
 
 ## <a name="next-steps"></a>Passos seguintes

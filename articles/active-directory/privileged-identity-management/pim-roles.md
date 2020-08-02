@@ -14,12 +14,12 @@ ms.date: 05/11/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d1d7ad27c43a0f8b4bbb763a1eb933a63cec58e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 80762511591d10bd2823101e2ff233fdd0f0eb00
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83115647"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495629"
 ---
 # <a name="roles-you-cant-manage-in-privileged-identity-management"></a>Funções que não pode gerir na Gestão de Identidade Privilegiada
 
@@ -33,7 +33,7 @@ Não é possível gerir as seguintes funções clássicas de administrador de su
 - Administrador de Serviços
 - Coadministrador
 
-Para obter mais informações sobre as funções clássicas de administrador de subscrição, consulte [as funções de administrador de subscrição clássica, funções de administrador de RBAC Azure e funções de administrador da AD Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+Para obter mais informações sobre as funções clássicas de administrador de subscrição, consulte [as funções de administrador de subscrição clássica, funções de administrador da Azure e administradora AD Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ## <a name="what-about-office-365-admin-roles"></a>E os papéis de administrador do Office 365?
 
@@ -42,7 +42,7 @@ Apoiamos todas as funções do Office365 na experiência do portal AD Roles e Ad
 > [!NOTE]
 > Os utilizadores elegíveis para a função de administrador do SharePoint, a função de administrador do dispositivo e quaisquer funções que tentem aceder ao Microsoft Security and Compliance Center podem sofrer atrasos de até algumas horas após a ativação da sua função. Estamos a trabalhar com essas equipas para resolver os problemas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atribuir funções de Azure AD em Gestão de Identidade Privilegiada](pim-how-to-add-role-to-user.md)
 - [Atribuir funções de recursos da Azure na Gestão de Identidade Privilegiada](pim-resource-roles-assign-roles.md)

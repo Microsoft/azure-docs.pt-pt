@@ -5,22 +5,23 @@ author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: f95efbaedc2718c968062c47427ab7765756bde7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 4042ed29b143ab160883ca46ecb1cc17d2e0c761
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80408556"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497159"
 ---
-# <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutorial: Use modelo exportado do portal Azure
+# <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutorial: Use modelo exportado a partir do portal Azure
 
-Nesta série tutorial, criou um modelo para implementar uma conta de armazenamento Azure. Nos dois tutoriais seguintes, você adiciona um plano de *Serviço de Aplicações* e um *site*. Em vez de criar modelos do zero, aprende-se a exportar modelos do portal Azure e a utilizar modelos de amostra a partir dos [modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/). Personaliza esses modelos para o seu uso. Este tutorial centra-se em modelos de exportação e personalizao o resultado para o seu modelo. Leva cerca de **14 minutos** para ser concluído.
+Nesta série tutorial, criou um modelo para implantar uma conta de armazenamento Azure. Nos dois seguintes tutoriais, você adiciona um *plano de Serviço de Aplicações* e um *site*. Em vez de criar modelos de raiz, você aprende a exportar modelos a partir do portal Azure e como usar modelos de amostra a partir dos [modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/). Personaliza esses modelos para o seu uso. Este tutorial foca-se em modelos de exportação e personalização do resultado para o seu modelo. Leva cerca de **14 minutos** para ser completado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Recomendamos que complete o [tutorial sobre saídas,](template-tutorial-add-outputs.md)mas não é necessário.
 
-Tem de ter o Código do Estúdio Visual com a extensão ferramentas do Gestor de Recursos e o Azure PowerShell ou o Azure CLI. Para mais informações, consulte [as ferramentas](template-tutorial-create-first-template.md#get-tools)do modelo.
+Você deve ter Código de Estúdio Visual com a extensão de Ferramentas gestor de recursos, e ou Azure PowerShell ou Azure CLI. Para obter mais informações, consulte [as ferramentas do modelo.](template-tutorial-create-first-template.md#get-tools)
 
 ## <a name="review-template"></a>Modelo de revisão
 
@@ -28,13 +29,13 @@ No final do tutorial anterior, o seu modelo tinha o seguinte JSON:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json":::
 
-Este modelo funciona bem para a implementação de contas de armazenamento, mas é melhor adicionar mais recursos a ele. Você pode exportar um modelo a partir de um recurso existente para obter rapidamente o JSON para esse recurso.
+Este modelo funciona bem para implementar contas de armazenamento, mas é melhor adicionar mais recursos. Você pode exportar um modelo a partir de um recurso existente para obter rapidamente o JSON para esse recurso.
 
 ## <a name="create-app-service-plan"></a>Criar plano do App Service
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione **Criar um recurso**.
-1. Em **Search the Marketplace,** insira o plano de serviço de **aplicações**e, em seguida, selecione o plano de serviço de **aplicações.**  Não selecione o plano de serviço de **aplicações (clássico)**
+1. Em **Search the Marketplace**, insira o plano de Serviço de **Aplicações**e, em seguida, selecione **o plano de Serviço de Aplicações**.  Não selecione **o plano de Serviço de Aplicações (clássico)**
 1. Selecione **Criar**.
 1. Introduza:
 
@@ -42,37 +43,37 @@ Este modelo funciona bem para a implementação de contas de armazenamento, mas 
     - **Grupo de Recursos**: Selecione **Criar novo** e, em seguida, especificar um nome. Forneça um nome de grupo de recursos diferente daquele que tem usado nesta série tutorial.
     - **Nome**: insira um nome para o plano de serviço da App.
     - **Sistema operativo**: selecione **Linux**.
-    - **Região**: selecione uma localização Azure. Por exemplo, **Centro dos EUA.**
-    - **Nível de preços:** para poupar custos, mude o SKU para **Basic B1** (em Dev/Teste).
+    - **Região**: selecione uma localização Azure. Por exemplo, **E.U.A. Central**.
+    - **Nível de preços**: para poupar custos, altere o SKU para **Basic B1** (em Dev/Test).
 
-    ![Portal de modelo de modelo de gestor de recursos](./media/template-tutorial-export-template/resource-manager-template-export.png)
+    ![Portal do modelo de exportação do modelo do gestor de recursos](./media/template-tutorial-export-template/resource-manager-template-export.png)
 1. Selecione **Rever e criar**.
 1. Selecione **Criar**. Leva alguns momentos para criar o recurso.
 
 ## <a name="export-template"></a>Exportar modelo
 
-1. Selecione **Ir para o recurso**.
+1. Selecione **Ir para recurso**.
 
     ![Ir para recurso](./media/template-tutorial-export-template/resource-manager-template-export-go-to-resource.png)
 
-1. Selecione **modelo de exportação**.
+1. Selecione **o modelo de exportação.**
 
     ![Modelo de exportação de modelo de gestor de recursos](./media/template-tutorial-export-template/resource-manager-template-export-template.png)
 
-   A função de modelo de exportação toma o estado atual de um recurso e gera um modelo para implantá-lo. Exportar um modelo pode ser uma forma útil de obter rapidamente o JSON que precisa para implementar um recurso.
+   A característica do modelo de exportação toma o estado atual de um recurso e gera um modelo para implementá-lo. Exportar um modelo pode ser uma forma útil de obter rapidamente o JSON que você precisa para implementar um recurso.
 
 1. Copie a definição **Microsoft.Web/serverfarms** e a definição de parâmetro para o seu modelo.
 
-    ![Modelo de exportação de modelo de gestor de recursos](./media/template-tutorial-export-template/resource-manager-template-exported-template.png)
+    ![Modelo de exportação de modelo de gestor de recursos modelo exportado](./media/template-tutorial-export-template/resource-manager-template-exported-template.png)
 
 > [!IMPORTANT]
-> Tipicamente, o modelo exportado é mais verboso do que você poderia querer ao criar um modelo. Por exemplo, o objeto SKU no modelo exportado tem cinco propriedades. Este modelo funciona, mas você poderia apenas usar a propriedade do **nome.** Pode começar com o modelo exportado e depois modificá-lo como quiser para se adaptar aos seus requisitos.
+> Tipicamente, o modelo exportado é mais verboso do que você poderia querer ao criar um modelo. Por exemplo, o objeto SKU no modelo exportado tem cinco propriedades. Este modelo funciona, mas você poderia apenas usar a propriedade **do nome.** Pode começar com o modelo exportado e, em seguida, modificá-lo como quiser para se adaptar às suas necessidades.
 
 ## <a name="revise-existing-template"></a>Rever o modelo existente
 
-O modelo exportado dá-lhe a maior parte do JSON de que necessita, mas precisa personalizá-lo para o seu modelo. Preste especial atenção às diferenças de parâmetros e variáveis entre o seu modelo e o modelo exportado. Obviamente, o processo de exportação não conhece os parâmetros e variáveis que já definiu no seu modelo.
+O modelo exportado dá-lhe a maior parte do JSON que você precisa, mas você precisa personalizá-lo para o seu modelo. Preste especial atenção às diferenças de parâmetros e variáveis entre o seu modelo e o modelo exportado. Obviamente, o processo de exportação não conhece os parâmetros e variáveis que já definiu no seu modelo.
 
-O exemplo que se segue realça as adições ao seu modelo. Contém o código exportado mais algumas alterações. Primeiro, muda o nome do parâmetro para combinar com a sua convenção de nomeação. Em segundo lugar, utiliza o seu parâmetro de localização para a localização do plano de serviço de aplicações. Em terceiro lugar, remove o **nome** dentro do objeto de **propriedades** porque este valor é redundante com a propriedade do **nome** ao nível do recurso.
+O exemplo a seguir destaca as adições ao seu modelo. Contém o código exportado mais algumas alterações. Primeiro, muda o nome do parâmetro para corresponder à sua convenção de nomeação. Em segundo lugar, utiliza o seu parâmetro de localização para a localização do plano de serviço de aplicações. Em terceiro lugar, remove o **nome** dentro do objeto **de propriedades** porque este valor é redundante com a propriedade **do nome** ao nível do recurso.
 
 Copie todo o ficheiro e substitua o seu modelo pelo seu conteúdo.
 
@@ -82,7 +83,7 @@ Copie todo o ficheiro e substitua o seu modelo pelo seu conteúdo.
 
 Utilize o Azure CLI ou o Azure PowerShell para implementar um modelo.
 
-Se ainda não criou o grupo de recursos, consulte o [grupo de recursos Create](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que definiu a variável **modeloFile** para o caminho para o ficheiro do modelo, como mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
+Se não criou o grupo de recursos, consulte [criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que definiu a variável **modeloFile** para o caminho para o ficheiro do modelo, como mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -97,7 +98,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para executar este comando de implantação, deve ter a [versão mais recente](/cli/azure/install-azure-cli) do Azure CLI.
+Para executar este comando de implementação, tem de ter a [versão mais recente](/cli/azure/install-azure-cli) da CLI do Azure.
 
 ```azurecli
 az deployment group create \
@@ -110,31 +111,31 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se a implantação falhar, utilize o interruptor **de depuração** com o comando de implantação para mostrar os registos de depuração.  Também pode utilizar o interruptor **verboso** para mostrar os registos completos de depuração.
+> Se a implementação falhar, utilize o interruptor **de depuração** com o comando de implantação para mostrar os registos de depuração.  Também pode utilizar o interruptor **verboso** para mostrar os registos completos do depurg.
 
 ## <a name="verify-deployment"></a>Verificar a implementação
 
-Pode verificar a implantação explorando o grupo de recursos a partir do portal Azure.
+Pode verificar a implementação explorando o grupo de recursos a partir do portal Azure.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. A partir do menu esquerdo, selecione **Grupos de Recursos**.
+1. A partir do menu esquerdo, selecione **Grupos de Recursos.**
 1. Selecione o grupo de recursos para o quais foi implantado.
 1. O grupo de recursos contém uma conta de armazenamento e um plano de Serviço de Aplicações.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se está saindo para o próximo tutorial, não precisa de apagar o grupo de recursos.
+Se está a avançar para o próximo tutorial, não precisa de eliminar o grupo de recursos.
 
-Se estás a parar agora, talvez queiras limpar os recursos que implantaste ao apagar o grupo de recursos.
+Se estás a parar agora, talvez queiras limpar os recursos que mobilizaste, eliminando o grupo de recursos.
 
-1. A partir do portal Azure, selecione **Grupo Recurso** do menu esquerdo.
+1. A partir do portal Azure, selecione Grupo de **Recursos** do menu esquerdo.
 2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
 3. Selecione o nome do grupo de recursos.
-4. **Selecione Eliminar** o grupo de recursos do menu superior.
+4. **Selecione Eliminar o grupo** de recursos do menu superior.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Aprendeu a exportar um modelo do portal Azure e como usar o modelo exportado para o desenvolvimento do seu modelo. Também pode usar os modelos Azure Quickstart para simplificar o desenvolvimento do modelo.
+Você aprendeu a exportar um modelo a partir do portal Azure, e como usar o modelo exportado para o desenvolvimento do seu modelo. Também pode usar os modelos Azure Quickstart para simplificar o desenvolvimento do modelo.
 
 > [!div class="nextstepaction"]
 > [Use modelos Azure Quickstart](template-tutorial-quickstart-template.md)

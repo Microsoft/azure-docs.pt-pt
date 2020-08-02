@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/13/2019
 ms.author: mjbrown
-ms.custom: devx-track-javascript
-ms.openlocfilehash: e02b169cbaf515217b0a9fdbaa844b9022fb4e12
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-javascript, devx-track-azurecli
+ms.openlocfilehash: fa03ae10239be4ec735a2d450343bf98fde00e70
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422169"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497040"
 ---
 # <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container"></a>Produção padrão de provisão (manual) num recipiente Azure Cosmos
 
@@ -141,7 +141,7 @@ session.Execute("ALTER TABLE myKeySpace.myTable WITH cosmosdb_provisioned_throug
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos para saber sobre o fornecimento de produção em Azure Cosmos DB:
 

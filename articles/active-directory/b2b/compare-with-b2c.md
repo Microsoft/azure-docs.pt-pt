@@ -6,17 +6,18 @@ ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
 ms.date: 05/19/2020
+ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c45aae35c7c1cf2fbde436303a2ac000dfdd5ec
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: e8eff1a6d8c729a7cea49ef1e7e5ae97d40a7f99
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85339601"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87491600"
 ---
 # <a name="compare-solutions-for-external-identities-in-azure-active-directory"></a>Compare soluções para identidades externas no Diretório Ativo Azure
 

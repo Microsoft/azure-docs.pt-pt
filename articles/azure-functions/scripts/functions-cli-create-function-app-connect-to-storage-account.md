@@ -1,17 +1,17 @@
 ---
-title: Criar uma aplicação de função com armazenamento conectado - Azure CLI
+title: Criar uma app de função com armazenamento conectado - Azure CLI
 description: Exemplo do Script da CLI do Azure - Criar uma Função do Azure que se liga a um Armazenamento do Azure
 ms.topic: sample
 ms.date: 04/20/2017
-ms.custom: mvc
-ms.openlocfilehash: 833b9223d473c8bfc62485e9e47ba662a4f0e154
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 3eec4e22f80d1efd180dc6770a781ee14db680be
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75922676"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498553"
 ---
-# <a name="create-a-function-app-with-a-named-storage-account-connection"></a>Criar uma aplicação de função com uma ligação de conta de armazenamento chamada 
+# <a name="create-a-function-app-with-a-named-storage-account-connection"></a>Criar uma aplicação de função com uma conexão de conta de armazenamento chamada 
 
 Este script de exemplo das Funções do Azure cria uma aplicação de funções e liga a função a uma conta de Armazenamento do Azure. A definição da aplicação criada que contém a ligação pode ser utilizada com um [acionador ou enlace de armazenamento](../functions-bindings-storage-blob.md). 
 
@@ -37,9 +37,9 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Criar um grupo de recursos com localização. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Criar uma conta de armazenamento. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Cria uma aplicação de função no plano de [consumo](../functions-scale.md#consumption-plan)sem servidores. |
-| [az conta de armazenamento mostrar-conexão-string](/cli/azure/storage/account#az-storage-account-show-connection-string) | Obtenha a cadeia de ligação para a conta. |
-| [az functionapp config conjunto de definições](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) | Define a cadeia de ligação como uma definição de aplicação na aplicação de função. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Cria uma aplicação de função no [plano de consumo](../functions-scale.md#consumption-plan)sem servidor. |
+| [az conta de armazenamento show-connection-string](/cli/azure/storage/account#az-storage-account-show-connection-string) | Obtenha a cadeia de ligação para a conta. |
+| [az functionapp config conjunto de appsettings](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) | Define a cadeia de ligação como uma definição de aplicação na aplicação de função. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

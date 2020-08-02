@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
-ms.custom: jagaveer
-ms.openlocfilehash: 70d7eb000ed2d50bc22bb005621ee7515e5a2a61
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: jagaveer, devx-track-azurecli
+ms.openlocfilehash: 2898364811616c16a0c33ea26dcaacace9c2c4ed
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527460"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87491804"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>VMs Azure Spot para conjuntos de escala de máquina virtual 
 
@@ -47,7 +47,7 @@ Para implantar VMs spot em conjuntos de escala, pode definir a nova bandeira *pr
 - [Portal do Azure](#portal)
 - [CLI do Azure](#azure-cli)
 - [Azure PowerShell](#powershell)
-- [Modelos de gestor de recursos Azure](#resource-manager-templates)
+- [Modelos do Azure Resource Manager](#resource-manager-templates)
 
 ## <a name="portal"></a>Portal
 
@@ -168,6 +168,6 @@ Para eliminar o caso depois de ter sido despejado, altere o `evictionPolicy` par
 
 **A:** Você pode postar e marcar a sua pergunta com `azure-spot` [q&A](/answers/topics/azure-spot.html). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte a [página de preços da escala de máquina virtual](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) para obter detalhes sobre os preços.

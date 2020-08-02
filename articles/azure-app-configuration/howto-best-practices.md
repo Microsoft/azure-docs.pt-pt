@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 4da024eb4eb3747b8e0d6b291ca5b00df12aaeab
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 08a65ff8d276cd27c9f8fa07393600bc24e7b17f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367525"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500305"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Melhores práticas de Configuração de Aplicativos Azure
 
@@ -86,6 +86,10 @@ Pedidos excessivos para a Configuração da Aplicação podem resultar em encarg
 ## <a name="importing-configuration-data-into-app-configuration"></a>Importar dados de configuração para configuração de aplicativos
 
 A Configuração da Aplicação oferece a opção de importar em massa [as](https://aka.ms/azconfig-importexport1) suas definições de configuração a partir dos seus ficheiros de configuração atuais usando o portal Azure ou CLI. Também pode utilizar as mesmas opções para exportar valores a partir da Configuração de Aplicações, por exemplo entre lojas relacionadas. Se quiser configurar uma sincronização em curso com o seu repo GitHub, pode utilizar a nossa [Ação GitHub](https://aka.ms/azconfig-gha2) para que possa continuar a utilizar as suas práticas de controlo de origem existentes enquanto recebe os benefícios da Configuração de Aplicações.
+
+## <a name="multi-region-deployment-in-app-configuration"></a>Implementação multi-região na Configuração de Aplicativos
+
+A Configuração de Aplicativos é um serviço regional. Para aplicações com configurações diferentes por região, armazenar estas configurações num só caso pode criar um único ponto de falha. Implementar uma configuração de aplicações por região em várias regiões pode ser uma melhor opção. Pode ajudar na recuperação de desastres regionais, desempenho e siloing de segurança. A configuração por região também melhora a latência e utiliza quotas de estrangulamento separadas, uma vez que o estrangulamento é por exemplo. Para aplicar a mitigação da recuperação de desastres, pode utilizar [várias lojas de configuração](./concept-disaster-recovery.md). 
 
 ## <a name="next-steps"></a>Passos seguintes
 

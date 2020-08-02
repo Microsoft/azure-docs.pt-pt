@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 3be81d104e32946e2bfd7dc76052dad464f95623
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4e28a46b8d231b3f228a95ea06b7b9cada50de54
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130988"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498995"
 ---
 # <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Prepare recursos do Azure para a recuperação de desastres hiper-V
 
@@ -63,7 +63,7 @@ As imagens das máquinas replicadas são guardadas no armazenamento do Azure. As
 9. No **Local,** escolha a localização geográfica para a sua conta de armazenamento. Para este tutorial, use **a Europa Ocidental.**
 10. Selecione **Criar** para criar a conta de armazenamento.
 
-   ![Criar uma conta de armazenamento](media/tutorial-prepare-azure/create-storageacct.png)
+   ![Screenshot das opções de conta de armazenamento Criar.](media/tutorial-prepare-azure/create-storageacct.png)
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos serviços de recuperação
 
@@ -74,7 +74,7 @@ As imagens das máquinas replicadas são guardadas no armazenamento do Azure. As
 3. No **Local,** selecione a região onde o cofre deve ser localizado. Para este tutorial, use **a Europa Ocidental.**
 4. Para aceder rapidamente ao cofre a partir do painel de instrumentos, selecione **Pin to dashboard**  >  **Create**.
 
-![Criar um novo cofre](./media/tutorial-prepare-azure/new-vault-settings.png)
+![Screenshot da página do cofre do Create Recovery Services.](./media/tutorial-prepare-azure/new-vault-settings.png)
 
 O novo cofre aparece no **Dashboard**  >  **Todos os recursos**e na página principal dos **cofres dos Serviços de Recuperação.**
 
@@ -91,7 +91,7 @@ Quando as VMs do Azure são criadas a partir do armazenamento após a ativação
 7. Deixe as opções predefinidos da proteção DDoS básica, sem ponto final de serviço na rede.
 8. Selecione **Criar**.
 
-![Criar uma rede virtual](media/tutorial-prepare-azure/create-network.png)
+![Screenshot das opções de rede virtual Create.](media/tutorial-prepare-azure/create-network.png)
 
 A rede virtual demora alguns segundos a ser criada. Depois de criado, vai vê-lo no painel do portal Azure.
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 9b16a0edc1549a1b4d8ef5ba53d8b795f6d74e07
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 7c884ce839523706e67e4278f43e237e1a2b0580
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87418326"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496972"
 ---
 # <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>Arquitetura para replicação VMware/servidor físico para um site secundário no local
 
@@ -55,12 +55,10 @@ Se estiver a usar um proxy de firewall baseado em URL para controlar a conectivi
 2. Após a replicação inicial, o agente em cada máquina envia alterações de replicação delta para o servidor de processos.
 3. O servidor de processos otimiza os dados e transfere-o para o servidor de destino principal no site secundário. O servidor de configuração gere o processo de replicação.
 
-**Figura 6: Replicação de VMware para VMware**
-
-![VMware para VMware](./media/site-recovery-components/vmware-to-vmware.png)
+![Diagrama mostrando replicação de VMware VMs e servidores físicos a um centro de dados secundário](./media/site-recovery-components/vmware-to-vmware.png)
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Configurar a](vmware-physical-secondary-disaster-recovery.md) recuperação de desastres de VMware VMs e servidores físicos para um site secundário.

@@ -1,6 +1,6 @@
 ---
-title: 'CLI: Escala remicamente uma aplicação'
-description: Aprenda a utilizar o Azure CLI para automatizar a implementação e gestão da sua app App Service. Esta amostra mostra como escalar uma aplicação manualmente.
+title: 'CLI: Escalar uma aplicação manualmente'
+description: Saiba como utilizar o Azure CLI para automatizar a implementação e gestão da sua aplicação De Serviço de Aplicações. Esta amostra mostra como escalar uma aplicação manualmente.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 251d9074-8fff-4121-ad16-9eca9556ac96
@@ -8,15 +8,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 91910915384aca27ede9f836d7fe8599d4463f58
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: bb20bfcecbf869dfb9b784b02c43c9d50bc922d3
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80057678"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495442"
 ---
-# <a name="scale-an-app-service-app-manually-using-azure-cli"></a>Scale a App Service app manualmente usando O ClI Azure
+# <a name="scale-an-app-service-app-manually-using-azure-cli"></a>Escalar uma aplicação de Serviço de Aplicações manualmente usando O Azure CLI
 
 Este script de amostra cria um grupo de recursos, um plano de Serviço de Aplicações e uma aplicação. Dimensiona, em seguida, o plano do Serviço de Aplicações de uma única instância única para várias instâncias.
 
@@ -34,7 +34,7 @@ Se optar por instalar e utilizar a CLI localmente, precisa da versão 2.0 ou pos
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para criar um grupo de recursos, app app App Service e todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
+Este script utiliza os seguintes comandos para criar um grupo de recursos, app App Service e todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|

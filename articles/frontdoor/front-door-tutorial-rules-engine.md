@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: b40bb0e426571acc66d4f5f1b992fb4c6b67494a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 2ab9bc72aa30ddb16d0719827b6d7baeab86c057
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536957"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87491311"
 ---
 # <a name="configure-your-rules-engine"></a>Configure o seu motor de regras
 
@@ -90,7 +91,7 @@ az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_ru
 
 Para mais informações, uma lista completa dos comandos do MOTOR de Regras AFD pode ser consultada [aqui.](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/rules-engine?view=azure-cli-latest)   
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [o MOTOR DE Regras DA AFD](front-door-rules-engine.md). 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).

@@ -9,19 +9,19 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: e5db52d1e28a7db5594b3b2a16bc145d0a50e2e3
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 6dc0bb08e3d824c1d3fea155d1b3d4c52e1af4a6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84765085"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499845"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Gerir o acesso a espaços de trabalho, dados e oleodutos
 
 Aprenda a gerir o controlo de acesso a espaços de trabalho, dados e oleodutos num espaço de trabalho Azure Synapse Analytics (pré-visualização).
 
 > [!NOTE]
-> Para a GA, o RBAC será mais desenvolvido através da introdução de funções Azure RBAC específicas da Sinapse
+> Para a AG, o RBAC será mais desenvolvido através da introdução de funções Azure específicas da Sinapse
 
 ## <a name="access-control-for-workspace"></a>Controlo de Acesso para Espaço de Trabalho
 

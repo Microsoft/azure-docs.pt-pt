@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2dc96f587a9e5db9d9810a4d1ab7d32c4ff49f7d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: df4d1b98eac782641fb36c614d2df9508c6131ad
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289862"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498672"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop"></a>Acesso delegado ao Windows Virtual Desktop
 
@@ -40,7 +40,7 @@ O acesso delegado ao Windows Virtual Desktop suporta os seguintes valores para c
 
 Antes de iniciar, certifique-se de seguir as instruções no [Conjunto do módulo PowerShell](powershell-module.md) para configurar o módulo PowerShell virtual do Windows Desktop se ainda não o fez.
 
-O Windows Virtual Desktop utiliza o controlo de acesso baseado em funções (RBAC) ao publicar grupos de aplicações para utilizadores ou grupos de utilizadores. A função de Utilizador de Virtualização desktop é atribuída ao utilizador ou grupo de utilizadores e o âmbito é o grupo de aplicações. Esta função dá ao utilizador um acesso especial aos dados no grupo de aplicações.  
+O Windows Virtual Desktop utiliza o controlo de acesso baseado em funções Azure (Azure RBAC) enquanto publica grupos de aplicações para utilizadores ou grupos de utilizadores. A função de Utilizador de Virtualização desktop é atribuída ao utilizador ou grupo de utilizadores e o âmbito é o grupo de aplicações. Esta função dá ao utilizador um acesso especial aos dados no grupo de aplicações.  
 
 Executar o seguinte cmdlet para adicionar utilizadores do Azure Ative Directory a um grupo de aplicações:
 

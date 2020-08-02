@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 19acd39be11a33424008662eb27cd68ec0005f77
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 15c8cd3eff7b0eb64e1a512282de129f606a33ce
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038958"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501240"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Monitor Media Services registos de diagnóstico
 
@@ -49,7 +50,7 @@ Este artigo mostra-lhe como encaminhar os dados para a conta de armazenamento e,
 
    ![Secção Definições de diagnóstico](media/media-services-diagnostic-logs/logs02.png)
 1. Defina o controlo de deslize **Retenção (dias)** para 30. Este controlo de deslize define um número de dias durante os quais os dados de monitorização vão ser retidos na conta de armazenamento. O Azure Monitor elimina automaticamente os dados mais antigos em comparação com o número de dias especificado. A retenção de zero dias armazena os dados indefinidamente.
-1. Clique em **Save** (Guardar).
+1. Clique em **Guardar**.
 
 Os dados de monitorização do seu recurso estão agora a ser encaminhados para a conta de armazenamento.
 
@@ -178,7 +179,7 @@ Poderá ter de aguardar até cinco minutos para que o evento apareça na conta d
 
 * Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [Métricas do Monitor Azure](../../azure-monitor/platform/data-platform.md)
 * [Registos de diagnóstico do monitor Azure](../../azure-monitor/platform/platform-logs-overview.md)

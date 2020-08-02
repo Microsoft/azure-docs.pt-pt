@@ -1,23 +1,23 @@
 ---
-title: 'CLI: Desdobre para a ranhura de encenação'
-description: Aprenda a utilizar o Azure CLI para automatizar a implementação e gestão da sua app App Service. Esta amostra mostra como implementar código para uma ranhura de encenação.
+title: 'CLI: Implementar para a ranhura de paragem'
+description: Saiba como utilizar o Azure CLI para automatizar a implementação e gestão da sua aplicação De Serviço de Aplicações. Esta amostra mostra como implantar código para uma ranhura de encenação.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 2b995dcd-e471-4355-9fda-00babcdb156e
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 0f535e902bc86ba3c098dd2238766a3bd547781f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: c6551ecdf16c47bdaf073b14fe4e96264a699aa6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80057859"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495544"
 ---
-# <a name="create-an-app-service-app-and-deploy-code-to-a-staging-environment-using-azure-cli"></a>Crie uma aplicação de Serviço de Aplicações e implemente código para um ambiente de encenação usando o Azure CLI
+# <a name="create-an-app-service-app-and-deploy-code-to-a-staging-environment-using-azure-cli"></a>Crie uma aplicação de Serviço de Aplicações e implemente código para um ambiente de preparação usando O Azure CLI
 
-Este script de amostra cria uma aplicação no App Service com uma ranhura adicional de implementação chamada "staging", e depois implementa uma aplicação de amostra para a ranhura de "encenação".
+Este script de amostra cria uma aplicação no Serviço de Aplicações com uma ranhura adicional chamada "staging", e depois implementa uma aplicação de amostra para a ranhura de "staging".
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -42,7 +42,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Cria um plano do Serviço de Aplicações. |
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação de Serviço de Aplicações. |
 | [`az webapp deployment slot create`](/cli/azure/webapp/deployment/slot?view=azure-cli-latest#az-webapp-deployment-slot-create) | Criar um bloco de implementação. |
-| [`az webapp deployment source config`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config) | Associa uma aplicação de Serviço de Aplicações com um repositório Git ou Mercurial. |
+| [`az webapp deployment source config`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config) | Associa uma aplicação de Serviço de Aplicações a um repositório Git ou Mercurial. |
 | [`az webapp deployment slot swap`](/cli/azure/webapp/deployment/slot?view=azure-cli-latest#az-webapp-deployment-slot-swap) | Alternar um bloco de implementação especificado para produção. |
 
 ## <a name="next-steps"></a>Passos seguintes

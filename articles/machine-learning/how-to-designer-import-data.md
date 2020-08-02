@@ -10,12 +10,12 @@ ms.author: peterlu
 ms.date: 01/16/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 92568ceb9c7f0a428189647f259a3f84278eb612
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d977c8e13ce75eb276c8fdb11e9dd40e40a923ad
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327009"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495376"
 ---
 # <a name="import-data-into-azure-machine-learning-designer-preview"></a>Dados de importação para o designer de aprendizagem automática Azure (pré-visualização)
 
@@ -32,7 +32,7 @@ Recomendamos que utilize [conjuntos de dados](concept-data.md#datasets) para imp
 
 ### <a name="register-a-dataset"></a>Registar um conjunto de dados
 
-Pode registar os conjuntos de dados existentes [programaticamente com o SDK](how-to-create-register-datasets.md#use-the-sdk) ou [visualmente no estúdio Azure Machine Learning](how-to-create-register-datasets.md#use-the-ui).
+Pode registar os conjuntos de dados existentes [programaticamente com o SDK](how-to-create-register-datasets.md#datasets-sdk) ou [visualmente no estúdio Azure Machine Learning](how-to-create-register-datasets.md#datasets-ui).
 
 Também pode registar a saída de qualquer módulo de design como conjunto de dados.
 
@@ -59,7 +59,7 @@ Embora recomendemos que utilize conjuntos de dados para importar dados, também 
 Para obter informações detalhadas sobre como utilizar o módulo de Dados de Importação, consulte a [página de referência de Dados de Importação](algorithm-module-reference/import-data.md).
 
 > [!NOTE]
-> Se o seu conjunto de dados tiver demasiadas colunas, poderá encontrar o seguinte erro: "A validação falhou devido à limitação de tamanho". Para evitar isto, [registe o conjunto de dados na interface Datasets](how-to-create-register-datasets.md#use-the-ui).
+> Se o seu conjunto de dados tiver demasiadas colunas, poderá encontrar o seguinte erro: "A validação falhou devido à limitação de tamanho". Para evitar isto, [registe o conjunto de dados na interface Datasets](how-to-create-register-datasets.md#datasets-ui).
 
 ## <a name="supported-sources"></a>Fontes apoiadas
 
