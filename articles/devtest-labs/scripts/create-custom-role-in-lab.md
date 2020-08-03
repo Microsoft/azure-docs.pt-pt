@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: spelluru
-ms.openlocfilehash: 242e2a2bf743777dd43a4c84194ebd894b5edd3c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c97d5d3119644a6426152b1b832fabac3dde4863
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290411"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498417"
 ---
 # <a name="use-powershell-to-create-a-custom-role-in-a-lab-in-azure-devtest-labs"></a>Use o PowerShell para criar um papel personalizado num laboratório em Azure DevTest Labs
 
@@ -41,7 +41,7 @@ Este script utiliza os seguintes comandos:
 | Comando | Notas |
 |---|---|
 | [Get-AzProviderOperação](/powershell/module/az.resources/get-azprovideroperation) | Obtém as operações para um fornecedor de recursos Azure que são securáveis usando a Azure RBAC. |
-| [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) | Lista todas as funções Azure RBAC que estão disponíveis para atribuição. |
+| [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) | Lista todas as funções Azure que estão disponíveis para atribuição. |
 | [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) | Cria um papel personalizado. |
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/25/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5189a9dc8cd83877b4797fd828e9c9f6da8d1b93
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 405cb107711845a6699e09bc09a1d2d9f3005cd6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392859"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499981"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Início Rápido: Criar uma máquina virtual do Linux no portal do Azure
 
@@ -32,11 +32,11 @@ Inscreva-se no [portal Azure](https://portal.azure.com) se ainda não o fez.
 1. Na página **'Máquinas Virtuais',** selecione **Adicionar**. A página **de máquina virtual Create** abre.
 1. No separador **Noções básicas**, em **Detalhes do projeto**, certifique-se de que está selecionada a subscrição correta e, em seguida, selecione **Criar novo** no grupo de recursos. Digite *myResourceGroup* para o nome.*. 
 
-    ![Criar um novo grupo de recursos para a VM](./media/quick-create-portal/project-details.png)
+    ![Screenshot da secção de detalhes do Projeto mostrando onde seleciona a subscrição do Azure e o grupo de recursos para a máquina virtual](./media/quick-create-portal/project-details.png)
 
 1. Em **Exemplo,** digite *myVM* para o **nome da máquina Virtual,** escolha East *US* para a sua **Região**, e escolha *Ubuntu 18.04 LTS* para a sua **imagem**. Mantenha as restantes predefinições inalteradas.
 
-    ![Secção de detalhes da instância](./media/quick-create-portal/instance-details.png)
+    ![Screenshot da secção de detalhes da Instância onde fornece um nome para a máquina virtual e seleciona a sua região, imagem e tamanho](./media/quick-create-portal/instance-details.png)
 
 1. Na **conta de administrador**, selecione **SSH public key**.
 
@@ -44,11 +44,11 @@ Inscreva-se no [portal Azure](https://portal.azure.com) se ainda não o fez.
 
 1. Para **a fonte de chave pública SSH,** deixe o padrão de Gerar novo par de **chaves**e, em seguida, digite *myKey* para o **nome do par chave**.
 
-    ![Conta de administrador](./media/quick-create-portal/administrator-account.png)
+    ![Screenshot da secção de conta do Administrador onde seleciona um tipo de autenticação e fornece as credenciais do administrador](./media/quick-create-portal/administrator-account.png)
 
 1. Sob **as regras portuárias de entrada**Públicas portas de entrada , escolha Permitir portas  >  **selecionadas** e,**em**seguida, selecione **SSH (22)** e **HTTP (80)** a partir do drop-down. 
 
-    ![Abrir portas para RDP e HTTP](./media/quick-create-portal/inbound-port-rules.png)
+    ![Screenshot da secção de regras da porta de entrada onde seleciona quais as ligações de entrada das portas permitidas](./media/quick-create-portal/inbound-port-rules.png)
 
 1. Mantenha as restantes predefinições e, em seguida, selecione o botão **Rever + criar** na parte inferior da página.
 
@@ -61,7 +61,7 @@ Inscreva-se no [portal Azure](https://portal.azure.com) se ainda não o fez.
 1. Na página para o seu novo VM, selecione o endereço IP público e copie-o para a sua área de transferência.
 
 
-    ![Copiar o endereço IP público](./media/quick-create-portal/ip-address.png)
+    ![Screenshot mostrando como copiar o endereço IP para a máquina virtual](./media/quick-create-portal/ip-address.png)
 
 ## <a name="connect-to-virtual-machine"></a>Conectar à máquina virtual
 
@@ -94,7 +94,7 @@ Quando terminar, escreva `exit` para deixar a sessão SSH.
 
 Utilize um browser à sua escolha para ver a página predefinida de boas-vindas do NGINX. Digite o endereço IP público do VM como endereço web. O endereço IP público pode ser encontrado na página de descrição geral da VM ou como parte da cadeia de ligação SSH que utilizou anteriormente.
 
-![Site predefinido do NGINX](./media/quick-create-portal/nginx.png)
+![Screenshot mostrando o site padrão NGINX em um navegador](./media/quick-create-portal/nginx.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

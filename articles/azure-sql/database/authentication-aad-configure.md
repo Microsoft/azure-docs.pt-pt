@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 07/27/2020
-ms.openlocfilehash: 00efa3ea6fcd299dcdc51b3002d6b0459edf2ec4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f98e540a6764869f1d37edfbb0f00bf8d1cc2198
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281162"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499182"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configure e gere a autenticação AD AD com Azure SQL
 
@@ -360,7 +360,7 @@ Como a SQL Managed Instance suporta os principais dos servidores Azure AD (login
 No entanto, a utilização da autenticação do Azure Ative Directory com base de dados SQL e Azure Synapse requer a utilização de utilizadores de bases de dados contidos com base numa identidade AD Azure. Um utilizador de base de dados contido não tem um login na base de dados principal, e mapeia para uma identidade em Azure AD que está associada à base de dados. A identidade AZure AD pode ser uma conta de utilizador individual ou um grupo. Para obter mais informações sobre os utilizadores de bases de dados contidos, consulte [os Utilizadores da Base de Dados Contidos, tornando a sua base de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
 
 > [!NOTE]
-> Os utilizadores de bases de dados (com exceção dos administradores) não podem ser criados através do portal Azure. As funções do RBAC não são propagadas à base de dados na Base de Dados SQL, na SQL Managed Instance ou na Azure Synapse. As funções de Azure RBAC são usadas para gerir recursos Azure, e não se aplicam a permissões de base de dados. Por exemplo, a função **de Contribuinte do Servidor SQL** não permite o acesso à ligação à base de dados na Base de Dados SQL, na SQL Managed Instance ou na Azure Synapse. A permissão de acesso deve ser concedida diretamente na base de dados utilizando declarações Transact-SQL.
+> Os utilizadores de bases de dados (com exceção dos administradores) não podem ser criados através do portal Azure. As funções Azure não são propagadas à base de dados na Base de Dados SQL, na SQL Managed Instance ou na Azure Synapse. As funções Azure são usadas para gerir recursos Azure, e não se aplicam a permissões de base de dados. Por exemplo, a função **de Contribuinte do Servidor SQL** não permite o acesso à ligação à base de dados na Base de Dados SQL, na SQL Managed Instance ou na Azure Synapse. A permissão de acesso deve ser concedida diretamente na base de dados utilizando declarações Transact-SQL.
 
 > [!WARNING]
 > Caracteres especiais como cólon `:` ou ampersand `&` quando incluídos como nomes de utilizador no T-SQL `CREATE LOGIN` e `CREATE USER` declarações não são suportados.
@@ -544,4 +544,3 @@ As orientações sobre problemas de resolução de problemas com a autenticaçã
 [11]: ./media/authentication-aad-configure/active-directory-integrated.png
 [12]: ./media/authentication-aad-configure/12connect-using-pw-auth2.png
 [13]: ./media/authentication-aad-configure/13connect-to-db2.png
-

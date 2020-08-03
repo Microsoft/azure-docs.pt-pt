@@ -15,19 +15,16 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28af2a51119cd8328f9fa29000ead1622ae5f5e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb4b9b3b93053756896dc60c61cdb15c7e521f5d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763555"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497244"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Como configurar um único sinal federado para uma aplicação não-galeria
 
-Para configurar um único sinal para uma aplicação sem galeria sem código de *escrita,* é necessário ter uma subscrição ou Azure AD Premium e a aplicação deve apoiar o SAML 2.0. Para mais informações sobre as versões AD do Azure, visite [os preços da AD Azure](https://azure.microsoft.com/pricing/details/active-directory/).
-
-## <a name="overview-of-steps-required"></a>Visão geral das etapas necessárias
-Abaixo está uma visão geral de alto nível dos passos necessários para configurar um único sign-on federado com SAML 2.0 para uma aplicação não-galeria (por exemplo, personalizado).
+Este artigo fornece uma visão geral de alto nível dos passos necessários para configurar um único sign-on federado com SAML 2.0 para uma aplicação não-galeria (por exemplo, personalizado).
 
 -   Configure os valores de metadados da aplicação em Ad Azure (Sinal em URL, Identificador, URL de resposta)
 
@@ -184,5 +181,5 @@ Após um curto período de tempo, os utilizadores selecionados poderão lançar 
 
 Para saber como personalizar as reclamações de atributos SAML enviadas para a sua aplicação, consulte [o mapeamento de Reclamações no Azure Ative Diretório](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) para obter mais informações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Fornecer um único s-on às suas apps com Proxy de aplicações](application-proxy-configure-single-sign-on-with-kcd.md)

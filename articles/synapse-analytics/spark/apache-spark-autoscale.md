@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 03/31/2020
-ms.openlocfilehash: 7c6278d24e52159424c3e346b2382c93f4ab8160
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c043941543088d9bdbfd535f372e2335e1ba55a5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075798"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500356"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Escala automática Piscinas Apache Spark Azure Synapse
 
@@ -67,9 +67,9 @@ O número inicial de nós será o mínimo. Este valor define o tamanho inicial d
 
 Pode levar 1 a 5 minutos para uma operação de escalonamento ser concluída.
 
-### <a name="preparation-for-scaling-down"></a>Preparação para escalonamento
+### <a name="prepare-for-scaling-down"></a>Prepare-se para escalonar
 
-Durante o processo de escalonamento, a Autoscale colocará os nós em estado de desmantelamento para que nenhum novo executor possa lançar nesse nó.
+Durante o processo de escalonamento do processo, a Autoscale colocará os nós em estado de desmantelamento para que nenhum novo executor possa lançar nesse nó.
 
 Os trabalhos de corrida continuarão a funcionar e a terminar. Os postos de trabalho pendentes aguardarão para ser agendados normalmente, com menos nós disponíveis.
 

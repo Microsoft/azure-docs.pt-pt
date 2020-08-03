@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: 3a410eac22d41dc4eead1689ab48e67a4ee52b32
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 72c7f1dd6652a51a960c80829a697b97fd74f8de
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510094"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500032"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Tutorial: Criar e gerir redes virtuais do Azure para máquinas virtuais do Linux com a CLI do Azure
 
@@ -289,7 +289,7 @@ A VM de back-end só é acessível na porta *22* e na porta *3306* a partir da s
 az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --output table
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou e protegeu redes do Azure relacionadas com máquinas virtuais. Aprendeu a:
 

@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: mjbrown
-ms.openlocfilehash: 761789b36e85b16f0b4482cef12645e673c73be7
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 6e62e307b6c5f5de939505eae8850f0117782a69
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87429704"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498366"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Criar um recipiente Azure Cosmos
 
@@ -119,17 +120,17 @@ Para uma lista de todas as amostras do Azure CLI em todas as APIs do Azure Cosmo
 * [Crie um gráfico Gremlin com Azure CLI](./scripts/cli/gremlin/create.md)
 * [Criar uma tabela API de tabela com CLI Azure](./scripts/cli/table/create.md)
 
-## <a name="create-a-container-using-powershella-idps-mongodba-idps-gremlin"></a>Criar um recipiente utilizando o PowerShell<a id="ps-sql"></a><a id="ps-mongodb"><a id="ps-cassandra"></a><a id="ps-gremlin"><a id="ps-table"></a>
+## <a name="create-a-container-using-powershell"></a>Criar um recipiente utilizando o PowerShell
 
 Os links abaixo mostram como criar recursos de contentores para a Azure Cosmos DB usando PowerShell.
 
-Para uma lista de todas as amostras powerShell em todas as APIs Azure Cosmos ver, [SQL API,](powershell-samples-sql.md) [Cassandra API,](powershell-samples-cassandra.md) [MongoDB API,](powershell-samples-mongodb.md) [Gremlin API](powershell-samples-gremlin.md)e [Table API](powershell-samples-table.md)
+Para uma lista de todas as amostras powerShell em todas as APIs do Azure Cosmos ver, [Amostras powerShell](powershell-samples.md)
 
 * [Criar um recipiente com PowerShell](manage-with-powershell.md#create-container)
-* [Criar uma coleção para Azure Cosmos DB para MongoDB API com PowerShell](./scripts/powershell/mongodb/ps-mongodb-create.md)
-* [Criar uma tabela Cassandra com PowerShell](./scripts/powershell/cassandra/ps-cassandra-create.md)
-* [Criar um gráfico Gremlin com PowerShell](./scripts/powershell/gremlin/ps-gremlin-create.md)
-* [Criar uma tabela API de tabela com PowerShell](./scripts/powershell/table/ps-table-create.md)
+* [Criar uma coleção para Azure Cosmos DB para MongoDB API com PowerShell](./scripts/powershell/mongodb/create.md)
+* [Criar uma tabela Cassandra com PowerShell](./scripts/powershell/cassandra/create.md)
+* [Criar um gráfico Gremlin com PowerShell](./scripts/powershell/gremlin/create.md)
+* [Criar uma tabela API de tabela com PowerShell](./scripts/powershell/table/create.md)
 
 ## <a name="create-a-container-using-net-sdk"></a>Criar um contentor com o SDK .NET
 
@@ -169,7 +170,7 @@ session.Execute(CREATE TABLE myKeySpace.myTable(
     lastName text) WITH cosmosdb_provisioned_throughput=1000);
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criação de partições no Azure Cosmos DB](partitioning-overview.md)
 * [Unidades de Pedido no Azure Cosmos DB](request-units.md)

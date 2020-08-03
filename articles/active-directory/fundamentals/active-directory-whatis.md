@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a6b7d40512fe3537610efa42ccc33c9f8e80212
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: ddfb0343e925354a57a54e02f3eb98b7a1d01bcb
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484376"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495119"
 ---
 # <a name="what-is-azure-active-directory"></a>O que é o Azure Active Directory?
 
@@ -51,9 +51,9 @@ Para melhorar a sua implementação Azure AD, também pode adicionar capacidades
 
 - **Azure Ative Directy Free.** Fornece gestão de utilizadores e grupos, sincronização de diretórios no local, relatórios básicos, alteração de senha de autosserviço para utilizadores na nuvem, e um único sinal de entrada em Azure, Office 365 e muitas aplicações populares do SaaS.
 
-- **Azure Active Directory Premium P1.** Além das funcionalidades Free, o P1 também permite aos seus utilizadores híbridos acederem tanto ao local como aos recursos na nuvem. Também suporta administração avançada, como grupos dinâmicos, gestão de grupos de self-service, Microsoft Identity Manager (uma suite de gestão de identidade e acesso no local) e capacidades de back-back de cloud, que permitem o reset da palavra-passe de autosserviço para os seus utilizadores no local.
+- **Azure Ative Directory Premium P1.** Além das funcionalidades Free, o P1 também permite aos seus utilizadores híbridos acederem tanto ao local como aos recursos na nuvem. Também suporta administração avançada, como grupos dinâmicos, gestão de grupos de self-service, Microsoft Identity Manager (uma suite de gestão de identidade e acesso no local) e capacidades de back-back de cloud, que permitem o reset da palavra-passe de autosserviço para os seus utilizadores no local.
 
-- **Azure Active Directory Premium P2.** Além das funcionalidades Free e P1, o P2 também oferece proteção de [identidade do Diretório Ativo Azure](../identity-protection/overview-identity-protection.md) para ajudar a fornecer acesso condicional baseado no risco às suas apps e dados críticos da empresa e [Gestão de Identidade Privilegiada](../privileged-identity-management/pim-getting-started.md) para ajudar a descobrir, restringir e monitorizar os administradores e o seu acesso aos recursos e fornecer acesso just-in-time quando necessário.
+- **Azure Ative Directory Premium P2.** Além das funcionalidades Free e P1, o P2 também oferece proteção de [identidade do Diretório Ativo Azure](../identity-protection/overview-identity-protection.md) para ajudar a fornecer acesso condicional baseado no risco às suas apps e dados críticos da empresa e [Gestão de Identidade Privilegiada](../privileged-identity-management/pim-getting-started.md) para ajudar a descobrir, restringir e monitorizar os administradores e o seu acesso aos recursos e fornecer acesso just-in-time quando necessário.
 
 - **Licenças de recurso "Pay as you go".** Também pode obter licenças de recursos adicionais, tais como Azure Ative Directory Business-to-Customer (B2C). O B2C pode ajudá-lo a fornecer soluções de gestão de identidade e acesso para as suas aplicações viradas para o cliente. Para mais informações, consulte [a documentação do Azure Ative Directory B2C](../../active-directory-b2c/index.yml).
 
@@ -90,9 +90,9 @@ Para melhor entender a Azure AD e a sua documentação, recomendamos a revisão 
 |Identidade| Uma coisa que pode ser autenticada. Uma identidade pode ser um utilizador com um nome de utilizador e senha. As identidades também incluem aplicações ou outros servidores que podem exigir autenticação através de chaves ou certificados secretos.|
 |Conta| Uma identidade que tem dados associados a ela. Não se pode ter uma conta sem identidade.|
 |Conta do Azure AD| Uma identidade criada através do Azure AD ou de outro serviço de cloud da Microsoft, como o Office 365. As identidades são armazenadas em Azure AD e acessíveis às subscrições de serviços em nuvem da sua organização. Esta conta também é por vezes chamada de conta de trabalho ou escola.|
-|Administrador de Conta|Esta função clássica de administrador de subscrição é conceptualmente a proprietária de uma subscrição. Esta função tem acesso ao [Centro de Conta Azure](https://account.azure.com/Subscriptions) e permite-lhe gerir todas as subscrições numa conta. Para obter mais informações, consulte [as funções de administrador de subscrição clássica, funções de controlo de acesso baseado em funções (RBAC) e funções de administrador da AD Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
-|Administrador de Serviços|Esta função clássica de administrador de subscrição permite-lhe gerir todos os recursos da Azure, incluindo o acesso. Esta função tem o acesso equivalente a um utilizador a quem é atribuída a função De proprietário no âmbito de subscrição. Para obter mais informações, consulte [as funções de administrador de subscrição clássica, funções de administrador do Azure RBAC e funções de administrador da AD Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
-|Proprietário|Este papel ajuda-o a gerir todos os recursos da Azure, incluindo o acesso. Esta função baseia-se num novo sistema de autorização chamado controlo de acesso de base de função (RBAC) que fornece uma gestão de acesso de grãos finos aos recursos Azure. Para obter mais informações, consulte [as funções de administrador de subscrição clássica, funções de administrador do Azure RBAC e funções de administrador da AD Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
+|Administrador de Conta|Esta função clássica de administrador de subscrição é conceptualmente a proprietária de uma subscrição. Esta função tem acesso ao [Centro de Conta Azure](https://account.azure.com/Subscriptions) e permite-lhe gerir todas as subscrições numa conta. Para obter mais informações, consulte [as funções de administrador de subscrição clássica, funções de Azure e funções de administrador da AD Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
+|Administrador de Serviços|Esta função clássica de administrador de subscrição permite-lhe gerir todos os recursos da Azure, incluindo o acesso. Esta função tem o acesso equivalente a um utilizador a quem é atribuída a função De proprietário no âmbito de subscrição. Para obter mais informações, consulte [as funções de administrador de subscrição clássica, funções de Azure e funções de administrador da AD Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
+|Proprietário|Este papel ajuda-o a gerir todos os recursos da Azure, incluindo o acesso. Esta função baseia-se num novo sistema de autorização chamado controlo de acesso de base de função (RBAC) que fornece uma gestão de acesso de grãos finos aos recursos Azure. Para obter mais informações, consulte [as funções de administrador de subscrição clássica, funções de Azure e funções de administrador da AD Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Administrador global do Azure AD|Esta função de administrador é automaticamente atribuída a quem criou o inquilino Azure AD. Os administradores globais podem fazer todas as funções administrativas do Azure AD e quaisquer serviços que federam para a Azure AD, tais como Exchange Online, SharePoint Online e Skype for Business Online. Pode ter vários administradores globais, mas apenas os administradores globais podem atribuir funções de administrador (incluindo a atribuição de outros administradores globais) aos utilizadores. Note que esta função de administrador é chamada de administrador global no portal Azure, mas é chamado administrador da **Empresa** no Microsoft Graph API e Azure AD PowerShell.Para obter mais informações sobre as várias funções de administrador, consulte permissões de [função de administrador no Azure Ative Directory](../users-groups-roles/directory-assign-admin-roles.md).|
 |Subscrição do Azure| Costumava pagar pelos serviços de nuvem Azure. Pode ter muitas subscrições e estão ligadas a um cartão de crédito.|
 |Inquilino do Azure| Uma instância dedicada e fidedigna do Azure AD que é automaticamente criada quando a sua organização se inscreve para uma subscrição de serviço na nuvem da Microsoft, como Microsoft Azure, Microsoft Intune ou Office 365. Um inquilino do Azure representa uma única organização.|
@@ -102,7 +102,7 @@ Para melhor entender a Azure AD e a sua documentação, recomendamos a revisão 
 |Domínio personalizado|Cada novo diretório AD Azure vem com um nome de domínio inicial, domainname.onmicrosoft.com. Além desse nome inicial, também pode adicionar os nomes de domínio da sua organização, que incluem os nomes que usa para fazer negócios e os seus utilizadores usam para aceder aos recursos da sua organização, à lista. Adicionar nomes de domínio personalizados ajuda-o a criar nomes de utilizadores que sejam familiares aos seus utilizadores, tais como alain@contoso.com .|
 |Conta Microsoft (também chamada, MSA)|Contas pessoais que fornecem acesso aos seus produtos e serviços na nuvem orientados para o consumidor, tais como Outlook, OneDrive, Xbox LIVE ou Office 365. A sua conta Microsoft é criada e armazenada no sistema de contas de identidade de consumo da Microsoft que é gerido pela Microsoft.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Inscrever-se no Azure Active Directory Premium](active-directory-get-started-premium.md)
 

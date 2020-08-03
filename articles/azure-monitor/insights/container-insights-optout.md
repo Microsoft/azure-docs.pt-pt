@@ -3,12 +3,13 @@ title: Como parar de monitorizar o seu cluster de serviçoS Azure Kubernetes Mic
 description: Este artigo descreve como pode descontinuar a monitorização do seu cluster Azure AKS com o Azure Monitor para contentores.
 ms.topic: conceptual
 ms.date: 08/19/2019
-ms.openlocfilehash: caa932815ea46da2603c2621bef40e467fdf16c7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: af5f49dfe5e668f39f105a62ad20858e273b34cb
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499057"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489491"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Como parar a monitorização do Azure Kubernetes Service (AKS) com o Azure Monitor para contentores
 
@@ -162,6 +163,6 @@ ProvisioningState       : Succeeded
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se o espaço de trabalho foi criado apenas para suportar a monitorização do cluster e já não é necessário, tem de o eliminar manualmente. Se não estiver familiarizado com a forma de eliminar um espaço de trabalho, consulte [Eliminar um espaço de trabalho Azure Log Analytics com o portal Azure](../platform/delete-workspace.md). Não te esqueças do **ID do Espaço de Trabalho** copiado mais cedo no passo 4, vais precisar disso.

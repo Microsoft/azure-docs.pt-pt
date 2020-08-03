@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 6dfa162de02174ac4a1a8251457249bd5ea4d766
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: af387b063a3c07d8b6b6c544814565e2a5ebdd46
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87416337"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495731"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Arquitetura da recuperação após desastre do Hyper-V para o Azure
 
@@ -36,7 +36,7 @@ A tabela e gráfico seguintes fornecem uma visão de alto nível dos componentes
 
 **Arquitetura Hyper-V a Azure (sem VMM)**
 
-![Arquitetura](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
+![Diagrama mostrando no local hiper-V para arquitetura Azure sem VMM.](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
 
 
 ## <a name="architectural-components---hyper-v-with-vmm"></a>Componentes arquitetónicos - Hiper-V com VMM
@@ -49,11 +49,11 @@ A tabela e gráfico seguintes fornecem uma visão de alto nível dos componentes
 **Servidor VMM** | O servidor VMM tem uma ou mais clouds que contêm anfitriões Hyper-V. | Instala o Fornecedor de Recuperação de Sítio no servidor VMM, para orquestrar a replicação com a Recuperação do Local e registar o servidor no cofre dos Serviços de Recuperação.
 **Anfitrião Hyper-V** | Um ou mais anfitriões/clusters de Hyper-V geridos pelo VMM. |  Instale o agente Recovery Services em cada hospedeiro Hiper-V ou nó de cluster.
 **VMs Hyper-V** | Uma ou mais VMs em execução num servidor de anfitrião Hyper-V. | Nada tem de estar explicitamente instalado nas VMs.
-**Redes** | Redes lógicas e de VMs configuradas no servidor VMM. A rede VM deve estar ligada a uma rede lógica associada à nuvem. | As redes VM estão mapeadas para redes virtuais Azure. Quando os VMs Azure são criados após o failover, são adicionados à rede Azure que está mapeada para a rede VM.
+**Rede** | Redes lógicas e de VMs configuradas no servidor VMM. A rede VM deve estar ligada a uma rede lógica associada à nuvem. | As redes VM estão mapeadas para redes virtuais Azure. Quando os VMs Azure são criados após o failover, são adicionados à rede Azure que está mapeada para a rede VM.
 
 **Arquitetura Hyper-V a Azure (com VMM)**
 
-![Componentes](./media/hyper-v-azure-architecture/arch-onprem-onprem-azure-vmm.png)
+![Diagrama mostrando no local hiper-V para arquitetura Azure com VMM.](./media/hyper-v-azure-architecture/arch-onprem-onprem-azure-vmm.png)
 
 ## <a name="set-up-outbound-network-connectivity"></a>Configurar a conectividade da rede de saída
 
@@ -66,7 +66,7 @@ Para que a Recuperação do Site funcione como esperado, é necessário modifica
 
 Se estiver a usar um proxy de firewall baseado em URL para controlar a conectividade de saída, permita o acesso a estes URLs:
 
-| **Nome**                  | **Comercial**                               | **Governo**                                 | **Descrição** |
+| **Nome**                  | **Comercial**                               | **Administração Pública**                                 | **Descrição** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Armazenamento                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Permite que os dados sejam escritos da VM para a conta de armazenamento em cache na região de origem. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fornece autorização e autenticação para os URLs do serviço Site Recovery. |
@@ -76,7 +76,7 @@ Se estiver a usar um proxy de firewall baseado em URL para controlar a conectivi
 
 ## <a name="replication-process"></a>Processo de replicação
 
-![Hiper-V para a replicação de Azure](./media/hyper-v-azure-architecture/arch-hyperv-azure-workflow.png)
+![Diagrama mostrando o processo de replicação do Hiper-V para Azure](./media/hyper-v-azure-architecture/arch-hyperv-azure-workflow.png)
 
 **Processo de replicação e recuperação**
 
@@ -86,7 +86,7 @@ Se estiver a usar um proxy de firewall baseado em URL para controlar a conectivi
 1. Depois de ativar a proteção para uma VM Hyper-V, no portal do Azure ou no local, **Ativar a proteção** é iniciado.
 2. A tarefa verifica se a máquina está em conformidade com os pré-requisitos, antes de invocar o [CreateReplicationRelationship](/windows/win32/hyperv_v2/createreplicationrelationship-msvm-replicationservice), para configurar a replicação com as definições que configurou.
 3. A tarefa inicia a replicação inicial ao invocar o método [StartReplication](/windows/win32/hyperv_v2/startreplication-msvm-replicationservice), para inicializar uma replicação de VM completa e enviar os discos virtuais da VM para o Azure.
-4. Pode monitorizar o trabalho na conta **Jobs.**      ![Lista de empregos ](media/hyper-v-azure-architecture/image1.png) ![ Permitir a perfuração de proteção para baixo](media/hyper-v-azure-architecture/image2.png)
+4. Pode monitorizar o trabalho na conta **Jobs.**      ![Screenshot da lista de empregos na conta Jobs. ](media/hyper-v-azure-architecture/image1.png) ![Screenshot do ecrã de proteção Enable com mais detalhes.](media/hyper-v-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>Replicação inicial de dados
@@ -123,7 +123,7 @@ Se estiver a usar um proxy de firewall baseado em URL para controlar a conectivi
 2. Após a conclusão da ressincronização, a replicação delta normal deve ser retomada.
 3. Se não quiser esperar pela ressincronização padrão fora de horas, pode ressincronizar manualmente um VM. Por exemplo, se ocorrer uma paragem. Para isso, no portal Azure, selecione o VM > **Resynchronize**.
 
-    ![Ressincronização manual](./media/hyper-v-azure-architecture/image4-site.png)
+    ![Screenshot mostrando a opção Resynchronize.](./media/hyper-v-azure-architecture/image4-site.png)
 
 
 ### <a name="retry-process"></a>Processo de retíria
@@ -157,7 +157,7 @@ Depois de a sua infraestrutura no local estar a funcionar novamente, pode falhar
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 
 Siga [este tutorial](tutorial-prepare-azure.md) para começar com a replicação do Hyper-V para Azure.

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 60f2a1992750950b50995fcf36513e44e377004d
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: fb56c4da77ddeb87ebc3724a3b138994e4da98e7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386610"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489695"
 ---
 # <a name="query-nested-types-in-parquet-and-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Tipos de perguntas aninhadas em ficheiros Parquet e JSON utilizando SQL on-demand (pré-visualização) em Azure Synapse Analytics
 
@@ -203,7 +203,7 @@ FROM
 
 A estrutura `MapOfPersons` é devolvida como coluna e `VARCHAR` formatada como corda JSON.
 
-## <a name="projecting-values-from-repeated-columns"></a>Projetar valores a partir de colunas repetidas
+## <a name="project-values-from-repeated-columns"></a>Valores do projeto a partir de colunas repetidas
 
 Se tiver uma série de valores escalares (por `[1,2,3]` exemplo) em algumas colunas, pode expandi-los facilmente e juntá-los com a linha principal usando o seguinte script:
 
@@ -219,6 +219,6 @@ FROM
     CROSS APPLY OPENJSON (SimpleArray) WITH (Element int '$') as array_values
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O próximo artigo irá mostrar-lhe como [consultar ficheiros JSON](query-json-files.md).

@@ -3,12 +3,13 @@ title: Gerir segredos de aplicação de malha de malha de tecido de serviço Azu
 description: Gerencie a aplicação Secrets para que possa criar e implementar de forma segura uma aplicação de malha de tecido de serviço.
 ms.date: 4/2/2019
 ms.topic: conceptual
-ms.openlocfilehash: d7946092a0bebe374404870fcd711ad33cc98b11
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 379560b73c38558fe0b712ed5e036c7a3736b600
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75461930"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500713"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Gerir segredos de aplicação de malha de tecido de serviço
 A Malha de Tecido de Serviço suporta segredos como recursos Azure. Um segredo de malha de tecido de serviço pode ser qualquer informação de texto sensível, como cadeias de ligação de armazenamento, palavras-passe ou outros valores que devem ser armazenados e transmitidos de forma segura. Este artigo mostra como usar o Serviço de Loja Segura de Tecido de Serviço para implementar e manter segredos.
@@ -241,6 +242,6 @@ az mesh secretvalue show --Resource-group <myResourceGroup> --secret-name <mySec
 az mesh secretvalue delete --Resource-group <myResourceGroup> --secret-name <mySecret> --version <N>
 ```
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 Para saber mais sobre a Malha de Tecido de Serviço, leia a visão geral:
 - [Visão geral da malha de tecido de serviço](service-fabric-mesh-overview.md)

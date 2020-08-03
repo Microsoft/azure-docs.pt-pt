@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b247b64d563bc2b12c5bffff6a460d77cb96207
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f6bd09a24202b599c1f008e7b046ea5f93ff0323
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485603"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489797"
 ---
 # <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Ativar e utilizar a autenticação multi-factor Azure com aplicações antigas usando senhas de aplicação
 
@@ -88,6 +88,12 @@ Por padrão, os utilizadores não podem criar senhas de aplicação. A funcional
 5. Na página Definições de **Serviço,** selecione o **Permitir que os utilizadores criem senhas de aplicação para iniciar sessão na opção de aplicações não-navegador.**
 
     ![Screenshot do portal Azure que mostra as definições de serviço para autenticação de vários fatores para permitir ao utilizador de senhas de aplicação](media/concept-authentication-methods/app-password-authentication-method.png)
+    
+> [!NOTE]
+>
+> Quando desativa a capacidade de os utilizadores criarem senhas de aplicação, as palavras-passe existentes continuam a funcionar. No entanto, os utilizadores não conseguem gerir ou eliminar as palavras-passe existentes da aplicação uma vez que desativam esta capacidade.
+>
+> Quando desativa a capacidade de criar palavras-passe de aplicações, recomenda-se também [criar uma política de Acesso Condicional para desativar o uso da autenticação antiga.](../conditional-access/block-legacy-authentication.md) Esta abordagem impede que as palavras-passe existentes da aplicação funcionem e força o uso de métodos modernos de autenticação.
 
 ## <a name="create-an-app-password"></a>Criar uma senha de aplicação
 
@@ -95,6 +101,6 @@ Quando os utilizadores completam o seu registo inicial de Autenticação Multi-F
 
 Os utilizadores também podem criar senhas de aplicação após o registo. Para obter mais informações e passos detalhados para os seus utilizadores, veja [o que são palavras-passe da aplicação na Autenticação Multi-Factor Azure?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre como permitir que os utilizadores se registem rapidamente para autenticação multi-factor Azure, consulte [a visão geral do registo de informações](concept-registration-mfa-sspr-combined.md)de segurança combinadas .

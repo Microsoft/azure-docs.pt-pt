@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 7ef7a771442dba5c7f82196a13b77cb28b0d1ed8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 93e6b373aa125facb3a3eddecc926438c919b335
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386661"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489746"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Ficheiros de armazenamento de consultas utilizando recursos SQL on-demand (pré-visualização) dentro do Sinaapse SQL
 
@@ -90,7 +90,7 @@ WITH (
 ```
 
 Para cada coluna, tem de especificar o nome da coluna e escrever a `WITH` cláusula.
-Para amostras, consulte os [ficheiros de Leitura de CSV sem especificar todas as colunas](query-single-csv-file.md#returning-subset-of-columns).
+Para amostras, consulte os [ficheiros de Leitura de CSV sem especificar todas as colunas](query-single-csv-file.md#return-a-subset-of-columns).
 
 ## <a name="schema-inference"></a>Inferência do esquema
 
@@ -260,7 +260,7 @@ Os dados de demonstração contêm os seguintes conjuntos de dados:
 | /json/livros/                                                 | Ficheiros JSON com dados de livros                                   |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre como consultar diferentes tipos de ficheiros e criar e utilizar pontos de vista, consulte os seguintes artigos:
 

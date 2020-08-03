@@ -1,16 +1,17 @@
 ---
 title: 'Quickstart: A sua primeira consulta Azure CLI'
-description: Neste arranque rápido, siga os passos para ativar a extensão do Graph de Recursos para o Azure CLI e faça a sua primeira consulta.
+description: Neste arranque rápido, siga os passos para ativar a extensão do Gráfico de Recurso para O Azure CLI e executar a sua primeira consulta.
 ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 1c7c3a37c2fc5b6aebaa42cacba71897684b2207
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 82e36027e5016554770fc9359f413c1fff6fe227
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871979"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500679"
 ---
-# <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Quickstart: Execute a sua primeira consulta de gráfico de recursos usando o Azure CLI
+# <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Quickstart: Executar a sua primeira consulta de Gráfico de Recursos usando O Azure CLI
 
 O primeiro passo para utilizar o Azure Resource Graph é garantir que a extensão da [CLI do Azure](/cli/azure/) está instalada. Este início rápido explica-lhe o processo para adicionar a extensão à instalação da CLI do Azure. Pode utilizar a extensão com a CLI do Azure instalada localmente ou através do [Azure Cloud Shell](https://shell.azure.com).
 
@@ -18,7 +19,7 @@ No final deste processo, terá adicionado a extensão à instalação da CLI do 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -26,7 +27,7 @@ Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.mi
 
 Para ativar a CLI do Azure para consultar o Azure Resource Graph, tem de adicionar a extensão. Esta extensão funciona onde quer que a CLI do Azure possa ser utilizada, incluindo [bash no Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) (autónomo e no portal), a [imagem do Docker da CLI do Azure](https://hub.docker.com/r/microsoft/azure-cli/), ou instalada localmente.
 
-1. Verifique se o mais recente Azure CLI está instalado (pelo menos **2.0.76**). Se não estiver ainda instalado, siga [estas instruções](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+1. Verifique se o último Azure CLI está instalado (pelo menos **2.0.76**). Se não estiver ainda instalado, siga [estas instruções](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
 1. No ambiente da CLI do Azure à escolha, importe-a com o seguinte comando:
 
@@ -35,7 +36,7 @@ Para ativar a CLI do Azure para consultar o Azure Resource Graph, tem de adicion
    az extension add --name resource-graph
    ```
 
-1. Valide que a extensão foi instalada e é a versão esperada (pelo menos **1.0.0**):
+1. Validar que a extensão foi instalada e é a versão prevista (pelo menos **1.0.0**):
 
    ```azurecli-interactive
    # Check the extension list (note that you may have other extensions installed)
@@ -69,7 +70,7 @@ Com a extensão da CLI do Azure adicionada ao seu ambiente escolhido, é altura 
    ```
 
    > [!NOTE]
-   > Assim como na primeira consulta, é provável que executar esta consulta várias vezes produza um conjunto diferente de recursos em cada pedido. A ordem dos comandos da consulta é importante. Neste exemplo, `order by` vem depois de `limit`, Esta ordem de comando primeiro limita os resultados da consulta e, em seguida, ordena-os.
+   > Assim como na primeira consulta, é provável que executar esta consulta várias vezes produza um conjunto diferente de recursos em cada pedido. A ordem dos comandos da consulta é importante. Neste exemplo, `order by` vem depois de `limit`, Esta ordem de comando limita primeiro os resultados da consulta e depois ordena-os.
 
 1. Atualize a consulta para primeiro `order by` propriedade **Nome** e, em seguida, `limit` os cinco resultados principais:
 
@@ -91,7 +92,7 @@ az extension remove -n resource-graph
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, adicionou a extensão do Graph de Recursos ao seu ambiente Azure CLI e executa a sua primeira consulta. Para saber mais sobre a linguagem do Graph de Recursos, continue na página de detalhes da linguagem da consulta.
+Neste arranque rápido, adicionou a extensão do Gráfico de Recursos ao seu ambiente Azure CLI e executou a sua primeira consulta. Para saber mais sobre a linguagem Resource Graph, continue na página de detalhes da linguagem de consulta.
 
 > [!div class="nextstepaction"]
-> [Obtenha mais informações sobre a linguagem de consulta](./concepts/query-language.md)
+> [Obtenha mais informações sobre o idioma de consulta](./concepts/query-language.md)

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 28c56b7ece51e39d72c4ddff39d681eeb57d2252
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: dc225cef2981bd6307a919d52b75d3e0791e46cf
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024728"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87491005"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Criar e configurar um domínio gerido por Serviços de Domínio do Diretório Ativo Azure
 
@@ -55,7 +55,7 @@ Neste tutorial, cria-se e configura o domínio gerido utilizando o portal Azure.
 
 Para lançar o assistente **de Serviços de Domínio Azure Ad Enable,** complete os seguintes passos:
 
-1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**.
+1. No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**.
 1. Introduza *os Serviços de Domínio* na barra de pesquisa e, em seguida, escolha os Serviços de Domínio *Azure AD* a partir das sugestões de pesquisa.
 1. Na página Azure AD Domain Services, selecione **Criar**. É lançado o assistente **de Serviços de Domínio Enable Azure AD.**
 1. Selecione a **Subscrição** Azure na qual pretende criar o domínio gerido.
@@ -99,7 +99,7 @@ Complete os campos na janela *Basics* do portal Azure para criar um domínio ger
     Para este tutorial, selecione o *Standard* SKU.
 1. Uma *floresta* é uma construção lógica usada pelos Serviços de Domínio do Diretório Ativo para agrupar um ou mais domínios. Por padrão, um domínio gerido é criado como uma floresta *de utilizadores.* Este tipo de floresta sincroniza todos os objetos a partir de Azure AD, incluindo quaisquer contas de utilizador criadas em um ambiente AD DS no local.
 
-    Uma floresta *de recursos* apenas sincroniza utilizadores e grupos criados diretamente em Azure AD. As florestas de recursos estão atualmente em pré-visualização. Para obter mais informações sobre as florestas *de recursos,* incluindo por que você pode usar uma e como criar fidedignidades florestais com domínios AD DS no local, consulte a visão geral das [florestas de recursos AD DS AD.][resource-forests]
+    Uma floresta *de recursos* apenas sincroniza utilizadores e grupos criados diretamente em Azure AD. Para obter mais informações sobre as florestas *de recursos,* incluindo por que você pode usar uma e como criar fidedignidades florestais com domínios AD DS no local, consulte a visão geral das [florestas de recursos AD DS AD.][resource-forests]
 
     Para este tutorial, opte por criar uma floresta *de utilizadores.*
 

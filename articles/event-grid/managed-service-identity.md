@@ -3,12 +3,12 @@ title: Entrega de eventos com identidade de serviço gerido
 description: Este artigo descreve como permitir a identidade de serviço gerida para um tópico de grelha de eventos Azure. Use-o para encaminhar eventos para destinos apoiados.
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: c05eb2e78595e962494a60b1ffa8ead899aa0109
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b437d519a076104b64fb2df5cba1cd61a865b1fc
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371265"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499828"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Entrega de eventos com identidade gerida
 Este artigo descreve como permitir uma [identidade de serviço gerida](../active-directory/managed-identities-azure-resources/overview.md) para tópicos ou domínios da grelha de eventos Azure. Use-o para encaminhar eventos para destinos apoiados, como filas e tópicos de Service Bus, centros de eventos e contas de armazenamento.
@@ -64,7 +64,7 @@ az eventgrid topic update -g $rg --name $topicname --identity systemassigned --s
 O comando para a atualização de um domínio existente é semelhante `az eventgrid domain update` ().
 
 ## <a name="supported-destinations-and-rbac-roles"></a>Destinos apoiados e funções de RBAC
-Depois de ativar a identidade para o tópico ou domínio da grelha de eventos, o Azure cria automaticamente uma identidade no Azure Ative Directory. Adicione esta identidade às funções adequadas de controlo de acesso baseado em funções (RBAC) para que o tópico ou domínio possa encaminhar eventos para destinos apoiados. Por exemplo, adicione a identidade ao papel **de Remetente de dados do Azure Event Hubs** para um espaço de nomes Azure Event Hubs para que o tópico da grelha de eventos possa encaminhar eventos para centros de eventos nesse espaço de nome. 
+Depois de ativar a identidade para o tópico ou domínio da grelha de eventos, o Azure cria automaticamente uma identidade no Azure Ative Directory. Adicione esta identidade às funções Azure apropriadas para que o tópico ou domínio possa encaminhar eventos para destinos apoiados. Por exemplo, adicione a identidade ao papel **de Remetente de dados do Azure Event Hubs** para um espaço de nomes Azure Event Hubs para que o tópico da grelha de eventos possa encaminhar eventos para centros de eventos nesse espaço de nome. 
 
 Atualmente, a grelha de eventos Azure suporta tópicos ou domínios configurados com uma identidade gerida atribuída ao sistema para encaminhar eventos para os seguintes destinos. Esta tabela também lhe dá os papéis em que a identidade deve estar para que o tópico possa encaminhá-lo os eventos.
 

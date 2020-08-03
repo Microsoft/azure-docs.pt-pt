@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: sample
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 9a9518eb4c8635275b9cbf0467f3091eca10f647
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 880ccf9a69d5898da98aeabcfd89d05ff94e3b43
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223011"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489814"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Crie um domínio gerido por Serviços de Domínio de Diretório Ativo Azure usando um modelo de Gestor de Recursos Azure
 
@@ -126,7 +126,7 @@ Como parte da definição de recursos do Gestor de Recursos, são necessários o
 | domínioName              | O nome de domínio DNS para o seu domínio gerido, tendo em conta os pontos anteriores sobre o nome de prefixos e conflitos. |
 | filtradoSync            | O Azure AD DS permite sincronizar *todos os* utilizadores e grupos disponíveis no Azure AD, ou uma sincronização *de* grupos específicos.<br /><br /> Para obter mais informações sobre a sincronização de âmbito, consulte [a sincronização dos Serviços de Domínio AZure AD][scoped-sync].|
 | notificaçõesS    | Se houver alertas gerados no domínio gerido, podem ser enviadas notificações por e-mail. <br /><br />*Os administradores globais* do inquilino Azure e membros do grupo de *administradores da AAD DC* podem ser *habilitados* para estas notificações.<br /><br /> Se desejar, pode adicionar destinatários adicionais para notificações quando há alertas que requerem atenção.|
-| ConfigurationType de domínio | Por padrão, um domínio gerido é criado como uma floresta *de utilizadores.* Este tipo de floresta sincroniza todos os objetos a partir de Azure AD, incluindo quaisquer contas de utilizador criadas em um ambiente AD DS no local. Não é necessário especificar um *valor de configuração de domínio* para criar uma floresta de utilizadores.<br /><br /> Uma floresta *de recursos* apenas sincroniza utilizadores e grupos criados diretamente em Azure AD. As florestas de recursos estão atualmente em pré-visualização. Desfie o valor para *o ResourceTrusting* para criar uma floresta de recursos.<br /><br />Para obter mais informações sobre as florestas *de recursos,* incluindo por que você pode usar uma e como criar fidedignidades florestais com domínios AD DS no local, consulte a visão geral das [florestas de recursos AD DS AD.][resource-forests]|
+| ConfigurationType de domínio | Por padrão, um domínio gerido é criado como uma floresta *de utilizadores.* Este tipo de floresta sincroniza todos os objetos a partir de Azure AD, incluindo quaisquer contas de utilizador criadas em um ambiente AD DS no local. Não é necessário especificar um *valor de configuração de domínio* para criar uma floresta de utilizadores.<br /><br /> Uma floresta *de recursos* apenas sincroniza utilizadores e grupos criados diretamente em Azure AD. Desfie o valor para *o ResourceTrusting* para criar uma floresta de recursos.<br /><br />Para obter mais informações sobre as florestas *de recursos,* incluindo por que você pode usar uma e como criar fidedignidades florestais com domínios AD DS no local, consulte a visão geral das [florestas de recursos AD DS AD.][resource-forests]|
 
 A seguinte definição de parâmetros condensados mostra como estes valores são declarados. Uma floresta de utilizadores chamada *aaddscontoso.com* é criada com todos os utilizadores do Azure AD sincronizados com o domínio gerido:
 

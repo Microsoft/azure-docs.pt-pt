@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: d60eeb279f9faa469c98d3d0578d0e4c1cdf0bd2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e2e13d00e48c83ff56cc21f23f513d17f545b4e4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283457"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496054"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Acesso à conta de armazenamento de controlo para SQL a pedido (pré-visualização)
 
@@ -219,7 +219,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 
 ## <a name="examples"></a>Exemplos
 
-**Aceder a fonte de dados publicamente disponível**
+### <a name="access-a-publicly-available-data-source"></a>**Aceda a uma fonte de dados publicamente disponível**
 
 Utilize o seguinte script para criar uma tabela que aceda a fonte de dados publicamente disponível.
 
@@ -248,7 +248,7 @@ SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
 GO
 ```
 
-**Aceder à fonte de dados utilizando a credencial**
+### <a name="access-a-data-source-using-credentials"></a>**Aceda a uma fonte de dados usando credenciais**
 
 Modifique o seguinte script para criar uma tabela externa que aceda ao armazenamento Azure usando o token SAS, identidade AD AD do utilizador ou identidade gerida do espaço de trabalho.
 

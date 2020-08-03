@@ -13,12 +13,13 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 60d184b3739d05063a0cddd108a2b2d7d49b57d7
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 6c52275735a6558a625e2118761d7ba98509dbe1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962770"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497074"
 ---
 # <a name="register-a-sql-server-vm-in-azure-with-the-sql-vm-resource-provider-rp"></a>Registar um SQL Server VM em Azure com o fornecedor de recursos SQL VM (RP)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -56,7 +57,7 @@ Para utilizar o fornecedor de recursos SQL VM, tem primeiro de [registar a sua s
 
 Para registar o seu SQL Server VM com o fornecedor de recursos, necessitará de: 
 
-- Uma [assinatura Azure](https://azure.microsoft.com/free/).
+- Uma [subscrição do Azure](https://azure.microsoft.com/free/).
 - Um Azure Resource Model [SQL Server VM](create-sql-vm-portal.md) implantado para o público ou nuvem do Governo Azure. 
 - A versão mais recente de [Azure CLI](/cli/azure/install-azure-cli) ou [PowerShell](/powershell/azure/new-azureps-module-az). 
 
@@ -367,7 +368,7 @@ O fornecedor de recursos SQL VM só suporta:
 - VMs do servidor SQL implantados para o público ou nuvem do Governo Azure. As deslocações para outras nuvens privadas ou governamentais não são apoiadas. 
 
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes 
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes 
 
 **Devo registar o meu SQL Server VM a partir de uma imagem do SQL Server no Azure Marketplace?**
 

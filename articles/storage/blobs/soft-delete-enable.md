@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 05/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 2914dfed14360c114476025c74f3dc0c03d82e25
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 182679c89482b269319a4d0747b6d83bb19b9c5c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224898"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498179"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Ative e gere a eliminação suave para bolhas
 

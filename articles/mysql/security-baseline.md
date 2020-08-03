@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 02050745e7c8a9aa05d3f2de63a4bc5f1ebf8318
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e73f53fe983c1ebe77044993a281847ad362a840
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83654786"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496778"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mysql"></a>Linha de Base de Segurança Azure para Base de Dados Azure para MySQL
 
@@ -547,7 +547,7 @@ Compreender a proteção de dados do cliente em Azure:https://docs.microsoft.com
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos
 
-**Orientação**: Utilize o controlo de acesso baseado em funções (RBAC) para controlar o acesso à Base de Dados Azure para o plano de controlo MySQL (por exemplo, portal Azure). Para o acesso a um plano de dados (dentro da própria base de dados), utilize consultas SQL para criar utilizadores e configurar permissões do utilizador. O RBAC não afeta as permissões do utilizador dentro da base de dados.
+**Orientação**: Utilize o controlo de acesso baseado em funções Azure (Azure RBAC) para controlar o acesso à Base de Dados Azure para o plano de controlo MySQL (por exemplo, portal Azure). Para o acesso a um plano de dados (dentro da própria base de dados), utilize consultas SQL para criar utilizadores e configurar permissões do utilizador. O RBAC não afeta as permissões do utilizador dentro da base de dados.
 
 Como configurar o RBAC em Azure:https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
@@ -1101,7 +1101,7 @@ Pode encontrar mais informações sobre a estratégia e execução da Red Teamin
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte o [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
 - Saiba mais sobre [as Linhas de Base de Segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

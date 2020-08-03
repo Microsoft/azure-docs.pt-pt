@@ -1,37 +1,38 @@
 ---
-title: 'Azure HDInsight: Amostras Azure CLI'
-description: Exemplos de CLI azure para tarefas comuns no Azure HDInsight.
+title: 'Azure HDInsight: Amostras de CLI Azure'
+description: Exemplos de Azure CLI para tarefas comuns em Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 09/23/2019
-ms.openlocfilehash: cbbb38c645e56b2e7b8c70b437b1e5158b09a50b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: d0d621728ac1956b2c036c9a45202c5d75ee9153
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78207103"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499573"
 ---
-# <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight: Amostras Azure CLI
+# <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight: Amostras de CLI Azure
 
 > [!div class="op_single_selector"]
-> [.NET Exemplos](hdinsight-sdk-dotnet-samples.md)
-> [Python Exemplos](hdinsight-sdk-python-samples.md)
-> [De Java Exemplos](hdinsight-sdk-java-samples.md)
+> [.NET Exemplos](hdinsight-sdk-dotnet-samples.md) 
+>  Exemplos de [Python](hdinsight-sdk-python-samples.md) 
+>  [Exemplos de Java](hdinsight-sdk-java-samples.md)
 
-Este artigo fornece scripts de amostra para tarefas comuns. Para cada exemplo, atualize as variáveis com os valores apropriados e, em seguida, execute o comando.
+Este artigo fornece scripts de amostra para tarefas comuns. Por exemplo, atualize as variáveis com os valores apropriados e, em seguida, execute o comando.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Azure CLI. Consulte [a instalação do AZURE CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) para obter passos.
+* CLI do Azure. Consulte [a Instalação do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) para obter passos.
 
-* Opcional: Bash. Os exemplos deste artigo usam a concha bash no Windows 10. Consulte o Subsistema Windows para obter o Guia de [Instalação do Linux para o Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) para obter as etapas de instalação.  Os exemplos funcionarão a partir de um pedido de Comando windows com algumas ligeiras modificações.
+* Opcional: Bash. Os exemplos deste artigo utilizam a concha Bash no Windows 10. Consulte [o subsistema Windows para o Guia de Instalação do Linux para o Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) para obter etapas de instalação.  Os exemplos funcionarão a partir de uma solicitação do Windows Command com algumas modificações ligeiras.
 
 ## <a name="az-login"></a>az login
 
-[Faça login no Azure](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login).
+[Faça login no Azure.](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login)
 
 ```azurecli
 az login
@@ -135,7 +136,7 @@ az hdinsight create \
     --storage-account-managed-identity $sami
 ```
 
-### <a name="create-a-cluster-with-configuration-from-json-string"></a>Criar um cluster com configuração da cadeia JSON
+### <a name="create-a-cluster-with-configuration-from-json-string"></a>Criar um cluster com configuração a partir da cadeia JSON
 
 ```azurecli
 export clusterName=CLUSTERNAME
@@ -175,7 +176,7 @@ az hdinsight create \
 
 ## <a name="az-hdinsight-application-create"></a>az hdinsight aplicação criar
 
-[Criar uma aplicação para um cluster HDInsight](https://docs.microsoft.com/cli/azure/hdinsight/application?view=azure-cli-latest#az-hdinsight-application-create).
+[Crie uma aplicação para um cluster HDInsight](https://docs.microsoft.com/cli/azure/hdinsight/application?view=azure-cli-latest#az-hdinsight-application-create).
 
 ### <a name="create-an-application-with-a-script-uri"></a>Criar uma aplicação com um script URI
 
@@ -196,7 +197,7 @@ az hdinsight application create \
     --script-parameters "$scriptParameters"
 ```
 
-### <a name="create-an-application-with-a-script-uri-and-specified-edge-node-size"></a>Criar uma aplicação com um script URI e tamanho especificado do nó de borda
+### <a name="create-an-application-with-a-script-uri-and-specified-edge-node-size"></a>Crie uma aplicação com um script URI e tamanho especificado do nó de borda
 
 ```azurecli
 export resourceGroupName=RESOURCEGROUPNAME
@@ -217,7 +218,7 @@ az hdinsight application create \
     --edgenode-size $edgenodeSize
 ```
 
-### <a name="create-an-application-with-https-endpoint"></a>Criar uma aplicação com HTTPS Endpoint
+### <a name="create-an-application-with-https-endpoint"></a>Criar uma aplicação com o PONTO Final HTTPS
 
 ```azurecli
 export resourceGroupName=RESOURCEGROUPNAME
@@ -240,11 +241,11 @@ az hdinsight application create \
     --sub-domain-suffix $subDomainSuffix
 ```
 
-## <a name="az-hdinsight-script-action-execute"></a>az hdinsight script-action executar
+## <a name="az-hdinsight-script-action-execute"></a>az hdinsight script-ação executar
 
-Execute as ações de [script no cluster HDInsight especificado](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute).
+[Execute as ações de script no cluster HDInsight especificado.](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute)
 
-### <a name="execute-a-script-action-and-persist-on-success"></a>Execute uma ação de guião e persista no sucesso
+### <a name="execute-a-script-action-and-persist-on-success"></a>Execute uma ação de script e persista no sucesso
 
 ```azurecli
 export resourceGroupName=RESOURCEGROUPNAME

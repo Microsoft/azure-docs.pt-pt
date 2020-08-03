@@ -1,19 +1,19 @@
 ---
-title: Script CLI - Restaurar servidor - Base de Dados Azure para MySQL
+title: Script CLI - Restaurar servidor - Azure Database for MySQL
 description: Este script da CLI do Azure de exemplo mostra como restaurar um servidor da Base de Dados do Azure para MySQL e as respetivas bases de dados para um ponto anterior no tempo.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 12/02/2019
-ms.openlocfilehash: 5a84a44a4ea941bf3b77f0762fc764ec069919c7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 748e85a967025d053083bb249614eada012ab71a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74771333"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495204"
 ---
 # <a name="restore-an-azure-database-for-mysql-server-using-azure-cli"></a>Restaurar um servidor da Base de Dados do Azure para MySQL com a CLI do Azure
 Este script de exemplo da CLI restaura um único servidor da Base de Dados do Azure para MySQL para um ponto anterior no tempo.

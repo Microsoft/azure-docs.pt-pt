@@ -5,12 +5,13 @@ ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 44648f1c01aed221e90029eb64d48576b899b1c4
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: be7f9d66a10f3f0f4a1ae0f9e28e226f268a7f7c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132590"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497448"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>Introdução ao Azure Data Lake Analytics com a CLI do Azure
 

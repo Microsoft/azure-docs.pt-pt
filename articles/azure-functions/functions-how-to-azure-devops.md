@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: cshoe
-ms.custom: tracking-python
-ms.openlocfilehash: 0e47078e9f7620e72524ccf91e942d4e15a6b5bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: tracking-python, devx-track-azurecli
+ms.openlocfilehash: 4f291fd7787b67b2717662c9aaa20e2a825f33b1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559108"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496836"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Entrega contínua utilizando Azure DevOps
 
@@ -26,7 +26,7 @@ Tem duas opções para definir o seu oleoduto:
 
 Para criar um pipeline baseado em YAML, primeiro construa a sua app e, em seguida, implemente a aplicação.
 
-### <a name="build-your-app"></a>Criar a sua aplicação
+### <a name="build-your-app"></a>Compilar a sua aplicação
 
 A forma como constrói a sua aplicação em Azure Pipelines depende da linguagem de programação da sua aplicação. Cada idioma tem passos de construção específicos que criam um artefacto de implantação. Um artefacto de implantação é usado para implementar a sua aplicação de função em Azure.
 
@@ -216,7 +216,7 @@ steps:
 
 Os modelos em Azure DevOps são grupos pré-finidos de tarefas que constroem ou implementam uma aplicação.
 
-### <a name="build-your-app"></a>Criar a sua aplicação
+### <a name="build-your-app"></a>Compilar a sua aplicação
 
 A forma como constrói a sua aplicação em Azure Pipelines depende da linguagem de programação da sua aplicação. Cada idioma tem passos de construção específicos que criam um artefacto de implantação. Um artefacto de implementação é usado para atualizar a sua aplicação de função em Azure.
 
@@ -266,7 +266,7 @@ Para criar um gasoduto de construção em Azure, utilize o `az functionapp devop
 
     - Deve ser o administrador do projeto em Azure DevOps.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja a [visão geral das funções Azure](functions-overview.md).
 - Reveja a [visão geral do Azure DevOps](/azure/devops/pipelines/).

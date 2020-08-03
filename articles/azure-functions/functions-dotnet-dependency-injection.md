@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 02cb862c5ec6f75d546aabcd6e8ac97a4de961a4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 05b845f3284ea95dd2be595c4d59767e45149306
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082958"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500469"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Utilizar a injeção de dependências nas Funções do Azure do .NET
 
@@ -121,7 +121,7 @@ As aplicações Azure Functions fornecem as mesmas vidas de serviço [que ASP.NE
 - **Âmbito :** A vida útil do serviço de âmbito corresponde a uma execução útil da função. Os serviços de âmbito são criados uma vez por execução. Os pedidos posteriores para esse serviço durante a execução reutilizam a instância de serviço existente.
 - **Singleton**: A vida útil de singleton corresponde à vida útil do hospedeiro e é reutilizada através de execuções de funções nesse caso. Os serviços de vida da Singleton são recomendados para ligações e clientes, por exemplo `DocumentClient` ou `HttpClient` casos.
 
-Veja ou descarregue uma [amostra de diferentes vidas de serviço](https://aka.ms/functions/di-sample) no GitHub.
+Veja ou descarregue uma [amostra de diferentes vidas de serviço](https://github.com/Azure/azure-functions-dotnet-extensions/tree/main/src/samples/DependencyInjection/Scopes) no GitHub.
 
 ## <a name="logging-services"></a>Serviços de registo
 

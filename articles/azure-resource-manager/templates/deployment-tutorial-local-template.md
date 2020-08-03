@@ -4,12 +4,13 @@ description: Saiba como implementar um modelo de Gestor de Recursos Azure a part
 ms.date: 05/20/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3112c3940f9d2668f4825de3c2e57a63af009d92
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: ef52d20b20446e3b8f3b761949bf255b99d358cc
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118907"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499590"
 ---
 # <a name="tutorial-deploy-a-local-azure-resource-manager-template"></a>Tutorial: Implementar um modelo local de gestor de recursos Azure
 
@@ -25,7 +26,7 @@ Comecemos por ter a certeza de que tem as ferramentas necessárias para implemen
 
 Você precisa de Azure PowerShell ou Azure CLI para implementar o modelo. Para as instruções de instalação, consulte:
 
-- [Instalar o Azure PowerShell](/powershell/azure/install-az-ps)
+- [Instalar Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalar a CLI do Azure no Windows](/cli/azure/install-azure-cli-windows)
 - [Instale o Azure CLI no Linux](/cli/azure/install-azure-cli-linux)
 
@@ -42,7 +43,7 @@ O modelo implementa uma conta de armazenamento, plano de serviço de aplicaçõe
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json":::
 
 > [!IMPORTANT]
-> Os nomes das contas de armazenamento devem ter entre 3 e 24 caracteres de comprimento e utilizar apenas números e letras minúsculas. O nome deve ser único. No modelo, o nome da conta de armazenamento é o nome do projeto com "store" anexado, e o nome do projeto deve estar entre 3 e 11 caracteres. Assim, o nome do projeto deve satisfazer os requisitos de nome da conta de armazenamento e tem menos de 11 caracteres.
+> Os nomes das contas de armazenamento devem ter entre 3 e 24 caracteres de comprimento e utilizar apenas números e letras minúsculas. O nome tem de ser exclusivo. No modelo, o nome da conta de armazenamento é o nome do projeto com "store" anexado, e o nome do projeto deve estar entre 3 e 11 caracteres. Assim, o nome do projeto deve satisfazer os requisitos de nome da conta de armazenamento e tem menos de 11 caracteres.
 
 Guarde uma cópia do modelo para o computador local com a extensão .json, por exemplo, azuredeploy.jsligado. Você implementa este modelo mais tarde no tutorial.
 
@@ -160,7 +161,7 @@ Limpe os recursos que implementou eliminando o grupo de recursos.
 3. Selecione o nome do grupo de recursos.
 4. **Selecione Eliminar o grupo** de recursos do menu superior.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aprendeu a implementar um modelo local. No tutorial seguinte, você separa o modelo em um modelo principal e um modelo ligado, e aprender a armazenar e proteger o modelo ligado.
 

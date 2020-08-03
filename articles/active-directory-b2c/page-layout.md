@@ -8,21 +8,29 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/26/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3d0cb06f84fdd96d099e05f55ba62c37cb1192c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4548b50e4168f260cb401c40dd4e61192cea1015
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78183980"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489542"
 ---
 # <a name="page-layout-versions"></a>Versões do esquema de página
 
 Os pacotes de layout da página são periodicamente atualizados para incluir correções e melhorias nos seus elementos de página. O registo de alterações a seguir especifica as alterações introduzidas em cada versão.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
+
+## <a name="210"></a>2.1.0
+
+- Página autoafirmada `selfasserted` ()
+  - Correções de localização e acessibilidade.
+- Página unificada do SSP `unifiedssp` ()
+  - Suporte adicional para várias ligações de inscrição.
+  - Suporte adicional para validação de entradas de utilizador de acordo com as regras predicados definidas na política.
 
 ## <a name="200"></a>2.0.0
 
@@ -40,6 +48,8 @@ Os pacotes de layout da página são periodicamente atualizados para incluir cor
   - Suporte para tradução do Chrome
 - Páginas unificadas e autoafirmadas
   - Os campos de nome/e-mail e palavra-passe utilizam agora o `form` elemento HTML para permitir que o Edge e o Internet Explorer (IE) guardem corretamente esta informação.
+- Página autoafirmada
+  - Adicionou um atraso de validação de entrada de utilizador configurável para uma melhor experiência do utilizador.
 
 ## <a name="110"></a>1.1.0
 
@@ -67,6 +77,6 @@ Os pacotes de layout da página são periodicamente atualizados para incluir cor
 
 - Versão inicial
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter detalhes sobre como personalizar a interface do utilizador das suas aplicações em políticas personalizadas, consulte [Personalizar a interface do utilizador da sua aplicação utilizando uma política personalizada.](custom-policy-ui-customization.md)

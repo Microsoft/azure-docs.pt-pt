@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: iainfou
-ms.openlocfilehash: 4f1f6c60ef2e0ccdd3e166e2272fe917ead3ed2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6266248b817485562c7ed2643b3dda5f32cecc53
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735052"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489678"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Conceitos de gestão para contas de utilizador, palavras-passe e administração em Azure Ative Directory Domain Services
 
@@ -70,7 +70,7 @@ Em Azure AD DS, a floresta contém apenas um domínio. As florestas de DS AD no 
 
 Por padrão, um domínio gerido é criado como uma floresta *de utilizadores.* Este tipo de floresta sincroniza todos os objetos a partir de Azure AD, incluindo quaisquer contas de utilizador criadas em um ambiente AD DS no local. As contas dos utilizadores podem autenticar-se diretamente contra o domínio gerido, de modo a iniciar seducação num VM de domínio. Uma floresta de utilizadores funciona quando os hashes de palavra-passe podem ser sincronizados e os utilizadores não estão a usar métodos exclusivos de entrada como a autenticação de cartões inteligentes.
 
-Numa floresta de *recursos* Azure AD DS, os utilizadores autenticam-se sobre uma *confiança* florestal unidireccionária a partir dos seus DS AD no local. Com esta abordagem, os objetos de utilizador e as hashes de palavra-passe não são sincronizados com O AZure AD DS. Os objetos e credenciais do utilizador só existem no local AD DS. Esta abordagem permite às empresas acolher recursos e plataformas de aplicação em Azure que dependem da autenticação clássica como LDAPS, Kerberos ou NTLM, mas quaisquer problemas ou preocupações de autenticação são removidos. As florestas de recursos Azure AD DS estão atualmente em pré-visualização.
+Numa floresta de *recursos* Azure AD DS, os utilizadores autenticam-se sobre uma *confiança* florestal unidireccionária a partir dos seus DS AD no local. Com esta abordagem, os objetos de utilizador e as hashes de palavra-passe não são sincronizados com O AZure AD DS. Os objetos e credenciais do utilizador só existem no local AD DS. Esta abordagem permite às empresas acolher recursos e plataformas de aplicação em Azure que dependem da autenticação clássica como LDAPS, Kerberos ou NTLM, mas quaisquer problemas ou preocupações de autenticação são removidos.
 
 Para obter mais informações sobre os tipos de floresta em Azure AD DS, veja [o que são as florestas de recursos?][concepts-forest] [How do forest trusts work in Azure AD DS?][concepts-trust]
 
@@ -81,7 +81,7 @@ No Azure AD DS, o desempenho e funcionalidades disponíveis são baseados no SKU
 | Nome SKU   | Contagem máxima de objetos | Frequência de cópia de segurança | Número máximo de fundos florestais de saída |
 |------------|----------------------|------------------|----|
 | Standard   | Ilimitado            | A cada 7 dias     | 0  |
-| Enterprise | Ilimitado            | A cada 3 dias     | 5  |
+| Grandes Empresas | Ilimitado            | A cada 3 dias     | 5  |
 | Premium    | Ilimitado            | Diário            | 10 |
 
 Antes desteS Azure AD DS SKUs, foi utilizado um modelo de faturação baseado no número de objetos (contas de utilizador e computador) no domínio gerido. Já não existe preços variáveis com base no número de objetos no domínio gerido.
@@ -102,9 +102,9 @@ A frequência de backup determina a frequência com que é tirada uma imagem do 
 
 ### <a name="outbound-forest-trusts"></a>Fundos florestais de saída
 
-A secção anterior detalhava os fundos florestais de saída de uma só ida de um domínio gerido para um ambiente AD DS no local (atualmente em pré-visualização). O SKU determina o número máximo de fundos florestais que pode criar para um domínio gerido. Reveja os requisitos de negócio e aplicação para determinar quantos fundos precisa, e escolha o Azure AD DS SKU apropriado. Mais uma vez, se os requisitos do seu negócio mudarem e precisar de criar fundos florestais adicionais, pode mudar para um SKU diferente.
+A secção anterior detalhava os fundos florestais de saída de uma só ida de um domínio gerido para um ambiente DS AD no local. O SKU determina o número máximo de fundos florestais que pode criar para um domínio gerido. Reveja os requisitos de negócio e aplicação para determinar quantos fundos precisa, e escolha o Azure AD DS SKU apropriado. Mais uma vez, se os requisitos do seu negócio mudarem e precisar de criar fundos florestais adicionais, pode mudar para um SKU diferente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar, [crie um domínio gerido Azure AD DS][create-instance].
 

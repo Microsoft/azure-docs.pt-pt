@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/11/2020
+ms.date: 07/31/2020
 ms.author: juliako
-ms.openlocfilehash: f019ebd59b2d0b9d6bae8a5dc4904f1bcae0e6c1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 032a3c719610d658ec32492033a04a610117643d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090115"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489780"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Embalagem dinâmica em Media Services v3
 
@@ -33,6 +33,8 @@ Nos Media Services, um [ponto final de streaming](streaming-endpoint-concept.md)
 ## <a name="to-prepare-your-source-files-for-delivery"></a>Para preparar os seus ficheiros de origem para entrega
 
 Para tirar partido da embalagem dinâmica, é necessário [codificar](encoding-concept.md) o seu ficheiro mezanino (fonte) num conjunto de ficheiros MP4 (ISO Base Media 14496-12). É necessário ter um [ativo](assets-concept.md) com os ficheiros de configuração DE MP4 codificados e de streaming necessários pela embalagem dinâmica dos Media Services. A partir deste conjunto de ficheiros MP4, pode utilizar embalagens dinâmicas para entregar vídeo através dos protocolos de streaming de meios descritos abaixo.
+
+A embalagem dinâmica Azure Media Services suporta apenas ficheiros de vídeo e áudio no formato de contentorES MP4. Os ficheiros de áudio devem ser codificados num recipiente MP4 quando utilizarem códigos alternativos como o Dolby.  
 
 > [!TIP]
 > Uma forma de obter os ficheiros de configuração MP4 e streaming é [codificar o seu ficheiro mezanino com os Media Services](#encode-to-adaptive-bitrate-mp4s). 
@@ -87,7 +89,7 @@ O diagrama a seguir mostra o streaming a pedido com fluxo de trabalho dinâmico 
 
 ![Diagrama de um fluxo de trabalho para streaming a pedido com embalagem dinâmica](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
-O caminho de descarregamento está presente na imagem acima apenas para mostrar que pode descarregar um ficheiro MP4 diretamente através do *ponto final de streaming* (origem) (especifica a política de [streaming](streaming-policy-concept.md) descarregada no localizador de streaming).<br/>O embalador dinâmico não está a alterar o ficheiro. 
+O caminho de descarregamento está presente na imagem acima apenas para mostrar que pode descarregar um ficheiro MP4 diretamente através do *ponto final de streaming* (origem) (especifica a política de [streaming](streaming-policy-concept.md) descarregada no localizador de streaming).<br/>O embalador dinâmico não está a alterar o ficheiro. Pode utilizar opcionalmente as APIs de armazenamento de blob Azure para aceder a um MP4 diretamente para download progressivo se desejar contornar as funcionalidades *de ponta de streaming* (origem). 
 
 ### <a name="encode-to-adaptive-bitrate-mp4s"></a>Codificar para adaptáveis bitrate MP4s
 
@@ -123,17 +125,17 @@ Para obter informações sobre o streaming em direto nos Media Services v3, cons
 
 ## <a name="video-codecs-supported-by-dynamic-packaging"></a>Códigos de vídeo suportados por Dynamic Packaging
 
-A embalagem dinâmica suporta ficheiros MP4 que contenham vídeo codificado com [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC ou AVC1) ou [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1 ou hvc1).
+A embalagem dinâmica suporta ficheiros de vídeo que se encontram no formato de ficheiro de contentores MP4 e contêm vídeo codificado com [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC ou AVC1) ou [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1 ou hvc1).
 
 > [!NOTE]
 > Foram testadas resoluções de até 4K e taxas de fotogramas até 60 fotogramas/segundo com *embalagens dinâmicas.* O [Premium Encoder](../previous/media-services-encode-asset.md#media-encoder-premium-workflow) suporta a codificação para H.265 através do legado v2 APIs.
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>Codecs de áudio suportados por embalagens dinâmicas
 
-A embalagem dinâmica suporta áudio codificado com os seguintes protocolos:
+A embalagem dinâmica também suporta ficheiros áudio que são armazenados no formato de contentor de ficheiros MP4 contendo fluxo de áudio codificado num dos seguintes códigos:
 
-* [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1 ou HE-AAC v2)
-* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (AC-3 ou E-AC3 melhorados)
+* [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, ou HE-AAC v2). 
+* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (AC-3 ou E-AC3 melhorados).  O áudio codificado deve ser armazenado no formato de recipiente MP4 para funcionar com a Dynamic Packaging.
 * Dolby Atmos
 
    O conteúdo do Streaming Dolby Atmos é suportado para padrões como o protocolo MPEG-DASH com o Formato Comum de Streaming (CSF) ou o Formato Comum de Aplicação de Mídia (CMAF) fragmentado MP4, e via HTTP Live Streaming (HLS) com CMAF.
@@ -146,6 +148,10 @@ A embalagem dinâmica suporta áudio codificado com os seguintes protocolos:
     * DTS-HD Sem perdas (sem núcleo) (dtsl)
 
 A embalagem dinâmica suporta múltiplas faixas de áudio com DASH ou HLS (versão 4 ou posterior) para streaming de ativos que têm múltiplas faixas de áudio com vários codecs e idiomas.
+
+Para todos os códigos de áudio acima, o áudio codificado deve ser armazenado no formato de recipiente MP4 para funcionar com a Dynamic Packaging. O serviço não suporta formatos de ficheiros de fluxo elementar brutos no armazenamento de bolhas (por exemplo, o seguinte não seria suportado - .dts, .ac3.) 
+
+Apenas os ficheiros com a extensão .mp4a da extensão .mp4a são suportados para embalagem áudio. 
 
 ### <a name="limitations"></a>Limitações
 

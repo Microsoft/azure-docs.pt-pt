@@ -1,17 +1,17 @@
 ---
-title: Tutorial - Implementar app de contentores para instância de contentores
-description: Instâncias de contentores azure parte 3 de 3 - Implemente aplicação de contentores para instâncias de contentores azure
+title: Tutorial - Implementar app de contentores para a instância do contentor
+description: Instâncias tutoriais de instâncias de contentores Azure parte 3 de 3 - Implantar aplicação de contentores para instâncias de contentores Azure
 ms.topic: tutorial
 ms.date: 03/21/2018
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 757b41bd69d69deb901e3b5b9a633dce3b9e133a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: 2ea3d285f00d38df84587d9a7c15242fff38453b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78249963"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500577"
 ---
-# <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Tutorial: Implementar uma aplicação de contentores para instâncias de contentores azure
+# <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Tutorial: Implementar uma aplicação de contentores para instâncias de contentores Azure
 
 Este é o último tutorial de uma série de três partes. Nas duas primeiras partes da série, [foi criada uma imagem de contentor](container-instances-tutorial-prepare-app.md) e [enviada para o Azure Container Registry](container-instances-tutorial-prepare-acr.md). Este artigo termina a série ao implementar o contentor no Azure Container Instances.
 
@@ -22,7 +22,7 @@ Neste tutorial:
 > * Vai ver a aplicação em execução no browser
 > * Vai ver os registos do contentor
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 [!INCLUDE [container-instances-tutorial-prerequisites](../../includes/container-instances-tutorial-prerequisites.md)]
 
@@ -32,11 +32,11 @@ Nesta secção, vai utilizar a CLI do Azure para implementar a imagem criada no 
 
 ### <a name="get-registry-credentials"></a>Obter as credenciais do registo
 
-Quando você implanta uma imagem que está hospedada num registo privado de contentores Azure como a criada no [segundo tutorial,](container-instances-tutorial-prepare-acr.md)você deve fornecer credenciais para aceder ao registo. 
+Quando você implanta uma imagem que está hospedada em um registro privado de contentores Azure como o criado no [segundo tutorial](container-instances-tutorial-prepare-acr.md), você deve fornecer credenciais para aceder ao registro. 
 
-A melhor prática para muitos cenários é criar e configurar um diretor de serviço de Diretório Ativo Azure com permissões de *puxar* para o seu registo. Consulte [o Authenticate com o Registo de Contentores Azure a partir de Instâncias de Contentores Azure](../container-registry/container-registry-auth-aci.md) para obter scripts de amostra para criar um diretor de serviço com as permissões necessárias. Tome nota do *ID principal* do serviço e da senha principal do *serviço*. Usa estas credenciais para aceder ao registo quando implanta o contentor.
+Uma boa prática para muitos cenários é criar e configurar um diretor de serviço Azure Ative Directory com permissões *de retirada* para o seu registo. Consulte [autenticar com registo de contentores Azure a partir de instâncias de contentores Azure](../container-registry/container-registry-auth-aci.md) para obter scripts de amostra para criar um principal de serviço com as permissões necessárias. Tome nota da *identificação principal* do serviço e *da senha principal do serviço.* Utiliza estas credenciais para aceder ao registo quando coloca o contentor.
 
-Também precisa do nome completo do servidor de `<acrName>` login do registo de contentores (substitua-o pelo nome do seu registo):
+Também precisa do nome completo do servidor de login do registo do contentor (substituído `<acrName>` pelo nome do seu registo):
 
 ```azurecli
 az acr show --name <acrName> --query loginServer
@@ -44,7 +44,7 @@ az acr show --name <acrName> --query loginServer
 
 ### <a name="deploy-container"></a>Implementar o contentor
 
-Agora, utilize o comando [az container create][az-container-create] para implementar o contentor. Substitua-a `<acrLoginServer>` pelo valor obtido do comando anterior. `<service-principal-ID>` Substitua `<service-principal-password>` e com o id principal de serviço e senha que criou para aceder ao registo. Substitua-a `<aciDnsLabel>` por um nome DNS desejado.
+Agora, utilize o comando [az container create][az-container-create] para implementar o contentor. `<acrLoginServer>`Substitua-o pelo valor obtido do comando anterior. Substitua `<service-principal-ID>` e `<service-principal-password>` pelo ID principal de serviço e senha que criou para aceder ao registo. Substitua `<aciDnsLabel>` por um nome DNS desejado.
 
 ```azurecli
 az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <service-principal-ID> --registry-password <service-principal-password> --dns-name-label <aciDnsLabel> --ports 80

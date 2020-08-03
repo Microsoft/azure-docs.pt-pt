@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/22/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: e3acfb9552db9fa972b0a407e52cece014b45389
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ee23b2bc58f8c1f15a7e51b05dee954c1e584293
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025018"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489627"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a Gestão de API do Azure com redes virtuais
 As Redes Virtuais (VNETs) do Azure permitem-lhe colocar quaisquer recursos do Azure numa rede encaminhável sem Internet para a qual controla o acesso. Estas redes podem então ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre as Redes Virtuais Azure comece com a informação aqui: [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
@@ -118,7 +118,7 @@ Segue-se uma lista de problemas comuns de configuração errada que podem ocorre
 | * / 1433                     | Saída           | TCP                | VIRTUAL_NETWORK / SQL                 | **Acesso aos pontos finais do Azure SQL**                           | & Internos Externos  |
 | * / 5671, 5672, 443          | Saída           | TCP                | VIRTUAL_NETWORK / EventHub            | Dependência da política e do monitor do [Log para o Event Hub](api-management-howto-log-event-hubs.md) | & Internos Externos  |
 | * / 445                      | Saída           | TCP                | VIRTUAL_NETWORK / Armazenamento             | Dependência da Azure File Share para [GIT](api-management-configuration-repository-git.md)                      | & Internos Externos  |
-| * / 443                     | Saída           | TCP                | VIRTUAL_NETWORK / AzureCloud            | Extensão de Saúde e Monitorização         | & Internos Externos  |
+| * / 443, 12000                     | Saída           | TCP                | VIRTUAL_NETWORK / AzureCloud            | Extensão de Saúde e Monitorização         | & Internos Externos  |
 | * / 1886, 443                     | Saída           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publicar [Registos e Métricas de Diagnóstico,](api-management-howto-use-azure-monitor.md) [Saúde de Recursos](../service-health/resource-health-overview.md) e Insights de [Aplicação](api-management-howto-app-insights.md)                   | & Internos Externos  |
 | * / 25, 587, 25028                       | Saída           | TCP                | VIRTUAL_NETWORK / INTERNET            | Ligue ao Relé SMTP para envio de e-mails                    | & Internos Externos  |
 | * / 6381 - 6383              | Entrada & Saída | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Acesso Ao Serviço Redis para políticas [cache](api-management-caching-policies.md) entre máquinas         | & Internos Externos  |
@@ -229,7 +229,7 @@ Os endereços IP são divididos pelo **Azure Environment**. Ao permitir pedidos 
 | Azure Público| Sul da Coreia do Sul| 40.80.232.185|
 | Azure Público| Índia Central| 13.71.49.1|
 | Azure Público| E.U.A. Oeste| 13.64.39.16|
-| Azure Público| Sudeste da Austrália| 20.40.160.107|
+| Azure Público| Austrália Sudeste| 20.40.160.107|
 | Azure Público| Austrália Central| 20.37.52.67|
 | Azure Público| Sul da Índia| 20.44.33.246|
 | Azure Público| E.U.A. Central| 13.86.102.66|

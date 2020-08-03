@@ -3,12 +3,13 @@ title: 'Quickstart: Enviar eventos personalizados para a fila de armazenamento -
 description: 'Quickstart: Use Azure Event Grid e Azure CLI para publicar um tópico e subscrever esse evento. É utilizada uma fila de armazenamento para o ponto final.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 18f2bf42941ddd8f71f70b132ad52a47a62fc854
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: e2c017b95493000b3c206aa7b2398bbf7ef464ee
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112124"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497349"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Quickstart: Encaminhe eventos personalizados para o armazenamento da Fila Azure com Azure CLI e Grade de Eventos
 
@@ -125,7 +126,7 @@ Se quiser continuar a trabalhar com este evento, não limpe os recursos criados 
 az group delete --name gridResourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que sabe como criar tópicos e subscrições de eventos, saiba mais sobre o que o Event Grid pode ajudá-lo a fazer:
 

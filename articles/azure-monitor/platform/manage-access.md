@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: b9ca2dc9d907e65b2679c08d8d2b6482f02ba53d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 630364a95c4ee427b71aa5e8b763b4447a41c962
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327893"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489457"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gerir o acesso a dados de registo e áreas de trabalho no Azure Monitor
 
@@ -20,7 +20,7 @@ O Azure Monitor armazena [dados de registo](data-platform-logs.md) num espaço d
 Este artigo explica como gerir o acesso aos registos e administrar os espaços de trabalho que os contêm, incluindo como conceder acesso a: 
 
 * O espaço de trabalho utilizando permissões de espaço de trabalho.
-* Utilizadores que precisam de acesso a dados de registo de recursos específicos usando o controlo de acesso baseado em funções Azure (RBAC) - também conhecido como [contexto de recursos](design-logs-deployment.md#access-mode)
+* Utilizadores que precisam de acesso a dados de registo de recursos específicos usando o controlo de acesso baseado em funções Azure (Azure RBAC) - também conhecido como [contexto de recursos](design-logs-deployment.md#access-mode)
 * Utilizadores que precisam de acesso a registar dados numa tabela específica no espaço de trabalho usando o Azure RBAC.
 
 Para compreender os conceitos de Logs em torno do RBAC e estratégias de acesso, leia [a conceção da sua implementação de Registos monitores Azure](design-logs-deployment.md)
@@ -313,4 +313,3 @@ Por vezes, os registos personalizados provêm de fontes que não estão diretame
 * Consulte [a visão geral](./log-analytics-agent.md) do agente Do Log Analytics para recolher dados de computadores no seu datacenter ou noutro ambiente em nuvem.
 
 * Consulte [recolher dados sobre máquinas virtuais Azure](../learn/quick-collect-azurevm.md) para configurar a recolha de dados a partir de VMs Azure.
-

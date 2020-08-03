@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 45da3ec95167cbb4fa087435e0e88f85c0eb6463
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 51582fd9aba8721b28f6fb18daec4d0009d0ac15
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461056"
+ms.locfileid: "87500662"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 para Core (SQL) API: notas de lançamento e recursos
 > [!div class="op_single_selector"]
@@ -63,7 +63,30 @@ O Azure Cosmos DB Java SDK v4 para Core (SQL) combina uma API Async e uma API sy
 
 ## <a name="release-history"></a>História do lançamento
 
+### <a name="440-beta1-unreleased"></a>4.4.0-beta.1 (Não lançado)
+
+### <a name="430-2020-07-29"></a>4.3.0 (2020-07-29)
+#### <a name="new-features"></a>Novas Funcionalidades
+* Versão atualizada da biblioteca do núcleo do reator para `3.3.8.RELEASE` . 
+* Versão atualizada da biblioteca de rede de reatores para `0.9.10.RELEASE` . 
+* Versão atualizada da biblioteca netty para `4.1.51.Final` . 
+* Adicionou novas APIs de sobrecarga para `upsertItem` com `partitionKey` . 
+* Adicionou suporte aberto de rastreio de telemetria. 
+#### <a name="key-bug-fixes"></a>Correções de erros de chaves
+* Problema fixo em que o SSLException é lançado em caso de cancelamento de pedidos no modo GATEWAY.
+* Política de aceleração de recursos fixos sobre execução de procedimentos armazenados.
+* Problema fixo onde o SDK fica no modo DEBUG de nível de registo. 
+* Picos periódicos fixos na latência no modo Direct. 
+* Problema de tempo de inicialização de cliente elevado fixo. 
+* Bug de procuração de http fixo ao personalizar o cliente com modo direto e modo gateway. 
+* O potencial fixo NPE nos utilizadores passa por opções nulas. 
+* Acússo de tempo a `requestLatency` uma cadeia de diagnósticos.
+* Removido cadeia uri duplicado da cadeia de diagnósticos. 
+* Cadeia de diagnósticos fixa em formato JSON adequado para operações de ponto.
+* Problema fixo com `.single()` o operador que faz explodir a cadeia do reator em caso de exceção não encontrada. 
+
 ### <a name="420-2020-07-14"></a>4.2.0 (2020-07-14)
+#### <a name="new-features"></a>Novas Funcionalidades
 * A sessão de registo de scripts adicionada permitiu que a API `CosmosStoredProcedureRequestOptions` .
 * Padrão atualizado `DirectConnectionConfig` `idleEndpointTimeout` para 1h e predefinição `connectTimeout` para 5s.
 #### <a name="key-bug-fixes"></a>Correções de erros de chaves
@@ -151,5 +174,5 @@ O Azure Cosmos DB Java SDK v4 para Core (SQL) combina uma API Async e uma API sy
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 Para saber mais sobre cosmos DB, consulte a página de serviço [do Microsoft Azure Cosmos DB.](https://azure.microsoft.com/services/cosmos-db/)

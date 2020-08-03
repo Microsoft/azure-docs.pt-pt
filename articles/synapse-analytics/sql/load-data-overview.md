@@ -10,14 +10,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ca1f535c7f2d949e1f71a06ba9efab2818ee0201
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 31e1eb952bb37f5864e296811ba6e61bb0e58320
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046769"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87490290"
 ---
-# <a name="designing-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Conceber uma estratégia de carregamento de dados da PolyBase para o pool SQL do Azure Synapse
+# <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Desenhe uma estratégia de carregamento de dados da PolyBase para a piscina SQL Azure Synapse
 
 Os armazéns de dados tradicionais SMP utilizam um processo de extração, transformação e carga (ETL) para o carregamento de dados. A piscina Azure SQL é uma arquitetura de processamento massivamente paralela (MPP) que aproveita a escalabilidade e flexibilidade dos recursos de computação e armazenamento. A utilização de um processo de Extração, Carga e Transformação (ELT) pode tirar partido do MPP e eliminar os recursos necessários para transformar os dados antes do carregamento.
 
@@ -25,7 +25,7 @@ Enquanto a piscina SQL suporta muitos métodos de carregamento, incluindo opçõ
 
 > [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
-## <a name="what-is-elt"></a>O que é ELT?
+## <a name="extract-load-and-transform-elt"></a>Extrato, Carga e Transformação (ELT)
 
 Extrato, Carga e Transformação (ELT) é um processo pelo qual os dados são extraídos de um sistema de origem, carregados num armazém de dados e depois transformados.
 
@@ -69,12 +69,12 @@ Se estiver a exportar a partir do SQL Server, pode utilizar a [ferramenta da lin
 |        string         |                           varchar                            |
 |        binary         |                            binary                            |
 |        binary         |                          varbinário                           |
-|       carimbo de data/hora       |                             data                             |
+|       carimbo de data/hora       |                             date                             |
 |       carimbo de data/hora       |                        hora pequena                         |
 |       carimbo de data/hora       |                          datetime2                           |
 |       carimbo de data/hora       |                           datetime                           |
 |       carimbo de data/hora       |                             hora                             |
-|       data            |                             data                             |
+|       date            |                             date                             |
 |        decimal        |                            decimal                           |
 
 ## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. Aterre os dados no armazenamento da Azure Blob ou na Azure Data Lake Store

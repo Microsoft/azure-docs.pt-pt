@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 07/28/2020
-ms.openlocfilehash: 0fd875b2c02f5d61663339ac523fd6733732ad01
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 0dd15fe5d68a521293f279978c668bc88599115e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420996"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498298"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limites de recursos para piscinas elásticas utilizando o modelo de compra DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,7 +40,7 @@ Para piscinas elásticas Azure SQL Database, as tabelas a seguir mostram os recu
 
 Os limites de recursos de bases de dados individuais em piscinas elásticas são geralmente os mesmos que para bases de dados individuais fora de piscinas baseadas em DTUs e no nível de serviço. Por exemplo, os trabalhadores máximos simultâneos para uma base de dados S2 são 120 trabalhadores. Assim, os trabalhadores máximos simultâneos para uma base de dados num pool Standard são também 120 trabalhadores se o DTU máximo por base de dados na piscina for de 50 DTUs (o que equivale a S2).
  
-Os recursos fornecidos a uma piscina elástica podem exceder os recursos fornecidos a uma única base de dados fora de uma piscina elástica para o mesmo número de DTUs. Isto significa que é possível que a utilização eDTU de uma piscina elástica seja inferior à soma da utilização do DTU através de bases de dados dentro da piscina, dependendo dos padrões de carga de trabalho. Por exemplo, num caso extremo com apenas uma base de dados numa piscina elástica onde a utilização do DTU na base de dados é de 100%, é possível que a utilização do pool eDTU seja de 50% para determinados padrões de carga de trabalho. Isto pode acontecer mesmo que não tenha sido definido nenhum DTU explícito por base de dados. Nesse caso, o consumo de DTU na base de dados em conjunto é limitado da mesma forma que o consumo de DTU de uma única base de dados com o objetivo de serviço correspondente.
+Para o mesmo número de DTUs, os recursos fornecidos a uma piscina elástica podem exceder os recursos fornecidos a uma única base de dados fora de uma piscina elástica. Isto significa que é possível que a utilização eDTU de uma piscina elástica seja inferior à soma da utilização do DTU através de bases de dados dentro da piscina, dependendo dos padrões de carga de trabalho. Por exemplo, num caso extremo com apenas uma base de dados numa piscina elástica onde a utilização do DTU na base de dados é de 100%, é possível que a utilização do pool eDTU seja de 50% para determinados padrões de carga de trabalho. Isto pode acontecer mesmo que o DTU máximo por base de dados permaneça no valor máximo suportado para o tamanho da piscina dada.
 
 > [!NOTE]
 > O limite de armazenamento por conjunto de recursos em cada uma das seguintes tabelas não inclui o armazenamento temporário e o armazenamento de registos.
@@ -55,8 +55,8 @@ Os recursos fornecidos a uma piscina elástica podem exceder os recursos forneci
 | DBs max por piscina <sup>1</sup> | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Trabalhadores máximos simultâneos (pedidos) por piscina <sup>2</sup> | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Sessões concorrentes max por piscina <sup>2</sup> | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
-| Escolhas de min eDTUs por base de dados | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
-| Escolhas max eDTUs por base de dados | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
+| Min DTU por opções de base de dados | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
+| Max DTU por opções de base de dados | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
 | Armazenamento máximo por base de dados (GB) | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
 ||||||||
 
@@ -74,8 +74,8 @@ Os recursos fornecidos a uma piscina elástica podem exceder os recursos forneci
 | DBs max por piscina <sup>2</sup> | 100 | 200 | 500 | 500 | 500 | 500 |
 | Trabalhadores máximos simultâneos (pedidos) por piscina <sup>3</sup> | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Sessões concorrentes max por piscina <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
-| Escolhas de min eDTUs por base de dados | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
-| Escolhas max eDTUs por base de dados | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 |
+| Min DTU por opções de base de dados | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
+| Max DTU por opções de base de dados | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 |
 | Armazenamento máximo por base de dados (GB) | 500 | 750 | 1024 | 1024 | 1024 | 1024 |
 ||||||||
 
@@ -95,8 +95,8 @@ Os recursos fornecidos a uma piscina elástica podem exceder os recursos forneci
 | DBs max por piscina <sup>2</sup> | 500 | 500 | 500 | 500 | 500 |
 | Trabalhadores máximos simultâneos (pedidos) por piscina <sup>3</sup> | 2400 | 3200 | 4000 | 5000 | 6000 |
 | Sessões concorrentes max por piscina <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
-| Escolhas de min eDTUs por base de dados | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
-| Escolhas max eDTUs por base de dados | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
+| Min DTU por opções de base de dados | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
+| Max DTU por opções de base de dados | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | Armazenamento máximo por base de dados (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||
 
@@ -137,8 +137,8 @@ Os recursos fornecidos a uma piscina elástica podem exceder os recursos forneci
 | DBs max por piscina <sup>2</sup> | 100 | 100 | 100 | 100 | 100 |
 | Trabalhadores máximos simultâneos (pedidos) por piscina <sup>3</sup> | 3200 | 4000 | 4800 | 5600 | 6400 |
 | Sessões concorrentes max por piscina <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
-| Escolhas de min eDTUs por base de dados | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
-| Escolhas max eDTUs por base de dados | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
+| Min DTU por opções de base de dados | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
+| Max DTU por opções de base de dados | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
 | Armazenamento máximo por base de dados (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||
 
@@ -167,7 +167,7 @@ A tabela seguinte descreve as propriedades para bases de dados aginhadas.
 | Armazenamento máximo por base de dados |O tamanho máximo da base de dados definido pelo utilizador para uma base de dados numa piscina. No entanto, as bases de dados partilhadas partilham o armazenamento de piscinas atribuído. Mesmo que o armazenamento máximo total *por base de dados* seja superior ao espaço total disponível de armazenamento *disponível da piscina,* o espaço total realmente utilizado por todas as bases de dados não poderá exceder o limite de piscina disponível. O tamanho máximo da base de dados refere-se ao tamanho máximo dos ficheiros de dados e não inclui o espaço utilizado pelos ficheiros de registo. |
 |||
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para limites de recursos vCore para uma única base de [dados, consulte os limites de recursos para bases de dados únicas utilizando o modelo de compra vCore](resource-limits-vcore-single-databases.md)
 * Para limites de recursos DTU para uma única base de [dados, consulte os limites de recursos para bases de dados únicas utilizando o modelo de compra do DTU](resource-limits-dtu-single-databases.md)

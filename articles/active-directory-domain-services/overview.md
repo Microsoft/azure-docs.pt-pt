@@ -10,18 +10,20 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
 ms.author: iainfou
-ms.openlocfilehash: 472ff9de069e7d95cb1753a6b05830649806d2fc
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 6efd33b9f8825b5b5699b6106dadafec851ed454
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734559"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87488555"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>O que é Azure Ative Directory Domain Services?
 
 A Azure Ative Directory Domain Services (Azure AD DS) fornece serviços de domínio geridos, tais como a adesão de domínio, a política de grupo, o protocolo de acesso ao diretório leve (LDAP) e a autenticação Kerberos /NTLM. Utiliza estes serviços de domínio sem a necessidade de implantar, gerir e remendar controladores de domínio (DCs) na nuvem.
 
-Um domínio gerido é um espaço de nome DNS e diretório correspondente. O domínio gerido integra-se com o inquilino Azure AD existente, o que permite aos utilizadores assinarem usando as suas credenciais existentes. Também pode utilizar grupos e contas de utilizador existentes para garantir o acesso aos recursos, o que proporciona um levantamento e mudança mais suaves dos recursos no local para a Azure.
+Quando cria um domínio gerido AZure AD DS, define um espaço de nome único. Este espaço de nome é o nome de domínio, como *aaddscontoso.com*, e dois controladores de domínio (DCs) são então implantados na região de Azure selecionada. Esta implantação de DCs é conhecida como um conjunto de réplicas. O domínio gerido integra-se com o inquilino Azure AD existente, o que permite aos utilizadores assinarem usando as suas credenciais existentes. Também pode utilizar grupos e contas de utilizador existentes para garantir o acesso aos recursos, o que proporciona um levantamento e mudança mais suaves dos recursos no local para a Azure.
+
+Você pode expandir um domínio gerido para ter mais de um conjunto de réplicas por inquilino AZure AD. Os conjuntos de réplicas podem ser adicionados a qualquer rede virtual esprevada em qualquer região do Azure que suporte Azure AD DS. Conjuntos de réplicas adicionais em diferentes regiões de Azure proporcionam recuperação geográfica de desastres para aplicações antigas se uma região de Azure ficar offline. Os conjuntos de réplicas estão atualmente em pré-visualização. Para obter mais informações, consulte [replica sets conceitos e funcionalidades para domínios geridos.][concepts-replica-sets]
 
 A Azure AD DS integra-se com o seu inquilino AZure AD existente. Esta integração permite que os utilizadores inscrevam-se no serviço e aplicações ligadas ao domínio gerido utilizando as suas credenciais existentes. Também pode utilizar grupos e contas de utilizador existentes para garantir o acesso aos recursos. Estas características proporcionam um levantamento e mudança mais suaves dos recursos no local para Azure.
 
@@ -150,3 +152,4 @@ Para começar, [crie um domínio gerido utilizando o portal Azure][tutorial-crea
 [forest-trusts]: concepts-resource-forest.md
 [administration-concepts]: administration-concepts.md
 [synchronization]: synchronization.md
+[concepts-replica-sets]: concepts-replica-sets.md

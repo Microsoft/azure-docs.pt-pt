@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: linux
 ms.date: 06/01/2018
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-javascript
-ms.openlocfilehash: 73ce27bac2c5813b692803271fc821f7ee9889e5
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: mimckitt, devx-track-javascript, devx-track-azurecli
+ms.openlocfilehash: dad876868e632f5a9ca0f6ca484714868e452279
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433012"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498162"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli"></a>Tutorial: Criar um conjunto de dimensionamento de máquinas virtuais e implementar uma aplicação de elevada disponibilidade no Linux com a CLI do Azure
 
@@ -243,7 +243,7 @@ az vmss disk detach \
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, criou um conjunto de dimensionamento de máquinas virtuais. Aprendeu a:
 
 > [!div class="checklist"]

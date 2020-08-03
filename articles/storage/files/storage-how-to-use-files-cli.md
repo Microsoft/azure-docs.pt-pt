@@ -7,17 +7,18 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 95d7abca27ec9db46a72140bc8a61b2841c63fcb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 0d9d0bad982a12e3b96bdbe4f680f2501b33ec67
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77598600"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495780"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Início Rápido: criar e gerir partilhas de ficheiros do Azure com a CLI do Azure
 Este guia orienta-o pelas noções básicas da utilização de [partilhas de ficheiros do Azure](storage-files-introduction.md) com a CLI do Azure. As partilhas de ficheiros do Azure são como outras partilhas de ficheiros, mas armazenadas na cloud e apoiadas pela plataforma do Azure. As partilhas de ficheiros do Azure suportam o protocolo SMB padrão do setor e permite a partilha de ficheiros entre várias máquinas, aplicações e instâncias. 
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -28,7 +29,7 @@ Por predefinição, os comandos da CLI do Azure devolvem JavaScript Object Notat
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Se ainda não tiver um grupo de recursos do Azure, pode utilizar o comando [az group create](/cli/azure/group) para criar um. 
 
-O exemplo seguinte cria um grupo de recursos chamado *myResourceGroup* na localização *West US 2:*
+O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na *localização West US 2:*
 
 ```azurecli-interactive 
 export resourceGroupName="myResourceGroup"
@@ -43,7 +44,7 @@ az group create \
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 Uma conta de armazenamento é um conjunto partilhado de armazenamento no qual pode implementar partilhas de ficheiros do Azure ou outros recursos de armazenamento, como blobs ou filas. Uma conta de armazenamento pode conter um número ilimitado de partilhas de ficheiros. Uma partilha pode armazenar um número ilimitado de ficheiros, até aos limites de capacidade da conta de armazenamento.
 
-O exemplo seguinte cria uma conta de armazenamento utilizando a conta de [armazenamento az criar](/cli/azure/storage/account) comando. Os nomes de contas de armazenamento têm de ser exclusivos, por isso, utilize `$RANDOM` para anexar um número ao nome e torná-lo exclusivo.
+O exemplo a seguir cria uma conta de armazenamento utilizando a [conta de armazenamento az criar](/cli/azure/storage/account) comando. Os nomes de contas de armazenamento têm de ser exclusivos, por isso, utilize `$RANDOM` para anexar um número ao nome e torná-lo exclusivo.
 
 ```azurecli-interactive 
 export storageAccountName="mystorageacct$RANDOM"
@@ -59,7 +60,7 @@ az storage account create \
 ```
 
 > [!Note]  
-> As ações superiores a 5 TiB (até um máximo de 100 TiB por ação) só estão disponíveis em contas de armazenamento redundantes localmente redundantes (LRS) e zonas redundantes (ZRS). Para criar uma conta de armazenamento geo-redundante (GRS) ou geozona-redundante (GZRS), remova o `--enable-large-file-share` parâmetro.
+> As ações superiores a 5 TiB (até um máximo de 100 TiB por ação) só estão disponíveis em contas de armazenamento redundantes locais (LRS) e zonas redundantes (ZRS). Para criar uma conta de armazenamento geo-redundante (GRS) ou geo-zona redundante (GZRS), remova o `--enable-large-file-share` parâmetro.
 
 ### <a name="get-the-storage-account-key"></a>Obter a chave da conta de armazenamento
 As chaves de contas de armazenamento controlam o acesso aos recursos numa conta de armazenamento. As chaves são criadas automaticamente quando cria uma conta de armazenamento. Pode obter as chaves da conta de armazenamento para a mesma com o comando [az storage account keys list](/cli/azure/storage/account/keys): 
@@ -85,7 +86,7 @@ az storage share create \
     --output none
 ```
 
-Os nomes das partilhas só podem ter letras minúsculas, números e hífenes (mas não podem começar com um hífen). Para obter detalhes completos sobre a nomeação de partilhas e ficheiros de ficheiros, consulte [nomear e referenciar ações, diretórios, ficheiros e metadados.](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata)
+Os nomes das partilhas só podem ter letras minúsculas, números e hífenes (mas não podem começar com um hífen). Para obter detalhes completos sobre ações e ficheiros de ficheiros de [nomeação, consulte naming e referências de ações, diretórios, ficheiros e metadados](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 ## <a name="use-your-azure-file-share"></a>Utilizar a partilha de ficheiros do Azure
 O serviço Ficheiros do Azure fornece dois métodos para utilizar ficheiros e pastas na sua partilha de ficheiros do Azure : o [protocolo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) padrão do setor e o [protocolo REST de Ficheiros](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api). 
@@ -96,18 +97,18 @@ Para montar uma partilha de ficheiros com SMB, veja o documento seguinte com bas
 - [Windows](storage-how-to-use-files-windows.md)
 
 ### <a name="using-an-azure-file-share-with-the-file-rest-protocol"></a>Utilizar uma partilha de ficheiros do Azure com o protocolo REST de Ficheiros 
-É possível trabalhar diretamente com o protocolo FILE REST (handcrafting REST HTTP chama-se), mas a forma mais comum de usar o protocolo FILE REST é utilizar o Azure CLI, o [módulo Azure PowerShell,](storage-how-to-use-files-powershell.md)ou um SDK de Armazenamento Azure, todos os quais fornecem um bom invólucro em torno do protocolo DE ARQUIVO REST na linguagem de script/programação da sua escolha.  
+É possível trabalhar diretamente com o protocolo File REST diretamente (manualMENTE REST HTTP chama-se), mas a forma mais comum de usar o protocolo File REST é utilizar o Azure CLI, o [módulo Azure PowerShell,](storage-how-to-use-files-powershell.md)ou um Azure Storage SDK, todos os quais fornecem um bom invólucro em torno do protocolo File REST na linguagem de script/programação à sua escolha.  
 
 Contamos que a maioria das utilizações dos Ficheiros do Azure irão querer trabalhar com a partilha de ficheiros do Azure através do protocolo SMB, pois permite-lhes utilizar as aplicações e ferramentas existentes, mas existem vários motivos pelos quais é vantajoso utilizar a API REST de Ficheiros em vez do SMB, tais como:
 
 - Se estiver a navegar na partilha de ficheiros a partir do Azure Bash Cloud Shell (que não pode montar partilhas de ficheiros através de SMB).
 - Se estiver a tirar partido de recursos sem servidor, como o serviço [Funções do Azure](../../azure-functions/functions-overview.md). 
-- Está a criar um serviço de valor acrescentado que irá interagir com muitas partilhas de ficheiros Azure, tais como a realização de backups ou antivírus.
+- Está a criar um serviço de valor-add que irá interagir com muitas ações de ficheiros Azure, tais como a realização de verificações de backup ou antivírus.
 
-Os seguintes exemplos mostram como usar o CLI Azure para manipular a sua partilha de ficheiros Azure com o protocolo File REST. 
+Os exemplos a seguir mostram como utilizar o CLI Azure para manipular a sua partilha de ficheiros Azure com o protocolo File REST. 
 
 ### <a name="create-a-directory"></a>Criar um diretório
-Para criar um novo diretório chamado *myDirectory* na raiz da [`az storage directory create`](/cli/azure/storage/directory) sua partilha de ficheiros Azure, use o comando:
+Para criar um novo diretório chamado *myDirect* na raiz da sua partilha de ficheiros Azure, utilize o [`az storage directory create`](/cli/azure/storage/directory) comando:
 
 ```azurecli-interactive
 az storage directory create \
@@ -119,7 +120,7 @@ az storage directory create \
 ```
 
 ### <a name="upload-a-file"></a>Carregar um ficheiro
-Para demonstrar como carregar um [`az storage file upload`](/cli/azure/storage/file) ficheiro utilizando o comando, crie primeiro um ficheiro para carregar na unidade de risco Cloud Shell. No exemplo seguinte, irá criar e carregar o ficheiro:
+Para demonstrar como carregar um ficheiro utilizando o [`az storage file upload`](/cli/azure/storage/file) comando, crie primeiro um ficheiro para carregar na unidade de risco Cloud Shell. No exemplo seguinte, irá criar e carregar o ficheiro:
 
 ```azurecli-interactive
 cd ~/clouddrive/
@@ -135,7 +136,7 @@ az storage file upload \
 
 Se estiver a executar a CLI do Azure localmente, substitua `~/clouddrive` por um caminho existente no seu computador.
 
-Depois de fazer o upload [`az storage file list`](/cli/azure/storage/file) do ficheiro, pode utilizar o comando para se certificar de que o ficheiro foi enviado para a sua parte de ficheiro Azure:
+Depois de fazer o upload do ficheiro, pode utilizar o [`az storage file list`](/cli/azure/storage/file) comando para se certificar de que o ficheiro foi enviado para a sua partilha de ficheiros Azure:
 
 ```azurecli-interactive
 az storage file list \
@@ -147,7 +148,7 @@ az storage file list \
 ```
 
 ### <a name="download-a-file"></a>Transferir um ficheiro
-Pode utilizar [`az storage file download`](/cli/azure/storage/file) o comando para descarregar uma cópia do ficheiro que fez passar para a unidade de risco Cloud Shell:
+Pode utilizar o [`az storage file download`](/cli/azure/storage/file) comando para descarregar uma cópia do ficheiro que fez o upload para a unidade de risco Cloud Shell:
 
 ```azurecli-interactive
 # Delete an existing file by the same name as SampleDownload.txt, if it exists, because you've run this example before
@@ -163,7 +164,7 @@ az storage file download \
 ```
 
 ### <a name="copy-files"></a>Copiar ficheiros
-Uma tarefa comum é copiar ficheiros de uma parte de ficheiro para outra partilha de ficheiros. Para demonstrar esta funcionalidade, crie uma nova partilha. Copie o ficheiro que carregou para esta nova partilha através do comando [az storage file copy](/cli/azure/storage/file/copy): 
+Uma tarefa comum é copiar ficheiros de uma partilha de ficheiros para outra partilha de ficheiros. Para demonstrar esta funcionalidade, crie uma nova partilha. Copie o ficheiro que carregou para esta nova partilha através do comando [az storage file copy](/cli/azure/storage/file/copy): 
 
 ```azurecli-interactive
 otherShareName="myshare2"
@@ -202,16 +203,16 @@ az storage file list \
     --output table
 ```
 
-Embora `az storage file copy start` o comando seja conveniente para movimentos de ficheiros entre as partilhas `rsync` de ficheiros Azure, para migrações e movimentos de dados maiores, recomendamos no macOS e Linux e `robocopy` no Windows. `rsync`e `robocopy` utilize o SMB para executar os movimentos de dados em vez da API FileREST.
+Embora o `az storage file copy start` comando seja conveniente para movimentos de ficheiros entre ações de ficheiros Azure, para migrações e movimentos de dados maiores, recomendamos no `rsync` macOS e Linux e `robocopy` no Windows. `rsync`e `robocopy` usar o SMB para executar os movimentos de dados em vez da API FileREST.
 
 ## <a name="create-and-manage-share-snapshots"></a>Criar e gerir instantâneos de partilha
 Outra tarefa útil que pode realizar com uma partilha de ficheiros do Azure é criar instantâneos de partilha. Os instantâneos preservam uma cópia de ponto no tempo das partilhas de ficheiros do Azure. Os instantâneos de partilha são semelhantes a algumas tecnologias de sistema operativo com as quais pode já estar familiarizado:
 
-- Imagens de Gestor de [Volume Lógico (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) para sistemas Linux.
+- [Snapshots lógicos do Gestor de Volume (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) para sistemas Linux.
 - Instantâneos do [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) para macOS.
-- Serviço de [Cópia de Sombra de Volume (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) para sistemas de ficheiros Windows, tais como NTFS e ReFS.
+- [Serviço de Cópia Sombra de Volume (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) para sistemas de ficheiros Windows, tais como NTFS e ReFS.
  
-Pode criar uma imagem de [`az storage share snapshot`](/cli/azure/storage/share) partilha utilizando o comando:
+Pode criar uma imagem partilhada utilizando o [`az storage share snapshot`](/cli/azure/storage/share) comando:
 
 ```azurecli-interactive
 snapshot=$(az storage share snapshot \
@@ -275,7 +276,7 @@ az storage file copy start \
 ```
 
 ### <a name="delete-a-share-snapshot"></a>Eliminar um instantâneo de partilha
-Pode eliminar uma fotografia de [`az storage share delete`](/cli/azure/storage/share) partilha utilizando o comando. Utilize a variável que contém a referência `$SNAPSHOT` para o parâmetro `--snapshot`:
+Pode eliminar uma imagem partilhada utilizando o [`az storage share delete`](/cli/azure/storage/share) comando. Utilize a variável que contém a referência `$SNAPSHOT` para o parâmetro `--snapshot`:
 
 ```azurecli-interactive
 az storage share delete \
@@ -287,7 +288,7 @@ az storage share delete \
 ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando terminar, pode usar [`az group delete`](/cli/azure/group) o comando para remover o grupo de recursos e todos os recursos relacionados: 
+Quando terminar, pode usar o [`az group delete`](/cli/azure/group) comando para remover o grupo de recursos e todos os recursos relacionados: 
 
 ```azurecli-interactive 
 az group delete --name $resourceGroupName

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 637bdb02cd9fc5296c74633bbfa381e62673a4bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b41609ec2b7cc9880fb22a76b9e3b40c315bc3c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85355663"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499879"
 ---
 # <a name="manage-and-find-data-on-azure-blob-storage-with-blob-index-preview"></a>Gerir e encontrar dados sobre o armazenamento de blob Azure com índice blob (pré-visualização)
 
@@ -63,7 +63,7 @@ Pode aplicar várias tags na sua bolha para ser mais descritivo dos dados.
 > "Prioridade" = '01' 
 >
 
-Para modificar os atributos de etiqueta de índice existentes, tem primeiro de recuperar os atributos de etiqueta existentes, modificar os atributos da etiqueta e substituir pela operação SetBlobTags. Para remover todas as etiquetas de índice da bolha, ligue para a operação SetBlobTags sem atributos de etiqueta especificados. Como as tags do índice blob são um sub-recurso para o conteúdo de dados blob, o SetBlobTags não modifica nenhum conteúdo subjacente e não altera o último tempo modificado do blob ou ETag (etiqueta de entidade). Pode criar ou modificar tags de índice para todas as bolhas de base atuais e versões anteriores; no entanto, as etiquetas em instantâneos ou bolhas apagadas suaves não podem ser modificadas. 
+Para modificar os atributos de etiqueta de índice existentes, tem primeiro de recuperar os atributos de etiqueta existentes, modificar os atributos da etiqueta e substituir pela operação SetBlobTags. Para remover todas as etiquetas de índice da bolha, ligue para a operação SetBlobTags sem atributos de etiqueta especificados. Como as tags do índice blob são um sub-recurso para o conteúdo de dados blob, o SetBlobTags não modifica nenhum conteúdo subjacente e não altera o último tempo modificado ou eTag do blob (etiqueta de entidade). Pode criar ou modificar tags de índice para todas as bolhas de base atuais e versões anteriores; no entanto, as etiquetas em instantâneos ou bolhas apagadas suaves não podem ser modificadas. 
 
 Aplicam-se os seguintes limites às etiquetas blob Index:
 - Cada bolha pode ter até 10 tags de índice de bolhas
@@ -99,11 +99,11 @@ A tabela abaixo mostra todos os operadores válidos para FindBlobsByTags:
 
 |  Operador  |  Descrição  | Exemplo |
 |------------|---------------|---------|
-|     =      |     Igual     | "Status" = 'Em Curso' | 
+|     =      |     Equal     | "Status" = 'Em Curso' | 
 |     >      |  Maior que |  "Data" > '2018-06-18' |
 |     >=     |  Maior ou igual a | "Prioridade" >= '5' | 
 |     <      |  Menor que    | "Idade" < '32' |
-|     <=     |  Menor ou igual a  | "Empresa" <= 'Contoso' |
+|     <=     |  Menor ou igual que  | "Empresa" <= 'Contoso' |
 |    AND     |  Lógico e  | "Rank" >= '010' E "Rank" < '100' |
 | @container |  Âmbito de um recipiente específico   | @container= 'videofiles' E "status" = 'feito' |
 
@@ -123,12 +123,12 @@ A tabela abaixo mostra todos os operadores válidos para operações condicionai
 
 |  Operador  |  Descrição  | Exemplo |
 |------------|---------------|---------|
-|     =      |     Igual     | "Status" = 'Em Curso' |
-|     <>     |   Diferente   | "Status" <> 'Done'  | 
+|     =      |     Equal     | "Status" = 'Em Curso' |
+|     <>     |   Não é igual a   | "Status" <> 'Done'  | 
 |     >      |  Maior que |  "Data" > '2018-06-18' |
 |     >=     |  Maior ou igual a | "Prioridade" >= '5' | 
 |     <      |  Menor que    | "Idade" < '32' |
-|     <=     |  Menor ou igual a  | "Empresa" <= 'Contoso' |
+|     <=     |  Menor ou igual que  | "Empresa" <= 'Contoso' |
 |    AND     |  Lógico e  | "Rank" >= '010' E "Rank" < '100' |
 |     OU     |  Lógico ou   | "Status" = 'Feito' ou "Prioridade" >= '05' |
 
@@ -293,6 +293,7 @@ Esta secção descreve problemas e condições conhecidos na atual pré-visualiz
 -   A falha da conta não é suportada atualmente. O índice blob pode não atualizar corretamente após a falha.
 -   A gestão do ciclo de vida atualmente apenas suporta verificações de igualdade com Blob Index Match.
 -   CopyBlob não copia tags de índice blob da bolha de origem para a nova bolha de destino. Pode especificar as etiquetas que deseja aplicadas à bolha de destino durante a operação de cópia. 
+- CopyBlob (cópia Async) de outra conta de armazenamento com etiquetas aplicadas na bolha de destino faz com que o motor do índice blob não devolva a bolha e as suas etiquetas no conjunto de filtros. Recomenda-se a utilização copyBlob do URL (Cópia Sync) durante o período intercalar.
 -   As etiquetas são insistidas na criação de instantâneos; no entanto, a promoção de um instantâneo não é atualmente suportada e pode resultar num conjunto de tags vazio.
 
 ## <a name="faq"></a>FAQ
@@ -306,7 +307,9 @@ As tags Blob Index apenas suportam tipos de dados de cadeia e consultam os resul
 ### <a name="are-blob-index-tags-and-azure-resource-manager-tags-related"></a>As tags Blob Index e Azure Resource Manager estão relacionadas?
 Não, as tags do Azure Resource Manager ajudam a organizar recursos de planos de controlo, tais como subscrições, grupos de recursos e contas de armazenamento. As tags Blob Index fornecem gestão de objetos e descobertas em recursos de planos de dados, tais como bolhas dentro de uma conta de armazenamento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Veja um exemplo de como utilizar o Blob Index. Consulte [o Índice De Blob utilize para gerir e encontrar dados](storage-blob-index-how-to.md)
+Para obter um exemplo de como utilizar o Blob Index, consulte [o Índice de Blob utilizar para gerir e encontrar dados](storage-blob-index-how-to.md).
+
+Aprenda sobre [a gestão do ciclo de vida](storage-lifecycle-management-concepts.md) e descreva uma regra com o índice Blob match.
 

@@ -8,17 +8,17 @@ author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/14/2018
 ms.author: allensu
-ms.openlocfilehash: 3198160fe443f4650d8c5a880c3538efeb9346a1
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: fcc2a579f2fe9048dd58cd8b52c8c704c894936b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205255"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499352"
 ---
 # <a name="azure-cli-samples-for-load-balancer"></a>Amostras de CLI Azure para balanceador de carga
 

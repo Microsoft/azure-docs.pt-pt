@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Aglomerados Apache Spark com Azure CLI - Azure HDInsight'
+title: 'Quickstart: Apache Spark clusters com Azure CLI - Azure HDInsight'
 description: Este quickstart mostra como usar o Azure CLI para criar um cluster Apache Spark em Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,29 +7,30 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 02/03/2020
-ms.openlocfilehash: 02113988c76dd2565c7109c2ac18c3d1287189db
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 9827c50d034b1c49700869c3274800c194c631a8
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891133"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499454"
 ---
-# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-cli"></a>Quickstart: Criar o cluster Apache Spark em Azure HDInsight usando o Azure CLI
+# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-cli"></a>Quickstart: Criar cluster Apache Spark em Azure HDInsight usando Azure CLI
 
-Neste arranque rápido, aprende-se a criar um cluster Apache Spark em Azure HDInsight utilizando a interface de linha de comando Azure (CLI). O Azure HDInsight é um serviço de análise gerido, de espectro completo e de código aberto para empresas. A estrutura Apache Spark para HDInsight permite análise rápida de dados e computação de cluster utilizando o processamento na memória. A CLI do Azure é a experiência de linha de comandos para várias plataformas da Microsoft para a gestão de recursos do Azure.
+Neste arranque rápido, aprende-se a criar um cluster Apache Spark em Azure HDInsight utilizando a interface de linha de comando Azure (CLI). O Azure HDInsight é um serviço de análise gerido, de espectro completo e de código aberto para empresas. A estrutura Apache Spark para HDInsight permite uma análise rápida de dados e computação de cluster utilizando o processamento na memória. A CLI do Azure é a experiência de linha de comandos para várias plataformas da Microsoft para a gestão de recursos do Azure.
 
-Se estiver a utilizar vários clusters juntos, vai querer criar uma rede virtual, e se estiver a usar um cluster Spark, também vai querer usar o Conector de Armazém hive. Para mais informações, consulte [Plan a rede virtual para Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md) e [integre a Apache Spark e a Apache Hive com o Conector de Armazém hive](../interactive-query/apache-hive-warehouse-connector.md).
+Se estiver a utilizar vários clusters em conjunto, vai querer criar uma rede virtual, e se estiver a usar um cluster Spark também vai querer usar o Conector do Armazém da Colmeia. Para obter mais informações, consulte [Plan a virtual network for Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md) and Integrate Apache Spark and Apache [Hive with the Hive Warehouse Connector](../interactive-query/apache-hive-warehouse-connector.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - [Azure CLI,](https://docs.microsoft.com/cli/azure/install-azure-cli)se não quiser usar a Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-an-apache-spark-cluster"></a>Criar um cluster do Apache Spark
 
-1. Inscreva-se na sua assinatura Azure. Se planeia utilizar a Azure Cloud Shell, selecione **Experimente-a** no canto superior direito do bloco de código seguinte. Caso contrário, insira o seguinte comando:
+1. Inscreva-se na sua assinatura Azure. Se pretender utilizar o Azure Cloud Shell, selecione **Experimente-o** no canto superior direito do bloco de código que se segue. Caso contrário, insira o seguinte comando:
 
     ```azurecli-interactive
     az login
@@ -38,7 +39,7 @@ Se estiver a utilizar vários clusters juntos, vai querer criar uma rede virtual
     # az account set --subscription "SUBSCRIPTIONID"
     ```
 
-2. Definir variáveis ambientais. O uso de variáveis neste quickstart é baseado em Bash. Serão necessárias ligeiras variações para outros ambientes. Substitua o NOME DE GRUPO DE RECURSOS, LOCALIZAÇÃO, CLUSTERNAME, STORAGEACCOUNTNAME e PASSWORD no código abaixo pelos valores pretendidos. Em seguida, introduza os comandos CLI para definir as variáveis ambientais.
+2. Definir variáveis ambientais. O uso de variáveis neste quickstart é baseado em Bash. Serão necessárias ligeiras variações para outros ambientes. Substitua o resourcegroupname, a localização, o CLUSTERNAME, o STORAGEACCOUNTNAME e o PASSWORD no código abaixo pelos valores pretendidos. Em seguida, insira os comandos CLI para definir as variáveis ambientais.
 
     ```azurecli-interactive
     export resourceGroupName=RESOURCEGROUPNAME
@@ -55,7 +56,7 @@ Se estiver a utilizar vários clusters juntos, vai querer criar uma rede virtual
     export componentVersion=Spark=2.3
     ```
 
-3. Crie o grupo de recursos entrando no comando abaixo:
+3. Crie o grupo de recursos introduzindo o comando abaixo:
 
     ```azurecli-interactive
     az group create \
@@ -63,7 +64,7 @@ Se estiver a utilizar vários clusters juntos, vai querer criar uma rede virtual
         --name $resourceGroupName
     ```
 
-4. Crie uma conta de armazenamento Azure inserindo o comando abaixo:
+4. Crie uma conta de armazenamento Azure introduzindo o comando abaixo:
 
     ```azurecli-interactive
     az storage account create \
@@ -75,7 +76,7 @@ Se estiver a utilizar vários clusters juntos, vai querer criar uma rede virtual
         --sku Standard_LRS
     ```
 
-5. Extrair a chave principal da conta de armazenamento Azure e armazená-la numa variável, inserindo o comando abaixo:
+5. Extrair a chave primária da conta de armazenamento Azure e armazená-la numa variável introduzindo o comando abaixo:
 
     ```azurecli-interactive
     export AZURE_STORAGE_KEY=$(az storage account keys list \
@@ -84,7 +85,7 @@ Se estiver a utilizar vários clusters juntos, vai querer criar uma rede virtual
         --query [0].value -o tsv)
     ```
 
-6. Crie um recipiente de armazenamento Azure entrando no comando abaixo:
+6. Crie um recipiente de armazenamento Azure introduzindo o comando abaixo:
 
     ```azurecli-interactive
     az storage container create \
@@ -93,7 +94,7 @@ Se estiver a utilizar vários clusters juntos, vai querer criar uma rede virtual
         --account-name $AZURE_STORAGE_ACCOUNT
     ```
 
-7. Crie o cluster Apache Spark entrando no seguinte comando:
+7. Crie o cluster Apache Spark introduzindo o seguinte comando:
 
     ```azurecli-interactive
     az hdinsight create \
@@ -115,7 +116,7 @@ Se estiver a utilizar vários clusters juntos, vai querer criar uma rede virtual
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Depois de completar o arranque rápido, poderá querer eliminar o cluster. Com o HDInsight, os seus dados são armazenados no Armazenamento Azure, para que possa eliminar com segurança um cluster quando não estiver a ser utilizado. Também é cobrado por um cluster HDInsight, mesmo quando não está a ser utilizado. Uma vez que as taxas para o cluster são muitas vezes mais do que as taxas de armazenamento, faz sentido económico apagar clusters quando não estão em uso.
+Depois de completar o arranque rápido, é possível que queira eliminar o cluster. Com o HDInsight, os seus dados são armazenados no Azure Storage, para que possa eliminar com segurança um cluster quando este não estiver a ser utilizado. Também é cobrado por um cluster HDInsight, mesmo quando não está a ser utilizado. Uma vez que as taxas para o cluster são muitas vezes mais do que os encargos de armazenamento, faz sentido económico apagar clusters quando não estão a ser utilizados.
 
 Insira todos ou alguns dos seguintes comandos para remover recursos:
 
@@ -142,7 +143,7 @@ az group delete \
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, aprendeu a criar um cluster Apache Spark em Azure HDInsight utilizando o Azure CLI.  Avance para o próximo tutorial para aprender a usar um cluster HDInsight para executar consultas interativas em dados de amostra.
+Neste arranque rápido, aprendeu a criar um cluster Apache Spark em Azure HDInsight usando Azure CLI.  Avance para o próximo tutorial para aprender a usar um cluster HDInsight para executar consultas interativas em dados de amostras.
 
 > [!div class="nextstepaction"]
-> [Executar consultas interativas em Apache Spark](./apache-spark-load-data-run-query.md)
+> [Executar consultas interativas sobre Apache Spark](./apache-spark-load-data-run-query.md)

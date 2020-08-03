@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46fdd72842db790a8f4ecadfc875069962dcf449
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 380962b71d6829b8a217a5d3038e2ae4dd7264fd
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84728151"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497091"
 ---
 # <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Impor uma política de nomeação sobre o Office 365 grupos no Azure Ative Directory
 
@@ -72,7 +72,7 @@ Regras da lista de palavras bloqueadas:
 Para configurar a política de nomeação, é necessária uma das seguintes funções:
 - Administrador global
 - Administrador de grupo
-- Administrador de utilizadores
+
 
 Os administradores selecionados podem ser isentos destas políticas, em todas as cargas de trabalho do grupo e pontos finais, para que possam criar grupos usando palavras bloqueadas e com as suas próprias convenções de nomeação. Segue-se a lista das funções de administrador isentas da política de nomeação de grupos.
 
@@ -241,7 +241,7 @@ Carga de trabalho | Conformidade
 Portais do Diretório Ativo Azure | O portal AD AZure e o portal Access Panel mostram o nome da política de nomeação quando o utilizador escreve um nome de grupo ao criar ou editar um grupo. Quando um utilizador introduz uma palavra bloqueada personalizada, é apresentada uma mensagem de erro com a palavra bloqueada para que o utilizador possa removê-la.
 Outlook Web Access (OWA) | O Outlook Web Access mostra o nome da política de nomeação quando o utilizador escreve um nome de grupo ou um pseudónimo de grupo. Quando um utilizador introduz uma palavra bloqueada personalizada, é mostrada uma mensagem de erro na UI juntamente com a palavra bloqueada para que o utilizador possa removê-la.
 Outlook Desktop | Os grupos criados no ambiente de trabalho do Outlook estão em conformidade com as definições de política de nomeação. A aplicação de desktop Outlook ainda não mostra a pré-visualização do nome de grupo forçado e não devolve os erros de palavra bloqueados personalizados quando o utilizador introduz o nome de grupo. No entanto, a política de nomeação é aplicada automaticamente ao criar ou editar um grupo, e os utilizadores vêem mensagens de erro se houver palavras bloqueadas personalizadas no nome ou pseudónimo do grupo.
-Microsoft Teams | O Microsoft Teams mostra o nome da política de nomeação do grupo quando o utilizador introduz um nome de equipa. Quando um utilizador introduz uma palavra bloqueada personalizada, é mostrada uma mensagem de erro juntamente com a palavra bloqueada para que o utilizador possa removê-la.
+Microsoft Stream | O Microsoft Teams mostra o nome da política de nomeação do grupo quando o utilizador introduz um nome de equipa. Quando um utilizador introduz uma palavra bloqueada personalizada, é mostrada uma mensagem de erro juntamente com a palavra bloqueada para que o utilizador possa removê-la.
 SharePoint  |  O SharePoint mostra o nome da política de nomeação quando o utilizador escreve um nome de site ou endereço de e-mail de grupo. Quando um utilizador introduz uma palavra bloqueada personalizada, é mostrada uma mensagem de erro, juntamente com a palavra bloqueada para que o utilizador possa removê-la.
 Microsoft Stream | O Microsoft Stream mostra o nome da política de nomeação do grupo quando o utilizador escreve um nome de grupo ou um pseudónimo de e-mail de grupo. Quando um utilizador introduz uma palavra bloqueada personalizada, é mostrada uma mensagem de erro com a palavra bloqueada para que o utilizador possa removê-la.
 Outlook iOS e Aplicativo Android | Os grupos criados nas aplicações do Outlook estão em conformidade com a política de nomeação configurada. A aplicação móvel Outlook ainda não mostra a pré-visualização do nome da política de nomeação, e não devolve erros de palavras bloqueados personalizados quando o utilizador introduz o nome de grupo. No entanto, a política de nomeação é aplicada automaticamente ao clicar em criar/editar e os utilizadores vêem mensagens de erro se houver palavras bloqueadas personalizadas no nome ou pseudónimo do grupo.
@@ -259,7 +259,7 @@ Cmdlets powershell do diretório ativo Azure | Os cmdlets powershell do Diretór
 Centro de Administração de Intercâmbio | O centro de administração de intercâmbio está em conformidade com a política de nomeação. Os utilizadores recebem mensagens de erro apropriadas com prefixos e sufixos sugeridos e para palavras bloqueadas personalizadas se não seguirem a convenção de nomeação no nome de grupo e pseudónimos de grupo.
 Microsoft 365 admin center (Centro de administração do Microsoft 365) | O Centro de Administração Microsoft 365 está em conformidade com a política de nomeação. Quando um utilizador cria ou edita nomes de grupo, a política de nomeação é aplicada automaticamente e os utilizadores recebem erros adequados quando introduzem palavras bloqueadas personalizadas. O centro de administração microsoft 365 ainda não mostra uma pré-visualização da política de nomeação e não devolve erros de palavras bloqueados personalizados quando o utilizador introduz o nome de grupo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Estes artigos fornecem informações adicionais sobre os grupos AZURE AD.
 

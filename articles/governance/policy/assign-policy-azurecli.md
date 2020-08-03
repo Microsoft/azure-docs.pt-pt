@@ -3,12 +3,13 @@ title: 'Quickstart: Nova atribuição de políticas com a Azure CLI'
 description: Neste quickstart, você usa O CLI Azure para criar uma atribuição de Política Azure para identificar recursos não conformes.
 ms.date: 06/29/2020
 ms.topic: quickstart
-ms.openlocfilehash: 33db6b4098dc0a69f4dabbea62fc9627cdc948eb
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 2c289aa01362fcf0ede24bc1da7e8aef9e9be072
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85558927"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496700"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Quickstart: Criar uma atribuição de política para identificar recursos não conformes com o Azure CLI
 
@@ -52,9 +53,9 @@ O comando anterior utiliza as seguintes informações:
 - **Nome** – O nome real da atribuição. Neste exemplo, foi utilizado _audit-vm-manageddisks_.
 - **DisplayName** – O nome da atribuição de política a apresentar. Neste caso, está a utilizar _VMs de auditoria sem serviço de discos geridos_.
 - **Política** – O ID de definição de política, com base no qual está a utilizar para criar a atribuição. Neste caso, é o ID de definição de política _Audit VMs que não usam discos geridos_. Para obter o ID de definição de política, execute este comando: `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
-- **Âmbito** – Um âmbito determina que recursos ou agrupamento de recursos em que a atribuição de política é imposta. Pode ir de uma subscrição aos grupos de recursos. Não se esqueça de substituir &lt;âmbito&gt; pelo nome do seu grupo de recursos.
+- **Âmbito** – Um âmbito determina que recursos ou agrupamento de recursos em que a atribuição de política é imposta. Pode ir desde uma subscrição a grupos de recursos. Não se esqueça de substituir &lt;âmbito&gt; pelo nome do seu grupo de recursos.
 
-## <a name="identify-non-compliant-resources"></a>Identificar recursos não compatíveis
+## <a name="identify-non-compliant-resources"></a>Identificar recursos que não estão em conformidade
 
 Para ver os recursos que não estão em conformidade com esta nova atribuição, obtenha o ID de atribuição de política ao executar os seguintes comandos:
 

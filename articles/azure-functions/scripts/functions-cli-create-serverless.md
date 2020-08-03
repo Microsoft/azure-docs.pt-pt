@@ -1,21 +1,21 @@
 ---
-title: Criar uma aplicação de função sem servidores utilizando o Azure CLI
-description: Criar um aplicativo de função para execução sem servidor estoque em Azure usando o Azure CLI
+title: Criar uma aplicação de função sem servidor utilizando o Azure CLI
+description: Criar um aplicativo de função para execução sem servidor em Azure usando o Azure CLI
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
 ms.date: 07/03/2018
 ms.author: glenga
-ms.custom: mvc
-ms.openlocfilehash: 0fe4cb6e75a74f58b4c3b312f923935053ea4756
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: f94048014f18c584637b9863bb59982f9143661e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75922617"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498250"
 ---
 # <a name="create-a-function-app-for-serverless-code-execution"></a>Criar uma aplicação de funções para execução de código sem servidor 
 
-Este script de exemplo das Funções do Azure cria uma aplicação de funções, que é um contentor para as suas funções. A aplicação de funções é criada utilizando o [plano de consumo,](../functions-scale.md#consumption-plan)ideal para cargas de trabalho sem servidores orientadas por eventos.
+Este script de exemplo das Funções do Azure cria uma aplicação de funções, que é um contentor para as suas funções. A aplicação de função é criada utilizando o [plano Consumption](../functions-scale.md#consumption-plan), que é ideal para cargas de trabalho sem servidores orientadas por eventos.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

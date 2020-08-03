@@ -1,14 +1,14 @@
 ---
 title: Implementar amostra de planta federal de PBMM do Canadá
 description: Implementar etapas para a amostra de planta federal do Canadá PBMM, incluindo detalhes do parâmetro do artefacto da planta.
-ms.date: 05/08/2020
+ms.date: 07/31/2020
 ms.topic: sample
-ms.openlocfilehash: 5cbca772212f361fb7020dbfbdca20ca236c1ff0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 0b7e0467fbc43ea83a0aa4ff40e9b0be4c69b41e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045013"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500117"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>Implementar as amostras de planta do PBMM federal do Canadá
 
@@ -93,21 +93,21 @@ A tabela a seguir fornece uma lista dos parâmetros do artefacto da planta:
 
 Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|\[Pré-visualização \] : Implementar agente de análise de registo para VMs Linux |Atribuição de política |Log Analytics espaço de trabalho para VMs Linux |Para obter mais informações, consulte [Criar um espaço de trabalho log Analytics no portal Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[Pré-visualização \] : Implementar agente de análise de registo para VMs Linux |Atribuição de política |Opcional: Lista de imagens VM que apoiaram o Linux OS para adicionar ao âmbito |Pode ser utilizado um conjunto vazio para indicar que não há parâmetros opcionais:`[]` |
-|\[Pré-visualização \] : Implementar agente de análise de registo para VMs do Windows |Atribuição de política |Opcional: Lista de imagens VM que apoiaram o Windows OS para adicionar ao âmbito |Pode ser utilizado um conjunto vazio para indicar que não há parâmetros opcionais:`[]` |
-|\[Pré-visualização \] : Implementar agente de análise de registo para VMs do Windows |Atribuição de política |Log Analytics espaço de trabalho para VMs windows |Para obter mais informações, consulte [Criar um espaço de trabalho log Analytics no portal Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[Pré-visualização \] : Audit Canada Federal PBMM controla e implementa extensões específicas de VM para apoiar os requisitos de auditoria |Atribuição de política |Log Analytics workspace ID que VMs deve ser configurado para |Este é o ID (GUID) do espaço de trabalho Log Analytics para o qual os VMs devem ser configurados. |
-|\[Pré-visualização \] : Audit Canada Federal PBMM controla e implementa extensões específicas de VM para apoiar os requisitos de auditoria |Atribuição de política |Lista de tipos de recursos que devem ter registos de diagnóstico ativados |Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Os valores aceitáveis podem ser encontrados nos [esquemas de registos de diagnóstico do Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas). |
-|\[Pré-visualização \] : Audit Canada Federal PBMM controla e implementa extensões específicas de VM para apoiar os requisitos de auditoria |Atribuição de política |Grupo de administradores |Grupo. Exemplo: `Administrator; myUser1; myUser2` |
-|\[Pré-visualização \] : Audit Canada Federal PBMM controla e implementa extensões específicas de VM para apoiar os requisitos de auditoria |Atribuição de política |Lista de utilizadores que devem ser incluídos no grupo de administradores do Windows VM |Uma lista separada de membros que deve ser incluída no grupo local de administradores. Exemplo: `Administrator; myUser1; myUser2` |
-|Implementar proteção avançada de ameaças em contas de armazenamento |Atribuição de política |Efeito |Informações sobre os efeitos da política podem ser encontradas na [Understand Azure Policy Effects](../../../policy/concepts/effects.md). |
-|Implementar auditorias em servidores SQL |Atribuição de política |O valor em dias do período de retenção (0 indica retenção ilimitada) |Dias de retenção (opcional, _180_ dias se não especificado) |
-|Implementar auditorias em servidores SQL |Atribuição de política |Nome do grupo de recursos para conta de armazenamento para auditoria de servidor SQL |A auditoria escreve eventos de base de dados para um registo de auditoria na sua conta de Armazenamento Azure (é criada uma conta de armazenamento em cada região onde é criado um SQL Server que é partilhado por todos os servidores dessa região). Importante - para um bom funcionamento da Auditoria não apague nem mude o nome do grupo de recursos ou das contas de armazenamento. |
-|Implementar definições de diagnóstico para grupos de segurança de rede |Atribuição de política |Prefixo de conta de armazenamento para diagnósticos de grupos de segurança de rede |Este prefixo é combinado com a localização do grupo de segurança da rede para formar o nome da conta de armazenamento criada. |
-|Implementar definições de diagnóstico para grupos de segurança de rede |Atribuição de política |Nome do grupo de recursos para conta de armazenamento para diagnósticos de grupos de segurança de rede (deve existir) |O grupo de recursos em que a conta de armazenamento é criada. Este grupo de recursos já deve existir. |
+|\[Pré-visualização \] : Implementar agente de análise de registo para VMs Linux |Atribuição de políticas |Log Analytics espaço de trabalho para VMs Linux |Para obter mais informações, consulte [Criar um espaço de trabalho log Analytics no portal Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Pré-visualização \] : Implementar agente de análise de registo para VMs Linux |Atribuição de políticas |Opcional: Lista de imagens VM que apoiaram o Linux OS para adicionar ao âmbito |Pode ser utilizado um conjunto vazio para indicar que não há parâmetros opcionais:`[]` |
+|\[Pré-visualização \] : Implementar agente de análise de registo para VMs do Windows |Atribuição de políticas |Opcional: Lista de imagens VM que apoiaram o Windows OS para adicionar ao âmbito |Pode ser utilizado um conjunto vazio para indicar que não há parâmetros opcionais:`[]` |
+|\[Pré-visualização \] : Implementar agente de análise de registo para VMs do Windows |Atribuição de políticas |Log Analytics espaço de trabalho para VMs windows |Para obter mais informações, consulte [Criar um espaço de trabalho log Analytics no portal Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Pré-visualização \] : Audit Canada Federal PBMM controla e implementa extensões específicas de VM para apoiar os requisitos de auditoria |Atribuição de políticas |Log Analytics workspace ID que VMs deve ser configurado para |Este é o ID (GUID) do espaço de trabalho Log Analytics para o qual os VMs devem ser configurados. |
+|\[Pré-visualização \] : Audit Canada Federal PBMM controla e implementa extensões específicas de VM para apoiar os requisitos de auditoria |Atribuição de políticas |Lista de tipos de recursos que devem ter registos de diagnóstico ativados |Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Os valores aceitáveis podem ser encontrados nos [esquemas de registos de diagnóstico do Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas). |
+|\[Pré-visualização \] : Audit Canada Federal PBMM controla e implementa extensões específicas de VM para apoiar os requisitos de auditoria |Atribuição de políticas |Grupo de administradores |Grupo. Exemplo: `Administrator; myUser1; myUser2` |
+|\[Pré-visualização \] : Audit Canada Federal PBMM controla e implementa extensões específicas de VM para apoiar os requisitos de auditoria |Atribuição de políticas |Lista de utilizadores que devem ser incluídos no grupo de administradores do Windows VM |Uma lista separada de membros que deve ser incluída no grupo local de administradores. Exemplo: `Administrator; myUser1; myUser2` |
+|Implementar proteção avançada de ameaças em contas de armazenamento |Atribuição de políticas |Efeito |Informações sobre os efeitos da política podem ser encontradas na [Understand Azure Policy Effects](../../../policy/concepts/effects.md). |
+|Implementar auditorias em servidores SQL |Atribuição de políticas |O valor em dias do período de retenção (0 indica retenção ilimitada) |Dias de retenção (opcional, _180_ dias se não especificado) |
+|Implementar auditorias em servidores SQL |Atribuição de políticas |Nome do grupo de recursos para conta de armazenamento para auditoria de servidor SQL |A auditoria escreve eventos de base de dados para um registo de auditoria na sua conta de Armazenamento Azure (é criada uma conta de armazenamento em cada região onde é criado um SQL Server que é partilhado por todos os servidores dessa região). Importante - para um bom funcionamento da Auditoria não apague nem mude o nome do grupo de recursos ou das contas de armazenamento. |
+|Implementar definições de diagnóstico para grupos de segurança de rede |Atribuição de políticas |Prefixo de conta de armazenamento para diagnósticos de grupos de segurança de rede |Este prefixo é combinado com a localização do grupo de segurança da rede para formar o nome da conta de armazenamento criada. |
+|Implementar definições de diagnóstico para grupos de segurança de rede |Atribuição de políticas |Nome do grupo de recursos para conta de armazenamento para diagnósticos de grupos de segurança de rede (deve existir) |O grupo de recursos em que a conta de armazenamento é criada. Este grupo de recursos já deve existir. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que reviu os passos para implementar a amostra federal de PBMM do Canadá, visite os seguintes artigos para saber mais sobre a visão geral e controlo do mapeamento:
 

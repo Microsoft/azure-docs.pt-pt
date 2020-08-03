@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: bb4c689da38606561c657a3e4d85fd9e391267bf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8b28507c072f338342dc1a936cb1ab5f3910eea1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056743"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498111"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Utilizar o RBAC do Azure para Autorização do Kubernetes (pré-visualização)
 
@@ -283,7 +283,7 @@ az group delete -n MyResourceGroup
 
 - Leia mais sobre AKS Autenticação, Autorização e RBAC [aqui.](concepts-identity.md)
 - Leia mais sobre a Azure RBAC [aqui.](../role-based-access-control/overview.md)
-- Leia mais sobre todas as ações que pode usar para definir granularmente os papéis rbac personalizados para a autorização de Kubernetes [aqui.](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice)
+- Leia mais sobre todas as ações que pode usar para definir granularmente papéis Azure personalizados para a autorização de Kubernetes [aqui.](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice)
 
 
 <!-- LINKS - Internal -->

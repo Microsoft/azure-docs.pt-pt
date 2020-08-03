@@ -8,13 +8,14 @@ ms.date: 01/08/2020
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
+ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 2ac6a38d99f588c9dbab7a40bc092aa01b27649a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0f41dbb4e6231e804249c3fce3dfc8275dcc00aa
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83726014"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489015"
 ---
 # <a name="register-an-azure-iot-edge-device"></a>Registar um dispositivo Azure IoT Edge
 
@@ -156,7 +157,7 @@ Quando estiver pronto para configurar o seu dispositivo, precisa da cadeia de li
 
 O valor do `device-id` parâmetro é sensível ao caso. Não copie as aspas à volta da cadeia de ligação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que tem uma identidade de dispositivo registada no seu hub IoT, está pronto para instalar o tempo de execução IoT Edge nos seus dispositivos. Instale o tempo de funcionamento de acordo com o sistema operativo do dispositivo:
 

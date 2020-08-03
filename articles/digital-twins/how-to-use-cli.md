@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/25/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5272babf794529e5e9bd87a3c4a96e6df5758fb8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7f13dc3e86b21a3f4113a7a7c6f477f239315a27
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537467"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499097"
 ---
 # <a name="use-the-azure-digital-twins-cli"></a>Utilizar a CLI do Azure Digital Twins
 
@@ -25,15 +25,21 @@ Além de gerir a sua instância Azure Digital Twins no portal Azure, a Azure Dig
 * Gerir [rotas](concepts-route-events.md)
 * Configurar a [segurança](concepts-security.md) através do controlo de acesso baseado em funções (RBAC)
 
-Os comandos Azure Digital Twins fazem parte da [extensão Azure IoT para Azure CLI](https://github.com/Azure/azure-iot-cli-extension). Pode ver a documentação de referência para estes comandos como parte do conjunto de `az iot` comandos: [az dt](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest).
-
-## <a name="deploy-and-validate"></a>Implementar e validar
+## <a name="uses-deploy-and-validate"></a>Utilizações (implantar e validar)
 
 Além de gerir geralmente o seu caso, o CLI é também uma ferramenta útil para implementação e validação.
 * Os comandos do plano de controlo podem ser utilizados para tornar a implantação de uma nova instância repetível ou automatizada.
 * Os comandos do plano de dados podem ser usados para verificar rapidamente os valores no seu caso, e verificar se as operações foram concluídas como esperado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="get-the-extension"></a>Obtenha a extensão
+
+Os comandos Azure Digital Twins fazem parte da [extensão Azure IoT para Azure CLI](https://github.com/Azure/azure-iot-cli-extension). Pode ver a documentação de referência para estes comandos como parte do conjunto de `az iot` comandos: [az dt](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest).
+
+Pode certificar-se de que tem a versão mais recente da extensão com estes passos. Pode executar estes comandos na [Azure Cloud Shell](../cloud-shell/overview.md) ou num [Azure CLI local.](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+
+[!INCLUDE [digital-twins-cloud-shell-extensions.md](../../includes/digital-twins-cloud-shell-extensions.md)]
+
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma alternativa aos comandos CLI, consulte como gerir uma instância Azure Digital Twins usando APIs e SDKs:
 * [*Como fazer: Use as APIs e SDKs de gémeos digitais Azure*](how-to-use-apis-sdks.md)

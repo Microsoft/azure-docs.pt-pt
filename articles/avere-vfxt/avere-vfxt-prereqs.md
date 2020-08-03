@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 24c803bd94f56af551f3afa2cb7350219b4fa448
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 538f3f18e1c8889834b9ee6588b85c9094dfbebe
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124736"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496717"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparar para criar o vFXT Avere
 
@@ -32,7 +32,7 @@ Para criar uma nova subscrição do Azure no portal Azure:
 
 Um utilizador com permissões do proprietário para a subscrição deve criar o cluster vFXT. A criação de clusters requer que um proprietário aceite os termos de serviço do software e autorize alterações nos recursos de rede e armazenamento.
 
-Existem algumas soluções alternativas para permitir que um não proprietário crie um Avere vFXT para cluster Azure. Estes cenários envolvem restringir recursos e atribuir papéis adicionais de controlo de acesso baseado em funções (RBAC) ao criador. Em todos estes casos, um proprietário de subscrição também deve aceitar os termos de [software Avere vFXT](#accept-software-terms) antes do tempo.
+Existem algumas soluções alternativas para permitir que um não proprietário crie um Avere vFXT para cluster Azure. Estes cenários envolvem restringir recursos e atribuir papéis adicionais de Azure ao criador. Em todos estes casos, um proprietário de subscrição também deve aceitar os termos de [software Avere vFXT](#accept-software-terms) antes do tempo.
 
 | Cenário | Restrições | Funções de acesso necessárias para criar o cluster Avere vFXT |
 |----------|--------|-------|

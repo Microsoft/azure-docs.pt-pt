@@ -3,12 +3,13 @@ title: Fornecedores de recursos e tipos de recursos
 description: Descreve os fornecedores de recursos que suportam o Gestor de Recursos, os seus esquemas e versões API disponíveis, e as regiões que podem acolher os recursos.
 ms.topic: conceptual
 ms.date: 08/29/2019
-ms.openlocfilehash: 82b8251006a1a2d4edd198eca843489d3720f8d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 581b653c6d4769f7777b0ca56f136d25443c1ae4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84702776"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500015"
 ---
 # <a name="azure-resource-providers-and-types"></a>Tipos e fornecedores de recursos do Azure
 
@@ -285,7 +286,7 @@ West US
 ...
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber sobre a criação de modelos de Gestor de Recursos, consulte os modelos do [Gestor de Recursos Azure.](../templates/template-syntax.md) 
 * Para ver os esquemas de modelo do fornecedor de recursos, consulte [a referência do modelo](/azure/templates/).

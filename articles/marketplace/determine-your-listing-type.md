@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 06/22/2020
-ms.openlocfilehash: 3d8692d3180e4164bff544f71a1216097a390773
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/30/2020
+ms.openlocfilehash: 37647a9591c0f686e4fc3f1fd858baa46e01f7ac
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103658"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498077"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar a opção de publicação
 
@@ -47,18 +47,7 @@ A tabela seguinte mostra as opções de publicação para os tipos de oferta no 
 
 &#42;&#42; as ofertas da Microsoft 365 são gratuitas e podem ser rentabilizadas através da oferta saaS como um serviço de licenciamento. Para mais informações, consulte [Monetize o seu add-in Office 365 através do mercado comercial da Microsoft.](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace)
 
-## <a name="selecting-a-storefront"></a>Selecionando uma montra
-
-Antes de selecionar uma opção de publicação, é importante compreender os requisitos de elegibilidade da montra para soluções, apps e serviços de marketplace comercial. Cada montra serve requisitos exclusivos do cliente e visa públicos específicos. O seu tipo de oferta, capacidades de transação e categoria ou indústria determinarão onde publicar a sua oferta.
-
-As aplicações **do Microsoft AppSource** são soluções de linha de negócio que podem ser construídas em Azure ou incorporadas para: Dynamics 365, Office 365, Power BI ou Power Apps. Os serviços de consultoria AppSource são ofertas de serviços profissionais que ajudam os clientes a começar ou acelerar o uso da Dynamics 365 e power BI.
-
-As aplicações **do Azure Marketplace** são soluções técnicas de "bloco de construção" construídas ou construídas para o Azure e destinadas a um público de TI ou desenvolvedor. Os serviços de consultoria Azure Marketplace são ofertas de serviços profissionais que ajudam os clientes a começar ou acelerar o uso do Azure.
-
->[!Note]
->"Cross-listing" (apenas para aplicações SaaS): se a sua oferta SaaS se destina a um público técnico (Azure Marketplace) e a um público de negócios (AppSource), pode selecionar uma categoria e/ou subcategoria aplicável a qualquer uma das Storefronts. Tenha em atenção que a intenção de "cruzar" a sua oferta deve basear-se numa proposta de valor que se estende a ambos os públicos. Clique [aqui](./gtm-offer-listing-best-practices.md#categories) para ver categorias aplicáveis a cada Montra.
-
-## <a name="choose-a-publishing-option"></a>Escolha uma opção de publicação
+## <a name="choose-a-call-to-action"></a>Escolha uma chamada para a ação
 
 As opções de publicação disponíveis oferecem um envolvimento diferenciado do cliente, ao mesmo tempo que lhe dá acesso à partilha de chumbo e [aos benefícios do mercado comercial.](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits) Note as chamadas para a ação que correspondem à opção de publicação:
 
@@ -72,7 +61,44 @@ As opções de publicação disponíveis oferecem um envolvimento diferenciado d
 > [!Note]
 > Ao utilizar a opção de publicação Da Transact, é importante compreender os preços, faturação, faturação e considerações de pagamento antes de selecionar um tipo de oferta e criar a sua oferta. Para saber mais, reveja o artigo [Capacidades de transação comercial.](./marketplace-commercial-transaction-capabilities-and-considerations.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="selecting-a-storefront"></a>Selecionando uma montra
+
+Cada montra serve requisitos exclusivos do cliente e visa públicos específicos. O seu tipo de oferta, capacidades de transação e categoria determinará onde a sua oferta será publicada. As categorias e subcategorias são mapeadas para cada montra com base no público-alvo:
+
+**O Microsoft AppSource** tem como alvo utilizadores de negócios que procuram soluções de linha de negócios ou indústria e serviços de consultoria para a Dynamics 365, Microsoft 365 e Power Platform.
+
+**O Azure Marketplace** tem como alvo profissionais de TI e desenvolvedores que procuram soluções construídas para ou no Azure, bem como serviços de consultoria que acelerem o uso do Azure.
+
+Selecione a categoria e a subcategoria que melhor se alinham com o seu público-alvo. Por exemplo, uma firewall de aplicação web deve ser publicada no Azure Marketplace, na categoria De Segurança, uma vez que o público pretendido são profissionais de TI. Em vez disso, uma aplicação de gestão de contratos deve ser publicada para appSource na categoria Vendas, uma vez que o público pretendido são utilizadores de negócios. A seleção da categoria ou subcategoria incorreta pode resultar na publicação da sua oferta na montra errada.
+
+### <a name="publishing-to-both-storefronts-saas-offers-only"></a>Publicação em ambas as Lojas (saaS só oferece)
+
+As ofertas da SaaS podem ser publicadas no Azure Marketplace ou no AppSource. Se a sua oferta SaaS se *destinar tanto* a um público técnico (Azure Marketplace) como a um público de negócios (AppSource), selecione uma categoria e/ou uma subcategoria aplicável a cada montra. As ofertas publicadas em ambas as lojas devem ter uma proposta de valor que se estende a profissionais de TI *e* utilizadores de negócios.
+
+> [!IMPORTANT]
+> As ofertas do SaaS com faturação medido estão disponíveis através do Azure Marketplace e do portal Azure. As ofertas do SaaS com apenas planos privados estão disponíveis através do portal Azure.
+
+| Faturação medido | Plano público | Plano privado | Disponível em: |
+|---|---|---|---|
+| Sim             | Sim         | Não           | Azure Marketplace e portal Azure |
+| Sim             | Sim         | Sim          | Azure Marketplace e portal Azure* |
+| Sim             | Não          | Sim          | Apenas portal Azure |
+| Não              | Não          | Sim          | Apenas portal Azure |
+
+&#42; O plano privado da oferta só estará disponível através do portal Azure
+
+Por exemplo, uma oferta com faturação medido e um plano privado apenas (sem plano público), será adquirida por clientes no portal Azure. Saiba mais sobre [ofertas privadas no mercado comercial da Microsoft.](private-offers.md)
+
+### <a name="categories"></a>Categorias
+
+As categorias e subcategorias são mapeadas para cada montra com base no público-alvo. Selecione as categorias e subcategorias que melhor se alinham com a sua oferta e o público pretendido. Pode selecionar:
+
+- Pelo menos uma e até duas categorias. Tem a opção de escolher uma categoria primária e secundária.
+- Até duas subcategorias para cada categoria primária e/ou secundária. Se não selecionar nenhuma subcategoria, a sua oferta continuará a ser detetável na categoria selecionada.
+
+[!INCLUDE [categories and subcategories](./includes/categories.md)]
+
+## <a name="next-steps"></a>Passos seguintes
 
 - Assim que decidir uma opção de publicação, está pronto para [selecionar o tipo de oferta](./publisher-guide-by-offer-type.md) que será usado para apresentar a sua oferta.
 - Reveja os requisitos de elegibilidade nas opções de publicação por secção de tipo oferta para finalizar a seleção e configuração da sua oferta.

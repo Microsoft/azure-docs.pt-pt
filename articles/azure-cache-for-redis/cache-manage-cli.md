@@ -6,12 +6,13 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: yegu
-ms.openlocfilehash: c0e94c0bef5087665ca8746a65ccd34a0f61deef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: db55ac4ce868f2e6ce2afbfbf014aac67653ce4a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829742"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500509"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Como criar e gerir a Cache Azure para Redis usando o CLI clássico do Azure
 > [!div class="op_single_selector"]

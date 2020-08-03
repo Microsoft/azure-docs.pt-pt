@@ -9,12 +9,13 @@ ms.workload: infrastructure
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 92660063a5699855b9ae2d745136327cf8bf287a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 0a1083c1889fbd83a1b8bd119a71013b738d7f74
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494705"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499539"
 ---
 # <a name="create-an-image-version-from-a-vm-in-azure-using-the-azure-cli"></a>Criar uma versão de imagem a partir de um VM em Azure usando o Azure CLI
 
@@ -102,7 +103,7 @@ az sig image-version create \
 > Também pode armazenar a sua imagem no armazenamento premiun através de um armazenamento `--storage-account-type  premium_lrs` , ou [Armazenamento Redundante zona,](../storage/common/storage-redundancy.md) adicionando `--storage-account-type  standard_zrs` quando cria a versão de imagem.
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Crie um VM a partir da [imagem generalizada](vm-generalized-image-version-cli.md) utilizando o Azure CLI.
 

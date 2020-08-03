@@ -7,12 +7,13 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 07/29/2020
 ms.author: mjbrown
-ms.openlocfilehash: 43e4b0ae2e7a33cc1b66784bf8e7545b4ed202f1
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 954215f04525e850151fdad93af6e7272b41b3df
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431377"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498468"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>Exemplos da CLI do Azure para o Azure Cosmos DB
 

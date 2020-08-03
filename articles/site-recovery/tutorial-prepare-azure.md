@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 312723818c4cef82ad6c96b013d7ec81ede276cc
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: ed517f2f6e04f60ec1c9c808f2fdf03203fb891b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130916"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498978"
 ---
 # <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Prepare o Azure para a recuperação de desastres no local para Azure
 
@@ -62,7 +62,7 @@ Para concluir estas tarefas, a conta deve estar atribuída à função incorpora
 6. Na **Região,** selecione a região em que o cofre deve ser localizado. estamos a utilizar **Europa Ocidental**.
 7. Selecione **Rever + criar**.
 
-   ![Criar um novo cofre](./media/tutorial-prepare-azure/new-vault-settings.png)
+   ![Screenshot da página do cofre do Create Recovery Services.](./media/tutorial-prepare-azure/new-vault-settings.png)
 
    O novo cofre será agora listado no **Dashboard**  >  **Todos os recursos,** e na página principal dos **cofres dos Serviços de Recuperação.**
 
@@ -81,7 +81,7 @@ As máquinas no local são replicadas em discos geridos aZure. Quando ocorre uma
 9. Estamos a deixar as opções padrão de proteção básica do DDoS, sem ponto final de serviço, ou firewall na rede.
 9. Selecione **Criar**.
 
-   ![Criar uma rede virtual](media/tutorial-prepare-azure/create-network.png)
+   ![Screenshot das opções de rede virtual Create.](media/tutorial-prepare-azure/create-network.png)
 
 A rede virtual demora alguns segundos a ser criada. Depois de criado, vai vê-lo no painel do portal Azure.
 

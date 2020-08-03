@@ -4,14 +4,14 @@ description: Saiba mais sobre as palavras-chave SQL para Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: 069548b9b69ef6f7f6bde85ede830d97f3d312db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f00e757f9b51da850c49924f6ae49bf00c9c53d1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81261572"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496686"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Palavras-chave em Azure Cosmos DB
 
@@ -35,9 +35,6 @@ Também pode usar a `BETWEEN` palavra-chave na `SELECT` cláusula, como no exemp
 ```
 
 Na API SQL, ao contrário da ANSI SQL, pode expressar consultas de alcance contra propriedades de tipos mistos. Por exemplo, `grade` pode ser um número como em `5` alguns itens e uma corda como `grade4` em outros. Nestes casos, como no JavaScript, a comparação entre os dois tipos diferentes resulta em `Undefined` , pelo que o item é ignorado.
-
-> [!TIP]
-> Para tempos de execução de consultas mais rápidos, crie uma política de indexação que utilize um tipo de índice de gama contra quaisquer propriedades ou caminhos numéricos que a `BETWEEN` cláusula filtra.
 
 ## <a name="distinct"></a>DISTINCT
 
@@ -76,7 +73,7 @@ Os resultados são:
 ]
 ```
 
-A DISTINCT também pode ser utilizada na projeção dentro de um subquery:
+`DISTINCT`pode também ser utilizado na projeção dentro de um subquery:
 
 ```sql
 SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
@@ -164,7 +161,7 @@ Os resultados são:
     }]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Introdução](sql-query-getting-started.md)
 - [Associações](sql-query-join.md)

@@ -10,14 +10,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d87da234e675059ba2c170f4322d0ba53965dc89
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c5d23770aab0bde745152d918adfe83209819899
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075698"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500764"
 ---
-# <a name="using-transactions-in-sql-pool"></a>Utilização de transações em piscina SQL
+# <a name="use-transactions-in-sql-pool"></a>Utilize transações em piscina SQL
 
 Dicas para implementar transações em pool SQL (data warehouse) para o desenvolvimento de soluções.
 
@@ -183,7 +183,7 @@ Tudo o que mudou foi que o ROLLBACK da transação tinha de acontecer antes da l
 
 Vale também a pena notar que o pool SQL não implementa nem suporta a função ERROR_LINE(). Se tiver isto no seu código, tem de o remover para estar em conformidade com a piscina SQL. Utilize etiquetas de consulta no seu código para implementar funcionalidades equivalentes. Para mais detalhes, consulte o artigo [LABEL.](develop-label.md)
 
-## <a name="using-throw-and-raiserror"></a>Utilização de THROW e RAISERROR
+## <a name="use-of-throw-and-raiserror"></a>Utilização de THROW e RAISERROR
 
 THROW é a implementação mais moderna para aumentar exceções na piscina SQL, mas o RAISERROR também é apoiado. No entanto, há algumas diferenças que merecem ser prestas em atenção.
 

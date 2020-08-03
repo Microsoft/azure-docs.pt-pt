@@ -3,12 +3,13 @@ title: 'Quickstart: Enviar eventos personalizados para Centros de Eventos - Grad
 description: 'Quickstart: Use Azure Event Grid e Azure CLI para publicar um tópico e subscrever esse evento. É utilizado um hub de eventos para o ponto final.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 1d27ebe0151c6a49d21975216e146f1daa20e4e2
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 0965963e6527e625d0684821b977b05cb9f28657
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87462042"
+ms.locfileid: "87497360"
 ---
 # <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Quickstart: Encaminhe eventos personalizados para Azure Event Hubs com Azure CLI e Grade de Eventos
 
@@ -101,7 +102,7 @@ Normalmente, cria uma aplicação que obtém os eventos do hub de eventos. Para 
 * [Receber eventos de Hubs de Eventos do Azure com o Java](../event-hubs/event-hubs-java-get-started-send.md)
 * [Receber eventos dos Hubs de Eventos com o Apache Storm](../event-hubs/event-hubs-storm-getstarted-receive.md)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Se quiser continuar a trabalhar com este evento, não limpe os recursos criados neste artigo. Caso contrário, utilize o comando seguinte para eliminar os recursos que criou neste artigo.
 
 ```azurecli-interactive

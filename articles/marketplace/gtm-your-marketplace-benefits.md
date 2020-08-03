@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 8aa9fa1701f41c6fd1adacc264b811e0d9849ab5
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: c2481ca9894a1af3b363db8d5043b7fcd4eefc3d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87408123"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498026"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Os seus benefícios no mercado comercial
 
@@ -26,7 +26,7 @@ O Marketplace Rewards foi concebido para o apoiar na sua fase específica de cre
 
 O programa cria um ciclo de feedback positivo: os benefícios em cada fase de crescimento são projetados para progredir para a fase seguinte, permitindo-lhe crescer o seu negócio para os clientes da Microsoft, com o campo da Microsoft, e através do canal da Microsoft, alavancando o mercado comercial como a sua plataforma.
 
-Os seus benefícios são diferenciados com base no facto de a sua oferta ser [List, Trial ou Transact.](determine-your-listing-type.md#choose-a-publishing-option)
+Os seus benefícios são diferenciados com base no facto de a sua oferta ser [List, Trial ou Transact.](determine-your-listing-type.md#choose-a-call-to-action)
 
 Será contactado por um membro da equipa de Prémios quando a sua oferta for transmitida ao vivo, com base na sua elegibilidade.
 
@@ -122,7 +122,7 @@ Esta oferta é realizada em inglês para todos os parceiros com uma oferta ao vi
 
 As transações que se prove serem fraudulentas não contarão para o nível de programa de vendas faturado de um editor, como indicado na [lista, no ensaio,](#list-trial-and-consulting-benefits) na secção de consultoria e na secção de benefícios do [parceiro transacionado.](#marketplace-rewards-for-transact-partners) A Microsoft irá atribuir parceiros a níveis de elegibilidade com base nas suas vendas faturadas reais, depois de a fraude ter sido removida.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) para criar ou configurar a sua oferta.
 

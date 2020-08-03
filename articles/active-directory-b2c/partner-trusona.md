@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bc0bcd4a978912dccc9f08802acbf2ec1151b3a1
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: a0d5b369e1c143b3df4157329bcf7d3a3f7142d7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170110"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489474"
 ---
 # <a name="integrating-trusona-with-azure-active-directory-b2c"></a>Integrando Trusona com Azure Ative Directory B2C
 
@@ -125,25 +125,26 @@ Neste cenário, Trusona atua como um fornecedor de identidade para a Azure AD B2
 
 ### <a name="create-a-user-flow-policy"></a>Criar uma política de fluxo de utilizador
 
-1. Deverá agora ver a Trusona como um **novo Fornecedor de Identidade OpenID Connect** listado nos seus fornecedores de identidade B2C.
+Deverá agora ver a Trusona como um **novo Fornecedor de Identidade OpenID Connect** listado nos seus fornecedores de identidade B2C.
 
-2. Selecione fluxos de **utilizador (políticas)** do painel de navegação esquerdo.
+1. No seu inquilino Azure AD B2C, em **Políticas,** selecione **fluxos de utilizador**.
 
-3. **Selecione Adicionar**  >  **novo fluxo de utilizador**  >  **Inscreva-se e inscreva-se em**.
+1. Selecione **novo fluxo de utilizador**.
 
-### <a name="configure-the-policy"></a>Configure a Política
+1. Selecione **Iniciar Sessão e iniciar sessão,** selecione uma versão e, em seguida, selecione **Criar**.
 
-1. Diga a sua apólice.
+1. Insira um **Nome** para a sua política.
 
-2. Selecione o seu recém-criado **Fornecedor de Identidade Trusona.**
+1. Na secção **de fornecedores de identidade,** selecione o seu recém-criado **Fornecedor de Identidade Trusona.**
 
-3. Como Trusona é inerentemente multi-factor, é melhor deixar a autenticação multi-factor desativada.
+   > [!NOTE]
+   > Como Trusona é inerentemente multi-factor, é melhor deixar a autenticação multi-factor desativada.
 
-4. Selecione **Criar**.
+1. Selecione **Criar**.
 
-5. Em **Atributos e Reclamações do Utilizador,** escolha **Mostrar mais**. No formulário, selecione pelo menos um atributo que especificou durante a configuração do seu fornecedor de identidade na secção anterior.
+1. Em **Atributos e Reclamações do Utilizador,** escolha **Mostrar mais**. No formulário, selecione pelo menos um atributo que especificou durante a configuração do seu fornecedor de identidade na secção anterior.
 
-6. Selecione **OK**.  
+1. Selecione **OK**.  
 
 ### <a name="test-the-policy"></a>Testar a Política
 

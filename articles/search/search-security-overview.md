@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/30/2020
-ms.openlocfilehash: 9fe9a431d7bbc3b0d3b4b95d9883ed8b5a1f4704
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: b5e408eeac024f63eb8e7ce47039dc4c0a6aa5b5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475435"
+ms.locfileid: "87501496"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Segurança em Azure Cognitive Search - visão geral
 
@@ -125,11 +125,13 @@ Em contrapartida, os direitos de administração sobre os conteúdos alojados no
 
 A Azure Cognitive Search foi certificada em conformidade com vários padrões globais, regionais e específicos da indústria tanto para a nuvem pública como para o Governo de Azure. Para a lista completa, descarregue o papel branco [ **microsoft Azure Compliance Offers** ](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/) da página oficial dos relatórios da Auditoria.
 
-Para o cumprimento, pode utilizar a [Azure Policy](../governance/policy/overview.md) para o ajudar a implementar as melhores práticas de alta segurança do [Azure Security Benchmark](../security/benchmarks/introduction.md). A Azure Security Benchmark é uma coleção de recomendações de segurança, codificadas em controlos de segurança que mapeiam para ações-chave que deve tomar para mitigar ameaças a serviços e dados. Existem atualmente 11 controlos de segurança, incluindo [Segurança de Rede,](../security/benchmarks/security-control-network-security.md) [Registo e Monitorização,](../security/benchmarks/security-control-logging-monitoring.md)e Proteção de [Dados](../security/benchmarks/security-control-data-protection.md) para citar alguns.
+Para o cumprimento, pode utilizar [a Azure Policy](../governance/policy/overview.md) para implementar as melhores práticas de alta segurança do [Azure Security Benchmark](../security/benchmarks/introduction.md). A Azure Security Benchmark é uma coleção de recomendações de segurança, codificadas em controlos de segurança que mapeiam para ações-chave que deve tomar para mitigar ameaças a serviços e dados. Existem atualmente 11 controlos de segurança, incluindo [Segurança de Rede,](../security/benchmarks/security-control-network-security.md) [Registo e Monitorização,](../security/benchmarks/security-control-logging-monitoring.md)e Proteção de [Dados](../security/benchmarks/security-control-data-protection.md) para citar alguns.
 
-A Azure Policy é uma capacidade incorporada no Azure que o ajuda a gerir o cumprimento de vários padrões, incluindo os da Azure Security Benchmark. Para referências bem conhecidas, a Azure Policy fornece definições incorporadas para que possa criar políticas mais facilmente. Para a Azure Cognitive Search, existe atualmente uma definição incorporada para a exploração de diagnóstico, o que significa que pode atribuir uma política que identifique e corrija qualquer serviço de pesquisa que não esteja em conformidade com o controlo de segurança de registo e monitorização. Para obter mais informações, consulte [os controlos de conformidade regulamentar da Política Azure para a pesquisa cognitiva Azure](security-controls-policy.md).
+A Azure Policy é uma capacidade incorporada no Azure que o ajuda a gerir o cumprimento de vários padrões, incluindo os da Azure Security Benchmark. Para referências bem conhecidas, a Azure Policy fornece definições incorporadas que fornecem tanto critérios como uma resposta acccionável que aborda o incumprimento. 
 
-## <a name="see-also"></a>Veja também
+Para a pesquisa cognitiva Azure, existe atualmente uma definição incorporada. É para registo de diagnóstico. Com este incorporado, você pode atribuir uma política que identifique qualquer serviço de pesquisa que esteja faltando registo de diagnóstico, e depois liga-o. Para obter mais informações, consulte [os controlos de conformidade regulamentar da Política Azure para a pesquisa cognitiva Azure](security-controls-policy.md).
+
+## <a name="see-also"></a>Ver também
 
 + [Noções básicas da segurança do Azure](../security/fundamentals/index.yml)
 + [Segurança Azure](https://azure.microsoft.com/overview/security)

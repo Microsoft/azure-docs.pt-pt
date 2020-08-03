@@ -6,12 +6,12 @@ author: lachie83
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: laevenso
-ms.openlocfilehash: 7349504b5a1ed5a67f3b34be2c4ff5dda29afbf3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 08835bda959fb4fe261e86e4d519ab85bd2a4625
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025307"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495153"
 ---
 # <a name="http-application-routing"></a>Encaminhamento de aplicações de HTTP
 
@@ -20,7 +20,7 @@ A solução de encaminhamento de aplicações HTTP facilita o acesso às aplica�
 Quando o addon está ativado, cria uma Zona DNS na sua subscrição. Para obter mais informações sobre o custo do DNS, consulte [os preços dns][dns-pricing].
 
 > [!CAUTION]
-> O addon de encaminhamento de aplicações HTTP foi concebido para permitir criar rapidamente um controlador de entrada e aceder às suas aplicações. Este complemento não é recomendado para utilização de produção. Para implementações de entrada prontas para a produção que incluam múltiplas réplicas e suporte TLS, consulte [Criar um controlador de entrada HTTPS](./ingress-tls.md).
+> O addon de encaminhamento de aplicações HTTP foi concebido para permitir criar rapidamente um controlador de entrada e aceder às suas aplicações. Este complemento não foi atualmente concebido para ser utilizado num ambiente de produção e não é recomendado para utilização de produção. Para implementações de entrada prontas para a produção que incluam múltiplas réplicas e suporte TLS, consulte [Criar um controlador de entrada HTTPS](./ingress-tls.md).
 
 ## <a name="http-routing-solution-overview"></a>Visão geral da solução de encaminhamento HTTP
 
@@ -203,7 +203,7 @@ kubectl delete configmaps addon-http-application-routing-nginx-configuration --n
 
 Repita o passo anterior `kubectl delete` para todos os recursos de *encaminhamento de aplicações addon-http-aplicação* que permaneceram no seu cluster.
 
-## <a name="troubleshoot"></a>Resolução de Problemas
+## <a name="troubleshoot"></a>Resolução de problemas
 
 Utilize o comando [de registos kubectl][kubectl-logs] para visualizar os registos de aplicação para a aplicação External-DNS. Os registos devem confirmar que um registo de DNS A e TXT foi criado com sucesso.
 

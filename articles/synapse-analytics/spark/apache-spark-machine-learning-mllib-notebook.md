@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: b7ae2e3045b8f6e56b756ac1b2a4233ac8af9688
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: beda097733228dbb23ccb607747742d93d606933
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373458"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497618"
 ---
 # <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Construa uma app de machine learning com Apache Spark MLlib e Azure Synapse Analytics
 
@@ -148,7 +148,7 @@ plt.show()
  ![ de dispersão de lote de whisker de caixa de ](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-box-whisker.png)
  ![ histograma](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-scatter.png)
 
-## <a name="preparing-the-data"></a>Preparar os dados
+## <a name="prepare-the-data"></a>Preparar os dados
 
 Os dados na sua forma bruta não são frequentemente adequados para passar diretamente para um modelo. Uma série de ações deve ser realizada nos dados para levá-lo para um estado onde o modelo pode consumi-lo.
 
@@ -278,7 +278,7 @@ plt.show()
 
 Depois de ter terminado a execução da aplicação, desligue o portátil para libertar os recursos fechando o separador ou selecione **Sessão final** do painel de estado na parte inferior do portátil.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Visão geral: Apache Spark on Azure Synapse Analytics](apache-spark-overview.md)
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: e5daf318088cb71b6a1819db71e3c597a9fa94db
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 3cd64de05c44729f1aa714849e12fc8f69998334
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421455"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498621"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura da recuperação após desastre do Azure para o Azure
 
@@ -34,7 +34,7 @@ Os componentes envolvidos na recuperação de desastres para os VMs do Azure sã
 **Conta de armazenamento de cache** | Precisa de uma conta de armazenamento de cache na rede de origem. Durante a replicação, as alterações em VM são armazenadas na cache antes de serem enviadas para o armazenamento do alvo.  As contas de armazenamento de cache devem ser standard.<br/><br/> A utilização de uma cache garante o mínimo impacto nas aplicações de produção que estão a funcionar num VM.<br/><br/> [Saiba mais](azure-to-azure-support-matrix.md#cache-storage) sobre os requisitos de armazenamento de cache. 
 **Recursos-alvo** | Os recursos-alvo são utilizados durante a replicação, e quando ocorre uma falha. A Recuperação do Site pode configurar o recurso-alvo por predefinição, ou pode criá-los/personalizá-los.<br/><br/> Na região alvo, verifique se é capaz de criar VMs, e que a sua subscrição tem recursos suficientes para suportar tamanhos de VM que serão necessários na região alvo. 
 
-![Replicação de origem e alvo](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
+![Diagrama mostrando a origem e a replicação do alvo.](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
 
 ## <a name="target-resources"></a>Recursos-alvo
 
@@ -116,7 +116,7 @@ Quando ativa a replicação de um Azure VM, acontece o seguinte:
 4. A Recuperação do Site processa os dados na cache e envia-os para a conta de armazenamento alvo, ou para os discos geridos por réplica.
 5. Após o processamento dos dados, os pontos de recuperação consistentes em acidentes são gerados a cada cinco minutos. Os pontos de recuperação consistentes da aplicação são gerados de acordo com a definição especificada na política de replicação.
 
-![Ativar o processo de replicação, passo 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png)
+![Diagrama mostrando o processo de replicação, passo 2.](./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png)
 
 **Processo de replicação**
 
@@ -128,7 +128,7 @@ Quando ativa a replicação de um Azure VM, acontece o seguinte:
 
 Se o acesso de saída para VMs for controlado com URLs, permita estes URLs.
 
-| **Nome**                  | **Comercial**                               | **Governo**                                 | **Descrição** |
+| **Nome**                  | **Comercial**                               | **Administração Pública**                                 | **Descrição** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Armazenamento                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`               | Permite que os dados sejam escritos da VM para a conta de armazenamento em cache na região de origem. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fornece autorização e autenticação para os URLs do serviço Site Recovery. |
@@ -191,7 +191,7 @@ Se ativar a consistência multi-VM, as máquinas no grupo de replicação comuni
 
 Quando inicia uma falha, os VMs são criados no grupo de recursos-alvo, rede virtual alvo, sub-rede alvo e no conjunto de disponibilidade de destino. Durante uma falha, pode utilizar qualquer ponto de recuperação.
 
-![Processo de failover](./media/concepts-azure-to-azure-architecture/failover-v2.png)
+![Diagrama que mostra o processo de failover com ambientes de origem e alvo.](./media/concepts-azure-to-azure-architecture/failover-v2.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

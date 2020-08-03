@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 8b95f6b6eca0f1464a7d09d2810aa66836d76f8f
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 04b2d7842222426010b76a1a7ed4c72ee74e3d87
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386644"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489729"
 ---
 # <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Ficheiros de consulta JSON utilizando SQL on-demand (pré-visualização) em Azure Synapse Analytics
 
@@ -22,7 +22,7 @@ Neste artigo, você aprenderá a escrever uma consulta usando SQL on demand (pre
 - Ficheiros JSON padrão onde vários documentos JSON são armazenados como uma matriz JSON.
 - Ficheiros JSON delimitados em linha, onde os documentos JSON são separados com o carácter de nova linha. As extensões comuns para este tipo de ficheiros são `jsonl` `ldjson` , e `ndjson` .
 
-## <a name="reading-json-documents"></a>Ler documentos da JSON
+## <a name="read-json-documents"></a>Leia documentos da JSON
 
 A maneira mais fácil de ver o conteúdo do seu ficheiro JSON é fornecer URL de ficheiro para `OPENROWSET` funcionar, especificar csv, `FORMAT` e definir valores `0x0b` para e . `fieldterminator` `fieldquote` . Se precisas de ler ficheiros JSON delimitados pela linha, então isto é suficiente. Se tiver um ficheiro JSON clássico, terá de definir valores `0x0b` para `rowterminator` . `OPENROWSET`a função analisará o JSON e devolverá todos os documentos no seguinte formato:
 
@@ -60,7 +60,7 @@ from openrowset(
 
 Esta consulta devolverá cada documento JSON como uma linha separada do conjunto de resultados. Certifique-se de que pode aceder a este ficheiro. Se o seu ficheiro estiver protegido com a chave SAS ou identidade personalizada, terá de configurar a [credencial de nível do servidor para iniciar sessão.](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential) 
 
-### <a name="using-data-source"></a>Usando a fonte de dados
+### <a name="data-source-usage"></a>Utilização de fontes de dados
 
 Exemplo anterior utiliza o caminho completo para o ficheiro. Como alternativa, pode criar uma fonte de dados externa com a localização que aponta para a pasta raiz do armazenamento, e utilizar essa fonte de dados e o caminho relativo para o ficheiro em `OPENROWSET` função:
 
@@ -167,7 +167,7 @@ where country = 'Serbia'
 order by country, date_rep desc;
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os próximos artigos desta série demonstrarão como:
 

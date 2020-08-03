@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: a3694b08bee732e3e2d3e7c0c339e5e0d94fe418
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: c811240beea896683f891d9513a657b0689b8824
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040032"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87488657"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Considerações de design de rede virtual e opções de configuração para serviços de domínio de diretório ativo Azure
 
@@ -91,7 +91,7 @@ Pode ativar a resolução de nomes utilizando reencaminhadores DENS condicional 
 
 Um domínio gerido cria alguns recursos de networking durante a implantação. Estes recursos são necessários para o funcionamento e gestão bem sucedidos do domínio gerido, e não devem ser configurados manualmente.
 
-| Recurso azul                          | Descrição |
+| Recurso do Azure                          | Descrição |
 |:----------------------------------------|:---|
 | Cartão de interface de rede                  | O Azure AD DS acolhe o domínio gerido em dois controladores de domínio (DCs) que funcionam no Windows Server como VMs Azure. Cada VM tem uma interface de rede virtual que se conecta à sua sub-rede de rede virtual. |
 | Endereço IP público padrão dinâmico      | O Azure AD DS comunica com o serviço de sincronização e gestão utilizando um endereço IP público SKU padrão. Para obter mais informações sobre endereços IP públicos, consulte [os tipos de endereços IP e os métodos de atribuição em Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md). |
@@ -113,6 +113,8 @@ São necessárias as seguintes regras do grupo de segurança da rede para que o 
 | 443         | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Sim      | Sincronização com o seu inquilino AZure AD. |
 | 3389        | TCP      | Serra CorpNet                         | Qualquer         | Permitir  | Sim      | Gestão do seu domínio. |
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Sim      | Gestão do seu domínio. |
+
+É criado um equilibrador de carga padrão Azure que exige que estas regras sejam postas em prática. Este grupo de segurança de rede assegura o Azure AD DS e é necessário para que o domínio gerido funcione corretamente. Não apague este grupo de segurança de rede. O equilibrador de carga não funcionará corretamente sem ele.
 
 > [!WARNING]
 > Não edite manualmente estes recursos e configurações de rede. Quando associar um grupo de segurança de rede mal configurado ou uma tabela de rotas definida pelo utilizador com a sub-rede em que o domínio gerido é implantado, poderá perturbar a capacidade da Microsoft de servir e gerir o domínio. A sincronização entre o seu inquilino Azure AD e o seu domínio gerido também é interrompida.
@@ -162,7 +164,7 @@ Também deve encaminhar o tráfego de entrada dos endereços IP incluídos nas r
 > [!CAUTION]
 > Estes intervalos IP do datacenter Azure podem ser alterados sem aviso prévio. Certifique-se de que tem processos para validar que tem os mais recentes endereços IP.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre alguns dos recursos de rede e opções de conexão utilizadas pela Azure AD DS, consulte os seguintes artigos:
 

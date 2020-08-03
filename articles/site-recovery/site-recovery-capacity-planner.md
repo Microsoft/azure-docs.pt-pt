@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a622179d1e83b41e906a9d276377f5c9474264b9
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: a5764e44db31755110ac99a3e8e8e0984cdf9604
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86129964"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87490579"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Capacidade do plano para recuperação de desastres hiper-V VM 
 
@@ -47,7 +47,7 @@ Pode executar a ferramenta em dois modos:
 
 2. Na caixa de lista **de tipo de planificador Select,** selecione **Quick Planner**.
 
-   ![Introdução](./media/site-recovery-capacity-planner/getting-started.png)
+   ![Screenshot da opção De tipo planejador, com o Quick Planner selecionado.](./media/site-recovery-capacity-planner/getting-started.png)
 
 3. Na folha de cálculo **do Planeamento de Capacidade,** insira as informações necessárias. Preencha todos os campos circulados a vermelho na seguinte imagem:
 
@@ -61,7 +61,7 @@ Pode executar a ferramenta em dois modos:
 
    e. Em **Número de horas em que a replicação inicial para o lote de máquinas virtuais deve ser completada** e Número de **máquinas virtuais por lote de replicação inicial**, introduza as definições que são usadas para calcular os requisitos iniciais de replicação. Quando a Recuperação do Site é implantada, todo o conjunto de dados inicial é carregado.
 
-   ![Entradas](./media/site-recovery-capacity-planner/inputs.png)
+   ![Screenshot da folha de cálculo do Capacity Planner, mostrando as informações de entrada necessárias.](./media/site-recovery-capacity-planner/inputs.png)
 
 4. Depois de introduzir os valores para o ambiente de origem, a saída apresentada inclui:
 
@@ -77,7 +77,7 @@ Pode executar a ferramenta em dois modos:
    * **Número de servidores de processo adicionais necessários**: Mostra se são necessários servidores de processo adicionais, para além do servidor de processo que está a ser em execução no servidor de configuração por predefinição.
    * **Armazenamento adicional 100% na Fonte**: Mostra se é necessário armazenamento adicional no local de origem.
 
-      ![Saída](./media/site-recovery-capacity-planner/output.png)
+      ![Screenshot da saída visualizada com base na entrada fornecida.](./media/site-recovery-capacity-planner/output.png)
 
 ## <a name="run-the-detailed-planner"></a>Executar o Planejador Detalhado
 
@@ -85,7 +85,7 @@ Pode executar a ferramenta em dois modos:
 
 2. Em **Selecione um tipo de planificador,** selecione **Plano detalhado** na caixa de lista.
 
-   ![Guia de introdução](./media/site-recovery-capacity-planner/getting-started-2.png)
+   ![Screenshot da opção de tipo planejador Select, com o Planner Detalhado selecionado.](./media/site-recovery-capacity-planner/getting-started-2.png)
 
 3. Na folha de qualificação de carga de **trabalho,** insira as informações necessárias. Deve preencher todos os campos marcados.
 
@@ -105,7 +105,7 @@ Pode executar a ferramenta em dois modos:
 
    h. No **mapeamento do tamanho VM do Azure,** insira o tamanho Azure VM que pretende mapear. Se não quiser fazer isto manualmente, **selecione Compute IaaS VMs**. Se inserir uma definição manual e **selecionar Os VMs Compute IaaS,** a definição manual pode ser substituída. O processo de cálculo identifica automaticamente a melhor correspondência no tamanho do Azure VM.
 
-   ![Folha de qualificação de carga de trabalho](./media/site-recovery-capacity-planner/workload-qualification.png)
+   ![Screenshot da folha de qualificação de carga de trabalho, mostrando as informações de entrada necessárias.](./media/site-recovery-capacity-planner/workload-qualification.png)
 
 4. Se **selecionar Compute IaaS VMs,** eis o que faz:
 
@@ -117,12 +117,12 @@ Pode executar a ferramenta em dois modos:
 
 As colunas AA a AE são saídas e fornecem informações para cada VM.
 
-![Colunas de saída AA a AE](./media/site-recovery-capacity-planner/workload-qualification-2.png)
+![Screenshot mostrando colunas de saída AA a AE.](./media/site-recovery-capacity-planner/workload-qualification-2.png)
 
 ### <a name="example"></a>Exemplo
 Como exemplo, para seis VMs com os valores indicados na tabela, a ferramenta calcula e atribui o melhor fósforo Azure VM e os requisitos de armazenamento Azure.
 
-![Atribuições de qualificação de carga de trabalho](./media/site-recovery-capacity-planner/workload-qualification-3.png)
+![Screenshot mostrando atribuições de qualificação de carga de trabalho.](./media/site-recovery-capacity-planner/workload-qualification-3.png)
 
 * Na saída de exemplo, note o seguinte:
 
@@ -144,7 +144,7 @@ Depois de todas as informações terem sido inseridas, **selecione Enviar dados 
 
 2. Se quiser fazer alterações, tem de modificar a folha de qualificação de carga de **trabalho.** Em seguida, **selecione Enviar novamente dados para a ferramenta de planeamento.**
 
-   ![Planejador de Capacidades](./media/site-recovery-capacity-planner/capacity-planner.png)
+   ![Screenshot mostrando as entradas modificadas e as saídas resultantes na folha de cálculo do Provedor de Capacidade.](./media/site-recovery-capacity-planner/capacity-planner.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Aprenda a executar a](./hyper-v-deployment-planner-overview.md) ferramenta de planeamento de capacidades.

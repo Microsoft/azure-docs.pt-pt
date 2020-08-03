@@ -4,14 +4,14 @@ description: Conheça os operadores SQL, tais como igualdade, comparação e ope
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: 8ef41edb687a5df39243880c897d12e83c008ec9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd1652781d7eae8beb400c52137a8f16891e2b2a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80063561"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498842"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Operadores em Azure Cosmos DB
 
@@ -35,6 +35,14 @@ Para operadores de comparação `>` `>=` como, `!=` , e `<` , `<=` comparação 
 
 Se o resultado da expressão escalar `Undefined` for, o item não está incluído no resultado, porque `Undefined` não é igual `true` .
 
+Por exemplo, a seguinte comparação de consulta entre um número e o valor das cordas produz `Undefined` . Portanto, o filtro não inclui quaisquer resultados.
+
+```sql
+SELECT *
+FROM c
+WHERE 7 = 'a'
+```
+
 ## <a name="logical-and-or-and-not-operators"></a>Operadores lógicos (E, OR e NÃO)
 
 Os operadores lógicos operam com valores booleanas. As tabelas que se seguem mostram as tabelas lógicas de verdade para estes operadores:
@@ -43,9 +51,9 @@ Os operadores lógicos operam com valores booleanas. As tabelas que se seguem mo
 
 Devoluções `true` quando qualquer uma das condições estiver `true` .
 
-|  | **Verdade** | **Falso** | **Indefinido** |
+|  | **Verdadeiro** | **Falso** | **Indefinido** |
 | --- | --- | --- | --- |
-| **Verdade** |Verdadeiro |Verdadeiro |Verdadeiro |
+| **Verdadeiro** |Verdadeiro |Verdadeiro |Verdadeiro |
 | **Falso** |Verdadeiro |Falso |Indefinido |
 | **Indefinido** |Verdadeiro |Indefinido |Indefinido |
 
@@ -53,9 +61,9 @@ Devoluções `true` quando qualquer uma das condições estiver `true` .
 
 Retorna `true` quando ambas as expressões são `true` .
 
-|  | **Verdade** | **Falso** | **Indefinido** |
+|  | **Verdadeiro** | **Falso** | **Indefinido** |
 | --- | --- | --- | --- |
-| **Verdade** |Verdadeiro |Falso |Indefinido |
+| **Verdadeiro** |Verdadeiro |Falso |Indefinido |
 | **Falso** |Falso |Falso |Falso |
 | **Indefinido** |Indefinido |Falso |Indefinido |
 
@@ -65,7 +73,7 @@ Inverte o valor de qualquer expressão booleana.
 
 |  | **NÃO** |
 | --- | --- |
-| **Verdade** |Falso |
+| **Verdadeiro** |Falso |
 | **Falso** |Verdadeiro |
 | **Indefinido** |Indefinido |
 

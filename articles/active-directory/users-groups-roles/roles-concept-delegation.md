@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 556871b55de60ee592622f9f93c7b7123ba2ed32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c26951d5ab7552dc6c63288ce92cdb8134bd58ed
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84731975"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498230"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Delegada administração em Diretório Ativo Azure
 
@@ -38,7 +38,7 @@ Com o crescimento organizacional vem a complexidade. Uma resposta comum é reduz
 
 No portal AD AZure, pode [visualizar todos os membros de qualquer papel](directory-manage-roles-portal.md), o que pode ajudá-lo a verificar rapidamente as permissões de implementação e delegado.
 
-Se estiver interessado em delegar o acesso aos recursos Azure em vez de acesso administrativo em Azure AD, consulte [atribuir uma função de controlo de acesso baseado em funções (RBAC).](../../role-based-access-control/role-assignments-portal.md)
+Se estiver interessado em delegar o acesso aos recursos da Azure em vez de acesso administrativo em Azure AD, consulte [atribuir um papel de Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="delegation-planning"></a>Planeamento da delegação
 
@@ -112,6 +112,6 @@ Os atacantes que obtêm o controlo de contas privilegiadas podem causar danos tr
 
 Para a maioria das atividades do dia-a-dia, nem todos os utilizadores precisam de direitos de administrador global, e nem todos devem ser permanentemente atribuídos ao papel de Administrador Global. Quando os utilizadores precisam das permissões de um Administrador Global, devem ativar a atribuição de funções na Azure AD [Privileged Identity Management,](../active-directory-privileged-identity-management-configure.md) quer na sua própria conta, quer numa conta administrativa alternativa.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma referência às descrições de funções da AD Azure, consulte [atribuir funções de administrador em Azure AD](directory-assign-admin-roles.md)

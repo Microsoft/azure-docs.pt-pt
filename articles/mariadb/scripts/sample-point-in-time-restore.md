@@ -1,22 +1,22 @@
 ---
-title: Script CLI - Restaurar servidor - Base de Dados Azure para MariaDB
-description: Esta amostra de script Azure CLI mostra como restaurar uma Base de Dados Azure para o servidor MariaDB e suas bases de dados para um ponto de tempo anterior.
+title: Script CLI - Restaurar servidor - Azure Database for MariaDB
+description: Esta amostra O script Azure CLI mostra como restaurar uma Base de Dados Azure para o servidor MariaDB e as suas bases de dados para um ponto anterior no tempo.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 12/02/2019
-ms.openlocfilehash: d7591c4f88026644ee2453150cfa226a155ab32d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 839aae2ccf9433dafec0ddee692c476611924aa0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74771713"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497397"
 ---
-# <a name="restore-an-azure-database-for-mariadb-server-using-azure-cli"></a>Restaurar uma Base de Dados Azure para servidor MariaDB utilizando o Azure CLI
-Este script CLI da amostra restaura uma única Base de Dados Azure para o servidor MariaDB para um ponto anterior no tempo.
+# <a name="restore-an-azure-database-for-mariadb-server-using-azure-cli"></a>Restaurar uma base de dados Azure para servidor MariaDB usando O Azure CLI
+Esta amostra de script CLI restaura uma única Base de Dados Azure para o servidor MariaDB para um ponto anterior no tempo.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
@@ -36,10 +36,10 @@ Este script utiliza os comandos descritos na tabela seguinte:
 | **Comando** | **Notas** |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az mariadb servidor criar](/cli/azure/mariadb/server#az-mariadb-server-create) | Cria um servidor MariaDB que acolhe as bases de dados. |
-| [az mariadb servidor restaurar](/cli/azure/mariadb/server#az-mariadb-server-restore) | Restaure um servidor da cópia de segurança. |
+| [servidor mariadb az criar](/cli/azure/mariadb/server#az-mariadb-server-create) | Cria um servidor MariaDB que acolhe as bases de dados. |
+| [restauro do servidor mariadb az](/cli/azure/mariadb/server#az-mariadb-server-restore) | Restaure um servidor da cópia de segurança. |
 | [az group delete](/cli/azure/group#az-group-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes
 - Leia mais informações sobre a CLI do Azure: [Documentação da CLI do Azure](/cli/azure).
-- Experimente scripts adicionais: [Amostras azure CLI para Base de Dados Azure para MariaDB](../sample-scripts-azure-cli.md)
+- Experimente scripts adicionais: [amostras de Azure CLI para Azure Database for MariaDB](../sample-scripts-azure-cli.md)

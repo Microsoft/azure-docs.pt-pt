@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1d033a904087bf8ff32721372209820a64090502
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 63755616bb524226d3c40d32b9695f4b787860d9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87383890"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489712"
 ---
 # <a name="query-csv-files"></a>Ficheiros CSV de consulta
 
@@ -31,7 +31,7 @@ Todas as variações acima serão cobertas abaixo.
 
 `OPENROWSET`função permite-lhe ler o conteúdo do ficheiro CSV fornecendo o URL ao seu ficheiro.
 
-### <a name="reading-csv-file"></a>Arquivo de leitura csv
+### <a name="read-a-csv-file"></a>Leia um ficheiro csv
 
 A maneira mais fácil de ver o conteúdo do seu ficheiro é fornecer URL de `CSV` ficheiro para `OPENROWSET` funcionar, especificar csv `FORMAT` , e 2.0 `PARSER_VERSION` . Se o ficheiro estiver disponível publicamente ou se a sua identidade AZure AD puder aceder a este ficheiro, deverá poder ver o conteúdo do ficheiro utilizando a consulta como a apresentada no seguinte exemplo:
 
@@ -46,7 +46,7 @@ from openrowset(
 
 A opção `firstrow` é usada para saltar a primeira linha no ficheiro CSV que representa o cabeçalho neste caso. Certifique-se de que pode aceder a este ficheiro. Se o seu ficheiro estiver protegido com chave SAS ou identidade personalizada, terá de configurar a [credencial de nível do servidor para o início de sessão](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
-### <a name="using-data-source"></a>Usando a fonte de dados
+### <a name="data-source-usage"></a>Utilização de fontes de dados
 
 Exemplo anterior utiliza o caminho completo para o ficheiro. Como alternativa, pode criar uma fonte de dados externa com a localização que aponta para a pasta raiz do armazenamento:
 
@@ -214,7 +214,7 @@ WHERE
 > [!NOTE]
 > Esta consulta devolveria os mesmos resultados se omitisse o parâmetro FIELDQUOTE, uma vez que o valor padrão para FIELDQUOTE é uma cotação dupla.
 
-## <a name="escaping-characters"></a>Personagens escapando
+## <a name="escape-characters"></a>Personagens de fuga
 
 A seguinte consulta mostra como ler um ficheiro com uma linha de cabeçalho, com uma nova linha de estilo Unix, colunas delimitadas em vírgula, e um char de fuga usado para o delimiter de campo (vírgula) dentro de valores. Note a localização diferente do ficheiro em comparação com os outros exemplos.
 
@@ -246,7 +246,7 @@ WHERE
 > [!NOTE]
 > Esta consulta falharia se o ESCAPECHAR não fosse especificado, uma vez que a vírgula em "Slov,enia" seria tratada como delimiter de campo em vez de parte do nome país/região. "Slov,enia" seria tratado como duas colunas. Portanto, a linha em particular teria uma coluna mais do que as outras linhas, e uma coluna mais do que você definiu na cláusula WITH.
 
-### <a name="escaping-quoting-characters"></a>Escapando personagens citando
+### <a name="escape-quoting-characters"></a>Escape citando personagens
 
 A seguinte consulta mostra como ler um ficheiro com uma linha de cabeçalho, com uma nova linha unix, colunas delimitadas em vírgula, e um carvão de citação dupla escapado dentro de valores. Note a localização diferente do ficheiro em comparação com os outros exemplos.
 
@@ -306,7 +306,7 @@ WHERE
     AND year = 2017
 ```
 
-## <a name="returning-subset-of-columns"></a>Subconjunto de colunas de retorno
+## <a name="return-a-subset-of-columns"></a>Devolva um subconjunto de colunas
 
 Até agora, especificou o esquema de ficheiros CSV usando WITH e listando todas as colunas. Só pode especificar as colunas de que necessita na sua consulta utilizando um número ordinal para cada coluna necessária. Também omitirá colunas sem interesse.
 
@@ -333,7 +333,7 @@ WITH (
 ) AS [r]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os próximos artigos irão mostrar-lhe como:
 

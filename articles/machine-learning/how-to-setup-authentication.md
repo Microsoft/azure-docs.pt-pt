@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-javascript
-ms.openlocfilehash: 867babcf7160ce6e589197be0a3186e5a2156238
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 4061d7a3d21b8c2db2bf161c422994cb2742b0b4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423580"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489882"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurar a autenticação para recursos de aprendizagem automática Azure e fluxos de trabalho
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -67,7 +67,7 @@ A maioria dos exemplos na documentação e amostras utilizam a autenticação in
 
 ## <a name="service-principal-authentication"></a>Autenticação do principal de serviço
 
-Para utilizar a autenticação principal do serviço (SP), tem primeiro de criar o SP e conceder-lhe acesso ao seu espaço de trabalho. Como mencionado anteriormente, o controlo de acesso baseado em funções (RBAC) é usado para controlar o acesso, pelo que também deve decidir qual o acesso a conceder ao SP.
+Para utilizar a autenticação principal do serviço (SP), tem primeiro de criar o SP e conceder-lhe acesso ao seu espaço de trabalho. Como mencionado anteriormente, o controlo de acesso baseado em funções Azure (Azure RBAC) é usado para controlar o acesso, pelo que também deve decidir qual o acesso a conceder ao SP.
 
 > [!IMPORTANT]
 > Ao utilizar um comitado de serviço, conceda-lhe o __acesso mínimo necessário para a tarefa__ para a qual é utilizado. Por exemplo, não concederia a um proprietário principal de serviço ou ao contribuinte o acesso se tudo o que é utilizado for a leitura do token de acesso para uma implementação web.
@@ -378,7 +378,7 @@ print(token)
 >
 > Além disso, quanto maior for a distância entre a região do seu aglomerado e a região do seu espaço de trabalho, mais tempo demorará a obter um símbolo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Como usar segredos no treino.](how-to-use-secrets-in-runs.md)
 * [Treine e implemente um modelo de classificação de imagem.](tutorial-train-models-with-aml.md)

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/17/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0446dd9e316e145cf93c503ab9634d4eedbc299b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b834dda926b7da1241a325e1453143eccafaf30
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85387835"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87488776"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Passe um token de acesso através de um fluxo de utilizador para a sua aplicação no Azure Ative Directory B2C
 
@@ -26,7 +26,7 @@ Atualmente, o Azure AD B2C apenas suporta a passagem do token de acesso de forne
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* A sua aplicação deve estar a utilizar um [fluxo de utilizador V2.](user-flow-versions.md)
+* A sua aplicação deve estar a utilizar um [fluxo de utilizador recomendado.](user-flow-versions.md)
 * O fluxo do utilizador está configurado com um fornecedor de identidade OAuth 2.0.
 
 ## <a name="enable-the-claim"></a>Ativar a reclamação
@@ -54,6 +54,6 @@ Ao testar as suas aplicações em Azure AD B2C, pode ser útil ter o token AD B2
 
     ![Ficha descodificada em jwt.ms com bloco idp_access_token em destaque](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-token.PNG)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a [visão geral dos tokens Azure AD B2C](tokens-overview.md).

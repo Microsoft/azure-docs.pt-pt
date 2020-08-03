@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 482a3808065bb2ec565bad7e760b9337b3db7007
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: b2164f8927e5c3224f8b07c30d057f48fb7bbc32
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134006"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495981"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configurar a recuperação após desastre para VMs Hyper-V para um site no local secundário
 
@@ -80,7 +80,7 @@ Instale o Fornecedor do Azure Site Recovery nos servidores do VMM e descubra e r
 4. Transfira o ficheiro de instalação do Fornecedor do Azure Site Recovery.
 5. Transfira a chave de registo. Vai precisar da chave para instalar o Fornecedor. A chave é válida durante cinco dias depois de gerá-la.
 
-    ![Configurar a origem](./media/hyper-v-vmm-disaster-recovery/source-settings.png)
+    ![Screenshot das opções para descarregar Fornecedor e chave de registo.](./media/hyper-v-vmm-disaster-recovery/source-settings.png)
 
 6. Instale o Fornecedor em cada servidor do VMM. Não é necessário instalar explicitamente nada nos anfitriões de Hyper-V.
 
@@ -94,7 +94,7 @@ Instale o Fornecedor do Azure Site Recovery nos servidores do VMM e descubra e r
 4. Em **Instalação**, aceite ou modifique a localização de instalação predefinida e clique em **Instalar**.
 5. Quando a instalação for concluída, clique em **Registar** para registar o servidor no cofre.
 
-    ![Localização de instalação](./media/hyper-v-vmm-disaster-recovery/provider-register.png)
+    ![Screenshot do ecrã de instalação do fornecedor, incluindo o local de instalação.](./media/hyper-v-vmm-disaster-recovery/provider-register.png)
 6. Em **Nome do cofre**, verifique o nome do cofre no qual o servidor será registado. Clique em **Seguinte**.
 7. Em **Ligação Proxy**, especifique a forma como o Fornecedor em execução no servidor do VMM se liga à Internet.
    - Pode especificar que o Fornecedor se deve ligar diretamente à Internet ou através de um proxy. Especifique as definições do proxy, conforme necessário.
@@ -115,7 +115,7 @@ Selecione o servidor do VMM e a cloud de destino:
 1. Clique **em Preparar a infraestrutura**  >  **Target**e selecione o servidor VMM alvo.
 2. São apresentadas as clouds do VMM que estão sincronizadas com o Site Recovery. Selecione a cloud de destino.
 
-   ![Destino](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
+   ![Screenshot das seleções do VMM Server e Cloud alvo.](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
 
 
 ## <a name="set-up-a-replication-policy"></a>Configurar uma política de replicação
@@ -138,7 +138,7 @@ Antes de começar, confirme que todos os anfitriões que utilizam a política t�
 5. Selecione **Eliminar VM de réplica** para especificar que a máquina virtual de réplica deve ser eliminada caso desative a proteção na VM de origem. Se ativar esta definição, quando desativar a proteção na VM de origem, esta é removida da consola do Site Recovery, as definições do Site Recovery para o VMM são removidas da consola do VMM e a réplica é eliminada.
 6. Em **Método de replicação inicial**, se estiver a replicar através da rede, especifique se a replicação inicial deve ser iniciada ou agendada. Para poupar largura de banda, pode considerar agendá-la para fora do seu horário mais preenchido. Em seguida, clique em **OK**.
 
-     ![Política de replicação](./media/hyper-v-vmm-disaster-recovery/replication-policy.png)
+     ![Screenshot das opções de política de replicação.](./media/hyper-v-vmm-disaster-recovery/replication-policy.png)
      
 7. A política nova é associada automaticamente à cloud do VMM. Em **Política de replicação**, clique em **OK**. 
 
@@ -153,6 +153,6 @@ Antes de começar, confirme que todos os anfitriões que utilizam a política t�
 
 Pode controlar o progresso da ação **Ativar Proteção** em **Tarefas** > **Tarefas do Site Recovery**. Após a conclusão do trabalho **Finalizar Proteção**, a replicação inicial estará concluída e a VM estará preparada para a ativação pós-falha.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Executar um teste de recuperação após desastre](hyper-v-vmm-test-failover.md)

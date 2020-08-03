@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: a358052d5f3959a236f29461890c989e77edb4dc
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 086c853b21301074cf35f13db52db1fdb145518c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87369021"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489576"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Consumo de recursos SQL de Sinapse
 
@@ -27,7 +27,7 @@ SQL on-demand é um serviço de pagamento por consulta que não requer que você
 
 Recomendações sobre a escolha do número ideal de unidades de armazém de dados (DWUs) para otimizar o preço e o desempenho, e como alterar o número de unidades.
 
-### <a name="what-are-data-warehouse-units"></a>O que são Unidades de Armazém de Dados
+### <a name="data-warehouse-units"></a>Unidades do Data Warehouse
 
 Uma piscina Sinapse SQL representa uma coleção de recursos analíticos que estão sendo a provisionados. Os recursos analíticos são definidos como uma combinação de CPU, memória e IO. Estes três recursos são agregados em unidades de escala de computação chamadas Data Warehouse Units (DWUs). Uma DWU é uma medida abstrata e normalizada do desempenho e recursos de computação. Uma alteração ao seu nível de serviço altera o número de DWUs que estão disponíveis para o sistema, o que por sua vez ajusta o desempenho e o custo do seu sistema.
 
@@ -79,7 +79,7 @@ Tanto os DWUs como os cDWUs suportam a computação de escala para cima ou para 
 
 Cada servidor SQL (por exemplo, myserver.database.windows.net) tem uma quota [da Unidade de Transação de Bases de Dados (DTU)](../../azure-sql/database/service-tiers-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) que permite um número específico de unidades de armazém de dados. Para mais informações, consulte os limites de capacidade de gestão da [carga de trabalho.](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management)
 
-### <a name="how-many-data-warehouse-units-do-i-need"></a>Quantas unidades de armazém de dados preciso
+### <a name="assess-the-number-of-data-warehouse-units-you-need"></a>Avalie o número de unidades de armazém de dados que precisa
 
 O número ideal de unidades de armazém de dados depende muito da sua carga de trabalho e da quantidade de dados que carregou no sistema.
 
@@ -128,7 +128,7 @@ Para alterar DWUs:
 
 2. Em **Escala**, mova o deslizador para a esquerda ou para a direita para alterar a definição DWU.
 
-3. Clique em **Save** (Guardar). É apresentada uma mensagem de confirmação. Clique em **sim** para confirmar ou **não** para cancelar.
+3. Clique em **Guardar**. É apresentada uma mensagem de confirmação. Clique em **sim** para confirmar ou **não** para cancelar.
 
 #### <a name="powershell"></a>PowerShell
 

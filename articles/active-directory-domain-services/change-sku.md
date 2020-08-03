@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 51f277827ac0865eaede141e5817962b04d2bd49
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: a9954b0ddd446c4e39d85ab6d3e37402176236d6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221454"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489644"
 ---
 # <a name="change-the-sku-for-an-existing-azure-active-directory-domain-services-managed-domain"></a>Alterar o SKU para um domínio gerido pelos Serviços de Domínio do Diretório Ativo Azure existentes
 
-Nos Serviços de Domínio do Diretório Ativo Azure (Azure AD DS), o desempenho e funcionalidades disponíveis são baseados no tipo SKU. Estas diferenças incluem a frequência de backup ou o número máximo de fundos florestais de saída de ida (atualmente em pré-visualização).
+Nos Serviços de Domínio do Diretório Ativo Azure (Azure AD DS), o desempenho e funcionalidades disponíveis são baseados no tipo SKU. Estas diferenças incluem a frequência de backup ou o número máximo de fundos florestais de saída de ida.
 
 Selecione um SKU quando cria o domínio gerido e pode mudar os SKUs para cima ou para baixo à medida que o seu negócio necessita de ser alterado após a implementação do domínio gerido. As alterações nos requisitos empresariais podem incluir a necessidade de cópias de segurança mais frequentes ou de criar fundos florestais adicionais. Para obter mais informações sobre os limites e preços dos diferentes SKUs, consulte os [conceitos AZure AD DS SKU][concepts-sku] e as páginas [de preços da Azure AD DS.][pricing]
 
@@ -38,7 +38,7 @@ Para completar este artigo, precisa dos seguintes recursos e privilégios:
 
 ## <a name="sku-change-limitations"></a>Limitações de alteração de SKU
 
-Pode alterar SKUs para cima ou para baixo depois de o domínio gerido ter sido implantado. No entanto, se utilizar uma floresta de recursos (atualmente em pré-visualização) e tiver criado fundos florestais de saída de ida da Azure AD DS para um ambiente AD DS no local, existem algumas limitações para a operação de mudança de SKU. Os SKUs *Premium* e *Enterprise* definem um limite no número de fidedignidades que pode criar. Não pode mudar para um SKU com um limite máximo inferior ao que tem configurado atualmente.
+Pode alterar SKUs para cima ou para baixo depois de o domínio gerido ter sido implantado. No entanto, se você usar uma floresta de recursos e criar fundos florestais de ida e saída de Azure AD DS para um ambiente AD DS no local, existem algumas limitações para a operação de mudança SKU. Os SKUs *Premium* e *Enterprise* definem um limite no número de fidedignidades que pode criar. Não pode mudar para um SKU com um limite máximo inferior ao que tem configurado atualmente.
 
 Por exemplo:
 
@@ -66,7 +66,7 @@ Pode levar um minuto ou dois para mudar o tipo SKU.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se tiver uma floresta de recursos e quiser criar fundos adicionais após a mudança do SKU, consulte [Criar uma confiança florestal de saída para um domínio no local em Azure AD DS (pré-visualização)][create-trust].
+Se tiver uma floresta de recursos e quiser criar fundos adicionais após a mudança do SKU, consulte [criar uma confiança florestal de saída para um domínio no local em Azure AD DS][create-trust].
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

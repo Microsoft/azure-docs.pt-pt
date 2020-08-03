@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
 ms.author: iainfou
-ms.openlocfilehash: 013b78e0e8ad47e98b1d192bfc48c5c4a4de0163
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 1ed1305939f4f8a9de62de85a2f09c323a2636b1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84555132"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489593"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Compare os serviços de domínio do diretório ativo auto-geridos, o Azure Ative Directory e os serviços de domínio do diretório ativo geridos a Azure Ative Directory
 
@@ -47,7 +47,7 @@ Se tiver aplicações e serviços que necessitem de acesso a mecanismos tradicio
 
 Com o Azure AD DS, os componentes de serviço principal são implantados e mantidos para si pela Microsoft como uma experiência de domínio *gerida.* Não implementa, gere, remendo e protege a infraestrutura AD DS para componentes como os VMs, Windows Server OS ou controladores de domínio (DCs).
 
-O Azure AD DS fornece um subconjunto menor de funcionalidades ao ambiente tradicional auto-gerido AD DS, o que reduz parte da complexidade de design e gestão. Por exemplo, não existem florestas de AD, domínio, locais e ligações de replicação para projetar e manter. Você ainda pode [criar fundos florestais entre Azure AD DS e ambientes no local (atualmente em pré-visualização)][create-forest-trust].
+O Azure AD DS fornece um subconjunto menor de funcionalidades ao ambiente tradicional auto-gerido AD DS, o que reduz parte da complexidade de design e gestão. Por exemplo, não existem florestas de AD, domínio, locais e ligações de replicação para projetar e manter. Você ainda pode [criar fundos florestais entre Azure AD DS e ambientes no local.][create-forest-trust]
 
 Para aplicações e serviços que funcionam na nuvem e precisam de acesso a mecanismos tradicionais de autenticação, como Kerberos ou NTLM, a Azure AD DS proporciona uma experiência de domínio gerida com a quantidade mínima de despesas administrativas. Para mais informações, consulte [conceitos de Gestão para contas de utilizador, palavras-passe e administração em Azure AD DS][administration-concepts].
 
@@ -112,7 +112,7 @@ Com dispositivos Azure AD DS, as aplicações podem usar os protocolos Kerberos 
 | Representação no diretório | Objetos do dispositivo no diretório AD Azure            | Objetos de computador no domínio gerido Azure AD DS                        |
 | Autenticação                  | Protocolos baseados em OAuth / OpenID Connect              | Protocolos Kerberos e NTLM                                               |
 | Gestão                      | Software mobile de Gestão de Dispositivos (MDM) como o Intune | Política de Grupo                                                              |
-| Rede                      | Funciona através da internet                             | Deve ser ligado ou esprevado para a rede virtual onde o domínio gerido é implantado |
+| Redes                      | Funciona através da internet                             | Deve ser ligado ou esprevado para a rede virtual onde o domínio gerido é implantado |
 | Ótimo para...                    | Dispositivos móveis ou desktop do utilizador final                  | VMs do servidor implantados em Azure                                              |
 
 ## <a name="next-steps"></a>Passos seguintes

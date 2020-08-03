@@ -8,12 +8,13 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 737384958ad402fbdc04a7dcc27acf4fec60539a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: ad9b50928ec277a86a3bbccc394b78664a34b717
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288438"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489916"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI (Migrar recursos IaaS de clássica para Azure Resource Manager com a CLI do Azure)
 
