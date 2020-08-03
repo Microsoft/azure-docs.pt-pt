@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
-ms.openlocfilehash: 4931556aa6948b6b05b2bbbfa62e281e21aa6058
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ebcdeed608a5b9dc6202071869c4df1dcfd327a8
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367474"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87512759"
 ---
 # <a name="high-availability-and-disaster-recovery-guidance-for-data-lake-storage-gen1"></a>Alta disponibilidade e orientação de recuperação de desastres para data lake storage gen1
 
@@ -34,11 +34,11 @@ Se ocorrer uma paragem regional, pode então aceder aos seus dados na região on
 
 Embora a Data Lake Storage Gen1 forneça resiliência de dados através de réplicas automatizadas, isso não impede que a sua aplicação (ou desenvolvedores/utilizadores) corrompe os dados ou os extinga acidentalmente.
 
-### <a name="best-practices"></a>Melhores práticas
-
 Para evitar a eliminação acidental, recomendamos que desementasse as políticas de acesso corretas para a sua conta Desarmar o Data Lake Storage Gen1. Isto inclui a aplicação de bloqueios de [recursos Azure](../azure-resource-manager/management/lock-resources.md) para bloquear recursos importantes e aplicar o controlo de acesso ao nível de conta e ficheiro usando as funcionalidades de segurança disponíveis [da Data Lake Storage Gen1](data-lake-store-security-overview.md). Recomendamos também que crie cópias dos seus dados críticos utilizando [a ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) ou [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) em outra conta da Data Lake Storage Gen1, pasta ou subscrição Azure. Esta ação pode ser utilizada para recuperar de um incidente de eliminação ou danos em dados. O Azure Data Factory é um serviço útil para criar e implementar pipelines de movimento de dados periodicamente.
 
 Também pode permitir [o registo de diagnóstico](data-lake-store-diagnostic-logs.md) de uma conta gen1 de armazenamento de dados para recolher pistas de auditoria de acesso a dados. Os rastos de auditoria fornecem informações sobre quem poderia ter apagado ou atualizado um ficheiro.
+
+Pode tentar restaurar um item eliminado utilizando o módulo [Az.DataLakeStore](https://docs.microsoft.com/powershell/module/az.datalakestore/) Azure PowerShell para data lake storage Gen 1. Consulte especificamente o comando [Restore-AzDataLakeStoreDeletedItem.](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem) Certifique-se de que revê a secção [Descrição](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem#description) antes de tentar utilizar este comando.
 
 ## <a name="next-steps"></a>Passos seguintes
 

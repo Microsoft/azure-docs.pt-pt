@@ -2,17 +2,17 @@
 title: Resolver Problemas do Azure Data Share
 description: Saiba como resolver problemas com convites e erros ao criar ou receber partilhas de dados com a Azure Data Share.
 services: data-share
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 07/10/2019
-ms.openlocfilehash: 510787b395388f0dc895b9646aee8208013f3b42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/30/2020
+ms.openlocfilehash: 2c67e2b72b7d35f5f7c8e9ccd136d7c10329f531
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322040"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513609"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Resolução de problemas problemas comuns na Azure Data Share 
 
@@ -87,7 +87,7 @@ O instantâneo pode falhar devido a uma variedade de razões. Pode encontrar uma
 
 Se a mensagem de erro estiver relacionada com a permissão, verifique se o serviço de Partilha de Dados tem a permissão necessária. Consulte [funções e requisitos](concepts-roles-permissions.md) para mais detalhes. Se esta for a primeira vez que está a tirar uma fotografia, pode levar alguns minutos para que o recurso Data Share tenha acesso à loja de dados Azure. Espere alguns minutos e tente de novo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a partilhar dados, continue a partilhar o seu tutorial [de dados.](share-your-data.md) 
 

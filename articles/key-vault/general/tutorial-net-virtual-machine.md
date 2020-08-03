@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: e77701e17ef1b47aa6b8e3b8f2d10e93bf5e054e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ead0c13a1fce0b5d56c9dd875c594a2269e2c78c
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101704"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513116"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-net"></a>Tutorial: Use a Azure Key Vault com uma máquina virtual em .NET
 
@@ -56,21 +56,15 @@ Para iniciar súm na Azure utilizando o CLI Azure, insira:
 az login
 ```
 
-### <a name="create-a-resource-group-and-key-vault"></a>Criar um grupo de recursos e cofre chave
+## <a name="create-a-resource-group-and-key-vault"></a>Criar um grupo de recursos e cofre chave
 
 [!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
 
-### <a name="populate-your-key-vault-with-a-secret"></a>Povoe o seu cofre com um segredo
+## <a name="populate-your-key-vault-with-a-secret"></a>Povoe o seu cofre com um segredo
 
-Agora adicione um segredo ao seu cofre chave usando o comando [secreto az keyvault.](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) Para criar um segredo no cofre chamado **mySecret,** insira o seguinte comando:
+[!INCLUDE [Create a secret](../../../includes/key-vault-create-secret.md)]
 
-```azurecli
-az keyvault secret set --vault-name "<your-unique-key-vault-name>" --name "mySecret" --value "MySecret"
-```
-
-Este segredo armazena o valor **MySecret.**
-
-### <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
+## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 Crie uma máquina virtual Windows ou Linux utilizando um dos seguintes métodos:
 
 | Windows | Linux |
@@ -79,7 +73,7 @@ Crie uma máquina virtual Windows ou Linux utilizando um dos seguintes métodos:
 | [PowerShell](../../virtual-machines/windows/quick-create-powershell.md) | [PowerShell](../../virtual-machines/linux/quick-create-powershell.md) |
 | [Portal do Azure](../../virtual-machines/windows/quick-create-portal.md) | [Portal do Azure](../../virtual-machines/linux/quick-create-portal.md) |
 
-### <a name="assign-an-identity-to-the-vm"></a>Atribuir uma identidade ao VM
+## <a name="assign-an-identity-to-the-vm"></a>Atribuir uma identidade ao VM
 Criar uma identidade atribuída ao sistema para a máquina virtual com o comando [de atribuição de identidade az vm:](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign)
 
 ```azurecli
@@ -95,16 +89,16 @@ Note a identidade atribuída ao sistema que é apresentada no seguinte código. 
 }
 ```
 
-### <a name="assign-permissions-to-the-vm-identity"></a>Atribuir permissões à identidade VM
+## <a name="assign-permissions-to-the-vm-identity"></a>Atribuir permissões à identidade VM
 Atribua as permissões de identidade previamente criadas para o seu cofre de chaves com o comando [de definição de chave-chave az:](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy)
 
 ```azurecli
 az keyvault set-policy --name '<your-unique-key-vault-name>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-### <a name="sign-in-to-the-virtual-machine"></a>Inscreva-se na máquina virtual
+## <a name="sign-in-to-the-virtual-machine"></a>Inscreva-se na máquina virtual
 
-Para iniciar seduca na máquina virtual, siga as instruções em [Connect e inscreva-se numa máquina virtual Azure que executa o Windows](../../virtual-machines/windows/connect-logon.md) ou Connect e [inscreva-se numa máquina virtual Azure que executa o Linux](../../virtual-machines/linux/login-using-aad.md).
+Para iniciar seduca na máquina virtual, siga as instruções em [Connect e inscreva-se numa máquina virtual Azure Windows](../../virtual-machines/windows/connect-logon.md) ou Ligue e [inscreva-se numa máquina virtual Azure Linux](../../virtual-machines/linux/login-using-aad.md).
 
 ## <a name="set-up-the-console-app"></a>Configurar a aplicação de consola
 
@@ -203,7 +197,7 @@ Adicione estas linhas, atualizando o URI para refletir o `vaultUri` cofre da cha
     }
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não forem necessários, elimine a máquina virtual e o cofre da chave.
 

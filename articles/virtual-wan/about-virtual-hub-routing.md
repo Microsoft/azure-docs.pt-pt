@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8c52b2141d2f29303939facf89d4a59fb3d333fd
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 3d680fb105b6bde26e5b02544359009f316647bb
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171886"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513728"
 ---
 # <a name="about-virtual-hub-routing"></a>Acerca do encaminhamento do hub virtual
 
@@ -27,7 +27,7 @@ Para configurar o encaminhamento, consulte [Como configurar o encaminhamento do 
 As secções seguintes descrevem os conceitos-chave no encaminhamento de hubs virtuais.
 
 > [!NOTE]
-> Alguns destes novos conceitos para a tabela de rotas hub, associação, propagação e rotas estáticas numa ligação de rede virtual ainda podem estar a ser lançados e espera-se que estejam concluídos na semana de 3 de agosto.
+> Alguns destes novos conceitos para a tabela de rotas hub, associação, propagação e rotas estáticas numa ligação de rede virtual ainda podem estar a ser lançados e espera-se que estejam concluídos na semana de 17 de agosto.
 >
 
 ### <a name="hub-route-table"></a><a name="hub-route"></a>Tabela de rota do hub
@@ -77,9 +77,9 @@ As tabelas de rotas têm agora características de associação e propagação. 
 
 * **Clientes STANDARD VIRTUAL WAN com rotas pré-existentes no centro virtual:**
 
-Para utilizar novas capacidades de tabela de rotas, por favor, espere até a semana de 3 de agosto para que o lançamento em Azure esteja concluído. Se tiver rotas pré-existentes na secção de encaminhamento para o hub no portal Azure, terá de as eliminar primeiro e, em seguida, tentar criar novas tabelas de rotas (disponíveis na secção Tabelas de Rota para o hub no portal Azure)
+Para utilizar novas capacidades de tabela de rotas, espere até a semana de 17 de agosto para que o lançamento em Azure esteja concluído. Se tiver rotas pré-existentes na secção de encaminhamento para o hub no portal Azure, terá de as eliminar primeiro e, em seguida, tentar criar novas tabelas de rotas (disponíveis na secção Tabelas de Rota para o hub no portal Azure)
 
-* **Clientes Básicos de WAN Virtuais com rotas pré-existentes no hub virtual**: Para utilizar as novas capacidades de tabela de rotas, por favor, aguarde até a semana de 3 de agosto para que o lançamento em Azure esteja concluído. Se tiver rotas pré-existentes na secção de encaminhamento para o hub no portal Azure, terá de as eliminar primeiro e, em seguida, **atualize** o seu WAN Virtual Básico para O WAN Virtual Padrão. Consulte [a Atualização de um WAN virtual de Basic para Standard](upgrade-virtual-wan.md).
+* **Clientes Básicos de WAN Virtuais com rotas pré-existentes no hub virtual**: Para utilizar as novas capacidades de tabela de rotas, por favor, aguarde até a semana de 17 de agosto para que o lançamento em Azure esteja concluído. Se tiver rotas pré-existentes na secção de encaminhamento para o hub no portal Azure, terá de as eliminar primeiro e, em seguida, **atualize** o seu WAN Virtual Básico para O WAN Virtual Padrão. Consulte [a Atualização de um WAN virtual de Basic para Standard](upgrade-virtual-wan.md).
 
 ## <a name="virtual-wan-routing-considerations"></a><a name="considerations"></a>Considerações de encaminhamento de WAN virtual
 
@@ -90,7 +90,7 @@ Por favor, considere o seguinte ao configurar o encaminhamento VIRTUAL WAN:
 * O ramo-a-ramo via Azure Firewall não é atualmente suportado.
 * Ao utilizar o Azure Firewall em várias regiões, todas as redes virtuais faladas devem estar associadas à mesma tabela de rotas. Por exemplo, não é possível ter um subconjunto dos VNets a passar pela Firewall do Azure, enquanto outros VNets contornam o Azure Firewall no mesmo hub virtual.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para configurar o encaminhamento, consulte [Como configurar o encaminhamento do hub virtual](how-to-virtual-hub-routing.md).
 

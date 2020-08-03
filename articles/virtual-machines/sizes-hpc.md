@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/03/2020
+ms.date: 08/01/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: c02b0d63db3a761f52c9ea15e6fc6ba3356cd4be
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 122a3e243f314395ea7b1d32b88a5e20b0965eef
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421370"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87512011"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Tamanhos de VM de computação de alto desempenho
 
@@ -42,9 +42,11 @@ Esta interface permite que as instâncias com capacidade RDMA se comuniquem atra
 > O RDMA sobre o IB é suportado para todos os VMs capazes de RDMA.
 > O IP sobre o IB só é suportado nos VMs ativados pelo SR-IOV.
 
-- **Sistema Operativo** - Linux é muito bem suportado para VMs HPC; distros como CentOS, RHEL, Ubuntu, SUSE são comumente usados. No que diz respeito ao suporte ao Windows, o Windows Server 2016 e as versões mais recentes são suportadas em todos os VMs da série HPC. Windows Server 2012 R2, Windows Server 2012 também são suportados nos VMs não-SR-IOV ativados (H16r, H16mr, A8 e A9). Note que [o Windows Server 2012 R2 não é suportado em HBv2 e outros VMs com mais de 64 núcleos (virtuais ou físicos).](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)
+- **Sistema Operativo** - Linux é muito bem suportado para VMs HPC; distros como CentOS, RHEL, Ubuntu, SUSE são comumente usados. No que diz respeito ao suporte ao Windows, o Windows Server 2016 e as versões mais recentes são suportadas em todos os VMs da série HPC. Windows Server 2012 R2, Windows Server 2012 também são suportados nos VMs não-SR-IOV ativados (H16r, H16mr, A8 e A9). Note que [o Windows Server 2012 R2 não é suportado em HBv2 e outros VMs com mais de 64 núcleos (virtuais ou físicos).](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) Consulte [as Imagens VM](./workloads/hpc/configure.md) para obter uma lista de Imagens VM suportadas no Mercado e como podem ser configuradas adequadamente.
 
-- **Condutores InfiniBand e RDMA** - Na InfiniBand habilitados VMs, os controladores adequados são obrigados a ativar RDMA. No Linux, as imagens CentOS-HPC VM no Marketplace vêm pré-configuradas com os controladores apropriados. As imagens Ubuntu VM podem ser configuradas com os controladores certos usando as [instruções aqui](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). Nos VMs da série H e N ativados sr-IOV, a [extensão VM InfiniBandDriverLinux](./extensions/hpc-compute-infiniband-linux.md) pode ser utilizada para instalar os controladores Mellanox OFED e ativar a InfiniBand. Saiba mais sobre a ativação da InfiniBand em VM-able VM [HPC Workloads](./workloads/hpc/overview.md).
+- **Condutores InfiniBand e RDMA** - Na InfiniBand habilitados VMs, os controladores adequados são obrigados a ativar RDMA. No Linux, tanto para os VM sr-IOV como não-SR-IOV habilitados, as imagens CentOS-HPC VM no Mercado vêm pré-configuradas com os controladores apropriados. As imagens Ubuntu VM podem ser configuradas com os controladores certos usando as [instruções aqui](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). Consulte [Configure e Otimize VMs para Linux OS](./workloads/hpc/configure.md) para obter mais detalhes sobre imagens VM Linux OS prontas a usar.
+
+   No Linux, a [extensão VM InfiniBandDriverLinux](./extensions/hpc-compute-infiniband-linux.md) pode ser utilizada para instalar os controladores Mellanox OFED e ativar a InfiniBand nos VMs ativados pela SÉRIE H e N ativadas pela SR-IOV. Saiba mais sobre a ativação da InfiniBand em VMs com capacidade rdma na [HPC Workloads](./workloads/hpc/enable-infiniband.md).
 
    No Windows, a [extensão VM InfiniBandDriverWindows](./extensions/hpc-compute-infiniband-windows.md) instala controladores Windows Network Direct (em VMs não-SR-IOV) ou condutores Mellanox OFED (em VMs SR-IOV) para conectividade RDMA. Em certas implementações de instâncias A8 e A9, a extensão HpcVmDrivers é adicionada automaticamente. Note que a extensão VM HpcVmDrivers está a ser depreciada; não será atualizado.
 
@@ -96,8 +98,8 @@ O Azure oferece várias opções para criar clusters de VMs Windows HPC que pode
 - [Com otimização de GPU](sizes-gpu.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a otimização das suas aplicações HPC para Azure e alguns exemplos na [HPC Workloads](./workloads/hpc/overview.md).
-
 - Leia sobre os últimos anúncios e alguns exemplos e resultados do HPC no [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Para uma visão arquitetónica de nível mais elevado da execução das cargas de trabalho do HPC, consulte [a High Performance Computing (HPC) em Azure](/azure/architecture/topics/high-performance-computing/).

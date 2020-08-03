@@ -1,17 +1,17 @@
 ---
 title: O que é o Azure Data Share?
 description: Saiba como partilhar dados de forma simples e segura a vários clientes e parceiros usando a Azure Data Share.
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: overview
-ms.date: 07/10/2019
-ms.openlocfilehash: fa90f272a05b7449981ca5d4ccab161fb1e39e9e
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.date: 07/30/2020
+ms.openlocfilehash: 0dd0fbdd9bcf4d4fab2ffe9f420264ab737a700b
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636784"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87511926"
 ---
 # <a name="what-is-azure-data-share"></a>O que é o Azure Data Share?
 
@@ -87,6 +87,6 @@ A Azure Data Share não armazena uma cópia dos dados em si. Os dados são armaz
 
 O serviço Azure Data Share não precisa de estar disponível na sua região para alavancar o serviço. Por exemplo, se tiver dados armazenados numa conta de Armazenamento Azure localizada numa região onde o Azure Data Share ainda não está disponível, ainda pode aproveitar o serviço para partilhar os seus dados. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a partilhar dados, continue a partilhar o seu tutorial [de dados.](share-your-data.md)

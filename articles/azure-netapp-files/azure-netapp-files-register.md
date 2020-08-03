@@ -1,6 +1,6 @@
 ---
 title: Registre-se para ficheiros Azure NetApp / Microsoft Docs
-description: Descreve como se registar para utilizar ficheiros Azure NetApp.
+description: Saiba como se registar nos Ficheiros Azure NetApp, submetendo um pedido de lista de espera e registando o Fornecedor de Recursos Azure para ficheiros Azure NetApp.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: b-juche
-ms.openlocfilehash: cdb96f08f78e22dd0e46070ab62bf9327e2d72a3
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: b8707b6fb006a45d63f1b2b426530a7e25f5b497
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956309"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87512929"
 ---
 # <a name="register-for-azure-netapp-files"></a>Registar nos Azure NetApp Files
 
@@ -106,6 +106,6 @@ Para utilizar o serviço, tem de registar o Fornecedor de Recursos Azure para fi
       ![Registado Microsoft.NetApp](../media/azure-netapp-files/azure-netapp-files-registered-resource-providers.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar uma conta NetApp](azure-netapp-files-create-netapp-account.md)

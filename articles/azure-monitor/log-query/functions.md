@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/18/2018
-ms.openlocfilehash: 5fb9e48a6d6a0b95b61478a7877e9b46dd8963e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/31/2020
+ms.openlocfilehash: 155f27b9f04db74955640aad8f582fdf05539368
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83649391"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87511943"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Utilização de funções em consultas de registo do Monitor de Azure
 
@@ -21,9 +21,9 @@ Para utilizar uma consulta de log com outra consulta, pode guardá-la em funçã
 
 Crie uma função com o Log Analytics no portal Azure clicando em **Guardar** e, em seguida, fornecendo as informações na tabela seguinte.
 
-| Definição | Descrição |
+| Definições | Descrição |
 |:---|:---|
-| Name           | Nome do visor para a consulta no **explorador de consultas**. |
+| Nome           | Nome do visor para a consulta no **explorador de consultas**. |
 | Guardar como        | Função |
 | Alias de função | Nome curto para utilizar a função em outras consultas. Pode não conter espaços e deve ser único. |
 | Categoria       | Uma categoria para organizar consultas e funções guardadas no **explorador de consultas.** |
@@ -33,6 +33,9 @@ Crie uma função com o Log Analytics no portal Azure clicando em **Guardar** e,
 
 ## <a name="use-a-function"></a>Use uma função
 Utilize uma função incluindo o seu pseudónimo noutra consulta. Pode ser usado como qualquer outra mesa.
+
+## <a name="function-parameters"></a>Parâmetros de função 
+Pode adicionar parâmetros a uma função para que possa fornecer valores para determinadas variáveis ao chamá-la. A única maneira de criar uma função com parâmetros é usar um modelo de Gestor de Recursos. Consulte [as amostras de modelo do Gestor de Recursos para consultas de registo no Azure Monitor,](../samples/resource-manager-log-queries.md#parameterized-function) por exemplo.
 
 ## <a name="example"></a>Exemplo
 A seguinte consulta de amostra devolve todas as atualizações de segurança em falta reportadas no último dia. Guarde esta consulta em função do pseudónimo _security_updates_last_day_. 
@@ -50,7 +53,7 @@ Crie outra consulta e refira a função _security_updates_last_day_ para procura
 security_updates_last_day | where Title contains "SQL"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte outras lições para escrever consultas de registo do Azure Monitor:
 
 - [Operações de cadeia](string-operations.md)

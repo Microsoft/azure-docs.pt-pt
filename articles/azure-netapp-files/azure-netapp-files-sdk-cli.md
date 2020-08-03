@@ -1,6 +1,6 @@
 ---
 title: Azure NetApp Files SDKs e ferramentas CLI Microsoft Docs
-description: Lista as ferramentas SDKs e linha de comando (CLI) suportadas por Ficheiros Azure NetApp.
+description: 'Conheça os SDKs suportados para ficheiros Azure NetApp e suas localizações publicadas no GitHub, e sobre ferramentas de linha de comando suportadas: Azure CLI e PowerShell.'
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: b-juche
-ms.openlocfilehash: b0cb29d6db339a64a1d9b753acbfd2334364853a
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 54c85fb778d1794f9aeba2eba5ed459292636e35
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045472"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513626"
 ---
 # <a name="azure-netapp-files-sdks-and-cli-tools"></a>SDKs do Azure NetApp Files e ferramentas da CLI
 
@@ -29,7 +29,7 @@ Este artigo lista as ferramentas SDKs e linha de comando (CLI) suportadas por Fi
 
 A tabela abaixo lista os SDKs suportados.  Pode encontrar detalhes sobre os SDKs suportados nas suas localizações publicadas no GitHub.  
 
-|    Linguagem    |    SDK localização publicada no GitHub    |
+|    Idioma    |    SDK localização publicada no GitHub    |
 |------------------|--------------------------------------------------------------|
 |    .NET  |    [Azure/azure-sdk-for-net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/netapp)    |
 |    Python  |  [Azure/azure-sdk-for-python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/netapp)    |
@@ -51,5 +51,5 @@ A tabela abaixo lista as ferramentas CLI suportadas e a sua referência de coman
 
 Consulte [as amostras de código para ficheiros Azure NetApp](https://docs.microsoft.com/samples/browse/?filter-products=netapp&products=azure-netapp-files).
 
-## <a name="next-steps"></a>Próximos passos   
+## <a name="next-steps"></a>Passos seguintes   
  [Baixar Azure SDKs](https://azure.microsoft.com/downloads/)

@@ -1,17 +1,17 @@
 ---
 title: Revogar uma subscrição de ações no Azure Data Share
 description: Saiba como revogar uma subscrição de ações de um destinatário utilizando a Azure Data Share.
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 07/10/2019
-ms.openlocfilehash: c1c049d467cdf07962719f0dc257acbf47631aaf
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/30/2020
+ms.openlocfilehash: 102a0099c95073793ba6a1a85f518c7539327bf3
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119689"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87511858"
 ---
 # <a name="how-to-revoke-a-consumers-share-subscription-in-azure-data-share"></a>Como revogar a subscrição de uma participação do consumidor na Azure Data Share
 
@@ -25,5 +25,5 @@ Na Azure Data Share, navegue para a sua partilha enviada e selecione o **separad
 
 Verifique as caixas ao lado dos destinatários cujas subscrições de partilha pretende eliminar e, em seguida, clique em **Revogar**. O consumidor deixará de receber atualizações dos seus dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como monitorizar as [suas partilhas de dados.](how-to-monitor.md)

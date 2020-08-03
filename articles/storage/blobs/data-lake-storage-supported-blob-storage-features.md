@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 07/31/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: c79bca86ba253217012abd24d509d365a076b183
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0e7cedaea89e2ed3d998df6ffe0ecaa06115e265
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086035"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513796"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Recursos de armazenamento blob disponíveis no Azure Data Lake Storage Gen2
 
@@ -40,11 +40,11 @@ Esta tabela lista as funcionalidades de armazenamento Blob que pode utilizar com
 |APIs de armazenamento de blob|Disponível em Geral|Pré-visualizar|[Início Rápido: biblioteca de cliente do armazenamento de blobs do Azure v12 para .NET](storage-quickstart-blobs-dotnet.md)<br>[Quickstart: Gerir bolhas com Java v12 SDK](storage-quickstart-blobs-java.md)<br>[Quickstart: Gerir bolhas com Python v12 SDK](storage-quickstart-blobs-python.md)<br>[Quickstart: Gerir bolhas com JavaScript v12 SDK em Node.js](storage-quickstart-blobs-nodejs.md)|
 |Registos de diagnósticos|Disponível em Geral|Pré-visualizar <div role="complementary" aria-labelledby="diagnostic-logging"><sup>1</sup></div> |[Registo da análise de Armazenamento do Azure](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Nível de acesso ao arquivo|Disponível em Geral|Não suportado|[Armazenamento de blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivo](storage-blob-storage-tiers.md)|
+|Políticas de gestão do ciclo de vida|Disponível em Geral|Ainda não suportado|[Gerir o ciclo de vida do Armazenamento de Blobs do Azure](storage-lifecycle-management-concepts.md)|
 |Início de sessão no Monitor Azure|Pré-visualizar |Ainda não suportado|[Monitorização do Armazenamento Azure](../common/monitor-storage.md)|
 |Instantâneos|Pré-visualizar<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Ainda não suportado|[Snapshots blob](snapshots-overview.md)|
 |Web sites estáticos|Pré-visualizar<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Ainda não suportado|[Static website hosting in Azure Storage](storage-blob-static-website.md) (Alojamento de sites estáticos no Armazenamento do Microsoft Azure)|
 |Armazenamento imutável|Pré-visualizar<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Ainda não suportado|[Armazenar dados de blob críticos de negócio com armazenamento imutável](storage-blob-immutable-storage.md)|
-|Políticas de gestão do ciclo de vida|Pré-visualizar|Ainda não suportado|[Gerir o ciclo de vida do Armazenamento de Blobs do Azure](storage-lifecycle-management-concepts.md)|
 |Rio Blobfuse|Pré-visualizar|Ainda não suportado|[Como montar o armazenamento Blob como um sistema de ficheiros com blobfuse](storage-how-to-mount-container-linux.md)|
 |Feed de alterações|Ainda não suportado|Ainda não suportado|[Alterar suporte de alimentação no armazenamento Azure Blob](storage-blob-change-feed.md)|
 |Falha na conta|Ainda não suportado|Ainda não suportado|[Recuperação de desastres e falha na conta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
@@ -58,7 +58,7 @@ Esta tabela lista as funcionalidades de armazenamento Blob que pode utilizar com
 
 <div id="preview-form"><sup>3</sup> Para utilizar instantâneos, armazenamento imutável ou websites estáticos com Data Lake Storage Gen2, você precisa inscrever-se na pré-visualização completando este <a href=https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u>formulário</a>.  </div>
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 - [Problemas conhecidos com Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 - [Serviços Azure que suportam Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)

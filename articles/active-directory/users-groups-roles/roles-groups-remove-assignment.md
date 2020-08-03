@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de09fddf6b02cfd57504994b4b8d3f7dc4254870
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 15312159bc0487f7d03c06fa947f69b1f6f9600c
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476217"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513405"
 ---
 # <a name="remove-role-assignments-from-a-group-in-azure-active-directory"></a>Remover atribuições de funções de um grupo no Azure Ative Directory
 
@@ -95,7 +95,7 @@ POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 {
 "principalId":"<Object Id of Group>",
 "roleDefinitionId":"<Id of role definition>",
-"resourceScope":"/"
+"directoryScopeId":"/"
 }
 ```
 

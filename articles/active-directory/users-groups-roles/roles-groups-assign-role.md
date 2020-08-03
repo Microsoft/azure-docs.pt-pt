@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db3067e20873b3d030c2faf05e4a597a8da8f4d7
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: f45b5709369dfc2025b55bc3acec69e9328ce403
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476260"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513422"
 ---
 # <a name="assign-a-role-to-a-cloud-group-in-azure-active-directory"></a>Atribuir um papel a um grupo de nuvem no Azure Ative Directory
 
@@ -96,7 +96,7 @@ POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 {
 "principalId":"<Object Id of Group>",
 "roleDefinitionId":"<ID of role definition>",
-"resourceScope":"/"
+"directoryScopeId":"/"
 }
 ```
 ## <a name="next-steps"></a>Passos seguintes

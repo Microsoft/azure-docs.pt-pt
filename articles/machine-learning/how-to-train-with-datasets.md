@@ -9,15 +9,15 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 04/20/2020
+ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 47dec238474558869d6c8f7fc876e72bb5be6ff5
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: caaf1a2622d4642850d0d981e813ee438eb4eca8
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87457656"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513779"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Treine com conjuntos de dados em Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -80,7 +80,7 @@ web_path ='https://dprepdata.blob.core.windows.net/demo/Titanic.csv'
 titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path)
 ```
 
-Os objetos TabularDataset fornecem a capacidade de carregar os dados no seu SeparadorDataset num pandas ou faísca dataFrame para que possa trabalhar com bibliotecas familiares de preparação e formação de dados sem ter de deixar o seu caderno. Para alavancar esta capacidade, consulte [o acesso e explore conjuntos de dados de entrada](#access-and-explore-input-datasets).
+Os objetos TabularDataset fornecem a capacidade de carregar os dados no seu SeparadorDataset num pandas ou Nodilha de Dados de Faíscas para que possa trabalhar com bibliotecas familiares de preparação e formação de dados sem ter de deixar o seu caderno. Para alavancar esta capacidade, consulte [o acesso e explore conjuntos de dados de entrada](#access-and-explore-input-datasets).
 
 ### <a name="configure-the-estimator"></a>Configure o estimador
 
@@ -191,17 +191,6 @@ y_train = load_data(y_train_path, True).reshape(-1)
 y_test = load_data(y_test, True).reshape(-1)
 ```
 
-## <a name="accessing-source-code-during-training"></a>Aceder ao código fonte durante o treino
-
-O armazenamento Azure Blob tem velocidades de produção mais altas do que uma partilha de ficheiros Azure e irá escalar para um grande número de empregos iniciados em paralelo. Por esta razão, recomendamos configurar as suas corridas para utilizar o armazenamento Blob para transferir ficheiros de código fonte.
-
-O exemplo de código a seguir especifica na configuração de execução que blob datastore para usar para transferências de código fonte.
-
-```python 
-# workspaceblobstore is the default blob storage
-run_config.source_directory_data_store = "workspaceblobstore" 
-```
-
 ## <a name="mount-vs-download"></a>Monte vs download
 
 A montagem ou descarregamento de ficheiros de qualquer formato são suportados para conjuntos de dados criados a partir do armazenamento de Azure Blob, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database e Azure Database for PostgreSQL. 
@@ -226,6 +215,38 @@ mount_context.start()
 import os
 print(os.listdir(mounted_path))
 print (mounted_path)
+```
+
+## <a name="access-datasets-in-your-script"></a>Aceda a conjuntos de dados no seu script
+
+Os conjuntos de dados registados são acessíveis localmente e remotamente em clusters computacional como o cálculo Azure Machine Learning. Para aceder ao conjunto de dados registado através de experiências, utilize o seguinte código para aceder ao seu espaço de trabalho e ao conjunto de dados registado pelo nome. Por predefinição, [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) o método na classe devolve a versão mais recente do conjunto de `Dataset` dados registado no espaço de trabalho.
+
+```Python
+%%writefile $script_folder/train.py
+
+from azureml.core import Dataset, Run
+
+run = Run.get_context()
+workspace = run.experiment.workspace
+
+dataset_name = 'titanic_ds'
+
+# Get a dataset by name
+titanic_ds = Dataset.get_by_name(workspace=workspace, name=dataset_name)
+
+# Load a TabularDataset into pandas DataFrame
+df = titanic_ds.to_pandas_dataframe()
+```
+
+## <a name="accessing-source-code-during-training"></a>Aceder ao código fonte durante o treino
+
+O armazenamento Azure Blob tem velocidades de produção mais altas do que uma partilha de ficheiros Azure e irá escalar para um grande número de empregos iniciados em paralelo. Por esta razão, recomendamos configurar as suas corridas para utilizar o armazenamento Blob para transferir ficheiros de código fonte.
+
+O exemplo de código a seguir especifica na configuração de execução que blob datastore para usar para transferências de código fonte.
+
+```python 
+# workspaceblobstore is the default blob storage
+run_config.source_directory_data_store = "workspaceblobstore" 
 ```
 
 ## <a name="notebook-examples"></a>Exemplos de cadernos

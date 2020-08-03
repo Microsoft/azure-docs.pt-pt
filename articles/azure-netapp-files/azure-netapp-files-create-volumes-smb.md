@@ -1,6 +1,6 @@
 ---
 title: Criar um volume SMB para ficheiros Azure NetApp Microsoft Docs
-description: Descreve como criar um volume SMB para ficheiros Azure NetApp.
+description: Este artigo mostra-lhe como criar um volume SMBv3 em Ficheiros Azure NetApp. Saiba mais sobre os requisitos para ligações de Diretório Ativo e Serviços de Domínio.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 848a5779538f4754ef038a1e88be63c33177bc82
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 24a5e342c66d8154f4635acc957084d243fbd75e
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87169982"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513082"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
@@ -163,8 +163,20 @@ Esta definição está configurada nas Ligações de **Diretório Ativo** na **C
      * **Utilizadores de política de backup**  
         Pode incluir contas adicionais que requerem privilégios elevados à conta de computador criada para utilização com ficheiros Azure NetApp. As contas especificadas serão autorizadas a alterar as permissões NTFS ao nível do ficheiro ou da pasta. Por exemplo, pode especificar uma conta de serviço não privilegiada utilizada para a migração de dados para uma partilha de ficheiros SMB em Ficheiros Azure NetApp.  
 
-        > [!IMPORTANT] 
-        > A utilização da funcionalidade de utilização da política de backup requer whitelisting. Envie um e-mail anffeedback@microsoft.com com o seu ID de subscrição para solicitar esta funcionalidade. 
+        A funcionalidade **de utilizadores de política de backup** está atualmente em pré-visualização. Se esta for a sua primeira utilização, registe a funcionalidade antes de a utilizar: 
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
+        ```
+
+        Verifique o estado do registo da funcionalidade: 
+
+        > [!NOTE]
+        > O **Estado de Registo** pode estar no estado por `Registering` alguns minutos antes de mudar para `Registered` . Aguarde até que o estado seja **registado** antes de continuar.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
+        ```
 
     * Credenciais, incluindo o seu **nome de utilizador** e **senha**
 
@@ -252,7 +264,7 @@ Pode definir permissões para um ficheiro ou pasta utilizando o separador **Segu
  
 ![Definir permissões de ficheiros e pastas](../media/azure-netapp-files/set-file-folder-permissions.png) 
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 * [Montar ou desmontar um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) (Limites dos recursos do Azure NetApp Files)

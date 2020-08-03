@@ -7,19 +7,19 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 20cdc55b474034480392f9dfb05b20ad25df6939
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a7e42ddeb4abacd8707dda4cd558933b0d7a34f4
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037771"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513711"
 ---
 # <a name="view-virtual-hub-effective-routes"></a>Ver rotas efetivas do hub virtual
 
 Pode ver todas as rotas do seu hub VIRTUAL WAN no portal Azure. Este artigo acompanha-o através dos passos para ver rotas eficazes. Para obter mais informações sobre o encaminhamento de hubs virtuais, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).
 
 > [!NOTE]
-> No portal Azure, algumas destas funcionalidades podem ainda estar a ser lançadas e não estão disponíveis até à semana de 3 de agosto. 
+> No portal Azure, algumas destas funcionalidades podem ainda estar a ser lançadas e não estão disponíveis até à semana de 17 de agosto. 
 >
 
 ## <a name="select-connections-or-route-tables"></a><a name="routing"></a>Selecione ligações ou tabelas de rotas
@@ -52,7 +52,7 @@ Os valores na tabela de exemplos a seguir implicam que a ligação virtual do hu
 
 Utilize a barra de deslocamento na parte inferior da tabela para ver o "Caminho AS".
 
-| **Prefixo** |  **Tipo de salto seguinte** | **Salto seguinte** |  **Origem da Rota** |**AS Path** |
+| **Prefixo** |  **Tipo de salto seguinte** | **Próximo salto** |  **Origem da Rota** |**AS Path** |
 | ---        | ---                | ---          | ---               | ---         |
 | 10.2.0.0/24| VPN_S2S_Gateway |10.1.0.6, 10.1.0.7|/subscrições/ `<sub id>` /resourceGroups/ `<resource group name>` /providers/Microsoft.Network/vpnGateways/vpngw| 20 000|
 
@@ -62,7 +62,7 @@ Utilize a barra de deslocamento na parte inferior da tabela para ver o "Caminho 
 
 * O campo **Rota Padrão propagação** é visto no portal Azure Virtual WAN quando edita uma ligação de rede virtual, uma ligação VPN ou uma ligação ExpressRoute. Este campo indica a bandeira **activaçãoInternetSecurity,** que é sempre por padrão "falsa" para ligações ExpressRoute e VPN, mas "verdadeira" para ligações de rede virtuais.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre a WAN Virtual, veja a [Descrição Geral da WAN Virtual](virtual-wan-about.md).
 * Para obter mais informações sobre o encaminhamento de hubs virtuais, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).

@@ -1,17 +1,17 @@
 ---
 title: Configure um mapeamento de conjunto de dados em Azure Data Share
 description: Saiba como configurar um mapeamento de conjunto de dados para uma partilha recebida usando a Azure Data Share.
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 07/10/2019
-ms.openlocfilehash: 52a8b9c5441f9261f8b9179c8100cdb01777bfd1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/30/2020
+ms.openlocfilehash: 82de05e7169c5803dd999521f61a33b9dd17b567
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119961"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87511960"
 ---
 # <a name="how-to-configure-a-dataset-mapping-for-a-received-share-in-azure-data-share"></a>Como configurar um mapeamento de conjunto de dados para uma participação recebida no Azure Data Share
 
@@ -39,7 +39,7 @@ Se os dados de origem forem de uma fonte baseada em SQL, pode escolher em que fo
 
 ![Escolha o formato](./media/sql-file-formats.png "Formatos de ficheiros SQL")
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a partilhar dados, continue a partilhar o seu tutorial [de dados.](share-your-data.md)
 

@@ -1,6 +1,6 @@
 ---
-title: O que é O Azure NetApp Files [ Ficheiros Azure NetApp] Microsoft Docs
-description: Fornece uma descrição geral dos Azure NetApp Files e das tarefas principais.
+title: O que é Azure NetApp Files [ Microsoft Docs
+description: Saiba mais sobre os Ficheiros Azure NetApp, um serviço de armazenamento de ficheiros de classe empresarial, de alto desempenho e medido que suporta qualquer tipo de carga de trabalho e está altamente disponível.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 33a90f876f5ce35b52bb2d5625fa9d91a0a33dee
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4ad556a6c720cb4eaac9a0c9cdf5c4346e2aa857
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "65522982"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87512946"
 ---
 # <a name="what-is-azure-netapp-files"></a>O que é o Azure NetApp Files
 
@@ -30,7 +30,7 @@ O serviço Azure NetApp Files é um serviço de armazenamento de ficheiros com t
 A documentação do Azure NetApp Files fornece instruções sobre como criar e gerir volumes através do Azure NetApp Files. 
 
 > [!IMPORTANT] 
-> Todas as tarefas descritas nesta documentação exigem que lhe tenha sido concedido acesso ao serviço Deficheiros Azure NetApp. Para solicitar o acesso ao serviço, consulte Enviar um pedido de lista de [espera para aceder ao serviço](azure-netapp-files-register.md#waitlist).
+> Todas as tarefas descritas nesta documentação requerem que lhe tenha sido concedido acesso ao serviço Azure NetApp Files. Para solicitar o acesso ao serviço, consulte [Enviar por formulário de espera para aceder ao serviço.](azure-netapp-files-register.md#waitlist)
 
 ## <a name="next-steps"></a>Passos seguintes
 

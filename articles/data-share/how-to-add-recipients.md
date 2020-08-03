@@ -1,17 +1,17 @@
 ---
 title: Adicionar destinatários em Azure Data Share
 description: Saiba como adicionar destinatários a uma partilha de dados existente na Azure Data Share.
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 07/10/2019
-ms.openlocfilehash: 8188fa4de91dd64589693026f69f7d142751e542
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/30/2020
+ms.openlocfilehash: 999966192d92481a9d3eec68cfe804566a27f71e
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110868"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513473"
 ---
 # <a name="how-to-add-a-recipient-to-an-existing-data-share-in-azure-data-share"></a>Como adicionar um destinatário a uma partilha de dados existente na Azure Data Share
 
@@ -31,5 +31,5 @@ Um painel sairá do lado direito da página. Clique em **Adicionar Destinatário
 
 Clique **em Adicionar e envie convite.** Os novos destinatários serão enviados e-mails de convite para esta partilha de dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [apagar um convite para uma partilha.](how-to-delete-invitation.md)

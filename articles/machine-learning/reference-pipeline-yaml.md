@@ -9,14 +9,14 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: nilsp
 author: NilsPohlmann
-ms.date: 11/11/2019
+ms.date: 07/31/2020
 ms.custom: tracking-python
-ms.openlocfilehash: c53f6ff7fdcc861bc11fb54838f1e634fc944c6c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 4fc28ca533c6670263c8d559f4d6dd3e21671881
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205271"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513167"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Definir oleodutos de aprendizagem automática em YAML
 

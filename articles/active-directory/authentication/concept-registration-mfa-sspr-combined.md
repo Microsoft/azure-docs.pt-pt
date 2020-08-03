@@ -11,16 +11,19 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8ceb375eb9da853b4c89ffe278d3483f6a4fa72
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a3a06f01507ad5715d1e8a3f828ab008e1e8ce65
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050966"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87512980"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Registo combinado de informações de segurança para a visão geral do Azure Ative Directory
 
 Antes do registo combinado, os utilizadores registaram métodos de autenticação para autenticação multi-factor Azure e redefinição de senha de autosserviço (SSPR) separadamente. As pessoas confundiram-se com o facto de métodos semelhantes terem sido usados para autenticação multi-factor e SSPR, mas tiveram de se registar para ambas as funcionalidades. Agora, com o registo combinado, os utilizadores podem registar-se uma vez e obter os benefícios tanto da Autenticação Multi-Factor como da SSPR.
+
+> [!NOTE]
+> A partir de 15 de agosto de 2020, todos os novos inquilinos da AD Azure serão automaticamente habilitados para o registo combinado.
 
 Este artigo descreve o que é o registo de segurança combinado. Para começar com o registo combinado de segurança, consulte o seguinte artigo:
 
@@ -50,15 +53,15 @@ O registo combinado suporta os seguintes métodos e ações de autenticação:
 
 | Método | Registar | Alterar | Eliminar |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Sim (máximo de 5) | No | Yes |
-| Outra aplicação autenticadora | Sim (máximo de 5) | No | Yes |
-| Ficha de hardware | Não | Não | Yes |
+| Microsoft Authenticator | Sim (máximo de 5) | Não | Sim |
+| Outra aplicação autenticadora | Sim (máximo de 5) | Não | Sim |
+| Ficha de hardware | Não | Não | Sim |
 | Telefone | Sim | Sim | Sim |
 | Telefone alternativo | Sim | Sim | Sim |
 | Telefone do escritório | Não | Não | Não |
 | E-mail | Sim | Sim | Sim |
-| Perguntas de segurança | Yes | No | Yes |
-| Palavras-passe da aplicação | Yes | No | Yes |
+| Perguntas de segurança | Sim | Não | Sim |
+| Palavras-passe da aplicação | Sim | Não | Sim |
 | Chaves de segurança FIDO2<br />*Modo gerido apenas a partir da página [de informações de Segurança](https://mysignins.microsoft.com/security-info)*| Sim | Sim | Sim |
 
 > [!NOTE]

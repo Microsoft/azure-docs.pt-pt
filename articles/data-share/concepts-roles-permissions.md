@@ -1,17 +1,17 @@
 ---
 title: Funções e condições do Azure Data Share
 description: Saiba mais sobre as permissões necessárias para partilhar e receber dados usando a Azure Data Share.
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
-ms.date: 07/10/2019
-ms.openlocfilehash: 229d4fd6647a8a1b756fedee2a864d00b9c7de62
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/30/2020
+ms.openlocfilehash: 84d1ba6ff343b5f3d1f88d7ae5c618601f416e2c
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111002"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513770"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Funções e condições do Azure Data Share 
 
@@ -36,7 +36,7 @@ Abaixo está um resumo das funções atribuídas à identidade gerida do recurso
 |Azure Data Lake Gen1 | Proprietário | Não suportado
 |Azure Data Lake Gen2 | Leitor de dados blob de armazenamento | Colaborador de dados blob de armazenamento
 |Azure SQL Server | Colaborador do SQL DB | Colaborador do SQL DB
-|Cluster do Azure Data Explorer | Contribuidor | Contribuidor
+|Cluster do Azure Data Explorer | Contribuinte | Contribuinte
 |
 
 Para a partilha baseada em SQL, um utilizador SQL precisa de ser criado a partir de um fornecedor externo na Base de Dados Azure SQL com o mesmo nome que o recurso Azure Data Share. Abaixo está um resumo da permissão exigida pelo utilizador SQL.
@@ -90,7 +90,13 @@ Para saber mais sobre como adicionar uma atribuição de funções, consulte [es
 
 ## <a name="resource-provider-registration"></a>Registo do fornecedor de recursos 
 
-Para ver o convite Azure Data Share pela primeira vez no seu inquilino Azure, poderá ter de registar manualmente o fornecedor de recursos Microsoft.DataShare na sua subscrição Azure. Siga estes passos para registar o fornecedor de recursos Microsoft.DataShare na sua Subscrição Azure. Precisa de acesso *do Contribuinte* à assinatura Azure para registar o fornecedor de recursos.
+Poderá ter de registar manualmente o fornecedor de recursos Microsoft.DataShare na sua subscrição Azure nos seguintes cenários: 
+
+* Veja o convite da Azure Data Share pela primeira vez no seu inquilino Azure
+* Partilhe dados de uma loja de dados Azure numa subscrição Azure diferente do seu recurso Azure Data Share
+* Receba dados numa loja de dados Azure numa subscrição Azure diferente do seu recurso Azure Data Share
+
+Siga estes passos para registar o fornecedor de recursos Microsoft.DataShare na sua Subscrição Azure. Precisa de acesso *do Contribuinte* à assinatura Azure para registar o fornecedor de recursos.
 
 1. No portal Azure, navegue para **Subscrições.**
 1. Selecione a subscrição que está a usar para Azure Data Share.
@@ -98,6 +104,6 @@ Para ver o convite Azure Data Share pela primeira vez no seu inquilino Azure, po
 1. Procure por Microsoft.DataShare.
 1. Clique em **Registar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre papéis no Azure - [Entenda as definições de funções](../role-based-access-control/role-definitions.md)

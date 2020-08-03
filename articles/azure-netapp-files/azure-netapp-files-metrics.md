@@ -1,6 +1,6 @@
 ---
 title: Métricas para Ficheiros Azure NetApp / Microsoft Docs
-description: Descreve métricas para ficheiros Azure NetApp.
+description: O Azure NetApp Files fornece métricas sobre armazenamento atribuído, uso real de armazenamento, IOPS de volume e latência. Use estas métricas para entender o uso e o desempenho.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: b-juche
-ms.openlocfilehash: c8e3b616dee1ab4e6bb6e77c6a8bab5661d4e20b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e6ab90010d4379c1640f73a8deeba874e601daf
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79460437"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513813"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Métricas do Azure NetApp Files
 
@@ -66,7 +66,7 @@ O Azure NetApp Files fornece métricas sobre armazenamento atribuído, uso real 
 - *WriteIops*   
     O número de escreve para o volume por segundo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Compreender a hierarquia de armazenamento do Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
 * [Configurar um conjunto de capacidade](azure-netapp-files-set-up-capacity-pool.md)

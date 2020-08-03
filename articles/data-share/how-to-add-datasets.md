@@ -1,17 +1,17 @@
 ---
 title: Adicione conjuntos de dados a uma partilha de dados Azure existente
 description: Saiba como adicionar conjuntos de dados a uma partilha de dados existente na Azure Data Share e partilhe com os mesmos destinatários.
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 07/10/2019
-ms.openlocfilehash: c4aee1eb268c124586388eacf8c908c20d799bc9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/30/2020
+ms.openlocfilehash: 540cdc2948cbcd97bf7c8872f3aace2862280434
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110900"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513494"
 ---
 # <a name="how-to-add-datasets-to-an-existing-share-in-azure-data-share"></a>Como adicionar conjuntos de dados a uma participação existente na Azure Data Share
 
@@ -31,5 +31,5 @@ No painel à direita, selecione o tipo de conjunto de dados que pretende adicion
 
 Assim que clicar em **Adicionar Conjuntos de Dados,** os conjuntos de dados serão adicionados à sua parte. Nota: Um instantâneo deve ser desencadeado pelos seus consumidores para que estes possam ver os novos conjuntos de dados. Se houver configurações instantâneas configuradas, os consumidores verão os novos conjuntos de dados assim que o próximo instantâneo programado estiver concluído. Sem configurar as definições de instantâneo, o consumidor deve ativar manualmente uma cópia completa ou incremental dos dados para receber as atualizações. Para obter mais informações sobre instantâneos, consulte [Snapshots](terminology.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [adicionar destinatários a uma partilha de dados existente.](how-to-add-recipients.md)

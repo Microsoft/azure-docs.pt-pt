@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6d14094edc7ae21ca0d56b544fb9c2b19f1f0582
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 634967fbe50c74770bdc3b526d68896728e4ee07
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144995"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513065"
 ---
 # <a name="how-to-configure-virtual-hub-routing"></a>Como configurar o encaminhamento do hub virtual
 
@@ -22,7 +22,7 @@ Um hub virtual pode conter vários gateways, tais como um gateway VPN local-para
 Para obter mais informações, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).
 
 > [!NOTE]
-> Algumas destas capacidades ainda podem estar a ser lançadas. Espera-se que isto esteja concluído até 3 de agosto.
+> Algumas destas capacidades ainda podem estar a ser lançadas. Espera-se que esteja concluído até 17 de agosto.
 >
 
 ## <a name="create-a-route-table"></a><a name="create-table"></a>Criar uma tabela de rotas
@@ -36,7 +36,7 @@ Para obter mais informações, consulte [sobre o encaminhamento do hub virtual](
 
    :::image type="content" source="./media/how-to-virtual-hub-routing/basics.png" alt-text="Separador básico":::
 
-   * **Name**
+   * **Nome**
    * **Rotas**
    * **Nome da rota**
    * **Tipo de destino**

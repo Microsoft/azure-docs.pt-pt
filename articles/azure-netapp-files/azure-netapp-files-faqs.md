@@ -1,6 +1,6 @@
 ---
 title: PERGUNTAS Frequentes Sobre Ficheiros Azure NetApp / Microsoft Docs
-description: Respostas frequentemente feitas perguntas sobre ficheiros Azure NetApp.
+description: A análise fez perguntas frequentes sobre ficheiros Azure NetApp, tais como networking, segurança, desempenho, gestão de capacidades e migração/proteção de dados.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.author: b-juche
-ms.openlocfilehash: be18a9d54049562eebc27720988b085c3e14f2da
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: f9552b82dc79e1edafb13fead5a07df3ecf1be3b
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956514"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87512963"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>PERGUNTAS Frequentes Sobre Ficheiros Azure NetApp
 
@@ -236,7 +236,7 @@ Não. A Azure Data Box não suporta ficheiros Azure NetApp atualmente.
 
 Não. O serviço Azure Import/Export não suporta atualmente ficheiros Azure NetApp.
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 - [Microsoft Azure ExpressRoute FAQs](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
 - [Microsoft Azure Virtual Network FAQ](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq)

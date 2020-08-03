@@ -1,6 +1,6 @@
 ---
 title: Desenvolver para Azure NetApp Files com REST API / Microsoft Docs
-description: Descreve como começar a usar a API dos Ficheiros Azure NetApp.
+description: A API REST para o serviço Azure NetApp Files define operações HTTP para recursos como a conta NetApp, o pool de capacidade, os volumes e instantâneos.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: b-juche
-ms.openlocfilehash: 35800ef95e78a64d7aced13f496ec35d9fe60320
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 90d3ff807275c74ce4495c5631ab913971ebe3e3
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964605"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513014"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api"></a>Desenvolver para o Azure NetApp Files com a API REST 
 
@@ -201,6 +201,6 @@ O exemplo a seguir mostra como criar uma imagem instantânea de um volume:
 > [!NOTE] 
 > Tem de especificar `fileSystemId` para criar uma imagem instantânea.  Pode obter o `fileSystemId` valor com um pedido GET para um volume. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Consulte a referência AZure NetApp API](https://docs.microsoft.com/rest/api/netapp/)
