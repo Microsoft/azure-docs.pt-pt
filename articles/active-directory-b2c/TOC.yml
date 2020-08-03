@@ -7,7 +7,7 @@
       href: overview.md
     - name: Descrição geral técnica e das funcionalidades
       href: technical-overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Configurar o início de sessão - ASP.NET
@@ -452,6 +452,8 @@
       displayName: security
     - name: Versões de fluxo de utilizador
       href: user-flow-versions.md
+    - name: Versões de fluxo de utilizador legado
+      href: user-flow-versions-legacy.md
 - name: Recursos
   items:
     - name: Mapa do Azure

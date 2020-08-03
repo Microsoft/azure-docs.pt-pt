@@ -13,23 +13,23 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: 629616c00ffbc53500392c12155c077722cc310d
-  ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+  ms.openlocfilehash: daccc4195877ad18441640f562556d97a04b10f0
+  ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/08/2020
-  ms.locfileid: "86078600"
+  ms.lasthandoff: 07/29/2020
+  ms.locfileid: "87386491"
 highlightedContent:
   items:
   - title: Introdução ao Azure Key Vault
     itemType: overview
     url: ./general/overview.md
+  - title: Alterações importantes à eliminação recuperável
+    itemType: overview
+    url: ./general/soft-delete-change.md
   - title: Autenticação
     itemType: overview
     url: ./general/authentication.md
-  - title: Eliminar de forma recuperável
-    itemType: overview
-    url: ./general/overview-soft-delete.md
   - title: Conceitos básicos
     itemType: overview
     url: ./general/basic-concepts.md

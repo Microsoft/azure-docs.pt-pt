@@ -4,15 +4,15 @@ description: Saiba quais são os aspetos importantes para comprar uma reserva do
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 05/04/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 609ca56419ed14f3cf4e449e9b906a75a4ff20ab
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 68bcf725a6043b8ab19717845fa8005de2f88e35
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807786"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287629"
 ---
 # <a name="buy-a-reservation"></a>Comprar uma reserva
 
@@ -36,7 +36,10 @@ Tem três opções para definir o âmbito de uma reserva, consoante as suas nece
 
 - **Âmbito de grupo de recursos único** — aplica o desconto de reserva aos recursos correspondentes apenas no grupo de recursos selecionado.
 - **Âmbito de subscrição individual** — aplica o desconto de reserva aos recursos correspondentes na subscrição selecionada.
-- **Âmbito partilhado** — aplica o desconto de reserva aos recursos correspondentes em subscrições elegíveis que estejam no contexto de faturação. Para clientes do Contrato Enterprise, o contexto de faturação é a inscrição. Para clientes do Contrato de Cliente da Microsoft, o âmbito de faturação é o perfil de faturação. Para subscrições individuais com taxas pay as you go, o âmbito da faturação reside em todas as subscrições elegíveis criadas pelo administrador de conta.
+- **Âmbito partilhado** – aplica o desconto de reserva aos recursos correspondentes em subscrições elegíveis que estejam no contexto de faturação.
+    - Para clientes do Contrato Enterprise, o contexto de faturação é a inscrição. O âmbito partilhado da reserva incluiria vários inquilinos do Active Directory numa inscrição.
+    - Para os clientes do Contrato de Cliente Microsoft, o âmbito da faturação é o perfil de faturação.
+    - Para subscrições individuais com taxas pay as you go, o âmbito da faturação reside em todas as subscrições elegíveis criadas pelo administrador de conta.
 
 Enquanto aplica descontos de reserva sobre a sua utilização, o Azure processa a reserva pela seguinte ordem:
 

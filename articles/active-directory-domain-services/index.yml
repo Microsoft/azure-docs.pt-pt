@@ -13,12 +13,12 @@ metadata:
   ms.author: iainfou
   manager: daveba
   ms.date: 08/01/2019
-  ms.openlocfilehash: f5fa27e19da6bb64b7e214ec32cbfbf0a417118e
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 72fda19e35792e25ba31de2c3d7d4882e9d0e0ef
+  ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "70010568"
+  ms.lasthandoff: 07/31/2020
+  ms.locfileid: "87480378"
 landingContent:
 - title: Acerca do Azure AD Domain Services
   linkLists:
@@ -32,7 +32,7 @@ landingContent:
     links:
     - text: Como funciona a sincronização?
       url: synchronization.md
-    - text: Perguntas mais frequentes
+    - text: FAQs
       url: faqs.md
 - title: Introdução
   linkLists:
@@ -74,7 +74,7 @@ landingContent:
       url: check-health.md
     - text: Configurar as notificações por e-mail
       url: notifications.md
-    - text: Ativar auditorias de segurança (pré-visualização)
+    - text: Ativar auditorias de segurança
       url: security-audit-events.md
 - title: Associar VMs a um domínio
   linkLists:

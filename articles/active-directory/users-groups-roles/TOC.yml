@@ -175,6 +175,22 @@
               href: roles-custom-available-permissions.md
             - name: Delegar permissões de administrador de aplicações
               href: roles-delegate-app-roles.md
+        - name: Utilizar grupos para gerir atribuições de função
+          items:
+            - name: Pré-visualização da atribuição de função baseada em grupo
+              href: roles-groups-concept.md
+            - name: Criar um grupo ao qual se pode atribuir funções
+              href: roles-groups-create-eligible.md
+            - name: Atribuir funções a um grupo
+              href: roles-groups-assign-role.md
+            - name: Remover atribuições de função de um grupo
+              href: roles-groups-remove-assignment.md
+            - name: Ver as atribuições de função de um grupo
+              href: roles-groups-view-assignments.md
+            - name: Tornar um grupo elegível para uma função no PIM
+              href: roles-groups-pim-eligible.md
+            - name: FAQ e resolução de problemas
+              href: roles-groups-faq-troubleshooting.md
         - name: Funções com menores privilégios por função
           href: roles-delegate-by-task.md
         - name: Funções do Microsoft 365

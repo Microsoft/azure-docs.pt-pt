@@ -12,12 +12,12 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 07/30/2020
-  ms.openlocfilehash: 066f82bf214a9a5a2a364bc9dc021a1baa31feac
-  ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+  ms.openlocfilehash: 40a8fc105dd297ec4bc70ecc0a27b9fa295d3fe1
+  ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/30/2020
-  ms.locfileid: "87433071"
+  ms.lasthandoff: 07/31/2020
+  ms.locfileid: "87474517"
 landingContent:
 - title: Introdução ao machine learning
   linkLists:
@@ -25,12 +25,18 @@ landingContent:
     links:
     - text: Blocos de notas Python
       url: tutorial-1st-experiment-sdk-setup.md
-    - text: O designer (arrastar e largar)
-      url: tutorial-designer-automobile-price-train-score.md
     - text: AutoML (sem código/pouco código)
       url: tutorial-first-experiment-automated-ml.md
+    - text: Designer (arrastar e largar)
+      url: tutorial-designer-automobile-price-train-score.md
     - text: RStudio
       url: tutorial-1st-r-experiment.md
+- title: Trazer o seu modelo do ML para o Azure
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Implementar o seu modelo local na cloud
+      url: how-to-deploy-existing-model.md
 - title: Utilizar o AutoML ou arrastar e largar no estúdio
   linkLists:
   - linkListType: overview
@@ -45,50 +51,10 @@ landingContent:
     links:
     - text: 'AutoML: criar um modelo de classificação'
       url: tutorial-first-experiment-automated-ml.md
-    - text: 'AutoML: preparar e implementar modelos de ML'
-      url: how-to-use-automated-ml-for-ml-models.md
     - text: 'O estruturador: prever preços de automóveis'
       url: tutorial-designer-automobile-price-train-score.md
-    - text: Criar um projeto de identificação de imagens
+    - text: Identificar imagens para classificação
       url: tutorial-labeling.md
-- title: Trazer o seu modelo para o Azure
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Implementar o seu modelo local na cloud
-      url: how-to-deploy-existing-model.md
-- title: Preparar com o SDK do Python
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Criar a primeira experimentação de ML
-      url: tutorial-1st-experiment-sdk-setup.md
-    - text: Classificar imagens
-      url: tutorial-train-models-with-aml.md
-    - text: Prever tarifas de táxi com o AutoML
-      url: tutorial-auto-train-models.md
-    - text: Criar pipelines do Azure ML
-      url: tutorial-pipeline-batch-scoring-classification.md
-  - linkListType: how-to-guide
-    links:
-    - text: Configurar o ambiente
-      url: how-to-configure-environment.md
-    - text: Interpretar e explicar modelos
-      url: how-to-machine-learning-interpretability.md
-    - text: Aprendizagem profunda vs ML
-      url: concept-deep-learning-vs-machine-learning.md
-    - text: Preparar e registar modelos Scikit-learn
-      url: how-to-train-scikit-learn.md
-    - text: Preparar e registar modelos TensorFlow
-      url: how-to-train-tensorflow.md
-    - text: Preparar e registar modelos PyTorch
-      url: how-to-train-pytorch.md
-    - text: Preparar e registar modelos Keras
-      url: how-to-train-keras.md
-    - text: Aprendizagem por reforço
-      url: how-to-use-reinforcement-learning.md
-    - text: O que são pipelines de ML?
-      url: concept-ml-pipelines.md
 - title: 'MLOps: Implementar e gerir modelos'
   linkLists:
   - linkListType: how-to-guide
@@ -101,6 +67,34 @@ landingContent:
       url: how-to-consume-web-service.md
     - text: Predição de lote
       url: how-to-use-parallel-run-step.md
+    - text: Repositório de exemplos de MLOps
+      url: https://github.com/microsoft/MLOps
+- title: Preparar com o SDK do Python
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Criar a primeira experimentação de ML
+      url: tutorial-1st-experiment-sdk-setup.md
+    - text: Prever tarifas de táxi com o AutoML
+      url: tutorial-auto-train-models.md
+    - text: Criar pipelines do Azure ML
+      url: tutorial-pipeline-batch-scoring-classification.md
+    - text: Classificar imagens
+      url: tutorial-train-models-with-aml.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurar o ambiente
+      url: how-to-configure-environment.md
+    - text: Preparar modelos do Scikit-learn
+      url: how-to-train-scikit-learn.md
+    - text: Preparar modelos de TensorFlow
+      url: how-to-train-tensorflow.md
+    - text: Preparar modelos de PyTorch
+      url: how-to-train-pytorch.md
+    - text: Preparar modelos do Keras
+      url: how-to-train-keras.md
+    - text: O que são pipelines de ML?
+      url: concept-ml-pipelines.md
 - title: Ir para documentos de referência
   linkLists:
   - linkListType: reference
@@ -109,8 +103,6 @@ landingContent:
       url: https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py
     - text: Algoritmos e módulos do estruturador
       url: algorithm-module-reference/module-reference.md
-    - text: Repositório de exemplos de MLOps
-      url: https://github.com/microsoft/MLOps
     - text: API REST
       url: https://docs.microsoft.com/rest/api/azureml/
     - text: CLI de Aprendizagem automática

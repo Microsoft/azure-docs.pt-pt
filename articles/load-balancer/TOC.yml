@@ -10,14 +10,16 @@
       href: load-balancer-faqs.md
 - name: Início Rápido
   items:
-    - name: Criar Balanceador de Carga - Portal
+    - name: Criar um balanceador de carga público - Portal
       href: quickstart-load-balancer-standard-public-portal.md
-    - name: Criar Balanceador de Carga - CLI do Azure
+    - name: Criar um balanceador de carga público - CLI do Azure
       href: quickstart-load-balancer-standard-public-cli.md
-    - name: Criar Balanceador de Carga - Azure PowerShell
+    - name: Criar um balanceador de carga público - Azure PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
-    - name: Criar Balanceador de Carga - Modelo do Resource Manager
+    - name: Criar um balanceador de carga público - Modelo do ARM
       href: quickstart-load-balancer-standard-public-template.md
+    - name: Criar um balanceador de carga interno - Portal
+      href: quickstart-load-balancer-standard-internal-portal.md
   expanded: true
 - name: Tutoriais
   items:

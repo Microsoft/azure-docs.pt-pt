@@ -11,13 +11,13 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 07/07/2020
-  ms.openlocfilehash: 4a40b64c72946c84d034e13f3a22b7cda2b9c6aa
-  ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+  ms.date: 07/30/2020
+  ms.openlocfilehash: 6a21841d24fcafefe25473e428e1926849f5e9cf
+  ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/08/2020
-  ms.locfileid: "86118873"
+  ms.lasthandoff: 07/30/2020
+  ms.locfileid: "87446740"
 landingContent:
 - title: Acerca de modelos do ARM
   linkLists:
@@ -31,6 +31,8 @@ landingContent:
       url: template-best-practices.md
     - text: Perguntas mais frequentes
       url: frequently-asked-questions.md
+    - text: Especificações de modelo
+      url: template-specs.md
     - text: Modos de implementação
       url: deployment-modes.md
     - text: Modelos ligados
@@ -47,18 +49,18 @@ landingContent:
       url: quickstart-create-templates-use-the-portal.md
     - text: Criar modelos - VS Code
       url: quickstart-create-templates-use-visual-studio-code.md
-    - text: Criar modelos - Visual Studio
-      url: create-visual-studio-deployment-project.md
   - linkListType: tutorial
     links:
     - text: Tutoriais para principiantes
       url: template-tutorial-create-first-template.md
-    - text: Implementar várias instâncias
-      url: template-tutorial-create-multiple-instances.md
-    - text: Definir a ordem de implementação
-      url: template-tutorial-create-templates-with-dependent-resources.md
-    - text: Integrar o cofre de chaves
-      url: template-tutorial-use-key-vault.md
+    - text: Implementação
+      url: deployment-tutorial-local-template.md
+  - linkListType: learn
+    links:
+    - text: Infraestrutura consistente
+      url: /learn/modules/create-azure-resource-manager-template-vs-code/
+    - text: Vários ambientes
+      url: /learn/modules/modify-azure-resource-manager-template-reuse/
 - title: Desenvolver modelos
   linkLists:
   - linkListType: how-to-guide
@@ -91,6 +93,8 @@ landingContent:
       url: deploy-portal.md
     - text: API REST
       url: deploy-rest.md
+    - text: Botão Implementar no Azure
+      url: deploy-to-azure-button.md
     - text: Implementação de Hipóteses
       url: template-deploy-what-if.md
 - title: Implementações no âmbito
@@ -103,6 +107,8 @@ landingContent:
       url: deploy-to-management-group.md
     - text: Inquilino
       url: deploy-to-tenant.md
+    - text: Implementações entre âmbitos
+      url: cross-scope-deployment.md
 - title: Explorar conteúdo de referência
   linkLists:
   - linkListType: reference
@@ -125,6 +131,8 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Conjunto de ferramentas de teste
+      url: test-toolkit.md
     - text: Exportar modelos
       url: export-template-portal.md
     - text: CI/CD

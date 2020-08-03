@@ -210,8 +210,10 @@
     - name: Especificações de Modelo
       items:
         - name: Criar com modelos ligados
+          displayName: template specs
           href: template-specs-create-linked.md
         - name: Implementar como modelo ligado
+          displayName: template specs
           href: template-specs-deploy-linked-template.md
     - name: Modelos avançados
       items:
@@ -366,8 +368,8 @@
           href: deploy-to-management-group.md
         - name: Inquilino
           href: deploy-to-tenant.md
-        - name: Entre grupos de recursos
-          href: cross-resource-group-deployment.md
+        - name: Implementações entre âmbitos
+          href: cross-scope-deployment.md
     - name: Fornecer parâmetros
       items:
         - name: Criar ficheiro de parâmetros

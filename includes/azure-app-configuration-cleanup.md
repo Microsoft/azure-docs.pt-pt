@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration

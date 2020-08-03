@@ -78,7 +78,7 @@
     - name: Amostras de Python
       href: sql-api-python-samples.md
     - name: PowerShell
-      href: powershell-samples-sql.md
+      href: powershell-samples.md
     - name: CLI do Azure
       href: cli-samples.md
     - name: Azure Resource Manager
@@ -458,12 +458,6 @@
         - name: Consulta parametrizada
           displayName: 'parameterized query, parameterized, parameter, parameters'
           href: sql-query-parameterized-queries.md
-        - name: Execução de consulta SQL
-          displayName: 'query performance, query execution'
-          href: sql-query-execution.md
-        - name: Paginação
-          displayName: 'page, paging, continuation, token, pagination'
-          href: sql-query-pagination.md
         - name: LINQ para SQL
           displayName: 'linq, .NET'
           href: sql-query-linq-to-sql.md
@@ -592,6 +586,8 @@
           href: policy.md
     - name: Quotas de serviço
       href: concepts-limits.md
+    - name: Recomendações automáticas
+      href: automated-recommendations.md
 - name: 'Cassandra, MongoDB e outras APIs'
   expanded: true
   items:
@@ -672,7 +668,7 @@
               href: manage-cassandra-with-resource-manager.md
               displayName: ARM
             - name: Gerir com o PowerShell
-              href: powershell-samples-cassandra.md
+              href: powershell-samples.md
             - name: Gerir com a CLI do Azure
               href: cli-samples.md
     - name: API do MongoDB
@@ -766,7 +762,7 @@
               href: manage-mongodb-with-resource-manager.md
               displayName: ARM
             - name: Gerir com o PowerShell
-              href: powershell-samples-mongodb.md
+              href: powershell-samples.md
             - name: Gerir com a CLI do Azure
               href: cli-samples.md
             - name: Resolver problemas comuns
@@ -826,7 +822,7 @@
               href: manage-gremlin-with-resource-manager.md
               displayName: ARM
             - name: Gerir com o PowerShell
-              href: powershell-samples-gremlin.md
+              href: powershell-samples.md
             - name: Gerir com a CLI do Azure
               href: cli-samples.md
         - name: Referência
@@ -897,7 +893,7 @@
               href: manage-table-with-resource-manager.md
               displayName: ARM
             - name: Gerir com o PowerShell
-              href: powershell-samples-table.md
+              href: powershell-samples.md
             - name: Gerir com a CLI do Azure
               href: cli-samples.md
         - name: Referência

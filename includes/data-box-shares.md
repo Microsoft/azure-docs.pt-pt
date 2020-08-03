@@ -5,12 +5,12 @@ ms.subservice: pod
 ms.topic: include
 ms.date: 06/05/2020
 ms.author: alkohli
-ms.openlocfilehash: 7b8ebd085edfdb130f44c477d7697807d349e4e5
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
-ms.translationtype: MT
+ms.openlocfilehash: 5aaf0ce747b14b2fa9f2fcd9a65b774aa7d2db3b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86210474"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102919"
 ---
 Com base na conta de armazenamento selecionada, o Data Box cria até:
 
@@ -22,8 +22,8 @@ Nas partilhas de blob de blocos e de blob de páginas, as entidades de primeiro 
 
 A tabela a seguir mostra o caminho UNC para as partilhas no Data Box e o URL do caminho do Armazenamento do Microsoft Azure onde os dados são carregados. O URL do caminho de Armazenamento do Microsoft Azure final pode derivar do caminho da partilha UNC.
  
-|                   |                                                            |
-|-------------------|--------------------------------------------------------------------------------|
+| Blobs e Ficheiros | Caminhos e URLs |
+| --------------- | -------------- |
 | Blobs de bloco do Azure | <li>Caminho UNC para as partilhas: `\\<DeviceIPAddress>\<StorageAccountName_BlockBlob>\<ContainerName>\files\a.txt`</li><li>URL de Armazenamento do Microsoft Azure: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
 | Blobs de páginas do Azure  | <li>Caminho UNC para as partilhas: `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`</li><li>URL do Armazenamento do Microsoft Azure: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
 | Ficheiros do Azure       |<li>Caminho UNC para as partilhas: `\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>\files\a.txt`</li><li>URL de Armazenamento do Microsoft Azure: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |      

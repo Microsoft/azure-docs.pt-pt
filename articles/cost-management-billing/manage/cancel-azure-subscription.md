@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: banders
-ms.openlocfilehash: 2d8b529683f4d07bc47010711d65ca40536823fb
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 8b0ba7b597921d82883f2c7ba505ebb10eee1876
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996569"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039747"
 ---
 # <a name="cancel-your-azure-subscription"></a>Cancelar a sua subscrição do Azure
 
@@ -25,7 +25,7 @@ Embora não seja necessário, a Microsoft *recomenda* que faça o seguinte antes
 * Encerre os seus serviços. Aceda à [página de recursos no portal de gestão](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources) e **Pare** quaisquer máquinas virtuais, aplicações ou outros serviços em execução.
 * Considere migrar os seus dados. Veja como [Mover recursos para um novo grupo de recursos ou subscrição](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 * Elimine todos os recursos e grupos de recursos.
-* Se tiver funções personalizadas que façam referência a esta subscrição em `AssignableScopes`, deverá atualizar estas funções personalizadas para remover a subscrição. Se tentar atualizar uma função personalizada depois de cancelar uma subscrição, poderá obter um erro. Para obter mais informações, veja [Como resolver problemas com funções personalizadas](../../role-based-access-control/troubleshooting.md#problems-with-custom-roles) e [Funções personalizadas para recursos do Azure](../../role-based-access-control/custom-roles.md).
+* Se tiver funções personalizadas que façam referência a esta subscrição em `AssignableScopes`, deverá atualizar estas funções personalizadas para remover a subscrição. Se tentar atualizar uma função personalizada depois de cancelar uma subscrição, poderá obter um erro. Para obter mais informações, veja [Como resolver problemas com funções personalizadas](../../role-based-access-control/troubleshooting.md#problems-with-custom-roles) e [Funções personalizadas do Azure](../../role-based-access-control/custom-roles.md).
 
 Se cancelar um Plano de suporte do Azure, ser-lhe-á faturado o resto do período da subscrição. Para obter mais informações, veja [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
 

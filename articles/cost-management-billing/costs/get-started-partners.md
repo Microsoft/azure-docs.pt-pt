@@ -3,17 +3,17 @@ title: Começar a utilizar o Azure Cost Management para parceiros
 description: Este artigo explica como os parceiros utilizam as funcionalidades do Azure Cost Management e como ativam o acesso ao Cost Management para os clientes.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/01/2020
+ms.date: 07/28/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 0b0b5eb8ec41eccf99c23b671cef42a9c1bc8859
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 25a64dd4d06c24b0f7e1f8433a1abf5f67fa6eba
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849870"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372149"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Começar a utilizar o Azure Cost Management para parceiros
 
@@ -123,9 +123,9 @@ Independentemente da política, os administradores globais e os agentes administ
 
 ### <a name="enable-the-policy-to-view-azure-usage-charges"></a>Ativar a política para ver os custos de utilização do Azure
 
-Os parceiros utilizam as seguintes informações para permitir à política ver os custos de utilização do Azure dos clientes.
+Tem de ser membro do grupo **agente de administração** para ver e atualizar a política. Utilize as seguintes informações para ativar a política que permite aos clientes ver os custos de utilização do Azure.
 
-No portal do Azure, inicie sessão no inquilino do parceiro e selecione **Cost Management + Faturação**. Selecione a conta de faturação relevante do Contrato de Parceiro da Microsoft e, em seguida, selecione **Clientes**. A lista de clientes está associada à conta de faturação.
+No portal do Azure, inicie sessão no inquilino do parceiro e selecione **Cost Management + Faturação**. Selecione o âmbito de faturação relevante na área Âmbito de Faturação e, em seguida, selecione **Clientes**. A lista de clientes está associada à conta de faturação.
 
 Na lista de clientes, selecione o cliente que quer permitir que veja os custos.
 

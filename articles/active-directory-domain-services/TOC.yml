@@ -9,7 +9,7 @@
 - name: Tutoriais
   expanded: true
   items:
-    - name: Criar um domínio gerido básico
+    - name: Criar um domínio gerido
       href: tutorial-create-instance.md
     - name: Configurar a rede virtual para as aplicações
       href: tutorial-configure-networking.md
@@ -21,9 +21,11 @@
       href: tutorial-configure-ldaps.md
     - name: Configurar a sincronização hash de palavras-passe
       href: tutorial-configure-password-hash-sync.md
-    - name: Criar um domínio gerido avançado
+    - name: Criar um conjunto de réplicas (pré-visualização)
+      href: tutorial-create-replica-set.md
+    - name: Criar um domínio gerido personalizado
       href: tutorial-create-instance-advanced.md
-    - name: Criar uma confiança de floresta (pré-visualização)
+    - name: Criar uma confiança de floresta
       href: tutorial-create-forest-trust.md
 - name: Amostras
   items:
@@ -33,12 +35,16 @@
       href: template-create-instance.md
     - name: Configurar a sincronização de âmbito com o Azure AD PowerShell
       href: powershell-scoped-synchronization.md
+    - name: Criar uma floresta de recursos e confiança com o Azure PowerShell
+      href: create-resource-forest-powershell.md
 - name: Conceitos
   items:
     - name: Noções básicas de administração
       href: administration-concepts.md
     - name: Cenários de implementação comuns
       href: scenarios.md
+    - name: Conjuntos de réplicas (pré-visualização)
+      href: concepts-replica-sets.md
     - name: Florestas e confianças
       items:
         - name: Florestas de recursos

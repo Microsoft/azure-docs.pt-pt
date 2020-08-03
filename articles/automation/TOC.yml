@@ -244,43 +244,49 @@
     - name: Gestão de Atualizações
       items:
         - name: Descrição geral
-          href: automation-update-management.md
+          href: update-management/update-mgmt-overview.md
         - name: Regiões suportadas para a área de trabalho do Log Analytics ligada
           href: how-to/region-mappings.md
         - name: Ativar
           items:
             - name: Ativar a Gestão de Atualizações com o modelo do Azure Resource Manager
-              href: automation-update-management-deploy-template.md
+              href: update-management/update-mgmt-enable-template.md
             - name: Ativar a Gestão de Atualizações a partir do portal do Azure
-              href: automation-onboard-solutions-from-browse.md
+              href: update-management/update-mgmt-enable-portal.md
             - name: Ativar a Gestão de Atualizações a partir de uma VM do Azure
-              href: automation-onboard-solutions-from-vm.md
+              href: update-management/update-mgmt-enable-vm.md
             - name: Ativar a Gestão de Atualizações a partir de uma conta de Automatização
-              href: automation-onboard-solutions-from-automation-account.md
+              href: update-management/update-mgmt-enable-automation-account.md
             - name: Ativar a Gestão de Atualizações a partir de um runbook
-              href: automation-onboard-solutions.md
-        - name: Gerir atualizações das suas VMs do Azure
-          href: automation-tutorial-update-management.md
-        - name: Gerir atualizações de várias VMs
-          href: manage-update-multi.md
-        - name: Ver avaliações de atualizações
-          href: automation-view-update-assessments.md
-        - name: Gerir pré-scripts e pós-scripts
-          href: pre-post-scripts.md
+              href: update-management/update-mgmt-enable-runbook.md
+        - name: Gerir as atualizações das suas VMs
+          items:
+            - name: Introdução
+              href: update-management/update-mgmt-manage-updates-for-vm.md
+            - name: Avaliar a conformidade
+              href: update-management/update-mgmt-view-update-assessments.md
+            - name: Implementar atualizações e consultar o estado
+              href: update-management/update-mgmt-deploy-updates.md
+            - name: Utilizar pré-scripts e pós-scripts
+              href: update-management/update-mgmt-pre-post-scripts.md
+            - name: Configurar alertas
+              href: update-management/update-mgmt-configure-alerts.md
         - name: Integrar no Configuration Manager
-          href: updatemgmt-mecmintegration.md
+          href: update-management/update-mgmt-mecmintegration.md
         - name: Configurar o cliente do Windows Update
-          href: automation-configure-windows-update.md
+          href: update-management/update-mgmt-configure-wuagent.md
         - name: Utilizar grupos dinâmicos
-          href: automation-update-management-groups.md
+          href: update-management/update-mgmt-groups.md
         - name: Consultar os registos da Gestão de Atualizações
-          href: automation-update-management-query-logs.md
+          href: update-management/update-mgmt-query-logs.md
         - name: Trabalhar com configurações de âmbito
-          href: automation-scope-configurations-update-management.md
-        - name: Desassociar uma área de trabalho da conta de Automatização
-          href: automation-unlink-workspace-update-management.md
-        - name: Remover VMs da Gestão de Atualizações
-          href: automation-remove-vms-from-update-management.md
+          href: update-management/update-mgmt-scope-configuration.md
+        - name: Desativar
+          items:
+            - name: Remover a Gestão de Atualizações
+              href: update-management/update-mgmt-remove-feature.md
+            - name: Remover VMs da Gestão de Atualizações
+              href: update-management/update-mgmt-remove-vms.md
         - name: Resolução de problemas
           items:
             - name: Resolver problemas de implementação de funcionalidades

@@ -45,7 +45,7 @@
           href: pim-resource-roles-activate-your-roles.md
     - name: Gerir funções do Azure AD
       items:
-        - name: Atualização de funcionalidades
+        - name: Descrição geral das funcionalidades
           href: azure-ad-roles-features.md
         - name: PowerShell para funções do Azure AD
           href: powershell-for-azure-ad-roles.md
@@ -87,6 +87,22 @@
           href: azure-pim-resource-rbac.md
         - name: Utilizar funções personalizadas
           href: pim-resource-roles-custom-role-policy.md
+    - name: Gerir os Grupos de acesso privilegiado (Pré-visualização)
+      items:
+        - name: Descrição geral do acesso privilegiado
+          href: groups-features.md
+        - name: Descobrir grupos
+          href: groups-discover-groups.md
+        - name: Atribuir membro ou proprietário
+          href: groups-assign-member-owner.md
+        - name: Aprovar pedidos
+          href: groups-approval-workflow.md
+        - name: Prolongar ou renovar atribuições
+          href: groups-renew-extend.md
+        - name: Configurar as definições de função
+          href: groups-role-settings.md
+        - name: Ver histórico de auditoria
+          href: groups-audit.md
     - name: Resolução de problemas do PIM
       href: pim-troubleshoot.md
     - name: Revisões de acesso

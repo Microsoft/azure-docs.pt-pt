@@ -7,14 +7,14 @@ ms.reviewer: banders
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 06/11/2020
+ms.date: 07/24/2020
 ms.author: andalmia
-ms.openlocfilehash: 8deda3d8f584c83b61ae50c86c3ee9f43b247ae2
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 0d301087578c8a944920bca932bcae3127ae50ef
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84735409"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282641"
 ---
 # <a name="azure-subscription-states"></a>Estados de subscrição do Azure
 
@@ -22,8 +22,9 @@ Este artigo descreve os vários estados que uma subscrição do Azure pode apres
 
 | Estado da Subscrição | Descrição |
 |-------------| ----------------|
-| **Ativo** | A sua subscrição do Azure está ativa. Pode utilizar a subscrição para implementar recursos novos e gerir recursos existentes.<br><br>Todas as operações (PUT, PATCH, DELETE, POST, GET) estão disponíveis para os fornecedores de recursos que estão [registados na sua subscrição](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). |
+| **Ativa**/**Ativada** | A sua subscrição do Azure está ativa. Pode utilizar a subscrição para implementar recursos novos e gerir recursos existentes.<br><br>Todas as operações (PUT, PATCH, DELETE, POST, GET) estão disponíveis para os fornecedores de recursos que estão [registados na sua subscrição](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). |
 | **Eliminado** | A sua subscrição do Azure foi eliminada juntamente com todos os recursos/dados subjacentes.<br><br>Não existem operações disponíveis. |
 | **Desativado** | A sua subscrição do Azure está desativada e já não pode ser utilizada para criar nem gerir recursos do Azure. Neste estado, as suas máquinas virtuais são desalocadas, os endereços IP temporários são libertados, o armazenamento é só de leitura e os outros serviços são desativados. As subscrições podem ser desativadas devido aos seguintes motivos: O seu crédito poderá ter expirado. Poderá ter atingido o limite de gastos. Tem uma fatura vencida por liquidar. O limite do seu cartão de crédito foi excedido. Ou pode ter sido desativada ou cancelada explicitamente. Consoante o tipo de subscrição, as subscrições podem permanecer desativadas entre 1 e 90 dias. Depois desse período, são eliminadas definitivamente. Para obter mais informações, veja [Reativar uma subscrição do Azure desativada](subscription-disabled.md).<br><br>As operações para criar ou atualizar recursos (PUT, PATCH) estão desativadas. As operações que realizam ações (POST) também estão desativadas. Pode obter ou eliminar recursos (GET, DELETE). Os recursos continuam disponíveis. |
 | **Expirada** | A subscrição do Azure expirou porque foi cancelada. Pode reativar uma subscrição expirada. Para obter mais informações, veja [Reativar uma subscrição do Azure desativada](subscription-disabled.md).<br><br>As operações para criar ou atualizar recursos (PUT, PATCH) estão desativadas. As operações que realizam ações (POST) também estão desativadas. Pode obter ou eliminar recursos (GET, DELETE).|
 | **Vencido** | A sua subscrição do Azure tem um pagamento pendente. A subscrição continua ativa, mas se não pagar os montantes em dívida, a subscrição poderá ser desativada. Para obter mais informações, veja [Resolver saldos vencidos da sua subscrição do Azure](resolve-past-due-balance.md).<br><br>Estão disponíveis todas as operações. |
+| **Avisado** | A sua subscrição do Azure encontra-se num estado avisado e, embora possa ser utilizada normalmente, será desativada em breve se o motivo do aviso não for resolvido. Uma subscrição pode estar num estado avisado se estiver vencida, tiver sido cancelada pelo utilizador, tiver expirado, etc.<br><br>Estão disponíveis todas as operações. |

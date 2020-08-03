@@ -9,12 +9,12 @@ metadata:
   author: anastasia-ms
   ms.author: v-stharr
   ms.date: 1/15/2020
-  ms.openlocfilehash: 82f77b392dfaabd8528d482aa67a1311520936fa
-  ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+  ms.openlocfilehash: 0760dce9e64560c8ecb593f41b2d611bd059a639
+  ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/24/2020
-  ms.locfileid: "87130638"
+  ms.lasthandoff: 07/31/2020
+  ms.locfileid: "87461753"
 landingContent:
 - title: Sobre o Azure Maps
   linkLists:
@@ -76,6 +76,8 @@ landingContent:
       url: drawing-error-visualizer.md
     - text: Utilizar o módulo de mapa do interior
       url: how-to-use-indoor-module.md
+    - text: Utilizar o Azure Digital Twins para atualizar o mapa de interior
+      url: https://docs.microsoft.com/azure/digital-twins/how-to-integrate-maps
   - linkListType: reference
     links:
     - text: Serviço de conversão

@@ -6,14 +6,14 @@ ms.author: banders
 tags: azure-resource-manager
 ms.service: cost-management-billing
 ms.topic: quickstart
-ms.date: 06/10/2020
+ms.date: 07/28/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 5bff8e6057475701a2e78835fb5a950dcb8c8fcb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 984f2d82e21344dd7e3bb8b7267e289832343e1b
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252450"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385789"
 ---
 # <a name="quickstart-create-a-budget-with-an-arm-template"></a>Início Rápido: Criar um orçamento com um modelo ARM
 
@@ -29,13 +29,31 @@ Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utili
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-O modelo ARM apenas suporta subscrições do Azure para Contratos Enterprise (EA). Outros tipos de subscrição não são suportados pelo modelo.
-
-Para criar e gerir orçamentos, tem de ter permissão de contribuidor. Pode criar orçamentos individuais para subscrições EA e grupos de recursos. Contudo, não pode criar orçamentos para contas de faturação EA. No caso de subscrições EA, tem de ter acesso de leitura para ver os orçamentos.
-
-Após a criação de um orçamento, precisa de ter, pelo menos, acesso de leitura na sua conta do Azure para ver os orçamentos.
-
 Se tiver uma subscrição nova, não pode criar imediatamente um orçamento nem utilizar outras funcionalidades do Cost Management. Poderá demorar até 48 horas até poder utilizar todas as funcionalidades do Cost Management.
+
+São suportados orçamentos para os seguintes tipos e âmbitos de conta do Azure:
+
+- Âmbitos do Controlo de Acesso Baseado em Funções do Azure
+    - Grupos de gestão
+    - Subscrição
+- Âmbitos do Contrato Enterprise
+    - Conta de faturação
+    - Departamento
+    - Conta de inscrição
+- Contratos individuais
+    - Conta de faturação
+- Âmbitos do Contrato de Cliente Microsoft
+    - Conta de faturação
+    - Perfil de faturação
+    - Secção de fatura
+    - Cliente
+- Âmbitos do AWS
+    - Conta externa
+    - Subscrição externa
+
+Para ver os orçamentos, precisa de ter, pelo menos, acesso de leitura na sua conta do Azure.
+
+No caso de subscrições EA, tem de ter acesso de leitura para ver os orçamentos. Para criar e gerir orçamentos, tem de ter permissão de contribuidor.
 
 As seguintes permissões, ou âmbitos, do Azure são suportadas por subscrição para os orçamentos por utilizador e grupo. Para obter mais informações sobre os âmbitos, veja [Compreender e trabalhar com âmbitos](understand-work-scopes.md).
 
@@ -49,7 +67,7 @@ Para obter mais informações sobre a atribuição da permissão para os dados d
 
 O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/create-budget).
 
-:::code language="json" source="~/quickstart-templates/create-budget/azuredeploy.json" range="1-146" highlight="110-139":::
+:::code language="json" source="~/quickstart-templates/create-budget/azuredeploy.json" :::
 
 No modelo, está definido um recurso do Azure:
 
@@ -63,27 +81,29 @@ No modelo, está definido um recurso do Azure:
 
 2. Selecione ou introduza os seguintes valores.
 
-   [![Modelo do Resource Manager, Criar orçamento, portal de implementação](./media/quick-create-budget-template/create-budget-using-template-portal.png)](./media/quick-create-budget-template/create-budget-using-template-portal.png#lightbox)
-
+   :::image type="content" source="./media/quick-create-budget-template/create-budget-using-template-portal.png" alt-text="Modelo do Resource Manager, Criar orçamento, portal de implementação]" lightbox="./media/quick-create-budget-template/create-budget-using-template-portal.png" :::
+   
     * **Subscrição**: selecione uma subscrição do Azure.
-    * **Grupo de recursos**: selecione **Criar novo**, introduza um nome exclusivo para o grupo de recursos e, em seguida, clique em **OK** ou selecione um grupo de recursos existente.
-    * **Localização**: selecione uma localização. Por exemplo, **E.U.A. Central**.
+    * **Grupo de recursos**: se for necessário, selecione um grupo de recursos existente ou **Crie um novo**.
+    * **Região**: selecione uma região do Azure. Por exemplo, **E.U.A. Central**.
     * **Nome do Orçamento**: introduza um nome para o orçamento. Tem de ser exclusivo dentro de um grupo de recursos. Só são permitidos carateres alfanuméricos, carateres de sublinhado e hífenes.
-    * **Montante**: introduza o montante total de custo ou utilização para acompanhar o orçamento.
-    * **Categoria de Orçamento**: selecione a categoria do orçamento, se o orçamento controla o **Custo** ou a **Utilização**.
+    * **Montante**: introduza o montante total de custo para acompanhar o orçamento.
     * **Intervalo de Agregação**: introduza o intervalo de tempo abrangido por um orçamento. Os valores permitidos são Mensalmente, Trimestralmente ou Anualmente. O orçamento é reposto no final do intervalo de agregação.
     * **Data de Início**: introduza a data de início com o primeiro dia do mês no formato AAAA-MM-DD. Uma data de início futura não deve ser a mais de três meses. Pode especificar uma data de início anterior com o período do Intervalo de Agregação.
-    * **Data de Fim**: introduza a data de fim do orçamento no formato AAAA-MM-DD. Caso não seja fornecido, a predefinição é 10 anos a partir da data de início.
-    * **Operador**: selecione um operador de comparação. Os valores possíveis são EqualTo, GreaterThan ou GreaterThanOrEqualTo.
-    * **Limiar**: introduza um valor de limiar para a notificação. É enviada uma notificação quando o custo exceder o limiar. É sempre uma percentagem e tem de ser entre 0 e 1000.
-    * **E-mails de Contacto**: introduza uma lista de endereços de e-mail para enviar a notificação de orçamento quando o limiar for excedido. O formato esperado é `["user1@domain.com","user2@domain.com"]`.
+    * **Data de Fim**: introduza a data de fim do orçamento no formato AAAA-MM-DD. 
+    * **Primeiro Limiar**: introduza um valor de limiar para a primeira notificação. É enviada uma notificação quando o custo exceder o limiar. É sempre uma percentagem e tem de ser entre 0 e 1000.
+    * **Segundo Limiar**: introduza um valor de limiar para a segunda notificação. É enviada uma notificação quando o custo exceder o limiar. É sempre uma percentagem e tem de ser entre 0 e 1000.
     * **Funções de Contacto**: introduza a lista de funções de contacto para enviar a notificação de orçamento para quando o limiar for excedido. Os valores predefinidos são Proprietário, Contribuidor e Leitor. O formato esperado é `["Owner","Contributor","Reader"]`.
+    * **E-mails de Contacto**: introduza uma lista de endereços de e-mail para enviar a notificação de orçamento quando for excedido um limiar. O formato esperado é `["user1@domain.com","user2@domain.com"]`.
     * **Grupos de Contacto**: introduza uma lista de IDs de recursos de grupos de ações, como URIs de recursos completos, para onde enviar a notificação de orçamento quando o limiar é excedido. É aceite uma matriz de cadeias. O formato esperado é `["action group resource ID1","action group resource ID2"]`. Se não quiser utilizar grupos de ações, introduza `[]`.
-    * **Filtro de Recursos**: introduza uma lista de filtros para os recursos. O formato esperado é `["Resource Filter Name1","Resource Filter Name2"]`. Se não quiser aplicar um filtro, introduza `[]`. Se introduzir um filtro de recursos, também tem de introduzir os valores de **filtros de medidores**.
-    * **Filtro de Medidores**: introduza uma lista de filtros em medidores, obrigatórios para orçamentos com a categoria **Utilização**. O formato esperado é `["Meter Filter Name1","Meter Filter Name2"]`. Se não introduziu um **filtro de recursos**, introduza `[]`.
-    * **Aceito os termos e condições acima apresentados**: selecione.
+    * **Valores de Filtro de Grupos de Recursos** introduza uma lista de nomes de grupos de recursos a filtrar. O formato esperado é `["Resource Group Name1","Resource Group Name2"]`. Se não quiser aplicar um filtro, introduza `[]`. 
+    * **Valores de Filtro de Categorias de Medidor** introduza uma lista de categorias de medidores de serviços do Azure. O formato esperado é `["Meter Category1","Meter Category2"]`. Se não quiser aplicar um filtro, introduza `[]`.
+   
+3. Consoante o seu tipo de subscrição do Azure, realize uma das seguintes ações:
+   - Selecione **Rever + criar**.
+   - Reveja os termos e condições, selecione **Aceito os temos e as condições apresentados acima** e, em seguida, selecione **Comprar**.
 
-3. Selecione **Comprar**. Depois de o orçamento ser implementado com êxito, recebe uma notificação:
+4. Se selecionou **Rever + criar**, o seu modelo é validado. Selecione **Criar**.  
 
    ![Modelo do Resource Manager, orçamento, notificação do portal de implementação](./media/quick-create-budget-template/resource-manager-template-portal-deployment-notification.png)
 

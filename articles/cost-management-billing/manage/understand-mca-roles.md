@@ -3,19 +3,19 @@ title: Funções de faturação do Contrato de Cliente Microsoft – Azure
 description: Saiba mais sobre as funções de faturação para contas de faturação no Azure para Contratos de Cliente da Microsoft.
 author: amberbhargava
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 02/13/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 76aa21aea647e5096ba47fb691622ea5146d9901
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 84cb68c4cae962fd985a02a72cc85c6b2cf1aa1d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207205"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286585"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Compreender as funções administrativas do Contrato de Cliente da Microsoft no Azure
 
-Para gerir a sua conta de faturação para um Contrato de Cliente da Microsoft, utilize as funções descritas nas secções a seguir. Estas funções acrescem às funções incorporadas do Azure para controlar o acesso aos recursos. Para obter mais informações, veja [Funções incorporadas para recursos do Azure](../../role-based-access-control/built-in-roles.md).
+Para gerir a sua conta de faturação para um Contrato de Cliente da Microsoft, utilize as funções descritas nas secções a seguir. Estas funções acrescem às funções incorporadas do Azure para controlar o acesso aos recursos. Para obter mais informações, veja [Funções incorporadas do Azure](../../role-based-access-control/built-in-roles.md).
 
 Este artigo aplica-se a uma conta de faturação para um Contrato de Cliente da Microsoft. Verifique se tem acesso a um Contrato de Cliente da Microsoft.
 

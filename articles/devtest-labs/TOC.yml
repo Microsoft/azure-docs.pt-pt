@@ -232,10 +232,12 @@
           href: devtest-lab-mandatory-artifacts.md
         - name: Resolver problemas relacionados com a aplicação de artefactos
           href: devtest-lab-troubleshoot-apply-artifacts.md
-    - name: Encriptar o armazenamento e os discos de SO utilizados pelos laboratórios
+    - name: Encriptar recursos de laboratório
       items:
         - name: Encriptar o armazenamento utilizado por um laboratório
           href: encrypt-storage.md
+        - name: Encriptar discos de SO com chaves geridas pelo cliente
+          href: encrypt-disks-customer-managed-keys.md
     - name: Integração com CI/CD
       items:
         - name: Integrar laboratórios no seu pipeline CI/CD dos Pipelines do Azure
