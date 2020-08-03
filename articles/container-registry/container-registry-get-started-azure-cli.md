@@ -3,13 +3,13 @@ title: Quickstart - Criar registo - Azure CLI
 description: Aprenda rapidamente a criar um registo do contentor do Docker com a CLI do Azure.
 ms.topic: quickstart
 ms.date: 06/12/2020
-ms.custom: seodec18, H1Hack27Feb2017, mvc
-ms.openlocfilehash: 31e917fa306330ca579266e21560d7d42c7f2bc7
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.custom: seodec18, H1Hack27Feb2017, mvc, devx-track-azurecli
+ms.openlocfilehash: f4e69616d30c6a7b853c5cc854adee147ebde206
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84752454"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486549"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Quickstart: Criar um registo privado de contentores utilizando o CLI Azure
 
@@ -31,7 +31,7 @@ O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na loc
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-a-container-registry"></a>Criar um registo de contentores
+## <a name="create-a-container-registry"></a>Criar um registo de contentor
 
 Neste quickstart você cria um registo *Básico,* que é uma opção otimizada para custos para desenvolvedores aprendendo sobre o Registo de Contentores Azure. Para obter mais informações sobre os níveis de serviço disponíveis, consulte [os níveis de serviço de registo de contentores][container-registry-skus].
 

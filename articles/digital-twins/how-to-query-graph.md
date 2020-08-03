@@ -7,20 +7,24 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 05bcbf8df695ba308a6eaff5e7401f0a6d638747
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 3e7ee90d75a2ff2b3552992c19f11cc86b6109ca
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337607"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486664"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consulta o gráfico gémeo Azure Digital Twins
 
 Este artigo oferece exemplos e mais detalhes para usar o [idioma Azure Digital Twins Query Store](concepts-query-language.md) para consultar o [gráfico gémeo](concepts-twins-graph.md) para obter informações. Execute consultas no gráfico utilizando as [**APIs de Consulta**](how-to-use-apis-sdks.md)de Gémeos Digitais Azure .
 
+[!INCLUDE [digital-twins-query-operations.md](../../includes/digital-twins-query-operations.md)]
+
+O resto deste artigo fornece exemplos de como utilizar estas operações.
+
 ## <a name="query-syntax"></a>Sintaxe de consulta
 
-Aqui estão algumas consultas de amostra que ilustram a estrutura da linguagem de consulta e realizam possíveis operações de consulta.
+Esta secção contém consultas de amostra que ilustram a estrutura linguística da consulta e realizam possíveis operações de consulta.
 
 Obtenha [gémeos digitais](concepts-twins-graph.md) por propriedades (incluindo ID e metadados):
 ```sql
@@ -31,16 +35,55 @@ AND T.$dtId in ['123', '456']
 AND T.Temperature = 70
 ```
 
-Obtenha gémeos digitais por [modelo](concepts-models.md)
-```sql
-SELECT  * 
-FROM DigitalTwins T  
-WHERE IS_OF_MODEL(T , 'dtmi:com:contoso:Space;3')
-AND T.roomSize > 50
-```
-
 > [!TIP]
 > A identificação de um gémeo digital é consultada utilizando o campo de `$dtId` metadados.
+
+Você também pode obter gémeos pelas suas propriedades *de tag,* como descrito em [Adicionar tags a gémeos digitais](how-to-use-tags.md):
+```sql
+select * from digitaltwins where is_defined(tags.red) 
+```
+
+### <a name="select-top-items"></a>Selecione itens de topo
+
+Pode selecionar os vários itens "top" numa consulta utilizando a `Select TOP` cláusula.
+
+```sql
+SELECT TOP (5)
+FROM DIGITALTWINS
+WHERE property = 42
+```
+
+### <a name="query-by-model"></a>Consulta por modelo
+
+O `IS_OF_MODEL` operador pode ser utilizado para filtrar com base no [modelo](concepts-models.md)do gémeo. Suporta a herança e tem várias opções de sobrecarga.
+
+A utilização mais simples `IS_OF_MODEL` requer apenas um `twinTypeName` parâmetro: `IS_OF_MODEL(twinTypeName)` .
+Aqui está um exemplo de consulta que passa um valor neste parâmetro:
+
+```sql
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1')
+```
+
+Para especificar uma coleção dupla para procurar quando há mais de uma (como quando uma `JOIN` é usada), adicione o `twinCollection` parâmetro: `IS_OF_MODEL(twinCollection, twinTypeName)` .
+Aqui está um exemplo de consulta que acrescenta um valor para este parâmetro:
+
+```sql
+SELECT * FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1')
+```
+
+Para fazer uma correspondência exata, adicione o `exact` parâmetro: `IS_OF_MODEL(twinTypeName, exact)` .
+Aqui está um exemplo de consulta que acrescenta um valor para este parâmetro:
+
+```sql
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1', exact)
+```
+
+Também pode passar os três argumentos juntos: `IS_OF_MODEL(twinCollection, twinTypeName, exact)` .
+Aqui está um exemplo de consulta especificando um valor para os três parâmetros:
+
+```sql
+SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', exact)
+```
 
 ### <a name="query-based-on-relationships"></a>Consulta baseada em relacionamentos
 

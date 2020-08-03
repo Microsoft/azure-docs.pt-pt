@@ -7,12 +7,13 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: 8d84db9f9c36dc2818c78c5091b1ebe29c35f865
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: af8bd9a0420c90df4dea16fa8ebacbf4ea6494db
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83726201"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87488133"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordenar eventos de ligação do dispositivo do Hub IoT com o Azure Cosmos DB
 
@@ -236,7 +237,7 @@ No seu fluxo de trabalho de aplicativos de lógica, as condições ajudam a exec
 
    ![povoar app lógica para cada](./media/iot-hub-how-to-order-connection-state-events/logicapp-foreach-body.png)
 
-8. Guarde a aplicação lógica.
+8. Guarde a sua aplicação lógica.
 
 ### <a name="copy-the-http-url"></a>Copiar o URL de HTTP
 
@@ -278,7 +279,7 @@ Nesta secção, vai configurar o Hub IoT para publicar eventos à medida que est
 
    ![Formulário de exemplo de subscrição de evento](./media/iot-hub-how-to-order-connection-state-events/subscription-form.png)
 
-   Selecione **Criar** para guardar a subscrição de evento.
+   Selecione **Criar** para guardar a subscrição de eventos.
 
 ## <a name="observe-events"></a>Observar eventos
 
@@ -286,11 +287,11 @@ Agora que a subscrição do seu evento está configurada, vamos testar ligando u
 
 ### <a name="register-a-device-in-iot-hub"></a>Registar um dispositivo no IoT Hub
 
-1. No seu hub IoT, selecione **Dispositivos IoT**.
+1. A partir do seu hub IoT, selecione **Dispositivos IoT**.
 
 2. **Selecione +Adicione** na parte superior do painel.
 
-3. Para **ID de Dispositivo**, introduza `Demo-Device-1`.
+3. Em **ID do Dispositivo**, introduza `Demo-Device-1`.
 
 4. Selecione **Guardar**.
 
@@ -362,7 +363,7 @@ Se não quiser perder o trabalho realizado na sua aplicação lógica, desative-
 
 Para remover uma conta DB do Azure Cosmos do portal Azure, clique com o nome da conta e clique na **conta Eliminar**. Consulte instruções detalhadas para [a eliminação de uma conta DB da Azure Cosmos](https://docs.microsoft.com/azure/cosmos-db/manage-account).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [reagir a eventos IoT Hub usando a Grade de Eventos para desencadear ações](../iot-hub/iot-hub-event-grid.md)
 

@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/14/2020
+ms.date: 07/30/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 62645e6252256079e27792b1905d60a073c1fa3a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 77c21dab8c1a4c2643db0a56b5052f33243f2f56
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080234"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460066"
 ---
 ## <a name="limitations"></a>Limitações
 
@@ -36,63 +36,27 @@ Para implementar um disco gerido com a funcionalidade de disco partilhado ativad
 > [!IMPORTANT]
 > O valor só `maxShares` pode ser definido ou alterado quando um disco é desmontado de todos os VMs. Consulte os [tamanhos](#disk-sizes) do disco para obter os valores permitidos para `maxShares` .
 
-#### <a name="cli"></a>CLI
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
 ```azurecli
-
 az disk create -g myResourceGroup -n mySharedDisk --size-gb 1024 -l westcentralus --sku PremiumSSD_LRS --max-shares 2
-
 ```
 
-#### <a name="powershell"></a>PowerShell
-```azurepowershell-interactive
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
+```azurepowershell-interactive
 $dataDiskConfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType PremiumSSD_LRS -CreateOption Empty -MaxSharesCount 2
 
 New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $dataDiskConfig
-
 ```
 
-#### <a name="azure-resource-manager"></a>Azure Resource Manager
+# <a name="resource-manager-template"></a>[Modelo de gestor de recursos](#tab/azure-resource-manager)
+
 Antes de utilizar o seguinte modelo, `[parameters('dataDiskName')]` substitua, , , e pelos seus `[resourceGroup().location]` `[parameters('dataDiskSizeGB')]` `[parameters('maxShares')]` próprios valores.
 
-```json
-{ 
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "dataDiskName": {
-      "type": "string",
-      "defaultValue": "mySharedDisk"
-    },
-    "dataDiskSizeGB": {
-      "type": "int",
-      "defaultValue": 1024
-    },
-    "maxShares": {
-      "type": "int",
-      "defaultValue": 2
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Compute/disks",
-      "name": "[parameters('dataDiskName')]",
-      "location": "[resourceGroup().location]",
-      "apiVersion": "2019-07-01",
-      "sku": {
-        "name": "Premium_LRS"
-      },
-      "properties": {
-        "creationData": {
-          "createOption": "Empty"
-        },
-        "diskSizeGB": "[parameters('dataDiskSizeGB')]",
-        "maxShares": "[parameters('maxShares')]"
-      }
-    }
-  ] 
-}
-```
+[Modelo de disco compartilhado Premium SSD](https://aka.ms/SharedPremiumDiskARMtemplate)
+
+---
 
 ### <a name="deploy-an-ultra-disk-as-a-shared-disk"></a>Implementar um disco ultra como um disco partilhado
 
@@ -101,7 +65,11 @@ Para implementar um disco gerido com a função de disco partilhado ativada, alt
 > [!IMPORTANT]
 > O valor só `maxShares` pode ser definido ou alterado quando um disco é desmontado de todos os VMs. Consulte os [tamanhos](#disk-sizes) do disco para obter os valores permitidos para `maxShares` .
 
-#### <a name="cli"></a>CLI
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+##### <a name="regional-disk-example"></a>Exemplo de disco regional
+
 ```azurecli
 #Creating an Ultra shared Disk 
 az disk create -g rg1 -n clidisk --size-gb 1024 -l westus --sku UltraSSD_LRS --max-shares 5 --disk-iops-read-write 2000 --disk-mbps-read-write 200 --disk-iops-read-only 100 --disk-mbps-read-only 1
@@ -113,93 +81,63 @@ az disk update -g rg1 -n clidisk --disk-iops-read-write 3000 --disk-mbps-read-wr
 az disk show -g rg1 -n clidisk
 ```
 
-#### <a name="powershell"></a>PowerShell
-```azurepowershell-interactive
+##### <a name="zonal-disk-example"></a>Exemplo de disco zonal
 
+Este exemplo é quase o mesmo que o anterior, exceto que cria um disco na zona de disponibilidade 1.
+
+```azurecli
+#Creating an Ultra shared Disk 
+az disk create -g rg1 -n clidisk --size-gb 1024 -l westus --sku UltraSSD_LRS --max-shares 5 --disk-iops-read-write 2000 --disk-mbps-read-write 200 --disk-iops-read-only 100 --disk-mbps-read-only 1 --zone 1
+
+#Updating an Ultra shared Disk 
+az disk update -g rg1 -n clidisk --disk-iops-read-write 3000 --disk-mbps-read-write 300 --set diskIopsReadOnly=100 --set diskMbpsReadOnly=1
+
+#Show shared disk properties:
+az disk show -g rg1 -n clidisk
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+##### <a name="regional-disk-example"></a>Exemplo de disco regional
+
+```azurepowershell-interactive
 $datadiskconfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType UltraSSD_LRS -CreateOption Empty -DiskIOPSReadWrite 2000 -DiskMBpsReadWrite 200 -DiskIOPSReadOnly 100 -DiskMBpsReadOnly 1 -MaxSharesCount 5
 
 New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $datadiskconfig
-
 ```
 
-#### <a name="azure-resource-manager"></a>Azure Resource Manager
+##### <a name="zonal-disk-example"></a>Exemplo de disco zonal
 
-Para implementar um disco gerido com a funcionalidade de disco partilhado ativada, utilize a propriedade e defina um valor superior a `maxShares` 1. Isto torna o disco partilhável em vários VMs.
+Este exemplo é quase o mesmo que o anterior, exceto que cria um disco na zona de disponibilidade 1.
 
-> [!IMPORTANT]
-> O valor só `maxShares` pode ser definido ou alterado quando um disco é desmontado de todos os VMs. Consulte os [tamanhos](#disk-sizes) do disco para obter os valores permitidos para `maxShares` .
+```azurepowershell-interactive
+$datadiskconfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType UltraSSD_LRS -CreateOption Empty -DiskIOPSReadWrite 2000 -DiskMBpsReadWrite 200 -DiskIOPSReadOnly 100 -DiskMBpsReadOnly 1 -MaxSharesCount 5 -Zone 1
+
+New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $datadiskconfig
+```
+
+# <a name="resource-manager-template"></a>[Modelo de gestor de recursos](#tab/azure-resource-manager)
+
+##### <a name="regional-disk-example"></a>Exemplo de disco regional
 
 Antes de utilizar o seguinte modelo, `[parameters('dataDiskName')]` substitua, , , , , , , , `[resourceGroup().location]` e com os seus `[parameters('dataDiskSizeGB')]` `[parameters('maxShares')]` `[parameters('diskIOPSReadWrite')]` `[parameters('diskMBpsReadWrite')]` `[parameters('diskIOPSReadOnly')]` `[parameters('diskMBpsReadOnly')]` próprios valores.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "diskName": {
-      "type": "string",
-      "defaultValue": "uShared30"
-    },
-    "location": {
-        "type": "string",
-        "defaultValue": "westus",
-        "metadata": {
-                "description": "Location for all resources."
-        }
-    },
-    "dataDiskSizeGB": {
-      "type": "int",
-      "defaultValue": 1024
-    },
-    "maxShares": {
-      "type": "int",
-      "defaultValue": 2
-    },
-    "diskIOPSReadWrite": {
-      "type": "int",
-      "defaultValue": 2048
-    },
-    "diskMBpsReadWrite": {
-      "type": "int",
-      "defaultValue": 20
-    },    
-    "diskIOPSReadOnly": {
-      "type": "int",
-      "defaultValue": 100
-    },
-    "diskMBpsReadOnly": {
-      "type": "int",
-      "defaultValue": 1
-    }    
-  }, 
-  "resources": [
-    {
-        "type": "Microsoft.Compute/disks",
-        "name": "[parameters('diskName')]",
-        "location": "[parameters('location')]",
-        "apiVersion": "2019-07-01",
-        "sku": {
-            "name": "UltraSSD_LRS"
-        },
-        "properties": {
-            "creationData": {
-                "createOption": "Empty"
-            },
-            "diskSizeGB": "[parameters('dataDiskSizeGB')]",
-            "maxShares": "[parameters('maxShares')]",
-            "diskIOPSReadWrite": "[parameters('diskIOPSReadWrite')]",
-            "diskMBpsReadWrite": "[parameters('diskMBpsReadWrite')]",
-            "diskIOPSReadOnly": "[parameters('diskIOPSReadOnly')]",
-            "diskMBpsReadOnly": "[parameters('diskMBpsReadOnly')]"
-        }
-    }
-  ]
-}
-```
+[Modelo de ultra discos compartilhados regionais](https://aka.ms/SharedUltraDiskARMtemplateRegional)
 
-### <a name="using-azure-shared-disks-with-your-vms"></a>Usando discos compartilhados Azure com os seus VMs
+##### <a name="zonal-disk-example"></a>Exemplo de disco zonal
+
+Antes de utilizar o seguinte modelo, `[parameters('dataDiskName')]` substitua, , , , , , , , `[resourceGroup().location]` e com os seus `[parameters('dataDiskSizeGB')]` `[parameters('maxShares')]` `[parameters('diskIOPSReadWrite')]` `[parameters('diskMBpsReadWrite')]` `[parameters('diskIOPSReadOnly')]` `[parameters('diskMBpsReadOnly')]` próprios valores.
+
+[Modelo de discos ultra compartilhados zonal](https://aka.ms/SharedUltraDiskARMtemplateZonal)
+
+---
+
+## <a name="using-azure-shared-disks-with-your-vms"></a>Usando discos compartilhados Azure com os seus VMs
 
 Depois de ter implantado um disco partilhado, `maxShares>1` pode montar o disco num ou mais dos seus VMs.
+
+> [!NOTE]
+> Se estiver a utilizar um disco ultra, certifique-se de que corresponde aos requisitos necessários. Consulte a secção [PowerShell](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) ou [CLI](../articles/virtual-machines/linux/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) do artigo ultra disco para obter mais detalhes.
 
 ```azurepowershell-interactive
 
@@ -259,3 +197,8 @@ Você também precisa fornecer uma chave de reserva persistente ao usar PR_RESER
 
 
 ## <a name="next-steps"></a>Passos seguintes
+
+Se preferir utilizar modelos do Gestor de Recursos Azure para implementar o seu disco, estão disponíveis os seguintes modelos de amostra:
+- [SSD Premium](https://aka.ms/SharedPremiumDiskARMtemplate)
+- [Discos ultra regionais](https://aka.ms/SharedUltraDiskARMtemplateRegional)
+- [Discos ultra zonais](https://aka.ms/SharedUltraDiskARMtemplateZonal)

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1ea11008155899e09bf461e56a8bb4981d37238d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e8802d612f2497cc58c90856e9a5a5572a142f1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385421"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87482843"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Garantir uma API de Gestão AZURE com Azure AD B2C
 
@@ -60,7 +60,7 @@ Para registar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a nos
 Em seguida, obtenha o conhecido URL de configuração para um dos fluxos de utilizador Azure AD B2C. Também precisa do ponto final do emitente simbólico URI que pretende apoiar na Azure API Management.
 
 1. Navegue pelo seu inquilino Azure AD B2C no [portal Azure](https://portal.azure.com).
-1. Em **Políticas**, selecione **fluxos de utilizador (políticas)**.
+1. Em **Políticas**, selecione **fluxos de utilizador**.
 1. Selecione uma política existente, por *exemplo, B2C_1_signupsignin1,* em seguida, selecione **Executar o fluxo do utilizador**.
 1. Grave o URL na hiperligação exibida sob o fluxo do **utilizador Executar,** aproximando-se do topo da página. Este URL é o ponto final de descoberta bem conhecido do OpenID Connect para o fluxo do utilizador, e utiliza-o na secção seguinte quando configurar a política de entrada na Azure API Management.
 
@@ -126,7 +126,7 @@ Para ligar para a API, precisa tanto de um token de acesso emitido pela Azure AD
 Primeiro precisa de um símbolo emitido pela Azure AD B2C para usar no `Authorization` cabeçalho do Carteiro. Pode obter um utilizando a funcionalidade **Run now** do fluxo de utilizador de inscrição/inscrição que deveria ter criado como um dos pré-requisitos.
 
 1. Navegue pelo seu inquilino Azure AD B2C no [portal Azure](https://portal.azure.com).
-1. Em **Políticas**, selecione **fluxos de utilizador (políticas)**.
+1. Em **Políticas**, selecione **fluxos de utilizador**.
 1. Selecione um fluxo de utilizador de inscrição/inscrição existente, por *exemplo, B2C_1_signupsignin1*.
 1. Para **Aplicação**, selecione *webapp1*.
 1. Para **URL de resposta,** escolha `https://jwt.ms` .
@@ -271,7 +271,7 @@ O exemplo a seguir da política de entrada da APIM ilustra como aceitar fichas e
 </policies>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais detalhes sobre as políticas de gestão da API Azure, consulte o [índice de referência da política da APIM](../api-management/api-management-policies.md).
 

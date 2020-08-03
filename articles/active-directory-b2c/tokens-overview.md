@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c31053f62f768cc534e07a8ac8d692176cf52b1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8acdf714f459ae604ccd7788b021aee3ee037935
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83757624"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87482588"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Visão geral dos tokens no Azure Ative Directory B2C
 
@@ -97,7 +97,7 @@ As seguintes propriedades são utilizadas [para gerir a compatibilidade simbóli
 
 ## <a name="pass-through"></a>Pass-through
 
-Quando uma viagem de utilizador começa, a Azure AD B2C recebe um token de acesso de um fornecedor de identidade. O Azure AD B2C utiliza esse símbolo para obter informações sobre o utilizador. [Você ativa uma reclamação no fluxo do seu utilizador](idp-pass-through-user-flow.md) ou define uma [reclamação na sua política personalizada](idp-pass-through-custom.md) para passar o token através das aplicações que regista no Azure AD B2C. A sua aplicação deve estar a utilizar um [fluxo de utilizador V2](user-flow-versions.md) para aproveitar a passagem do token como reivindicação.
+Quando uma viagem de utilizador começa, a Azure AD B2C recebe um token de acesso de um fornecedor de identidade. O Azure AD B2C utiliza esse símbolo para obter informações sobre o utilizador. [Você ativa uma reclamação no fluxo do seu utilizador](idp-pass-through-user-flow.md) ou define uma [reclamação na sua política personalizada](idp-pass-through-custom.md) para passar o token através das aplicações que regista no Azure AD B2C. A sua aplicação deve estar a utilizar um [fluxo de utilizador recomendado](user-flow-versions.md) para aproveitar a passagem do token como reivindicação.
 
 Atualmente, o Azure AD B2C apenas suporta a passagem do token de acesso de fornecedores de identidade OAuth 2.0, que incluem o Facebook e o Google. Para todos os outros fornecedores de identidade, a reclamação é devolvida em branco.
 
@@ -149,7 +149,7 @@ Quando as suas aplicações ou API recebem um token de ID, também deve efetuar 
 
 Para obter uma lista completa de validações que a sua aplicação deve realizar, consulte a [especificação OpenID Connect](https://openid.net).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [usar fichas de acesso.](access-tokens.md)
 

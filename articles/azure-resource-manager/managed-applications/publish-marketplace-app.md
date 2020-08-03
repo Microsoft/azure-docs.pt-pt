@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: tutorial
 ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: dcd036f09982cba8271ed6057a167eb7440303a9
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: a5e2a3569c70404d64d24ecfc35a8258ea864a4f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054496"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87480429"
 ---
 # <a name="tutorial-publish-azure-managed-applications-in-the-marketplace"></a>Tutorial: Publicar aplicações geridas pela Azure no Mercado
 
@@ -98,7 +98,7 @@ Um SKU aparece na oferta principal no marketplace. É apresentado como a sua pr�
 
      Para as ações disponíveis, consulte [as operações do fornecedor de recursos do Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md). Por exemplo, permitir que os consumidores reiniciem as máquinas virtuais, adicione `Microsoft.Compute/virtualMachines/restart/action` às ações permitidas. A `*/read` ação é automaticamente permitida para que não seja necessário incluir essa definição.
    * **PrincipalId**: esta propriedade é o identificador do Azure Active Directory (Azure AD) de um utilizador, grupo de utilizadores ou aplicação com acesso concedido aos recursos na subscrição do cliente. A Definição de Função descreve as permissões.
-   * **Definição de Função**: esta propriedade é uma lista de todas as funções de Controlo de Acesso Baseado em Funções (RBAC) incorporadas fornecidas pelo Azure AD. Pode selecionar a função mais adequada a utilizar para gerir os recursos em nome do cliente.
+   * **Definição de Função**: Esta propriedade é uma lista de todas as funções azure incorporadas fornecidas pela Azure AD. Pode selecionar a função mais adequada a utilizar para gerir os recursos em nome do cliente.
    * **Definições de Política**: Aplicar uma [Azure Policy](../../governance/policy/overview.md) à sua aplicação gerida para especificar os requisitos de conformidade para as soluções implementadas. De entre as opções disponíveis, selecione as políticas a aplicar. Para **Parâmetros de Política**, forneça uma cadeia de carateres JSON com os valores parâmetro. Para definições de política e o formato de valores de parâmetros, consulte [Exemplos de Política do Azure](../../governance/policy/samples/index.md).
 
 Pode adicionar várias autorizações. Recomendamos que crie um grupo de utilizadores do AD e especifique o respetivo ID em **PrincipalId**. Desta forma, pode adicionar mais utilizadores ao grupo de utilizadores sem a necessidade de atualizar o SKU.
@@ -170,7 +170,7 @@ Preencha o formulário de **Suporte** com contactos de suporte da sua empresa. E
 
 Depois de preencher todas as secções, selecione **Publicar** para iniciar o processo que disponibiliza a oferta aos clientes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre o que acontece depois de clicar em **Publicar,** consulte [a oferta de aplicação da Publish Azure](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)
 * Para obter uma introdução às aplicações geridas, veja [Descrição geral das aplicações geridas](overview.md).

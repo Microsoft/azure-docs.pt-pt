@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: sample
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 2d291af3cc6175b371f71fb63402ecb45afcba34
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 9c2345c93a163464ea735400c9269e2e3fc27ecf
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223470"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87488181"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Ativar os serviços de domínio do diretório ativo Azure utilizando o PowerShell
 
@@ -154,9 +154,9 @@ Quando o portal Azure mostrar que o domínio gerido terminou o provisionamento, 
 
 * Atualize as definições de DNS para a rede virtual para que as máquinas virtuais possam encontrar o domínio gerido para a junção de domínio ou autenticação.
     * Para configurar o DNS, selecione o seu domínio gerido no portal. Na janela **'Vista Geral',** é solicitado que configufique automaticamente estas definições de DNS.
-* Se criou um domínio gerido numa região que suporta Zonas de Disponibilidade, crie um grupo de segurança de rede para restringir o tráfego na rede virtual para o domínio gerido. É criado um equilibrador de carga padrão Azure que exige que estas regras sejam postas em prática. Este grupo de segurança de rede assegura o Azure AD DS e é necessário para que o domínio gerido funcione corretamente.
-    * Para criar o grupo de segurança da rede e as regras necessárias, selecione o seu domínio gerido no portal. Na janela **'Vista Geral',** é-lhe pedido que crie e configuure automaticamente o grupo de segurança da rede.
-* [Ativar a sincronização de palavras-passe nos Serviços de Domínio AD Azure para](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) que os utilizadores finais possam iniciar súm na área gerida utilizando as suas credenciais corporativas.
+* Criar um grupo de segurança de rede para restringir o tráfego na rede virtual para o domínio gerido. É criado um equilibrador de carga padrão Azure que exige que estas regras sejam postas em prática. Este grupo de segurança de rede assegura o Azure AD DS e é necessário para que o domínio gerido funcione corretamente.
+    * Para criar o grupo de segurança da rede e as regras exigidas, primeiro instale o `New-AzureAddsNetworkSecurityGroup` script utilizando o comando `Install-Script -Name New-AaddsNetworkSecurityGroup` e, em seguida, corra `New-AaddsNetworkSecurityGroup` . As regras necessárias para o domínio gerido são criadas para si.
+* [Ativar a sincronização de palavras-passe para Azure AD DS para](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) que os utilizadores finais possam iniciar sação no domínio gerido utilizando as suas credenciais corporativas.
 
 ## <a name="complete-powershell-script"></a>Script completo do PowerShell
 
@@ -241,9 +241,9 @@ Quando o portal Azure mostrar que o domínio gerido terminou o provisionamento, 
 
 * Atualize as definições de DNS para a rede virtual para que as máquinas virtuais possam encontrar o domínio gerido para a junção de domínio ou autenticação.
     * Para configurar o DNS, selecione o seu domínio gerido no portal. Na janela **'Vista Geral',** é solicitado que configufique automaticamente estas definições de DNS.
-* Se criou um domínio gerido numa região que suporta Zonas de Disponibilidade, crie um grupo de segurança de rede para restringir o tráfego na rede virtual para o domínio gerido. É criado um equilibrador de carga padrão Azure que exige que estas regras sejam postas em prática. Este grupo de segurança de rede assegura o Azure AD DS e é necessário para que o domínio gerido funcione corretamente.
-    * Para criar o grupo de segurança da rede e as regras necessárias, selecione o seu domínio gerido no portal. Na janela **'Vista Geral',** é-lhe pedido que crie e configuure automaticamente o grupo de segurança da rede.
-* [Ativar a sincronização de palavras-passe nos Serviços de Domínio AD Azure para](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) que os utilizadores finais possam iniciar súm na área gerida utilizando as suas credenciais corporativas.
+* Criar um grupo de segurança de rede para restringir o tráfego na rede virtual para o domínio gerido. É criado um equilibrador de carga padrão Azure que exige que estas regras sejam postas em prática. Este grupo de segurança de rede assegura o Azure AD DS e é necessário para que o domínio gerido funcione corretamente.
+    * Para criar o grupo de segurança da rede e as regras exigidas, primeiro instale o `New-AzureAddsNetworkSecurityGroup` script utilizando o comando `Install-Script -Name New-AaddsNetworkSecurityGroup` e, em seguida, corra `New-AaddsNetworkSecurityGroup` . As regras necessárias para o domínio gerido são criadas para si.
+* [Ativar a sincronização de palavras-passe para Azure AD DS para](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) que os utilizadores finais possam iniciar sação no domínio gerido utilizando as suas credenciais corporativas.
 
 ## <a name="next-steps"></a>Passos seguintes
 

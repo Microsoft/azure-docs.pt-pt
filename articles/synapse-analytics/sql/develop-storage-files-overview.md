@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: d7f990b059346c4c782ca923e663997317c4df16
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3c33e2152fc120d406886d89adda26603126a8ba
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046886"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87483557"
 ---
-# <a name="accessing-external-storage-in-synapse-sql-on-demand"></a>Acesso ao armazenamento externo em Synapse SQL (a pedido)
+# <a name="access-external-storage-in-synapse-sql-on-demand"></a>Acesso ao armazenamento externo em Synapse SQL (a pedido)
 
 Este documento descreve como pode o utilizador ler dados dos ficheiros armazenados no Azure Storage em Synapse SQL (a pedido). Os utilizadores têm as seguintes opções de acesso ao armazenamento:
 
@@ -59,7 +59,7 @@ Se não houver credencial ao nível do servidor que corresponda a URL ou SQL o u
 > [!NOTE]
 > Esta versão do OPENROWSET foi concebida para a exploração rápida e fácil de dados utilizando a autenticação predefinida. Para alavancar a personificação ou identidade gerida, utilize OPENROWSET com DATASOURCE descrito na secção seguinte.
 
-### <a name="querying-data-sources-using-openrowset"></a>Consulta de fontes de dados utilizando OPENROWSET
+### <a name="query-data-sources-using-openrowset"></a>Fontes de dados de consulta usando OPENROWSET
 
 O OPENROWSET permite ao utilizador consultar os ficheiros colocados em alguma fonte de dados externa:
 
@@ -91,7 +91,7 @@ O chamador deve ter uma das seguintes permissões para executar a função OPENR
   - `ADMINISTER DATABASE BULK OPERATIONS`permite que o utilizador de base de dados executa a função OPENROWSET.
 - REFERÊNCIAS BASE DE DADOS SCOPED CREDENCIAL À credencial que é referenciada em FONTE DE DADOS EXTERNOS
 
-#### <a name="accessing-anonymous-data-sources"></a>Aceder a fontes de dados anónimas
+#### <a name="access-anonymous-data-sources"></a>Aceder a fontes de dados anónimas
 
 O utilizador pode criar FONTE DE DADOS EXTERNA sem CREDENCIAL que irá fazer referência ao armazenamento de acesso público ou utilizar a azure AD passthrough a autenticação:
 
@@ -132,7 +132,7 @@ CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 
 BASE DE DADOS SCOPED CREDENTIAL especifica como aceder a ficheiros na fonte de dados referenciada.
 
-### <a name="reading-external-files-with-external-table"></a>Leitura de ficheiros externos com TABELA EXTERNA
+### <a name="read-external-files-with-external-table"></a>Ler ficheiros externos com TABELA EXTERNA
 
 TABELA EXTERNA permite-lhe ler dados a partir dos ficheiros que são referenciados através de fonte de dados usando a declaração padrão SQL SELECT:
 

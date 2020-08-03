@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 07/30/2020
 ms.custom: project-no-code, devx-track-javascript
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d85ffca8c72e7a247d5bbd1e593335fd7995b594
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 58ddca6bb7844288aae0370f035bc4dfa2dc942f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170144"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87481694"
 ---
 # <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>Versões javaScript e layout de página em Azure Ative Directory B2C
 
@@ -41,7 +41,7 @@ Nas **propriedades**de fluxo do utilizador, pode ativar o JavaScript. Ativar o J
 
 ## <a name="select-a-page-layout-version"></a>Selecione uma versão de layout de página
 
-Quer ative ou não o JavaScript nas propriedades do fluxo do utilizador, pode especificar uma versão de layout de página para as páginas de fluxo do utilizador. Abra o fluxo do utilizador e selecione **os layouts de página**. Em **DESIGN NAME**, selecione uma página de fluxo do utilizador e escolha a versão layout da **página**.
+Quer ative ou não o JavaScript nas propriedades do fluxo do utilizador, pode especificar uma versão de layout de página para as páginas de fluxo do utilizador. Abra o fluxo do utilizador e selecione **os layouts de página**. No **nome Layout**, selecione uma página de fluxo do utilizador e escolha a versão layout da página **(pré-visualização)**.
 
 Para obter informações sobre as diferentes versões de layout de página, consulte o registo de alteração da [versão do layout da página](page-layout.md).
 
@@ -49,6 +49,6 @@ Para obter informações sobre as diferentes versões de layout de página, cons
 
 [!INCLUDE [active-directory-b2c-javascript-guidelines](../../includes/active-directory-b2c-javascript-guidelines.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode encontrar exemplos de utilização do JavaScript em [amostras JavaScript para utilização no Azure Ative Directory B2C](javascript-samples.md).

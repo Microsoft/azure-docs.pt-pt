@@ -6,16 +6,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: include
-ms.custom: include file
-ms.date: 04/27/2020
-ms.openlocfilehash: ddf16334830b64c57e9d09a75dfc80fc319a9ccd
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: include file, devx-track-javascript
+ms.date: 07/30/2020
+ms.openlocfilehash: 4f57d3a6c959a8ec912722a617496c52f412c13f
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133891"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461158"
 ---
-[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest)  | [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer)  |  [Pacote (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer)  |  [Amostras](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js)
+[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest)  | [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer)  |  [Pacote (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer)  |  [Amostras](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/Personalizer)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -91,27 +91,27 @@ Crie uma nova aplicação Node.js no seu editor preferido ou IDE nomeado `sample
 
 Abra o ficheiro **sample.js** no seu editor preferido ou IDE. Adicione o seguinte `requires` para adicionar os pacotes NPM:
 
-[!code-javascript[Add module dependencies](~/samples-personalizer/quickstarts/node/sample.js?name=Dependencies)]
+[!code-javascript[Add module dependencies](~/cognitive-services-quickstart-code/javascript/Personalizer/sample.js?name=Dependencies)]
 
 ## <a name="add-personalizer-resource-information"></a>Adicionar informações de recurso personalizador
 
-Crie variáveis para a chave Azure do seu recurso e ponto final retirado das variáveis ambientais, nomeadas `PERSONALIZER_KEY` e `PERSONALIZER_ENDPOINT` . Se criou as variáveis ambientais após o lançamento da aplicação, o editor, o IDE ou o shell running terão de ser fechados e recarregados para aceder à variável. Os métodos serão criados mais tarde neste arranque rápido.
+Edite as variáveis chave e ponto final para o topo do ficheiro de código para a chave Esta do seu recurso E ponto final. 
 
-[!code-javascript[Add Personalizer resource information](~/samples-personalizer/quickstarts/node/sample.js?name=AuthorizationVariables)]
+[!code-javascript[Add Personalizer resource information](~/cognitive-services-quickstart-code/javascript/Personalizer/sample.js?name=AuthorizationVariables)]
 
 ## <a name="create-a-personalizer-client"></a>Criar um cliente personalizante
 
 Em seguida, crie um método para devolver um cliente Personalizer. O parâmetro para o método é o `PERSONALIZER_RESOURCE_ENDPOINT` e o ApiKey é o `PERSONALIZER_RESOURCE_KEY` .
 
-[!code-javascript[Create a Personalizer client](~/samples-personalizer/quickstarts/node/sample.js?name=Client)]
+[!code-javascript[Create a Personalizer client](~/cognitive-services-quickstart-code/javascript/Personalizer/sample.js?name=Client)]
 
 ## <a name="get-content-choices-represented-as-actions"></a>Obtenha escolhas de conteúdo representadas como ações
 
 As ações representam as escolhas de conteúdo a partir das quais deseja que o Personaler selecione o melhor item de conteúdo. Adicione os seguintes métodos à classe Programa para representar o conjunto de ações e as suas características.
 
-[!code-javascript[Create user features](~/samples-personalizer/quickstarts/node/sample.js?name=createUserFeatureTimeOfDay)]
+[!code-javascript[Create user features](~/cognitive-services-quickstart-code/javascript/Personalizer/sample.js?name=createUserFeatureTimeOfDay)]
 
-[!code-javascript[Create actions](~/samples-personalizer/quickstarts/node/sample.js?name=getActions)]
+[!code-javascript[Create actions](~/cognitive-services-quickstart-code/javascript/Personalizer/sample.js?name=getActions)]
 
 ## <a name="create-the-learning-loop"></a>Criar o ciclo de aprendizagem
 
@@ -119,7 +119,7 @@ O ciclo de aprendizagem personalizer é um ciclo de chamadas [Rank](#request-the
 
 O código que se segue passa por um ciclo de pedir ao utilizador as suas preferências na linha de comando, enviando essa informação ao Personaler para selecionar a melhor ação, apresentando a seleção ao cliente para escolher entre a lista, enviando depois uma recompensa ao Personaler sinalizando o quão bem o serviço se saiu na sua seleção.
 
-[!code-javascript[Create the learning loop](~/samples-personalizer/quickstarts/node/sample.js?name=mainLoop)]
+[!code-javascript[Create the learning loop](~/cognitive-services-quickstart-code/javascript/Personalizer/sample.js?name=mainLoop)]
 
 Olhe mais de perto para o posto e recompense as chamadas nas seguintes secções.
 
@@ -134,7 +134,7 @@ Para completar o pedido Rank, o programa pede às preferências do utilizador pa
 
 Este quickstart tem características de contexto simples de hora do dia e preferência alimentar do utilizador. Nos sistemas de produção, determinar e [avaliar](../concept-feature-evaluation.md) [ações e características](../concepts-features.md) pode ser uma questão não trivial.
 
-[!code-javascript[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/node/sample.js?name=rank)]
+[!code-javascript[The Personalizer learning loop ranks the request.](~/cognitive-services-quickstart-code/javascript/Personalizer/sample.js?name=rank)]
 
 ## <a name="send-a-reward"></a>Enviar uma recompensa
 
@@ -143,7 +143,7 @@ Para obter a pontuação de recompensa para enviar o pedido de Recompensa, o pro
 
 Este quickstart atribui um número simples como uma pontuação de recompensa, um zero ou um 1. Nos sistemas de produção, determinar quando e o que enviar para a chamada [Decompras](../concept-rewards.md) pode ser uma questão não trivial, dependendo das suas necessidades específicas.
 
-[!code-javascript[The Personalizer learning loop sends a reward.](~/samples-personalizer/quickstarts/node/sample.js?name=reward)]
+[!code-javascript[The Personalizer learning loop sends a reward.](~/cognitive-services-quickstart-code/javascript/Personalizer/sample.js?name=reward)]
 
 ## <a name="run-the-program"></a>Executar o programa
 

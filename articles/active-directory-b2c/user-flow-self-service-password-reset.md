@@ -7,22 +7,22 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/30/2018
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 465643d21d3059cd41948ff682d7464b00f749c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c9edaf3356ea4c1a521a89f2ec60a4b6ba1a5ef
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85384010"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87481500"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>Configurar reset de senha de autosserviço para os seus clientes
 
 Com a funcionalidade de reset da palavra-passe de autosserviço, os seus clientes que se inscreveram para contas locais podem redefinir as suas palavras-passe por conta própria. Isto reduz significativamente os encargos para o seu pessoal de apoio, especialmente se a sua aplicação tiver milhões de clientes a usá-lo regularmente. Atualmente, usar um endereço de e-mail verificado é o único método de recuperação suportado.
 
 > [!NOTE]
-> Este artigo aplica-se ao reset da palavra-passe de autosserviço utilizado no contexto do Sinal V1 **no** fluxo do utilizador, que utiliza **o SignIn da Conta Local** como fornecedor de identidade. Se necessitar de fluxos de utilizador totalmente personalizáveis na redefinição de palavras-passe invocados na sua aplicação, consulte [este artigo.](user-flow-overview.md)
+> Este artigo aplica-se ao reset da palavra-passe de autosserviço utilizado no contexto do Sinal padrão **no** fluxo do utilizador, que utiliza **o SignIn da Conta Local** como fornecedor de identidade. Se necessitar de fluxos de utilizador totalmente personalizáveis na redefinição de palavras-passe invocados na sua aplicação, consulte [este artigo.](user-flow-overview.md)
 >
 >
 

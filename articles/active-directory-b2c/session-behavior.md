@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/07/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ed10a9258590f8f9037a574bd0322a82dd309a5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c47b0249824a3683b8f24cc01cc5eea5ccf32585
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385251"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87482673"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurar comportamento de sessão no Azure Ative Directory B2C
 
@@ -30,7 +30,7 @@ Pode utilizar as seguintes propriedades para gerir sessões de aplicações web:
     - Mínimo (inclusivo) = 15 minutos.
     - Máximo (inclusivo) = 1440 minutos.
 - **Tempo limite de sessão de aplicações web** - O [tipo de sessão expirado,](session-overview.md#session-expiry-type) *Rolling,* ou *Absoluto*. 
-- **Configuração única de entrada** - O âmbito de [sessão](session-overview.md#session-scope) do comportamento de sessão única (SSO) em várias aplicações e fluxos de utilizador no seu inquilino Azure AD B2C. 
+- **Configuração única de entrada** - O âmbito de [sessão](session-overview.md#session-scope) do comportamento de sessão única (SSO) em várias aplicações e fluxos de utilizador no seu inquilino Azure AD B2C.
 
 
 ## <a name="configure-the-properties"></a>Configure as propriedades
@@ -38,7 +38,7 @@ Pode utilizar as seguintes propriedades para gerir sessões de aplicações web:
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino Azure AD B2C selecionando o filtro **de subscrição Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino Azure AD B2C.
 3. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
-4. Selecione **fluxos de utilizador (políticas)**.
+4. Selecione **fluxos de utilizador**.
 5. Abra o fluxo de utilizador que criou anteriormente.
 6. Selecione **Propriedades**.
 7. Configure a **vida útil da sessão de aplicações Web (minutos)**, o tempo limite de sessão de **aplicações web,** **a configuração de inscrição única**e o **ID Token em pedidos de logout,** conforme necessário.
@@ -47,6 +47,6 @@ Pode utilizar as seguintes propriedades para gerir sessões de aplicações web:
 
 8. Clique em **Guardar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a sessão Azure AD B2C](session-overview.md).

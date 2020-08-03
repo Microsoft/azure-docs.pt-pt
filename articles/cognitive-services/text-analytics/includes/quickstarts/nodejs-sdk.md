@@ -9,12 +9,13 @@ ms.topic: include
 ms.date: 07/27/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
-ms.openlocfilehash: cc5db825771369d35b447232b58a9e42b14efb4f
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-javascript
+ms.openlocfilehash: b1a0425fba7dc8c6fb87f03305062f61fc431ca9
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87375742"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87451129"
 ---
 <a name="HOLTop"></a>
 
@@ -121,10 +122,10 @@ O objeto de resposta é uma lista que contém as informações de análise de ca
 
 * [Autenticação do Cliente](#client-authentication)
 * [Análise de Sentimentos](#sentiment-analysis) 
-* [Deteção linguística](#language-detection)
+* [Deteção de idioma](#language-detection)
 * [Reconhecimento de entidade nomeada](#named-entity-recognition-ner)
 * [Ligação de entidades](#entity-linking)
-* [Extração de frase-chave](#key-phrase-extraction)
+* [Extração de expressões-chave](#key-phrase-extraction)
 
 ## <a name="client-authentication"></a>Autenticação de Cliente
 
@@ -265,7 +266,7 @@ Document ID: 3 , Language: Chinese_Simplified
 #### <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
 > [!NOTE]
-> Na `3.0-preview` versão:
+> Na `3.0` versão:
 > * A ligação da entidade é um pedido separado do que o NER.
 
 Crie uma série de cordas que contenham o documento que pretende analisar. Ligue para o método do cliente `recognizeEntities()` e pegue o `RecognizeEntitiesResult` objeto. Iterar através da lista de resultados, e imprimir o nome da entidade, tipo, subtipo, offset, comprimento e pontuação.

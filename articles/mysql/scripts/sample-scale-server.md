@@ -1,22 +1,22 @@
 ---
-title: Script CLI - Servidor de escala - Base de dados Azure para MySQL
+title: Script CLI - Servidor de escala - Base de Dados Azure para MySQL
 description: Este script de exemplo da CLI dimensiona o servidor da Base de Dados do Azure para MySQL para um nível de desempenho diferente depois de consultar as métricas.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 12/02/2019
-ms.openlocfilehash: 54082daeeee2d5cc894aee49e2c3456e377637f1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 318e41089f096f22d17faaa77863fe6af54a3553
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74771316"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87483761"
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mysql-server-using-azure-cli"></a>Monitorizar e dimensionar um servidor da Base de Dados do Azure para MySQL com a CLI do Azure
-Esta amostra de script CLI escala a computação e o armazenamento para uma única Base de Dados Azure para o servidor MySQL após consulta das métricas. A computação pode escalar para cima ou para baixo. O armazenamento só pode aumentar.
+Esta amostra de script CLI escala o cálculo e armazenamento para uma única base de dados Azure para o servidor MySQL após consulta das métricas. O cálculo pode escalar para cima ou para baixo. O armazenamento só pode aumentar.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
@@ -37,11 +37,11 @@ Este script utiliza os comandos descritos na tabela seguinte:
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az mysql server create](/cli/azure/mysql/server#az-mysql-server-create) | Cria um servidor MySQL que aloja as bases de dados. |
-| [az mysql server update](/cli/azure/mysql/server#az-mysql-server-update) | Atualiza propriedades do servidor MySQL. |
+| [az mysql servidor atualização](/cli/azure/mysql/server#az-mysql-server-update) | Atualiza as propriedades do servidor MySQL. |
 | [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) | Liste o valor métrico dos recursos. |
 | [az group delete](/cli/azure/group#az-group-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos seguintes
-- Saiba mais sobre [a Base de Dados Azure para a computação e armazenamento MySQL](../concepts-pricing-tiers.md)
+- Saiba mais sobre [a Azure Database para computação e armazenamento mySQL](../concepts-pricing-tiers.md)
 - Experimente scripts adicionais: [Exemplos da CLI do Azure para a Base de Dados do Azure para MySQL](../sample-scripts-azure-cli.md)
 - Saiba mais sobre o [Azure CLI](/cli/azure)

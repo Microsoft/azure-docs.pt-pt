@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 3ec5889d952e2836f1d112e38b8248f667cab586
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 7b74c40ab504c08f5a19a1382c303530116c0fdf
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200408"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87483834"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Proteção de dados e segurança do Azure Data Box
 
@@ -68,7 +68,7 @@ O serviço Data Box está protegido pelas seguintes funcionalidades.
 
 - O acesso ao serviço Data Box requer que a sua organização tenha uma subscrição do Azure que inclua o Data Box. A subscrição controla as funcionalidades a que pode aceder no portal do Azure.
 - Uma vez que o serviço Data Box está alojado no Azure, é protegido pelas funcionalidades de segurança do Azure. Para obter mais informações sobre as funcionalidades de segurança fornecidas pelo Microsoft Azure, aceda ao [Centro de Fidedignidade do Microsoft Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx).
-- O acesso à ordem Caixa de Dados pode ser controlado através da utilização de funções de Controlo de Acesso (RBAC) baseados em funções. Para obter mais informações, consulte [Configurar o controlo de acesso para a encomenda caixa de dados](data-box-logs.md#set-up-access-control-on-the-order)
+- O acesso à ordem Caixa de Dados pode ser controlado através da utilização de funções Azure. Para obter mais informações, consulte [Configurar o controlo de acesso para a encomenda caixa de dados](data-box-logs.md#set-up-access-control-on-the-order)
 - O serviço Data Box armazena a palavra-passe desbloqueada que serve para desbloquear o dispositivo no serviço.
 - O serviço Data Box armazena os detalhes da encomenda e o estado no serviço. Estas informações são eliminadas quando a encomenda é eliminada.
 
@@ -84,7 +84,7 @@ O Azure Data Box recolhe e apresenta informações pessoais nas seguintes instâ
   - Número de telefone
   - E-mail
   - Morada
-  - City
+  - Cidade
   - Código postal
   - Estado
   - País/Província/Região

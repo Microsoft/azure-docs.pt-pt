@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: a4b969ecbc92df45021b4a9ec711960171d77d4e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: abc1f1de45fe846f9f50a6a7aa3dae2ed837b52b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495300"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486799"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>Consulta dados da Azure Time Series Insights Gen2
 
@@ -37,7 +37,7 @@ As APIs do núcleo seguinte são suportadas.
 
 ## <a name="environment-apis"></a>APIs ambientais
 
-* [Obter Ambientes API](https://docs.microsoft.com/rest/api/time-series-insights/management/environments/get): Devolve a lista de ambientes a que o ouvinte está autorizado a aceder.
+* [Obter Ambientes API](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/listbyenvironment): Devolve a lista de ambientes a que o ouvinte está autorizado a aceder.
 * [Obter Ambientes Disponibilidade API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/getavailability): Devolve a distribuição da contagem de eventos sobre o tempo do `$ts` evento. Esta API ajuda a determinar se existem eventos no ambiente, devolvendo a contagem de eventos quebrados em intervalos de tempo, se houver algum.
 * [Obtenha o Evento Schema API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/geteventschema): Devolve os metadados de esquema de evento para um determinado período de pesquisa. Esta API ajuda a recuperar todos os metadados e propriedades disponíveis no esquema para o período de pesquisa dado.
 
@@ -69,7 +69,7 @@ Estas APIs estão disponíveis em ambas as lojas (Quente e Fria) na nossa soluç
 
   Os tempos devolvidos no conjunto de resposta são dos limites do intervalo esquerdo, não dos eventos amostrados do intervalo. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia mais sobre diferentes variáveis que podem ser definidas no [Modelo série de tempo.](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-tsm)
 - Leia mais sobre como consultar dados do [Azure Time Series Insights Gen2 Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).

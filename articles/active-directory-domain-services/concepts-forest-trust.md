@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: f4bfffe54fb87953ae737ecf83ea898cfe78743c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 424a05d6a096538aa296bb11863702b816410fb9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040338"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87480650"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Como as relações de confiança funcionam para as florestas de recursos em Azure Ative Directory Domain Services
 
@@ -276,11 +276,11 @@ Os administradores podem usar *Domínios e Fidedignidades de Diretório Ativo,* 
 * *Ative Directory Domains and Trusts* é a Consola de Gestão da Microsoft (MMC) que é usada para administrar fundos de domínio, níveis funcionais de domínio e floresta, e sufixos de nome principal do utilizador.
 * As ferramentas de linha de comando *Netdom* e *Nltest* podem ser usadas para encontrar, exibir, criar e gerir fidedignos. Estas ferramentas comunicam diretamente com a autoridade LSA num controlador de domínio.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as florestas de recursos, veja [como funcionam os fundos florestais em Azure AD DS?][concepts-trust]
 
-Para começar com a criação de um domínio gerido com uma floresta de recursos, consulte [Criar e configurar um domínio gerido Azure AD DS][tutorial-create-advanced]. Em seguida, pode [criar uma confiança florestal de saída para um domínio no local (pré-visualização)][create-forest-trust].
+Para começar com a criação de um domínio gerido com uma floresta de recursos, consulte [Criar e configurar um domínio gerido Azure AD DS][tutorial-create-advanced]. Em seguida, pode [criar uma confiança florestal de saída para um domínio no local.][create-forest-trust]
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md

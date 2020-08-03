@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: 0e5cabdf9c69ead9a2d7f497aceec183cf0be900
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 735b16ad054edfea7cf0ad2e1e5b9c76b664e6c3
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509669"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87479649"
 ---
 # <a name="troubleshoot-a-vms-operating-system-disk"></a>Resolver problemas de um disco do sistema operativo de VMs
 
@@ -46,7 +46,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | [az vm disk attach](/cli/azure/vm/disk) | Anexa um disco a uma máquina virtual. |
 | [az vm list-ip-addresses](/cli/azure/vm) | Devolve os endereços IP de uma máquina virtual. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

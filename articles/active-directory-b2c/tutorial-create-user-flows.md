@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/01/2019
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cc6673615c85b34975d6743da6da88ca841bcf35
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b13decc142328525376ca8b3a93c74b95c90dae6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005366"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87481910"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: Criar fluxos de utilizadores no Azure Ative Directory B2C
 
@@ -31,6 +31,9 @@ Neste artigo, vai aprender a:
 Este tutorial mostra-lhe como criar alguns fluxos recomendados de utilizador utilizando o portal Azure. Se estiver à procura de informações sobre como configurar um fluxo de credenciais de senha do proprietário de recursos (ROPC) na sua aplicação, consulte [configurar o fluxo de credenciais de senha do proprietário do recurso em Azure AD B2C](configure-ropc.md).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+> [!IMPORTANT]
+> Mudamos a forma como referenciamos as versões de fluxo de utilizadores. Anteriormente, oferecemos versões V1 (prontas para produção) e versões V1.1 e V2 (pré-visualização). Agora, consolidamos os fluxos de utilizador nas versões **Recomendado** (pré-visualização da próxima geração) e **Standard** (geralmente disponível). Todos os fluxos de pré-visualização de V1.1 e V2 estão em vias de depreciação até 1 de agosto de **2021**. Para mais informações, consulte [as versões de fluxo do utilizador em Azure AD B2C](user-flow-versions.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -50,15 +53,16 @@ O fluxo de utilizador de inscrição e de entrada lida com experiências de insc
 
     ![Página de fluxos de utilizador no portal com novo botão de fluxo do utilizador realçado](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
-1. No separador **Recomendado,** selecione o **'Iniciar s-se) e inscreva-se no** fluxo do utilizador.
+1. Na página De fluxo do **utilizador,** selecione o **'Iniciar's e inscreva-se no** fluxo do utilizador.
 
-    ![Selecione uma página de fluxo de utilizador com iniciar s inscrição e iniciar surgiu no fluxo realçado](./media/tutorial-create-user-flows/signup-signin-type.png)
+    ![Selecione uma página de fluxo de utilizador com iniciar s inscrição e iniciar surgiu no fluxo realçado](./media/tutorial-create-user-flows/select-user-flow-type.png)
+
+1. Em **Selecione uma versão**, selecione **Recomendado**e, em seguida, selecione **Criar**. (Saiba mais sobre[as](user-flow-versions.md) versões de fluxo de utilizador.)
+
+    ![Crie a página de fluxo do utilizador no portal Azure com propriedades destacadas](./media/tutorial-create-user-flows/select-version.png)
 
 1. Introduza um **Nome** para o fluxo do utilizador. Por exemplo, *signo de inscrição em 1*.
 1. Para **fornecedores de identidade**, selecione **Inscrição de e-mail**.
-
-    ![Crie a página de fluxo do utilizador no portal Azure com propriedades destacadas](./media/tutorial-create-user-flows/signup-signin-properties.png)
-
 1. Para **atributos e reclamações do Utilizador,** escolha as reclamações e atributos que pretende recolher e enviar do utilizador durante a inscrição. Por exemplo, selecione **Mostrar mais**, e depois escolha atributos e reclamações para **País/Região,** **Nome de Exibição**e **Código Postal**. Clique em **OK**.
 
     ![Página de seleção de atributos e reclamações com três reclamações selecionadas](./media/tutorial-create-user-flows/signup-signin-attributes.png)
@@ -83,11 +87,12 @@ O fluxo de utilizador de inscrição e de entrada lida com experiências de insc
 Se pretender que os utilizadores editem o seu perfil na sua aplicação, utilize um fluxo de utilizador de edição de perfil.
 
 1. No menu da página geral do inquilino Azure AD B2C, selecione **os fluxos do Utilizador**e, em seguida, selecione Novo fluxo de **utilizador**.
-1. Selecione o fluxo do utilizador **de edição de perfil** no **separador Recomendado.**
+1. Na página De fluxo do **utilizador,** selecione o fluxo do utilizador **de edição de perfil.** 
+1. Em **Selecione uma versão**, selecione **Recomendado**e, em seguida, selecione **Criar**.
 1. Introduza um **Nome** para o fluxo do utilizador. Por exemplo, *perfilando1*.
 1. Para **fornecedores de identidade**, selecione Local Account **SignIn**.
-1. Para **os atributos do Utilizador,** escolha os atributos que pretende que o cliente possa editar no seu perfil. Por exemplo, selecione **Mostrar mais**, e, em seguida, escolha ambos os atributos e reclamações para o nome **de Exibição** e **o título de Job**. Clique em **OK**.
-1. Clique **em Criar** para adicionar o fluxo do utilizador. Um prefixo de *B2C_1* é automaticamente anexado ao nome.
+2. Para **os atributos do Utilizador,** escolha os atributos que pretende que o cliente possa editar no seu perfil. Por exemplo, selecione **Mostrar mais**, e, em seguida, escolha ambos os atributos e reclamações para o nome **de Exibição** e **o título de Job**. Clique em **OK**.
+3. Clique **em Criar** para adicionar o fluxo do utilizador. Um prefixo de *B2C_1* é automaticamente anexado ao nome.
 
 ### <a name="test-the-user-flow"></a>Teste o fluxo do utilizador
 
@@ -101,12 +106,13 @@ Se pretender que os utilizadores editem o seu perfil na sua aplicação, utilize
 Para permitir que os utilizadores da sua aplicação repuvam a sua palavra-passe, utilize uma palavra-passe para redefinir o fluxo do utilizador.
 
 1. No menu geral do inquilino Azure AD B2C, selecione **os fluxos do utilizador**e, em seguida, selecione Novo fluxo de **utilizador**.
-1. Selecione o fluxo do utilizador **de redefinição de palavra-passe** no **separador Recomendado.**
+1. Na página De fluxo do **utilizador,** selecione o fluxo do utilizador **de redefinição de palavra-passe.** 
+1. Em **Selecione uma versão**, selecione **Recomendado**e, em seguida, selecione **Criar**.
 1. Introduza um **Nome** para o fluxo do utilizador. Por exemplo, *passwordreste1*.
 1. Para **os fornecedores de identidade,** ative **a palavra-passe Reset utilizando o endereço de e-mail.**
-1. Nas reclamações da Aplicação, clique **em Mostrar mais** e escolha as reclamações que pretende devolvidas nos tokens de autorização enviados de volta para a sua aplicação. Por exemplo, selecione **ID de Objeto do Utilizador**.
-1. Clique em **OK**.
-1. Clique **em Criar** para adicionar o fluxo do utilizador. Um prefixo de *B2C_1* é automaticamente anexado ao nome.
+2. Nas reclamações da Aplicação, clique **em Mostrar mais** e escolha as reclamações que pretende devolvidas nos tokens de autorização enviados de volta para a sua aplicação. Por exemplo, selecione **ID de Objeto do Utilizador**.
+3. Clique em **OK**.
+4. Clique **em Criar** para adicionar o fluxo do utilizador. Um prefixo de *B2C_1* é automaticamente anexado ao nome.
 
 ### <a name="test-the-user-flow"></a>Teste o fluxo do utilizador
 

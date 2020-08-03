@@ -7,21 +7,21 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 4ee970f7e4a1228d40a284372300ed9e95c00b7e
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 2e7658e965931dd78a6db0e2c9fee36edffff98b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460393"
+ms.locfileid: "87479817"
 ---
 # <a name="payout-summary-overview"></a>Descrição geral do resumo de dividendos
 
 O [resumo do Payout](./payout-summary.md) mostra-lhe detalhes sobre o dinheiro que ganhou com a Microsoft. Também lhe permite saber quando receberá pagamentos e quanto será pago.
 
-Se vender ofertas no Azure Marketplace, também verá informações sobre pagamentos bem-sucedidos no resumo do Payout. Para obter mais informações sobre o pagamento do Azure Marketplace, consulte [as políticas de participação do Azure Marketplace](https://docs.microsoft.com/legal/marketplace/participation-policy) e o Microsoft [Azure Marketplace Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt).
+Se vender ofertas no Azure Marketplace, também verá informações sobre pagamentos bem-sucedidos no resumo do Payout. Para obter mais informações sobre o pagamento do Azure Marketplace, consulte [as políticas de participação do Azure Marketplace](https://docs.microsoft.com/legal/marketplace/participation-policy) e o Microsoft [Azure Marketplace Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 > [!NOTE]
-> Para ser elegível para pagamento, as suas receitas devem atingir o limiar de [pagamento](./payment-thresholds-methods-timeframes.md) de $50. Para obter mais informações sobre o limiar de pagamento, consulte o [Microsoft Azure Marketplace Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt).
+> Para ser elegível para pagamento, as suas receitas devem atingir o limiar de [pagamento](./payment-thresholds-methods-timeframes.md) de $50. Para obter mais informações sobre o limiar de pagamento, consulte o [Microsoft Azure Marketplace Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 Para ver os detalhes do pagamento, inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home) e selecione o ícone de pagamento no canto superior direito do ecrã:
 

@@ -7,19 +7,60 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 01/08/2019
-ms.openlocfilehash: b5e26ef72d4be38c021cbedbcaf1fa919d7276d1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/31/2020
+ms.openlocfilehash: eb533ef93f012e99d135c49725ef8add77b6f7ec
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511981"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87484203"
 ---
 # <a name="archived-release-notes"></a>Notas de versão arquivadas
 
 ## <a name="summary"></a>Resumo
 
 Azure HDInsight é um dos serviços mais populares entre os clientes empresariais para a análise apache hadoop e apache spark em Azure.
+
+## <a name="release-date-07132020"></a>Data de lançamento: 07/13/2020
+
+Esta versão aplica-se tanto para HDInsight 3.6 e 4.0. O lançamento hdInsight é disponibilizado a todas as regiões ao longo de vários dias. A data de lançamento aqui indica a primeira data de lançamento da região. Se não vir alterações abaixo, aguarde que o lançamento seja transmitido ao vivo na sua região dentro de vários dias.
+
+### <a name="new-features"></a>Novas funcionalidades
+#### <a name="support-for-customer-lockbox-for-microsoft-azure"></a>Suporte para lockbox de clientes para Microsoft Azure
+A Azure HDInsight suporta agora o Lockbox do cliente Azure. Fornece uma interface para os clientes reverem e aprovarem ou rejeitarem os pedidos de acesso aos dados dos clientes. É utilizado quando o engenheiro da Microsoft precisa de aceder aos dados dos clientes durante um pedido de suporte. Para obter mais informações, consulte [o Customer Lockbox para o Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-preview).
+
+#### <a name="service-endpoint-policies-for-storage"></a>Políticas de ponto final de serviço para armazenamento
+Os clientes podem agora utilizar as Políticas de Ponto final de serviço (SEP) na sub-rede do cluster HDInsight. Saiba mais sobre [a política de pontos finais do serviço Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview).
+
+### <a name="deprecation"></a>Preterição
+#### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>Descontinuação do Spark 2.1 e 2.2 no cluster do Spark no HDInsight 3.6
+A partir de 1 de julho de 2020, os clientes não podem criar novos clusters Spark com Spark 2.1 e 2.2 no HDInsight 3.6. Os clusters existentes funcionarão como está sem o suporte da Microsoft. Considere mover-se para Spark 2.3 no HDInsight 3.6 até 30 de junho de 2020 para evitar possíveis interrupções do sistema/suporte.
+ 
+#### <a name="deprecation-of-spark-23-in-hdinsight-40-spark-cluster"></a>Descontinuação do Spark 2.3 no cluster do Spark no HDInsight 4.0
+A partir de 1 de julho de 2020, os clientes não podem criar novos clusters Spark com Spark 2.3 em HDInsight 4.0. Os clusters existentes funcionarão como está sem o suporte da Microsoft. Considere migrar para o Spark 2.4 no HDInsight 4.0 até 30 de junho de 2020 para evitar a potencial interrupção do sistema/suporte.
+ 
+#### <a name="deprecation-of-kafka-11-in-hdinsight-40-kafka-cluster"></a>Descontinuação do Kafka 1.1 no cluster do Kafka no HDInsight 4.0
+A partir de 1 de julho de 2020, os clientes não poderão criar novos clusters Kafka com Kafka 1.1 no HDInsight 4.0. Os clusters existentes funcionarão como está sem o suporte da Microsoft. Considere migrar para o Kafka 2.1 no HDInsight 4.0 até 30 de junho de 2020 para evitar a potencial interrupção do sistema/suporte.
+
+### <a name="behavior-changes"></a>Mudanças de comportamento
+Sem alterações de comportamento a que tenhas de prestar atenção.
+
+### <a name="upcoming-changes"></a>Próximas alterações
+As seguintes alterações irão ocorrer nos próximos lançamentos. 
+
+#### <a name="ability-to-select-different-zookeeper-sku-for-spark-hadoop-and-ml-services"></a>Capacidade de selecionar diferentes Zookeeper SKU para spark, Hadoop e ML Services
+O HDInsight hoje em dia não suporta a mudança de zookeeper SKU para tipos de cluster Spark, Hadoop e ML Services. Utiliza A2_v2/A2 SKU para nós zookeeper e os clientes não são cobrados por eles. No próximo lançamento, os clientes poderão mudar o Zookeeper SKU para a Spark, Hadoop e ML Services, conforme necessário. Serão carregados os nós zookeeper com SKU que não A2_v2/A2. O SKU predefinido ainda será A2_V2/A2 e gratuito.
+
+### <a name="bug-fixes"></a>Correções de erros
+O HDInsight continua a fazer melhorias na fiabilidade do cluster e no desempenho. 
+#### <a name="fixed-hive-warehouse-connector-issue"></a>Problema de conector de armazém de colmeia fixo
+Houve um problema para a usabilidade do conector hive Warehouse em versão anterior. A questão foi corrigida. 
+
+#### <a name="fixed-zeppelin-notebook-truncates-leading-zeros-issue"></a>Notebook De Zeppelin fixo trunca a principal emissão de zeros
+O Zeppelin estava a truncar incorretamente os principais zeros na saída da tabela para o formato string. Resolvemos este problema nesta libertação.
+
+### <a name="component-version-change"></a>Alteração da versão do componente
+Nenhuma alteração da versão componente para esta versão. Pode encontrar as versões componentes atuais para HDInsight 4.0 e HDInsight 3.6 [neste doc](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
 
 ## <a name="release-date-06112020"></a>Data de lançamento: 06/11/2020
 
@@ -145,10 +186,10 @@ Esta versão aplica-se tanto para HDInsight 3.6 e 4.0.
 ### <a name="new-features"></a>Novas funcionalidades
 
 #### <a name="service-tags"></a>Etiquetas de serviço
-As etiquetas de serviço simplificam a segurança das máquinas virtuais Azure e das redes virtuais Azure, permitindo-lhe restringir facilmente o acesso à rede aos serviços Azure. Pode utilizar etiquetas de serviço nas regras do seu grupo de segurança de rede (NSG) para permitir ou negar tráfego a um serviço Azure específico a nível global ou por região de Azure. O Azure fornece a manutenção de endereços IP subjacentes a cada tag. As tags de serviço HDInsight para grupos de segurança de rede (NSGs) são grupos de endereços IP para serviços de saúde e gestão. Estes grupos ajudam a minimizar a complexidade da criação de regras de segurança. Os clientes HDInsight podem ativar a etiqueta de serviço através do Portal Azure, PowerShell e REST API. Para obter mais informações, consulte [as etiquetas de serviço do Grupo de Segurança da Rede (NSG) para Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags).
+As etiquetas de serviço simplificam a segurança das máquinas virtuais Azure e das redes virtuais Azure, permitindo-lhe restringir facilmente o acesso à rede aos serviços Azure. Pode utilizar etiquetas de serviço nas regras do seu grupo de segurança de rede (NSG) para permitir ou negar tráfego a um serviço Azure específico a nível global ou por região de Azure. O Azure fornece a manutenção de endereços IP subjacentes a cada tag. As tags de serviço HDInsight para grupos de segurança de rede (NSGs) são grupos de endereços IP para serviços de saúde e gestão. Estes grupos ajudam a minimizar a complexidade da criação de regras de segurança. Os clientes HDInsight podem ativar a etiqueta de serviço através do portal Azure, PowerShell e REST API. Para obter mais informações, consulte [as etiquetas de serviço do Grupo de Segurança da Rede (NSG) para Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags).
 
 #### <a name="custom-ambari-db"></a>Ambari DB Personalizado
-O HDInsight permite-lhe agora utilizar o seu próprio SQL DB para o Apache Ambari. Pode configurar este DB Ambari personalizado a partir do portal Azure ou através do modelo de gestor de recursos.  Esta funcionalidade permite-lhe escolher o DB SQL certo para as suas necessidades de processamento e capacidade. Também pode atualizar facilmente para corresponder aos requisitos de crescimento do negócio. Para obter mais informações, consulte [configurar clusters HDInsight com um DB Ambari personalizado.](hdinsight-custom-ambari-db.md)
+O HDInsight permite-lhe agora utilizar o seu próprio SQL DB para o Apache Ambari. Pode configurar este DB Ambari personalizado a partir do portal Azure ou através do modelo de Gestor de Recursos.  Esta funcionalidade permite-lhe escolher o DB SQL certo para as suas necessidades de processamento e capacidade. Também pode atualizar facilmente para corresponder aos requisitos de crescimento do negócio. Para obter mais informações, consulte [configurar clusters HDInsight com um DB Ambari personalizado.](hdinsight-custom-ambari-db.md)
 
 ![Ambari DB Personalizado](./media/hdinsight-release-notes/custom-ambari-db.png)
 
@@ -992,7 +1033,7 @@ Esta versão fornece ranger 0.7.0 e os seguintes patches Apache:
 
 -   [RANGER-2008](https://issues.apache.org/jira/browse/RANGER-2008): A avaliação das políticas está a falhar nas condições de política multiline.
 
-#### <a name="slider"></a>Controlo de deslize
+#### <a name="slider"></a>Slider
 
 Esta versão fornece slider 0.92.0 sem patches Apache adicionais.
 
@@ -1126,7 +1167,7 @@ Esta versão fornece Spark 2.3.0 e os seguintes patches Apache:
 
 Esta versão fornece sqoop 1.4.6 sem patches Apache adicionais.
 
-#### <a name="storm"></a>Storm
+#### <a name="storm"></a>Tempestade
 
 Esta versão fornece a Tempestade 1.1.1 e os seguintes patches Apache:
 
@@ -1160,7 +1201,7 @@ Esta versão fornece zeppelin 0.7.3 sem patches adicionais deAbache.
 
 Esta versão fornece ZooKeeper 3.4.6 e as seguintes manchas Apache:
 
--   [ZOOKEEPER-1256](https://issues.apache.org/jira/browse/ZOOKEEPER-1256): ClientPortBindTest está a falhar no Mac OS X.
+-   [ZOOKEEPER-1256](https://issues.apache.org/jira/browse/ZOOKEEPER-1256): O ClientPortBindTest está a falhar no macOS X.
 
 -   [ZOOKEEPER-1901](https://issues.apache.org/jira/browse/ZOOKEEPER-1901): \[ JDK8 \] Sort crianças para comparação em testes de AsyncOps.
 
@@ -1240,7 +1281,7 @@ Esta secção abrange todas as Vulnerabilidades e Exposições Comuns (CVE) que 
 | **Fornecedor:** Obras hortonworks |
 | **Versões afetadas:** Todas as versões HDP 2.3/2.4/2.5, incluindo as versões Apache Ranger 0.5.x/0.6.0/0.6.1/0.6.2  |
 | **Utilizadores afetados:** Todos os utilizadores da ferramenta de administração de política ranger. |
-| **Impacto:** O Apache Ranger é vulnerável a uma script de cross-site armazenada ao introduzir condições de política personalizadas. Os utilizadores de administração podem armazenar algum código javascript arbitrário quando os utilizadores normais iniciarem e acederem às políticas. |
+| **Impacto:** O Apache Ranger é vulnerável a uma script de cross-site armazenada ao introduzir condições de política personalizadas. Os utilizadores de administração podem armazenar algum código JavaScript arbitrário quando os utilizadores normais iniciarem e acederem às políticas. |
 | **Detalhe de correção:** Somou lógica para higienizar a entrada do utilizador.  |
 | **Ação recomendada:** Os utilizadores devem fazer upgrade para HDP 2.5.4+ (com Apache Ranger 0.6.3+) ou HDP 2.6+ (com Apache Ranger 0.7.0+)  |
 
@@ -1282,7 +1323,7 @@ As questões fixas representam problemas selecionados que foram previamente regi
 | BUG-98655              | [RANGER-2066](https://issues.apache.org/jira/browse/RANGER-2066)                                                                                                                                                                                                               | O acesso familiar da coluna HBase é autorizado por uma coluna marcada na família da coluna                                       |
 | BUG-99883              | [HIVE-19073](https://issues.apache.org/jira/browse/HIVE-19073), [HIVE-19145](https://issues.apache.org/jira/browse/HIVE-19145)                                                                                                                                                 | StatsOptimizer pode mutilar colunas constantes                                                                             |
 
-**Outros**
+**Outro**
 
 | **Hortonworks Bug ID** | **Apache JIRA**                                                                                                                        | **Resumo**                                                                                                                                |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1529,7 +1570,7 @@ As questões fixas representam problemas selecionados que foram previamente regi
 | BUG-97864              | [HIVE-18833](https://issues.apache.org/jira/browse/HIVE-18833)   | Auto Merge falha quando "insira no diretório como orcfile"                                      |
 | BUG-98814              | [HDFS-13314](https://issues.apache.org/jira/browse/HDFS-13314)   | NameNode deve sair opcionalmente se detetar corrupção FsImage                              |
 
-**Upgrade**
+**Atualizar**
 
 | **Hortonworks Bug ID** | **Apache JIRA**                                                                                                                | **Resumo**                                                                 |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
@@ -1651,11 +1692,11 @@ As questões fixas representam problemas selecionados que foram previamente regi
 
 |**Componente Apache**|**Apache JIRA**|**Resumo**|**Detalhes**|
 |--|--|--|--|
-|**Faísca 2.3** |**N/A** |**Alterações como documentado nas notas de lançamento do Apache Spark** |- Há um documento de "depreciação" e um guia de "Mudança de Comportamento",https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />- Para a parte SQL, há outro guia detalhado "Migração" (de 2,2 a 2,3),https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
+|**Faísca 2.3** |**N/D** |**Alterações como documentado nas notas de lançamento do Apache Spark** |- Há um documento de "depreciação" e um guia de "Mudança de Comportamento",https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />- Para a parte SQL, há outro guia detalhado "Migração" (de 2,2 a 2,3),https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
 |Spark |[**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |O trabalho de faísca completa com sucesso, mas há um erro completo da quota de disco HDFS |**Cenário:** O **encaixe de execução substitui** quando uma quota é definida na pasta lixo do utilizador que dirige o comando.<br /><br />**Comportamento anterior:** O trabalho tem sucesso mesmo que não consiga mover os dados para o Lixo. O resultado pode conter erradamente alguns dos dados anteriormente presentes na tabela.<br /><br />**Novo Comportamento:** Quando a mudança para a pasta Lixo falha, os ficheiros são permanentemente eliminados.|
-|**Kafka 1.0**|**N/A**|**Alterações como documentado nas notas de lançamento do Apache Spark** |https://kafka.apache.org/10/documentation.html#upgrade_100_notable|
+|**Kafka 1.0**|**N/D**|**Alterações como documentado nas notas de lançamento do Apache Spark** |https://kafka.apache.org/10/documentation.html#upgrade_100_notable|
 |**Colmeia/ Ranger** | |Políticas adicionais de colmeias de rangers necessárias para inserir OVERWRITE |**Cenário:** Políticas adicionais de colmeias de rangers necessárias para **inserir OVERWRITE**<br /><br />**Comportamento anterior:** As consultas de SUBSTITUIÇÃO DE HIVE **INWRITE** têm sucesso, como de costume.<br /><br />**Novo comportamento:** As consultas **de HIVE INSERT OVERWRITE** estão a falhar inesperadamente após a atualização para HDP-2.6.x com o erro:<br /><br />Erro ao compilar declaração: FAILed: HiveAccessControlException Permissão negada: jdoe utilizador não tem privilégio WRITE em /tmp/ \* (estado=42000,código=40000)<br /><br />A partir de HDP-2.6.0, as consultas **de HIVE INSERT OVERWRITE** requerem uma política Ranger URI para permitir operações de escrita, mesmo que o utilizador tenha privilégios de escrita concedidos através da política HDFS.<br /><br />**Solução alternativa/esperada ação do cliente:**<br /><br />1. Criar uma nova política no âmbito do repositório da Colmeia.<br />2. No dropdown onde vê a Base de Dados, selecione URI.<br />3. Atualizar o caminho (Exemplo: /tmp/*)<br />4. Adicione os utilizadores e agrupe e guarde.<br />5. Volte a tentar a consulta de inserção.|
-|**HDFS**|**N/A** |HDFS deve suportar vários KMS Uris |**Comportamento anterior:** dfs.encryption.key.provider.uri property foi usado para configurar o caminho do provedor KMS.<br /><br />**Novo Comportamento:** dfs.encryption.key.provider.uri é agora depreciado a favor de hadoop.security.key.provider.path para configurar o caminho do provedor KMS.|
+|**HDFS**|**N/D** |HDFS deve suportar vários KMS Uris |**Comportamento anterior:** dfs.encryption.key.provider.uri property foi usado para configurar o caminho do provedor KMS.<br /><br />**Novo Comportamento:** dfs.encryption.key.provider.uri é agora depreciado a favor de hadoop.security.key.provider.path para configurar o caminho do provedor KMS.|
 |**Zeppelin**|[**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Opção para desativar o programador |**Componente afetado:** Zeppelin-Server<br /><br />**Comportamento anterior:** Em lançamentos anteriores de Zeppelin, não havia opção para desativar o programador.<br /><br />**Novo Comportamento:** Por predefinição, os utilizadores deixarão de ver o programador, uma vez que este é desativado por padrão.<br /><br />**Solução alternativa/esperada ação do cliente:** Se quiser ativar o agendador, terá de adicionar azeppelin.notebook.cron.enable com valor de verdade no site de zeppelin personalizado nas definições de Zeppelin a partir de Ambari.|
 
 ### <a name="known-issues"></a>Problemas conhecidos
@@ -1761,7 +1802,7 @@ As questões fixas representam problemas selecionados que foram previamente regi
         curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'
       ```
         
-  - **Opção \# 2: Aplicar alterações javascript**
+  - **Opção \# 2: Aplicar alterações javaScript**
         
       Passos para atualizar o ficheiro JS:
         

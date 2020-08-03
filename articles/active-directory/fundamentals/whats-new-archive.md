@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 111453b30a0c2fd7c0b2a2077b31b2cf16ebda06
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: d981bad30bf57fde64d1f6e903039dda5007e526
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445667"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87483914"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivo para o que há de novo no Azure Ative Directory?
 
@@ -3407,7 +3407,7 @@ Com a atualização de pré-visualização pública da Azure AD Privileged Ident
 
 * Use apenas a administração suficiente.
 * Requer aprovação para ativar funções de recursos.
-* Agende uma ativação futura de um papel que requer aprovação tanto para os papéis de Azure AD como para a Azure RBAC.
+* Agende uma ativação futura de um papel que requer aprovação tanto para os papéis de AZure AD como para a Azure.
 
 Para mais informações, consulte [Gestão de Identidade Privilegiada para recursos Azure (pré-visualização)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac).
 

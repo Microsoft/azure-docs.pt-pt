@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: 84e9dab149cfed265833336577d718e57bd9bc2d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: fa1ed25e8c9a80dda2bf0e4625d28a3befaa49c9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165333"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87479851"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Traffic Analytics frequentemente fez perguntas
 
@@ -36,7 +36,7 @@ A Análise de Tráfego requer os seguintes pré-requisitos:
 
 A sua conta deve encontrar uma das seguintes para permitir análises de tráfego:
 
-- A sua conta deve ter qualquer uma das seguintes funções de controlo de acesso baseado em funções (RBAC) no âmbito de subscrição: proprietário, colaborador, leitor ou colaborador de rede.
+- A sua conta deve ter qualquer uma das seguintes funções Azure no âmbito de subscrição: proprietário, colaborador, leitor ou colaborador de rede.
 - Se a sua conta não for atribuída a uma das funções anteriormente listadas, deve ser atribuída a uma função personalizada que seja atribuída às seguintes ações, ao nível da subscrição.
             
     - Microsoft.Network/applicationGateways/read
@@ -401,4 +401,3 @@ A página de topologia de sub-redes virtuais contém duas secções principais:
 - Para passar para outros nós destacados na vista topologia, use a chave para o `Shift+Right arrow` movimento para a frente. 
 - Nos nós realçados, o foco move-se para a **Caixa de Ferramentas de Informação** para o nó. Por predefinição, o foco passa para o botão **Mais detalhes** na **Caixa de Ferramentas de Informação**. Para avançar ainda mais dentro da vista **Caixa,** utilize `Right arrow` e as `Left arrow` teclas para avançar e recuar, respectivamente. A prensagem `Enter` tem o mesmo efeito que selecionar o botão focado na Caixa de **Ferramentas de Informação**.
 - Na seleção de tais nós, pode visitar todas as suas ligações, uma a uma, premindo `Shift+Left arrow` a tecla. O foco desloca-se para a Caixa de Ferramentas de **Informação** dessa ligação. Em qualquer ponto, o foco pode ser deslocado de volta para o nó pressionando `Shift+Right arrow` novamente.    
-

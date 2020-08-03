@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: f7e9a76309b4d9dcd010b85d1b55f340374be5c4
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 960fff073353375cd50b31bc7284134ca733f142
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337930"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87488028"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Sobre a linguagem de consulta para Azure Digital Twins
 
@@ -20,23 +20,7 @@ Recorde-se que o centro das Gémeas Digitais Azure é o [**gráfico gémeo,**](c
 
 Para submeter uma consulta ao serviço a partir de uma aplicação de cliente, utilizará a [**API de Consulta**](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.digitaltwinsclient.query?view=azure-dotnet-preview)de Gémeos Digitais Azure. Isto permite que os desenvolvedores escrevam consultas e apliquem filtros para encontrar conjuntos de gémeos digitais no gráfico gémeo, e outras informações sobre o cenário Azure Digital Twins.
 
-## <a name="query-language-features"></a>Características da linguagem de consulta
-
-A Azure Digital Twins fornece extensas capacidades de consulta contra o gráfico gémeo. As consultas são descritas usando sintaxe semelhante ao SQL, numa linguagem de consulta semelhante à [linguagem de consulta IoT Hub](../iot-hub/iot-hub-devguide-query-language.md) com muitas características comparáveis.
-
-> [!NOTE]
-> Todas as operações de consulta da Azure Digital Twins são sensíveis a casos.
-
-Aqui estão as operações disponíveis no Idioma Azure Digital Twins Query Store:
-* Obtenha gémeos pelas propriedades de gémeos digitais (incluindo [etiquetas).](how-to-use-tags.md)
-* Arranja gémeos pelas interfaces dos gémeos digitais.
-* Arranja gémeos por propriedades de relacionamento.
-* Obter gémeos em vários tipos de relacionamento `JOIN` (consultas). Existem limitações no número de `JOIN` s permitidos (um nível para visualização pública).
-* Utilize a função `IS_OF_MODEL(twinCollection, twinTypeName)` personalizada, que permite a filtragem com base no [modelo](concepts-models.md)do gémeo . Apoia a herança.
-* Utilize funções de escala: `IS_BOOL` , , , , , , , , , `IS_DEFINED` , , `IS_NULL` . `IS_NUMBER` `IS_OBJECT` `IS_PRIMITIVE` `IS_STRING` `STARTS_WITH` `ENDS_WITH` .
-* Utilize operadores de comparação de consultas: `IN` / `NIN` , , , `=` , , , , `!=` `<` `>` `<=` `>=` .
-* Utilize qualquer combinação `AND` `OR` `NOT` (,, operador) do acima.
-* Continuação da utilização: O objeto de consulta é instantâneo com um tamanho de página (até 100). Você pode recuperar os gémeos digitais uma página de cada vez, fornecendo o token de continuação em chamadas subsequentes para a API.
+[!INCLUDE [digital-twins-query-operations.md](../../includes/digital-twins-query-operations.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/12/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4f44e9853182a8fcb222b8f895796cf5efc67def
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3dbafac99ebc1b7472bf884647ad5e8657f0de0b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389603"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87482860"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configure o fluxo de credenciais de senha do proprietário do recurso em Azure AD B2C
 
@@ -30,13 +30,14 @@ O fluxo de credenciais de senha do proprietário do recurso (ROPC) é um fluxo d
 
 1. Inicie sessão no portal do Azure como administrador global do inquilino do Azure AD B2C.
 2. Para mudar para o seu inquilino Azure AD B2C, selecione o diretório B2C no canto superior direito do portal.
-3. Clique nos **fluxos do utilizador**e selecione **Novo fluxo de utilizador**.
-4. Clique no separador **'Todos'** e selecione **Iniciar s-seção utilizando o ROPC.**
-5. Fornecer um nome para o fluxo do utilizador, como *ROPC_Auth*.
-6. In **Application claims**, clique Em Mostrar **mais**.
-7. Selecione as alegações de aplicação que necessita para a sua aplicação, como Nome de Exibição, Endereço de E-mail e Fornecedor de Identidade.
-8. Selecione **OK** e, em seguida, selecione **Criar**.
-9. Clique **no fluxo do utilizador executar**.
+3. Selecione **os fluxos do utilizador**e selecione Novo fluxo de **utilizador**.
+4. Selecione **Iniciar sação utilizando credenciais de senha do proprietário do recurso (ROPC)**.
+5. Em **Versão**, certifique-se de que **a pré-visualização** está selecionada e, em seguida, selecione **Criar**.
+7. Fornecer um nome para o fluxo do utilizador, como *ROPC_Auth*.
+8. In **Application claims**, clique Em Mostrar **mais**.
+9. Selecione as alegações de aplicação que necessita para a sua aplicação, como Nome de Exibição, Endereço de E-mail e Fornecedor de Identidade.
+10. Selecione **OK** e, em seguida, selecione **Criar**.
+11. Clique **no fluxo do utilizador executar**.
 
    Em seguida, verá um ponto final como este exemplo:
 
@@ -58,7 +59,7 @@ Use a sua aplicação de desenvolvimento API favorita para gerar uma chamada de 
 
 | Chave | Valor |
 | --- | ----- |
-| o nome de utilizador | leadiocl@outlook.com |
+| nome de utilizador | leadiocl@outlook.com |
 | palavra-passe | Palavra-passe1 |
 | grant_type | palavra-passe |
 | scope | offline_access aberto \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
@@ -131,7 +132,3 @@ Uma resposta bem sucedida parece ser o seguinte exemplo:
 A implementação Azure AD B2C cumpre as normas OAuth 2.0 para credenciais de senha do proprietário de recursos públicos do cliente e deve ser compatível com a maioria dos SDKs do cliente. Testámos extensivamente este fluxo, em produção, com AppAuth para iOS e AppAuth para Android. Para obter as informações mais recentes, consulte [Native App SDK para OAuth 2.0 e OpenID Connect implementando as melhores práticas modernas.](https://appauth.io/)
 
 Descarregue amostras de trabalho que tenham sido configuradas para uso com Azure AD B2C do GitHub, [para Android](https://aka.ms/aadb2cappauthropc) e [para iOS.](https://aka.ms/aadb2ciosappauthropc)
-
-
-
-

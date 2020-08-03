@@ -11,18 +11,18 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 6321fa484c883e196279ddf33661e78397bc3855
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: acfb2af7d482f9c0a51596818b1302584277defb
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963891"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486821"
 ---
 # <a name="best-practices-for-loading-data-for-data-warehousing"></a>Melhores práticas para carregar dados para armazenamento de dados
 
 Recomendações e otimizações de desempenho para os dados de carregamento
 
-## <a name="preparing-data-in-azure-storage"></a>Preparar dados no Armazenamento do Azure
+## <a name="prepare-data-in-azure-storage"></a>Preparar dados no Azure Storage
 
 Para minimizar a latência, colocalize a sua camada de armazenamento e o seu armazém de dados.
 
@@ -34,13 +34,13 @@ Todos os formatos de ficheiro têm características de desempenho diferentes. Pa
 
 Divida grandes ficheiros comprimidos em ficheiros mais pequenos comprimidos.
 
-## <a name="running-loads-with-enough-compute"></a>Executar cargas com computação suficiente
+## <a name="run-loads-with-enough-compute"></a>Executar cargas com cálculo suficiente
 
 Para a velocidade de carregamento mais rápida, execute apenas uma tarefa de carregamento de cada vez. Se não for viável, execute um número mínimo de cargas em simultâneo. Se espera um grande trabalho de carregamento, considere aumentar a sua piscina SQL antes da carga.
 
 Para executar cargas com recursos de computação adequados, crie utilizadores de carregamento designados para a execução de cargas. Atribua cada utilizador de carregamento a uma classe de recursos específica ou grupo de carga de trabalho. Para executar uma carga, inscreva-se como um dos utilizadores de carregamento e, em seguida, carregue a carga. A carga é executada com a classe de recursos do utilizador.  Este método é mais simples do que tentar alterar a classe de recursos de um utilizador para que se ajuste à necessidade da classe de recursos atual.
 
-### <a name="example-of-creating-a-loading-user"></a>Exemplo de como criar um utilizador de carregamento
+### <a name="create-a-loading-user"></a>Criar um utilizador de carregamento
 
 Este exemplo cria um utilizador de carregamento para a classe de recursos staticrc20. O primeiro passo é **ligar ao master** e criar um início de sessão.
 
@@ -62,7 +62,7 @@ Para executar uma carga com recursos para as classes de recursos staticRC20, ins
 
 Execute as cargas em classes de recursos estáticas em vez de dinâmicas. A utilização das classes de recursos estáticos garante os mesmos recursos, independentemente das suas unidades de armazém de [dados.](resource-consumption-models.md) Se utilizar uma classe de recursos dinâmica, os recursos variam de acordo com o nível de serviço. Nas classes dinâmicas, um nível de serviço mais baixo significa que terá de, provavelmente, utilizar uma classe de recursos maior para o seu utilizador de carregamento.
 
-## <a name="allowing-multiple-users-to-load"></a>Permitir o carregamento por parte de vários utilizadores
+## <a name="allow-multiple-users-to-load"></a>Permitir que vários utilizadores carreguem
 
 Muitas vezes, é necessário ter vários utilizadores a realizar carregamentos para um armazém de dados. O carregamento com a [tabela CREATE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) requer permissões de CONTROLO da base de dados.  A permissão de CONTROL permite controlar o acesso a todos os esquemas. Poderá não querer que todos os utilizadores de carregamento tenham acesso de controlo em todos os esquemas. Para limitar as permissões, utilize a instrução DENY CONTROL.
 
@@ -75,13 +75,13 @@ Por exemplo, considere os esquemas de bases de dados schema_A, para departamento
 
 User_A e user_B estão agora bloqueados do esquema do outro departamento.
 
-## <a name="loading-to-a-staging-table"></a>Carregar para uma tabela de teste
+## <a name="load-to-a-staging-table"></a>Carregar para uma tabela de teste
 
 Para alcançar a velocidade de carregamento mais rápida para mover dados para uma tabela de armazém de dados, carregue dados para uma tabela de testes.  Definir a tabela de testes como uma área dinâmica para dados e utilizar o round-robin como opção de distribuição.
 
 Considere que o carregamento é, normalmente, um processo de dois passos no qual pode carregar primeiro para uma tabela de teste e, em seguida, inserir os dados numa tabela de armazém de dados de produção. Se a tabela de produção utiliza uma distribuição hash, o tempo total para carregar e inserir poderá ser mais rápido, se definir a tabela de testes com a distribuição hash. O carregamento para a tabela de teste demora mais tempo, mas o segundo passo de inserção das linhas na tabela de produção não implica o movimento de dados entre as distribuições.
 
-## <a name="loading-to-a-columnstore-index"></a>Carregamento para um índice columnstore
+## <a name="load-to-a-columnstore-index"></a>Carregar para um índice de loja de colunas
 
 Os índices columnstore exigem grandes quantidades de memória para comprimir os dados em grupos de linhas de elevada qualidade. Para a melhor eficiência em termos de compressão e indexação, o índice columnstore tem de comprimir um máximo de 1 048 576 linhas em cada rowgroup. Quando existe pressão de memória, o índice columnstore poderá não conseguir alcançar as velocidades de compressão máxima. Este facto, por sua vez, afeta o desempenho da consulta. Para obter uma descrição aprofundada, veja [Columnstore memory optimizations](data-load-columnstore-compression.md) (Otimizações de memória de columnstore).
 
@@ -92,19 +92,19 @@ Os índices columnstore exigem grandes quantidades de memória para comprimir os
 
 Como mencionado anteriormente, o carregamento com PolyBase fornecerá a maior produção com piscina Sinaapse SQL. Se não puder utilizar o PolyBase para carregar e tiver de utilizar a API SQLBulkCopy (ou BCP) deve considerar o aumento do tamanho do lote para uma melhor produção - uma boa regra do polegar é um tamanho de lote entre 100k e 1M linhas.
 
-## <a name="handling-loading-failures"></a>Processar falhas de carregamento
+## <a name="manage-loading-failures"></a>Gerir falhas de carregamento
 
 Uma carga que utilize uma tabela externa pode falhar com o erro *"Query aborted-- the maximum reject threshold was reached while reading from an external source"* (“Consulta abortada. O limiar de rejeição máximo foi atingido ao ler a partir de uma origem externa”). Esta mensagem indica que os dados externos contém registos desatualizados. Os registos de dados são considerados desatualizados se os tipos de dados e número de colunas não corresponderem às definições de coluna da tabela externa ou se os dados não estiverem em conformidade com o formato de ficheiro externo especificado.
 
 Para corrigir os registos desatualizados, confirme que as definições de tabela externa e de formato de ficheiro externo estão corretas e que os dados externos estão em conformidade com estas definições. Caso um subconjunto de registos de dados externos esteja desatualizado, pode optar por rejeitar esses registos nas suas consultas mediante a utilização das opções de rejeição em CREATE EXTERNAL TABLE (CRIAR TABELA EXTERNA).
 
-## <a name="inserting-data-into-a-production-table"></a>Inserir dados na tabela de produção
+## <a name="insert-data-into-a-production-table"></a>Inserir dados numa tabela de produção
 
 Um carregamento único para uma pequena tabela com uma instrução [INSERT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) ou mesmo um recarregamento periódico de uma consulta pode ajustar-se às suas necessidades com uma instrução como `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  No entanto, as inserções individuais não são tão eficientes como os carregamentos em massa.
 
 Se tiver milhares ou mais de inserções individuais durante o dia, junte-as para poder carregá-las em massa.  Desenvolva os seus processos de modo a que anexem as inserções individuais a um ficheiro e crie outro processo que o carregue periodicamente.
 
-## <a name="creating-statistics-after-the-load"></a>Criação de estatísticas após o carregamento
+## <a name="create-statistics-after-the-load"></a>Criar estatísticas após o carregamento
 
 Para melhorar desempenho das consultas, é importante criar estatísticas em todas as colunas de todas as tabelas após o primeiro carregamento ou poderão ocorrer alterações substanciais nos dados.  Isto pode ser feito manualmente ou pode ativar [estatísticas de criação automática](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
@@ -142,7 +142,7 @@ ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SE
 
 Não é preciso fazer outras alterações às origens de dados externas subjacentes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre o PolyBase e como estruturar um processo de Extração, Carregamento e Transformação (ELT), veja [Design ELT for SQL Data Warehouse](../sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (Estruturar o ELT para o SQL Data Warehouse).
 - Para obter um tutorial relativo ao carregamento, veja [Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (Utilizar o PolyBase para carregar dados do armazenamento de Blobs do Azure para o Azure SQL Data Warehouse).

@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mathoma
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 0e676e1c97c0039490137aa12b06fc88e457646f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: seo-lt-2019, devx-track-azurecli
+ms.openlocfilehash: bc0d5b0cdf616904ee7ed61fdc681ba60bff8f75
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286818"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87480293"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Introduzindo o SQL Server Sempre em grupos de disponibilidade em Máquinas Virtuais Azure
 

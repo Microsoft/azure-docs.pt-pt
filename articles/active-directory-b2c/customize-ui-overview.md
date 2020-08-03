@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/04/2020
+ms.date: 07/30/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6bcf268ba45ee8fefa027263a25ff411344b4669
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 8c0b6ba4045e1e92d395752f106258d3c0709108
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116440"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486744"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalize a interface do utilizador no Azure Ative Directory B2C
 
@@ -188,7 +188,7 @@ Depois de configurar a marca da empresa, ative-a nos fluxos do utilizador.
 
 1. No menu esquerdo do portal Azure, selecione **Azure AD B2C**.
 1. Em **Políticas**, selecione **fluxos de utilizador (políticas)**.
-1. Selecione o fluxo de utilizador para o qual pretende ativar a marca da empresa. A marca da empresa não é **suportada** para o Sinal nos tipos de fluxo de utilizador *v1* e *perfil.*
+1. Selecione o fluxo de utilizador para o qual pretende ativar a marca da empresa. A marca da empresa não é **suportada** para os tipos padrão *de inscrição do utilizador* e *edição* de perfil padrão.
 1. Em **Personalizar, selecione** **layouts de página**e, em seguida, selecione o layout que gostaria de marcar. Por exemplo, **selecione Unified's sign up ou iniciar sedução na página**.
 1. Para a versão layout da **página (pré-visualização)**, escolha a versão **1.2.0** ou superior.
 1. Selecione **Guardar**.

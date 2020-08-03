@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 05/24/2020
-ms.openlocfilehash: ca41a403f789fd529ac65c21799d3d3e7f3becf6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: bbd3cb88b017209adff58a646e274caf31ab425f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285463"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486447"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Resolução de problemas Vídeo Analytics em IoT Edge
 
@@ -234,7 +234,7 @@ O Live Video Analytics através do processador de extensão HTTP pode estender o
 
     ![Screenshot que mostra o estado de funcionamento dos módulos no Azure IoT Hub.](./media/troubleshoot-how-to/iot-hub.png)
 
-* Verifique se está a enviar eventos para o ponto final correto da URL. O contentor externo de IA expõe um URL e uma porta através da qual recebe e devolve os dados dos pedidos do POST. Este URL é especificado como uma `endpoint: url` propriedade para o processador de extensão HTTP. Como visto no [URL de topologia,](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/httpExtension/topology.json)o ponto final é definido para o parâmetro URL inferencing. Certifique-se de que o valor predefinido para o [parâmetro](http://yolov3/score) ou o valor de entrada é exato. Pode testar para ver se está a funcionar utilizando o URL do Cliente (cURL).  
+* Verifique se está a enviar eventos para o ponto final correto da URL. O contentor externo de IA expõe um URL e uma porta através da qual recebe e devolve os dados dos pedidos do POST. Este URL é especificado como uma `endpoint: url` propriedade para o processador de extensão HTTP. Como visto no [URL de topologia,](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/httpExtension/topology.json)o ponto final é definido para o parâmetro URL inferencing. Certifique-se de que o valor predefinido para o parâmetro ou o valor de entrada é exato. Pode testar para ver se está a funcionar utilizando o URL do Cliente (cURL).  
 
     Como exemplo, aqui está um contentor Yolo v3 que está funcionando em máquina local com um endereço IP de 172.17.0.3. Utilize o Docker para encontrar o endereço IP.
 

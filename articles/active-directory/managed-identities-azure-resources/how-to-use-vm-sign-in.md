@@ -15,12 +15,13 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1380562cfc073d906ea4cfc0d6d849e9ca2a70d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 058058b975116fabcbc242f46afb09dff8df08b6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608420"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87480446"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Como utilizar identidades geridas para recursos Azure num VM Azure para o sign-in 
 
@@ -96,7 +97,7 @@ Se receber um destes erros, volte ao Azure VM no [portal Azure](https://portal.a
 
 Se algum deles estiver incorreto, poderá ter de recolocar as identidades geridas para os recursos Azure no seu recurso novamente, ou resolver problemas com a falha de implantação. Consulte [identidades geridas para configurar recursos Azure num VM utilizando o portal Azure](qs-configure-portal-windows-vm.md) se precisar de assistência com a configuração VM.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para permitir identidades geridas para recursos Azure num Azure VM, consulte [identidades geridas configure para recursos Azure em um Azure VM usando PowerShell](qs-configure-powershell-windows-vm.md), ou [Configure identidades geridas para recursos Azure em um VM Azure usando Azure CLI](qs-configure-cli-windows-vm.md)
 

@@ -9,12 +9,13 @@ ms.devlang: cli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: 71bffe004ae8f2ac2060c1bfc12c4fff0be95c34
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 66869b7dc38e11b614ebc89538c2c195122b5bb3
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006216"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87479562"
 ---
 # <a name="use-an-azure-cli-script-to-delete-containers-based-on-container-name-prefix"></a>Utilize um script Azure CLI para apagar contentores com base no prefixo do nome do recipiente
 
