@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-machines
 author: tanmaygore
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: 4e07334e859f2c1401547cc3f88988830b71c5e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b874cefc2521089da02b90b9241be93e80836d6e
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77192566"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507438"
 ---
 Este artigo descreve como migrar a infraestrutura como um serviço (IaaS) recursos dos modelos de implementação Classic to Resource Manager e detalhes como conectar recursos dos dois modelos de implementação que coexistem na sua subscrição usando gateways de rede virtual site-to-site. Pode ler mais sobre [funcionalidades e benefícios do Azure Resource Manager](../articles/azure-resource-manager/management/overview.md). 
 
@@ -22,10 +22,10 @@ O Gestor de Recursos permite a implementação de aplicações complexas atravé
 
 Quase todas as funcionalidades do modelo de implementação clássica são suportadas para computação, rede e armazenamento sob o Azure Resource Manager. Para beneficiar das novas capacidades no Azure Resource Manager, pode migrar as implementações existentes a partir do modelo de implementação Classic.
 
-## <a name="supported-resources-for-migration"></a>Recursos apoiados para a migração
-Estes recursos clássicos da IAS são apoiados durante a migração
+## <a name="supported-resources--configurations-for-migration"></a>Recursos apoiados & configurações para a migração
 
-* Virtual Machines
+### <a name="supported-resources-for-migration"></a>Recursos apoiados para a migração
+* Máquinas Virtuais
 * Conjuntos de Disponibilidade
 * Contas de Armazenamento
 * Redes Virtuais
@@ -34,6 +34,13 @@ Estes recursos clássicos da IAS são apoiados durante a migração
 * Grupos de Segurança de Rede
 * Tabelas de Rota
 * IPs Reservados
+
+## <a name="supported-configurations-for-migration"></a>Configurações suportadas para migração
+Estes recursos clássicos da IAS são apoiados durante a migração
+
+| Serviço | Configuração |
+| --- | --- |
+| Azure AD Domain Services | [Redes virtuais que contêm serviços de domínio AD Azure](https://docs.microsoft.com/azure/active-directory-domain-services/migrate-from-classic-vnet) |
 
 ## <a name="supported-scopes-of-migration"></a>Âmbitos de migração apoiados
 Existem quatro maneiras diferentes de completar a migração de recursos de computação, rede e armazenamento:
@@ -129,5 +136,4 @@ As seguintes configurações não são suportadas atualmente.
 | Serviço de Aplicações do Azure |Redes virtuais que contêm ambientes de Serviço de Aplicações |Atualmente, isto não é apoiado. |
 | Azure HDInsight |Redes virtuais que contêm serviços HDInsight |Atualmente, isto não é apoiado. |
 | Serviços de ciclo de vida da Microsoft Dynamics |Redes virtuais que contêm máquinas virtuais que são geridas pela Dynamics Lifecycle Services |Atualmente, isto não é apoiado. |
-| Azure AD Domain Services |Redes virtuais que contêm serviços de domínio AD Azure |Atualmente, isto não é apoiado. |
 | API Management do Azure |Redes virtuais que contêm implementações de Gestão API da Azure |Atualmente, isto não é apoiado. Para migrar o IaaS VNET, mude o VNET da implementação da API Management, que não é uma operação de inatividade. |

@@ -10,12 +10,13 @@ ms.date: 05/28/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 4309f1dc63ac7dd96e22f4564a32aae6ed59ad84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 00f6085414e5a48647846830f93ba3fb98c382f2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195793"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502516"
 ---
 # <a name="check-the-last-sync-time-property-for-a-storage-account"></a>Verifique a propriedade da Última Hora do Sincronização para obter uma conta de armazenamento
 
@@ -60,7 +61,7 @@ $lastSyncTime=$(az storage account show \
 
 ---
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Redundância de armazenamento Azure](storage-redundancy.md)
 - [Alterar a opção de despedimento para uma conta de armazenamento](redundancy-migration.md)

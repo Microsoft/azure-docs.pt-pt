@@ -10,21 +10,21 @@ keywords: serviços de multimédia do azure, transmitir
 ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
-ms.custom: ''
+ms.custom: devx-track-azurecli
 ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: 91259e10966173cb701b867f5b3ed362112beef3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5a90e1fdc50a6e2b1544a06f587362bf43b80369
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80382788"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504454"
 ---
-# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---azure-cli"></a>Tutorial: Codificar um ficheiro remoto com base em URL e transmitir o vídeo - Azure CLI
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---azure-cli"></a>Tutorial: Codificar um ficheiro remoto baseado em URL e transmitir o vídeo - Azure CLI
 
-Este tutorial mostra como codificar e transmitir vídeos facilmente em uma variedade de navegadores e dispositivos usando o Azure Media Services e o Azure CLI. Pode especificar o conteúdo da entrada utilizando URLs HTTPS ou SAS ou caminhos para ficheiros no armazenamento do Blob Azure.
+Este tutorial mostra como codificar e transmitir facilmente vídeos numa variedade de navegadores e dispositivos utilizando o Azure Media Services e o Azure CLI. Pode especificar o conteúdo de entrada utilizando URLs HTTPS ou SAS ou caminhos para ficheiros no armazenamento Azure Blob.
 
-O exemplo neste artigo codifica o conteúdo que torna acessível através de um URL HTTPS. Atualmente, o Media Services v3 não suporta a codificação de transferências em pedaços sobre URLs HTTPS.
+O exemplo neste artigo codifica conteúdo que torna acessível através de um URL HTTPS. Atualmente, a Media Services v3 não suporta a codificação de transferências em fatias sobre URLs HTTPS.
 
 No final deste tutorial, poderá transmitir um vídeo.  
 
@@ -34,9 +34,9 @@ No final deste tutorial, poderá transmitir um vídeo.
 
 ## <a name="create-a-media-services-account"></a>Criar uma conta dos Media Services
 
-Antes de poder encriptar, codificar, analisar, gerir e transmitir conteúdos de mídia no Azure, precisa de criar uma conta de Media Services. Essa conta deve ser associada a uma ou mais contas de armazenamento.
+Antes de encriptar, codificar, analisar, gerir e transmitir conteúdos de mídia no Azure, precisa de criar uma conta de Serviços de Comunicação Social. Essa conta deve estar associada a uma ou mais contas de armazenamento.
 
-A sua conta Media Services e todas as contas de armazenamento associadas devem estar na mesma subscrição do Azure. Recomendamos que utilize contas de armazenamento que estejam no mesmo local que a conta dos Serviços de Media para limitar a latência e os custos de fuga de dados.
+A sua conta de Media Services e todas as contas de armazenamento associadas devem estar na mesma subscrição do Azure. Recomendamos que utilize contas de armazenamento que se encontram no mesmo local que a conta dos Serviços de Comunicação Social para limitar os custos de latência e de saída de dados.
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -46,9 +46,9 @@ az group create -n amsResourceGroup -l westus2
 
 ### <a name="create-an-azure-storage-account"></a>Criar uma conta de armazenamento do Azure
 
-Neste exemplo, criamos uma conta LRS Padrão De Propósito Geral v2.
+Neste exemplo, criamos uma conta LRS Standard V2 de Propósito Geral.
 
-Se quiser experimentar contas de armazenamento, utilize. `--sku Standard_LRS` Quando estiver a escolher um SKU `--sku Standard_RAGRS`para produção, considere usar , o que fornece replicação geográfica para a continuidade do negócio. Para mais informações, consulte [as contas de armazenamento.](/cli/azure/storage/account)
+Se quiser experimentar contas de armazenamento, use `--sku Standard_LRS` . Quando estiver a escolher um SKU para produção, considere `--sku Standard_RAGRS` usar, que fornece replicação geográfica para a continuidade do negócio. Para mais informações, consulte [as contas de armazenamento.](/cli/azure/storage/account)
 
 ```azurecli-interactive
 az storage account create -n amsstorageaccount --kind StorageV2 --sku Standard_LRS -l westus2 -g amsResourceGroup
@@ -118,15 +118,15 @@ Obtém-se uma resposta como esta:
 }
 ```
 
-Se o ponto final de streaming já estiver em execução, recebe esta mensagem:
+Se o ponto final de streaming já estiver em execução, obtém esta mensagem:
 
 ```
 (InvalidOperation) The server cannot execute the operation in its current state.
 ```
 
-## <a name="create-a-transform-for-adaptive-bitrate-encoding"></a>Criar uma transformação para codificação de bitrate adaptativo
+## <a name="create-a-transform-for-adaptive-bitrate-encoding"></a>Criar uma transformação para codificação bitrate adaptativa
 
-Crie uma **Transform** para configurar tarefas comuns para codificar ou analisar vídeos. Neste exemplo, fazemos codificação de bitrate adaptativo. Em seguida, submetemos um trabalho sob a transformação que criamos. O trabalho é o pedido à Media Services para aplicar a transformação na entrada de conteúdo sonoro ou vídeo dada.
+Crie uma **Transformação** para configurar tarefas comuns para codificar ou analisar vídeos. Neste exemplo, fazemos codificação bitrate adaptativa. Submetemos então um trabalho sob a transformação que criámos. O trabalho é o pedido aos Media Services para aplicar a transformação na entrada de conteúdo sonoro ou vídeo.
 
 ```azurecli-interactive
 az ams transform create --name testEncodingTransform --preset AdaptiveStreaming --description 'a simple Transform for Adaptive Bitrate Encoding' -g amsResourceGroup -a amsaccount
@@ -158,7 +158,7 @@ Obtém-se uma resposta como esta:
 
 ## <a name="create-an-output-asset"></a>Criar um elemento de saída
 
-Criar um **Ativo** de saída para usar como saída do trabalho de codificação.
+Crie um **Ativo** de saída para usar como saída do trabalho de codificação.
 
 ```azurecli-interactive
 az ams asset create -n testOutputAssetName -a amsaccount -g amsResourceGroup
@@ -183,16 +183,16 @@ Obtém-se uma resposta como esta:
 }
 ```
 
-## <a name="start-a-job-by-using-https-input"></a>Inicie um trabalho utilizando a entrada HTTPS
+## <a name="start-a-job-by-using-https-input"></a>Iniciar um trabalho utilizando a entrada HTTPS
 
-Quando submete trabalhos para processar vídeos, tem de dizer aos Media Services onde encontrar o vídeo de entrada. Uma opção é especificar um URL HTTPS como entrada de trabalho, como mostra este exemplo.
+Quando submete empregos para processar vídeos, tem de dizer aos Media Services onde encontrar o vídeo de entrada. Uma opção é especificar um URL HTTPS como a entrada de trabalho, como mostrado neste exemplo.
 
-Quando correr, `az ams job start`pode definir um rótulo na saída do trabalho. Em seguida, pode utilizar a etiqueta para identificar para que serve o ativo de saída.
+Quando `az ams job start` correr, pode definir uma etiqueta na saída do trabalho. Em seguida, pode utilizar a etiqueta para identificar para que serve o ativo de saída.
 
-- Se atribuir um valor ao rótulo, desloque os "ativos de saída" para "assetname=label".
-- Se não atribuir um valor à etiqueta, detete '-ativos de saída' para "assetname=".
+- Se atribuir um valor à etiqueta, desaprote de "-ativos de saída" para "assetname=label".
+- Se não atribuir um valor à etiqueta, desaprote de "--ativos de saída" para "nome de ativos=".
 
-  Note que adicionamos "=" ao `output-assets`.
+  Note que adicionamos "=" ao `output-assets` .
 
 ```azurecli-interactive
 az ams job start --name testJob001 --transform-name testEncodingTransform --base-uri 'https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/' --files 'Ignite-short.mp4' --output-assets testOutputAssetName= -a amsaccount -g amsResourceGroup
@@ -235,7 +235,7 @@ Obtém-se uma resposta como esta:
 
 ### <a name="check-status"></a>Verificar o estado
 
-Em cinco minutos, verifique o estado do trabalho. Devia ser "Acabado". Não está terminado, verifique em alguns minutos. Quando estiver terminado, vá ao próximo passo e crie um Localizador de **Streaming.**
+Em cinco minutos, verifique o estado do trabalho. Devia estar "Acabado". Ainda não está terminado, volte a verificar em alguns minutos. Quando estiver terminado, vá para o próximo passo e crie um **Localizador de Streaming.**
 
 ```azurecli-interactive
 az ams job show -a amsaccount -g amsResourceGroup -t testEncodingTransform -n testJob001
@@ -243,7 +243,7 @@ az ams job show -a amsaccount -g amsResourceGroup -t testEncodingTransform -n te
 
 ## <a name="create-a-streaming-locator-and-get-a-path"></a>Crie um localizador de streaming e obtenha um caminho
 
-Depois de concluída a codificação, o próximo passo é disponibilizar o vídeo no ativo de saída aos clientes para reprodução. Para isso, crie primeiro um Localizador de Streaming. Em seguida, construa URLs de streaming que os clientes podem usar.
+Depois de concluída a codificação, o próximo passo é disponibilizar o vídeo no ativo de saída aos clientes para reprodução. Para isso, primeiro crie um Localizador de Streaming. Em seguida, construa URLs de streaming que os clientes podem usar.
 
 ### <a name="create-a-streaming-locator"></a>Criar um localizador de transmissão
 
@@ -271,7 +271,7 @@ Obtém-se uma resposta como esta:
 }
 ```
 
-### <a name="get-streaming-locator-paths"></a>Obtenha caminhos localizadores de streaming
+### <a name="get-streaming-locator-paths"></a>Obtenha caminhos de localização de streaming
 
 ```azurecli-interactive
 az ams streaming-locator get-paths -a amsaccount -g amsResourceGroup -n testStreamingLocator
@@ -308,33 +308,33 @@ Obtém-se uma resposta como esta:
 }
 ```
 
-Copie o caminho de streaming ao vivo (HLS) HTTP. Neste caso, `/e01b2be1-5ea4-42ca-ae5d-7fe704a5962f/ignite.ism/manifest(format=m3u8-aapl)`é.
+Copie o caminho http live streaming (HLS). Neste caso, `/e01b2be1-5ea4-42ca-ae5d-7fe704a5962f/ignite.ism/manifest(format=m3u8-aapl)` é.
 
-## <a name="build-the-url"></a>Construa o URL
+## <a name="build-the-url"></a>Construir o URL
 
-### <a name="get-the-streaming-endpoint-host-name"></a>Obtenha o nome de anfitrião do ponto final de streaming
+### <a name="get-the-streaming-endpoint-host-name"></a>Obtenha o nome do anfitrião do ponto final de streaming
 
 ```azurecli-interactive
 az ams streaming-endpoint list -a amsaccount -g amsResourceGroup -n default
 ```
 
-Copie `hostName` o valor. Neste caso, `amsaccount-usw22.streaming.media.azure.net`é.
+Copie o `hostName` valor. Neste caso, `amsaccount-usw22.streaming.media.azure.net` é.
 
 ### <a name="assemble-the-url"></a>Monte o URL
 
-"https:// " &lt;+&gt; + &lt;valor de nome anfitrião Hls valor&gt;
+"https://" + &lt; valor do nome de anfitrião &gt;  +  &lt; Hls valor do caminho&gt;
 
-Segue-se um exemplo:
+Eis um exemplo:
 
 `https://amsaccount-usw22.streaming.media.azure.net/7f19e783-927b-4e0a-a1c0-8a140c49856c/ignite.ism/manifest(format=m3u8-aapl)`
 
-## <a name="test-playback-by-using-azure-media-player"></a>Teste de reprodução usando O Leitor de Mídia Azure
+## <a name="test-playback-by-using-azure-media-player"></a>Reproduzir o teste utilizando o Azure Media Player
 
 > [!NOTE]
-> Se um leitor for hospedado num site HTTPS, certifique-se de iniciar o URL com "https".
+> Se um leitor estiver hospedado num site HTTPS, certifique-se de iniciar o URL com "https".
 
-1. Abra um navegador web [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/)e vá para .
-2. Na caixa **URL,** cola o URL que construíste na secção anterior. Pode colar o URL em formato HLS, Dash ou Smooth. O Azure Media Player utilizará automaticamente um protocolo de streaming adequado para a reprodução no seu dispositivo.
+1. Abra um navegador web e vá para [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/) .
+2. Na caixa **URL,** cole o URL que construiu na secção anterior. Pode colar o URL em formato HLS, Dash ou Smooth. O Azure Media Player utilizará automaticamente um protocolo de streaming apropriado para a reprodução no seu dispositivo.
 3. Selecione **Update Player**.
 
 >[!NOTE]
@@ -342,7 +342,7 @@ Segue-se um exemplo:
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se já não precisa de nenhum dos recursos do seu grupo de recursos, incluindo os Serviços de Media e as contas de armazenamento que criou para este tutorial, elimine o grupo de recursos.
+Se já não precisar de nenhum dos recursos do seu grupo de recursos, incluindo os Serviços de Media e contas de armazenamento que criou para este tutorial, elimine o grupo de recursos.
 
 Executar este comando Azure CLI:
 
@@ -352,4 +352,4 @@ az group delete --name amsResourceGroup
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Visão geral dos Serviços de Media](media-services-overview.md)
+[Visão geral dos Serviços de Mídia](media-services-overview.md)

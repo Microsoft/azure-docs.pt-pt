@@ -1,19 +1,19 @@
 ---
-title: Amostra de script Azure CLI - Criar um serviço de sinalização
-description: Aprenda seguindo o script da amostra para criar um novo Serviço De Sinalizador Azure num novo grupo de recursos, com um nome aleatório.
+title: Amostra de script Azure CLI - Criar um serviço SignalR
+description: Aprenda seguindo o script da amostra para criar um novo Serviço Azure SignalR num novo grupo de recursos, com um nome aleatório.
 author: sffamily
 ms.service: signalr
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 11/13/2018
 ms.author: zhshang
-ms.custom: mvc
-ms.openlocfilehash: 45958f020f2e5dbdb0a50f0190aff78568865f74
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: ab9183171230e1811f2d974917fc23ee53480996
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74158076"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494983"
 ---
 # <a name="create-a-signalr-service"></a>Criar um Serviço SignalR 
 

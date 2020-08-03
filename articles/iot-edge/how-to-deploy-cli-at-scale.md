@@ -8,13 +8,14 @@ ms.author: kgremban
 ms.date: 4/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
+ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: a7bb2cc23374110d447ec7526ada75f7e36a966e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ebc4f25496588eeaffbfe89e110bad57dbbc848e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83726167"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501564"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implementar e monitorizar os módulos IoT Edge em escala utilizando o CLI Azure
 
@@ -247,6 +248,6 @@ O comando de eliminação de implantação requer os seguintes parâmetros:
 * **...-id-implantação -** O nome da implantação que existe no hub IoT.
 * **--hub-name** - Nome do hub IoT em que a implantação existe. O centro deve estar na subscrição atual. Mude para a subscrição desejada com o comando`az account set -s [subscription name]`
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [a implementação de módulos para dispositivos IoT Edge](module-deployment-monitoring.md).

@@ -6,13 +6,13 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
-ms.custom: devx-track-java
-ms.openlocfilehash: 64da0e62850433233c00f430b104121adc1979c1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 53e27e4fafaf4468c9c2f4a1ce24ace3d317dada
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021516"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503264"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>Quickstart: Lançar uma aplicação Java Spring utilizando o Azure CLI
 

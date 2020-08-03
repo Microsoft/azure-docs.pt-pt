@@ -6,12 +6,13 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: 95a0459dd21eaf69bf0ee2d8f4cd1482d07313bb
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3fd4bcdd2f80bfd5f79488e7e4c93219be97927c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107929"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503553"
 ---
 # <a name="restart-azure-database-for-postgresql-server-using-powershell"></a>Reinicie a base de dados do Azure para o servidor PostgreSQL utilizando o PowerShell
 
@@ -44,7 +45,7 @@ Reiniciar o servidor com o seguinte comando:
 Restart-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar uma base de dados de Azure para servidor PostgreSQL utilizando PowerShell](quickstart-create-postgresql-server-database-using-azure-powershell.md)

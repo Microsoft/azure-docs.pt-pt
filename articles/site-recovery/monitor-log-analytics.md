@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 047b689b10d03cf92e5cc744aa707b3f70fe77bd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 766d0a763f7d69ec58851116e18510235f39b364
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529035"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495068"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorizar o Site Recovery com os Registos do Azure Monitor
 
@@ -44,14 +44,14 @@ Recomendamos que reveja [questões comuns de monitorização](monitoring-common-
 
 1. No cofre, clique nas **definições de Diagnóstico**  >  **Adicione a definição de diagnóstico**.
 
-    ![Selecione a registo de recursos](./media/monitoring-log-analytics/add-diagnostic.png)
+    ![Screenshot mostrando a opção de definição de diagnóstico Adicionar.](./media/monitoring-log-analytics/add-diagnostic.png)
 
 2. Nas **definições de Diagnóstico**, especifique um nome e verifique a caixa Enviar para Registar **Analytics**.
 3. Selecione a subscrição de Registos do Monitor Azure e o espaço de trabalho Log Analytics.
 4. Selecione **Azure Diagnostics** no toggle.
 5. Na lista de registos, selecione todos os registos com o prefixo **AzureSiteRecovery**. Em seguida, clique em **OK**.
 
-    ![Selecionar área de trabalho](./media/monitoring-log-analytics/select-workspace.png)
+    ![Screenshot do ecrã de definição de Diagnóstico.](./media/monitoring-log-analytics/select-workspace.png)
 
 Os registos de recuperação do local começam a alimentar-se numa tabela **(AzureDiagnostics)** no espaço de trabalho selecionado.
 
@@ -125,7 +125,7 @@ rpoInSeconds_d <= 1800, "15-30Min", ">30Min") 
 | render barchart 
 ```
 
-![Consulta RPO](./media/monitoring-log-analytics/example1.png)
+![Screenshot mostrando um gráfico de barras de VMs Azure replicados com Recuperação de Local.](./media/monitoring-log-analytics/example1.png)
 
 ### <a name="query-site-recovery-jobs"></a>Trabalhos de recuperação de locais de consulta
 
@@ -190,7 +190,7 @@ AzureDiagnostics  
 | project TimeGenerated, name_s , RPO_in_seconds = rpoInSeconds_d   
 | render timechart 
 ```
-![Máquina de consulta RPO](./media/monitoring-log-analytics/example2.png)
+![Screenshot de um gráfico de tendência rastreando o RPO de um VM Azure específico.](./media/monitoring-log-analytics/example2.png)
 
 ### <a name="query-data-change-rate-churn-and-upload-rate-for-an-azure-vm"></a>Taxa de alteração de dados de consulta (churn) e taxa de upload para um VM Azure
 
@@ -207,7 +207,7 @@ Category contains "Upload", "UploadRate", "none") 
 | project TimeGenerated , InstanceWithType , Churn_MBps = todouble(Value_s)/1048576   
 | render timechart  
 ```
-![Alteração de dados de consulta](./media/monitoring-log-analytics/example3.png)
+![screenshot de um gráfico de tendência para um Azure VM específico.](./media/monitoring-log-analytics/example3.png)
 
 ### <a name="query-data-change-rate-churn-and-upload-rate-for-a-vmware-or-physical-machine"></a>Taxa de alteração de dados de consulta (churn) e taxa de upload para um VMware ou máquina física
 
@@ -359,6 +359,6 @@ AzureDiagnostics  
 
 Para o alerta, desa um **valor de limiar** para 1 e **periode** para 1440 minutos, para verificar falhas no último dia.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais sobre](site-recovery-monitor-and-troubleshoot.md) a monitorização incorporada da Recuperação do Local.

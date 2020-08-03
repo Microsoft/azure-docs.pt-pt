@@ -10,12 +10,13 @@ ms.date: 06/11/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: cbdeb1c55af157a0bf5160d2420974fd014ea3b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 01718b4f3d539f77f4496a7914b027335cc45618
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807598"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503281"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Iniciar uma falha na conta de armazenamento
 
@@ -111,7 +112,7 @@ Após o failover, o seu tipo de conta de armazenamento é automaticamente conver
 
 Depois de reativar o GRS para a sua conta de armazenamento, a Microsoft começa a replicar os dados da sua conta para a nova região secundária. O tempo de replicação depende da quantidade de dados que estão a ser replicados.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Recuperação de desastres e falha na conta de armazenamento](storage-disaster-recovery-guidance.md)
 - [Verifique a propriedade da Última Hora do Sincronização para obter uma conta de armazenamento](last-sync-time-get.md)

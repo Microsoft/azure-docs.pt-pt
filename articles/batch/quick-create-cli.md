@@ -1,15 +1,15 @@
 ---
 title: Início Rápido do Azure - Executar Tarefa do Batch - CLI
-description: Aprenda mais rapidamente a executar uma tarefa do Batch com a CLI do Azure. Crie e gerea recursos Azure a partir da linha de comando ou em scripts.
+description: Aprenda mais rapidamente a executar uma tarefa do Batch com a CLI do Azure. Criar e gerir recursos Azure a partir da linha de comando ou em scripts.
 ms.topic: quickstart
 ms.date: 07/03/2018
-ms.custom: mvc
-ms.openlocfilehash: 3ec3ab6cc988ba1d11231a1bda1eec15d6e811c8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 4c56695180f8f07384f31b750cec03f9d14fb9da
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82116337"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504165"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Início Rápido; Executar o seu primeiro trabalho do Batch com a CLI do Azure
 

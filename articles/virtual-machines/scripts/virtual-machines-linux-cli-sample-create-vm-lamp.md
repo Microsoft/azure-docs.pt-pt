@@ -11,14 +11,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 04/05/2017
-ms.openlocfilehash: 471690c5c0f5ebb4cea111b85cab1fe0524a36cd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e71b2f940c637a8b1375be71f9b6ca95fd76628e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509728"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501870"
 ---
 # <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>Implementar a pilha LAMP num conjunto de dimensionamento de máquinas virtuais com balanceamento de carga
 
@@ -59,7 +59,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | [az network public-ip list](/cli/azure/network/public-ip) | Obtém os endereços IP das VMs criadas pelo exemplo. |
 | [az network lb show](/cli/azure/network/lb) | Obtém as portas de front-end e back-end utilizadas pelo balanceador de carga. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

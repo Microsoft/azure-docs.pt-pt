@@ -3,12 +3,12 @@ title: 'Quickstart: Biblioteca de clientes QnA Maker para .NET'
 description: Este quickstart mostra como começar com a biblioteca cliente do QnA Maker para .NET. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas.  O Criador de FAQ permite-lhe incorporar um serviço de perguntas e respostas a partir do seu conteúdo semiestruturado, como documentos de FAQ, URLs e manuais de produtos.
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 06aaf8861a263711ab3d01e6355bc161538a3311
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 0dfabfa1357543e4011412c0a9f63061e8856019
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85114576"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507471"
 ---
 Utilize a biblioteca cliente QnA Maker para .NET para:
 
@@ -109,7 +109,7 @@ Gerencie a sua base de conhecimento enviando um objeto JSON. Para operações im
 
 O cliente QnA Maker de previsão é um objeto [QnAMakerRuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerruntimeclient?view=azure-dotnet) que autentica para Azure usando microsoft.Rest.ServiceClientCredentials, que contém a sua chave de tempo de previsão, devolvida da chamada do cliente autoria, `client.EndpointKeys.GetKeys` após a publicação da base de conhecimento.
 
-Utilize o método [GenerateAnswer](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtimeextensions.generateanswer?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_RuntimeExtensions_GenerateAnswer_Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_IRuntime_System_String_Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_Models_QueryDTO_) para obter uma resposta a partir do tempo de funcionação da consulta.
+Utilize o método [GenerateAnswer](/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtimeextensions) para obter uma resposta a partir do tempo de funcionação da consulta.
 
 ## <a name="code-examples"></a>Exemplos de código
 

@@ -7,12 +7,13 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 56af984ef83d2e237f0aa05af5cfef4dd6205256
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 2d8ad6b90f533161835ab12a43865b177c24c14e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738333"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503587"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Criar e modificar um circuito do ExpressRoute através da CLI
 
@@ -23,7 +24,7 @@ Este artigo descreve como criar um circuito Azure ExpressRoute utilizando a Inte
 > * [Portal do Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [CLI do Azure](howto-circuit-cli.md)
-> * [Modelo Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
+> * [Modelo de gestor de recursos Azure](expressroute-howto-circuit-resource-manager-template.md)
 > * [Vídeo - Portal Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-circuit-classic.md)
 >
@@ -359,7 +360,7 @@ Pode eliminar o seu circuito ExpressRoute executando o seguinte comando:
 az network express-route delete  -n MyCircuit -g ExpressRouteResourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de criar o seu circuito, certifique-se de que faz as seguintes tarefas:
 

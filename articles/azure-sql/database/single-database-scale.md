@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 04/30/2020
-ms.openlocfilehash: 84e9593884f40fce8affce628b7817c528b3c31d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/31/2020
+ms.openlocfilehash: 42a4d1288c7daeb4579e481f0258666d8e2cdbce
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343290"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502992"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Dimensione os recursos de base de dados única na Base de Dados Azure SQL
 
@@ -50,11 +50,12 @@ A alteração do nível de serviço ou do tamanho do cálculo envolve principalm
 
 A latência estimada para alterar o nível de serviço, escalar o tamanho do cálculo de uma única base de dados ou piscina elástica, mover uma base de dados dentro/fora de uma piscina elástica, ou mover uma base de dados entre piscinas elásticas é parametrizada da seguinte forma:
 
-|Camada de serviços|Base de dados única básica,</br>Padrão (S0-S1)|Piscina elástica básica,</br>Standard (S2-S12), </br>Hiperescala, </br>Base de dados única ou piscina elástica para fins gerais|Premium ou Business Critical base de dados única ou piscina elástica|
-|:---|:---|:---|:---|
-|**Base de dados única básica, </br> Standard (S0-S1)**|&bull;&nbsp;Latência do tempo constante independente do espaço utilizado</br>&bull;&nbsp;Tipicamente, menos de 5 minutos|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|
-|**Piscina elástica básica, </br> Standard (S2-S12), </br> Hiperescala, </br> Base de dados única de Propósito Geral ou piscina elástica**|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência do tempo constante independente do espaço utilizado</br>&bull;&nbsp;Tipicamente, menos de 5 minutos|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|
-|**Premium ou Business Critical base de dados única ou piscina elástica**|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|
+|Escalão de serviço|Base de dados única básica,</br>Padrão (S0-S1)|Piscina elástica básica,</br>Standard (S2-S12), </br>Base de dados única ou piscina elástica para fins gerais|Premium ou Business Critical base de dados única ou piscina elástica|Hyperscale
+|:---|:---|:---|:---|:---|
+|**Base de dados única básica, </br> Standard (S0-S1)**|&bull;&nbsp;Latência do tempo constante independente do espaço utilizado</br>&bull;&nbsp;Tipicamente, menos de 5 minutos|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|
+|**Piscina elástica básica, </br> Standard (S2-S12), </br> base de dados única de finalidade geral ou piscina elástica**|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência do tempo constante independente do espaço utilizado</br>&bull;&nbsp;Tipicamente, menos de 5 minutos|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|
+|**Premium ou Business Critical base de dados única ou piscina elástica**|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Tipicamente, menos de 1 minuto por GB de espaço usado|
+|**Hyperscale**|N/D|N/D|N/D|&bull;&nbsp;Latência do tempo constante independente do espaço utilizado</br>&bull;&nbsp;Tipicamente, menos de 2 minutos|
 
 > [!NOTE]
 > Além disso, para as bases de dados Standard (S2-S12) e General Purpose, a latência para mover uma base de dados dentro/para fora de uma piscina elástica ou entre piscinas elásticas será proporcional ao tamanho da base de dados se a base de dados estiver a utilizar o armazenamento de Premium File Share[(PFS).](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)
@@ -152,7 +153,7 @@ Mais de 1 TB de armazenamento no nível Premium está atualmente disponível em 
   - A atualização da base de dados primária numa relação de geo-replicação: Alterar o tamanho máximo para mais de 1 TB numa base de dados primária desencadeia a mesma alteração na base de dados secundária. Ambas as atualizações devem ser bem sucedidas para que a mudança nas primárias produza efeitos. Aplicam-se limitações regionais para a opção de mais de 1-TB. Se o secundário está numa região que não suporta mais de 1 TB, as primárias não são melhoradas.
 - Não é suportado o serviço de importação/exportação para o carregamento de bases de dados P11/P15 com mais de 1 TB. Utilize SqlPackage.exe para [importar](database-import.md) e [exportar](database-export.md) dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para limites globais de recursos, consulte [Azure SQL Database vCore-based resource limits - bases de dados únicas](resource-limits-vcore-single-databases.md) e [limites de recursos baseados em DTU baseados em dados de dados DTU - bases de dados únicas](resource-limits-dtu-single-databases.md).
  

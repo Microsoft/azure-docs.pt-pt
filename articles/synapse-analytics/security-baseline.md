@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ef8c4754afc921eaeb68a84fbd8147f336a4940c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 2cd42d8d4ba1ecabc1b87942536e2ef9a9017b22
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370279"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501955"
 ---
 # <a name="azure-security-baseline-for-synapse-analytics"></a>Linha de base de segurança Azure para Synapse Analytics
 
@@ -584,7 +584,7 @@ Além disso, pode configurar uma política dinâmica de mascaramento de dados (D
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Utilizar o controlo de acesso baseado em funções para controlar o acesso aos recursos
 
-**Orientação**: Utilize o controlo de acesso baseado em funções (RBAC) para gerir o acesso às bases de dados Azure SQL na sua piscina Synapse SQL.
+**Orientação**: Utilize o controlo de acesso baseado em funções Azure (Azure RBAC) para gerir o acesso às bases de dados Azure SQL na sua piscina Synapse SQL.
 
 A autorização é controlada pelos membros da função de base de dados da sua conta de utilizador e permissões de nível de objeto. Como melhor prática, deverá conceder aos utilizadores o mínimo de privilégios necessários.
 
@@ -1014,7 +1014,7 @@ Pré-digitalizar qualquer conteúdo que seja enviado para recursos Azure não co
 
 **Orientação**: As fotos da sua piscina Synapse SQL são tomadas automaticamente ao longo do dia criando pontos de restauração que estão disponíveis durante sete dias. Este período de retenção não pode ser alterado. A piscina SQL suporta um objetivo de oito horas de ponto de recuperação (RPO). Pode restaurar o seu armazém de dados na região primária a partir de qualquer um dos instantâneos tirados nos últimos sete dias. Tenha em atenção que também pode ativar manualmente as imagens, se necessário.
 
-* [Backup e restauro na piscina Azure Synapse SQL](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Backup e restauro na piscina Azure Synapse SQL](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 

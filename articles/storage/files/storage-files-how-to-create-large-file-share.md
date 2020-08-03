@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 427d936353b47e951f8faaf90483691bab856767
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 538cbfea2480573c190a1dd0ee0480e21aecefe2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510734"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502091"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Ativar e criar grandes ações de ficheiros
 
@@ -52,8 +53,8 @@ Permitir grandes ações de ficheiros numa conta é um processo irreversível. D
    |---------|---------|
    |Modelo de implementação     |Resource Manager         |
    |Desempenho     |Standard         |
-   |Tipo de conta     |StorageV2 (general-purpose v2)         |
-   |Escalão de acesso     |Acesso Frequente         |
+   |Tipo de conta     |StorageV2 (fins gerais v2)         |
+   |Camada de acesso     |Frequente         |
 
 1. Selecione **Advanced**e, em seguida, selecione o botão de opção **Ativado** à direita das **grandes partilhas**de ficheiros .
 1. Selecione **Rever + Criar** para rever as definições de conta de armazenamento e criar a conta.
@@ -193,7 +194,7 @@ Set-AzStorageShareQuota -ShareName $shareName -Context $ctx -Quota 102400
 ```
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Conecte e monte uma partilha de ficheiros no Windows](storage-how-to-use-files-windows.md)
 * [Conecte e monte uma partilha de ficheiros no Linux](storage-how-to-use-files-linux.md)

@@ -8,17 +8,17 @@ author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: how-to
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 785054222dc3281b11b5e6abe1b82f67e2fc5ace
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fc64f4b3d338704568cb70a542a82fe58d08d4d9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066657"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502312"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>Criar um balanceador de carga interno com um modelo
 

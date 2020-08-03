@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: 7e1204a8d1006986615b050a413e784a71d9405a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 778a5ecbea48be9f55fc3bfe51a144a2bd8cb86e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526865"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501853"
 ---
 # <a name="quick-create-a-virtual-machine-with-the-azure-cli"></a>Criar Rapidamente uma máquina virtual com a CLI do Azure
 
@@ -52,7 +52,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | [az vm create](/cli/azure/vm) | Cria a máquina virtual e liga-a à placa de rede, à rede virtual, à sub-rede e ao grupo de segurança de rede. Este comando também especifica a imagem de máquina virtual a ser utilizada e as credenciais administrativas.  |
 | [az group delete](/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

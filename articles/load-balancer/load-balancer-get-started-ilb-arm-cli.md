@@ -1,5 +1,5 @@
 ---
-title: Criar um equilibrador de carga interno - Azure CLI
+title: Criar um Balanceador de Carga interno - Azure CLI
 titleSuffix: Azure Load Balancer
 description: Neste artigo, aprenda a criar um equilibrador de carga interno usando O Azure CLI
 services: load-balancer
@@ -8,17 +8,17 @@ author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: how-to
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/02/2020
 ms.author: allensu
-ms.openlocfilehash: 2557ac6f3fb8e9091faad5c9c219db529838495d
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 9a1587efc07cf852fe9389cc9bf39e693373ef89
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921721"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502329"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Criar um balanceador de carga interno para balanceamento de carga de VMs através da CLI do Azure
 
@@ -247,5 +247,5 @@ Quando já não for necessário, pode utilizar o comando [az group delete](/cli/
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, criou um Balanceador de Carga Básico interno, anexou VMs ao mesmo, configurou a regra de tráfego do balanceador de carga, a sonda de estado de funcionamento e, em seguida, testou o balanceador de carga. Para saber mais sobre balanceadores de carga e recursos associados, avance para os artigos de instruções.

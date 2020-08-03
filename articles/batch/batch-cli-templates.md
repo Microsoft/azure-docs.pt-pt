@@ -3,13 +3,13 @@ title: Executar empregos de ponta a ponta usando modelos
 description: Com apenas comandos CLI, pode criar um pool, carregar dados de entrada, criar empregos e tarefas associadas e descarregar os dados de saída resultantes.
 ms.topic: how-to
 ms.date: 12/07/2018
-ms.custom: seodec18
-ms.openlocfilehash: 1029d2e156d219c88100a035f2ed4a51afa6ba36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: e9b4930dee1b28bb4ec71690cbfcef88e0365b9e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83816000"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494932"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Use modelos CLI de lote de Azure e transferência de ficheiros
 
@@ -286,7 +286,7 @@ Atualmente, o suporte de transferência de modelos e ficheiros foi adicionado ap
 
 Experimente a extensão do Lote para o CLI Azure e forneça-nos qualquer feedback ou sugestões, quer nos comentários para este artigo, quer através do [repo da Comunidade de Lote.](https://github.com/Azure/Batch)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Documentação detalhada de instalação e utilização, amostras e código fonte estão disponíveis no [repo Azure GitHub](https://github.com/Azure/azure-batch-cli-extensions).
 

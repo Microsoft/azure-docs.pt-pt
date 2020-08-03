@@ -7,12 +7,13 @@ ms.service: iot-hub
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.author: robinsh
-ms.openlocfilehash: 49c91a2b96ebf02ec87637c3176e9263302184bf
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 35359c63b79d9eea6f8f6ad688bd040428a39eb8
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460937"
+ms.locfileid: "87503451"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Tutorial: Enviar notificações por e-mail sobre eventos do Hub IoT do Azure com o Event Grid e o Logic Apps
 
@@ -249,7 +250,7 @@ Teste a aplicação lógica ao criar um novo dispositivo para acionar um e-mail 
 
 Em vez de utilizar o portal do Azure, pode realizar os passos do Hub IoT com a CLI do Azure. Para mais detalhes, consulte as páginas do Azure CLI para [criar uma subscrição de eventos](/cli/azure/eventgrid/event-subscription) e [criar um dispositivo IoT](/cli/azure/ext/azure-iot/iot/hub/device-identity).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Este tutorial utilizou recursos que incorrem em custos na sua subscrição do Azure. Quando terminar de experimentar o tutorial e testar os seus resultados, desative ou elimine recursos que não quer manter. 
 

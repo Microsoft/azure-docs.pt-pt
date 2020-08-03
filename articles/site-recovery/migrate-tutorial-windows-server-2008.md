@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/27/2020
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c62cb9b64c42446c1f4ba8f6eb496fc792ff59a1
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8d672c1113f265f9fbbabc7caed8df071f548f2a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281281"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503825"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrar servidores com o Windows Server 2008 para o Azure
 
@@ -104,7 +104,7 @@ Execute as seguintes tarefas para preparar a subscrição do Azure e o ambiente 
 5. Selecione uma região do Azure. Para verificar as regiões suportadas, veja a disponibilidade geográfica em [Detalhes dos Preços do Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 6. Para aceder rapidamente ao cofre a partir do dashboard, clique em **Afixar ao dashboard** e clique em **Criar**.
 
-   ![Novo cofre](media/migrate-tutorial-windows-server-2008/migrate-windows-server-2008-vault.png)
+   ![Screenshot mostrando novas opções de criação de cofre.](media/migrate-tutorial-windows-server-2008/migrate-windows-server-2008-vault.png)
 
 O cofre novo é adicionado ao **Dashboard** em **Todos os recursos** e na página principal **Cofres dos Serviços de Recuperação**.
 
@@ -136,15 +136,15 @@ A política é associada automaticamente ao servidor de configuração.
 > [!WARNING]
 > Certifique-se de que especifica **DESATIVADA** na definição Frequência de instantâneo consistente com a aplicação da política de replicação. Apenas os pontos de recuperação consistentes com falhas são suportados ao replicar servidores com o Windows Server 2008. Especificar qualquer outro valor para a frequência instantânea consistente da App resultará em alertas falsos, transformando a saúde de replicação do servidor crítica devido à falta de pontos de recuperação consistentes da App.
 
-   ![Criar política de replicação](media/migrate-tutorial-windows-server-2008/create-policy.png)
+   ![Screenshot mostrando opções de criação de políticas de replicação.](media/migrate-tutorial-windows-server-2008/create-policy.png)
 
 ### <a name="enable-replication"></a>Ativar a replicação
 
 [Ative a replicação](physical-azure-disaster-recovery.md#enable-replication) para que o servidor Windows Server 2008 SP2/Windows Server 2008 R2 SP1 seja migrado.
    
-   ![Adicionar um servidor físico](media/migrate-tutorial-windows-server-2008/Add-physical-server.png)
+   ![Screenshot mostrando opções para adicionar máquinas físicas.](media/migrate-tutorial-windows-server-2008/Add-physical-server.png)
 
-   ![Ativar a replicação](media/migrate-tutorial-windows-server-2008/Enable-replication.png)
+   ![Screenshot mostrando opções para permitir a replicação.](media/migrate-tutorial-windows-server-2008/Enable-replication.png)
 
 ### <a name="run-a-test-migration"></a>Executar uma migração de teste
 
@@ -152,7 +152,7 @@ Pode executar uma ativação pós-falha de teste da replicação de servidores a
 
 Execute uma [ativação pós-falha de teste](tutorial-dr-drill-azure.md) para o Azure para confirmar que está tudo a funcionar conforme o previsto.
 
-   ![Ativação pós-falha de teste](media/migrate-tutorial-windows-server-2008/testfailover.png)
+   ![Screenshot mostrando o comando de falha do teste.](media/migrate-tutorial-windows-server-2008/testfailover.png)
 
 
 ### <a name="migrate-to-azure"></a>Migrar para o Azure
@@ -168,7 +168,7 @@ Execute a ativação pós-falha nos computadores que quer migrar.
     - Termina o processo de migração, para a replicação para o servidor e para a faturação da Recuperação do Local para o serviço.
     - Este passo limpa os dados de replicação. Não apaga os VMs migrados.
 
-   ![Concluir a migração](media/migrate-tutorial-windows-server-2008/complete-migration.png)
+   ![Screenshot mostrando o comando de migração completo.](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 
 
 > [!WARNING]

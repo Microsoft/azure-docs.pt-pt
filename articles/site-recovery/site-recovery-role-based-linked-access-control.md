@@ -6,16 +6,16 @@ ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 877545eb22331e724520102814ec8a00b2c205e5
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a11cd001e33e52f9138d9b302c39e04ee3d984a5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370823"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503536"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Gerir o acesso à recuperação do local com controlo de acesso baseado em funções (RBAC)
 
-O Controlo de Acesso baseado em funções (RBAC) permite uma gestão de acesso de grãos finos para o Azure. Utilizando o RBAC, pode segregar responsabilidades dentro da sua equipa e conceder apenas permissões de acesso específicas aos utilizadores, conforme necessário para realizar trabalhos específicos.
+O controlo de acesso baseado em funções Azure (Azure RBAC) permite uma gestão de acesso de grãos finos para o Azure. Utilizando o RBAC, pode segregar responsabilidades dentro da sua equipa e conceder apenas permissões de acesso específicas aos utilizadores, conforme necessário para realizar trabalhos específicos.
 
 A Azure Site Recovery fornece 3 funções incorporadas para controlar as operações de gestão da Recuperação do Local. Saiba mais sobre [os papéis embutidos no Azure](../role-based-access-control/built-in-roles.md)
 

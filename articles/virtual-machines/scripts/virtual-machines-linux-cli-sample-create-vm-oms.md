@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: 90b8e4273b44b46372f85f05ee48072a5e387a21
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 25ea86fe1f9e479ad12cfd27ca54ffb01a9eee6b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86501471"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503621"
 ---
 # <a name="monitor-a-vm-with-azure-monitor"></a>Monitorize um VM com monitor Azure
 
@@ -53,7 +53,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | [azure vm extension set](/cli/azure/vm/extension) | Executa uma extensão da VM em relação a uma máquina virtual. Neste caso, a extensão do agente Azure Monitor é utilizada para instalar o agente Log Analytics e inscrever o VM num espaço de trabalho log analytics. |
 | [az group delete](/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

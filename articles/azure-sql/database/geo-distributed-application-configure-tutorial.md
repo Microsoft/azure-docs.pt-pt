@@ -4,19 +4,19 @@ description: Aprenda a configurar a sua base de dados na Base de Dados Azure SQL
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: e76ccc83be8f269cb14826b5e3e8873d4c7c427a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 90bfe3f6e8d5ed19380ab2b48aa38e598c3f109a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045030"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501615"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Tutorial: Implementar uma base de dados geo-distribuída (Base de Dados Azure SQL)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

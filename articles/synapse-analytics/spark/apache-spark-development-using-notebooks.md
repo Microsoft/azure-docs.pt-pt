@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: tracking-python
-ms.openlocfilehash: e0b0525035732a54965f7c391ac6041b114d7304
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a7dc0fcae9a6fea789d30bac10511007454ecc5f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045693"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504018"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Criar, desenvolver e manter cadernos do Synapse Studio (pré-visualização) em Azure Synapse Analytics
 
@@ -114,7 +114,7 @@ Os cadernos do Azure Synapse Studio estão integrados com o editor do Mónaco pa
 
 As características do IntelliSense estão em diferentes níveis de maturidade para diferentes línguas. Use a tabela abaixo para ver o que é suportado.
 
-|Idiomas| Destaque de sintaxe | Marcador de erro de sintaxe  | Conclusão do Código sintaxe | Conclusão do código variável| Conclusão do código de função do sistema| Conclusão do código de função do utilizador| Avanço Inteligente | Dobragem de código|
+|Linguagens| Destaque de sintaxe | Marcador de erro de sintaxe  | Conclusão do Código sintaxe | Conclusão do código variável| Conclusão do código de função do sistema| Conclusão do código de função do utilizador| Avanço Inteligente | Dobragem de código|
 |--|--|--|--|--|--|--|--|--|
 |PySpark (Python)|Sim|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Faísca (Scala)|Sim|Sim|Sim|Sim|-|-|-|Sim|
@@ -191,6 +191,10 @@ Para aceder ao menu adicional de ações celulares na extrema-direita, selecione
    ![células de execução acima ou abaixo](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
 
 
+### <a name="cancel-all-running-cells"></a>Cancelar todas as células de execução
+Clique no botão **Cancelar Todos** para cancelar as células de funcionamento ou as células que aguardam na fila. 
+   ![cancelar todas as células](./media/apache-spark-development-using-notebooks/synapse-cancel-all.png) 
+
 ### <a name="cell-status-indicator"></a>Indicador de estado celular
 
 Um estado de execução de células passo a passo é exibido sob a célula para ajudá-lo a ver o seu progresso atual. Uma vez concluída a execução da célula, é apresentado um resumo de execução com a duração total e o tempo final e mantidos lá para referência futura.
@@ -200,6 +204,7 @@ Um estado de execução de células passo a passo é exibido sob a célula para 
 ### <a name="spark-progress-indicator"></a>Indicador de progresso de faísca
 
 O caderno do Estúdio Azure Synapse é puramente baseado em Faíscas. As células de código são executadas na piscina Spark remotamente. Um indicador de progresso de emprego spark é fornecido com uma barra de progresso em tempo real parece ajudá-lo a entender o estado de execução do trabalho.
+O número de tarefas por cada trabalho ou etapa ajuda-o a identificar o nível paralelo do seu trabalho de faísca. Também pode perfurar mais profundamente a UI de uma tarefa específica (ou estágio) clicando no link no nome de trabalho (ou estágio).
 
 
 ![indicador de faísca-progresso](./media/apache-spark-development-using-notebooks/synapse-spark-progress-indicator.png)
@@ -208,7 +213,11 @@ O caderno do Estúdio Azure Synapse é puramente baseado em Faíscas. As célula
 
 Pode especificar a duração do tempo limite, o número e o tamanho dos executores para dar à atual sessão de Faísca na **sessão de Configuração**. Reiniciar a sessão Spark destina-se a alterações de configuração a produzir efeito. Todas as variáveis de cadernos em cache estão limpas.
 
-![sessão-mgmt](./media/apache-spark-development-using-notebooks/synapse-spark-session-mgmt.png)
+[![gestão de sessão](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png#lightbox)
+
+Um recomendador de sessão de faíscas agora disponível no painel config da sessão de faíscas. Pode selecionar um pool de faíscas diretamente do painel de configuração da sessão e ver quantos nós estão a usar e quantos executores restantes estão disponíveis. Estas informações podem ajudá-lo a definir o tamanho da sessão adequadamente, em vez de modificá-lo para trás e para a frente.
+
+![sessão-recomendar](./media/apache-spark-development-using-notebooks/synapse-spark-session-recommender.png)
 
 
 ## <a name="bring-data-to-a-notebook"></a>Levar dados a um caderno
@@ -264,15 +273,25 @@ Pode aceder diretamente aos dados na conta de armazenamento primário. Não há 
 
 ## <a name="visualize-data-in-a-notebook"></a>Visualizar dados num caderno
 
-### <a name="display"></a>Exibição()
+### <a name="produce-rendered-table-view"></a>Produzir vista de mesa renderizada
 
 Uma vista de resultados tabulares é fornecida com a opção de criar um gráfico de barras, gráfico de linha, gráfico de tortas, gráfico de dispersão e gráfico de área. Pode visualizar os seus dados sem ter de escrever código. Os gráficos podem ser personalizados nas **Opções de Gráfico.** 
 
-A saída de comandos mágicos **%%sql** aparece na vista de mesa renderizada por padrão. Pode chamar **o display `<DataFrame name>` ** em DataFrames de Faísca ou na função Conjuntos de Dados Distribuídos Resilientes (RDD) para produzir a vista de tabela renderizada.
+A saída de comandos mágicos **%%sql** aparece na vista de mesa renderizada por padrão. Pode recorrer <code>display(df)</code> à função Spark DataFrames ou Resilient Distributed Datasets (RDD) para produzir a vista de tabela renderizada.
 
-   ![builtin-charts](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)
+   [![builtin-charts](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png#lightbox)
 
-### <a name="displayhtml"></a>DisplayHTML()
+### <a name="visualize-built-in-charts-from-large-scale-dataset"></a>Visualizar gráficos incorporados a partir de conjuntos de dados em larga escala 
+
+Por predefinição, a <code>display(df)</code> função só levará as primeiras 1000 linhas dos dados para render as tabelas. Verifique a **agregação sobre todos os resultados** e clique em **Aplicar** o botão, aplicará a geração de gráficos a partir de todo o conjunto de dados. Uma faísca será ativada quando a definição do gráfico mudar, demora um pouco a concluir o cálculo e a renderizar o gráfico. 
+    [![builtin-charts-agregação-todos](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png#lightbox)
+
+
+### <a name="visualize-data-statistic-information"></a>Visualizar informações estatísticas de dados
+Pode utilizar <code>display(df, summary = true)</code> para verificar o resumo estatístico de um dado DataFrame de faísca que inclua o nome da coluna, tipo de coluna, valores únicos e valores em falta para cada coluna. Também pode selecionar em coluna específica para ver o seu valor mínimo, valor máximo, valor médio e desvio padrão.
+    [![builtin-charts-resumo ](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png#lightbox)
+
+### <a name="render-html-or-interactive-libraries"></a>Renderização DE HTML ou bibliotecas interativas
 
 Pode renderizar bibliotecas HTML ou interativas, como **o bokeh,** utilizando o **displayHTML()**.
 
@@ -332,9 +351,36 @@ Nas propriedades do portátil, pode configurar se deve incluir a saída da célu
 ## <a name="magic-commands"></a>Comandos mágicos
 Você pode usar seus comandos mágicos Jupyter familiares em cadernos do Estúdio Azure Synapse. Consulte a lista abaixo como os comandos mágicos disponíveis atuais. Diga-nos os seus casos de uso no GitHub para que possamos continuar a construir mais comandos mágicos para satisfazer as suas necessidades.
 
-Magias de linha disponíveis: [%lsmagic,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic) [%time,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time) [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
+Magias de linha disponíveis: [%lsmagic,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic) [%time,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time) [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
 
 Magias celulares disponíveis: [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture) [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark,](#use-multiple-languages) [%%spark,](#use-multiple-languages) [%%csharp](#use-multiple-languages)
+
+
+## <a name="orchestrate-notebook"></a>Caderno orquestrado
+
+### <a name="add-a-notebook-to-a-pipeline"></a>Adicione um caderno a um oleoduto
+
+Clique no botão **adicionar ao gasoduto** no canto superior direito para adicionar um caderno a um gasoduto existente ou criar um novo gasoduto.
+
+![adicionar ao gasoduto](./media/apache-spark-development-using-notebooks/add-to-pipeline.png)
+
+### <a name="designate-a-parameters-cell"></a>Designar uma célula de parâmetros
+
+Para parametrizar o seu caderno selecione as elipses (...) para aceder ao menu adicional de ações celulares na extrema-direita. Em seguida, selecione **a célula de parâmetros Toggle** para designar a célula como célula de parâmetros.
+
+![parâmetro de alternância](./media/apache-spark-development-using-notebooks/toggle-parameter-cell.png)
+
+A Azure Data Factory procura a célula de parâmetros e trata esta célula como padrão para os parâmetros passados no tempo de execução. O motor de execução adicionará uma nova célula sob a célula de parâmetros com parâmetros de entrada, a fim de substituir os valores predefinidos. Quando não houver parâmetros, a célula injetada será inserida na parte superior do caderno.
+
+### <a name="assign-parameters-values-from-a-pipeline"></a>Atribuir valores de parâmetros a partir de um oleoduto
+
+Uma vez criado um caderno com parâmetros, pode executá-lo a partir de um oleoduto com a atividade do Caderno Azure Synapse. Depois de adicionar a atividade à sua tela de pipeline, poderá definir os valores dos parâmetros na secção **parâmetros Base** no **separador Definições.** 
+
+![atribuir parâmetro](./media/apache-spark-development-using-notebooks/assign-parameter.png)
+
+Ao atribuir valores de parâmetros, pode utilizar a linguagem de expressão do [gasoduto](../../data-factory/control-flow-expression-language-functions.md) ou [as variáveis do sistema](../../data-factory/control-flow-system-variables.md).
+
+
 
 ## <a name="shortcut-keys"></a>Chaves de atalho
 
@@ -389,8 +435,8 @@ Utilizando os seguintes atalhos de teclas, pode navegar e executar código mais 
 |Dedent|Ctrl +|
 |Mudar para o modo de comando| Esc |
 
-## <a name="next-steps"></a>Próximos passos
-
+## <a name="next-steps"></a>Passos seguintes
+- [Confira os cadernos da amostra da Sinapse](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
 - [Quickstart: Criar uma piscina Apache Spark (pré-visualização) em Azure Synapse Analytics usando ferramentas web](../quickstart-apache-spark-notebook.md)
 - [O que é Apache Spark em Azure Synapse Analytics](apache-spark-overview.md)
 - [Utilize .NET para Apache Spark com Azure Synapse Analytics](spark-dotnet.md)

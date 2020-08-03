@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 04/24/2020
-ms.openlocfilehash: dc690e29129f5be68456e6a9dc075ba72f11b121
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a013dd875fc5a97e5e2e619553cdeb8c6d729298
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318237"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502635"
 ---
 # <a name="payout-summaries"></a>Resumos de dividendos
 
 O resumo do Payout mostra-lhe detalhes sobre o dinheiro que ganhou com a Microsoft. Também lhe permite saber quando receberá pagamentos e quanto será pago.
 
-Se vender produtos no Azure Marketplace, também verá informações sobre pagamentos bem-sucedidos no resumo do Payout. Para mais detalhes, consulte [as políticas de participação do Microsoft Azure Marketplace e](https://docs.microsoft.com/legal/marketplace/participation-policy) o Microsoft [Azure Marketplace Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt).
+Se vender produtos no Azure Marketplace, também verá informações sobre pagamentos bem-sucedidos no resumo do Payout. Para mais detalhes, consulte [as políticas de participação do Microsoft Azure Marketplace e](https://docs.microsoft.com/legal/marketplace/participation-policy) o Microsoft [Azure Marketplace Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 > [!NOTE]
 > Para ser elegível para pagamento, as suas receitas devem atingir o limiar de [pagamento](payment-thresholds-methods-timeframes.md) de $50. Para mais detalhes sobre o limiar de pagamento consulte esta página e reveja o acordo de desenvolvedor de aplicações.
@@ -43,7 +43,7 @@ Para exportar qualquer um dos dados de transação nesta página, utilize a pág
 
 ## <a name="payments-page"></a>Página de pagamentos
 
-Os totais desta página representam todos os programas em que participa. Pode filtrar por ID do Participante, Programa, ID de pagamento e tipo de Ganho. Os montantes são dados em dólares americanos. O valor pago também é apresentado em pagamento à moeda.
+Os totais desta página representam todos os programas em que participa. Pode filtrar por ID do Participante, Programa, ID de Pagamento e Tipo de ganhos. Os montantes estão em dólares americanos. O valor pago também é apresentado no pagamento na moeda.
 
 | Área                   | Descrição                                                                                |
 |------------------------|---------------------------------------------------------------------------------------------|

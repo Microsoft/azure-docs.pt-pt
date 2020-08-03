@@ -6,12 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 4/28/2020
-ms.openlocfilehash: 28dd9296eb0b2b2a014de9aeccf82baad5ef6e2c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d355e7557ff38c52872a89941025d33d01bd92d8
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112566"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503315"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mysql-server-using-powershell"></a>Armazenamento de crescimento automático em Azure Database para servidor MySQL usando PowerShell
 
@@ -50,7 +51,7 @@ $Password = Read-Host -Prompt 'Please enter your password' -AsSecureString
 New-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup -Sku GP_Gen5_2 -StorageAutogrow Enabled -Location westus -AdministratorUsername myadmin -AdministratorLoginPassword $Password
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Como criar e gerir réplicas de leitura na Base de Dados Azure para o MySQL utilizando o PowerShell](howto-read-replicas-powershell.md).

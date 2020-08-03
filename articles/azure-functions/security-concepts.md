@@ -3,12 +3,12 @@ title: Assegurar funções de Azure
 description: Saiba como tornar o seu código de função em funcionamento em Azure mais seguro de ataques comuns.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: bdb012c3f379b1e0314364f79ccc4aa49eba4bd3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e0c5036681aace103ea69d1e9cc73e96dc30821f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079694"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502686"
 ---
 # <a name="securing-azure-functions"></a>Assegurar funções de Azure
 
@@ -83,7 +83,7 @@ Como em qualquer aplicação ou serviço, o objetivo é executar a sua app de fu
 
 #### <a name="user-management-permissions"></a>Permissões de gestão de utilizadores
 
-As funções suportam o controlo de acesso baseado em [funções incorporada em Azure (RBAC)](../role-based-access-control/overview.md). As funções do RBAC suportadas por Funções são [Contribuinte,](../role-based-access-control/built-in-roles.md#contributor) [Proprietário](../role-based-access-control/built-in-roles.md#owner)e [Leitor.](../role-based-access-control/built-in-roles.md#owner) 
+As funções suportam o controlo de acesso baseado em [funções incorporada (Azure RBAC)](../role-based-access-control/overview.md). As funções azure suportadas por Funções são [Contribuinte,](../role-based-access-control/built-in-roles.md#contributor) [Proprietário](../role-based-access-control/built-in-roles.md#owner)e [Leitor.](../role-based-access-control/built-in-roles.md#owner) 
 
 As permissões são eficazes ao nível da aplicação de função. A função colaboradora é necessária para executar a maioria das tarefas de nível de aplicação de funções. Apenas a função Proprietário pode eliminar uma aplicação de função. 
 
@@ -207,4 +207,3 @@ Os serviços gateway, tais como [Azure Application Gateway](../application-gatew
 
 + [Linha de Base de Segurança Azure para Funções Azure](security-baseline.md)
 + [Diagnóstico de funções Azure](functions-diagnostics.md)
-        

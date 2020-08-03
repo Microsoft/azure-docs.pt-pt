@@ -7,12 +7,13 @@ ms.date: 03/08/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.openlocfilehash: 95a999f38104e0bb3cfd6a510bd8f9e3d5440562
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 70a0620369792c1aaf2c11867fd468f42d6bb9ef
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521093"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494694"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrar o Key Vault no Azure Private Link
 
@@ -157,7 +158,7 @@ Existem quatro estados de provisionamento:
 
 | Prestação de serviços | Estado de ponto final privado do consumidor de serviço | Descrição |
 |--|--|--|
-| Nenhum | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário do recurso Private Link. |
+| Nenhuma | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário do recurso Private Link. |
 | Aprovar | Aprovado | A ligação foi aprovada automaticamente ou manualmente e está pronta a ser utilizada. |
 | Rejeitar | Rejeitado | A ligação foi rejeitada pelo proprietário de recursos de ligação privada. |
 | Remover | Desligado | A ligação foi removida pelo proprietário do recurso de ligação privada, o ponto final privado torna-se informativo e deve ser eliminado para limpeza. |
@@ -233,6 +234,38 @@ Address:  10.1.0.5 (private IP address)
 Aliases:  <your-key-vault-name>.vault.azure.net
           <your-key-vault-name>.privatelink.vaultcore.azure.net
 ```
+
+## <a name="troubleshooting-guide"></a>Guia de Resolução de Problemas
+
+* Verifique se o ponto final privado está no estado aprovado. 
+    1. Pode verificar e corrigir isto no portal Azure. Abra o recurso Key Vault e clique na opção De Networking. 
+    2. Em seguida, selecione o separador de ligações de ponto final privado. 
+    3. Certifique-se de que o estado de ligação é aprovado e que o estado de provisionamento é bem sucedido. 
+    4. Você também pode navegar para o recurso de ponto final privado e rever as mesmas propriedades lá, e verificar duas vezes que a rede virtual corresponde à que você está usando.
+
+* Verifique se tem um recurso privado da Zona DNS. 
+    1. Você deve ter um recurso privado dns Zone com o nome exato: privatelink.vaultcore.azure.net. 
+    2. Para aprender a configurar isto, consulte o seguinte link. [Zonas privadas de DNS](https://docs.microsoft.com/azure/dns/private-dns-privatednszone)
+    
+* Verifique se a Zona Privada de DNS não está ligada à Rede Virtual. Este pode ser o problema se ainda estiver a receber o endereço IP público devolvido. 
+    1. Se o DNS da Zona Privada não estiver ligado à rede virtual, a consulta DNS originária da rede virtual devolverá o endereço IP público do cofre-chave. 
+    2. Navegue para o recurso Private DNS Zone no portal Azure e clique na opção de links de rede virtual. 
+    4. A rede virtual que irá executar chamadas para o cofre-chave deve estar listada. 
+    5. Se não estiver lá, adicione. 
+    6. Para etapas detalhadas, consulte o seguinte documento [Link Virtual Network to Private DNS Zone](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network)
+
+* Verifique se a Zona Privada de DNS não está a perder um registo A para o cofre da chave. 
+    1. Navegue para a página Privada dns Zone. 
+    2. Clique em Overview e verifique se existe um registo A com o nome simples do seu cofre de chaves (isto é, fabrikam). Não especifique qualquer sufixo.
+    3. Certifique-se de verificar a ortografia e criar ou fixar o registo A. Pode utilizar um TTL de 3600 (1 hora). 
+    4. Certifique-se de que especifica o endereço IP privado correto. 
+    
+* Verifique se o registo A tem o endereço IP correto. 
+    1. Pode confirmar o endereço IP abrindo o recurso Private Endpoint no portal Azure 
+    2. Navegue para o recurso Microsoft.Network/privateEndpoints, no portal Azure (não o recurso Key Vault)
+    3. Na página geral procure a interface da Rede e clique nesse link. 
+    4. O link mostrará a visão geral do recurso NIC, que contém o endereço IP privado da propriedade. 
+    5. Verifique se este é o endereço IP correto especificado no registo A.
 
 ## <a name="limitations-and-design-considerations"></a>Limitações e Considerações de Design
 

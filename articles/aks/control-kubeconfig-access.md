@@ -4,12 +4,12 @@ description: Saiba como controlar o acesso ao ficheiro de configuração Kuberne
 services: container-service
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: 4d25babd13bb8ecdcd8c9eb60a976a05702fb9b6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5ed2f74d9de30b5fbdeaeb38316831db0777a0d6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255273"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501632"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Utilize controlos de acesso baseados em funções Azure para definir o acesso ao ficheiro de configuração Kubernetes no Serviço Azure Kubernetes (AKS)
 
@@ -27,7 +27,7 @@ Este artigo também requer que esteja a executar a versão Azure CLI 2.0.65 ou p
 
 Quando interage com um cluster AKS utilizando a `kubectl` ferramenta, é utilizado um ficheiro de configuração que define informações de ligação do cluster. Este ficheiro de configuração é normalmente armazenado em *~/.kube/config*. Vários clusters podem ser definidos neste ficheiro *kubeconfig.* Alterna entre clusters utilizando o comando [de contexto de utilização de config kubectl.][kubectl-config-use-context]
 
-O comando [az aks get-credentials permite-lhe][az-aks-get-credentials] obter as credenciais de acesso para um cluster AKS e fundi-los no ficheiro *kubeconfig.* Você pode usar os controlos de acesso baseados em funções (RBAC) para controlar o acesso a estas credenciais. Estes papéis de Azure RBAC permitem definir quem pode recuperar o ficheiro *kubeconfig,* e que permissões têm dentro do cluster.
+O comando [az aks get-credentials permite-lhe][az-aks-get-credentials] obter as credenciais de acesso para um cluster AKS e fundi-los no ficheiro *kubeconfig.* Você pode usar os controlos de acesso baseados em funções (RBAC) para controlar o acesso a estas credenciais. Estes papéis de Azure permitem definir quem pode recuperar o ficheiro *kubeconfig,* e que permissões têm dentro do cluster.
 
 Os dois papéis embutidos são:
 

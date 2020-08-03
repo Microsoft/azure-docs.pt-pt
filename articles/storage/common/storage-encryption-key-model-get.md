@@ -10,12 +10,13 @@ ms.date: 03/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 7f16902a779fdb7c86fb7506711d2bce77ca9d05
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 5e3dba072179b57576b387bdabd624372988e975
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809230"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495034"
 ---
 # <a name="determine-which-azure-storage-encryption-key-model-is-in-use-for-the-storage-account"></a>Determinar qual o modelo chave de encriptação de armazenamento Azure está a ser utilizado para a conta de armazenamento
 
@@ -75,7 +76,7 @@ Se o valor da propriedade **keySource** `Microsoft.Storage` for, então a conta 
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Azure Storage encryption for data at rest](storage-service-encryption.md) (Encriptação do Armazenamento do Azure para dados inativos)
 - [Utilize chaves geridas pelo cliente com cofre de chaves Azure para gerir a encriptação de armazenamento Azure](encryption-customer-managed-keys.md)

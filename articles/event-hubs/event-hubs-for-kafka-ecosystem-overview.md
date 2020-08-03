@@ -3,12 +3,12 @@ title: Use o centro de eventos da aplicação Apache Kafka - Azure Event Hubs ! 
 description: Este artigo fornece informações sobre o suporte da Apache Kafka pela Azure Event Hubs.
 ms.topic: article
 ms.date: 07/20/2020
-ms.openlocfilehash: 6dad797f6769e9804cce7d47ed74794fdddcfb0b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 94e0993c192cb735d6a4f0f3f7ec484c830902e9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002483"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501598"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Use hubs de eventos Azure a partir de aplicações Apache Kafka
 O Event Hubs fornece um ponto final kafka que pode ser usado pelas suas aplicações existentes baseadas em Kafka como uma alternativa para executar o seu próprio cluster Kafka. O Event Hubs suporta [o protocolo Apache Kafka 1.0 e mais tarde,](https://kafka.apache.org/documentation/)e trabalha com as aplicações kafka existentes, incluindo o MirrorMaker.  
@@ -65,6 +65,9 @@ security.protocol=SASL_SSL
 sasl.mechanism=PLAIN
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 ```
+
+> [!NOTE]
+> Ao utilizar a autenticação SAS com clientes Kafka, as ligações estabelecidas não são desligadas quando a tecla SAS é regenerada. 
 
 #### <a name="samples"></a>Amostras 
 Para um **tutorial** com instruções passo a passo para criar um centro de eventos e acessá-lo usando SAS ou OAuth, consulte [Quickstart: Streaming de dados com Centros de Eventos utilizando o protocolo Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md).

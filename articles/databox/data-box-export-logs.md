@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 0ef3135f572b00176ff2a114fd02db82c7a05bca
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1d924e96cfc287060107f541e44980295eb24745
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258402"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494490"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Rastreio e registo de eventos para a sua Caixa de Dados Azure e Caixa de Dados Azure Encomendas de exportação pesadas
 
@@ -34,7 +34,7 @@ O quadro seguinte mostra um resumo das etapas da encomenda de exportação da Ca
 
 ## <a name="set-up-access-control-on-the-order"></a>Configurar o controlo de acesso na ordem
 
-Pode controlar quem pode aceder à sua encomenda quando a encomenda é criada pela primeira vez. Configurar funções de Controlo de Acesso baseados em funções (RBAC) em vários âmbitos para controlar o acesso à ordem Caixa de Dados. Uma função RBAC determina o tipo de acesso – ler- escrever, ler, ler-escrever para um subconjunto de operações.
+Pode controlar quem pode aceder à sua encomenda quando a encomenda é criada pela primeira vez. Configurar funções Azure em vários âmbitos para controlar o acesso à ordem Caixa de Dados. Uma função Azure determina o tipo de acesso – ler- escrever, ler, ler para um subconjunto de operações.
 
 As duas funções que podem ser definidas para o serviço Azure Data Box são:
 
@@ -306,7 +306,3 @@ BOM Files Path       : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [resolver problemas na sua Caixa de Dados e Caixa de Dados Pesada](data-box-troubleshoot.md).
-
-
-
-

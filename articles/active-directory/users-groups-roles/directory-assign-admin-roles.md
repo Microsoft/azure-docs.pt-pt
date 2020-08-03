@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f87f732fbfff23e71096a89a7c04c65d1bd7959
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: a88e30e85402f60489839b0a34b5a793fd7192df
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432336"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502482"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -392,7 +392,7 @@ Os utilizadores com esta função podem definir ou redefinir credenciais de não
 
 ### <a name="privileged-role-administrator"></a>[Administrador privilegiado](#privileged-role-administrator-permissions)
 
-Os utilizadores com esta função podem gerir atribuições de funções no Azure Ative Directory, bem como dentro da Azure AD Privileged Identity Management. Além disso, esta função permite a gestão de todos os aspetos da Gestão de Identidade Privilegiada e das unidades administrativas.
+Os utilizadores com esta função podem gerir atribuições de funções no Azure Ative Directory, bem como dentro da Azure AD Privileged Identity Management. Podem criar e gerir grupos que podem ser atribuídos a funções AZure AD. Além disso, esta função permite a gestão de todos os aspetos da Gestão de Identidade Privilegiada e das unidades administrativas.
 
 > [!IMPORTANT]
 > Esta função confere a capacidade de gerir atribuições para todas as funções de AD Azure, incluindo o papel de Administrador Global. Esta função não inclui quaisquer outras habilidades privilegiadas no AD Azure, como criar ou atualizar utilizadores. No entanto, os utilizadores destacados para esta função podem conceder a si mesmos ou a outros privilégios adicionais atribuindo funções adicionais.
@@ -748,6 +748,9 @@ Pode gerir todos os aspetos dos serviços Azure AD e Microsoft que utilizam iden
 | microsoft.diretório/directórioRoleTemplates/allProperties/allTasks | Crie e elimine os DirectóriosRoleTemplates e leia e atualize todas as propriedades no Diretório Ativo Azure. |
 | microsoft.diretório/domínios/allProperties/allTasks | Criar e eliminar domínios e ler e atualizar todas as propriedades no Diretório Ativo Azure. |
 | microsoft.diretório/grupos/allProperties/allTasks | Criar e eliminar grupos e ler e atualizar todas as propriedades no Diretório Ativo Azure. |
+| microsoft.diretório/gruposAssignableToRoles/allProperties/update | Atualizar grupos com propriedade IsAssignableToRole definida para ser verdadeira no Azure Ative Directory. |
+| microsoft.diretório/gruposAssignableToRoles/create | Criar grupos com propriedade isAssignableToRole definida para verdade no Azure Ative Directory. |
+| microsoft.diretório/gruposAssignableToRoles/delete | Eliminar grupos com propriedade isAssignableToRole definida para ser verdadeira no Azure Ative Directory. |
 | microsoft.diretório/grupoSettings/allProperties/allTasks | Criar e eliminar gruposSettings e ler e atualizar todas as propriedades no Azure Ative Directory. |
 | microsoft.diretório/grupoSettingTemplates/allProperties/allTasks | Criar e eliminar grupoSettingTemplates e ler e atualizar todas as propriedades no Azure Ative Directory. |
 | microsoft.diretório/loginTenantBranding/allProperties/allTasks | Crie e elimine o loginTenantBranding e leia e atualize todas as propriedades no Azure Ative Directory. |
@@ -1582,7 +1585,10 @@ Pode gerir atribuições de funções em AD Azure, e todos os aspetos da Gestão
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| microsoft.aad.privilegedIdentityManagement/allEntities/allTasks | Crie e elimine todos os recursos e leia e atualize propriedades padrão em microsoft.aad.privilegedIdentityManagement. |
+| microsoft.diretório/gruposAssignableToRoles/allProperties/update | Atualizar grupos com propriedade IsAssignableToRole definida para ser verdadeira no Azure Ative Directory. |
+| microsoft.diretório/gruposAssignableToRoles/create | Criar grupos com propriedade isAssignableToRole definida para verdade no Azure Ative Directory. |
+| microsoft.diretório/gruposAssignableToRoles/delete | Eliminar grupos com propriedade isAssignableToRole definida para ser verdadeira no Azure Ative Directory. |
+| microsoft.diretório/privilegiadoIdinsmanagement/allEntities/allTasks | Crie e elimine todos os recursos e leia e atualize propriedades padrão em microsoft.aad.privilegedIdentityManagement. |
 | microsoft.diretório/serviçoPrincipals/appRoleAssignedTo/allTasks | Ler e configurar serviçoPrincipals.appRoleAssignedTo propriedade em Azure Ative Directory. |
 | microsoft.diretório/serviçoPrincipals/oAuth2PermissionGrants/allTasks | Ler e configurar serviçoPrincipals.oAuth2PermissionS property in Azure Ative Directory. |
 | microsoft.diretório/administrativoSIns/allProperties/allTasks | Criar e gerir unidades administrativas (incluindo membros) |
@@ -1972,7 +1978,7 @@ Utilizador restrito de hóspedes | Não mostrado porque não pode ser usado | ND
 Utilizador | Não mostrado porque não pode ser usado | ND
 Aderir ao dispositivo de trabalho | Preterido | [Documentação de papéis precotados](directory-assign-admin-roles.md#deprecated-roles)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre como atribuir um utilizador como administrador de uma subscrição do Azure, consulte [Gerir o acesso utilizando funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 * Para saber mais sobre como o acesso a recursos é controlado no Microsoft Azure, consulte [Compreender as diferentes funções](../../role-based-access-control/rbac-and-directory-admin-roles.md)

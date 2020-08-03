@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 624b8e18f8c0fb523c27c41ce9c10af93c8b6190
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 865263d22d6f92dec74ef2820e80481e1a308804
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446673"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494558"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerir o ciclo de vida do Armazenamento de Blobs do Azure
 
@@ -30,17 +30,11 @@ Considere um cenário em que os dados tenham acesso frequente durante as fases i
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="storage-account-support"></a>Suporte à conta de armazenamento
+## <a name="availability-and-pricing"></a>Disponibilidade e preços
 
-A política de gestão do ciclo de vida está disponível com contas de Finalidade Geral v2 (GPv2), contas de armazenamento Blob e contas de armazenamento Premium Block Blob. No portal Azure, pode atualizar uma conta de Final geral (GPv1) existente para uma conta GPv2. Para obter mais informações sobre contas de armazenamento, consulte [a visão geral da conta de armazenamento Azure](../common/storage-account-overview.md).  
-
-## <a name="pricing"></a>Preços
+A funcionalidade de gestão do ciclo de vida está disponível em todas as regiões Azure para as contas de Fins Gerais v2 (GPv2), contas de armazenamento Blob e contas de armazenamento Premium Block Blob. No portal Azure, pode atualizar uma conta de Final geral (GPv1) existente para uma conta GPv2. Para obter mais informações sobre contas de armazenamento, consulte [a visão geral da conta de armazenamento Azure](../common/storage-account-overview.md).  
 
 A função de gestão do ciclo de vida é gratuita. Os clientes são cobrados o custo regular de operação para as chamadas [API de Nível Blob.](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) A operação de eliminação é gratuita. Para obter mais informações sobre preços, consulte [os preços do Block Blob](https://azure.microsoft.com/pricing/details/storage/blobs/).
-
-## <a name="regional-availability"></a>Disponibilidade regional
-
-A funcionalidade de gestão do ciclo de vida está disponível em todas as regiões do Azure.
 
 ## <a name="add-or-remove-a-policy"></a>Adicionar ou remover uma política
 
@@ -232,9 +226,9 @@ Uma política é uma coleção de regras:
 
 Cada regra dentro da política tem vários parâmetros:
 
-| Nome do parâmetro | Tipo de parâmetro | Notas | Obrigatório |
+| Nome do parâmetro | Tipo de parâmetro | Notas | Necessário |
 |----------------|----------------|-------|----------|
-| `name`         | Cadeia |Um nome de regra pode incluir até 256 caracteres alfanuméricos. O nome da regra é sensível a casos.  Deve ser único dentro de uma política. | Verdadeiro |
+| `name`         | String |Um nome de regra pode incluir até 256 caracteres alfanuméricos. O nome da regra é sensível a casos.  Deve ser único dentro de uma política. | Verdadeiro |
 | `enabled`      | Booleano | Um boolean opcional para permitir que uma regra seja temporariamente desativada. O valor predefinido é verdadeiro se não estiver definido. | Falso | 
 | `type`         | Um valor enum | O tipo válido atual é `Lifecycle` . | Verdadeiro |
 | `definition`   | Um objeto que define a regra do ciclo de vida | Cada definição é composta por um conjunto de filtros e um conjunto de ação. | Verdadeiro |
@@ -297,7 +291,7 @@ Os filtros incluem:
 | blobIndexMatch | Uma matriz de valores dicionários que consistem na chave de etiqueta do Índice Blob e condições de valor a combinar. Cada regra pode definir até 10 condições de etiqueta de índice blob. Por exemplo, se quiser combinar todas as bolhas com `Project = Contoso` uma `https://myaccount.blob.core.windows.net/` regra, o blobIndexMatch é `{"name": "Project","op": "==","value": "Contoso"}` . | Se não definir blobIndexMatch, a regra aplica-se a todas as bolhas dentro da conta de armazenamento. | Não |
 
 > [!NOTE]
-> O Blob Index está em pré-visualização pública, e está disponível nas regiões **centro** e francesa da **França Sul.** Para saber mais sobre esta funcionalidade juntamente com questões e limitações conhecidas, consulte [Gerir e encontrar dados sobre o Armazenamento de Blob Azure blob com Índice blob (Preview)](storage-manage-find-blobs.md).
+> O Blob Index está em pré-visualização pública, e está disponível nas regiões central do **Canadá,** **Canadá Oriental,** **France Central**e **França Sul.** Para saber mais sobre esta funcionalidade juntamente com questões e limitações conhecidas, consulte [Gerir e encontrar dados sobre o Armazenamento de Blob Azure blob com Índice blob (Preview)](storage-manage-find-blobs.md).
 
 ### <a name="rule-actions"></a>Ações de regra
 

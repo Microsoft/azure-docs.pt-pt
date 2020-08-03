@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/15/2020
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 7aad1eb10018445150fb5cf3ac01b97480da674b
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: c043cfb6cf437ab55cc4a48ced716798738adbef
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226376"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507466"
 ---
 Se se deparar com problemas ao realizar qualquer operação em galerias de imagens partilhadas, definições de imagens e versões de imagens, execute o comando de falha novamente no modo de depuração. O modo Debug é ativado passando o `--debug` interruptor com CLI e o `-Debug` interruptor com PowerShell. Assim que localizar o erro, siga este documento para resolver os erros.
 
@@ -76,7 +76,7 @@ Causas possíveis:
 
 *O utilizador que tenta criar um conjunto de escala de VM ou de máquina virtual não tem acesso à versão de imagem.*
 
-Contacte o proprietário da subscrição e peça-lhes que dêem acesso à versão de imagem ou aos recursos dos pais (como a galeria de imagens partilhada ou a definição de imagem) através [do Controlo de Acesso Baseado em Fun](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
+Contacte o proprietário da subscrição e peça-lhes que dêem acesso à versão de imagem ou aos recursos-mãe (como a galeria de imagens partilhada ou a definição de imagem) através do [controlo de acesso baseado em funções Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
 
 *A versão de imagem não é encontrada.*
 
@@ -97,6 +97,3 @@ Utilize a bandeira **replicationStatus** de expansão para verificar se a replic
 ## <a name="azure-limits-and-quotas"></a>Limites e quotas do Azure 
 
 [Limites e quotas azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) aplicam-se a todos os recursos de galeria de imagens partilhadas, definição de imagem e versão de imagem. Certifique-se de que está dentro dos limites das suas subscrições. 
-
-
-

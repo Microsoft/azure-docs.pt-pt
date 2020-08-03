@@ -5,43 +5,45 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 3035bd71a91f7cad6fb951d74081b77d8445a81f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 64b3bf87df7d0b10f8a69e8303010f64b3e68f79
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133888"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507668"
 ---
 ### <a name="functional-limits"></a>Limites funcionais
 
 A tabela abaixo lista os limites funcionais de Azure Digital Twins na pré-visualização atual.
 
-| Área | Capacidade | Limite predefinido | Ajustável? |
+| Área | Funcionalidade | Limite predefinido | Ajustável? |
 | --- | --- | --- | --- |
-| Recurso do Azure | Número de casos de Gémeos Digitais Azure numa região, por subscrição | 10 | Yes |
-| Gémeos digitais | Número de gémeos num caso de Gémeos Digitais Azure | 200,000 | Yes |
-| Encaminhamento | Número de pontos finais para uma única instância Azure Digital Twins | 6 | No |
-| Encaminhamento | Número de rotas para uma única instância Azure Digital Twins | 6 | Yes |
-| Modelos | Número de modelos dentro de uma única instância Azure Digital Twins | 10,000 | Yes |
-| Modelos | Número de modelos que podem ser carregados numa única chamada API | 250 | No |
-| Modelos | Número de itens devolvidos numa única página | 100 | No |
-| Consulta | Número de itens devolvidos numa única página | 100 | No |
+| Recurso do Azure | Número de casos de Gémeos Digitais Azure numa região, por subscrição | 10 | Sim |
+| Digital Twins | Número de gémeos num caso de Gémeos Digitais Azure | 200,000 | Sim |
+| Digital Twins | Número de relações recebidas com um único gémeo | 5000 | Não |
+| Digital Twins | Número de relações de saída de um único gémeo | 5000 | Não |
+| Encaminhamento | Número de pontos finais para uma única instância Azure Digital Twins | 6 | Não |
+| Encaminhamento | Número de rotas para uma única instância Azure Digital Twins | 6 | Sim |
+| Modelos | Número de modelos dentro de uma única instância Azure Digital Twins | 10,000 | Sim |
+| Modelos | Número de modelos que podem ser carregados numa única chamada API | 250 | Não |
+| Modelos | Número de itens devolvidos numa única página | 100 | Não |
+| Consulta | Número de itens devolvidos numa única página | 100 | Não |
 | Consulta | Número de `AND`  /  `OR` expressões numa consulta | 50 | Sim |
 | Consulta | Número de itens de matriz numa `IN`  /  `NOT IN` cláusula | 50 | Sim |
 | Consulta | Número de caracteres numa consulta | 8,000 | Sim |
-| Consulta | Número de `JOINS` numa consulta | 1 | Yes |
+| Consulta | Número de `JOINS` numa consulta | 1 | Sim |
 
 ### <a name="rate-limits"></a>Limites de taxa
 
 Esta tabela reflete os limites de taxa de diferentes APIs.
 
-| API | Capacidade | Limite predefinido | Ajustável? |
+| API | Funcionalidade | Limite predefinido | Ajustável? |
 | --- | --- | --- | --- |
-| Modelos API | Número de pedidos por segundo | 100 | Yes |
-| API de Gémeos Digitais | Número de pedidos por segundo | 1,000 | Yes |
-| API de Consulta | Número de pedidos por segundo | 500 | Yes |
-| API de Consulta | Unidades de consulta por segundo | 4000 | Yes |
-| Rotas do Evento API | Número de pedidos por segundo | 100 | Yes |
+| Modelos API | Número de pedidos por segundo | 100 | Sim |
+| API de Gémeos Digitais | Número de pedidos por segundo | 1,000 | Sim |
+| API de Consulta | Número de pedidos por segundo | 500 | Sim |
+| API de Consulta | Unidades de consulta por segundo | 4000 | Sim |
+| Rotas do Evento API | Número de pedidos por segundo | 100 | Sim |
 
 ### <a name="other-limits"></a>Outros limites
 

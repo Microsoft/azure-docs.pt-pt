@@ -1,25 +1,25 @@
 ---
-title: 'Azure CLI: Backup uma base de dados em Azure SQL Database'
-description: Roteiro de exemplo Azure CLI para fazer backup de uma base de dados única Azure SQL para um recipiente de armazenamento Azure
+title: 'Azure CLI: Cópia de segurança de uma base de dados na Base de Dados Azure SQL'
+description: Azure CLI exemplo script para backup de uma base de dados única Azure SQL para um recipiente de armazenamento Azure
 services: sql-database
 ms.service: sql-database
-ms.custom: ''
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
-ms.openlocfilehash: 605b2690f85ea8c800e6485b0eb998b795ea9d10
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 33ac44f4910c858dd4d5cfc9d4288ce4970f7f4c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022714"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501989"
 ---
 # <a name="use-cli-to-backup-an-azure-sql-single-database-to-an-azure-storage-container"></a>Utilize o CLI para fazer backup de uma base de dados única Azure SQL para um recipiente de armazenamento Azure
 
-Este exemplo Azure CLI apoia uma base de dados na Base de Dados SQL para um recipiente de armazenamento Azure.  
+Este exemplo do Azure CLI confirma uma base de dados na Base de Dados SQL para um recipiente de armazenamento Azure.  
 
 Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
@@ -41,7 +41,7 @@ az account set -s $subscription # ...or use 'az login'
 
 ### <a name="clean-up-deployment"></a>Limpar a implementação
 
-Utilize o seguinte comando para remover o grupo de recursos e todos os recursos associados ao mesmo.
+Utilize o seguinte comando para remover o grupo de recursos e todos os recursos que lhe estão associados.
 
 ```azurecli-interactive
 az group delete --name $resource
@@ -56,7 +56,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [az sql server](/cli/azure/sql/server) | Comandos do servidor. |
 | [az sql db](/cli/azure/sql/db) | Comandos de base de dados. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

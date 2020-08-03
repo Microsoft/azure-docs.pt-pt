@@ -6,12 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/24/2020
-ms.openlocfilehash: 1a26f3c1b57fd750cbb59f32ddc8bd0ea85293ca
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 568f49565c6e6d8062f8869566cf3879b7c97eaa
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112770"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503332"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-cli"></a>Configurar e aceder a registos de auditoria no CLI do Azure
 
@@ -55,6 +56,6 @@ Ativar e configurar o registo de auditoria utilizando os seguintes passos:
     az mysql server configuration set --name audit_log_include_users --resource-group myresourcegroup --server mydemoserver --value "sampleuser"
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [os registos de auditoria](concepts-audit-logs.md) na Base de Dados Azure para o MySQL
 - Saiba como configurar registos de auditoria no [portal Azure](howto-configure-audit-logs-portal.md)

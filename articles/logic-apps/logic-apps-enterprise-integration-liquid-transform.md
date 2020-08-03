@@ -1,25 +1,32 @@
 ---
-title: Converter dados JSON com transformações líquidas
-description: Crie transformações ou mapas para transformações avançadas de JSON usando Apps lógicas e modelo líquido
+title: Converter JSON e XML com modelos líquidos
+description: Transforme json e XML usando modelos líquidos como mapas em Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 04/01/2020
-ms.openlocfilehash: d2598dfe9d7972dcb764abf4a1239613a1e8417a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/31/2020
+ms.openlocfilehash: 5aa6b3717925146607f3785ad5ea5fb940e8c236
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80879178"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503410"
 ---
-# <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Realizar transformações JSON avançadas com modelos Liquid no Azure Logic Apps
+# <a name="transform-json-and-xml-using-liquid-templates-as-maps-in-azure-logic-apps"></a>Transforme JSON e XML usando modelos líquidos como mapas em Azure Logic Apps
 
-Pode realizar transformações JSON básicas nas suas aplicações lógicas com ações de operação de **dados nativos como Compose** ou **Parse JSON.** Para realizar transformações avançadas de JSON, você pode criar modelos ou mapas com [Liquid](https://shopify.github.io/liquid/), que é uma linguagem de modelo de código aberto para aplicações web flexíveis. Um modelo Liquid define como transformar a saída JSON e suporta transformações JSON mais complexas, tais como iterações, fluxos de controlo, variáveis e assim por diante.
+Quando pretende realizar transformações JSON básicas nas suas aplicações lógicas, pode utilizar [operações](../logic-apps/logic-apps-perform-data-operations.md) de **dados nativos como Compose** ou **Parse JSON.** Para transformações avançadas e complexas de JSON para JSON que tenham elementos como iterações, fluxos de controlo e variáveis, crie e use modelos que descrevam essas transformações utilizando a linguagem de modelo de código aberto [líquido.](https://shopify.github.io/liquid/) Também pode [realizar outras transformações](#other-transformations), por exemplo, JSON para texto, XML para JSON e XML para texto.
 
-Antes de realizar uma transformação líquida na sua aplicação lógica, tem primeiro de definir o mapeamento JSON para JSON com um modelo Liquid e armazenar esse mapa na sua conta de integração. Este artigo mostra-lhe como criar e usar este modelo ou mapa líquido.
+Antes de poder realizar uma transformação líquida na sua aplicação lógica, tem primeiro de criar um modelo Liquid que defina o mapeamento que deseja. Em seguida, [faça o upload do modelo como um mapa](../logic-apps/logic-apps-enterprise-integration-maps.md) na sua conta de [integração.](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) Quando adicionar o **Transform JSON a JSON - Ação líquida** à sua aplicação lógica, pode selecionar o modelo Liquid como o mapa para a ação a utilizar.
+
+Este artigo mostra-lhe como completar estas tarefas:
+
+* Crie um modelo líquido.
+* Adicione o modelo à sua conta de integração.
+* Adicione a ação de transformação de Líquido à sua aplicação lógica.
+* Selecione o modelo como o mapa que pretende utilizar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -27,20 +34,22 @@ Antes de realizar uma transformação líquida na sua aplicação lógica, tem p
 
 * Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Uma conta de [integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) básica
+* Uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
 * Conhecimento básico sobre [a linguagem do modelo líquido](https://shopify.github.io/liquid/)
 
-## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Crie o modelo líquido ou o mapa para a sua conta de integração
+  > [!NOTE]
+  > A **ação Transform JSON to JSON - Liquid** segue a implementação do [DotLiquid para Líquido,](https://github.com/dotliquid/dotliquid)que difere em casos específicos da [implementação shopify para líquido.](https://shopify.github.io/liquid) Para obter mais informações, consulte [considerações do modelo liquido](#template-considerations).
 
-1. Para este exemplo, crie o modelo líquido de amostra descrito neste passo. No seu modelo Liquid, pode utilizar [filtros Líquidos,](https://shopify.github.io/liquid/basics/introduction/#filters)que utilizam convenções de nomeação [DotLiquid](https://github.com/dotliquid/dotliquid) e C#.
+## <a name="create-the-template"></a>Criar o modelo
 
-   > [!NOTE]
-   > Certifique-se de que os nomes do filtro usam *o invólucro da frase* no seu modelo. Caso contrário, os filtros não funcionam. Além disso, os mapas têm [limites de tamanho de ficheiro.](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits)
+1. Crie o modelo Liquid que utiliza como mapa para a transformação do JSON. Pode utilizar qualquer ferramenta de edição que queira.
+
+   Para este exemplo, crie o modelo líquido de amostra, conforme descrito nesta secção:
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
-   
+
    {
       "fullName": "{{content.firstName | Append: ' ' | Append: content.lastName}}",
       "firstNameUpperCase": "{{content.firstName | Upcase}}",
@@ -52,12 +61,18 @@ Antes de realizar uma transformação líquida na sua aplicação lógica, tem p
             {%- else -%}
             "{{device}}",
             {%- endif -%}
-        {%- endfor -%}
-        ]
+         {%- endfor -%}
+      ]
    }
    ```
 
-1. No [portal Azure,](https://portal.azure.com)a partir da caixa de pesquisa Azure, insira `integration accounts` e selecione **contas de Integração**.
+1. Guarde o gabarito utilizando a `.liquid` extensão. Este exemplo `SimpleJsonToJsonTemplate.liquid` utiliza.
+
+## <a name="upload-the-template"></a>Faça upload do modelo
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais da sua conta do Azure.
+
+1. Na caixa de pesquisa do portal Azure, insira `integration accounts` e selecione **contas de Integração**.
 
    ![Encontrar "Contas de integração"](./media/logic-apps-enterprise-integration-liquid-transform/find-integration-accounts.png)
 
@@ -71,16 +86,16 @@ Antes de realizar uma transformação líquida na sua aplicação lógica, tem p
 
 1. No painel **Maps,** **selecione Adicionar** e fornecer estes detalhes para o seu mapa:
 
-   | Propriedade | Valor | Descrição | 
+   | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
-   | **Nome** | `JsonToJsonTemplate` | O nome para o seu mapa, que é "JsonToJsonTemplate" neste exemplo | 
-   | **Tipo de mapa** | **líquido** | O tipo para o seu mapa. Para a transformação JSON para JSON, deve selecionar **líquido**. | 
+   | **Nome** | `JsonToJsonTemplate` | O nome para o seu mapa, que é "JsonToJsonTemplate" neste exemplo |
+   | **Tipo de mapa** | **líquido** | O tipo para o seu mapa. Para a transformação JSON para JSON, deve selecionar **líquido**. |
    | **Mapa** | `SimpleJsonToJsonTemplate.liquid` | Um modelo líquido existente ou um ficheiro de mapa para usar para a transformação, que é "SimpleJsonToJsonTemplate.liquid" neste exemplo. Para encontrar este ficheiro, pode utilizar o selecionador de ficheiros. Para limites de tamanho do mapa, consulte [limites e configuração](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits). |
-   ||| 
+   |||
 
    ![Adicionar modelo de líquido](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)
-    
-## <a name="add-the-liquid-action-for-json-transformation"></a>Adicione a ação líquida para a transformação JSON
+
+## <a name="add-the-liquid-transformation-action"></a>Adicione a ação de transformação líquida
 
 1. No portal Azure, siga estes passos para [criar uma aplicação lógica em branco.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -117,51 +132,119 @@ Antes de realizar uma transformação líquida na sua aplicação lógica, tem p
 
 ## <a name="test-your-logic-app"></a>Teste o seu aplicativo de lógica
 
-Publique a entrada JSON na sua aplicação lógica do [Carteiro](https://www.getpostman.com/postman) ou numa ferramenta semelhante. A saída JSON transformada da sua aplicação lógica parece este exemplo:
-  
+Ao utilizar [o Carteiro](https://www.getpostman.com/postman) ou uma ferramenta semelhante, publique a entrada JSON na sua aplicação lógica. A saída JSON transformada da sua aplicação lógica parece este exemplo:
+
 ![Saída de exemplo](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
 
-## <a name="more-liquid-action-examples"></a>Mais exemplos de ação líquida
-O líquido não se limita apenas às transformações JSON. Aqui estão outras ações de transformação disponíveis que usam o Liquid.
+<a name="template-considerations"></a>
 
-* Transformar JSON em texto
-  
-  Aqui está o modelo líquido usado para este exemplo:
-   
-   ``` json
-   {{content.firstName | Append: ' ' | Append: content.lastName}}
-   ```
-   Aqui estão as entradas e saídas da amostra:
-  
-   ![Exemplo de saída JSON para texto](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
+## <a name="liquid-template-considerations"></a>Considerações do modelo líquido
 
-* Transformar XML em JSON
-  
-  Aqui está o modelo líquido usado para este exemplo:
-   
-   ``` json
-   [{% JSONArrayFor item in content -%}
-        {{item}}
-    {% endJSONArrayFor -%}]
-   ```
-   Aqui estão as entradas e saídas da amostra:
+* Os modelos líquidos seguem os limites do tamanho do [ficheiro para mapas](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits) em Azure Logic Apps.
 
-   ![Saída de exemplo XML para JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
+* A **ação Transform JSON to JSON - Liquid** segue a [implementação do DotLiquid para Liquid.](https://github.com/dotliquid/dotliquid) Esta implementação é um porto para o Quadro .NET da [implementação do Shopify para Líquido](https://shopify.github.io/liquid/) e difere em [casos específicos](https://github.com/dotliquid/dotliquid/issues).
 
-* Transformar XML em texto
-  
-  Aqui está o modelo líquido usado para este exemplo:
+  Aqui estão as diferenças conhecidas:
 
-   ``` json
-   {{content.firstName | Append: ' ' | Append: content.lastName}}
-   ```
+  * O **Transform JSON para JSON - Ação líquida** produz de forma nativa uma cadeia, que pode incluir JSON, XML, HTML, e assim por diante. A ação liquida apenas indica que a saída de texto esperada do modelo Liquid é uma cadeia JSON. A ação instrui a sua aplicação lógica para analisar a entrada como um objeto JSON e aplica um invólucro para que o Liquid possa interpretar a estrutura JSON. Após a transformação, a ação instrui a sua aplicação lógica para analisar a saída de texto de Liquid de volta para JSON.
 
-   Aqui estão as entradas e saídas da amostra:
+    DotLiquid não compreende de forma nativa json, por isso certifique-se de que escapa do personagem de backslash `\` () e de quaisquer outros caracteres JSON reservados.
 
-   ![Exemplo de saída XML para texto](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
+  * Se o seu modelo utilizar [filtros Líquidos,](https://shopify.github.io/liquid/basics/introduction/#filters)certifique-se de que segue as [convenções de nomeação DotLiquid e C#](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers#filter-and-output-casing), que utilizam *o invólucro da frase*. Para todas as transformações líquidas, certifique-se de que os nomes dos filtros no seu modelo também usam o invólucro da frase. Caso contrário, os filtros não funcionam.
 
-## <a name="next-steps"></a>Próximos passos
+    Por exemplo, quando utilizar o `replace` filtro, `Replace` use, não `replace` . A mesma regra aplica-se se experimentar exemplos no [DotLiquid online](http://dotliquidmarkup.org/try-online). Para obter mais informações, consulte [os filtros Shopify Liquid](https://shopify.dev/docs/themes/liquid/reference/filters) e [os filtros DotLiquid Liquid](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Developers#create-your-own-filters). A especificação Shopify inclui exemplos para cada filtro, para comparação, pode experimentar estes exemplos no [DotLiquid - Tente online.](https://dotliquidmarkup.org/try-online)
 
-* [Saiba mais sobre o Pacote de Integração Empresarial](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Pacote de Integração Empresarial")  
-* [Saiba mais sobre mapas](../logic-apps/logic-apps-enterprise-integration-maps.md "Conheça os mapas de integração empresarial")  
+  * O `json` filtro dos filtros de extensão Shopify não é [atualmente implementado no DotLiquid](https://github.com/dotliquid/dotliquid/issues/384). Normalmente, pode utilizar este filtro para preparar a saída de texto para a análise das cordas JSON, mas em vez disso, tem de utilizar o `Replace` filtro.
 
+  * O filtro padrão `Replace` na implementação do [DotLiquid](https://github.com/dotliquid/dotliquid/blob/b6a7d992bf47e7d7dcec36fb402f2e0d70819388/src/DotLiquid/StandardFilters.cs#L425) utiliza [a correspondência de expressão regular (RegEx),](/dotnet/standard/base-types/regular-expression-language-quick-reference)enquanto a [implementação do Shopify](https://shopify.github.io/liquid/filters/replace/) utiliza [uma simples correspondência de cordas](https://github.com/Shopify/liquid/issues/202). Ambas as implementações parecem funcionar da mesma forma até que utilize um personagem reservado ao RegEx ou um personagem de fuga no parâmetro da correspondência.
+
+    Por exemplo, para escapar ao backslash reservado regEx ( `\` ) escape character, use `| Replace: '\\', '\\'` , e não `| Replace: '\', '\\'` . Estes exemplos mostram como o `Replace` filtro se comporta de forma diferente quando se tenta escapar ao carácter de retrocesso. Enquanto esta versão funciona com sucesso:
+
+    `{ "SampleText": "{{ 'The quick brown fox "jumped" over the sleeping dog\\' | Replace: '\\', '\\' | Replace: '"', '\"'}}"}`
+
+    Com este resultado:
+
+    `{ "SampleText": "The quick brown fox \"jumped\" over the sleeping dog\\\\"}`
+
+    Esta versão falha:
+
+    `{ "SampleText": "{{ 'The quick brown fox "jumped" over the sleeping dog\\' | Replace: '\', '\\' | Replace: '"', '\"'}}"}`
+
+    Com este erro:
+
+    `{ "SampleText": "Liquid error: parsing "\" - Illegal \ at end of pattern."}`
+
+    Para obter mais informações, consulte [Substituir o filtro padrão utiliza padrão RegEx correspondente...](https://github.com/dotliquid/dotliquid/issues/385).
+
+  * O `Sort` filtro na implementação do [DotLiquid](https://github.com/dotliquid/dotliquid/blob/b6a7d992bf47e7d7dcec36fb402f2e0d70819388/src/DotLiquid/StandardFilters.cs#L326) classifica itens numa matriz ou recolha por propriedade, mas com estas diferenças:<p>
+
+    * Segue o [comportamento sort_natural do Shopify,](https://shopify.github.io/liquid/filters/sort_natural/)não [o comportamento do Shopify.](https://shopify.github.io/liquid/filters/sort/)
+
+    * Classifica apenas em ordem alfanumérica de cordas. Para mais informações, consulte [o tipo numérico.](https://github.com/Shopify/liquid/issues/980)
+
+    * Usa ordem *insensível a caso,* não ordem sensível a casos. Para obter mais informações, consulte [O filtro Sort não segue o comportamento do invólucro a partir da especificação do Shopify]( https://github.com/dotliquid/dotliquid/issues/393).
+
+<a name="other-transformations"></a>
+
+## <a name="other-transformations-using-liquid"></a>Outras transformações usando o Líquido
+
+O líquido não se limita apenas às transformações da JSON. Também pode utilizar o Liquid para realizar outras transformações, por exemplo:
+
+* [JSON para texto](#json-text)
+* [XML para JSON](#xml-json)
+* [XML para texto](#xml-text)
+
+<a name="json-text"></a>
+
+### <a name="transform-json-to-text"></a>Transformar JSON em texto
+
+Aqui está o modelo líquido que é usado para este exemplo:
+
+```json
+{{content.firstName | Append: ' ' | Append: content.lastName}}
+```
+
+Aqui estão as entradas e saídas da amostra:
+
+![Exemplo de saída JSON para texto](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
+
+<a name="xml-json"></a>
+
+### <a name="transform-xml-to-json"></a>Transformar XML em JSON
+
+Aqui está o modelo líquido que é usado para este exemplo:
+
+``` json
+[{% JSONArrayFor item in content -%}
+      {{item}}
+  {% endJSONArrayFor -%}]
+```
+
+O `JSONArrayFor` loop é um mecanismo de loop personalizado para a entrada XML para que possa criar cargas JSON que evitem uma vírgula. Além disso, a `where` condição para este mecanismo de looping personalizado usa o nome do elemento XML para comparação, em vez do valor do elemento como outros filtros Líquidos. Para obter mais informações, consulte [Deep Dive on set-body Policy - Collections of Things](https://azure.microsoft.com/blog/deep-dive-on-set-body-policy).
+
+Aqui estão as entradas e saídas da amostra:
+
+![Saída de exemplo XML para JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
+
+<a name="xml-text"></a>
+
+### <a name="transform-xml-to-text"></a>Transformar XML em texto
+
+Aqui está o modelo líquido que é usado para este exemplo:
+
+``` json
+{{content.firstName | Append: ' ' | Append: content.lastName}}
+```
+
+Aqui estão as entradas e saídas da amostra:
+
+![Exemplo de saída XML para texto](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
+
+## <a name="next-steps"></a>Passos seguintes
+
+* [Shopify Linguagem líquida e exemplos](https://shopify.github.io/liquid/basics/introduction/)
+* [DotLiquid](http://dotliquidmarkup.org/)
+* [DotLiquid - Tente online](https://dotliquidmarkup.org/try-online)
+* [DotLiquid GitHub](https://github.com/dotliquid/dotliquid)
+* [Questões do DotLiquid GitHub](https://github.com/dotliquid/dotliquid/issues/)
+* Saiba mais sobre [mapas](../logic-apps/logic-apps-enterprise-integration-maps.md)

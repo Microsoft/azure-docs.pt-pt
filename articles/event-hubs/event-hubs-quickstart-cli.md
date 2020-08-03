@@ -4,12 +4,13 @@ description: Este início rápido descreve como criar um hub de eventos com a CL
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 90828a09b925fd3af774b22db3102094c1dd0c6d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: acdeb1e176be1676bd531eca33faf1e0e18f3ecd
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537161"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502346"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-cli"></a>Início Rápido: Criar um hub de eventos com a CLI do Azure
 
@@ -66,7 +67,7 @@ az eventhubs eventhub create --name <event hub name> --resource-group <resource 
 
 Parabéns! Utilizou a CLI do Azure para criar um espaço de nomes dos Hubs de Eventos e um hub de eventos nesse espaço de nomes. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, criou um grupo de recursos, um espaço de nomes de Hubs de Eventos e um hub de eventos. Para instruções passo a passo para enviar eventos para (ou) receber eventos de um centro de eventos, consulte os tutoriais **de Envio e receber eventos:** 
 

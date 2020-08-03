@@ -4,15 +4,15 @@ description: Descreve fontes de dados e conectores suportados para modelos de da
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dc25c853a37de5c310d37e7ee64c6f762283cb0a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 72a1a37bf240355e6bc87cbfd62b0dc2d25ce68b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077444"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503604"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Data sources supported in Azure Analysis Services (Origens de dados suportadas no Azure Analysis Services)
 
@@ -80,7 +80,7 @@ As fontes de dados e conectores mostrados no Get Data ou no Table Import Wizard 
 <a name="tab1400b">6</a> - Tabular 1400 e apenas modelos mais altos.  
 <a name="sqlim">7</a> - Quando especificado como fonte de dados *do fornecedor* em modelos tabulares 1200 e mais altos, especifique o Controlador DB do Microsoft OLE para o SQL Server MSOLEDBSQL (recomendado), o SQL Server Native Client 11.0 ou .NET Framework Data Provider para o SQL Server.  
 <a name="instgw">8</a> - Se especificar o MSOLEDBSQL como fornecedor de dados, poderá ser necessário descarregar e instalar o [Controlador DB do Microsoft OLE para](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server) o SQL Server no mesmo computador que o gateway de dados no local.  
-<a name="oracle">9</a> - Para modelos tabulares 1200, ou como fonte de dados *do fornecedor* nos modelos tabulares de 1400+ especifique o Oracle Data Provider para .NET.  
+<a name="oracle">9</a> - Para modelos tabulares 1200, ou como fonte de dados *do fornecedor* nos modelos tabulares de 1400+ especifique o Oracle Data Provider para .NET. Se especificado como uma fonte de dados estruturada, certifique-se de que permite o [fornecedor gerido pela Oracle](#enable-oracle-managed-provider).   
 <a name="teradata">10</a> - Para modelos tabulares 1200, ou como fonte de dados *do fornecedor* nos modelos tabulares de 1400+ especifique o Fornecedor de Dados teradata para .NET.  
 <a name="filesSP">11</a> - Os ficheiros nas instalações do SharePoint não são suportados.
 
@@ -124,7 +124,44 @@ Para modelos tabulares no nível de compatibilidade 1400 e mais elevado utilizan
 
 O modo de consulta direta não é suportado com credenciais OAuth.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="enable-oracle-managed-provider"></a>Ativar o fornecedor gerido pela Oracle
+
+Em alguns casos, as consultas do DAX a uma fonte de dados da Oracle podem devolver resultados inesperados. Isto pode ser devido ao facto de o fornecedor ser utilizado para a ligação à fonte de dados.
+
+Conforme descrito na secção [de fornecedores de Compreensão,](#understanding-providers) os modelos tabulares conectam-se a fontes de dados como uma fonte de dados *estruturada* ou uma fonte de dados *do fornecedor.* Para modelos com uma fonte de dados da Oracle especificada como fonte de dados do fornecedor, certifique-se de que o fornecedor especificado é o Oracle Data Provider for.NET (Oracle.DataAccess.Client). 
+
+Se a fonte de dados da Oracle for especificada como uma fonte de dados estruturada, ative a propriedade do servidor **MDataEngine\UseManagedOracleProvider.** A definição desta propriedade garante que o seu modelo se conecta à fonte de dados da Oracle utilizando o fornecedor de dados oracle recomendado para o fornecedor gerido .NET.
+ 
+Para ativar o fornecedor gerido pela Oracle:
+
+1. No SQL Server Management Studio, ligue-se ao seu servidor.
+2. Crie uma consulta XMLA com o seguinte script. Substitua **o Nome do Servidor** pelo nome completo do servidor e, em seguida, execute a consulta.
+
+    ```xml
+    <Alter AllowCreate="true" ObjectExpansion="ObjectProperties" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+        <Object />
+        <ObjectDefinition>
+            <Server xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" 
+    xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" 
+    xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" 
+    xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500">
+                <ID>ServerName</ID>
+                <Name>ServerName</Name>
+                <ServerProperties>
+                    <ServerProperty>
+                        <Name>MDataEngine\UseManagedOracleProvider</Name>
+                        <Value>1</Value>
+                    </ServerProperty>
+                </ServerProperties>
+            </Server>
+        </ObjectDefinition>
+    </Alter>
+    ```
+
+3. Reinicie o servidor.
+
+
+## <a name="next-steps"></a>Passos seguintes
 
 * [Porta de entrada no local](analysis-services-gateway.md)
 * [Gerencie o seu servidor](analysis-services-manage.md)

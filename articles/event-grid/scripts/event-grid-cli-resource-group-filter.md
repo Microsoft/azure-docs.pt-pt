@@ -4,12 +4,13 @@ description: Este artigo fornece uma amostra de script Azure CLI que mostra como
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 07/08/2020
-ms.openlocfilehash: 0d8287100eb4a16572fd5fbd764549b62a284c93
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 1d3887a98f0a53e0f04932c257aa7bb822cadc76
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460869"
+ms.locfileid: "87494116"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-and-filter-for-a-resource-with-azure-cli"></a>Subscrever eventos de um grupo de recursos e filtrar um recurso com a CLI
 

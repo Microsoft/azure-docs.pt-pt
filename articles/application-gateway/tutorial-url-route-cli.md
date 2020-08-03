@@ -7,13 +7,13 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 08/01/2019
 ms.author: victorh
-ms.custom: mvc
-ms.openlocfilehash: fc32dd5c477a76a20bc3a641ec8761e95c129554
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 34553c1b211b9e2c4b13a083f5c3a6732fb65472
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805895"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502703"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Rota tráfego web com base no URL usando o Azure CLI
 
@@ -264,6 +264,6 @@ Quando já não forem precisos, remova o grupo de recursos, o gateway de aplica�
 az group delete --name myResourceGroupAG
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar um gateway de aplicação com o redirecionamento com base no caminho do URL](./tutorial-url-redirect-cli.md)

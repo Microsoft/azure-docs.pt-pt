@@ -1,5 +1,5 @@
 ---
-title: VMs de balanço de carga dentro de uma zona - Azure CLI
+title: VMs de equilíbrio de carga dentro de uma zona - Azure CLI
 description: Este exemplo de script de CLI do Azure mostra como realizar o balanceamento de carga de tráfego para VMs para uma zona de disponibilidade específica
 services: load-balancer
 documentationcenter: load-balancer
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/14/2018
 ms.author: allensu
-ms.openlocfilehash: 0ae159b57a89b4238d52d178d59cb79b452e0411
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 45da5cbef570b2a65959878aad47d0ef6eb3b8f4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79214546"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501734"
 ---
 # <a name="azure-cli-script-example-load-balance-traffic-to-vms-within-a-specific-availability-zone"></a>Exemplo de script do Azure CLI: Carregar o tráfego de equilíbrio para VMs dentro de uma zona de disponibilidade específica
 

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: cshoe
-ms.openlocfilehash: d035ef4bc90410cbf0899c038047dd5e6a001f10
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 3e38fae84f63f4867befbc3695242dc62dc8dbe8
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87462363"
+ms.locfileid: "87502652"
 ---
 # <a name="shifting-from-expressjs-to-azure-functions"></a>Passando de Express.js para Funções Azure
 
@@ -24,7 +24,7 @@ Ao migrar o código para uma arquitetura sem servidor, a refacagem Express.js po
 
 - **Rota predefinida**: Por predefinição, os pontos finais das funções Azure são expostos ao abrigo da `api` rota. As regras de encaminhamento são configuráveis através [ `routePrefix` dohost.js_em_ ficheiro](./functions-bindings-http-webhook-output.md#hostjson-settings).
 
-- **Configuração e convenções**: Uma aplicação de funções utiliza o _function.jsem_ ficheiro para definir verbos HTTP, definir políticas de segurança e pode configurar a entrada e saída da [função](./functions-triggers-bindings.md). Por predefinição, o nome da pasta que contém os ficheiros de função define o nome do ponto final, mas pode alterar o nome através da propriedade da rota no [function.jsno](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint) ficheiro.
+- **Configuração e convenções**: Uma aplicação de funções utiliza o _function.jsem_ ficheiro para definir verbos HTTP, definir políticas de segurança e pode configurar a entrada e saída da [função](./functions-triggers-bindings.md). Por predefinição, o nome da pasta que contém os ficheiros de função define o nome do ponto final, mas pode alterar o nome através da `route` propriedade nofunction.js[no](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint) ficheiro.
 
 > [!TIP]
 > Saiba mais através do Node.js de refactor tutorial interativo [e APIs expressos para APIs sem servidor com funções Azure](https://docs.microsoft.com/learn/modules/shift-nodejs-express-apis-serverless/).

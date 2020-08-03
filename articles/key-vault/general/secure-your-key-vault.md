@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 463ebf429889968474af5630eb99c41a06916d01
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 17482a5924d0bc8be531fe48aa34a2d32acff3e5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448603"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503111"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Acesso seguro a um cofre de chaves
 
@@ -59,7 +59,7 @@ A tabela seguinte mostra os pontos finais para os aviões de gestão e dados.
 
 ## <a name="management-plane-and-rbac"></a>Avião de gestão e RBAC
 
-No plano de gestão, você usa o RBAC (Azure role-based access control (Azure RBAC)) para autorizar as operações que um chamador pode executar. No modelo RBAC, cada subscrição do Azure tem um exemplo de Azure AD. Você concede acesso a utilizadores, grupos e aplicações deste diretório. O acesso é concedido para gerir recursos na subscrição Azure que utilizam o modelo de implementação do Gestor de Recursos Azure. Para conceder acesso, utilize o [portal Azure](https://portal.azure.com/), o [Azure CLI,](/cli/azure/install-azure-cli?view=azure-cli-latest) [a Azure PowerShell,](/powershell/azure/)ou o [Azure Resource Manager REST APIs](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+No plano de gestão, você usa o controlo de acesso baseado em funções Azure (Azure RBAC) para autorizar as operações que um chamador pode executar. No modelo RBAC, cada subscrição do Azure tem um exemplo de Azure AD. Você concede acesso a utilizadores, grupos e aplicações deste diretório. O acesso é concedido para gerir recursos na subscrição Azure que utilizam o modelo de implementação do Gestor de Recursos Azure. Para conceder acesso, utilize o [portal Azure](https://portal.azure.com/), o [Azure CLI,](/cli/azure/install-azure-cli?view=azure-cli-latest) [a Azure PowerShell,](/powershell/azure/)ou o [Azure Resource Manager REST APIs](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 Cria-se um cofre chave num grupo de recursos e gere o acesso utilizando o Azure AD. Você concede aos utilizadores ou grupos a capacidade de gerir os cofres chave em um grupo de recursos. Concede-se o acesso a um nível de âmbito específico, atribuindo funções de RBAC apropriadas. Para conceder acesso a um utilizador para gerir cofres-chave, atribui uma função predefinida `key vault Contributor` ao utilizador num âmbito específico. Os seguintes níveis de âmbito podem ser atribuídos a uma função RBAC:
 
@@ -129,9 +129,9 @@ A tabela seguinte resume as permissões de acesso para as nossas funções e apl
 | Função | Permissões do plano de gestão | Permissões do plano de dados |
 | --- | --- | --- |
 | Equipa de segurança | Contribuidor do Cofre Chave | Chaves: criar cópia de segurança, criar, eliminar, obter, importar, listar, restaurar<br>Segredos: todas as operações |
-| Desenvolvedores e &nbsp; operadores | Permissão de implantação do Cofre de Chaves<br><br> **Nota:** Esta permissão permite que os VM implantados tragam segredos de um cofre de chaves. | Nenhum |
-| Auditores | Nenhum | Chaves: listar<br>Segredos: listar<br><br> **Nota:** Esta permissão permite que os auditores inspecionem atributos (tags, datas de ativação, datas de validade) para obter chaves e segredos não emitidos nos registos. |
-| Aplicação | Nenhum | Chaves: assinar<br>Segredos: obter |
+| Desenvolvedores e &nbsp; operadores | Permissão de implantação do Cofre de Chaves<br><br> **Nota:** Esta permissão permite que os VM implantados tragam segredos de um cofre de chaves. | Nenhuma |
+| Auditores | Nenhuma | Chaves: listar<br>Segredos: listar<br><br> **Nota:** Esta permissão permite que os auditores inspecionem atributos (tags, datas de ativação, datas de validade) para obter chaves e segredos não emitidos nos registos. |
+| Aplicação | Nenhuma | Chaves: assinar<br>Segredos: obter |
 
 As três funções da equipa precisam de acesso a outros recursos, juntamente com permissões do Key Vault. Para implementar VMs (ou a funcionalidade de Aplicações Web do Azure App Service), os desenvolvedores e operadores precisam de `Contributor` acesso a esses tipos de recursos. Os auditores precisam de ler o acesso à conta de armazenamento onde os registos do Cofre de Chaves estão armazenados.
 

@@ -6,12 +6,13 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2020
-ms.openlocfilehash: f73910c528ff65a8c537e779a028860d64561d05
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: e4f6b3ad791624dde2aefa3edac3102df2c15717
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386729"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495051"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Encriptação de dados para Azure Database para MySQL utilizando o Azure CLI
 
@@ -246,6 +247,6 @@ Além disso, pode utilizar os modelos do Gestor de Recursos Azure para permitir 
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
  Para saber mais sobre encriptação de dados, consulte [a Base de Dados Azure para encriptação de dados do MySQL com a chave gerida pelo cliente](concepts-data-encryption-mysql.md).

@@ -15,12 +15,13 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 07/13/2020
 ms.author: magoedte
-ms.openlocfilehash: edf1fce488bf3bb8aa107a295cf3488243775192
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 9b609fd81c9f1013d2308dccd8ed22fb82aac149
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010925"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503349"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introdução ao processador da extensão Desired State Configuration do Azure
 

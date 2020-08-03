@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: d5ea44e7059ae01204dbafd454c187e10f85e4e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 49b0df3e750d4d23cb6a64f3f7266613fd2f2981
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707553"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501836"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-azure-cli"></a>Configure a preferência de encaminhamento para um VM utilizando o Azure CLI
 
@@ -129,7 +130,7 @@ Quando já não for necessário, pode utilizar [az group delete](/cli/azure/grou
 az group delete --name myResourceGroup --yes
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a preferência de encaminhamento em endereços IP públicos.](routing-preference-overview.md)
 - Saiba mais sobre [endereços IP públicos](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) em Azure.

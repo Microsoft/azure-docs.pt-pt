@@ -8,13 +8,21 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: d05386f1dfbab28d5fe42d02b8e9be0f257afafd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 014d1ea4575b17b1d4017c9519bee6c5ea66ceb5
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527218"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87515310"
 ---
+## <a name="what-is-azure-service-manager-and-what-does-it-mean-by-classic"></a>O que é Azure Service Manager e o que significa com clássico?
+
+A palavra "clássico" em IaaS VM (clássico) refere-se a VMs geridos pelo Azure Service Manager (ASM). A Azure Service Manager (ASM) é o antigo plano de controlo do azul responsável pela criação, gestão, eliminação de VMs e realização de outras operações de avião de controlo. 
+
+## <a name="what-is-azure-resource-manager"></a>O que é Azure Resource Manager?
+
+[O Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) é o mais recente plano de controlo do azul responsável pela criação, gestão, eliminação de VMs e realização de outras operações de avião de controlo. 
+
 ## <a name="what-is-the-time-required-for-migration"></a>Qual é o tempo necessário para a migração?
 
 O planeamento e execução da migração depende muito da complexidade da arquitetura e pode demorar alguns meses.  
@@ -84,7 +92,7 @@ Além disso, se pretender fazer o backup do VM migrado, aceda à lâmina de gest
 
 ## <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-migration"></a>Posso verificar se a minha subscrição ou os meus recursos podem ser migrados? 
 
-Yes. Na opção de migração suportada por plataforma, o primeiro passo na preparação da migração é verificar se os recursos podem ser migrados. Caso a operação de verificação falhe, recebe mensagens com todos os motivos pelos quais a migração não pode ser concluída.
+Sim. Na opção de migração suportada por plataforma, o primeiro passo na preparação da migração é verificar se os recursos podem ser migrados. Caso a operação de verificação falhe, recebe mensagens com todos os motivos pelos quais a migração não pode ser concluída.
 
 ## <a name="what-happens-if-i-run-into-a-quota-error-while-preparing-the-iaas-resources-for-migration"></a>O que acontece se me deparar com um erro de quota ao preparar os recursos de IaaS para a migração? 
 

@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 6939553206fe223d8166368d2963f03b32d2629e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1311af54c2335f403f2db071ced1caee3b122abc
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67184313"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507550"
 ---
 #### <a name="to-create-a-new-service"></a>Para criar um novo serviço
 1. Utilize as credenciais de conta da Microsoft para iniciar seduca no [Portal do Governo do Microsoft Azure](https://portal.azure.us/).
@@ -18,7 +18,7 @@ ms.locfileid: "67184313"
    
    1. Forneça um **Nome do recurso** exclusivo para o serviço. Este é um nome amigável que pode ser utilizado para identificar o serviço. O nome pode ter entre 2 e 50 carateres que podem ser letras, números e hífenes. O nome tem de começar e terminar com uma letra ou um número.
    2. Escolha uma **Subscrição** na lista pendente. A subscrição está ligada à sua conta de faturação. Este campo não estará presente se tiver apenas uma subscrição.
-   3. Para **Grupo de recursos**, **Utilizar existente** ou **Criar novo**. Para obter mais informações, veja [Azure resource groups](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/) (Grupos de recursos do Azure).
+   3. Para **Grupo de recursos**, **Utilizar existente** ou **Criar novo**. Para obter mais informações, veja [Azure resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal) (Grupos de recursos do Azure).
    4. Forneça uma **Localização** para o serviço. A localização refere-se à região geográfica onde pretende implantar o seu dispositivo. Selecione **USGov Iowa** ou **USGov Virginia.**
    5. Selecione **Criar uma nova conta de armazenamento** para criar automaticamente uma conta de armazenamento com o serviço. Especifique um nome para esta conta de armazenamento. Se precisar de ter os seus dados numa localização diferente, desmarque esta caixa.
    6. Assinale **Afixar ao dashboard** se pretender uma ligação rápida para este serviço no seu dashboard.

@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: tracking-python
-ms.openlocfilehash: c4969628bb80d63cafc9537ec511ac218ff87ca7
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: ceaca3b7d91bf27262f1326000796cd605b0c3c4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84738299"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494592"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
 
@@ -32,11 +32,11 @@ O serviço também interopera com populares ferramentas de deep learning e refor
 > **Julgamento livre!**  Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree) Receberá créditos para gastar em serviços do Azure. Depois de serem utilizados, pode manter a conta e utilizar os [serviços gratuitos do Azure](https://azure.microsoft.com/free/). O seu cartão de crédito não será cobrado, a menos que altere explicitamente as suas definições e peça para ser cobrado.
 
 
-## <a name="what-is-machine-learning"></a>O que é o Machine Learning?
+## <a name="what-is-machine-learning"></a>O que é a machine learning?
 
 A aprendizagem automática é uma técnica da ciência de dados que permite aos computadores utilizar dados existentes para prever futuros comportamentos, resultados e tendências. Ao utilizar o machine learning, os computadores aprendem sem serem explicitamente programados.
 
-As previsões ou predições da aprendizagem automática podem tornar as aplicações e os dispositivos mais inteligentes. Por exemplo, quando faz compras online, a aprendizagem automática ajuda a recomendar outros produtos que possa querer com base no que comprou. Quando o seu cartão de crédito é utilizado, o machine learning compara a transação com uma base de dados de transações e ajuda a detetar fraudes. Quando o robô aspirador limpa uma sala, o machine learning ajuda-o a decidir se a tarefa está concluída.
+As previsões ou predições de machine learning podem tornar as aplicações e os dispositivos mais inteligentes. Por exemplo, quando faz compras online, a aprendizagem automática ajuda a recomendar outros produtos que possa querer com base no que comprou. Em alternativa, quando introduz os dados do seu cartão de crédito, a machine learning compara a transação com uma base de dados de transações e ajuda a detetar fraudes. Quando o robô aspirador limpa uma sala, a machine learning ajuda-o a decidir se a tarefa está concluída.
 
 ## <a name="machine-learning-tools-to-fit-each-task"></a>Ferramentas de aprendizagem automática para se adaptar a cada tarefa 
 
@@ -51,7 +51,7 @@ A Azure Machine Learning fornece todas as ferramentas que os desenvolvedores e c
 
 + [Extensão do Visual Studio Code](tutorial-setup-vscode-extension.md)
 
-+ [Aprendizagem automática CLI](reference-azure-machine-learning-cli.md)
++ [CLI de Aprendizagem automática](reference-azure-machine-learning-cli.md)
 
 + Quadros de código aberto como PyTorch, TensorFlow, e scikit-learn e muito mais
 
@@ -110,7 +110,7 @@ A Azure Machine Learning trabalha com outros serviços na plataforma Azure, e ta
 + Metas de computação como __Azure Kubernetes Service__, __Azure Container Instances__, __Azure Databricks__, __Azure Data Lake Analytics__, e __Azure HDInsight__. Para obter mais informações sobre os alvos de computação, veja [quais são os alvos de computação?](concept-compute-target.md)
 + __Grelha de eventos Azure__. Para mais informações, consulte [os eventos consume Azure Machine Learning](concept-event-grid-integration.md).
 + __Monitor Azure__. Para obter mais informações, consulte [monitorar a Azure Machine Learning](monitor-azure-machine-learning.md).
-+ Lojas de dados como __contas de armazenamento Azure,__ __Azure Data Lake Storage__, __Azure SQL Database__, __Azure Database for PostgreSQL__, e __Azure Open Datasets__. Para obter mais informações, consulte [os dados do Access nos serviços de armazenamento Azure](how-to-access-data.md) e [crie conjuntos de dados com conjuntos de dados Azure Open](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets).
++ Lojas de dados como __contas de armazenamento Azure,__ __Azure Data Lake Storage__, __Azure SQL Database__, __Azure Database for PostgreSQL__, e __Azure Open Datasets__. Para obter mais informações, consulte [os dados do Access nos serviços de armazenamento Azure](how-to-access-data.md) e [crie conjuntos de dados com conjuntos de dados Azure Open](how-to-create-register-datasets.md).
 + __Redes Virtuais Azure__. Para obter mais informações, consulte [a experimentação e a inferência Secure numa rede virtual.](how-to-enable-virtual-network.md)
 + __Gasodutos Azure__. Para obter mais informações, consulte [Train e implemente modelos de machine learning](/azure/devops/pipelines/targets/azure-machine-learning).
 + __Troncos de repositório de Git.__ Para mais informações, consulte [a integração de Git.](concept-train-model-git-integration.md)

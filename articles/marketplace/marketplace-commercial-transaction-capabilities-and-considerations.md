@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 33c3cf4b9da33b15d7a7d1c14b0c3fb892b60121
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e2ce35158e8f9a3a2ad9da2b3d67a3f35d5a8c80
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317812"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503570"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Capacidades de transação de mercado comercial
 
 ## <a name="transactions-by-publishing-option"></a>Transações por opção de publicação
 
-A editora ou a Microsoft são responsáveis pela gestão de transações de licenças de software para ofertas no mercado comercial. A opção de publicação que escolher para a sua oferta determinará quem gere a transação. Consulte [Determine a sua opção de publicação](./determine-your-listing-type.md#choose-a-publishing-option) para disponibilidade e explicações de cada opção de publicação.
+A editora ou a Microsoft são responsáveis pela gestão de transações de licenças de software para ofertas no mercado comercial. A opção de publicação que escolher para a sua oferta determinará quem gere a transação. Consulte [Determine a sua opção de publicação](./determine-your-listing-type.md#choose-a-call-to-action) para disponibilidade e explicações de cada opção de publicação.
 
 ### <a name="list-trial-and-byol-publishing-options"></a>Opções de publicação de listas, julgamentos e BYOL
 
@@ -136,7 +136,7 @@ Neste cenário, a Microsoft fatura $100,00 pela sua licença de software e paga 
 |Microsoft paga-lhe 80% do custo da sua licença <br> \*A Microsoft paga-lhe 90% do custo da sua licença por quaisquer aplicações SaaS qualificadas   |   $80,00 por mês <br> \*$90,00 por mês    |
 |Microsoft mantém 20% do custo da sua licença <br> \*A Microsoft mantém 10% do custo da sua licença para quaisquer aplicações SaaS qualificadas.  |  $20,00 por mês <br> \*$10,00     |
 
-Para certas ofertas que publica no mercado comercial, a Microsoft reduzirá a sua Taxa de Serviço de Marketplace de 20% (conforme descrito no Microsoft Publisher Agreement) para 10%. Para que a sua(s) oferta(s) se qualifique, a sua(s) oferta(s) deve ter sido designada pela Microsoft como Azure IP Co-sell incetivizado. A elegibilidade deve ser cumprida pelo menos cinco (5) dias úteis antes do final de cada mês civil para receber a Taxa reduzida de Serviço do Mercado para o mês. A Taxa reduzida de Serviço de Marketplace aplica-se à Azure IP Co-vender SaaS, VMs, Apps Geridas e quaisquer outras ofertas de iass transacionáveis qualificadas disponibilizadas através do mercado comercial.
+Para certas ofertas que publica no mercado comercial, a Microsoft reduzirá a sua Taxa de Serviço de Marketplace de 20% (conforme descrito no Microsoft Publisher Agreement) para 10%. Para que a sua(s) oferta(s) se qualifique, a sua(s) oferta(s) deve ter sido designada pela Microsoft como Azure IP Co-venda incentivado. A elegibilidade deve ser cumprida pelo menos cinco (5) dias úteis antes do final de cada mês civil para receber a Taxa reduzida de Serviço do Mercado para o mês. A Taxa reduzida de Serviço de Marketplace aplica-se à Azure IP Co-vender SaaS, VMs, Apps Geridas e quaisquer outras ofertas de iass transacionáveis qualificadas disponibilizadas através do mercado comercial.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Faturação, pagamento, faturação e cobranças de clientes
 
@@ -163,7 +163,7 @@ Normalmente, os clientes compram usando o Contrato Empresarial ou um contrato de
 
 #### <a name="billing-questions-and-support"></a>Perguntas de faturação e apoio
 
-Para obter mais informações e políticas legais, consulte o [Acordo de Editor](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt) (disponível no Partner Center).
+Para obter mais informações e políticas legais, consulte o [Acordo de Editor](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx) (disponível no Partner Center).
 
 Para obter ajuda em questões de faturação, contacte [o suporte de editores de marketplace comercial.](https://aka.ms/marketplacepublishersupport)
 

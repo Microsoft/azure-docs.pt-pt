@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9cb1ddceff30b247caf3ecd9ee3bc21d5addb519
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2b11f11ac8a0d4f3a0623c2903dfc9355e875d14
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089452"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501938"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Conceder permissões à identidade gerida pelo espaço de trabalho (pré-visualização)
 
@@ -22,7 +22,7 @@ Este artigo ensina-lhe como conceder permissões à identidade gerida no espaço
 >[!NOTE]
 >Esta identidade gerida pelo espaço de trabalho será referida como identidade gerida através do resto deste documento.
 
-## <a name="grant-the-managed-identity--permissions-to-the-sql-pool"></a>Conceda as permissões de identidade geridas à piscina SQL
+## <a name="grant-managed-identity-permissions-to-the-sql-pool"></a>Conceder permissões de identidade geridas para a piscina SQL
 
 A identidade gerida concede permissões às piscinas SQL no espaço de trabalho. Com permissões concedidas, você pode orquestrar oleodutos que realizam atividades relacionadas com piscina SQL. Quando criar um espaço de trabalho Azure Synapse utilizando o portal Azure, pode conceder permissões de controlo de identidade geridas em piscinas SQL.
 

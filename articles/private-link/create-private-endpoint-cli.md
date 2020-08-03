@@ -7,12 +7,13 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: df01108a1cb103fc7392b1a599961a99a453a160
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: e7c098ba06086781306960f76978aac9e4fa06bc
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84265493"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502669"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>Quickstart: Criar um ponto final privado usando O Azure CLI
 
@@ -53,7 +54,7 @@ az network vnet subnet update \
  --disable-private-endpoint-network-policies true
 ```
 
-## <a name="create-the-vm"></a>Crie a VM
+## <a name="create-the-vm"></a>Criar a VM
 
 Criar um VM com az vm criar. Quando solicitado, forneça uma palavra-passe para ser usada como credenciais de entrada para o VM. Este exemplo cria um VM chamado *myVm:*
 
@@ -135,7 +136,7 @@ Ligue-se ao *myVm VM* da internet da seguinte forma:
 
 1. Selecione o botão **Ligar**. Depois de selecionar o botão **Ligar,** **o Connect à máquina virtual** abre-se.
 
-1. Selecione **Download RDP File**. O Azure cria um ficheiro Remote Desktop Protocol *(.rdp)* e transfere-o para o computador.
+1. Selecione **Transferir Ficheiro RDP**. O Azure cria um ficheiro Remote Desktop Protocol *(.rdp)* e transfere-o para o computador.
 
 1. Abra o ficheiro .rdp* descarregado.
 

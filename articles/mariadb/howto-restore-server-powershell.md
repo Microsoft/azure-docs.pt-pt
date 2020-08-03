@@ -7,12 +7,13 @@ ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 05/26/2020
-ms.openlocfilehash: 1fc4c0497095c2ab4e1210ab71bc5597713499b7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 46ea77b26bb0c31a10cfac11c389ea5a21a8f4ac
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120471"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502545"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mariadb-server-using-powershell"></a>Como fazer o back up e restaurar uma Base de Dados Azure para o servidor MariaDB usando o PowerShell
 
@@ -129,7 +130,7 @@ Após o fim do processo de restauro, localize o novo servidor e verifique se os 
 
 O novo servidor criado durante uma restauração não possui os pontos finais do serviço VNet que existiam no servidor original. Estas regras devem ser configuras separadamente para este novo servidor. As regras de firewall do servidor original são restauradas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Personalize a Base de Dados de Azure para parâmetros do servidor MariaDB utilizando o PowerShell](howto-configure-server-parameters-using-powershell.md)

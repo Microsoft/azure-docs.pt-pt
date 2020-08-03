@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 4b52fe22e455f5b0ebce6960b40bcc80c46079c3
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: eab2beecc4153bdb2b74ca81bb43f86e2e29a778
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421353"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504148"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Access control in Azure Data Lake Storage Gen2 (Controlo de acesso no Azure Data Lake Storage Gen2)
 
-A Azure Data Lake Storage Gen2 implementa um modelo de controlo de acesso que suporta tanto as listas de controlo de acesso baseado em funções Azure (RBAC) como as de POSIX (ACLs). Este artigo resume os fundamentos do modelo de controlo de acesso para data lake storage gen2.
+A Azure Data Lake Storage Gen2 implementa um modelo de controlo de acesso que suporta tanto o controlo de acesso baseado em funções Azure (Azure RBAC) como as listas de controlo de acesso semelhantes a POSIX (ACLs). Este artigo resume os fundamentos do modelo de controlo de acesso para data lake storage gen2.
 
 <a id="azure-role-based-access-control-rbac"></a>
 
@@ -348,6 +348,6 @@ AcLs não herdam. No entanto, os ACLs predefinidos podem ser usados para definir
 * [POSIX ACL no Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL usando listas de controlo de acesso em Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Visão geral do Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)

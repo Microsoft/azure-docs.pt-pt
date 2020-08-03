@@ -9,16 +9,17 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: pdecarlo
-ms.openlocfilehash: 050631731a04e4c2ea89d8c7792ec093d6ab316e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: e70b22b3edaae96e00306d5d0a93d229e11aac41
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800567"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494082"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Executar borda Azure IoT em máquinas virtuais Ubuntu
 
-O tempo de execução Azure IoT Edge é o que transforma um dispositivo num dispositivo IoT Edge. O tempo de funcionaamento pode ser implantado em dispositivos tão pequenos como um Raspberry Pi ou tão grande como um servidor industrial. Uma vez configurado um dispositivo com o tempo de execução IoT Edge, pode começar a implementar a lógica de negócio a partir da nuvem.
+O tempo de execução Azure IoT Edge é o que transforma um dispositivo num dispositivo IoT Edge. O tempo de funcionaamento pode ser implantado em dispositivos tão pequenos como um Raspberry Pi ou tão grande como um servidor industrial. Quando um dispositivo é configurado com o runtime do IoT Edge, pode começar a implementar a lógica de negócio no mesmo partir da cloud.
 
 Para saber mais sobre como funciona o tempo de execução do IoT Edge e quais os componentes incluídos, consulte [o tempo de execução do Azure IoT Edge e a sua arquitetura.](iot-edge-runtime.md)
 
@@ -34,12 +35,12 @@ O [Botão Implementar para Azure](../azure-resource-manager/templates/deploy-to-
 
 1. Implementaremos um Azure IoT Edge habilitado para o Linux VM utilizando o modelo de Gestor de Recursos Azure iotedge-vm-deploy.  Para começar, clique no botão abaixo:
 
-    [![Implementar para o botão Azure para iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
+    [![Botão Implementar no Azure iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
 
 1. Na janela recém-lançada, preencha os campos de formulários disponíveis:
 
     > [!div class="mx-imgBorder"]
-    > [![Screenshot mostrando o modelo de implantação iotedge-vm](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)
+    > [![Captura de ecrã a mostrar o modelo iotedge-vm-deploy](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)
 
     **Subscrição**: A subscrição ativa do Azure para implantar a máquina virtual.
 
@@ -63,9 +64,9 @@ O [Botão Implementar para Azure](../azure-resource-manager/templates/deploy-to-
 
     Quando todos os campos tiverem sido preenchidos, selecione a caixa de verificação na parte inferior da página para aceitar os termos e selecione **Comprar** para iniciar a implementação.
 
-1. Verifique se a implantação foi concluída com sucesso.  Um recurso de máquina virtual deveria ter sido implantado no grupo de recursos selecionado.  Tome nota do nome da máquina, este deve estar no formato `vm-0000000000000` . Além disso, tome nota do **nome DNS**associado, que deve estar no formato `<dnsLabelPrefix>` . `<location>` . cloudapp.azure.com.
+1. Verifique se a implementação foi concluída com êxito.  Um recurso da máquina virtual devia ter sido implementado no grupo de recursos selecionados.  Tome nota do nome da máquina, este deve estar no formato `vm-0000000000000` . Além disso, tome nota do **Nome DNS** associado, que deve estar no formato `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
 
-    O **Nome DNS** pode ser obtido a partir da secção **de visão geral** da máquina virtual recém-implantada dentro do portal Azure.
+    O **Nome DNS ** pode ser obtido na secção **Descrição geral** da máquina virtual recentemente implementada no portal do Azure.
 
     > [!div class="mx-imgBorder"]
     > [![Screenshot mostrando o nome dns do iotedge vm](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
@@ -138,7 +139,7 @@ O [Botão Implementar para Azure](../azure-resource-manager/templates/deploy-to-
     --parameters adminPasswordOrKey="$(< ~/.ssh/iotedge-vm-key.pub)"
     ```
 
-1. Verifique se a implantação foi concluída com sucesso.  Um recurso de máquina virtual deveria ter sido implantado no grupo de recursos selecionado.  Tome nota do nome da máquina, este deve estar no formato `vm-0000000000000` . Além disso, tome nota do **nome DNS**associado, que deve estar no formato `<dnsLabelPrefix>` . `<location>` . cloudapp.azure.com.
+1. Verifique se a implementação foi concluída com êxito.  Um recurso da máquina virtual devia ter sido implementado no grupo de recursos selecionados.  Tome nota do nome da máquina, este deve estar no formato `vm-0000000000000` . Além disso, tome nota do **Nome DNS** associado, que deve estar no formato `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
 
     O **Nome DNS** pode ser obtido a partir da saída formatada por JSON do passo anterior, dentro da secção **de saídas** como parte da entrada **pública do SSH.**  O valor desta entrada pode ser utilizado para o SSH na máquina recém-implantada.
 
@@ -158,7 +159,7 @@ O [Botão Implementar para Azure](../azure-resource-manager/templates/deploy-to-
 
 1. Se pretender entrar neste VM após a configuração, utilize o **Nome DNS** associado com o comando:`ssh <adminUsername>@<DNS_Name>`
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que tem um dispositivo IoT Edge alojotado com o tempo de funcionaamento instalado, pode [implantar módulos IoT Edge](how-to-deploy-modules-portal.md).
 

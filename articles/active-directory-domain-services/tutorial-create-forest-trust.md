@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 40dd7f1b177fd1319b145036c8263ba2c6e30137
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: a17764984e33e4312b9d81a5743d851dc14b5c05
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024677"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87492161"
 ---
-# <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Tutorial: Criar uma confiança florestal de saída para um domínio no local em Azure Ative Directory Domain Services (pré-visualização)
+# <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>Tutorial: Criar uma confiança florestal de saída para um domínio no local em Azure Ative Directory Domain Services
 
-Em ambientes onde não é possível sincronizar hashes de palavra-passe, ou tem utilizadores que assinam exclusivamente usando cartões inteligentes para que não saibam a sua palavra-passe, pode utilizar uma floresta de recursos nos Serviços de Domínio do Diretório Ativo Azure (Azure AD DS). Uma floresta de recursos usa uma confiança de saída de ida da Azure AD DS para um ou mais ambientes AD DS no local. Esta relação de confiança permite que utilizadores, aplicações e computadores autentem contra um domínio no local do domínio gerido pela Azure AD DS. As florestas de recursos Azure AD DS estão atualmente em pré-visualização.
+Em ambientes onde não é possível sincronizar hashes de palavra-passe, ou tem utilizadores que assinam exclusivamente usando cartões inteligentes para que não saibam a sua palavra-passe, pode utilizar uma floresta de recursos nos Serviços de Domínio do Diretório Ativo Azure (Azure AD DS). Uma floresta de recursos usa uma confiança de saída de ida da Azure AD DS para um ou mais ambientes AD DS no local. Esta relação de confiança permite que utilizadores, aplicações e computadores autentem contra um domínio no local do domínio gerido pela Azure AD DS. Numa floresta de recursos, as hashes de senha no local nunca são sincronizadas.
 
 ![Diagrama de confiança florestal de Azure AD DS para as AD DS no local](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 

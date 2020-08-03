@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: allensu
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: f3dd4280ddea076b5e9febbc36dd323c0705ef0e
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: mvc, devx-track-javascript, devx-track-azurecli
+ms.openlocfilehash: c80b4e57c94737778d8e6f63804d95f4d1b35fb0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423376"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501802"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>Início Rápido: Criar um balanceador de carga público para fazer o balanceamento de carga das VMs com a CLI do Azure
 
@@ -979,7 +979,7 @@ Copie o endereço IP público e cole-o na barra de endereço do browser.
 ```
 :::image type="content" source="./media/load-balancer-standard-public-cli/running-nodejs-app.png" alt-text="Testar o balanceador de carga" border="true":::
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, utilize o comando de eliminação do [grupo AZ](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) para remover o grupo de recursos, o equilibrador de carga e todos os recursos relacionados.
 
@@ -988,7 +988,7 @@ Quando já não for necessário, utilize o comando de eliminação do [grupo AZ]
     --name myResourceGroupLB
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste arranque rápido
 
 * Criou um balanceador de carga padrão ou público

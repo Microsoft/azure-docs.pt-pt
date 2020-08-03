@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: a06b4e6ced437cc83fadfad000fa682264264874
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a7e159c94bf1b9f3e8049fd657abb562f1c85671
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052427"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503927"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Regras de firewall IP Azure Synapse Analytics (pré-visualização)
 
@@ -35,7 +35,7 @@ Também pode adicionar regras de firewall IP a um espaço de trabalho synapse ap
 
 ![Configuração IP do espaço de trabalho Azure Synapse no portal Azure.](./media/synpase-workspace-ip-firewall/ip-firewall-3.png)
 
-## <a name="connecting-to-synapse-from-your-own-network"></a>Conectar-se à Sinapse a partir da sua própria rede
+## <a name="connect-to-synapse-from-your-own-network"></a>Conecte-se à Sinapse a partir da sua própria rede
 
 Pode ligar-se ao seu espaço de trabalho Synapse utilizando o Synapse Studio. Também pode utilizar o SQL Server Management Studio (SSMS) para se conectar aos recursos SQL (piscinas SQL e SQL on-demand) no seu espaço de trabalho.
 

@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: how-to
 ms.author: kaib
 ms.date: 03/11/2020
-ms.custom: seodec18
-ms.openlocfilehash: 58bb3f38938414f25551d0df47a50b6a8f386acc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 1d99b2a69f1cfd31216ca1058d5bc6825be83bcd
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283338"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503519"
 ---
 # <a name="verify-encryption-status-for-linux"></a>Verifique o estado de encriptação do Linux 
 

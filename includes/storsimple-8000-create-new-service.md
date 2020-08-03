@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 980cbe17e982edb3aa72c3b58908f13a3d63a639
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88f275016bad72122ebd195449b9af88086bdc7b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76021246"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507383"
 ---
 #### <a name="to-create-a-new-service"></a>Para criar um novo serviço
 
@@ -29,7 +29,7 @@ ms.locfileid: "76021246"
 
    2. Escolha uma **Subscrição** na lista pendente. A subscrição está ligada à sua conta de faturação. Este campo não estará presente se tiver apenas uma subscrição.
 
-   3. Para **Grupo de recursos**, **Utilizar existente** ou **Criar novo**. Para obter mais informações, veja [Azure resource groups](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/) (Grupos de recursos do Azure).
+   3. Para **Grupo de recursos**, **Utilizar existente** ou **Criar novo**. Para obter mais informações, veja [Azure resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal) (Grupos de recursos do Azure).
 
    4. Forneça uma **Localização** para o serviço. Em geral, escolha uma localização mais próxima da região geográfica onde pretende implementar o dispositivo. Pode também querer ter em conta as seguintes considerações:
 

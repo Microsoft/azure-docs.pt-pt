@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 26c734b7a2e9f5592ee6d51dfee4650a3998ab1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4233df62de48dd7a7253c488b0cd69c38cd8d445
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699061"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503502"
 ---
 # <a name="run-a-test-failover-disaster-recovery-drill-to-azure"></a>Executar um teste de failover (simulacro de recuperação de desastres) para Azure 
 
@@ -25,7 +25,7 @@ Faz um teste falhado para validar a sua estratégia de replicação e recuperaç
 ## <a name="run-a-test-failover"></a>Executar uma ativação pós-falha de teste
 Este procedimento descreve como executar um teste de failover para um plano de recuperação. Se quiser executar um teste de failover para um único VM, siga os passos descritos [aqui](tutorial-dr-drill-azure.md#run-a-test-failover-for-a-single-vm)
 
-![Ativação Pós-falha de Teste](./media/site-recovery-test-failover-to-azure/TestFailover.png)
+![Screenshot da página de failover test no portal Azure.](./media/site-recovery-test-failover-to-azure/TestFailover.png)
 
 
 1. Na Recuperação do Local no portal Azure, clique em **Planos de Recuperação**  >  *recoveryplan_name*  >  **Teste Failover**.
@@ -48,7 +48,7 @@ Este procedimento descreve como executar um teste de failover para um plano de r
 8. Em **Notas,** registem e guarde quaisquer observações associadas ao teste.
 
 
-![Ativação Pós-falha de Teste](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
+![Screenshot do teste falhando a conta Jobs.](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
 
 Quando um teste de falha é desencadeado, ocorre o seguinte:
 
@@ -112,5 +112,5 @@ Se pretender ligar-se aos VMs Azure utilizando RDP/SSH após a falha, siga os re
 
 Siga os passos descritos [aqui](site-recovery-failover-to-azure-troubleshoot.md) para resolver quaisquer problemas de conectividade após a ativação pós-falha.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Depois de completar um exercício de recuperação de desastres, saiba mais sobre outros tipos de [falha.](site-recovery-failover.md)

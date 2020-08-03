@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 159f3c63a647ff565e838b01dbaaadf947fb8ada
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 6140260b75580270b365e59358d97e0a54c7b4a7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142612"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503944"
 ---
 # <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use o Azure CLI para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2
 
@@ -308,7 +309,7 @@ Este exemplo altera o proprietário de um ficheiro.
 az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Amostras](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
 * [Enviar comentários](https://github.com/Azure/azure-cli-extensions/issues)

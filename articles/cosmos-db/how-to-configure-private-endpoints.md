@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/10/2020
 ms.author: thweiss
-ms.openlocfilehash: bb1310d0f45f945fc150e0ae011ede0d102a5918
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: aa8fd911aaf5c61fc8c33ca469798291fca3d3d1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259112"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502125"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configure Azure Private Link para uma conta Azure Cosmos
 
@@ -41,7 +42,7 @@ Utilize os seguintes passos para criar um ponto final privado para uma conta Azu
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Selecione um grupo de recursos.|
     | **Detalhes da instância** |  |
-    | Nome | Insira qualquer nome para o seu ponto final privado. Se este nome for tomado, crie um único. |
+    | Name | Insira qualquer nome para o seu ponto final privado. Se este nome for tomado, crie um único. |
     |Região| Selecione a região onde pretende implantar Private Link. Crie o ponto final privado no mesmo local onde existe a sua rede virtual.|
     |||
 1. Selecione **Seguinte: Recurso**.
@@ -61,9 +62,9 @@ Utilize os seguintes passos para criar um ponto final privado para uma conta Azu
 
     | Definição | Valor |
     | ------- | ----- |
-    |**Redes**| |
+    |**Rede**| |
     | Rede virtual| Selecione a sua rede virtual. |
-    | Sub-rede | Selecione a sua sub-rede. |
+    | Subrede | Selecione a sua sub-rede. |
     |**Integração privada de DNS**||
     |Integrar-se com a zona privada de DNS |Selecione **Sim**. <br><br/> Para se ligar em privado com o seu ponto final privado, precisa de um registo DNS. Recomendamos que integre o seu ponto de terminação privado com uma zona privada de DNS. Também pode utilizar os seus próprios servidores DNS ou criar registos DNS utilizando os ficheiros anfitriões nas suas máquinas virtuais. |
     |Zona privada de DNS |Selecione **privatelink.documents.azure.com**. <br><br/> A zona privada de DNS é determinada automaticamente. Não pode mudá-lo usando o portal Azure.|

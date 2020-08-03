@@ -10,14 +10,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: ef87d5da2c2d56a4fdc3873410bb5a6e5c711d01
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0156cfb0720e78b87abc36f0811db69bc8435894
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075715"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503196"
 ---
-# <a name="optimizing-transactions-in-sql-pool"></a>Otimização de transações em pool SQL
+# <a name="optimize-transactions-in-sql-pool"></a>Otimizar transações em pool SQL
 
 Aprenda a otimizar o desempenho do seu código transacional na piscina SQL, minimizando o risco de retrocessos longos.
 
@@ -82,7 +82,7 @@ Vale a pena notar que quaisquer escritos para atualizar índices secundários ou
 
 Carregar dados numa tabela não vazia com um índice agrupado pode muitas vezes conter uma mistura de linhas totalmente registadas e minimamente registadas. Um índice agrupado é uma árvore equilibrada (árvore b) de páginas. Se a página que está a ser escrita já contiver linhas de outra transação, então estas gravações serão totalmente registadas. No entanto, se a página estiver vazia, a escrita para essa página será minimamente registada.
 
-## <a name="optimizing-deletes"></a>Otimização elimina
+## <a name="optimize-deletes"></a>Otimizar eliminações
 
 DELETE é uma operação totalmente iniciada.  Se precisar de eliminar uma grande quantidade de dados numa tabela ou numa divisória, muitas vezes faz mais sentido para `SELECT` os dados que pretende guardar, que podem ser executados como uma operação minimamente registada.  Para selecionar os dados, crie uma nova tabela com [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Uma vez criado, use [o RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para trocar a sua mesa antiga com a mesa recém-criada.
 
@@ -114,7 +114,7 @@ RENAME OBJECT [dbo].[FactInternetSales]   TO [FactInternetSales_old];
 RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
-## <a name="optimizing-updates"></a>Otimização de atualizações
+## <a name="optimize-updates"></a>Otimizar atualizações
 
 UPDATE é uma operação totalmente iniciada.  Se precisar de atualizar um grande número de linhas numa mesa ou numa divisória, muitas vezes pode ser muito mais eficiente utilizar uma operação minimamente registada, como [ctas](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) para o fazer.
 
@@ -179,7 +179,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 > [!NOTE]
 > Recriar grandes mesas pode beneficiar da utilização de funcionalidades de gestão da carga de trabalho da piscina SQL. Para obter mais informações, consulte [as classes de Recursos para a gestão da carga de trabalho.](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
-## <a name="optimizing-with-partition-switching"></a>Otimização com comutação de partição
+## <a name="optimize-with-partition-switching"></a>Otimizar com a comutação de partição
 
 Se confrontado com modificações em larga escala dentro de uma divisória de [mesa,](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)então um padrão de comutação de divisórias faz sentido. Se a modificação de dados for significativa e abranger várias divisórias, então a imersão sobre as divisórias obtém o mesmo resultado.
 

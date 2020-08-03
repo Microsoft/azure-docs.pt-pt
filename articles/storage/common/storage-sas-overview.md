@@ -10,12 +10,12 @@ ms.date: 07/17/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 108dd37370290a68d620a61f84b4553ed59792ab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 185992284e353c3e58104bc46296c1741fbca7d9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077864"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502176"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Conceder acesso limitado aos recursos de armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)
 
@@ -58,7 +58,7 @@ Pode assinar um SAS de duas formas:
 
 - Com uma *chave de delegação de utilizador* que foi criada usando credenciais Azure Ative Directory (Azure AD). Uma delegação de utilizadores SAS é assinada com a chave da delegação do utilizador.
 
-    Para obter a chave da delegação do utilizador e criar o SAS, um diretor de segurança AD AD deve ser atribuído a uma função de controlo de acesso baseado em funções (RBAC) que inclui a ação **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey.** Para obter informações detalhadas sobre as funções do RBAC com permissões para obter a chave da delegação do utilizador, consulte [Criar uma delegação de utilizador SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
+    Para obter a chave da delegação do utilizador e criar o SAS, um diretor de segurança AD AZure deve ser atribuído a um papel Azure que inclua a ação **Microsoft.Storage/storageAcounts/blobServices/generateUserDelegationKey.** Para obter informações detalhadas sobre as funções Azure com permissões para obter a chave da delegação do utilizador, consulte [Criar uma delegação de utilizador SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
 
 - Com a chave da conta de armazenamento. Tanto um serviço SAS como uma conta SAS são assinados com a chave da conta de armazenamento. Para criar um SAS assinado com a chave de conta, uma aplicação deve ter acesso à chave da conta.
 

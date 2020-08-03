@@ -7,17 +7,16 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: reference
 keywords: kinect, azul, sensor, sdk, profundidade, rgb, record, reprodução, matroska, mkv
-ms.openlocfilehash: d0f7653afe3cc92e059b2615ebef18312faa716b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a78ed158c78df1c9a6eadcc0bfb2e40b22750bd
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85277507"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501785"
 ---
 # <a name="use-azure-kinect-sensor-sdk-to-record-file-format"></a>Utilize o Sensor Azure Kinect SDK para gravar o formato de ficheiro
 
-Para registar os dados do sensor, é utilizado o formato do recipiente Matroska (.mkv), que permite armazenar várias faixas.
-usando uma ampla gama de codecs. O ficheiro de gravação contém faixas para armazenar Color, Depth, IMAGENS IR e IMU.
+Para registar os dados do sensor, é utilizado o formato do recipiente Matroska (.mkv), que permite armazenar várias faixas utilizando uma vasta gama de codecs. O ficheiro de gravação contém faixas para armazenar Color, Depth, IMAGENS IR e IMU.
 
 Detalhes de baixo nível do formato do contentor .mkv podem ser encontrados no [Site matroska](https://www.matroska.org/index.html).
 
@@ -72,6 +71,6 @@ A lista completa de tags está listada na página [De Gravação e Reprodução.
 | K4A_IMU_TRACK        | Pista IMU              | Matroska Track UID    |
 | K4A_CALIBRATION_FILE | Acessório de calibração | Nome de arquivo anexo   |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Record e Playback](record-playback-api.md)

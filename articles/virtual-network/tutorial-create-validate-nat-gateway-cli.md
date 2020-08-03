@@ -14,12 +14,13 @@ ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 06/11/2020
 ms.author: allensu
-ms.openlocfilehash: 717a9e9d3cc1dec350d0b4ace54687590f741768
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 1cd3f9aa429e02bd3666e47acf2f4c58761b0d81
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737296"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494660"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-cli-and-test-the-nat-service"></a>Tutorial: Criar uma porta de entrada NAT usando O CLI Azure e testar o serviço NAT
 

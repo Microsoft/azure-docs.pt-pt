@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: f1eec76d92edc97f7e4058d3afe813f0bb2aae47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9cb1b4d33a538b48ca1519d66f6602d902033c3e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81431881"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494830"
 ---
 # <a name="design-tables-using-synapse-sql"></a>Tabelas de design usando Synapse SQL
 
@@ -27,27 +27,27 @@ A tabela a seguir enumera os tópicos relevantes para a piscina SQL vs. SQL on-d
 
 | Tópico                                                        | Conjunto de SQL | SQL a pedido |
 | ------------------------------------------------------------ | ------------------ | ----------------------- |
-| [Determinar categoria de tabela](#determine-table-category)        | Yes                | Não                      |
+| [Determinar categoria de tabela](#determine-table-category)        | Sim                | Não                      |
 | [Nomes de schema](#schema-names)                                | Sim                | Sim                     |
-| [Nomes de tabelas](#table-names)                                  | Yes                | Não                      |
-| [Persistência da tabela](#table-persistence)                      | Yes                | Não                      |
-| [Tabela regular](#regular-table)                              | Yes                | Não                      |
+| [Nomes de tabelas](#table-names)                                  | Sim                | Não                      |
+| [Persistência da tabela](#table-persistence)                      | Sim                | Não                      |
+| [Tabela regular](#regular-table)                              | Sim                | Não                      |
 | [Tabela temporária](#temporary-table)                          | Sim                | Sim                     |
 | [Tabela externa](#external-table)                            | Sim                | Sim                     |
 | [Tipos de dados](#data-types)                                    | Sim                | Sim                     |
-| [Tabelas distribuídas](#distributed-tables)                    | Yes                | Não                      |
-| [Tabelas distribuídas com hash](#hash-distributed-tables)          | Yes                | Não                      |
-| [Tabelas replicadas](#replicated-tables)                      | Yes                | Não                      |
-| [Mesas de rodapé](#round-robin-tables)                    | Yes                | Não                      |
-| [Métodos de distribuição comuns para tabelas](#common-distribution-methods-for-tables) | Yes                | Não                      |
+| [Tabelas distribuídas](#distributed-tables)                    | Sim                | Não                      |
+| [Tabelas distribuídas com hash](#hash-distributed-tables)          | Sim                | Não                      |
+| [Tabelas replicadas](#replicated-tables)                      | Sim                | Não                      |
+| [Mesas de rodapé](#round-robin-tables)                    | Sim                | Não                      |
+| [Métodos de distribuição comuns para tabelas](#common-distribution-methods-for-tables) | Sim                | Não                      |
 | [Partições](#partitions)                                    | Sim                | Sim                     |
-| [Índices Columnstore](#columnstore-indexes)                  | Yes                | Não                      |
+| [Índices Columnstore](#columnstore-indexes)                  | Sim                | Não                      |
 | [Estatísticas](#statistics)                                    | Sim                | Sim                     |
-| [Chave primária e chave única](#primary-key-and-unique-key)    | Yes                | Não                      |
-| [Comandos para criar tabelas](#commands-for-creating-tables) | Yes                | Não                      |
-| [Alinhamento dos dados de origem com o armazém de dados](#aligning-source-data-with-the-data-warehouse) | Yes                | Não                      |
-| [Características da tabela não suportadas](#unsupported-table-features)    | Yes                | Não                      |
-| [Consultas de tamanho de mesa](#table-size-queries)                    | Yes                | Não                      |
+| [Chave primária e chave única](#primary-key-and-unique-key)    | Sim                | Não                      |
+| [Comandos para criar tabelas](#commands-for-creating-tables) | Sim                | Não                      |
+| [Alinhamento dos dados de origem com o armazém de dados](#align-source-data-with-the-data-warehouse) | Sim                | Não                      |
+| [Características da tabela não suportadas](#unsupported-table-features)    | Sim                | Não                      |
+| [Consultas de tamanho de mesa](#table-size-queries)                    | Sim                | Não                      |
 
 ## <a name="determine-table-category"></a>Determinar categoria de tabela
 
@@ -75,7 +75,7 @@ Para mostrar a organização das mesas na piscina SQL, você poderia usar fato, 
 
 | Tabela WideWorldImportersDW  | Tipo de mesa | Conjunto de SQL |
 |:-----|:-----|:------|:-----|
-| Localidade | Dimensão | wwi. DimCity |
+| Cidade | Dimensão | wwi. DimCity |
 | Encomenda | Fact | wwi. Ordem dos Factos |
 
 ## <a name="table-persistence"></a>Persistência da tabela
@@ -144,7 +144,7 @@ A categoria de tabela determina frequentemente a opção ideal para a distribui�
 |:---------------|:--------------------|
 | Fact           | Utilize a distribuição de haxixe com índice de loja de colunas agrupados. O desempenho melhora quando duas tabelas de haxixe são unidas na mesma coluna de distribuição. |
 | Dimensão      | Utilize replicado para mesas mais pequenas. Se as tabelas forem demasiado grandes para armazenar em cada nó computacional, utilize hash distribuído. |
-| Processo de teste        | Use o rodapé para a mesa de preparação. A carga com CTAS é rápida. Uma vez que os dados estão na tabela de preparação, use INSERT... SELECIONE mover os dados para as tabelas de produção. |
+| Transição        | Use o rodapé para a mesa de preparação. A carga com CTAS é rápida. Uma vez que os dados estão na tabela de preparação, use INSERT... SELECIONE mover os dados para as tabelas de produção. |
 
 ## <a name="partitions"></a>Partições
 
@@ -207,14 +207,14 @@ A CHAVE PRIMÁRIA só é suportada quando não é aplicada e não executada.  A 
 
 Pode criar uma mesa como uma nova mesa vazia. Também pode criar e preencher uma tabela com os resultados de uma declaração selecionada. Seguem-se os comandos T-SQL para a criação de uma tabela.
 
-| Declaração T-SQL | Description |
+| Declaração T-SQL | Descrição |
 |:----------------|:------------|
-| [CRIAR TABELA](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Cria uma mesa vazia definindo todas as colunas e opções de mesa. |
+| [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Cria uma mesa vazia definindo todas as colunas e opções de mesa. |
 | [CRIAR TABELA EXTERNA](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Cria uma mesa externa. A definição da tabela é armazenada na piscina SQL. Os dados da tabela são armazenados no armazenamento do Azure Blob ou no Azure Data Lake Storage. |
 | [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Povoa uma nova tabela com os resultados de uma declaração selecionada. As colunas de tabela e os tipos de dados baseiam-se nos resultados da declaração selecionada. Para importar dados, esta declaração pode selecionar a partir de uma tabela externa. |
 | [CRIAR TABELA EXTERNA COMO SELEÇÃO](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Cria uma nova tabela externa exportando os resultados de uma declaração selecionada para um local externo.  A localização é o armazenamento de Azure Blob ou Azure Data Lake Storage. |
 
-## <a name="aligning-source-data-with-the-data-warehouse"></a>Alinhamento dos dados de origem com o armazém de dados
+## <a name="align-source-data-with-the-data-warehouse"></a>Alinhar os dados de origem com o armazém de dados
 
 As tabelas de armazéns de dados são povoadas carregando dados de outra fonte de dados. Para obter uma carga bem sucedida, o número e os tipos de dados das colunas nos dados de origem devem alinhar-se com a definição de tabela no armazém de dados.
 

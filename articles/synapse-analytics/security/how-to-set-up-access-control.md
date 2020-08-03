@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e66af8e55f7b60347d9577c64b7183c6ef8b44f4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6b1fe78ac00b57d7627a64970e84ae8b717ae5c3
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089316"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501921"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Proteja o seu espaço de trabalho Synapse (pré-visualização)
 
@@ -82,7 +82,7 @@ No portal Azure, crie um espaço de trabalho sinapse:
   - Atribuir **WS1 \_ SparkAdmins** aos administradores da Synapse Spark
   - Atribuir **WS1 \_ SQLAdmins** aos administradores Sinapse SQL
 
-## <a name="step-4-configuring-data-lake-storage-gen2-for-use-by-synapse-workspace"></a>PASSO 4: Configurar data lake storage gen2 para uso pelo espaço de trabalho Synapse
+## <a name="step-4-configure-data-lake-storage-gen2-for-use-by-synapse-workspace"></a>PASSO 4: Configurar data lake storage Gen2 para uso pelo espaço de trabalho Synapse
 
 O espaço de trabalho synapse precisa de acesso a STG1 e CNT1 para que possa executar oleodutos e executar tarefas do sistema.
 
@@ -100,7 +100,7 @@ O espaço de trabalho synapse precisa de acesso a STG1 e CNT1 para que possa exe
 - Em **Definições**, clique na administração do **Diretório Ativo SQL**
 - Clique **em Definir administração** e escolha WS1 \_ SQLAdmins
 
-## <a name="step-6-maintaining-access-control"></a>PASSO 6: Manutenção do controlo de acessos
+## <a name="step-6-maintain-access-control"></a>PASSO 6: Manter o controlo de acesso
 
 A configuração está terminada.
 

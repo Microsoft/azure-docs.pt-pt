@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 103a5534c143e5edf87f70570eb941dfa72bd45b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8148163dc969920b473f12a7162c6f317d85b3c8
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317829"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503230"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Criar uma oferta de contentores Azure no Azure Marketplace
 
@@ -133,7 +133,7 @@ Esta página permite definir os detalhes da oferta que são exibidos no mercado 
 > [!NOTE]
 > Os detalhes da oferta não são necessários para estar em inglês se a descrição da oferta começar com a frase"Esta aplicação está disponível apenas em [língua não inglesa]." Também é normal fornecer um Link Útil para oferecer conteúdo num idioma diferente do usado na listagem de detalhes da Oferta.
 
-### <a name="name"></a>Nome
+### <a name="name"></a>Name
 
 O nome que aqui entra apresenta como título da sua oferta. Este campo está pré-preenchido com o texto que inseriu na caixa **de pseudónimos Oferta** quando criou a oferta. Pode alterar este nome posteriormente.
 
@@ -284,9 +284,7 @@ Este separador permite-lhe escolher em que nuvens o plano está disponível. As 
 
 Todos os planos para ofertas de contentores Azure são automaticamente disponibilizados na **Azure Global.**  O seu plano pode ser usado por clientes em todas as regiões globais do Azure que utilizam o mercado comercial. Para mais informações, consulte [a disponibilidade geográfica e o suporte à moeda.](../marketplace-geo-availability-currencies.md)
 
-Selecione a opção [**do Governo Azure**](../../azure-government/documentation-government-welcome.md) para fazer a sua solução aparecer aqui. Esta é uma nuvem comunitária governamental com acesso controlado para clientes dos EUA federal, s...... /marketplace-geo-availability-currencies.md)em. Como editor, é responsável por quaisquer controlos de conformidade, medidas de segurança e boas práticas para esta comunidade de nuvem. O Governo Azure utiliza centros e redes de dados fisicamente isolados (localizados apenas nos EUA).
-
-Antes [de publicar](../../azure-government/documentation-government-manage-marketplace-partners.md) no Governo Azure, teste e confirme a sua solução nessa área, uma vez que os resultados podem ser diferentes. Para criar e testar a sua solução, solicite uma conta experimental do julgamento do [Governo Microsoft Azure](https://azure.microsoft.com/global-infrastructure/government/request/).
+Selecione a opção [do Governo Azure](../../azure-government/documentation-government-welcome.md) para fazer a sua solução aparecer aqui. Esta é uma nuvem governamental com acesso controlado para clientes de agências federais, estaduais e locais ou tribais, bem como parceiros elegíveis para servi-los. Como editor, é responsável por quaisquer controlos de conformidade, medidas de segurança e boas práticas para esta comunidade de nuvem. O Governo Azure utiliza centros e redes de dados fisicamente isolados (localizados apenas nos EUA). Antes [de publicar](../../azure-government/documentation-government-manage-marketplace-partners.md) no Governo Azure, teste e confirme a sua solução nessa área, uma vez que os resultados podem ser diferentes. Para criar e testar a sua solução, solicite uma conta experimental do julgamento do [Governo Microsoft Azure](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
 > Depois de o seu plano ser publicado e disponível numa região específica, não pode remover essa região.

@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
 ms.date: 04/05/2019
 ms.reviewer: akjosh
-ms.custom: akjosh
-ms.openlocfilehash: 6dad6e161518ba1f6a4f6fccb21b0f2a53f8e3a4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: akjosh, devx-track-azurecli
+ms.openlocfilehash: 542dfbc28621e02cd2842fb174e986bfeb91e6ec
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083536"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501683"
 ---
 # <a name="share-gallery-vm-images-across-tenants-in-azure"></a>Partilhar imagens da galeria VM através de inquilinos em Azure
 

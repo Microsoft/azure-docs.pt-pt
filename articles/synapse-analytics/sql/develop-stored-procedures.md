@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 0f88b994104ed8a2d80fb3b16f125f8a087cbe3c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 2b106a28514179d9be43b3c56ea8030eaf7ba13f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958383"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495000"
 ---
 # <a name="use-stored-procedures-in-sql-pool"></a>Utilize procedimentos armazenados na piscina SQL
 
@@ -27,7 +27,7 @@ A piscina SQL suporta muitas das funcionalidades T-SQL que são usadas no SQL Se
 
 No entanto, para manter a escala e desempenho da piscina SQL existem também algumas funcionalidades e funcionalidades que têm diferenças comportamentais e outras que não são suportadas.
 
-## <a name="introducing-stored-procedures"></a>Introdução de procedimentos armazenados
+## <a name="stored-procedures-in-sql-pool"></a>Procedimentos armazenados na piscina SQL
 
 Os procedimentos armazenados são uma ótima forma de encapsular o seu código SQL; armazenando-o perto dos seus dados no armazém de dados. Os procedimentos armazenados ajudam os desenvolvedores a modular as suas soluções, encapsulando o código em unidades manejáveis; facilitando uma maior reutilização do código. Cada procedimento armazenado também pode aceitar parâmetros para torná-los ainda mais flexíveis.
 
@@ -92,6 +92,6 @@ São:
 * contextos de execução
 * declaração de retorno
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais dicas de desenvolvimento, consulte [a visão geral do desenvolvimento.](develop-overview.md)

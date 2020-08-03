@@ -6,12 +6,13 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 97901ee0c431699ac8217619042daefd86df2f38
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 794f9feaaa201ade6c824852e3609be6489a8513
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120981"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504641"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Criar e gerir o Link Privado para Azure Database para MariaDB utilizando o CLI
 
@@ -58,7 +59,7 @@ az network vnet subnet update \
  --vnet-name myVirtualNetwork \
  --disable-private-endpoint-network-policies true
 ```
-## <a name="create-the-vm"></a>Crie a VM 
+## <a name="create-the-vm"></a>Criar a VM 
 Criar um VM com az vm criar. Quando solicitado, forneça uma palavra-passe para ser usada como credenciais de entrada para o VM. Este exemplo cria um VM chamado *myVm:* 
 ```azurecli-interactive
 az vm create \
@@ -136,7 +137,7 @@ Ligue-se ao *myVm VM* da internet da seguinte forma:
 
 1. Selecione o botão **Ligar**. Depois de selecionar o botão **Ligar,** **o Connect à máquina virtual** abre-se.
 
-1. Selecione **Download RDP File**. O Azure cria um ficheiro Remote Desktop Protocol *(.rdp)* e transfere-o para o computador.
+1. Selecione **Transferir Ficheiro RDP**. O Azure cria um ficheiro Remote Desktop Protocol *(.rdp)* e transfere-o para o computador.
 
 1. Abra o *ficheiro.rdp descarregado.*
 
@@ -193,7 +194,7 @@ Quando já não for necessário, pode utilizar o grupo AZ para remover o grupo d
 az group delete --name myResourceGroup --yes 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre [o que é o ponto final privado do Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
 
 <!-- Link references, to text, Within this same GitHub repo. -->

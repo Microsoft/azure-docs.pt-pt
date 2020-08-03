@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 05/29/2018
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: 2742b0b73d4143159fd1ed1338988b01a2171041
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: 02f868417ef9feea1771174e62152708c1257425
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124334"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502907"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Gerir uma balança de máquina virtual definida com o Azure CLI
 Ao longo do ciclo de vida dos conjuntos de dimensionamento de máquinas virtuais, poderá ter de executar uma ou mais tarefas de gestão. Além disso, pode querer criar scripts que automatizam várias tarefas do ciclo de vida. Este artigo detalha alguns dos comandos comuns do Azure CLI que lhe permitem executar estas tarefas.
@@ -131,5 +131,5 @@ az vmss delete-instances --resource-group myResourceGroup --name myScaleSet --in
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Outras tarefas comuns para conjuntos de escala incluem como [implementar uma aplicação,](virtual-machine-scale-sets-deploy-app.md)e [atualizar instâncias VM](virtual-machine-scale-sets-upgrade-scale-set.md). Também pode utilizar o Azure CLI para [configurar regras de escala automática](virtual-machine-scale-sets-autoscale-overview.md).
