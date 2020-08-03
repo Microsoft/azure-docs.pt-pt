@@ -9,12 +9,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/10/2020
 ms.author: dylankil
-ms.openlocfilehash: 7db367222d96d7bc9dae48242992ee76a89c849d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 0b4016d696231fd500f6b5e9b487fc4e0f984693
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86544376"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87425113"
 ---
 O [Leitor Imersivo](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente concebida que implementa técnicas comprovadas para melhorar a compreensão da leitura.
 
@@ -610,6 +611,6 @@ Utilize o Android Studio para executar a aplicação num emulador de dispositivo
 
 ![Leitura Avançada](../../media/android/kotlin/android-studio-device-emulator.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Explore a [referência Imersiva SDK](https://github.com/microsoft/immersive-reader-sdk) do leitor e a [referência SDK do leitor imersivo](../../reference.md).

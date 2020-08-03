@@ -9,12 +9,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/20/2020
 ms.author: pasta
-ms.openlocfilehash: a5bd7b3e6262fa21865f04a6b65d1a75faafefa4
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 68009797e48ab15c1c8df983b3413d7b7dac54b0
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86038689"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87425141"
 ---
 O [Leitor Imersivo](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente concebida que implementa técnicas comprovadas para melhorar a compreensão da leitura.
 
@@ -27,7 +28,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads)
 * Um recurso imersivo do Leitor configurado para a autenticação do Azure Ative Directory. Siga [estas instruções](../../how-to-create-immersive-reader.md) para se preparar. Você precisará de alguns dos valores criados aqui ao configurar as propriedades do projeto de amostra. Guarde a saída da sua sessão num ficheiro de texto para referência futura.
 
-## <a name="create-a-web-app-project"></a>Criar um projeto de aplicação web
+## <a name="create-a-web-app-project"></a>Criar um projeto de aplicação Web
 
 Crie um novo projeto no Visual Studio, utilizando o modelo de aplicação web core ASP.NET com o Model-View-Controller incorporado e ASP.NET Core 2.1. Nomeie o projeto "QuickstartSampleWebApp".
 
@@ -303,7 +304,7 @@ Ao clicar no botão "Leitor Imersivo", verá o Leitor Imersivo lançado com o co
 
 ![Leitura Avançada](../../media/quickstart-csharp/5-viewimmersivereader.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Veja o [Node.js arranque rápido](../../tutorial-nodejs.md) para ver o que mais pode fazer com a biblioteca de clientes Immersive Reader usando Node.js
 * Veja o [tutorial do Android](../../tutorial-android.md) para ver o que mais pode fazer com o SDK do leitor imersivo usando Java ou Kotlin para Android

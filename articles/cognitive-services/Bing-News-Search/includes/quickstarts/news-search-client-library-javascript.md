@@ -8,20 +8,21 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/12/2020
 ms.author: aahi
-ms.openlocfilehash: 858e6b9e0e40ab988a4cdf04b31580c1ca28d40a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: cc96233ea6e2d02f3c3a2036466e3934aa234f5b
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79503896"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407983"
 ---
-Use este quickstart para começar a procurar notícias com a biblioteca de clientes Bing News Search para JavaScript. Embora a Bing News Search tenha uma API REST compatível com a maioria dos idiomas de programação, a biblioteca do cliente fornece uma forma fácil de integrar o serviço nas suas aplicações. O código fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/newsSearch.js).
+Use este quickstart para começar a procurar notícias com a biblioteca de clientes Bing News Search para JavaScript. Embora a Bing News Search tenha uma API REST compatível com a maioria das linguagens de programação, a biblioteca do cliente proporciona uma forma fácil de integrar o serviço nas suas aplicações. O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/newsSearch.js).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Node.js](https://nodejs.org/en/)
 
-Para configurar uma aplicação de consola utilizando a biblioteca de clientes Bing News Search:
+Para configurar uma aplicação de consola utilizando a biblioteca do cliente Bing News Search:
 1. Corra `npm install ms-rest-azure` no seu ambiente de desenvolvimento.
 2. Corra `npm install azure-cognitiveservices-newssearch` no seu ambiente de desenvolvimento.
 
@@ -45,7 +46,7 @@ Para configurar uma aplicação de consola utilizando a biblioteca de clientes B
     let client = new NewsSearchAPIClient(credentials);
     ```
 
-## <a name="send-a-search-query"></a>Envie uma consulta de pesquisa
+## <a name="send-a-search-query"></a>Enviar uma consulta de pesquisa
 
 1. Use o cliente para pesquisar com um termo de consulta, neste caso "Jogos Olímpicos de inverno":
     

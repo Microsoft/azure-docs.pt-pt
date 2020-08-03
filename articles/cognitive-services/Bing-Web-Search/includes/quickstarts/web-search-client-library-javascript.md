@@ -8,16 +8,17 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 0380dc8d2ff34cf9eecaad063a305491a357ca29
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 0a505e5fb11e776a90c8e198b2568e2ac0bd1854
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78924873"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406384"
 ---
 A biblioteca de clientes Bing Web Search facilita a integração da Bing Web Search na sua aplicação Node.js. Neste início rápido, irá aprender a instanciar um cliente, a enviar um pedido e a imprimir a resposta.
 
-Quer ver o código imediatamente? As amostras para as [bibliotecas de clientes Bing Search para JavaScript](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/tree/master/Samples) estão disponíveis no GitHub.
+Quer ver o código imediatamente? As amostras para as bibliotecas de [clientes Bing Search para JavaScript](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/tree/master/Samples) estão disponíveis no GitHub.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Aqui estão algumas coisas de que irá precisar antes de executar este início rápido:
@@ -91,7 +92,7 @@ webSearchApiClient.web.search('seahawks').then((result) => {
 })
 ```
 
-## <a name="run-the-program"></a>Execute o programa
+## <a name="run-the-program"></a>Executar o programa
 
 O passo final é executar o programa!
 
@@ -102,8 +103,8 @@ Quando tiver terminado de fazer o que quer neste projeto, não se esqueça de re
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Amostras de Node.js SDK de Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+> [Serviços Cognitivos Node.js amostras de SDK](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Referência do SDK do Node do Azure](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-websearch/)

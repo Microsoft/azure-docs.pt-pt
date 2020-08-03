@@ -4,12 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: b6829f52cb8aaac6f243d3a4a1fa7f6bc1b150d7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-javascript
+ms.openlocfilehash: a0eb507237044a1a28b75532ff1f782c1ad88dbb
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86544318"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407728"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -73,6 +74,6 @@ Para iniciar a aplicação, faça duplo clique no ficheiro index.html ou abra-o 
 
 Para lançar a sua aplicação, abra o seu navegador web favorito e aponte-o para o URL público em que hospeda a pasta, insira a sua [região](../../../../regions.md)e desencadeie a transcrição de texto do discurso de entrada. Se estiver configurado, vai adquirir um token a partir da origem de token.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [footer](./footer.md)]

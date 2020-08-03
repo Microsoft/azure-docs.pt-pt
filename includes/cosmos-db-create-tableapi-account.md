@@ -15,4 +15,4 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "72818649"
 ---
-Para obter instruções sobre a criação de uma conta API de tabela Azure Cosmos DB, consulte Criar uma conta de [base de dados](../articles/cosmos-db/create-table-dotnet.md#create-a-database-account).
+Para obter instruções sobre a criação de uma conta Azure Cosmos DB Table API, consulte [Criar uma conta de base de dados](../articles/cosmos-db/create-table-dotnet.md#create-a-database-account).

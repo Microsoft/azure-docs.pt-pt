@@ -3,12 +3,13 @@ author: areddish
 ms.author: areddish
 ms.service: cognitive-services
 ms.date: 04/14/2020
-ms.openlocfilehash: a96e78ed15eaa4d97cafb7ffc9d5d6979ab869b5
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: devx-track-javascript
+ms.openlocfilehash: f1a89b311a524e6ef0d8e1fc8145f7e13d10bb6b
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965910"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406045"
 ---
 Este artigo mostra-lhe como começar a usar o SDK visão personalizado com Node.js para construir um modelo de classificação de imagem. Depois de criado, pode adicionar tags, carregar imagens, treinar o projeto, obter o URL de previsão publicado do projeto e usar o ponto final para testar programáticamente uma imagem. Use este exemplo como um modelo para construir a sua própria aplicação Node.js. Se quiser percorrer o processo de compilar e utilizar um modelo de classificação _sem_ recorrer a código, veja antes as [orientações baseadas no browser](../../getting-started-build-a-classifier.md).
 

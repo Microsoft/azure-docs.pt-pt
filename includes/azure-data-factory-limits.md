@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: data-factory
 author: linda33wj
 ms.service: data-factory
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/08/2020
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 995339f91be37b71d73b409f3eaeafb3dd1777ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bfb42e0ba81eef145932db072c8a80a2f8e00932
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84754648"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87425202"
 ---
 A Azure Data Factory é um serviço multitenant que tem os seguintes limites padrão em vigor para garantir que as subscrições do cliente estão protegidas das cargas de trabalho uns dos outros. Para elevar os limites até ao máximo para a sua subscrição, contacte o suporte.
 
@@ -22,7 +22,7 @@ A Azure Data Factory é um serviço multitenant que tem os seguintes limites pad
 | Recurso | Limite predefinido | Limite máximo |
 | -------- | ------------- | ------------- |
 | Fábricas de dados numa subscrição do Azure | 800 | [Suporte de contacto](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Número total de entidades, tais como oleodutos, conjuntos de dados, gatilhos, serviços ligados e tempos de integração, dentro de uma fábrica de dados | 5000 | [Suporte de contacto](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Número total de entidades, tais como oleodutos, conjuntos de dados, gatilhos, serviços ligados, Pontos Finais Privados e tempos de integração, dentro de uma fábrica de dados | 5000 | [Suporte de contacto](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Núcleos totais do CPU para Runtimes de Integração Azure-SSIS sob uma subscrição | 256 | [Suporte de contacto](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Gasoduto simultâneo funciona por fábrica de dados que é partilhado entre todos os oleodutos da fábrica | 10,000  | [Suporte de contacto](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Atividade externa simultânea funciona por subscrição por [região de runtime de integração Azure](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br><small>As atividades externas são geridas em tempo de integração, mas executadas em serviços ligados, incluindo Databricks, procedimento armazenado, HDInsights, Web, entre outros.</small> | 3.000 | [Suporte de contacto](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |

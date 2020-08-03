@@ -1,5 +1,5 @@
 ---
-title: Início rápido da biblioteca de clientes Imersivo Reader Node.js
+title: Início rápido da biblioteca de clientes imersivo Node.js
 titleSuffix: Azure Cognitive Services
 description: Neste quickstart, você constrói uma aplicação web de raiz e adiciona a funcionalidade Imersiva da API do Leitor.
 services: cognitive-services
@@ -9,12 +9,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/20/2020
 ms.author: pasta
-ms.openlocfilehash: 2092ccbedd95ee13ac4ad929f052afd1d85729ec
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: d0d5c77fde24b705dbfa7ac44b0d32f0967d1526
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268722"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87425061"
 ---
 O [Leitor Imersivo](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente concebida que implementa técnicas comprovadas para melhorar a compreensão da leitura.
 
@@ -25,10 +26,10 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um recurso imersivo do Leitor configurado para a autenticação do Azure Ative Directory. Siga [estas instruções](../../how-to-create-immersive-reader.md) para se preparar. Você precisará de alguns dos valores criados aqui ao configurar as propriedades ambientais. Guarde a saída da sua sessão num ficheiro de texto para referência futura.
-* [Nó.js](https://nodejs.org/) e [Yarn](https://yarnpkg.com)
+* [Node.js](https://nodejs.org/) e [Fios](https://yarnpkg.com)
 * Um IDE como [Código de Estúdio Visual](https://code.visualstudio.com/)
 
-## <a name="create-a-nodejs-web-app-with-express"></a>Criar uma aplicação web Node.js com o Express
+## <a name="create-a-nodejs-web-app-with-express"></a>Criar uma Node.js web app com o Express
 
 Crie uma aplicação web Node.js com a `express-generator` ferramenta.
 
@@ -62,7 +63,7 @@ SUBDOMAIN={YOUR_SUBDOMAIN}
 
 Certifique-se de que não compromete este ficheiro em controlo de fontes, pois contém segredos que não devem ser tornados públicos.
 
-Em seguida, abra _o app.js_ e adicione o seguinte ao topo do ficheiro. Isto carrega as propriedades definidas no ficheiro .env como variáveis ambientais em Nó.
+Em seguida, abra _app.js_ e adicione o seguinte ao topo do ficheiro. Isto carrega as propriedades definidas no ficheiro .env como variáveis ambientais em Nó.
 
 ```javascript
 require('dotenv').config();

@@ -4,12 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 93718d26360241c76547747818aa10f80211cfba
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.custom: devx-track-javascript
+ms.openlocfilehash: c6ca405a6e14f92ab0b09d8f277c99c0c51288bf
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587052"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87404633"
 ---
 [!INCLUDE [Prerequisites](prerequisites-nodejs.md)]
 
@@ -17,7 +18,7 @@ ms.locfileid: "83587052"
 
 ## <a name="create-a-project-and-import-required-modules"></a>Criar um projeto e importar os módulos exigidos
 
-Crie um novo projeto utilizando o seu IDE ou editor favorito, ou crie uma nova pasta no seu ambiente de trabalho. Copie este fragmento de código no seu projeto/pasta num ficheiro denominado `alt-translations.js` .
+Crie um novo projeto utilizando o seu IDE ou editor favorito, ou crie uma nova pasta no seu ambiente de trabalho. Copie este corte de código no seu projeto/pasta num ficheiro chamado `alt-translations.js` .
 
 ```javascript
 const request = require('request');
@@ -29,9 +30,9 @@ const uuidv4 = require('uuid/v4');
 
 Estes módulos são obrigatórios para construir o pedido HTTP e criar um identificador exclusivo para o cabeçalho `'X-ClientTraceId'`.
 
-## <a name="set-the-subscription-key-and-endpoint"></a>Desdefinir a chave de subscrição e o ponto final
+## <a name="set-the-subscription-key-and-endpoint"></a>Definir a chave de subscrição e o ponto final
 
-Esta amostra tentará ler a chave de subscrição do Tradutor e o ponto final destas variáveis ambientais: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` e `TRANSLATOR_TEXT_ENDPOINT` . Se não está familiarizado com variáveis ambientais, pode definir `subscriptionKey` e como cordas e comentar as `endpoint` declarações condicionais.
+Esta amostra tentará ler a sua chave de subscrição do Tradutor e ponto final a partir destas variáveis ambientais: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` e `TRANSLATOR_TEXT_ENDPOINT` . Se não estiver familiarizado com variáveis ambientais, pode definir `subscriptionKey` e como cordas e comentar as `endpoint` declarações condicionais.
 
 Copie este código para o seu projeto:
 
@@ -53,7 +54,7 @@ var endpoint = process.env[endpoint_var];
 O método `request()`, disponibilizado através do módulo de pedido, permite-nos passar o método HTTP, o URL, os parâmetros de pedido, os cabeçalhos e o corpo de JSON como um objeto de `options`. Neste fragmento de código, vamos configurar o pedido:
 
 >[!NOTE]
-> Para mais informações sobre pontos finais, rotas e parâmetros de pedido, consulte [Tradutor 3.0: Dictionary Lookup](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
+> Para obter mais informações sobre pontos finais, rotas e parâmetros de pedido, consulte [o Tradutor 3.0: Dictionary Lookup](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
 
 ```javascript
 let options = {
@@ -79,7 +80,7 @@ let options = {
 
 A forma mais fácil de autenticar um pedido é transmitir a sua chave de subscrição como um cabeçalho `Ocp-Apim-Subscription-Key`, que é o que vamos utilizar neste exemplo. Como alternativa, pode trocar a chave de subscrição por um token de acesso e transmiti-lo como um cabeçalho `Authorization` para validar o pedido.
 
-Se estiver a utilizar uma subscrição multi-serviço de Serviços Cognitivos, também deve incluir os `Ocp-Apim-Subscription-Region` cabeçalhos do seu pedido.
+Se estiver a utilizar uma subscrição multi-serviço dos Serviços Cognitivos, também deve incluir os `Ocp-Apim-Subscription-Region` cabeçalhos de pedido no seu pedido.
 
 Para obter mais informações, veja [Autenticação](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
@@ -98,7 +99,7 @@ request(options, function(err, res, body){
 
 ## <a name="put-it-all-together"></a>Juntar tudo
 
-É isso, juntaste um programa simples que ligará ao Tradutor e devolverá uma resposta da JSON. Agora, é altura de executar o seu programa:
+É isso, juntaste um programa simples que vai ligar ao Tradutor e devolver uma resposta do JSON. Agora, é altura de executar o seu programa:
 
 ```console
 node alt-translations.js

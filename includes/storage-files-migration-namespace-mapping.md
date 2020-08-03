@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: e0d963d6491574bf630061749ba4d3538549fa34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16b9342f0374377349f338db7ce5c8389c77ea18
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85570226"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87425000"
 ---
 Neste passo, está a avaliar quantas ações de ficheiros Azure precisa. Uma única instância do Windows Server (ou cluster) pode sincronizar até 30 ações de ficheiros Azure.
 
@@ -68,7 +68,7 @@ Na sua situação, é possível que um conjunto de pastas possa logicamente sinc
 
 :::row:::
     :::column:::
-        [![](media/storage-files-migration-namespace-mapping/namespace-mapping.png "An example of a mapping table. Download the file below to experience and use the content of this image.")](media/storage-files-migration-namespace-mapping/namespace-mapping-expanded.png#lightbox)
+        [![Um exemplo de uma mesa de mapeamento. Descarregue o ficheiro abaixo para experimentar e utilizar o conteúdo desta imagem.](media/storage-files-migration-namespace-mapping/namespace-mapping.png)](media/storage-files-migration-namespace-mapping/namespace-mapping-expanded.png#lightbox)
     :::column-end:::
     :::column:::
         Utilize uma combinação dos conceitos anteriores para ajudar a determinar quantas ações de ficheiros Azure precisa e quais as partes dos seus dados existentes que acabarão em que a ação de ficheiros Azure.

@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
-ms.openlocfilehash: 469138da19248bc7872028508f3080de5fae4a52
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1811590dcf9077a503f89a900f661c52aa442c96
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85838878"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87425064"
 ---
 | Recurso | Gratuito | Partilhado | Básica | Standard | Premium (v2) | Isolado </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -28,8 +28,9 @@ ms.locfileid: "85838878"
 | Conexões [de depuração](../articles/app-service/troubleshoot-dotnet-visual-studio.md) simultâneas por aplicação |1 |1 |1 |5 |5 |5 |
 | Certificados de Serviço de Aplicações por subscrição<sup>9</sup>| Não suportado | Não suportado |10 |10 |10 |10 |
 | Domínios personalizados por app</a> |0 (apenas azurewebsites.net subdomínio)|500 |500 |500 |500 |500 |
-| Suporte [SSL](../articles/app-service/configure-ssl-certificate.md) de domínio personalizado |Não suportado, certificado wildcard para *.azurewebsites.net disponível por padrão|Não suportado, certificado wildcard para *.azurewebsites.net disponível por padrão|Conexões SNI SSL ilimitadas |Conexões SNI SSL ilimitadas e 1 IP SSL incluídas |Conexões SNI SSL ilimitadas e 1 IP SSL incluídas | Conexões SNI SSL ilimitadas e 1 IP SSL incluídas|
-| Ligações híbridas por plano | | | 5 | 25 | 200 | 200 |
+| Suporte [SSL](../articles/app-service/configure-ssl-certificate.md) de domínio personalizado |Não suportado, certificado wildcard para \* .azurewebsites.net disponível por padrão|Não suportado, certificado wildcard para \* .azurewebsites.net disponível por padrão|Conexões SNI SSL ilimitadas |Conexões SNI SSL ilimitadas e 1 IP SSL incluídas |Conexões SNI SSL ilimitadas e 1 IP SSL incluídas | Conexões SNI SSL ilimitadas e 1 IP SSL incluídas|
+| Ligações híbridas | | | 5 por plano | 25 por plano | 200 por app | 200 por app |
+| [Integração da Rede Virtual](../articles/app-service/web-sites-integrate-with-vnet.md) | | |   |  X |  X  |  X  |
 | Equilibrador de carga integrado | |X |X |X |X |X<sup>10</sup> |
 | [Sempre ligado](../articles/app-service/configure-common.md) | | |X |X |X |X |
 | [Backups programados](../articles/app-service/manage-backup.md) | | | | Backups programados a cada 2 horas, no máximo 12 backups por dia (manual + programado) | Backups programados a cada hora, um máximo de 50 backups por dia (manual + programado) | Backups programados a cada hora, um máximo de 50 backups por dia (manual + programado) |
@@ -37,6 +38,11 @@ ms.locfileid: "85838878"
 | [WebJobs](../articles/app-service/webjobs-create.md)<sup>11</sup> |X |X |X |X |X |X |
 | [Monitorização de ponto final](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
 | [Slots de encenação](../articles/app-service/deploy-staging-slots.md) por app| | | |5 |20 |20 |
+| [Testes em Produção](../articles/app-service/deploy-staging-slots.md#route-traffic)| | | |X |X |X |
+| [Registos de diagnóstico](../articles/app-service/troubleshoot-diagnostic-logs.md) | X | X | X | X | X | X |
+| Kudu | X | X | X | X | X | X |
+| [Autenticação e Autorização](../articles/app-service/overview-authentication-authorization.md) | X | X | X | X | X | X |
+| [Certificados Geridos do Serviço de Aplicações (Visualização Pública)](https://azure.microsoft.com/updates/secure-your-custom-domains-at-no-cost-with-app-service-managed-certificates-preview/)<sup>12</sup> | |  | X | X | X | X |
 | SLA | |  |99,95%|99,95%|99,95%|99,95%|  
 
 <sup>1</sup> As aplicações e as quotas de armazenamento são por plano de Serviço de Aplicações, salvo indicação em contrário.  
@@ -49,4 +55,6 @@ ms.locfileid: "85838878"
 <sup>8</sup> As ligações IP máximas são por instância e dependem do tamanho do exemplo: 1.920 por instância B1/S1/P1V2, 3.968 por instância B2/S2/P2V2, 8.064 por instância B3/S3/P3V2.  
 <sup>9</sup> O limite de quota de quota do Certificado de Serviço de Aplicação por subscrição pode ser aumentado através de um pedido de apoio para um limite máximo de 200.  
 <sup>10</sup> Os SKUs isolados do Serviço de Aplicações podem ser equilibrados internamente (ILB) com o Azure Load Balancer, pelo que não existe conectividade pública a partir da internet. Como resultado, algumas funcionalidades de um Serviço de Aplicações Isolado ILB devem ser utilizadas a partir de máquinas que tenham acesso direto ao ponto final da rede ILB.  
-<sup>11</sup> Execute executáveis personalizados e/ou scripts a pedido, num horário ou continuamente como uma tarefa de fundo dentro da sua instância do Serviço de Aplicações. Always On é necessário para a execução contínua do WebJobs. Não há um limite predefinido no número de WebJobs que podem ser executados numa instância do Serviço de Aplicações. Existem limites práticos que dependem do que o código de aplicação está a tentar fazer.  
+<sup>11</sup> Execute executáveis personalizados e/ou scripts a pedido, num horário ou continuamente como uma tarefa de fundo dentro da sua instância do Serviço de Aplicações. Always On é necessário para a execução contínua do WebJobs. Não há um limite predefinido no número de WebJobs que podem ser executados numa instância do Serviço de Aplicações. Existem limites práticos que dependem do que o código de aplicação está a tentar fazer.
+
+<sup>12</sup> Domínios nus não são suportados. Apenas a emissão de certificados padrão (os certificados wildcard não estão disponíveis). Limitado a apenas um certificado gratuito por domínio personalizado.
