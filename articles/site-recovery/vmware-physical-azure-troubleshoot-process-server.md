@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 7679148e195bd67ab5da58636552a684c25c31b0
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4816b597d66aea3bbe7f834004f924b5108de939
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131976"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499760"
 ---
 # <a name="troubleshoot-the-process-server"></a>Resolução de problemas do servidor de processo
 
@@ -91,7 +91,7 @@ Se não houver batimentos cardíacos do servidor de processo (código de erro 80
 
  Falhas de replicação iniciais e em curso são muitas vezes causadas por problemas de conectividade entre máquinas de origem e o servidor de processo, ou entre o servidor de processo e Azure. Estes passos são resumidos no gráfico seguinte, seguidos de procedimentos para ajudá-lo a executar os passos.
 
-![Conectividade e replicação de resolução de problemas](./media/vmware-physical-azure-troubleshoot-process-server/troubleshoot-connectivity-replication.png)
+![Fluxograma mostrando passos para resolver problemas de conectividade e replicação.](./media/vmware-physical-azure-troubleshoot-process-server/troubleshoot-connectivity-replication.png)
 
 
 ## <a name="step-4-verify-time-sync-on-source-machine"></a>Passo 4: Verificar sincronização de tempo na máquina de origem
@@ -170,7 +170,7 @@ Verifique se o servidor de processo está a empurrar ativamente os dados para o 
   2. Selecione o separador **Desempenho** > **Monitor de Recursos Abertos**.
   3. Na página **Monitor de Recursos,** selecione o separador **'Rede'.** No âmbito **de Processos com Atividade da Rede,** verifique se cbengine.exe está a enviar ativamente um grande volume de dados.
 
-       ![Volumes em processos com atividade de rede](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
+       ![Screenshot mostrando um grande número de volumes em processos com atividade de rede.](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
 
   Se cbengine.exe não estiver a enviar um grande volume de dados, preencha os passos nas seguintes secções.
 
@@ -179,7 +179,7 @@ Verifique se o servidor de processo está a empurrar ativamente os dados para o 
 1. No Monitor de Recursos, selecione **cbengine.exe**.
 2. No **âmbito das Ligações TCP,** verifique se existe conectividade desde o servidor de processo até ao armazenamento do Azure.
 
-  ![Conectividade entre cbengine.exe e o URL de armazenamento Azure Blob](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
+  ![Screenshot mostrando conectividade entre cbengine.exe e o URL de armazenamento Azure Blob.](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
 
 ### <a name="check-services"></a>Verificar serviços
 
@@ -244,7 +244,7 @@ Verifique se a firewall baseada em endereços IP no servidor de processos está 
 Aumente a largura de banda entre o servidor de processo e o Azure e, em seguida, verifique se o problema ainda ocorre.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se precisar de mais ajuda, publique a sua pergunta na [página de perguntas do Microsoft Q&Uma página de perguntas para a recuperação do site Azure](/answers/topics/azure-site-recovery.html). 
 

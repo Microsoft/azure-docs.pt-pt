@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 0ffcda4a33c43866c3b580a60c87c1ffca59bbc4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8a72dff055f2733a07b6da705b66da939ad29bae
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066348"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495612"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar ciclos que repetem as ações do fluxo de trabalho e processam as matrizes no Azure Logic Apps
 
@@ -24,7 +24,7 @@ Para repetir ações até que uma condição seja satisfeita ou um estado mude, 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição, [inscreva-se numa conta do Azure gratuita](https://azure.microsoft.com/free/). 
+* Uma conta e subscrição do Azure. Se não tiver uma subscrição, [inscreva-se numa conta do Azure gratuita](https://azure.microsoft.com/free/). 
 
 * Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -32,11 +32,11 @@ Para repetir ações até que uma condição seja satisfeita ou um estado mude, 
 
 ## <a name="foreach-loop"></a>Loop "Foreach"
 
-Um "Loop Foreach" repete uma ou mais ações em cada item de matriz e funciona apenas em matrizes. Iterações em um loop "Foreach" executado em paralelo. No entanto, pode executar iterações uma de cada vez, criando um [loop sequencial "Foreach".](#sequential-foreach-loop) 
+Um "Loop Foreach" repete uma ou mais ações em cada item de matriz e funciona apenas em matrizes. Aqui ficam algumas considerações quando se usa os loops "Foreach":
 
-Aqui ficam algumas considerações quando se usa os loops "Foreach":
+* Por predefinição, as iterações num laço "Foreach" são executadas ao mesmo tempo, ou paralelamente. Este comportamento difere da [ **Aplicação** da Power Automamate a cada ciclo](/power-automate/apply-to-each) onde as iterações são executadas uma de cada vez, ou sequencialmente. No entanto, pode [configurar iterações sequenciais em loop "Foreach".](#sequential-foreach-loop) Por exemplo, se pretender fazer uma pausa na próxima iteração num laço "Foreach", utilizando a [ação Delay](../connectors/connectors-native-delay.md), tem de definir o laço para funcionar sequencialmente.
 
-* Em loops aninhados, as iterações correm sempre sequencialmente, não em paralelo. Para executar operações paralelas para itens em loop aninhado, crie e [chame uma aplicação de lógica infantil](../logic-apps/logic-apps-http-endpoint.md).
+  A exceção ao comportamento padrão são laços aninhados onde as iterações são sempre executadas sequencialmente, não em paralelo. Para executar operações paralelas para itens em loop aninhado, crie e [chame uma aplicação de lógica infantil](../logic-apps/logic-apps-http-endpoint.md).
 
 * Para obter resultados previsíveis das operações em variáveis durante cada iteração em loop, executar esses loops sequencialmente. Por exemplo, quando um loop em execução simultâneo termina, o incremento, decremento e apego às operações variáveis devolvem resultados previsíveis. No entanto, durante cada iteração no ciclo de funcionamento simultâneo, estas operações podem devolver resultados imprevisíveis. 
 
@@ -192,7 +192,7 @@ A partir das 8:00 todos os dias, este exemplo de aplicação lógica incrementa 
    | Propriedade | Valor | Descrição |
    | -------- | ----- | ----------- |
    | **Nome** | Limite | O nome da sua variável | 
-   | **Tipo** | Integer (Número inteiro) | O tipo de dados da sua variável | 
+   | **Tipo** | Número inteiro | O tipo de dados da sua variável | 
    | **Valor** | 0 | O valor inicial da sua variável | 
    |||| 
 

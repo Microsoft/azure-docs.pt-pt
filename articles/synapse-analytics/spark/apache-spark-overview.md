@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 0fce972b6b0ceb426ab4b08ab26e664d068af16f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3a2ba65fcef2b6481835cb45243449870361c062
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089282"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498927"
 ---
-# <a name="what-is-apache-spark-in-azure-synapse-analytics"></a>O que é Apache Spark em Azure Synapse Analytics
+# <a name="apache-spark-in-azure-synapse-analytics"></a>Faísca Apache em Azure Synapse Analytics
 
 Apache Spark é uma estrutura de processamento paralela que suporta o processamento na memória para aumentar o desempenho de aplicações analíticas de big data. Apache Spark in Azure Synapse Analytics é uma das implementações da Microsoft de Apache Spark na nuvem. A azure Synapse facilita a criação e configuração de uma piscina Spark (pré-visualização) em Azure. As piscinas de faíscas em Azure Synapse são compatíveis com o armazenamento Azure e o armazenamento Azure Data Lake Generation 2. Assim, pode utilizar as piscinas Azure Spark para processar os seus dados armazenados em Azure.
 

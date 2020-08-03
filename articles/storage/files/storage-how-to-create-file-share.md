@@ -8,12 +8,13 @@ ms.topic: how-to
 ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ba6f4bcaffbf9fa11c949853362485d524bec23a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: a642aa9735c4360c11d50cf475e5de63259c55df
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510021"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495714"
 ---
 # <a name="create-an-azure-file-share"></a>Criar uma partilha de ficheiros do Azure
 Para criar uma partilha de ficheiros Azure, precisa responder a três perguntas sobre como irá usá-lo:
@@ -83,7 +84,7 @@ As outras definições que estão disponíveis no separador avançado (blob soft
 #### <a name="tags"></a>Etiquetas
 As etiquetas são pares de nome/valor que lhe permitem categorizar recursos e visualizar a faturação consolidada aplicando a mesma etiqueta a múltiplos recursos e grupos de recursos. Estes são opcionais e podem ser aplicados após a criação de conta de armazenamento.
 
-#### <a name="review--create"></a>Revisão + criar
+#### <a name="review--create"></a>Rever + criar
 O passo final para criar a conta de armazenamento é selecionar o botão **Criar** no **separador 'Revisão +' criar.** Este botão não estará disponível se todos os campos necessários para uma conta de armazenamento não estiverem preenchidos.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -229,7 +230,7 @@ Este comando falhará se a conta de armazenamento estiver contida numa rede virt
 > [!Note]  
 > O nome da partilha de ficheiros tem de ser todo em minúsculas. Para obter detalhes completos sobre ações e ficheiros de ficheiros de [nomeação, consulte naming e referências de ações, diretórios, ficheiros e metadados](https://msdn.microsoft.com/library/azure/dn167011.aspx).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Plano para a implementação de Ficheiros Azure](storage-files-planning.md) ou [Plano para uma implantação do Azure File Sync](storage-sync-files-planning.md). 
 - [Visão geral de ligação em rede](storage-files-networking-overview.md).
 - Ligue e monte uma partilha de ficheiros no [Windows,](storage-how-to-use-files-windows.md) [macOS](storage-how-to-use-files-mac.md)e [Linux](storage-how-to-use-files-linux.md).

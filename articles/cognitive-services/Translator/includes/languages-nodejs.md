@@ -4,12 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 649af0d3b1503a5607717c4ccbadd8f1d822be32
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 1f2159f3f4c88c7ddafab63a7780f4dbf41ca130
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83586899"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405433"
 ---
 [!INCLUDE [Prerequisites](prerequisites-nodejs.md)]
 
@@ -31,7 +32,7 @@ Estes módulos são obrigatórios para construir o pedido HTTP e criar um identi
 
 ## <a name="set-the-endpoint"></a>Definir o ponto final
 
-Esta amostra tentará ler o seu ponto final do Tradutor a partir de uma variável ambiental: `TRANSLATOR_TEXT_ENDPOINT` . Se não estiver familiarizado com variáveis de ambiente, pode definir `endpoint` como cadeia e comentar a instrução condicional.
+Esta amostra tentará ler o seu ponto final tradutor a partir de uma variável ambiental: `TRANSLATOR_TEXT_ENDPOINT` . Se não estiver familiarizado com variáveis de ambiente, pode definir `endpoint` como cadeia e comentar a instrução condicional.
 
 ```javascript
 lorum ipsum
@@ -42,7 +43,7 @@ lorum ipsum
 O método `request()`, disponibilizado através do módulo de pedido, permite-nos passar o método HTTP, o URL, os parâmetros de pedido, os cabeçalhos e o corpo de JSON como um objeto de `options`. Neste fragmento de código, vamos configurar o pedido:
 
 >[!NOTE]
-> Para mais informações sobre pontos finais, rotas e parâmetros de pedido, consulte [Tradutor 3.0: Idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
+> Para obter mais informações sobre os pontos finais, rotas e parâmetros de pedido, consulte [o Tradutor 3.0: Línguas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
 
 ```javascript
 let options = {
@@ -60,7 +61,7 @@ let options = {
 };
 ```
 
-Se estiver a utilizar uma subscrição multi-serviço de Serviços Cognitivos, também deve incluir os `Ocp-Apim-Subscription-Region` parâmetros do seu pedido. [Saiba mais sobre autenticação com a subscrição de vários serviços.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
+Se estiver a utilizar uma subscrição multi-serviço dos Serviços Cognitivos, também deve incluir os parâmetros do `Ocp-Apim-Subscription-Region` seu pedido. [Saiba mais sobre a autenticação com a subscrição multi-serviço.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)
 
 ## <a name="make-the-request-and-print-the-response"></a>Fazer o pedido e imprimir a resposta
 
@@ -77,7 +78,7 @@ request(options, function(err, res, body){
 
 ## <a name="put-it-all-together"></a>Juntar tudo
 
-É isso, juntaste um programa simples que ligará ao Tradutor e devolverá uma resposta da JSON. Agora, é altura de executar o seu programa:
+É isso, juntaste um programa simples que vai ligar ao Tradutor e devolver uma resposta do JSON. Agora, é altura de executar o seu programa:
 
 ```console
 node get-languages.js

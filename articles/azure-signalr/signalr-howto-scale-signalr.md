@@ -6,12 +6,13 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.author: zhshang
-ms.openlocfilehash: c8d74342e624b837c7ee803a2bcdcc12a3fb814b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: bd112526c7b36d5636d5d85c66b25b6310d35d1e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75659292"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500492"
 ---
 # <a name="how-to-scale-an-azure-signalr-service-instance"></a>Como escalar uma instância do Serviço Azure SignalR?
 Este artigo mostra-lhe como escalar o seu caso de Serviço Azure SignalR. Há dois cenários para escalar, escalar e escalar.
@@ -83,7 +84,7 @@ Para obter informações detalhadas, tais como mensagens incluídas e ligações
 
 Para uma tabela de limites de serviço, quotas e restrições em cada nível, consulte [os limites do Serviço SignalR](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-signalr-service-limits).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia, aprendeu sobre como escalar uma única instância do Serviço SignalR.
 

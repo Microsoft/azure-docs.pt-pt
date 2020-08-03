@@ -1,5 +1,5 @@
 ---
-title: Bing Visual Search JavaScript biblioteca cliente quickstart
+title: Bing Visual Search JavaScript biblioteca de clientes quickstart
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -8,21 +8,22 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/26/2020
 ms.author: aahi
-ms.openlocfilehash: 404529bf269f899603b92c6c23b0d95cd2749ee5
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 3a6c89c3932adb4f9465172ca64b9356db1f624a
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80550024"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407013"
 ---
-Use este quickstart para começar a obter insights de imagem do serviço bing visual search, usando a biblioteca do cliente JavaScript. Embora a Bing Visual Search tenha uma API REST compatível com a maioria dos idiomas de programação, a biblioteca do cliente fornece uma forma fácil de integrar o serviço nas suas aplicações. O código fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js). 
+Utilize este quickstart para começar a obter insights de imagem do serviço de Pesquisa Visual Bing, utilizando a biblioteca de clientes JavaScript. Embora a Bing Visual Search tenha uma API REST compatível com a maioria das linguagens de programação, a biblioteca do cliente proporciona uma forma fácil de integrar o serviço nas suas aplicações. O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js). 
 
-[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-visualsearch/?view=azure-node-latest) | [Biblioteca Código fonte](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-visualsearch) | [Pacote (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-visualsearch) | [Amostras](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
+[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-visualsearch/?view=azure-node-latest)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-visualsearch)  |  [Pacote (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-visualsearch)  |  [Amostras](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Node.js](https://www.nodejs.org/)
-* A biblioteca de clientes bing visual search para JavaScript
-    * Para configurar uma aplicação de consola utilizando a biblioteca de clientes Bing Visual Search, execute os seguintes comandos:
+* A biblioteca de clientes de pesquisa visual Bing para JavaScript
+    * Para configurar uma aplicação de consola utilizando a biblioteca do cliente Bing Visual Search, execute os seguintes comandos:
         1. `npm install ms-rest-azure`
         2. `npm install azure-cognitiveservices-visualsearch`.
 
@@ -33,7 +34,7 @@ Use este quickstart para começar a obter insights de imagem do serviço bing vi
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-1. Crie um novo ficheiro JavaScript no seu IDE ou editor favorito e adicione os seguintes requisitos. Em seguida, crie variáveis para a sua chave de subscrição, ID de configuração personalizada e caminho de ficheiro para a imagem que pretende carregar. 
+1. Crie um novo ficheiro JavaScript no seu IDE ou editor favorito e adicione os seguintes requisitos. Em seguida, crie variáveis para a sua chave de subscrição, ID de configuração personalizada e caminho de arquivo para a imagem que pretende carregar. 
 
     ```javascript
     const os = require("os");
@@ -47,13 +48,13 @@ Use este quickstart para começar a obter insights de imagem do serviço bing vi
     let filePath = "../Data/image.jpg";
     ```
 
-2. Instantie o cliente.
+2. Instantiou o cliente.
 
     ```javascript
     let visualSearchClient = new Search.VisualSearchClient(credentials);
     ```
 
-## <a name="search-for-images"></a>Pesquisar imagens
+## <a name="search-for-images"></a>Pesquisa de imagens
 
 1. Use `fs.createReadStream()` para ler no seu ficheiro de imagem e crie variáveis para o seu pedido de pesquisa e resultados. Em seguida, use o cliente para pesquisar imagens.
 

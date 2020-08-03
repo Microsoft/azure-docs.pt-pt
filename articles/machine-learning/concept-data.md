@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 04/24/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 15cf4aa6adda26991e76ec8a5e7378766fe2a21f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6234e9efe4f6dd122a22ee834ef9c35269eea95f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84552631"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500985"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Acesso seguro a dados em Azure Machine Learning
 
@@ -50,7 +50,7 @@ O diagrama seguinte proporciona uma demonstração visual deste fluxo de trabalh
 
 ![Data-concept-diagrama](./media/concept-data/data-concept-diagram.svg)
 
-## <a name="datastores"></a>Datastores
+## <a name="datastores"></a>Arquivos de dados
 
 As lojas de dados Azure Machine Learning mantêm as informações de ligação ao seu armazenamento Azure, para que não tenha de codificá-la nos seus scripts. [Registe-se e crie uma loja de dados](how-to-access-data.md) para ligar facilmente à sua conta de armazenamento e aceder aos dados no seu serviço de armazenamento Azure subjacente. 
 
@@ -65,16 +65,19 @@ Serviços de armazenamento baseados em nuvem suportados em Azure que podem ser r
 + Sistema de Ficheiros do Databricks
 + Base de Dados do Azure para MySQL
 
-## <a name="datasets"></a>Conjuntos de Dados
+## <a name="datasets"></a>Conjuntos de dados
 
-Conjuntos de dados Azure Machine Learning são referências que apontam para os dados do seu serviço de armazenamento. Não são cópias dos seus dados, por isso não há custos adicionais de armazenamento. Para interagir com os seus dados no armazenamento, [crie um conjunto de dados](how-to-create-register-datasets.md) para embalar os seus dados num objeto consumível para tarefas de aprendizagem automática. Registe o conjunto de dados no seu espaço de trabalho para o partilhar e reutilizar em diferentes experiências sem complexidades de ingestão de dados.
+Conjuntos de dados Azure Machine Learning são referências que apontam para os dados do seu serviço de armazenamento. Não são cópias dos seus dados, por isso não há qualquer custo de armazenamento extra e a integridade das suas fontes de dados originais não estão em risco.
+
+ Para interagir com os seus dados no armazenamento, [crie um conjunto de dados](how-to-create-register-datasets.md) para embalar os seus dados num objeto consumível para tarefas de aprendizagem automática. Registe o conjunto de dados no seu espaço de trabalho para o partilhar e reutilizar em diferentes experiências sem complexidades de ingestão de dados.
 
 Os conjuntos de dados podem ser criados a partir de ficheiros locais, urls públicos, [conjuntos de dados Azure Open](https://azure.microsoft.com/services/open-datasets/)ou serviços de armazenamento Azure através de datastores. Para criar um conjunto de dados a partir de um dataframe de pandas de memória, escreva os dados para um ficheiro local, como um parquet, e crie o seu conjunto de dados a partir desse ficheiro.  
 
 Apoiamos 2 tipos de conjuntos de dados: 
-+ Um [SeparadorDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) representa dados num formato tabular, analisando o ficheiro ou lista de ficheiros fornecidos. Pode carregar um SeparadorDataset num Pandas ou Spark DataFrame para posterior manipulação e limpeza. Para obter uma lista completa de formatos de dados, pode criar Datasets Tabular, consulte a [classe TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
 
-+ Um [Dataset de ficheiros](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) refere ficheiros únicos ou múltiplos nas suas datastores ou URLs públicos. Pode [descarregar ou montar ficheiros](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) referenciados por Datasets de Ficheiros para o seu alvo de computação.
++ Um [Dataset de ficheiros](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) refere ficheiros únicos ou múltiplos nas suas datastores ou URLs públicos. Se os seus dados já estiverem limpos e prontos a serem utilizados em experiências de treino, pode [descarregar ou montar ficheiros](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) referenciados por FileDatasets para o seu alvo de computação.
+
++ Um [SeparadorDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) representa dados num formato tabular, analisando o ficheiro ou lista de ficheiros fornecidos. Pode carregar um SeparadorDataset num panda ou No Spark DataFrame para posterior manipulação e limpeza. Para obter uma lista completa de formatos de dados, pode criar Datasets Tabular, consulte a [classe TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
 
 As capacidades adicionais de conjuntos de dados podem ser encontradas na seguinte documentação:
 
@@ -112,7 +115,7 @@ No contexto da aprendizagem automática, a deriva de dados é a mudança nos dad
 
 Consulte o artigo [do monitor do conjunto de dados,](how-to-monitor-datasets.md) para saber mais sobre como detetar e alertar para a deriva de dados em novos dados num conjunto de dados.
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 
 + Crie um conjunto de dados no estúdio Azure Machine Learning ou com o Python SDK [usando estes passos.](how-to-create-register-datasets.md)
 + Experimente exemplos de formação de dataset com os [nossos cadernos de amostras.](https://aka.ms/dataset-tutorial)

@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 03/12/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 46f0af1eee97a31811e6e463d55fb8aba2d7cd91
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8fd670104a04229ed688b365de89e2ffc22b5429
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033790"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499386"
 ---
 # <a name="what-are-durable-functions"></a>O que é a Durable Functions?
 
@@ -189,18 +189,14 @@ O controlo automático que ocorre na `yield` chamada garante que uma `context.df
 # <a name="python"></a>[Python](#tab/python)
 
 ```python
-import azure.functions as func
 import azure.durable_functions as df
 
 
 def orchestrator_function(context: df.DurableOrchestrationContext):
-    parallel_tasks = []
-
     # Get a list of N work items to process in parallel.
     work_batch = yield context.call_activity("F1", None)
 
-    for i in range(0, len(work_batch)):
-        parallel_tasks.append(context.call_activity("F2", work_batch[i]))
+    parallel_tasks = [ context.call_activity("F2", b) for b in work_batch ]
     
     outputs = yield context.task_all(parallel_tasks)
 
@@ -333,7 +329,6 @@ module.exports = df.orchestrator(function*(context) {
 # <a name="python"></a>[Python](#tab/python)
 
 ```python
-import azure.functions as func
 import azure.durable_functions as df
 import json
 from datetime import timedelta 
@@ -434,7 +429,6 @@ Para criar o temporizador durável, `context.df.createTimer` ligue. A notificaç
 # <a name="python"></a>[Python](#tab/python)
 
 ```python
-import azure.functions as func
 import azure.durable_functions as df
 import json
 from datetime import timedelta 
@@ -655,7 +649,7 @@ Você pode começar com Funções Duráveis em menos de 10 minutos completando u
 
 Em ambos os arranques rápidos, você cria localmente e testa uma função durável "olá mundo". Em seguida, publique o código de função no Azure. A função que cria orquestra e acorrenta em conjunto chama a outras funções.
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 
 O seguinte vídeo destaca os benefícios das Funções Duradouras:
 

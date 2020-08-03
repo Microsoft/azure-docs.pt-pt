@@ -6,12 +6,13 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 02/14/2019
 ms.author: cynthn
-ms.openlocfilehash: 1e28ea47f0f99d3690fdfcf8b5d4370fcbb334e0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: e9f824a3b7e1e5e482bbc04c448ca4930bf88678
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289807"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500951"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Começa com o Docker e o Compose para definir e executar uma aplicação multi-contentor em Azure
 Com [a Compose,](https://github.com/docker/compose)utiliza-se um ficheiro de texto simples para definir uma aplicação composta por vários recipientes Docker. Em seguida, gira a sua aplicação num único comando que faz tudo para implantar o seu ambiente definido. Como exemplo, este artigo mostra-lhe como configurar rapidamente um blog WordPress com uma base de dados MariaDB SQL de backend num Ubuntu VM. Também pode usar o Compose para configurar aplicações mais complexas.

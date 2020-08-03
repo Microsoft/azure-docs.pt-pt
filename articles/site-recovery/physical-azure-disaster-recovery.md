@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: c3d4a2120f86a03508b91d4b2dea52e629dc0f79
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1fdfe57c2995628855ea8e068c4f8eb2f2ac466a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130180"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500437"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Confiússe de desastre para Azure para servidores físicos no local
 
@@ -111,7 +111,7 @@ Configurar o servidor de configuração, registá-lo no cofre e descobrir VMs.
 4. Descarregue o ficheiro de instalação de configuração unificada de recuperação do site.
 5. Transfira a chave de registo do cofre. Precisas disto quando executares a Configuração Unificada. A chave é válida durante cinco dias depois de gerá-la.
 
-   ![Configurar a origem](./media/physical-azure-disaster-recovery/source-environment.png)
+   ![Screenshot mostrando as opções para descarregar o ficheiro de instalação e a chave de registo.](./media/physical-azure-disaster-recovery/source-environment.png)
 
 
 ### <a name="register-the-configuration-server-in-the-vault"></a>Registar o servidor de configuração no cofre
@@ -136,7 +136,6 @@ Executar configuração unificada como administrador local, para instalar o serv
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
-Após o início do registo, o servidor de configuração é apresentado na página **'Servidores' de Definições**  >  **Servers** no cofre.
 
 ## <a name="set-up-the-target-environment"></a>Configurar o ambiente de destino
 
@@ -146,7 +145,7 @@ Selecione e verifique os recursos de destino.
 2. Especifique o modelo de implementação do alvo.
 3. A Recuperação de Sites verifica que tem uma ou mais contas de armazenamento e redes do Azure compatíveis.
 
-   ![Destino](./media/physical-azure-disaster-recovery/network-storage.png)
+   ![Screenshot das opções para configurar o ambiente alvo.](./media/physical-azure-disaster-recovery/network-storage.png)
 
 
 ## <a name="create-a-replication-policy"></a>Criar uma política de replicação
@@ -157,7 +156,7 @@ Selecione e verifique os recursos de destino.
 4. Em **Retenção do ponto de recuperação**, especifique (em horas) a duração da janela de retenção para cada ponto de recuperação. As VMs replicadas podem ser recuperadas para qualquer ponto numa janela. É suportada uma retenção de até 24 horas para máquinas replicadas para o armazenamento premium e até 72 horas para armazenamento standard.
 5. Na **frequência instantânea consistente da App,** especifique com que frequência (em minutos) serão criados pontos de recuperação que contenham instantâneos consistentes com aplicações. Clique em **OK** para criar a política.
 
-    ![Política de replicação](./media/physical-azure-disaster-recovery/replication-policy.png)
+    ![Screenshot das opções para criar uma política de replicação.](./media/physical-azure-disaster-recovery/replication-policy.png)
 
 
 A política é associada automaticamente ao servidor de configuração. Por predefinição, uma política correspondente é criada automaticamente para reativação pós-falha. Por exemplo, se a política de replicação for **a política de rep-política,** então é criada uma política **de rep-failback** política de recuo. Esta política não é utilizada depois de iniciar uma reativação pós-falha a partir do Azure.
@@ -185,6 +184,6 @@ Ativar a replicação de cada servidor.
 
 Para monitorizar os servidores que adiciona, pode verificar a última vez que os descobertos são os últimos contactos dos **servidores**de  >  **configuração.** Para adicionar máquinas sem esperar por um tempo de descoberta programado, realce o servidor de configuração (não clique nele) e clique em **Refresh**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Faça um exercício de recuperação de desastres.](tutorial-dr-drill-azure.md)

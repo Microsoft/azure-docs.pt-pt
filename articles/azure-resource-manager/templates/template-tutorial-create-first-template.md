@@ -5,12 +5,13 @@ author: mumian
 ms.date: 06/10/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 1e286a3b59279ed9658a373210f1425ece05eff4
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 140eb73cdf6d5bb701c08b0dd8d5f85b6f137df6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102086"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497482"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutorial: Crie e implemente o seu primeiro modelo ARM
 
@@ -34,7 +35,7 @@ Os modelos são ficheiros JSON. Para criar modelos, precisa de um bom editor JSO
 
 Também precisa de Azure PowerShell ou Azure CLI para implementar o modelo. Se utilizar o Azure CLI, deve ter a versão mais recente. Para as instruções de instalação, consulte:
 
-- [Instalar o Azure PowerShell](/powershell/azure/install-az-ps)
+- [Instalar Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalar a CLI do Azure no Windows](/cli/azure/install-azure-cli-windows)
 - [Instale o Azure CLI no Linux](/cli/azure/install-azure-cli-linux)
 - [Instalar a CLI do Azure no macOS](/cli/azure/install-azure-cli-macos)
@@ -138,7 +139,7 @@ az group create \
 
 ## <a name="deploy-template"></a>Implementar o modelo
 
-Para implementar o modelo, utilize o Azure CLI ou o Azure PowerShell. Utilize o grupo de recursos que criou. Dê um nome à implementação para que possa identificá-lo facilmente no histórico de implantação. Por conveniência, também crie uma variável que armazena o caminho para o arquivo do modelo. Esta variável facilita-lhe a execução dos comandos de implantação porque não tem de reescrever o caminho sempre que se implanta.
+Para implementar o modelo, utilize o Azure CLI ou o Azure PowerShell. Utilize o grupo de recursos que criou. Dê um nome à implementação para que possa identificá-lo facilmente no histórico de implantação. Por conveniência, também crie uma variável que armazena o caminho para o arquivo do modelo. Esta variável torna mais fácil executar os comandos de implementação, porque não tem de reescrever o caminho sempre que implementa.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -152,7 +153,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para executar este comando de implantação, você deve ter a [versão mais recente](/cli/azure/install-azure-cli) de Azure CLI.
+Para executar este comando de implementação, tem de ter a [versão mais recente](/cli/azure/install-azure-cli) da CLI do Azure.
 
 ```azurecli
 templateFile="{provide-the-path-to-the-template-file}"
@@ -212,7 +213,7 @@ Se está a parar agora, é melhor apagar o grupo de recursos.
 3. Selecione o nome do grupo de recursos.
 4. **Selecione Eliminar o grupo** de recursos do menu superior.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Criou um modelo simples para implementar para O Azure. No próximo tutorial, irá adicionar uma conta de armazenamento ao modelo e implantá-la-á para o seu grupo de recursos.
 

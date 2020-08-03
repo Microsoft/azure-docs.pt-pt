@@ -7,12 +7,13 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/12/2018
 ms.author: jaredro
-ms.openlocfilehash: df02213f1cba7c25cc77c06f1addcc04a2a4d27a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 2e4f7b53ffd3642869e6246e546e3feeda3cf529
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738401"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495901"
 ---
 # <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Configure ExpressRoute Global Reach usando o Azure CLI
 
@@ -148,7 +149,7 @@ Utilize o ```show``` comando para verificar o estado.
 
 Quando esta operação estiver concluída, deixará de ter conectividade entre as suas redes no local através dos circuitos ExpressRoute.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais sobre o ExpressRoute Global Reach](expressroute-global-reach.md)
 * [Verificar conectividade ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)

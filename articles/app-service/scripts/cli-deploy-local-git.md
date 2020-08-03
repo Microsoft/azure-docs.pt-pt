@@ -1,6 +1,6 @@
 ---
-title: 'CLI: Desdobre-se a partir de Git repo local'
-description: Aprenda a utilizar o Azure CLI para automatizar a implementação e gestão da sua app App Service. Esta amostra mostra como implementar código a partir de um repositório git local.
+title: 'CLI: Implantar a partir de Git repo local'
+description: Saiba como utilizar o Azure CLI para automatizar a implementação e gestão da sua aplicação De Serviço de Aplicações. Esta amostra mostra como implantar código de um repositório local de Git.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 048f98aa-f708-44cb-9b9e-953f67dc6da8
@@ -8,17 +8,17 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 11cb8bd25f82e480ddbb23151d8a7622fedc828a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: 2b03363e12c599398bb4eb715bd278e883dbed27
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80044821"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495527"
 ---
-# <a name="create-an-app-service-app-and-deploy-code-from-a-local-git-repository-using-azure-cli"></a>Crie uma aplicação de Serviço de Aplicações e implemente código a partir de um repositório git local usando o Azure CLI
+# <a name="create-an-app-service-app-and-deploy-code-from-a-local-git-repository-using-azure-cli"></a>Crie uma aplicação de Serviço de Aplicações e implemente código a partir de um repositório local de Git usando O Azure CLI
 
-Este script de amostra cria uma aplicação no App Service com os seus recursos relacionados e, em seguida, implementa o seu código de aplicação num repositório git local.
+Este script de amostra cria uma aplicação no Serviço de Aplicações com os seus recursos relacionados e, em seguida, implementa o seu código de aplicação num repositório de Git local.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

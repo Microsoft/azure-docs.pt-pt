@@ -1,14 +1,14 @@
 ---
 title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados Azure permite uma experiência de gestão de inquilinos cruzados.
-ms.date: 07/24/2020
+ms.date: 07/31/2020
 ms.topic: conceptual
-ms.openlocfilehash: 979891a3ebea8070c6882fff62ed4a7954041d3e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a6d5c7e06ed59ab76b15f4f8ae880408dc6f7835
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371044"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500883"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -33,9 +33,7 @@ O Farol Azure permite uma maior flexibilidade na gestão de recursos para vário
 
 Pode executar tarefas de gestão em recursos delegados, quer diretamente no portal, quer utilizando APIs e ferramentas de gestão (como Azure CLI e Azure PowerShell). Todas as APIs existentes podem ser utilizadas quando trabalham com recursos delegados, desde que a funcionalidade seja suportada para a gestão de inquilinos cruzados e o utilizador tenha as permissões adequadas.
 
-O cmdlet Azure PowerShell [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) mostra o `tenantID` para cada subscrição, permitindo-lhe identificar se uma subscrição devolvida pertence ao seu inquilino prestador de serviços ou a um inquilino de cliente gerido.
-
-Da mesma forma, os comandos Azure CLI, tais como [a lista de conta az](/cli/azure/account?view=azure-cli-latest#az-account-list) mostram os atributos **homeTenantId** e **geridos PorTenants.**
+Os comandos Azure CLI, tais como [a lista de conta az,](/cli/azure/account?view=azure-cli-latest#az-account-list) mostram os atributos **homeTenantId** e **geridosbyTenants** para cada subscrição, permitindo-lhe identificar se uma subscrição devolvida pertence ao seu inquilino prestador de serviços ou a um inquilino de cliente gerido.
 
 > [!TIP]
 > Se não vir estes valores ao utilizar o Azure CLI, tente limpar o cache correndo `az account clear` seguido por `az login --identity` .
@@ -70,7 +68,7 @@ A maioria das tarefas e serviços podem ser realizados em recursos delegados ent
 
 [Gestão de Custos Azure + Faturação:](../../cost-management-billing/index.yml)
 
-- A partir do inquilino gerente, os parceiros da CSP podem ver, gerir e analisar os custos de consumo antes de impostos (não incluindo as compras) para clientes que estão ao abrigo do plano Azure. O custo basear-se-á nas tarifas de retalho e no acesso ao controlo de acesso baseado em funções (RBAC) da Azure que o parceiro tem para a subscrição do cliente.
+- A partir do inquilino gerente, os parceiros da CSP podem ver, gerir e analisar os custos de consumo antes de impostos (não incluindo as compras) para clientes que estão ao abrigo do plano Azure. O custo basear-se-á nas tarifas de retalho e no acesso ao controlo de acesso baseado em funções (Azure RBAC) que o parceiro tem para a subscrição do cliente.
 
 [Serviço Azure Kubernetes (AKS)](../../aks/index.yml):
 

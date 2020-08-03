@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: b45714489f13d33d90b5694f458e6339e33595f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbcc82d3ec4b50cf51210f8a4319bbf374185a88
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367581"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498094"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>O que é um servidor SQL lógico na Base de Dados Azure SQL e Azure Synapse?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -34,7 +34,7 @@ Um servidor na BASE de Dados SQL e Azure Synapse:
 - É o recurso principal para bases de dados, conjuntos elásticos e armazéns de dados
 - Fornece um espaço de nome para bases de dados, piscinas elásticas e base de dados de armazém de dados
 - É um recipiente lógico com semântica vitalícia forte - elimine um servidor e elimina as suas bases de dados, piscinas elásticas e piscinas SQK
-- Participa no controlo de acesso baseado em [funções (RBAC) -](/azure/role-based-access-control/overview) bases de dados, piscinas elásticas e base de dados de armazém de dados dentro de um servidor herdam direitos de acesso do servidor
+- Participa no controlo de acesso baseado em [funções Azure (Azure RBAC)](/azure/role-based-access-control/overview) - bases de dados, piscinas elásticas e base de dados de armazém de dados dentro de um servidor herdam direitos de acesso do servidor
 - É um elemento de ordem elevada da identidade das bases de dados, piscinas elásticas e base de dados de armazéns de dados para efeitos de gestão de recursos Azure (ver o esquema de URL para bases de dados e piscinas)
 - Coloca recursos numa região
 - Fornece um ponto final de ligação para o acesso à base de dados (`<serverName>`.database.windows.net)
@@ -190,7 +190,7 @@ Para criar e gerir servidores, bases de dados e firewalls, utilize estes pedidos
 |[Regras de firewall - Obter](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Tem uma regra de firewall.|
 |[Regras de firewall - Lista por servidor](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Devolve uma lista de regras de firewall.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber sobre a migração de uma base de dados do SQL Server para a Base de Dados Azure SQL, consulte [a Migração para a Base de Dados SQL Azure](migrate-to-database-from-sql-server.md).
 - Para obter informações sobre as funcionalidades suportadas, veja [Funcionalidades](features-comparison.md).

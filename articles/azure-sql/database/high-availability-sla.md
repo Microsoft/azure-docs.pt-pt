@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 04/02/2020
-ms.openlocfilehash: cc0c4b6bc7dd340f17ac500c5d319a83370a2f2b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d3abd6411197c9e7994e9ae642b07e72a0a24735
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033056"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496292"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidade para Azure SQL Database e SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -95,12 +95,19 @@ A versão redundante da zona da arquitetura de alta disponibilidade é ilustrada
 
 ## <a name="testing-application-fault-resiliency"></a>Teste de resiliência da falha da aplicação
 
-A alta disponibilidade é uma parte fundamental da plataforma SQL Database e SQL Managed Instance que funciona de forma transparente para a sua aplicação de base de dados. No entanto, reconhecemos que poderá querer testar como as operações automáticas de failover iniciadas durante eventos planeados ou não planeados teriam impacto na aplicação antes de a implementar na produção. Pode chamar uma API especial para reiniciar uma base de dados ou uma piscina elástica, o que por sua vez irá desencadear uma falha. No caso de uma base de dados redundante ou piscina elástica, a chamada da API resultaria na reorientação das ligações dos clientes para a nova primária numa Zona de Disponibilidade diferente da Zona de Disponibilidade da antiga primária. Assim, além de testar como o failover impacta as sessões de base de dados existentes, também pode verificar se altera o desempenho de ponta a ponta devido a alterações na latência da rede. Como a operação de reinício é intrusiva e um grande número deles pode stressar a plataforma, apenas uma chamada de failover é permitida a cada 30 minutos para cada base de dados ou piscina elástica.
+A alta disponibilidade é uma parte fundamental da plataforma SQL Database e SQL Managed Instance que funciona de forma transparente para a sua aplicação de base de dados. No entanto, reconhecemos que poderá querer testar como as operações automáticas de failover iniciadas durante eventos planeados ou não planeados teriam impacto numa aplicação antes de a implantar na produção. Pode desencadear manualmente uma falha, chamando uma API especial para reiniciar uma base de dados ou uma piscina elástica. No caso de uma base de dados redundante ou piscina elástica, a chamada da API resultaria na reorientação das ligações dos clientes para a nova primária numa Zona de Disponibilidade diferente da Zona de Disponibilidade da antiga primária. Assim, além de testar como o failover impacta as sessões de base de dados existentes, também pode verificar se altera o desempenho de ponta a ponta devido a alterações na latência da rede. Como a operação de reinício é intrusiva e um grande número deles pode stressar a plataforma, apenas uma chamada de failover é permitida a cada 30 minutos para cada base de dados ou piscina elástica.
 
-Uma falha pode ser iniciada usando REST API ou PowerShell. Para REST API, consulte [a falha da base de dados](https://docs.microsoft.com/rest/api/sql/databases(failover)/failover) e a falha da piscina [elástica.](https://docs.microsoft.com/rest/api/sql/elasticpools(failover)/failover) Para PowerShell, consulte [Invoke-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover) e [Invoke-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover). As chamadas REST API também podem ser feitas a partir de Azure CLI usando o comando [de repouso az.](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-rest)
+Uma falha pode ser iniciada usando PowerShell, REST API ou Azure CLI:
+
+|Tipo de implantação|PowerShell|API REST| CLI do Azure|
+|:---|:---|:---|:---|
+|Base de Dados|[Invocar-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Falha na base de dados](/rest/api/sql/databases(failover)/failover/)|[az descanso](https://docs.microsoft.com/cli/azure/reference-index#az-rest)|
+|Conjunto elástico|[Invocar-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Falha na piscina elástica](/rest/api/sql/elasticpools(failover)/failover/)|[az descanso](https://docs.microsoft.com/cli/azure/reference-index#az-rest)|
+|Instância Gerida|[Invocar-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Casos Geridos - Failover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[az sql mi failover](/cli/azure/sql/mi/#az-sql-mi-failover)|
+
 
 > [!IMPORTANT]
-> O comando Failover não está atualmente disponível no nível de serviço de Hiperescala e para Instância Gerida.
+> O comando Failover não está atualmente disponível no nível de serviço Hyperscale.
 
 ## <a name="conclusion"></a>Conclusão
 

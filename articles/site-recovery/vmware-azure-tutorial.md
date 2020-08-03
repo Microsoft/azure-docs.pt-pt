@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 317cc5222b3444ae2ed242df694d317503c72a87
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9831305f3889f977a270630b40fa0d78ec1085bd
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290669"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501206"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar a recuperação após desastre para o Azure das VMs VMware no local
 
@@ -87,7 +87,7 @@ Todos estes componentes são instalados em conjunto nas máquinas únicas no loc
 1. Inscreva-se no servidor VMware vCenter ou no vSphere ESXi com o VMware vSphere Client.
 2. No menu **'Ficheiro',** selecione **implementar o modelo OVF** para iniciar o **Assistente de Modelo de OVF**de implementação .
 
-     ![Modelo OVF](./media/vmware-azure-tutorial/vcenter-wizard.png)
+     ![Screenshot do comando do modelo de implementação OVF no VMWare vSphere Client.](./media/vmware-azure-tutorial/vcenter-wizard.png)
 
 3. Em **Selecionar origem**, introduza a localização do OVF transferido.
 4. Em **Rever detalhes**, selecione **Seguinte**.
@@ -153,7 +153,7 @@ Selecione e verifique os recursos de destino.
 1. Selecione Preparar o alvo **da infraestrutura**  >  **Target**. Selecione a subscrição do Azure que pretende utilizar. Estamos a utilizar um modelo do Resource Manager.
 2. A Recuperação do Site verifica se tem uma ou mais redes virtuais. Deve tê-los ao configurar os componentes do Azure no [primeiro tutorial](tutorial-prepare-azure.md) nesta série de tutoriais.
 
-   ![Separador Destino](./media/vmware-azure-tutorial/storage-network.png)
+   ![Screenshot das opções de preparação > destino da infraestrutura.](./media/vmware-azure-tutorial/storage-network.png)
 
 ## <a name="create-a-replication-policy"></a>Criar uma política de replicação
 
@@ -165,7 +165,7 @@ Selecione e verifique os recursos de destino.
 6. Na **Retenção do ponto de recuperação**, especifique quanto tempo cada ponto de recuperação será retido. Para este tutorial, utilizamos 72 horas. As VMs replicadas podem ser recuperadas para qualquer ponto numa janela de retenção.
 7. Na **Frequência de instantâneos consistentes com a aplicação**, especifique a frequência com que são criados instantâneos consistentes com a aplicação. Estamos a utilizar a predefinição de 60 minutos. Selecione **OK** para criar a política.
 
-   ![Criar política de replicação](./media/vmware-azure-tutorial/replication-policy.png)
+   ![Screenshot das opções de política de replicação Criar.](./media/vmware-azure-tutorial/replication-policy.png)
 
 - A política é associada automaticamente ao servidor de configuração.
 - Uma política correspondente é criada automaticamente para reativação pós-falha por predefinição. Por exemplo, se a política de replicação for **rep-policy**, a política de reativação pós-falha é **rep-policy-failback**. Esta política não é utilizada depois de iniciar uma reativação pós-falha a partir do Azure.

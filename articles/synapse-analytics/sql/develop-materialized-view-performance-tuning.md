@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: a3b012d86444ca2bb9b84af37aa17424221457d1
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d476bef6faa19defad1d2e1ef1a90f7e5d83def5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955068"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495697"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Otimização do desempenho com vistas materializadas
 
@@ -36,11 +36,11 @@ A maioria dos requisitos de visão padrão ainda se aplicam a uma visão materia
 |Ver definição                 | Armazenado no armazém de dados Azure.              | Armazenado no armazém de dados Azure.
 |Ver conteúdos                    | Gerada cada vez que a vista é usada.   | Pré-processado e armazenado no armazém de dados Azure durante a criação de visualização. Atualizado à medida que os dados são adicionados às tabelas subjacentes.
 |Atualização de dados                    | Sempre atualizado                               | Sempre atualizado
-|Velocidade para recuperar dados de visualização de consultas complexas     | Devagar                                         | Rápido  
+|Velocidade para recuperar dados de visualização de consultas complexas     | Lento                                         | Rápido  
 |Armazenamento extra                   | Não                                           | Sim
 |Syntax                          | CRIAR VISTA                                  | CRIAR VISTA MATERIALIZADA COMO SELEÇÃO
 
-## <a name="benefits-of-using-materialized-views"></a>Benefícios da utilização de vistas materializadas
+## <a name="benefits-of-materialized-views"></a>Benefícios de vistas materializadas
 
 Uma visão materializada devidamente concebida proporciona os seguintes benefícios:
 
@@ -358,7 +358,7 @@ Verifique novamente o plano de execução da consulta original.  Agora o número
 
 Com vistas materializadas, a mesma consulta corre muito mais rápido sem qualquer alteração de código.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais dicas de desenvolvimento, consulte a visão geral do [desenvolvimento do Synapse SQL.](develop-overview.md)
  

@@ -1,14 +1,14 @@
 ---
 title: Papéis e permissões do RBAC
-description: Utilize o controlo de acesso baseado em funções (RBAC) e a gestão de identidade e acesso (IAM) para fornecer permissões de grãos finos aos recursos num registo de contentores Azure.
+description: Utilize o controlo de acesso baseado em funções Azure (Azure RBAC) e a gestão de identidade e acesso (IAM) para fornecer permissões de grãos finos aos recursos num registo de contentores Azure.
 ms.topic: article
 ms.date: 12/02/2019
-ms.openlocfilehash: 3fb103ac4c4dac736b3c0fc99b2cf49f01e9e005
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0bf6059698191c975b212bee7f45d21977478b49
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74893489"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497754"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Funções e permissões do Registo de Contentores de Azure
 
@@ -17,7 +17,7 @@ O serviço de registo de contentores Azure suporta um conjunto de [funções Azu
 | Função/Permissão       | [Gestor de Recursos de Acesso](#access-resource-manager) | [Criar/apagar registo](#create-and-delete-registry) | [Imagem de empurrar](#push-image) | [Imagem de puxar](#pull-image) | [Eliminar dados de imagem](#delete-image-data) | [Mudar políticas](#change-policies) |   [Assinar imagens](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | Proprietário | X | X | X | X | X | X |  |  
-| Contribuidor | X | X | X |  X | X | X |  |  
+| Contribuinte | X | X | X |  X | X | X |  |  
 | Leitor | X |  |  | X |  |  |  |
 | AcrPush |  |  | X | X | |  |  |  
 | Rio AcrPull |  |  |  | X |  |  |  |  
@@ -83,7 +83,7 @@ Para definir um papel personalizado, consulte [Passos para criar um papel person
 > [!IMPORTANT]
 > Numa função personalizada, o Registo de Contentores Azure não suporta atualmente wildcards como `Microsoft.ContainerRegistry/*` ou `Microsoft.ContainerRegistry/registries/*` que concedem acesso a todas as ações correspondentes. Especifique qualquer ação necessária individualmente no papel.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre a atribuição de funções de RBAC a uma identidade Azure utilizando o [portal Azure](../role-based-access-control/role-assignments-portal.md), o [Azure CLI,](../role-based-access-control/role-assignments-cli.md)ou outras ferramentas Azure.
 

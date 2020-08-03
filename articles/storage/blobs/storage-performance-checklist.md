@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: b94725d4d3eb9fd6f13a39d00486b4ab085b9ef9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4471994f7e691466449125a74cf3f7d46607be01
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80473944"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495136"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista de verificação de desempenho e escalabilidade para armazenamento blob
 
@@ -32,9 +32,9 @@ Este artigo organiza práticas comprovadas para o desempenho numa lista de verif
 | &nbsp; |Metas de escalabilidade |[Um grande número de clientes está a aceder a uma única bolha simultaneamente?](#multiple-clients-accessing-a-single-blob-concurrently) |
 | &nbsp; |Metas de escalabilidade |[A sua aplicação está dentro dos alvos de escalabilidade para uma única bolha?](#bandwidth-and-operations-per-blob) |
 | &nbsp; |Criação de partições |[A sua convenção de nomeação foi concebida para permitir um melhor equilíbrio de cargas?](#partitioning) |
-| &nbsp; |Rede |[Os dispositivos do lado do cliente têm largura de banda suficientemente alta e baixa latência para alcançar o desempenho necessário?](#throughput) |
-| &nbsp; |Rede |[Os dispositivos do lado do cliente têm uma ligação de rede de alta qualidade?](#link-quality) |
-| &nbsp; |Rede |[O pedido do cliente é na mesma região que a conta de armazenamento?](#location) |
+| &nbsp; |Redes |[Os dispositivos do lado do cliente têm largura de banda suficientemente alta e baixa latência para alcançar o desempenho necessário?](#throughput) |
+| &nbsp; |Redes |[Os dispositivos do lado do cliente têm uma ligação de rede de alta qualidade?](#link-quality) |
+| &nbsp; |Redes |[O pedido do cliente é na mesma região que a conta de armazenamento?](#location) |
 | &nbsp; |Acesso direto ao cliente |[Está a utilizar assinaturas de acesso partilhado (SAS) e partilha de recursos de origem cruzada (CORS) para permitir o acesso direto ao Azure Storage?](#sas-and-cors) |
 | &nbsp; |Colocação em cache |[A sua aplicação é de caching dados que são frequentemente acedidos e raramente alterados?](#reading-data) |
 | &nbsp; |Colocação em cache |[A sua aplicação está a fazer atualizações de loteamento, caching-las no cliente e, em seguida, a carregá-las em conjuntos maiores?](#uploading-data-in-batches) |
@@ -65,7 +65,7 @@ Para obter mais informações sobre os alvos de escalabilidade para o serviço d
 Se estiver a aproximar-se do número máximo de contas de armazenamento permitidas para uma determinada combinação subscrição/região, avalie o seu cenário e determine se alguma das seguintes condições se aplica:
 
 - Está a utilizar contas de armazenamento para armazenar discos não geridos e adicionar esses discos às suas máquinas virtuais (VMs)? Para este cenário, a Microsoft recomenda a utilização de discos geridos. Os discos geridos escalam para si automaticamente e sem a necessidade de criar e gerir contas de armazenamento individuais. Para mais informações, consulte [discos geridos introdução ao Azure](../../virtual-machines/windows/managed-disks-overview.md)
-- Está a utilizar uma conta de armazenamento por cliente, para efeitos de isolamento de dados? Para este cenário, a Microsoft recomenda a utilização de um recipiente blob para cada cliente, em vez de uma conta de armazenamento inteira. O Azure Storage permite-lhe agora atribuir funções de controlo de acesso baseado em funções (RBAC) numa base por contentor. Para obter mais informações, consulte [o Acesso ao Grant ao blob Azure e aos dados de fila com o RBAC no portal Azure](../common/storage-auth-aad-rbac-portal.md).
+- Está a utilizar uma conta de armazenamento por cliente, para efeitos de isolamento de dados? Para este cenário, a Microsoft recomenda a utilização de um recipiente blob para cada cliente, em vez de uma conta de armazenamento inteira. O Azure Storage permite-lhe agora atribuir funções Azure por cada contentor. Para obter mais informações, consulte [o Acesso ao Grant ao blob Azure e aos dados de fila com o RBAC no portal Azure](../common/storage-auth-aad-rbac-portal.md).
 - Está a utilizar várias contas de armazenamento para aumentar as operações de entrada, saída, E/S por segundo (IOPS) ou capacidade? Neste cenário, a Microsoft recomenda que aproveite os limites acrescidos para as contas de armazenamento para reduzir o número de contas de armazenamento necessárias para a sua carga de trabalho, se possível. Contacte [o Suporte Azure](https://azure.microsoft.com/support/options/) para solicitar limites acrescidos para a sua conta de armazenamento. Para obter mais informações, consulte [anunciar contas de armazenamento de maior escala.](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)
 
 ### <a name="capacity-and-transaction-targets"></a>Objetivos de capacidade e transações
@@ -115,7 +115,7 @@ Pode seguir algumas boas práticas para reduzir a frequência de tais operaçõe
   
 - Para obter mais informações sobre o esquema de partição utilizado no Azure Storage, consulte [o Azure Storage: Um serviço de armazenamento em nuvem altamente disponível com forte consistência](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 
 Os constrangimentos físicos da rede da aplicação podem ter um impacto significativo no desempenho. As seguintes secções descrevem algumas das limitações que os utilizadores podem encontrar.  
 
@@ -155,7 +155,7 @@ Tanto o SAS como o CORS podem ajudá-lo a evitar cargas desnecessárias na sua a
 
 Caching desempenha um papel importante no desempenho. As seguintes secções discutem as melhores práticas.
 
-### <a name="reading-data"></a>Dados de leitura
+### <a name="reading-data"></a>Ler os dados
 
 Em geral, ler dados uma vez é preferível lê-lo duas vezes. Considere o exemplo de uma aplicação web que recuperou uma bolha de 50 MiB do Azure Storage para servir de conteúdo a um utilizador. Idealmente, a aplicação caches a bolha localmente para o disco e, em seguida, recupera a versão em cache para pedidos subsequentes do utilizador.
 

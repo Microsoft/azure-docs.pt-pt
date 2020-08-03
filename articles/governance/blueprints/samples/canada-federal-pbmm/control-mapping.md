@@ -1,14 +1,14 @@
 ---
 title: Controlos de amostras de planta do Canadá Federal PBMM
 description: Controlo do mapeamento das amostras de planta do PBMM federal do Canadá. Cada controlo é mapeado para uma ou mais Políticas Azure que ajudam na avaliação.
-ms.date: 05/08/2020
+ms.date: 07/31/2020
 ms.topic: sample
-ms.openlocfilehash: 65fcd016c749a66fbfca1c5edc9d425216545341
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 3022dc32f689d1cbfc8b5b6545d1252ce47ca33d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419704"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500134"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Mapeamento de controlo da amostra de planta federal do Canadá PBMM
 
@@ -116,8 +116,8 @@ Esta planta atribui definições [de Política Azure](../../../policy/overview.m
 Os dados de registo recolhidos pelo Azure Monitor são armazenados num espaço de trabalho do Log Analytics que permite relatórios e análises centralizados. Esta planta ajuda-o a garantir que os eventos são registados atribuindo definições [de Política Azure](../../../policy/overview.md) que auditam e impõem a implementação do agente Log Analytics em máquinas virtuais Azure.
 
 - \[Pré-visualização \] : Implementação do agente de análise de registo de auditoria - VM Image (OS) não listado
-- \[Pré-visualização \] : Implementação do agente de análise de registo de auditoria em VMSS - VM Image (OS) não listado
-- \[Pré-visualização \] : Audit Log Analytics Workspace for VM - Report Incompatibilidade
+- Implementação do agente de análise de registo de auditoria em VMSS - VM Image (OS) não listado
+- Audit Log Analytics Workspace for VM - Report Incompatibilidade
 - \[Pré-visualização \] : Implementar agente de análise de registo para VMs Linux
 - \[Pré-visualização \] : Implementar agente de análise de registo para VMs do Windows
 
@@ -126,8 +126,9 @@ Os dados de registo recolhidos pelo Azure Monitor são armazenados num espaço d
 Esta planta ajuda-o a garantir que os eventos do sistema são registados atribuindo definições [de Política Azure](../../../policy/overview.md) que auditam as definições de registo nos recursos do Azure. Estas definições de política auditam e impõem a implantação do agente Log Analytics em máquinas virtuais Azure e configuração de definições de auditoria para outros tipos de recursos Azure. Estas definições de política também auditam a configuração de registos de diagnóstico para fornecer informações sobre operações que são realizadas dentro dos recursos Azure. Além disso, a auditoria e a Segurança Avançada de Dados estão configuradas em servidores SQL.
 
 - \[Pré-visualização \] : Implementação do agente de análise de registo de auditoria - VM Image (OS) não listado
-- \[Pré-visualização \] : Implementação do agente de análise de registo de auditoria em VMSS - VM Image (OS) não listado
-- \[Pré-visualização \] : Audit Log Analytics Workspace for VM - Report Incompatibilidade
+- Implementação do agente de análise de registo de auditoria em VMSS - VM Image (OS) não listado
+- Audit Log Analytics Workspace for VM - Report 
+
 - \[Pré-visualização \] : Implementar agente de análise de registo para VMs Linux
 - \[Pré-visualização \] : Implementar agente de análise de registo para VMs do Windows
 - Definição de diagnóstico de auditoria
@@ -167,25 +168,25 @@ Este projeto ajuda-o a restringir e a controlar o acesso privilegiado atribuindo
 
 Esta planta atribui definições [de Política Azure](../../../policy/overview.md) que auditam máquinas virtuais Linux que permitem ligações remotas a partir de contas sem palavras-passe e/ou têm permissões incorretas definidas no ficheiro passwd. Esta planta também atribui definições de política que auditam a configuração do tipo de encriptação de palavra-passe para máquinas virtuais do Windows. A monitorização destes indicadores ajuda-o a garantir que os autenticadores do sistema cumprem a política de identificação e autenticação da sua organização.
 
-- \[Pré-visualização \] : Mostrar os resultados da auditoria dos VMs Linux que não têm as permissões de ficheiros passwd definidas para 0644
-- \[Pré-visualização \] : Mostrar resultados de auditoria de VMs Linux que têm contas sem senhas
-- \[Pré-visualização \] : Implementar requisitos para auditar Os VMs do Linux que não têm as permissões de ficheiros passwd definidas para 0644
-- \[Pré-visualização \] : Implementar requisitos para auditar Os VMs do Linux que têm contas sem senhas
+- Mostre os resultados da auditoria dos VMs Linux que não têm as permissões de ficheiros passwd definidas para 0644
+- Mostrar resultados de auditoria de VMs Linux que têm contas sem senhas
+- Implementar requisitos para auditar Os VMs do Linux que não têm as permissões de ficheiros passwd definidas para 0644
+- Implementar requisitos para auditar Os VMs do Linux que têm contas sem senhas
 
 ## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>IA-5 (1) Gestão de Autenticadores / Autenticação baseada em palavras-passe
 
 Este plano ajuda-o a impor senhas fortes atribuindo definições [de Política Azure](../../../policy/overview.md) que auditam máquinas virtuais do Windows que não impõem a força mínima e outros requisitos de senha. A sensibilização das máquinas virtuais em violação da política de força de senha ajuda-o a tomar ações corretivas para garantir que as palavras-passe de todas as contas de utilizadores de máquinas virtuais cumprem a política de senha da sua organização.
 
-- \[Pré-visualização \] : Mostrar resultados de auditoria de VMs do Windows que permitem a reutilização das 24 palavras-passe anteriores
-- \[Pré-visualização \] : Mostrar resultados de auditoria de VMs do Windows que não têm uma idade máxima de senha de 70 dias
-- \[Pré-visualização \] : Mostrar resultados de auditoria de VMs do Windows que não têm uma idade mínima de senha de 1 dia
-- \[Pré-visualização \] : Mostrar resultados de auditoria de VMs do Windows que não têm a definição de complexidade da palavra-passe ativada
-- \[Pré-visualização \] : Mostrar resultados de auditoria de VMs do Windows que não restringem o comprimento mínimo da palavra-passe a 14 caracteres
-- \[Pré-visualização \] : Implementar requisitos para auditar VMs do Windows que permitam reutilizar as 24 palavras-passe anteriores
-- \[Pré-visualização \] : Implementar requisitos para auditar VMs do Windows que não tenham uma idade máxima de senha de 70 dias
-- \[Pré-visualização \] : Implementar requisitos para auditar VMs do Windows que não tenham uma idade mínima de senha de 1 dia
-- \[Pré-visualização \] : Implementar requisitos para auditar VMs do Windows que não tenham a definição de complexidade da palavra-passe ativada
-- \[Pré-visualização \] : Implementar requisitos para auditar VMs do Windows que não restringem o comprimento mínimo da palavra-passe a 14 caracteres
+- Mostrar resultados de auditoria a VMs do Windows que permitem a reutilização das 24 palavras-passe anteriores
+- Mostrar resultados de auditoria de VMs do Windows que não têm uma idade máxima de senha de 70 dias
+- Mostrar os resultados da auditoria dos VM do Windows que não têm uma idade mínima de senha de 1 dia
+- Mostrar os resultados da auditoria dos VM do Windows que não têm a definição de complexidade da palavra-passe ativada
+- Mostrar os resultados da auditoria dos VM do Windows que não restringem o comprimento mínimo da palavra-passe a 14 caracteres
+- Implementar requisitos para auditar VMs do Windows que permitam reutilizar as 24 palavras-passe anteriores
+- Implementar requisitos para auditar VMs do Windows que não tenham uma idade máxima de senha de 70 dias
+- Implementar requisitos para auditar VMs do Windows que não tenham uma idade mínima de senha de 1 dia
+- Implementar requisitos para auditar VMs do Windows que não tenham a definição de complexidade da palavra-passe ativada
+- Implementar requisitos para auditar VMs do Windows que não restringem o comprimento mínimo da palavra-passe a 14 caracteres
 
 ## <a name="ia-8-100-identification-and-authentication-non-organizational-users--identity-and-credential-assurance-levels"></a>IA-8 (100) Identificação e Autenticação (Utilizadores Não Organizacionais) Níveis de Garantia de Identidade e Credenciais
 
@@ -289,7 +290,7 @@ Esta planta ajuda-o a gerir a proteção de pontos finais, incluindo a proteçã
 Esta planta ajuda-o a monitorizar o seu sistema auditando e aplicando a segurança de registo e dados através dos recursos da Azure. Especificamente, as políticas atribuídas à auditoria e aplicação do agente Log Analytics, e a definições de segurança reforçadas para bases de dados SQL, contas de armazenamento e recursos de rede. Estas capacidades podem ajudá-lo a detetar comportamentos anómalos e indicadores de ataques para que possa tomar as medidas adequadas.
 
 - \[Pré-visualização \] : Implementação do agente de análise de registo de auditoria - VM Image (OS) não listado
-- \[Pré-visualização \] : Implementação do agente de análise de registo de auditoria em VMSS - VM Image (OS) não listado
+- Implementação do agente de análise de registo de auditoria em VMSS - VM Image (OS) não listado
 - \[Pré-visualização \] : Audit Log Analytics Workspace for VM - Report Incompatibilidade
 - \[Pré-visualização \] : Implementar agente de análise de registo para VMs Linux
 - \[Pré-visualização \] : Implementar agente de análise de registo para VMs do Windows
@@ -304,7 +305,7 @@ Esta planta ajuda-o a monitorizar o seu sistema auditando e aplicando a seguran�
 > [!NOTE]
 > A disponibilidade de definições específicas da Política Azure pode variar no Governo de Azure e noutras nuvens nacionais. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Reviram o mapeamento de controlo da amostra de planta federal do Canadá. Em seguida, visite os seguintes artigos para saber sobre a visão geral e como implementar esta amostra:
 

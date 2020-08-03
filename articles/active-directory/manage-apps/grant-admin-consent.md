@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c24023bdd3540785dec58ebeaa14d99ab659ab1
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 713b4ed2559e3cd16943af92e68818047e249ef4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848376"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501019"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Conceder consentimento de administrador ao nível do inquilino a uma aplicação
 
@@ -31,9 +31,16 @@ A concessão do consentimento administrativo ao inquilinos requer que se inscrev
 
 > [!IMPORTANT]
 > Quando uma aplicação tiver recebido o consentimento administrativo do arrendatário, todos os utilizadores poderão inscrever-se na app a menos que tenha sido configurada para exigir a atribuição do utilizador. Para restringir quais os utilizadores que podem iniciar sessão numa aplicação, exija a atribuição do utilizador e, em seguida, atribua utilizadores ou grupos à aplicação. Para obter mais informações, consulte [Métodos para atribuir utilizadores e grupos.](methods-for-assigning-users-and-groups.md)
+>
+> A função de Administrador Global é necessária para fornecer o consentimento administrativo para a API do Gráfico microsoft.
+>
+
 
 > [!WARNING]
 > A concessão do consentimento administrativo a uma aplicação concederá à app e ao editor da app acesso aos dados da sua organização. Reveja cuidadosamente as permissões que o pedido solicita antes de conceder o consentimento.
+>
+> A função de Administrador Global é necessária para fornecer o consentimento administrativo para a API do Gráfico microsoft.
+>
 
 ## <a name="grant-admin-consent-from-the-azure-portal"></a>Conceder consentimento administrativo do portal Azure
 
@@ -80,7 +87,7 @@ em que:
 
 Como sempre, reveja cuidadosamente as permissões que um pedido de pedido antes de conceder o consentimento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Configurar a forma como os utilizadores finais concedem consentimento às aplicações](configure-user-consent.md)
 

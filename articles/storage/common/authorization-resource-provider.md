@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d2e84cf06019c592a726564768f9b332ab5ed610
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 5b171c5ff5bc848a0005fad5a2e0b6c0ca548724
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372302"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496078"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Utilize o fornecedor de recursos de armazenamento Azure para aceder a recursos de gestão
 
@@ -36,7 +36,7 @@ Cada subscrição da Azure tem um Diretório Azure Ative associado que gere util
 
 Quando atribui um papel de RBAC a um diretor de segurança, também indica o âmbito em que as permissões concedidas pelo papel estão em vigor. Para operações de gestão, pode atribuir uma função ao nível da subscrição, do grupo de recursos ou da conta de armazenamento. Pode atribuir uma função RBAC a um principal de segurança utilizando o [portal Azure,](https://portal.azure.com/)as [ferramentas Azure CLI,](../../cli-install-nodejs.md) [PowerShell](/powershell/azure/)ou o [fornecedor de recursos de armazenamento Azure REST API](/rest/api/storagerp).
 
-Para obter mais informações, consulte [o que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?](../../role-based-access-control/overview.md) e [funções de administrador de subscrição clássica, funções de RBAC Azure e funções de administrador ad Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+Para obter mais informações, consulte [o que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?](../../role-based-access-control/overview.md) e [funções de administrador de subscrição clássica, funções de Azure e funções de administrador AD Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ### <a name="built-in-roles-for-management-operations"></a>Funções incorporadas para operações de gestão
 
@@ -74,7 +74,7 @@ Estes modelos representam duas formas distingas de implementar e gerir as suas s
 
 Para obter mais informações sobre os modelos de implementação da Azure, consulte [o Gestor de Recursos e a implementação clássica.](../../azure-resource-manager/management/deployment-models.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral do Gestor de Recursos Azure](/azure/azure-resource-manager/resource-group-overview)
 - [O que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?](../../role-based-access-control/overview.md)

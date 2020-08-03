@@ -1,6 +1,6 @@
 ---
-title: 'CLI: Implementar uma aplicação a partir do GitHub'
-description: Aprenda a utilizar o Azure CLI para automatizar a implementação e gestão da sua app App Service. Esta amostra mostra como implementar uma aplicação a partir do GitHub.
+title: 'CLI: Implementar uma aplicação do GitHub'
+description: Saiba como utilizar o Azure CLI para automatizar a implementação e gestão da sua aplicação De Serviço de Aplicações. Esta amostra mostra como implementar uma aplicação do GitHub.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 0205c991-0989-4ca3-bb41-237dcc964460
@@ -8,17 +8,17 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 368a5d6810de5628ab98a7bef43cfceab750f95f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: 722e4d6b25e20914b3aedf59ebb531b05af0e6cc
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80057833"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495561"
 ---
-# <a name="create-an-app-service-app-with-deployment-from-github-using-azure-cli"></a>Criar uma aplicação de Serviço de Aplicações com implementação do GitHub utilizando o Azure CLI
+# <a name="create-an-app-service-app-with-deployment-from-github-using-azure-cli"></a>Criar uma aplicação de Serviço de Aplicações com implementação do GitHub usando o Azure CLI
 
-Este script de amostra cria uma aplicação no App Service com os seus recursos relacionados. Em seguida, implementa o seu código de aplicação a partir de um repositório público gitHub (sem implementação contínua). Para a implementação do GitHub com implementação contínua, consulte [Criar uma aplicação com implementação contínua do GitHub](cli-continuous-deployment-github.md).
+Este script de amostra cria uma aplicação no Serviço de Aplicações com os seus recursos relacionados. Em seguida, implementa o seu código de aplicação a partir de um repositório público do GitHub (sem implantação contínua). Para a implementação do GitHub com implementação contínua, consulte [Criar uma aplicação com implementação contínua a partir do GitHub](cli-continuous-deployment-github.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -41,7 +41,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Cria um plano do Serviço de Aplicações. |
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação de Serviço de Aplicações. |
-| [`az webapp deployment source config`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config) | Associa uma aplicação de Serviço de Aplicações com um repositório Git ou Mercurial. |
+| [`az webapp deployment source config`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config) | Associa uma aplicação de Serviço de Aplicações a um repositório Git ou Mercurial. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

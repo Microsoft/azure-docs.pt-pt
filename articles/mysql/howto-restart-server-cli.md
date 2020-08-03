@@ -6,12 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: ab2ef4315ea035d051065e1e148577fd73dfae26
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 9707aaa911fc8ceb8c03b369bd6479646ca3418c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107959"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500730"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-the-azure-cli"></a>Reinicie a base de dados do Azure para o servidor MySQL utilizando o Azure CLI
 Este tópico descreve como pode reiniciar uma Base de Dados Azure para o servidor MySQL. Pode ser necessário reiniciar o servidor por razões de manutenção, o que provoca uma falha curta à medida que o servidor executa a operação.
@@ -38,6 +39,6 @@ Reiniciar o servidor com o seguinte comando:
 az mysql server restart --name mydemoserver --resource-group myresourcegroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba [como definir parâmetros na Base de Dados Azure para o MySQL](howto-configure-server-parameters-using-cli.md)

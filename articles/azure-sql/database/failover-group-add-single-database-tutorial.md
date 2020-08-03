@@ -4,24 +4,24 @@ description: Adicione uma base de dados na Base de Dados Azure SQL a um grupo de
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: ad4ef93b34639abffaf15c806fd86d550e03f0bc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4caad36d21d3facb97dc358fdfee61e89c420213
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045258"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496343"
 ---
 # <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>Tutorial: Adicione uma Base de Dados Azure SQL a um grupo de autofailover
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Um [grupo de failover](auto-failover-group-overview.md) é uma camada de abstração declarativa que permite agrupar várias bases de dados geo-replicadas. Aprenda a configurar um grupo de failover para uma Base de Dados Azure SQL e teste falha usando o portal Azure, PowerShell ou o Azure CLI.  Neste tutorial, ficará a saber como:
+Um [grupo de failover](auto-failover-group-overview.md) é uma camada de abstração declarativa que permite agrupar várias bases de dados geo-replicadas. Aprenda a configurar um grupo de failover para uma Base de Dados Azure SQL e teste falha usando o portal Azure, PowerShell ou o Azure CLI.  Neste tutorial, irá aprender a:
 
 > [!div class="checklist"]
 >

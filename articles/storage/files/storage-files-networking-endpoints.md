@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0859b034cf0caa60039fbf9eb4dd9be54448a940
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: cef1aab42eea84c737d5c0173bd4d0e0aa509fe4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510325"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497771"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Configurar pontos finais da rede Azure Files
 A Azure Files fornece dois tipos principais de pontos finais para aceder a ações de ficheiros Azure: 
@@ -155,5 +156,5 @@ Quando restringe a conta de armazenamento a redes virtuais específicas, está a
 
 ## <a name="see-also"></a>Ver também
 - [Considerações de networking de ficheiros Azure](storage-files-networking-overview.md)
-- [Configurar o reencaminhamento de DNS para ficheiros Azure](storage-files-networking-dns.md)
+- [Configurar o reencaminhamento de DNS para Ficheiros do Azure](storage-files-networking-dns.md)
 - [Configurar S2S VPN para ficheiros Azure](storage-files-configure-s2s-vpn.md)

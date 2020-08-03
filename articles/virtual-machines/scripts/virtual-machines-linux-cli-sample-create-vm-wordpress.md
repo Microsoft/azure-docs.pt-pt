@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: ff02c46422d4cb64365213e3b80aca532df9cecf
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 17bb5a3cc7f612c1d702925ae0551c99386bbd69
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509737"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501428"
 ---
 # <a name="create-a-vm-with-wordpress"></a>Criar uma VM com o WordPress
 
@@ -54,7 +54,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | [az vm extension set](/cli/azure/vm) | Adicione a Extensão do Script Personalizado à máquina virtual que invoca um script para instalar o WordPress. |
 | [az group delete](/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

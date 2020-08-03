@@ -2,14 +2,14 @@
 title: Contentores sem servidor em Azure
 description: O serviço Azure Container Instances oferece a forma mais rápida e simples de executar contentores isolados em Azure, sem ter que gerir máquinas virtuais e sem ter que adotar um orquestrador de nível superior.
 ms.topic: overview
-ms.date: 04/25/2019
+ms.date: 07/28/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 572557860f5d715d6c708acb640acc24e1dd4a35
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2871aabe4d81cfb1441e9c74c8fa24e4e906d3b9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424159"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498689"
 ---
 # <a name="what-is-azure-container-instances"></a>O que é o Azure Container Instances?
 
@@ -20,6 +20,11 @@ O Azure Container Instances é uma ótima solução para qualquer cenário que p
 ## <a name="fast-startup-times"></a>Tempos de arranque rápidos
 
 Os contentores oferecem benefícios de arranque significativos em relação às máquinas virtuais (VMs). Com o Azure Container Instances, pode iniciar contentores no Azure em segundos, sem ter de aprovisionar e gerir VMs.
+
+Traga imagens de contentores Linux ou Windows do Docker Hub, um registo privado de [contentores Azure,](../container-registry/index.yml)ou outro registo de estivadores baseado na nuvem. Azure Container Instances caches várias imagens de SO de base comum, ajudando a acelerar a implementação das suas imagens de aplicação personalizadas.
+
+> [!NOTE]
+> Atualmente, não é possível implantar uma imagem de um registo no local para instâncias de contentores Azure.
 
 ## <a name="container-access"></a>Acesso a contentores
 
@@ -70,7 +75,7 @@ O Azure Container Instances suporta o agendamento de [grupos de vários contento
 
 Azure Container Instances permite [a colocação de casos de contentores numa rede virtual Azure](container-instances-vnet.md). Quando implantados numa sub-rede dentro da sua rede virtual, as instâncias de contentores podem comunicar de forma segura com outros recursos na rede virtual, incluindo os que estão no local (através do [gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [ExpressRoute).](../expressroute/expressroute-introduction.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Experimente implementar um contentor no Azure com um único comando através do nosso guia de início rápido:
 

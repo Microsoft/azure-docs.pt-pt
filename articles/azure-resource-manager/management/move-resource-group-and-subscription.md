@@ -3,12 +3,13 @@ title: Mover recursos para um novo grupo de subscrição ou recursos
 description: Utilize o Azure Resource Manager para mover recursos para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: 2fe4fc956f52ab5229469e1f230aec056295f19a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: e5b3e27110d5bd7941aad0209681d13f45fa66fa
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539283"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498876"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Move resources to a new resource group or subscription (Mover recursos para um grupo de recursos ou uma subscrição nova)
 
@@ -233,7 +234,7 @@ No órgão de pedido, especifique o grupo de recursos-alvo e os recursos para se
 
 Se tiver um erro, consulte [Troubleshoot movendo os recursos da Azure para um novo grupo de recursos ou subscrição](troubleshoot-move.md).
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 **Pergunta: A minha operação de movimento de recursos, que normalmente demora alguns minutos, está a decorrer há quase uma hora. Passa-se alguma coisa?**
 
@@ -279,6 +280,6 @@ Outro exemplo comum envolve mover uma rede virtual. Poderá ter de mover vários
 
 Atualmente, nem todos os recursos no movimento de apoio da Azure. Para obter uma lista de recursos que suportam movimento, consulte [o suporte de operação Move para recursos](move-support-resources.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma lista de recursos que apoiam o movimento, consulte [o suporte de operação move para recursos](move-support-resources.md).

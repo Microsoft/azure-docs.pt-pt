@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 73ffe7fe6336d9547ebbbf4c894bd1b9398e0900
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 12c3a35e12e3f432345ea788893d0d0ae6e6433f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092937"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496921"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Tutorial: Proteger uma base de dados na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -190,7 +190,7 @@ Para adicionar um utilizador com autenticação SQL:
 A autenticação do Azure Ative Directory requer que os utilizadores da base de dados sejam criados conforme contido. Uma base de dados contida mapeia um utilizador de uma identidade no diretório AD Azure associado à base de dados e não tem qualquer login na base de dados *principal.* A identidade AZure AD pode ser para um utilizador individual ou para um grupo. Para mais informações, consulte [os utilizadores de bases de dados contidos, torne a sua base de dados portátil](/sql/relational-databases/security/contained-database-users-making-your-database-portable) e reveja o tutorial [AZure AD](authentication-aad-configure.md) sobre como autenticar usando a Azure AD.
 
 > [!NOTE]
-> Os utilizadores de bases de dados (excluindo administradores) não podem ser criados utilizando o portal Azure. As funções de Azure RBAC não se propagam a servidores, bases de dados ou armazéns de dados SQL. São utilizados apenas para gerir os recursos da Azure e não se aplicam a permissões de base de dados.
+> Os utilizadores de bases de dados (excluindo administradores) não podem ser criados utilizando o portal Azure. As funções Azure não se propagam a servidores, bases de dados ou armazéns de dados SQL. São utilizados apenas para gerir os recursos da Azure e não se aplicam a permissões de base de dados.
 >
 > Por exemplo, a *função sql Server Contributor* não concede acesso à ligação a uma base de dados ou armazém de dados. Esta permissão deve ser concedida na base de dados utilizando declarações T-SQL.
 
@@ -264,7 +264,7 @@ Se forem detetadas atividades anómalas, recebe um e-mail com informações sobr
 
    ![Mensagem de e-mail sobre deteção de ameaças](./media/secure-database-tutorial/threat-email.png)
 
-### <a name="auditing"></a>Auditing (Auditoria)
+### <a name="auditing"></a>Auditoria
 
 O recurso de auditoria rastreia eventos de base de dados e escreve eventos para um registo de auditoria no armazenamento do Azure, nos registos do Azure Monitor ou num centro de eventos. A auditoria ajuda a manter a conformidade regulatória, a compreender a atividade da base de dados e a obter informações sobre discrepâncias e anomalias que possam indicar possíveis violações de segurança.
 

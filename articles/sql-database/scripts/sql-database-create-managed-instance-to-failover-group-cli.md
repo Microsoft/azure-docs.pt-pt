@@ -4,19 +4,19 @@ description: Azure CLI exemplo script para criar um Azure SQL Managed Instance, 
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: ''
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: bf4e2b04c540ee5672bea6e097496ced5a0d622a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b29fcd33c8181ba61f57d7105d08e7e4956d80bc
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528881"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497261"
 ---
 # <a name="use-cli-to-create-an-azure-sql-managed-instance-to-a-failover-group"></a>Use o CLI para criar um Azure SQL Managed Instance para um grupo de failover
 
@@ -58,7 +58,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [az rede vnet-gateway](/cli/azure/network/vnet-gateway) | Comandos Virtual Network Gateway |
 | [az sql instância-failover-grupo](/cli/azure/sql/instance-failover-group) | SQL Managed Instance falha comandos de grupo. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

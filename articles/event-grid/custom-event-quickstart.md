@@ -3,12 +3,13 @@ title: 'Quickstart: Envie eventos personalizados com Grade de Eventos e CLI Azur
 description: Quickstart Use Azure Event Grid e Azure CLI para publicar um tópico personalizado e subscrever eventos para esse tópico. Os eventos são tratados por uma aplicação web.
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: ecf7e753df4f6fb3de6095ba295a07fd57b458cf
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 46341a9cd4f7880333cb2653691328f4969f1fb4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101729"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497380"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Quickstart: Encaminhe eventos personalizados para o ponto final da web com Azure CLI e Grade de Eventos
 
@@ -140,7 +141,7 @@ Se quiser continuar a trabalhar com este evento ou com a aplicação de visualiz
 az group delete --name gridResourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que sabe como criar tópicos e subscrições de eventos, saiba mais sobre o que o Event Grid pode ajudá-lo a fazer:
 

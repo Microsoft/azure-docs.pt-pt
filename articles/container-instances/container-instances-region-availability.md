@@ -4,12 +4,12 @@ description: Disponibilidade de recursos de computação e memória para o servi
 ms.topic: article
 ms.date: 04/27/2020
 ms.author: danlep
-ms.openlocfilehash: 119c1202fe59e02a1b6ff802e3dbdc4d52133abe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 591d7dd07ea3717303589cdc070623068c4d3864
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583895"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500611"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidade de recursos para instâncias de contentores Azure nas regiões de Azure
 
@@ -54,9 +54,6 @@ As seguintes regiões e recursos máximos estão disponíveis para um grupo de c
 ## <a name="availability---gpu-resources-preview"></a>Disponibilidade - Recursos da GPU (pré-visualização)
 
 As seguintes regiões e recursos máximos estão disponíveis para um grupo de contentores implantado com [recursos gpu](container-instances-gpu.md) (pré-visualização).
-
-> [!IMPORTANT]
-> Os recursos da GPU só estão disponíveis mediante solicitação. Para solicitar o acesso aos recursos da GPU, por favor envie um [pedido de apoio da Azure.][azure-support]
 
 [!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]

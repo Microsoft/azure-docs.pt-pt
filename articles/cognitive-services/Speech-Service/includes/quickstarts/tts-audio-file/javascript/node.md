@@ -4,12 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 19c054b72f7aa2ed6108d076a48856919a01462d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 67d0ab9e1a99d0eca937dad410eb29c52cda6fc2
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85838838"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405194"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 

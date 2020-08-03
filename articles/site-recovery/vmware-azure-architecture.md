@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 65778d0a6ba3bd5cdc719609ae4c2d18bf05aab9
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 4b1b8a0cfa98d48d7cb92474c1572f17c79ffd0d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424414"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498957"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware para Azure arquitetura de recuperação de desastres
 
@@ -30,9 +30,7 @@ A tabela e gráficos seguintes proporcionam uma visão de alto nível dos compon
 **Servidores de VMware** | VMware VMs estão hospedados em servidores vSphere ESXi. Recomendamos um servidor vCenter para gerir os anfitriões. | Durante a implementação da Recuperação do Local, adiciona servidores VMware ao cofre dos Serviços de Recuperação.
 **Máquinas replicadas** | O Serviço de Mobilidade está instalado em cada VMware VM que replica. | Recomendamos que permita a instalação automática a partir do servidor de processos. Em alternativa, pode instalar o serviço manualmente ou utilizar um método de implementação automatizado, como o Gestor de Configurações.
 
-**Arquitetura de VMware para o Azure**
-
-![Componentes](./media/vmware-azure-architecture/arch-enhanced.png)
+![Diagrama mostrando VMware para relacionamentos de arquitetura de replicação de Azure.](./media/vmware-azure-architecture/arch-enhanced.png)
 
 ## <a name="set-up-outbound-network-connectivity"></a>Configurar a conectividade da rede de saída
 
@@ -45,7 +43,7 @@ Para que a Recuperação do Site funcione como esperado, é necessário modifica
 
 Se estiver a usar um proxy de firewall baseado em URL para controlar a conectividade de saída, permita o acesso a estes URLs:
 
-| **Nome**                  | **Comercial**                               | **Governo**                                 | **Descrição** |
+| **Nome**                  | **Comercial**                               | **Administração Pública**                                 | **Descrição** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Armazenamento                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Permite que os dados sejam escritos da VM para a conta de armazenamento em cache na região de origem. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fornece autorização e autenticação para os URLs do serviço Site Recovery. |
@@ -71,9 +69,7 @@ Se estiver a usar um proxy de firewall baseado em URL para controlar a conectivi
     - O servidor de processo recebe dados de replicação, otimiza e encripta-os e envia-os para o armazenamento Azure sobre a porta 443 de saída.
 5. Os registos de dados de replicação aterram pela primeira vez numa conta de armazenamento de cache em Azure. Estes registos são processados e os dados são armazenados num Disco Gerido Azure (chamado de disco de sementes asr). Os pontos de recuperação são criados neste disco.
 
-**VMware para processo de replicação do Azure**
-
-![Processo de replicação](./media/vmware-azure-architecture/v2a-architecture-henry.png)
+![Diagrama mostrando o VMware ao processo de replicação do Azure.](./media/vmware-azure-architecture/v2a-architecture-henry.png)
 
 ## <a name="resynchronization-process"></a>Processo de ressincronização
 
@@ -108,11 +104,10 @@ Depois de configurar a replicação e executar um exercício de recuperação de
     - Fase 3: Depois de as cargas de trabalho terem falhado, é possível reenerte a replicação para os VMs no local.
     
  
-**VMware falha de volta de Azure**
 
-![Reativação pós-falha](./media/vmware-azure-architecture/enhanced-failback.png)
+![Diagrama mostrando vMware failback de Azure.](./media/vmware-azure-architecture/enhanced-failback.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Siga [este tutorial](vmware-azure-tutorial.md) para permitir a replicação do VMware para a Azure.

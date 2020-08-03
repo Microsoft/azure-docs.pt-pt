@@ -3,12 +3,12 @@ title: Descrição geral de mensagens do Service Bus do Azure | Microsoft Docs
 description: Este artigo fornece uma visão geral de alto nível da Azure Service Bus, um corretor de mensagens de integração empresarial totalmente gerido.
 ms.topic: overview
 ms.date: 06/23/2020
-ms.openlocfilehash: 5adcdf10898a7b0ee2d551a3a24b9f80195d645f
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 478dd0debb5117e76cf8d0ab6599dcf363c12ab3
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449114"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501479"
 ---
 # <a name="what-is-azure-service-bus"></a>O que é o Azure Service Bus?
 
@@ -92,7 +92,7 @@ Um erro pode levar o cliente a ter dúvidas sobre o resultado de uma operação 
 ### <a name="security-protocols"></a>Protocolos de segurança
 <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>
 
-A Service Bus suporta protocolos de segurança como [assinaturas de acesso partilhado](service-bus-sas.md) (SAS), [controlo de acesso baseado em funções (Azure RBAC)](authenticate-application.md) (RBAC) e [identidades geridas para recursos Azure.](service-bus-managed-service-identity.md)
+A Service Bus suporta protocolos de segurança como [assinaturas de acesso partilhado](service-bus-sas.md) (SAS), [controlo de acesso baseado em funções Azure (Azure RBAC)](authenticate-application.md) e [identidades geridas para recursos Azure.](service-bus-managed-service-identity.md)
 
 ### <a name="geo-disaster-recovery"></a>Recuperação após desastre geográfica
 

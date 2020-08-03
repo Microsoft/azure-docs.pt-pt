@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Criar um servidor - Azure CLI - Base de Dados Azure para MariaDB'
+title: 'Quickstart: Criar um servidor - Azure CLI - Azure Database for MariaDB'
 description: Este início rápido descreve como pode utilizar a CLI do Azure para criar uma Azure Database for MariaDB Server num grupo de recursos do Azure.
 author: ajlam
 ms.author: andrela
@@ -7,19 +7,19 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
-ms.custom: mvc
-ms.openlocfilehash: f83af794a179634b9b6b7adedd329ea6f4a7b8d0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 9f20f4cced74c5607fbfea2119e22cface0a8e03
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79536467"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499063"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Criar um servidor do Azure Database for MariaDB com a CLI do Azure
 
 Pode utilizar a CLI do Azure para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este início rápido descreve como pode utilizar a CLI do Azure para criar uma Azure Database for MariaDB Server num grupo de recursos do Azure em cerca de cinco minutos.
 
-Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -47,13 +47,13 @@ Crie um servidor do Azure Database for MariaDB com o comando [az mariadb server 
 
 Definição | Valor da amostra | Descrição
 ---|---|---
-nome | **mydemoserver** | Introduza um nome exclusivo que identifique o servidor do Azure Database for MariaDB. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Tem de conter entre 3 e 63 carateres.
-resource-group | **myresourcegroup** | Introduza o nome do grupo de recursos do Azure.
-sku-name | **GP_Gen5_2** | O nome do SKU. Segue em abreviatura a*geração*\_de preços de *preços*\_da convenção*vCores.* Para obter mais informações sobre o parâmetro **sku-name**, veja a secção abaixo desta tabela.
+name | **mydemoserver** | Introduza um nome exclusivo que identifique o servidor do Azure Database for MariaDB. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Tem de conter entre 3 e 63 carateres.
+resource-group | **grupo myresource** | Introduza o nome do grupo de recursos do Azure.
+sku-name | **GP_Gen5_2** | O nome do SKU. Segue o *preço*da convenção de \_ *nível de cálculo* \_ *vCores* em abreviatura. Para obter mais informações sobre o parâmetro **sku-name**, veja a secção abaixo desta tabela.
 backup-retention | **7** | Quando tempo se deve reter uma cópia de segurança. A unidade é dias. Intervalo: 7 a 35. 
-geo-redundant-backup | **Desativado** | Se as cópias de segurança georredundantes devem estar ativadas para este servidor. Valores permitidos: **Ativado,** **Desativado**.
+geo-redundant-backup | **Desativado** | Se as cópias de segurança georredundantes devem estar ativadas para este servidor. Valores permitidos: **Ativado,** **incapacitado**.
 localização | **westus** | A localização do Azure para o servidor.
-ssl-enforcement | **Ativado** | Se SSL deve ser ativado para este servidor. Valores permitidos: **Ativado,** **Desativado**.
+ssl-enforcement | **Ativado** | Se SSL deve ser ativado para este servidor. Valores permitidos: **Ativado,** **incapacitado**.
 storage-size | **51200** | A capacidade de armazenamento do servidor (a unidade é megabytes). Os tamanhos de armazenamento válidos são 5120 MB (mínimo) com aumentos em incrementos de 1024 MB. Para obter mais informações sobre os limites de tamanho de armazenamento, veja [Escalões de preço](./concepts-pricing-tiers.md). 
 versão | **10.2** | A versão do motor principal de MariaDB.
 admin-user | **myadmin** | O nome de utilizador para o início de sessão do administrador. O parâmetro **admin-user** não pode ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
@@ -62,7 +62,7 @@ admin-password | *sua senha* | A palavra-passe do utilizador administrador. A pa
 O valor do parâmetro sku-name segue a convenção {escalão de preço} \_ {geração de computação} \_ {vCores}, conforme os exemplos abaixo:
 + `--sku-name B_Gen5_1`mapas para Basic, Gen 5 e 1 vCore. Esta opção é a mais pequena SKU disponível.
 + `--sku-name GP_Gen5_32` mapeia para Fins Gerais, Ger 5 e 32 vCores.
-+ `--sku-name MO_Gen5_2` mapeia para Otimizada para Memória, Ger 5 e 2 vCores.
++ `--sku-name MO_Gen5_2` mapeia para Otimizada para Memória, Ger 5 e 2 vCores.
 
 Para obter informações sobre os valores válidos por região e para os escalões, veja [Escalões de preço](./concepts-pricing-tiers.md).
 
@@ -73,7 +73,7 @@ az mariadb server create --resource-group myresourcegroup --name mydemoserver  -
 ```
 
 > [!NOTE]
-> Considere utilizar o nível de preços Básicos se a computação leve e o I/O forem adequados para a sua carga de trabalho. Note que os servidores criados no nível de preços Básicos não podem ser posteriormente dimensionados para Propósito Geral ou Memória Otimizada. Consulte a [página de preços](https://azure.microsoft.com/pricing/details/mariadb/) para mais informações.
+> Considere usar o nível de preços básico se o cálculo leve e a I/O forem adequados para a sua carga de trabalho. Note que os servidores criados no nível de preços básicos não podem ser posteriormente dimensionados para Final Geral ou Memória Otimizada. Consulte [a página de preços](https://azure.microsoft.com/pricing/details/mariadb/) para mais informações.
 
 ## <a name="configure-a-firewall-rule"></a>Configurar uma regra de firewall
 
@@ -216,7 +216,7 @@ Para ligar ao servidor com a ferramenta de linha de comandos mysql:
    | Método de Ligação | **Standard (TCP/IP)** | Utilizar o protocolo TCP/IP para ligar ao Azure Database for MariaDB |
    | Nome de anfitrião | **mydemoserver.mariadb.database.azure.com** | O nome de servidor que anotou anteriormente. |
    | Porta | **3306** | A porta predefinida para o Azure Database for MariaDB. |
-   | Nome de utilizador | **myadmin\@mydemoserver** | O início de sessão de administrador do servidor que anotou anteriormente. |
+   | Nome de utilizador | **myadmin \@ mydemoserver** | O início de sessão de administrador do servidor que anotou anteriormente. |
    | Palavra-passe | *sua senha* | Utilize a palavra-passe da conta de administrador que configurou anteriormente. |
 
 3. Para verificar se todos os parâmetros estão configurados corretamente, selecione **Testar Ligação**.
@@ -240,4 +240,4 @@ az mariadb server delete --resource-group myresourcegroup --name mydemoserver
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Conceber uma Base de Dados MariaDB com O CLI Azure](./tutorial-design-database-cli.md)
+> [Desenhe uma Base de Dados MariaDB com Azure CLI](./tutorial-design-database-cli.md)

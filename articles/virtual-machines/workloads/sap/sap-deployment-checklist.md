@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 47f412dae6b467518fb1b51518716625c1395717
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 98cad9a359a9a2807b1f1f3f2daba45759471718
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035830"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495663"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Cargas de trabalho sap em Azure: lista de verificação de planeamento e implantação
 
@@ -174,7 +174,7 @@ Recomendamos que crie e valide uma solução HADR completa e um design de segura
    3. Teste a sua sequência de backup/restauro e tempo e faça correções se for necessário. Certifique-se de que os tempos de reserva são suficientes. Você também precisa testar as atividades de restauração e restauro do tempo. Certifique-se de que os tempos de restauro estão dentro dos seus RTO SLAs onde quer que o seu RTO dependa de uma base de dados ou de um processo de restauro de VM.
    4. Teste a funcionalidade e arquitetura DR transversal.
 1. Verificações de segurança.
-   1. Teste a validade da sua arquitetura de controlo de acesso baseado em funções Azure (RBAC). O objetivo é separar e limitar o acesso e permissões de diferentes equipas. Por exemplo, os membros da equipa SAP Basis devem ser capazes de implantar VMs e atribuir discos do Azure Storage para uma determinada rede virtual Azure. Mas a equipa sap base não deve ser capaz de criar as suas próprias redes virtuais ou alterar as configurações das redes virtuais existentes. Os membros da equipa de rede não devem ser capazes de implantar VMs em redes virtuais nas quais a aplicação SAP e os VMs DBMS estão em execução. Os membros desta equipa também não devem ser capazes de alterar atributos de VMs ou mesmo apagar VMs ou discos.  
+   1. Teste a validade da sua arquitetura de controlo de acesso baseado em funções Azure (Azure RBAC). O objetivo é separar e limitar o acesso e permissões de diferentes equipas. Por exemplo, os membros da equipa SAP Basis devem ser capazes de implantar VMs e atribuir discos do Azure Storage para uma determinada rede virtual Azure. Mas a equipa sap base não deve ser capaz de criar as suas próprias redes virtuais ou alterar as configurações das redes virtuais existentes. Os membros da equipa de rede não devem ser capazes de implantar VMs em redes virtuais nas quais a aplicação SAP e os VMs DBMS estão em execução. Os membros desta equipa também não devem ser capazes de alterar atributos de VMs ou mesmo apagar VMs ou discos.  
    1.  Verifique se o grupo de segurança da rede e as regras [da ASC](../../../virtual-network/security-overview.md) funcionam como esperado e proteja os recursos protegidos.
    1.  Certifique-se de que todos os recursos que precisam de ser encriptados estão encriptados. Definir e implementar processos para fazer o back up certificados, armazenar e aceder a esses certificados, e restaurar as entidades encriptadas.
    1.  Utilize [encriptação do disco Azure](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) para discos OS sempre que possível do ponto de vista do suporte do OS.

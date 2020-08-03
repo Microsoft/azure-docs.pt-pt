@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: 09b4f36a5c97b6bcc0a8d11d2fb1ee0893fae80a
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 3517938ae0e08af62a6fcf0d3d0a43a5eaee48dd
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87130142"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496122"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Como configurar um pipeline CI/CD para a Azure Data Lake Analytics  
 
@@ -35,7 +35,7 @@ Um projeto U-SQL pode ser construído com o Microsoft Build Engine (MSBuild) pas
 
 Antes de configurar uma tarefa de construção para um projeto U-SQL, certifique-se de que tem a versão mais recente do projeto U-SQL. Abra o ficheiro do projeto U-SQL no seu editor e verifique se tem estes itens de importação:
 
-```   
+```xml
 <!-- check for SDK Build target in current path then in USQLSDKPath-->
 <Import Project="UsqlSDKBuild.targets" Condition="Exists('UsqlSDKBuild.targets')" />
 <Import Project="$(USQLSDKPath)\UsqlSDKBuild.targets" Condition="!Exists('UsqlSDKBuild.targets') And '$(USQLSDKPath)' != '' And Exists('$(USQLSDKPath)\UsqlSDKBuild.targets')" />
@@ -66,14 +66,14 @@ Os scripts U-SQL num projeto U-SQL podem ter declarações de consulta para obje
 Saiba mais sobre o [projeto de base de dados U-SQL.](data-lake-analytics-data-lake-tools-develop-usql-database.md)
 
 >[!NOTE]
->A declaração DROP pode causar problemas de supressão de acidentes. Para ativar a declaração DROP, tem de especificar explicitamente os argumentos msBuild. **O AllowDropStatement** permitirá a operação DROP não relacionada com dados, como a montagem de drop e função de valor estimado da tabela de queda. **O AllowDataDropStatement** permitirá a operação DROP relacionada com dados, como tabela de lançamento e esquema de queda. Tem de ativar o AllowDropStatement antes de utilizar o AllowDataDropStatement.
+> A declaração DROP pode causar uma supressão acidental. Para ativar a declaração DROP, tem de especificar explicitamente os argumentos msBuild. **O AllowDropStatement** permitirá a operação DROP não relacionada com dados, como a montagem de drop e função de valor estimado da tabela de queda. **O AllowDataDropStatement** permitirá a operação DROP relacionada com dados, como tabela de lançamento e esquema de queda. Tem de ativar o AllowDropStatement antes de utilizar o AllowDataDropStatement.
 >
 
 ### <a name="build-a-u-sql-project-with-the-msbuild-command-line"></a>Construa um projeto U-SQL com a linha de comando MSBuild
 
 Primeiro migrar o projeto e obter o pacote NuGet. Em seguida, ligue para a linha de comando padrão MSBuild com os seguintes argumentos adicionais para construir o seu projeto U-SQL: 
 
-``` 
+```console
 msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL.SDK.1.3.180615\build\runtime;USQLTargetType=SyntaxCheck;DataRoot=datarootfolder;/p:EnableDeployment=true
 ``` 
 
@@ -100,7 +100,7 @@ Além da linha de comando, também pode utilizar a Construção de Estúdio Visu
 
     ![Definir variáveis CI/CD MSBuild para um projeto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables.png) 
 
-    ```
+    ```console
     /p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime /p:USQLTargetType=SyntaxCheck /p:DataRoot=$(Build.SourcesDirectory) /p:EnableDeployment=true
     ```
 
@@ -109,9 +109,7 @@ Além da linha de comando, também pode utilizar a Construção de Estúdio Visu
 Depois de executar uma construção, todos os scripts do projeto U-SQL são construídos e a saída para um ficheiro zip chamado `USQLProjectName.usqlpack` . A estrutura da pasta no seu projeto é mantida na saída de construção com fecho.
 
 > [!NOTE]
->
-> Os ficheiros por trás de código para cada script U-SQL serão fundidos como uma declaração inline à saída de construção de scripts.
->
+> Os ficheiros por detrás de código para cada script U-SQL serão fundidos como uma declaração inline à saída de construção de script.
 
 ## <a name="test-u-sql-scripts"></a>Testar scripts U-SQL
 
@@ -229,6 +227,10 @@ Function Main()
 
 Main
 ```
+
+>[!NOTE]
+> Os comandos: `Submit-AzDataLakeAnalyticsJob` e `Wait-AzDataLakeAnalyticsJob` são ambos cmdlets Azure PowerShell para Azure Data Lake Analytics no quadro do Azure Resource Manager. Vais ter uma estação de trabalho com o Azure PowerShell instalado. Pode consultar a lista de [comandos](https://docs.microsoft.com/powershell/module/Az.DataLakeAnalytics/?view=azps-4.3.0) para mais comandos e exemplos.
+>
 
 ### <a name="deploy-u-sql-jobs-through-azure-data-factory"></a>Implementar empregos U-SQL através da Azure Data Factory
 

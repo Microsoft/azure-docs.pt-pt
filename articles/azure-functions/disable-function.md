@@ -3,12 +3,13 @@ title: Como desativar funções em Funções Azure
 description: Saiba como desativar e ativar funções em Funções Azure.
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: ee701e8df8faddef9bbdb16e7a1048c4dc2e40a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 47fbd446937ea0cfd981cef2d5cdd4759f2583d4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83848744"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497703"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Como desativar funções em Funções Azure
 
@@ -126,6 +127,6 @@ No segundo exemplo, a função é desativada quando há uma definição de aplic
 >O portal utiliza agora as definições de aplicação para desativar as funções v1.x. Quando uma aplicação que estabelece entra em conflito com o function.jsno ficheiro, pode ocorrer um erro. Deve retirar a `disabled` propriedade do function.jsficheiro para evitar erros. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo é sobre desativar os gatilhos automáticos. Para obter mais informações sobre os gatilhos, consulte [Triggers e encadernações](functions-triggers-bindings.md).

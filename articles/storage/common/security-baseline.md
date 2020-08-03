@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 4e10843eab8ac2ccbda3d6876f51c88a598d7139
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 36f3c4192f43e323df2aaf9397364dfd1b4da731
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371690"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501377"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Linha de base de segurança Azure para armazenamento Azure
 
@@ -292,7 +292,7 @@ Além disso, Ative a Proteção Avançada de Ameaças para a sua conta de Armaze
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: Alterar palavras-passe padrão quando aplicável
 
-**Orientação**: As contas de Armazenamento Azure nem o Azure Ative Directory têm o conceito de senhas padrão ou em branco. O Azure Storage implementa um modelo de controlo de acesso que suporta o controlo de acesso baseado em funções (RBAC) da Azure, bem como a Chave Partilhada e assinaturas de acesso partilhado (SAS). Uma característica da autenticação da Chave Partilhada e da SAS é que nenhuma identidade está associada ao chamador e, portanto, não pode ser realizada uma autorização baseada na autorização principal de segurança. 
+**Orientação**: As contas de Armazenamento Azure nem o Azure Ative Directory têm o conceito de senhas padrão ou em branco. O Azure Storage implementa um modelo de controlo de acesso que suporta o controlo de acesso baseado em funções Azure (Azure RBAC), bem como a Chave Partilhada e Assinaturas de Acesso Partilhado (SAS). Uma característica da autenticação da Chave Partilhada e da SAS é que nenhuma identidade está associada ao chamador e, portanto, não pode ser realizada uma autorização baseada na autorização principal de segurança. 
 
 - [Autorizar o acesso aos dados no Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth)
 

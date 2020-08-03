@@ -7,15 +7,16 @@ ms.custom:
 - iot-send-telemetry-cli
 - iot-p0-scenario
 - 'Role: Cloud Development'
+- devx-track-azurecli
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: 9ab2074816198499b749416298298c44605b9818
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e2b8eecc629e9da75ea15815ee38844c48abb019
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317914"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499913"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>Quickstart: Enviar telemetria de um dispositivo para um hub IoT e monitorizá-lo com o Azure CLI
 
@@ -174,7 +175,7 @@ Para visualizar métricas de mensagens no portal Azure:
 
 5. Opcionalmente, utilize o **dropdown métrico** para exibir outras métricas no seu dispositivo simulado. Por exemplo, *entregas de mensagens C2d concluídas* ou *dispositivos totais (pré-visualização)*. 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Se já não precisar dos recursos Azure criados neste arranque rápido, pode utilizar o CLI Azure para os eliminar.
 
 Se continuar com o próximo artigo recomendado, pode manter os recursos que já criou e reutilizá-los. 

@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: fd620e253e661f986f67a440272937026cb4ff7f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 2085f0e8a148e27914b517f25e48894009592dd2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528406"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498604"
 ---
 # <a name="blob-versioning-preview"></a>Veragem blob (pré-visualização)
 
@@ -317,7 +318,7 @@ No cenário 4, a bolha de base foi completamente atualizada e não contém nenhu
 
 ![Recursos de armazenamento Azure](./media/versioning-overview/versions-billing-scenario-4.png)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Ativar a criação de versões de blobs](versioning-enable.md)
 - [Criando um instantâneo de uma bolha](/rest/api/storageservices/creating-a-snapshot-of-a-blob)

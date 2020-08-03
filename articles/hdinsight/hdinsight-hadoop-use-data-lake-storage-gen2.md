@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 2a534bd0cb89e837ff2315cb3fb9cfe70ad01f5f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ab1cba455f93abe4d603f417f8d0a00dda0e315e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078991"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497652"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Utilizar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight
 
@@ -39,9 +39,9 @@ Crie uma identidade gerida atribuída ao utilizador, se ainda não tiver uma.
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. No clique superior esquerdo **Criar um recurso**.
 1. Na caixa de pesquisa, **digite** o utilizador atribuído e clique em **Identidade Gerida Atribuída pelo Utilizador.**
-1. Clique em **Criar**.
+1. Clique em **Create** (Criar).
 1. Insira um nome para a sua identidade gerida, selecione a subscrição correta, grupo de recursos e localização.
-1. Clique em **Criar**.
+1. Clique em **Create** (Criar).
 
 Para obter mais informações sobre como as identidades geridas funcionam em Azure HDInsight, consulte [identidades geridas em Azure HDInsight](hdinsight-managed-identities.md).
 
@@ -54,14 +54,14 @@ Crie uma conta de armazenamento Azure Data Lake De armazenamento Gen2.
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. No clique superior esquerdo **Criar um recurso**.
 1. Na caixa de pesquisa, escreva **o armazenamento** e clique na conta **de Armazenamento.**
-1. Clique em **Criar**.
+1. Clique em **Create** (Criar).
 1. No ecrã da **conta de armazenamento Criar:**
     1. Selecione o grupo de subscrição e recursos corretos.
     1. Insira um nome para a sua conta Desemarramento de Armazenamento de Dados Gen2.
     1. Clique no separador **Avançado.**
     1. Clique **em Enabled** ao lado **do espaço hierárquico** de nomes em Data Lake Storage **Gen2**.
     1. Clique em **Rever + criar**.
-    1. Clique **em Criar**
+    1. Clique em **Criar**
 
 Para obter mais informações sobre outras opções durante a criação de conta de armazenamento, consulte [Quickstart: Criar uma conta de armazenamento Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
@@ -159,7 +159,7 @@ Data Lake Storage Gen2 utiliza um modelo de controlo de acesso que suporta tanto
 
 O RBAC utiliza atribuições de funções para aplicar eficazmente conjuntos de permissões aos utilizadores, grupos e princípios de serviço para recursos Azure. Tipicamente, esses recursos Azure estão limitados a recursos de alto nível (por exemplo, contas de Armazenamento Azure). Para o Azure Storage, e também para o Data Lake Storage Gen2, este mecanismo foi estendido ao recurso do sistema de ficheiros.
 
- Para obter mais informações sobre permissões de ficheiros com o RBAC, consulte [o controlo de acesso baseado em funções Azure (RBAC)](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control-rbac).
+ Para obter mais informações sobre permissões de ficheiros com o RBAC, consulte [o controlo de acesso baseado em funções Azure (Azure RBAC)](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control-rbac).
 
 Para obter mais informações sobre permissões de ficheiros com ACLs, consulte [as listas de controlo do Access em ficheiros e diretórios.](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)
 
@@ -254,7 +254,7 @@ LOCATION 'abfs:///example/data/';
 LOCATION '/example/data/';
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Integração Azure HDInsight com pré-visualização da Data Lake Storage Gen2 - ACL e atualização de segurança](https://azure.microsoft.com/blog/azure-hdinsight-integration-with-data-lake-storage-gen-2-preview-acl-and-security-update/)
 * [Introdução ao Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)

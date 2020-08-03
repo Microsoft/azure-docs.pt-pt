@@ -8,12 +8,13 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: tamram
-ms.openlocfilehash: 79712c50a5ad46d7d435868606011f458fe48e2e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 8fda0384dacaf1183458e90688b1f6b63cc63a35
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370756"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501343"
 ---
 # <a name="manage-storage-account-access-keys"></a>Gerir chaves de acesso à conta de armazenamento
 
@@ -65,7 +66,7 @@ az storage account keys list \
 
 Pode utilizar qualquer uma das duas teclas para aceder ao Azure Storage, mas em geral é uma boa prática usar a primeira chave e reservar a utilização da segunda chave para quando estiver a rodar as teclas.
 
-Para ver ou ler as chaves de acesso de uma conta, o utilizador deve ser administrador de serviço ou deve ser atribuído a uma função RBAC que inclua o **Microsoft.Storage/storageAcounts/listkeys/action**. Algumas funções incorporadas da Azure que incluem esta ação são as funções **de Proprietário,** **Contribuinte**e **Serviço de Serviço chave de armazenamento.** Para obter mais informações sobre a função de Administrador de Serviço, consulte [as funções de administrador de subscrição clássica, funções de RBAC azure e funções de AD Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md). Para obter informações detalhadas sobre funções incorporadas para o Armazenamento Azure, consulte a secção **de armazenamento** em [funções incorporadas Azure para o Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
+Para ver ou ler as chaves de acesso de uma conta, o utilizador deve ser administrador de serviço ou deve ser atribuído a uma função Azure que inclua o **Microsoft.Storage/storageAcounts/listkeys/action**. Algumas funções incorporadas da Azure que incluem esta ação são as funções **de Proprietário,** **Contribuinte**e **Serviço de Serviço chave de armazenamento.** Para obter mais informações sobre a função de Administrador de Serviço, consulte [as funções de administrador de subscrição clássica, funções de Azure e AD AZure](../../role-based-access-control/rbac-and-directory-admin-roles.md). Para obter informações detalhadas sobre funções incorporadas para o Armazenamento Azure, consulte a secção **de armazenamento** em [funções incorporadas Azure para o Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
 
 ## <a name="use-azure-key-vault-to-manage-your-access-keys"></a>Use o Cofre de Chaves Azure para gerir as suas chaves de acesso
 
@@ -132,7 +133,7 @@ Para rodar as chaves de acesso à sua conta de armazenamento com o Azure CLI:
 > [!NOTE]
 > A Microsoft recomenda a utilização de apenas uma das chaves em todas as suas aplicações ao mesmo tempo. Se utilizar a Chave 1 em alguns lugares e a Chave 2 noutros, não poderá rodar as chaves sem que alguma aplicação perca acesso.
 
-Para rodar as teclas de acesso de uma conta, o utilizador deve ser administrador de serviço ou deve ser atribuído a uma função RBAC que inclua o **Microsoft.Storage/storageAccounts/regeneratekey/action**. Algumas funções incorporadas da Azure que incluem esta ação são as funções **de Proprietário,** **Contribuinte**e **Serviço de Serviço chave de armazenamento.** Para obter mais informações sobre a função de Administrador de Serviço, consulte [as funções de administrador de subscrição clássica, funções de RBAC azure e funções de AD Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md). Para obter informações detalhadas sobre as funções incorporadas do Azure para o Armazenamento Azure, consulte a secção **de armazenamento** em [funções incorporadas Azure para o Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
+Para rodar as teclas de acesso de uma conta, o utilizador deve ser administrador de serviço ou deve ser atribuído a uma função Azure que inclua o **Microsoft.Storage/storageAccounts/regeneratekey/action**. Algumas funções incorporadas da Azure que incluem esta ação são as funções **de Proprietário,** **Contribuinte**e **Serviço de Serviço chave de armazenamento.** Para obter mais informações sobre a função de Administrador de Serviço, consulte [as funções de administrador de subscrição clássica, funções de Azure e AD AZure](../../role-based-access-control/rbac-and-directory-admin-roles.md). Para obter informações detalhadas sobre as funções incorporadas do Azure para o Armazenamento Azure, consulte a secção **de armazenamento** em [funções incorporadas Azure para o Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
 
 ## <a name="next-steps"></a>Passos seguintes
 
