@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 58332be22600620e7a3ff1f455f96fe0d786d846
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 04993d36689c917db05a1b5f2132b107c7c9b412
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500049"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535115"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Controlo de acesso baseado em funções para StorSimple
 
@@ -29,7 +29,7 @@ Este artigo aplica-se aos dispositivos da série StorSimple 8000 que executam a 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="rbac-roles-for-storsimple"></a>Papéis rbac para StorSimple
+## <a name="azure-roles-for-storsimple"></a>Funções de Azure para StorSimple
 
 O RBAC pode ser atribuído com base nas funções. As funções garantem certos níveis de permissão baseados nos recursos disponíveis no ambiente. Existem dois tipos de funções que os utilizadores StorSimple podem escolher: incorporados ou personalizados.
 
@@ -58,7 +58,7 @@ No exemplo seguinte, começamos com a função incorporada **Reader** que permit
     Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
     ```
 
-4. Abra o ficheiro JSON no Estúdio Visual. Você vê que um papel típico do RBAC consiste em três secções principais, **Ações**, **NotActions**e **AssignableScopes**.
+4. Abra o ficheiro JSON no Estúdio Visual. Você vê que um papel típico de Azure consiste em três secções principais, **Ações**, **NotActions**e **AssignableScopes**.
 
     Na secção **Ação,** todas as operações permitidas para esta função estão listadas. Cada ação é atribuída a um fornecedor de recursos. Para um administrador de infraestrutura StorSimple, utilize o `Microsoft.StorSimple` fornecedor de recursos.
 
@@ -68,9 +68,9 @@ No exemplo seguinte, começamos com a função incorporada **Reader** que permit
 
     Também pode verificar se todos os cmdlets powershell disponíveis para gerir os fornecedores de recursos.
 
-    Nas secções **NotActions,** todas as ações restritas para uma determinada função RBAC são listadas. Neste exemplo, não são restringidas as ações.
+    Nas secções **NotActions,** todas as ações restritas para um papel particular do Azure estão listadas. Neste exemplo, não são restringidas as ações.
     
-    Nos **'''Atribui-se',** os IDs de subscrição estão listados. Certifique-se de que o papel RBAC contém o ID de subscrição explícito onde é utilizado. Se o ID de subscrição correto não for especificado, não está autorizado a importar o papel na sua subscrição.
+    Nos **'''Atribui-se',** os IDs de subscrição estão listados. Certifique-se de que o papel Azure contém o ID de subscrição explícito onde é utilizado. Se o ID de subscrição correto não for especificado, não está autorizado a importar o papel na sua subscrição.
 
     Edite o ficheiro tendo em mente as considerações anteriores.
 
@@ -109,7 +109,7 @@ No exemplo seguinte, começamos com a função incorporada **Reader** que permit
 
 Esta função deve agora figurar na lista de funções na lâmina **de controlo Access.**
 
-![Ver funções do RBAC](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
+![Ver papéis de Azure](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
 
 Para mais informações, aceda a [funções personalizadas.](../role-based-access-control/custom-roles.md)
 
@@ -167,7 +167,7 @@ Pode conceder acesso de dentro do recurso, grupo de recursos ou subscrição, qu
 
 1. Ir ao **controlo de acesso (IAM)**. Clique **+ Adicione** na lâmina de controlo de acesso.
 
-    ![Adicionar acesso ao papel rbac](./media/storsimple-8000-role-based-access-control/rbac-add-role.png)
+    ![Adicionar acesso ao papel de Azure](./media/storsimple-8000-role-based-access-control/rbac-add-role.png)
 
 2. Selecione o papel que pretende atribuir, neste caso é o **Administrador de Infraestrutura StorSimple.**
 
@@ -175,7 +175,7 @@ Pode conceder acesso de dentro do recurso, grupo de recursos ou subscrição, qu
 
 4. **Selecione Guardar** para criar a atribuição.
 
-    ![Adicionar permissões ao papel rbac](./media/storsimple-8000-role-based-access-control/rbac-create-role-infra-admin.png)
+    ![Adicionar permissões ao papel de Azure](./media/storsimple-8000-role-based-access-control/rbac-create-role-infra-admin.png)
 
 Uma notificação **de utilizador adicionando** rastreia o progresso. Após a adição do utilizador com sucesso, a lista de utilizadores no controlo access é atualizada.
 

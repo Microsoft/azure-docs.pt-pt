@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 3335bfbed592c9e13d5be437e8013a89ae86e970
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16c8058da30821a53a20cf3ea6afdb0e4dbfcb77
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510631"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535098"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>Parte dois: atribuir permissões de nível de partilha a uma identidade
 
@@ -38,11 +38,11 @@ Existem três funções integradas da Azure para a concessão de permissões de 
 
 Pode utilizar o portal Azure, Azure PowerShell ou Azure CLI para atribuir as funções incorporadas à identidade AD AZure de um utilizador para a concessão de permissões de nível de partilha.
 
-## <a name="assign-an-rbac-role"></a>Atribuir um papel RBAC
+## <a name="assign-an-azure-role"></a>Atribuir um papel Azure
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Para atribuir um papel RBAC a uma identidade AD Azure, utilizando o [portal Azure,](https://portal.azure.com)siga estes passos:
+Para atribuir um papel de Azure a uma identidade AD Azure, utilizando o [portal Azure,](https://portal.azure.com)siga estes passos:
 
 1. No portal Azure, vá à sua partilha de ficheiros ou [crie uma partilha de ficheiros](storage-how-to-create-file-share.md).
 1. Selecione **Controlo de Acesso (IAM)**.
@@ -52,7 +52,7 @@ Para atribuir um papel RBAC a uma identidade AD Azure, utilizando o [portal Azur
 
 ### <a name="powershell"></a>PowerShell
 
-A amostra powerShell seguinte mostra como atribuir um papel RBAC a uma identidade AD Azure, com base no nome de inscrição. Para obter mais informações sobre a atribuição de funções de RBAC com PowerShell, consulte [Gerir o acesso utilizando o RBAC e o Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+A seguinte amostra powerShell mostra como atribuir um papel Azure a uma identidade AD Azure, com base no nome de inscrição. Para obter mais informações sobre a atribuição de funções Azure com PowerShell, consulte [Gerir o acesso utilizando o RBAC e o Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 Antes de executar o seguinte script de amostra, substitua os valores do espaço reservado, incluindo os parênteses, pelos seus valores.
 
@@ -67,7 +67,7 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 ### <a name="cli"></a>CLI
   
-O seguinte comando CLI 2.0 atribui uma função RBAC a uma identidade AD AZure, baseada no nome de inscrição. Para obter mais informações sobre a atribuição de funções de RBAC com O Azure CLI, consulte [Gerir o acesso utilizando o RBAC e o Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
+O seguinte comando CLI 2.0 atribui um papel Azure a uma identidade AD Azure, com base no nome de inscrição. Para obter mais informações sobre a atribuição de funções Azure com Azure CLI, consulte [Gerir o acesso utilizando o RBAC e o Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
 
 Antes de executar o seguinte script de amostra, lembre-se de substituir os valores do espaço reservado, incluindo os suportes, pelos seus próprios valores.
 
@@ -76,7 +76,7 @@ Antes de executar o seguinte script de amostra, lembre-se de substituir os valor
 az role assignment create --role "<role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshares/<share-name>"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que atribuiu permissões de nível de partilha, tem de configurar o diretório e as permissões de nível de ficheiro. Continue para o próximo artigo.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 2ef2cc86b3e12149977fa819a7e54ee9a1c0d7ac
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 43a6c10c8c73e8fb5189b6f085a6969c0d776593
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423988"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534911"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Ganhe visibilidade em todo o inquilino para o Azure Security Center
 Este artigo explica como gerir a postura de segurança da sua organização em escala, aplicando políticas de segurança a todas as subscrições da Azure ligadas ao seu inquilino Azure Ative Directory.
@@ -60,10 +60,10 @@ Pode organizar subscrições em grupos de gestão e aplicar as suas políticas d
 
 ## <a name="grant-tenant-level-visibility-and-the-ability-to-assign-policies"></a>Conceder visibilidade ao nível do inquilino e a capacidade de atribuir políticas
 
-Para obter visibilidade na postura de segurança de todas as subscrições registadas no inquilino Azure AD, é necessário atribuir uma função RBAC com permissões de leitura suficientes para ser atribuída no grupo de gestão de raiz.
+Para obter visibilidade na postura de segurança de todas as subscrições registadas no inquilino Azure AD, é necessário atribuir um papel Azure com permissões de leitura suficientes para ser atribuído no grupo de gestão de raiz.
 
 ### <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Elevar o acesso a um administrador global no Azure Ative Directory
-Um administrador de inquilino do Azure Ative Directory não tem acesso direto às assinaturas da Azure. No entanto, como administrador de diretório, têm o direito de se elevar a um papel que tem acesso. Um administrador inquilino da Azure AD precisa de se elevar ao administrador de acesso ao utilizador ao nível do grupo de gestão de raiz, para que possam atribuir funções de RBAC. Para obter instruções powerShell e informações adicionais, consulte [o acesso da Elevate a um administrador global no Diretório Ativo Azure](../role-based-access-control/elevate-access-global-admin.md). 
+Um administrador de inquilino do Azure Ative Directory não tem acesso direto às assinaturas da Azure. No entanto, como administrador de diretório, têm o direito de se elevar a um papel que tem acesso. Um administrador inquilino da Azure AD precisa de se elevar ao administrador de acesso ao utilizador ao nível do grupo de gestão de raiz para que possam atribuir funções de Azure. Para obter instruções powerShell e informações adicionais, consulte [o acesso da Elevate a um administrador global no Diretório Ativo Azure](../role-based-access-control/elevate-access-global-admin.md). 
 
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) ou no [Centro de Administração Azure Ative.](https://aad.portal.azure.com)
@@ -87,11 +87,11 @@ Um administrador de inquilino do Azure Ative Directory não tem acesso direto à
 5. Execute as tarefas necessárias para fazer no acesso elevado. Quando terminar, volte a ligar o interruptor para **nº.**
 
 
-### <a name="assign-rbac-roles-to-users"></a>Atribuir funções de RBAC aos utilizadores
-Para ganhar visibilidade a todas as subscrições, os administradores de inquilinos precisam de atribuir o papel adequado do RBAC a todos os utilizadores que desejem conceder visibilidade ao inquilina, incluindo a si mesmos, ao nível do grupo de gestão de raiz. As funções recomendadas a atribuir são **o Administrador de Segurança** ou o Leitor de **Segurança**. Geralmente, o papel de Administrador de Segurança é necessário para aplicar políticas ao nível da raiz, enquanto o Leitor de Segurança será suficiente para fornecer visibilidade ao nível do inquilino. Para obter mais informações sobre as permissões concedidas por estas funções, consulte a descrição da [função incorporada do Administrador de Segurança](../role-based-access-control/built-in-roles.md#security-admin) ou a descrição da [função incorporada](../role-based-access-control/built-in-roles.md#security-reader)do Leitor de Segurança .
+### <a name="assign-azure-roles-to-users"></a>Atribuir funções Azure aos utilizadores
+Para ganhar visibilidade a todas as subscrições, os administradores de inquilinos precisam de atribuir o papel adequado do Azure a todos os utilizadores que desejem conceder visibilidade ao inquilina, incluindo a si mesmos, ao nível do grupo de gestão de raiz. As funções recomendadas a atribuir são **o Administrador de Segurança** ou o Leitor de **Segurança**. Geralmente, o papel de Administrador de Segurança é necessário para aplicar políticas ao nível da raiz, enquanto o Leitor de Segurança será suficiente para fornecer visibilidade ao nível do inquilino. Para obter mais informações sobre as permissões concedidas por estas funções, consulte a descrição da [função incorporada do Administrador de Segurança](../role-based-access-control/built-in-roles.md#security-admin) ou a descrição da [função incorporada](../role-based-access-control/built-in-roles.md#security-reader)do Leitor de Segurança .
 
 
-#### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Atribuir funções rbac aos utilizadores através do portal Azure: 
+#### <a name="assign-azure-roles-to-users-through-the-azure-portal"></a>Atribuir funções Azure aos utilizadores através do portal Azure: 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 1. Para visualizar grupos de gestão, selecione **Todos os serviços** no menu principal do Azure e, em seguida, selecione **Grupos de Gestão**.
@@ -108,7 +108,7 @@ Para ganhar visibilidade a todas as subscrições, os administradores de inquili
    ![Adicionar imagem de função do Leitor de Segurança](./media/security-center-management-groups/asc-security-reader.png)
 
 
-#### <a name="assign-rbac-roles-to-users-with-powershell"></a>Atribuir funções RBAC a utilizadores com PowerShell: 
+#### <a name="assign-azure-roles-to-users-with-powershell"></a>Atribuir funções Azure aos utilizadores com PowerShell: 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -155,7 +155,7 @@ Uma vez elevado acesso, abra ou refresque o Centro de Segurança Azure para veri
     ![Screenshot da lista de cobertura de subscrição](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="remove-elevated-access"></a>Remover acesso elevado 
-Uma vez atribuídas as funções RBAC aos utilizadores, o administrador do arrendatário deve retirar-se da função de administrador de acesso ao utilizador.
+Uma vez atribuídas as funções Azure aos utilizadores, o administrador do arrendatário deve retirar-se da função de administrador de acesso ao utilizador.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) ou no [Centro de Administração Azure Ative.](https://aad.portal.azure.com)
 
@@ -183,9 +183,9 @@ Pode adicionar subscrições ao grupo de gestão que criou. Estes passos não s�
 4. Repita os passos 1 a 3 até adicionar todas as subscrições no âmbito.
 
    > [!NOTE]
-   > Os grupos de gestão podem conter assinaturas e grupos de gestão de crianças. Quando atribui um papel de RBAC a um utilizador ao grupo de gestão dos pais, o acesso é herdado pelas assinaturas do grupo de gestão infantil. As políticas definidas no grupo de gestão dos pais também são herdadas pelas crianças. 
+   > Os grupos de gestão podem conter assinaturas e grupos de gestão de crianças. Quando atribui um papel de Azure a um utilizador ao grupo de gestão dos pais, o acesso é herdado pelas assinaturas do grupo de gestão infantil. As políticas definidas no grupo de gestão dos pais também são herdadas pelas crianças. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, aprendeu a ganhar visibilidade para o Centro de Segurança Azure. Para saber mais sobre o Centro de Segurança, veja os artigos seguintes:
 
 > [!div class="nextstepaction"]

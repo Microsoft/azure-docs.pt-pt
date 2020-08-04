@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 34cfafadabd9a6328cbe85a5444211828df9db6d
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 5fa591530e92682c582b5929240e74a5430fb559
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133722"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534996"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configurar a recuperação de desastres para o SQL Server
 
@@ -47,6 +47,8 @@ SQL Server em um Azure IaaS VM ou no local.| Replicação com recuperação do l
 > * Pode optar por utilizar a Recuperação do Site para qualquer implantação em Azure, Hyper-V, VMware ou infraestrutura física. Siga as orientações no final deste artigo sobre [como ajudar a proteger um cluster sql Server](#how-to-help-protect-a-sql-server-cluster) com recuperação do site.
 > * Certifique-se de que a taxa de alteração de dados observada na máquina está dentro [dos limites de Recuperação do Local](vmware-physical-azure-support-matrix.md#churn-limits). A taxa de variação é medida em bytes de escrita por segundo. Para as máquinas que executam o Windows, pode ver esta taxa de alteração selecionando o separador **Desempenho** no Gestor de Tarefas. Observe a velocidade de escrita de cada disco.
 > * A Recuperação do Site suporta a replicação de Instâncias de Cluster Failover em Espaços de Armazenamento Direto. Para saber mais, consulte [como ativar a replicação direta dos Espaços de Armazenamento.](azure-to-azure-how-to-enable-replication-s2d-vms.md)
+> 
+> Quando migrar a sua carga de trabalho SQL para Azure, é aconselhável aplicar as diretrizes de desempenho do [SQL Server em Máquinas Virtuais Azure](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices).
 
 ## <a name="disaster-recovery-of-an-application"></a>Recuperação de desastres de uma aplicação
 
@@ -159,7 +161,7 @@ A replicação da recuperação do site para o SQL Server está coberta sob o be
 
 Recuperação do site é agnóstico de aplicação. A Recuperação do Site pode ajudar a proteger qualquer versão do SQL Server que seja implantada num sistema operativo suportado. Para mais informações, consulte a matriz de [suporte para a recuperação](vmware-physical-azure-support-matrix.md#replicated-machines) de máquinas replicadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [a arquitetura de Recuperação de Locais.](./azure-to-azure-architecture.md)
 * Para o SQL Server em Azure, saiba mais sobre [soluções de alta disponibilidade](../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md#azure-only-high-availability-solutions) para recuperação numa região secundária de Azure.

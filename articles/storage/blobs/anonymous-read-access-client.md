@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 08/02/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: ac5fad935e5c37df3a8bd64189a59612eaf097aa
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f2e7403d85f9132c9a5a0b76cf057834e7cc499
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091373"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534962"
 ---
 # <a name="access-public-containers-and-blobs-anonymously-with-net"></a>Aceda a contentores públicos e bolhas de forma anónima com .NET
 

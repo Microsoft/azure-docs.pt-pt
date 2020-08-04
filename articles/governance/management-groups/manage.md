@@ -3,12 +3,12 @@ title: Como trabalhar com os seus grupos de gestão - Azure Governance
 description: Saiba como ver, manter, atualizar e eliminar a hierarquia do seu grupo de gestão.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: b60adbdf404f40739d6bcab7a0a3ceaf24c0b59f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5a0269935daedb3be478cc27d5ecaf87f3c97f7
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84259410"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535013"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerir os seus recursos com grupos de gestão
 
@@ -69,7 +69,7 @@ Para eliminar um grupo de gestão, devem ser cumpridos os seguintes requisitos:
 
    - Para mover um grupo de subscrição ou gestão para outro grupo de gestão veja [grupos de gestão moving e subscrições na hierarquia](#moving-management-groups-and-subscriptions).
 
-1. É necessário escrever permissões sobre o grupo de gestão ("Proprietário", "Colaborador" ou "Colaborador do Grupo de Gestão"). Para ver que permissões tem, selecione o grupo de gestão e, em seguida, selecione **IAM**. Para saber mais sobre os Papéis da RBAC, consulte  
+1. É necessário escrever permissões sobre o grupo de gestão ("Proprietário", "Colaborador" ou "Colaborador do Grupo de Gestão"). Para ver que permissões tem, selecione o grupo de gestão e, em seguida, selecione **IAM**. Para saber mais sobre os papéis de Azure, ver  
    [Gerir acessos e permissões com o RBAC.](../../role-based-access-control/overview.md)
 
 ### <a name="delete-in-the-portal"></a>Excluir no portal
@@ -113,7 +113,7 @@ az account management-group delete --name 'Contoso'
 
 ## <a name="view-management-groups"></a>Ver grupos de gestão
 
-Pode ver qualquer grupo de gestão em que tenha um papel de RBAC direto ou herdado.  
+Você pode ver qualquer grupo de gestão em que tenha um papel de Azure direto ou herdado.  
 
 ### <a name="view-in-the-portal"></a>Ver no portal
 
@@ -215,7 +215,7 @@ Se estás a fazer a ação de movimento, precisas:
 
 Se a função do Proprietário na subscrição for herdada do grupo de gestão atual, os seus alvos de movimento são limitados. Só pode mover a subscrição para outro grupo de gestão onde tem a função De Proprietário. Não pode movê-lo para um grupo de gestão onde é um contribuinte porque perderia a propriedade da subscrição. Se você está diretamente designado para o papel de Proprietário para a subscrição (não herdado do grupo de gestão), você pode movê-lo para qualquer grupo de gestão onde você é um contribuinte.
 
-Para ver que permissões tem no portal Azure, selecione o grupo de gestão e, em seguida, selecione **IAM**. Para saber mais sobre as Funções RBAC, consulte [Gerir o acesso e permissões com o RBAC.](../../role-based-access-control/overview.md)
+Para ver que permissões tem no portal Azure, selecione o grupo de gestão e, em seguida, selecione **IAM**. Para saber mais sobre os papéis do Azure, consulte [Gerir o acesso e permissões com o RBAC.](../../role-based-access-control/overview.md)
 
 ## <a name="move-subscriptions"></a>Mover subscrições 
 
@@ -347,7 +347,7 @@ O mesmo percurso de âmbito é utilizado quando se recupera uma definição de p
 GET https://management.azure.com/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming?api-version=2019-09-01
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os grupos de gestão, veja:
 

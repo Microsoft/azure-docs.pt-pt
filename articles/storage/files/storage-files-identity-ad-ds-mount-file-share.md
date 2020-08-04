@@ -7,18 +7,18 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 40d372eb5569f3a4079acda3ab1e43b3e86cc113
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9807563c768b82c823ff754aaa679ddc917bf62d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999603"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535064"
 ---
 # <a name="part-four-mount-a-file-share-from-a-domain-joined-vm"></a>Parte quatro: montar uma partilha de ficheiros a partir de um VM de domínio
 
 Antes de iniciar este artigo, certifique-se de que completa o artigo anterior, [configurar o diretório e as permissões de nível de ficheiros em SMB](storage-files-identity-ad-ds-configure-permissions.md).
 
-O processo descrito neste artigo verifica que as permissões de partilha de ficheiros e acessos estão corretamente configuradas e que pode aceder a uma partilha de FicheiroS Azure a partir de um VM unido a domínio. A atribuição de funções de rbac de nível de partilha pode levar algum tempo a fazer efeito. 
+O processo descrito neste artigo verifica que as permissões de partilha de ficheiros e acessos estão corretamente configuradas e que pode aceder a uma partilha de FicheiroS Azure a partir de um VM unido a domínio. A atribuição de funções Azure de nível de partilha pode levar algum tempo a fazer efeito. 
 
 Inscreva-se no cliente utilizando as credenciais a que concedeu permissões, como mostra a imagem seguinte.
 

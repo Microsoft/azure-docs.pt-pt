@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4f04671283a4888770e29606b6869c832b22e6a3
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a656ccc56d198943c8631077466115eb6411a64a
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499165"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534894"
 ---
 # <a name="authorize-access-to-blob-or-queue-data-with-azure-cli"></a>Autorizar o acesso a dados de blob ou fila com o Azure CLI
 
@@ -43,7 +43,7 @@ Para utilizar o `--auth-mode` parâmetro, certifique-se de que instalou a versã
 
 Quando você iniciar súm na Azure CLI com credenciais Azure AD, um token de acesso OAuth 2.0 é devolvido. Este token é automaticamente utilizado pela Azure CLI para autorizar operações de dados subsequentes contra o armazenamento de Blob ou Queue. Para operações apoiadas, já não precisa de passar uma chave de conta ou um sinal SAS com o comando.
 
-Pode atribuir permissões a um principal de segurança AD AZure através de um controlo de acesso baseado em funções (RBAC). Para obter mais informações sobre as funções do RBAC no Azure Storage, consulte [Gerir os direitos de acesso aos dados de armazenamento do Azure com o RBAC.](storage-auth-aad-rbac.md)
+Pode atribuir permissões a um principal de segurança AD AZure através de um controlo de acesso baseado em funções (RBAC). Para obter mais informações sobre as funções Azure no Azure Storage, consulte [Gerir os direitos de acesso aos dados de armazenamento do Azure com o RBAC.](storage-auth-aad-rbac.md)
 
 ### <a name="permissions-for-calling-data-operations"></a>Permissões para chamadas de operações de dados
 
@@ -55,7 +55,7 @@ Para obter mais informações sobre as permissões necessárias para cada opera�
 
 O exemplo a seguir mostra como criar um recipiente a partir do Azure CLI utilizando as suas credenciais AZure AD. Para criar o contentor, terá de iniciar sessão no Azure CLI, e precisará de um grupo de recursos e de uma conta de armazenamento. Para aprender a criar estes recursos, consulte [Quickstart: Criar, descarregar e listar bolhas com Azure CLI](../blobs/storage-quickstart-blobs-cli.md).
 
-1. Antes de criar o recipiente, atribua a [função de Contribuinte de Dados de Armazenamento blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) a si mesmo. Apesar de ser o proprietário da conta, necessita de permissões explícitas para realizar operações de dados contra a conta de armazenamento. Para obter mais informações sobre a atribuição de funções de RBAC, consulte [o acesso do Grant à bolha de Azure e dados de fila com o RBAC no portal Azure](storage-auth-aad-rbac.md).
+1. Antes de criar o recipiente, atribua a [função de Contribuinte de Dados de Armazenamento blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) a si mesmo. Apesar de ser o proprietário da conta, necessita de permissões explícitas para realizar operações de dados contra a conta de armazenamento. Para obter mais informações sobre a atribuição de funções Azure, consulte [o Acesso do Grant à bolha de Azure e dados de fila com o RBAC no portal Azure](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
     > As atribuições de funções azure podem demorar alguns minutos a propagar-se.
@@ -108,5 +108,5 @@ Pode especificar parâmetros de autorização em variáveis ambientais para evit
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Utilize o CLI Azure para atribuir uma função RBAC para acesso a dados de bolhas e filas](storage-auth-aad-rbac-cli.md)
+- [Use o CLI Azure para atribuir uma função Azure para acesso a dados de bolhas e filas](storage-auth-aad-rbac-cli.md)
 - [Autorizar o acesso a dados de blob e fila com identidades geridas para recursos Azure](storage-auth-aad-msi.md)

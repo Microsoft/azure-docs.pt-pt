@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 5b171c5ff5bc848a0005fad5a2e0b6c0ca548724
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 3d0ef8a8641c3814fa7c9964786a7f24f5e54a01
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496078"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534945"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Utilize o fornecedor de recursos de armazenamento Azure para aceder a recursos de gestão
 
@@ -26,15 +26,15 @@ Pode utilizar o fornecedor de recursos Azure Storage para executar ações como 
 
 A Microsoft fornece duas APIs REST para trabalhar com recursos de armazenamento Azure. Estas APIs formam a base de todas as ações que pode realizar contra o Azure Storage. A Azure Storage REST API permite-lhe trabalhar com dados na sua conta de armazenamento, incluindo bolhas, filas, ficheiros e dados de tabela. O fornecedor de recursos de armazenamento Azure REST API permite-lhe trabalhar com a conta de armazenamento e recursos conexos.
 
-Um pedido que lê ou escreve dados blob requer permissões diferentes de um pedido que realiza uma operação de gestão. O RBAC fornece um controlo fino sobre permissões a ambos os tipos de recursos. Quando atribuir um papel de RBAC a um diretor de segurança, certifique-se de que compreende quais as permissões que o diretor será concedido. Para uma referência detalhada que descreve quais as ações associadas a cada papel incorporado do Azure, consulte [as funções incorporadas do Azure.](../../role-based-access-control/built-in-roles.md)
+Um pedido que lê ou escreve dados blob requer permissões diferentes de um pedido que realiza uma operação de gestão. O RBAC fornece um controlo fino sobre permissões a ambos os tipos de recursos. Quando atribuir um papel de Azure a um diretor de segurança, certifique-se de que entende quais as permissões que o diretor será concedido. Para uma referência detalhada que descreve quais as ações associadas a cada papel incorporado do Azure, consulte [as funções incorporadas do Azure.](../../role-based-access-control/built-in-roles.md)
 
-O Azure Storage suporta a utilização do Azure AD para autorizar pedidos contra o armazenamento de Blob e Queue. Para obter informações sobre as funções DE RBAC para operações de dados de bolhas e filas, consulte [o acesso autorizado a bolhas e filas utilizando o Ative Directory](storage-auth-aad.md).
+O Azure Storage suporta a utilização do Azure AD para autorizar pedidos contra o armazenamento de Blob e Queue. Para obter informações sobre as funções Azure para operações de dados de bolhas e filas, consulte [o Acesso autorizado a bolhas e filas utilizando o Ative Directory](storage-auth-aad.md).
 
 ## <a name="assign-management-permissions-with-role-based-access-control-rbac"></a>Atribuir permissões de gestão com controlo de acesso baseado em funções (RBAC)
 
 Cada subscrição da Azure tem um Diretório Azure Ative associado que gere utilizadores, grupos e aplicações. Um utilizador, grupo ou aplicação também é referido como um principal de segurança no contexto da plataforma de [identidade](/azure/active-directory/develop/)microsoft . Pode conceder acesso a recursos numa subscrição a um principal de segurança definido no Ative Directory utilizando o controlo de acesso baseado em funções (RBAC).
 
-Quando atribui um papel de RBAC a um diretor de segurança, também indica o âmbito em que as permissões concedidas pelo papel estão em vigor. Para operações de gestão, pode atribuir uma função ao nível da subscrição, do grupo de recursos ou da conta de armazenamento. Pode atribuir uma função RBAC a um principal de segurança utilizando o [portal Azure,](https://portal.azure.com/)as [ferramentas Azure CLI,](../../cli-install-nodejs.md) [PowerShell](/powershell/azure/)ou o [fornecedor de recursos de armazenamento Azure REST API](/rest/api/storagerp).
+Quando atribui um papel de Azure a um diretor de segurança, também indica o âmbito em que as permissões concedidas pelo papel estão em vigor. Para operações de gestão, pode atribuir uma função ao nível da subscrição, do grupo de recursos ou da conta de armazenamento. Pode atribuir uma função Azure a um principal de segurança utilizando o [portal Azure,](https://portal.azure.com/)as [ferramentas Azure CLI,](../../cli-install-nodejs.md) [PowerShell](/powershell/azure/)ou o [fornecedor de recursos de armazenamento Azure REST API](/rest/api/storagerp).
 
 Para obter mais informações, consulte [o que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?](../../role-based-access-control/overview.md) e [funções de administrador de subscrição clássica, funções de Azure e funções de administrador AD Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
@@ -44,7 +44,7 @@ A Azure fornece funções incorporadas que concedem permissões para chamadas de
 
 As funções incorporadas que concedem permissões para chamadas de operações de gestão de armazenamento incluem as funções descritas no quadro seguinte:
 
-|    Função RBAC    |    Descrição    |    Inclui acesso às chaves da conta?    |
+|    Papel azul    |    Descrição    |    Inclui acesso às chaves da conta?    |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
 | **Proprietário** | Pode gerir todos os recursos de armazenamento e acesso a recursos.  | Sim, fornece permissões para visualizar e regenerar as chaves da conta de armazenamento. |
 | **Contribuinte**  | Pode gerir todos os recursos de armazenamento, mas não consegue atribuir recursos. | Sim, fornece permissões para visualizar e regenerar as chaves da conta de armazenamento. |

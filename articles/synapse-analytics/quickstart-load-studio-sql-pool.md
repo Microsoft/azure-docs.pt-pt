@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/06/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7f840d4a75be72a4317860dcf4a6708642369a24
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: fb618f155e659ecd1fa5760117193a9045e6da35
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274225"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535132"
 ---
 # <a name="bulk-loading-with-synapse-sql"></a>Carregamento a granel com Sinaapse SQL
 
@@ -28,7 +28,7 @@ Agora pode carregar facilmente dados de carga em massa utilizando piscinas SQL c
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Este assistente gera uma declaração COPY que utiliza o passe de AAD para a authentcation. O utilizador [da AAD deve ter acesso](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples#d-azure-active-directory-authentication-aad) ao espaço de trabalho com, pelo menos, a função DE Colaborador de Dados de Armazenamento Blob RBAC para a Conta Gen2 da ADLS.
+- Este assistente gera uma declaração COPY que utiliza o passe de AAD para a authentcation. O utilizador [da AAD deve ter acesso](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples#d-azure-active-directory-authentication-aad) ao espaço de trabalho com, pelo menos, a função Azure do Colaborador de Dados de Armazenamento blob para a Conta ADLS Gen2.
 
 - Tem de ter as [permissões necessárias para utilizar a declaração COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#permissions) e criar permissões de mesa se estiver a criar uma nova tabela para carregar.
 

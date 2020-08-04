@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7819b62fb92945a409cab0dff926e281620dd80c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 727a5052b0531cc0a37cc631e11bc498498be5b3
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496649"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534979"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gerir chaves de conta de armazenamento com o Key Vault e o Azure CLI
 
@@ -71,7 +71,7 @@ az login
 
 Utilize a atribuição de função Azure CLI [az criar](/cli/azure/role/assignment?view=azure-cli-latest) comando para dar ao Key Vault acesso à sua conta de armazenamento. Fornecer ao comando os seguintes valores de parâmetro:
 
-- `--role`: Passe a função DE "Função de Serviço do Operador chave de armazenamento" DO RBAC. Esta função limita o âmbito de acesso à sua conta de armazenamento. Para uma conta de armazenamento clássica, passe "Classic Storage Account Operator Operator Service Role" em vez disso.
+- `--role`: Passe a função Azure "Função de Serviço do Operador da Chave de Armazenamento" . Esta função limita o âmbito de acesso à sua conta de armazenamento. Para uma conta de armazenamento clássica, passe "Classic Storage Account Operator Operator Service Role" em vez disso.
 - `--assignee`: Passe o valor " https://vault.azure.net ", que é o url para Key Vault na nuvem pública Azure. (Para a nuvem de Azure Goverment use '--asingee-object-id' em vez disso, consulte [iD de aplicação principal do serviço](#service-principal-application-id).)
 - `--scope`: Passe o ID do seu recurso de conta de armazenamento, que está no formulário `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>` . Para encontrar o seu ID de subscrição, utilize o comando da lista de conta Azure CLI [az;](/cli/azure/account?view=azure-cli-latest#az-account-list) para encontrar o nome da sua conta de armazenamento e grupo de recursos de conta de armazenamento, use o comando da lista de conta de armazenamento Azure CLI [az.](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list)
 

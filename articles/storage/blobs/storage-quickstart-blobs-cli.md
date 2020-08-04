@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 06/04/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 623eb7cdc9b2ff3df6bf2cbf9f337c262fecf060
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: eca67c4a5a942e6cd06f67cac868905da0e1f533
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501275"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535149"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Quickstart: Criar, transferir e listar bolhas com Azure CLI
 
@@ -80,7 +80,7 @@ az storage account create \
 
 Os Blobs são sempre carregados para um contentor. Pode organizar grupos de bolhas em recipientes semelhantes à forma como organiza os seus ficheiros no seu computador em pastas. Crie um contentor para armazenar blobs com o comando [az storage container create](/cli/azure/storage/container). 
 
-O exemplo a seguir utiliza a sua conta Azure AD para autorizar a operação de criação do recipiente. Antes de criar o recipiente, atribua a [função de Contribuinte de Dados de Armazenamento blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) a si mesmo. Mesmo que você é o proprietário da conta, você precisa de permissões explícitas para realizar operações de dados contra a conta de armazenamento. Para obter mais informações sobre a atribuição de funções de RBAC, consulte [Use Azure CLI para atribuir uma função RBAC para acesso](../common/storage-auth-aad-rbac-cli.md?toc=/azure/storage/blobs/toc.json).  
+O exemplo a seguir utiliza a sua conta Azure AD para autorizar a operação de criação do recipiente. Antes de criar o recipiente, atribua a [função de Contribuinte de Dados de Armazenamento blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) a si mesmo. Mesmo que você é o proprietário da conta, você precisa de permissões explícitas para realizar operações de dados contra a conta de armazenamento. Para obter mais informações sobre a atribuição de funções Azure, consulte [Use Azure CLI para atribuir uma função Azure para acesso](../common/storage-auth-aad-rbac-cli.md?toc=/azure/storage/blobs/toc.json).  
 
 Também pode utilizar a chave da conta de armazenamento para autorizar a operação para criar o recipiente. Para obter mais informações sobre a autorização de operações de dados com o Azure CLI, consulte [Autorizar o acesso aos dados de blob ou fila com o Azure CLI](../common/authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json).
 
@@ -156,7 +156,7 @@ azcopy login
 azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretender eliminar os recursos que criou como parte deste arranque rápido, incluindo a conta de armazenamento, elimine o grupo de recursos utilizando o comando de eliminação do [grupo az.](/cli/azure/group) Lembre-se de substituir os valores do espaço reservado nos suportes angulares com os seus próprios valores:
 

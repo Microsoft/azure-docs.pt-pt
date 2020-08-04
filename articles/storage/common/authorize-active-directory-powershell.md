@@ -1,7 +1,7 @@
 ---
 title: Executar comandos PowerShell com credenciais AD AZure para aceder a dados de blob ou fila
 titleSuffix: Azure Storage
-description: O PowerShell suporta a assinatura com credenciais AZure AD para executar comandos na bolha de armazenamento Azure e dados de filas. Um sinal de acesso é fornecido para a sessão e usado para autorizar operações de chamada. As permissões dependem da função RBAC atribuída ao diretor de segurança da Azure.
+description: O PowerShell suporta a assinatura com credenciais AZure AD para executar comandos na bolha de armazenamento Azure e dados de filas. Um sinal de acesso é fornecido para a sessão e usado para autorizar operações de chamada. As permissões dependem do papel Azure atribuído ao diretor de segurança da Azure.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,18 +10,18 @@ ms.date: 12/30/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: b7e93f54c1aa0eaa5edf3b3fcbfbf8bd9a6442d7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a99b2841441e43ac02688494b1324fa5d630dcd5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87417544"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534928"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Executar comandos PowerShell com credenciais AD AZure para aceder a dados de blob ou fila
 
 O Azure Storage fornece extensões para o PowerShell que lhe permitem iniciar sing e executar comandos de script com credenciais Azure Ative Directory (Azure AD). Quando você assinar no PowerShell com credenciais Azure AD, um token de acesso OAuth 2.0 é devolvido. Este token é automaticamente utilizado pela PowerShell para autorizar operações de dados subsequentes contra o armazenamento de Blob ou Queue. Para operações apoiadas, já não precisa de passar uma chave de conta ou um sinal SAS com o comando.
 
-Pode atribuir permissões a um principal de segurança AD AZure através de um controlo de acesso baseado em funções (RBAC). Para obter mais informações sobre as funções do RBAC no Azure Storage, consulte [Gerir os direitos de acesso aos dados de armazenamento do Azure com o RBAC.](storage-auth-aad-rbac.md)
+Pode atribuir permissões a um principal de segurança AD AZure através de um controlo de acesso baseado em funções (RBAC). Para obter mais informações sobre as funções Azure no Azure Storage, consulte [Gerir os direitos de acesso aos dados de armazenamento do Azure com o RBAC.](storage-auth-aad-rbac.md)
 
 ## <a name="supported-operations"></a>Operações apoiadas
 
@@ -68,7 +68,7 @@ O exemplo a seguir mostra como criar um recipiente numa nova conta de armazename
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. Antes de criar o recipiente, atribua a [função de Contribuinte de Dados de Armazenamento blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) a si mesmo. Apesar de ser o proprietário da conta, necessita de permissões explícitas para realizar operações de dados contra a conta de armazenamento. Para obter mais informações sobre a atribuição de funções de RBAC, consulte [o acesso do Grant à bolha de Azure e dados de fila com o RBAC no portal Azure](storage-auth-aad-rbac.md).
+1. Antes de criar o recipiente, atribua a [função de Contribuinte de Dados de Armazenamento blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) a si mesmo. Apesar de ser o proprietário da conta, necessita de permissões explícitas para realizar operações de dados contra a conta de armazenamento. Para obter mais informações sobre a atribuição de funções Azure, consulte [o Acesso do Grant à bolha de Azure e dados de fila com o RBAC no portal Azure](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
     > As atribuições de funções azure podem demorar alguns minutos a propagar-se.
@@ -80,7 +80,7 @@ O exemplo a seguir mostra como criar um recipiente numa nova conta de armazename
     New-AzStorageContainer -Name $containerName -Context $ctx
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Use o PowerShell para atribuir uma função RBAC para acesso a dados de bolhas e filas](storage-auth-aad-rbac-powershell.md)
+- [Use o PowerShell para atribuir uma função Azure para acesso a dados de bolhas e filas](storage-auth-aad-rbac-powershell.md)
 - [Autorizar o acesso a dados de blob e fila com identidades geridas para recursos Azure](storage-auth-aad-msi.md)

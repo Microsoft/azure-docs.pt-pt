@@ -3,12 +3,12 @@ title: Use o centro de eventos da aplicação Apache Kafka - Azure Event Hubs ! 
 description: Este artigo fornece informações sobre o suporte da Apache Kafka pela Azure Event Hubs.
 ms.topic: article
 ms.date: 07/20/2020
-ms.openlocfilehash: 94e0993c192cb735d6a4f0f3f7ec484c830902e9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ab29c9c4270514e95752ab2bbd085ffe1b0a2fb0
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501598"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534877"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Use hubs de eventos Azure a partir de aplicações Apache Kafka
 O Event Hubs fornece um ponto final kafka que pode ser usado pelas suas aplicações existentes baseadas em Kafka como uma alternativa para executar o seu próprio cluster Kafka. O Event Hubs suporta [o protocolo Apache Kafka 1.0 e mais tarde,](https://kafka.apache.org/documentation/)e trabalha com as aplicações kafka existentes, incluindo o MirrorMaker.  
@@ -46,7 +46,7 @@ O Azure Event Hubs oferece múltiplas opções para autorizar o acesso aos seus 
 - Assinatura de acesso partilhado (SAS)
 
 #### <a name="oauth"></a>Oauth
-O Event Hubs integra-se com o Azure Ative Directory (Azure AD), que fornece um servidor de autorização centralizado compatível com **OAuth** 2.0. Com a Azure AD, pode utilizar o controlo de acesso baseado em funções (RBAC) para conceder permissões de grão fino às identidades do seu cliente. Pode utilizar esta funcionalidade com os seus clientes Kafka especificando **SASL_SSL** para o protocolo e **OAUTHBEARER** para o mecanismo. Para obter detalhes sobre as funções e níveis de deteção de funções e níveis de deteção de acesso, consulte [o Acesso autorizado com a Azure AD](authorize-access-azure-active-directory.md).
+O Event Hubs integra-se com o Azure Ative Directory (Azure AD), que fornece um servidor de autorização centralizado compatível com **OAuth** 2.0. Com a Azure AD, pode utilizar o controlo de acesso baseado em funções (RBAC) para conceder permissões de grão fino às identidades do seu cliente. Pode utilizar esta funcionalidade com os seus clientes Kafka especificando **SASL_SSL** para o protocolo e **OAUTHBEARER** para o mecanismo. Para obter mais informações sobre as funções e níveis de Azure para o acesso à deteção, consulte [o Acesso autorizado com a Azure AD](authorize-access-azure-active-directory.md).
 
 ```xml
 bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
