@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 07/28/2020
-ms.openlocfilehash: 0dd15fe5d68a521293f279978c668bc88599115e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: f3c7420e1f33a7c25e7d3bfdffff14019d0b606a
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498298"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542675"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limites de recursos para piscinas elásticas utilizando o modelo de compra DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -149,7 +149,7 @@ Para o mesmo número de DTUs, os recursos fornecidos a uma piscina elástica pod
 <sup>3</sup> Para os trabalhadores máximos simultâneos (pedidos) para qualquer base de dados individual, consulte [os limites de recursos de base de dados individuais](resource-limits-vcore-single-databases.md). Por exemplo, se a piscina elástica estiver a utilizar a Gen5 e o max vCore por base de dados for definido em 2, então o valor máximo simultâneo dos trabalhadores é de 200.  Se o máximo vCore por base de dados for definido para 0,5, então o valor máximo simultâneo dos trabalhadores é de 50, uma vez que na Gen5 existe um máximo de 100 trabalhadores simultâneos por vCore. Para outras definições max vCore por base de dados que sejam inferiores a 1 vCore ou menos, o número de trabalhadores máximos simultâneos é igualmente redimensionado.
 
 > [!IMPORTANT]
-> Mais de 1 TB de armazenamento no nível Premium está atualmente disponível em todas as regiões, exceto: China Leste, China Norte, Alemanha Central, Alemanha Nordeste, Centro Oeste dos EUA, eua doD regiões e governo dos EUA Central. Nestas regiões, o máximo de armazenamento no nível Premium é limitado a 1 TB.  Para obter mais informações, consulte [as limitações atuais do P11-P15.](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)
+> Mais de 1 TB de armazenamento no nível Premium está atualmente disponível em todas as regiões, exceto: China Leste, China Norte, Alemanha Central e Alemanha Nordeste. Nestas regiões, o máximo de armazenamento no nível Premium é limitado a 1 TB.  Para obter mais informações, consulte [as limitações atuais do P11-P15.](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)
 
 Se todas as DTUs de um conjunto elástico forem utilizadas, cada base de dados no conjunto recebe uma quantidade igual de recursos para processar consultas. O serviço Base de Dados SQL fornece equidade de partilha de recursos entre bases de dados, garantindo frações iguais de tempo de computação. A equidade de partilha de recursos de um conjunto elástico é adicional a qualquer quantidade de recursos garantido de outro modo a cada base de dados quando o mínimo de DTUs por base de dados está definido como um valor diferente de zero.
 

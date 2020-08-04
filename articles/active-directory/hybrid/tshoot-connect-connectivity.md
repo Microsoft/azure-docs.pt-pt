@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: a329ec32e241d88a56fc7031904777888ac194ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7bc39e409d0ac10e41fae58c5e5216f386427e30
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356411"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541741"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Problemas Azure AD conectividade
 Este artigo explica como funciona a conectividade entre o Azure AD Connect e o AD Azure e como resolver problemas de conectividade. Estes problemas são mais prováveis de serem vistos num ambiente com um servidor proxy.
@@ -32,7 +32,7 @@ O Azure AD Connect está a utilizar a Autenticação Moderna (utilizando a bibli
 
 Neste artigo, mostramos como a Fabrikam se conecta ao Azure AD através do seu representante. O servidor proxy chama-se fabrikamproxy e está a usar a porta 8080.
 
-Primeiro, temos de ter a certeza [**demachine.config**](how-to-connect-install-prerequisites.md#connectivity) está corretamente configurado.
+Em primeiro lugar, temos de ter a certeza [**demachine.config**](how-to-connect-install-prerequisites.md#connectivity) está corretamente configurado e o serviço **Microsoft Azure AD Sync** foi reiniciado uma vez após a atualização de ficheiros machine.config.
 ![machineconfig](./media/tshoot-connect-connectivity/machineconfig.png)
 
 > [!NOTE]
@@ -235,5 +235,5 @@ Este erro aparece quando o assistente de inscrição não consegue chegar ao rep
   ![netshow](./media/tshoot-connect-connectivity/netshshow.png)
 * Se isso parecer correto, siga os passos na [conectividade de procuração](#verify-proxy-connectivity) para ver se o problema também está presente fora do assistente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

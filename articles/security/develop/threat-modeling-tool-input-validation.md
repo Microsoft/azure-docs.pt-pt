@@ -1,6 +1,6 @@
 ---
 title: Validação de entradas - Ferramenta de Modelação de Ameaças da Microsoft - Azure / Microsoft Docs
-description: mitigações para ameaças expostas na Ferramenta de Modelação de Ameaças
+description: Saiba mais sobre a validação de entradas na Ferramenta de Modelação de Ameaças. Consulte informações de mitigação e veja exemplos de código.
 services: security
 documentationcenter: na
 author: jegeib
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 8e597fb9208430b8da447768608c48edef049d83
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5782c8b96534722a1e03ce619504e513a1c5e048
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83653106"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539803"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Quadro de segurança: Validação de entradas / Mitigações 
 | Produto/Serviço | Artigo |

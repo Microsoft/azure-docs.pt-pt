@@ -1,7 +1,7 @@
 ---
 title: Livro de jogadas para abordar requisitos comuns de segurança
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
-description: Este artigo fornece requisitos de segurança comuns e boas práticas na Base de Dados Azure SQL e na Azure SQL Gestd Instance
+description: Este artigo fornece requisitos de segurança comuns e boas práticas na Base de Dados Azure SQL e na Azure SQL Managed Instance.
 ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=2
@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 6a3a52c90187920be13628a6d2fa44159e1109d7
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6630b924decacc5ff59611c657e1d7e38b1813a7
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371792"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541724"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Livro de jogadas para abordar requisitos comuns de segurança com base de dados Azure SQL e Azure SQL Gestão De Instância
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -291,7 +291,7 @@ A Separação de Deveres, também denominada Segregação de Deveres, descreve a
 - Identifique uma hierarquia abrangente de utilizadores (e processos automatizados) que acedam ao sistema.
 
 - Criar funções de acordo com os grupos de utilizador necessários e atribuir permissões a funções.
-  - Para tarefas de nível de gestão no portal Azure ou através da automação PowerShell utilize funções DE RBAC. Ou encontra uma função incorporada que corresponda ao requisito, ou crie uma função personalizada Azure usando as permissões disponíveis
+  - Para tarefas de nível de gestão no portal Azure ou através da automação PowerShell utilize funções Azure. Ou encontra uma função incorporada que corresponda ao requisito, ou crie uma função personalizada Azure usando as permissões disponíveis
   - Criar funções de Servidor para tarefas em todo o servidor (criando novos logins, bases de dados) num caso gerido.
   - Criar funções de base de dados para tarefas ao nível da base de dados.
 
@@ -318,7 +318,7 @@ A Separação de Deveres, também denominada Segregação de Deveres, descreve a
 
 - Crie e utilize funções definidas pelo utilizador quando as funções incorporadas concedem demasiadas permissões ou permissões insuficientes.
 
-- As atribuições de funções também podem ser feitas temporariamente, também conhecidas como Separação Dinâmica de Deveres (DSD), quer dentro dos passos de trabalho do agente SQL em T-SQL ou usando Azure PIM para funções de RBAC.
+- As atribuições de funções também podem ser feitas temporariamente, também conhecidas como Separação Dinâmica de Deveres (DSD), quer dentro dos passos de trabalho do agente SQL em T-SQL ou usando Azure PIM para funções de Azure.
 
 - Certifique-se de que os DBAs não têm acesso às chaves de encriptação ou às lojas-chave, e que os Administradores de Segurança com acesso às chaves não têm acesso à base de dados por sua vez. A utilização de [Gestão de Chaves Extensíveis (EKM)](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-ekm) pode facilitar a sua separação. [O Azure Key Vault](https://azure.microsoft.com/services/key-vault/) pode ser usado para implementar eKM.
 

@@ -1,14 +1,14 @@
 ---
 title: Documentação de orientação para pedidos limitados
 description: Aprenda a agrupar, cambalear, paginar e consultar em paralelo para evitar que os pedidos sejam estrangulados pelo Azure Resource Graph.
-ms.date: 05/20/2020
+ms.date: 08/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: dbcd438f1eda4edd30deef41542beeae6d746dc2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 343d0c02e300431b63b908199931c20a50b85dd2
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83682056"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541843"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Orientação para pedidos acelerados no Gráfico de Recursos Azure
 
@@ -29,6 +29,8 @@ Em cada resposta de consulta, o Azure Resource Graph adiciona dois cabeçalhos d
 
 - `x-ms-user-quota-remaining`(int): A restante quota de recursos para o utilizador. Este valor mapeia para a contagem de consultas.
 - `x-ms-user-quota-resets-after`(hh:mm:ss): A duração do tempo até ao reinício do consumo de quota de um utilizador.
+
+Quando um titular de segurança tem acesso a mais de 5000 subscrições dentro do âmbito de [consulta](./query-language.md#query-scope)do arrendatário ou do grupo de gestão, a resposta limita-se às primeiras 5000 assinaturas e o `x-ms-tenant-subscription-limit-hit` cabeçalho é devolvido como `true` .
 
 Para ilustrar como funcionam os cabeçalhos, vejamos uma resposta de consulta que tenha o cabeçalho e os valores de `x-ms-user-quota-remaining: 10` `x-ms-user-quota-resets-after: 00:00:03` e .
 
@@ -237,7 +239,7 @@ Fornecer estes detalhes:
 - Que tipo de recursos está interessado?
 - Qual é o seu padrão de consulta? X consultas por Y segundos, e assim por diante.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte o idioma em uso nas [consultas de arranque](../samples/starter.md).
 - Consulte utilizações avançadas em [consultas avançadas.](../samples/advanced.md)

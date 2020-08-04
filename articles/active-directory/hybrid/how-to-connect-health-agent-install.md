@@ -16,12 +16,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7267da7db91e153190e98b09e9a3c505837bd042
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: c709fca3fbddb6fc16699052c5f01d1255c79dd8
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446308"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542098"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalação do Agente do Azure AD Connect Health
 
@@ -154,6 +154,7 @@ Para que a funcionalidade de Análise de Utilização possa recolher e analisar 
 7. No painel **de ações,** clique em **Editar Federação Propriedades de Serviço**.
 8. Na caixa de diálogo **'Propriedades de Serviço da Federação',** clique no separador **Eventos.**
 9. Selecione as caixas de verificação **Auditorias de êxito e Auditorias de falha** e clique em **OK**.
+10. A exploração de registo verbose pode ser ativada através da powershell utilizando o comando: ```Set-AdfsProperties -LOGLevel Verbose``` .
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2016"></a>Para ativar a auditoria para o AD FS no Windows Server 2016
 

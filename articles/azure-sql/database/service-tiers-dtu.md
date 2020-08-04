@@ -4,19 +4,19 @@ description: Conheça os níveis de serviço no modelo de compra baseado em DTU 
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: ''
+ms.custom: references_regions
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
-ms.openlocfilehash: b7354a921950daec5cc429fa07318213c8924264
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: fbf753436a259993f6869372ae3ba7272f2a181a
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87382700"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541707"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Escalões de serviço no modelo de compra baseado em DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ A escolha de um nível de serviço depende principalmente da continuidade do neg
 |**Carga de trabalho de destino**|Desenvolvimento e produção|Desenvolvimento e produção|Desenvolvimento e produção|
 |**Uptime SLA**|99,99%|99,99%|99,99%|
 |**Retenção máxima de backup**|7 dias|35 dias|35 dias|
-|**CPU**|Baixo|Baixo, Médio, Alto|Médio, Alto|
+|**CPU**|Baixa|Baixo, Médio, Alto|Médio, Alto|
 |**Produção de IO (aproximada)** |1-5 IOPS por DTU| 1-5 IOPS por DTU | 25 IOPS por DTU|
 |**Latência IO (aproximada)**|5 ms (ler), 10 ms (escrever)|5 ms (ler), 10 ms (escrever)|2 ms (ler/escrever)|
 |**Indexação de colunas** |N/D|S3 e acima|Suportado|
@@ -77,7 +77,7 @@ Os tamanhos de cálculo são expressos em termos de Unidades de Transação de D
 | **Número máximo de bases de dados por piscina** | 500  | 500 | 100 |
 
 > [!IMPORTANT]
-> Mais de 1 TB de armazenamento no nível Premium está atualmente disponível em todas as regiões, exceto: China Leste, China Norte, Alemanha Central, Alemanha Nordeste, Centro Oeste dos EUA, eua doD regiões e governo dos EUA Central. Nestas regiões, o máximo de armazenamento no nível Premium é limitado a 1 TB.  Para obter mais informações, consulte [as limitações atuais do P11-P15.](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)  
+> Mais de 1 TB de armazenamento no nível Premium está atualmente disponível em todas as regiões, exceto: China Leste, China Norte, Alemanha Central e Alemanha Nordeste. Nestas regiões, o máximo de armazenamento no nível Premium é limitado a 1 TB.  Para obter mais informações, consulte [as limitações atuais do P11-P15.](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)  
 > [!IMPORTANT]
 > Em algumas circunstâncias, pode precisar de encolher uma base de dados para recuperar o espaço não usused. Para obter mais informações, consulte [gerir o espaço de ficheiros na Base de Dados Azure SQL](file-space-manage.md).
 
@@ -174,7 +174,7 @@ As métricas-chave no benchmark são o tempo de produção e resposta.
 | Standard |Transações por minuto |Percentil 90 a 1,0 segundos |
 | Básico |Transações por hora |Percentil 80 a 2,0 segundos |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter informações sobre tamanhos específicos de cálculo e opções de tamanho de armazenamento disponíveis para bases de dados individuais, consulte [os limites de recursos baseados em DTU da Base de Dados SQL para bases de dados individuais.](resource-limits-dtu-single-databases.md#single-database-storage-sizes-and-compute-sizes)
 - Para obter detalhes sobre tamanhos específicos de computação e opções de tamanho de armazenamento disponíveis para piscinas elásticas, consulte [os limites de recursos baseados em DTU da Base de Dados SQL](resource-limits-dtu-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).

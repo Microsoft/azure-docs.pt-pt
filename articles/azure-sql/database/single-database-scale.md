@@ -4,19 +4,19 @@ description: Este artigo descreve como escalar os recursos de computação e arm
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, references_regions
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 07/31/2020
-ms.openlocfilehash: 42a4d1288c7daeb4579e481f0258666d8e2cdbce
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 39869e74fcb3e8f3deae1273721093f3f85e8d78
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502992"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541690"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Dimensione os recursos de base de dados única na Base de Dados Azure SQL
 
@@ -145,7 +145,7 @@ Para alterar o tamanho da base de dados de uma base de dados secundária replica
 
 ## <a name="p11-and-p15-constraints-when-max-size-greater-than-1-tb"></a>Restrições P11 e P15 quando o tamanho máximo superior a 1 TB
 
-Mais de 1 TB de armazenamento no nível Premium está atualmente disponível em todas as regiões, exceto: China Leste, China Norte, Alemanha Central, Alemanha Nordeste, Centro Oeste dos EUA, eua doD regiões e governo dos EUA Central. Nestas regiões, o máximo de armazenamento no nível Premium é limitado a 1 TB. As seguintes considerações e limitações aplicam-se às bases de dados P11 e P15 com um tamanho máximo superior a 1 TB:
+Mais de 1 TB de armazenamento no nível Premium está atualmente disponível em todas as regiões, exceto: China Leste, China Norte, Alemanha Central e Alemanha Nordeste. Nestas regiões, o máximo de armazenamento no nível Premium é limitado a 1 TB. As seguintes considerações e limitações aplicam-se às bases de dados P11 e P15 com um tamanho máximo superior a 1 TB:
 
 - Se o tamanho máximo de uma base de dados P11 ou P15 foi alguma vez definido para um valor superior a 1 TB, então só pode ser restaurado ou copiado para uma base de dados P11 ou P15.  Posteriormente, a base de dados pode ser redimensionada para um tamanho de cálculo diferente, desde que a quantidade de espaço atribuído no momento da operação de rescalamento não exceda os limites máximos de tamanho máximo do novo tamanho do cálculo.
 - Para cenários de geo-replicação ativos:

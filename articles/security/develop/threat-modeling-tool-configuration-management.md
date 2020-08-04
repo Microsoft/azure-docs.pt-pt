@@ -1,7 +1,7 @@
 ---
 title: Gestão de configuração para a ferramenta de modelação de ameaças da Microsoft
 titleSuffix: Azure
-description: mitigações para ameaças expostas na Ferramenta de Modelação de Ameaças
+description: Saiba mais sobre a gestão de configuração para a Ferramenta de Modelação de Ameaças. Consulte informações de mitigação e veja exemplos de código.
 services: security
 documentationcenter: na
 author: jegeib
@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-javascript
-ms.openlocfilehash: f911fced2ea40de359662eccf390e361dac18ff3
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f34a98ccbe069a5cb9e2c26a88e486b27f016fe1
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424176"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87540024"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Quadro de Segurança: Gestão de Configuração / Mitigações 
 | Produto/Serviço | Artigo |

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: larryfr
 ms.reviewer: larryfr
 ms.date: 06/11/2020
-ms.openlocfilehash: c8b25e1d3ef2d2b780d88fbf2ba6c6568b4a804d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 59671a0520d665d594356a2e6aee46116a8de5d3
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744960"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541775"
 ---
 # <a name="deploy-a-model-for-use-with-cognitive-search"></a>Implementar um modelo para utilizar com o Cognitive Search
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -216,7 +216,7 @@ Para obter mais informações sobre ambientes, consulte [Criar e gerir ambientes
 A configuração de implementação define o ambiente de hospedagem do Serviço Azure Kubernetes utilizado para executar o serviço web.
 
 > [!TIP]
-> Se não tiver a certeza sobre as necessidades de memória, CPU ou GPU da sua implantação, pode usar perfis para aprender estes. Para mais informações, consulte [como e onde implementar um modelo.](how-to-deploy-and-where.md#prepare-to-deploy)
+> Se não tiver a certeza sobre as necessidades de memória, CPU ou GPU da sua implantação, pode usar perfis para aprender estes. Para mais informações, consulte [como e onde implementar um modelo.](how-to-deploy-and-where.md)
 
 ```python
 from azureml.core.model import Model
@@ -321,6 +321,6 @@ aks_service.delete()
 aks_target.delete()
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Construa e implemente uma habilidade personalizada com a Azure Machine Learning](../search/cognitive-search-tutorial-aml-custom-skill.md)

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 3a5e2c368fd956abb98b2b4c9ccd1060677f3e06
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6632d65fa07788e35b24c2f957e713f824f6b091
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085763"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542743"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks---azure-portal"></a>Localizar e apagar discos geridos e não geridos do Azure - portal Azure
 
@@ -27,7 +27,7 @@ Se tiver discos geridos desvinculados e já não precisar dos dados sobre eles, 
 
     Na lâmina **Discos,** é-lhe apresentada uma lista de todos os discos. Qualquer disco que tenha " **-** " na coluna **Proprietário** é um disco não ligado.
 
-    [![](media/disks-find-unattached-portal/managed-disk-unattached-owner.png "Screenshot of the managed disks blade, if a disk has - in the Owner column, it is an unattached disk")](media/disks-find-unattached-portal/managed-disk-owner-unattached.png#lightbox)
+    [![Screenshot da lâmina de discos geridos, se um disco tiver - na coluna Proprietário, é um disco não ligado.](media/disks-find-unattached-portal/managed-disk-unattached-owner.png)](media/disks-find-unattached-portal/managed-disk-owner-unattached.png#lightbox)
 
 1. Selecione o disco não ligado que pretende apagar, isto abre a lâmina do disco.
 1. Na lâmina do disco, pode confirmar que o estado do disco não está ligado e, em seguida, selecione **Delete**.

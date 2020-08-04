@@ -6,14 +6,14 @@ ms.service: storage
 ms.topic: include
 ms.date: 07/16/2020
 ms.author: tamram
-ms.openlocfilehash: 644d58c3d1c60611b0d22d2757da089313fa12b6
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 96d8100f2cffcfb001a693575128ce19e742225d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423724"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534142"
 ---
-Antes de atribuir uma função RBAC a um diretor de segurança, determine o âmbito de acesso que o diretor de segurança deve ter. As melhores práticas ditam que é sempre melhor conceder apenas o âmbito mais estreito possível.
+Antes de atribuir um papel de Azure a um diretor de segurança, determine o âmbito de acesso que o diretor de segurança deve ter. As melhores práticas ditam que é sempre melhor conceder apenas o âmbito mais estreito possível.
 
 A lista a seguir descreve os níveis em que pode estender o acesso aos recursos de bolha e fila Azure, começando pelo âmbito mais estreito:
 

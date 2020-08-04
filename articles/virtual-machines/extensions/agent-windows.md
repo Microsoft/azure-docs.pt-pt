@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: 6ff5825f3272f0dadc74147d36e8c5fd8e7838d7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 100e75520d1165d4772579ba9b179cd350d6df18
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010959"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542624"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Descrição geral do Agente da Máquina Virtual do Azure
 O Agente da Máquina Virtual do Microsoft Azure (Agente da VM) é um processo leve e seguro que gere a interação da máquina virtual (VM) com o Controlador de Recursos de Infraestrutura do Microsoft Azure. O Agente da VM tem uma função primária na ativação e na execução de extensões de máquina virtual do Azure. As extensões de VM permitem a configuração pós-implementação da VM, por exemplo, instalar e configurar o software. As extensões de VM também permitem funcionalidades de recuperação, como a reposição da palavra-passe administrativa de uma VM. Sem o Agente da VM do Azure, as extensões de VM não podem ser executadas.
@@ -111,7 +111,7 @@ Quando inicia sessão numa VM do Windows, pode utilizar o Gestor de Tarefas para
 
 
 ## <a name="upgrade-the-vm-agent"></a>Atualizar o Agente da VM
-O Agente da VM do Azure para Windows é atualizado automaticamente. À medida que as novas VMs são implementadas no Azure, recebem o agente da VM mais recente no momento do aprovisionamento da VM. As imagens de VM personalizadas devem ser atualizadas manualmente para incluir o novo agente da VM no momento da criação de imagem.
+O Agente VM Azure para Windows é automaticamente atualizado em imagens implementadas a partir do mercado Azure. À medida que as novas VMs são implementadas no Azure, recebem o agente da VM mais recente no momento do aprovisionamento da VM. Se instalou o agente manualmente ou está a implementar imagens VM personalizadas, terá de atualizar manualmente para incluir o novo agente VM na hora da criação de imagem.
 
 ## <a name="windows-guest-agent-automatic-logs-collection"></a>Recolha de Registos Automática do Agente Convidado do Windows
 O Agente Convidado do Windows possui uma funcionalidade para recolher automaticamente alguns registos. Esta funcionalidade é controlada pelo processo CollectGuestLogs.exe. Existe para os Serviços Cloud PaaS e para Máquinas Virtuais IaaS e o seu objetivo é recolher rápida e automaticamente alguns registos de diagnóstico de uma VM, para poderem ser utilizados na análise offline. Os registos recolhidos são Registos de Eventos, Registos de SO, Registos do Azure e algumas chaves de registo. Produzem um ficheiro ZIP que é transferido para o Anfitrião da VM. Em seguida, este ficheiro ZIP pode ser analisado pelas Equipas de Engenharia e profissionais de Suporte para investigar problemas a pedido do cliente proprietário da VM.

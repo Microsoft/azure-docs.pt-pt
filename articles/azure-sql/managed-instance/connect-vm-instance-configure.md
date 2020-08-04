@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: 76c4e2c5052e70c4c6cb8ff631151a5e6fc544e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3dc2990e810096310617e468a533a65626008ff
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706363"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542658"
 ---
 # <a name="quickstart-configure-an-azure-vm-to-connect-to-azure-sql-managed-instance"></a>Quickstart: Configurar um Azure VM para ligar à Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -54,7 +54,7 @@ Os passos seguintes criam uma nova sub-rede no SQL Managed Instance VNet para qu
    | **Nome** | Qualquer nome válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming).|
    | **Intervalo de endereços (bloco CIDR)** | Uma gama válida | O valor predefinido é bom para este arranque rápido.|
    | **Grupo de segurança de rede** | Nenhuma | O valor predefinido é bom para este arranque rápido.|
-   | **Tabela de rota** | Nenhuma | O valor predefinido é bom para este arranque rápido.|
+   | **Tabela de rotas** | Nenhuma | O valor predefinido é bom para este arranque rápido.|
    | **Pontos finais de serviço** | 0 selecionados | O valor predefinido é bom para este arranque rápido.|
    | **Delegação de sub-rede** | Nenhuma | O valor predefinido é bom para este arranque rápido.|
 
@@ -74,7 +74,7 @@ A forma mais fácil de criar uma máquina virtual cliente com todas as ferrament
 
 1. Certifique-se de que está inscrito no portal Azure em outro separador do navegador. Em seguida, selecione o seguinte botão para criar uma máquina virtual do cliente e instale o SQL Server Management Studio:
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   [![Imagem mostrando um botão marcado "Implementar para Azure".](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json)
 
 2. Preencha o formulário utilizando as informações no quadro seguinte:
 
@@ -118,7 +118,7 @@ Os passos a seguir mostram-lhe como ligar-se à sua máquina virtual recém-cria
 
    ![Formulário RDP](./media/connect-vm-instance-configure/rdp.png)  
 
-3. Selecione **Download RDP File**.
+3. Selecione **Transferir Ficheiro RDP**.
 
    > [!NOTE]
    > Também pode utilizar o SSH para ligar ao seu VM.
@@ -144,7 +144,7 @@ Está ligado à sua máquina virtual no painel do Gestor do Servidor.
 
 Depois de ligar, pode ver as bases de dados do sistema e dos utilizadores no nó de bases de dados e vários objetos em nós de Segurança, Objetos de Servidor, Replicação, Gestão, SQL Server Agent e Gerador de Perfis de XEvent.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter um arranque rápido que mostre como ligar a partir de um computador cliente no local utilizando uma ligação ponto-a-local, consulte [configurar uma ligação ponto-a-local](point-to-site-p2s-configure.md).
 - Para obter uma visão geral das opções de ligação para aplicações, consulte [Conecte as suas aplicações à SQL Managed Instance](connect-application-instance.md).

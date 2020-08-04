@@ -1,6 +1,6 @@
 ---
 title: Gestão de Exceções - Ferramenta de Modelação de Ameaças da Microsoft - Azure / Microsoft Docs
-description: mitigações para ameaças expostas na Ferramenta de Modelação de Ameaças
+description: Saiba mais sobre a gestão de exceções na Ferramenta de Modelação de Ameaças. Consulte informações de mitigação e veja exemplos de código.
 services: security
 documentationcenter: na
 author: jegeib
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 074098c3adae0dd8ff2a127d819e2b3630b754da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05e9e627afecfc95e03eae39eed1183857df8b4b
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83650095"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539939"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Quadro de Segurança: Gestão de Exceções / Mitigações 
 | Produto/Serviço | Artigo |

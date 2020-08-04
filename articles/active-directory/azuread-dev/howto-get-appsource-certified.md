@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 163087461dbbcfd036b348f69362f0ad0010e791
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7654de8bf26c3eaa3c93c8efcf99577fe88e6f24
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85383857"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87540347"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Como obter AppSource Certificado para Azure Ative Directory
 
@@ -58,14 +58,13 @@ As aplicações de um único inquilino podem ativar a experiência *Do Contacto 
 O teste liderado pelo cliente é a experiência que o AppSource recomenda, uma vez que oferece um acesso de um clique à sua aplicação. O exemplo a seguir mostra como é esta experiência:
 
 <table >
-<tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%" alt-text="Shows Free trial for customer-led trial experience"/><ul><li>O utilizador encontra a sua aplicação no Site AppSource</li><li>Seleciona opção 'Teste gratuito'</li></ul></td>
-    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" alt-text="Shows how user is redirected to a URL in your web site"/><ul><li>AppSource redireciona o utilizador para um URL no seu site</li><li>O seu web site inicia automaticamente o processo <i>de início de sação</i> (na carga da página)</li></ul></td>
-    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%" alt-text="Shows the Microsoft sign-in page"/><ul><li>O utilizador é redirecionado para a página de iniciar sê-in no Microsoft</li><li>Utilizador fornece credenciais para iniciar sinse</li></ul></td>
+<tr>    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%" alt="Shows Free trial for customer-led trial experience."/><ul><li>O utilizador encontra a sua aplicação no Site AppSource</li><li>Seleciona opção 'Teste gratuito'</li></ul></td>
+    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" alt="Shows how user is redirected to a URL in your web site."/><ul><li>AppSource redireciona o utilizador para um URL no seu site</li><li>O seu web site inicia automaticamente o processo <i>de início de sação</i> (na carga da página)</li></ul></td>
+    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%" alt="Shows the Microsoft sign-in page."/><ul><li>O utilizador é redirecionado para a página de iniciar sê-in no Microsoft</li><li>Utilizador fornece credenciais para iniciar sinse</li></ul></td>
 </tr>
 <tr>
-    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="85%" alt-text="Example: Consent page for an application"/><ul><li>O utilizador dá consentimento para a sua aplicação</li></ul></td>
-    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%" alt-text="Shows the experience the user sees when redirected back to your site"/><ul><li>O sismo completa e o utilizador é redirecionado de volta para o seu site</li><li>Utilizador inicia o teste gratuito</li></ul></td>
+    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="85%" alt="Example: Consent page for an application."/><ul><li>O utilizador dá consentimento para a sua aplicação</li></ul></td>
+    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%" alt="Shows the experience the user sees when redirected back to your site."/><ul><li>O sismo completa e o utilizador é redirecionado de volta para o seu site</li><li>Utilizador inicia o teste gratuito</li></ul></td>
     <td></td>
 </tr>
 </table>
@@ -76,20 +75,20 @@ Pode utilizar a experiência experimental do parceiro quando uma operação manu
 
 <table valign="top">
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%" alt-text="Shows Contact me for partner-led trial experience"/><ul><li>O utilizador encontra a sua aplicação no site appSource</li><li>Seleciona a opção 'Contacte-me'</li></ul></td>
-    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%" alt-text="Shows an example form with contact info"/><ul><li>Preenche um formulário com informações de contacto</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%" alt="Shows Contact me for partner-led trial experience"/><ul><li>O utilizador encontra a sua aplicação no site appSource</li><li>Seleciona a opção 'Contacte-me'</li></ul></td>
+    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%" alt="Shows an example form with contact info"/><ul><li>Preenche um formulário com informações de contacto</li></ul></td>
      <td valign="top" width="33%">3.<br/><br/>
         <table bgcolor="#f7f7f7">
         <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/usercontact.png" width="55%" alt-text="Shows placeholder for user information"/></td>
+            <td><img src="media/active-directory-devhowto-appsource-certified/usercontact.png" width="55%" alt="Shows placeholder for user information"/></td>
             <td>Recebe informações do utilizador</td>
         </tr>
         <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/setupenv.png" width="55%" alt-text="Shows placeholder for setup environment info"/></td>
+            <td><img src="media/active-directory-devhowto-appsource-certified/setupenv.png" width="55%" alt="Shows placeholder for setup environment info"/></td>
             <td>Ambiente de configuração</td>
         </tr>
         <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/contactcustomer.png" width="55%" alt-text="Shows placeholder for trial info"/></td>
+            <td><img src="media/active-directory-devhowto-appsource-certified/contactcustomer.png" width="55%" alt="Shows placeholder for trial info"/></td>
             <td>Contacte o utilizador com informações de teste</td>
         </tr>
         </table><br/><br/>
@@ -97,10 +96,9 @@ Pode utilizar a experiência experimental do parceiro quando uma operação manu
     </td>
 </tr>
 <tr>
-    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%" alt-text="Shows the application sign-in screen"/><ul><li>O utilizador acede à sua aplicação e completa o processo de assinatura única</li></ul></td>
-    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="85%" alt-text="Shows an example consent page for an application"/><ul><li>O utilizador dá consentimento para a sua aplicação</li></ul></td>
-    <td valign="top" width="33%">6.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%" alt-text="Shows the experience the user sees when redirected back to your site"/><ul><li>O sismo completa e o utilizador é redirecionado de volta para o seu site</li><li>Utilizador inicia o teste gratuito</li></ul></td>
-   
+    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%" alt="Shows the application sign-in screen"/><ul><li>O utilizador acede à sua aplicação e completa o processo de assinatura única</li></ul></td>
+    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="85%" alt="Shows an example consent page for an application"/><ul><li>O utilizador dá consentimento para a sua aplicação</li></ul></td>
+    <td valign="top" width="33%">6.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%" alt="Shows the experience the user sees when redirected back to your site"/><ul><li>O sismo completa e o utilizador é redirecionado de volta para o seu site</li><li>Utilizador inicia o teste gratuito</li></ul></td>  
 </tr>
 </table>
 

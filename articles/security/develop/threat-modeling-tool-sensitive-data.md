@@ -1,6 +1,6 @@
 ---
 title: Dados Sensíveis - Ferramenta de Modelação de Ameaças da Microsoft - Azure / Microsoft Docs
-description: mitigações para ameaças expostas na Ferramenta de Modelação de Ameaças
+description: Saiba mais sobre a mitigação de dados sensíveis na Ferramenta de Modelação de Ameaças. Consulte informações de mitigação e veja exemplos de código.
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 72d223e0a2052c8e33c12ad5c540f5f32f540a4d
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 8f8b18d36453ac65300a5dd19fa7e07b1449bc28
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420588"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87538953"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Quadro de segurança: Dados sensíveis / Mitigações 
 | Produto/Serviço | Artigo |

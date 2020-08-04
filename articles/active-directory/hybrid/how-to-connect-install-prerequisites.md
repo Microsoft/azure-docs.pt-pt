@@ -16,12 +16,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b33b3e406e21f5bc2a4128fdd7dc9930fa3e0c32
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 83a05636f8e673e08bfd390aa10069da0abd561d
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447005"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542064"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos do Azure AD Connect
 Este artigo descreve os pré-requisitos e os requisitos de hardware para a Azure Ative Directory (Azure AD) Connect.
@@ -125,12 +125,13 @@ Recomendamos que endureça o servidor Azure AD Connect para diminuir a superfíc
         </system.net>
     ```
 
+* Se a configuração proxy estiver a ser feita numa configuração existente, o **serviço Microsoft Azure AD Sync** precisa de ser reiniciado uma vez para que o Azure AD Connect leia a configuração de procuração e atualize a visonse. 
 * Quando o Azure AD Connect envia um pedido web para a Azure AD como parte da sincronização do diretório, o Azure AD pode demorar até 5 minutos para responder. É comum que os servidores proxy tenham uma configuração de tempo de intervalo de ligação. Certifique-se de que a configuração está definida para pelo menos 6 minutos ou mais.
 
 Para obter mais informações, consulte a MSDN sobre o [elemento proxy predefinido](https://msdn.microsoft.com/library/kd3cf2ex.aspx).
 Para obter mais informações quando tiver problemas de conectividade, consulte [problemas de conectividade de resolução de problemas](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Outros
+### <a name="other"></a>Outro
 Opcional: Utilize uma conta de utilizador de teste para verificar a sincronização.
 
 ## <a name="component-prerequisites"></a>Pré-requisitos de componentes

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: na
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47a2f8b69c8ef75be4f9190933969ed20404b5da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5f6e44aa89c1e2815d70bb4ba2ae5f5680252ac
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253006"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541894"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Ativar o Roaming de Estado Empresarial no Azure Active Directory
 
@@ -31,7 +31,7 @@ Quando ativa o Roaming do Estado da Empresa, a sua organização recebe automati
 ## <a name="to-enable-enterprise-state-roaming"></a>Para ativar o roaming do Estado da Empresa
 
 1. Inscreva-se no [centro de administração Azure AD](https://aad.portal.azure.com/).
-1. Selecione **Azure Ative Directory** &gt; **Devices** &gt; **Enterprise State Roaming**.
+1. Selecione **Azure Ative Directory**  >  **Devices**  >  **Enterprise State Roaming**.
 1. Selecione **Os Utilizadores podem sincronizar as definições e os dados da aplicação em todos os dispositivos.** Para obter mais informações, [consulte como configurar as definições do dispositivo](/azure/active-directory/device-management-azure-portal).
   
    ![imagem da definição do dispositivo Os utilizadores podem sincronizar as definições e os dados da aplicação em todos os dispositivos](./media/enterprise-state-roaming-enable/device-settings.png)
@@ -56,7 +56,7 @@ O valor país/região é definido como parte do processo de criação de diretó
 Siga estes passos para ver um relatório de estado de sincronização do dispositivo por utilizador.
 
 1. Inscreva-se no [centro de administração Azure AD](https://aad.portal.azure.com/).
-1. Selecione **Utilizadores de Diretório Ativo Azure** &gt; **Users** &gt; **Todos os utilizadores**.
+1. Selecione **Utilizadores de Diretório Ativo Azure**  >  **Users**  >  **Todos os utilizadores**.
 1. Selecione o utilizador e, em seguida, selecione **Dispositivos**.
 1. Em **'Mostrar'** **(200 euros), selecione dispositivos sincronizando as definições e os dados da aplicação** para mostrar o estado de sincronização.
   
@@ -78,7 +78,7 @@ A eliminação explícita é quando um administrador do Azure elimina um utiliza
 * **Eliminação do diretório**: Eliminar todo um diretório em Azure AD é uma operação imediata. Todos os dados de definições associados a esse diretório são eliminados após 90 a 180 dias. 
 * **A pedido de eliminação**: Se o administrador AD AD AZure quiser eliminar manualmente os dados ou definições de um utilizador específico, o administrador pode arquivar um bilhete com [suporte Azure](https://azure.microsoft.com/support/). 
 
-### <a name="stale-data-deletion"></a>Eliminação de dados em contradição
+### <a name="stale-data-deletion"></a>Eliminação de dados obsoletos
 
 Os dados que não foram acedidos há um ano ("o período de retenção") serão tratados como obsoletos e poderão ser eliminados da nuvem da Microsoft. O período de retenção está sujeito a alterações, mas não será inferior a 90 dias. Os dados antigos podem ser um conjunto específico de definições do Windows/aplicação ou de todas as definições para um utilizador. Por exemplo:
 
@@ -86,11 +86,11 @@ Os dados que não foram acedidos há um ano ("o período de retenção") serão 
 * Se um utilizador tiver desligado as definições sincronizadas em todos os seus dispositivos, nenhum dos dados de definições será acedido e todos os dados de definições para esse utilizador ficarão em mau estado e poderão ser eliminados após o período de retenção. 
 * Se o diretório Azure AD desligar o Roaming do Estado da Empresa para todo o diretório, então todos os utilizadores nesse diretório deixarão de sincronizar as definições, e todos os dados de definições para todos os utilizadores ficarão em situação de falência e poderão ser eliminados após o período de retenção. 
 
-### <a name="deleted-data-recovery"></a>Recuperação de dados eliminada
+### <a name="deleted-data-recovery"></a>Recuperação de dados eliminados
 
 A política de retenção de dados não é configurável. Uma vez eliminados permanentemente os dados, não é recuperável. No entanto, os dados das definições são eliminados apenas a partir da nuvem da Microsoft, e não do dispositivo do utilizador final. Se algum dispositivo voltar a ligar-se ao serviço Enterprise State Roaming, as definições são novamente sincronizadas e armazenadas na nuvem da Microsoft.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Descrição geral do Roaming de Estado Empresarial](enterprise-state-roaming-overview.md)
 * [FAQ de definições e roaming de dados](enterprise-state-roaming-faqs.md)

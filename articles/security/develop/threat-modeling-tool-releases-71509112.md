@@ -1,19 +1,19 @@
 ---
 title: Lançamento da ferramenta de modelação de ameaças da Microsoft 9/12/2018
 titleSuffix: Azure
-description: Documentando as notas de lançamento para a ferramenta de modelação de ameaças
+description: Leia as notas de lançamento da Ferramenta de Modelação de Ameaças da Microsoft lançadas a 12/9/2018. As notas incluem alterações de funcionalidades e correções de erros.
 author: jegeib
 ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 01/15/2019
-ms.openlocfilehash: a921310f14f0d48922165a46d750366e170ee374
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 780ddc614feef492dafa54862abbea9552496274
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78269920"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539820"
 ---
 # <a name="threat-modeling-tool-ga-release-71509112---9122018"></a>Ferramenta de Modelação de Ameaças LANÇAMENTO GA 7.1.50911.2 - 9/12/2018
 
@@ -92,6 +92,6 @@ Sim, tu podes! O [conjunto de stencil Azure está disponível no GitHub,](https:
 
 - A documentação da Ferramenta de Modelação de Ameaças encontra-se no [docs.microsoft.com](threat-modeling-tool.md), e inclui informações [sobre a utilização da ferramenta.](threat-modeling-tool-getting-started.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Descarregue a versão mais recente da [Ferramenta de Modelação de Ameaças da Microsoft](https://aka.ms/threatmodelingtool).

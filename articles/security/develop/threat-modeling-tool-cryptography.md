@@ -1,6 +1,6 @@
 ---
 title: Criptografia - Ferramenta de Modelação de Ameaças da Microsoft - Azure / Microsoft Docs
-description: mitigações para ameaças expostas na Ferramenta de Modelação de Ameaças
+description: Saiba mais sobre a mitigação da criptografia para ameaças expostas na Ferramenta de Modelação de Ameaças. Consulte informações de mitigação e veja exemplos de código.
 services: security
 documentationcenter: na
 author: jegeib
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: c9116472af5b400ded0fea24f98b07bad9d9039b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7de0cad91e01187a1ed84257c9e3a7cd8106951a
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68728194"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539956"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Quadro de Segurança: Criptografia / Mitigações 
 

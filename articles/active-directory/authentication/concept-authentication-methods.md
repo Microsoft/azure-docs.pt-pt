@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 4c224f40996625ead4592a3bf50e02f0877c76db
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 05283c02c2e5f95e22beb6fbeaad7a99e42ee6aa
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051323"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87540840"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Que métodos de autenticação e verificação estão disponíveis no Azure Active Directory?
 
@@ -35,16 +35,16 @@ O quadro que se segue descreve quais os métodos disponíveis para a autenticaç
 
 | Método | Autenticação primária | Autenticação secundária |
 | --- | --- | --- |
-| [Palavra-passe](#password) | Yes | |
+| [Palavra-passe](#password) | Sim | |
 | [Aplicação Microsoft Authenticator](#microsoft-authenticator-app) | Sim (pré-visualização) | MFA e SSPR |
-| [Teclas de segurança FIDO2 (pré-visualização)](#fido2-security-keys) | Yes | Apenas MFA |
-| [Fichas de software OATH](#oath-software-tokens) | No | MFA |
-| [Fichas de hardware do OATH (pré-visualização)](#oath-hardware-tokens-preview) | Yes | MFA |
+| [Teclas de segurança FIDO2 (pré-visualização)](#fido2-security-keys) | Sim | Apenas MFA |
+| [Fichas de software OATH](#oath-software-tokens) | Não | MFA |
+| [Fichas de hardware do OATH (pré-visualização)](#oath-hardware-tokens-preview) | Sim | MFA |
 | [SMS](#phone-options) | Sim (pré-visualização) | MFA e SSPR |
-| [Chamada de voz](#phone-options) | No | MFA e SSPR |
-| [Perguntas de segurança](#security-questions) | No | Apenas SSPR |
-| [Endereço de e-mail](#email-address) | No | Apenas SSPR |
-| [Palavras-passe da aplicação](#app-passwords) | No | MFA apenas em certos casos |
+| [Chamada de voz](#phone-options) | Não | MFA e SSPR |
+| [Perguntas de segurança](#security-questions) | Não | Apenas SSPR |
+| [Endereço de e-mail](#email-address) | Não | Apenas SSPR |
+| [Palavras-passe da aplicação](#app-passwords) | Não | MFA apenas em certos casos |
 
 Este artigo descreve estes diferentes métodos de autenticação e verificação disponíveis no AZure AD e quaisquer limitações ou restrições específicas.
 
@@ -74,7 +74,7 @@ A aplicação Authenticator pode ajudar a impedir o acesso não autorizado a con
 ![Screenshot de exemplo pedido de navegador web para notificação de aplicação autenticador para completar processo de sação](media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt.png)
 
 > [!NOTE]
-> Se a sua organização tem pessoal a trabalhar ou a viajar para a China, a Notificação através do método *de aplicação móvel* em dispositivos Android não funciona nesse país/região. Devem ser disponibilizados métodos de autenticação alternativos para esses utilizadores.
+> Se a sua organização tem pessoal a trabalhar ou a viajar para a China, a notificação através do método *de aplicação móvel* em dispositivos Android não funciona nesse país/região, uma vez que os serviços de jogo da Google (incluindo notificações push) estão bloqueados na região. No entanto, a notificação do iOS funciona. Para dispositivos Android, devem ser disponibilizados métodos alternativos de autenticação para esses utilizadores.
 
 ### <a name="verification-code-from-mobile-app"></a>Código de verificação da aplicação móvel
 

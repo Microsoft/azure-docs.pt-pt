@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: tracking-python
-ms.openlocfilehash: e97671e9722051674e3760f11e784ab3291283c7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f3ec80b5d71bbdbf0f1b89606859dcc734d037e5
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87415045"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542217"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como utilizar identidades geridas para o Serviço de Aplicações e Funções Azure
 
@@ -37,7 +37,7 @@ Para configurar uma identidade gerida no portal, irá primeiro criar uma aplica�
 
 3. Selecione **identidade**.
 
-4. Dentro do separador **Designado sistema,** **altere o Estado** para **ligar**. Clique em **Save** (Guardar).
+4. Dentro do separador **Designado sistema,** **altere o Estado** para **ligar**. Clique em **Guardar**.
 
     ![Identidade gerida no Serviço de Aplicações](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
@@ -314,6 +314,9 @@ Existe um protocolo REST simples para obter um token no Serviço de Aplicações
 
 ### <a name="using-the-rest-protocol"></a>Utilização do protocolo REST
 
+> [!NOTE]
+> Uma versão mais antiga deste protocolo, utilizando a versão API "2017-09-01", utilizou o `secret` cabeçalho em vez de `X-IDENTITY-HEADER` e só aceitou a `clientid` propriedade para o utilizador atribuído. Também devolveu o `expires_on` em formato de timetamp. MSI_ENDPOINT pode ser usado como pseudónimo para IDENTITY_ENDPOINT, e MSI_SECRET pode ser usado como pseudónimo para IDENTITY_HEADER. Esta versão do protocolo é atualmente necessária para os planos de hospedagem do Linux Consumption.
+
 Uma aplicação com uma identidade gerida tem duas variáveis ambientais definidas:
 
 - IDENTITY_ENDPOINT - a URL para o serviço de fichas locais.
@@ -324,7 +327,7 @@ O **IDENTITY_ENDPOINT** é um URL local a partir do qual a sua aplicação pode 
 > | Nome do parâmetro    | Em     | Descrição                                                                                                                                                                                                                                                                                                                                |
 > |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | recurso          | Consulta  | O recurso AZURE AD URI do recurso para o qual deve ser obtido um símbolo. Este pode ser um dos [serviços Azure que suportam a autenticação AD AZure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) ou qualquer outro recurso URI.    |
-> | api-version       | Consulta  | A versão da API simbólica a ser utilizada. Por favor, use "2019-08-01" ou mais tarde.                                                                                                                                                                                                                                                                 |
+> | api-version       | Consulta  | A versão da API simbólica a ser utilizada. Utilize "2019-08-01" ou mais tarde (a menos que utilize o Linux Consumption, que atualmente apenas oferece "2017-09-01" - ver nota acima).                                                                                                                                                                                                                                                                 |
 > | CABEÇALHO DE IDENTIDADE X | Cabeçalho | O valor da variável ambiente IDENTITY_HEADER. Este cabeçalho é usado para ajudar a atenuar os ataques de falsificação de pedidos do servidor (SSRF).                                                                                                                                                                                                    |
 > | client_id         | Consulta  | (Opcional) A identificação do cliente da identidade atribuída ao utilizador a ser usada. Não pode ser utilizado num pedido que `principal_id` `mi_res_id` inclua, ou `object_id` . Se todos os parâmetros de identificação `client_id` `principal_id` (, `object_id` , , e ) `mi_res_id` forem omitidos, a identidade atribuída ao sistema é utilizada.                                             |
 > | principal_id      | Consulta  | (Opcional) A identificação principal da identidade atribuída ao utilizador a ser utilizada. `object_id`é um pseudónimo que pode ser usado em vez disso. Não pode ser usado num pedido que inclua client_id, mi_res_id ou object_id. Se todos os parâmetros de identificação `client_id` `principal_id` (, `object_id` , , e ) `mi_res_id` forem omitidos, a identidade atribuída ao sistema é utilizada. |
@@ -345,9 +348,6 @@ Uma resposta bem sucedida de 200 OK inclui um corpo JSON com as seguintes propri
 > | token_type    | Indica o valor do tipo símbolo. O único tipo que a Azure AD suporta é o FBearer. Para obter mais informações sobre fichas ao portador, consulte o Quadro de [Autorização OAuth 2.0: Utilização do Token ao portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 
 Esta resposta é a mesma que a [resposta para o pedido de acesso ao serviço da Azure AD.](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response)
-
-> [!NOTE]
-> Uma versão mais antiga deste protocolo, utilizando a versão API "2017-09-01", utilizou o `secret` cabeçalho em vez de `X-IDENTITY-HEADER` e só aceitou a `clientid` propriedade para o utilizador atribuído. Também devolveu o `expires_on` em formato de timetamp. MSI_ENDPOINT pode ser usado como pseudónimo para IDENTITY_ENDPOINT, e MSI_SECRET pode ser usado como pseudónimo para IDENTITY_HEADER.
 
 ### <a name="rest-protocol-examples"></a>Exemplos de protocolo REST
 
@@ -520,7 +520,7 @@ Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupNam
 > [!NOTE]
 > Há também uma configuração de aplicação que pode ser definida, WEBSITE_DISABLE_MSI, que apenas desativa o serviço de token local. No entanto, deixa a identidade no lugar, e a ferramenta ainda mostrará a identidade gerida como "on" ou "ativada". Como resultado, a utilização desta definição não é recomendada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Access SQL Database de forma segura usando uma identidade gerida](app-service-web-tutorial-connect-msi.md)

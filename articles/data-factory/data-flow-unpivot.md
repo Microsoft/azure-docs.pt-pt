@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: b7a05f33c199ab46508fa2b9bc0ef576f888ef27
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e7c0a4cd6e44994c4b002fcc2e5fde441cf22283
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537719"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541656"
 ---
 # <a name="azure-data-factory-unpivot-transformation"></a>Transformação unpivot da Fábrica de Dados Azure
 
@@ -46,7 +46,7 @@ Por último, escolha a agregação que deseja utilizar para os valores mais indi
 
 Por exemplo, apostar em "Vendas" por "Região" simplesmente lhe daria novos valores de coluna a partir de cada valor de venda. Por exemplo: "25", "50", "1000", ... No entanto, se definir um valor prefixo de "Vendas", então "Vendas" será prefixado nos valores.
 
-<img src="media/data-flow/unpivot3.png" width="400">
+![Imagem mostrando as colunas PO, Fornecedor e Frutas antes e depois de uma transformação unipivot usando a coluna Fruit como a chave unipivot.](media/data-flow/unpivot3.png)
 
 A definição do Convénio da Coluna para "Normal" agrupará todas as colunas com os seus valores agregados. A definição do arranjo das colunas para "Lateral" alternará entre coluna e valor.
 
@@ -54,6 +54,6 @@ A definição do Convénio da Coluna para "Normal" agrupará todas as colunas co
 
 O conjunto final de resultados de dados não-preparados mostra que os totais da coluna agora não são despívorados em valores de linha separados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Use a [transformação do pivô](data-flow-pivot.md) para pisar linhas em colunas.

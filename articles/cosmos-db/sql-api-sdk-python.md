@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
 ms.custom: tracking-python
-ms.openlocfilehash: 6bd880806a4b067139c1f22a0e4d4e6df5c88451
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d68fc7b01e6204cb9ad00ea60e413c73856d758e
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247069"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542451"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK para API SQL: Lançar notas e recursos
 
@@ -28,7 +28,7 @@ ms.locfileid: "86247069"
 > * [SDK v2 Java assíncrono](sql-api-sdk-async-java.md)
 > * [SDK v2 Java síncrono](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [DESCANSE](/rest/api/cosmos-db/)
+> * [REST](/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [Executor a granel - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
@@ -301,10 +301,8 @@ A versão 4.0.0b1 é a primeira pré-visualização dos nossos esforços para cr
 
 A Microsoft fornece a notificação com pelo menos **12 meses** de antecedência para retirar um SDK de forma a suavizar a transição para uma versão mais recente/suportada. Novas funcionalidades e funcionalidades e otimizações são adicionadas apenas ao SDK atual, como tal é recomendado que você sempre atualize para a versão SDK mais recente o mais cedo possível.
 
-Qualquer pedido à Azure Cosmos DB utilizando um SDK reformado é rejeitado pelo serviço.
-
 > [!WARNING]
-> Todas as versões do Python SDK para API SQL antes da versão **1.0.0** foram reformadas em **29 de fevereiro de 2016**. E, todas as versões 1.x e 2.x do Python SDK para a SQL API serão aposentadas no dia **30 de agosto de 2020**.
+> Depois de 31 de agosto de 2022, a Azure Cosmos DB deixará de fazer correções de bugs, adicionar novas funcionalidades e fornecer suporte às versões 1.x ou 2.x do Azure Cosmos DB Python SDK para a SQL API. Se preferir não fazer upgrade, os pedidos enviados das versões 1.x e 2.x do SDK continuarão a ser servidos pelo serviço DB Azure Cosmos.
 
 | Versão | Data de Lançamento | Data de Extinção |
 | --- | --- | --- |

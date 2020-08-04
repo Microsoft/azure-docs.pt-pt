@@ -1,6 +1,6 @@
 ---
 title: Azure avançada deteção de ameaças Microsoft Docs
-description: Saiba mais sobre a Proteção de Identidade AZure AD e as suas capacidades.
+description: Saiba mais sobre a funcionalidade de deteção avançada de ameaças incorporada para o Azure, como o serviço de Proteção de Identidade AZure AD.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 93b63450d65f55e96897f91a5c0c9fae1b0b47f8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1522d143f2837a57481a4d678911e7a3c44d084d
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503290"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541027"
 ---
 # <a name="azure-advanced-threat-detection"></a>Deteção avançada de ameaças do Azure
 
@@ -344,9 +344,9 @@ Com ferramentas para ajudar a desvendar Shadow IT, avaliar o risco, aplicar pol�
 | -------- | ----------- |
 | Detetar | Desvende o TI sombra com o Cloud App Security. Obtenha visibilidade ao detetar aplicações, atividades, utilizadores, dados e ficheiros no seu ambiente na cloud. Detete aplicações de terceiros que estão ligadas à sua cloud.|
 |Investigar | Investigue as suas aplicações na cloud com ferramentas forenses de cloud para ajudar a obter informações detalhadas sobre aplicações arriscadas, utilizadores e ficheiros específicos na sua rede. Descubra padrões nos dados recolhidos a partir da cloud. Gere relatórios para monitorizar a sua cloud. |
-| Controlar | Reduza o risco através da definição de políticas e alertas para obter o máximo controlo sobre o tráfego de rede de cloud. Utilize o Cloud App Security para migrar os seus utilizadores para aplicações em cloud alternativas seguras e aprovadas. |
+| Controlo | Reduza o risco através da definição de políticas e alertas para obter o máximo controlo sobre o tráfego de rede de cloud. Utilize o Cloud App Security para migrar os seus utilizadores para aplicações em cloud alternativas seguras e aprovadas. |
 | Proteger | Use a Cloud App Security para sancionar ou proibir aplicações, impor a prevenção de perdas de dados, controlar permissões e partilhas e gerar relatórios e alertas personalizados. |
-| Controlar | Reduza o risco através da definição de políticas e alertas para obter o máximo controlo sobre o tráfego de rede de cloud. Utilize o Cloud App Security para migrar os seus utilizadores para aplicações em cloud alternativas seguras e aprovadas. |
+| Controlo | Reduza o risco através da definição de políticas e alertas para obter o máximo controlo sobre o tráfego de rede de cloud. Utilize o Cloud App Security para migrar os seus utilizadores para aplicações em cloud alternativas seguras e aprovadas. |
 
 
 ![Diagrama de segurança de aplicativos em nuvem](./media/threat-detection/azure-threat-detection-fig14.png)
@@ -365,7 +365,7 @@ Ao recolher dados destas fontes, a Cloud App Security executa uma análise sofis
 
 ## <a name="third-party-advanced-threat-detection-capabilities-through-the-azure-marketplace"></a>Capacidades de deteção de ameaças avançadas de terceiros através do Azure Marketplace
 
-### <a name="web-application-firewall"></a>Firewall de Aplicações Web
+### <a name="web-application-firewall"></a>Firewall de Aplicação Web
 
 Web Application Firewall inspeciona o tráfego web de entrada e bloqueia injeções DE SQL, scripts de sites cruzados, uploads de malware, ataques DDoS de aplicações e outros ataques direcionados para as suas aplicações web. Também inspeciona as respostas dos servidores web de back-end para a prevenção da perda de dados (DLP). O motor integrado de controlo de acesso permite aos administradores criar políticas de controlo de acesso granular para a autenticação, autorização e contabilidade (AAA), o que confere às organizações uma forte autenticação e controlo do utilizador.
 
@@ -381,7 +381,7 @@ Web Application Firewall fornece os seguintes benefícios:
 
 Para exemplos de firewalls de aplicações web que estão disponíveis no Azure Marketplace, consulte [Barracuda WAF, Brocade virtual web application firewall (vWAF), Imperva SecureSphere, e a firewall IP ThreatSTOP](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Respondendo às ameaças de hoje](../../security-center/security-center-alerts-overview.md#respond-threats): Ajuda a identificar ameaças ativas que visam os seus recursos Azure e fornece as informações necessárias para responder rapidamente.
 

@@ -6,12 +6,12 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 9c851a172fcfe89e6e7aa31c298a5b3d7931a528
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 3a9039470c32b89d398dd41e3df99e91c70d913c
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023589"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542641"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Acesso seguro aos dados no Azure Cosmos DB
 
@@ -57,7 +57,7 @@ O processo de rotação da sua chave principal é simples.
 
 ### <a name="code-sample-to-use-a-master-key"></a>Amostra de código para usar uma chave mestra
 
-A seguinte amostra de código ilustra como usar um ponto final de conta Cosmos DB e chave principal para instantaneaizar um DocumentoClient e criar uma base de dados.
+A seguinte amostra de código ilustra como usar um ponto final de conta Cosmos DB e chave principal para instantaneaizar um DocumentoClient e criar uma base de dados:
 
 ```csharp
 //Read the Azure Cosmos DB endpointUrl and authorization keys from config.
@@ -69,6 +69,10 @@ private static readonly string authorizationKey = ConfigurationManager.AppSettin
 
 CosmosClient client = new CosmosClient(endpointUrl, authorizationKey);
 ```
+
+A seguinte amostra de código ilustra como usar o ponto final da conta DB Azure Cosmos e a chave principal para instantaneaizar um `CosmosClient` objeto:
+
+:::code language="python" source="~/cosmosdb-python-sdk/sdk/cosmos/azure-cosmos/samples/access_cosmos_with_resource_token.py" id="configureConnectivity":::
 
 ## <a name="resource-tokens"></a>Fichas de recursos<a id="resource-tokens"></a>
 
@@ -173,7 +177,7 @@ O Azure Cosmos DB permite-lhe pesquisar, selecionar, modificar e eliminar quaisq
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre a segurança da base de dados [cosmos, consulte a segurança da Cosmos DB Database](database-security.md).
 - Para aprender a construir fichas de autorização DB da Azure Cosmos, consulte [o Controlo de Acesso na Azure Cosmos DB Resources](/rest/api/cosmos-db/access-control-on-cosmosdb-resources).

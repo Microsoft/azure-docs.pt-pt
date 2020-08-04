@@ -1,18 +1,18 @@
 ---
 title: Visão geral da ferramenta de modelação de ameaças da Microsoft - Azure
-description: Conheça todas as funcionalidades disponíveis na Ferramenta de Modelação de Ameaças
+description: Conheça todas as funcionalidades disponíveis na Ferramenta de Modelação de Ameaças, como a visualização de análise e relatórios.
 author: jegeib
 ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
-ms.openlocfilehash: 88eea0eb2bceb0f6322381a94d4339cbdfa662c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e405ea35dcaa33ac7c8227385e4aaff86d9244cb
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75552122"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87540007"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Visão geral do recurso da ferramenta de modelação de ameaças
 
@@ -83,7 +83,7 @@ Com base no modelo que seleciona, pode encontrar todos os stencils disponíveis 
 | --------------------------------------- | ------------ |
 | **Processo** | Aplicações, plug-ins de navegador, fios, máquinas virtuais |
 | **Interactor externo** | Fornecedores de autenticação, navegadores, utilizadores, aplicações web |
-| **Arquivo de dados** | Cache, armazenamento, ficheiros de configuração, bases de dados, registo |
+| **Loja de dados** | Cache, armazenamento, ficheiros de configuração, bases de dados, registo |
 | **Fluxo de dados** | Binário, ALPC, HTTPS/TLS/SSL, IOCTL, IPSec, tubo nomeado, RPC/DCOM, SMB, UDP |
 | **Linha de confiança/fronteira fronteiriça** | Redes corporativas, internet, máquina, caixa de areia, modo utilizador/kernel |
 
@@ -122,7 +122,7 @@ Hover over **Open A Model** para revelar duas opções: Abra a partir deste **co
 
 Quando selecionar **Feedback, Sugestões e Problemas,** aceda ao MsDN Forum for SDL Tools. Pode ler o que as outras pessoas estão a dizer sobre a ferramenta, incluindo soluções alternativas e novas ideias.
 
-![Feedback](./media/threat-modeling-tool-feature-overview/feedback.png)
+![Comentários](./media/threat-modeling-tool-feature-overview/feedback.png)
 
 ## <a name="design-view"></a>Vista de design
 
@@ -198,7 +198,7 @@ Depois de terminar de alterar as prioridades e atualizar o estado de cada ameaç
 
 ![Relatório](./media/threat-modeling-tool-feature-overview/report.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Envie as suas perguntas, comentários e preocupações tmtextsupport@microsoft.com para. **[Descarregue](https://aka.ms/threatmodelingtool)** a Ferramenta de Modelação de Ameaças para começar.
 - Para contribuir com um modelo para a comunidade, vá à nossa página [gitHub.](https://github.com/Microsoft/threat-modeling-templates)

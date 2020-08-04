@@ -1,7 +1,7 @@
 ---
 title: Notas de lançamento da ferramenta de modelação de ameaças da Microsoft
 titleSuffix: Azure
-description: Documentando as notas de lançamento para a ferramenta de modelação de ameaças
+description: Leia as notas de lançamento para todas as atualizações da Ferramenta de Modelação de Ameaças da Microsoft. Consulte os requisitos de link e sistema de descarregamento.
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: jegeib
-ms.openlocfilehash: eea853ec5829eda3f7496439979adae7bb20c639
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0db0a68b622b9f4596820918d66860d3ea286981
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80125092"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539072"
 ---
 # <a name="threat-modeling-tool-releases"></a>Lançamentos de ferramentas de modelação de ameaças
 

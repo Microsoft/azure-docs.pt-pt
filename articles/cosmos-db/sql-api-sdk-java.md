@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 06/03/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 2de46f050d17049848024d70f43bd23621b43b13
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: b8cc0d44c654bd7047bac462ce98126fb4a27334
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461039"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541673"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK para API SQL: Lançar notas e recursos
 > [!div class="op_single_selector"]
@@ -260,11 +260,10 @@ Este é o Azure Cosmos DB Sync Java SDK v2 para a SQL API que suporta operaçõe
 A Microsoft fornecerá a notificação com pelo menos **12 meses** de antecedência para retirar um SDK de forma a suavizar a transição para uma versão mais recente/suportada. Novas funcionalidades e funcionalidades e otimizações são adicionadas apenas ao SDK atual, como tal é recomendado que você sempre atual atualização para a versão SDK mais recente o mais cedo possível.
 
 > [!WARNING]
-> Todas as versões **1.x** do SQL SDK para Java serão aposentadas no **dia 30 de maio de 2020**. Todas as versões do SQL SDK para Java antes da versão **1.0.0** foram reformadas em **29 de fevereiro de 2016**.
-> 
-> 
+> Depois de 30 de maio de 2020, a Azure Cosmos DB deixará de fazer correções de bugs, adicionar novas funcionalidades e fornecer suporte às versões 1.x do Azure Cosmos DB Java SDK para a SQL API. Se preferir não fazer upgrade, os pedidos enviados da versão 1.x do SDK continuarão a ser servidos pelo serviço DB Azure Cosmos.
+>
+> Depois de 29 de fevereiro de 2016, a Azure Cosmos DB deixará de fazer correções de bugs, adicionar novas funcionalidades e fornecer suporte às versões 0.x do Azure Cosmos DB Java SDK para a SQL API. Se preferir não fazer upgrade, os pedidos enviados da versão 0.x do SDK continuarão a ser servidos pelo serviço DB Azure Cosmos.
 
-<br/>
 
 | Versão | Data de Lançamento | Data de Extinção |
 | --- | --- | --- |
@@ -327,6 +326,6 @@ A Microsoft fornecerá a notificação com pelo menos **12 meses** de antecedên
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 Para saber mais sobre cosmos DB, consulte a página de serviço [do Microsoft Azure Cosmos DB.](https://azure.microsoft.com/services/cosmos-db/)
 

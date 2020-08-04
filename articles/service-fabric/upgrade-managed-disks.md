@@ -3,12 +3,12 @@ title: Atualizar os nosdes de cluster para usar discos geridos a Azure
 description: Eis como atualizar um cluster de Tecido de Serviço existente para utilizar discos geridos Azure com pouco ou nenhum tempo de inatividade do seu cluster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: cff0f99412f189f38f1b14d15c7285166a048c87
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 10863626945483e21aa264e2b05e94a6f08a22f6
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255902"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542870"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Atualizar os nosdes de cluster para usar discos geridos a Azure
 
@@ -165,7 +165,7 @@ Aqui estão as modificações de secção por secção do modelo original de imp
 
 #### <a name="parameters"></a>Parâmetros
 
-Adicione parâmetros para o nome, contagem e tamanho do conjunto de nova escala. Note que `vmNodeType1Name` é exclusivo do conjunto de escala nova, enquanto os valores de contagem e tamanho são idênticos ao conjunto de escala original.
+Adicione um parâmetro para o nome da nova escala. Note que `vmNodeType1Name` é exclusivo do conjunto de escala nova, enquanto os valores de contagem e tamanho são idênticos ao conjunto de escala original.
 
 **Arquivo de modelo**
 
@@ -174,18 +174,7 @@ Adicione parâmetros para o nome, contagem e tamanho do conjunto de nova escala.
     "type": "string",
     "defaultValue": "NTvm2",
     "maxLength": 9
-},
-"nt1InstanceCount": {
-    "type": "int",
-    "defaultValue": 5,
-    "metadata": {
-        "description": "Instance count for node type"
-    }
-},
-"vmNodeType1Size": {
-    "type": "string",
-    "defaultValue": "Standard_D2_v2"
-},
+}
 ```
 
 **Arquivo de parâmetros**
@@ -193,12 +182,6 @@ Adicione parâmetros para o nome, contagem e tamanho do conjunto de nova escala.
 ```json
 "vmNodeType1Name": {
     "value": "NTvm2"
-},
-"nt1InstanceCount": {
-    "value": 5
-},
-"vmNodeType1Size": {
-    "value": "Standard_D2_v2"
 }
 ```
 
@@ -216,13 +199,13 @@ Na secção de modelo de `variables` implantação, adicione uma entrada para o 
 
 Na secção *de recursos* do modelo de implantação, adicione o novo conjunto de escala de máquina virtual, tendo em conta estas coisas:
 
-* O conjunto de nova escala refere o mesmo tipo de nó que o original:
+* O conjunto de nova escala refere o novo tipo de nó:
 
     ```json
-    "nodeTypeRef": "[parameters('vmNodeType0Name')]",
+    "nodeTypeRef": "[parameters('vmNodeType1Name')]",
     ```
 
-* O conjunto de escala nova refere o mesmo endereço de backend e sub-rede do balançador de carga (mas utiliza um pool NAT de entrada de balançador de carga diferente):
+* O conjunto de escala nova refere o mesmo endereço de backend do balançador de carga e sub-rede que o original, mas utiliza um conjunto NAT de entrada de balançador de carga diferente:
 
    ```json
     "loadBalancerBackendAddressPools": [
@@ -253,6 +236,33 @@ Na secção *de recursos* do modelo de implantação, adicione o novo conjunto d
         "storageAccountType": "[parameters('storageAccountType')]"
     }
     ```
+
+Em seguida, adicione uma entrada na `nodeTypes` lista do recurso *Microsoft.ServiceFabric/clusters.* Utilize os mesmos valores que a entrada original do tipo nó, com exceção do `name` , que deve referenciar o novo tipo de nó *(vmNodeType1Name).*
+
+```json
+"nodeTypes": [
+    {
+        "name": "[parameters('vmNodeType0Name')]",
+        ...
+    },
+    {
+        "name": "[parameters('vmNodeType1Name')]",
+        "applicationPorts": {
+            "endPort": "[parameters('nt0applicationEndPort')]",
+            "startPort": "[parameters('nt0applicationStartPort')]"
+        },
+        "clientConnectionEndpointPort": "[parameters('nt0fabricTcpGatewayPort')]",
+        "durabilityLevel": "Silver",
+        "ephemeralPorts": {
+            "endPort": "[parameters('nt0ephemeralEndPort')]",
+            "startPort": "[parameters('nt0ephemeralStartPort')]"
+        },
+        "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
+        "isPrimary": true,
+        "vmInstanceCount": "[parameters('nt0InstanceCount')]"
+    }
+],
+```
 
 Depois de implementar todas as alterações nos ficheiros do seu modelo e parâmetros, dirija-se à secção seguinte para adquirir as referências do Key Vault e implemente as atualizações para o seu cluster.
 

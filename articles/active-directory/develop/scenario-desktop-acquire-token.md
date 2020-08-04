@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, tracking-python
-ms.openlocfilehash: 58be0315b272199e74f28654aae315a8c6c5f7b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85fb188028e0e61378b1e47c1fb7b88eaaa4d7a0
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558827"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541928"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicativo de desktop que chama APIs web: Adquirir um token
 
@@ -213,7 +213,7 @@ Observações:
 
 `WithPrompt()`é utilizado para controlar a interatividade com o utilizador especificando uma solicitação.
 
-<img src="https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png" width="25%" />
+![Imagem mostrando os campos na estrutura Prompt. Estes valores constantes controlam a interatividade com o utilizador definindo o tipo de solicitação visualizada pelo método WithPrompt().](https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png)
 
 A classe define as seguintes constantes:
 
@@ -1388,7 +1388,7 @@ namespace CommonCacheMsalV3
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Ligue para uma API web a partir da aplicação de ambiente de trabalho](scenario-desktop-call-api.md)

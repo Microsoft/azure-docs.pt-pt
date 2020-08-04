@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 2be074c457eaadd1fb6467cbcfdd45a2e7745613
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 499b7348c645f4792332769ac598ffcea07ea102
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82098905"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541911"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Obtenha um símbolo para uma aplicação móvel que chama APIs web
 
@@ -221,7 +221,7 @@ As seguintes secções explicam os parâmetros opcionais em MSAL.NET.
 
 O `WithPrompt()` parâmetro controla a interatividade com o utilizador especificando uma solicitação.
 
-<img src="https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png" width="25%" />
+![Imagem mostrando os campos na estrutura Prompt. Estes valores constantes controlam a interatividade com o utilizador definindo o tipo de solicitação visualizada pelo parâmetro WithPrompt().](https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png)
 
 A classe define as seguintes constantes:
 

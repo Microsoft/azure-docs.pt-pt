@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa83e295460cc847647e83c7e4e8a9d7ee91f6f4
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 9e3b0b8ab4a432254835e43bff4893aaee81b04e
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165775"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541877"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planeie a sua implantação de dispositivos Azure Ative Directory
 
@@ -66,7 +66,7 @@ Quando os projetos tecnológicos falham, normalmente fazem-no devido a expectati
 
 Para este plano, adicione as seguintes partes interessadas à sua lista:
 
-| Função| Description |
+| Função| Descrição |
 | - | - |
 | Administrador do dispositivo| Um representante da equipa de dispositivos que pode verificar se o plano irá satisfazer os requisitos do dispositivo da sua organização. |
 | Administrador de rede| Um representante da equipa de rede que pode certificar-se de que cumpre os requisitos da rede. |
@@ -226,10 +226,6 @@ Depois de ter registado ou juntado os seus dispositivos ao Azure AD, utilize o [
 
 * [Configure as definições do seu dispositivo](device-management-azure-portal.md#configure-device-settings)
 * É preciso ser um administrador local para gerir dispositivos Windows. [O Azure AD atualiza esta subscrição dos dispositivos aderidos ao Azure AD](assign-local-admin.md), adicionando automaticamente aqueles com a função de gestor de dispositivos como administradores a todos os dispositivos associados.
-
-* [Localizar dispositivos](device-management-azure-portal.md#locate-devices)
-
-* [Executar tarefas de gestão de identidade de dispositivos](device-management-azure-portal.md#device-identity-management-tasks)
 
 Certifique-se de que mantém o ambiente limpo [gerindo dispositivos antigos](manage-stale-devices.md)e concentre os seus recursos na gestão dos dispositivos atuais.
 

@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: 6ad6ca72f0861324a10e93a1eadbdc11c6104574
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9ee0fbd69c0004306b67cbff0aca3b257d905eeb
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320974"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541129"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Implementar um modelo para instâncias de contentores Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -96,14 +96,12 @@ Consulte [os seus modelos com o Código VS.](tutorial-train-deploy-image-classif
 > [!IMPORTANT]
 > Não é preciso criar um recipiente ACI para testar com antecedência. Os contentores ACI são criados conforme necessário.
 
-## <a name="update-the-web-service"></a>Atualizar o serviço web
-
-[!INCLUDE [aml-update-web-service](../../includes/machine-learning-update-web-service.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Como implementar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
 * [Resolução de problemas de implantação](how-to-troubleshoot-deployment.md)
+* [Atualizar o serviço web](how-to-deploy-update-web-service.md)
 * [Utilize o TLS para garantir um serviço web através do Azure Machine Learning](how-to-secure-web-service.md)
 * [Consumir um Modelo ML implantado como um serviço web](how-to-consume-web-service.md)
 * [Monitorize os seus modelos de machine learning Azure com Insights de Aplicações](how-to-enable-app-insights.md)

@@ -11,16 +11,19 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 63e2ba93ecdc1131be6bd291fe436b42a2a2d19c
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 27b625dfa31b366d95922e1dd0bad7fda6e86ed4
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407035"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87540075"
 ---
-# <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Use espaço de trabalho atrás do Azure Firewall para a aprendizagem de máquinas Azure
+# <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Use espaço de trabalho atrás de uma firewall para aprendizagem de máquinas Azure
 
 Neste artigo, aprenda a configurar a Azure Firewall para uso com um espaço de trabalho de Aprendizagem automática Azure.
+
+> [!IMPORTANT]
+> Embora as informações neste documento se baseiem na utilização do Azure Firewall, deverá poder usá-la com outros produtos de firewall. Se tiver dúvidas sobre como permitir a comunicação através da sua firewall, consulte a documentação para a firewall que está a utilizar.
 
 O Azure Firewall pode ser usado para controlar o acesso ao seu espaço de trabalho Azure Machine Learning e à internet pública. Se não estiver configurada corretamente, a firewall pode causar problemas utilizando o seu espaço de trabalho. Há uma variedade de nomes hospedeiros que são usados tanto pelo espaço de trabalho Azure Machine Learning, que são descritos neste artigo.
 
@@ -53,6 +56,7 @@ Os anfitriões desta secção são propriedade da Microsoft e fornecem serviços
 | **vault.azure.net** | Azure Key Vault |
 | **azurecr.io** | Registo de Contentores do Azure |
 | **mcr.microsoft.com** | Registo de contentores da Microsoft para imagens base do estivador |
+| **your-acr-server-name.azurecr.io** | Só é necessário se o registo do seu contentor Azure estiver por detrás da rede virtual. Nesta configuração, é criado um link privado do ambiente da Microsoft para a instância ACR na sua subscrição. Utilize o nome do servidor ACR para o seu espaço de trabalho Azure Machine Learning. |
 
 ## <a name="python-hosts"></a>Anfitriões python
 
@@ -75,7 +79,7 @@ Os anfitriões desta secção são utilizados para instalar pacotes R. São nece
 | ---- | ---- |
 | **cloud.r-project.org** | Utilizado na instalação de embalagens CRAN. |
 
-Próximos passos
+Passos seguintes
 
 * [[Implementar e configurar firewall Azure](../firewall/tutorial-firewall-deploy-portal.md)]
 * [Secure Azure ML experimentação e inferências de empregos dentro de uma Rede Virtual Azure](how-to-enable-virtual-network.md)

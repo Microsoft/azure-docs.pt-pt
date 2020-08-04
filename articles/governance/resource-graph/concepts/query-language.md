@@ -1,14 +1,14 @@
 ---
 title: Entender a linguagem de consulta
 description: Descreve tabelas de gráficos de recursos e os tipos de dados, operadores e funções disponíveis de Kusto utilizáveis com o Azure Resource Graph.
-ms.date: 06/29/2020
+ms.date: 08/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4c545a8a5113f800545660a3ea812b61711630c2
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: b59811ecd877b9b2e22a43c00329ed7d02dfb97d
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970455"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541826"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Compreender a linguagem de consulta de gráfico de recurso Azure
 
@@ -19,6 +19,7 @@ Este artigo abrange os componentes linguísticos suportados pelo Gráfico de Rec
 - [Tabelas de gráficos de recursos](#resource-graph-tables)
 - [Elementos de linguagem personalizada do gráfico de recurso](#resource-graph-custom-language-elements)
 - [Elementos linguísticos KQL suportados](#supported-kql-language-elements)
+- [Âmbito da consulta](#query-scope)
 - [Personagens de fuga](#escape-characters)
 
 ## <a name="resource-graph-tables"></a>Tabelas de gráficos de recursos
@@ -112,10 +113,35 @@ Aqui está a lista de operadores tabulares KQL suportados por Gráfico de Recurs
 |[projeto-away](/azure/kusto/query/projectawayoperator) |[Remover colunas dos resultados](../samples/advanced.md#remove-column) | |
 |[tipo](/azure/kusto/query/sortoperator) |[Listar recursos ordenados pelo nome](../samples/starter.md#list-resources) |Sinónimo de`order` |
 |[resumir](/azure/kusto/query/summarizeoperator) |[Contar recursos do Azure](../samples/starter.md#count-resources) |Primeira página simplificada apenas |
-|[tomar](/azure/kusto/query/takeoperator) |[Listar todos os endereços IP públicos](../samples/starter.md#list-publicip) |Sinónimo de`limit` |
-|[Início](/azure/kusto/query/topoperator) |[Mostrar as primeiras cinco máquinas virtuais pelo nome e o seu tipo de SO](../samples/starter.md#show-sorted) | |
+|[take](/azure/kusto/query/takeoperator) |[Listar todos os endereços IP públicos](../samples/starter.md#list-publicip) |Sinónimo de`limit` |
+|[top](/azure/kusto/query/topoperator) |[Mostrar as primeiras cinco máquinas virtuais pelo nome e o seu tipo de SO](../samples/starter.md#show-sorted) | |
 |[união](/azure/kusto/query/unionoperator) |[Combine resultados de duas consultas num único resultado](../samples/advanced.md#unionresults) |Tabela única permitida: _Tabela T_ `| union` \[ `kind=` `inner` \| `outer` \] \[ `withsource=` _ColumnName_ \] _Table_. Limite de 3 `union` pernas numa única consulta. Não é permitida a resolução fuzzy das mesas das `union` pernas. Pode ser usado dentro de uma única tabela ou entre as _tabelas Recursos_ e _RecursosContainers._ |
 |[onde](/azure/kusto/query/whereoperator) |[Mostrar recursos que contenham armazenamento](../samples/starter.md#show-storage) | |
+
+## <a name="query-scope"></a>Âmbito de consulta
+
+O âmbito das subscrições a partir das quais os recursos são devolvidos por uma consulta dependem do método de acesso ao Gráfico de Recursos. A Azure CLI e Azure PowerShell preenchem a lista de subscrições a incluir no pedido com base no contexto do utilizador autorizado. A lista de subscrições pode ser definida manualmente para cada uma com as **subscrições** e parâmetros **de Subscrição,** respectivamente.
+Na REST API e em todos os outros SDKs, a lista de subscrições a incluir recursos deve ser explicitamente definida como parte do pedido.
+
+Como **pré-visualização,** a versão REST API `2020-04-01-preview` adiciona um imóvel para estender a consulta a um [grupo de gestão](../../management-groups/overview.md). Esta API de pré-visualização também torna opcional a propriedade de subscrição. Se nenhum do grupo de gestão ou da lista de subscrição for definido, o âmbito de consulta é todos os recursos a que o utilizador autenticado pode aceder. O novo `managementGroupId` imóvel leva o ID do grupo de gestão, que é diferente do nome do grupo de gestão.
+Quando `managementGroupId` especificados, os recursos das primeiras 5000 assinaturas na hierarquia do grupo de gestão especificada são incluídos. `managementGroupId`não pode ser usado ao mesmo tempo que `subscriptions` .
+
+Exemplo: Consultar todos os recursos dentro da hierarquia do grupo de gestão denominado 'My Management Group' com ID 'myMG'.
+
+- URI da API REST
+
+  ```http
+  POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2020-04-01-preview
+  ```
+
+- Corpo do Pedido
+
+  ```json
+  {
+      "query": "Resources | summarize count()",
+      "managementGroupId": "myMG"
+  }
+  ```
 
 ## <a name="escape-characters"></a>Personagens de fuga
 
@@ -149,7 +175,7 @@ Alguns nomes de propriedade, como os que incluem um `.` `$` ou, devem ser embrul
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.`$type
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte o idioma em uso nas [consultas de arranque](../samples/starter.md).
 - Consulte utilizações avançadas em [consultas avançadas.](../samples/advanced.md)

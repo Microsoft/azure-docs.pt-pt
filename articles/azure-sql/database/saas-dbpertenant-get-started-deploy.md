@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 15a623068c46109b95ce9a9300348d29f95610a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d71f6e71a7cd6033e570742a23016df0c25dd27
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254315"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542251"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Implementar e explorar uma app SaaS multitenant que utiliza o padrão de base de dados por inquilino com Base de Dados Azure SQL
 
@@ -57,7 +57,7 @@ Escolham os vossos nomes agora e escrevam-nos.
 
 1. Para abrir o modelo de implantação da base de dados saaS por inquilino no portal Azure, selecione **Implementar para Azure**.
 
-   <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   [![Imagem mostrando um botão marcado "Implementar para Azure".](https://azuredeploy.net/deploybutton.png)](https://aka.ms/deploywingtipdpt)
 
 1. Introduza valores no modelo para os parâmetros necessários.
 
@@ -68,7 +68,7 @@ Escolham os vossos nomes agora e escrevam-nos.
     - **Localização**: Selecione uma localização da lista de drop-down.
     - **Utilizador:** Utilize o valor do nome de utilizador que escolheu anteriormente.
 
-1. Implemente a aplicação.
+1. Desdobre a aplicação.
 
     a. Selecione para concordar com os termos e condições.
 
@@ -258,7 +258,7 @@ Os dois gráficos ilustram que piscinas elásticas e base de dados SQL são adeq
 - Para aprender sobre trabalhos elásticos, consulte [Gerir bases de dados de nuvem escalonadas.](../../sql-database/elastic-jobs-overview.md)
 - Para saber mais sobre aplicações SaaS multitenantes, consulte [padrões de design para aplicações SaaS multitenantes.](saas-tenancy-app-design-patterns.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber:
 

@@ -1,19 +1,19 @@
 ---
 title: Lançamento da ferramenta de modelação de ameaças da Microsoft 1/29/2019
 titleSuffix: Azure
-description: Documentando as notas de lançamento para a ferramenta de modelação de ameaças
+description: Leia as notas de lançamento da Ferramenta de Modelação de Ameaças da Microsoft lançadas em 1/29/2019. As notas incluem alterações de funcionalidades e questões conhecidas.
 author: jegeib
 ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 01/25/2019
-ms.openlocfilehash: 7d0be8d7243331264c10a407e3d78370ea798928
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17147d412bd888cdd3cd270829ad6d6103867b34
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78269780"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539055"
 ---
 # <a name="threat-modeling-tool-update-release-71601261---1292019"></a>Versão de atualização da Threat Modeling Tool 7.1.60126.1 - 29/01/2019
 
@@ -61,6 +61,6 @@ Os utilizadores do Windows 10 Enterprise LTSB (versão 1507) que tenham instalad
 
 - A documentação da Ferramenta de Modelação de Ameaças encontra-se no [docs.microsoft.com](threat-modeling-tool.md), e inclui informações [sobre a utilização da ferramenta.](threat-modeling-tool-getting-started.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Descarregue a versão mais recente da [Ferramenta de Modelação de Ameaças da Microsoft](https://aka.ms/threatmodelingtool).

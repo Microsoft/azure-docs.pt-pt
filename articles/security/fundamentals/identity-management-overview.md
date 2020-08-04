@@ -1,6 +1,6 @@
 ---
 title: Funcionalidades de segurança da Azure que ajudam na gestão de identidades Microsoft Docs
-description: " Este artigo fornece uma visão geral das principais funcionalidades de segurança do Azure que ajudam na gestão da identidade. As soluções de gestão de identidade e acesso da Microsoft ajudam a proteger o acesso a aplicações e recursos em todo o datacenter corporativo e na nuvem, permitindo níveis adicionais de validação, tais como políticas de autenticação multi-factor e acesso condicional. "
+description: Conheça as principais funcionalidades de segurança do Azure que ajudam na gestão de identidade. Consulte informações sobre tópicos como um único sinal de inscrição e procuração inversa.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 6abfcaac06dd82be79c9136718878f801ca241cc
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 9de31ba30c4599393d9127c7852cb567cf0258ef
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87384536"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542081"
 ---
 # <a name="azure-identity-management-security-overview"></a>Visão geral da segurança da gestão de identidade Azure
 

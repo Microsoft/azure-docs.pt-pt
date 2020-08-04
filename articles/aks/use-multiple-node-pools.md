@@ -4,12 +4,12 @@ description: Saiba como criar e gerir várias piscinas de nó para um cluster no
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 400e595d51f08428b01337e63f6c6e8ba5836794
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d007ec18a982d5327aa2ea0871bbe88f64786fce
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133100"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542030"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Criar e gerir múltiplos conjuntos de nós para um cluster no Azure Kubernetes Service (AKS)
 
@@ -489,6 +489,8 @@ Apenas as cápsulas que têm esta tolerância aplicada podem ser programadas em 
 
 ## <a name="specify-a-taint-label-or-tag-for-a-node-pool"></a>Especifique uma mancha, etiqueta ou etiqueta para uma piscina de nó
 
+### <a name="setting-nodepool-taints"></a>Definição de manchas de nodepool
+
 Ao criar uma piscina de nó, pode adicionar manchas, etiquetas ou etiquetas à piscina de nó. Quando se adiciona uma mancha, etiqueta ou etiqueta, todos os nós dentro dessa piscina de nó também obtêm essa mancha, etiqueta ou etiqueta.
 
 Para criar uma piscina de nó com uma mancha, use [a az aks nodepool add][az-aks-nodepool-add]. Especifique o nome *taintnp* e use o `--node-taints` parâmetro para especificar *sku=gpu:NoSchedule* para a mancha.
@@ -532,6 +534,8 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 A informação de mancha é visível em Kubernetes para lidar com regras de agendamento de nós.
 
+### <a name="setting-nodepool-labels"></a>Definição de etiquetas de nodepool
+
 Também pode adicionar etiquetas a uma piscina de nó durante a criação da piscina de nó. As etiquetas colocadas na piscina do nó são adicionadas a cada nó na piscina do nó. Estas [etiquetas são visíveis em Kubernetes][kubernetes-labels] para manusear regras de agendamento para nós.
 
 Para criar uma piscina de nó com uma etiqueta, use [a az aks nodepool add][az-aks-nodepool-add]. Especifique a *etiqueta* de nome e use o `--labels` parâmetro para especificar *dept=IT* e *costcenter=9999* para etiquetas.
@@ -574,7 +578,13 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ]
 ```
 
+### <a name="setting-nodepool-azure-tags"></a>Definição de placas Azure de nodepool
+
 Pode aplicar uma etiqueta Azure em piscinas de nó no seu cluster AKS. As etiquetas aplicadas a uma piscina de nó são aplicadas a cada nó dentro da piscina do nó e são persistiu através de upgrades. As etiquetas também são aplicadas a novos nós adicionados a um conjunto de nós durante as operações de escala. Adicionar uma etiqueta pode ajudar em tarefas como rastreio de políticas ou estimativa de custos.
+
+As etiquetas Azure têm chaves que são insensíveis a operações, tais como quando recuperam uma etiqueta procurando na chave. Neste caso, uma etiqueta com a chave dada será atualizada ou recuperada independentemente do invólucro. Os valores da etiqueta são sensíveis a maiôs.
+
+Em AKS, se várias tags forem definidas com teclas idênticas, mas invólucros diferentes, a etiqueta utilizada é a primeira na ordem alfabética. Por exemplo, `{"Key1": "val1", "kEy1": "val2", "key1": "val3"}` resulta e está a ser `Key1` `val1` definido.
 
 Crie uma piscina de nó usando o [add de nodepool az aks][az-aks-nodepool-add]. Especifique o *nome tagnodepool* e use o `--tag` parâmetro para especificar *dept=IT* e *costcenter=9999* para etiquetas.
 
