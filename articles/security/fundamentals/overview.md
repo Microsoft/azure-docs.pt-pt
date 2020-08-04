@@ -1,6 +1,6 @@
 ---
 title: Introdução à segurança Azure / Microsoft Docs
-description: Saiba mais sobre a Azure Security, os seus serviços e como funciona.
+description: Apresente-se à Azure Security, aos seus vários serviços e ao funcionamento da leitura desta visão geral.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 9c107789fe4a88b3cd73a2f290871016b95cae19
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 7f78b5d0baff149fc687d2b4bb71d70186315def
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371401"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543831"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 ## <a name="overview"></a>Descrição geral
@@ -88,7 +88,7 @@ Se houver falhas, falhas ou problemas de desempenho, pode pesquisar em detalhe o
 
 Os registos do Azure Monitor podem ser uma ferramenta útil na análise forense e outras análises de segurança, uma vez que a ferramenta permite pesquisar rapidamente através de grandes quantidades de entradas relacionadas com segurança com uma abordagem de consulta flexível. Além disso, os registos de firewall e proxy no local [podem ser exportados para Azure e disponibilizados para análise utilizando registos do Azure Monitor.](../../log-analytics/log-analytics-agent-windows.md)
 
-### <a name="azure-advisor"></a>Azure Advisor
+### <a name="azure-advisor"></a>Assistente do Azure
 [O Azure Advisor](../../advisor/index.yml) é um consultor de nuvem personalizado que o ajuda a otimizar as suas implementações do Azure. Analisa a configuração do recurso e a telemetria de utilização. Em seguida, recomenda soluções para ajudar a melhorar o [desempenho,](../../advisor/advisor-performance-recommendations.md) [segurança](../../advisor/advisor-security-recommendations.md)e [alta disponibilidade](../../advisor/advisor-high-availability-recommendations.md) dos seus recursos, enquanto procura oportunidades para reduzir o seu gasto global [do Azure.](../../advisor/advisor-cost-recommendations.md) O Azure Advisor fornece recomendações de segurança, que podem melhorar significativamente a sua postura de segurança global para as soluções que implementa no Azure. Estas recomendações são retiradas da análise de segurança realizada pelo [Azure Security Center.](../../security-center/security-center-intro.md)
 
 ### <a name="azure-security-center"></a>Centro de Segurança do Azure
@@ -142,7 +142,7 @@ No Application Diagnostics é possível ver eventos agrupados nas seguintes form
 A secção fornece informações adicionais sobre as principais funcionalidades da segurança de armazenamento Azure e informações sumárias sobre estas capacidades.
 
 ### <a name="role-based-access-control-rbac"></a>Controlo de Acesso Baseado em Funções (RBAC)
-Pode proteger a sua conta de armazenamento com o Controlo de Acesso Baseado em Fun (RBAC). Restringir o acesso com base na [necessidade de conhecer](https://en.wikipedia.org/wiki/Need_to_know) e menos [privilégios](https://en.wikipedia.org/wiki/Principle_of_least_privilege) princípios de segurança é imperativo para as organizações que querem impor políticas de segurança para o acesso aos dados. Estes direitos de acesso são concedidos atribuindo o papel adequado da RBAC a grupos e aplicações num determinado âmbito. Pode utilizar [funções incorporadas do Azure,](../../role-based-access-control/built-in-roles.md)como o Storage Account Contributor, para atribuir privilégios aos utilizadores. O acesso às teclas de armazenamento de uma conta de armazenamento utilizando o modelo [Azure Resource Manager](../../storage/blobs/security-recommendations.md) pode ser controlado através do Controlo de Acesso Baseado em Fun (RBAC).
+Pode proteger a sua conta de armazenamento com o Controlo de Acesso Baseado em Fun (RBAC). Restringir o acesso com base na [necessidade de conhecer](https://en.wikipedia.org/wiki/Need_to_know) e menos [privilégios](https://en.wikipedia.org/wiki/Principle_of_least_privilege) princípios de segurança é imperativo para as organizações que querem impor políticas de segurança para o acesso aos dados. Estes direitos de acesso são concedidos atribuindo o papel adequado de Azure a grupos e aplicações num determinado âmbito. Pode utilizar [funções incorporadas do Azure,](../../role-based-access-control/built-in-roles.md)como o Storage Account Contributor, para atribuir privilégios aos utilizadores. O acesso às teclas de armazenamento de uma conta de armazenamento utilizando o modelo [Azure Resource Manager](../../storage/blobs/security-recommendations.md) pode ser controlado através do Controlo de Acesso Baseado em Fun (RBAC).
 
 ### <a name="shared-access-signature"></a>Assinatura de acesso compartilhado
 As [assinaturas de acesso partilhado (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) disponibilizam acesso delegado a recursos na sua conta de armazenamento. O SAS significa que pode conceder a um cliente permissões limitadas a objetos na sua conta de armazenamento por um período especificado e com um conjunto especificado de permissões. Pode conceder estas permissões limitadas sem ter de partilhar as chaves de acesso à sua conta.
@@ -362,7 +362,7 @@ A Microsoft utiliza múltiplas práticas e tecnologias de segurança em todos os
 
 - [O Azure Ative Directory Application Proxy](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/) fornece SSO e acesso remoto seguro para aplicações web hospedadas no local.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 - Compreenda a sua [responsabilidade partilhada na nuvem.](shared-responsibility.md)
 

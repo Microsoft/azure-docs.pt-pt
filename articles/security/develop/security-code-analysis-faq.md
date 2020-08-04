@@ -1,6 +1,6 @@
 ---
 title: Documentação de análise de código de segurança da Microsoft FAQ
-description: Este artigo contém uma FAQ sobre a extensão de Análise de Código de Segurança da Microsoft
+description: Saiba mais sobre a extensão de Análise de Código de Segurança da Microsoft, analisando perguntas frequentes (PERGUNTAS Frequentes).
 author: sukhans
 manager: sukhans
 ms.author: terrylan
@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: df995f60867cb2062330e19a2ccfb8c29f173653
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f872159e538dc85121a7a6d4d6503fd18a263628
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071439"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543049"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 Tem perguntas? Consulte as seguintes FAQ para mais informações.
@@ -38,7 +38,7 @@ Para outras ferramentas como BinSkim que analisam artefactos pós-construção, 
 
 ### <a name="can-i-break-my-build-when-results-are-found"></a>Posso quebrar a minha construção quando os resultados forem encontrados?
 
-Yes. Pode introduzir uma rutura de construção quando qualquer ferramenta reporta um problema ou problema no seu ficheiro de registo. Basta adicionar a tarefa de construção pós-análise e selecionar a caixa de verificação para qualquer ferramenta para a qual pretende quebrar a construção.
+Sim. Pode introduzir uma rutura de construção quando qualquer ferramenta reporta um problema ou problema no seu ficheiro de registo. Basta adicionar a tarefa de construção pós-análise e selecionar a caixa de verificação para qualquer ferramenta para a qual pretende quebrar a construção.
 
 Na UI da tarefa De Pós-Análise, pode optar por quebrar a construção quando qualquer ferramenta reporta erros apenas ou erros e avisos.
 
@@ -67,7 +67,7 @@ As tarefas de construção adicionam automaticamente caminhos de saída a este l
 
 ### <a name="can-i-queue-a-build-to-run-these-tasks-on-a-hosted-build-agent"></a>Posso fazer fila para executar estas tarefas num agente de construção hospedado? 
 
-Yes. Todas as tarefas e ferramentas da extensão podem ser executadas num agente de construção hospedado.
+Sim. Todas as tarefas e ferramentas da extensão podem ser executadas num agente de construção hospedado.
 
 >[!NOTE]
 > A tarefa de construção do Scanner Anti-Malware requer um agente de construção com o Windows Defender ativado. Acolheu o Visual Studio 2017 e mais tarde forneceu tal agente. A tarefa de construção não será executada no Visual Studio 2015 agente hospedado.

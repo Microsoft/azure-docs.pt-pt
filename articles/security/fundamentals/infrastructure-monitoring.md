@@ -1,6 +1,6 @@
 ---
 title: Monitorização das infraestruturas do Azure
-description: Este artigo discute a monitorização da rede de produção Azure.
+description: Conheça os aspetos de monitorização da infraestrutura da rede de produção Azure, como a digitalização de vulnerabilidades.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: af9c157b4644156edc6dcdb1b53c141263576500
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b75c9dc874a41d4221c55a8b00dd12d943e80fc
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68727159"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542947"
 ---
 # <a name="azure-infrastructure-monitoring"></a>Monitorização das infraestruturas do Azure   
 
@@ -49,7 +49,7 @@ Se a Microsoft tomar conhecimento do acesso não autorizado aos dados dos client
 
 Foi estabelecido um quadro de gestão de incidentes que define funções e atribui responsabilidades. A equipa de gestão de incidentes de segurança da Azure é responsável pela gestão de incidentes de segurança, incluindo a escalada, e garantir o envolvimento de equipas especializadas quando necessário. Os gestores de operações da Azure são responsáveis pela supervisão da investigação e resolução de incidentes de segurança e privacidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre o que a Microsoft faz para garantir a infraestrutura Azure, consulte:
 
 - [Instalações, instalações e segurança física](physical-security.md)

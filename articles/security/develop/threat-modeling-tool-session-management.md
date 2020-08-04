@@ -1,6 +1,6 @@
 ---
 title: Gestão de Sessão - Ferramenta de Modelação de Ameaças da Microsoft - Azure / Microsoft Docs
-description: mitigações para ameaças expostas na Ferramenta de Modelação de Ameaças
+description: Saiba mais sobre a mitigação da gestão da sessão para ameaças expostas na Ferramenta de Modelação de Ameaças. Consulte informações de mitigação e veja exemplos de código.
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-javascript
-ms.openlocfilehash: 7f9eb18e72c12a8585ea8bcd42d8d720af43dbaf
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 6a40d89db3e81721ec8a35973b79a558c17caee4
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420554"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543695"
 ---
 # <a name="security-frame-session-management"></a>Quadro de Segurança: Gestão de Sessão
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[Implemente o logout adequado utilizando métodos ADAL ao utilizar o Azure AD](#logout-adal)</li></ul> |
-| Dispositivo IoT | <ul><li>[Use vidas finitas para tokens SaS gerados](#finite-tokens)</li></ul> |
+| **Dispositivo IoT** | <ul><li>[Use vidas finitas para tokens SaS gerados](#finite-tokens)</li></ul> |
 | **Documento Azure DB** | <ul><li>[Utilize as vidas mínimas simbólicas para tokens de recursos gerados](#resource-tokens)</li></ul> |
 | **ADFS** | <ul><li>[Implementar o logout adequado utilizando métodos de WsFederation ao utilizar o ADFS](#wsfederation-logout)</li></ul> |
 | **Servidor de Identidade** | <ul><li>[Implemente o logout adequado ao utilizar o Servidor de Identidade](#proper-logout)</li></ul> |

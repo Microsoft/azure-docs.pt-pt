@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: c5369d63c0937605cc288e3a90466e723e69d163
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 037e07a1d8a6a3b4016d00f1b5a68bffc9caf335
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255443"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543372"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utilize a rede kubenet com as suas próprias gamas de endereços IP no Serviço Azure Kubernetes (AKS)
 
@@ -47,6 +47,17 @@ Com *kubenet,* apenas os nós recebem um endereço IP na sub-rede de rede virtua
 O Azure suporta um máximo de 400 rotas numa UDR, por isso não pode ter um cluster AKS maior que 400 nós. Os [nós virtuais][virtual-nodes] AKS e as políticas de rede Azure não são suportados com *kubenet*.  Pode utilizar [as Políticas de Rede Calico,][calico-network-policies]uma vez que são suportadas com kubenet.
 
 Com *o Azure CNI,* cada pod recebe um endereço IP na sub-rede IP, e pode comunicar diretamente com outras cápsulas e serviços. Os seus clusters podem ser tão grandes quanto o intervalo de endereços IP especificado. No entanto, o intervalo de endereços IP deve ser planeado com antecedência, e todos os endereços IP são consumidos pelos nós AKS com base no número máximo de cápsulas que podem suportar. Funcionalidades e cenários avançados de rede como [Os Nós Virtuais][virtual-nodes] ou Políticas de Rede (ou Azure ou Calico) são suportados com *Azure CNI*.
+
+### <a name="limitations--considerations-for-kubenet"></a>Limitações & considerações para kubenet
+
+* É necessário um salto adicional no design do kubenet, o que adiciona uma pequena latência à comunicação do casulo.
+* São necessárias tabelas de rotas e rotas definidas pelo utilizador para a utilização do kubenet, o que acrescenta complexidade às operações.
+* O endereço de pod direto não é suportado para kubenet devido ao design de kubenet.
+* Ao contrário dos clusters CNI do Azure, vários clusters kubenet não podem partilhar uma sub-rede.
+* As **funcionalidades não suportadas no kubenet** incluem:
+   * [Políticas de rede Azure](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy), mas as políticas de rede Calico são apoiadas no kubenet
+   * [Piscinas de nó de janelas](windows-node-limitations.md)
+   * [Complemento de nó virtuais](virtual-nodes-portal.md#known-limitations)
 
 ### <a name="ip-address-availability-and-exhaustion"></a>Disponibilidade e exaustão do endereço IP
 

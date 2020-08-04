@@ -1,16 +1,16 @@
 ---
 author: cynthn
 ms.author: cynthn
-ms.date: 05/15/2020
+ms.date: 08/03/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 0a4dcf749a76623df7f46d77bf3e4877f2c41900
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ad191ca0d31abf317bab521dfbbc7c2567c3450
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83821503"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87545104"
 ---
 As imagens padronizadas da máquina virtual (VM) permitem às organizações migrarem para a nuvem e garantirem a consistência nas implementações. As imagens normalmente incluem definições de segurança e configuração predefinidas e software necessário. Configurar o seu próprio pipeline de imagem requer tempo, infraestrutura e configuração, mas com o Azure VM Image Builder, basta fornecer uma configuração simples descrevendo a sua imagem, submetê-la ao serviço, e a imagem é construída e distribuída.
  
@@ -39,7 +39,7 @@ O Azure Image Builder Service estará disponível para pré-visualização nesta
 - E.U.A. Leste 2
 - E.U.A. Centro-Oeste
 - E.U.A. Oeste
-- E.U.A.Oeste 2
+- E.U.A. Oeste 2
 - Europa do Norte
 - Europa Ocidental
 
@@ -97,8 +97,11 @@ Durante o processo de criação de imagens, os ficheiros são descarregados e ar
 O Image Builder cria um VM utilizando um tamanho D1v2 VM, e o armazenamento e networking necessários para o VM. Estes recursos durarão a duração do processo de construção, e serão eliminados assim que o Image Builder terminar de criar a imagem. 
  
 O Azure Image Builder distribuirá a imagem para as regiões escolhidas, o que poderá incorrer em encargos de saída de rede.
+
+## <a name="hyper-v-generation"></a>Geração Hyper V
+O Image Builder atualmente suporta imagens e VMs da Geração Hiper V.
  
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
  
 Para experimentar o Azure Image Builder, consulte os artigos para a construção de imagens [Linux](../articles/virtual-machines/linux/image-builder.md) ou [Windows.](../articles/virtual-machines/windows/image-builder.md)
  

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 30e70e56eb54815c26521829e4baf82dce574e43
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: e2277e2088a8cb386d6f19799b235d96e08959b0
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432599"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543440"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integre a Azure Stream Analytics com Azure Machine Learning (Preview)
 
@@ -25,7 +25,7 @@ Complete os seguintes passos antes de adicionar um modelo de aprendizagem autom�
 
 1. Utilize a Azure Machine Learning para [implementar o seu modelo como serviço web](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
 
-2. O seu script de pontuação deve ter [entradas e saídas de amostra](../machine-learning/how-to-deploy-and-where.md#example-entry-script) que são usadas pela Azure Machine Learning para gerar uma especificação de esquema. Stream Analytics utiliza o esquema para entender a assinatura de função do seu serviço web. Pode utilizar esta [definição de swagger de amostra](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/swagger-example.json) como referência para garantir que a definiu corretamente.
+2. O seu script de pontuação deve ter [entradas e saídas de amostra](../machine-learning/how-to-deploy-and-where.md) que são usadas pela Azure Machine Learning para gerar uma especificação de esquema. Stream Analytics utiliza o esquema para entender a assinatura de função do seu serviço web. Pode utilizar esta [definição de swagger de amostra](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/swagger-example.json) como referência para garantir que a definiu corretamente.
 
 3. Certifique-se de que o seu serviço web aceita e devolve dados serializados da JSON.
 
@@ -147,7 +147,7 @@ O seguinte JSON é um pedido de exemplo da consulta anterior:
 
 ## <a name="optimize-the-performance-for-azure-machine-learning-udfs"></a>Otimizar o desempenho para UDFs de aprendizagem automática Azure
 
-Quando implementar o seu modelo no Serviço Azure Kubernetes, pode [perfilar o seu modelo para determinar a utilização do recurso.](../machine-learning/how-to-deploy-and-where.md#profilemodel) Também pode [ativar o App Insights para as suas implementações](../machine-learning/how-to-enable-app-insights.md) para compreender as taxas de pedido, os tempos de resposta e as taxas de insucesso.
+Quando implementar o seu modelo no Serviço Azure Kubernetes, pode [perfilar o seu modelo para determinar a utilização do recurso.](../machine-learning/how-to-deploy-profile-model.md) Também pode [ativar o App Insights para as suas implementações](../machine-learning/how-to-enable-app-insights.md) para compreender as taxas de pedido, os tempos de resposta e as taxas de insucesso.
 
 Se tiver um cenário com alta produção de eventos, poderá ter de alterar os seguintes parâmetros no Stream Analytics para obter o melhor desempenho com latências de ponta a ponta baixas:
 
@@ -164,7 +164,7 @@ No escalonamento ideal, o seu trabalho stream Analytics deve ser capaz de enviar
 
 Para evitar tal latência, certifique-se de que o seu cluster Azure Kubernetes Service (AKS) foi a provisionado com o [número certo de nós e réplicas](../machine-learning/how-to-deploy-azure-kubernetes-service.md#using-the-cli). É fundamental que o seu serviço web esteja altamente disponível e retorne respostas bem sucedidas. Se o seu trabalho receber uma resposta indisponíveis (503) do seu serviço web, ele irá continuamente voltar a tentar com o recuo exponencial. Qualquer resposta que não seja o sucesso (200) e o serviço indisponível (503) fará com que o seu trabalho vá para um estado falhado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Tutorial: funções definidas pelo utilizador do JavaScript do Azure Stream Analytics](stream-analytics-javascript-user-defined-functions.md)
 * [Escalar o seu trabalho stream analytics com a função Azure Machine Learning Studio (clássico)](stream-analytics-scale-with-machine-learning-functions.md)

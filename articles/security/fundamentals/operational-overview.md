@@ -1,6 +1,6 @@
 ---
 title: Visão geral da segurança operacional do Azure Microsoft Docs
-description: Este artigo fornece uma visão geral da segurança operacional da Azure.
+description: Conheça a segurança operacional da Azure nesta visão geral. Segurança operacional refere-se a serviços de proteção de bens, controlos e funcionalidades.
 services: security
 documentationcenter: na
 author: unifycloud
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 00a71fec9c0bfc1db45eee7129b7c2a8adaef0fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50fb9c597a74a7aa08dfc3d8b7acd9b94760a9df
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83674238"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542896"
 ---
 # <a name="azure-operational-security-overview"></a>Visão geral da segurança operacional do Azure
 
@@ -50,7 +50,7 @@ O Azure Backup oferece componentes que descarrega e implementa no computador ou 
 
 Para obter mais informações, consulte a [tabela de componentes de backup Azure](/azure/backup/backup-overview#what-can-i-back-up).
 
-### <a name="site-recovery"></a>Recuperação de sites
+### <a name="site-recovery"></a>Site Recovery
 
 [A Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery) proporciona continuidade de negócios orquestrando a replicação de máquinas virtuais e físicas no local para Azure, ou para um site secundário. Se o seu site principal não estiver disponível, falha na localização secundária para que os utilizadores possam continuar a trabalhar. Falhas quando os sistemas voltam a funcionar. Utilize o Centro de Segurança Azure para realizar uma deteção de ameaças mais inteligente e eficaz.
 
@@ -64,7 +64,7 @@ Para obter mais informações, consulte a [tabela de componentes de backup Azure
 
 A Azure AD também inclui um conjunto completo de capacidades de gestão de [identidade,](/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports)incluindo estas:
 
-- [Multi-factor authentication](/azure/multi-factor-authentication/multi-factor-authentication)
+- [Autenticação multifator](/azure/multi-factor-authentication/multi-factor-authentication)
 - [Gestão de palavras-passe personalizada](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
 - [Gestão de grupos de self-service](/azure/active-directory/active-directory-passwords-update-your-own-password)
 - [Gestão de conta privilegiada](/azure/active-directory/active-directory-privileged-identity-management-configure)
@@ -187,7 +187,7 @@ Os praticantes de DevOps maduros adotam várias das seguintes práticas. Estas p
 - [Infraestrutura como Código (IAC)](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/) é uma prática que permite a automatização e validação da criação e demolição de redes e máquinas virtuais para ajudar a fornecer plataformas de hospedagem de aplicações seguras e estáveis.
 - A arquitetura [microserviços](https://www.visualstudio.com/learn/what-are-microservices/) é usada para isolar casos de uso de negócios em pequenos serviços reutilizáveis.  Esta arquitetura permite escalabilidade e eficiência.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a solução segurança e auditoria, consulte os seguintes artigos:
 

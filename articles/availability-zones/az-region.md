@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 2e337628542475c081a59bffd25368de313011f8
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: b031b2a26f81c34f1699e530c8d0bb8839454c89
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206204"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543882"
 ---
 # <a name="regions-that-support-availability-zones-in-azure"></a>Regiões que suportam Zonas de Disponibilidade em Azure
 
@@ -35,7 +35,7 @@ Os serviços disponíveis em cada região, juntamente com o roteiro de disponibi
 | **Armazenamento**   |            |              |           |           |                |              |          |             |            |                |                |
 | Managed Disks                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | Armazenamento redundante de zona          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
-| **Redes**                     |            |              |           |           |                |              |          |             |            |                |                |
+| **Rede**                     |            |              |           |           |                |              |          |             |            |                |                |
 | Endereço IP padrão        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | Balanceador de carga padrão     | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | Gateway de VPN            | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       | &#10003;               |
@@ -63,7 +63,7 @@ O Azure também oferece apoio às Zonas de Disponibilidade nas seguintes regiõe
 - E.U.A. Centro-Sul
 - Canadá Central
 
-Para saber mais sobre o suporte de Zonas de Disponibilidade nestas cinco regiões, contacte o seu representante de vendas da Microsoft ou do cliente.
+Para saber mais sobre o suporte de Zonas de Disponibilidade nestas cinco regiões, contacte o seu representante de vendas ou cliente da Microsoft ou abra um pedido de suporte técnico.
 
 ## <a name="next-steps"></a>Passos seguintes
 

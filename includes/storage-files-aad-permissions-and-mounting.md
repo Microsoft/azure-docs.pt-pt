@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: e1cc3bac56e659b9a020880a26fd3d539f987503
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 55e5290630185466ea0801b06ece71069fc94d89
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86544307"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87545243"
 ---
 ## <a name="2-assign-access-permissions-to-an-identity"></a>2 Atribuir permissões de acesso a uma identidade
 
@@ -28,7 +28,7 @@ Introduzimos três funções integradas da Azure para a concessão de permissõe
 > [!IMPORTANT]
 > O controlo administrativo total de uma parte de ficheiro, incluindo a capacidade de apropriar-se de um ficheiro, requer a utilização da chave da conta de armazenamento. O controlo administrativo não é suportado com credenciais Azure AD.
 
-Pode utilizar o portal Azure, PowerShell ou Azure CLI para atribuir as funções incorporadas à identidade AD AZure de um utilizador para a concessão de permissões de nível de partilha. Esteja ciente de que a atribuição de papel de RBAC de nível de ação pode levar algum tempo a estar em vigor. 
+Pode utilizar o portal Azure, PowerShell ou Azure CLI para atribuir as funções incorporadas à identidade AD AZure de um utilizador para a concessão de permissões de nível de partilha. Esteja ciente de que a atribuição de papel azure de nível de ação pode levar algum tempo a estar em vigor. 
 
 > [!NOTE]
 > Lembre-se de [sincronizar as suas credenciais de DS AD AD para Azure AD](../articles/active-directory/hybrid/how-to-connect-install-roadmap.md) se planeia utilizar o seu DS AD no local para autenticação. A sincronização de hash de palavra-passe de AD DS a Azure AD é opcional. A permissão de nível de partilha será concedida à identidade Azure AD que está sincronizada a partir do seu DS AD no local.
@@ -36,7 +36,7 @@ Pode utilizar o portal Azure, PowerShell ou Azure CLI para atribuir as funções
 A recomendação geral é usar a permissão de nível de partilha para uma gestão de acesso de alto nível a um grupo de AD que representa um grupo de utilizadores e identidades, em seguida, aproveitar as permissões NTFS para o controlo de acesso granular no diretório/nível de ficheiro. 
 
 #### <a name="azure-portal"></a>Portal do Azure
-Para atribuir um papel RBAC a uma identidade AD Azure, utilizando o [portal Azure,](https://portal.azure.com)siga estes passos:
+Para atribuir um papel de Azure a uma identidade AD Azure, utilizando o [portal Azure,](https://portal.azure.com)siga estes passos:
 
 1. No portal Azure, vá à sua partilha de ficheiros ou [crie uma partilha de ficheiros.](../articles/storage/files/storage-how-to-create-file-share.md)
 2. Selecione **Controlo de Acesso (IAM)**.
@@ -46,7 +46,7 @@ Para atribuir um papel RBAC a uma identidade AD Azure, utilizando o [portal Azur
 
 #### <a name="powershell"></a>PowerShell
 
-A amostra powerShell seguinte mostra como atribuir um papel RBAC a uma identidade AD Azure, com base no nome de inscrição. Para obter mais informações sobre a atribuição de funções de RBAC com PowerShell, consulte [Gerir o acesso utilizando o RBAC e o Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
+A seguinte amostra powerShell mostra como atribuir um papel Azure a uma identidade AD Azure, com base no nome de inscrição. Para obter mais informações sobre a atribuição de funções Azure com PowerShell, consulte [Gerir o acesso utilizando o RBAC e o Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
 
 Antes de executar o seguinte script de amostra, lembre-se de substituir os valores do espaço reservado, incluindo os suportes, pelos seus próprios valores.
 
@@ -61,7 +61,7 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 #### <a name="cli"></a>CLI
   
-O seguinte comando CLI 2.0 mostra como atribuir um papel RBAC a uma identidade AD AZure, com base no nome de inscrição. Para obter mais informações sobre a atribuição de funções de RBAC com O Azure CLI, consulte [Gerir o acesso utilizando o RBAC e o Azure CLI](../articles/role-based-access-control/role-assignments-cli.md). 
+O seguinte comando CLI 2.0 mostra como atribuir um papel Azure a uma identidade AD AZure, com base no nome de inscrição. Para obter mais informações sobre a atribuição de funções Azure com Azure CLI, consulte [Gerir o acesso utilizando o RBAC e o Azure CLI](../articles/role-based-access-control/role-assignments-cli.md). 
 
 Antes de executar o seguinte script de amostra, lembre-se de substituir os valores do espaço reservado, incluindo os suportes, pelos seus próprios valores.
 
@@ -130,7 +130,7 @@ Para obter mais informações sobre como utilizar os ICACLs para definir permiss
 
 ## <a name="4-mount-a-file-share-from-a-domain-joined-vm"></a>4 Monte uma partilha de ficheiros a partir de um VM de domínio
 
-O processo seguinte verifica que as permissões de partilha de ficheiros e acesso foram configuradas corretamente e que pode aceder a uma partilha de FicheiroS Azure a partir de um VM unido a domínio. Esteja ciente de que a atribuição de papel de RBAC de nível de ação pode levar algum tempo a estar em vigor. 
+O processo seguinte verifica que as permissões de partilha de ficheiros e acesso foram configuradas corretamente e que pode aceder a uma partilha de FicheiroS Azure a partir de um VM unido a domínio. Esteja ciente de que a atribuição de papel azure de nível de ação pode levar algum tempo a estar em vigor. 
 
 Inscreva-se no VM utilizando a identidade Azure AD à qual concedeu permissões, como mostra a imagem seguinte. Se tiver ativado a autenticação AD DS no local para ficheiros Azure, utilize as suas credenciais de DS AD. Para autenticação Azure AD DS, inscreva-se com credenciais AZURE AD.
 

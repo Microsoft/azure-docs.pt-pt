@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/07/2018
-ms.openlocfilehash: fd4b94f6a99241ffddd7ae359059c3a4a918934a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52dfc285deaa84792e37d0f012abd7702d856113
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84042128"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87544086"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implementar e explorar uma aplicação autónoma de inquilino único que utiliza a Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -43,13 +43,17 @@ Serão lançados tutoriais adicionais. Eles permitir-lhe-ão explorar uma série
 
 Implementar a aplicação para os três inquilinos fornecidos:
 
-1. Clique em cada botão **Azul Implementar para Azul** para abrir o modelo de implementação no portal [Azure](https://portal.azure.com). Cada modelo requer dois valores de parâmetro; um nome para um novo grupo de recursos, e um nome de utilizador que distingue esta implementação de outras implementações da app. O passo seguinte fornece detalhes para a definição destes valores.<br><br>
-    <a href="https://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; **Sala de Concertos Contoso**
-<br><br>
-    <a href="https://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; **Dogwood Dojo**
-<br><br>
-    <a href="https://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; **Clube de Jazz de Fabrikam**
+1. Clique em cada botão **Azul Implementar para Azul** para abrir o modelo de implementação no portal [Azure](https://portal.azure.com). Cada modelo requer dois valores de parâmetro; um nome para um novo grupo de recursos, e um nome de utilizador que distingue esta implementação de outras implementações da app. O passo seguinte fornece detalhes para a definição destes valores.
 
+   **Sala de Concertos Contoso**   
+   [![Imagem mostrando um botão marcado "Implementar para Azure".](media/saas-standaloneapp-get-started-deploy/deploy.png)](https://aka.ms/deploywingtipsa-contoso)
+
+   **Dogwood Dojo**   
+   [![Imagem mostrando um botão marcado "Implementar para Azure".](media/saas-standaloneapp-get-started-deploy/deploy.png)](https://aka.ms/deploywingtipsa-dogwood)
+
+   **Clube de Jazz de Fabrikam**   
+   [![Imagem mostrando um botão marcado "Implementar para Azure".](media/saas-standaloneapp-get-started-deploy/deploy.png)](https://aka.ms/deploywingtipsa-fabrikam)
+ 
 2. Introduza os valores dos parâmetros necessários para cada implantação.
 
     > [!IMPORTANT]
@@ -62,7 +66,7 @@ Implementar a aplicação para os três inquilinos fornecidos:
     * Para **o Utilizador** - Recomendamos um curto valor de utilizador, como as suas iniciais mais um dígito: por exemplo, *af1*.
 
 
-3. **Implemente a aplicação**.
+3. **Implementar a aplicação**.
 
     * Clique para concordar com os termos e condições.
     * Clique em **Comprar**.
@@ -117,7 +121,7 @@ Cada base de dados de inquilinos é uma base de dados *autónoma* de 50 DTU.
 
 Quando terminar de utilizar a amostra, elimine todos os grupos de recursos criados para parar a faturação associada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber:
 

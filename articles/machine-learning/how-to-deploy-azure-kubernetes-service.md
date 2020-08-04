@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 58a8bd6b8e5594f36bf27a3ad76bee137fdd1160
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: bc53a243a58522a76be63536aa721f269ed4759a
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433228"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87544052"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implementar um modelo para um cluster de serviço Azure Kubernetes
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -65,7 +65,7 @@ O cluster AKS e o espaço de trabalho AML podem estar em diferentes grupos de re
 
 - Se necessitar de um Balanceador de Carga Padrão (SLB) implantado no seu cluster em vez de um Balanceador de Carga Básica (BLB), por favor, crie um cluster no portal AKS/CLI/SDK e, em seguida, prenda-o ao espaço de trabalho AML.
 
-- Se ligar um cluster AKS, que tem uma [gama IP autorizada habilitada a aceder ao servidor API,](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges)ative as gamas IP do plano contol AML para o cluster AKS. O plano de controlo AML é implantado em regiões emparelhadas e implanta cápsulas de inferenculação no cluster AKS. Sem acesso ao servidor API, as cápsulas de inferenculação não podem ser implantadas. Utilize as [gamas IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) para ambas as [regiões emparelhadas]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) ao permitir as gamas IP num cluster AKS.
+- Se ligar um cluster AKS, que tem uma [gama IP autorizada habilitada a aceder ao servidor API,](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges)ative as gamas IP do plano de controlo AML para o cluster AKS. O plano de controlo AML é implantado em regiões emparelhadas e implanta cápsulas de inferenculação no cluster AKS. Sem acesso ao servidor API, as cápsulas de inferenculação não podem ser implantadas. Utilize as [gamas IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) para ambas as [regiões emparelhadas]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) ao permitir as gamas IP num cluster AKS.
 
 __As gamas IP authroizadas só funcionam com o Balancer de Carga Padrão.__
  
@@ -423,15 +423,12 @@ print(token)
 >
 > Para obter um token, você deve usar o Azure Machine Learning SDK ou o [comando az ml get-token de acesso.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-get-access-token)
 
-## <a name="update-the-web-service"></a>Atualizar o serviço web
-
-[!INCLUDE [aml-update-web-service](../../includes/machine-learning-update-web-service.md)]
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Experiências e inferências seguras numa rede virtual](how-to-enable-virtual-network.md)
 * [Como implementar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
 * [Resolução de problemas de implantação](how-to-troubleshoot-deployment.md)
+* [Atualizar o serviço web](how-to-deploy-update-web-service.md)
 * [Utilize o TLS para garantir um serviço web através do Azure Machine Learning](how-to-secure-web-service.md)
 * [Consumir um Modelo ML implantado como um serviço web](how-to-consume-web-service.md)
 * [Monitorize os seus modelos de machine learning Azure com Insights de Aplicações](how-to-enable-app-insights.md)

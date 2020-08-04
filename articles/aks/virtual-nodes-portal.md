@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions
-ms.openlocfilehash: 277bdc19635231628cea8c308b30c57b129dc364
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8748e4f78582ab133d7e527daba1c126dcb7e7e2
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250707"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543712"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Criar e configurar um cluster Azure Kubernetes Services (AKS) para usar nós virtuais no portal Azure
 
@@ -68,12 +68,13 @@ A funcionalidade Nódes Virtuais está fortemente dependente do conjunto de func
 * [Argumentos](../container-instances/container-instances-exec.md#restrictions) para executivos em ACI
 * [Os DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) não vão implantar cápsulas para o nó virtual
 * Os nós virtuais suportam o agendamento de cápsulas Linux. Pode instalar manualmente o fornecedor [Virtual Kubelet ACI](https://github.com/virtual-kubelet/azure-aci) de fonte aberta para agendar os contentores do Windows Server para ACI.
+* Nós virtuais requerem clusters AKS com rede CNI Azure
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
-## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS
+## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
 No canto superior esquerdo do portal Azure, selecione **Criar um**  >  **serviço kubernetes de**recurso .
 

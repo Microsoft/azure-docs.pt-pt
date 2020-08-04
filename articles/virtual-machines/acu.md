@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
 ms.reviewer: davberg
-ms.openlocfilehash: 08f9f83ab3ba1acdeeebe29c7659cc38cf13ad42
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 072e42f642de3daf3d0d03a706435cffa8953888
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288612"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543627"
 ---
 # <a name="azure-compute-unit-acu"></a>Unidade de computação Azure (ACU)
 
@@ -69,6 +69,7 @@ Hiper-roscado e capaz de executar virtualização aninhada
 | [L4s - L32s](sizes-previous-gen.md) |180 - 240* | 1:1 |
 | [L8s_v2 - L80s_v2](lsv2-series.md) |150 - 175** | 2:1 |
 | [M](m-series.md) | 160 - 180 | 2:1\*\*\* |
+| [NV4](nvv4-series.md) |230 - 260** | 2:1 |
 
 Aqui estão links para mais informações sobre os diferentes tamanhos:
 

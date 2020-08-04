@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
-ms.openlocfilehash: 01972ab02aa901af6144c02171efd36314e2f514
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 30164e1af1948f86c68e102f4d348674ea931e7b
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091951"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87544018"
 ---
 # <a name="streaming-policies"></a>Políticas de Transmissão em Fluxo
 
@@ -40,7 +40,7 @@ A seguinte "Árvore de Decisão" ajuda-o a escolher uma Política de Streaming p
 
 Clique na imagem para visualizá-lo tamanho completo.  
 
-<a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/large.png"></a> 
+[![Diagrama mostrando uma árvore de decisão que é projetada para ajudá-lo a escolher uma política de streaming predefinida para o seu cenário.](./media/streaming-policy/large.png)](./media/streaming-policy/large.png#lightbox)
 
 Se encriptar o seu conteúdo, tem de criar uma [Política de Chave de Conteúdo,](content-key-policy-concept.md)a Política de Chave de **Conteúdo** não é necessária para um streaming ou descarregamento claros. 
 

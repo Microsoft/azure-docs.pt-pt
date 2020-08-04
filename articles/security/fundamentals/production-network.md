@@ -1,6 +1,6 @@
 ---
 title: Rede de produção Azure
-description: Este artigo apresenta uma descrição geral da rede de produção Azure.
+description: Conheça a rede de produção Azure. Consulte os métodos de acesso à segurança e os mecanismos de proteção para estabelecer uma ligação à rede.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 7c0748e4ff1531649274834cb1e602c228f102e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 724c2ee2d74ca9cab11280e92faac71c2cb2218e
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68726696"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543814"
 ---
 # <a name="the-azure-production-network"></a>A rede de produção Azure
 Os utilizadores da rede de produção Azure incluem tanto clientes externos que acedem às suas próprias aplicações Azure como pessoal de suporte interno da Azure que gere a rede de produção. Este artigo discute os métodos de acesso à segurança e os mecanismos de proteção para o estabelecimento de ligações à rede de produção Azure.
@@ -78,7 +78,7 @@ Funcionalidades de segurança adicionais que são incorporadas nas capacidades d
    - As firewalls só podem ser acedidas a partir de nós internos selecionados. Aceitam pacotes apenas a partir de uma lista enumerada de endereços IP de origem, todos eles DIPs dentro da rede Azure. Por exemplo, um ataque à rede corporativa poderia direcionar pedidos para estes endereços, mas os ataques seriam bloqueados a menos que o endereço de origem do pacote fosse um da lista enumerada dentro da rede Azure.
      - O router de acesso no perímetro bloqueia pacotes de saída que são endereçados a um endereço que está dentro da rede Azure devido às suas rotas estáticas configuradas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre o que a Microsoft faz para garantir a infraestrutura Azure, consulte:
 
 - [Instalações, instalações e segurança física](physical-security.md)

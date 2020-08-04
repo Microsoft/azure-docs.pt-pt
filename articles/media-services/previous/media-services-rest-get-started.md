@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 45a8a2e4df35b0ddbf3fe3e42308a3361e1c912e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8c15883f4e2a515e8c6015a39951a8729cf77274
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000147"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87544001"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Começar com a entrega de conteúdos a pedido usando REST  
 
@@ -34,7 +34,7 @@ A imagem seguinte mostra alguns objetos mais frequentemente utilizados ao desenv
 
 Clique na imagem para visualizá-lo tamanho completo.  
 
-<a href="./media/media-services-rest-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-rest-get-started/media-services-overview-object-model-small.png"></a> 
+[![Diagrama mostrando alguns dos objetos mais utilizados no modelo de dados de objetos Azure Media Services para desenvolver aplicações de vídeo a pedido.](./media/media-services-rest-get-started/media-services-overview-object-model-small.png)](./media/media-services-rest-get-started/media-services-overview-object-model.png#lightbox)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 São necessários os seguintes pré-requisitos para começar a desenvolver-se com serviços de mídia com APIs REST.
@@ -484,7 +484,7 @@ Date: Mon, 19 Jan 2015 07:54:09 GMT
 }
 ```
 
-### <a name="create-a-job"></a>Criar um trabalho
+### <a name="create-a-job"></a>Criar uma tarefa
 Cada Trabalho pode ter uma ou mais Tarefas dependendo do tipo de processamento que pretende realizar. Através da API REST, pode criar Jobs e as suas tarefas conexas de uma de duas formas: As tarefas podem ser definidas em linha através da propriedade de navegação tasks em entidades job, ou através do processamento de lotes OData. O Media Services SDK utiliza o processamento de lote. No entanto, para a legibilidade dos exemplos de código neste artigo, as tarefas são definidas em linha. Para obter informações sobre o processamento de lotes, consulte [o processo de processamento do lote do Protocolo de Dados Abertos (OData).](https://www.odata.org/documentation/odata-version-3-0/batch-processing/)
 
 O exemplo a seguir mostra-lhe como criar e publicar um Job com um conjunto de Tarefas para codificar um vídeo numa resolução e qualidade específicas. A seguinte secção de documentação contém a lista de todas as [predefinições de tarefa](/azure/media-services/previous/media-services-mes-presets-overview) suportadas pelo processador Media Encoder Standard.  

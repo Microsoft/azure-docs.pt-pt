@@ -1,6 +1,6 @@
 ---
 title: Integridade da infraestrutura azul
-description: Este artigo aborda a integridade da infraestrutura Azure.
+description: Conheça a integridade da infraestrutura Azure e os passos que a Microsoft toma para o proteger, como as análises de vírus nas construções de componentes de software.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
-ms.openlocfilehash: ef81e74b07a351139aa8feefbdf1b89ea7e4994f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0df14dfcf66f53e01989a27a95afa5e19fcb2fe
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68727194"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543644"
 ---
 # <a name="azure-infrastructure-integrity"></a>Integridade da infraestrutura azul
 
@@ -55,7 +55,7 @@ O Azure garante que todas as funções implementadas, executando (web virada par
 ### <a name="compute-connectivity"></a>Conectividade computacional
 O Azure garante que a aplicação ou serviço implantado é acessível através de protocolos padrão baseados na Web. Casos virtuais de funções web voltados para a Internet têm conectividade externa na Internet e são alcançáveis diretamente pelos utilizadores da web. Para proteger a sensibilidade e integridade das operações que as funções dos trabalhadores desempenham em nome das instâncias virtuais de funções web acessíveis ao público, os casos virtuais de funções de trabalhadores de processamento de back-end têm conectividade externa na Internet, mas não podem ser acedidos diretamente por utilizadores da web externos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre o que a Microsoft faz para garantir a infraestrutura Azure, consulte:
 
 - [Instalações, instalações e segurança física](physical-security.md)

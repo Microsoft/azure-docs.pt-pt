@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: f3603bf8afdcd990144897113f4e8506629f60a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4167f8958f7a1613c4d48625f7a79a02c7588d0
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84429749"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543406"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutorial: Treine e implemente um modelo a partir do CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -383,7 +383,7 @@ Este comando implementa um novo serviço denominado `myservice` , utilizando a v
 
 O `inferenceConfig.yml` ficheiro fornece informações sobre como utilizar o modelo para inferência. Por exemplo, refere-se ao script de entrada `score.py` e às dependências do software.
 
-Para obter mais informações sobre a estrutura deste ficheiro, consulte o esquema de configuração de [Inferência](reference-azure-machine-learning-cli.md#inference-configuration-schema). Para obter mais informações sobre scripts de entrada, consulte [implementar modelos com o Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
+Para obter mais informações sobre a estrutura deste ficheiro, consulte o esquema de configuração de [Inferência](reference-azure-machine-learning-cli.md#inference-configuration-schema). Para obter mais informações sobre scripts de entrada, consulte [implementar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
 
 Descreve `aciDeploymentConfig.yml` o ambiente de implantação utilizado para hospedar o serviço. A configuração de implementação é específica do tipo de cálculo que utiliza para a implementação. Neste caso, é utilizada uma instância de contentores Azure. Para obter mais informações, consulte o [esquema de configuração de implementação](reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 

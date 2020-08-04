@@ -8,18 +8,20 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 3eaaad036403cf8e5285f3345b52be976e381dd6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9b841b6422a4314b43a594cb0b22040f884228eb
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284749"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543899"
 ---
 # <a name="nvv4-series"></a>Série NVv4 
 
 As máquinas virtuais da série NVv4 são alimentadas por GPUs [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-mi25) e CPUs AMD EPYC 7V12(Roma). Com a série NVv4, o Azure está a introduzir máquinas virtuais com GPUs parciais. Escolha a máquina virtual de tamanho certo para aplicações gráficas aceleradas da GPU e desktops virtuais a partir de 1/8 de um GPU com 2 tampão de moldura GiB para uma GPU completa com 16 tampão de moldura GiB. Atualmente, as máquinas virtuais NVv4 suportam apenas o sistema operativo para hóspedes do Windows.
 
 <br>
+
+ACU: 230-260
 
 Armazenamento Premium: Suportado
 

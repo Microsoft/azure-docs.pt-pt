@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 12d86f9415f7f5b813d2dce8eb3ad4bb63dec30c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1d14fa9730e3ddd47378a45ff7a1442bdee69ac
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82929762"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543389"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Gestão de modelos, implantação e monitorização com Azure Machine Learning
 
@@ -74,7 +74,7 @@ Para obter mais informações, consulte a secção de modelos de registo dos [mo
 ### <a name="profile-models"></a>Modelos de perfil
 
 O Azure Machine Learning pode ajudá-lo a compreender os requisitos de CPU e memória do serviço que será criado quando implementar o seu modelo. O perfil testa o serviço que executa o seu modelo e devolve informações como o uso do CPU, o uso da memória e a latência da resposta. Também fornece uma recomendação de CPU e memória com base na utilização do recurso.
-Para obter mais informações, consulte a secção de perfis dos [modelos Implementar.](how-to-deploy-and-where.md#profilemodel)
+Para obter mais informações, consulte a secção de perfis dos [modelos Implementar.](how-to-deploy-profile-model.md)
 
 ### <a name="package-and-debug-models"></a>Pacotes e modelos de depuração
 
@@ -94,16 +94,16 @@ Para obter mais informações sobre ONNX com Azure Machine Learning, consulte o 
 
 Os modelos de aprendizagem de máquinas treinados são implementados como serviços web na nuvem ou localmente. Também pode implementar modelos para dispositivos Azure IoT Edge. As implementações utilizam cpu, GPU ou matrizes de portão programáveis de campo (FPGA) para inferentecção. Também pode utilizar modelos da Power BI.
 
-Ao utilizar um modelo como serviço web ou dispositivo IoT Edge, fornece os seguintes itens:
+Ao utilizar um modelo como um serviço Web ou dispositivo IoT Edge, fornece os seguintes itens:
 
 * Os modelos que são utilizados para marcar dados submetidos ao serviço/dispositivo.
 * Um script de entrada. Este script aceita pedidos, usa o(s) modelo(s) para marcar os dados e devolver uma resposta.
 * Um ambiente de aprendizagem automática Azure que descreve as dependências de pip e Conda exigidas pelo(s) modelo(s) e script de entrada.
 * Quaisquer ativos adicionais, tais como texto, dados, etc. que sejam exigidos pelo(s) modelo(s) e script de entrada.
 
-Também fornece a configuração da plataforma de implementação do alvo. Por exemplo, o tipo de família VM, memória disponível e número de núcleos ao ser implantado no Serviço Azure Kubernetes.
+Também apresenta a configuração da plataforma de implementação de destino. Por exemplo, o tipo de família VM, memória disponível e número de núcleos ao ser implantado no Serviço Azure Kubernetes.
 
-Quando a imagem é criada, os componentes exigidos pelo Azure Machine Learning também são adicionados. Por exemplo, os ativos necessários para executar o serviço web e interagir com ioT Edge.
+Quando a imagem é criada, também são adicionados os componentes exigidos pelo Azure Machine Learning. Por exemplo, os recursos necessários para executar o serviço Web e interagir com o IoT Edge.
 
 #### <a name="batch-scoring"></a>Pontuação em lote
 A pontuação do lote é suportada através de gasodutos ML. Para obter mais informações, consulte [as previsões do Lote sobre os big data.](how-to-use-parallel-run-step.md)
@@ -203,7 +203,7 @@ Para obter mais informações sobre a utilização de Gasodutos Azure com Azure 
 
 Também pode utilizar a Azure Data Factory para criar um pipeline de ingestão de dados que prepara dados para uso com formação. Para obter mais informações, consulte [o pipeline data ingestion.](how-to-cicd-data-ingestion.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais lendo e explorando os seguintes recursos:
 

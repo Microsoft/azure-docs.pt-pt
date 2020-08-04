@@ -1,6 +1,6 @@
 ---
 title: Azure lista de segurança operacional Microsoft Docs
-description: Este artigo fornece um conjunto de lista de verificação para segurança operacional Azure.
+description: Reveja esta lista de verificação para ajudar a sua empresa a pensar através de considerações de segurança operacional da Azure.
 services: security
 documentationcenter: na
 author: unifycloud
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: c7c44018bb1a010298738d3e46b7b9e7b6c04292
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 656459c4a29a73732b8825e735719731a0979a0e
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448302"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542930"
 ---
 # <a name="azure-operational-security-checklist"></a>Lista de verificação de segurança operacional Azure
 Implementar uma aplicação no Azure é rápido, fácil e rentável. Antes de implementar a aplicação em nuvem na produção útil para ter uma lista de verificação para ajudar na avaliação da sua aplicação contra uma lista de ações de segurança operacionais essenciais e recomendadas para que possa considerar.

@@ -1,6 +1,6 @@
 ---
 title: Autorização - Ferramenta de Modelação de Ameaças da Microsoft - Azure / Microsoft Docs
-description: mitigações para ameaças expostas na Ferramenta de Modelação de Ameaças
+description: Saiba mais sobre a mitigação da autorização na Ferramenta de Modelação de Ameaças. Consulte uma lista de potenciais ameaças e instruções de mitigação.
 services: security
 documentationcenter: na
 author: jegeib
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 809e9fa5143ede65f5bc6bf8d81020d508272fd8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 07e33279452b8296688c358c9ffdab1bfb2e1321
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021839"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543967"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Quadro de Segurança: Autorização / Mitigações 
 | Produto/Serviço | Artigo |

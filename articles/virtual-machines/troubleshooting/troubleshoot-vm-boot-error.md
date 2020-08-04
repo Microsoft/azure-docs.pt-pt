@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/28/2019
 ms.author: tiag
-ms.openlocfilehash: 5353bad3ff631fd7baa5d9892d38449ba622ea46
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5a2fd7fcfdae8559bfb39bffff7c73c7082a86aa
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284681"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543287"
 ---
 # <a name="linux-vm-boots-to-grub-rescue"></a>Botas Linux VM para Grub Rescue
 
@@ -35,7 +35,7 @@ Siga os passos de mitigação abaixo, dependendo do erro que recebe:
 * Se estiver a obter o erro **Do sistema de ficheiros Desconhecido,** este erro pode resultar de uma corrupção no sistema de ficheiros na partição do arranque ou de uma configuração incorreta do núcleo.
 
    * Para problemas no sistema de ficheiros, siga os passos do artigo [Recuperação Linux: Não pode SSH a Linux VM devido a erros do sistema de ficheiros (fsck, inodes)](/archive/blogs/linuxonazure/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes).
-   * Para questões de kernel, siga os passos no artigo [Recuperação linux: corrigir manualmente problemas de não arranque relacionados com problemas de Kernel](http://linuxonazure.azurewebsites.net/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/), ou [Recuperação linux: Corrigir problemas de não-arranque relacionados com problemas de Kernel utilizando croástas](http://linuxonazure.azurewebsites.net/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/).
+   * Para questões de kernel, siga os passos no artigo [Como recuperar uma máquina virtual Azure Linux de problemas de arranque relacionados com o kernel](https://support.microsoft.com/help/4091524/how-recover-azure-linux-vm-from-kernel-related-boot-related-issues), ou [recuperação linux: Corrigir problemas de não-arranque relacionados com problemas de Kernel usando cromota](http://linuxonazure.azurewebsites.net/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/).
    
 ### <a name="error---file-not-found"></a>Erro - Ficheiro não encontrado
 

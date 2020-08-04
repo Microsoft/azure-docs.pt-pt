@@ -6,12 +6,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions
-ms.openlocfilehash: d1cfbe1db33661dd712dfbc53670fb8f0525a481
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1e62af4f2ab8233125777bf6edf713758e4f2ec7
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507034"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543083"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Criar e configurar um cluster Azure Kubernetes Services (AKS) para usar nós virtuais usando o Azure CLI
 
@@ -69,6 +69,7 @@ A funcionalidade Nódes Virtuais está fortemente dependente do conjunto de func
 * [Argumentos](../container-instances/container-instances-exec.md#restrictions) para executivos em ACI
 * [Os DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) não vão implantar cápsulas para o nó virtual
 * Os nós virtuais suportam o agendamento de cápsulas Linux. Pode instalar manualmente o fornecedor [Virtual Kubelet ACI](https://github.com/virtual-kubelet/azure-aci) de fonte aberta para agendar os contentores do Windows Server para ACI.
+* Nós virtuais requerem clusters AKS com rede CNI Azure
 
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
@@ -149,7 +150,7 @@ Para conceder o acesso correto para o cluster AKS usar a rede virtual, crie uma 
 az role assignment create --assignee <appId> --scope <vnetId> --role Contributor
 ```
 
-## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS
+## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
 Coloca-se um cluster AKS na sub-rede AKS criada num passo anterior. Obtenha a ID desta sub-rede utilizando [o programa de sub-redes da rede Az:][az-network-vnet-subnet-show]
 
@@ -338,7 +339,7 @@ az network profile delete --id $NETWORK_PROFILE_ID -y
 az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --remove delegations 0
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, foi agendada uma cápsula no nó virtual e atribuída um endereço IP interno e privado. Em vez disso, pode criar uma implementação de serviço e encaminhar o tráfego para a sua cápsula através de um equilibrador de carga ou controlador de entrada. Para obter mais informações, consulte Criar um controlador básico de entrada [em AKS][aks-basic-ingress].
 
