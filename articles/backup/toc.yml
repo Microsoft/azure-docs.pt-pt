@@ -6,7 +6,7 @@
       href: backup-overview.md
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/backup/'
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Fazer uma cópia de segurança de uma VM - Portal
@@ -123,6 +123,8 @@
               href: backup-azure-vms-encryption.md
             - name: Configurar cópias de segurança consistentes com a aplicação de VMs do Azure em execução no Linux
               href: backup-azure-linux-app-consistent.md
+            - name: Cópia de segurança de disco seletiva
+              href: selective-disk-backup-restore.md
         - name: Restauro
           items:
             - name: Acerca do restauro de VMs do Azure

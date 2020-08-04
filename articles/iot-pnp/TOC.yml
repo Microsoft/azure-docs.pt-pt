@@ -37,6 +37,8 @@
       href: tutorial-multiple-components-node.md
     - name: Ligar um dispositivo de vários componentes (Python)
       href: tutorial-multiple-components-python.md
+    - name: Utilizar o MQTT para ligar um dispositivo
+      href: tutorial-use-mqtt.md
 - name: Conceitos
   items:
     - name: Arquitetura
