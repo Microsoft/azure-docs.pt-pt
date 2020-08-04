@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 08/03/2020
 ms.author: jingwang
-ms.openlocfilehash: ba5105c6183c88ca7e5641cdacaa5d80ea529bc6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14b3857211eca39ebe09a3a0752ca1d8eee17bc0
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84263895"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529998"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>Copiar dados da Xero utilizando a Azure Data Factory
 
@@ -36,7 +36,8 @@ Pode copiar dados da Xero para qualquer loja de dados de lavatórios suportados.
 Especificamente, este conector Xero suporta:
 
 - Aplicação [privada](https://developer.xero.com/documentation/getting-started/getting-started-guide) Xero, mas não aplicação pública.
-- Todas as tabelas Xero (pontos finais da API) exceto "Relatórios". 
+- Todas as tabelas Xero (pontos finais da API) exceto "Relatórios".
+- Autenticação OAuth 1.0 e OAuth 2.0.
 
 A Azure Data Factory fornece um controlador incorporado para permitir a conectividade, pelo que não é necessário instalar manualmente qualquer controlador utilizando este conector.
 
@@ -50,17 +51,22 @@ As secções seguintes fornecem detalhes sobre propriedades que são usadas para
 
 As seguintes propriedades são suportadas para o serviço ligado à Xero:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para: **Xero** | Sim |
+| conexõesProperties | Um grupo de propriedades que define como se conectar com Xero. | Sim |
+| ***Em `connectionProperties` :*** | | |
 | anfitrião | O ponto final do servidor Xero `api.xero.com` ().  | Sim |
+| authenticationType | Os valores permitidos são `OAuth_2.0` `OAuth_1.0` e. | Sim |
 | consumerKey | A chave do consumidor associada à aplicação Xero. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
-| privateKey | A chave privada do ficheiro .pem que foi gerado para a sua aplicação privada Xero, consulte [Criar um par de chaves público/privado](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key). Nota para **gerar o privatekey.pem com numbits de 512 usando** `openssl genrsa -out privatekey.pem 512` ; 1024 não é suportado. Inclua todo o texto do ficheiro .pem, incluindo as terminações da linha Unix(\n), ver amostra abaixo.<br/><br/>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
+| privateKey | A chave privada do ficheiro .pem que foi gerado para a sua aplicação privada Xero, consulte [Criar um par de chaves público/privado](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key). Nota para **gerar o privatekey.pem com numbits de 512 usando** `openssl genrsa -out privatekey.pem 512` , 1024 não é suportado. Inclua todo o texto do ficheiro .pem, incluindo as terminações da linha Unix(\n), ver amostra abaixo.<br/>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
+| inquilinoId | A identificação do inquilino associada à sua aplicação Xero. Aplicável à autenticação OAuth 2.0.<br>Saiba como obter a identificação do inquilino da [Verificação dos inquilinos que você está autorizado a aceder à secção.](https://developer.xero.com/documentation/oauth2/auth-flow) | Sim para autenticação OAuth 2.0 |
+| refreshToken | O token de atualização OAuth 2.0 associado à aplicação Xero, usado para refrescar o token de acesso quando o token de acesso expira. Aplicável à autenticação OAuth 2.0. Saiba como obter o token refresh [deste artigo.](https://developer.xero.com/documentation/oauth2/auth-flow)<br>Refresh token nunca expirará. Para obter um token de atualização, você deve solicitar o [âmbito offline_access](https://developer.xero.com/documentation/oauth2/scopes).<br/>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim para autenticação OAuth 2.0 |
 | useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | Não |
 | useHostVerification | Especifica se o nome do anfitrião é necessário no certificado do servidor para corresponder ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | Não |
 | usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | Não |
 
-**Exemplo:**
+**Exemplo: Autenticação OAuth 2.0**
 
 ```json
 {
@@ -68,15 +74,54 @@ As seguintes propriedades são suportadas para o serviço ligado à Xero:
     "properties": {
         "type": "Xero",
         "typeProperties": {
-            "host" : "api.xero.com",
-            "consumerKey": {
-                 "type": "SecureString",
-                 "value": "<consumerKey>"
-            },
-            "privateKey": {
-                 "type": "SecureString",
-                 "value": "<privateKey>"
-            }
+            "connectionProperties": { 
+                "host": "api.xero.com",
+                "authenticationType":"OAuth_2.0", 
+                "consumerKey": {
+                    "type": "SecureString",
+                    "value": "<consumer key>"
+                },
+                "privateKey": {
+                    "type": "SecureString",
+                    "value": "<private key>"
+                },
+                "tenantId": "<tenant ID>", 
+                "refreshToken": {
+                    "type": "SecureString",
+                    "value": "<refresh token>"
+                }, 
+                "useEncryptedEndpoints": true, 
+                "useHostVerification": true, 
+                "usePeerVerification": true
+            }            
+        }
+    }
+}
+```
+
+**Exemplo: Autenticação OAuth 1.0**
+
+```json
+{
+    "name": "XeroLinkedService",
+    "properties": {
+        "type": "Xero",
+        "typeProperties": {
+            "connectionProperties": {
+                "host": "api.xero.com", 
+                "authenticationType":"OAuth_1.0", 
+                "consumerKey": {
+                    "type": "SecureString",
+                    "value": "<consumer key>"
+                },
+                "privateKey": {
+                    "type": "SecureString",
+                    "value": "<private key>"
+                }, 
+                "useEncryptedEndpoints": true,
+                "useHostVerification": true,
+                "usePeerVerification": true
+            }
         }
     }
 }
@@ -96,7 +141,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Xero, defina a propriedade tipo do conjunto de dados para **XeroObject**. As seguintes propriedades são suportadas:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade do tipo do conjunto de dados deve ser definida para: **XeroObject** | Sim |
 | tableName | O nome da mesa. | Não (se for especificada "consulta" na fonte de atividade) |
@@ -126,7 +171,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Xero, desagrafe o tipo de origem na atividade da cópia para **xeroSource**. As seguintes propriedades são suportadas na secção fonte de **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **XeroSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM Contacts"`. | Não (se for especificado "tableName" no conjunto de dados) |
@@ -222,5 +267,5 @@ As seguintes tabelas só podem ser consultadas com esquema completo:
 Para obter detalhes sobre as propriedades, consulte [a atividade de Lookup](control-flow-lookup-activity.md).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista de lojas de dados suportadas pela atividade de cópia, consulte [as lojas de dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

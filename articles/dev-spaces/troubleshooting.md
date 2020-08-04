@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Aprenda a resolver problemas e resolva problemas comuns ao ativar e utilizar espaços Azure Dev
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: 7b97bab7182e382801a57bcf7dd6f325e665438b
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: cd242dc56e4a3215954fbe6703f47e29bd417ea8
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232496"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534401"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure Dev Spaces resolução de problemas
 
@@ -498,9 +498,9 @@ Depois de o seu controlador ser reinstalado, recolocar as suas cápsulas.
 
 ### <a name="incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>Permissões incorretas do RBAC para chamar controlador de Dev Spaces e APIs
 
-O utilizador que acede ao controlador Azure Dev Spaces deve ter acesso para ler o *conjunto de administradores kubeconfig* no cluster AKS. Por exemplo, esta permissão está disponível no [Azure Kubernetes Service Cluster Admin Role](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). O utilizador que acede ao controlador Azure Dev Spaces também deve ter a função *de Contribuinte* ou *Proprietário* RBAC para o controlador. Mais detalhes sobre a atualização das permissões de um utilizador para um cluster AKS estão disponíveis [aqui.](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group)
+O utilizador que acede ao controlador Azure Dev Spaces deve ter acesso para ler o *conjunto de administradores kubeconfig* no cluster AKS. Por exemplo, esta permissão está disponível no [Azure Kubernetes Service Cluster Admin Role](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). O utilizador que acede ao controlador Azure Dev Spaces também deve ter a função *de Contribuinte* ou *Proprietário* Azure para o controlador. Mais detalhes sobre a atualização das permissões de um utilizador para um cluster AKS estão disponíveis [aqui.](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group)
 
-Para atualizar a função RBAC do utilizador para o controlador:
+Para atualizar a função Azure do utilizador para o controlador:
 
 1. Inicie sessão no portal do Azure em https://portal.azure.com.
 1. Navegue para o Grupo de Recursos que contém o controlador, que normalmente é o mesmo que o seu cluster AKS.
@@ -512,7 +512,7 @@ Para atualizar a função RBAC do utilizador para o controlador:
     * Para *Função*, selecione *Contribuinte* ou *Proprietário*.
     * Para *atribuir acesso a*, selecione *utilizador, grupo ou principal de serviço Azure.*
     * Para *obter o seguinte,* procure no utilizador que pretenda obter permissões.
-1. Clique em *Save* (Guardar).
+1. Clique em *Guardar*.
 
 ### <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Resolução de nomes DNS falha para um URL público associado a um serviço Dev Spaces
 

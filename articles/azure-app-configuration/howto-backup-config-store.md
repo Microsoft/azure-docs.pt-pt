@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 0b057172c822f893e602d60f77a285f0867cf368
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ef777f235c85c423ea126fb7249f8e6a11492d3a
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367780"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528553"
 ---
 # <a name="backup-app-configuration-stores-automatically"></a>Backup App Configuration Stores automaticamente
 
@@ -191,7 +191,7 @@ az role assignment create \
     --scope $secondaryAppConfigId
 ```
 
-Utilize o seguinte comando ou [portal Azure](/azure/storage/common/storage-auth-aad-rbac-portal#assign-rbac-roles-using-the-azure-portal) para garantir a identidade gerida da sua App de Função Azure ao seu Armazenamento. 
+Utilize o seguinte comando ou [portal Azure](/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal) para garantir a identidade gerida da sua App de Função Azure ao seu Armazenamento. 
 - Atribuir `Storage Queue Data Contributor` papel na fila de armazenamento.
 
 ```azurecli-interactive
@@ -244,7 +244,7 @@ Se não vir o novo cenário na sua loja secundária:
 - Também pode configurar a monitorização e alerta para as suas Funções Azure utilizando [insights de aplicação Azure.](/azure/azure-functions/functions-monitoring?tabs=cmd) 
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Se pretender continuar a trabalhar com esta Configuração de Aplicações e subscrição de eventos, não limpe os recursos criados neste artigo. Se não quiser continuar, utilize o comando seguinte para eliminar os recursos que criou neste artigo.
 
 ```azurecli-interactive

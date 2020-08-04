@@ -3,12 +3,12 @@ title: Apoie um VM Azure a partir das definições de VM
 description: Neste artigo, aprenda a apoiar um VM Azure singular ou vários VMs Azure com o serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 722c24ce87edc692156a86338521aa3b2f9c7562
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a8d1c29c894663da76b5882ef7ba249356ba3e6d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286750"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531851"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Apoie um VM Azure a partir das definições de VM
 
@@ -24,7 +24,7 @@ Este artigo explica como apoiar os VMs Azure com o serviço [Azure Backup.](back
 
 ### <a name="azure-vm-agent-installation"></a>Instalação do agente Azure VM
 
-Para apoiar os VMs Azure, o Azure Backup instala uma extensão no agente VM em funcionamento na máquina. Se o seu VM foi criado a partir de uma imagem do Azure Marketplace, o agente estará em execução. Em alguns casos, por exemplo, se criar um VM personalizado, ou migrar uma máquina a partir do local. pode ser necessário instalar o agente manualmente.
+Para apoiar os VMs Azure, o Azure Backup instala uma extensão no agente VM em funcionamento na máquina. Se o seu VM foi criado a partir de uma imagem do Azure Marketplace, o agente estará em execução. Em alguns casos, por exemplo, se criar um VM personalizado, ou migrar uma máquina a partir do local, poderá ter de instalar o agente manualmente.
 
 - Se necessitar de instalar manualmente o agente VM, siga as instruções para [Windows](../virtual-machines/extensions/agent-windows.md) ou [Linux](../virtual-machines/extensions/agent-linux.md) VMs.
 - Depois de o agente ser instalado, quando ativa a cópia de segurança, o Azure Backup instala a extensão de reserva ao agente. Atualiza e corrige a extensão sem a intervenção do utilizador.
@@ -32,12 +32,12 @@ Para apoiar os VMs Azure, o Azure Backup instala uma extensão no agente VM em f
 ## <a name="back-up-from-azure-vm-settings"></a>Recua das definições de Azure VM
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Clique em **Todos os serviços** e no Filtro, escreva **máquinas Virtuais**e, em seguida, clique em **máquinas Virtuais**.
-3. Na lista de VMs selecione o VM que pretende fazer.
-4. No menu VM, clique em **Cópia de Segurança**.
+2. Selecione **Todos os serviços** e no Filtro, escreva **máquinas Virtuais**e, em seguida, selecione **máquinas Virtuais**.
+3. Na lista de VMs, selecione o VM que pretende fazer.
+4. No menu VM, selecione **Backup**.
 5. No **cofre dos Serviços de Recuperação,** faça o seguinte:
-   - Se já tiver um cofre, clique em **Selecionar a existência**e selecione um cofre.
-   - Se não tiver um cofre, clique em **Criar novo**. Especifique um nome para o cofre. É criado na mesma região e grupo de recursos que o VM. Não é possível modificar estas definições quando ativa a cópia de segurança diretamente a partir das definições de VM.
+   - Se já tiver um cofre, **selecione Selecione a existência**e selecione um cofre.
+   - Se não tiver um cofre, selecione **Criar novo**. Especifique um nome para o cofre. É criado na mesma região e grupo de recursos que o VM. Não é possível modificar estas definições quando ativa a cópia de segurança diretamente a partir das definições de VM.
 
         ![Assistente para Ativar Cópia de Segurança](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
 
@@ -49,41 +49,34 @@ Para apoiar os VMs Azure, o Azure Backup instala uma extensão no agente VM em f
 
        ![Selecionar política de cópia de segurança](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
-7. Clique **em Ativar a Cópia de Segurança**. Isto associa a política de backup com o VM.
+7. Selecione **Ativar Cópia de Segurança**. Isto associa a política de backup com o VM.
 
     ![Botão Ativar cópia de segurança](./media/backup-azure-vms-first-look-arm/vm-management-menu-enable-backup-button.png)
 
 8. Pode rastrear o progresso da configuração nas notificações do portal.
-9. Depois de concluído o trabalho, no menu VM, clique em **Backup**. A página mostra o estado de backup para o VM, informações sobre pontos de recuperação, empregos em execução e alertas emitidos.
+9. Depois de concluído o trabalho, no menu VM, selecione **Backup**. A página mostra o estado de backup para o VM, informações sobre pontos de recuperação, empregos em execução e alertas emitidos.
 
    ![Estado da cópia de segurança](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
 10. Depois de ativar o backup, uma cópia de segurança inicial é executado. Pode iniciar a cópia de segurança inicial imediatamente ou esperar que comece de acordo com o horário de reserva.
     - Até que a cópia de segurança inicial esteja concluída, o **último estado de backup** mostra como Aviso **(Cópia de Segurança Inicial pendente)**.
-    - Para ver quando será executado o próximo backup programado, clique no nome da política de backup.
+    - Para ver quando será executado o próximo backup programado, selecione o nome da política de backup.
 
 ## <a name="run-a-backup-immediately"></a>Executar um backup imediatamente
 
-1. Para executar uma cópia de segurança imediatamente, no menu VM, clique em **Backup**  >  **Backup agora**.
+1. Para executar uma cópia de segurança imediatamente, **Backup**no menu VM, selecione  >  **Backup Backup agora**.
 
     ![Executar backup](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 
-2. Em **Backup Agora** utilize o controlo do calendário para selecionar até quando o ponto de recuperação for mantido > e **OK**.
+2. In **Backup Now**, utilize o controlo do calendário para selecionar até quando o ponto de recuperação for mantido > e **OK**.
 
     ![Dia de retenção de backup](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
-3. As notificações do portal permitem-lhe saber que o trabalho de backup foi desencadeado. Para monitorizar o progresso da cópia de segurança, clique em **Ver todos os trabalhos**.
+3. As notificações do portal permitem-lhe saber que o trabalho de backup foi desencadeado. Para monitorizar o progresso da cópia de segurança, **selecione Ver todos os trabalhos**.
 
 ## <a name="back-up-from-the-recovery-services-vault"></a>Voltar do cofre dos Serviços de Recuperação
 
 Siga as instruções deste artigo para permitir a cópia de segurança para os VMs Azure, criando um cofre Azure Backup Recovery Services e permitindo a cópia de segurança no cofre.
-
->[!NOTE]
-> **O Azure Backup suporta agora a cópia de segurança seletiva do disco e restaura utilizando a solução de backup da Máquina Virtual Azure.**
->
->Hoje em dia, o Azure Backup suporta o backup de todos os discos (Sistema Operativo e dados) num VM em conjunto utilizando a solução de backup da Máquina Virtual. Com a funcionalidade de exclusão do disco, obtém-se uma opção de backup de um ou alguns dos muitos discos de dados num VM. Isto fornece uma solução eficiente e rentável para as suas necessidades de backup e restauro. Cada ponto de recuperação contém dados dos discos incluídos na operação de backup, o que permite ainda ter um subconjunto de discos restaurados a partir do ponto de recuperação dado durante a operação de restauro. Isto aplica-se para restaurar tanto do instantâneo como do cofre.
->
->**Para se inscrever para a pré-visualização, escreva-nos emAskAzureBackupTeam@microsoft.com**
 
 ## <a name="next-steps"></a>Passos seguintes
 

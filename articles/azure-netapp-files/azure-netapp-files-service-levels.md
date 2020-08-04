@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: b-juche
-ms.openlocfilehash: 0398cc6a5336141f51dde26ed7cf4cce8c2c0bb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 639f1e09fdb5603965209e5b5ee6c224ad238b76
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75832590"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533126"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Níveis de serviços do Azure NetApp Files
 Os níveis de serviço são um atributo de um pool de capacidade. Os níveis de serviço são definidos e diferenciados pela produção máxima permitida para um volume no pool de capacidade com base no contingente atribuído ao volume.
@@ -54,9 +54,10 @@ No exemplo 1 acima, um volume de um pool de capacidade com o nível de armazenam
 
 No exemplo 2 acima, um volume de um pool de capacidade com o nível de armazenamento Premium que é atribuído 100 GiB de quota será atribuído um limite de produção de 6,25 MiB/s (0.09765625 TiB * 64 MiB/s). Este cenário aplica-se independentemente do tamanho da piscina de capacidade ou do consumo real de volume.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Consulte a página de preços dos [Ficheiros Azure NetApp](https://azure.microsoft.com/pricing/details/storage/netapp/) para obter o preço de diferentes níveis de serviço
-- Consulte [o modelo custo para ficheiros Azure NetApp](azure-netapp-files-cost-model.md) para o cálculo do consumo de capacidade num pool de capacidade 
+- [Página de preços do Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/)
+- [Modelo de custo para os Azure NetApp Files](azure-netapp-files-cost-model.md) 
 - [Configurar um conjunto de capacidade](azure-netapp-files-set-up-capacity-pool.md)
-- Consulte [o Acordo de Nível de Serviço (SLA) para ficheiros Azure NetApp](https://azure.microsoft.com/support/legal/sla/netapp/)
+- [Acordo de Nível de Serviço (SLA) para ficheiros Azure NetApp](https://azure.microsoft.com/support/legal/sla/netapp/)
+- [Alterar o nível de serviço de um volume de forma dinâmica](dynamic-change-volume-service-level.md) 

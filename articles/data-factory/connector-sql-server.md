@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/15/2020
-ms.openlocfilehash: 4e9fc2634b2ed565c02176f22b48adccdec60ce6
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.date: 08/03/2020
+ms.openlocfilehash: 29b513e78ad075ea6a99505af83ff6c6112585bd
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170288"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529399"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Copie dados de e para o SQL Server utilizando a Azure Data Factory
 
@@ -295,7 +295,7 @@ Para copiar dados para o SQL Server, desaperte o tipo de pia na atividade da có
 |:--- |:--- |:--- |
 | tipo | A propriedade do tipo do lavatório de atividade de cópia deve ser definida como **SqlSink**. | Sim |
 | preCopyScript |Esta propriedade especifica uma consulta SQL para a atividade de cópia a executar antes de escrever dados no SQL Server. É invocado apenas uma vez por cópia. Pode utilizar esta propriedade para limpar os dados pré-carregados. |Não |
-| mesaOption | Especifica se deve [criar automaticamente a tabela do lavatório](copy-activity-overview.md#auto-create-sink-tables) se não existir com base no esquema de origem. A criação de mesa automática não é suportada quando o lavatório especifica o procedimento armazenado ou a cópia encenada é configurada na atividade da cópia. Os valores permitidos são: `none` (padrão), `autoCreate` . |Não |
+| mesaOption | Especifica se deve [criar automaticamente a tabela do lavatório](copy-activity-overview.md#auto-create-sink-tables) se não existir com base no esquema de origem. A criação de tabela automática não é suportada quando a pia especifica o procedimento armazenado. Os valores permitidos são: `none` (padrão), `autoCreate` . |Não |
 | sqlWriterStorEdProcedureName | O nome do procedimento armazenado que define como aplicar dados de origem numa tabela-alvo. <br/>Este procedimento armazenado é *invocado por lote*. Para operações que funcionam apenas uma vez e não têm nada a ver com dados de origem, por exemplo, apagar ou truncar, utilize a `preCopyScript` propriedade.<br>Veja o exemplo de [Invocar um procedimento armazenado a partir de um lavatório SQL](#invoke-a-stored-procedure-from-a-sql-sink). | Não |
 | nome de parametrómetro de computador |O nome do parâmetro do tipo de tabela especificado no procedimento armazenado.  |Não |
 | SqlWriterTableType |O nome do tipo de mesa a utilizar no procedimento armazenado. A atividade de cópia torna os dados disponíveis numa tabela temporária com este tipo de tabela. O código de procedimento armazenado pode então fundir os dados que estão a ser copiados com os dados existentes. |Não |
@@ -491,7 +491,7 @@ Quando copia dados de e para o SQL Server, os seguintes mapeamentos são usados 
 | binary |Byte[] |
 | bit |Booleano |
 | char |String, Char[] |
-| data |DateTime |
+| date |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datatimeoff |Início de execução de tempo de data |
@@ -568,5 +568,5 @@ Mais especificamente:
 5. Crie uma **regra para o Windows Firewall** na máquina para permitir a entrada de tráfego através desta porta. 
 6. **Verificar a ligação**: Para ligar ao SQL Server utilizando um nome totalmente qualificado, utilize o SQL Server Management Studio a partir de uma máquina diferente. Um exemplo é `"<machine>.<domain>.corp.<company>.com,1433"`.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista de lojas de dados suportadas como fontes e sumidouros pela atividade de cópia na Azure Data Factory, consulte [lojas de dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: edcecefab6243645c47af0ec1b8dd4b26fe22bb7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 3431ad88a27da9d83b75ed3661d6129f157b9b1f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501121"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531511"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Linha de Base de Segurança Azure para Cosmos DB
 
@@ -286,7 +286,7 @@ Criar, visualizar e gerir alertas de registo utilizando o Azure Monitor:https://
 
 **Orientação**: Pode utilizar o painel de controlo de identidade e acesso (IAM) no portal Azure para configurar o controlo de acesso baseado em funções (RBAC) e manter o inventário nos recursos DB do Azure Cosmos. As funções são aplicadas aos utilizadores, grupos, diretores de serviços e identidades geridas no Ative Directory. Você pode usar papéis incorporados ou papéis personalizados para indivíduos e grupos.
 
-A Azure Cosmos DB fornece RBAC incorporado para cenários comuns de gestão em Azure Cosmos DB. Um indivíduo que tenha um perfil no Azure Ative Directory (AD) pode atribuir estas funções de RBAC a utilizadores, grupos, diretores de serviços ou identidades geridas para conceder ou negar o acesso a recursos e operações em recursos DB da Azure Cosmos.
+A Azure Cosmos DB fornece RBAC incorporado para cenários comuns de gestão em Azure Cosmos DB. Um indivíduo que tenha um perfil no Azure Ative Directory (AD) pode atribuir estas funções Azure a utilizadores, grupos, diretores de serviços ou identidades geridas para conceder ou negar o acesso a recursos e operações em recursos DB da Azure Cosmos.
 
 Também pode utilizar o módulo Azure AD PowerShell para realizar consultas de adhoc para descobrir contas que são membros de grupos administrativos. 
 
@@ -528,7 +528,7 @@ Compreender a proteção de dados do cliente em Azure:https://docs.microsoft.com
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos
 
-**Orientação**: A Azure Cosmos DB fornece controlo de acesso baseado em funções incorporada (RBAC) para cenários comuns de gestão em Azure Cosmos DB. Um indivíduo que tenha um perfil no Azure Ative Directory pode atribuir estas funções de RBAC a utilizadores, grupos, diretores de serviços ou identidades geridas para conceder ou negar o acesso a recursos e operações em recursos DB da Azure Cosmos. As atribuições de funções são apenas para acesso de avião de controlo, o que inclui o acesso às contas da Azure Cosmos, bases de dados, contentores e ofertas (produção).
+**Orientação**: A Azure Cosmos DB fornece controlo de acesso baseado em funções incorporada (RBAC) para cenários comuns de gestão em Azure Cosmos DB. Um indivíduo que tenha um perfil no Azure Ative Directory pode atribuir estas funções Azure a utilizadores, grupos, diretores de serviços ou identidades geridas para conceder ou negar o acesso a recursos e operações em recursos DB da Azure Cosmos. As atribuições de funções são apenas para acesso de avião de controlo, o que inclui o acesso às contas da Azure Cosmos, bases de dados, contentores e ofertas (produção).
 
 Como implementar o RBAC em Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 

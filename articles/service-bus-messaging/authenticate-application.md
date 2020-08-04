@@ -3,12 +3,12 @@ title: Autenticar uma aplicação para aceder a entidades de autocarros da Azure
 description: Este artigo fornece informações sobre a autenticação de uma aplicação com o Azure Ative Directory para aceder a entidades de autocarros de serviço da Azure (filas, tópicos, etc.)
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 6191534bbc7cad6815072099b8c7a847a712365d
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a22645e7442641c00de0b1e7e501b02944d6b1ad
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423172"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532480"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Autenticar e autorizar uma aplicação com a Azure Ative Directory para aceder a entidades do Azure Service Bus
 A Azure Service Bus suporta a utilização do Azure Ative Directory (Azure AD) para autorizar pedidos a entidades de Service Bus (filas, tópicos, subscrições ou filtros). Com o Azure AD, pode utilizar o controlo de acesso baseado em funções (RBAC) para conceder permissões a um principal de segurança, que pode ser um utilizador, grupo ou diretor de serviço de aplicação. Para saber mais sobre papéis e atribuições de papéis, consulte [compreender os diferentes papéis.](../role-based-access-control/overview.md)
@@ -21,15 +21,15 @@ Quando um principal de segurança (um utilizador, grupo ou aplicação) tenta ac
 
 O passo de autenticação requer que um pedido de candidatura contenha um token de acesso OAuth 2.0 no tempo de execução. Se uma aplicação estiver a ser executada dentro de uma entidade Azure, como um Azure VM, um conjunto de escala de máquina virtual ou uma aplicação Azure Function, pode usar uma identidade gerida para aceder aos recursos. Para aprender a autenticar pedidos feitos por uma identidade gerida para o serviço Service Bus, consulte [autenticar o acesso aos recursos da Azure Service Bus com o Azure Ative Directory e identidades geridas para a Azure Resources.](service-bus-managed-service-identity.md) 
 
-O passo de autorização requer que uma ou mais funções do RBAC sejam atribuídas ao diretor de segurança. A Azure Service Bus fornece funções RBAC que englobam conjuntos de permissões para recursos de Service Bus. As funções atribuídas a um diretor de segurança determinam as permissões que o diretor terá. Para saber mais sobre a atribuição de papéis da RBAC à Azure Service Bus, consulte [as funções incorporadas da Azure Service Bus.](#azure-built-in-roles-for-azure-service-bus) 
+O passo de autorização requer que uma ou mais funções da Azure sejam atribuídas ao diretor de segurança. A Azure Service Bus fornece funções Azure que englobam conjuntos de permissões para recursos de Service Bus. As funções atribuídas a um diretor de segurança determinam as permissões que o diretor terá. Para saber mais sobre a atribuição de papéis da Azure service bus, consulte [as funções incorporadas da Azure Service Bus.](#azure-built-in-roles-for-azure-service-bus) 
 
 As aplicações nativas e aplicações web que fazem pedidos para Service Bus também podem autorizar com a Azure AD. Este artigo mostra-lhe como solicitar um token de acesso e usá-lo para autorizar pedidos de recursos de Service Bus. 
 
 
-## <a name="assigning-rbac-roles-for-access-rights"></a>Atribuição de funções de RBAC para direitos de acesso
+## <a name="assigning-azure-roles-for-access-rights"></a>Atribuir funções da Azure para direitos de acesso
 O Azure Ative Directory (Azure AD) autoriza os direitos de acesso a recursos seguros através [do controlo de acesso baseado em funções (RBAC)](../role-based-access-control/overview.md). A Azure Service Bus define um conjunto de funções incorporadas Azure que englobam conjuntos comuns de permissões usadas para aceder a entidades de Service Bus e também pode definir funções personalizadas para aceder aos dados.
 
-Quando um papel rbac é atribuído a um diretor de segurança Azure, Azure concede acesso a esses recursos para esse chefe de segurança. O acesso pode ser alargado ao nível de subscrição, ao grupo de recursos ou ao espaço de nomes do Service Bus. Um diretor de segurança Azure AD pode ser um utilizador, um grupo, um diretor de serviço de aplicação ou uma [identidade gerida para os recursos da Azure.](../active-directory/managed-identities-azure-resources/overview.md)
+Quando um papel de Azure é atribuído a um diretor de segurança da AZure, a Azure concede acesso a esses recursos para esse diretor de segurança. O acesso pode ser alargado ao nível de subscrição, ao grupo de recursos ou ao espaço de nomes do Service Bus. Um diretor de segurança Azure AD pode ser um utilizador, um grupo, um diretor de serviço de aplicação ou uma [identidade gerida para os recursos da Azure.](../active-directory/managed-identities-azure-resources/overview.md)
 
 ## <a name="azure-built-in-roles-for-azure-service-bus"></a>Azure funções incorporadas para Azure Service Bus
 Para a Azure Service Bus, a gestão de espaços de nome e todos os recursos relacionados através do portal Azure e da API de gestão de recursos Azure já está protegida utilizando o modelo *de controlo de acesso baseado em funções* (RBAC). A Azure fornece as funções incorporadas abaixo do Azure para autorizar o acesso a um espaço de nomes de Autocarros de Serviço:
@@ -39,11 +39,11 @@ Para a Azure Service Bus, a gestão de espaços de nome e todos os recursos rela
 - [Azure Service Bus Data Receiver](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver): Use esta função para dar acesso ao espaço de nomes do Service Bus e das suas entidades. 
 
 ## <a name="resource-scope"></a>Âmbito do recurso 
-Antes de atribuir uma função RBAC a um diretor de segurança, determine o âmbito de acesso que o diretor de segurança deve ter. As melhores práticas ditam que é sempre melhor conceder apenas o âmbito mais estreito possível.
+Antes de atribuir um papel de Azure a um diretor de segurança, determine o âmbito de acesso que o diretor de segurança deve ter. As melhores práticas ditam que é sempre melhor conceder apenas o âmbito mais estreito possível.
 
 A lista a seguir descreve os níveis em que pode aceder aos recursos do Service Bus, começando pelo âmbito mais restrito:
 
-- **Fila,** **tópico**, ou **subscrição**: A atribuição de funções aplica-se à entidade específica do Service Bus. Atualmente, o portal Azure não suporta a atribuição de utilizadores/grupos/identidades geridas às funções de Service Bus RBAC ao nível da subscrição. 
+- **Fila,** **tópico**, ou **subscrição**: A atribuição de funções aplica-se à entidade específica do Service Bus. Atualmente, o portal Azure não suporta a atribuição de utilizadores/grupos/identidades geridas às funções de Service Bus Azure ao nível da subscrição. 
 - **Espaço de nome do Service Bus**: A atribuição de funções abrange toda a topologia do Service Bus sob o espaço de nome e para o grupo de consumidores que lhe está associado.
 - **Grupo de recursos**: A atribuição de funções aplica-se a todos os recursos do Service Bus no âmbito do grupo de recursos.
 - **Subscrição**: A atribuição de funções aplica-se a todos os recursos do Service Bus em todos os grupos de recursos da subscrição.
@@ -54,7 +54,7 @@ A lista a seguir descreve os níveis em que pode aceder aos recursos do Service 
 Para obter mais informações sobre como as funções incorporadas são [definidas, consulte as definições de funções](../role-based-access-control/role-definitions.md#management-and-data-operations)de entender. Para obter informações sobre a criação de funções personalizadas [Azure, consulte os papéis personalizados da Azure](../role-based-access-control/custom-roles.md).
 
 
-## <a name="assign-rbac-roles-using-the-azure-portal"></a>Atribuir funções RBAC usando o portal Azure  
+## <a name="assign-azure-roles-using-the-azure-portal"></a>Atribuir funções Azure usando o portal Azure  
 Para saber mais sobre a gestão do acesso aos recursos do Azure utilizando o RBAC e o portal Azure, consulte [este artigo.](..//role-based-access-control/role-assignments-portal.md) 
 
 Depois de ter determinado a possibilidade adequada para uma atribuição de funções, navegue para esse recurso no portal Azure. Mostrar as definições de controlo de acesso (IAM) para o recurso e seguir estas instruções para gerir as atribuições de funções:
@@ -149,7 +149,7 @@ Antes de poder executar a amostra, edite o ficheiro **app.config** e, dependendo
 Quando executar a aplicação da consola, é-lhe solicitado que selecione um cenário. Selecione **o Início de Sessão do Utilizador Interativo** digitando o seu número e pressionando ENTER. A aplicação apresenta uma janela de login, pede o seu consentimento para aceder ao Service Bus e, em seguida, utiliza o serviço para executar através do cenário de envio/receção utilizando a identidade de login.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Para saber mais sobre o RBAC, veja [o que é o controlo de acesso baseado em funções do Azure (Azure RBAC)](../role-based-access-control/overview.md)?
 - Para aprender a atribuir e gerir atribuições de funções da Azure PowerShell, Azure CLI ou da REST API, consulte estes artigos:
     - [Gerir o controlo de acesso baseado em funções (RBAC) com a Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  

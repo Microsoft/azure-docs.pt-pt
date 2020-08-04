@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 07/29/2020
-ms.openlocfilehash: 968fe5a0f4999c25486189384186c23d1fcd5509
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 4189ea5fd0b2b52b5bf1e0614e4b43b9411df31d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430251"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530385"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copie uma cópia transaccionalmente consistente de uma base de dados na Base de Dados Azure SQL
 
@@ -133,7 +133,7 @@ Monitorize o processo de cópia consultando as [vistas sys.databases](https://do
 > [!IMPORTANT]
 > Se precisar de criar uma cópia com um objetivo de serviço substancialmente menor do que a fonte, a base de dados-alvo pode não ter recursos suficientes para completar o processo de sementeira e pode fazer com que a cópia operaion falhe. Neste cenário, utilize um pedido de geo-restauro para criar uma cópia num servidor diferente e/ou numa região diferente. Consulte [a Recuperação de uma Base de Dados Azure SQL utilizando cópias de dados](recovery-using-backups.md#geo-restore) para obter mais informações.
 
-## <a name="rbac-roles-to-manage-database-copy"></a>Funções do RBAC para gerir cópia de base de dados
+## <a name="azure-roles-to-manage-database-copy"></a>Funções Azure para gerir cópia de base de dados
 
 Para criar uma cópia de base de dados, terá de estar nas seguintes funções
 
@@ -155,7 +155,7 @@ Para gerir a cópia da base de dados utilizando o portal Azure, também necessit
 
    Microsoft.Resources/subscrições/recursos/read Microsoft.Resources/subscriptions/resources/write Microsoft.Resources/deployments/read Microsoft.Resources/deployments/write Microsoft.Resources/deployments/operationstatuses/read
 
-Se quiser ver as operações em implementação no grupo de recursos no portal, operações em vários fornecedores de recursos, incluindo operações SQL, necessitará destas funções adicionais de RBAC:
+Se quiser ver as operações em execução no grupo de recursos no portal, operações em vários fornecedores de recursos, incluindo operações SQL, necessitará destas funções adicionais de Azure:
 
    Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read
 
@@ -187,7 +187,7 @@ Os seguintes erros podem ser encontrados ao copiar uma base de dados na Base de 
 | 40570 |16 |A cópia da base de dados falhou devido a um erro interno. Por favor, largue a base de dados do alvo e tente de novo mais tarde. |
 | 40571 |16 |A cópia da base de dados falhou devido a um erro interno. Por favor, largue a base de dados do alvo e tente de novo mais tarde. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre logins, consulte [Gerir logins](logins-create-manage.md) e como gerir a segurança da Base de [Dados Azure SQL após a recuperação de desastres.](active-geo-replication-security-configure.md)
 * Para exportar uma base de dados, consulte [exporte a base de dados para um BACPAC.](database-export.md)

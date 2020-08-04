@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: e2e13d00e48c83ff56cc21f23f513d17f545b4e4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b7005954b14a9263ec074c836180853a99812dd5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496054"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534775"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Acesso à conta de armazenamento de controlo para SQL a pedido (pré-visualização)
 
@@ -89,7 +89,7 @@ Pode utilizar as seguintes combinações de autorizações e tipos de armazename
 
 
 > [!IMPORTANT]
-> Ao aceder ao armazenamento protegido com a firewall, apenas a Identidade Gerida pode ser utilizada. Precisa de [permitir serviços de confiança da Microsoft... definição](../../storage/common/storage-network-security.md#trusted-microsoft-services) e atribuição explicitamente [de um papel RBAC](../../storage/common/storage-auth-aad.md#assign-rbac-roles-for-access-rights) à [identidade gerida atribuída pelo sistema](../../active-directory/managed-identities-azure-resources/overview.md) para essa instância de recursos. Neste caso, o âmbito de acesso, por exemplo, corresponde à função RBAC atribuída à identidade gerida.
+> Ao aceder ao armazenamento protegido com a firewall, apenas a Identidade Gerida pode ser utilizada. Precisa de [permitir serviços de confiança da Microsoft... definição](../../storage/common/storage-network-security.md#trusted-microsoft-services) e atribuição explicitamente [de um papel Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) à [identidade gerida atribuída pelo sistema](../../active-directory/managed-identities-azure-resources/overview.md) para essa instância de recursos. Neste caso, o âmbito de acesso, por exemplo, corresponde à função Azure atribuída à identidade gerida.
 >
 
 ## <a name="credentials"></a>Credenciais

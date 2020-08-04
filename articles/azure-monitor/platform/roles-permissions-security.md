@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 8e56c4da0eec3338de7863a2ee158e804cf406c0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7d92cbc25411f5cc2d528ccf6ecec4539494d380
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325564"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533279"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Funções, permissões e segurança no Azure Monitor
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Muitas equipas precisam de regular rigorosamente o acesso à monitorização de dados e configurações. Por exemplo, se tiver membros da equipa que trabalham exclusivamente na monitorização (engenheiros de suporte, engenheiros DevOps) ou se utilizar um prestador de serviços gerido, poderá conceder-lhes acesso apenas a monitorizar dados, limitando a sua capacidade de criar, modificar ou eliminar recursos. Este artigo mostra como aplicar rapidamente uma função de MONITORIZAÇÃO incorporada a um utilizador em Azure ou construir o seu próprio papel personalizado para um utilizador que precisa de permissões de monitorização limitadas. Em seguida, discute considerações de segurança para os seus recursos relacionados com o Azure Monitor e como pode limitar o acesso aos dados que contêm.
+Muitas equipas precisam de regular rigorosamente o acesso à monitorização de dados e configurações. Por exemplo, se tiver membros da equipa que trabalham exclusivamente na monitorização (engenheiros de suporte, engenheiros DevOps) ou se utilizar um prestador de serviços gerido, poderá conceder-lhes acesso apenas a monitorizar dados, limitando a sua capacidade de criar, modificar ou eliminar recursos. Este artigo mostra como aplicar rapidamente um papel de Azure de monitorização incorporado a um utilizador em Azure ou construir o seu próprio papel personalizado para um utilizador que precisa de permissões de monitorização limitadas. Em seguida, discute considerações de segurança para os seus recursos relacionados com o Azure Monitor e como pode limitar o acesso aos dados que contêm.
 
 ## <a name="built-in-monitoring-roles"></a>Funções de monitorização incorporadas
 As funções incorporadas do Azure Monitor destinam-se a ajudar a limitar o acesso aos recursos numa subscrição, permitindo ainda aos responsáveis pela monitorização das infraestruturas obter e configurar os dados de que necessitam. O Azure Monitor fornece duas funções fora da caixa: um leitor de monitorização e um colaborador de monitorização.

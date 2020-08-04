@@ -3,12 +3,12 @@ title: Conceder permissões de utilizadores a políticas específicas de laborat
 description: Saiba como conceder permissões de utilizadores a políticas específicas de laboratório em Laboratórios DevTest com base nas necessidades de cada utilizador
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: cfacba2a7cdba20bd5a05c9ca5898194c31c2e68
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 1a0f46ed64bf360ceb990f1e91cb65ace76b5a9a
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855773"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534554"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Conceder permissões de utilizadores a políticas específicas de laboratório
 ## <a name="overview"></a>Descrição geral
@@ -17,7 +17,7 @@ Este artigo ilustra como usar o PowerShell para conceder aos utilizadores permis
 ## <a name="policies-as-resources"></a>Políticas como recursos
 Como discutido no artigo de [Controlo de Acesso baseado em funções Azure,](../role-based-access-control/role-assignments-portal.md) o RBAC permite uma gestão de recursos de acesso fino para a Azure. Utilizando o RBAC, pode segregar os deveres dentro da sua equipa de DevOps e conceder apenas a quantidade de acesso aos utilizadores de que necessitam para desempenharem os seus trabalhos.
 
-Na DevTest Labs, uma política é um tipo de recurso que permite a ação do RBAC **Microsoft.DevTestLab/labs/policySets/policiesSets/**. Cada política de laboratório é um recurso no tipo de recursos de política, e pode ser atribuída como um âmbito para um papel DE RBAC.
+Na DevTest Labs, uma política é um tipo de recurso que permite a ação do RBAC **Microsoft.DevTestLab/labs/policySets/policiesSets/**. Cada política de laboratório é um recurso no tipo de recursos da Política, e pode ser atribuída como um âmbito para um papel de Azure.
 
 Por exemplo, para conceder aos utilizadores a leitura/escrita da política **de tamanhos VM permitidos,** criaria uma função personalizada que funcionasse com o **Microsoft.DevTestLab/labs/policySets/policiesSets/policies/** action e, em seguida, atribuir os utilizadores adequados a este papel personalizado no âmbito do **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
@@ -80,7 +80,7 @@ No exemplo anterior, é utilizada a política **AllowedVmSizesInLab.** Pode util
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Depois de ter concedido permissões de utilizadores a políticas específicas de laboratório, eis alguns próximos passos a considerar:
 
 * [Acesso seguro a um laboratório](devtest-lab-add-devtest-user.md)

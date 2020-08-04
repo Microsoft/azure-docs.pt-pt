@@ -14,12 +14,12 @@ ms.date: 04/28/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac3f9adbb3b83345fe14df39014c6119e97ba7f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6597c268a2a017280d00f73366562de61b4781e
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84886110"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529794"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implementar gestão de identidade privilegiada da Azure AD (PIM)
 
@@ -115,7 +115,7 @@ A secção seguinte ajuda-o a identificar todas as partes interessadas envolvida
 | Nome e e-mail | **Assinatura / Titular de recursos**<br/>Um representante dos proprietários de TI de cada subscrição ou recurso que pretende implementar Gestão de Identidade Privilegiada para | SO/R/I |
 | Nome e e-mail | **Proprietário de segurança**<br/>Um representante da equipa de segurança que pode assinar que o plano cumpre os requisitos de segurança da sua organização. | SO/R |
 | Nome e e-mail | **Gestor de suporte de TI / Helpdesk**<br/>Um representante da organização de suporte de TI que pode fornecer informações sobre a sustentabilidade desta mudança numa perspetiva de helpdesk. | R/I |
-| Nome e e-mail para utilizadores piloto | **Utilizadores de funções RBAC**<br/>O grupo de utilizadores para o qual é implementada a gestão de identidade privilegiada. Terão de saber como ativar as suas funções assim que a Gestão de Identidade Privilegiada for implementada. | I |
+| Nome e e-mail para utilizadores piloto | **Utilizadores de funções Azure**<br/>O grupo de utilizadores para o qual é implementada a gestão de identidade privilegiada. Terão de saber como ativar as suas funções assim que a Gestão de Identidade Privilegiada for implementada. | I |
 
 ### <a name="enable-privileged-identity-management"></a>Ativar a Gestão de Identidade Privilegiada
 
@@ -257,7 +257,7 @@ Antes de implementar a sua solução de Gestão de Identidade Privilegiada, é u
 
 A tabela seguinte descreve cada uma das definições.
 
-| Definição | Descrição |
+| Definições | Descrição |
 | --- | --- |
 | Função | Nome do papel para o que está a definir. |
 | Requerer MFA | Se o utilizador elegível precisa de realizar MFA antes de ativar a função.<br/><br/> :heavy_check_mark: **A Microsoft recomenda** que imponha MFA para todas as funções de administrador, especialmente se as funções tiverem utilizadores convidados. |

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
-ms.openlocfilehash: 2f8406038be10ba3bdc207bf447fecb86a376fe8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 86d4f82b70a6b6b3ceed262cf96fa291e26dd53c
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81418070"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534384"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -28,7 +28,7 @@ ms.locfileid: "81418070"
 Este artigo descreve como utilizar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de um Sap Business Warehouse (BW). Baseia-se no artigo [de visão geral](copy-activity-overview.md) da atividade de cópia que apresenta uma visão geral da atividade da cópia.
 
 >[!TIP]
->Para obter o apoio global da ADF no cenário de integração de dados SAP, consulte [a integração de dados SAP utilizando o papel branco da Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) com introdução, comparação e orientação detalhadas.
+>Para obter o apoio global da ADF no cenário de integração de dados SAP, consulte [a integração de dados SAP utilizando o papel branco da Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) com introdução detalhada em cada conector SAP, comparação e orientação.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
@@ -67,15 +67,15 @@ As seguintes secções fornecem detalhes sobre propriedades que são usadas para
 
 As seguintes propriedades são suportadas para o serviço ligado ao SAP Business Warehouse (BW):
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **SapBw** | Yes |
-| servidor | Nome do servidor em que reside a instância SAP BW. | Yes |
-| sistemaNumbre | Número do sistema do sistema SAP BW.<br/>Valor permitido: número decimal de dois dígitos representado como uma corda. | Yes |
-| clientId | Identificação do cliente do cliente no sistema SAP W.<br/>Valor permitido: número decimal de três dígitos representado como uma corda. | Yes |
-| userName | Nome do utilizador que tem acesso ao servidor SAP. | Yes |
-| palavra-passe | A palavra-passe do utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
-| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. É necessário um tempo de integração auto-organizado, tal como mencionado nos [Pré-Requisitos](#prerequisites). |Yes |
+| tipo | A propriedade tipo deve ser definida para: **SapBw** | Sim |
+| servidor | Nome do servidor em que reside a instância SAP BW. | Sim |
+| sistemaNumbre | Número do sistema do sistema SAP BW.<br/>Valor permitido: número decimal de dois dígitos representado como uma corda. | Sim |
+| clientId | Identificação do cliente do cliente no sistema SAP W.<br/>Valor permitido: número decimal de três dígitos representado como uma corda. | Sim |
+| userName | Nome do utilizador que tem acesso ao servidor SAP. | Sim |
+| palavra-passe | A palavra-passe do utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. É necessário um tempo de integração auto-organizado, tal como mencionado nos [Pré-Requisitos](#prerequisites). |Sim |
 
 **Exemplo:**
 
@@ -135,10 +135,10 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da SAP BW, as seguintes propriedades são suportadas na secção **fonte de origem** da atividade da cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **SapBwSource** | Yes |
-| consulta | Especifica a consulta MDX para ler dados a partir da instância SAP BW. | Yes |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **SapBwSource** | Sim |
+| consulta | Especifica a consulta MDX para ler dados a partir da instância SAP BW. | Sim |
 
 **Exemplo:**
 
@@ -186,7 +186,7 @@ Ao copiar dados da SAP BW, os seguintes mapeamentos são usados desde os tipos d
 | CURR | Decimal |
 | RIO CUKY | String |
 | DEC | Decimal |
-| FLTP | Double |
+| FLTP | Double (Duplo) |
 | INT1 | Byte |
 | INT2 | Int16 |
 | INT4 | int |

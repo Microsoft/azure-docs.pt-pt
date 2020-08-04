@@ -1,5 +1,5 @@
 ---
-title: Use O CLI do Azure para atribuir uma função RBAC para o acesso a dados
+title: Use o CLI Azure para atribuir uma função Azure para o acesso a dados
 titleSuffix: Azure Storage
 description: Saiba como usar o Azure CLI para atribuir permissões a um diretor de segurança do Azure Ative Directory com controlo de acesso baseado em funções (RBAC). O Azure Storage suporta funções personalizadas incorporadas e Azure para autenticação via Azure AD.
 services: storage
@@ -11,22 +11,22 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 76eb92d39dbfd059354cc63550c8d1301c07ca37
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 65dee169b620fbe0726a9e62ee520c92f91d48cf
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503719"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534197"
 ---
-# <a name="use-azure-cli-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Utilize o CLI Azure para atribuir uma função RBAC para acesso a dados de bolhas e filas
+# <a name="use-azure-cli-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Use o CLI Azure para atribuir uma função Azure para acesso a dados de bolhas e filas
 
 O Azure Ative Directory (Azure AD) autoriza os direitos de acesso a recursos seguros através [do controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md). O Azure Storage define um conjunto de funções incorporadas do Azure que englobam conjuntos comuns de permissões usadas para aceder a dados de bolhas ou filas.
 
-Quando um papel rbac é atribuído a um diretor de segurança Azure, Azure concede acesso a esses recursos para esse chefe de segurança. O acesso pode ser alargado ao nível da subscrição, do grupo de recursos, da conta de armazenamento ou de um contentor ou fila individual. Um diretor de segurança Azure AD pode ser um utilizador, um grupo, um diretor de serviço de aplicação ou uma [identidade gerida para os recursos da Azure.](../../active-directory/managed-identities-azure-resources/overview.md)
+Quando um papel de Azure é atribuído a um diretor de segurança da AZure, a Azure concede acesso a esses recursos para esse diretor de segurança. O acesso pode ser alargado ao nível da subscrição, do grupo de recursos, da conta de armazenamento ou de um contentor ou fila individual. Um diretor de segurança Azure AD pode ser um utilizador, um grupo, um diretor de serviço de aplicação ou uma [identidade gerida para os recursos da Azure.](../../active-directory/managed-identities-azure-resources/overview.md)
 
 Este artigo descreve como usar o Azure CLI para listar as funções incorporadas do Azure e atribuí-las aos utilizadores. Para obter mais informações sobre a utilização do [Azure CLI, consulte a Interface Azure Command-Line (CLI)](/cli/azure).
 
-## <a name="rbac-roles-for-blobs-and-queues"></a>Papéis RBAC para bolhas e filas
+## <a name="azure-roles-for-blobs-and-queues"></a>Papéis de azul para bolhas e filas
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
@@ -34,7 +34,7 @@ Este artigo descreve como usar o Azure CLI para listar as funções incorporadas
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
-## <a name="list-available-rbac-roles"></a>Lista de funções disponíveis no RBAC
+## <a name="list-available-azure-roles"></a>Lista de funções disponíveis do Azure
 
 Para listar as funções disponíveis em incorporado Azure com O Azure CLI, utilize o comando da [lista de definição de função az:](/cli/azure/role/definition#az-role-definition-list)
 
@@ -54,9 +54,9 @@ Storage Queue Data Message Sender         Allows for sending of Azure Storage qu
 Storage Queue Data Reader                 Allows for read access to Azure Storage queues and queue messages
 ```
 
-## <a name="assign-an-rbac-role-to-a-security-principal"></a>Atribuir um papel de RBAC a um diretor de segurança
+## <a name="assign-an-azure-role-to-a-security-principal"></a>Atribua um papel de Azure a um diretor de segurança
 
-Para atribuir um papel rbac a um principal de segurança, use a [atribuição de função az criar](/cli/azure/role/assignment#az-role-assignment-create) comando. O formato do comando pode diferir com base no âmbito da atribuição. Os exemplos a seguir mostram como atribuir uma função a um utilizador em vários âmbitos, mas pode usar o mesmo comando para atribuir uma função a qualquer diretor de segurança.
+Para atribuir um papel de Azure a um principal de segurança, use a [atribuição de funções az criar](/cli/azure/role/assignment#az-role-assignment-create) comando. O formato do comando pode diferir com base no âmbito da atribuição. Os exemplos a seguir mostram como atribuir uma função a um utilizador em vários âmbitos, mas pode usar o mesmo comando para atribuir uma função a qualquer diretor de segurança.
 
 ### <a name="container-scope"></a>Âmbito do contentor
 

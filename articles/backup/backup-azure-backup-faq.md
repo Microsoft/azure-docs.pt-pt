@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas a perguntas comuns sobre: funcionalidades do Azure Backup incluindo os cofres dos Serviços de Recuperação, que cópias de segurança podem criar, como funcionam, a encriptação e os limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 6d05c06b1d27cd9d1bc396bddad49fcc89ba3ec3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4273d93e36dd8d956246811dd3f1d71d96ddcb68
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091084"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532463"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Perguntas frequentes
 
@@ -18,7 +18,7 @@ Este artigo responde a questões comuns sobre o serviço do Azure Backup.
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription"></a>Existe algum limite ao número de cofres que podem ser criados em cada subscrição do Azure?
 
-Yes. Pode criar até 500 cofres dos Serviços de Recuperação, por região suportada do Azure Backup, por subscrição. Se precisar de mais cofres, crie uma subscrição adicional.
+Sim. Pode criar até 500 cofres dos Serviços de Recuperação, por região suportada do Azure Backup, por subscrição. Se precisar de mais cofres, crie uma subscrição adicional.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>Existem limites no número de servidores/máquinas que podem ser registados em relação a cada cofre?
 
@@ -39,7 +39,7 @@ Os dados de servidores que quer recuperar em conjunto deverão utilizar a mesma 
 
 ### <a name="can-i-move-my-vault-between-subscriptions"></a>Posso mover o meu cofre entre subscrições?
 
-Yes. Para mover um cofre dos Serviços de Recuperação, veja este [artigo](backup-azure-move-recovery-services-vault.md)
+Sim. Para mover um cofre dos Serviços de Recuperação, veja este [artigo](backup-azure-move-recovery-services-vault.md)
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>Posso mover dados de cópia de segurança para outro cofre?
 
@@ -69,7 +69,7 @@ Se já configurar a cópia de segurança e tiver de passar de GRS para LRS, ent�
 
 ### <a name="are-there-limits-on-backup-scheduling"></a>Existem limites no agendamento de cópias de segurança?
 
-Yes.
+Sim.
 
 - Pode fazer cópias de segurança de computadores Windows ou Windows Server até três vezes por dia. Pode definir a política de agendamento para agendamentos diários ou semanais.
 - Pode fazer cópias de segurança do DPM até duas vezes por dia. Pode definir a política de agendamento para agendamentos diários, semanais, mensais e anuais.
@@ -201,11 +201,11 @@ Quando é aplicada uma nova política, são seguidas o agendamento e a retençã
 
 ### <a name="is-the-data-sent-to-azure-encrypted"></a>Os dados enviados para o Azure são encriptados?
 
-Yes. Os dados são encriptados no computador no local com AES256. Os dados são enviados através de uma ligação HTTPS segura. Os dados transmitidos na cloud são protegidos pela ligação HTTPS apenas entre o serviço de armazenamento e recuperação. O protocolo iSCSI protege os dados transmitidos entre o serviço de recuperação e o computador do utilizador. O túnel seguro é utilizado para proteger o canal iSCSI.
+Sim. Os dados são encriptados no computador no local com AES256. Os dados são enviados através de uma ligação HTTPS segura. Os dados transmitidos na cloud são protegidos pela ligação HTTPS apenas entre o serviço de armazenamento e recuperação. O protocolo iSCSI protege os dados transmitidos entre o serviço de recuperação e o computador do utilizador. O túnel seguro é utilizado para proteger o canal iSCSI.
 
 ### <a name="is-the-backup-data-on-azure-encrypted-as-well"></a>Os dados da cópia de segurança no Azure também são encriptados?
 
-Yes. Os dados no Azure são encriptados inativamente.
+Sim. Os dados no Azure são encriptados inativamente.
 
 - Para cópias de segurança no local, a encriptação inativa de dados é fornecida ao utilizar a frase de acesso que forneceu ao fazer cópias de segurança no Azure.
 - Nas VMs do Azure, os dados são encriptados inativamente com a Encriptação do Serviço de Armazenamento (SSE).
@@ -214,7 +214,7 @@ A Microsoft não desencripta os dados da cópia de segurança em momento algum.
 
 ### <a name="what-is-the-minimum-length-of-the-encryption-key-used-to-encrypt-backup-data"></a>Qual é o comprimento mínimo da chave de encriptação usada para encriptar dados de backup?
 
-A chave de encriptação deve ter, pelo menos, 16 caracteres se estiver a utilizar o agente do Azure Backup. Nas VMs do Azure, as chaves utilizadas pelo Azure Key Vault não têm limite de comprimento.
+A chave de encriptação utilizada pelo Agente microsoft Azure Recovery Services (MARS) é derivada de uma palavra-passe que deve ter pelo menos 16 caracteres de comprimento. Para os VMs Azure, não há limite para o comprimento das teclas utilizadas pela Azure KeyVault.
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-can-microsoft-recover-the-data"></a>O que acontece se perder a chave de encriptação? Posso recuperar os dados? A Microsoft pode recuperar os dados?
 

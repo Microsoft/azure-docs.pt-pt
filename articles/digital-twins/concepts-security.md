@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: bc6b3911ed6d04561d25ef166625f9e73023726d
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: d29bccdadeef44f1ae4cdae5875257f95395b96f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373288"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534044"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>Secure Azure Digital Twins com controlo de acesso baseado em funções
 
@@ -33,7 +33,7 @@ Com a Azure AD, o acesso é um processo em duas etapas. Quando um principal de s
 
 A etapa de autenticação requer qualquer pedido de pedido para conter um token de acesso OAuth 2.0 no tempo de execução. Se uma aplicação estiver a ser executada dentro de uma entidade Azure, como uma aplicação [Azure Functions,](../azure-functions/functions-overview.md) pode utilizar uma **identidade gerida** para aceder aos recursos. Leia mais sobre identidades geridas na secção seguinte.
 
-O passo de autorização requer que seja atribuída uma função RBAC ao diretor de segurança. As funções atribuídas a um diretor de segurança determinam as permissões que o diretor terá. A Azure Digital Twins fornece funções RBAC que englobam conjuntos de permissões para recursos Azure Digital Twins. Estes papéis são descritos mais tarde neste artigo.
+O passo de autorização requer que um papel de Azure seja atribuído ao diretor de segurança. As funções atribuídas a um diretor de segurança determinam as permissões que o diretor terá. A Azure Digital Twins fornece funções Azure que englobam conjuntos de permissões para recursos da Azure Digital Twins. Estes papéis são descritos mais tarde neste artigo.
 
 Para saber mais sobre papéis e atribuições de papéis suportados no Azure, consulte [*Compreender os diferentes papéis*](../role-based-access-control/rbac-and-directory-admin-roles.md) na documentação do Azure RBAC.
 
@@ -41,9 +41,9 @@ Para saber mais sobre papéis e atribuições de papéis suportados no Azure, co
 
 [As identidades geridas para os recursos Azure](../active-directory/managed-identities-azure-resources/overview.md) são uma funcionalidade cross-Azure que lhe permite criar uma identidade segura associada à implementação onde o seu código de aplicação funciona. Em seguida, pode associar essa identidade a funções de controlo de acesso, para conceder permissões personalizadas para aceder a recursos específicos do Azure de que a sua aplicação necessita.
 
-Com identidades geridas, a plataforma Azure gere esta identidade de tempo de execução. Não precisa de armazenar e proteger as chaves de acesso no seu código de aplicação ou configuração, quer para a própria identidade, quer para os recursos a que necessita. Uma aplicação de clientes Azure Digital Twins que funciona dentro de uma aplicação do Azure App Service não precisa de lidar com as regras e chaves da SAS, nem quaisquer outros tokens de acesso. A aplicação do cliente só precisa do endereço final do espaço de nomes Azure Digital Twins. Quando a aplicação se conecta, a Azure Digital Twins liga o contexto da entidade gerida ao cliente. Uma vez associado a uma identidade gerida, o seu cliente Azure Digital Twins pode fazer todas as operações autorizadas. A autorização será então concedida associando uma entidade gerida com uma função RBAC de Gémeos Digitais Azure (descrito abaixo).
+Com identidades geridas, a plataforma Azure gere esta identidade de tempo de execução. Não precisa de armazenar e proteger as chaves de acesso no seu código de aplicação ou configuração, quer para a própria identidade, quer para os recursos a que necessita. Uma aplicação de clientes Azure Digital Twins que funciona dentro de uma aplicação do Azure App Service não precisa de lidar com as regras e chaves da SAS, nem quaisquer outros tokens de acesso. A aplicação do cliente só precisa do endereço final do espaço de nomes Azure Digital Twins. Quando a aplicação se conecta, a Azure Digital Twins liga o contexto da entidade gerida ao cliente. Uma vez associado a uma identidade gerida, o seu cliente Azure Digital Twins pode fazer todas as operações autorizadas. A autorização será então concedida associando uma entidade gerida com um papel Azure Digital Twins Azure (descrito abaixo).
 
-### <a name="authorization-rbac-roles-for-azure-digital-twins"></a>Autorização: Papéis do RBAC para gémeos digitais Azure
+### <a name="authorization-azure-roles-for-azure-digital-twins"></a>Autorização: Funções Azure para Azure Digital Twins
 
 A Azure fornece as funções incorporadas abaixo do Azure para autorizar o acesso a um recurso Azure Digital Twins:
 * *Azure Digital Twins Owner (Preview)* – Use esta função para dar acesso total sobre os recursos da Azure Digital Twins.
@@ -62,7 +62,7 @@ Para passos mais detalhados sobre como fazê-lo, experimente-o no Tutorial de G�
 
 ## <a name="permission-scopes"></a>Âmbitos de permissão
 
-Antes de atribuir uma função RBAC a um diretor de segurança, determine o âmbito de acesso que o diretor de segurança deve ter. As melhores práticas ditam que o melhor é conceder apenas o âmbito mais estreito possível.
+Antes de atribuir um papel de Azure a um diretor de segurança, determine o âmbito de acesso que o diretor de segurança deve ter. As melhores práticas ditam que o melhor é conceder apenas o âmbito mais estreito possível.
 
 A lista que se segue descreve os níveis em que pode aceder aos recursos da Azure Digital Twins.
 * Modelos: As ações para este recurso ditam o controlo sobre [os modelos carregados](concepts-models.md) em Azure Digital Twins.

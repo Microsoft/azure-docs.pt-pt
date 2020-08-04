@@ -1,14 +1,14 @@
 ---
-title: Papéis e permissões do RBAC
+title: Papéis e permissões Azure
 description: Utilize o controlo de acesso baseado em funções Azure (Azure RBAC) e a gestão de identidade e acesso (IAM) para fornecer permissões de grãos finos aos recursos num registo de contentores Azure.
 ms.topic: article
 ms.date: 12/02/2019
-ms.openlocfilehash: 0bf6059698191c975b212bee7f45d21977478b49
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 90546b96f081893d312e66aae04e2125c1c210e5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497754"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533313"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Funções e permissões do Registo de Contentores de Azure
 
@@ -85,7 +85,7 @@ Para definir um papel personalizado, consulte [Passos para criar um papel person
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre a atribuição de funções de RBAC a uma identidade Azure utilizando o [portal Azure](../role-based-access-control/role-assignments-portal.md), o [Azure CLI,](../role-based-access-control/role-assignments-cli.md)ou outras ferramentas Azure.
+* Saiba mais sobre a atribuição de funções Azure a uma identidade Azure utilizando o [portal Azure](../role-based-access-control/role-assignments-portal.md), o [Azure CLI,](../role-based-access-control/role-assignments-cli.md)ou outras ferramentas Azure.
 
 * Saiba mais [sobre as opções de autenticação](container-registry-authentication.md) do Registo do Contentor Azure.
 

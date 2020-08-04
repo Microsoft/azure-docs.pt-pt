@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 28563dc1e8acf4e521d75a7f4f8986d92d2a8348
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 17d19d0b87812ec1f38b43c1b26dbd5c19b4efc8
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497941"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534214"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorizar o acesso a dados de blob e fila com identidades geridas para recursos Azure
 
@@ -30,7 +30,7 @@ Antes de poder utilizar identidades geridas para a Azure Resources para autoriza
 - [Portal do Azure](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
-- [Modelo Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Modelo de gestor de recursos Azure](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Bibliotecas de clientes Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 Para obter mais informações sobre identidades geridas, consulte [identidades geridas para recursos Azure](../../active-directory/managed-identities-azure-resources/overview.md).
@@ -47,7 +47,7 @@ Para obter mais informações sobre a biblioteca de clientes Azure Identity para
 
 ### <a name="assign-azure-roles-for-access-to-data"></a>Atribuir funções da Azure para acesso aos dados
 
-Quando um diretor de segurança da AZure AD tenta aceder a dados de blob ou fila, esse diretor de segurança deve ter permissões para o recurso. Se o principal de segurança é uma identidade gerida em Azure ou uma conta de utilizador Azure AD que executa código no ambiente de desenvolvimento, o principal de segurança deve ser atribuído a uma função RBAC que concede acesso a dados de blob ou fila no Azure Storage. Para obter informações sobre a atribuição de permissões através do RBAC, consulte a secção intitulada **Atribuir funções RBAC para direitos de acesso** em acesso autorizado a [blobs e filas Azure usando O Diretório Ativo Azure](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
+Quando um diretor de segurança da AZure AD tenta aceder a dados de blob ou fila, esse diretor de segurança deve ter permissões para o recurso. Se o principal de segurança é uma identidade gerida em Azure ou uma conta de utilizador Azure AD que executa código no ambiente de desenvolvimento, o principal de segurança deve ser atribuído a uma função Azure que concede acesso a dados de blob ou fila no Azure Storage. Para obter informações sobre a atribuição de permissões através do RBAC, consulte a secção intitulada **Atribuir funções Azure para direitos de acesso** em Acesso autorizado a [blobs e filas Azure usando O Diretório Ativo Azure](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
 
 ### <a name="authenticate-the-user-in-the-development-environment"></a>Autenticar o utilizador no ambiente de desenvolvimento
 
@@ -61,7 +61,7 @@ Se o seu ambiente de desenvolvimento não suporta um único login ou login atrav
 
 #### <a name="create-the-service-principal"></a>Criar o principal de serviço
 
-Para criar um diretor de serviço com Azure CLI e atribuir um papel RBAC, ligue para o comando [ad sp create-for-rbac.](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) Forneça uma função de acesso aos dados do Azure Storage para atribuir ao novo diretor de serviço. Além disso, forneça a margem para a atribuição de funções. Para obter mais informações sobre as funções incorporadas previstas para o Azure Storage, consulte [as funções incorporadas do Azure.](../../role-based-access-control/built-in-roles.md)
+Para criar um diretor de serviço com Azure CLI e atribuir um papel Azure, ligue para o comando [ad sp create-for-rbac.](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) Forneça uma função de acesso aos dados do Azure Storage para atribuir ao novo diretor de serviço. Além disso, forneça a margem para a atribuição de funções. Para obter mais informações sobre as funções incorporadas previstas para o Azure Storage, consulte [as funções incorporadas do Azure.](../../role-based-access-control/built-in-roles.md)
 
 Se não tiver permissões suficientes para atribuir uma função ao titular do serviço, poderá ter de pedir ao titular ou administrador da conta para desempenhar a função.
 

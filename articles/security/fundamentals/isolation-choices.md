@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 3195c27351ba6110c784ddd8a10ea9ddfb0d903a
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 42582c9474647c4c203bd0cafae0be664398ba41
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447353"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533908"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na Nuvem Pública de Azure
 
@@ -78,7 +78,7 @@ O Azure RBAC tem três funções básicas que se aplicam a todos os tipos de rec
 
 ![Controlo de acesso baseado em funções Azure (Azure RBAC)](./media/isolation-choices/azure-isolation-fig3.png)
 
-O resto das funções da RBAC no Azure permitem a gestão de recursos específicos do Azure. Por exemplo, a função Contribuidor de Máquina Virtual permite ao utilizador criar e gerir máquinas virtuais. Não lhes dá acesso à Rede Virtual Azure ou à sub-rede a que a máquina virtual se conecta.
+O resto das funções do Azure no Azure permitem a gestão de recursos específicos do Azure. Por exemplo, a função Contribuidor de Máquina Virtual permite ao utilizador criar e gerir máquinas virtuais. Não lhes dá acesso à Rede Virtual Azure ou à sub-rede a que a máquina virtual se conecta.
 
 [As funções incorporadas da RBAC](../../role-based-access-control/built-in-roles.md) listam as funções disponíveis no Azure. Especifica as operações e o âmbito que cada papel incorporado concede aos utilizadores. Se procura definir os seus próprios papéis para ainda mais controlo, veja como construir [papéis personalizados no Azure RBAC.](../../role-based-access-control/custom-roles.md)
 

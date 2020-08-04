@@ -3,12 +3,12 @@ title: Limites e quotas de escala no seu laboratório em Azure DevTest Labs Micr
 description: Este artigo descreve como pode escalar o seu laboratório em Azure DevTest Labs. Veja as suas quotas de utilização e limites e solicite um aumento.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: dacc699a6f4e7663d0f314acfc2212bd69d46d18
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2166eaab073e2abc24ca24494ae13eb876db1fcf
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287306"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533959"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Quotas e limites em Laboratórios DevTest
 Ao trabalhar na DevTest Labs, poderá notar que existem certos limites padrão para alguns recursos Azure, que podem afetar o serviço DevTest Labs. Estes limites são referidos como **quotas.**
@@ -20,7 +20,7 @@ Pode utilizar cada recurso Azure até atingir a sua quota. Cada subscrição tem
 
 Por exemplo, cada subscrição tem uma quota padrão de 20 núcleos. Então, se está a criar VMs no seu laboratório com quatro núcleos cada, então só pode criar cinco VMs.
 
-[A Azure Subscription and Service Limits](../azure-resource-manager/management/azure-subscription-service-limits.md) lista algumas das quotas mais comuns para os recursos Azure. Os recursos mais utilizados em laboratório, e para os quais poderá encontrar quotas, incluem núcleos VM, endereços IP públicos, interface de rede, discos geridos, atribuição de funções RBAC e circuitos ExpressRoute.
+[A Azure Subscription and Service Limits](../azure-resource-manager/management/azure-subscription-service-limits.md) lista algumas das quotas mais comuns para os recursos Azure. Os recursos mais utilizados em laboratório, e para os quais poderá encontrar quotas, incluem núcleos VM, endereços IP públicos, interface de rede, discos geridos, atribuição de funções Azure e circuitos ExpressRoute.
 
 ## <a name="view-your-usage-and-quotas"></a>Veja o seu uso e quotas
 Estes passos mostram-lhe como visualizar as quotas atuais na sua subscrição para recursos específicos da Azure, e ver qual a percentagem de cada quota que utilizou.

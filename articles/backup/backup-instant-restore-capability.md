@@ -4,12 +4,12 @@ description: Capacidade de restauro instantâneo Azure e FAQs para pilha de back
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 6225a7eb8198ffcca0d1e3e15f64e2b3c977dc16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ea4c3757da4e24ae0455cf35f119bf57ed644a6
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248282"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531834"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obtenha uma cópia de segurança melhorada e restaure o desempenho com a capacidade de restauro instantâneo de backup Azure
 
@@ -78,7 +78,7 @@ Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 
 A retenção de instantâneo padrão para cada política está definida em dois dias. O utilizador pode alterar o valor para um mínimo de 1 e um máximo de cinco dias. Para as políticas semanais, a retenção de instantâneos é fixada a cinco dias.
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="what-are-the-cost-implications-of-instant-restore"></a>Quais são as implicações de custo da restauração instantânea?
 
@@ -116,9 +116,3 @@ Se o ponto de recuperação tiver instantâneo e este for o mais recente RP disp
 
 A função de restauro instantâneo está ativada para todos e não pode ser desativada. Pode reduzir a retenção de instantâneo para um mínimo de um dia.
 
->[!NOTE]
-> **O Azure Backup suporta agora a cópia de segurança seletiva do disco e restaura utilizando a solução de backup da Máquina Virtual Azure.**
->
->Hoje em dia, o Azure Backup suporta o backup de todos os discos (Sistema Operativo e dados) num VM em conjunto utilizando a solução de backup da Máquina Virtual. Com a funcionalidade de exclusão do disco, obtém-se uma opção de backup de um ou alguns dos muitos discos de dados num VM. Isto fornece uma solução eficiente e rentável para as suas necessidades de backup e restauro. Cada ponto de recuperação contém dados dos discos incluídos na operação de backup, o que permite ainda ter um subconjunto de discos restaurados a partir do ponto de recuperação dado durante a operação de restauro. Isto aplica-se para restaurar tanto do instantâneo como do cofre.
->
->**Para se inscrever para a pré-visualização, escreva-nos emAskAzureBackupTeam@microsoft.com**

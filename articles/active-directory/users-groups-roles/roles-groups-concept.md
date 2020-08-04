@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24f29ed1ad7ba0215e9b4193fd56dd3a32f3e9a2
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 68d40e9dbc2c4da6b298f7245318c95de983edcc
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476289"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530151"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Utilize grupos de nuvem para gerir atribuições de funções no Azure Ative Directory (pré-visualização)
 
@@ -59,12 +59,13 @@ Os seguintes cenários não são apoiados neste momento:
 ## <a name="known-issues"></a>Problemas conhecidos
 
 - Não é possível criar ou modificar um grupo dinâmico quando o papel é atribuído através de um grupo.
-- A Azure Information Protection ainda não reconhece a adesão ao papel através do grupo. As tarefas diretas ainda funcionam. O Portal de Proteção de Informação Azure (o portal clássico) ainda não reconhece a adesão ao papel através do grupo. As tarefas diretas ainda funcionam. Pode [migrar para a plataforma de rotulagem unificada](https://docs.microsoft.com/azure/information-protection/configure-policy-migrate-labels) de sensibilidade e, em seguida, utilizar o Centro de Conformidade & de Segurança do Office 365 para utilizar atribuições de grupo para gerir funções.
 - O lançamento encenado por Enable para funcionalidade **de inscrição de utilizador gerida** não suporta a atribuição através do grupo.
 - *Clientes licenciados Azure AD P2 apenas*: Não atribua um grupo como Ative a um papel através da AZure AD e da Gestão de Identidade Privilegiada. Isto levará a problemas em que os utilizadores não podem ver as suas atribuições de papel ativa no PIM, bem como a incapacidade de remover essa atribuição pim. As atribuições elegíveis não são afetadas neste cenário. Se tentar fazer esta tarefa, poderá ver comportamentos inesperados como:
   - O fim do tempo para a atribuição da função pode ser apresentado incorretamente.
   - No portal PIM, **my Roles** só pode mostrar uma tarefa de papel, independentemente de quantos métodos a atribuição é concedida (através de um ou mais grupos e diretamente).
-- *Clientes licenciados Azure AD P2 apenas* Mesmo depois de eliminar o grupo, é ainda mostrado um membro elegível do papel na PIM UI. Funcionalmente não há problema; é apenas um problema de cache no portal Azure.
+- *Clientes licenciados Azure AD P2 apenas* Mesmo depois de eliminar o grupo, é ainda mostrado um membro elegível do papel na PIM UI. Funcionalmente não há problema; é apenas um problema de cache no portal Azure.  
+- O Exchange Admin Center ainda não reconhece a adesão ao papel através do grupo, mas o Comandante PowerShell funcionará.
+- O Portal de Proteção de Informação Azure (o portal clássico) ainda não reconhece a adesão ao papel através do grupo. Pode [migrar para a plataforma de rotulagem unificada](https://docs.microsoft.com/azure/information-protection/configure-policy-migrate-labels) de sensibilidade e, em seguida, utilizar o Centro de Conformidade & de Segurança do Office 365 para utilizar atribuições de grupo para gerir funções.
 
 Estamos a resolver estas questões.
 
@@ -74,5 +75,5 @@ A utilização desta funcionalidade requer que tenha uma licença Azure AD Premi
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Criar um grupo atribuível a funções](roles-groups-create-eligible.md)
+- [Criar um grupo ao qual se pode atribuir funções](roles-groups-create-eligible.md)
 - [Atribuir um papel a um grupo atribuível a funções](roles-groups-assign-role.md)

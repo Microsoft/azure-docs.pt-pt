@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4c28299758150f56e3f47156382d8a6245a0cf52
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: c1a5d302f63f57a142d014c8ef66d02405e119ea
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386219"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531171"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do Programador do Azure Key Vault
 
@@ -38,16 +38,37 @@ Para obter mais informações sobre identidades geridas para recursos Azure, con
 
 Antes de trabalhar com chaves, segredos ou certificados no seu cofre chave, irá criar e gerir o seu cofre-chave através de CLI, PowerShell, Resource Manager Templates ou REST, conforme descrito nos seguintes artigos:
 
-- [Criar e gerir cofres-chave com CLI](../secrets/quick-create-cli.md)
-- [Criar e gerir cofres-chave com PowerShell](../secrets/quick-create-powershell.md)
-- [Criar e gerir cofres-chave com o portal Azure](../secrets/quick-create-portal.md)
-- [Criar e gerir cofres-chave com Python](../secrets/quick-create-python.md)
-- [Criar e gerir cofres-chave com Java](../secrets/quick-create-java.md)
-- [Criar e gerir cofres-chave com Node.js](../secrets/quick-create-node.md)
-- [Criar e gerir cofres-chave com .NET (v4 SDK)](../secrets/quick-create-net.md)
-- [Crie um cofre chave e adicione um segredo através de um modelo de Gestor de Recursos Azure](../secrets/quick-create-template.md)
-- [Criar e gerir cofres-chave com REST](/rest/api/keyvault/)
+- [Criar e gerir cofres-chave com CLI](quick-create-cli.md)
+- [Criar e gerir cofres-chave com PowerShell](quick-create-powershell.md)
+- [Criar e gerir cofres-chave com o portal Azure](quick-create-portal.md)
+- [Criar e gerir cofres-chave com REST](/rest/api/keyvault/vaults/createorupdate)
 
+### <a name="set-and-retrieve-secrets"></a>Definir e recuperar segredos
+
+- [Definir e recuperar um segredo com CLI](../secrets/quick-create-cli.md)
+- [Definir e recuperar um segredo com PowerShell](../secrets/quick-create-powershell.md)
+- [Definir e recuperar um segredo com o portal Azure](../secrets/quick-create-portal.md)
+- [Operações secretas com REST](/rest/api/keyvault/#secret-operations)
+- [Definir e recuperar um segredo com Python](../secrets/quick-create-python.md)
+- [Definir e recuperar um segredo com Java](../secrets/quick-create-java.md)
+- [Definir e recuperar um segredo com Node.js](../secrets/quick-create-node.md)
+- [Desempaçar e recuperar um segredo com .NET (v4 SDK)](../secrets/quick-create-net.md)
+- [Crie um cofre chave e adicione um segredo através de um modelo de Gestor de Recursos Azure](../secrets/quick-create-template.md)
+
+### <a name="set-and-retrieve-keys"></a>Definir e recuperar chaves
+
+- [Definir e recuperar uma chave com CLI](../keys/quick-create-cli.md)
+- [Desacoda e recupere uma chave com PowerShell](../keys/quick-create-powershell.md)
+- [Desconfiem e recupere uma chave com o portal Azure](../keys/quick-create-portal.md)
+- [Operações de chaves com REST](/rest/api/keyvault/#key-operations)
+- [Definir e recuperar uma chave com Python](../secrets/quick-create-python.md)
+
+### <a name="set-and-retrieve-certificates"></a>Definir e recuperar certificados
+- [Definir e recuperar um certificado com CLI](../certificates/quick-create-cli.md)
+- [Desemole e recupere um certificado com PowerShell](../certificates/quick-create-powershell.md)
+- [Desconfiem e recupere um certificado com o portal Azure](../certificates/quick-create-portal.md)
+- [Operações de chaves com REST](/rest/api/keyvault/#certificate-operations)
+- [Definir e recuperar um certificado com Python](../certificates/quick-create-python.md)
 
 ## <a name="coding-with-key-vault"></a>Codificação com cofre de chaves
 
@@ -64,8 +85,6 @@ Todos os seus recursos Key Vault estão acessíveis através da interface REST; 
 #### <a name="net"></a>.NET
 
 [.NET API referência para Key Vault](/dotnet/api/overview/azure/key-vault?view=azure-dotnet).
-
-Para obter mais informações sobre a versão 2.x do .NET SDK, consulte as [notas de lançamento](dotnet2api-release-notes.md).
 
 #### <a name="java"></a>Java
 
@@ -94,7 +113,6 @@ Em Node.js, a API de gestão do Cofre-Chave e a API do key Vault estão separada
 Para obter exemplos completos utilizando o Key Vault com as suas aplicações, consulte:
 
 - [Amostras de código Azure Key Vault](https://azure.microsoft.com/resources/samples/?service=key-vault) - Amostras de código para cofre de chave Azure. 
-- [Use o Cofre de Chaves Azure a partir de uma aplicação web](../secrets/quick-create-net.md) - tutorial para ajudá-lo a aprender a usar o Azure Key Vault a partir de uma aplicação web em Azure. 
 
 ## <a name="how-tos"></a>Procedimentos
 
@@ -124,7 +142,6 @@ Estes artigos são sobre outros cenários e serviços que usam ou integram com o
 
 - [Key Vault soft-delete comportamento](soft-delete-overview.md)) descreve uma característica que permite a recuperação de objetos apagados, quer a eliminação tenha sido acidental ou intencional.
 - [O cliente Key Vault o](overview-throttling.md) orienta para os conceitos básicos de estrangulamento e oferece uma abordagem para a sua aplicação.
-- [Visão geral das chaves da conta de armazenamento do cofre chave](../secrets/overview-storage-keys.md)) descreve as chaves de integração do Cofre chave Azure Storage Accounts.
 - [Os principais mundos de segurança do Cofre](overview-security-worlds.md) descrevem as relações entre regiões e áreas de segurança.
 
 ## <a name="social"></a>Social

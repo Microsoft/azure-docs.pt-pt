@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/23/2020
+ms.date: 08/02/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: e30c4142232a2d695204f5c8f612eb44791c847c
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f46a7927c149009eaf5baddbad2758732d4da758
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133168"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534289"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Impedir que o público anónimo leia o acesso a contentores e bolhas
 
@@ -24,7 +24,7 @@ Por padrão, o acesso do público aos seus dados blob é sempre proibido. No ent
 
 Quando não permite o acesso público à conta de armazenamento, o Azure Storage rejeita todos os pedidos anónimos para essa conta. Após o acesso público ser proibido por uma conta, os contentores nessa conta não podem ser posteriormente configurados para acesso público. Quaisquer contentores que já tenham sido configurados para acesso público deixarão de aceitar pedidos anónimos. Para mais informações, consulte o público [anónimo Configure acesso para contentores e bolhas.](anonymous-read-access-configure.md)
 
-Este artigo descreve como analisar pedidos anónimos contra uma conta de armazenamento e como impedir o acesso anónimo para toda a conta de armazenamento ou para um recipiente individual.
+Este artigo descreve como utilizar um quadro DRAG (Detecção-Remediação-Auditoria-Governação) para gerir continuamente o acesso público às suas contas de armazenamento.
 
 ## <a name="detect-anonymous-requests-from-client-applications"></a>Detetar pedidos anónimos de aplicações de clientes
 
@@ -157,6 +157,126 @@ $ctx = $storageAccount.Context
 
 New-AzStorageContainer -Name $containerName -Permission Blob -Context $ctx
 ```
+
+### <a name="check-the-public-access-setting-for-multiple-accounts"></a>Verifique a definição de acesso público para várias contas
+
+Para verificar a definição de acesso público através de um conjunto de contas de armazenamento com o melhor desempenho, pode utilizar o Azure Resource Graph Explorer no portal Azure. Para saber mais sobre a utilização do Explorador de Gráficos de Recurso, consulte [Quickstart: Execute a sua primeira consulta de Gráfico de Recursos utilizando o Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal).
+
+Executando a seguinte consulta no Resource Graph Explorer devolve uma lista de contas de armazenamento e exibe a definição de acesso público para cada conta:
+
+```kusto
+resources
+| where type =~ 'Microsoft.Storage/storageAccounts'
+| extend allowBlobPublicAccess = parse_json(properties).allowBlobPublicAccess
+| project subscriptionId, resourceGroup, name, allowBlobPublicAccess
+```
+
+## <a name="use-azure-policy-to-audit-for-compliance"></a>Utilizar a Política Azure para auditar o cumprimento
+
+Se tiver um grande número de contas de armazenamento, talvez queira realizar uma auditoria para se certificar de que essas contas estão configuradas para impedir o acesso do público. Para auditar um conjunto de contas de armazenamento para o seu cumprimento, utilize a Azure Policy. A Azure Policy é um serviço que pode usar para criar, atribuir e gerir políticas que aplicam regras aos recursos da Azure. A Azure Policy ajuda-o a manter esses recursos em conformidade com os seus padrões corporativos e acordos de nível de serviço. Para mais informações, consulte [a Visão Geral da Política Azure.](../../governance/policy/overview.md)
+
+### <a name="create-a-policy-with-an-audit-effect"></a>Criar uma política com efeito de auditoria
+
+A Azure Policy suporta efeitos que determinam o que acontece quando uma regra de política é avaliada contra um recurso. O efeito Auditoria cria um aviso quando um recurso não está em conformidade, mas não impede o pedido. Para obter mais informações sobre os efeitos, consulte [os efeitos da Política de Azure.](../../governance/policy/concepts/effects.md)
+
+Para criar uma política com efeito de auditoria para a definição de acesso público a uma conta de armazenamento com o portal Azure, siga estes passos:
+
+1. No portal Azure, navegue para o serviço Azure Policy.
+1. Na secção **de Autoria,** selecione **Definições**.
+1. **Selecione Adicionar definição de política** para criar uma nova definição de política.
+1. Para o campo **de localização Definição,** selecione o botão **Mais** para especificar onde está localizado o recurso de política de auditoria.
+1. Especifique um nome para a apólice. Pode especificar opcionalmente uma descrição e categoria.
+1. De acordo com **a regra política**, adicione a seguinte definição de política à secção **policyRule.**
+
+    ```json
+    {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
+          },
+          {
+            "not": {
+              "field":"Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+              "equals": "false"
+            }
+          }
+        ]
+      },
+      "then": {
+        "effect": "audit"
+      }
+    }
+    ```
+
+1. Guarde a política.
+
+### <a name="assign-the-policy"></a>Atribuir a política
+
+Em seguida, atribua a apólice a um recurso. O âmbito da política corresponde a esse recurso e a quaisquer recursos abaixo dele. Para obter mais informações sobre a atribuição de políticas, consulte [a estrutura de atribuição da Política Azure](../../governance/policy/concepts/assignment-structure.md).
+
+Para atribuir a política ao portal Azure, siga estes passos:
+
+1. No portal Azure, navegue para o serviço Azure Policy.
+1. Na secção **de Autoria,** selecione **Atribuições.**
+1. Selecione **A política de atribuir** para criar uma nova atribuição de políticas.
+1. Para o campo **Scope,** selecione o âmbito da atribuição de políticas.
+1. Para o campo **de definição de Política,** selecione o botão **Mais** e, em seguida, selecione a política definida na secção anterior da lista.
+1. Forneça um nome para a atribuição de apólices. A descrição é opcional.
+1. Deixe **a aplicação da política** definida para *Ativação*. Esta definição não tem qualquer efeito sobre a política de auditoria.
+1. Selecione **Review + criar** para criar a atribuição.
+
+### <a name="view-compliance-report"></a>Ver relatório de conformidade
+
+Depois de ter atribuído a apólice, pode ver o relatório de conformidade. O relatório de conformidade de uma política de auditoria fornece informações sobre as quais as contas de armazenamento não estão em conformidade com a política. Para obter mais informações, consulte [obter dados de conformidade com a política](../../governance/policy/how-to/get-compliance-data.md).
+
+Pode levar vários minutos para que o relatório de conformidade fique disponível após a criação da atribuição da política.
+
+Para ver o relatório de conformidade no portal Azure, siga estes passos:
+
+1. No portal Azure, navegue para o serviço Azure Policy.
+1. Selecione **Compliance**.
+1. Filtrar os resultados para o nome da atribuição de política que criou no passo anterior. O relatório mostra quantos recursos não estão em conformidade com a política.
+1. Pode aprofundar o relatório para obter mais detalhes, incluindo uma lista de contas de armazenamento que não estão em conformidade.
+
+    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Screenshot mostrando relatório de conformidade para a política de auditoria para o acesso público blob":::
+
+## <a name="use-azure-policy-to-enforce-authorized-access"></a>Use a Política Azure para impor o acesso autorizado
+
+A Azure Policy apoia a governação em nuvem, garantindo que os recursos da Azure cumpram os requisitos e padrões. Para garantir que as contas de armazenamento na sua organização permitem apenas pedidos autorizados, pode criar uma política que impeça a criação de uma nova conta de armazenamento com uma definição de acesso público que permita pedidos anónimos. Esta política também evitará que todas as alterações de configuração de uma conta existente se a definição de acesso público a essa conta não estiver em conformidade com a política.
+
+A política de execução utiliza o efeito Deny para impedir um pedido que crie ou modifique uma conta de armazenamento para permitir o acesso do público. Para obter mais informações sobre os efeitos, consulte [os efeitos da Política de Azure.](../../governance/policy/concepts/effects.md)
+
+Para criar uma política com efeito Deny para uma definição de acesso público que permita pedidos anónimos, siga os mesmos passos descritos na [Política de Utilização Azure para auditar para o cumprimento,](#use-azure-policy-to-audit-for-compliance)mas forneça o seguinte JSON na secção **de regulação política** da definição de política:
+
+```json
+{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "not": {
+          "field":"Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+          "equals": "false"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
+```
+
+Depois de criar a política com o efeito Deny e atribuí-la a um âmbito, um utilizador não pode criar uma conta de armazenamento que permita o acesso do público. Também não pode um utilizador fazer alterações de configuração numa conta de armazenamento existente que atualmente permite o acesso do público. Tentar fazê-lo resulta num erro. A definição de acesso público à conta de armazenamento deve ser definida **como falsa** para proceder à criação ou configuração de conta.
+
+A imagem a seguir mostra o erro que ocorre se tentar criar uma conta de armazenamento que permita o acesso do público (o padrão para uma nova conta) quando uma política com efeito Deny requer que o acesso público seja proibido.
+
+:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Screenshot mostrando o erro que ocorre ao criar uma conta de armazenamento em violação da política":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

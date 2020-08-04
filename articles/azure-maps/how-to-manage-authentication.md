@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 69dda537beda1d1bec4f019e1d5cadd16bdd5b39
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 870ecb8bda9f07c9270724002d381a4f58bc4d13
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126861"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531734"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gerir a autenticação em Azure Maps
 
@@ -56,7 +56,7 @@ Os links na tabela levam-no a informações detalhadas de configuração para ca
 
 ## <a name="view-role-definitions"></a>Ver definições de funções
 
-Para ver as funções RBAC que estão disponíveis para O Azure Maps, vá ao **Controlo de Acesso (IAM)**. Selecione **Roles**, e, em seguida, procure por papéis que comecem com *Azure Maps*. Estas funções do Azure Maps são as funções a que podes conceder acesso.
+Para ver as funções Azure que estão disponíveis para O Azure Maps, vá ao **Controlo de Acesso (IAM)**. Selecione **Roles**, e, em seguida, procure por papéis que comecem com *Azure Maps*. Estas funções do Azure Maps são as funções a que podes conceder acesso.
 
 > [!div class="mx-imgBorder"]
 > ![Ver funções disponíveis](./media/how-to-manage-authentication/how-to-view-avail-roles.png)

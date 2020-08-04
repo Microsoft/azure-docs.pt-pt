@@ -3,12 +3,12 @@ title: Autenticar uma aplicação para aceder aos recursos do Azure Event Hubs
 description: Este artigo fornece informações sobre a autenticação de uma aplicação com o Azure Ative Directory para aceder aos recursos do Azure Event Hubs
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 37f76d99ac7f676b260b8a0e23f8a6e31792e835
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2b4456f63ce6d50ab1187f65deb1ee3280487580
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87413872"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531528"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticar uma aplicação com o Azure Ative Directory para aceder aos recursos do Event Hubs
 O Microsoft Azure fornece uma gestão integrada do controlo de acessos para recursos e aplicações com base no Azure Ative Directory (Azure AD). Uma vantagem fundamental de usar a Azure AD com Azure Event Hubs é que já não precisa de armazenar as suas credenciais no código. Em vez disso, pode solicitar um token de acesso OAuth 2.0 a partir da plataforma Microsoft Identity. O nome de recurso para solicitar um token é `https://eventhubs.azure.net/` (Para os clientes Kafka, o recurso para solicitar um token é `https://<namespace>.servicebus.windows.net` ). A Azure AD autentica o principal de segurança (um utilizador, grupo ou principal de serviço) que executa a aplicação. Se a autenticação for bem sucedida, a Azure AD devolve um sinal de acesso à aplicação, e a aplicação pode então utilizar o token de acesso para autorizar o pedido aos recursos do Azure Event Hubs.
@@ -28,7 +28,7 @@ A Azure fornece as seguintes funções incorporadas do Azure para autorizar o ac
 > [!IMPORTANT]
 > A nossa versão de pré-visualização suportava a adição de privilégios de acesso de dados do Event Hubs à função Proprietário ou Colaborador. No entanto, os privilégios de acesso a dados para o papel de Proprietário e Colaborador deixaram de ser honrados. Se estiver a utilizar a função Proprietário ou Contribuinte, mude para a função Azure Event Hubs Data Owner.
 
-## <a name="assign-rbac-roles-using-the-azure-portal"></a>Atribuir funções RBAC usando o portal Azure  
+## <a name="assign-azure-roles-using-the-azure-portal"></a>Atribuir funções Azure usando o portal Azure  
 Para saber mais sobre a gestão do acesso aos recursos do Azure utilizando o RBAC e o portal Azure, consulte [este artigo.](..//role-based-access-control/role-assignments-portal.md) 
 
 Depois de ter determinado a possibilidade adequada para uma atribuição de funções, navegue para esse recurso no portal Azure. Mostrar as definições de controlo de acesso (IAM) para o recurso e seguir estas instruções para gerir as atribuições de funções:
@@ -106,7 +106,7 @@ Para obter uma lista de cenários para os quais a aquisição de fichas é supor
 
     Esta amostra foi atualizada para utilizar a mais recente biblioteca **Azure.Messaging.EventHubs.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Para saber mais sobre o RBAC, veja [o que é o controlo de acesso baseado em funções do Azure (Azure RBAC)](../role-based-access-control/overview.md)?
 - Para aprender a atribuir e gerir atribuições de funções da Azure PowerShell, Azure CLI ou da REST API, consulte estes artigos:
     - [Gerir o controlo de acesso baseado em funções (RBAC) com a Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  

@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a recuperar ficheiros e pastas a partir de um
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 2488bbded1b4d55f3c4cf21c63e9fcb90e9bfb4f
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: e12669609b21d23b775af27f95528c4b42e95e81
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475061"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533558"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar ficheiros da cópia de segurança da máquina virtual Azure
 
@@ -24,13 +24,13 @@ O Azure Backup fornece a capacidade de restaurar [máquinas virtuais Azure (VMs)
 
 Para restaurar ficheiros ou pastas do ponto de recuperação, vá à máquina virtual e escolha o ponto de recuperação pretendido.
 
-1. Inscreva-se no [portal Azure](https://portal.Azure.com) e no painel esquerdo, clique em **Máquinas Virtuais**. A partir da lista de máquinas virtuais, selecione a máquina virtual para abrir o painel de instrumentos da máquina virtual.
+1. Inscreva-se no [portal Azure](https://portal.Azure.com) e no painel esquerdo, selecione **máquinas Virtuais**. A partir da lista de máquinas virtuais, selecione a máquina virtual para abrir o painel de instrumentos da máquina virtual.
 
-2. No menu da máquina virtual, clique em **Backup** para abrir o painel de cópias de segurança.
+2. No menu da máquina virtual, selecione **Backup** para abrir o painel de cópias de segurança.
 
     ![Artigo de backup do cofre dos Serviços de Recuperação Aberta](./media/backup-azure-restore-files-from-vm/open-vault-for-vm.png)
 
-3. No menu do painel de instrumentos de cópia de segurança, clique em **'Recuperação de Ficheiros'.**
+3. No menu do painel de instrumentos de cópia de segurança, selecione **A Recuperação de Ficheiros**.
 
     ![Botão de recuperação de ficheiros](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
 
@@ -40,7 +40,7 @@ Para restaurar ficheiros ou pastas do ponto de recuperação, vá à máquina vi
 
 4. A partir do menu de ponto de **recuperação Select,** selecione o ponto de recuperação que detém os ficheiros que deseja. Por padrão, o último ponto de recuperação já está selecionado.
 
-5. Para descarregar o software utilizado para copiar ficheiros a partir do ponto de recuperação, clique em **Baixar Executável** (para Windows Azure VMs) ou **Baixar Script** (para Linux Azure VMs, é gerado um script python).
+5. Para descarregar o software utilizado para copiar ficheiros do ponto de recuperação, selecione **Download Executable** (para Windows Azure VMs) ou **Download Script** (para Linux Azure VMs, é gerado um script python).
 
     ![Senha gerada](./media/backup-azure-restore-files-from-vm/download-executable.png)
 
@@ -50,7 +50,7 @@ Para restaurar ficheiros ou pastas do ponto de recuperação, vá à máquina vi
 
     Para executar o executável ou script como administrador, sugere-se que guarde o ficheiro descarregado para o seu computador.
 
-6. O executável ou script está protegido por palavra-passe e requer uma senha. No menu **'Recuperação de Ficheiros',** clique no botão de cópia para carregar a palavra-passe na memória.
+6. O executável ou script está protegido por palavra-passe e requer uma senha. No menu **'Recuperação de ficheiros',** selecione o botão de cópia para carregar a palavra-passe na memória.
 
     ![Senha gerada](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
 
@@ -78,7 +78,7 @@ No Linux, os volumes do ponto de recuperação são montados na pasta onde o scr
 
 ## <a name="closing-the-connection"></a>Fechar a ligação
 
-Depois de identificar os ficheiros e copiá-los para um local de armazenamento, remova (ou desmonte) as unidades adicionais. Para desmontar as unidades, no menu **De recuperação de ficheiros** no portal Azure, clique em **Discos Desmonte**.
+Depois de identificar os ficheiros e copiá-los para um local de armazenamento, remova (ou desmonte) as unidades adicionais. Para desmontar as unidades, no menu **De recuperação de ficheiros** no portal Azure, selecione **Unmount Disks**.
 
 ![Desmonte discos](./media/backup-azure-restore-files-from-vm/unmount-disks3.png)
 
@@ -162,7 +162,7 @@ PV         VG        Fmt  Attr PSize   PFree    VG UUID
   /dev/sdd   datavg_db lvm2 a--   <1.50t <396.50g dhWL1i-lcZS-KPLI-o7qP-AN2n-y2f8-A1fWqN
 ```
 
-A 1ª coluna (PV) mostra o volume físico, as colunas subsequentes mostram o nome do grupo de volume relevante, formato, atributos, tamanho, espaço livre e o ID único do grupo de volume. A saída do comando mostra todos os volumes físicos. Consulte a saída do script e identifique os volumes relacionados com a cópia de segurança. No exemplo acima, a saída do script teria mostrado /dev/sdf e /dev/sdd. E assim, o grupo de volume datavg_db pertence ao script e o grupo de volume Appvg_new pertence à máquina. A ideia final é garantir que um nome de grupo de volume único deve ter 1 ID único.
+A primeira coluna (PV) mostra o volume físico, as colunas subsequentes mostram o nome do grupo de volume relevante, formato, atributos, tamanho, espaço livre e o ID único do grupo de volume. A saída do comando mostra todos os volumes físicos. Consulte a saída do script e identifique os volumes relacionados com a cópia de segurança. No exemplo acima, a saída do script teria mostrado /dev/sdf e /dev/sdd. E assim, o grupo de volume *datavg_db* pertence ao script e o grupo de volume *Appvg_new* pertence à máquina. A ideia final é garantir que um nome único de grupo de volume deve ter um ID único.
 
 ###### <a name="duplicate-volume-groups"></a>Duplicados grupos de volume
 
@@ -184,9 +184,9 @@ PV         VG        Fmt  Attr PSize   PFree    VG UUID
   /dev/sdm2  rootvg    lvm2 a--  194.57g  127.57g efohjX-KUGB-ETaH-4JKB-MieG-EGOc-XcfLCt
 ```
 
-A saída do guião teria mostrado /dev/sdg, /dev/sdh, /dev/sdm2 como anexado. Assim, os nomes VG correspondentes são Appvg_new e rootvg. Mas os mesmos nomes também estão presentes na lista de VG da máquina. Podemos verificar se o nome 1 VG tem 2 UUIDs.
+A saída do guião teria mostrado /dev/sdg, /dev/sdh, /dev/sdm2 como anexado. Assim, os nomes VG correspondentes são Appvg_new e rootvg. Mas os mesmos nomes também estão presentes na lista de VG da máquina. Podemos verificar se um nome VG tem dois UUIDs.
 
-Agora precisamos renomear nomes de VG para volumes baseados em scripts, ou seja, /dev/sdg, /dev/sdh, /dev/sdm2. Para renomear o grupo de volume, use o seguinte comando
+Agora precisamos renomear nomes de VG para volumes baseados em scripts, por exemplo: /dev/sdg, /dev/sdh, /dev/sdm2. Para renomear o grupo de volume, use o seguinte comando
 
 ```bash
 vgimportclone -n rootvg_new /dev/sdm2
@@ -343,7 +343,7 @@ Uma vez que o processo de recuperação de ficheiros anexa todos os discos da c�
     - node.conn[0].timeo.noop_out_timeout = 5 a node.conn[0].timeo.noop_out_timeout = 30
 - Depois de fazer a mudança acima, volte a executar o guião. Com estas mudanças, é altamente provável que a recuperação do ficheiro tenha sucesso.
 - Sempre que o utilizador descarrega um script, o Azure Backup inicia o processo de preparação do ponto de recuperação para download. Com discos grandes, este processo levará um tempo considerável. Se houver sucessivas explosões de pedidos, a preparação do alvo entrará numa espiral de descarregamento. Portanto, é recomendado fazer o download de um script do Portal/PowerShell/CLI, esperar 20-30 minutos (uma heurística) e depois executá-lo. Por esta altura, espera-se que o alvo esteja pronto para a ligação a partir do script.
-- Após a recuperação do ficheiro, certifique-se de que volta ao portal e clique em **Discos Desmonte** para pontos de recuperação onde não foi capaz de montar volumes. Essencialmente, este passo irá limpar quaisquer processos/sessões existentes e aumentar a chance de recuperação.
+- Após a recuperação do ficheiro, certifique-se de que volta ao portal e selecione **Discos Desmonte** para pontos de recuperação onde não foi capaz de montar volumes. Essencialmente, este passo irá limpar quaisquer processos/sessões existentes e aumentar a chance de recuperação.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
@@ -357,7 +357,7 @@ Se tiver problemas durante a recuperação de ficheiros das máquinas virtuais, 
 | Na máquina onde o exe é executado: Os novos volumes não são desmontados após o botão de desmontagem ser clicado | O iniciador iSCSI da máquina não está a responder/a refrescar a sua ligação ao alvo e a manter a cache. |  Depois de clicar em **Desmontagem,** aguarde alguns minutos. Se os novos volumes não forem desmontados, navegue por todos os volumes. A navegação de todos os volumes obriga o iniciador a atualizar a ligação, e o volume é desmontado com uma mensagem de erro de que o disco não está disponível.|
 | Saída Exe: O script é executado com sucesso mas "Novos volumes anexados" não é exibido na saída do script |    Este é um erro transitório    | Os volumes já terão sido anexados. Abrir o Explorador para navegar. Se estiver sempre a utilizar a mesma máquina para executar scripts, considere reiniciar a máquina e a lista deve ser exibida nas execuções subsequentes do exe. |
 | Linux específico: Não é capaz de ver os volumes desejados | O SO da máquina onde o script é executado pode não reconhecer o sistema de ficheiros subjacente do VM protegido | Verifique se o ponto de recuperação é consistente ou consistente com ficheiros. Se for consistente com o ficheiro, execute o script noutra máquina cujo SISTEMA de SEGURANÇA reconheça o sistema de ficheiros protegido do VM. |
-| Windows específico: Não é capaz de ver os volumes desejados | Os discos podem ter sido anexados, mas os volumes não foram configurados | A partir do ecrã de gestão do disco, identifique os discos adicionais relacionados com o ponto de recuperação. Se algum destes discos estiver em estado offline, tente ingurá-los on-line clicando no disco e clique em **Online**.|
+| Windows específico: Não é capaz de ver os volumes desejados | Os discos podem ter sido anexados, mas os volumes não foram configurados | A partir do ecrã de gestão do disco, identifique os discos adicionais relacionados com o ponto de recuperação. Se algum destes discos estiver em estado offline, tente ingurá-los on-line clicando à direita no disco e selecione **Online**.|
 
 ## <a name="security"></a>Segurança
 

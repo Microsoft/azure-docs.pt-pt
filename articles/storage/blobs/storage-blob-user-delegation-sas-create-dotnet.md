@@ -10,12 +10,12 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: d5e8f5e3939ade4e5344ef586a62b6a19082e34e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e499b27124ed5723fb19fecbe4091f17364aea5a
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809031"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533993"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net"></a>Crie uma delegação de utilizador SAS para um recipiente ou bolha com .NET
 
@@ -25,9 +25,9 @@ Este artigo mostra como utilizar credenciais do Azure Ative Directory (Azure AD)
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
-## <a name="assign-rbac-roles-for-access-to-data"></a>Atribuir funções do RBAC para acesso aos dados
+## <a name="assign-azure-roles-for-access-to-data"></a>Atribuir funções da Azure para acesso aos dados
 
-Quando um diretor de segurança da AZure AD tenta aceder aos dados blob, esse diretor de segurança deve ter permissões para o recurso. Se o principal de segurança é uma identidade gerida em Azure ou uma conta de utilizador Azure AD que executa código no ambiente de desenvolvimento, o principal de segurança deve ser atribuído a uma função RBAC que concede acesso a dados blob no Azure Storage. Para obter informações sobre a atribuição de permissões através do RBAC, consulte a secção intitulada **Atribuir funções RBAC para direitos de acesso** em acesso autorizado a [blobs e filas Azure usando O Diretório Ativo Azure](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
+Quando um diretor de segurança da AZure AD tenta aceder aos dados blob, esse diretor de segurança deve ter permissões para o recurso. Se o principal de segurança é uma identidade gerida em Azure ou uma conta de utilizador Azure AD que executa código no ambiente de desenvolvimento, o principal de segurança deve ser atribuído a uma função Azure que concede acesso a dados blob no Azure Storage. Para obter informações sobre a atribuição de permissões através do RBAC, consulte a secção intitulada **Atribuir funções Azure para direitos de acesso** em Acesso autorizado a [blobs e filas Azure usando O Diretório Ativo Azure](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
 
 [!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
@@ -235,7 +235,7 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Conceder acesso limitado aos recursos de armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)](../common/storage-sas-overview.md)
 - [Obtenha a operação chave da delegação de utilizadores](/rest/api/storageservices/get-user-delegation-key)

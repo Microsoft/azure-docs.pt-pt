@@ -4,12 +4,12 @@ description: Como implementar e configurar a rede de consórcios Hyperledger Fab
 ms.date: 07/27/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: fe06af9364ceb1d97588cac88335cb39c45f0e0f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4bc55090234a4ab33125ba43b8416de1eadb702f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286058"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533432"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Consórcio de tecido hiper-iniciante no Serviço Azure Kubernetes (AKS)
 
@@ -305,12 +305,12 @@ A partir do cliente da organização de pares, emita o comando para definir os p
   - Desacordo `<anchorPeersList>` como "peer1" se quiser definir apenas o nó peer1 como par de âncora.
   - Definir `<anchorPeersList>` como "peer1" "peer3" se quiser definir o nó peer1 e peer3 como par de âncora.
 
-### <a name="chaincode-management-commands"></a>Comandos de gestão de códigos de corrente
+## <a name="chaincode-management-commands"></a>Comandos de gestão de códigos de corrente
 
 >[!NOTE]
 > Antes de iniciar qualquer operação de código de corrente, certifique-se de que a configuração inicial da aplicação do cliente está feita.  
 
-**Definir as variáveis de ambiente específicas de código de corrente abaixo**
+### <a name="set-the-below-chaincode-specific-environment-variables"></a>Definir as variáveis de ambiente específicas de código de corrente abaixo
 
 ```bash
 # peer organization name where chaincode operation is to be performed
@@ -329,14 +329,6 @@ CC_PATH=<chaincodePath>
 # Channel on which chaincode is to be instantiated/invoked/queried  
 CHANNEL_NAME=<channelName>  
 ```
-
-As operações de código de corrente abaixo podem ser efetuadas:  
-
-- [Instalar código de corrente](#install-chaincode)  
-- [Código de corrente instantâneo](#instantiate-chaincode)  
-- [Invocar código de corrente](#invoke-chaincode)
-- [Código de cadeia de consulta](#query-chaincode)
-
 
 ### <a name="install-chaincode"></a>Instalar código de corrente  
 
@@ -358,13 +350,13 @@ Siga os passos:
 A partir da aplicação do cliente por pares, execute abaixo do comando para instantanear o código de corrente no canal.  
 
 ```bash
-./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -v $CC_VERSION -l $CC_LANG -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
+./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
 ```
+
 Passe o nome da função instantânea e o espaço separados lista de argumentos dentro `<instantiateFunc>` e `<instantiateFuncArgs>` respectivamente. Por exemplo, em chaincode_example02.go chaincode, para instantaneaizar o código de corrente definido `<instantiateFunc>` para `init` e para `<instantiateFuncArgs>` "a" "2000" "b" "1000".
 
 > [!NOTE]
 > Execute o comando pela uma vez de qualquer organização de pares no canal. Uma vez que a transação é submetida com sucesso ao ordenante, o ordenante distribui esta transação a todas as organizações de pares do canal. Assim, o código de corrente é instantâneo em todos os nós de pares em todas as organizações de pares do canal.  
-
 
 ### <a name="invoke-chaincode"></a>Invocar código de corrente  
 

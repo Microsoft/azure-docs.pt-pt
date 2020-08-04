@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 858e185a0e4fa406fb4645475673acc13a0d37f3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6edf5de852ea836de8be02636dd8a971ccebb86d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086678"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530576"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Controlo de acesso baseado em funções no Azure Cosmos DB
 
-A Azure Cosmos DB fornece um controlo de acesso baseado em funções incorporada (RBAC) para cenários comuns de gestão em Azure Cosmos DB. Um indivíduo que tenha um perfil no Azure Ative Directory pode atribuir estas funções de RBAC a utilizadores, grupos, diretores de serviços ou identidades geridas para conceder ou negar o acesso a recursos e operações em recursos DB da Azure Cosmos. As atribuições de funções são apenas para acesso de avião de controlo, o que inclui o acesso às contas da Azure Cosmos, bases de dados, contentores e ofertas (produção).
+A Azure Cosmos DB fornece um controlo de acesso baseado em funções incorporada (RBAC) para cenários comuns de gestão em Azure Cosmos DB. Um indivíduo que tenha um perfil no Azure Ative Directory pode atribuir estas funções Azure a utilizadores, grupos, diretores de serviços ou identidades geridas para conceder ou negar o acesso a recursos e operações em recursos DB da Azure Cosmos. As atribuições de funções são apenas para acesso de avião de controlo, o que inclui o acesso às contas da Azure Cosmos, bases de dados, contentores e ofertas (produção).
 
 ## <a name="built-in-roles"></a>Funções incorporadas
 
@@ -39,13 +39,13 @@ O painel **de controlo de acesso (IAM)** no portal Azure é utilizado para confi
 
 ## <a name="custom-roles"></a>Funções personalizadas
 
-Além das funções incorporadas, os utilizadores podem também criar [funções personalizadas](../role-based-access-control/custom-roles.md) no Azure e aplicar estas funções aos diretores de serviços em todas as subscrições dentro do seu inquilino Ative Directory. As funções personalizadas fornecem aos utilizadores uma forma de criar definições de função RBAC com um conjunto personalizado de operações de fornecedor de recursos. Para saber quais as operações disponíveis para a construção de funções personalizadas para a Azure Cosmos DB ver, [Azure Cosmos DB fornecedor de recursos](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
+Além das funções incorporadas, os utilizadores podem também criar [funções personalizadas](../role-based-access-control/custom-roles.md) no Azure e aplicar estas funções aos diretores de serviços em todas as subscrições dentro do seu inquilino Ative Directory. As funções personalizadas fornecem aos utilizadores uma forma de criar definições de função Azure com um conjunto personalizado de operações de fornecedor de recursos. Para saber quais as operações disponíveis para a construção de funções personalizadas para a Azure Cosmos DB ver, [Azure Cosmos DB fornecedor de recursos](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
 
 ## <a name="preventing-changes-from-the-azure-cosmos-db-sdks"></a><a id="prevent-sdk-changes"></a>Prevenção de alterações dos DB SDKs Azure Cosmos
 
 O fornecedor de recursos DB da Azure Cosmos pode ser bloqueado para evitar alterações nos recursos de um cliente que se conecte utilizando as chaves da conta (ou seja, aplicações que se ligam através do Azure Cosmos SDK). Isto também inclui alterações feitas a partir do portal Azure. Esta funcionalidade pode ser desejável para os utilizadores que pretendam maiores graus de controlo e governação para ambientes de produção. A prevenção de alterações do SDK também permite funcionalidades como bloqueios de recursos e registos de diagnóstico para operações de plano de controlo. Os clientes que se ligarem à Azure Cosmos DB SDK serão impedidos de alterar qualquer propriedade para as contas da Azure Cosmos, bases de dados, contentores e produção. As operações que envolvem a leitura e a escrita de dados para os próprios contentores da Cosmos não são afetadas.
 
-Quando esta funcionalidade está ativada, as alterações a qualquer recurso só podem ser feitas a partir de um utilizador com o papel rbac certo e credenciais de Diretório Azure Ative, incluindo identidades de serviço gerido.
+Quando esta funcionalidade está ativada, as alterações a qualquer recurso só podem ser feitas a partir de um utilizador com o papel Azure certo e credenciais de Diretório Azure Ative, incluindo identidades de serviço gerido.
 
 > [!WARNING]
 > Ativar esta funcionalidade pode ter impacto na sua aplicação. Certifique-se de que compreende o impacto antes de o ativar.

@@ -10,12 +10,12 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 99d8ab3b7edc2d32e580ec8de9132fef3ea3503a
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 97eb3f4cbb4ac76823ebe43126db6b5c2a10010b
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424346"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533976"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>Criar uma delegação de utilizador SAS para um recipiente ou bolha com PowerShell
 
@@ -78,7 +78,7 @@ Para obter mais informações sobre a sessão com a PowerShell, consulte [Inicia
 
 Para criar uma delegação de utilizador SAS da Azure PowerShell, a conta AZure AD utilizada para assinar no PowerShell deve ser atribuída a uma função que inclua a ação **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey.** Esta permissão permite que a conta Azure AD solicite a chave da *delegação*do utilizador . A chave da delegação de utilizadores é utilizada para assinar a delegação de utilizadores SAS. A função que fornece a ação **Microsoft.Storage/storageAcounts/blobServices/generateUserDelegationKey** deve ser atribuída ao nível da conta de armazenamento, do grupo de recursos ou da subscrição. Para obter mais informações sobre permissões do RBAC para a criação de uma delegação de utilizadores SAS, consulte as **permissões de Atribuição com** a secção RBAC na Criar uma [delegação de utilizador SAS](/rest/api/storageservices/create-user-delegation-sas).
 
-Se não tiver permissões suficientes para atribuir funções RBAC a um responsável de segurança Azure, poderá ter de pedir ao proprietário ou administrador da conta para atribuir as permissões necessárias.
+Se não tiver permissões suficientes para atribuir funções Azure a um responsável de segurança Azure, poderá ter de pedir ao proprietário ou administrador da conta para atribuir as permissões necessárias.
 
 O exemplo a seguir atribui a função **de Contribuinte de Dados blob de armazenamento,** que inclui a ação **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey.** A função é traçada ao nível da conta de armazenamento.
 
@@ -164,7 +164,7 @@ Revoke-AzStorageAccountUserDelegationKeys -ResourceGroupName <resource-group> `
 > [!IMPORTANT]
 > Tanto a chave da delegação do utilizador como as atribuições de funções Azure são armazenadas pela Azure Storage, pelo que pode haver um atraso entre quando inicia o processo de revogação e quando uma delegação de utilizador existente SAS se torna inválida.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma delegação de utilizadores SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas)
 - [Obtenha a operação chave da delegação de utilizadores](/rest/api/storageservices/get-user-delegation-key)

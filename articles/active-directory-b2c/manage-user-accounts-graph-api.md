@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/16/2020
+ms.date: 08/03/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 54b4292c74f7737f1c392d601627eb3e0ff48812
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: d523aeff87b95aaea91df9ad5d3f44c73c871b71
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116192"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528604"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Gerir contas de utilizadores AZure AD B2C com Gráfico microsoft
 
@@ -117,7 +117,7 @@ Nos cenários de migração do utilizador, se as contas que pretende migrar tive
 
 Cada aplicação virada para o cliente tem requisitos únicos para que a informação seja recolhida. O seu inquilino Azure AD B2C vem com um conjunto incorporado de informações armazenadas em propriedades, tais como Nome Dado, Apelido, Cidade e Código Postal. Com o Azure AD B2C, pode alargar o conjunto de propriedades armazenadas em cada conta de cliente. Para obter mais informações sobre a definição de atributos personalizados, consulte [atributos personalizados (fluxos de utilizador)](user-flow-custom-attributes.md) e [atributos personalizados (políticas personalizadas)](custom-policy-custom-attributes.md).
 
-A Microsoft Graph API suporta a criação e atualização de um utilizador com atributos de extensão. Os atributos de extensão na API do gráfico são nomeados através da convenção `extension_ApplicationObjectID_attributename` . Por exemplo:
+A Microsoft Graph API suporta a criação e atualização de um utilizador com atributos de extensão. Os atributos de extensão na API do Gráfico são nomeados através da `extension_ApplicationClientID_attributename` convenção, onde é o `ApplicationClientID` **ID da aplicação (cliente)** da `b2c-extensions-app` aplicação (encontrado nos **registos da App**Todas as  >  **Aplicações** no portal Azure). Note que o **ID de Aplicação (cliente)** tal como está representado no nome do atributo de extensão não inclui hífenes. Por exemplo:
 
 ```json
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"

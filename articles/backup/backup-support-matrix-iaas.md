@@ -4,12 +4,12 @@ description: Fornece um resumo das definições e limitações de suporte ao faz
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: d00f6ee8c10144a7c9fd65101dd21ccb7deeb0a6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3be5bdffd999907234fff64f8f88459d9c9b18b6
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289493"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531868"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte da cópia de segurança de uma VM do Azure
 
@@ -32,13 +32,6 @@ Backup direto dos VMs Azure (apenas Windows)  | Fazer o back up ficheiros/pastas
 Faça backup Azure VM para servidor de backup  | Fazer a ressalto de ficheiros/pastas/volumes; sistema estado/ficheiros metálicos nus; dados da aplicação para System Center DPM ou para Microsoft Azure Backup Server (MABS).<br/><br/> DPM/MABS, em seguida, recua para o cofre de reserva. | Instale o agente de proteção DPM/MABS no VM. O agente MARS está instalado no DPM/MABS.| Restaurar ficheiros/pastas/volumes; sistema estado/ficheiros metálicos nus; dados de aplicativos.
 
 Saiba mais sobre a cópia de segurança [utilizando um servidor de backup](backup-architecture.md#architecture-back-up-to-dpmmabs) e sobre os [requisitos de suporte](backup-support-matrix-mabs-dpm.md).
-
->[!NOTE]
-> **O Azure Backup suporta agora a cópia de segurança seletiva do disco e restaura utilizando a solução de backup da Máquina Virtual Azure.**
->
->Hoje em dia, o Azure Backup suporta o backup de todos os discos (Sistema Operativo e dados) num VM em conjunto utilizando a solução de backup da Máquina Virtual. Com a funcionalidade de exclusão do disco, obtém-se uma opção de backup de um ou alguns dos muitos discos de dados num VM. Isto fornece uma solução eficiente e rentável para as suas necessidades de backup e restauro. Cada ponto de recuperação contém dados dos discos incluídos na operação de backup, o que permite ainda ter um subconjunto de discos restaurados a partir do ponto de recuperação dado durante a operação de restauro. Isto aplica-se para restaurar tanto do instantâneo como do cofre.
->
->Para se inscrever para a pré-visualização, escreva-nos emAskAzureBackupTeam@microsoft.com
 
 ## <a name="supported-backup-actions"></a>Ações de backup apoiadas
 
@@ -201,7 +194,7 @@ Tráfego de rede para Azure:
 - O tráfego de backup dos servidores para o cofre dos Serviços de Recuperação é encriptado utilizando o Padrão de Encriptação Avançada 256.
 - Os dados de cópia de segurança são enviados por um link HTTPS seguro.
 - Os dados de cópia de segurança são armazenados no cofre dos Serviços de Recuperação sob forma encriptada.
-- Só você tem a palavra-passe para desbloquear estes dados. A Microsoft não pode desencriptar os dados de backup em nenhum momento.
+- Só você tem a chave de encriptação para desbloquear estes dados. A Microsoft não pode desencriptar os dados de backup em nenhum momento.
 
   > [!WARNING]
   > Depois de configurar o cofre, só tem acesso à chave de encriptação. A Microsoft nunca mantém uma cópia e não tem acesso à chave. Se a chave estiver extraviada, a Microsoft não poderá recuperar os dados de backup.

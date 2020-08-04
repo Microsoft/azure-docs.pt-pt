@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c0008ab89f4599e2ada51b5637a9665a249bc1c4
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 360af0406a816a02540881962ed8794d69ce3bbb
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85340826"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531817"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Início Rápido: Criar e gerir uma partilha de ficheiros do Azure com o Azure PowerShell 
 Este guia orienta-o pelas noções básicas da utilização de [partilhas de ficheiros do Azure](storage-files-introduction.md) com o PowerShell. As partilhas de ficheiros do Azure são como outras partilhas de ficheiros, mas armazenadas na cloud e apoiadas pela plataforma do Azure. As partilhas de ficheiros do Azure suportam o protocolo SMB padrão do setor e permite a partilha de ficheiros entre várias máquinas, aplicações e instâncias. 
@@ -88,7 +88,7 @@ Na maioria dos casos, irá utilizar a partilha de ficheiros do Azure através do
 - Se estiver a tirar partido de recursos sem servidor, como o serviço [Funções do Azure](../../azure-functions/functions-overview.md). 
 - Está a criar um serviço de valor-add que irá interagir com muitas ações de ficheiros Azure, tais como a realização de verificações de backup ou antivírus.
 
-Os exemplos a seguir mostram como utilizar o módulo Azure PowerShell para manipular a sua partilha de ficheiros Azure com o protocolo File REST. O `-Context` parâmetro é utilizado para recuperar a chave da conta de armazenamento para executar as ações indicadas contra a partilha de ficheiros. Para recuperar a chave da conta de armazenamento, você deve ter o papel RBAC na conta de `Owner` armazenamento.
+Os exemplos a seguir mostram como utilizar o módulo Azure PowerShell para manipular a sua partilha de ficheiros Azure com o protocolo File REST. O `-Context` parâmetro é utilizado para recuperar a chave da conta de armazenamento para executar as ações indicadas contra a partilha de ficheiros. Para recuperar a chave da conta de armazenamento, deve ter o papel de Azure na conta de `Owner` armazenamento.
 
 #### <a name="create-directory"></a>Criar um diretório
 Para criar um novo diretório chamado *myDirect* na raiz da sua partilha de ficheiros Azure, utilize o cmdlet [New-AzStorageDirectory.](/powershell/module/az.storage/New-AzStorageDirectory)

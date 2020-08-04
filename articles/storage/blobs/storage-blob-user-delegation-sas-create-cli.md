@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e3ba428c0e3564f724f02652fc77c6ce84947bd6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ddfa12bd758ffc362c51e10f63800665109d54a6
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494575"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534078"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli"></a>Criar uma delegação de utilizador SAS para um recipiente ou bolha com o Azure CLI
 
@@ -40,7 +40,7 @@ Inscreva-se no Azure CLI com as suas credenciais AZure AD. Para obter mais infor
 
 Para criar uma delegação de utilizadores SAS da Azure PowerShell, a conta Azure AD utilizada para assinar no Azure CLI deve ser atribuída a uma função que inclua a ação **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey.** Esta permissão permite que a conta Azure AD solicite a chave da *delegação*do utilizador . A chave da delegação de utilizadores é utilizada para assinar a delegação de utilizadores SAS. A função que fornece a ação **Microsoft.Storage/storageAcounts/blobServices/generateUserDelegationKey** deve ser atribuída ao nível da conta de armazenamento, do grupo de recursos ou da subscrição.
 
-Se não tiver permissões suficientes para atribuir funções RBAC a um responsável de segurança Azure, poderá ter de pedir ao proprietário ou administrador da conta para atribuir as permissões necessárias.
+Se não tiver permissões suficientes para atribuir funções Azure a um responsável de segurança Azure, poderá ter de pedir ao proprietário ou administrador da conta para atribuir as permissões necessárias.
 
 O exemplo a seguir atribui a função **de Contribuinte de Dados blob de armazenamento,** que inclui a ação **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey.** A função é traçada ao nível da conta de armazenamento.
 

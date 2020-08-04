@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas a perguntas comuns sobre o backup 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 68f85b3d5da811f78ba398093db5a65ee5c49ab1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bf09c4e56c3881987e14d27d5f2166c68e311ab3
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538773"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533500"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-Back up Azure VMs
 
@@ -59,11 +59,11 @@ O feiticeiro só lista VMs na mesma região que o cofre, e isso já não está a
 
 ### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>O meu VM está desligado. Um trabalho de reserva ou de reserva?
 
-Yes. As cópias de segurança funcionam quando uma máquina é desligada. O ponto de recuperação é marcado como consistente acidente.
+Sim. As cópias de segurança funcionam quando uma máquina é desligada. O ponto de recuperação é marcado como consistente acidente.
 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>Posso cancelar um trabalho de reserva em progresso?
 
-Yes. Pode cancelar o trabalho de reserva num estado **de tomada de fotos.** Não pode cancelar um emprego se a transferência de dados do instantâneo estiver em andamento.
+Sim. Pode cancelar o trabalho de reserva num estado **de tomada de fotos.** Não pode cancelar um emprego se a transferência de dados do instantâneo estiver em andamento.
 
 ### <a name="i-enabled-a-lock-on-the-resource-group-created-by-azure-backup-service-for-example-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>Consegui bloquear o grupo de recursos criado pelo Azure Backup Service (por exemplo, `AzureBackupRG_<geo>_<number>` ). As minhas cópias de segurança vão continuar a funcionar?
 
@@ -99,11 +99,7 @@ Se alterar a caixa (para cima ou para baixo) do seu grupo de recursos VM ou VM, 
 
 ### <a name="can-i-back-up-or-restore-selective-disks-attached-to-a-vm"></a>Posso fazer o back up ou restaurar discos seletivos ligados a um VM?
 
-O Azure Backup suporta agora a cópia de segurança seletiva do disco e restaura utilizando a solução de backup da Máquina Virtual Azure.
-
-Hoje em dia, o Azure Backup suporta o backup de todos os discos (sistema operativo e dados) num VM em conjunto utilizando a solução de backup da Máquina Virtual. Com a funcionalidade de exclusão do disco, obtém-se a opção de fazer o back up um ou alguns dos muitos discos de dados num VM. Isto fornece uma solução eficiente e rentável para as suas necessidades de backup e restauro. Cada ponto de recuperação contém dados dos discos incluídos na operação de backup, o que permite ainda ter um subconjunto de discos restaurados a partir do ponto de recuperação dado durante a operação de restauro. Isto aplica-se para restaurar tanto do instantâneo como do cofre.
-
-Para se inscrever para a pré-visualização, escreva-nos emAskAzureBackupTeam@microsoft.com
+O Azure Backup suporta agora a cópia de segurança seletiva do disco e restaura utilizando a solução de backup da Máquina Virtual Azure. Para obter mais informações, consulte [a cópia de segurança seletiva do disco e restaure para VMs Azure](selective-disk-backup-restore.md).
 
 ## <a name="restore"></a>Restauro
 
@@ -135,7 +131,7 @@ No caso de uma restauração gerida do VM, mesmo que a criação de VM falhe, os
 
 ### <a name="can-i-restore-a-vm-thats-been-deleted"></a>Posso restaurar um VM que foi apagado?
 
-Yes. Mesmo que apague o VM, pode ir ao item de backup correspondente no cofre e restaurar a partir de um ponto de recuperação.
+Sim. Mesmo que apague o VM, pode ir ao item de backup correspondente no cofre e restaurar a partir de um ponto de recuperação.
 
 ### <a name="how-do-i-restore-a-vm-to-the-same-availability-sets"></a>Como posso restaurar um VM para os mesmos conjuntos de disponibilidade?
 

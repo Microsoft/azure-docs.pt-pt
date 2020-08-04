@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 066118622f19d7efac71ddd66ac1abe058008b55
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: cc39f8250ddc1b2fb1baaf073969f6aab5b1372c
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126776"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531376"
 ---
 # <a name="secure-a-daemon-application"></a>Garantir uma aplicação daemon
 
@@ -109,7 +109,7 @@ Quando funciona num ambiente não-Azure As identidades geridas não estão dispo
 
 ### <a name="grant-role-based-access-for-the-daemon-application-to-azure-maps"></a>Concessão de acesso baseado em funções para a aplicação da Daemon ao Azure Maps
 
-Concede *o controlo de acesso baseado em funções* (RBAC) atribuindo a identidade gerida criada ou o principal de serviço a uma ou mais definições de funções de controlo de acesso Azure Maps. Para ver as definições de funções rbac que estão disponíveis para O Azure Maps, vá ao **Controlo de Acesso (IAM)**. Selecione **Roles**, e, em seguida, procure por papéis que comecem com *Azure Maps*. Estas funções do Azure Maps são as funções a que podes conceder acesso.
+Concede *o controlo de acesso baseado em funções* (RBAC) atribuindo a identidade gerida criada ou o principal de serviço a uma ou mais definições de funções de controlo de acesso Azure Maps. Para ver as definições de função Azure que estão disponíveis para O Azure Maps, vá ao **Controlo de Acesso (IAM)**. Selecione **Roles**, e, em seguida, procure por papéis que comecem com *Azure Maps*. Estas funções do Azure Maps são as funções a que podes conceder acesso.
 
 > [!div class="mx-imgBorder"]
 > ![Ver funções disponíveis](./media/how-to-manage-authentication/how-to-view-avail-roles.png)

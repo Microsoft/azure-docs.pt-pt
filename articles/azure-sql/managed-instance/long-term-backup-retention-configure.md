@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 04/29/2020
-ms.openlocfilehash: b628ca7f676c3eab80e11da124f4d6aa7ebd52a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ab4eaf5ad40b5ef8bee68ef0e56ab8f53db8a8a2
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708799"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533840"
 ---
 # <a name="manage-azure-sql-managed-instance-long-term-backup-retention-powershell"></a>Gerir a azure SQL Gestão de Casos de reserva a longo prazo (PowerShell)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -28,7 +28,7 @@ Em Azure SQL Managed Instance, pode configurar uma política [de retenção de b
 
 As seguintes secções mostram-lhe como usar o PowerShell para configurar a retenção de backup a longo prazo, ver cópias de segurança no armazenamento Azure SQL e restaurar a partir de uma cópia de segurança no armazenamento Azure SQL.
 
-## <a name="rbac-roles-to-manage-long-term-retention"></a>Funções do RBAC para gerir a retenção a longo prazo
+## <a name="azure-roles-to-manage-long-term-retention"></a>Funções azure para gerir a retenção a longo prazo
 
 Para **a Seta-AzSqlInstanceDatabaseLongTermRetentionBackup** e **Restore-AzSqlInstanceDatabase,** terá de ter uma das seguintes funções:
 
@@ -145,7 +145,7 @@ Restore-AzSqlInstanceDatabase -FromLongTermRetentionBackup -ResourceId $ltrBacku
 > [!NOTE]
 > A partir daqui, pode ligar à base de dados restaurada através do o SQL Server Management Studio para efetuar tarefas necessárias, bem como para extrair alguns dados da base de dados restaurada para copiá-los para a base de dados existente ou para eliminar a base de dados existente e mudar o nome da base de dados restaurada para o nome da base de dados existente. Ver [ponto no tempo restaurar](../database/recovery-using-backups.md#point-in-time-restore).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre cópias de segurança automáticas geradas pelo serviço, veja [cópias de segurança automáticas](../database/automated-backups-overview.md)
 - Para saber mais sobre a retenção de longa duração de cópia de segurança, veja [retenção de longa duração de cópia de segurança](../database/long-term-retention-overview.md)

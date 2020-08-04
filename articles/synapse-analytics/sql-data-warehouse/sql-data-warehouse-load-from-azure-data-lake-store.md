@@ -11,12 +11,12 @@ ms.date: 06/07/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fcebf66dba2fc13457ca359b81565fc5870032c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c634b4f7ac3aa1fe83e6ab3f863e998b8d25232c
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213300"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533942"
 ---
 # <a name="load-data-from-azure-data-lake-storage-for-synapse-sql"></a>Carregar dados do Azure Data Lake Storage para Synapse SQL
 
@@ -39,7 +39,7 @@ Antes de começar este tutorial, transfira e instale a versão mais recente do [
 Para executar este tutorial, você precisa:
 
 * Uma piscina SQL. Consulte [criar uma piscina SQL e consultar dados](create-data-warehouse-portal.md)de consulta.
-* Uma conta de armazenamento do Data Lake. Ver [Começar com o Azure Data Lake Storage.](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Para esta conta de armazenamento, terá de configurar ou especificar uma das seguintes credenciais para carregar: Uma chave de conta de armazenamento, chave de assinatura de acesso partilhado (SAS), um utilizador de Aplicação de Diretório Azure ou um utilizador AAD que tenha a função adequada de RBAC na conta de armazenamento.
+* Uma conta de armazenamento do Data Lake. Ver [Começar com o Azure Data Lake Storage.](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Para esta conta de armazenamento, terá de configurar ou especificar uma das seguintes credenciais para carregar: Uma chave de conta de armazenamento, chave de assinatura de acesso partilhado (SAS), um utilizador de Aplicação de Diretório Azure ou um utilizador AAD que tenha o papel Azure adequado na conta de armazenamento.
 
 ## <a name="create-the-target-table"></a>Criar a tabela-alvo
 
@@ -124,9 +124,9 @@ O exemplo a seguir é um bom ponto de partida para a criação de estatísticas.
 
 ## <a name="achievement-unlocked"></a>Realização desbloqueada!
 
-Você carregou dados com sucesso no seu armazém de dados. Grande trabalho!
+Você carregou dados com sucesso no seu armazém de dados. Parabéns!
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Os dados de carregamento são o primeiro passo para desenvolver uma solução de armazém de dados utilizando o Azure Synapse Analytics. Confira os nossos recursos de desenvolvimento.
 
 > [!div class="nextstepaction"]

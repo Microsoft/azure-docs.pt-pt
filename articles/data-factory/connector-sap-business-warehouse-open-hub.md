@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
-ms.openlocfilehash: efb61a3360ee2514fa6fd61e125ebc345474c62f
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 930c7e7881a00cd0cb1f4abc6b219c0fbdeebac5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224626"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533415"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse via Open Hub usando a Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "86224626"
 Este artigo descreve como utilizar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de um Sap Business Warehouse (BW) via Open Hub. Baseia-se no artigo [de visão geral](copy-activity-overview.md) da atividade de cópia que apresenta uma visão geral da atividade da cópia.
 
 >[!TIP]
->Para obter o apoio global da ADF no cenário de integração de dados SAP, consulte [a integração de dados SAP utilizando o papel branco da Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) com introdução, comparação e orientação detalhadas.
+>Para obter o apoio global da ADF no cenário de integração de dados SAP, consulte [a integração de dados SAP utilizando o papel branco da Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) com introdução detalhada em cada conector SAP, comparação e orientação.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
@@ -42,6 +42,7 @@ Especificamente, este conector SAP Business Warehouse Open Hub suporta:
 - Copiar dados através da tabela local Open Hub Destination que por baixo pode ser DSO, InfoCube, MultiProvider, DataSource, etc.
 - Copiar dados utilizando a autenticação básica.
 - Ligação a um servidor de aplicações SAP ou servidor de mensagens SAP.
+- Recuperação de dados via RFC.
 
 ## <a name="sap-bw-open-hub-integration"></a>Integração do Hub Aberto SAP BW 
 
@@ -105,20 +106,20 @@ As seguintes secções fornecem detalhes sobre propriedades que são usadas para
 
 As seguintes propriedades são suportadas para o serviço ligado ao SAP Business Warehouse Open Hub:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **SapOpenHub** | Yes |
-| servidor | Nome do servidor em que reside a instância SAP BW. | Yes |
-| sistemaNumbre | Número do sistema do sistema SAP BW.<br/>Valor permitido: número decimal de dois dígitos representado como uma corda. | Yes |
+| tipo | A propriedade tipo deve ser definida para: **SapOpenHub** | Sim |
+| servidor | Nome do servidor em que reside a instância SAP BW. | Sim |
+| sistemaNumbre | Número do sistema do sistema SAP BW.<br/>Valor permitido: número decimal de dois dígitos representado como uma corda. | Sim |
 | mensagemServer | O nome de anfitrião do servidor de mensagens SAP.<br/>Utilize para ligar a um servidor de mensagens SAP. | Não |
 | serviço de mensagensServer | O nome de serviço ou o número da porta do servidor de mensagens.<br/>Utilize para ligar a um servidor de mensagens SAP. | Não |
 | systemId | A identificação do sistema SAP onde se encontra a mesa.<br/>Utilize para ligar a um servidor de mensagens SAP. | Não |
 | logonGroup | O grupo de início de são para o sistema SAP.<br/>Utilize para ligar a um servidor de mensagens SAP. | Não |
-| clientId | Identificação do cliente do cliente no sistema SAP W.<br/>Valor permitido: número decimal de três dígitos representado como uma corda. | Yes |
+| clientId | Identificação do cliente do cliente no sistema SAP W.<br/>Valor permitido: número decimal de três dígitos representado como uma corda. | Sim |
 | language | Linguagem que o sistema SAP usa. | Não (o valor predefinido é **EN)**|
-| userName | Nome do utilizador que tem acesso ao servidor SAP. | Yes |
-| palavra-passe | A palavra-passe do utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
-| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. É necessário um tempo de integração auto-organizado, tal como mencionado nos [Pré-Requisitos](#prerequisites). |Yes |
+| userName | Nome do utilizador que tem acesso ao servidor SAP. | Sim |
+| palavra-passe | A palavra-passe do utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. É necessário um tempo de integração auto-organizado, tal como mencionado nos [Pré-Requisitos](#prerequisites). |Sim |
 
 **Exemplo:**
 
@@ -151,10 +152,10 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados de e para SAP BW Open Hub, defina a propriedade tipo do conjunto de dados para **o SapOpenHubTable**. As seguintes propriedades são suportadas.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para **SapOpenHubTable**.  | Yes |
-| openHubDestinationName | O nome do Destino Open Hub para copiar dados de. | Yes |
+| tipo | A propriedade tipo deve ser definida para **SapOpenHubTable**.  | Sim |
+| openHubDestinationName | O nome do Destino Open Hub para copiar dados de. | Sim |
 
 Se estiver a configurar `excludeLastRequest` e no conjunto de `baseRequestId` dados, ainda é suportado como está, enquanto é sugerido que utilize o novo modelo na fonte de atividade que vai para a frente.
 
@@ -185,9 +186,9 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados do SAP BW Open Hub, as seguintes propriedades são suportadas na secção **fonte de origem** da atividade da cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** da fonte de atividade de cópia deve ser definida para **SapOpenHubSource**. | Yes |
+| tipo | A propriedade **tipo** da fonte de atividade de cópia deve ser definida para **SapOpenHubSource**. | Sim |
 | excluirLastRequest | Se excluir os registos do último pedido. | Não (o padrão é **verdadeiro)** |
 | baseRequestId | A identificação do pedido de carregamento delta. Uma vez definido, apenas os dados com pedidoId **maior do que** o valor desta propriedade serão recuperados.  | Não |
 
@@ -237,7 +238,7 @@ Ao copiar dados do SAP BW Open Hub, os seguintes mapeamentos são utilizados des
 |:--- |:--- |
 | C (Corda) | String |
 | I (inteiro) | Int32 |
-| F (Flutuar) | Duplo |
+| F (Flutuar) | Double (Duplo) |
 | D (Data) | String |
 | T (Tempo) | String |
 | P (BCD Embalado, Moeda, Decimal, Qty) | Decimal |

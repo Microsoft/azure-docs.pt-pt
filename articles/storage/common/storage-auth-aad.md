@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: b5e75819fd018cda60bca4c992bc4c141b14a379
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 76b9b965ab7fb5ffda66bd77dba6d9ab5381e6fd
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374189"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534367"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Autorizar o acesso a bolhas e filas utilizando o Azure Ative Directory
 
@@ -37,15 +37,15 @@ Quando um principal de segurança (um utilizador, grupo ou aplicação) tenta ac
 
 A etapa de autenticação requer que um pedido de pedido de acesso OAuth 2.0 seja token no tempo de execução. Se uma aplicação estiver a funcionar a partir de uma entidade Azure, como um Azure VM, um conjunto de escala de máquina virtual ou uma aplicação Azure Functions, pode usar uma [identidade gerida](../../active-directory/managed-identities-azure-resources/overview.md) para aceder a bolhas ou filas. Para saber como autorizar pedidos feitos por identidade gerida ao serviço Azure Blob ou Queue, consulte [o Acesso autorizado a bolhas e filas com o Azure Ative Directory e identidades geridas para a Azure Resources](storage-auth-aad-msi.md).
 
-O passo de autorização requer que uma ou mais funções do RBAC sejam atribuídas ao diretor de segurança. O Azure Storage fornece funções RBAC que englobam conjuntos comuns de permissões para dados de bolhas e filas. As funções atribuídas a um diretor de segurança determinam as permissões que o diretor terá. Para saber mais sobre a atribuição de funções de RBAC para armazenamento Azure, consulte [Gerir os direitos de acesso aos dados de armazenamento com o RBAC.](storage-auth-aad-rbac.md)
+O passo de autorização requer que uma ou mais funções da Azure sejam atribuídas ao diretor de segurança. O Azure Storage fornece funções Azure que englobam conjuntos comuns de permissões para dados de bolhas e filas. As funções atribuídas a um diretor de segurança determinam as permissões que o diretor terá. Para saber mais sobre a atribuição de funções Azure para armazenamento Azure, consulte [Gerir os direitos de acesso aos dados de armazenamento com o RBAC.](storage-auth-aad-rbac.md)
 
 As aplicações nativas e aplicações web que fazem pedidos para o serviço Azure Blob ou Queue também podem autorizar o acesso com a Azure AD. Para obter como solicitar um token de acesso e usá-lo para autorizar pedidos de dados de bolhas ou filas, consulte [Acesso autorizado ao Azure Storage com Azure AD a partir de uma aplicação de Armazenamento Azure](storage-auth-aad-app.md).
 
-## <a name="assign-rbac-roles-for-access-rights"></a>Atribuir funções do RBAC para direitos de acesso
+## <a name="assign-azure-roles-for-access-rights"></a>Atribuir funções da Azure para direitos de acesso
 
 O Azure Ative Directory (Azure AD) autoriza os direitos de acesso a recursos seguros através [do controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md). O Azure Storage define um conjunto de funções incorporadas do Azure que englobam conjuntos comuns de permissões usadas para aceder a dados de bolhas e filas. Também pode definir funções personalizadas para acesso a dados de blob e fila.
 
-Quando um papel rbac é atribuído a um diretor de segurança Azure, Azure concede acesso a esses recursos para esse chefe de segurança. O acesso pode ser alargado ao nível da subscrição, do grupo de recursos, da conta de armazenamento ou de um contentor ou fila individual. Um diretor de segurança Azure AD pode ser um utilizador, um grupo, um diretor de serviço de aplicação ou uma [identidade gerida para os recursos da Azure.](../../active-directory/managed-identities-azure-resources/overview.md)
+Quando um papel de Azure é atribuído a um diretor de segurança da AZure, a Azure concede acesso a esses recursos para esse diretor de segurança. O acesso pode ser alargado ao nível da subscrição, do grupo de recursos, da conta de armazenamento ou de um contentor ou fila individual. Um diretor de segurança Azure AD pode ser um utilizador, um grupo, um diretor de serviço de aplicação ou uma [identidade gerida para os recursos da Azure.](../../active-directory/managed-identities-azure-resources/overview.md)
 
 ### <a name="azure-built-in-roles-for-blobs-and-queues"></a>Papéis embutidos em Azure para bolhas e filas
 
@@ -73,9 +73,9 @@ O acesso aos dados blob ou de fila através do portal Azure, PowerShell ou Azure
 
 ### <a name="data-access-from-the-azure-portal"></a>Acesso a dados a partir do portal Azure
 
-O portal Azure pode utilizar a sua conta Azure AD ou as chaves de acesso à conta para aceder a dados de blob e fila numa conta de armazenamento Azure. Que esquema de autorização que o portal Azure utiliza depende das funções RBAC que lhe são atribuídas.
+O portal Azure pode utilizar a sua conta Azure AD ou as chaves de acesso à conta para aceder a dados de blob e fila numa conta de armazenamento Azure. Que esquema de autorização que o portal Azure utiliza depende das funções Azure que lhe são atribuídas.
 
-Quando tenta aceder a dados de blob ou de fila, o portal Azure verifica primeiro se lhe foi atribuída uma função RBAC com **microsoft.Storage/storageAcounts/listkeys/action**. Se lhe foi atribuído um papel com esta ação, então o portal Azure utiliza a chave de conta para aceder a dados de blob e fila através da autorização da Chave Partilhada. Se não lhe foi atribuído um papel com esta ação, então o portal Azure tenta aceder aos dados utilizando a sua conta Azure AD.
+Quando tenta aceder a dados de blob ou de fila, o portal Azure verifica primeiro se lhe foi atribuída uma função Azure com **o Microsoft.Storage/storageAcounts/listkeys/action**. Se lhe foi atribuído um papel com esta ação, então o portal Azure utiliza a chave de conta para aceder a dados de blob e fila através da autorização da Chave Partilhada. Se não lhe foi atribuído um papel com esta ação, então o portal Azure tenta aceder aos dados utilizando a sua conta Azure AD.
 
 Para aceder a dados de blob ou fila a partir do portal Azure utilizando a sua conta Azure AD, precisa de permissões para aceder a dados de blob e fila, e também precisa de permissões para navegar através dos recursos da conta de armazenamento no portal Azure. As funções incorporadas fornecidas pela Azure Storage concedem acesso a recursos blob e fila, mas não concedem permissões aos recursos da conta de armazenamento. Por esta razão, o acesso ao portal também requer a atribuição de uma função de Gestor de Recursos Azure, como a função [Reader,](../../role-based-access-control/built-in-roles.md#reader) alargada ao nível da conta de armazenamento ou superior. A função **Reader** concede as permissões mais restritas, mas outra função de Gestor de Recursos Azure que concede acesso aos recursos de gestão de conta de armazenamento também é aceitável. Para saber mais sobre como atribuir permissões aos utilizadores para acesso a dados no portal Azure com uma conta AZure AD, consulte [o Acesso ao Grant para blob Azure e dados de fila com o RBAC no portal Azure.](storage-auth-aad-rbac-portal.md)
 

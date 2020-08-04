@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: ab1cba455f93abe4d603f417f8d0a00dda0e315e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 2992324a1080b75a98264958f56ea28e93b54651
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497652"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534588"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Utilizar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight
 
@@ -79,7 +79,7 @@ Atribua a identidade gerida à função **de Proprietário de Dados de Armazenam
 1. Selecione o botão **de atribuição de função + adicionar** uma nova função.
 1. Na janela **de atribuição de funções Adicionar,** selecione a função **Proprietário de dados de armazenamento Blob.** Em seguida, selecione a subscrição que tem a conta de identidade e armazenamento gerida. Em seguida, procure localizar a identidade gerida atribuída pelo utilizador que criou anteriormente. Por fim, selecione a identidade gerida e será listada em **membros Selecionados**.
 
-    ![Screenshot mostrando como atribuir um papel RBAC](./media/hdinsight-hadoop-use-data-lake-storage-gen2/add-rbac-role3-window.png)
+    ![Screenshot mostrando como atribuir um papel de Azure](./media/hdinsight-hadoop-use-data-lake-storage-gen2/add-rbac-role3-window.png)
 
 1. Selecione **Guardar**. A identidade atribuída ao utilizador que selecionou está agora listada sob a função selecionada.
 1. Depois desta configuração inicial estar concluída, pode criar um cluster através do portal. O cluster deve estar na mesma região de Azure que a conta de armazenamento. No **separador armazenamento** do menu de criação de cluster, selecione as seguintes opções:

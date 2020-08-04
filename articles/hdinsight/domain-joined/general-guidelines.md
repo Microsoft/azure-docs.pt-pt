@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 142fdf27fde100385140baacdeba9249b2e7989b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d97886232eecc369746e33df484cbfb9d40da72
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887899"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530270"
 ---
 # <a name="enterprise-security-general-information-and-guidelines-in-azure-hdinsight"></a>Informações e orientações gerais de segurança da empresa em Azure HDInsight
 
@@ -62,7 +62,7 @@ Ao implementar um cluster HDInsight seguro, existem algumas boas práticas que d
 Quando o espaço hierárquico do nome não está ativado:
 
 * Não há permissões herdadas.
-* Apenas a permissão do sistema de ficheiros que funciona é a função **de Armazenamento de Dados XXXX** RBAC, a atribuir diretamente ao utilizador no portal Azure.
+* Apenas a permissão do sistema de ficheiros que funciona é a função **de Armazenamento de Dados XXXX** Azure, a atribuir diretamente ao utilizador no portal Azure.
 
 ### <a name="default-hdfs-permissions"></a>Permissões HDFS predefinidos
 
@@ -171,7 +171,7 @@ Razões mais comuns:
 
 Para obter uma lista completa das propriedades Ambari que afetam a sua configuração do cluster HDInsight, consulte [a Configuração de Autenticação Ambari LDAP](https://ambari.apache.org/1.2.1/installing-hadoop-using-ambari/content/ambari-chap2-4.html).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Configurações de pacotes de segurança da empresa com serviços de domínio de diretório ativo Azure em HDInsight](./apache-domain-joined-configure-using-azure-adds.md)
 

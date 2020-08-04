@@ -3,12 +3,12 @@ title: Firewall IP congigure para espaço de nome do Azure Relay
 description: Este artigo descreve como utilizar regras de firewall para permitir ligações de endereços IP específicos a espaços de nomes Azure Relay.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: f5fca44c56982e368b762a0b9b3418f1175f7de0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8cd788475ebe54c0316b8c37bd00aa186123fbf1
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314853"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533064"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Configure firewall IP para um espaço de nome Azure Relay
 Por predefinição, os espaços de nome retransmissores estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Roteamento Inter-Domain Sem Classe).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
@@ -123,10 +123,10 @@ Para implementar o modelo, siga as instruções para [O Gestor de Recursos Azure
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre outras funcionalidades relacionadas com a segurança da rede, consulte [a segurança da rede](network-security.md).
 
 
 <!-- Links -->
 
-[express-route]:  /azure/expressroute/expressroute-faqs#supported-services
+[express-route]:  ../expressroute/expressroute-faqs.md#supported-services

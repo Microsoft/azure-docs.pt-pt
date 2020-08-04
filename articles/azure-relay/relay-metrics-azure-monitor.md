@@ -4,17 +4,17 @@ description: Este artigo fornece informações sobre como pode utilizar o Azure 
 services: service-bus-relay
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 42de5205be9a611957a6e340b5eaa55c5b7f52c0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5fcc0f820983da388d808cadf8ce64a555e8ef0a
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004567"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532888"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor"></a>Métricas de Retransmissão Azure em Monitor Azure 
 As métricas Azure Relay dão-lhe o estado dos recursos na sua assinatura Azure. Com um rico conjunto de dados de métricas, você pode avaliar a saúde geral dos seus recursos De Retransmissor, não só ao nível do espaço de nome, mas também ao nível da entidade. Estas estatísticas podem ser importantes, uma vez que o ajudam a monitorizar o estado de Azure Relay. As métricas também podem ajudar a resolver problemas de causa de raiz sem precisar de contactar o suporte do Azure.
 
-O Azure Monitor fornece interfaces de utilizador unificadas para monitorização em vários serviços Azure. Para obter mais informações, consulte [monitorar no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) e nas [métricas do Monitor De Recuperação Azure com](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) a amostra .NET no GitHub.
+O Azure Monitor fornece interfaces de utilizador unificadas para monitorização em vários serviços Azure. Para obter mais informações, consulte [monitorar no Microsoft Azure](../azure-monitor/overview.md) e nas [métricas do Monitor De Recuperação Azure com](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) a amostra .NET no GitHub.
 
 > [!IMPORTANT]
 > Este artigo aplica-se apenas à característica De Conexões Híbridas do Azure Relay, e não ao WCF Relay. 
@@ -79,10 +79,6 @@ O Azure Relay suporta as seguintes dimensões para métricas no Azure Monitor. A
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte a [visão geral da Monitorização do Azure](../monitoring-and-diagnostics/monitoring-overview.md).
+Consulte a [visão geral da Monitorização do Azure](../azure-monitor/overview.md).
 
 [1]: ./media/relay-metrics-azure-monitor/relay-monitor1.png
-
-
-
-

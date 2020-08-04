@@ -4,12 +4,12 @@ description: Use o Control de Acesso baseado em funções para gerir o acesso a 
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: 4c5a0a43efe7bda5fdc4b60d13b97f61565809bd
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 408e25b865c6d244118e505121492ccf22d19b64
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445305"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533466"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Use o Controlo de Acesso Baseado em Funções para gerir pontos de recuperação de backup do Azure
 
@@ -28,9 +28,9 @@ Se procura definir os seus próprios papéis para ainda mais controlo, veja como
 
 ## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>Mapeamento de papéis incorporados de Backup para ações de gestão de backup
 
-O quadro seguinte captura as ações de gestão de backup e a correspondente função mínima de RBAC necessária para executar essa operação.
+O quadro seguinte captura as ações de gestão de Backup e a correspondente função mínima de Azure necessária para executar essa operação.
 
-| Operação de Gestão | Papel mínimo rbac necessário | Âmbito necessário |
+| Operação de Gestão | Função mínima de Azure necessária | Âmbito necessário |
 | --- | --- | --- |
 | Criar cofre dos Serviços de Recuperação | Colaborador de backup | Grupo de recursos contendo o cofre |
 | Ativar o backup dos VMs Azure | Operador de backup | Grupo de recursos contendo o cofre |

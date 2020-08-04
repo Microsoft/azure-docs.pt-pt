@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 10/05/2019
 ms.author: rohink
-ms.openlocfilehash: 4de585a965cfefa6399b0c0929a8f732d0712617
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0945f89e3c18ab20ece0b493a49ec9f7f31e4e13
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76939425"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529199"
 ---
 # <a name="azure-private-dns-faq"></a>FAQ do DNS Privado do Azure
 
@@ -38,7 +38,7 @@ Sim. Você pode ligar uma zona privada de DNS com milhares de redes virtuais. Pa
 
 ## <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-linked-to-a-private-zone"></a>Uma rede virtual que pertence a uma subscrição diferente pode estar ligada a uma zona privada?
 
-Sim. Deve ter permissão de operação nas redes virtuais e na zona privada do DNS. A permissão de escrita pode ser concedida a vários papéis do RBAC. Por exemplo, o papel de Colaborador de Rede Clássica RBAC tem permissões de escrita para redes virtuais e as zonas privadas DNS A função contribuinte tem permissões de escrita nas zonas privadas de DNS. Para obter mais informações sobre as funções do RBAC, consulte [o controlo de acesso baseado em funções.](../role-based-access-control/overview.md)
+Sim. Deve ter permissão de operação nas redes virtuais e na zona privada do DNS. A permissão de escrita pode ser concedida a vários papéis de Azure. Por exemplo, o papel Azure do Contribuinte de Rede Clássica tem permissões de escrita para redes virtuais e o papel de contribuinte de zonas privadas de DNS tem permissões de escrita nas zonas privadas de DNS. Para obter mais informações sobre as funções Azure, consulte [o controlo de acesso baseado em funções](../role-based-access-control/overview.md).
 
 ## <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-you-delete-the-virtual-machine"></a>Os registos DNS da máquina virtual automaticamente registados numa zona privada serão automaticamente eliminados quando eliminar a máquina virtual?
 
@@ -81,6 +81,6 @@ Se a sua zona de DNS privada existente foi criada usando a API de pré-visualiza
 
 Recomendamos vivamente que migrar para o novo modelo de recursos o mais rapidamente possível. O modelo de recursos legados será suportado, no entanto, outras funcionalidades não serão desenvolvidas em cima deste modelo. No futuro, pretendemos depreciá-lo a favor de um novo modelo de recursos. Para obter orientações sobre como migrar as suas zonas privadas de DNS existentes para o novo modelo de recursos consulte[o guia de migração para as zonas privadas do Azure DNS](private-dns-migration-guide.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais sobre o Azure Private DNS](private-dns-overview.md)

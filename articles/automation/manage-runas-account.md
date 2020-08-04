@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 06/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: a3f48c9f15d12fbfc41ac8baf589f8579f259377
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c2d6e026f87211260a2cf45c0623806cc024b44e
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421489"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530671"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Gerir uma execução de automação Azure Como conta
 
@@ -66,7 +66,7 @@ Para criar ou atualizar uma conta Run As, tem de ter privilégios e permissões 
 |Criar aplicação Azure Ad|[Aplicação New-AzAD](/powershell/module/az.resources/new-azadapplication)     | Função de Desenvolvedor de Aplicações<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Home > Azure AD > Registos de Aplicações |
 |Adicione uma credencial à aplicação.|[Novo-AzADAppCredential](/powershell/module/az.resources/new-azadappcredential)     | Administrador de Aplicação ou Administrador Global<sup>1</sup>         |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Home > Azure AD > Registos de Aplicações|
 |Criar e obter um diretor de serviço AZure AD|[New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal)</br>[Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal)     | Administrador de Aplicação ou Administrador Global<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Home > Azure AD > Registos de Aplicações|
-|Atribuir ou obter o papel RBAC para o principal especificado|[New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)</br>[Get-AzRoleAssignment](/powershell/module/Az.Resources/Get-AzRoleAssignment)      | Administrador de acesso ao utilizador ou proprietário, ou tenha as seguintes permissões:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br> | [Subscrição](../role-based-access-control/role-assignments-portal.md)</br>Subscrições > > \<subscription name\> - Controlo de Acesso (IAM)|
+|Atribuir ou obter o papel de Azure para o principal especificado|[New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)</br>[Get-AzRoleAssignment](/powershell/module/Az.Resources/Get-AzRoleAssignment)      | Administrador de acesso ao utilizador ou proprietário, ou tenha as seguintes permissões:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br> | [Subscrição](../role-based-access-control/role-assignments-portal.md)</br>Subscrições > > \<subscription name\> - Controlo de Acesso (IAM)|
 |Criar ou remover um certificado de Automação|[Novo AzAutomationCertificato](/powershell/module/Az.Automation/New-AzAutomationCertificate)</br>[Remover-AzAutomationCertificato](/powershell/module/az.automation/remove-azautomationcertificate)     | Contribuinte no grupo de recursos         |Grupo de recursos de conta de automação|
 |Criar ou remover uma ligação de Automação|[New-AzAutomationConnection](/powershell/module/az.automation/new-azautomationconnection)</br>[Remover-AzAutomationConnection](/powershell/module/az.automation/remove-azautomationconnection)|Contribuinte no grupo de recursos |Grupo de recursos de conta de automação|
 
@@ -209,7 +209,7 @@ The Run As account is incomplete. Either one of these was deleted or not created
 
 Pode resolver rapidamente estes problemas da conta Run As, ao eliminar e recriar a conta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Objetos de aplicação e objetos principais de serviço.](../active-directory/develop/app-objects-and-service-principals.md)
 * [Visão geral dos certificados para serviços de nuvem Azure](../cloud-services/cloud-services-certs-create.md).

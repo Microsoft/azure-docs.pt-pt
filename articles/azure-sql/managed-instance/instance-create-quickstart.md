@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: e4b4b6f21d158a758c2ff77db6660bbb44696d90
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b2d43e970012209acb6ed7fbbaafbb1719617280
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086692"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533874"
 ---
 # <a name="quickstart-create-a-managed-instance-of-sql-managed-instance"></a>Quickstart: Criar uma instância gerida de SQL Gestão De Instância
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -98,7 +98,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
    | **Uso como failover secundário** | Selecione **Sim**. | Ative esta opção para utilizar a instância gerida como um grupo de failover secundário.|
    | **Primeira SQL Caso gerido** (se **a utilização como secundário de failover** está definida para **Sim**) | Escolha um caso gerido primário existente que será acompanhado na mesma zona de DNS com a instância gerida que está a criar. | Este passo permitirá a configuração pós-criação do grupo de failover. Para obter mais informações, consulte [Tutorial: Adicione uma instância gerida a um grupo de failover](failover-group-add-instance-tutorial.md).|
 
-## <a name="review--create"></a>Revisão + criar
+## <a name="review--create"></a>Rever + criar
 
 1. Selecione **Rever + criar** separador para rever as suas escolhas antes de criar uma instância gerida.
 
@@ -124,7 +124,9 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 > 3. Selecione a operação de implantação de instância gerida SQL em curso.
 
 > [!IMPORTANT]
-> Para conseguir obter o estado da criação de instâncias **geridas,** é necessário ter permissões de leitura sobre o grupo de recursos. Se não tiver esta permissão ou a revogar enquanto a instância gerida estiver em processo de criação, isto pode fazer com que a SQL Managed Instance não esteja visível na lista de implementações de grupos de recursos.
+> - A criação da SQL Managed Instance é uma operação de longa duração que pode demorar algumas horas de cada vez, dependendo de circunstâncias específicas. Consulte [a duração das operações de gestão](management-operations-overview.md#management-operations-duration) para os tempos típicos de criação.
+> - O início da criação de exemplos geridos pela SQL pode ser adiado nos casos em que existam outras operações de impacto, tais como operações de restauro ou dimensionamento de longa duração noutras instâncias geridas na mesma sub-rede. Para saber mais, consulte [as operações de Gestão de impacto transversal.](management-operations-overview.md#management-operations-cross-impact)
+> - Para conseguir obter o estado da criação de instâncias **geridas,** é necessário ter permissões de leitura sobre o grupo de recursos. Se não tiver esta permissão ou a revogar enquanto a instância gerida estiver em processo de criação, isto pode fazer com que a SQL Managed Instance não esteja visível na lista de implementações de grupos de recursos.
 >
 
 ## <a name="view-resources-created"></a>Ver recursos criados
@@ -173,7 +175,7 @@ Para ligar à SQL Managed Instance, siga estes passos para recuperar o nome de a
 
    O valor copiado representa um nome de domínio totalmente qualificado (FQDN) que pode ser usado para ligar a SQL Managed Instance. É semelhante ao seguinte exemplo de endereço: *your_host_name.a1b2c3d4e5f6.database.windows.net*.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber como ligar-se à SQL Managed Instance:
 - Para obter uma visão geral das opções de ligação para aplicações, consulte [Conecte as suas aplicações à SQL Managed Instance](connect-application-instance.md).

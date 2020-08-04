@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: c1ac3c1e312704f8a0afa751d0efc6d0cef897f9
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 65ec92aeca44a514467a642de1dab06f06c220e9
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371775"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533857"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Utilize pontos finais de serviço de rede virtual e regras para servidores na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -104,7 +104,7 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Impacto da utilização de pontos finais de serviço VNet com armazenamento Azure
 
-O Azure Storage implementou a mesma funcionalidade que lhe permite limitar a conectividade à sua conta de Armazenamento Azure. Se optar por utilizar esta funcionalidade com uma conta de Armazenamento Azure que está a ser utilizada pela Base de Dados Azure SQL, pode encontrar problemas. Segue-se uma lista e discussão das funcionalidades Azure SQL Data Warehouse e Azure SQL Data Warehouse que são impactadas por isso.
+O Armazenamento do Microsoft Azure implementou a mesma funcionalidade que lhe permite limitar a conectividade à conta do Armazenamento do Microsoft Azure. Se optar por utilizar esta funcionalidade com uma conta do Armazenamento do Microsoft Azure que está a ser utilizada pela Base de Dados SQL do Azure, poderão ocorrer problemas. Segue-se uma lista e discussão das funcionalidades Azure SQL Data Warehouse e Azure SQL Data Warehouse que são impactadas por isso.
 
 ### <a name="azure-synapse-polybase"></a>Azure Synapse PolyBase
 
@@ -112,9 +112,9 @@ PolyBase é comumente usado para carregar dados em Azure Synapse Analytics a par
 
 #### <a name="prerequisites"></a>Pré-requisitos
 
-- Instale a Azure PowerShell utilizando este [guia](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Se tiver uma conta de armazenamento v1 ou blob para fins gerais, tem primeiro de atualizar para v2 de uso [geral.](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)
-- Deve ter **permitido que serviços fidedignos da Microsoft acedam a esta conta de armazenamento** ligados no menu de firewalls da conta de armazenamento Azure e redes **virtuais.** Consulte este [guia](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) para mais informações.
+- Siga este [guia](https://docs.microsoft.com/powershell/azure/install-az-ps) para instalar o Azure PowerShell.
+- Se tiver uma conta de armazenamento de blobs ou fins gerais v1, terá primeiro de atualizar para a conta fins gerais v2. Para tal, siga este [guia](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+- Deve ter **permitido que serviços fidedignos da Microsoft acedam a esta conta de armazenamento** ligados no menu de firewalls da conta de armazenamento Azure e redes **virtuais.** Para obter mais informações, veja este [guia](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 > [!IMPORTANT]
 > O módulo PowerShell Azure Resource Manager ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. O módulo AzureRM continuará a receber correções de erros até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para obter mais informações sobre a sua compatibilidade, consulte [a introdução do novo módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
@@ -136,7 +136,7 @@ PolyBase é comumente usado para carregar dados em Azure Synapse Analytics a par
    > - Se tiver uma conta de armazenamento v1 ou blob para fins gerais, tem primeiro de **atualizar para v2** utilizando este [guia](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - Para questões conhecidas com a Azure Data Lake Storage Gen2, consulte este [guia.](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues)
 
-1. Na sua conta de armazenamento, navegue para **Access Control (IAM)** e selecione **Adicionar a atribuição de funções**. Atribua o papel de Colaborador **de Dados blob de armazenamento** ao servidor que hospeda o seu Azure Synapse Analytics que registou no Azure Ative Directory (AAD) como #1 passo.
+1. Na sua conta de armazenamento, navegue para **Access Control (IAM)** e selecione **Adicionar a atribuição de funções**. Atribua o papel de Azure **do Contribuinte de Dados de Armazenamento** ao servidor que hospeda o seu Azure Synapse Analytics que registou no Azure Ative Directory (AAD) como #1 passo.
 
    > [!NOTE]
    > Apenas os membros com privilégio proprietário na conta de armazenamento podem realizar este passo. Para várias funções incorporadas do Azure, consulte este [guia.](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)

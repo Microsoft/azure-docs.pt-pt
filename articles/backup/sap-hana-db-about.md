@@ -3,12 +3,12 @@ title: Sobre a base de dados SAP HANA em VMs Azure
 description: Neste artigo, saiba como fazer backup das bases de dados SAP HANA que estão a funcionar em máquinas virtuais Azure.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 980278b3cdb9c97a5a483354a004a8278a745b3b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a6c4f627059a8d536e1d006103650dca5d2f5109
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503511"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533449"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Sobre a base de dados SAP HANA em VMs Azure
 
@@ -60,7 +60,7 @@ Além de utilizar a cópia de segurança SAP HANA em Azure que fornece cópia de
 
 A [solução de backup Azure SAP HANA certificada backint](#backup-architecture) pode ser usada para cópia de segurança e recuperação de bases de dados.
 
-[A cópia de segurança Azure VM](backup-azure-vms-introduction.md) pode ser usada para fazer backup do SISTEMA e de outros discos não-base de dados. A cópia de segurança VM é tomada uma vez por dia e faz backup de todos os discos (exceto **discos Write Accelerator (WA)** e **UltraDisks).** Uma vez que a base de dados está a ser apoiada utilizando a solução de backup Azure SAP HANA, pode fazer uma cópia de segurança consistente apenas com o sistema operativo e discos não-base de dados utilizando a capacidade de disco de exclusão, que está atualmente em pré-visualização.
+[A cópia de segurança Azure VM](backup-azure-vms-introduction.md) pode ser usada para fazer backup do SISTEMA e de outros discos não-base de dados. A cópia de segurança VM é tomada uma vez por dia e faz backup de todos os discos (exceto **discos write Accelerator (WA)** e **discos ultra).** Uma vez que a base de dados está a ser apoiada utilizando a solução de backup Azure SAP HANA, pode obter uma cópia de segurança consistente apenas com o sistema operativo e discos não-base utilizando a cópia de segurança seletiva do disco e restaurar a funcionalidade [VMs Azure.](selective-disk-backup-restore.md)
 
 >[!NOTE]
 > A utilização de scripts pré-post com a cópia de segurança Azure VM permitirá cópias de segurança consistentes dos volumes de dados da base de dados. No entanto, se a área de registo residir em discos WA, tirar uma foto destes discos pode não garantir uma consistência da área de registo. A HANA tem uma forma explícita de gerar cópias de segurança por esta razão exata. Ative o mesmo no seu SAP HANA, e eles podem ser apoiados usando a cópia de segurança Azure SAP HANA.
@@ -72,7 +72,7 @@ Para restaurar um VM em execução SAP HANA, siga estes passos:
 * Depois de todas as outras configurações (como IP, nome do sistema, e assim por diante) estão definidas, o VM está definido para receber dados DB da cópia de segurança do Azure.
 * Agora, restaure o DB no VM a partir da cópia de [segurança Azure SAP HANA DB](sap-hana-db-restore.md#restore-to-a-point-in-time-or-to-a-recovery-point) para o ponto de tempo desejado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [restaurar uma base de dados SAP HANA em execução num Azure VM](./sap-hana-db-restore.md)
 * Saiba como [gerir as bases de dados SAP HANA que são apoiadas através do Azure Backup](./sap-hana-db-manage.md)

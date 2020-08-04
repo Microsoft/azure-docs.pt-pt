@@ -3,12 +3,12 @@ title: Apoiar VMs Azure em um cofre dos Serviços de Recuperação
 description: Descreve como apoiar VMs Azure num cofre de Serviços de Recuperação usando o Backup Azure
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: b9d57449e56fb50bfbfddb627a1d6bb379710da4
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 91fca2eef21a817c0f78b826e507901d94156dcd
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439714"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533602"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Apoiar VMs Azure em um cofre dos Serviços de Recuperação
 
@@ -51,7 +51,8 @@ Modificar o tipo de replicação de armazenamento da seguinte forma:
 1. No novo cofre, selecione **Propriedades** na secção **Definições.**
 2. Em **Propriedades**, em **Configuração de Cópia de Segurança**, selecione **Update**.
 3. Selecione o tipo de replicação de armazenamento e **selecione Guardar**.
-s ![ Definir a configuração de armazenamento para novo cofre](./media/backup-azure-arm-vms-prepare/full-blade.png)
+
+      ![Definir a configuração de armazenamento do novo cofre](./media/backup-azure-arm-vms-prepare/full-blade.png)
 
 > [!NOTE]
    > Não é possível modificar o tipo de replicação de armazenamento depois de o cofre ser configurado e contém itens de reserva. Se queres fazer isto, tens de recriar o cofre.
@@ -166,13 +167,6 @@ O Azure Backup apoia os VMs Azure instalando uma extensão ao agente Azure VM em
 --- | ---
 **Windows** | 1. [Descarregue e instale](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) o ficheiro MSI do agente.<br/><br/> 2. Instale com permissões de administração na máquina.<br/><br/> 3. Verifique a instalação. Em *C:\WindowsAzure\Pacotes* no VM, clique à direita **WaAppAgent.exe**  >  **Propriedades**. No separador **Detalhes,** a **versão do produto** deve ser 2.6.1198.718 ou superior.<br/><br/> Se estiver a atualizar o agente, certifique-se de que não estão a ser operações de backup e [reinstala o agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
 **Linux** | Instale utilizando um RPM ou um pacote DEB do repositório de pacotes da sua distribuição. Este é o método preferido para instalar e atualizar o agente Azure Linux. Todos os [fornecedores de distribuição endossados](../virtual-machines/linux/endorsed-distros.md) integram o pacote de agente Azure Linux nas suas imagens e repositórios. O agente está disponível no [GitHub,](https://github.com/Azure/WALinuxAgent)mas não recomendamos a instalação a partir daí.<br/><br/> Se estiver a atualizar o agente, certifique-se de que não estão a ser operações de backup e atualize os binários.
-
->[!NOTE]
-> **O Azure Backup suporta agora a cópia de segurança seletiva do disco e restaura utilizando a solução de backup da Máquina Virtual Azure.**
->
->Hoje em dia, o Azure Backup suporta o backup de todos os discos (Sistema Operativo e dados) num VM em conjunto utilizando a solução de backup da Máquina Virtual. Com a funcionalidade de exclusão do disco, obtém-se uma opção de backup de um ou alguns dos muitos discos de dados num VM. Isto fornece uma solução eficiente e rentável para as suas necessidades de backup e restauro. Cada ponto de recuperação contém dados dos discos incluídos na operação de backup, o que permite ainda ter um subconjunto de discos restaurados a partir do ponto de recuperação dado durante a operação de restauro. Isto aplica-se para restaurar tanto do instantâneo como do cofre.
->
->Para se inscrever para a pré-visualização, escreva-nos emAskAzureBackupTeam@microsoft.com
 
 ## <a name="next-steps"></a>Passos seguintes
 

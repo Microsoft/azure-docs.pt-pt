@@ -3,12 +3,12 @@ title: Entrega de eventos com identidade de serviço gerido
 description: Este artigo descreve como permitir a identidade de serviço gerida para um tópico de grelha de eventos Azure. Use-o para encaminhar eventos para destinos apoiados.
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: b437d519a076104b64fb2df5cba1cd61a865b1fc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7eaa3ddd43cc68a99ad7c2bab66630f30d4960c9
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499828"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534248"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Entrega de eventos com identidade gerida
 Este artigo descreve como permitir uma [identidade de serviço gerida](../active-directory/managed-identities-azure-resources/overview.md) para tópicos ou domínios da grelha de eventos Azure. Use-o para encaminhar eventos para destinos apoiados, como filas e tópicos de Service Bus, centros de eventos e contas de armazenamento.
@@ -63,20 +63,20 @@ az eventgrid topic update -g $rg --name $topicname --identity systemassigned --s
 
 O comando para a atualização de um domínio existente é semelhante `az eventgrid domain update` ().
 
-## <a name="supported-destinations-and-rbac-roles"></a>Destinos apoiados e funções de RBAC
+## <a name="supported-destinations-and-azure-roles"></a>Destinos apoiados e funções de Azure
 Depois de ativar a identidade para o tópico ou domínio da grelha de eventos, o Azure cria automaticamente uma identidade no Azure Ative Directory. Adicione esta identidade às funções Azure apropriadas para que o tópico ou domínio possa encaminhar eventos para destinos apoiados. Por exemplo, adicione a identidade ao papel **de Remetente de dados do Azure Event Hubs** para um espaço de nomes Azure Event Hubs para que o tópico da grelha de eventos possa encaminhar eventos para centros de eventos nesse espaço de nome. 
 
 Atualmente, a grelha de eventos Azure suporta tópicos ou domínios configurados com uma identidade gerida atribuída ao sistema para encaminhar eventos para os seguintes destinos. Esta tabela também lhe dá os papéis em que a identidade deve estar para que o tópico possa encaminhá-lo os eventos.
 
-| Destino | Função RBAC | 
+| Destino | Papel azul | 
 | ----------- | --------- | 
 | Filas e tópicos de autocarro de serviço | [Remetente de dados de ônibus de serviço Azure](../service-bus-messaging/authenticate-application.md#azure-built-in-roles-for-azure-service-bus) |
 | Azure Event Hubs | [Ender de dados do Azure Event Hubs](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
-| Armazenamento de Blobs do Azure | [Colaborador de dados blob de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) |
-| Armazenamento de Filas do Azure |[Remetente de mensagem de dados de fila de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) | 
+| Armazenamento de Blobs do Azure | [Colaborador de dados blob de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) |
+| Armazenamento de Filas do Azure |[Remetente de mensagem de dados de fila de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) | 
 
-## <a name="add-an-identity-to-rbac-roles-on-destinations"></a>Adicione uma identidade às funções do RBAC nos destinos
-Esta secção descreve como adicionar a identidade do seu tópico ou domínio a um papel DE RBAC. 
+## <a name="add-an-identity-to-azure-roles-on-destinations"></a>Adicione uma identidade aos papéis da Azure nos destinos
+Esta secção descreve como adicionar a identidade do seu tópico ou domínio a um papel Azure. 
 
 ### <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 Pode utilizar o portal Azure para atribuir o tópico ou identidade de domínio a um papel apropriado para que o tópico ou domínio possa encaminhar eventos para o destino. 
@@ -94,7 +94,7 @@ O exemplo a seguir adiciona uma identidade gerida para um tópico de grelha de e
 Os passos são semelhantes para adicionar uma identidade a outros papéis mencionados na tabela. 
 
 ### <a name="use-the-azure-cli"></a>Utilizar a CLI do Azure
-O exemplo nesta secção mostra-lhe como usar o CLI Azure para adicionar uma identidade a um papel de RBAC. Os comandos da amostra são para tópicos de grelha de eventos. Os comandos para domínios da grelha de eventos são semelhantes. 
+O exemplo nesta secção mostra-lhe como usar o CLI Azure para adicionar uma identidade a um papel de Azure. Os comandos da amostra são para tópicos de grelha de eventos. Os comandos para domínios da grelha de eventos são semelhantes. 
 
 #### <a name="get-the-principal-id-for-the-topics-system-identity"></a>Obtenha a identificação principal para a identidade do sistema do tópico 
 Primeiro, obtenha a identificação principal da identidade gerida pelo sistema do tópico e atribua a identidade a funções apropriadas.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 36f3c4192f43e323df2aaf9397364dfd1b4da731
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a9c3264a9a9d6ae27eee6da4338fa6fd401da461
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501377"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534061"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Linha de base de segurança Azure para armazenamento Azure
 
@@ -536,7 +536,7 @@ Além disso, utilize políticas de ponto final do serviço de rede virtual para 
 
 **Orientação**: O Azure Ative Directory (Azure AD) autoriza os direitos de acesso a recursos seguros através do controlo de acesso baseado em funções (RBAC). O Azure Storage define um conjunto de funções incorporadas do Azure que englobam conjuntos comuns de permissões usadas para aceder a dados de bolhas ou filas. 
 
-- [Como atribuir funções de RBAC para conta de armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-rbac-roles-using-the-azure-portal)
+- [Como atribuir funções da Azure para a conta de armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal)
 
 - [Utilize o fornecedor de recursos de armazenamento Azure para aceder a recursos de gestão](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
 

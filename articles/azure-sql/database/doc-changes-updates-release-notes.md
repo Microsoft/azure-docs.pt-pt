@@ -1,5 +1,5 @@
 ---
-title: Novidades?
+title: Novidades
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Conheça as novas funcionalidades e melhorias de documentação para a Azure SQL Database & SQL Managed Instance.
 services: sql-database
@@ -11,19 +11,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 4257b2fab5e0cca0cb016794673ed39ae4973895
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: af19b72846c78ef80ba170b6d6e0cec97fa2b96e
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067422"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533364"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Quais as novidades na Base de Dados Azure SQL & SQL Managed Instance?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Este artigo lista as funcionalidades Azure SQL Database e Azure SQL Managed Instance que estão atualmente em pré-visualização pública. Para atualizações e melhorias de exemplos de bases de dados sql e sql geridos, consulte a [Base de Dados SQL & atualizações do serviço sql Managed Instance](https://azure.microsoft.com/updates/?product=sql-database). Para atualizações e melhorias a outros serviços Azure, consulte [as atualizações do Serviço](https://azure.microsoft.com/updates).
 
-## <a name="whats-new"></a>Novidades?
+## <a name="whats-new"></a>Novidades
 
 A documentação da Azure SQL Database e da Azure SQL Managed Instance foi dividida em secções separadas. Também atualizámos a forma como nos referimos a um caso gerido da *Azure SQL Database gerido instância* para *Azure SQL Managed Instance*.
 
@@ -137,7 +137,7 @@ Em certas circunstâncias, modificar, desativar ou permitir um trabalho existent
 
 ### <a name="permissions-on-resource-group-not-applied-to-sql-managed-instance"></a>Permissões sobre grupo de recursos não aplicados à SQL Gestd Instance
 
-Quando a função DE COLABORADOR DE INSTÂNCIA Gerida SQL é aplicada a um grupo de recursos (RG), não é aplicada à SQL Managed Instance e não tem efeito.
+Quando o papel de Azure do Contribuinte de Instância Gerida SQL é aplicado a um grupo de recursos (RG), não é aplicado à SQL Managed Instance e não tem efeito.
 
 **Solução alternativa**: Crie um papel de contribuinte de instância gerida SQL para os utilizadores ao nível da subscrição.
 

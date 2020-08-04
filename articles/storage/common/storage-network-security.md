@@ -9,16 +9,16 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: d45b792c655820b771ba956721e9169750c39fbd
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: a6f59fff351ecdae82ef7175d54e3b2ab1b7d30b
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475418"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534112"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configure Firewalls de armazenamento Azure e redes virtuais
 
-O Armazenamento do Azure fornece um modelo de segurança em camadas. Este modelo permite-lhe garantir e controlar o nível de acesso às suas contas de armazenamento que as suas aplicações e ambientes empresariais exigem, com base no tipo e subconjunto de redes utilizadas. Quando as regras de rede são configuradas, apenas as aplicações que solicitam dados sobre o conjunto especificado de redes podem aceder a uma conta de armazenamento. Pode limitar o acesso à sua conta de armazenamento a pedidos originários de endereços IP especificados, intervalos IP ou de uma lista de sub-redes numa Rede Virtual Azure (VNet).
+O Armazenamento do Microsoft Azure proporciona um modelo de segurança em camadas. Este modelo permite-lhe proteger e controlar o nível de acesso às contas de armazenamento que as aplicações e os ambientes empresariais exigem, com base no tipo e no subconjunto das redes utilizadas. Quando as regras de rede são configuradas, apenas as aplicações que solicitam dados sobre o conjunto especificado de redes podem aceder a uma conta de armazenamento. Pode limitar o acesso à sua conta de armazenamento a pedidos originários de endereços IP especificados, intervalos IP ou de uma lista de sub-redes numa Rede Virtual Azure (VNet).
 
 As contas de armazenamento têm um ponto final público que é acessível através da internet. Também pode criar [Pontos Finais Privados para a sua conta de armazenamento,](storage-private-endpoints.md)que atribui um endereço IP privado do seu VNet à conta de armazenamento, e protege todo o tráfego entre o seu VNet e a conta de armazenamento por um link privado. A firewall de armazenamento Azure fornece acesso ao controlo de acesso para o ponto final público da sua conta de armazenamento. Também pode utilizar a firewall para bloquear todo o acesso através do ponto final público quando utilizar pontos finais privados. A configuração da firewall de armazenamento também permite selecionar serviços de plataforma fidedignas Azure para aceder à conta de armazenamento de forma segura.
 
@@ -365,7 +365,7 @@ As regras de rede ajudam a criar um ambiente seguro para ligações entre as sua
 Alguns serviços da Microsoft operam a partir de redes que não podem ser incluídas nas suas regras de rede. Pode conceder a um subconjunto de serviços da Microsoft de confiança o acesso à conta de armazenamento, mantendo as regras de rede para outras aplicações. Estes serviços fidedignos utilizarão então uma autenticação forte para se ligarem à sua conta de armazenamento de forma segura. Permitimos dois modos de acesso fidedigno para os serviços da Microsoft.
 
 - Os recursos de alguns serviços, **quando registados na sua subscrição,** podem aceder à sua conta de armazenamento **na mesma subscrição** para operações selecionadas, como escrever registos ou backup.
-- Os recursos de alguns serviços podem ser concedidos acesso explícito à sua conta de **armazenamento, atribuindo uma função RBAC** à sua identidade gerida atribuída pelo sistema.
+- Os recursos de alguns serviços podem ser concedidos acesso explícito à sua conta de **armazenamento, atribuindo uma função Azure** à sua identidade gerida atribuída pelo sistema.
 
 
 Quando ativa os **serviços da Microsoft fidedignos...** definição, os recursos dos seguintes serviços registados na mesma subscrição que a sua conta de armazenamento têm acesso a um conjunto limitado de operações conforme descrito:
@@ -376,7 +376,7 @@ Quando ativa os **serviços da Microsoft fidedignos...** definição, os recurso
 | Azure Data Box           | Microsoft.DataBox          | Permite a importação de dados para a Azure usando a Data Box. [Saiba mais](/azure/databox/data-box-overview). |
 | Azure DevTest Labs       | Microsoft.DevTestLab       | Criação de imagem personalizada e instalação de artefactos. [Saiba mais](../../devtest-labs/devtest-lab-overview.md). |
 | Azure Event Grid         | Microsoft.EventGrid        | Permitir a publicação do evento Blob Storage e permitir que a Grade de Eventos publique para as filas de armazenamento. Saiba mais sobre [eventos de armazenamento de bolhas](/azure/event-grid/event-sources) e [publicação em filas.](/azure/event-grid/event-handlers) |
-| Hubs de Eventos do Azure         | Microsoft.EventHub         | Arquivar dados com a captura de centros de eventos. [Saiba Mais](/azure/event-hubs/event-hubs-capture-overview). |
+| Azure Event Hubs         | Microsoft.EventHub         | Arquivar dados com a captura de centros de eventos. [Saiba Mais](/azure/event-hubs/event-hubs-capture-overview). |
 | Azure File Sync          | Microsoft.StorageSync      | Permite-lhe transformar o seu servidor de ficheiros on-prem para um cache para ações do Ficheiro Azure. Permitindo sincronização multi-site, rápida recuperação de desastres e backup do lado da nuvem. [Saiba mais](../files/storage-sync-files-planning.md) |
 | Azure HDInsight          | Microsoft.HDInsight        | Fornecendo o conteúdo inicial do sistema de ficheiros predefinidos para um novo cluster HDInsight. [Saiba mais](/azure/hdinsight/hdinsight-hadoop-use-blob-storage). |
 | Exportação de Importação de Azure      | Microsoft.ImportExport     | Permite a importação de dados para a Azure e a exportação de dados da Azure utilizando o serviço de importação/exportação. [Saiba mais](/azure/storage/common/storage-import-export-service).  |
@@ -384,7 +384,7 @@ Quando ativa os **serviços da Microsoft fidedignos...** definição, os recurso
 | Rede Azure         | Microsoft.Network          | Armazenar e analisar registos de tráfego de rede, incluindo através dos serviços de Network Watcher e Traffic Analytics. [Saiba mais](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Ativar a replicação para a recuperação de desastres de máquinas virtuais Azure IaaS quando utilizar contas de armazenamento ativadas por firewall ou alvo.  [Saiba mais](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
 
-A **definição de Permitir serviços da Microsoft fidedignos...** a definição também permite que uma determinada instância dos serviços abaixo aceda à conta de armazenamento, se atribuir explicitamente [uma função RBAC](storage-auth-aad.md#assign-rbac-roles-for-access-rights) à [identidade gerida atribuída pelo sistema](../../active-directory/managed-identities-azure-resources/overview.md) para esse caso de recurso. Neste caso, o âmbito de acesso, por exemplo, corresponde à função RBAC atribuída à identidade gerida.
+A **definição de Permitir serviços da Microsoft fidedignos...** a definição também permite que uma determinada instância dos serviços abaixo aceda à conta de armazenamento, se atribuir explicitamente [uma função Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) à [identidade gerida atribuída pelo sistema](../../active-directory/managed-identities-azure-resources/overview.md) para esse caso de recurso. Neste caso, o âmbito de acesso, por exemplo, corresponde à função Azure atribuída à identidade gerida.
 
 | Serviço                        | Nome do fornecedor de recursos                 | Objetivo            |
 | :----------------------------- | :------------------------------------- | :----------------- |
@@ -393,7 +393,7 @@ A **definição de Permitir serviços da Microsoft fidedignos...** a definição
 | Tarefas do Azure Container Registry | Microsoft.ContainerRegistry/registries | As tarefas ACR podem aceder às contas de armazenamento ao construir imagens de contentores. |
 | Azure Data Factory             | Microsoft.DataFactory/fábricas        | Permite o acesso às contas de armazenamento através do tempo de execução da ADF. |
 | Azure Data Share               | Microsoft.DataShare/contas           | Permite o acesso às contas de armazenamento através do Data Share. |
-| Hub IoT do Azure                  | Microsoft.Devices/IotHubs              | Permite que os dados de um hub IoT sejam escritos para o armazenamento blob. [Saiba mais](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
+| Azure IoT Hub                  | Microsoft.Devices/IotHubs              | Permite que os dados de um hub IoT sejam escritos para o armazenamento blob. [Saiba mais](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | Permite que as aplicações lógicas acedam a contas de armazenamento. [Saiba mais](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity). |
 | Serviço Azure Machine Learning | Microsoft.MachineLearningServices      | Os espaços de trabalho autorizados de Aprendizagem automática Azure escrevem a saída de experiências, modelos e registos para o armazenamento blob e lêem os dados. [Saiba mais](/azure/machine-learning/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
 | Azure SQL Data Warehouse       | Microsoft.Sql                          | Permite a importação e exportação de dados de instâncias específicas da Base de Dados SQL utilizando a PolyBase. [Saiba mais](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |

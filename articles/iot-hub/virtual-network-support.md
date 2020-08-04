@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: jlian
-ms.openlocfilehash: f15f0c3f6b442419d3d2e3a253d15465e130eae2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7776345ee4e02baa2d2a6ae7bc08389aa94bd09b
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090608"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534486"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Suporte ioT Hub para redes virtuais com Ligação Privada e Identidade Gerida
 
@@ -174,7 +174,7 @@ O IoT Hub pode encaminhar mensagens para uma conta de armazenamento do cliente. 
 
 1. No portal Azure, navegue no separador Controlo de **Acesso (IAM)** da sua conta de armazenamento e clique em **Adicionar** na secção **Adicionar uma função.**
 
-2. Selecione **o Colaborador de Dados blob de armazenamento** ([*não* contribuinte ou contribuinte de conta de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues)) como **função**, **utilizador, grupo ou principal de serviço do Azure** como **atribuindo acesso** e selecione o nome de recursos do seu IoT Hub na lista de drop-down. Clique no botão **Guardar**.
+2. Selecione **o Colaborador de Dados blob de armazenamento** ([*não* contribuinte ou contribuinte de conta de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) como **função**, **utilizador, grupo ou principal de serviço do Azure** como **atribuindo acesso** e selecione o nome de recursos do seu IoT Hub na lista de drop-down. Clique no botão **Guardar**.
 
 3. Navegue para o separador **Firewalls e redes virtuais** na sua conta de armazenamento e permita o acesso a partir da opção **de redes selecionadas.** Na lista **de Exceções,** verifique a caixa para **permitir que os serviços fidedignos da Microsoft tenham acesso a esta conta de armazenamento.** Clique no botão **Guardar**.
 
@@ -228,7 +228,7 @@ A funcionalidade de upload de ficheiros do IoT Hub permite que os dispositivos c
 
 1. No portal Azure, navegue no separador Controlo de **Acesso (IAM)** da sua conta de armazenamento e clique em **Adicionar** na secção **Adicionar uma função.**
 
-2. Selecione **o Colaborador de Dados blob de armazenamento** ([*não* contribuinte ou contribuinte de conta de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues)) como **função**, **utilizador, grupo ou principal de serviço do Azure** como **atribuindo acesso** e selecione o nome de recursos do seu IoT Hub na lista de drop-down. Clique no botão **Guardar**.
+2. Selecione **o Colaborador de Dados blob de armazenamento** ([*não* contribuinte ou contribuinte de conta de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) como **função**, **utilizador, grupo ou principal de serviço do Azure** como **atribuindo acesso** e selecione o nome de recursos do seu IoT Hub na lista de drop-down. Clique no botão **Guardar**.
 
 3. Navegue para o separador **Firewalls e redes virtuais** na sua conta de armazenamento e permita o acesso a partir da opção **de redes selecionadas.** Na lista **de Exceções,** verifique a caixa para **permitir que os serviços fidedignos da Microsoft tenham acesso a esta conta de armazenamento.** Clique no botão **Guardar**.
 
@@ -246,7 +246,7 @@ Esta funcionalidade requer conectividade desde o IoT Hub até à conta de armaze
 
 1. No portal Azure, navegue no separador Controlo de **Acesso (IAM)** da sua conta de armazenamento e clique em **Adicionar** na secção **Adicionar uma função.**
 
-2. Selecione **o Colaborador de Dados blob de armazenamento** ([*não* contribuinte ou contribuinte de conta de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues)) como **função**, **utilizador, grupo ou principal de serviço do Azure** como **atribuindo acesso** e selecione o nome de recursos do seu IoT Hub na lista de drop-down. Clique no botão **Guardar**.
+2. Selecione **o Colaborador de Dados blob de armazenamento** ([*não* contribuinte ou contribuinte de conta de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) como **função**, **utilizador, grupo ou principal de serviço do Azure** como **atribuindo acesso** e selecione o nome de recursos do seu IoT Hub na lista de drop-down. Clique no botão **Guardar**.
 
 3. Navegue para o separador **Firewalls e redes virtuais** na sua conta de armazenamento e permita o acesso a partir da opção **de redes selecionadas.** Na lista **de Exceções,** verifique a caixa para **permitir que os serviços fidedignos da Microsoft tenham acesso a esta conta de armazenamento.** Clique no botão **Guardar**.
 

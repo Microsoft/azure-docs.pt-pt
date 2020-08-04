@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: 8d6dd38c3d1802c3b5bec82edbda4f9d344fa28b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3170b51b8e580a625b2dbb4d83229c59bafa900e
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090523"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534809"
 ---
 # <a name="azure-key-vault-security"></a>Segurança do Azure Key Vault
 
@@ -46,11 +46,11 @@ O modelo de um único mecanismo de autenticação para ambos os aviões tem vár
 
 ### <a name="managing-administrative-access-to-key-vault"></a>Gerir o acesso administrativo ao Cofre-Chave
 
-Quando cria um cofre chave num grupo de recursos, gere o acesso utilizando o Azure AD. Você concede aos utilizadores ou grupos a capacidade de gerir os cofres chave em um grupo de recursos. Pode conceder acesso a um nível de âmbito específico, atribuindo as funções rbac apropriadas. Para conceder acesso a um utilizador para gerir cofres-chave, atribui uma função predefinida `key vault Contributor` ao utilizador num âmbito específico. Os seguintes níveis de âmbito podem ser atribuídos a uma função RBAC:
+Quando cria um cofre chave num grupo de recursos, gere o acesso utilizando o Azure AD. Você concede aos utilizadores ou grupos a capacidade de gerir os cofres chave em um grupo de recursos. Pode conceder acesso a um nível de âmbito específico, atribuindo as funções Azure apropriadas. Para conceder acesso a um utilizador para gerir cofres-chave, atribui uma função predefinida `key vault Contributor` ao utilizador num âmbito específico. Os seguintes níveis de âmbito podem ser atribuídos a uma função Azure:
 
-- **Subscrição**: Uma função RBAC atribuída ao nível de subscrição aplica-se a todos os grupos de recursos e recursos dentro dessa subscrição.
-- **Grupo de recursos**: Uma função RBAC atribuída ao nível do grupo de recursos aplica-se a todos os recursos desse grupo de recursos.
-- **Recurso específico**: Uma função RBAC atribuída a um recurso específico aplica-se a esse recurso. Neste caso, o recurso é um cofre-chave específico.
+- **Subscrição**: Uma função Azure atribuída ao nível de subscrição aplica-se a todos os grupos de recursos e recursos dentro dessa subscrição.
+- **Grupo de recursos**: Uma função Azure atribuída ao nível do grupo de recursos aplica-se a todos os recursos desse grupo de recursos.
+- **Recurso específico**: Uma função Azure atribuída a um recurso específico aplica-se a esse recurso. Neste caso, o recurso é um cofre-chave específico.
 
 Há vários papéis predefinidos. Se um papel predefinido não se adequa às suas necessidades, pode definir o seu próprio papel. Para mais informações, consulte [o RBAC: Funções incorporadas.](../../role-based-access-control/built-in-roles.md)
 

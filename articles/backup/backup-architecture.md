@@ -3,12 +3,12 @@ title: Descrição geral da arquitetura
 description: Fornece uma visão geral da arquitetura, componentes e processos utilizados pelo serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: eab820c2a045c8602bfdbf77b5e2dba4cb2318af
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 45e5634188b675198e0fc4c07a8a43964217f91a
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514310"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532497"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes Azure Backup
 
@@ -120,16 +120,15 @@ Fazer backup discos deduplicados | | | ![Parcialmente][yellow]<br/><br/> Para se
 - Quando um cofre é criado, um "DefaultPolicy" também é criado e pode ser usado para apoiar recursos.
 - Quaisquer alterações introduzidas no período de retenção de uma política de backup serão aplicadas retroativamente a todos os pontos de recuperação mais antigos, para além dos novos.
 
-### <a name="additional-reference"></a>Referência adicional 
+### <a name="additional-reference"></a>Referência adicional
 
--   Máquina Azure VM: Como [criar](./backup-azure-vms-first-look-arm.md#back-up-from-azure-vm-settings) e [modificar](./backup-azure-manage-vms.md#manage-backup-policy-for-a-vm) a política? 
--   Base de dados do SQL Server na máquina Azure VM: Como [criar](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) e [modificar](./manage-monitor-sql-database-backup.md#modify-policy) a política? 
--   Partilha de ficheiros Azure: Como [criar](./backup-afs.md#discover-file-shares-and-configure-backup) e [modificar](./manage-afs-backup.md#modify-policy) a política? 
--   SAP HANA: Como [criar](./backup-azure-sap-hana-database.md#create-a-backup-policy) e [modificar](./sap-hana-db-manage.md#change-policy) a política? 
--   Como [criar](./backup-windows-with-mars-agent.md#create-a-backup-policy) e [modificar](./backup-azure-manage-mars.md#modify-a-backup-policy) a política? 
--   [Existem limitações no agendamento de backup com base no tipo de carga de trabalho?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
-- [O que acontece aos pontos de recuperação existentes se eu mudar a política de retenção?](./backup-azure-backup-faq.md#what-happens-when-i-change-my-backup-policy)
-
+- Máquina Azure VM: Como [criar](./backup-azure-vms-first-look-arm.md#back-up-from-azure-vm-settings) e [modificar](./backup-azure-manage-vms.md#manage-backup-policy-for-a-vm) a política.
+- Base de dados do SQL Server na máquina Azure VM: Como [criar](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) e [modificar](./manage-monitor-sql-database-backup.md#modify-policy) a política.
+- Partilha de ficheiros Azure: Como [criar](./backup-afs.md) e [modificar](./manage-afs-backup.md#modify-policy) a política.
+- SAP HANA: Como [criar](./backup-azure-sap-hana-database.md#create-a-backup-policy) e [modificar](./sap-hana-db-manage.md#change-policy) a política.
+- Como [criar](./backup-windows-with-mars-agent.md#create-a-backup-policy) e [modificar](./backup-azure-manage-mars.md#modify-a-backup-policy) a política.
+- [Existem limitações no agendamento de backup com base no tipo de carga de trabalho?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
+- [O que acontecerá aos pontos de recuperação existentes se alterar a política de retenção?](./backup-azure-backup-faq.md#what-happens-when-i-change-my-backup-policy)
 
 ## <a name="architecture-built-in-azure-vm-backup"></a>Arquitetura: Backup Azure VM incorporado
 
@@ -222,7 +221,7 @@ Quando restaurar VMs com discos geridos, pode restaurar para um VM completo com 
 - Durante o processo de restauro, o Azure trata dos discos geridos. Se estiver a utilizar a opção de conta de armazenamento, gere a conta de armazenamento criada durante o processo de restauro.
 - Se restaurar um VM gerido que esteja encriptado, certifique-se de que as chaves e segredos do VM existem no cofre antes de iniciar o processo de restauro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja a matriz de suporte para [saber sobre funcionalidades e limitações suportadas para cenários de backup](backup-support-matrix.md).
 - Configurar backup para um destes cenários:

@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/01/2019
-ms.openlocfilehash: e2c9da9c1a37b087a31d1910094f51a39288c192
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/03/2020
+ms.openlocfilehash: e9c1651244eecb036ca18ad5dadfe23f48b2bce6
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416711"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529267"
 ---
 # <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Copiar dados de QuickBooks Online usando Azure Data Factory (Pré-visualização)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -36,9 +36,7 @@ Este conector QuickBooks é suportado para as seguintes atividades:
 
 Pode copiar dados do QuickBooks Online para qualquer loja de dados de lavatórios suportados. Para obter uma lista de lojas de dados suportadas como fontes/pias pela atividade de cópia, consulte a tabela [de lojas de dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-A Azure Data Factory fornece um controlador incorporado para permitir a conectividade, pelo que não é necessário instalar manualmente qualquer controlador utilizando este conector.
-
-Atualmente este conector suporta apenas 1.0a, o que significa que você precisa ter uma conta de programador com aplicações criadas antes de 17 de julho de 2017.
+Este conector suporta a autenticação QuickBooks OAuth 2.0.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -50,16 +48,17 @@ As seguintes secções fornecem detalhes sobre propriedades que são usadas para
 
 As seguintes propriedades são suportadas para o serviço ligado quickBooks:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **QuickBooks** | Yes |
-| endpoint | O ponto final do servidor QuickBooks Online. (isto é, quickbooks.api.intuit.com)  | Yes |
-| companyId | A identificação da empresa quickBooks para autorizar. Para obter informações sobre como encontrar a identificação da empresa, veja [como encontro o meu ID da empresa?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551) | Yes |
-| consumerKey | A chave de consumo para a autenticação OAuth 1.0. | Yes |
-| segredo do consumidor | O segredo do consumidor para a autenticação de OAuth 1.0. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
-| accessToken | O token de acesso para a autenticação OAuth 1.0. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
-| accessTokenSecret | O segredo de acesso para a autenticação de OAuth 1.0. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
-| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | No |
+| tipo | A propriedade tipo deve ser definida para: **QuickBooks** | Sim |
+| conexõesProperties | Um grupo de propriedades que define como se conectar com QuickBooks. | Sim |
+| ***Em `connectionProperties` :*** | | |
+| endpoint | O ponto final do servidor QuickBooks Online. (isto é, quickbooks.api.intuit.com)  | Sim |
+| companyId | A identificação da empresa quickBooks para autorizar. Para obter informações sobre como encontrar o ID da empresa, veja [como encontro o meu ID da empresa.](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551) | Sim |
+| consumerKey | A chave de consumo para a autenticação OAuth 2.0. | Sim |
+| segredo do consumidor | O segredo do consumidor para a autenticação OAuth 2.0. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
+| refreshToken | O token de atualização OAuth 2.0 associado à aplicação QuickBooks. Saiba mais a partir [daqui.](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app) Note que o token de atualização expirará após 180 dias. O cliente precisa de atualizar regularmente o token de atualização. <br/>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md).| Sim |
+| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | Não |
 
 **Exemplo:**
 
@@ -69,22 +68,20 @@ As seguintes propriedades são suportadas para o serviço ligado quickBooks:
     "properties": {
         "type": "QuickBooks",
         "typeProperties": {
-            "endpoint" : "quickbooks.api.intuit.com",
-            "companyId" : "<companyId>",
-            "consumerKey": "<consumerKey>",
-            "consumerSecret": {
-                "type": "SecureString",
-                "value": "<consumerSecret>"
-            },
-            "accessToken": {
-                 "type": "SecureString",
-                 "value": "<accessToken>"
-            },
-            "accessTokenSecret": {
-                 "type": "SecureString",
-                 "value": "<accessTokenSecret>"
-            },
-            "useEncryptedEndpoints" : true
+            "connectionProperties": {
+                "endpoint": "quickbooks.api.intuit.com",
+                "companyId": "<company id>",
+                "consumerKey": "<consumer key>", 
+                "consumerSecret": {
+                     "type": "SecureString",
+                     "value": "<clientSecret>"
+                },
+                "refreshToken": {
+                     "type": "SecureString",
+                     "value": "<refresh token>"
+                },
+                "useEncryptedEndpoints": true
+            }
         }
     }
 }
@@ -96,9 +93,9 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados do QuickBooks Online, defina a propriedade tipo do conjunto de dados para **QuickBooksObject**. As seguintes propriedades são suportadas:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **QuickBooksObject** | Yes |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **QuickBooksObject** | Sim |
 | tableName | O nome da mesa. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
@@ -126,9 +123,9 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados do QuickBooks Online, desacione o tipo de origem na atividade de cópia para **QuickBooksSource**. As seguintes propriedades são suportadas na secção fonte de **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **QuickBooksSource** | Yes |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **QuickBooksSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

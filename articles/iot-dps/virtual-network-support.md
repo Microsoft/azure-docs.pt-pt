@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: 97168c95893ffdea99180c997265f259176ed07f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8912ef907641367bda89d7c0e98f9da811c6e577
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532050"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534605"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>Suporte do Serviço de Provisionamento de Dispositivos Azure IoT Hub (DPS) para redes virtuais
 
@@ -59,7 +59,7 @@ Note as seguintes limitações atuais para o DPS ao utilizar pontos finais priva
 
 * Os pontos finais privados não funcionarão com DPS quando o recurso DPS e o Hub ligado estão em diferentes nuvens. Por exemplo, [o Governo Azure e o Azure global.](../azure-government/documentation-government-welcome.md)
 
-* Atualmente, [as políticas de atribuição personalizada com Funções Azure](how-to-use-custom-allocation-policies.md) para DPS não funcionarão com um VNET e pontos finais privados. 
+* Atualmente, [as políticas de atribuição personalizada com Funções Azure](how-to-use-custom-allocation-policies.md) para DPS não funcionarão quando a função Azure é bloqueada a um VNET e pontos finais privados. 
 
 * O suporte VNET atual é apenas para entrada de dados em DPS. A saída de dados, que é o tráfego de DPS para IoT Hub, utiliza um mecanismo interno de serviço-a-serviço em vez de um VNET dedicado. O suporte para o bloqueio total da saída de Erupção baseada em VNET entre DPS e IoT Hub não está atualmente disponível.
 
@@ -150,7 +150,7 @@ Para obter detalhes sobre os preços, consulte [os preços do Azure Private Link
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Use os links abaixo para saber mais sobre as funcionalidades de segurança DPS:
 

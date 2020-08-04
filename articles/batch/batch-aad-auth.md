@@ -4,12 +4,12 @@ description: O lote suporta o Azure AD para autenticação a partir do serviço 
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 7daf26d7c52e07be999bb93edd6fe694f79d1be2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 19042b4bb0998d104792d7511ab2972299b4f58d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032464"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533517"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções de serviço batch com Diretório Ativo
 
@@ -130,9 +130,9 @@ Para autenticar com um diretor de serviço, precisa de atribuir o RBAC à sua ap
 1. A partir **do** drop-down Role, escolha a função *Contribuinte* ou *Leitor* para a sua aplicação. Para obter mais informações sobre estas funções, consulte [Começar com o Controlo de Acesso Baseado em Fun no portal Azure](../role-based-access-control/overview.md).
 1. No campo **Seleção,** insira o nome da sua candidatura. Selecione a sua candidatura da lista e, em seguida, **selecione Guardar**.
 
-A sua aplicação deve agora aparecer nas definições de controlo de acesso com uma função RBAC atribuída.
+A sua aplicação deve agora aparecer nas definições do controlo de acesso com uma função Azure atribuída.
 
-![Atribua uma função RBAC à sua aplicação](./media/batch-aad-auth/app-rbac-role.png)
+![Atribua um papel Azure à sua candidatura](./media/batch-aad-auth/app-rbac-role.png)
 
 ### <a name="assign-a-custom-role"></a>Atribuir uma função personalizada
 

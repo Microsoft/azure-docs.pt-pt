@@ -3,12 +3,12 @@ title: Exemplos de consultas avançadas
 description: Use o Gráfico de Recursos Azure para executar algumas consultas avançadas, incluindo trabalhar com colunas, listar etiquetas usadas e combinar recursos com expressões regulares.
 ms.date: 07/14/2020
 ms.topic: sample
-ms.openlocfilehash: 38013be583c74e968160cb7ec3a4dd32ede213b0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3277d904ebf955c9f924e60dbf6df12eac138a15
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087497"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534792"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Amostras avançadas de consulta de gráficos de recursos
 
@@ -322,7 +322,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.sql/servers/database
 
 ## <a name="list-virtual-machines-with-their-network-interface-and-public-ip"></a><a name="join-vmpip"></a>Listar máquinas virtuais com a sua interface de rede e IP público
 
-Esta consulta utiliza dois comandos **leftouter** `join` para reunir máquinas virtuais, as suas interfaces de rede relacionadas e qualquer endereço IP público relacionado com essas interfaces de rede.
+Esta consulta utiliza dois comandos **leftouter** `join` para reunir máquinas virtuais criadas com o modelo de implementação do Gestor de Recursos, as suas interfaces de rede relacionadas e qualquer endereço IP público relacionado com essas interfaces de rede.
 
 ```kusto
 Resources

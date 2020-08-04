@@ -5,14 +5,14 @@ description: Aprenda as melhores práticas do operador do cluster para utilizar 
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 5b003c9f0c3b47779bd7da92fb64c57830911fae
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b8077a772d6fdc4b911fabdfa893a15dcd7615db
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077852"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530066"
 ---
-# <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Melhores práticas para funcionalidades avançadas de programador no Serviço Azure Kubernetes (AKS)
+# <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Melhores práticas para funcionalidades avançadas do agendador no Azure Kubernetes Service (AKS)
 
 À medida que gere clusters no Serviço Azure Kubernetes (AKS), muitas vezes precisa isolar equipas e cargas de trabalho. O programador Kubernetes fornece funcionalidades avançadas que permitem controlar quais cápsulas podem ser programadas em determinados nós, ou como as aplicações multi-pod podem ser adequadamente distribuídas por todo o cluster. 
 
@@ -71,8 +71,6 @@ Quando esta cápsula é implantada, tal como a `kubectl apply -f gpu-toleration.
 
 Quando aplicar manchas, trabalhe com os desenvolvedores e proprietários da sua aplicação para permitir que definam as tolerâncias necessárias nas suas implementações.
 
-Para obter mais informações sobre manchas e tolerâncias, consulte [a aplicação de manchas e tolerâncias.][k8s-taints-tolerations]
-
 Para obter mais informações sobre como usar várias piscinas de nó em AKS, consulte [Criar e gerir várias piscinas de nó para um cluster em AKS.][use-multiple-node-pools]
 
 ### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Comportamento de manchas e tolerâncias na AKS
@@ -80,6 +78,7 @@ Para obter mais informações sobre como usar várias piscinas de nó em AKS, co
 Quando atualiza uma piscina de nó em AKS, as manchas e as tolerâncias seguem um padrão definido à medida que são aplicadas a novos nóleiros:
 
 - **Clusters predefinidos que usam conjuntos de escala de máquina virtual**
+  - Você pode [manchar um nodepool][taint-node-pool] da AKS API, para ter os nós recém-dimensionados receber manchas de nó especificados API.
   - Vamos supor que tem um aglomerado de dois nós - *nó1* e *nó2*. Você melhora a piscina de nós.
   - São criados dois nós adicionais, *nó3* e *nó4,* e as manchas são transmitidas respectivamente.
   - O *nó 1* e *o nó 2* originais são apagados.
@@ -179,7 +178,7 @@ Um bom exemplo é uma aplicação web que também usa um Cache Azure para Redis.
 
 Este exemplo é uma implementação mais complexa do que a utilização de seletores de nó ou afinidade de nó. A implementação dá-lhe controlo sobre como Kubernetes programa cápsulas em nós e pode logicamente isolar recursos. Para um exemplo completo desta aplicação web com Azure Cache para exemplo Redis, consulte [cápsulas de Co-localização no mesmo nó][k8s-pod-affinity].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo focou-se nas funcionalidades avançadas do programador Kubernetes. Para obter mais informações sobre as operações de cluster em AKS, consulte as seguintes boas práticas:
 
@@ -198,3 +197,4 @@ Este artigo focou-se nas funcionalidades avançadas do programador Kubernetes. P
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
+[taint-node-pool]: use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool

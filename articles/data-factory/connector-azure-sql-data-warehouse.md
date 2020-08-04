@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/15/2020
-ms.openlocfilehash: 8d7171bafb292b0520b8873bad0ce8f55ab4040d
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.date: 08/03/2020
+ms.openlocfilehash: caa132475df6481db7228a1ef7e18026b12cf38f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171506"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534333"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar e transformar dados em Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse) utilizando a Azure Data Factory
 
@@ -376,7 +376,7 @@ Para copiar os dados para o Azure SQL Data Warehouse, decreva o tipo de pia em A
 | escreverBatchSize    | Número de linhas para inserir na tabela SQL **por lote**.<br/><br/>O valor permitido é **inteiro (número** de linhas). Por predefinição, a Data Factory determina dinamicamente o tamanho apropriado do lote com base no tamanho da linha. | Não.<br/>Aplicar quando utilizar a inserção a granel.     |
 | escreverBatchTimeout | Aguarde o tempo para que a operação de inserção do lote termine antes de se esgotar.<br/><br/>O valor permitido é **o tempo.** Exemplo: "00:30:00" (30 minutos). | Não.<br/>Aplicar quando utilizar a inserção a granel.        |
 | preCopyScript     | Especifique uma consulta SQL para a Copy Activity a executar antes de escrever dados no Azure SQL Data Warehouse em cada execução. Utilize esta propriedade para limpar os dados pré-carregados. | Não                                            |
-| mesaOption | Especifica se deve [criar automaticamente a tabela do lavatório](copy-activity-overview.md#auto-create-sink-tables) se não existir com base no esquema de origem. A criação de tabela automática não é suportada quando a cópia encenada é configurada na atividade de cópia. Os valores permitidos são: `none` (padrão), `autoCreate` . |Não |
+| mesaOption | Especifica se deve [criar automaticamente a tabela do lavatório](copy-activity-overview.md#auto-create-sink-tables) se não existir com base no esquema de origem. Os valores permitidos são: `none` (padrão), `autoCreate` . |Não |
 | desativaçãoMetricosCollecto | A Data Factory recolhe métricas como OS DWUs do SQL Data Warehouse para otimização de desempenho de cópia e recomendações. Se estiver preocupado com este comportamento, especifique `true` para desligá-lo. | Não (o padrão `false` é) |
 
 #### <a name="sql-data-warehouse-sink-example"></a>SQL Data Warehouse exemplo de afundanço
@@ -750,7 +750,7 @@ Quando copia dados de ou para Azure Synapse Analytics, os seguintes mapeamentos 
 | binary                                | Byte[]                         |
 | bit                                   | Booleano                        |
 | char                                  | String, Char[]                 |
-| data                                  | DateTime                       |
+| date                                  | DateTime                       |
 | Datetime                              | DateTime                       |
 | datetime2                             | DateTime                       |
 | Datatimeoff                        | Início de execução de tempo de data                 |
@@ -774,6 +774,6 @@ Quando copia dados de ou para Azure Synapse Analytics, os seguintes mapeamentos 
 | varbinário                             | Byte[]                         |
 | varchar                               | String, Char[]                 |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma lista de lojas de dados suportadas como fontes e sumidouros pela Copy Activity na Azure Data Factory, consulte [lojas e formatos de dados suportados.](copy-activity-overview.md#supported-data-stores-and-formats)

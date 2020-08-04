@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: 7e987c56c3a125a03e3a90540313ace1f8adf47a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6a6b0b15b8d2dc08f1581cb2ea0ea4c7e8036ca
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82086577"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529981"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Segurança em Azure Data Lake Storage Gen1
 
@@ -20,7 +20,7 @@ Muitas empresas estão a aproveitar-se da análise de big data para obter insigh
 
 * Autenticação
 * Autorização
-* Isolamento da rede
+* Isolamento de rede
 * Proteção de dados
 * Auditoria
 
@@ -46,7 +46,7 @@ Depois de o Azure Ative Directory autenticar um utilizador para que o utilizador
 
 Quatro funções básicas são definidas para data lake storage gen1 por padrão. As funções permitem diferentes operações numa conta da Data Lake Storage Gen1 através do portal Azure, cmdlets PowerShell e REST APIs. As funções de Proprietário e Contribuinte podem desempenhar uma variedade de funções de administração na conta. Pode atribuir a função Reader a utilizadores que apenas visualizam dados de gestão de conta.
 
-![Funções RBAC](./media/data-lake-store-security-overview/rbac-roles.png "Funções RBAC")
+![Funções do Azure](./media/data-lake-store-security-overview/rbac-roles.png "Funções do Azure")
 
 Note que, embora as funções sejam atribuídas para a gestão de conta, algumas funções afetam o acesso aos dados. É necessário utilizar ACLs para controlar o acesso a operações que um utilizador pode realizar no sistema de ficheiros. A tabela que se segue mostra um resumo dos direitos de gestão e dos direitos de acesso aos dados para as funções predefinidos.
 
@@ -56,7 +56,7 @@ Note que, embora as funções sejam atribuídas para a gestão de conta, algumas
 | Proprietário |Todos |Todos |O papel de Proprietário é um super-ador. Esta função pode gerir tudo e tem acesso total aos dados. |
 | Leitor |Só de leitura |Regido pela ACL |A função Reader pode ver tudo no que diz respeito à gestão de conta, como qual o utilizador que é atribuído a que papel. O papel de Leitor não pode fazer alterações. |
 | Contribuinte |Todos, exceto adicionar e remover funções |Regido pela ACL |O papel de Contribuinte pode gerir alguns aspetos de uma conta, como implementações e criação e gestão de alertas. A função Contribuinte não pode adicionar ou remover funções. |
-| Administrador de Acesso de Utilizador |Adicionar e remover funções |Regido pela ACL |A função de Administrador de Acesso ao Utilizador pode gerir o acesso do utilizador às contas. |
+| Administrador de Acesso dos Utilizadores |Adicionar e remover funções |Regido pela ACL |A função de Administrador de Acesso ao Utilizador pode gerir o acesso do utilizador às contas. |
 
 Para obter instruções, consulte [atribuir utilizadores ou grupos de segurança às contas da Data Lake Storage Gen1](data-lake-store-secure-data.md#assign-users-or-security-groups-to-data-lake-storage-gen1-accounts).
 
@@ -68,7 +68,7 @@ Recomendamos que defina ACLs para vários utilizadores utilizando [grupos de seg
 
 ![Listar permissões de acesso](./media/data-lake-store-security-overview/adl.acl.2.png "Listar permissões de acesso")
 
-## <a name="network-isolation"></a>Isolamento da rede
+## <a name="network-isolation"></a>Isolamento de rede
 
 Utilize a Data Lake Storage Gen1 para ajudar a controlar o acesso à sua loja de dados ao nível da rede. Pode estabelecer firewalls e definir um intervalo de endereços IP para os seus clientes de confiança. Com uma gama de endereços IP, apenas os clientes que tenham um endereço IP dentro do intervalo definido podem ligar-se à Data Lake Storage Gen1.
 

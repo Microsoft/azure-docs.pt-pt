@@ -10,17 +10,17 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 11/21/2019
-ms.openlocfilehash: 8a6f21d6b02d555456bb70a16b353e5cdbd52fd4
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 680f8394ad1d10a564033ae5a2b9f59063589f73
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84708523"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532531"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Tutorial: Configurar a replicação transacional entre a Azure SQL Managed Instance e o SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -40,7 +40,7 @@ Para configurar a replicação entre um editor de instância gerido e um assinan
 
 Para completar o tutorial, certifique-se de que tem os seguintes pré-requisitos:
 
-- Uma [assinatura Azure](https://azure.microsoft.com/free/).
+- Uma [subscrição do Azure](https://azure.microsoft.com/free/).
 - Experiência com a implementação de duas instâncias geridas dentro da mesma rede virtual.
 - Um assinante do SQL Server, no local ou num VM Azure. Este tutorial usa um Azure VM.  
 - [SQL Server Management Studio (SSMS) 18.0 ou superior](/sql/ssms/download-sql-server-management-studio-ssms).
@@ -78,7 +78,7 @@ Para obter mais informações sobre a criação de um caso gerido, consulte [Cri
 
 Crie uma máquina virtual SQL Server utilizando o [portal Azure](https://portal.azure.com). A máquina virtual SQL Server deve ter as seguintes características:
 
-- Nome:`sql-vm-sub`
+- Nome: `sql-vm-sub`
 - Imagem: SQL Server 2016 ou maior
 - Grupo de recursos: o mesmo que a instância gerida
 - Rede virtual:`sql-vm-sub-vnet`
@@ -247,6 +247,10 @@ Uma vez estabelecida a conectividade e tiver uma base de dados de amostras, pode
 1. Abra uma nova janela **de consulta** e execute o seguinte código Transact-SQL para configurar a distribuição na instância gerida pelo distribuidor:
 
    ```sql
+   EXEC sp_adddistributor @distributor = 'sql-mi-distributor.b6bf57.database.windows.net', @password = '<distributor_admin_password>'
+   
+   EXEC sp_adddistributiondb @database = N'distribution'
+   
    EXEC sp_adddistpublisher @publisher = 'sql-mi-publisher.b6bf57.database.windows.net', -- primary publisher
         @distribution_db = N'distribution',
         @security_mode = 0,
@@ -357,7 +361,7 @@ INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 
 O agente foi configurado com um login do Windows e precisa de utilizar um login do SQL Server. Utilize a página de Segurança do **Agente** das propriedades da **Publicação** para alterar as credenciais de login para um login do SQL Server.
 
-### <a name="failed-to-connect-to-azure-storage"></a>Falhou em ligar-se ao Azure Storage
+### <a name="failed-to-connect-to-azure-storage"></a>Falha ao ligar ao Armazenamento do Microsoft Azure
 
 `Connecting to Azure Files Storage '\\replstorage.file.core.windows.net\replshare' Failed to connect to Azure Storage '' with OS error: 53.`
 

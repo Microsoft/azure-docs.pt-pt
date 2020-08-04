@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 5b7f26a03c117620be7c16abaf689763e370e5ba
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0aa688d6e56629ca376844ce2d0669197b1bb2b7
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285701"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531350"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>Como garantir uma aplicação de uma única página com o sign-in não interativo
 
@@ -102,7 +102,7 @@ Crie uma aplicação de serviço web segura que seja responsável pela autentica
 
 ## <a name="grant-role-based-access"></a>Concessão de acesso baseado em funções
 
-Concede *o controlo de acesso baseado em funções* (RBAC) atribuindo a identidade atribuída ao sistema a uma ou mais definições de funções Azure. Para ver as definições de funções rbac que estão disponíveis para O Azure Maps, vá ao **Controlo de Acesso (IAM)**. Selecione **Roles**, e, em seguida, procure por papéis que comecem com *Azure Maps*.
+Concede *o controlo de acesso baseado em funções* (RBAC) atribuindo a identidade atribuída ao sistema a uma ou mais definições de funções Azure. Para ver as definições de função Azure que estão disponíveis para O Azure Maps, vá ao **Controlo de Acesso (IAM)**. Selecione **Roles**, e, em seguida, procure por papéis que comecem com *Azure Maps*.
 
 1. Aceda à sua **Conta Azure Maps.** Selecione a atribuição de função **do controlo de acesso (IAM).**  >  **Role assignment**
 

@@ -1,15 +1,15 @@
 ---
-title: Detetar, avaliar e migrar VMs do Amazon Web Services (AWS) para o Azure
+title: Descubra, avalie e emigre os EC2 VMs da Amazon para Azure
 description: Este artigo descreve como migrar VMS AWS para Azure com Azure Migrate.
 ms.topic: tutorial
 ms.date: 06/16/2020
 ms.custom: MVC
-ms.openlocfilehash: 5d697c2146144ca7f4b9a8739b6863ba31845f4e
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 61a7bee52179ac525b42ad696d118f4f753f6931
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165435"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534839"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Detetar, avaliar e migrar VMs do Amazon Web Services (AWS) para o Azure
 
@@ -130,8 +130,8 @@ Crie um projeto Azure Migrate e, em seguida, adicione-lhe a ferramenta de migra�
 
     ![Criar um projeto Azure Migrate](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
 
-8. Na **ferramenta de avaliação Select**, selecione Skip **adicionando uma ferramenta de avaliação por**  >  **enquanto Seguinte**.
-9. Na **ferramenta de migração Select**, selecione **Azure Migrate: Server Migration**  >  **Next**.
+8. Em **Selecionar ferramenta de avaliação**, selecione **Ignorar a adição de uma ferramenta de avaliação por enquanto** > **Seguinte**.
+9. Em **Selecionar ferramenta de migração**, selecione **Azure Migrate: Migração de Servidores** > **Seguinte**.
 10. Em **Analisar + adicionar ferramentas**, analise as definições e clique em **Adicionar ferramentas**
 11. Depois de adicionar a ferramenta, aparece no projeto Azure **Servers**Migrate >  >  **ferramentas de migração**de servidores .
 
@@ -172,7 +172,7 @@ O primeiro passo da migração é configurar o aparelho de replicação. Para co
     9.10 Em **resumo,** selecione **Instalar**.   
     9.11 **O progresso da instalação** mostra-lhe informações sobre o processo de instalação. Quando terminar, selecione **Concluir**. Uma janela apresenta uma mensagem sobre uma reinicialização. Selecione **OK**.   
     9.12 Em seguida, uma janela apresenta uma mensagem sobre a palavra-passe de ligação do servidor de configuração. Copie a frase-passe para a sua prancheta e guarde a palavra-passe num ficheiro de texto temporário nos VMs de origem. Você precisará desta palavra-passe mais tarde, durante o processo de instalação do serviço de mobilidade.
-10. Após a conclusão da instalação, o assistente de configuração do Aparelho será lançado automaticamente (Também pode lançar o assistente manualmente utilizando o atalho cspsconfigtool que é criado no ambiente de trabalho do aparelho). Utilize o separador 'Contas's Manage do assistente para adicionar detalhes da conta a utilizar para impulsionar a instalação do serviço Mobility. Neste tutorial, vamos instalar manualmente o Serviço de Mobilidade em VMs de origem a serem replicados, por isso crie uma conta falsa neste passo e prossiga.
+10. Após a conclusão da instalação, o assistente de configuração do Aparelho será lançado automaticamente (Também pode lançar o assistente manualmente utilizando o atalho cspsconfigtool que é criado no ambiente de trabalho do aparelho). Utilize o separador 'Contas's Manage do assistente para adicionar detalhes da conta a utilizar para impulsionar a instalação do serviço Mobility. Neste tutorial, vamos instalar manualmente o Serviço de Mobilidade em VMs de origem a serem replicados, por isso crie uma conta falsa neste passo e prossiga. Pode fornecer os seguintes detalhes para criar a conta falsa - "guest" como o nome amigável, "username" como nome de utilizador, e "password" como palavra-passe para a conta. Utilizará esta conta falsa na fase de Replicação ativa. 
 11. Depois de o aparelho ter sido reiniciado após a configuração, nas **máquinas Discover**, selecione o novo aparelho no **Servidor de Configuração Select**e clique em Finalizar o **registo**. Finalizar o registo executa algumas tarefas finais para preparar o aparelho de replicação.
 
     ![Finalizar o registo](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
@@ -240,25 +240,24 @@ Um agente de serviço de mobilidade deve ser instalado na fonte AWS VMs para ser
 
 2. Em **Replicar,**> **As definições de**  >  **Origem são virtualizadas?** **Not virtualized/Other**
 3. No **aparelho no local,** selecione o nome do aparelho Azure Migrate que instalou.
-4. No **Process Server,** selecione o nome do aparelho de replicação.
-6. Nas **credenciais do Guest,** especifique uma conta falsa que será utilizada para instalar manualmente o serviço Mobility (a instalação push não é suportada). Em seguida, clique **em Seguinte: Máquinas virtuais**.
-
+4. No **Process Server,** selecione o nome do aparelho de replicação. 
+5. Nas **credenciais do Guest**, selecione a conta falsa criada anteriormente durante a instalação do [instalador de replicação](#download-the-replication-appliance-installer) para instalar manualmente o serviço Mobility (a instalação push não está suportada). Em seguida, clique **em Seguinte: Máquinas virtuais**.   
+ 
     ![Replicar VMs](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
-
-7. Em **Máquinas Virtuais,** nas **No, I'll specify the migration settings manually** **definições de migração de importação a partir de uma avaliação?**
-8. Verifique cada VM que deseja migrar. Em seguida, clique em **Seguinte: Definições de destino**.
+6. Em **Máquinas Virtuais,** nas **No, I'll specify the migration settings manually** **definições de migração de importação a partir de uma avaliação?**
+7. Verifique cada VM que deseja migrar. Em seguida, clique em **Seguinte: Definições de destino**.
 
     ![Selecione VMs](./media/tutorial-migrate-physical-virtual-machines/select-vms.png)
 
-9. Em **Definições de destino**, selecione a subscrição, assim como a região de destino para a qual vai migrar, e especifique o grupo de recursos no qual as VMs do Azure vão residir após a migração.
-10. Em **Rede Virtual**, selecione a VNet/sub-rede do Azure na qual as VMs do Azure vão ser associadas após a migração.
-11. Em **Benefício Híbrido do Azure**:
+8. Em **Definições de destino**, selecione a subscrição, assim como a região de destino para a qual vai migrar, e especifique o grupo de recursos no qual as VMs do Azure vão residir após a migração.
+9. Em **Rede Virtual**, selecione a VNet/sub-rede do Azure na qual as VMs do Azure vão ser associadas após a migração.
+10. Em **Benefício Híbrido do Azure**:
     - Selecione **Não** se não quiser aplicar o Benefício Híbrido do Azure. Em seguida, clique em **Seguinte**.
     - Selecione **Sim** se tiver computadores Windows Server abrangidos com subscrições ativas do Software Assurance ou do Windows Server e quiser aplicar o benefício aos computadores que está a migrar. Em seguida, clique em **Seguinte**.
 
     ![Definições de destino](./media/tutorial-migrate-physical-virtual-machines/target-settings.png)
 
-12. Em **Computação**, analise o nome, o tamanho, o tipo de disco do SO e o conjunto de disponibilidade das VMs. As VMs devem estar em conformidade com os [requisitos do Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
+11. Em **Computação**, analise o nome, o tamanho, o tipo de disco do SO e o conjunto de disponibilidade das VMs. As VMs devem estar em conformidade com os [requisitos do Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 
     - **Tamanho VM**: Por padrão, a migração do servidor Azure Migrate escolhe um tamanho baseado na correspondência mais próxima da subscrição Azure. Como alternativa, escolha um tamanho manual em **Tamanho de VMs do Azure**.
     - **Disco de os:** Especifique o disco DE (arranque) para o VM. O disco do SO é o disco que possui o carregador e o instalador do sistema operativo. 
@@ -266,13 +265,13 @@ Um agente de serviço de mobilidade deve ser instalado na fonte AWS VMs para ser
 
     ![Definições de cálculo](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
-13. Em Discos , **especifique**se os discos VM devem ser replicados para Azure e selecione o tipo de disco (discos geridos padrão SSD/HDD ou discos geridos premium) em Azure. Em seguida, clique em **Seguinte**.
+12. Em Discos , **especifique**se os discos VM devem ser replicados para Azure e selecione o tipo de disco (discos geridos padrão SSD/HDD ou discos geridos premium) em Azure. Em seguida, clique em **Seguinte**.
     - Pode excluir discos da replicação.
     - Se excluir discos, estes não estarão presentes na VM do Azure após a migração. 
 
     ![Definições de disco](./media/tutorial-migrate-physical-virtual-machines/disks.png)
 
-14. Em **Analisar e iniciar a replicação**, analise as definições e clique em **Replicar** para iniciar a replicação inicial para os servidores.
+13. Em **Analisar e iniciar a replicação**, analise as definições e clique em **Replicar** para iniciar a replicação inicial para os servidores.
 
 > [!NOTE]
 > Pode atualizar as definições de replicação a qualquer momento antes de começar a replicação, **Gerir**  >  **máquinas de replicação**. As definições não podem ser alteradas após o início da replicação.

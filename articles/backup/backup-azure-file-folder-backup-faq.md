@@ -3,12 +3,12 @@ title: Agente dos Serviços de Recuperação da Microsoft Azure (MARS) – FAQ
 description: Aborda questões comuns sobre o backup de ficheiros e pastas com Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: fb6290124aa9ee0335083c5a505c005a387c0cd7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5a4560499c56e4dcdf41c2e5c7920b415ceab6c5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514072"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533585"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Perguntas frequentes - Agente da Microsoft Azure Recovery Services (MARS)
 
@@ -23,6 +23,10 @@ O mais recente agente MARS utilizado ao fazer o backup de máquinas do Windows S
 ### <a name="how-long-are-vault-credentials-valid"></a>Quanto tempo as credenciais do cofre são válidas?
 
 As credenciais do cofre expiram após 10 dias. Se o ficheiro de credenciais expirar, descarregue novamente o ficheiro a partir do portal Azure.
+
+### <a name="what-characters-are-allowed-for-the-passphrase"></a>Que caracteres são permitidos para a palavra-passe?
+
+A palavra-passe deve utilizar caracteres do conjunto de caracteres ASCII, com valores ASCII inferiores ou iguais a 127.
 
 ### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>De que unidades posso fazer o back-up de ficheiros e pastas?
 
@@ -41,11 +45,11 @@ Não é possível fazer recuar os seguintes tipos de unidades e volumes:
 
 ### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-an-azure-vm"></a>Posso usar o agente MARS para fazer o back-up ficheiros e pastas num VM Azure?  
 
-Yes. O Azure Backup fornece uma cópia de segurança ao nível VM para VMs Azure utilizando a extensão VM para o agente Azure VM. Se pretender fazer o back up ficheiros e pastas no sistema operativo Windows do hóspede no VM, pode instalar o agente MARS para o fazer.
+Sim. O Azure Backup fornece uma cópia de segurança ao nível VM para VMs Azure utilizando a extensão VM para o agente Azure VM. Se pretender fazer o back up ficheiros e pastas no sistema operativo Windows do hóspede no VM, pode instalar o agente MARS para o fazer.
 
 ### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-temporary-storage-for-the-azure-vm"></a>Posso usar o agente MARS para fazer o back-up ficheiros e pastas no armazenamento temporário para o Azure VM?
 
-Yes. Instale o agente MARS e ressalte ficheiros e pastas no sistema operativo Windows do hóspede para armazenamento temporário.
+Sim. Instale o agente MARS e ressalte ficheiros e pastas no sistema operativo Windows do hóspede para armazenamento temporário.
 
 * Os trabalhos de reserva falham quando os dados de armazenamento temporários são eliminados.
 * Se os dados de armazenamento temporário forem eliminados, só poderá restaurar o armazenamento não volátil.
@@ -56,7 +60,7 @@ Os dados de cópia de segurança são enviados para o centro de dados do cofre n
 
 ### <a name="does-the-mars-agent-support-windows-server-2012-deduplication"></a>O agente MARS suporta a deduplica do Windows Server 2012?
 
-Yes. O agente MARS converte os dados desduplicados em dados normais quando prepara a operação de backup. Em seguida, otimiza os dados para a cópia de segurança, encripta os dados e, em seguida, envia os dados encriptados para o cofre.
+Sim. O agente MARS converte os dados desduplicados em dados normais quando prepara a operação de backup. Em seguida, otimiza os dados para a cópia de segurança, encripta os dados e, em seguida, envia os dados encriptados para o cofre.
 
 ### <a name="do-i-need-administrator-permissions-to-install-and-configure-the-mars-agent"></a>Preciso de permissões de administrador para instalar e configurar o agente MARS?
 
@@ -201,6 +205,6 @@ Se um trabalho de restauro em curso for cancelado, o processo de restauro para. 
 * Para a opção de recuperação do Volume Restaurar, o agente MARS oferece uma opção para não restaurar permissões ACL no ficheiro ou pasta que está a ser recuperada
 * Para a opção de recuperação de ficheiros e pastas individuais, o agente MARS irá restaurar com permissões ACL (não há opção para ignorar a restauração da ACL).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Aprenda](tutorial-backup-windows-server-to-azure.md) a fazer o back up de uma máquina Windows.

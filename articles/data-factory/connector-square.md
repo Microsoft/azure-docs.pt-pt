@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/01/2019
-ms.openlocfilehash: ac968271685c66c8fab8d7723d994a446f49e85f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/03/2020
+ms.openlocfilehash: 2bfe9115f38c79618924379837dda8014ee31ed5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81410319"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529369"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Copiar dados da Square utilizando a Azure Data Factory (Pré-visualização)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -34,7 +34,6 @@ Este conector Quadrado é suportado para as seguintes atividades:
 - [Atividade de cópia](copy-activity-overview.md) com [matriz de fonte/pia suportada](copy-activity-overview.md)
 - [Atividade de procura](control-flow-lookup-activity.md)
 
-
 Pode copiar dados da Square para qualquer loja de dados de lavatórios suportados. Para obter uma lista de lojas de dados suportadas como fontes/pias pela atividade de cópia, consulte a tabela [de lojas de dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
 A Azure Data Factory fornece um controlador incorporado para permitir a conectividade, pelo que não é necessário instalar manualmente qualquer controlador utilizando este conector.
@@ -49,16 +48,26 @@ As secções seguintes fornecem detalhes sobre propriedades que são usadas para
 
 As seguintes propriedades são suportadas para o serviço ligado à Square:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **Quadrado** | Yes |
-| anfitrião | A URL da instância square. (isto é, mystore.mysquare.com)  | Yes |
-| clientId | A identificação do cliente associada à sua aplicação Square.  | Yes |
-| segredo de clientes | O segredo do cliente associado à sua aplicação Square. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
-| redirectUri | O URL de redirecionamento atribuído no painel de aplicações Square. (isto é, http: \/ /localhost:2500)  | Yes |
-| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | No |
-| useHostVerification | Especifica se deve exigir que o nome do anfitrião no certificado do servidor corresponda ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | No |
-| usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | No |
+| tipo | A propriedade tipo deve ser definida para: **Quadrado** | Sim |
+| conexõesProperties | Um grupo de propriedades que define como se conectar à Square. | Sim |
+| ***Em `connectionProperties` :*** | | |
+| anfitrião | A URL da instância square. (isto é, mystore.mysquare.com)  | Sim |
+| clientId | A identificação do cliente associada à sua aplicação Square.  | Sim |
+| segredo de clientes | O segredo do cliente associado à sua aplicação Square. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
+| accessToken | O sinal de acesso obtido da Square. Concede acesso limitado a uma conta Square pedindo a um utilizador autenticado permissões explícitas. Os tokens de acesso OAuth expiram 30 dias após a emissão, mas os tokens de atualização não expiram. Os tokens de acesso podem ser refrescados com token refresh.<br>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md).  | Sim |
+| refreshToken | O token refresh obtido da Square. Usado para obter novos tokens de acesso quando o atual expira.<br>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Não |
+| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | Não |
+| useHostVerification | Especifica se deve exigir que o nome do anfitrião no certificado do servidor corresponda ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | Não |
+| usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | Não |
+
+Suporte quadrado dois tipos de ficha de acesso: **pessoal** e **OAuth**.
+
+- Os tokens de acesso pessoal são usados para obter acesso ilimitado da API ao connect api aos recursos na sua própria conta Square.
+- Os tokens de acesso OAuth são usados para obter acesso a API de ligação autenticado e telescópio a qualquer conta Square. Use-os quando a sua app acede a recursos em outras contas da Square em nome dos proprietários de contas. Os tokens de acesso OAuth também podem ser usados para aceder a recursos na sua própria conta Square.
+
+Na Fábrica de Dados, a autenticação através do token de acesso pessoal só `accessToken` necessita, enquanto a autenticação via OAuth requer `accessToken` e `refreshToken` . Saiba como recuperar o token [de](https://developer.squareup.com/docs/build-basics/access-tokens)acesso daqui.
 
 **Exemplo:**
 
@@ -68,13 +77,25 @@ As seguintes propriedades são suportadas para o serviço ligado à Square:
     "properties": {
         "type": "Square",
         "typeProperties": {
-            "host" : "mystore.mysquare.com",
-            "clientId" : "<clientId>",
-            "clientSecret": {
-                 "type": "SecureString",
-                 "value": "<clientSecret>"
-            },
-            "redirectUri" : "http://localhost:2500"
+            "connectionProperties": {
+                "host": "<e.g. mystore.mysquare.com>", 
+                "clientId": "<client ID>", 
+                "clientSecrect": {
+                    "type": "SecureString",
+                    "value": "<clientSecret>"
+                }, 
+                "accessToken": {
+                    "type": "SecureString",
+                    "value": "<access token>"
+                }, 
+                "refreshToken": {
+                    "type": "SecureString",
+                    "value": "<refresh token>"
+                }, 
+                "useEncryptedEndpoints": true, 
+                "useHostVerification": true, 
+                "usePeerVerification": true 
+            }
         }
     }
 }
@@ -86,9 +107,9 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Square, defina a propriedade tipo do conjunto de dados para **o SquareObject**. As seguintes propriedades são suportadas:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **SquareObject** | Yes |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **SquareObject** | Sim |
 | tableName | O nome da mesa. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
@@ -116,9 +137,9 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Square, desagrafe o tipo de origem na atividade da cópia para **o SquareSource**. As seguintes propriedades são suportadas na secção fonte de **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **SquareSource** | Yes |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **SquareSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM Business"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

@@ -9,12 +9,12 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1e44b58335bf90dbc0e97b58de7f878bc94c91c7
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 05dd1f1d429b59c4d621b63c6b78a1fc00e8d4dd
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371962"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528468"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Carregar de forma segura dados usando O SQL de Sinapse
 
@@ -70,9 +70,9 @@ A autenticação de identidade gerida é necessária quando a sua conta de armaz
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-1. Instale a Azure PowerShell utilizando este [guia](/powershell/azure/install-az-ps?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-2. Se tiver uma conta de armazenamento v1 ou blob para fins gerais, tem primeiro de atualizar para v2 de uso [geral.](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
-3. Deve ter **permitido que serviços fidedignos da Microsoft acedam a esta conta de armazenamento** ligados no menu de firewalls da conta de armazenamento Azure e redes **virtuais.** Consulte este [guia](../../storage/common/storage-network-security.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#exceptions) para mais informações.
+1. Siga este [guia](/powershell/azure/install-az-ps?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para instalar o Azure PowerShell.
+2. Se tiver uma conta de armazenamento de blobs ou fins gerais v1, terá primeiro de atualizar para a conta fins gerais v2. Para tal, siga este [guia](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+3. Deve ter **permitido que serviços fidedignos da Microsoft acedam a esta conta de armazenamento** ligados no menu de firewalls da conta de armazenamento Azure e redes **virtuais.** Para obter mais informações, veja este [guia](../../storage/common/storage-network-security.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#exceptions).
 #### <a name="steps"></a>Passos
 
 1. No PowerShell, **registe o seu servidor SQL** com o Azure Ative Directory (AAD):
@@ -88,13 +88,13 @@ A autenticação de identidade gerida é necessária quando a sua conta de armaz
    > [!NOTE]
    > Se tiver uma conta de armazenamento v1 ou blob para fins gerais, tem primeiro de **atualizar para v2** utilizando este [guia](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-3. Na sua conta de armazenamento, navegue para **Access Control (IAM)** e selecione **Adicionar a atribuição de funções**. Atribua o **papel de Proprietário de Dados Blob de Armazenamento, Colaborador ou Leitor** RBAC ao seu servidor SQL.
+3. Na sua conta de armazenamento, navegue para **Access Control (IAM)** e selecione **Adicionar a atribuição de funções**. Atribua o papel **de Proprietário de Dados Blob de Armazenamento, Colaborador ou Leitor** Azure ao seu servidor SQL.
 
    > [!NOTE]
    > Só os membros com privilégio proprietário podem realizar este passo. Para várias funções incorporadas do Azure, consulte este [guia.](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
    
     > [!IMPORTANT]
-    > Especifique a função de Proprietário de **Dados blob** **de armazenamento,** colaborador ou leitor RBAC. Estes papéis são diferentes dos papéis incorporados do Azure de Proprietário, Colaborador e Leitor. 
+    > Especifique a função De Proprietário de **Dados blob** **de armazenamento,** colaborador ou leitor Azure. Estes papéis são diferentes dos papéis incorporados do Azure de Proprietário, Colaborador e Leitor. 
 
     ![Concessão de permissão do RBAC para carregar](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
@@ -112,10 +112,10 @@ A autenticação de identidade gerida é necessária quando a sua conta de armaz
 ## <a name="d-azure-active-directory-authentication-aad"></a>D. Autenticação do Diretório Ativo Azure (AAD)
 #### <a name="steps"></a>Passos
 
-1. Na sua conta de armazenamento, navegue para **Access Control (IAM)** e selecione **Adicionar a atribuição de funções**. Atribua o papel **de Proprietário, Colaborador ou Leitor** de Dados de Armazenamento ao utilizador AAD. 
+1. Na sua conta de armazenamento, navegue para **Access Control (IAM)** e selecione **Adicionar a atribuição de funções**. Atribua o papel **de Proprietário, Colaborador ou Azure do Leitor** de Armazenamento ao utilizador AAD. 
 
     > [!IMPORTANT]
-    > Especifique a função de Proprietário de **Dados blob** **de armazenamento,** colaborador ou leitor RBAC. Estes papéis são diferentes dos papéis incorporados do Azure de Proprietário, Colaborador e Leitor.
+    > Especifique a função De Proprietário de **Dados blob** **de armazenamento,** colaborador ou leitor Azure. Estes papéis são diferentes dos papéis incorporados do Azure de Proprietário, Colaborador e Leitor.
 
     ![Concessão de permissão do RBAC para carregar](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 

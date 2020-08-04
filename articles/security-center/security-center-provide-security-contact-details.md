@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: 661d3845365778f7ef23cdd05b81b98c3bf84259
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5a2410a5ccaa10867e94b3a2ec10228a006fbe20
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519291"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534639"
 ---
 # <a name="set-up-email-notifications-for-security-alerts"></a>Configurar notificações de email para alertas de segurança 
 
 Para garantir que as pessoas certas na sua organização são notificadas sobre alertas de segurança no seu ambiente, insira os seus endereços de e-mail na página **de definições de notificações de email.**
 
-Ao configurar as suas notificações, pode configurar os e-mails a enviar a indivíduos específicos ou a qualquer pessoa com um papel RBAC específico para uma subscrição. 
+Ao configurar as suas notificações, pode configurar os e-mails a enviar a indivíduos específicos ou a qualquer pessoa com um papel Azure específico para uma subscrição. 
 
 Para evitar cansaço de alerta, o Centro de Segurança limita o volume de mensagens de saída. Para cada subscrição, o Centro de Segurança envia:
 
@@ -41,7 +41,7 @@ Para evitar cansaço de alerta, o Centro de Segurança limita o volume de mensag
 
 ## <a name="set-up-email-notifications-for-alerts"></a>Configurar notificações de email para alertas<a name="email"></a>
 
-Pode enviar notificações por e-mail a indivíduos ou a todos os utilizadores com funções específicas de RBAC.
+Pode enviar notificações por e-mail a indivíduos ou a todos os utilizadores com funções específicas do Azure.
 
 1. A partir da área de **definições** de & de preços do Security Center, a subscrição relevante e as **notificações de e-mail selecionadas**.
 
@@ -53,7 +53,7 @@ Pode enviar notificações por e-mail a indivíduos ou a todos os utilizadores c
 1. Para aplicar as informações de contacto de segurança à sua subscrição, **selecione Guardar**.
 
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 Para saber mais sobre alertas de segurança, consulte o seguinte:
 
 * [Alertas de segurança - um guia de referência](alerts-reference.md) -- Conheça os alertas de segurança que pode ver no módulo de Proteção de Ameaças do Centro de Segurança Azure

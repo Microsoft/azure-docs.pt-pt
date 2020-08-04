@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.author: v-erkel
-ms.openlocfilehash: 6923bb31e53493dd01f41cb0b0449f2093bc7e91
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7ad910823c4dd2430aeae085dd8e510fcd42c80f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092478"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532599"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
 
@@ -118,7 +118,7 @@ O proprietário da conta de armazenamento deve adicionar explicitamente as funç
 
 Pode fazê-lo com antecedência ou clicando num link na página onde adiciona um alvo de armazenamento Blob. Tenha em mente que pode levar até cinco minutos para que as definições de função se propaguem através do ambiente Azure, por isso deve esperar alguns minutos depois de adicionar as funções antes de criar um alvo de armazenamento.
 
-Passos para adicionar os papéis do RBAC:
+Passos para adicionar os papéis do Azure:
 
 1. Abra a página **de Controlo de Acesso (IAM)** para a conta de armazenamento. (O link na **página-alvo** de armazenamento adicionar abre automaticamente esta página para a conta selecionada.)
 
@@ -220,9 +220,9 @@ Esta tabela resume as diferenças do modelo de utilização:
 
 | Modelo de utilização                   | Modo caching | Verificação de back-end | Atraso máximo de desatrada |
 |-------------------------------|--------------|-----------------------|--------------------------|
-| Leia escritos pesados e pouco frequentes | Ler         | Nunca                 | Nenhum                     |
+| Leia escritos pesados e pouco frequentes | Ler         | Nunca                 | Nenhuma                     |
 | Mais de 15% escreve       | Leitura/escrita   | Nunca                 | Uma hora                   |
-| Os clientes contornam a cache      | Ler         | 30 segundos            | Nenhum                     |
+| Os clientes contornam a cache      | Ler         | 30 segundos            | Nenhuma                     |
 
 ### <a name="create-an-nfs-storage-target"></a>Criar um alvo de armazenamento NFS
 

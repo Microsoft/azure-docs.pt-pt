@@ -4,12 +4,12 @@ description: Fornece um resumo das definições e limitações de suporte para o
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: f84be4082eb6bc845459b6d88cb3157b2330f23d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d75e7053bfff14fbcb6deeae48c48f09e3e9ac0d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091016"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531885"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para backup Azure
 
@@ -106,10 +106,7 @@ O Azure Backup suporta encriptação para dados em trânsito e em repouso.
 ### <a name="data-security"></a>Segurança de dados
 
 - Os dados de backup são armazenados no cofre dos Serviços de Recuperação sob forma encriptada.
-- Só você tem a palavra-passe para desbloquear estes dados. A Microsoft não pode desencriptar os dados de backup em nenhum momento.
-
-    > [!WARNING]
-    > Depois de configurar o cofre, só você tem acesso à chave de encriptação. A Microsoft nunca mantém uma cópia e não tem acesso à chave. Se a chave estiver extraviada, a Microsoft não poderá recuperar os dados de backup.
+- Quando os dados são cópias de segurança dos servidores no local com o agente MARS, os dados são encriptados com uma palavra-passe antes do upload para Azure Backup e desencriptados apenas depois de serem descarregados a partir do Azure Backup.
 - Quando estiver a fazer backup de VMs Azure, tem de configurar encriptação *dentro* da máquina virtual.
 - O Azure Backup suporta o Azure Disk Encryption, que utiliza o BitLocker nas máquinas virtuais do Windows e **dm-crypt** nas máquinas virtuais do Linux.
 - Na parte traseira, o Azure Backup utiliza [encriptação do serviço de armazenamento Azure](../storage/common/storage-service-encryption.md), que protege os dados em repouso.
@@ -130,7 +127,7 @@ A cópia de segurança suporta a compressão do tráfego de backup, tal como res
 
 **Máquina** | **Comprimir para MABS/DPM (TCP)** | **Comprimir para cofre (HTTPS)**
 --- | --- | ---
-**Backup direto das máquinas Windows no local** | ND | ![Yes][green]
+**Backup direto das máquinas Windows no local** | ND | ![Sim][green]
 **Backup dos VMs Azure utilizando a extensão VM** | ND | ND
 **Backup nas máquinas de Azure no local utilizando MABS/DPM** | ![Sim][green] | ![Sim][green]
 
@@ -152,10 +149,10 @@ O Azure Backup adicionou a funcionalidade Cross Region Restore para reforçar a 
 
 | Tipo de Gestão de Backup | Suportado                                                    | Regiões apoiadas |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| VM do Azure               | Yes.   Suportado para VMs e VMs encriptados com discos inferiores a 4-TB | Todas as regiões públicas de Azure.  |
-| Agente MARS/Nas instalações | No                                                           | N/D               |
-| SQL /SAP HANA          | No                                                           | N/D               |
-| AFS                    | No                                                           | N/D               |
+| VM do Azure               | Sim.   Suportado para VMs e VMs encriptados com discos inferiores a 4-TB | Todas as regiões públicas de Azure.  |
+| Agente MARS/Nas instalações | Não                                                           | N/D               |
+| SQL /SAP HANA          | Não                                                           | N/D               |
+| AFS                    | Não                                                           | N/D               |
 
 ## <a name="next-steps"></a>Passos seguintes
 

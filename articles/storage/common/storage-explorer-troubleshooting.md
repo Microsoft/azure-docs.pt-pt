@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 61a281e5fa9e8d360b9b6e52cda9c54db49d93d0
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: b57a57f05853b9f8c291dc2ac352db7b1e679260
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406746"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534860"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas do Explorador de Armazenamento do Azure
 
@@ -48,7 +48,7 @@ Deve ser-lhe atribuída pelo menos uma função que dá acesso à leitura de dad
 
 O Azure Storage tem duas camadas de acesso: _gestão_ e _dados._ As assinaturas e as contas de armazenamento são acedidas através da camada de gestão. Os contentores, bolhas e outros recursos de dados são acedidos através da camada de dados. Por exemplo, se quiser obter uma lista das suas contas de armazenamento da Azure, envie um pedido para o ponto final de gestão. Se quiser uma lista de recipientes blob numa conta, envie um pedido para o ponto final de serviço apropriado.
 
-As funções RBAC podem conceder-lhe permissões para gestão ou acesso à camada de dados. O papel reader, por exemplo, concede acesso apenas de leitura aos recursos de camada de gestão.
+As funções Azure podem conceder-lhe permissões para gestão ou acesso à camada de dados. O papel reader, por exemplo, concede acesso apenas de leitura aos recursos de camada de gestão.
 
 Em rigor, a função Reader não fornece permissões de camada de dados e não é necessária para aceder à camada de dados.
 
@@ -405,7 +405,7 @@ Se o botão **Open In Explorer** no portal Azure não funcionar, certifique-se d
 * Google Chrome
 * Microsoft Internet Explorer
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se nenhuma destas soluções funcionar para si, [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). Também pode fazê-lo selecionando a **emissão 'Relatório' para** o botão GitHub no canto inferior esquerdo.
 

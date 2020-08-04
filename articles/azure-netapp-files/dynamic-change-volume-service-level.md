@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 5097a5dfa6dd9b8fd46e4bcbcee72319af51f86f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e19db61efbf93e3191d5780d07952f3d195c7a59
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499369"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533068"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>Alterar o nível de serviço de um volume de forma dinâmica
 
@@ -38,7 +38,9 @@ Este período de espera não se aplica se mover o volume para um pool de capacid
 
 ## <a name="register-the-feature"></a>Registar a funcionalidade
 
-1. A funcionalidade para mover um volume para outro pool de capacidade está atualmente em pré-visualização. Se esta for a sua primeira utilização, registe a funcionalidade antes de a utilizar: 
+A funcionalidade para mover um volume para outro pool de capacidade está atualmente em pré-visualização. Se estiver a utilizar esta funcionalidade pela primeira vez, tem de registar a funcionalidade primeiro.
+
+1. Registar a função: 
 
     ```azurepowershell-interactive
     Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange

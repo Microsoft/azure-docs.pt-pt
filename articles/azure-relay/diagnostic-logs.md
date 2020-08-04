@@ -3,12 +3,12 @@ title: Registos de diagnóstico para ligações híbridas
 description: Este artigo fornece uma visão geral de todos os registos de atividade e diagnóstico que estão disponíveis para Azure Relay.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: f79e4aa21fcb9e592f431e252981dc0e7c02817f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 980f2f7a737d3f2460c17a84c472cbf56f5eb90f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314894"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533007"
 ---
 # <a name="enable-diagnostics-logs-for-azure-relay-hybrid-connections"></a>Ativar registos de diagnóstico para ligações híbridas Azure Relay
 Quando começar a utilizar as suas Ligações Híbridas Azure Relay, talvez queira monitorizar como e quando os seus ouvintes e remetentes são abertos e fechados, e como as suas Ligações Híbridas são criadas e as mensagens são enviadas. Este artigo fornece uma visão geral dos registos de atividade e diagnóstico fornecidos pelo serviço Azure Relay. 
@@ -46,17 +46,17 @@ Para ativar registos de diagnóstico, faça os seguintes passos:
         ![Definições de diagnóstico de amostra](./media/diagnostic-logs/sample-diagnostic-settings.png)
 1. **Selecione Guarde** na barra de ferramentas para guardar as definições.
 
-As novas definições fazem efeito em cerca de 10 minutos. Os registos são apresentados no alvo de arquivo configurado, no painel de **registos de diagnóstico.** Para obter mais informações sobre a configuração das definições de diagnóstico, consulte a [visão geral dos registos de diagnósticos do Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+As novas definições fazem efeito em cerca de 10 minutos. Os registos são apresentados no alvo de arquivo configurado, no painel de **registos de diagnóstico.** Para obter mais informações sobre a configuração das definições de diagnóstico, consulte a [visão geral dos registos de diagnósticos do Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 
 ## <a name="schema-for-hybrid-connections-events"></a>Schema para eventos de conexões híbridas
 As cordas JSON do registo de eventos de ligações híbridas incluem os elementos listados na tabela seguinte:
 
-| Name | Descrição |
+| Nome | Descrição |
 | ------- | ------- |
 | ResourceId | Azure Resource Manager resource ID |
 | ActivityId | Identificação interna, usada para identificar a operação especificada. Pode também ser conhecido como "TrackingId" |
-| Ponto Final | O endereço do recurso Relay |
+| Ponto final | O endereço do recurso Relay |
 | OperationName | O tipo de operação de conexões híbridas que está sendo registado |
 | EventTimeString | O calendário utc do registo de registo |
 | Mensagem | A mensagem detalhada do evento |
@@ -105,7 +105,7 @@ Aqui está um evento de conexões híbridas de amostra no formato JSON.
 | SenderSentHttpRequest | O remetente enviou um pedido HTTP. | 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a Azure Relay, consulte:
 

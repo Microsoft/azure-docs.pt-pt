@@ -1,19 +1,18 @@
 ---
 title: Gerir e monitorizar backups Azure VM
 description: Aprenda a gerir e monitorizar as cópias de segurança Azure VM utilizando o serviço Azure Backup.
-ms.reviewer: sogup
 ms.topic: conceptual
-ms.date: 09/18/2019
-ms.openlocfilehash: 4e3fb05b054ea682c315654e6df262e49d592597
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/02/2020
+ms.openlocfilehash: cbe0ccef9df27af032cf849b302f6a6211383fe8
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054753"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532048"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gerir backups Azure VM com serviço de backup Azure
 
-Este artigo descreve como gerir máquinas virtuais Azure (VMs) que são apoiadas através do [serviço Azure Backup](backup-overview.md). O artigo também resume as informações de reserva que pode encontrar no painel de abóbada.
+Este artigo descreve como gerir máquinas virtuais Azure (VMs) que são apoiadas com o [serviço Azure Backup](backup-overview.md). O artigo também resume as informações de reserva que pode encontrar no painel de abóbada.
 
 No portal Azure, o painel de abóbada dos Serviços de Recuperação fornece acesso a informações sobre o cofre, incluindo:
 
@@ -31,24 +30,30 @@ Pode gerir as cópias de segurança utilizando o painel de instrumentos e perfur
 Para ver VMs no painel de abóbada:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. No menu Hub, **selecione Procurar.** Na lista de recursos, escreva **Serviços de Recuperação**. À medida que escreve, a lista é filtrada com base na sua entrada. Selecione **cofres dos Serviços de Recuperação**.
+1. No menu à esquerda, selecione **Todos os serviços**.
 
-    ![Criar um cofre dos Serviços de Recuperação ](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
+    ![Selecione Todos os serviços](./media/backup-azure-manage-vms/select-all-services.png)
 
-3. Para facilitar a utilização, clique com o botão direito no cofre e selecione Pin para o painel de **instrumentos**.
-4. Abre o painel do cofre.
+1. Na caixa de diálogo **de todos os serviços,** insira *os Serviços de Recuperação.* A lista de filtros de recursos de acordo com a sua entrada. Na lista de recursos, selecione **Cofres dos Serviços de Recuperação.**
+
+    ![Insira e escolha cofres dos Serviços de Recuperação](./media/backup-azure-manage-vms/all-services.png)
+
+    A lista de cofres dos Serviços de Recuperação na subscrição aparece.
+
+1. Para facilitar a utilização, selecione o ícone do pino ao lado do nome do cofre e selecione Pin para o painel de **instrumentos**.
+1. Abre o painel do cofre.
 
     ![Abra o painel de instrumentos e definições do cofre](./media/backup-azure-manage-vms/full-view-rs-vault.png)
 
-5. No **azulejo de itens de cópia** de segurança, selecione **Azure Virtual Machines**.
+1. No **azulejo de itens de reserva,** selecione **Azure Virtual Machine**.
 
-    ![Abra o azulejo de itens de reserva](./media/backup-azure-manage-vms/contoso-vault-1606.png)
+    ![Abra o azulejo de itens de reserva](./media/backup-azure-manage-vms/azure-virtual-machine.png)
 
-6. No painel **de itens de cópia** de segurança, pode ver a lista de VMs protegidos. Neste exemplo, o cofre protege uma máquina virtual: desmobackup.  
+1. No painel **de itens de cópia** de segurança, pode ver a lista de VMs protegidos. Neste exemplo, o cofre protege uma máquina virtual: *myVMR1*.  
 
     ![Ver o painel de itens de reserva](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
-7. A partir do painel de instrumentos do número de abóbadas, modifique as políticas de backup, faça uma cópia de segurança a pedido, pare ou retome a proteção dos VMs, elimine os dados de backup, veja os pontos de restauro e faça uma restauração.
+1. A partir do painel de instrumentos do número de abóbadas, pode modificar as políticas de backup, executar uma cópia de segurança a pedido, parar ou retomar a proteção dos VMs, eliminar dados de backup, ver pontos de restauro e executar uma restauração.
 
     ![O painel de itens de cópia de segurança e o painel de definições](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
@@ -59,18 +64,17 @@ Para ver VMs no painel de abóbada:
 Para modificar uma política de backup existente:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/). Abre o painel do cofre.
-2. A partir das políticas de **Backup >,** selecione a política de backup para o tipo Azure Virtual Machine.
-3.  Clique em Modificar e alterar as definições.
+2. A partir das políticas de **Backup >,** selecione a política de backup para o tipo **Azure Virtual Machine**.
+3. Selecione **Modificar** e alterar as definições.
 
-
-### <a name="switch-backup-policy"></a>Altere a política de backup 
+### <a name="switch-backup-policy"></a>Altere a política de backup
 
 Para gerir uma política de backup:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/). Abre o painel do cofre.
-2. No **azulejo de itens de cópia** de segurança, selecione **Azure Virtual Machines**.
+2. No **azulejo de itens de reserva,** selecione **Azure Virtual Machine**.
 
-    ![Abra o azulejo de itens de reserva](./media/backup-azure-manage-vms/contoso-vault-1606.png)
+    ![Abra o azulejo de itens de reserva](./media/backup-azure-manage-vms/azure-virtual-machine.png)
 
 3. No painel **de Itens de Cópia de Segurança,** pode ver a lista de VMs protegidos e o último estado de backup com o tempo de pontos de restauro mais recente.
 
@@ -113,7 +117,7 @@ Para acompanhar o progresso do trabalho, no painel de abóbada, selecione o azul
 
 Há duas maneiras de parar de proteger um VM:
 
-* **Pare a proteção e retenha os dados de backup**. Esta opção impedirá que todos os futuros trabalhos de backup protejam o seu VM; no entanto, o serviço Azure Backup irá manter os pontos de recuperação que foram apoiados.  Terá de pagar para manter os pontos de recuperação no cofre (ver [preços de reserva do Azure](https://azure.microsoft.com/pricing/details/backup/) para mais detalhes). Poderá restaurar o VM, se necessário. Se decidir retomar a proteção VM, pode utilizar a opção *de backup do Resume.*
+* **Pare a proteção e retenha os dados de backup**. Esta opção impedirá que todos os futuros trabalhos de backup protejam o seu VM. No entanto, o serviço Azure Backup irá manter os pontos de recuperação que foram apoiados.  Terá de pagar para manter os pontos de recuperação no cofre (ver [preços de reserva do Azure](https://azure.microsoft.com/pricing/details/backup/) para mais detalhes). Poderá restaurar o VM, se necessário. Se decidir retomar a proteção VM, pode utilizar a opção *de backup do Resume.*
 * **Parar a proteção e eliminar dados de cópia de segurança**. Esta opção impedirá que todos os futuros trabalhos de backup protejam o seu VM e eliminarão todos os pontos de recuperação. Não poderá restaurar o VM nem utilizar a opção *de backup do Resume.*
 
 >[!NOTE]
@@ -162,11 +166,11 @@ Existem duas formas de eliminar os dados de backup de um VM:
 
 * A partir do painel de instrumentos do cofre, selecione Parar a cópia de segurança e seguir as instruções para parar a proteção e eliminar a opção [de dados de cópia de segurança.](#stop-protection-and-delete-backup-data)
 
-  ![Selecione Parar backup](./media/backup-azure-manage-vms/stop-backup-buttom.png)
+  ![Selecione Parar backup](./media/backup-azure-manage-vms/stop-backup-button.png)
 
-* A partir do painel de instrumentos do cofre, selecione Eliminar dados de backup. Esta opção está ativada se tiver optado por parar a proteção e reter a opção [de dados de backup](#stop-protection-and-retain-backup-data) durante a proteção contra o VM de paragem
+* A partir do painel de instrumentos do cofre, selecione Eliminar dados de backup. Esta opção está ativada se tiver optado por parar a proteção e reter a opção [de dados de backup](#stop-protection-and-retain-backup-data) durante a proteção contra o VM de paragem.
 
-  ![Selecione Eliminar backup](./media/backup-azure-manage-vms/delete-backup-buttom.png)
+  ![Selecione Eliminar backup](./media/backup-azure-manage-vms/delete-backup-button.png)
 
   * No [painel de instrumentos](#view-vms-on-the-dashboard)do cofre, selecione **Eliminar os dados de cópia de segurança**.
   * Digite o nome do item de cópia de segurança para confirmar que pretende eliminar os pontos de recuperação.
@@ -182,7 +186,7 @@ Para proteger os seus dados, o Azure Backup inclui a função de exclusão suave
 
 ### <a name="backup-item-where-primary-data-source-no-longer-exists"></a>Item de backup onde a fonte de dados primários já não existe
 
-* Se os VMs Azure configurados para a cópia de segurança do Azure forem eliminados ou movidos sem proteção, então tanto os trabalhos de backup programados como a pedido (ad-hoc) trabalharão com o erro UserErrorVmNotFoundV2. O pré-controlo de backup só será considerado crítico para os trabalhos de backup a pedido falhados (não são apresentados trabalhos programados falhados).
+* Se os VMs Azure configurados para a cópia de segurança do Azure forem eliminados ou movidos sem proteção, então tanto os trabalhos de backup programados como a pedido (ad-hoc) trabalharão com o erro UserErrorVmNotFoundV2. O pré-check de backup só será crítico para trabalhos de backup a pedido falhados (não são apresentados empregos programados falhados).
 * Estes itens de backup permanecem ativos no sistema aderente à política de backup e retenção definida pelo utilizador. Os dados de back-up para estes VMs Azure serão mantidos de acordo com a política de retenção. Os pontos de recuperação expirados (exceto o último ponto de recuperação) são limpos de acordo com o intervalo de retenção definido na política de backup.
 * Recomenda-se aos utilizadores que apaguem os itens de backup em que a fonte de dados primário já não exista para evitar qualquer custo adicional, se o item/dados de cópia de segurança dos recursos de eliminação deixar de ser necessário, uma vez que o último ponto de recuperação é mantido para sempre e o utilizador é cobrado de acordo com o preço de backup aplicável.
 

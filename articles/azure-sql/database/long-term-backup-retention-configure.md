@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 04/14/2020
-ms.openlocfilehash: 713ac569acb7866b4c7431b80e2afb1e7953ce08
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 4da2572e453339baa3f5e2663a7965fff2035e40
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087372"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531307"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerir a Azure SQL Database retenção de backup a longo prazo
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -80,7 +80,7 @@ Veja as cópias de segurança que são mantidas para uma base de dados específi
 
 As seguintes secções mostram-lhe como usar o PowerShell para configurar a retenção de backup a longo prazo, ver cópias de segurança no armazenamento Azure e restaurar a partir de uma cópia de segurança no armazenamento Azure.
 
-### <a name="rbac-roles-to-manage-long-term-retention"></a>Funções do RBAC para gerir a retenção a longo prazo
+### <a name="azure-roles-to-manage-long-term-retention"></a>Funções azure para gerir a retenção a longo prazo
 
 Para **Get-AzSqlDatabaseLongTermRetentionBackup** e **Restore-AzSqlDatabase,** terá de ter uma das seguintes funções:
 
@@ -201,7 +201,7 @@ Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.Resour
 > [!NOTE]
 > A partir daqui, pode ligar à base de dados restaurada através do o SQL Server Management Studio para efetuar tarefas necessárias, bem como para extrair alguns dados da base de dados restaurada para copiá-los para a base de dados existente ou para eliminar a base de dados existente e mudar o nome da base de dados restaurada para o nome da base de dados existente. Ver [ponto no tempo restaurar](recovery-using-backups.md#point-in-time-restore).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre cópias de segurança automáticas geradas pelo serviço, veja [cópias de segurança automáticas](automated-backups-overview.md)
 - Para saber mais sobre a retenção de longa duração de cópia de segurança, veja [retenção de longa duração de cópia de segurança](long-term-retention-overview.md)

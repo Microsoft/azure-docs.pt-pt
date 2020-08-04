@@ -3,12 +3,12 @@ title: Descrição Geral do Azure Blueprints
 description: Compreenda como o serviço Azure Blueprints lhe permite criar, definir e implantar artefactos no seu ambiente Azure.
 ms.date: 05/06/2020
 ms.topic: overview
-ms.openlocfilehash: 3a7cece81027bd8ac79250f2f2cd08da637b5f0b
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: a8cec34bb5bdd52b22063a4109153c7f455aaa65
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970931"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530407"
 ---
 # <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
 
@@ -27,19 +27,19 @@ O serviço do Azure Blueprints é apoiado pelo [Azure Cosmos DB](../../cosmos-db
 
 O serviço foi concebido para ajudar na _configuração do ambiente_. Esta configuração consiste frequentemente num conjunto de grupos de recursos, políticas, atribuições de funções e implementações de modelos ARM. Uma planta é um pacote para juntar cada um destes tipos de _artefactos_ e permitir-lhe compor e ver esse pacote, incluindo através de um pipeline CI/CD. Por fim, cada um deles é atribuído a uma subscrição numa única operação que pode ser auditada e controlada.
 
-Quase tudo o que pretende incluir para implantação em Azure Blueprints pode ser realizado com um modelo ARM. No entanto, um modelo ARM é um documento que não existe de forma nativa no Azure – cada um é armazenado localmente ou em controlo de origem. O modelo é utilizado para implementações de um ou mais recursos do Azure, mas assim que esses recursos são implementados, não existe nenhuma ligação ou relação ativa com o modelo.
+Quase tudo o que pretende incluir para implantação em Azure Blueprints pode ser realizado com um modelo ARM. No entanto, um modelo ARM é um documento que não existe de forma nativa no Azure – cada um é armazenado localmente ou em controlo de origem. O modelo é utilizado para implementações de um ou mais recursos do Azure, mas assim que esses recursos são implementados, deixam de existir ligações ou relações ativas com o modelo.
 
-Com a Azure Blueprints, a relação entre a definição de planta (o que _deve ser_ implementada) e a atribuição do projeto (que _foi_ implantado) é preservada. Esta ligação suporta melhor controlo e auditoria de implementações. O Azure Blueprints também pode atualizar várias subscrições ao mesmo tempo que são regidas pelo mesmo plano.
+Com a Azure Blueprints, a relação entre a definição de planta (o que _deve ser_ implementada) e a atribuição do projeto (que _foi_ implantado) é preservada. Esta ligação suporta procedimentos melhorados de controlo e auditoria para implementações. O Azure Blueprints também pode atualizar várias subscrições ao mesmo tempo que são regidas pelo mesmo plano.
 
 Não há necessidade de escolher entre um modelo ARM e uma planta. Cada planta pode consistir em _artefactos_de modelo de arma zero ou mais. Este suporte significa que os esforços anteriores para desenvolver e manter uma biblioteca de modelos ARM são reutilizáveis em Azure Blueprints.
 
-## <a name="how-its-different-from-azure-policy"></a>Em que medida difere do Azure Policy
+## <a name="how-its-different-from-azure-policy"></a>Como difere do Azure Policy
 
-Um esquema é um pacote ou contentor para compor conjuntos específicos de foco de normas, padrões e requisitos relacionados com a implementação de serviços cloud do Azure, segurança e design, que podem ser reutilizados para manter a consistência e a conformidade.
+Um esquema é um pacote ou contentor que compõe conjuntos específicos de foco de normas, padrões e requisitos relacionados com a implementação de design, segurança e serviços cloud do Azure, que podem ser reutilizados para manter a consistência e a conformidade.
 
-Uma [política](../policy/overview.md) é um sistema de negação explícita e permissão predefinida focado nas propriedades dos recursos durante a implementação e nos recursos já existentes. Suporta governação da cloud ao validar que os cursos numa subscrição aderem a requisitos e normas.
+Uma [política](../policy/overview.md) é um sistema de negação explícita e permissão predefinida focado nas propriedades dos recursos durante a implementação e nos recursos já existentes. Suporta a governação da cloud ao confirmar que os recursos numa subscrição cumprem requisitos e normas.
 
-A inclusão de uma política num esquema permite a criação do design ou padrão de direitos durante a atribuição do esquema. A inclusão da política assegura que apenas as alterações aprovadas ou esperadas podem ser efetuadas ao ambiente para proteger a conformidade contínua com a intenção do esquema.
+A inclusão de uma política num esquema permite a criação do padrão ou design certo durante a atribuição do esquema. A inclusão da política assegura que apenas as alterações aprovadas ou esperadas podem ser efetuadas ao ambiente para proteger a conformidade contínua com o objetivo do esquema.
 
 Uma política pode ser incluída como um dos _muitos artefactos_ numa definição de planta. Os esquemas também suportam a utilização de parâmetros com políticas e iniciativas.
 
@@ -47,7 +47,7 @@ Uma política pode ser incluída como um dos _muitos artefactos_ numa definiçã
 
 Um esquema é composto por _artefactos_. A Azure Blueprints suporta atualmente os seguintes recursos como artefactos:
 
-|Recurso  | Opções de hierarquia| Description  |
+|Recurso  | Opções de hierarquia| Descrição  |
 |---------|---------|---------|
 |Grupos de Recursos | Subscrição | Crie um novo grupo de recursos para utilização por outros artefactos no esquema.  Estes grupos de recursos de espaço reservado permitem-lhe organizar recursos exatamente da forma como os quer estruturados e fornece um limitador de âmbito para artefactos de design de política e função incluídos e modelos ARM. |
 |Modelo ARM | Subscrição, Grupo de Recursos | Modelos, incluindo modelos aninhados e ligados, são usados para compor ambientes complexos. Ambientes de exemplo: um farm do SharePoint, a Configuração de Estado da Automatização do Azure ou uma área de trabalho do Log Analytics. |
@@ -103,7 +103,7 @@ Para atribuir ou anular a atribuição de um esquema, a sua conta necessita das 
 
 Estão disponíveis as seguintes funções incorporadas:
 
-|Papel RBAC | Description |
+|Papel azul | Descrição |
 |-|-|
 |[Proprietário](../../role-based-access-control/built-in-roles.md#owner) | Além de outras permissões, inclui todas as permissões relacionadas com a Azure Blueprint. |
 |[Contribuinte](../../role-based-access-control/built-in-roles.md#contributor) | Além de outras permissões, pode criar e apagar definições de planta, mas não tem permissões de design. |

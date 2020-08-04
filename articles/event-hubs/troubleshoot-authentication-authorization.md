@@ -3,12 +3,12 @@ title: Problemas de autenticação e autorização - Azure Event Hubs
 description: Este artigo fornece informações sobre problemas de autenticação e autorização com os Hubs de Eventos Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 6fca0c29c20e2bfe0c3ec64e3068b61bd5147bdb
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bed415c6180953b5a5728032a50d51618c084343
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502108"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533891"
 ---
 # <a name="troubleshoot-authentication-and-authorization-issues---azure-event-hubs"></a>Problemas de autenticação e autorização - Azure Event Hubs
 O artigo [de conectividade Troubleshoot](troubleshooting-guide.md) fornece dicas para resolver problemas de conectividade com os Azure Event Hubs. Este artigo fornece dicas e recomendações para resolver problemas de problemas de autenticação e problemas de autorização com a Azure Event Hubs. 
@@ -16,13 +16,13 @@ O artigo [de conectividade Troubleshoot](troubleshooting-guide.md) fornece dicas
 ## <a name="if-you-are-using-azure-active-directory"></a>Se estiver a utilizar o Azure Ative Directory
 Se estiver a utilizar o Azure Ative Directory (Azure AD) para autenticar e autorizar com a Azure Event Hubs, confirme que a identidade que acede ao centro de eventos é membro da **função Azure** certa no âmbito de **recursos** certos (grupo de consumidores, centro de eventos, espaço de identificação, grupo de recursos ou subscrição).
 
-### <a name="rbac-roles"></a>Funções RBAC
+### <a name="azure-roles"></a>Funções do Azure
 - [Azure Event Hubs Data proprietário](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) para acesso completo aos recursos do Event Hubs.
 - [Remetente de dados do Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) para o acesso ao envio.
 - Recetor de [dados Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) para o acesso ao acesso.
 
 ### <a name="resource-scopes"></a>Âmbitos de recursos
-- **Grupo de consumidores**: Neste âmbito, a atribuição de funções aplica-se apenas a esta entidade. Atualmente, o portal Azure não suporta a atribuição de um papel de RBAC a um diretor de segurança a este nível. 
+- **Grupo de consumidores**: Neste âmbito, a atribuição de funções aplica-se apenas a esta entidade. Atualmente, o portal Azure não suporta a atribuição de um papel de Azure a um diretor de segurança a este nível. 
 - **Centro de eventos**: A atribuição de funções aplica-se à entidade Event Hub e ao grupo de consumidores ao seu abrigo.
 - **Namespace**: A atribuição de funções abrange toda a topologia dos Centros de Eventos sob o espaço de nome e para o grupo de consumidores que lhe está associado.
 - **Grupo de recursos**: A atribuição de funções aplica-se a todos os recursos do Event Hubs no âmbito do grupo de recursos.

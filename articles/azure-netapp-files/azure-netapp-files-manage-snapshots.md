@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 7d583172fe4021a2709a4d58b5488e9bc3898919
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 271c3c9f63ee3f761826e214f3bf32a8df5f1cbe
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497601"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533296"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerir instantâneos com o Azure NetApp Files
 
@@ -49,7 +49,9 @@ Pode agendar as imagens de volume a serem tomadas automaticamente utilizando pol
 
 ### <a name="register-the-feature"></a>Registar a funcionalidade
 
-1. A funcionalidade **de política instantânea** está atualmente em pré-visualização. Se esta for a sua primeira utilização, registe a funcionalidade antes de a utilizar: 
+A funcionalidade **de política instantânea** está atualmente em pré-visualização. Se estiver a utilizar esta funcionalidade pela primeira vez, tem de registar a funcionalidade primeiro. 
+
+1. Registar a função: 
 
     ```azurepowershell-interactive
     Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy

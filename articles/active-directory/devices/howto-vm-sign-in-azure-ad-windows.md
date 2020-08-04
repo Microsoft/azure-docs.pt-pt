@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3dcb3a74e9341981af7e6eddb4be7454aaf429b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2fcd1c3a9fd3e4be22e4057eb2cfc9a71d09d558
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419789"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529114"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Iniciar sedutação na máquina virtual do Windows em Azure utilizando a autenticação do Azure Ative Directory (Preview)
 
@@ -39,7 +39,7 @@ Existem muitos benefícios em utilizar a autenticação AD AZure para iniciar se
 > [!NOTE]
 > Assim que ativar esta capacidade, os seus VMs windows em Azure serão aderidos ao Azure AD. Não pode junção a outros domínios, como AD ou AD DS Azure. Se precisar de o fazer, terá de desligar o VM do seu inquilino AZure AD desinstalando a extensão.
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 ### <a name="supported-azure-regions-and-windows-distributions"></a>Regiões de Azure apoiadas e distribuição do Windows
 
@@ -144,7 +144,7 @@ O `provisioningState` de `Succeeded` é mostrado, uma vez que a extensão é ins
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Configure atribuições de funções para o VM
 
-Agora que criou o VM, precisa configurar a política do RBAC para determinar quem pode iniciar sessão no VM. Duas funções RBAC são usadas para autorizar o login em VM:
+Agora que criou o VM, precisa configurar a política do RBAC para determinar quem pode iniciar sessão no VM. Duas funções Azure são usadas para autorizar o login em VM:
 
 - **Início de entrada do Administrador de Máquina Virtual**: Os utilizadores com esta função atribuída podem iniciar sessão numa máquina virtual Azure com privilégios de administrador.
 - **Início de Sessão do Utilizador de Máquinas Virtuais**: Os utilizadores com esta função atribuída podem iniciar sessão numa máquina virtual Azure com privilégios regulares do utilizador.
@@ -208,7 +208,7 @@ Pode impor políticas de Acesso Condicional, tais como autenticação de vários
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Faça login usando credenciais AZure AD para um Windows VM
 
 > [!IMPORTANT]
-> A ligação remota aos VMs aderidos ao Azure AD só é permitida a partir de PCs windows 10 que estejam registados aZure AD (a construção mínima exigida é 20H1) ou a Azure AD unida ou híbrida Azure AD unida ao **mesmo** diretório que o VM. Além disso, para RDP utilizando credenciais AZure AD, o utilizador deve pertencer a uma das duas funções RBAC, Login de Administrador de Máquina Virtual ou Login do Utilizador de Máquina Virtual. Se utilizar um PC do Windows 10 registado no Azure AD, deve introduzir credenciais no formato AzureAD\UPN (por AzureAD\john@contoso.com exemplo). Neste momento, o Azure Bastion não pode ser utilizado para fazer login utilizando a autenticação do Azure Ative Directory com a extensão AADLoginForWindows; apenas é suportado RDP direto.
+> A ligação remota aos VMs aderidos ao Azure AD só é permitida a partir de PCs windows 10 que estejam registados aZure AD (a construção mínima exigida é 20H1) ou a Azure AD unida ou híbrida Azure AD unida ao **mesmo** diretório que o VM. Além disso, para RDP utilizando credenciais AZure AD, o utilizador deve pertencer a uma das duas funções Azure, O Login do Administrador de Máquina Virtual ou Login do Utilizador de Máquina Virtual. Se utilizar um PC do Windows 10 registado no Azure AD, deve introduzir credenciais no formato AzureAD\UPN (por AzureAD\john@contoso.com exemplo). Neste momento, o Azure Bastion não pode ser utilizado para fazer login utilizando a autenticação do Azure Ative Directory com a extensão AADLoginForWindows; apenas é suportado RDP direto.
 
 Para iniciar sessão na sua máquina virtual Windows Server 2019 utilizando Azure AD: 
 
@@ -315,13 +315,13 @@ Na Visualização Pública, a extensão AADLoginForWindows destina-se apenas a s
 
 ### <a name="troubleshoot-sign-in-issues"></a>Problemas de resolução de problemas
 
-Alguns erros comuns quando se tenta rdp com credenciais AD AZure incluem não são necessárias funções RBAC, cliente não autorizado ou método de login 2FA. Utilize as seguintes informações para corrigir estas questões.
+Alguns erros comuns quando tentas pDR com credenciais AZure AD incluem nenhuma função Azure atribuída, cliente não autorizado ou método de login 2FA necessário. Utilize as seguintes informações para corrigir estas questões.
 
 O Dispositivo e o Estado SSO podem ser vistos em funcionamento `dsregcmd /status` . O objetivo é que o Estado do Dispositivo mostre como `AzureAdJoined : YES` e `SSO State` mostrar `AzureAdPrt : YES` .
 
 Além disso, o login RDP que utiliza as contas AZure AD é capturado no visualizador do Evento sob os registos de eventos AAD\Operational.
 
-#### <a name="rbac-role-not-assigned"></a>Função RBAC não atribuída
+#### <a name="azure-role-not-assigned"></a>Papel de Azure não atribuído
 
 Se vir a seguinte mensagem de erro quando iniciar uma ligação remota de ambiente de trabalho ao seu VM: 
 
@@ -365,6 +365,6 @@ Se não tiver implementado o Windows Hello for Business e se isso não for uma o
 
 Partilhe o seu feedback sobre esta funcionalidade de pré-visualização ou informe os problemas que o utilizam no fórum de feedback da [AD Azure](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre o Diretório Ativo Azure, consulte [o que é o Diretório Ativo Azure](/azure/active-directory/fundamentals/active-directory-whatis)
