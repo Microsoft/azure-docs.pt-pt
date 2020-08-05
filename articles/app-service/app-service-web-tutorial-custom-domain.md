@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a594a754f33ae60d151215deb5a5ed57f87126c3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 96a947a20a17c4dc08851824a392143ce162f186
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050660"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543571"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Mapeie um nome DNS personalizado existente para o Azure App Service
 
@@ -95,7 +95,12 @@ Quando vir a notificação seguinte, significa que a operação de dimensionamen
 
 ## <a name="get-domain-verification-id"></a>Obtenha iD de verificação de domínio
 
-Para adicionar um domínio personalizado à sua aplicação, tem de verificar a sua propriedade do domínio adicionando um ID de verificação como registo TXT com o seu fornecedor de domínio. Na navegação à esquerda da sua página de aplicações, clique em **Domínios Personalizados** em **Definições**. Valor de cópia do ID de Verificação de Domínio Personalizado a partir daqui. Precisa desta identificação de verificação para o próximo passo.
+Para adicionar um domínio personalizado à sua aplicação, tem de verificar a sua propriedade do domínio adicionando um ID de verificação como registo TXT com o seu fornecedor de domínio. Na navegação à esquerda da sua página de aplicações, clique **em domínios personalizados**. Copie **o ID de Verificação de Domínio personalizado** na página de **Domínios Personalizados** para o próximo passo.
+
+![Obtenha iD de verificação de domínio personalizado](./media/app-service-web-tutorial-custom-domain/get-custom-domain-verification-id.png)
+
+> [!WARNING]
+> A adição de IDs de verificação de domínio ao seu domínio personalizado pode impedir entradas de DNS pendentes e evitar aquisições de subdomínios. Para obter mais informações sobre esta ameaça comum de alta gravidade, consulte [a aquisição de Subdomínio.](../security/fundamentals/subdomain-takeover.md)
 
 ## <a name="map-your-domain"></a>Mapear o seu domínio
 

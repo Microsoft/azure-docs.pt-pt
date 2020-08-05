@@ -1,14 +1,14 @@
 ---
 title: Descrição geral do Azure Resource Graph
 description: Compreenda como o serviço Azure Resource Graph permite uma consulta complexa de recursos em escala através de subscrições e inquilinos.
-ms.date: 06/29/2020
+ms.date: 07/25/2020
 ms.topic: overview
-ms.openlocfilehash: 9c15ff12f21c1d3d168828eae67de51069cdcada
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 5a2be5e65ecd5590d992e1883f432c173660e78d
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970608"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541792"
 ---
 # <a name="what-is-azure-resource-graph"></a>O que é o Azure Resource Graph?
 
@@ -63,6 +63,10 @@ Para utilizar o Resource Graph, tem de possuir os direitos adequados no [Control
 
 A Azure CLI e Azure PowerShell utilizam subscrições a que o utilizador tem acesso. Ao utilizar diretamente a API REST, a lista de subscrições é fornecida pelo utilizador. Se o utilizador tiver acesso a qualquer uma das subscrições da lista, os resultados da consulta são devolvidos para as subscrições a que o utilizador tem acesso. Este comportamento é o mesmo que quando liga para [grupos de recursos - Liste](/rest/api/resources/resourcegroups/list) \- que obtém grupos de recursos a que tem acesso sem qualquer indicação de que o resultado pode ser parcial. Se não houver subscrições na lista de subscrições a que o utilizador tem os direitos adequados, a resposta é uma _403_ (Proibida).
 
+> [!NOTE]
+> Na versão **pré-visualização** rest `2020-04-01-preview` API, a lista de subscrições pode ser omitida.
+> Quando os `subscriptions` `managementGroupId` imóveis e os imóveis não estão definidos no pedido, o _âmbito_ é definido para o arrendatário. Para mais informações, consulte [o âmbito da consulta.](./concepts/query-language.md#query-scope)
+
 ## <a name="throttling"></a>Limitação
 
 Como um serviço gratuito, as consultas ao Resource Graph são aceleradas para proporcionar a melhor experiência e tempo de resposta para todos os clientes. Se a sua organização quiser utilizar a API do Gráfico de Recursos para consultas em larga escala e frequentes, utilize o portal 'Feedback' a partir da página do [portal Resource Graph](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/ResourceGraph).
@@ -86,7 +90,7 @@ O Resource Graph suporta Azure CLI, Azure PowerShell, Azure SDK para Python, e m
 - [Azure PowerShell](./first-query-powershell.md#add-the-resource-graph-module)
 - [Python](./first-query-python.md#add-the-resource-graph-library)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre a [língua de consulta.](./concepts/query-language.md)
 - Consulte o idioma em uso nas [consultas de arranque](./samples/starter.md).

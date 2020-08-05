@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 67fe36cf86c886f9d67d98cc8d34a090db4a71cb
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b61ba7f160d012cc3d9ad9f477e969a626fdc38e
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373033"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541424"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatizar a rotação de um segredo para recursos que usam um conjunto de credenciais de autenticação
 
@@ -41,7 +41,8 @@ Este tutorial mostra como automatizar a rotação periódica de segredos para ba
 
 Abaixo o link de implementação pode ser usado, se não tiver o Cofre de Chaves e o Servidor SQL existentes:
 
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json" target="_blank"><img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png" alt="Deploy to Azure"/></a>
+[![Imagem mostrando um botão marcado "Implementar para Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json)
+
 1. No **grupo de Recursos,** selecione **Criar novo**. Nomeie a **akvrotation do**grupo .
 1. Em **Sql Admin Login,** tipo Sql administrator login. 
 1. Selecione **Rever + criar**.
@@ -76,8 +77,10 @@ A aplicação de função requer estes componentes:
 - Uma política de acesso à identidade da App de Função para aceder a segredos no Cofre de Chaves
 - Uma subscrição de eventos Comagrid para o evento **SecretNearExpiry**
 
-1. Selecione a ligação de implementação do modelo Azure:
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json" target="_blank"><img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png" alt="Deploy to Azure"/></a>
+1. Selecione a ligação de implementação do modelo Azure: 
+
+   [![Imagem mostrando um botão marcado "Implementar para Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json)
+
 1. Na lista de **grupos de recursos,** selecione **akvrotation**.
 1. No Nome do **Servidor Sql,** digite o nome sql Server com senha para rodar
 1. No Nome do **Cofre de Chaves,** digite o nome do cofre da chave
@@ -217,8 +220,10 @@ A aplicação web requer estes componentes:
 - Uma aplicação web com identidade gerida pelo sistema
 - Uma política de acesso a segredos de acesso em Key Vault via web app identidade gerida
 
-1. Selecione a ligação de implementação do modelo Azure:
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp-WebApp%2Fmaster%2Farm-templates%2FWeb-App%2Fazuredeploy.json" target="_blank"> <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png" alt="Deploy to Azure"/></a>
+1. Selecione a ligação de implementação do modelo Azure: 
+
+   [![Imagem mostrando um botão marcado "Implementar para Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp-WebApp%2Fmaster%2Farm-templates%2FWeb-App%2Fazuredeploy.json)
+
 1. Selecione o grupo de recursos **de akvrotation.**
 1. No Nome do **Servidor Sql,** digite o nome sql Server com senha para rodar
 1. No Nome do **Cofre de Chaves,** digite o nome do cofre da chave
@@ -236,7 +241,7 @@ https://akvrotation-app.azurewebsites.net/
 
 Quando a aplicação abrir no navegador, verá o **Valor Secreto Gerado** e um valor conectado à base de **dados** de *verdade.*
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Saiba mais
 
 - Tutorial: [Rotação para recursos com dois conjuntos de credenciais](tutorial-rotation-dual.md)
 - Visão geral: [Monitoring Key Vault com Azure Event Grid (pré-visualização)](../general/event-grid-overview.md)

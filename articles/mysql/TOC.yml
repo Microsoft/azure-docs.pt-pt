@@ -34,6 +34,8 @@
           href: connect-python.md
         - name: Node.js
           href: connect-nodejs.md
+        - name: Azure PowerShell
+          href: connect-powershell.md
         - name: Ruby
           href: connect-ruby.md
         - name: C++
