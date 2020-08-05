@@ -335,6 +335,8 @@
           items:
             - name: Chaves geridas pelo cliente
               href: search-security-manage-encryption-keys.md
+            - name: Obter informações da chave
+              href: search-security-get-encryption-keys.md
         - name: Segurança de entrada
           items:
             - name: Chaves de acesso de API

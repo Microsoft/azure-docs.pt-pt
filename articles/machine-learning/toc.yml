@@ -15,28 +15,6 @@
 - name: Tutoriais
   expanded: true
   items:
-    - name: Studio
-      expanded: true
-      items:
-        - name: Estruturador (arrastar e largar)
-          items:
-            - name: 1. Preparar um modelo de regressão
-              displayName: studio
-              href: tutorial-designer-automobile-price-train-score.md
-            - name: 2. Implementar esse modelo
-              displayName: studio
-              href: tutorial-designer-automobile-price-deploy.md
-        - name: ML Automatizado (IU)
-          items:
-            - name: Criar experimentações de ML automatizado
-              displayName: 'automl, automated, auto ml, portal, ui'
-              href: tutorial-first-experiment-automated-ml.md
-            - name: Prever a procura (Dados de partilha de bicicletas)
-              displayName: 'automl, automated, auto ml, portal, ui'
-              href: tutorial-automated-ml-forecast.md
-        - name: Etiquetar os dados de imagem
-          displayName: 'tag, tagging, images'
-          href: tutorial-labeling.md
     - name: SDK Python
       expanded: true
       items:
@@ -64,11 +42,33 @@
         - name: Preparar o seu código para produção
           displayName: 'mlops, mlopspython, production'
           href: tutorial-convert-ml-experiment-to-production.md
+    - name: Studio
+      expanded: true
+      items:
+        - name: ML Automatizado (IU)
+          items:
+            - name: Criar experimentações de ML automatizado
+              displayName: 'automl, automated, auto ml, portal, ui'
+              href: tutorial-first-experiment-automated-ml.md
+            - name: Prever a procura (Dados de partilha de bicicletas)
+              displayName: 'automl, automated, auto ml, portal, ui'
+              href: tutorial-automated-ml-forecast.md
+        - name: Estruturador (arrastar e largar)
+          items:
+            - name: 1. Preparar um modelo de regressão
+              displayName: studio
+              href: tutorial-designer-automobile-price-train-score.md
+            - name: 2. Implementar esse modelo
+              displayName: studio
+              href: tutorial-designer-automobile-price-deploy.md
+        - name: Etiquetar os dados de imagem
+          displayName: 'tag, tagging, images'
+          href: tutorial-labeling.md
     - name: SDK para R
       items:
         - name: Criar a primeira experimentação de ML (R)
           href: tutorial-1st-r-experiment.md
-    - name: CLI de Aprendizagem automática
+    - name: CLI
       items:
         - name: Preparar e implementar com a CLI
           href: tutorial-train-deploy-model-cli.md
@@ -226,9 +226,6 @@
         - name: Utilizar pacotes Python privados
           displayName: 'pip, Conda, anaconda'
           href: how-to-use-private-python-packages.md
-        - name: Ativar registo
-          displayName: 'troubleshoot, log, files, tracing'
-          href: how-to-enable-logging.md
         - name: Definir diretórios de entrada e de saída
           displayName: 'large data, write, experiment files, size limit'
           href: how-to-save-write-experiment-files.md
@@ -309,8 +306,12 @@
             - name: 'Comece, monitorize ou cancele execuções'
               displayName: 'cancel, fail, status, child run'
               href: how-to-manage-runs.md
-            - name: Métricas de registo para execuções de preparações
+            - name: Ativar registos
+              displayName: 'troubleshoot, log, files, tracing'
               href: how-to-track-experiments.md
+            - name: Ver registos
+              displayName: 'troubleshoot, log, files, tracing'
+              href: how-to-monitor-view-training-logs.md
             - name: Controlar experiências com o MLflow
               displayName: 'log, monitor, metrics, Databricks'
               href: how-to-use-mlflow.md
@@ -363,7 +364,7 @@
         - name: Onde e como implementar
           displayName: 'publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker'
           href: how-to-deploy-and-where.md
-        - name: Cenários de implementação
+        - name: Destinos de implementação
           items:
             - name: Utilizar os modelos existentes
               displayName: publish existing model
@@ -394,19 +395,37 @@
               href: how-to-deploy-fpga-web-service.md
         - name: Resolução de problemas e depuração
           href: how-to-troubleshoot-deployment.md
-        - name: Criar clientes
+        - name: Consumir serviços Web
           displayName: create client consume request response synchronous
           href: how-to-consume-web-service.md
-        - name: Monitorizar modelos
+        - name: Atualizar serviços Web
+          displayName: update hot reload model mounting
+          href: how-to-deploy-update-web-service.md
+        - name: Criação de um script de entrada avançado
+          displayName: swagger inference schema binary cors
+          href: how-to-deploy-advanced-entry-script.md
+        - name: Monitorizar serviços Web
           items:
             - name: Recolher e avaliar dados do modelo
               displayName: track production
               href: how-to-enable-data-collection.md
             - name: Monitorizar com o Application Insights
               href: how-to-enable-app-insights.md
+        - name: Implementar modelos de forma contínua
+          displayName: ci cd azure devops models
+          href: how-to-deploy-continuously-deploy.md
         - name: Implementar serviço de inferência encriptada
           displayName: 'homomorhic,encryption,deployment'
           href: how-to-homomorphic-encryption-seal.md
+        - name: Modelos de perfil
+          displayName: profile resource requirement
+          href: how-to-deploy-profile-model.md
+        - name: (Pré-visualização) Implementação sem código
+          displayName: no code
+          href: how-to-deploy-no-code-deployment.md
+        - name: Modelos de pacote
+          displayName: docker file download
+          href: how-to-deploy-package-models.md
     - name: Compilar e utilizar pipelines de ML
       displayName: pipelines
       items:
@@ -423,6 +442,9 @@
           href: how-to-debug-pipelines.md
         - name: Depurar pipelines no Application Insights
           href: how-to-debug-pipelines-application-insights.md
+        - name: Métricas de registo do estruturador
+          displayName: 'designer, logging'
+          href: how-to-track-designer-experiments.md
         - name: Dados de transformação do estruturador
           displayName: pipeline
           href: how-to-designer-transform-data.md
