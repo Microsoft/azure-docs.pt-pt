@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/10/2020
-ms.openlocfilehash: 4bd6c3dc1f3cd1ef553efc6ac3cd3c4e558afc97
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/04/2020
+ms.openlocfilehash: 5bd78f2db8ea1f2a26d26269822ec78978a3cfde
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087667"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553313"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Tutorial: Migrar o SQL Server para um Azure SQL Managed Instance on-line usando DMS
 
@@ -263,11 +263,14 @@ Após a recuperação completa da base de dados ser restaurada no caso-alvo de S
 
     ![Preparar para concluir transferência](media/tutorial-sql-server-to-managed-instance-online/dms-complete-cutover.png)
 
+    > [!IMPORTANT]
+    > Após o corte, a disponibilidade de SQL Managed Instance com o nível de serviço Business Critical só pode demorar significativamente mais tempo do que a Finalidade Geral, uma vez que três réplicas secundárias têm de ser semeadas para o grupo AlwaysOn High Availability. Esta duração da operação depende da dimensão dos dados, para mais informações ver a duração das [operações de gestão](../azure-sql/managed-instance/management-operations-overview.md#management-operations-duration).
+
 5. Quando o estado de migração da base de dados mostrar **concluído,** ligue as suas aplicações à nova instância-alvo do SQL Managed Instance.
 
     ![Transferência concluída](media/tutorial-sql-server-to-managed-instance-online/dms-cutover-complete.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para um tutorial que lhe mostre como migrar uma base de dados para SQL Managed Instance utilizando o comando T-SQL RESTORE, consulte [Restaurar uma cópia de segurança para SQL Managed Instance utilizando o comando de restauro](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
 * Para obter informações sobre a SQL Managed Instance, consulte [o que é a sql Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).

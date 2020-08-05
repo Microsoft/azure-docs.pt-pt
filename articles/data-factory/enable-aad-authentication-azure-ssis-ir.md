@@ -11,12 +11,12 @@ ms.author: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/09/2020
-ms.openlocfilehash: fd9433c2482c4ddd907f7e30c0028dc2a15faed2
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: ffbb81fa56b87281199309d61ab3e2e59c1a5acd
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187681"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563998"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Ativar a autenticação do Azure Active Directory para o Azure-SSIS Integration Runtime
 
@@ -128,7 +128,7 @@ Para este próximo passo, precisa do [Microsoft SQL Server Management Studio](h
 
    O comando deve ser concluído com sucesso, concedendo ao utilizador contido a capacidade de criar uma base de dados (SSISDB).
 
-10. Se o seu SSISDB foi criado utilizando a autenticação SQL e pretende mudar para utilizar a autenticação AD AZure para o seu Azure-SSIS IR para aceder a ele, clique com o botão direito na base de **dados SSISDB** e selecione **Nova consulta**.
+10. Se o seu SSISDB foi criado utilizando a autenticação SQL e pretende mudar para utilizar a autenticação AZure AD para o seu Azure-SSIS IR aceder ao mesmo, certifique-se primeiro de que os passos para conceder permissão à base de dados **principal** terminaram com sucesso. Em seguida, clique com o botão direito na base de **dados SSISDB** e selecione **Nova consulta**.
 
 11. Na janela de consulta, introduza o seguinte comando T-SQL e selecione **Executar** na barra de ferramentas.
 
@@ -176,7 +176,7 @@ Para este próximo passo, precisa do [Microsoft SQL Server Management Studio](h
     
     O comando deverá ser concluído com sucesso, concedendo à identidade gerida para o seu ADF a capacidade de criar uma base de dados (SSISDB).
 
-6.  Se o seu SSISDB foi criado utilizando a autenticação SQL e pretende mudar para utilizar a autenticação AD AZure para o seu Azure-SSIS IR para aceder a ele, clique com o botão direito na base de **dados SSISDB** e selecione **Nova consulta**.
+6.  Se o seu SSISDB foi criado utilizando a autenticação SQL e pretende mudar para utilizar a autenticação AZure AD para o seu Azure-SSIS IR aceder ao mesmo, certifique-se primeiro de que os passos para conceder permissão à base de dados **principal** terminaram com sucesso. Em seguida, clique com o botão direito na base de **dados SSISDB** e selecione **Nova consulta**.
 
 7.  Na janela de consulta, introduza o seguinte comando T-SQL e selecione **Executar** na barra de ferramentas.
 

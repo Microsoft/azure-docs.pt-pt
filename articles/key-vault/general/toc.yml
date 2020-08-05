@@ -6,7 +6,9 @@
       href: overview.md
     - name: 'Acerca de chaves, segredos e certificados'
       href: about-keys-secrets-certificates.md
-- name: Inícios rápidos
+    - name: Novidades
+      href: whats-new.md
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: CLI

@@ -9,18 +9,45 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: 8546b74401a291a29493164f8b5bebc7d67a9b6f
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: b1f45cad5def0e7d9a576a05299b065705ff3e30
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531120"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553448"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
 Neste artigo, saiba mais sobre os lançamentos da Azure Machine Learning.  Para obter o conteúdo completo de referência SDK, visite a página de referência principal do Azure Machine Learning para a página de referência [**python.**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 
 Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer bugs e soluções alternativas conhecidas.
+
+## <a name="2020-08-03"></a>2020-08-03
+
+### <a name="azure-machine-learning-sdk-for-python-v1110"></a>Azure Machine Learning SDK para Python v1.11.0
+
++ **Correções e melhorias de bugs**
+  + **azure-cli-ml**
+    + Fixar quadro de modelo e quadro de modelo não passado em objeto executado na trajetória de registo do modelo CLI
+    + Fixe o comando de exibição de identidade cli amlcompute para mostrar id inquilino e id principal 
+  + **azureml-train-automl-client**
+    + Adicionado get_best_child () ao AutoMLRun para obter a melhor corrida para crianças para uma Corrida AutoML sem descarregar o modelo associado.
+    + Objeto ModelProxy adicionado que permite prever ou prever ser executado em um ambiente de treino remoto sem descarregar o modelo localmente.
+    + Exceções não manipuladas na AutoML apontam agora para uma página HTTP de questões conhecidas, onde podem ser encontradas mais informações sobre os erros.
+  + **azureml-core**
+    + Os nomes dos modelos podem ter 255 caracteres de comprimento.
+    + Ambiente.get_image_details() tipo de objeto de retorno alterado. `DockerImageDetails`substituição de `dict` classes, detalhes de imagem estão disponíveis a partir das novas propriedades da classe. As mudanças são compatíveis com retroativo.
+    + Corrigir bug para Ambiente.from_pip_requirements() para preservar a estrutura das dependências
+    + Corrigiu um bug onde log_list falharia se um int e um duplo fossem incluídos na mesma lista.
+    + Ao mesmo tempo que permite uma ligação privada num espaço de trabalho existente, note que se houver metas de computação associadas ao espaço de trabalho, esses alvos não funcionarão se não estiverem atrás da mesma rede virtual que o ponto final privado do espaço de trabalho.
+    + Tornado `as_named_input` opcional ao utilizar conjuntos de dados em experiências e `as_mount` adicionados e a `as_download` `FileDataset` . O nome de entrada será gerado automaticamente se `as_mount` ou `as_download` for chamado.
+  + **azureml-automl-core**
+    + Exceções não manipuladas na AutoML apontam agora para uma página HTTP de questões conhecidas, onde podem ser encontradas mais informações sobre os erros.
+    + Adicionado get_best_child () ao AutoMLRun para obter a melhor corrida para crianças para uma Corrida AutoML sem descarregar o modelo associado.
+    + Objeto ModelProxy adicionado que permite prever ou prever ser executado em um ambiente de treino remoto sem descarregar o modelo localmente.
+  + **azureml-pipeline-steps**
+    + Adicionado `enable_default_model_output` e `enable_default_metrics_output` bandeiras a `AutoMLStep` . Estas bandeiras podem ser utilizadas para ativar/desativar as saídas predefinidos.
+
 
 ## <a name="2020-07-20"></a>2020-07-20
 
@@ -132,7 +159,7 @@ Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer b
     + A varredura de equilíbrio de classes deixará de ser ativada se o utilizador desativar a caracterização.  
   + **azureml-contrib-itp**
     + O tipo de computação CmAks é suportado. Você pode anexar o seu próprio cluster AKS ao espaço de trabalho para trabalho de treino.
-  + **azureml-contrib-notebook**
+  + **azureml-contrib-caderno**
     + Doc melhora o pacote de cadernos azureml-contrib.
   + **azureml-contrib-pipeline-steps**
     + Doc melhora a azureml-contrib-- pipeline-steps package.
@@ -1852,6 +1879,6 @@ Foi [`PipelineEndpoint`](https://docs.microsoft.com/python/api/azureml-pipeline-
   + Novo visualizador de ficheiros de Logs
   + Links para execuções experimentais, cálculo, modelos, imagens e implementações a partir do separador de atividades
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia a descrição geral do [Azure Machine Learning](overview-what-is-azure-ml.md).

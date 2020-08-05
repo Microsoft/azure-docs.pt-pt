@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 48b8175ed5f753ffe7b62d3e97f4fe20f60da5ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0f4d9811dc288222c0a2190805a8b052cb1ae47b
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87061605"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563930"
 ---
 # <a name="manage-digital-twins"></a>Gerir duplos digitais
 
@@ -37,10 +37,10 @@ Para criar um gémeo digital, é necessário fornecer:
 
 Opcionalmente, pode fornecer valores iniciais para todas as propriedades do twin digital. 
 
-> [!TIP]
-> Apenas as propriedades que foram definidas pelo menos uma vez são devolvidas quando você recupera um gémeo com GetDigitalTwin.  
-
 O modelo e os valores iniciais da propriedade são fornecidos através do `initData` parâmetro, que é uma cadeia JSON contendo os dados relevantes.
+
+> [!TIP]
+> Após a criação ou atualização de um gémeo, pode haver uma latência de até 10 segundos antes de as alterações se refletirem em [consultas](how-to-query-graph.md). A `GetDigitalTwin` API (descrita [mais tarde neste artigo)](#get-data-for-a-digital-twin)não experimenta este atraso, por isso use a chamada da API em vez de consultar os seus gémeos recém-criados se precisar de uma resposta imediata. 
 
 ### <a name="initialize-properties"></a>Inicializar propriedades
 
@@ -90,6 +90,9 @@ object result = await client.GetDigitalTwin(id);
 ```
 
 Esta chamada devolve dados gémeos como uma cadeia JSON. 
+
+> [!TIP]
+> Apenas as propriedades que foram definidas pelo menos uma vez são devolvidas quando recupera um gémeo com `GetDigitalTwin` .
 
 Para recuperar vários gémeos utilizando uma única chamada de API, consulte os exemplos de consulta da API em [*Como-a-: Consultar o gráfico gémeo*](how-to-query-graph.md).
 
@@ -174,7 +177,12 @@ Pode ler mais sobre as aulas de ajudante de serialização em [*Como-a-: Use as 
 
 Para atualizar propriedades de um twin digital, escreve a informação que pretende substituir no formato [JSON Patch.](http://jsonpatch.com/) Desta forma, pode substituir várias propriedades ao mesmo tempo. Em seguida, passe o documento do Patch JSON para um `Update` método:
 
-`await client.UpdateDigitalTwin(id, patch);`.
+```csharp
+await client.UpdateDigitalTwin(id, patch);
+```
+
+> [!TIP]
+> Após a criação ou atualização de um gémeo, pode haver uma latência de até 10 segundos antes de as alterações se refletirem em [consultas](how-to-query-graph.md). A `GetDigitalTwin` API (descrita [anteriormente neste artigo)](#get-data-for-a-digital-twin)não experimenta este atraso, por isso use a chamada da API em vez de consultar os seus gémeos recém-atualizados se precisar de uma resposta imediata. 
 
 Aqui está um exemplo do código de patch JSON. Este documento substitui os *valores* de propriedade em massa e *raio* do gémeo digital a que é aplicado.
 
@@ -343,7 +351,7 @@ Para um exemplo de como eliminar todos os gémeos de uma só vez, descarregue a 
 
 Os gémeos também podem ser geridos usando o CLI das Gémeas Digitais Azure. Os comandos podem ser encontrados em [*Como-a-: Use o CLI das Gémeas Digitais Azure*](how-to-use-cli.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Veja como criar e gerir relações entre os seus gémeos digitais:
 * [*Como fazer: Gerir o gráfico gémeo com relacionamentos*](how-to-manage-graph.md)

@@ -4,13 +4,13 @@ ms.author: cynthn
 ms.date: 08/03/2020
 ms.topic: include
 ms.service: virtual-machines-linux
-manager: gwallace
-ms.openlocfilehash: 8ad191ca0d31abf317bab521dfbbc7c2567c3450
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+manager: daberry
+ms.openlocfilehash: 6024dd595166afe24a75720d8c7593afd451b610
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87545104"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87554893"
 ---
 As imagens padronizadas da máquina virtual (VM) permitem às organizações migrarem para a nuvem e garantirem a consistência nas implementações. As imagens normalmente incluem definições de segurança e configuração predefinidas e software necessário. Configurar o seu próprio pipeline de imagem requer tempo, infraestrutura e configuração, mas com o Azure VM Image Builder, basta fornecer uma configuração simples descrevendo a sua imagem, submetê-la ao serviço, e a imagem é construída e distribuída.
  
@@ -56,6 +56,7 @@ O AIB apoiará imagens os OS base do Azure Marketplace:
 - Windows 2019
 
 O apoio da RHEL ISOs já não é apoiado.
+
 ## <a name="how-it-works"></a>Como funciona
 
 
@@ -98,10 +99,10 @@ O Image Builder cria um VM utilizando um tamanho D1v2 VM, e o armazenamento e ne
  
 O Azure Image Builder distribuirá a imagem para as regiões escolhidas, o que poderá incorrer em encargos de saída de rede.
 
-## <a name="hyper-v-generation"></a>Geração Hyper V
-O Image Builder atualmente suporta imagens e VMs da Geração Hiper V.
+## <a name="hyper-v-generation"></a>Geração Hiper-V
+O Image Builder atualmente suporta imagens e VMs da geração Hyper-V.
  
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
  
 Para experimentar o Azure Image Builder, consulte os artigos para a construção de imagens [Linux](../articles/virtual-machines/linux/image-builder.md) ou [Windows.](../articles/virtual-machines/windows/image-builder.md)
  

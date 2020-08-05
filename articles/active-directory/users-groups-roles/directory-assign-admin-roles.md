@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a88e30e85402f60489839b0a34b5a793fd7192df
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0ae598fb9e4018369230de5fadcf173a3df9fb4c
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502482"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87551698"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -195,8 +195,7 @@ Os utilizadores desta função podem ler informações básicas de diretório. E
 Não utilizar. Esta função é automaticamente atribuída ao serviço Azure AD Connect e não se destina ou suporta qualquer outra utilização.
 
 ### <a name="directory-writers"></a>[Escritores do Diretório](#directory-writers-permissions)
-
-Este é um papel legado que deve ser atribuído a aplicações que não suportam o [Quadro de Consentimento.](../develop/quickstart-register-app.md) Não deve ser atribuído a nenhum utilizadores.
+Os utilizadores desta função podem ler e atualizar informações básicas de utilizadores, grupos e diretores de serviço. Atribua esta função apenas a aplicações que não suportem o [Quadro de Consentimento](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Não deve ser atribuído a nenhum utilizadores.
 
 ### <a name="dynamics-365-administrator--crm-administrator"></a>[Administrador dinâmico 365 / Administrador de CRM](#crm-service-administrator-permissions)
 
@@ -1001,22 +1000,36 @@ Pode ler & escrever informações básicas de diretório. Para a concessão de a
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| microsoft.diretório/grupos/criar | Criar grupos no Diretório Ativo Azure. |
-| microsoft.diretório/grupos/createAsOwner | Criar grupos no Diretório Ativo Azure. O criador é adicionado como o primeiro proprietário, e o objeto criado conta contra a quota de objetos criados pelo criador. |
 | microsoft.diretório/grupos/appRoleAssignments/update | Atualizar a propriedade grupos.appRoleAssignments em Azure Ative Directory. |
-| microsoft.diretório/grupos/básico/atualização | Atualizar propriedades básicas em grupos no Azure Ative Directory. |
+| microsoft.diretório/grupos/assignLicense | Gerir licenças em grupos no Azure Ative Directory. |
+| microsoft.diretório/grupos/básico/atualização | Atualizar propriedades básicas em grupos no Azure Ative Directory.  |
+| microsoft.diretório/grupos/classificação/atualização | Atualizar a propriedade de classificação do grupo no Azure Ative Directory. |
+| microsoft.diretório/grupos/criar | Criar grupos no Diretório Ativo Azure. |
+| microsoft.diretório/grupos/grupoType/atualização | Atualizar a propriedade do grupoType de um grupo no Azure Ative Directory. |
 | microsoft.diretório/grupos/membros/atualização | Atualizar propriedade grupos.membros em Azure Ative Directory. |
 | microsoft.diretório/grupos/proprietários/atualização | Atualizar propriedade de grupos.proprietários em Azure Ative Directory. |
+| microsoft.diretório/grupos/reprocessLicenseAssignment | Reprocesse as atribuições de licença para um grupo no Azure Ative Directory. |
+| microsoft.diretório/grupos/securityEnabled/update | Atualize a propriedade secutiryEnabled de um grupo no Azure Ative Directory. |
 | microsoft.diretório/grupos/definições/atualização | Atualizar a propriedade grupos.configurações em Azure Ative Directory. |
+| microsoft.diretório/grupos/visibilidade/atualização | Atualizar a propriedade de visibilidade do grupo |
 | microsoft.diretório/grupoSettings/basic/update | Atualizar propriedades básicas em grupoSettings no Azure Ative Directory. |
-| microsoft.diretório/grupoSettings/create | Criar conjuntosS no Diretório Ativo Azure. |
+| microsoft.diretório/grupoSettings/create | Criar conjuntosS no Azure Ative Directory.. |
 | microsoft.diretório/grupoSettings/delete | Eliminar gruposSettings no Azure Ative Directory. |
+| microsoft.diretório/oAuth2PermissionGrants/basic/update | Atualizar propriedades básicas de oAuth2PermissionGrants em Azure Ative Directory. |
+| microsoft.diretório/oAuth2PermissionGrants/create | Criar oAuth2PermissionGrants no Azure Ative Directory. |
+| microsoft.diretório/serviçoPrincipals/synchronizationCredentiss/manage | Gerir a aplicação que prevê segredos e credenciais. |
+| microsoft.diretório/serviçoPrincipals/sincronizaçãoJobs/gerir | Iniciar, reiniciar e interromper a aplicação de provisão de trabalhos de sincronização. |
+| microsoft.diretório/serviçoPrincipals/sincronizaçãoSchema/gerir | Criar e gerir os trabalhos de sincronização e esquemas de sincronização de aplicações. |
 | microsoft.diretório/utilizadores/appRoleAssignments/update | Atualizar a propriedade users.appRoleAssignments em Azure Ative Directory. |
 | microsoft.diretório/utilizadores/assignLicense | Gerir licenças em utilizadores no Azure Ative Directory. |
 | microsoft.diretório/utilizadores/básico/atualização | Atualizar propriedades básicas nos utilizadores no Azure Ative Directory. |
-| microsoft.diretório/utilizadores/invalidadoAllRefreshTokens | Invalidar todos os tokens de atualização do utilizador no Azure Ative Directory. |
+| microsoft.diretório/utilizadores/desativar | Desative uma conta de utilizador no Azure Ative Directory. |
+| microsoft.diretório/utilizadores/enable | Ativar uma conta de utilizador no Azure Ative Directory |
+| microsoft.diretório/utilizadores/invalidadoAllRefreshTokens | Invalidar todos os tokens de atualização do utilizador no Azure Ative Directory, exigindo que os utilizadores reautençam no seu próximo senting |
 | microsoft.diretório/utilizadores/gestor/atualização | Atualizar propriedade users.manager em Azure Ative Directory. |
-| microsoft.diretório/utilizadores/userPrincipalName/update | Atualizar a propriedade users.userPrincipalName em Azure Ative Directory. |
+| microsoft.diretório/utilizadores/reprocessLicenseAssignment | Reprocesse as atribuições de licença para um utilizador no Azure Ative Directory. |
+| microsoft.diretório/utilizadores/userPrincipalName /update | Atualize a propriedade users.userPrincipalName em Azure Ative Directory. |
+
 
 ### <a name="exchange-service-administrator-permissions"></a>Permissões de Administrador de Serviço de Intercâmbio
 
@@ -1899,7 +1912,7 @@ Gestores de Dispositivos | Preterido | 2b499bcd-da44-4968-8aec-78e1674fa64d
 Utilizadores de Dispositivos | Preterido | d405c6df-0af8-4e3b-95e4-4d06e542189e
 Leitores de Diretório | Leitores de diretório | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
 Contas de Sincronização do Diretório | Não mostrado porque não deve ser usado | d29b2b05-8046-44ba-8758-1e26182fcf32
-Escritores do Diretório | Não mostrado porque não deve ser usado | 9360feb5-f418-4baa-8175-e2a00bac4301
+Escritores do Diretório | Escritores do Diretório | 9360feb5-f418-4baa-8175-e2a00bac4301
 Administrador de Serviço de Intercâmbio | Administrador do Exchange | 29232cdf-9323-42fd-ade2-1d097af3e4de
 Administrador de fluxo de id de id externo | Administrador de fluxo de id de id externo | 6e591065-9bad-43ed-90f3-e9424366d2f0
 Administrador de atributo de fluxo de id de id externo | Administrador de atributo de fluxo de id de id externo | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
@@ -1978,7 +1991,7 @@ Utilizador restrito de hóspedes | Não mostrado porque não pode ser usado | ND
 Utilizador | Não mostrado porque não pode ser usado | ND
 Aderir ao dispositivo de trabalho | Preterido | [Documentação de papéis precotados](directory-assign-admin-roles.md#deprecated-roles)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre como atribuir um utilizador como administrador de uma subscrição do Azure, consulte [Gerir o acesso utilizando funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 * Para saber mais sobre como o acesso a recursos é controlado no Microsoft Azure, consulte [Compreender as diferentes funções](../../role-based-access-control/rbac-and-directory-admin-roles.md)

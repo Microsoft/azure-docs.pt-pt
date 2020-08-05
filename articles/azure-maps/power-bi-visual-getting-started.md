@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: e840517934e77c96f1c19c3243ad2884d7ccce66
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9f7f44e053cfb26cbf7d897b8a1df1ad2861fd07
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261888"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552004"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Começando com o Azure Maps Power BI visual
 
@@ -35,6 +35,9 @@ O Azure Maps conecta-se ao serviço de nuvem alojado no Azure para recuperar dad
 
 -   Os detalhes sobre a área em que o mapa está focado são enviados para Azure para recuperar imagens necessárias para tornar a tela do mapa (também conhecida como azulejos de mapa). 
 -   Os dados nos baldes de Localização, Latitude e Longitude podem ser enviados para Azure para recuperar as coordenadas do mapa (um processo chamado geocoding). 
+-   Os dados de telemetria podem ser recolhidos sobre a saúde do visual (ou seja, relatórios de acidentes), se a opção de telemetria no Power BI estiver ativada.
+
+Além dos cenários acima descritos, nenhum outro dado sobreposto no mapa é enviado para os servidores do Azure Maps. Toda a renderização de dados ocorre localmente dentro do cliente.
 
 Você, ou o seu administrador, poderá ter de atualizar a sua firewall para permitir o acesso à plataforma Azure Maps que utiliza o seguinte URL.
 
@@ -101,7 +104,7 @@ Os seguintes baldes de dados estão disponíveis no painel **Fields** do Azure M
 
 A secção de **definições** do Mapa do painel de formato fornece opções para personalizar a forma como o mapa é apresentado e reage a atualizações.
 
-| Definição             | Descrição  |
+| Definições             | Descrição  |
 |---------------------|--------------|
 | Zoom automático           | Automaticamente amplia o mapa para os dados carregados através do painel **Fields** do visual. À medida que os dados mudam, o mapa atualizará a sua posição em conformidade. Quando o deslizador está na posição **Off,** são apresentadas definições adicionais de visualização do mapa para a vista do mapa predefinido. |
 | Embrulho mundial          | Permite ao utilizador fazer o mapa horizontalmente infinitamente. |
@@ -113,7 +116,7 @@ A secção de **definições** do Mapa do painel de formato fornece opções par
 
 Se o deslizador **de zoom Automático** estiver na posição **Off,** são apresentadas as seguintes definições e permitem ao utilizador especificar as informações de visualização do mapa predefinida.
 
-| Definição          | Descrição   |
+| Definições          | Descrição   |
 |------------------|---------------|
 | Zoom             | O nível de zoom padrão do mapa. Pode ser um número entre 0 e 22. |
 | Latitude central  | A latitude padrão no centro do mapa. |
@@ -127,12 +130,12 @@ O visual Azure Maps está disponível nos seguintes serviços e aplicações:
 
 | Serviço/Aplicação                              | Disponibilidade |
 |------------------------------------------|--------------|
-| Power BI Desktop                         | Yes          |
-| Serviço Power BI (app.powerbi.com)       | Yes          |
+| Power BI Desktop                         | Sim          |
+| Serviço Power BI (app.powerbi.com)       | Sim          |
 | Aplicações móveis do Power BI             | Sim          |
 | Publicar na Web do Power BI                  | Não           |
 | Power BI Embedded                        | Não           |
-| Incorporação do serviço Power BI (PowerBI.com) | Yes          |
+| Incorporação do serviço Power BI (PowerBI.com) | Sim          |
 
 O suporte para serviços/aplicações de Power BI adicionais será adicionado em futuras atualizações.
 
@@ -157,7 +160,7 @@ Este visual suporta até 30.000 pontos de dados.
 
 A pré-visualização inicial deste visual apenas suporta valores de latitude e longitude em graus decimais. Uma futura atualização irá adicionar suporte para endereços e outras cordas de localização.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre o visual Azure Maps Power BI:
 

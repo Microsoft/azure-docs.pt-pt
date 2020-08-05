@@ -4,12 +4,12 @@ description: Saiba as diferentes formas de implantar código para as Funções A
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 1554469c59eb9931b6d8552f537328e440ec6aeb
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 754a3ea2a316878cc8c2bd918b99476a7194b545
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388021"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562944"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação em Funções Azure
 
@@ -37,7 +37,7 @@ Cada plano tem comportamentos diferentes. Nem todas as tecnologias de implantaç
 | FTP<sup>1</sup> |✔|✔|✔| |✔|✔|
 | Edição de portal |✔|✔|✔| |✔<sup>2</sup>|✔<sup>2</sup>|
 
-<sup>1</sup> Tecnologia de implantação que requer [sincronização manual do gatilho](#trigger-syncing).  
+<sup>1</sup> Tecnologia de implantação que requer [sincronização manual do gatilho](#trigger-syncing).
 <sup>2</sup> A edição do portal está ativada apenas para desativações HTTP e Timer para funções no Linux utilizando planos Premium e Dedicados.
 
 ## <a name="key-concepts"></a>Conceitos-chave
@@ -72,9 +72,9 @@ Para permitir a construção remota no Linux, devem ser definidas as [seguintes 
 * `ENABLE_ORYX_BUILD=true`
 * `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
 
-Por predefinição, tanto [as ferramentas principais do Azure Functions](functions-run-local.md) como a [Extensão de Funções Azure para Código do Estúdio Visual](functions-create-first-function-vs-code.md#publish-the-project-to-azure) executam construções remotas ao implementar em Linux. Por isso, ambas as ferramentas criam automaticamente estas definições para si em Azure. 
+Por predefinição, tanto [as ferramentas principais do Azure Functions](functions-run-local.md) como a [Extensão de Funções Azure para Código do Estúdio Visual](functions-create-first-function-vs-code.md#publish-the-project-to-azure) executam construções remotas ao implementar em Linux. Por isso, ambas as ferramentas criam automaticamente estas definições para si em Azure.
 
-Quando as aplicações são construídas remotamente no Linux, [elas funcionam a partir do pacote de implementação](run-functions-from-deployment-package.md). 
+Quando as aplicações são construídas remotamente no Linux, [elas funcionam a partir do pacote de implementação](run-functions-from-deployment-package.md).
 
 ##### <a name="consumption-plan"></a>Plano de consumo
 
@@ -92,7 +92,7 @@ Os seguintes métodos de implantação estão disponíveis em Funções Azure.
 
 Pode utilizar um URL de pacote externo para fazer referência a um ficheiro de pacote remoto (.zip) que contém a sua aplicação de função. O ficheiro é descarregado a partir do URL fornecido, e a aplicação é executada no modo [Run From Package.](run-functions-from-deployment-package.md)
 
->__Como usá-lo:__ Adicione `WEBSITE_RUN_FROM_PACKAGE` às definições da sua aplicação. O valor desta definição deve ser um URL (a localização do ficheiro de pacote específico que pretende executar). Pode adicionar definições [no portal](functions-how-to-use-azure-function-app-settings.md#settings) ou utilizando o [CLI Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+>__Como usá-lo:__ Adicione `WEBSITE_RUN_FROM_PACKAGE` às definições da sua aplicação. O valor desta definição deve ser um URL (a localização do ficheiro de pacote específico que pretende executar). Pode adicionar definições [no portal](functions-how-to-use-azure-function-app-settings.md#settings) ou utilizando o [CLI Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 >
 >Se utilizar o armazenamento Azure Blob, utilize um recipiente privado com uma [assinatura de acesso partilhado (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) para dar às Funções acesso ao pacote. Sempre que a aplicação reinicia, recolhe uma cópia do conteúdo. A sua referência deve ser válida para o tempo de vida do pedido.
 
@@ -104,7 +104,7 @@ Utilize o zip implementar para empurrar um ficheiro .zip que contenha a sua apli
 
 >__Como usá-lo:__ Implemente utilizando a sua ferramenta cliente favorita: [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), Visual [Studio,](functions-develop-vs.md#publish-to-azure)ou a partir da linha de comando utilizando as [Ferramentas Principais de Funções Azure](functions-run-local.md#project-file-deployment). Por predefinição, estas ferramentas utilizam a implementação de zíper e [funcionam a partir do pacote](run-functions-from-deployment-package.md). As Ferramentas Core e a extensão visual Studio Code permitem a [construção remota](#remote-build) ao implementar em Linux. Para implementar manualmente um ficheiro .zip na sua aplicação de função, siga as instruções em [Implementar a partir de um ficheiro .zip ou URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
->Quando implementar utilizando o zip, pode definir a sua aplicação para executar a [partir do pacote](run-functions-from-deployment-package.md). Para correr a partir da embalagem, defina o valor de definição da `WEBSITE_RUN_FROM_PACKAGE` aplicação para `1` . Recomendamos a colocação de zíper. Produz tempos de carregamento mais rápidos para as suas aplicações, e é o padrão para VS Code, Visual Studio e o Azure CLI. 
+>Quando implementar utilizando o zip, pode definir a sua aplicação para executar a [partir do pacote](run-functions-from-deployment-package.md). Para correr a partir da embalagem, defina o valor de definição da `WEBSITE_RUN_FROM_PACKAGE` aplicação para `1` . Recomendamos a colocação de zíper. Produz tempos de carregamento mais rápidos para as suas aplicações, e é o padrão para VS Code, Visual Studio e o Azure CLI.
 
 >__Quando usá-lo:__ A implementação zip é a tecnologia de implantação recomendada para funções Azure.
 
@@ -167,7 +167,7 @@ Pode utilizar o FTP para transferir diretamente ficheiros para as Funções Azur
 
 No editor baseado no portal, pode editar diretamente os ficheiros que estão na sua aplicação de função (essencialmente implantando cada vez que guarda as suas alterações).
 
->__Como usá-lo:__ Para poder editar as suas funções no portal Azure, deve ter [criado as suas funções no portal](functions-create-first-azure-function.md). Para preservar uma única fonte de verdade, a utilização de qualquer outro método de implantação torna a sua função apenas lida e impede a edição contínua do portal. Para voltar a um estado em que pode editar os seus ficheiros no portal Azure, pode voltar a ligar manualmente o modo de edição `Read/Write` e remover quaisquer definições de aplicação relacionadas com a implementação (como). `WEBSITE_RUN_FROM_PACKAGE` 
+>__Como usá-lo:__ Para poder editar as suas funções no portal Azure, deve ter [criado as suas funções no portal](functions-create-first-azure-function.md). Para preservar uma única fonte de verdade, a utilização de qualquer outro método de implantação torna a sua função apenas lida e impede a edição contínua do portal. Para voltar a um estado em que pode editar os seus ficheiros no portal Azure, pode voltar a ligar manualmente o modo de edição `Read/Write` e remover quaisquer definições de aplicação relacionadas com a implementação (como). `WEBSITE_RUN_FROM_PACKAGE`
 
 >__Quando usá-lo:__ O portal é uma boa maneira de começar com as Funções Azure. Para um trabalho de desenvolvimento mais intenso, recomendamos que utilize uma das seguintes ferramentas de cliente:
 >
@@ -177,7 +177,7 @@ No editor baseado no portal, pode editar diretamente os ficheiros que estão na 
 
 A tabela a seguir mostra os sistemas operativos e os idiomas que suportam a edição do portal:
 
-| Idioma | Consumo de Janelas | Windows Premium | Windows Dedicado | Consumo de Linux | Linux Premium | Linux Dedicado |
+| Linguagem | Consumo de Janelas | Windows Premium | Windows Dedicado | Consumo de Linux | Linux Premium | Linux Dedicado |
 |-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
 | C# | | | | | |
 | C# Script |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
@@ -196,7 +196,7 @@ Quando implementar a sua aplicação de função para Azure, pode implementar pa
 
 ## <a name="next-steps"></a>Próximos passos
 
-Leia estes artigos para saber mais sobre a implementação das suas aplicações de função: 
+Leia estes artigos para saber mais sobre a implementação das suas aplicações de função:
 
 + [Implementação contínua para Funções do Azure](functions-continuous-deployment.md)
 + [Entrega contínua utilizando Azure DevOps](functions-how-to-azure-devops.md)

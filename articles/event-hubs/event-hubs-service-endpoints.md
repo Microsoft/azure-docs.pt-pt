@@ -3,12 +3,12 @@ title: Pontos finais de serviço de Rede Virtual - Azure Event Hubs Microsoft Do
 description: Este artigo fornece informações sobre como adicionar um ponto final de serviço Microsoft.EventHub a uma rede virtual.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 15778c85f28300df3d5af34e2940b3854d814c66
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 8c798efc21f5b846965f2247d7e76249177ef946
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420464"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87554078"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Permitir o acesso aos espaços de nome do Azure Event Hubs a partir de redes virtuais específicas 
 
@@ -31,6 +31,7 @@ O resultado é uma relação privada e isolada entre as cargas de trabalho ligad
 > Os seguintes serviços da Microsoft são obrigados a estar numa rede virtual
 > - Aplicações Web do Azure
 > - Funções do Azure
+> - Monitor Azure (definição de diagnóstico)
 
 
 > [!IMPORTANT]

@@ -7,16 +7,18 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/3/2019
 ms.custom: mvc
-ms.openlocfilehash: a08e00b2debce970bdbd385b785806c8636e5946
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 706ae5a6c93468da9a65293c1bb4eefb136b938d
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318424"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553279"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Criar dashboards de KPI personalizados com o Azure Application Insights
 
-Pode criar múltiplos dashboards no portal do Azure em que cada um inclui mosaicos que visualizam os dados de vários recursos do Azure entre diferentes grupos de recursos e subscrições.  Pode afixar diferentes gráficos e vistas a partir do Azure Application Insights para criar dashboards personalizados que fornecem uma visão geral do estado de funcionamento e do desempenho da aplicação. Este tutorial orienta-o através da criação de um dashboard personalizado que inclui vários tipos de dados e visualizações a partir do Azure Application Insights.  Saiba como:
+Pode criar múltiplos dashboards no portal do Azure em que cada um inclui mosaicos que visualizam os dados de vários recursos do Azure entre diferentes grupos de recursos e subscrições.  Pode afixar diferentes gráficos e vistas a partir do Azure Application Insights para criar dashboards personalizados que fornecem uma visão geral do estado de funcionamento e do desempenho da aplicação. Este tutorial orienta-o através da criação de um dashboard personalizado que inclui vários tipos de dados e visualizações a partir do Azure Application Insights.
+
+ Saiba como:
 
 > [!div class="checklist"]
 > * Criar um dashboard personalizado no Azure
@@ -25,13 +27,14 @@ Pode criar múltiplos dashboards no portal do Azure em que cada um inclui mosaic
 > * Adicionar um gráfico de métricas personalizado no Application Insights ao dashboard
 > * Adicione os resultados de uma consulta de Logs (Analytics) ao painel de instrumentos
 
-
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
 - Implemente uma aplicação .NET no Azure e [ative o Application Insights SDK](../app/asp-net.md).
+
+> [!NOTE]
+> As permissões necessárias para trabalhar com dashboards são discutidas no artigo sobre a compreensão do [controlo de acesso para os dashboards](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboard-share-access#understanding-access-control-for-dashboards).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
@@ -123,7 +126,7 @@ Uma vez que o Azure Applications Insights Logs (Analytics) é um serviço separa
 5. Selecione **Partilhar** para republicar as suas alterações no seu painel de instrumentos que agora inclui uma variedade de gráficos e visualizações de Insights de Aplicação.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Agora que aprendeu a criar dashboards personalizados, veja a restante documentação do Application Insights, incluindo um caso prático.
 
 > [!div class="nextstepaction"]

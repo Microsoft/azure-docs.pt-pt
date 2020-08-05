@@ -11,17 +11,17 @@ author: blackmist
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 88a122a9af4a5edac45a3189df5ffb78fb2ce271
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: e12c22d56399ce1690bee678623c58288cf0163b
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423818"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552208"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorize e recolha dados dos pontos finais do serviço web ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, aprende-se a recolher dados e monitorizar modelos implementados para os pontos finais do serviço web em Azure Kubernetes Service (AKS) ou Azure Container Instances (ACI), permitindo insights de aplicação do Azure através de Azure Application Insights via 
+Neste artigo, aprende-se a recolher dados e monitorizar modelos implementados para os pontos finais do serviço web no Serviço Azure Kubernetes (AKS) ou Azure Container Instances (ACI), consultando registos e permitindo insights de aplicação do Azure através de Azure Application Insights via 
 * [Azure Máquina aprendendo Python SDK](#python)
 * [Azure Machine Learning estúdio](#studio) emhttps://ml.azure.com
 
@@ -42,6 +42,18 @@ Além de recolher os dados de saída e resposta de um ponto final, pode monitori
 
 * Um modelo de aprendizagem automática treinado para ser implantado no Serviço Azure Kubernetes (AKS) ou na Instância de Contentores Azure (ACI). Se não tiver um, consulte o tutorial do [modelo de classificação de imagem do comboio](tutorial-train-models-with-aml.md)
 
+## <a name="query-logs-for-deployed-models"></a>Registos de consulta para modelos implantados
+
+Para obter registos de um serviço web previamente implantado, carregue o serviço e utilize a `get_logs()` função. Os registos podem conter informações detalhadas sobre quaisquer erros ocorridos durante a implantação.
+
+```python
+from azureml.core.webservice import Webservice
+
+# load existing web service
+service = Webservice(name="service-name", workspace=ws)
+logs = service.get_logs()
+```
+
 ## <a name="web-service-metadata-and-response-data"></a>Metadados de serviço web e dados de resposta
 
 > [!IMPORTANT]
@@ -50,6 +62,7 @@ Além de recolher os dados de saída e resposta de um ponto final, pode monitori
 Para registar informações para um pedido ao serviço web, adicione `print` declarações ao seu ficheiro score.py. Cada `print` declaração resulta numa única entrada na tabela de rastreios em Insights de Aplicação, sob a mensagem `STDOUT` . O conteúdo da `print` declaração será contido na tabela de `customDimensions` `Contents` rastreios. Se imprimir uma corda JSON, produz uma estrutura de dados hierárquica na saída de vestígios sob `Contents` .
 
 Pode consultar o Azure Application Insights diretamente para aceder a estes dados, ou configurar uma [exportação contínua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) para uma conta de armazenamento para uma retenção mais longa ou processamento posterior. Os dados do modelo podem então ser utilizados na Aprendizagem automática Azure para configurar a rotulagem, a reconversão, a explicabilidade, a análise de dados ou outra utilização. 
+
 
 <a name="python"></a>
 
@@ -164,7 +177,7 @@ Para vê-lo:
 1. Vá ao seu espaço de trabalho Azure Machine Learning no [estúdio.](https://ml.azure.com/)
 1. Selecione **Pontos de final**.
 1. Selecione o seu serviço implantado.
-1. Desloque-se para baixo para encontrar o **url 'Insights de Aplicação'** e clique no link.
+1. Desloque-se para baixo para encontrar o **url Application Insights** e selecione o link.
 
     [![Localizar insights de aplicação url](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 

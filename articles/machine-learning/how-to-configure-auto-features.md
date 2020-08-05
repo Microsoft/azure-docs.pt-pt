@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 31df880d9d6d586491d115d9b70de9f85bc980b2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8e3657128ddcff7f9436398ac4bcc6e220b86168
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502924"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552480"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Caracterização na aprendizagem automática de máquinas
 
@@ -161,7 +161,7 @@ text_transformations_used
 > [!NOTE]
 > A nossa implementação do BERT limita o comprimento total do texto de uma amostra de formação a 128 fichas. Isto significa que todas as colunas de texto quando concatenadas, devem ser idealmente no máximo 128 fichas de comprimento. Idealmente, se várias colunas estiverem presentes, cada coluna deve ser podada de modo a que esta condição seja satisfeita. Por exemplo, se existirem duas colunas de texto nos dados, ambas as colunas de texto devem ser podadas a 64 fichas cada uma (assumindo que deseja que ambas as colunas estejam igualmente representadas na coluna de texto concatenated final) antes de fornecer os dados ao AutoML. Para colunas concatenadas de comprimento >128 fichas, a camada de tokenizer da BERT truncará esta entrada para 128 fichas.
 
-3. No passo de varrimento da funcionalidade, o AutoML compara o BERT com a linha de base (características do saco de palavras + incorporações de palavras pré-treinadas) numa amostra dos dados e determina se o BERT daria melhorias de precisão. Se determinar que o BERT tem um desempenho melhor do que a linha de base, a AutoML utiliza então o BERT para a caracterização de texto como a melhor estratégia de caracterização e procede com a adição de todos os dados. Nesse caso, verá o "PretreinadoTextDNNTransformer" no modelo final.
+3. No passo de varrimento da funcionalidade, a AutoML compara o BERT com a linha de base (características do saco de palavras) numa amostra dos dados e determina se o BERT daria melhorias de precisão. Se determinar que o BERT tem um desempenho melhor do que a linha de base, a AutoML utiliza então o BERT para a caracterização de texto como a melhor estratégia de caracterização e procede com a adição de todos os dados. Nesse caso, verá o "PretreinadoTextDNNTransformer" no modelo final.
 
 BERT geralmente corre mais tempo do que a maioria dos outros aperitivos. Pode ser acelerado fornecendo mais computação no seu cluster. O AutoML distribuirá o treino BERT por vários nosdes se estiverem disponíveis (até um máximo de 8 nóns). Isto pode ser feito definindo [max_concurrent_iterations](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) para mais de 1. Para um melhor desempenho, recomendamos a utilização de skus com capacidades de RDMA (como "STANDARD_NC24r" ou "STANDARD_NC24rs_V3")
 
@@ -186,7 +186,7 @@ automl_settings = {
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como configurar as suas experiências automatizadas de ML:
 

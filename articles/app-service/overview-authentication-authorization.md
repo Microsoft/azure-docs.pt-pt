@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 1b537e57edd777d78ce40d0ac4c5c6a7acca7659
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c8e0b476c50378bde00e01a39985fbcc188f04ed
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068207"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562383"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticação e autorização no Azure App Service e Azure Functions
 
@@ -22,15 +22,20 @@ A autenticação e autorização seguras requerem uma compreensão profunda da s
 > [!IMPORTANT]
 > Não é obrigado a utilizar esta funcionalidade para autenticação e autorização. Pode utilizar as funcionalidades de segurança agregadas na sua estrutura web de eleição, ou pode escrever os seus próprios utilitários. No entanto, tenha em mente que [o Chrome 80 está a fazer alterações na sua implementação do SameSite para cookies](https://www.chromestatus.com/feature/5088147346030592) (data de lançamento por volta de março de 2020), e a autenticação remota personalizada ou outros cenários que se baseiem na publicação de cookies cross-site podem ser quebrados quando os navegadores Chrome do cliente forem atualizados. A solução alternativa é complexa porque precisa de suportar diferentes comportamentos SameSite para diferentes navegadores. 
 >
-> As versões core 2.1 e acima do ASP.NET hospedados pelo App Service já estão corrigidas para esta mudança de rutura e manuseem os navegadores Chrome 80 e mais antigos adequadamente. Além disso, o mesmo patch para ASP.NET Quadro 4.7.2 está a ser implementado nas instâncias do Serviço de Aplicações ao longo de janeiro de 2020. Para mais informações, incluindo como saber se a sua aplicação recebeu o patch, consulte a [atualização de cookies do Azure App Service SameSite](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
+> As versões core 2.1 e acima do ASP.NET hospedados pelo App Service já estão corrigidas para esta mudança de rutura e manuseem os navegadores Chrome 80 e mais antigos adequadamente. Além disso, o mesmo patch para ASP.NET Quadro 4.7.2 foi implementado nas instâncias do Serviço de Aplicações ao longo de janeiro de 2020. Para mais informações, consulte [a atualização de cookies do Serviço de Aplicações Azure SameSite](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
 >
 
 > [!NOTE]
 > A função de Autenticação/Autorização também é por vezes referida como "Easy Auth".
 
+> [!NOTE]
+> Ativar esta funcionalidade fará com que **todos os** pedidos HTTP não seguros da sua aplicação sejam automaticamente redirecionados para HTTPS, independentemente da configuração da configuração do Serviço de Aplicações para [impor HTTPS](configure-ssl-bindings.md#enforce-https). Se necessário, pode `requireHttps` desativá-lo através da definição no ficheiro de configuração de [definições auth](app-service-authentication-how-to.md#configuration-file-reference), mas deve então ter o cuidado de garantir que nenhuma tokens de segurança seja transmitida através de ligações HTTP não seguras.
+
 Para obter informações específicas para aplicações móveis nativas, consulte [a autenticação do Utilizador e a autorização para aplicações móveis com o Azure App Service](../app-service-mobile/app-service-mobile-auth.md).
 
 ## <a name="how-it-works"></a>Como funciona
+
+### <a name="on-windows"></a>No Windows
 
 O módulo de autenticação e autorização funciona na mesma caixa de areia que o seu código de aplicação. Quando está ativado, todos os pedidos HTTP de entrada passam por ele antes de serem tratados pelo código de aplicação.
 
@@ -44,6 +49,10 @@ Este módulo lida com várias coisas para a sua aplicação:
 - Injeta informação de identidade em cabeçalhos de pedido
 
 O módulo funciona separadamente do seu código de aplicação e é configurado usando as definições de aplicações. Não são necessários SDKs, linguagens específicas ou alterações ao seu código de aplicação. 
+
+### <a name="on-containers"></a>Em contentores
+
+O módulo de autenticação e autorização funciona num recipiente separado, isolado do seu código de aplicação. Utilizando o que é conhecido como o [padrão Ambassador,](https://docs.microsoft.com/azure/architecture/patterns/ambassador)interage com o tráfego de entrada para executar funcionalidades semelhantes às do Windows. Uma vez que não funciona em processo, não é possível uma integração direta com quadros linguísticos específicos; no entanto, as informações relevantes de que a sua aplicação necessita são transmitidas através de cabeçalhos de pedido, conforme explicado abaixo.
 
 ### <a name="userapplication-claims"></a>Reclamações de utilizador/aplicação
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: ff7472b764b0e65d69d9b694603e145440e89c0d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 211b7aedc901031e366c60a6c7a2cee396bbe124
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318118"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563845"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor perguntas frequentes
 
@@ -137,7 +137,7 @@ A extensão de Diagnóstico Azure destina-se a máquinas virtuais Azure e recolh
 O tráfego para o Azure Monitor utiliza o circuito ExpressRoute que espreita pela Microsoft. Consulte [a documentação ExpressRoute](../expressroute/expressroute-faqs.md#supported-services) para uma descrição dos diferentes tipos de tráfego ExpressRoute. 
 
 ### <a name="how-can-i-confirm-that-the-log-analytics-agent-is-able-to-communicate-with-azure-monitor"></a>Como posso confirmar que o agente Log Analytics é capaz de comunicar com o Azure Monitor?
-Do Painel de Controlo no computador do agente, selecione **Definições de & de Segurança**, Agente de **Monitorização da Microsoft** . No **separador Azure Log Analytics (OMS),** um ícone de marca de verificação verde confirma que o agente é capaz de comunicar com o Azure Monitor. Um ícone amarelo significa que o agente está com problemas. Uma razão comum é que o serviço **de monitorização da Microsoft** parou. Utilize o gestor de controlo de serviços para reiniciar o serviço.
+Do Painel de Controlo no computador do agente, selecione **Definições de & de Segurança**, **Microsoft Monitoring Agent. No **separador Azure Log Analytics (OMS),** um ícone de marca de verificação verde confirma que o agente é capaz de comunicar com o Azure Monitor. Um ícone amarelo significa que o agente está com problemas. Uma razão comum é que o serviço **de monitorização da Microsoft** parou. Utilize o gestor de controlo de serviços para reiniciar o serviço.
 
 ### <a name="how-do-i-stop-the-log-analytics-agent-from-communicating-with-azure-monitor"></a>Como posso impedir o agente do Log Analytics de comunicar com o Azure Monitor?
 Para agentes ligados diretamente ao Log Analytics, abra o Painel de Controlo e selecione **Definições de & de Segurança**, Agente de **Monitorização da Microsoft**. No **separador Azure Log Analytics (OMS),** remova todos os espaços de trabalho listados. No Gestor de Operações do Centro de Sistema, remova o computador da lista de computadores geridos por Log Analytics. O Gestor de Operações atualiza a configuração do agente para deixar de reportar ao Log Analytics. 
@@ -207,7 +207,7 @@ O View Designer só está disponível para utilizadores afetados com permissões
 * [Configurar um servidor ASP.NET](app/monitor-performance-live-website-now.md)
 * [Configurar um servidor Java](app/java-agent.md)
 
-*Quantas informações sobre aplicações devo implementar?:*
+*Quantos recursos de Insights de Aplicação devo implementar:*
 
 * [Como conceber a sua implementação de Insights de Aplicação: Um versus muitos recursos de Insights de Aplicação?](app/separate-resources.md)
 
@@ -509,6 +509,15 @@ A maioria dos dados de Insights de Aplicação tem uma latência inferior a 5 mi
 [start]: app/app-insights-overview.md
 [windows]: app/app-insights-windows-get-started.md
 
+### <a name="http-502-and-503-responses-are-not-always-captured-by-application-insights"></a>HTTP 502 e 503 respostas nem sempre são captadas por Insights de Aplicação
+
+Os erros de "502 bad gateway" e "503 serviços indisponíveis" nem sempre são capturados pela Application Insights. Se apenas o JavaScript do lado do cliente estiver a ser utilizado para monitorizar este comportamento seria esperado, uma vez que a resposta de erro é devolvida antes da página que contém o cabeçalho HTML com o corte JavaScript de monitorização a ser prestado. 
+
+Se a resposta 502 ou 503 fosse enviada de um servidor com monitorização do lado do servidor ativada, os erros seriam recolhidos pelo Application Insights SDK. 
+
+No entanto, ainda existem casos em que, mesmo quando a monitorização do lado do servidor é ativada no servidor web de uma aplicação, um erro de 502 ou 503 não será capturado pelo Application Insights. Muitos servidores web modernos não permitem que um cliente se comunique diretamente, mas em vez disso empregam soluções como proxies invertidos para passar informações de um lado para o outro entre o cliente e os servidores web front-end. 
+
+Neste cenário, uma resposta 502 ou 503 poderia ser devolvida a um cliente devido a um problema na camada de procuração inversa e esta não seria capturada fora de caixa pela Application Insights. Para ajudar a detetar problemas nesta camada, poderá necessitar de encaminhar registos do seu representante inverso para o Log Analytics e criar uma regra personalizada para verificar se há respostas 502/503. Para saber mais sobre causas comuns de 502 e 503 erros consulte o artigo de resolução de problemas do Serviço de Aplicações Azure [para "502 bad gateway" e "503 serviço indisponíveis".](../app-service/troubleshoot-http-502-http-503.md)     
 
 ## <a name="azure-monitor-for-containers"></a>Azure Monitor para contentores
 
@@ -732,7 +741,7 @@ Se tiver configurado o Azure Monitor com um espaço de trabalho Log Analytics ut
 Nesta condição, será solicitado com a opção **Try Now** quando abrir o VM e selecionar **Insights** a partir do painel esquerdo, mesmo depois de já ter sido instalado no VM.  No entanto, não é solicitado com opções como normalmente ocorreria se este VM não fosse a bordo do Azure Monitor para VMs. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Se a sua pergunta não for respondida aqui, pode consultar os seguintes fóruns para perguntas e respostas adicionais.
 
 - [Log Analytics](/answers/topics/azure-monitor.html)

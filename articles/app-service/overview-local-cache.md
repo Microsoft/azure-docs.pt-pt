@@ -6,12 +6,12 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: 2a1fc4de572fbb8634f8f58452ce5f9b632023a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1595354803b0625137dd1ac45d17962063ce4e0
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82628798"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562451"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Visão geral da Cache local do Serviço de Aplicações Azure
 
@@ -94,7 +94,7 @@ Recomendamos que utilize cache local em conjunto com a [função Ambientes de Pr
 * Quando estiver pronto, emita uma [operação de troca](../app-service/deploy-staging-slots.md#Swap) entre as ranhuras de Encenação e Produção.  
 * As configurações pegajosas incluem nome e adesivo a uma ranhura. Assim, quando a ranhura de encenação é trocada em Produção, herda as definições da aplicação Cache Local. A slot de produção recentemente trocada irá funcionar contra a cache local após alguns minutos e será aquecida como parte do aquecimento da ranhura após a troca. Assim, quando a troca de slots estiver completa, a sua ranhura de produção está a correr contra a cache local.
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas Frequentes (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
 
 ### <a name="how-can-i-tell-if-local-cache-applies-to-my-app"></a>Como posso saber se a Cache Local se aplica à minha aplicação?
 Se a sua aplicação precisa de uma loja de conteúdo de alto desempenho e fiável, não utiliza a loja de conteúdos para escrever dados críticos em tempo de execução, e tem menos de 2 GB de tamanho total, então a resposta é "sim"! Para obter o tamanho total das pastas de extensões de sites e /site, pode utilizar a extensão do site "Azure Web Apps Disk Usage".
@@ -104,6 +104,9 @@ Se estiver a utilizar a funcionalidade Cache Local com Ambientes de Preparação
 
 ### <a name="i-just-published-new-changes-but-my-app-does-not-seem-to-have-them-why"></a>Acabei de publicar novas alterações, mas a minha aplicação parece não as ter. Porquê?
 Se a sua aplicação utilizar a Cache Local, então tem de reiniciar o seu site para obter as alterações mais recentes. Não quer publicar alterações num local de produção? Consulte as opções de slot na secção de boas práticas anteriores.
+
+> [!NOTE]
+> A saída da opção de implantação [de pacotes](deploy-run-package.md) não é compatível com a cache local.
 
 ### <a name="where-are-my-logs"></a>Onde estão os meus troncos?
 Com a Cache Local, os seus registos e pastas de dados parecem um pouco diferentes. No entanto, a estrutura das suas subpadagens permanece a mesma, exceto que as subpastas estão aninhadas sob uma subpasta com o formato "identificador VM único" + carimbo temporal.

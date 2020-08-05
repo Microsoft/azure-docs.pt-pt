@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 8e3f33e8f453ffd6eedaeb75a041af7ec11b4e39
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 3b70590002e9c49f2f8711bb7fe90de79e1d2a73
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87457809"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87554061"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Suporte linguístico e de voz para o serviço de fala
 
@@ -36,7 +36,7 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Região  | Idioma                          | Personalizações                                    |
+| Região  | Linguagem                          | Personalizações                                    |
 |---------|-----------------------------------|---------------------------------------------------|
 | `ar-AE` | Árabe (EAU)                      | Não                                                |
 | `ar-BH` | Árabe (Bahrein), padrão moderno | Modelo de linguagem                                    |
@@ -106,7 +106,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `te-IN` | Telugu (Índia)                    | Modelo de linguagem                                    |
 | `th-TH` | Tailandês (Tailândia)                   | Não                                                |
 | `tr-TR` | Turco (Turquia)                  | Modelo de linguagem                                    |
-| `zh-CN` | Chinês (mandarim, simplificado)    | Modelo acústico<br>Modelo de linguagem                  |
+| `zh-CN` | Chinês (Mandarim, Simplificado)    | Modelo acústico<br>Modelo de linguagem                  |
 | `zh-HK` | Chinês (cantonês, tradicional)  | Modelo de linguagem                                    |
 | `zh-TW` | Chinês (Mandarim taiwanês)      | Modelo de linguagem                                    |
 
@@ -125,7 +125,7 @@ As vozes neurais podem ser usadas para tornar as interações com chatbots e ass
 
 Para obter mais informações sobre a disponibilidade regional, consulte [as regiões.](regions.md#standard-and-neural-voices)
 
-|Região  | Idioma            | Sexo | Nome de voz | Suporte de estilo |
+|Região  | Linguagem            | Sexo | Nome de voz | Suporte de estilo |
 |--|--|--|--|--|
 | `ar-EG` | Árabe (Egito)                  | Mulheres | `ar-EG-SalmaNeural`      | Geral |
 | `ar-SA` | Árabe (Arábia Saudita)           | Mulheres | `ar-SA-ZariyahNeura`     | Geral |
@@ -157,11 +157,11 @@ Para obter mais informações sobre a disponibilidade regional, consulte [as reg
 | `ru-RU` | Russo (Rússia)                | Mulheres | `ru-RU-DariyaNeural`     | Geral |
 | `sv-SE` | Sueco (Suécia)                | Mulheres | `sv-SE-HilleviNeural`    | Geral |
 | `th-TH` | Tailandês (Tailândia)                 | Mulheres | `th-TH-AcharaNeural`     | Geral |
-| `zh-CN` | Chinês (mandarim, simplificado)  | Mulheres | `zh-CN-XiaoxiaoNeural`   | Geral, vários estilos de voz disponíveis |
+| `zh-CN` | Chinês (Mandarim, Simplificado)  | Mulheres | `zh-CN-XiaoxiaoNeural`   | Geral, vários estilos de voz disponíveis |
 |         |                                 | Mulheres | `zh-CN-XiaoyouNeural`    | Voz infantil, otimizada para narração de história |
 |         |                                 | Homens   | `zh-CN-YunyangNeural`    | Otimizado para leitura de notícias, vários estilos de voz disponíveis |
 |         |                                 | Homens   | `zh-CN-YunyeNeural`      | Otimizado para narração de história |
-| `zh-HK` | Chinês (cantonês, tranditional)   | Mulheres | `zh-HK-HiuGaaiNeural`| Geral |
+| `zh-HK` | Chinês (cantonês, tradicional)   | Mulheres | `zh-HK-HiuGaaiNeural`| Geral |
 | `zh-TW` | Chinês (Mandarim taiwanês)   | Mulheres | `zh-TW-HsiaoYuNeural`    | Geral |
 
 > [!IMPORTANT]
@@ -176,7 +176,7 @@ Para aprender como pode configurar e ajustar vozes neurais, consulte a [linguage
 
 Mais de 75 vozes padrão estão disponíveis em mais de 45 línguas e locais, que permitem converter texto em discurso sintetizado. Para obter mais informações sobre a disponibilidade regional, consulte [as regiões.](regions.md#standard-and-neural-voices)
 
-| Região | Idioma | Sexo | Nome de voz |
+| Região | Linguagem | Sexo | Nome de voz |
 |--|--|--|--|
 | <sup>1</sup>`ar-EG` | Árabe (Egito) | Mulheres | "ar-EG-Hoda" |
 | `ar-SA` | Árabe (Arábia Saudita) | Homens | "ar-SA-Naayf" |
@@ -249,7 +249,7 @@ Mais de 75 vozes padrão estão disponíveis em mais de 45 línguas e locais, qu
 | `th-TH` | Tailandês | Homens |  "Th-TH-Pattara" |
 | `tr-TR` | Turco (Turquia) | Mulheres | "tr-TR-SedaRUS" |
 | `vi-VN` | Vietnamita | Homens |  "vi-VN-An" |
-| `zh-CN` | Chinês (mandarim, simplificado) | Mulheres |  "zh-CN-HuihuiRUS" |
+| `zh-CN` | Chinês (Mandarim, Simplificado) | Mulheres |  "zh-CN-HuihuiRUS" |
 |  |  | Mulheres | "zh-CN-Yaoyao-Apollo" |
 |  |  | Homens | "zh-CN-Kangkang-Apollo" |
 | `zh-HK` | Chinês (cantonês, tradicional) | Mulheres |  "Zh-HK-Tracy-Apollo" |
@@ -358,7 +358,7 @@ A API **de Tradução de Discursos** apoia diferentes línguas para a tradução
 
 Consulte a tabela seguinte para as línguas suportadas para as várias APIs de reconhecimento de altifalantes. Consulte a [visão geral](speaker-recognition-overview.md) para obter informações adicionais sobre o reconhecimento de colunas.
 
-| Região | Idioma | Verificação dependente de texto | Verificação independente de texto | Identificação independente de texto |
+| Região | Linguagem | Verificação dependente de texto | Verificação independente de texto | Identificação independente de texto |
 |----|----|----|----|----|
 | pt-PT | Inglês (E.U.A.) | sim | sim | sim |
 |zh-CN  |Chinês (mandarim, simplificado)|    n/a|    sim|    sim|

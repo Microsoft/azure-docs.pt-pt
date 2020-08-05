@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 08/03/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 127d76bedafd4c857686e93f21d3cccdc36b98dd
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ba1fc856ee9093b628bd86b9847f8fc70b7189c2
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87274668"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552905"
 ---
 # <a name="conditional-access-users-and-groups"></a>Acesso Condicional: Utilizadores e grupos
 
@@ -45,6 +45,9 @@ As seguintes opções estão disponíveis para incluir ao criar uma política de
 > [!WARNING]
 > Se os utilizadores ou grupos forem membros de mais de 2048 grupos, o seu acesso pode ser bloqueado. Este limite aplica-se tanto à adesão direta como a um grupo aninhado.
 
+> [!WARNING]
+> As políticas de Acesso Condicional não suportam os utilizadores atribuídos a uma função de diretório [a uma unidade administrativa](../users-groups-roles/roles-admin-units-assign-roles.md) ou a funções de diretórios dirigidas diretamente a um objeto, como através de [funções personalizadas](../users-groups-roles/roles-create-custom.md).
+
 ## <a name="exclude-users"></a>Excluir utilizadores
 
 Quando as organizações incluem e excluem um utilizador ou grupo, o utilizador ou grupo é excluído da política, uma vez que uma ação de exclusão substitui um incluído na política. As exclusões são geralmente utilizadas para acesso de emergência ou contas de break-glass. Mais informações sobre contas de acesso de emergência e por que são importantes podem ser encontradas nos seguintes artigos: 
@@ -71,7 +74,7 @@ Por predefinição, a política fornecerá uma opção para excluir o utilizador
 
 ![Aviso, não se tranque fora!](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups-lockout-warning.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Acesso Condicional: aplicativos ou ações na nuvem](concept-conditional-access-cloud-apps.md)
 

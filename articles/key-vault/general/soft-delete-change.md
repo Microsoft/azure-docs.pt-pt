@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.author: sudbalas
-ms.openlocfilehash: 91068bacee0bde9e11cc23816bd8e2a101854fb2
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: c75da4c27eae76df51836143c4fb383a1473159a
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388219"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564134"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>A eliminação suave será ativada em todos os cofres-chave
 
@@ -66,14 +66,14 @@ Se a sua organização estiver sujeita a requisitos legais de conformidade e nã
 10. Na Lâmina de Política Azure, clique em "Conformidade".
 11. Selecione a política que aplicou.
 
-Deverá agora ser capaz de filtrar e ver qual dos seus cofres-chave tem uma eliminação suave ativada (recursos conformes) e quais as abóbadas-chave que não têm a eliminação suave ativada (recursos não conformes).
+Deverá agora ser capaz de filtrar e ver qual dos seus cofres-chave tem uma eliminação suave ativada (recursos em conformidade) e quais as abóbadas-chave que não têm uma eliminação suave ativada (recursos não conformes).
 
 ### <a name="turn-on-soft-delete-for-an-existing-key-vault"></a>Ligue soft Delete para um cofre de chaves existente
 
 1. Inicie sessão no portal do Azure.
 2. Procure o seu Cofre de Chaves.
 3. Selecione "Propriedades" nas definições.
-4. Em Soft-Delete, selecione o botão de rádio correspondente a "Ativar a recuperação. deste cofre e dos seus objetos".
+4. Em Soft-Delete, selecione o botão de rádio correspondente a "Ativar a recuperação deste cofre e dos seus objetos".
 5. Desace o período de retenção para a eliminação suave.
 6. Selecione "Save".
 

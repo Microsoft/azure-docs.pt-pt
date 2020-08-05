@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47, tracking-python
-ms.openlocfilehash: 920f53fa962cc30f2068d78c9d1907b93019fe34
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bc560f6a0048377f2174805d7e015b55240d7a71
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055851"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564049"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento da fila Azure para funções Azure
 
@@ -163,7 +163,7 @@ Um gatilho de fila de armazenamento é definido em *function.jsno* local onde *o
 }
 ```
 
-O código * _ \_ init_ \_ .py* declara um parâmetro como `func.ServiceBusMessage` , que permite ler a mensagem de fila na sua função.
+O código * _ \_ init_ \_ .py* declara um parâmetro como `func.QueueMessage` , que permite ler a mensagem de fila na sua função.
 
 ```python
 import logging
@@ -406,7 +406,7 @@ O gatilho da fila impede automaticamente que uma função processe uma mensagem 
 
 A [host.jsno](functions-host-json.md#queues) ficheiro contém definições que controlam o comportamento do gatilho da fila. Consulte a secçãohost.jsna secção [de definições](functions-bindings-storage-queue-output.md#hostjson-settings) para obter informações sobre as definições disponíveis.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Escreva mensagens de armazenamento de fila (ligação de saída)](./functions-bindings-storage-blob-output.md)
 

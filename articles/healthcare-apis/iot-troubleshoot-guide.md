@@ -6,18 +6,18 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 07/30/2020
+ms.date: 08/03/2020
 ms.author: jasteppe
-ms.openlocfilehash: 8c372a865e34b2cbd1b5b3e6d8619c3ef0f438e0
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: b404fa5322d3afa8cbf71741382d44dd0433d49c
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460427"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553687"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Conector Azure IoT para guia de resolução de problemas FHIR (pré-visualização)
 
-Este artigo fornece passos para a resolução de problemas do conector comum Azure IoT para mensagens e condições de erro FHIR.  
+Este artigo fornece passos para a resolução de problemas do conector comum Azure IoT para mensagens e condições de erro FHIR*.  
 
 Você também vai aprender a criar cópias do Conector Azure IoT para ficheiros de mapeamento JSON FHIR para edição e arquivamento fora do portal Azure ou para fornecer ao Suporte Técnico Azure ao abrir um bilhete de suporte. 
 
@@ -67,12 +67,12 @@ A cópia do Conector Azure IoT para ficheiros de mapeamento FHIR pode ser útil 
 > [!TIP]
 > Se vai abrir um bilhete [de Suporte Técnico Azure](https://azure.microsoft.com/support/create-ticket/) para o Conector Azure IoT para FHIR, certifique-se de incluir cópias dos seus ficheiros de mapeamento para ajudar no processo de resolução de problemas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Confira frequentemente perguntas sobre o Conector Azure IoT para FHIR.
 
 >[!div class="nextstepaction"]
->[Conector Azure IoT para FAQs FHIR (pré-visualização)](fhir-faq.md#iot-connector-preview)
+>[Conector Azure IoT para FAQs FHIR](fhir-faq.md#azure-iot-connector-for-fhir-preview)
 
 *No portal Azure, o Conector Azure IoT para FHIR é referido como Conector IoT (pré-visualização).
 

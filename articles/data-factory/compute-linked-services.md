@@ -10,12 +10,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.date: 05/08/2019
-ms.openlocfilehash: 3233292f0097330cc5e6ed07460de80934a278e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98f3c96fe1d1e8dd0f73d0441db8319fc2241cd7
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83849302"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563743"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes computativos apoiados pela Azure Data Factory
 
@@ -42,7 +42,7 @@ A tabela seguinte fornece uma lista de ambientes computativos apoiados pela Data
 
 Consulte a tabela abaixo para obter mais detalhes sobre os tipos de serviço ligados ao armazenamento suportado para configuração em ambiente on-demand e BYOC (Traga o seu próprio cálculo).
 
-| No Serviço De Ligação computacional | Nome da Propriedade                | Descrição                                                  | Blobs | ADLS Gen2 | BD SQL do Azure | ADLS Gen 1 |
+| No Serviço De Ligação computacional | Nome da Propriedade                | Descrição                                                  | Blob | ADLS Gen2 | BD SQL do Azure | ADLS Gen 1 |
 | ------------------------- | ---------------------------- | ------------------------------------------------------------ | ---- | --------- | ------------ | ---------- |
 | A pedido                 | linkedServiceName            | Serviço ligado a Azure Storage a ser utilizado pelo cluster a pedido para armazenar e processar dados. | Sim  | Sim       | Não           | Não         |
 |                           | adicionalLinkedServiceNames | Especifica contas de armazenamento adicionais para o serviço ligado ao HDInsight para que o serviço Data Factory possa registá-los em seu nome. | Sim  | Não        | Não           | Não         |
@@ -109,11 +109,11 @@ O JSON seguinte define um serviço hdinsight baseado na procura do Linux. O serv
 > [!IMPORTANT]
 > O cluster HDInsight cria um **recipiente predefinido** no armazenamento de bolhas especificado no JSON **(linkedServiceName**). Quando o cluster é eliminado, o HDInsight não é eliminado deste contentor. Este comportamento é propositado. Com o serviço ligado do HDInsight a pedido, é criado um cluster do HDInsight sempre que um setor tiver de ser processado, exceto se houver um cluster em direto (**timeToLive**) que será eliminado no fim do processamento. 
 >
-> À medida que mais atividade corre, você vê muitos recipientes no seu armazenamento de bolhas Azure. Se não precisar deles para a resolução de problemas das tarefas, poderá eliminá-los para reduzir o custo de armazenamento. Os nomes destes contentores seguem um padrão: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Utilize ferramentas como o [Explorador de Armazenamento do Microsoft](https://storageexplorer.com/) para eliminar contentores no armazenamento de blobs do Azure.
+> À medida que mais atividade corre, você vê muitos recipientes no seu armazenamento de bolhas Azure. Se não precisar deles para a resolução de problemas das tarefas, poderá eliminá-los para reduzir o custo de armazenamento. Os nomes destes contentores seguem um padrão: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Utilize ferramentas como o [Microsoft Azure Storage Explorer](https://storageexplorer.com/) para eliminar recipientes no seu armazenamento de bolhas Azure.
 
 #### <a name="properties"></a>Propriedades
 
-| Propriedade                     | Descrição                              | Necessário |
+| Propriedade                     | Descrição                              | Obrigatório |
 | ---------------------------- | ---------------------------------------- | -------- |
 | tipo                         | A propriedade tipo deve ser definida para **HDInsightOnDemand**. | Sim      |
 | clusterSize                  | Número de nós de trabalhador/dados no cluster. O cluster HDInsight é criado com 2 nós de cabeça juntamente com o número de nós de trabalhadores que especifica para esta propriedade. Os nódinhos são de tamanho Standard_D3 que tem 4 núcleos, por isso um conjunto de nó de 4 trabalhadores leva 24 \* núcleos (4 4 = 16 núcleos para os nóns operários, mais \* 2 4 = 8 núcleos para os nosdes da cabeça). Consulte [configurar clusters em HDInsight com Hadoop, Spark, Kafka e mais](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) detalhes. | Sim      |
@@ -161,7 +161,7 @@ O serviço on-demand HDInsight ligado requer uma autenticação principal do ser
 
 Utilize a autenticação principal do serviço especificando as seguintes propriedades:
 
-| Propriedade                | Descrição                              | Necessário |
+| Propriedade                | Descrição                              | Obrigatório |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Especifique a identificação do cliente da aplicação.     | Sim      |
 | **servicePrincipalKey** | Especifique a chave da aplicação.           | Sim      |
@@ -171,7 +171,7 @@ Utilize a autenticação principal do serviço especificando as seguintes propri
 
 Também pode especificar as seguintes propriedades para a configuração granular do cluster HDInsight a pedido.
 
-| Propriedade               | Descrição                              | Necessário |
+| Propriedade               | Descrição                              | Obrigatório |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | Especifica os parâmetros de configuração do núcleo (como em core-site.xml) para a criação do cluster HDInsight. | Não       |
 | hConfiguration base     | Especifica os parâmetros de configuração HBase (hbase-site.xml) para o cluster HDInsight. | Não       |
@@ -239,7 +239,7 @@ Também pode especificar as seguintes propriedades para a configuração granula
 #### <a name="node-sizes"></a>Tamanhos dos nómdais
 Pode especificar os tamanhos dos nosmos de cabeça, dados e zookeeper utilizando as seguintes propriedades: 
 
-| Propriedade          | Descrição                              | Necessário |
+| Propriedade          | Descrição                              | Obrigatório |
 | :---------------- | :--------------------------------------- | :------- |
 | headNodeSize      | Especifica o tamanho do nó da cabeça. O valor predefinido é: Standard_D3. Consulte a secção **de tamanhos dos nós especificando** para obter mais detalhes. | Não       |
 | dataNodeSize      | Especifica o tamanho do nó de dados. O valor predefinido é: Standard_D3. | Não       |
@@ -298,11 +298,11 @@ Pode criar um serviço ligado a Azure HDInsight para registar o seu próprio clu
 ```
 
 ### <a name="properties"></a>Propriedades
-| Propriedade          | Descrição                                                  | Necessário |
+| Propriedade          | Descrição                                                  | Obrigatório |
 | ----------------- | ------------------------------------------------------------ | -------- |
 | tipo              | A propriedade tipo deve ser definida para **HDInsight**.            | Sim      |
 | clusterUri        | O URI do cluster HDInsight.                            | Sim      |
-| o nome de utilizador          | Especifique o nome do utilizador a utilizar para ligar a um cluster HDInsight existente. | Sim      |
+| nome de utilizador          | Especifique o nome do utilizador a utilizar para ligar a um cluster HDInsight existente. | Sim      |
 | palavra-passe          | Especifique a palavra-passe para a conta de utilizador.                       | Sim      |
 | linkedServiceName | Nome do serviço ligado ao Azure Storage que se refere ao armazenamento de bolhas Azure utilizado pelo cluster HDInsight. <p>Atualmente, não é possível especificar um serviço de armazenamento de dados Azure (Gen 2) ligado a esta propriedade. Se o cluster HDInsight tiver acesso à Data Lake Store, poderá aceder a dados no Azure Data Lake Storage (Gen 2) a partir de scripts Hive/Pig. </p> | Sim      |
 | isEspEnabled      | Especifique '*verdadeiro*' se o cluster HDInsight for [o Pacote de Segurança Empresarial](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-architecture) ativado. O padrão é*falso.* | Não       |
@@ -358,7 +358,7 @@ Consulte os seguintes artigos se é novo no serviço Azure Batch:
 
 
 ### <a name="properties"></a>Propriedades
-| Propriedade          | Descrição                              | Necessário |
+| Propriedade          | Descrição                              | Obrigatório |
 | ----------------- | ---------------------------------------- | -------- |
 | tipo              | A propriedade tipo deve ser definida para **AzureBatch**. | Sim      |
 | accountName       | Nome da conta Azure Batch.         | Sim      |
@@ -481,7 +481,7 @@ Você cria um serviço **Azure Data Lake Analytics** ligado para ligar um servi�
 
 ### <a name="properties"></a>Propriedades
 
-| Propriedade             | Descrição                              | Necessário                                 |
+| Propriedade             | Descrição                              | Obrigatório                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | tipo                 | A propriedade tipo deve ser configurada para: **AzureDataLakeAnalytics**. | Sim                                      |
 | accountName          | Nome da conta Azure Data Lake Analytics.  | Sim                                      |
@@ -543,7 +543,7 @@ Pode criar **o serviço ligado a Azure Databricks** para registar o espaço de t
 
 ### <a name="properties"></a>Propriedades
 
-| Propriedade             | Descrição                              | Necessário                                 |
+| Propriedade             | Descrição                              | Obrigatório                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | name                 | Nome do Serviço Ligado               | Sim   |
 | tipo                 | A propriedade tipo deve ser definida para: **Azure Databricks**. | Sim                                      |

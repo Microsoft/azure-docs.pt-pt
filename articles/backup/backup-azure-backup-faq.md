@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas a perguntas comuns sobre: funcionalidades do Azure Backup incluindo os cofres dos Serviços de Recuperação, que cópias de segurança podem criar, como funcionam, a encriptação e os limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 4273d93e36dd8d956246811dd3f1d71d96ddcb68
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 95d515e65e31304dd4839f851736be6926a5a29f
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532463"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553092"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Perguntas frequentes
 
@@ -197,6 +197,10 @@ Quando é aplicada uma nova política, são seguidas o agendamento e a retençã
 - Se a retenção for prolongada, os pontos de recuperação existentes serão marcados para os manter de acordo com a nova política.
 - Se a retenção for reduzida, serão marcados para eliminação na tarefa de limpeza seguinte e, posteriormente, eliminados.
 
+### <a name="how-long-is-data-retained-when-stopping-backups-but-selecting-the-option-to-retain-backup-data"></a>Quanto tempo os dados são retidos ao parar as cópias de segurança, mas selecionando a opção de reter dados de backup?
+
+Quando as cópias de segurança são interrompidas e os dados são retidos, as regras de política existentes para a poda de dados cessarão e os dados serão retidos indefinidamente até que o administrador seja iniciado para eliminação.
+
 ## <a name="encryption"></a>Encriptação
 
 ### <a name="is-the-data-sent-to-azure-encrypted"></a>Os dados enviados para o Azure são encriptados?
@@ -220,7 +224,7 @@ A chave de encriptação utilizada pelo Agente microsoft Azure Recovery Services
 
 Apenas o seu site possui a chave utilizada para encriptar os dados da cópia de segurança. A Microsoft não mantém uma cópia no Azure e não tem qualquer acesso à chave. Se tiver colocado a chave num local incorreto, a Microsoft não poderá recuperar os dados da cópia de segurança.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia as outras FAQs:
 

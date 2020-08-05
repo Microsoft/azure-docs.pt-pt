@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 948ada46085d83c8cf453cdde23cb407ea2dd2d8
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: e78f4133e7f722870f6c84de2ab7e784cd151d79
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447700"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562689"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Linha de segurança Azure para Automação
 
@@ -34,7 +34,7 @@ Para obter um maior isolamento para os seus runbooks, pode utilizar trabalhadore
 
 Em alternativa, se tiver um requisito específico, o Azure Firewall também pode ser utilizado para o cumprir.
 
-* [Redes virtuais e máquinas virtuais em Azure](../virtual-machines/windows/network-overview.md)
+* [Redes virtuais e máquinas virtuais em Azure](../virtual-machines/network-overview.md)
 
 * [Como criar uma Rede Virtual](../virtual-network/quick-create-portal.md)
 
@@ -848,7 +848,7 @@ O controlo de aplicações adaptativas é uma solução inteligente, automatizad
 
 **Orientação**: As aplicações de alto risco implementadas no seu ambiente Azure podem ser isoladas utilizando recipientes de rede e recursos separados utilizando construções como redes virtuais, sub-redes, subscrições, grupos de gestão, podem ser suficientemente seguras com um Azure Firewall, Web Application Firewall (WAF) ou um grupo de segurança de rede (NSG).
 
-* [Redes virtuais e máquinas virtuais em Azure](../virtual-machines/windows/network-overview.md)
+* [Redes virtuais e máquinas virtuais em Azure](../virtual-machines/network-overview.md)
 
 * [Visão geral da Firewall de Azure](../firewall/overview.md)
 
@@ -1288,7 +1288,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a [referência de segurança Azure](../security/benchmarks/overview.md)
 - Saiba mais sobre [as linhas de base de segurança da Azure](../security/benchmarks/security-baselines-overview.md)

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 867c32203d8f780b307ede2ba2916ad4e82e1136
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 5b83c60182c311d9b04a205da4ab0c3477dc9b9e
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373250"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563709"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Utilizar as APIs e SDKs do Azure Digital Twins
 
@@ -43,7 +43,7 @@ As APIs do plano de dados são usadas para gerir os elementos dentro da sua inst
 * **Consulta** - A categoria de Consulta permite que os desenvolvedores [encontrem conjuntos de gémeos digitais no gráfico gémeo](how-to-query-graph.md) entre relacionamentos.
 * **EventRoutes** - A categoria EventRoutes contém APIs para [encaminhar dados,](concepts-route-events.md)através do sistema e para serviços a jusante.
 
-A versão API do plano de dados mais atual para pré-visualização pública é _**2020-05-31-preview**_.
+A versão API do plano de dados mais atual para pré-visualização pública é _**2020-05-31-preview**_. A versão API _de pré-visualização 2020-03-01_ para operações de plano de dados foi agora depreciada.
 
 Para utilizar as APIs do plano de dados:
 * Pode ligar diretamente para as APIs, por...
@@ -288,7 +288,7 @@ A partir da página inicial do portal, procure a sua instância Azure Digital Tw
 
 A partir daqui, você pode ver as métricas para o seu exemplo e criar vistas personalizadas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Veja como usar as APIs para configurar uma instância e autenticação de Gémeos Digitais Azure:
 * [*Como fazer: Configurar um caso e autenticação*](how-to-set-up-instance-scripted.md)

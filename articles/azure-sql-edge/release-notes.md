@@ -9,17 +9,28 @@ ms.subservice: ''
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 06/05/2020
-ms.openlocfilehash: d5d60db2cc0c35b908454be3f00716db6d2da945
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/27/2020
+ms.openlocfilehash: 74e9772ada010d79e81ef36cae89ba586db73077
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361647"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553415"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Notas de lançamento do Azure SQL Edge 
 
 Este artigo descreve o que é novo e o que mudou a cada nova construção de Azure SQL Edge.
+
+## <a name="ctp-22"></a>CTP 2.2
+### <a name="sql-engine-build-number---15020001546"></a>NÚMERO DE CONSTRUÇÃO DO MOTOR SQL - 15.0.2000.1546
+### <a name="fixes"></a>Correções
+1. Apoio a contentores não-enraizados 
+2. Suporte à recolha de dados de utilização e diagnóstico 
+3. Atualizações de streaming T-SQL
+   - Suporte para caracteres Unicode para nomes de objetos de fluxo
+   - Melhorias na limpeza do processo
+   - Melhorias no registo e no diagnóstico
+4. Melhoria do desempenho para a ingestão de dados
 
 ## <a name="ctp-21"></a>CTP 2.1 
 ### <a name="sql-engine-build-number---15020001545"></a>NÚMERO DE CONSTRUÇÃO DO MOTOR SQL - 15.0.2000.1545

@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: mihansen
 author: hansenms
 ms.date: 02/07/2019
-ms.openlocfilehash: f6c3b1f4c24ad2bce68c1cff7b22f0059d3534a2
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 6e0851a55673792adc905d27fdd3f5c13d572032
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446055"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563964"
 ---
 # <a name="access-azure-api-for-fhir-with-postman"></a>Acesso Azure API para FHIR com Carteiro
 
@@ -23,6 +23,7 @@ Uma aplicação de cliente acederia a uma API FHIR através de uma [API REST](ht
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Um ponto final da FHIR em Azure. Pode configurar isso utilizando o Azure API gerido para FHIR ou o servidor FHIR open source para o Azure. Configurar a Azure API gerida para fHIR utilizando [o portal Azure](fhir-paas-portal-quickstart.md), [PowerShell,](fhir-paas-powershell-quickstart.md)ou [Azure CLI](fhir-paas-cli-quickstart.md).
+- Uma [aplicação ao cliente](register-confidential-azure-ad-client-app.md) que você vai usar para aceder ao serviço FHIR
 - Carteiro instalado. Pode obtê-lo de[https://www.getpostman.com](https://www.getpostman.com)
 
 ## <a name="fhir-server-and-authentication-details"></a>Servidor FHIR e detalhes de autenticação
@@ -126,7 +127,7 @@ Se repetir a procura do paciente, deve agora ver o registo do paciente:
 
 ![Paciente criado](media/tutorial-postman/postman-patient-found.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, acedeu a uma API FHIR usando carteiro. Leia sobre as funcionalidades de API suportadas na nossa secção de funcionalidades suportadas.
  

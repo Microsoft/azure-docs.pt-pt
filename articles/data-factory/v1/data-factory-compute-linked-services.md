@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 16e390f2c206cb1f81914bc02e15818282a54a5b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ac92e45e69522fe3de8abdb3afcf6049e5f07ac8
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537569"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563505"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Ambientes computativos suportados pela versão 1 da Azure Data Factory
 > [!NOTE]
@@ -114,7 +114,7 @@ O JSON seguinte define um serviço hdinsight baseado na procura do Linux. A Data
 > [!IMPORTANT]
 > O cluster HDInsight cria um *recipiente predefinido* no armazenamento Azure Blob que especifica na propriedade JSON **linkedServiceName.** Por design, o HDInsight não apaga este recipiente quando o cluster é eliminado. Num serviço on-demand HDInsight ligado, um cluster HDInsight é criado sempre que uma fatia precisa de ser processada, a menos que exista um cluster vivo existente **(timeToLive).** O cluster é eliminado quando o processamento está terminado. 
 >
-> À medida que mais fatias são processadas, você vê muitos recipientes no seu armazenamento Blob. Se não precisar dos contentores para resolver problemas, é melhor apagar os contentores para reduzir o custo de armazenamento. Os nomes destes contentores seguem um padrão: `adf<your Data Factory name>-<linked service name>-<date and time>`. Pode utilizar uma ferramenta como [o Microsoft Storage Explorer](https://storageexplorer.com/) para eliminar contentores no armazenamento blob.
+> À medida que mais fatias são processadas, você vê muitos recipientes no seu armazenamento Blob. Se não precisar dos contentores para resolver problemas, é melhor apagar os contentores para reduzir o custo de armazenamento. Os nomes destes contentores seguem um padrão: `adf<your Data Factory name>-<linked service name>-<date and time>`. Pode utilizar uma ferramenta como [o Microsoft Azure Storage Explorer](https://storageexplorer.com/) para eliminar contentores no armazenamento Blob.
 >
 > 
 

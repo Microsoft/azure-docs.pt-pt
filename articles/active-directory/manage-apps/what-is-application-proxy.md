@@ -6,18 +6,18 @@ author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: overview
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5c9ba026819a542ccd0a7ae41316c0f1d325004
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 94d120973939dd1efabee868fc75e9f6c1352bf3
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84976511"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562638"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Utilizar o Azure AD Application Proxy para publicar aplicações no local para utilizadores remotos
 
@@ -138,7 +138,7 @@ O diagrama que se segue ilustra em geral como os serviços de autenticação AD 
 
 |**Componente**|**Descrição**|
 |:-|:-|
-|Ponto Final|O ponto final é um URL ou um [portal de utilizador final](end-user-experiences.md). Os utilizadores podem chegar a aplicações fora da sua rede acedendo a um URL externo. Os utilizadores dentro da sua rede podem aceder à aplicação através de um URL ou de um portal de utilizador final. Quando os utilizadores vão a um destes pontos finais, autenticam-se em Azure AD e depois são encaminhados através do conector para a aplicação no local.|
+|Ponto final|O ponto final é um URL ou um [portal de utilizador final](end-user-experiences.md). Os utilizadores podem chegar a aplicações fora da sua rede acedendo a um URL externo. Os utilizadores dentro da sua rede podem aceder à aplicação através de um URL ou de um portal de utilizador final. Quando os utilizadores vão a um destes pontos finais, autenticam-se em Azure AD e depois são encaminhados através do conector para a aplicação no local.|
 |Azure AD|A Azure AD realiza a autenticação utilizando o diretório de inquilinos armazenado na nuvem.|
 |Serviço de procuração de aplicação|Este serviço de Procuração de Aplicações funciona na nuvem como parte do Azure AD. Transmite o sinal de inscrição do utilizador para o Conector Proxy da aplicação. Application Proxy encaminha quaisquer cabeçalhos acessíveis no pedido e define os cabeçalhos de acordo com o seu protocolo, para o endereço IP do cliente. Se o pedido de entrada ao representante já tiver esse cabeçalho, o endereço IP do cliente é adicionado ao final da lista separada por vírgula que é o valor do cabeçalho.|
 |Conector Proxy de aplicação|O conector é um agente leve que funciona num Servidor Windows dentro da sua rede. O conector gere a comunicação entre o serviço Application Proxy na nuvem e a aplicação no local. O conector só utiliza ligações de saída, para que não tenha de abrir portas de entrada ou colocar nada na Zona Desmilitarizada. Os conectores são apátridas e retiram informações da nuvem se necessário. Para obter mais informações sobre conectores, como a forma como se load-balance e autentica, consulte [os conectores Proxy da aplicação AD Azure](application-proxy-connectors.md).|
@@ -180,7 +180,7 @@ Para obter mais informações sobre a escolha de onde instalar os seus conectore
 
 ## <a name="other-use-cases"></a>Outros casos de uso
 
-Até este momento, focamo-nos em usar o Application Proxy para publicar aplicações no local externamente, permitindo um único acesso a todas as suas aplicações de cloud e on-in. No entanto, existem outros casos de uso para App Proxy que vale a pena mencionar. Os relatórios incluem:
+Até este momento, focamo-nos em usar o Application Proxy para publicar aplicações no local externamente, permitindo um único acesso a todas as suas aplicações de cloud e on-in. No entanto, existem outros casos de uso para App Proxy que vale a pena mencionar. Estas incluem:
 
 * **Publicar securely REST APIs**. Quando tem lógica de negócio ou APIs a funcionar no local ou hospedado em máquinas virtuais na nuvem, o Application Proxy fornece um ponto final público para acesso a API. O acesso ao ponto final da API permite controlar a autenticação e a autorização sem exigir portas de entrada. Fornece segurança adicional através de funcionalidades Azure AD Premium, como a autenticação de vários fatores e acesso condicional baseado em dispositivos para desktops, iOS, MAC e Dispositivos Android que utilizam dispositivos Intune. Para saber mais, consulte [Como permitir que as aplicações de clientes nativos interajam com aplicações de procuração](application-proxy-configure-native-client-application.md) e [protejam uma API utilizando o OAuth 2.0 com Ozure Ative Directory e API Management.](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad)
 * **Serviços remotos de desktop** **(RDS)**. As implementações padrão de RDS requerem ligações de entrada abertas. No entanto, a [implementação de RDS com Application Proxy](application-proxy-integrate-with-remote-desktop-services.md) tem uma ligação de saída permanente a partir do servidor que executa o serviço de conector. Desta forma, pode oferecer mais aplicações aos utilizadores finais publicando aplicações no local através de Serviços de Desktop Remoto. Também pode reduzir a superfície de ataque da implementação com um conjunto limitado de verificação em duas etapas e controlos de acesso condicional a RDS.
@@ -203,7 +203,7 @@ As organizações devem começar a aproveitar-se hoje da App Proxy para tirar pa
 * Atualizações automáticas para garantir que tem os mais recentes patches de segurança
 * Novas funcionalidades à medida que são lançadas; o mais recente suporte para a gestão única de saml e mais gestão granular de cookies de aplicação
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter informações sobre planeamento, operação e gestão da aplicação Azure AD, consulte [Plan a Azure AD Application Proxy deployment](application-proxy-deployment-plan.md).
 * Para agendar uma demonstração ao vivo ou obter um teste gratuito de 90 dias para avaliação, consulte [Começar com a Mobilidade Empresarial + Segurança.](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial)

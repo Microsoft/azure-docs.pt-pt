@@ -1,7 +1,7 @@
 ---
 title: Fornecer reclamações opcionais para aplicações AD Azure
 titleSuffix: Microsoft identity platform
-description: Como adicionar reclamações personalizadas ou adicionais aos tokens SAML 2.0 e JSON Web Tokens (JWT) emitidos pela Azure Ative Directory.
+description: Como adicionar reclamações personalizadas ou adicionais aos tokens SAML 2.0 e JSON Web Tokens (JWT) emitidos pela plataforma de identidade microsoft.
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
@@ -12,21 +12,21 @@ ms.date: 07/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: dd181e87305f3d32fb301c8b563b7330e09b43d6
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: f93e2b34c64ce4bd8cec7182c3e990f0e675dc11
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445587"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552871"
 ---
-# <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Como: Fornecer reclamações opcionais à sua app AD Azure
+# <a name="how-to-provide-optional-claims-to-your-app"></a>Como: Fornecer reclamações opcionais à sua app
 
 Os desenvolvedores de aplicações podem usar reclamações opcionais nas suas aplicações AZure AD para especificar quais as alegações que pretendem em fichas enviadas para a sua aplicação.
 
 Pode utilizar reclamações opcionais para:
 
 - Selecione reclamações adicionais para incluir em fichas para a sua aplicação.
-- Alterar o comportamento de certas alegações de que a Azure AD regressa em fichas.
+- Alterar o comportamento de certas alegações de que a plataforma de identidade da Microsoft regressa em fichas.
 - Adicione e aceda reclamações personalizadas para a sua aplicação.
 
 Para as listas de reclamações padrão, consulte o [token de acesso](access-tokens.md) e [id_token](id-tokens.md) documentação de reclamações.
@@ -435,7 +435,7 @@ No exemplo abaixo, utilizará a **configuração Token** UI e **Manifesto** para
 
 1. Quando terminar de atualizar o manifesto, **selecione Guardar** para guardar o manifesto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as reclamações padrão fornecidas pela Azure AD.
 

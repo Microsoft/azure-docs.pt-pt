@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 03/30/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: a92aa304d605242063e0d0484317bc8c051959e5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a41fe159f3ac7ef91ba943534aaa6baeeab83001
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317846"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552412"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Sintonize hiperparmetros para o seu modelo com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -379,7 +379,7 @@ Além disso, pode identificar visualmente a correlação entre desempenho e valo
 
 [![hiperparatómetro afinar coordenadas paralelas](./media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
 
-Também é possível visualizar todas as suas afinações de hiperparímetros no portal web Azure. Para obter mais informações sobre como ver uma experiência no portal web, [veja como rastrear experiências.](how-to-track-experiments.md#view-the-experiment-in-the-web-portal)
+Também é possível visualizar todas as suas afinações de hiperparímetros no portal web Azure. Para obter mais informações sobre como ver uma experiência no portal web, [veja como rastrear experiências.](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal)
 
 ## <a name="find-the-best-model"></a>Encontre o melhor modelo
 
@@ -403,6 +403,6 @@ Consulte os cadernos de comboio-hiperparameter-* nesta pasta:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Acompanhe uma experiência](how-to-track-experiments.md)
 * [Implementar um modelo treinado](how-to-deploy-and-where.md)

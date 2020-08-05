@@ -2,16 +2,16 @@
 title: Boas práticas para operações de longa duração nos Serviços de Análise Azure Microsoft Docs
 description: Este artigo descreve as melhores práticas para operações de longa duração.
 author: minewiskan
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: owend
-ms.openlocfilehash: 3f6b2194cc422a827bbc7a15c012173b3f814b52
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5195d63180d45ad408256264e3cf10174e55cd96
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81428111"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87551953"
 ---
 # <a name="best-practices-for-long-running-operations"></a>Melhores práticas para operações de execução prolongada
 
@@ -45,7 +45,7 @@ Quer utilize a lógica REST ou a lógica personalizada, as consultas de aplicaç
 Ao utilizar réplicas de consulta apenas de leitura, enquanto as atualizações estão a ser realizadas em lotes, os utilizadores de aplicações do cliente podem continuar a consultar a antiga imagem de dados nas réplicas apenas de leitura. Uma vez terminadas as atualizações, pode ser realizada uma operação Synch para atualizar as réplicas apenas de leitura.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Atualização assíncrona com a API REST](analysis-services-async-refresh.md)  
 [Escalamento horizontal do Azure Analysis Services](analysis-services-scale-out.md)  

@@ -6,12 +6,12 @@ ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: c9696167d9addc3029a53f25e289d17bd3add263
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 533d114e08464ff95c654a6f071ea28a04caf510
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073623"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564100"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Compreender como funciona a ferramenta de migração
 
@@ -104,7 +104,7 @@ Os alertas sobre as métricas de Pedidos Falhados de Mongo devem ser divididos e
 
 ### <a name="classic-compute-metrics"></a>Métricas de computação clássicas
 
-Quaisquer alertas sobre métricas de computação clássicas não serão migrados usando a ferramenta de migração, uma vez que os recursos de computação clássico ainda não são suportados com novos alertas. No futuro, será adicionado o suporte a novos alertas sobre estes tipos de recursos. Uma vez que esteja disponível, os clientes devem recriar novas regras de alerta equivalentes com base nas suas regras clássicas de alerta antes de junho de 2020.
+Quaisquer alertas sobre métricas de computação clássicas não serão migrados usando a ferramenta de migração, uma vez que os recursos de computação clássico ainda não são suportados com novos alertas. O suporte a novos alertas sobre estes tipos de recursos encontra-se atualmente em visualização pública e os clientes podem recriar novas regras de alerta equivalentes com base nas suas regras clássicas de alerta.
 
 ### <a name="classic-alert-rules-on-deprecated-metrics"></a>Regras clássicas de alerta sobre métricas precadas
 
@@ -270,7 +270,7 @@ Como parte da migração, serão criados novos alertas métricos e novos grupos 
 - Excluindo as subscrições ou grupos de recursos durante a duração do processo de migração da atribuição de políticas. [Saiba mais sobre a gestão do âmbito de exclusão de políticas.](../../governance/policy/tutorials/create-and-manage.md#exempt-a-non-compliant-or-denied-resource-using-exclusion)
 - Remover ou alterar o efeito para "auditoria" ou "apêndice" (o que, por exemplo, pode resolver problemas relacionados com as etiquetas em falta). [Saiba mais sobre a gestão do efeito políticas.](../../governance/policy/concepts/definition-structure.md#policy-rule)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Como utilizar a ferramenta de migração](alerts-using-migration-tool.md)
 - [Preparar para a migração](alerts-prepare-migration.md)

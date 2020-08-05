@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 00080322b4fa474e5095d40afb041134e1a85fe7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 93fb65fc7c7551635c49e33d0f626d72c2755a11
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519739"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553976"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Escolha um nível de preços para Azure Cognitive Search
 
@@ -61,9 +61,18 @@ Pode saber mais sobre os vários níveis na [página de preços,](https://azure.
 Uma solução construída na Azure Cognitive Search pode incorrer em custos das seguintes formas:
 
 + Custo do próprio serviço, com execução 24x7, na configuração mínima (uma partição e réplica)
+
 + Capacidade de adição (réplicas ou divisórias)
-+ Taxas de largura de banda (transferência de dados de saída) 
-+ Serviços adicionais como o enriquecimento de IA (anexando Serviços Cognitivos em skillsets que definem o processamento de IA, ou usando o armazenamento de Azure para a loja de conhecimento) ou implantando um serviço de pesquisa numa rede virtual privada
+
++ Taxas de largura de banda (transferência de dados de saída)
+
++ Serviços adicionais necessários para capacidades ou funcionalidades específicas:
+
+  + Enriquecimento de IA (requer [Serviços Cognitivos)](https://azure.microsoft.com/pricing/details/cognitive-services/)
+  + loja de conhecimento (requer [armazenamento Azure)](https://azure.microsoft.com/pricing/details/storage/)
+  + enriquecimento incremental (requer [armazenamento Azure,](https://azure.microsoft.com/pricing/details/storage/)aplica-se ao enriquecimento de IA)
+  + chaves geridas pelo cliente e encriptação dupla (requer [cofre de chave Azure)](https://azure.microsoft.com/pricing/details/key-vault/)
+  + pontos finais privados para um modelo de acesso sem internet (requer [Azure Private Link)](https://azure.microsoft.com/pricing/details/private-link/)
 
 ### <a name="service-costs"></a>Custos de serviço
 

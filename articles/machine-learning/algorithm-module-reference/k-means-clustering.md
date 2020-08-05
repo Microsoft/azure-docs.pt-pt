@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/19/2020
-ms.openlocfilehash: 9606768288cc74afc24491149eb471944f45e2dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/04/2020
+ms.openlocfilehash: 94a2c9bf3f65897809edaf94fc01b442e02b46d9
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77921169"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553007"
 ---
 # <a name="module-k-means-clustering"></a>Módulo: K-Significa Clustering
 
@@ -62,7 +62,7 @@ Quando processa os dados de treino, o algoritmo K-significa começa com um conju
   
 3.  Para **o número de centrosids,** digite o número de clusters com que o algoritmo comece.  
   
-     O modelo não é garantido para produzir exatamente este número de aglomerados. O algoritmo começa com este número de pontos de dados e iterates para encontrar a configuração ideal.  
+     O modelo não é garantido para produzir exatamente este número de aglomerados. O algoritmo começa com este número de pontos de dados e iterates para encontrar a configuração ideal. Pode consultar o [código fonte de sklearn](https://github.com/scikit-learn/scikit-learn/blob/fd237278e/sklearn/cluster/_kmeans.py#L1069).
   
 4.  As propriedades **A inicialização** é usada para especificar o algoritmo que é usado para definir a configuração inicial do cluster.  
   

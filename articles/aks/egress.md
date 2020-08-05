@@ -5,12 +5,12 @@ description: Saiba como criar e utilizar um endereço IP público estático para
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: f7ea25c3348b96ec6d8818e8e1db4660b308dabc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 81b99478358ec3d670e8d783fba27603483614ea
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517778"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563250"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-with-a-basic-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Utilize um endereço IP público estático para tráfego de saída com um balanceador de carga *SKU básico* no Serviço Azure Kubernetes (AKS)
 
@@ -20,7 +20,7 @@ Este artigo mostra-lhe como criar e usar um endereço IP público estático para
 
 ## <a name="before-you-begin"></a>Before you begin
 
-Este artigo pressupõe que está a utilizar o Balançador de Carga Básica Azure.  Recomendamos a utilização do [Balançador de Carga Padrão Azure,](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)e pode utilizar funcionalidades mais avançadas para [controlar o tráfego de saídas AKS](https://docs.microsoft.com/azure/aks/limit-egress-traffic).
+Este artigo pressupõe que está a utilizar o Balançador de Carga Básica Azure.  Recomendamos a utilização do [Balançador de Carga Padrão Azure,](../load-balancer/load-balancer-overview.md)e pode utilizar funcionalidades mais avançadas para [controlar o tráfego de saídas AKS](./limit-egress-traffic.md).
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 

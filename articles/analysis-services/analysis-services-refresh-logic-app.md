@@ -2,17 +2,17 @@
 title: Refresh with Logic Apps for Azure Analysis Services models Microsoft Docs
 description: Este artigo descreve como codificar atualização assíncrona para os Serviços de Análise Azure utilizando apps Azure Logic.
 author: chrislound
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
 ms.custom: references_regions
-ms.openlocfilehash: 9d8c3c7668da939227b3e8aaef002b4292c7d962
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7412a28b53f3b17fb888e3877ecbe50a19c4a3d3
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025324"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552242"
 ---
 # <a name="refresh-with-logic-apps"></a>Atualizar com o Logic Apps
 
@@ -114,7 +114,7 @@ Selecione as horas desejadas.
 
 Salve a App Lógica.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Amostras](analysis-services-samples.md)  
 [API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)

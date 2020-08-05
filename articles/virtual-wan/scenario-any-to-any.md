@@ -6,22 +6,43 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 08/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: ecc2b3cf236cb2a78fd595189649e7f6b176d709
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 95fa7a8c6abd0ad65b367cacef15b8faa16da640
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85569028"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553434"
 ---
 # <a name="scenario-any-to-any"></a>Cenário: Qualquer-para-qualquer
 
-Ao trabalhar com o encaminhamento virtual do hub virtual WAN, existem alguns cenários disponíveis. Em qualquer cenário, qualquer fala pode chegar a outro falado. Quando existem vários hubs, o encaminhamento hub-to-hub (também conhecido como inter-hub) é ativado por padrão em NORMAL VIRTUAL WAN. 
+Ao trabalhar com o encaminhamento virtual do hub virtual WAN, existem alguns cenários disponíveis. Em qualquer cenário, qualquer fala pode chegar a outro falado. Quando existem vários hubs, o encaminhamento hub-to-hub (também conhecido como inter-hub) é ativado por padrão em NORMAL VIRTUAL WAN. Para obter mais informações sobre o encaminhamento de hubs virtuais, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).
 
-Neste cenário, as ligações VPN, ExpressRoute e User VPN estão associadas à mesma tabela de rotas. Todas as ligações VPN, ExpressRoute e User VPN propagam rotas para o mesmo conjunto de tabelas de rotas. Para obter mais informações sobre o encaminhamento de hubs virtuais, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).
+## <a name="design"></a><a name="design"></a>Design
 
-## <a name="scenario-architecture"></a><a name="architecture"></a>Arquitetura do cenário
+Para descobrir quantas tabelas de rota serão necessárias num cenário de WAN Virtual, pode construir uma matriz de conectividade, onde cada célula representa se uma fonte (linha) pode comunicar a um destino (coluna). A matriz de conectividade neste cenário é trivial, mas incluímo-la para ser consistente com outros cenários.
+
+| De |   Para |  *VNets* | *Ramos* |
+| -------------- | -------- | ---------- | ---|
+| VNets     | &#8594;|      X     |     X    |
+| Ramos   | &#8594;|    X     |     X    |
+
+Cada uma das células da tabela anterior descreve se uma ligação WAN virtual (o lado "From" do fluxo, os cabeçalhos de linha na tabela) aprende um prefixo de destino (o lado "To" do fluxo, os cabeçalhos da coluna em itálico na tabela) para um fluxo de tráfego específico.
+
+Uma vez que todas as ligações de VNets e sucursais (VPN, ExpressRoute e User VPN) têm os mesmos requisitos de conectividade, é necessária uma única tabela de rotas. Como resultado, todas as ligações serão associadas e propagadas para a mesma tabela de rotas, a tabela de rotas predefinida:
+
+* Redes virtuais:
+  * Tabela de rotas associada: **Padrão**
+  * Propagação para tabelas de rotas: **Predefinido**
+* Ramos:
+  * Tabela de rotas associada: **Padrão**
+  * Propagação para tabelas de rotas: **Predefinido**
+
+Para obter mais informações sobre o encaminhamento de hubs virtuais, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).
+
+## <a name="architecture"></a><a name="architecture"></a>Arquitetura
 
 Na **Figura 1**, todos os VNets e Ramos (VPN, ExpressRoute, P2S) podem chegar uns aos outros. Num centro virtual, as ligações funcionam da seguinte forma:
 
@@ -35,7 +56,7 @@ Estas ligações (por padrão na criação) estão associadas à tabela de rotas
 
 :::image type="content" source="./media/routing-scenarios/any-any/figure-1.png" alt-text="figura 1":::
 
-## <a name="scenario-workflow"></a><a name="workflow"></a>Fluxo de trabalho de cenário
+## <a name="workflow"></a><a name="workflow"></a>Fluxo de trabalho
 
 Este cenário é ativado por padrão para STANDARD Virtual WAN. Se a definição de ramo-a-ramo for desativada na configuração WAN, isso irá desativar a conectividade entre os raios-ramos. VPN/ExpressRoute/User VPN são considerados porta-vozes de sucursais em VIRTUAL WAN
 

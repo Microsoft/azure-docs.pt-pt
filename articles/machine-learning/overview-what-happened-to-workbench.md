@@ -11,12 +11,12 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 03/05/2020
-ms.openlocfilehash: fa9b99f1ad2a81e7edac4574324d9f883effe19c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6be41ab4b172a6d111d9ff648cfd85a2ab026b9a
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318815"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553670"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>O que aconteceu ao Azure Machine Learning Workbench?
 
@@ -42,7 +42,7 @@ O mais recente lançamento do Azure Machine Learning inclui as seguintes funcion
 
 A [arquitetura](concept-azure-machine-learning-architecture.md) foi redesenhada para facilitar o uso. Em vez de vários recursos e contas do Azure, precisa apenas de uma [Área de Trabalho do Azure Machine Learning](concept-workspace.md). Pode criar áreas de trabalho rapidamente no [portal do Azure](how-to-manage-workspace.md). Ao utilizar um espaço de trabalho, vários utilizadores podem armazenar alvos de treinamento e implementação de computação, experiências de modelos, imagens Docker, modelos implantados, e assim por diante.
 
-Apesar de existirem novos clientes CLI e SDK melhorados na versão atual, a própria aplicação de workbench foi reformada. As experiências podem ser geridas no painel de instrumentos do [espaço de trabalho no estúdio Azure Machine Learning](how-to-track-experiments.md#view-the-experiment-in-the-web-portal). Utilize o dashboard para obter o histórico de experimentações, gerir os destinos de computação associados à sua área de trabalho, gerir os seus modelos e imagens do Docker e até implementar serviços Web.
+Apesar de existirem novos clientes CLI e SDK melhorados na versão atual, a própria aplicação de workbench foi reformada. As experiências podem ser geridas no painel de instrumentos do [espaço de trabalho no estúdio Azure Machine Learning](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal). Utilize o dashboard para obter o histórico de experimentações, gerir os destinos de computação associados à sua área de trabalho, gerir os seus modelos e imagens do Docker e até implementar serviços Web.
 
 <a name="timeline"></a>
 
@@ -92,7 +92,7 @@ Saiba mais nestes artigos:
 + [Onde e como implementar modelos](how-to-deploy-and-where.md)
 + [Tutorial: Implementar modelos com aprendizagem automática Azure](tutorial-deploy-models-with-aml.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Conheça a [mais recente arquitetura para Azure Machine Learning.](concept-azure-machine-learning-architecture.md)
 

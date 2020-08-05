@@ -2,23 +2,27 @@
 title: Arquivos e diretórios em Azure Batch
 description: Saiba mais sobre ficheiros e diretórios e como são usados num fluxo de trabalho do Azure Batch do ponto de vista do desenvolvimento.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: e7babb7e2cfdbbe78f61be766c549c1e80cacf98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/03/2020
+ms.openlocfilehash: eafea6c234c3b261521f8a791b7a03e25388f02a
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83791121"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552646"
 ---
 # <a name="files-and-directories-in-azure-batch"></a>Arquivos e diretórios em Azure Batch
 
-Em Azure Batch, cada tarefa tem um diretório de trabalho sob o qual cria zero ou mais ficheiros e diretórios. Este diretório de trabalho pode ser utilizado para armazenar o programa que é executado pela tarefa, os dados que processa e o resultado do processamento feito. Todos os ficheiros e diretórios de uma tarefa são propriedade do utilizador da tarefa.
+Em Azure Batch, cada tarefa tem um diretório de trabalho no qual pode criar ficheiros e diretórios. Este diretório de trabalho pode ser utilizado para armazenar o programa que é executado pela tarefa, os dados que processa e o resultado do processamento feito. Todos os ficheiros e diretórios de uma tarefa são propriedade do utilizador da tarefa.
 
-O serviço Batch expõe uma parte do sistema de ficheiros num nó como o *diretório de raiz*. As tarefas podem consultar a variável de ambiente `AZ_BATCH_NODE_ROOT_DIR` para aceder ao diretório de raiz. Para obter mais informações sobre como utilizar variáveis de ambiente, consulte [Definições de ambiente para tarefas](jobs-and-tasks.md#environment-settings-for-tasks).
+O serviço Batch expõe uma parte do sistema de ficheiros num nó como o *diretório de raiz*. Este diretório de raiz está localizado na unidade de armazenamento temporário do VM, e não diretamente na unidade de sistema operativo.
+
+As tarefas podem consultar a variável de ambiente `AZ_BATCH_NODE_ROOT_DIR` para aceder ao diretório de raiz. Para obter mais informações sobre como utilizar variáveis de ambiente, consulte [Definições de ambiente para tarefas](jobs-and-tasks.md#environment-settings-for-tasks).
+
+## <a name="root-directory-structure"></a>Estrutura de diretório de raiz
 
 O diretório de raiz contém a seguinte estrutura de diretórios:
 
-! [Estrutura de diretório de nó computacional] [media\files-and-directories\node-folder-structure.png]
+![Screenshot da estrutura do diretório do nó de computação.](media\files-and-directories\node-folder-structure.png)
 
 - **aplicações**: Contém informações sobre os detalhes dos pacotes de aplicações instalados no nó de cálculo. As tarefas podem consultar a variável de ambiente `AZ_BATCH_APP_PACKAGE` para aceder a este diretório.
 
@@ -33,7 +37,7 @@ O diretório de raiz contém a seguinte estrutura de diretórios:
 - **workitems**: Este diretório contém os diretórios para empregos e as suas tarefas no nó de computação.
 
     Dentro do **diretório de workitems,** é criado um diretório **de Tarefas** para cada tarefa que executa no nó. Este diretório pode ser acedido referindo a `AZ_BATCH_TASK_DIR` variável ambiental.
-    
+
     Dentro de cada **diretório de Tarefas,** o serviço Batch cria um diretório de trabalho ( `wd` ) cujo caminho único é especificado pela `AZ_BATCH_TASK_WORKING_DIR` variável ambiental. Este diretório proporciona acesso de leitura/escrita à tarefa. A tarefa pode criar, ler, atualizar e eliminar ficheiros neste diretório. Este diretório é mantido com base na restrição *RetentionTime* especificada para a tarefa.
 
     Os `stdout.txt` `stderr.txt` ficheiros e ficheiros são escritos na pasta **Tarefas** durante a execução da tarefa.

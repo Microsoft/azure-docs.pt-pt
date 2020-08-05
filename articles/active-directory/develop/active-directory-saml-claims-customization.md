@@ -1,7 +1,7 @@
 ---
-title: Personalize as alegações da app Azure AD SAML
+title: Personalizar pedidos de ficha SAML
 titleSuffix: Microsoft identity platform
-description: Saiba como personalizar as reclamações emitidas no token SAML para aplicações empresariais em Azure AD.
+description: Saiba como personalizar as alegações emitidas pela plataforma de identidade Microsoft no token SAML para aplicações empresariais.
 services: active-directory
 author: kenwith
 manager: CelesteDG
@@ -13,20 +13,20 @@ ms.date: 10/22/2019
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5cce985e3f63ade94fb626d18bded440caeff1fa
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f35e5971374f54940396f602a23ffa0ae3abd015
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87274473"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552837"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como: personalizar reclamações emitidas no token SAML para aplicações empresariais
 
-Hoje, o Azure Ative Directory (Azure AD) suporta um único sign-on (SSO) com a maioria das aplicações empresariais, incluindo ambas as aplicações pré-integradas na galeria de aplicações AD AZure, bem como aplicações personalizadas. Quando um utilizador autentica uma aplicação através do Azure AD utilizando o protocolo SAML 2.0, a Azure AD envia um símbolo para a aplicação (através de um HTTP POST). E, em seguida, a aplicação valida e utiliza o token para iniciar sessão no utilizador em vez de solicitar um nome de utilizador e senha. Estes tokens SAML contêm peças de informação sobre o utilizador conhecido como *sinistros.*
+Hoje em dia, a plataforma de identidade da Microsoft suporta um único sign-on (SSO) com a maioria das aplicações empresariais, incluindo ambas as aplicações pré-integradas na galeria de aplicações AD AZure, bem como aplicações personalizadas. Quando um utilizador autentica uma aplicação através da plataforma de identidade da Microsoft utilizando o protocolo SAML 2.0, a plataforma de identidade da Microsoft envia um símbolo para a aplicação (através de um HTTP POST). E, em seguida, a aplicação valida e utiliza o token para iniciar sessão no utilizador em vez de solicitar um nome de utilizador e senha. Estes tokens SAML contêm peças de informação sobre o utilizador conhecido como *sinistros.*
 
 Uma *alegação* é informação que um fornecedor de identidade afirma sobre um utilizador dentro do token que emite para esse utilizador. No [token SAML,](https://en.wikipedia.org/wiki/SAML_2.0)estes dados estão tipicamente contidos na Declaração de Atributos SAML. O ID único do utilizador é tipicamente representado no Sujeito SAML também chamado de Identificador de Nome.
 
-Por padrão, a Azure AD emite um token SAML na sua aplicação que contém uma `NameIdentifier` reclamação com um valor do nome de utilizador do utilizador (também conhecido como nome principal do utilizador) em Azure AD, que pode identificar exclusivamente o utilizador. O token SAML também contém reclamações adicionais que contêm o endereço de e-mail do utilizador, o primeiro nome e o apelido.
+Por predefinição, a plataforma de identidade da Microsoft emite um token SAML na sua aplicação que contém uma `NameIdentifier` reclamação com um valor do nome de utilizador do utilizador (também conhecido como nome principal do utilizador) em Azure AD, que pode identificar exclusivamente o utilizador. O token SAML também contém reclamações adicionais que contêm o endereço de e-mail do utilizador, o primeiro nome e o apelido.
 
 Para visualizar ou editar as reclamações emitidas no token SAML para a aplicação, abra a aplicação no portal Azure. Em seguida, abra a secção **Atributos do Utilizador & Reclamações.**
 
@@ -48,19 +48,19 @@ Para editar o NameID (valor do identificador de nome):
 
 ### <a name="nameid-format"></a>Formato NameID
 
-Se o pedido DE SAML contiver o elemento NameIDPolicy com um formato específico, então a Azure AD honrará o formato no pedido.
+Se o pedido DE SAML contiver o elemento NameIDPolicy com um formato específico, então a plataforma de identidade da Microsoft honrará o formato no pedido.
 
-Se o pedido DE SAML não contiver um elemento para NameIDPolicy, então a AZure AD emitirá o NameID com o formato especificado. Se nenhum formato for especificado, o Azure AD utilizará o formato de origem predefinido associado à fonte de reclamação selecionada.
+Se o pedido DE SAML não contiver um elemento para NameIDPolicy, então a plataforma de identidade da Microsoft emitirá o NameID com o formato especificado. Se nenhum formato for especificado, a plataforma de identidade da Microsoft utilizará o formato de origem padrão associado à fonte de reclamação selecionada.
 
 A partir do dropdown do **formato do identificador de nome Escolher,** pode selecionar uma das seguintes opções.
 
 | Formato NameID | Descrição |
 |---------------|-------------|
-| **Predefinição** | O Azure AD utilizará o formato de origem predefinido. |
-| **Persistente** | O Azure AD utilizará o Persistente como formato NameID. |
-| **EmailAddress** | A Azure AD usará o EmailAddress como o formato NameID. |
-| **Não especificado** | A Azure AD usará Não Especificado como o formato NameID. |
-| **Nome qualificado do domínio do Windows** | O Azure AD utilizará o Nome WindowsDomainQualified como o formato NameID. |
+| **Predefinição** | A plataforma de identidade da Microsoft utilizará o formato de origem padrão. |
+| **Persistente** | A plataforma de identidade da Microsoft utilizará o Persistente como formato NameID. |
+| **EmailAddress** | A plataforma de identidade da Microsoft utilizará o EmailAddress como o formato NameID. |
+| **Não especificado** | A plataforma de identidade da Microsoft utilizará o formato NameID não especificado como. |
+| **Nome qualificado do domínio do Windows** | A plataforma de identidade da Microsoft utilizará o Nome WindowsDomainQualified como o formato NameID. |
 
 O NameID transitório também é suportado, mas não está disponível no dropdown e não pode ser configurado do lado de Azure. Para saber mais sobre o atributo NameIDPolicy, consulte o [protocolo SAML de assinatura única](single-sign-on-saml-protocol.md).
 
@@ -169,13 +169,13 @@ Para adicionar uma condição de reclamação:
 
 A ordem pela qual se adiciona as condições são importantes. A Azure AD avalia as condições de cima para baixo para decidir qual o valor a emitir na reclamação. 
 
-Por exemplo, Britta Simon é uma utilizadora convidada do inquilino contoso. Ela pertence a outra organização que também usa Azure AD. Dada a configuração abaixo para a aplicação Fabrikam, quando Britta tentar entrar em Fabrikam, a Azure AD avaliará as condições da seguinte forma.
+Por exemplo, Britta Simon é uma utilizadora convidada do inquilino contoso. Ela pertence a outra organização que também usa Azure AD. Dada a configuração abaixo para a aplicação Fabrikam, quando Britta tentar entrar em Fabrikam, a plataforma de identidade da Microsoft avaliará as condições da seguinte forma.
 
-Em primeiro lugar, a Azure AD verifica se o tipo de utilizador da Britta é `All guests` . Uma vez que, isto é verdade, então a AD Azure atribui a fonte para a reivindicação a `user.extensionattribute1` . Em segundo lugar, a Azure AD verifica se o tipo de utilizador da Britta é `AAD guests` , uma vez que isso também é verdade então a AD Azure atribui a fonte para a reivindicação a `user.mail` . Finalmente, a reclamação é emitida com valor `user.mail` para a Britta.
+Em primeiro lugar, a plataforma de identidade da Microsoft verifica se o tipo de utilizador da Britta é `All guests` . Uma vez que, isto é verdade, então a plataforma de identidade da Microsoft atribui a fonte para a reivindicação a `user.extensionattribute1` . Em segundo lugar, a plataforma de identidade da Microsoft verifica se o tipo de utilizador da Britta é `AAD guests` , uma vez que isso também é verdade, então a plataforma de identidade da Microsoft atribui a fonte para a alegação de `user.mail` . Finalmente, a reclamação é emitida com valor `user.mail` para a Britta.
 
 ![Configuração condicional de reclamações](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Gestão de aplicações em Azure AD](../manage-apps/what-is-application-management.md)
 * [Configurar aplicações únicas de inscrição que não constam da galeria de candidaturas Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)

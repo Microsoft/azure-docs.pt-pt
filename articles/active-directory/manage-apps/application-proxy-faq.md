@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 5b95ae3c7fcf52a732304bb835f91c52b015801e
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: aa9a930195908671cc0e772fd9643dcbce9dbb1c
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128935"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562417"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Diretório Ativo (Azure AD) Aplicação Proxy frequentemente perguntas
 
@@ -45,6 +45,10 @@ Não, este cenário não é apoiado. As definições predefinidos são:
 - Conector Proxy de aplicação da Microsoft AAD - WAPCSvc - Serviço de Rede
 - Microsoft AAD Application Proxy Connector Updater - WAPCUpdaterSvc - NT Authority\System
 
+### <a name="can-a-guest-user-with-the-global-administrator-or-the-application-administrator-role-register-the-connector-for-the-guest-tenant"></a>Pode um utilizador convidado com o Administrador Global ou a função de Administrador de Aplicação registar o conector para o inquilino (hóspede)?
+
+Não, neste momento, isto não é possível. A tentativa de registo é sempre feita no arrendatário do utilizador.
+
 ### <a name="my-back-end-application-is-hosted-on-multiple-web-servers-and-requires-user-session-persistence-stickiness-how-can-i-achieve-session-persistence"></a>A minha aplicação back-end está hospedada em vários servidores web e requer persistência da sessão do utilizador (pegajosa). Como posso alcançar a persistência da sessão? 
 
 Para obter recomendações, consulte [alta disponibilidade e equilíbrio de carga dos conectores e aplicações do seu Application Proxy](application-proxy-high-availability-load-balancing.md).
@@ -54,7 +58,7 @@ Para obter recomendações, consulte [alta disponibilidade e equilíbrio de carg
 O Conector de Procuração de Aplicações realiza a autenticação baseada em certificados para a Azure. A rescisão de TLS (inspeção ou aceleração TLS/HTTPS) quebra este método de autenticação e não é suportada. O tráfego do conector para o Azure deve contornar todos os dispositivos que estejam a realizar a Rescisão TLS.  
 
 ### <a name="is-tls-12-required-for-all-connections"></a>O TLS 1.2 é necessário para todas as ligações?
-Yes. Para fornecer a melhor encriptação em classe aos nossos clientes, o serviço Application Proxy limita o acesso a apenas protocolos TLS 1.2. Estas alterações foram gradualmente lançadas e eficazes desde 31 de agosto de 2019. Certifique-se de que todas as combinações de servidores de clientes e servidores de navegador são atualizadas para utilizar o TLS 1.2 para manter a ligação ao serviço De procuração de aplicações. Estes incluem clientes que os seus utilizadores estão a usar para aceder a aplicações publicadas através do Application Proxy. Consulte a preparação para [o TLS 1.2 no Office 365](https://docs.microsoft.com/microsoft-365/compliance/prepare-tls-1.2-in-office-365) para obter referências e recursos úteis.
+Sim. Para fornecer a melhor encriptação em classe aos nossos clientes, o serviço Application Proxy limita o acesso a apenas protocolos TLS 1.2. Estas alterações foram gradualmente lançadas e eficazes desde 31 de agosto de 2019. Certifique-se de que todas as combinações de servidores de clientes e servidores de navegador são atualizadas para utilizar o TLS 1.2 para manter a ligação ao serviço De procuração de aplicações. Estes incluem clientes que os seus utilizadores estão a usar para aceder a aplicações publicadas através do Application Proxy. Consulte a preparação para [o TLS 1.2 no Office 365](https://docs.microsoft.com/microsoft-365/compliance/prepare-tls-1.2-in-office-365) para obter referências e recursos úteis.
 
 ### <a name="can-i-place-a-forward-proxy-device-between-the-connector-servers-and-the-back-end-application-server"></a>Posso colocar um dispositivo de procuração para a frente entre o(s) servidor(s) do conector e o servidor de aplicação de back-end?
 Sim, este cenário é suportado a partir da versão do conector 1.5.1526.0. Consulte [o Trabalho com os servidores proxy existentes no local.](application-proxy-configure-connectors-with-proxy-servers.md)
@@ -173,7 +177,7 @@ As funcionalidades (Eventlogs, PowerShell e Remote Desktop Services) no Windows 
 
 ### <a name="does-using-link-translation-affect-performance"></a>A utilização da tradução link afeta o desempenho?
 
-Yes. A tradução de ligação afeta o desempenho. O serviço Application Proxy digitaliza a aplicação de links codificados e substitui-os pelos respetivos URLs externos publicados antes de os apresentar ao utilizador. 
+Sim. A tradução de ligação afeta o desempenho. O serviço Application Proxy digitaliza a aplicação de links codificados e substitui-os pelos respetivos URLs externos publicados antes de os apresentar ao utilizador. 
 
 Para um melhor desempenho, recomendamos a utilização de URLs internos e externos idênticos configurando [domínios personalizados](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain). Se não for possível utilizar domínios personalizados, pode melhorar o desempenho da tradução de ligações utilizando o Signo Seguro das Minhas Aplicações em Extensão ou o Navegador Microsoft Edge no telemóvel. Consulte [links codificados para apps publicadas com Proxy de aplicações AD AD Azure.](application-proxy-configure-hard-coded-link-translation.md)
 

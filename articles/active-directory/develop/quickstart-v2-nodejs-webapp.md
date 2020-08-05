@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-javascript
-ms.openlocfilehash: 165f3dab2413afc09a67175bb10471c2bd53ea32
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 149ed7aa281e50673c86c0bd7339f304aa63914a
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129173"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552684"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Quickstart: Adicione o sinal na utilização do OpenID Connect a uma aplicação web Node.js
 
@@ -52,7 +52,7 @@ Para executar esta amostra, você precisará:
 
 1. Na lista de páginas da aplicação, selecione **Autenticação**.
     - Na secção **Redirecionar URIs,** selecione **Web** na caixa de combinação e introduza o seguinte redireccionamento URI:`http://localhost:3000/auth/openid/return`
-    - Na secção **definições Avançadas,** defina **o URL de logout** para `http://localhost:3000` .
+    - Na secção **definições Avançadas,** defina **o URL de logout** para `https://localhost:3000` .
     - Nas **definições avançadas > secção de subvenção implícita,** verifique **os tokens de identificação,** uma vez que esta amostra requer que o fluxo de [subvenção implícito](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-implicit-grant-flow) seja ativado para iniciar a sposição do utilizador.
 
 1. Selecione **Guardar**.
@@ -124,7 +124,7 @@ Terá um servidor a funcionar com sucesso `http://localhost:3000` .
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre o cenário de aplicações web que a plataforma de identidade da Microsoft suporta:
 > [!div class="nextstepaction"]
 > [Aplicação web que assina no cenário dos utilizadores](scenario-web-app-sign-user-overview.md)

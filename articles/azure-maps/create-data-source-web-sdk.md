@@ -9,18 +9,21 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 57589552af3b93d98733d4872b43a719703d501a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4f51afbcf50939d762b1b5d32d6204ccfbb9a62d
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285735"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87551681"
 ---
 # <a name="create-a-data-source"></a>Criar uma origem de dados
 
 O Azure Maps Web SDK armazena dados em fontes de dados. A utilização de fontes de dados otimiza as operações de dados para consulta e renderização. Atualmente existem dois tipos de fontes de dados:
 
-**Fonte de dados da GeoJSON**
+- **GeoJSON fonte**: Gere dados de localização bruta em formato GeoJSON localmente. Bom para pequenos a médios conjuntos de dados (mais de centenas de milhares de formas).
+- **Fonte de azulejos vetoriais**: Carrega dados formatados como azulejos vetoriais para a visão do mapa atual, com base no sistema de inclinação de mapas. Ideal para grandes e maciços conjuntos de dados (milhões ou biliões de formas).
+
+## <a name="geojson-data-source"></a>Fonte de dados da GeoJSON
 
 Uma carga de fonte de dados baseada em GeoJSON e armazena dados localmente usando a `DataSource` classe. Os dados da GeoJSON podem ser criados manualmente ou criados utilizando as classes de ajudantes no espaço de [nomes atlas.data.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) A `DataSource` classe fornece funções para importar ficheiros GeoJSON locais ou remotos. Os ficheiros GeoJSON remotos devem ser alojados num ponto final ativado por CORs. A `DataSource` classe fornece funcionalidade para os dados de ponto de agrupamento. E, os dados podem ser facilmente adicionados, removidos e atualizados com a `DataSource` classe. O código que se segue mostra como os dados da GeoJSON podem ser criados no Azure Maps.
 
@@ -37,7 +40,7 @@ var rawGeoJson = {
      }
 };
 
-//Create GeoJSON using helper classes (less error prone).
+//Create GeoJSON using helper classes (less error prone and less typing).
 var geoJsonClass = new atlas.data.Feature(new atlas.data.Point([-100, 45]), {
     "custom-property": "value"
 }); 
@@ -69,7 +72,7 @@ dataSource.setShapes(geoJsonData);
 > [!TIP]
 > Digamos que quer substituir todos os dados de uma `DataSource` . Se fizer chamadas para as funções do `clear` `add` então, o mapa pode voltar a renderizar duas vezes, o que pode causar um pouco de atraso. Em vez disso, utilize a `setShapes` função, que removerá e substituirá todos os dados na fonte de dados e apenas desencadeará uma única re-renderização do mapa.
 
-**Fonte de azulejos do vetor**
+## <a name="vector-tile-source"></a>Fonte de azulejos do vetor
 
 Uma fonte de azulejos do vetor descreve como aceder a uma camada de azulejo vetorial. Use a classe [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource) para instantaneaizar uma fonte de azulejos vetoriais. As camadas de azulejos vetoriais são semelhantes às camadas de azulejos, mas não são as mesmas. Uma camada de azulejo é uma imagem raster. As camadas de azulejos vetoriais são um ficheiro comprimido, em formato **PBF.** Este ficheiro comprimido contém dados de mapas de vetores e uma ou mais camadas. O ficheiro pode ser renderizado e modelado no cliente, com base no estilo de cada camada. Os dados de um azulejo vetorial contêm características geográficas sob a forma de pontos, linhas e polígonos. Existem várias vantagens de usar camadas de azulejos vetoriais em vez de camadas de azulejos rasteres:
 
@@ -88,7 +91,7 @@ Azure Maps adere à [especificação do azulejo do vetor mapbox,](https://github
 > [!TIP]
 > Ao utilizar azulejos de imagem vetor ou raster do Azure Maps, o serviço de prestação de dados com a web SDK, pode `atlas.microsoft.com` substituir-se pelo espaço reservado `{azMapsDomain}` . Este espaço reservado será substituído pelo mesmo domínio utilizado pelo mapa e anexará automaticamente os mesmos detalhes de autenticação também. Isto simplifica consideravelmente a autenticação com o serviço de prestação quando se utiliza a autenticação do Azure Ative Directory.
 
-Para exibir dados de uma fonte de azulejos vetoriais no mapa, ligue a fonte a uma das camadas de renderização de dados. Todas as camadas que usam uma fonte vetorial devem especificar um `sourceLayer` valor nas opções. FO código seguinte carrega o serviço de vetor de fluxo de tráfego Azure Maps como uma fonte de azulejo vetorial, em seguida, exibe-o em um mapa usando uma camada de linha. Esta fonte de azulejos vetoriais tem um único conjunto de dados na camada de origem chamada "Fluxo de tráfego". Os dados da linha neste conjunto de dados têm uma propriedade chamada `traffic_level` que é usada neste código para selecionar a cor e escalar o tamanho das linhas.
+Para exibir dados de uma fonte de azulejos vetoriais no mapa, ligue a fonte a uma das camadas de renderização de dados. Todas as camadas que usam uma fonte vetorial devem especificar um `sourceLayer` valor nas opções. O código seguinte carrega o serviço de vetor de fluxo de tráfego Azure Maps como uma fonte de azulejo vetorial, em seguida, exibe-o em um mapa usando uma camada de linha. Esta fonte de azulejos vetoriais tem um único conjunto de dados na camada de origem chamada "Fluxo de tráfego". Os dados da linha neste conjunto de dados têm uma propriedade chamada `traffic_level` que é usada neste código para selecionar a cor e escalar o tamanho das linhas.
 
 ```javascript
 //Create a vector tile source and add it to the map.
@@ -205,7 +208,7 @@ var bubbleLayer = new atlas.layer.BubbleLayer(dataSource, 'myBubbleLayer', {
 map.layers.add([polygonLayer, lineLayer, bubbleLayer]);
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 

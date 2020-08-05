@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: b7bebfb227de3f9f1c51024845054d2d7a02f923
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 77eaa3e1f4390182ad210ae3aa2ce6a1427d8b0f
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285650"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87551902"
 ---
 # <a name="create-a-map"></a>Criar um mapa
 
@@ -128,13 +128,54 @@ No código seguinte, o primeiro bloco de código cria um mapa e define os estilo
 <iframe height='500' scrolling='no' title='Vista do mapa animado' src='//codepen.io/azuremaps/embed/WayvbO/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a Vista <a href='https://codepen.io/azuremaps/pen/WayvbO/'>do Mapa Da Caneta Animate</a> by Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+## <a name="request-transforms"></a>Pedido transforma
+
+Por vezes, é útil ser capaz de modificar os pedidos HTTP feitos pelo controlo do mapa. Por exemplo:
+
+- Adicione cabeçalhos adicionais aos pedidos de azulejos. Isto é muitas vezes feito para serviços protegidos por palavra-passe.
+- Modificar URLs para executar pedidos através de um serviço de procuração.
+
+As [opções](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.serviceoptions) de serviço do mapa têm uma `transformRequest` que pode ser usada para modificar todos os pedidos feitos pelo mapa antes de serem feitos. A `transformRequest` opção é uma função que toma dois parâmetros; um URL de corda, e uma cadeia de tipo de recurso que indica para que o pedido é usado. Esta função deve devolver um [resultado de PedidoParameters.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.requestparameters)
+
+```JavaScript
+transformRequest: (url: string, resourceType: string) => RequestParameters
+```
+
+O exemplo a seguir mostra como usá-lo para modificar todos os pedidos ao `https://example.com` tamanho, adicionando um nome de utilizador e palavra-passe como cabeçalhos ao pedido.
+
+```JavaScript
+var map = new atlas.Map('myMap', {
+    transformRequest: function (url, resourceType) {
+        //Check to see if the request is to the specified endpoint.
+        if (url.indexOf('https://examples.com') > -1) {
+            //Add custom headers to the request.
+            return {
+                url: url,
+                header: {
+                    username: 'myUsername',
+                    password: 'myPassword'
+                }
+            };
+        }
+
+        //Return the URL unchanged by default.
+        return { url: url };
+    },
+
+    authOptions: {
+        authType: 'subscriptionKey',
+        subscriptionKey: '<Your Azure Maps Key>'
+    }
+});
+```
+
 ## <a name="try-out-the-code"></a>Experimente o código
 
 Olha para as amostras de código. Pode editar o código JavaScript dentro do **separador JS** e ver as alterações da visualização do mapa no **separador Resultados.** Também pode clicar **em Editar no CodePen,** no canto superior direito, e modificar o código no CodePen.
 
 <a id="relatedReference"></a>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 

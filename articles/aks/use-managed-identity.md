@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/17/2020
 ms.author: thomasge
-ms.openlocfilehash: e96126d1516e8a1e20e6f6db9b3a448b94c71cd7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0e660678f33f36b75147c2513c77d3085136127d
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050606"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563208"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Utilize identidades geridas no Serviço Azure Kubernetes
 
@@ -35,20 +35,20 @@ Deve ter o seguinte recurso instalado:
 
 A AKS usa várias identidades geridas para serviços incorporados e addons.
 
-| Identidade                       | Name    | Caso de utilização | Permissões por defeito | Traga a sua própria identidade
+| Identidade                       | Nome    | Caso de utilização | Permissões por defeito | Traga a sua própria identidade
 |----------------------------|-----------|----------|
 | Plano de controlo | não visível | Utilizado pela AKS para recursos de rede geridos, incluindo equilibradores de carga ingresss e IPs públicos geridos por AKS | Papel contribuinte para o grupo de recursos nó | Pré-visualizar
 | Kubelet | AKS Cluster Name-agentpool | Autenticação com Registo de Contentores Azure (ACR) | Função do leitor para grupo de recursos de nó | Atualmente, não é suportado
-| Add-on | AzurenPM | Nenhuma identidade necessária | ND | No
-| Add-on | Monitorização da rede AzureCNI | Nenhuma identidade necessária | ND | No
-| Add-on | azurepolicy (gatekeeper) | Nenhuma identidade necessária | ND | No
-| Add-on | azurepolicy | Nenhuma identidade necessária | ND | No
-| Add-on | Calico | Nenhuma identidade necessária | ND | No
-| Add-on | Dashboard | Nenhuma identidade necessária | ND | No
-| Add-on | HTTPApplicationRouting | Gere os recursos de rede necessários | Função do leitor para grupo de recursos de nó, papel de contribuinte para a zona DNS | No
-| Add-on | Gateway de aplicação ingress | Gere os recursos de rede necessários| Papel contribuinte para o grupo de recursos de nó | No
-| Add-on | omsagent | Usado para enviar métricas AKS para Azure Monitor | Função de editor de métricas de monitorização | No
-| Add-on | Nó virtual (ACIConnector) | Gere os recursos de rede necessários para as instâncias do contentor Azure (ACI) | Papel contribuinte para o grupo de recursos de nó | No
+| Add-on | AzurenPM | Nenhuma identidade necessária | ND | Não
+| Add-on | Monitorização da rede AzureCNI | Nenhuma identidade necessária | ND | Não
+| Add-on | azurepolicy (gatekeeper) | Nenhuma identidade necessária | ND | Não
+| Add-on | azurepolicy | Nenhuma identidade necessária | ND | Não
+| Add-on | Calico | Nenhuma identidade necessária | ND | Não
+| Add-on | Dashboard | Nenhuma identidade necessária | ND | Não
+| Add-on | HTTPApplicationRouting | Gere os recursos de rede necessários | Função do leitor para grupo de recursos de nó, papel de contribuinte para a zona DNS | Não
+| Add-on | Gateway de aplicação ingress | Gere os recursos de rede necessários| Papel contribuinte para o grupo de recursos de nó | Não
+| Add-on | omsagent | Usado para enviar métricas AKS para Azure Monitor | Função de editor de métricas de monitorização | Não
+| Add-on | Nó virtual (ACIConnector) | Gere os recursos de rede necessários para as instâncias do contentor Azure (ACI) | Papel contribuinte para o grupo de recursos de nó | Não
 
 
 ## <a name="create-an-aks-cluster-with-managed-identities"></a>Criar um cluster AKS com identidades geridas
@@ -207,10 +207,10 @@ Uma criação de cluster bem sucedida usando as suas próprias identidades gerid
  },
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Utilize [os modelos Azure Resource Manager (ARM)][aks-arm-template] para criar clusters ativados pela Identidade Gerida.
 
 <!-- LINKS - external -->
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
-[az-identity-create]: https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az-identity-create
-[az-identity-list]: https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az-identity-list
+[az-identity-create]: /cli/azure/identity?view=azure-cli-latest#az-identity-create
+[az-identity-list]: /cli/azure/identity?view=azure-cli-latest#az-identity-list

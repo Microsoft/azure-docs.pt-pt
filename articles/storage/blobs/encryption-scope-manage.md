@@ -1,20 +1,20 @@
 ---
 title: Criar e gerir os âmbitos de encriptação (pré-visualização)
-description: ''
+description: Aprenda a criar um âmbito de encriptação para isolar dados de bolhas no nível do recipiente ou do blob.
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 07/13/2020
+ms.date: 08/04/2020
 ms.topic: conceptual
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: f589f0108cf21e77be5103afcaa0242c6f191ab3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d4dd3f3ced8aac6852fe8516a4a5cadca2ebdc49
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532471"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564151"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>Criar e gerir os âmbitos de encriptação (pré-visualização)
 
@@ -24,7 +24,7 @@ Este artigo mostra como criar um âmbito de encriptação. Também mostra como e
 
 ## <a name="create-an-encryption-scope"></a>Criar um âmbito de encriptação
 
-Para criar um âmbito de encriptação, tem primeiro de criar um cofre de chave Azure e adicionar a chave que pretende utilizar para o âmbito. O cofre-chave deve ter as propriedades de **Proteção** de **Eliminação Suave** e Purga ativadas e deve estar na mesma região que a conta de armazenamento. Para obter mais informações, consulte [as teclas geridas pelo cliente com o Azure Key Vault para gerir a encriptação do Armazenamento Azure](../common/encryption-customer-managed-keys.md).
+Pode criar âmbitos de encriptação com uma chave gerida pela Microsoft ou com uma chave gerida pelo cliente que está armazenada no Cofre de Chaves Azure. Para criar um âmbito de encriptação com uma chave gerida pelo cliente, tem primeiro de criar um cofre de chave Azure e adicionar a chave que pretende utilizar para o âmbito. O cofre-chave deve ter as propriedades de **Proteção** de **Eliminação Suave** e Purga ativadas e deve estar na mesma região que a conta de armazenamento. Para obter mais informações, consulte [as teclas geridas pelo cliente com o Azure Key Vault para gerir a encriptação do Armazenamento Azure](../common/encryption-customer-managed-keys.md).
 
 Um âmbito de encriptação é automaticamente ativado quando o cria. Depois de criar o âmbito de encriptação, pode especipulá-lo quando criar uma bolha. Também pode especificar um âmbito de encriptação predefinido quando criar um recipiente, que se aplica automaticamente a todas as bolhas do recipiente.
 

@@ -1,7 +1,7 @@
 ---
-title: Configuráveis Azure AD token lifetimes
+title: Vidas simbólicas configuráveis
 titleSuffix: Microsoft identity platform
-description: Saiba como definir vidas para fichas emitidas pela Azure AD.
+description: Saiba como definir vidas para fichas emitidas pela plataforma de identidade microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,16 +13,16 @@ ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 23283a44f78522d2b589993c11b494092352cbb6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d25c2e2603f36ff090d01f235a4c8e4a1ae12605
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478370"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552854"
 ---
-# <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Vidas simbólicas configuráveis no Diretório Ativo Azure (Pré-visualização)
+# <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Vidas de token configuradas na plataforma de identidade da Microsoft (Preview)
 
-Pode especificar a duração de um token emitido pelo Azure Active Directory (Azure AD). Pode definir durações de tokens para todas as aplicações existentes na sua organização, para uma aplicação multi-inquilino (com várias organizações) ou para um principal de serviço específico na sua organização.
+Pode especificar a vida útil de um símbolo emitido pela plataforma de identidade Microsoft. Pode definir durações de tokens para todas as aplicações existentes na sua organização, para uma aplicação multi-inquilino (com várias organizações) ou para um principal de serviço específico na sua organização.
 
 > [!IMPORTANT]
 > Depois de ouvir os clientes durante a pré-visualização, implementamos [capacidades de gestão de sessão de autenticação](https://go.microsoft.com/fwlink/?linkid=2083106) no Azure AD Conditional Access. Pode utilizar esta nova funcionalidade para configurar as vidas de token de atualização, definindo o sinal na frequência. Depois de 30 de maio de 2020 nenhum novo inquilino poderá usar a política de Vida Token Configural para configurar sessão e refrescar tokens. A depreciação acontecerá dentro de alguns meses, o que significa que deixaremos de honrar a sessão existente e refrescaremos as polícias. Ainda pode configurar o acesso a vidas simbólicas após a depreciação.
@@ -68,12 +68,12 @@ Os clientes públicos não podem armazenar de forma segura uma palavra-passe do 
 > A propriedade Max Age é o tempo que um único símbolo pode ser usado. 
 
 ### <a name="id-tokens"></a>Tokens de ID
-As fichas de identificação são passadas para websites e clientes nativos. As fichas de identificação contêm informações de perfil sobre um utilizador. Um símbolo de identificação está ligado a uma combinação específica de utilizador e cliente. As fichas de identificação são consideradas válidas até ao seu termo. Normalmente, uma aplicação web corresponde à vida útil de um utilizador na aplicação ao tempo de vida útil do token de ID emitido para o utilizador. Pode ajustar a vida útil de um token de ID para controlar a frequência com que a aplicação web expira na sessão de aplicação, e com que frequência requer que o utilizador seja reauthenticado com Azure AD (silenciosamente ou interativamente).
+As fichas de identificação são passadas para websites e clientes nativos. As fichas de identificação contêm informações de perfil sobre um utilizador. Um símbolo de identificação está ligado a uma combinação específica de utilizador e cliente. As fichas de identificação são consideradas válidas até ao seu termo. Normalmente, uma aplicação web corresponde à vida útil de um utilizador na aplicação ao tempo de vida útil do token de ID emitido para o utilizador. Pode ajustar o tempo de vida útil de um token de ID para controlar a frequência com que a aplicação web expira na sessão de aplicação, e com que frequência requer que o utilizador seja reauthentado com a plataforma de identidade da Microsoft (silenciosamente ou interativamente).
 
 ### <a name="single-sign-on-session-tokens"></a>Fichas de sessão de inscrição única
-Quando um utilizador autentica com Azure AD, é estabelecida uma única sessão de sessão de sessão de sessão de sessão de sessão de sessão de sessão (SSO) com o navegador do utilizador e a AD AZure. O símbolo SSO, na forma de um cookie, representa esta sessão. O token de sessão SSO não está ligado a uma aplicação específica de recursos/cliente. Os tokens de sessão SSO podem ser revogados e a sua validade é verificada sempre que são utilizadas.
+Quando um utilizador autentica com a plataforma de identidade da Microsoft, é estabelecida uma única sessão de sessão de sessão de sessão de sessão de sessão de sessão (SSO) com o navegador do utilizador e a plataforma de identidade microsoft. O símbolo SSO, na forma de um cookie, representa esta sessão. O token de sessão SSO não está ligado a uma aplicação específica de recursos/cliente. Os tokens de sessão SSO podem ser revogados e a sua validade é verificada sempre que são utilizadas.
 
-A Azure AD usa dois tipos de fichas de sessão SSO: persistentes e não-persistentes. Tokens de sessão persistente são armazenados como cookies persistentes pelo navegador. As fichas de sessão não-escuta são armazenadas como cookies de sessão. (Os cookies de sessão são destruídos quando o navegador está fechado.) Normalmente, um token de sessão não-reservado é armazenado. Mas, quando o utilizador seleciona o **Keep me assinado na** caixa de verificação durante a autenticação, é armazenado um token de sessão persistente.
+A plataforma de identidade da Microsoft utiliza dois tipos de fichas de sessão SSO: persistentes e não-persistentes. Tokens de sessão persistente são armazenados como cookies persistentes pelo navegador. As fichas de sessão não-escuta são armazenadas como cookies de sessão. (Os cookies de sessão são destruídos quando o navegador está fechado.) Normalmente, um token de sessão não-reservado é armazenado. Mas, quando o utilizador seleciona o **Keep me assinado na** caixa de verificação durante a autenticação, é armazenado um token de sessão persistente.
 
 Fichas de sessão não-escutadas têm uma vida útil de 24 horas. Fichas persistentes têm uma vida de 90 dias. Sempre que um token de sessão SSO é utilizado dentro do seu período de validade, o período de validade é prorrogado por mais 24 horas ou 90 dias, dependendo do tipo de símbolo. Se um token de sessão SSO não for utilizado dentro do seu período de validade, é considerado caducado e já não é aceite.
 
@@ -102,7 +102,7 @@ Uma política de vida simbólica é um tipo de objeto político que contém regr
 | Refresh Token Max Inative Time (emitido para clientes confidenciais) |Fichas de atualização (emitidas para clientes confidenciais) |90 dias |
 | Refresh Token Max Age (emitido para clientes confidenciais) |Fichas de atualização (emitidas para clientes confidenciais) |Até revogação |
 
-* <sup>1</sup> Os utilizadores federados que tenham informações de revogação insuficientes incluem quaisquer utilizadores que não tenham o atributo "LastPasswordChangeTimestamp" sincronizado. Estes utilizadores recebem esta curta Idade Max porque a AAD não consegue verificar quando revogar tokens que estão ligados a uma credencial antiga (como uma palavra-passe que foi alterada) e devem voltar a fazer o check-in com mais frequência para garantir que o utilizador e os tokens associados ainda estão em boas condições. Para melhorar esta experiência, os administradores do arrendatário devem certificar-se de que estão a sincronizar o atributo "LastPasswordChangeTimestamp" (isto pode ser definido no objeto do utilizador utilizando o Powershell ou através do AADSync).
+* <sup>1 Utilizadores</sup> federados que tenham informações de revogação insuficientes incluem quaisquer utilizadores que não tenham o atributo "LastPasswordChangeTimestamp" sincronizado. Estes utilizadores recebem esta curta Idade Max porque a AAD não consegue verificar quando revogar tokens que estão ligados a uma credencial antiga (como uma palavra-passe que foi alterada) e devem voltar a fazer o check-in com mais frequência para garantir que o utilizador e os tokens associados ainda estão em boas condições. Para melhorar esta experiência, os administradores do arrendatário devem certificar-se de que estão a sincronizar o atributo "LastPasswordChangeTimestamp" (isto pode ser definido no objeto do utilizador utilizando o PowerShell ou através do AADSync).
 
 ### <a name="policy-evaluation-and-prioritization"></a>Avaliação política e priorização
 Você pode criar e, em seguida, atribuir uma política de vida simbólica a uma aplicação específica, à sua organização e aos diretores de serviço. Várias políticas podem aplicar-se a uma aplicação específica. A política simbólica de vida vitalícia que entra em vigor segue estas regras:
@@ -129,13 +129,13 @@ Todos os intervalos de tempo utilizados aqui são formatados de acordo com o obj
 > * Web Application A é uma aplicação web de uso regular e não está ligada a nenhuma política.
 > * A Aplicação Web B é utilizada para processos altamente sensíveis. O seu diretor de serviço está ligado à Token Lifetime Policy 2, que tem uma Sessão Token Max Age de 30 minutos.
 >
-> Às 12:00, o utilizador inicia uma nova sessão de navegador e tenta aceder à Aplicação Web A. O utilizador é redirecionado para Azure AD e é solicitado a fazer o seu súmis. Isto cria um cookie que tem um token de sessão no navegador. O utilizador é redirecionado de volta para a Aplicação Web A com um token de ID que permite ao utilizador aceder à aplicação.
+> Às 12:00, o utilizador inicia uma nova sessão de navegador e tenta aceder à Aplicação Web A. O utilizador é redirecionado para a plataforma de identidade da Microsoft e é solicitado a iniciar seduca. Isto cria um cookie que tem um token de sessão no navegador. O utilizador é redirecionado de volta para a Aplicação Web A com um token de ID que permite ao utilizador aceder à aplicação.
 >
-> Às 12:15, o utilizador tenta aceder à Aplicação Web B. O navegador redireciona para Azure AD, que deteta o cookie de sessão. O principal do serviço da Web Application B está ligado à Token Lifetime Policy 2, mas também faz parte da organização-mãe, com a Política de Vida Útil padrão 1. A Token Lifetime Policy 2 entra em vigor porque as políticas ligadas aos principais serviços têm uma prioridade maior do que as políticas de incumprimento da organização. O token da sessão foi originalmente emitido nos últimos 30 minutos, pelo que é considerado válido. O utilizador é redirecionado de volta para a Aplicação Web B com um token de ID que lhes dá acesso.
+> Às 12:15, o utilizador tenta aceder à Aplicação Web B. O navegador redireciona para a plataforma de identidade da Microsoft, que deteta o cookie de sessão. O principal do serviço da Web Application B está ligado à Token Lifetime Policy 2, mas também faz parte da organização-mãe, com a Política de Vida Útil padrão 1. A Token Lifetime Policy 2 entra em vigor porque as políticas ligadas aos principais serviços têm uma prioridade maior do que as políticas de incumprimento da organização. O token da sessão foi originalmente emitido nos últimos 30 minutos, pelo que é considerado válido. O utilizador é redirecionado de volta para a Aplicação Web B com um token de ID que lhes dá acesso.
 >
-> Às 13:00, o utilizador tenta aceder à Aplicação Web A. O utilizador é redirecionado para Azure AD. A Aplicação Web A não está ligada a nenhuma política, mas porque é numa organização com a Política de Vida Token 1 padrão, essa política entra em vigor. O cookie de sessão que foi originalmente emitido nas últimas oito horas é detetado. O utilizador é redirecionado silenciosamente para a Aplicação Web A com um novo token de ID. O utilizador não é obrigado a autenticar.
+> Às 13:00, o utilizador tenta aceder à Aplicação Web A. O utilizador é redirecionado para a plataforma de identidade da Microsoft. A Aplicação Web A não está ligada a nenhuma política, mas porque é numa organização com a Política de Vida Token 1 padrão, essa política entra em vigor. O cookie de sessão que foi originalmente emitido nas últimas oito horas é detetado. O utilizador é redirecionado silenciosamente para a Aplicação Web A com um novo token de ID. O utilizador não é obrigado a autenticar.
 >
-> Imediatamente depois, o utilizador tenta aceder à Aplicação Web B. O utilizador é redirecionado para Azure AD. Como antes, a Token Lifetime Policy 2 entra em vigor. Como o símbolo foi emitido há mais de 30 minutos, o utilizador é solicitado a reentrar nas suas credenciais de inscrição. Um token de sessão novinho em folha e um símbolo de identificação são emitidos. O utilizador pode então aceder à Aplicação Web B.
+> Imediatamente depois, o utilizador tenta aceder à Aplicação Web B. O utilizador é redirecionado para a plataforma de identidade da Microsoft. Como antes, a Token Lifetime Policy 2 entra em vigor. Como o símbolo foi emitido há mais de 30 minutos, o utilizador é solicitado a reentrar nas suas credenciais de inscrição. Um token de sessão novinho em folha e um símbolo de identificação são emitidos. O utilizador pode então aceder à Aplicação Web B.
 >
 >
 

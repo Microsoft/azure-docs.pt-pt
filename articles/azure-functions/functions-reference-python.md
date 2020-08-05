@@ -4,12 +4,12 @@ description: Entenda como desenvolver funções com Python
 ms.topic: article
 ms.date: 12/13/2019
 ms.custom: tracking-python
-ms.openlocfilehash: 3d3e313d464a8da8b62d5c22b5983c6458f42b5d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 6be225c1384892dfdb94da3375707351887c8344
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170382"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564015"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia de desenvolvedores de Azure Functions Python
 
@@ -434,8 +434,8 @@ Também pode utilizar pipelines Azure para construir as suas dependências e pub
 
 ### <a name="remote-build"></a>Construção remota
 
-Ao utilizar a construção remota, as dependências restauradas no servidor e dependências nativas correspondem ao ambiente de produção. Isto resulta num pacote de implantação menor para carregar. Utilize a construção remota ao desenvolver aplicações Python no Windows. Se o seu projeto tiver dependências personalizadas, pode [utilizar a construção remota com URL de índice extra.](#remote-build-with-extra-index-url) 
- 
+Ao utilizar a construção remota, as dependências restauradas no servidor e dependências nativas correspondem ao ambiente de produção. Isto resulta num pacote de implantação menor para carregar. Utilize a construção remota ao desenvolver aplicações Python no Windows. Se o seu projeto tiver dependências personalizadas, pode [utilizar a construção remota com URL de índice extra.](#remote-build-with-extra-index-url)
+
 As dependências são obtidas remotamente com base no conteúdo do ficheiro requirements.txt. [A construção remota](functions-deployment-technologies.md#remote-build) é o método de construção recomendado. Por predefinição, as Ferramentas Principais Azure Functions solicitam uma construção remota quando utiliza o seguinte comando [de publicação func azure functionapp](functions-run-local.md#publish) para publicar o seu projeto Python para a Azure.
 
 ```bash
@@ -456,7 +456,7 @@ func azure functionapp publish <APP_NAME> --build local
 
 Lembre-se de substituir `<APP_NAME>` pelo nome da sua aplicação de função em Azure.
 
-Utilizando a `--build local` opção, as dependências do projeto são lidas a partir do ficheiro requirements.txt e esses pacotes dependentes são descarregados e instalados localmente. Os ficheiros e dependências do projeto são implantados do computador local para o Azure. Isto resulta num pacote de implementação maior a ser enviado para a Azure. Se, por alguma razão, as dependências do seu ficheiro requirements.txt não puderem ser adquiridas pela Core Tools, deve utilizar a opção de dependências personalizadas para publicação. 
+Utilizando a `--build local` opção, as dependências do projeto são lidas a partir do ficheiro requirements.txt e esses pacotes dependentes são descarregados e instalados localmente. Os ficheiros e dependências do projeto são implantados do computador local para o Azure. Isto resulta num pacote de implementação maior a ser enviado para a Azure. Se, por alguma razão, as dependências do seu ficheiro requirements.txt não puderem ser adquiridas pela Core Tools, deve utilizar a opção de dependências personalizadas para publicação.
 
 Não recomendamos a utilização de construções locais quando se desenvolve localmente no Windows.
 
@@ -466,7 +466,7 @@ Quando o seu projeto tem dependências não encontradas no [Python Package Index
 
 #### <a name="remote-build-with-extra-index-url"></a>Construção remota com URL de índice extra
 
-Quando os seus pacotes estiverem disponíveis a partir de um índice de pacote personalizado acessível, utilize uma construção remota. Antes de publicar, certifique-se de [criar uma definição de aplicação](functions-how-to-use-azure-function-app-settings.md#settings) chamada `PIP_EXTRA_INDEX_URL` . O valor desta definição é o URL do seu índice de pacote personalizado. A utilização desta definição diz à construção remota para funcionar `pip install` utilizando a `--extra-index-url` opção. Para saber mais, consulte o [pip Python para instalar documentação.](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format) 
+Quando os seus pacotes estiverem disponíveis a partir de um índice de pacote personalizado acessível, utilize uma construção remota. Antes de publicar, certifique-se de [criar uma definição de aplicação](functions-how-to-use-azure-function-app-settings.md#settings) chamada `PIP_EXTRA_INDEX_URL` . O valor desta definição é o URL do seu índice de pacote personalizado. A utilização desta definição diz à construção remota para funcionar `pip install` utilizando a `--extra-index-url` opção. Para saber mais, consulte o [pip Python para instalar documentação.](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format)
 
 Também pode utilizar credenciais básicas de autenticação com os seus URLs de índice de pacote extra. Para saber mais, consulte [credenciais básicas de autenticação](https://pip.pypa.io/en/stable/user_guide/#basic-authentication-credentials) na documentação Python.
 
@@ -658,11 +658,14 @@ Para ver todos os detalhes da lista destas bibliotecas, visite os links abaixo:
 
 O trabalhador de Funções Python requer um conjunto específico de bibliotecas. Você também pode usar estas bibliotecas nas suas funções, mas elas não fazem parte do padrão Python. Se as suas funções dependerem de alguma destas bibliotecas, estas podem não estar disponíveis para o seu código quando estiverem fora das Funções Azure. Pode encontrar uma lista detalhada de dependências na **instalação \_ requer** a secção no [ficheiro setup.py.](https://github.com/Azure/azure-functions-python-worker/blob/dev/setup.py#L282)
 
+> [!NOTE]
+> Se a requirements.txt da sua aplicação de função contiver uma `azure-functions-worker` entrada, remova-a. O trabalhador de funções é gerido automaticamente pela plataforma Azure Functions, e atualizamo-lo regularmente com novas funcionalidades e correções de bugs. Instalar manualmente uma versão antiga do trabalhador em requirements.txt pode causar problemas inesperados.
+
 ### <a name="azure-functions-python-library"></a>Biblioteca Azure Functions Python
 
 Cada atualização de trabalhadores python inclui uma nova versão da [biblioteca Azure Functions Python (azure.funções)](https://github.com/Azure/azure-functions-python-library). Esta abordagem facilita a atualização contínua das suas aplicações de função Python, uma vez que cada atualização é compatível com retro-compatível. Uma lista de lançamentos desta biblioteca pode ser encontrada em [PyPi de funções azure.](https://pypi.org/project/azure-functions/#history)
 
-A versão da biblioteca de tempo de execução é fixada pelo Azure, e não pode ser ultrapassada por requirements.txt. A `azure-functions` entrada em requirements.txt é apenas para a linhar e a sensibilização do cliente. 
+A versão da biblioteca de tempo de execução é fixada pelo Azure, e não pode ser ultrapassada por requirements.txt. A `azure-functions` entrada em requirements.txt é apenas para a linhar e a sensibilização do cliente.
 
 Utilize o seguinte código para rastrear a versão real da biblioteca Python Functions no seu tempo de funcionamento:
 
@@ -689,11 +692,12 @@ O CORS é totalmente suportado para aplicações de função Python.
 
 Segue-se uma lista de guias de resolução de problemas para questões comuns:
 
-* [MóduloNotFoundError e ImportError](recover-module-not-found.md)
+* [MóduloNotFoundError e ImportError](recover-python-functions.md#troubleshoot-modulenotfounderror)
+* [Não é possível importar 'cygrpc'](recover-python-functions.md#troubleshoot-cannot-import-cygrpc)
 
 Todos os problemas e pedidos de funcionalidades conhecidos são rastreados utilizando a lista [de problemas do GitHub.](https://github.com/Azure/azure-functions-python-worker/issues) Se encontrar um problema e não encontrar o problema no GitHub, abra um novo problema e inclua uma descrição detalhada do problema.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, veja os seguintes recursos:
 

@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2020
-ms.openlocfilehash: c38bb6100665cc9456b66608660bdca520b934c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/28/2020
+ms.openlocfilehash: 0cb2eed0895c10f649facaa184a5f9f9ea158aa5
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636245"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87551987"
 ---
 # <a name="configure-azure-sql-edge-preview"></a>Configure Borda SQL Azure (Pré-visualização)
 
@@ -79,7 +79,7 @@ As seguintes opções mssql.conf não são aplicáveis à SQL Edge:
 |**Perfil de correio de base de dados** | Desacrie o perfil de correio de base de dados predefinido para o SQL Server no Linux. |
 |**Elevada disponibilidade** | Ativar grupos de disponibilidade. |
 |**Coordenador de transações distribuídas da Microsoft** | Configure e resolva os problemas msdTC em Linux. As opções adicionais de configuração distribuídas relacionadas com transações não são suportadas para o SQL Edge. Para obter mais informações sobre estas opções de configuração adicionais, consulte [Configure MSDTC](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#msdtc). |
-|**MLServices EULAs** | Aceite eulas R e Python para pacotes de aprendizagem automática Azure. Aplica-se apenas ao SQL Server 2019.|
+|**Serviços ML EULAs** | Aceite eulas R e Python para pacotes de aprendizagem automática Azure. Aplica-se apenas ao SQL Server 2019.|
 |**saída da rede de trabalho** |Permitir o acesso à rede de saída para [extensões de Serviços de Machine Learning](/sql/linux/sql-server-linux-setup-machine-learning/) R, Python e Java.|
 
 O ficheiro mssql.conf da amostra que se segue funciona para o SQL Edge. Para obter mais informações sobre o formato de um ficheiro mssql.conf, consulte [o formato mssql.conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#mssql-conf-format).
@@ -113,6 +113,51 @@ traceflag0 = 3604
 traceflag1 = 3605
 traceflag2 = 1204
 ```
+
+## <a name="run-azure-sql-edge-as-non-root-user"></a>Executar Azure SQL Edge como utilizador não-raiz
+
+Começando pelo Azure SQL Edge CTP2.2, os recipientes SQL Edge podem funcionar com um utilizador/grupo sem raízes. Quando implantados através do Azure Marketplace, a menos que seja especificado um utilizador/grupo diferente, os recipientes SQL Edge começam como o utilizador mssql (não raiz). Para especificar um utilizador diferente sem raízes durante a implementação, adicione o `*"User": "<name|uid>[:<group|gid>]"*` par de valores-chave sob o recipiente criar opções. No exemplo abaixo, a SqL Edge está configurada para começar como utilizador `*IoTAdmin*` .
+
+```json
+{
+    ..
+    ..
+    ..
+    "User": "IoTAdmin",
+    "Env": [
+        "MSSQL_AGENT_ENABLED=TRUE",
+        "ClientTransportType=AMQP_TCP_Only",
+        "MSSQL_PID=Premium"
+    ]
+}
+```
+
+Para permitir que o utilizador não-raiz aceda a ficheiros DB que se encontram em volumes montados, certifique-se de que o utilizador/grupo em que executou o recipiente, leu & escrever permissões no armazenamento persistente de ficheiros. No exemplo abaixo, definimos o utilizador sem raízes com user_id 10001 como o proprietário dos ficheiros. 
+
+```bash
+chown -R 10001:0 <database file dir>
+```
+
+### <a name="upgrading-from-earlier-ctp-releases"></a>Upgrade de versões ctp anteriores
+
+Anteriormente, os CTP's de Azure SQL Edge foram configurados para funcionar como os utilizadores de raiz. As seguintes opções estão disponíveis ao atualizar-se a partir de CTP anteriores
+
+- Continue a utilizar o utilizador raiz - Para continuar a utilizar o utilizador raiz, adicione o `*"User": "0:0"*` par de valores-chave sob opções de criação de recipientes.
+- Utilize o utilizador mssql predefinido - Para utilizar o utilizador mssql predefinido, siga os passos abaixo
+  - Adicione um utilizador chamado MSSQl no anfitrião do estivador. No exemplo abaixo, adicionamos um mssql de utilizador com ID 10001. Este utilizador também é adicionado ao grupo raiz.
+    ```bash
+    sudo useradd -M -s /bin/bash -u 10001 -g 0 mssql
+    ```
+  - Alterar a permissão no volume de diretório/montagem onde reside o ficheiro de base de dados 
+    ```bash
+    sudo chgrp -R 0 /var/lib/docker/volumes/kafka_sqldata/
+    sudo chmod -R g=u /var/lib/docker/volumes/kafka_sqldata/
+    ```
+- Utilize uma conta de utilizador diferente não raiz - Para utilizar uma conta de utilizador diferente não raiz
+  - Atualize o recipiente criar opções para especificar adicionar `*"User": "user_name | user_id*` o par de valores-chave sob opções de criação de recipientes. Por favor, substitua user_name ou user_id por um user_name ou user_id real do seu anfitrião. 
+  - Altere as permissões no volume do diretório/montagem.
+
+
 
 ## <a name="next-steps"></a>Próximos passos
 

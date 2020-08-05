@@ -3,12 +3,12 @@ title: Agente dos Serviços de Recuperação da Microsoft Azure (MARS) – FAQ
 description: Aborda questões comuns sobre o backup de ficheiros e pastas com Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 5a4560499c56e4dcdf41c2e5c7920b415ceab6c5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: c4494b09a5cf838aae3dde01c1268042929ef213
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533585"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563109"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Perguntas frequentes - Agente da Microsoft Azure Recovery Services (MARS)
 
@@ -19,6 +19,12 @@ Este artigo responde a perguntas comuns sobre o backup de dados com o Agente mic
 ### <a name="where-can-i-download-the-latest-version-of-the-mars-agent"></a>Onde posso descarregar a versão mais recente do agente MARS?
 
 O mais recente agente MARS utilizado ao fazer o backup de máquinas do Windows Server, do System Center DPM e do servidor Backup Microsoft Azure está disponível para [download](https://aka.ms/azurebackup_agent).
+
+### <a name="where-can-i-download-the-vault-credentials-file"></a>Onde posso descarregar o ficheiro de credenciais do cofre?
+
+No portal Azure, navegue para **propriedades** para o seu cofre. Em **Credenciais de Reserva**, selecione a caixa de verificação para já utilizar o mais recente Agente de **Serviços de Recuperação**. Selecione **Transferir**.
+
+![Baixar credenciais](./media/backup-azure-file-folder-backup-faq/download-credentials.png)
 
 ### <a name="how-long-are-vault-credentials-valid"></a>Quanto tempo as credenciais do cofre são válidas?
 
@@ -174,7 +180,7 @@ O agente Azure Backup requer uma palavra-passe (que forneceu durante o registo) 
 
 Considere as seguintes condições:
 
-* Se desinstalar e voltar a registar o agente na mesma máquina original com a ti
+* Se desinstalar e voltar a registar o agente na mesma máquina original com a
   * *A mesma palavra-passe,* então pode restaurar os seus dados de retenção.
   * *Frases-passe diferentes,* então não pode restaurar os seus dados retroativos.
 * Se instalar o agente numa *máquina diferente* com a
@@ -205,6 +211,6 @@ Se um trabalho de restauro em curso for cancelado, o processo de restauro para. 
 * Para a opção de recuperação do Volume Restaurar, o agente MARS oferece uma opção para não restaurar permissões ACL no ficheiro ou pasta que está a ser recuperada
 * Para a opção de recuperação de ficheiros e pastas individuais, o agente MARS irá restaurar com permissões ACL (não há opção para ignorar a restauração da ACL).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Aprenda](tutorial-backup-windows-server-to-azure.md) a fazer o back up de uma máquina Windows.

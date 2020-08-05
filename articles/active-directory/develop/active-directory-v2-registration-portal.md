@@ -13,12 +13,12 @@ ms.date: 08/13/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: 910aaf84d3563d4410826d3c0bdfde3d2dfc75e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53a44ed270dc47725dddfd57d6a212e859d46bad
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885638"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552718"
 ---
 # <a name="app-registration-reference"></a>Referência de registo de aplicação
 
@@ -38,11 +38,11 @@ Esta lista contém todas as suas aplicações registadas para uso exclusivamente
 
 ## <a name="application-secrets"></a>Segredos de Aplicação
 
-Os segredos da aplicação são credenciais que permitem que a sua aplicação realize [autenticação](https://tools.ietf.org/html/rfc6749#section-2.3) confiável do cliente com Azure AD. Em OAuth & OpenID Connect, um segredo de aplicação é comumente referido como `client_secret` um . No protocolo v2.0, qualquer aplicação que receba um token de segurança num local web endereçado (usando um `https` esquema) deve usar um segredo de aplicação para se identificar com Azure AD após o resgate desse sinal de segurança. Além disso, qualquer cliente nativo que receba fichas num dispositivo será proibido de usar um segredo de aplicação para realizar a autenticação do cliente. Isto desencoraja o armazenamento de segredos em ambientes inseguros.
+Os segredos da aplicação são credenciais que permitem que a sua aplicação realize [uma autenticação](https://tools.ietf.org/html/rfc6749#section-2.3) confiável do cliente com a plataforma de identidade da Microsoft. Em OAuth & OpenID Connect, um segredo de aplicação é comumente referido como `client_secret` um . No protocolo v2.0, qualquer aplicação que receba um token de segurança num local web endereçado (usando um `https` esquema) deve usar um segredo de aplicação para se identificar na plataforma de identidade da Microsoft após o resgate desse sinal de segurança. Além disso, qualquer cliente nativo que receba fichas num dispositivo será proibido de usar um segredo de aplicação para realizar a autenticação do cliente. Isto desencoraja o armazenamento de segredos em ambientes inseguros.
 
 Cada aplicação pode conter dois segredos de aplicação válidos a qualquer momento. Ao manter dois segredos, você tem a capacidade de realizar a rododagem periódica de chave em todo o ambiente da sua aplicação. Uma vez migrado toda a sua candidatura para um novo segredo, pode apagar o velho segredo e providenciar um novo.
 
-Neste momento, apenas dois tipos de segredos de aplicação são permitidos no portal de registo de aplicações. A escolha **de Gerar Nova Palavra-Passe** gera e armazena um segredo partilhado na respetiva loja de dados, que pode utilizar na sua aplicação. A escolha **do Novo Par de Chaves** cria um novo par de chaves público/privado que pode ser descarregado e usado para autenticação do cliente para Azure AD. Escolher **a Chave Pública de Upload** permite-lhe usar o seu próprio par de chaves público/privado.
+Neste momento, apenas dois tipos de segredos de aplicação são permitidos no portal de registo de aplicações. A escolha **de Gerar Nova Palavra-Passe** gera e armazena um segredo partilhado na respetiva loja de dados, que pode utilizar na sua aplicação. A escolha **do Novo Par de Chaves** cria um novo par de chaves público/privado que pode ser descarregado e usado para autenticação de clientes na plataforma de identidade da Microsoft. Escolher **a Chave Pública de Upload** permite-lhe usar o seu próprio par de chaves público/privado.
 É-lhe exigido que faça o upload de um certificado que contenha uma chave pública.
 
 ## <a name="profile"></a>Perfil

@@ -3,12 +3,12 @@ title: Colete & analisar registos de recursos
 description: Grave e analise os eventos de registo de recursos para o Registo do Contentor Azure, tais como autenticação, impulso de imagem e puxar imagem.
 ms.topic: article
 ms.date: 06/01/2020
-ms.openlocfilehash: 8757b8bdb67cf75b1ba800658d80b2a44311f1ba
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 63ccb944b9c3de9941acf55ca5ea85fda70a7008
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252492"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553381"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Registo de registo de contentores Azure para avaliação e auditoria de diagnóstico
 
@@ -121,7 +121,7 @@ ContainerRegistryRepositoryEvents
 | project LoginServer, OperationName, Repository, Tag, Identity, CallerIpAddress
 ```
 
-### <a name="reposity-level-operation-failures"></a>Falhas de funcionamento ao nível da reposidade
+### <a name="repository-level-operation-failures"></a>Falhas de funcionamento ao nível do repositório
 
 ```kusto
 ContainerRegistryRepositoryEvents 
@@ -144,7 +144,7 @@ Além de enviar os registos para Log Analytics, ou como alternativa, um cenário
 
 Também pode transmitir eventos de registo de diagnóstico para um [Azure Event Hub](../event-hubs/event-hubs-about.md). Os Centros de Eventos podem ingerir milhões de eventos por segundo, que podes transformar e armazenar usando qualquer fornecedor de análise em tempo real. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre a utilização [do Log Analytics](../azure-monitor/log-query/get-started-portal.md) e a criação de consultas de [registo.](../azure-monitor/log-query/get-started-queries.md)
 * Consulte [a visão geral dos registos da plataforma Azure](../azure-monitor/platform/platform-logs-overview.md) para saber mais sobre os registos da plataforma que estão disponíveis em diferentes camadas do Azure.

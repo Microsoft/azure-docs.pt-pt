@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 218c0bebee6ed1e36da747802ea5e94bcebf9d62
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 005fb194a5c1539b70ccb8e8ac7d938b190ee4f5
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026531"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563317"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>API web protegida: Verificar âmbitos e funções de aplicativo
 
@@ -72,7 +72,7 @@ public class TodoListController : Controller
     [HttpGet]
     public IEnumerable<TodoItem> Get()
     {
-         HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi)
+         HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);
         // Do the work and return the result.
         // ...
     }
@@ -150,7 +150,7 @@ bool isAppOnlyToken = oid == sub;
 
 A verificação da condição inversa permite apenas aplicações que assinam num utilizador para ligar para a sua API.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
-> [Mover para a produção](scenario-protected-web-api-production.md)
+> [Mover para produção](scenario-protected-web-api-production.md)

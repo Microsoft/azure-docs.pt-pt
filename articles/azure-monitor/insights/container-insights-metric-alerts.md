@@ -2,13 +2,13 @@
 title: Alertas métricos do Monitor Azure para contentores Microsoft Docs
 description: Este artigo analisa os alertas métricos recomendados do Azure Monitor para contentores em visualização pública.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: c8b75b0d9b22658253c4637bd6507144575934de
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/04/2020
+ms.openlocfilehash: 1826896ad2d5c64d389219018f51238826c840d0
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87097801"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563369"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Alertas métricos recomendados (pré-visualização) do Monitor Azure para contentores
 
@@ -33,7 +33,7 @@ Antes de começar, confirme o seguinte:
 
     O valor apresentado deve ser uma versão posterior ao **ciprod05262020**. Se o seu cluster tiver uma versão mais antiga, siga o agente de upgrade nos degraus [do cluster AKS](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) para obter a versão mais recente.
     
-    Para obter mais informações relacionadas com a libertação do agente, consulte o [histórico de lançamento do agente](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). Para verificar se as métricas estão a ser recolhidas, pode utilizar o explorador de métricas do Azure Monitor e verificar a partir do **espaço de nome métrico** que os insights estão **listados.** Se for, pode ir em frente e começar a configurar os alertas.
+    Para obter mais informações relacionadas com a libertação do agente, consulte o [histórico de lançamento do agente](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). Para verificar se as métricas estão a ser recolhidas, pode utilizar o explorador de métricas do Azure Monitor e verificar a partir do **espaço de nome métrico** que os insights estão **listados.** Se for, pode ir em frente e começar a configurar os alertas. Se não vir nenhuma métrica recolhida, o cluster Service Principal ou MSI está a perder as permissões necessárias. Para verificar se o SPN ou o MSI são membros da função de Editor de **Métricas de Monitorização,** siga os passos descritos na secção [Upgrade per cluster utilizando O Azure CLI](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) para confirmar e definir a atribuição de funções.
 
 ## <a name="alert-rules-overview"></a>Visão geral das regras de alerta
 
@@ -231,7 +231,7 @@ Execute os seguintes passos para configurar o seu ficheiro de configuração Con
 
 A alteração de configuração pode demorar alguns minutos a terminar antes de fazer efeito, e todas as cápsulas omsagentes do cluster recomeçarão. O recomeço é um recomeço rolante para todas as cápsulas omsagent, nem todas reiniciam ao mesmo tempo. Quando o recomeço estiver terminado, é exibida uma mensagem semelhante à seguinte e inclui o resultado: `configmap "container-azm-ms-agentconfig" created` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte [exemplos de consulta](container-insights-log-search.md#search-logs-to-analyze-data) de registos para ver consultas e exemplos pré-definidos para avaliar ou personalizar para alertar, visualizar ou analisar os seus clusters.
 

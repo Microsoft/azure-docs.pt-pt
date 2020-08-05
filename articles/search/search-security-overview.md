@@ -7,19 +7,20 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/30/2020
-ms.openlocfilehash: b5e408eeac024f63eb8e7ce47039dc4c0a6aa5b5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/01/2020
+ms.custom: references_regions
+ms.openlocfilehash: 9e4181956d81ddbe0a385987689a8cb0248ac535
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501496"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553959"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Segurança em Azure Cognitive Search - visão geral
 
-Este artigo descreve as principais funcionalidades de segurança na Azure Cognitive Search que podem proteger conteúdos e operações. 
+Este artigo descreve as principais funcionalidades de segurança na Azure Cognitive Search que podem proteger conteúdos e operações.
 
-+ Na camada de armazenamento, a encriptação em repouso é um dado adquirido ao nível da plataforma, mas a Cognitive Search também oferece chaves geridas pelo cliente através do Azure Key Vault para uma camada de encriptação adicional.
++ Na camada de armazenamento, a encriptação-em-repouso é incorporada para todos os conteúdos geridos pelo serviço guardados no disco, incluindo índices, mapas de sinónimo, e as definições de indexadores, fontes de dados e skillsets. A Azure Cognitive Search também suporta a adição de chaves geridas pelo cliente (CMK) para encriptação suplementar de conteúdo indexado. Para os serviços criados após 1 de agosto de 2020, a encriptação CMK estende-se a dados em discos temporários, para a dupla encriptação total de conteúdo indexado.
 
 + A segurança de entrada protege o ponto final do serviço de pesquisa em níveis crescentes de segurança: desde as chaves da API a pedido, às regras de entrada na firewall, aos pontos finais privados que protegem totalmente o seu serviço da internet pública.
 
@@ -29,29 +30,41 @@ Veja este vídeo de ritmo acelerado para uma visão geral da arquitetura de segu
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Azure-Cognitive-Search-Whats-new-in-security/player]
 
+<a name="encryption"></a>
+
 ## <a name="encrypted-transmissions-and-storage"></a>Transmissões encriptadas e armazenamento
 
-A encriptação é generalizada na Pesquisa Cognitiva do Azure, começando com ligações e transmissões, estendendo-se a conteúdos armazenados no disco. Para serviços de pesquisa na internet pública, a Azure Cognitive Search ouve na porta HTTPS 443. Todas as ligações cliente-a-serviço utilizam encriptação TLS 1.2. As versões anteriores (1.0 ou 1.1) não são suportadas.
+Na Pesquisa Cognitiva do Azure, a encriptação começa com ligações e transmissões, e estende-se a conteúdos armazenados no disco. Para serviços de pesquisa na internet pública, a Azure Cognitive Search ouve na porta HTTPS 443. Todas as ligações cliente-a-serviço utilizam encriptação TLS 1.2. As versões anteriores (1.0 ou 1.1) não são suportadas.
 
-### <a name="data-encryption-at-rest"></a>Encriptação inativa de dados
+Para os dados tratados internamente pelo serviço de pesquisa, a tabela seguinte descreve os [modelos de encriptação](../security/fundamentals/encryption-atrest.md#data-encryption-models)de dados . Algumas funcionalidades, tais como a loja de conhecimento, o enriquecimento incremental e a indexação baseada em indexantes, lêem ou escrevem para estruturas de dados em outros Serviços Azure. Esses serviços têm os seus próprios níveis de suporte de encriptação separados da Azure Cognitive Search.
 
-Azure Cognitive Search armazena definições e conteúdos de índices, definições de fonte de dados, definições de indexante, definições de skillset e mapas de sinónimo.
+| Modelo | Chaves&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Requisitos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restrições | Aplica-se a |
+|------------------|-------|-------------|--------------|------------|
+| encriptação do lado do servidor | Chaves geridas pela Microsoft | Nenhum (incorporado) | Nenhum, disponível em todos os escalões, em todas as regiões, para conteúdos criados após 24 de janeiro de 2018. | Conteúdo (índices e mapas de sinónimo) e definições (indexantes, fontes de dados, skillsets) |
+| encriptação do lado do servidor | chaves geridas pelo cliente | Azure Key Vault | Disponível em níveis faturantes, em todas as regiões, para conteúdos criados após janeiro de 2019. | Conteúdo (índices e mapas de sinónimo) em discos de dados |
+| encriptação dupla do lado do servidor | chaves geridas pelo cliente | Azure Key Vault | Disponível em níveis faturantes, em regiões selecionadas, em serviços de pesquisa após 1 de agosto de 2020. | Conteúdo (índices e mapas de sinónimo) em discos de dados e discos temporários |
 
-Em toda a camada de armazenamento, os dados são encriptados no disco usando chaves geridas pela Microsoft. Não é possível ligar ou desligar a encriptação ou ver definições de encriptação no portal ou programaticamente. A encriptação é totalmente interiorizada, sem impacto mensurável na indexação do tamanho do tempo de conclusão ou do índice. Ocorre automaticamente em todos os indexantes, incluindo em atualizações incrementais a um índice que não está totalmente encriptado (criado antes de janeiro de 2018).
+### <a name="service-managed-keys"></a>Chaves geridas pelo serviço
 
-Internamente, a encriptação baseia-se na [encriptação do serviço de armazenamento Azure,](../storage/common/storage-service-encryption.md)utilizando [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)de 256 bits .
+A encriptação gerida pelo serviço é uma operação interna da Microsoft, baseada na [Encriptação do Serviço de Armazenamento Azure,](../storage/common/storage-service-encryption.md)utilizando [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)de 256 bits . Ocorre automaticamente em todos os indexantes, incluindo em atualizações incrementais a índices que não estão totalmente encriptados (criados antes de janeiro de 2018).
 
-> [!NOTE]
-> A encriptação em repouso foi anunciada em 24 de janeiro de 2018 e aplica-se a todos os escalões de serviço, incluindo o nível gratuito, em todas as regiões. Para a encriptação completa, os índices criados antes dessa data devem ser eliminados e reconstruídos para que a encriptação ocorra. Caso contrário, apenas novos dados adicionados após 24 de janeiro são encriptados.
+### <a name="customer-managed-keys-cmk"></a>Chaves geridas pelo cliente (CMK)
 
-### <a name="customer-managed-key-cmk-encryption"></a>Encriptação da chave gerida pelo cliente (CMK)
+As chaves geridas pelo cliente requerem um serviço adicional de faturação, a Azure Key Vault, que pode estar numa região diferente, mas sob a mesma subscrição, que a Azure Cognitive Search. Ativar a encriptação CMK aumentará o tamanho do índice e irá degradar o desempenho da consulta. Com base em observações até à data, pode esperar um aumento de 30%-60% nos tempos de consulta, embora o desempenho real varie dependendo da definição de índice e tipos de consultas. Devido a este impacto de desempenho, recomendamos que apenas ative esta funcionalidade em índices que realmente o exijam. Para obter mais informações, consulte [as chaves de encriptação geridas pelo cliente em Azure Cognitive Search](search-security-manage-encryption-keys.md).
 
-Os clientes que pretendam uma proteção adicional de armazenamento podem encriptar dados e objetos antes de serem armazenados e encriptados no disco. Esta abordagem baseia-se numa chave de propriedade do utilizador, gerida e armazenada através do Azure Key Vault, independentemente da Microsoft. Encriptar o conteúdo antes de ser encriptado no disco é referido como "encriptação dupla". Atualmente, pode dobrar seletivamente índices de encriptação e mapas de sinónimo. Para obter mais informações, consulte [as chaves de encriptação geridas pelo Cliente na Pesquisa Cognitiva Azure](search-security-manage-encryption-keys.md).
+<a name="double-encryption"></a>
 
-> [!NOTE]
-> A encriptação CMK está geralmente disponível para serviços de pesquisa criados após janeiro de 2019. Não é suportado em serviços gratuitos (partilhados). 
->
->Ativar esta funcionalidade aumentará o tamanho do índice e irá degradar o desempenho da consulta. Com base em observações até à data, pode esperar um aumento de 30%-60% nos tempos de consulta, embora o desempenho real varie dependendo da definição de índice e tipos de consultas. Devido a este impacto de desempenho, recomendamos que apenas ative esta funcionalidade em índices que realmente o exijam.
+### <a name="double-encryption"></a>Dupla encriptação 
+
+Em Azure Cognitive Search, a dupla encriptação é uma extensão de CMK. Entende-se que seja uma encriptação dupla (uma vez por CMK, e novamente por chaves geridas pelo serviço), e abrangente no âmbito, abrangendo o armazenamento de longo prazo que é escrito para um disco de dados, e armazenamento de curto prazo escrito em discos temporários. A diferença entre a CMK antes de 1 de agosto de 2020 e depois, e o que faz da CMK uma dupla funcionalidade de encriptação na Azure Cognitive Search, é a encriptação adicional de dados em repouso em discos temporários.
+
+A dupla encriptação está atualmente disponível em novos serviços que são criados nestas regiões após 1 de agosto:
+
++ E.U.A. Oeste 2
++ E.U.A. Leste
++ E.U.A. Centro-Sul
++ US Gov - Virginia
++ US Gov - Arizona
 
 <a name="service-access-and-authentication"></a>
 
