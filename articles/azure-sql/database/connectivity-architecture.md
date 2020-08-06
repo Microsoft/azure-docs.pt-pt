@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: dc96cc704533c2b4fb5dc25b41a2440c66849b53
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1676815e1b5614a1e9aa33a1dc5ce471601bde76
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289078"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759330"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Azure SQL Database e Azure Synapse Analytics arquitetura de conectividade
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -105,7 +105,7 @@ Os pormenores sobre a forma como o tráfego deve ser migrado para novos Gateways
 | Europa do Norte         | 40.113.93.91, 191.235.193.75, 52.138.224.1, 13.74.104.113 |
 | Leste da Noruega          | 51.120.96.0        |
 | Oeste da Noruega          | 51.120.216.0       |
-| África do Sul Norte   | 102.133.152.0      |
+| África do Sul Norte   | 102.133.152.0, 102.133.120.2       |
 | África do Sul    | 102.133.24.0       |
 | E.U.A. Centro-Sul     | 13.66.62.124, 23.98.162.75, 104.214.16.32, 20.45.121.1, 20.49.88.1   |
 | Ásia Sudeste      | 104.43.15.0, 23.100.117.95, 40.78.232.3   |
@@ -115,7 +115,7 @@ Os pormenores sobre a forma como o tráfego deve ser migrado para novos Gateways
 | Uae Norte            | 65.52.248.0        |
 | Sul do Reino Unido             | 51.140.184.11      |
 | Oeste do Reino Unido              | 51.141.8.11        |
-| E.U.A. Centro-Oeste      | 13.78.145.25       |
+| E.U.A. Centro-Oeste      | 13.78.145.25, 13.78.248.43        |
 | Europa Ocidental          | 40.68.37.158, 191.237.232.75, 104.40.168.105, 52.236.184.163  |
 | E.U.A. Oeste              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
 | E.U.A. Oeste 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  |

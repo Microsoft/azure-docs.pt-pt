@@ -4,34 +4,34 @@ description: Saiba como configurar as definições do Microsoft Push Notificatio
 services: notification-hubs
 author: sethmanheim
 manager: femila
-editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 08/04/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 99f29e7910fe6070c6202f6a936173455f979732
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6784331dccd779390ace7dc632d54fe54aedc458
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80127333"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760996"
 ---
 # <a name="configure-microsoft-push-notification-service-mpns-settings-in-the-azure-portal"></a>Configurar as definições do Microsoft Push Notification Service (MPNS) no portal Azure
 
-Este artigo mostra-lhe como configurar as definições do Microsoft Push Notification Service (MPNS) para um hub de notificação Azure utilizando o portal Azure. 
+Este artigo mostra-lhe como configurar as definições do Microsoft Push Notification Service (MPNS) para um hub de notificação Azure utilizando o portal Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Se ainda não criou um centro de notificação, crie um agora. Para mais informações, consulte [Criar um centro de notificação Azure no portal Azure](create-notification-hub-portal.md). 
+
+Se ainda não criou um centro de notificação, crie um agora. Para mais informações, consulte [Criar um centro de notificação Azure no portal Azure](create-notification-hub-portal.md).
 
 ## <a name="configure-microsoft-push-notification-service-mpns"></a>Configure o Serviço de Notificação push da Microsoft (MPNS)
 
-O procedimento a seguir dá-lhe passos para configurar as definições do Microsoft Push Notification Service (MPNS) para um centro de notificação: 
+O procedimento que se segue descreve como configurar as definições do Microsoft Push Notification Service (MPNS) para um centro de notificação:
 
 1. No portal Azure, na página **'Centro de Notificação',** selecione **Windows Phone (MPNS)** no menu esquerdo.
-1. Ativar notificações push não autenticadas ou autenticadas:
+2. Ativar notificações push não autenticadas ou autenticadas:
 
    a. Para ativar notificações push não autenticadas, selecione **Ative push**  >  **Save**.
 
@@ -45,5 +45,5 @@ O procedimento a seguir dá-lhe passos para configurar as definições do Micros
       * Na página **Do Windows Phone (MPNS),** selecione **Guardar**.
 
 ## <a name="next-steps"></a>Passos seguintes
-Para um tutorial com instruções passo a passo para empurrar notificações para dispositivos Windows Phone utilizando hubs de notificação Azure e Serviço de Notificação push do Microsoft (MPNS), consulte [notificações push para aplicações do Windows Phone utilizando os Centros de Notificação](notification-hubs-windows-mobile-push-notifications-mpns.md).
 
+Para obter um tutorial com instruções passo a passo para empurrar notificações para dispositivos Windows Phone utilizando os Hubs de Notificação Azure e o Microsoft Push Notification Service (MPNS), consulte [Enviar notificações push para apps do Windows Phone utilizando os Centros de Notificação](notification-hubs-windows-mobile-push-notifications-mpns.md).
