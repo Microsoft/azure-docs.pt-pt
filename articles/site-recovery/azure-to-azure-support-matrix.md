@@ -4,12 +4,12 @@ description: Resume o apoio à recuperação de desastres dos VMs do Azure para 
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: d4beec60a2cd705884ee79296c9afab2afc08c2e
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 09b6bf6db5927c49950fc5b2a6d1753d53364380
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534503"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836654"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de apoio à recuperação de desastres em Azure VM entre regiões de Azure
 
@@ -170,7 +170,7 @@ SUSE Linux Enterprise Server 15 e 15 SP1 | 9.32 | Por padrão, todas as [ações
 
 **Definição** | **Suporte** | **Detalhes**
 --- | --- | ---
-Tamanho | Qualquer tamanho Azure VM com pelo menos 2 núcleos cpu e 1 GB de RAM | Verifique os [tamanhos da máquina virtual Azure](../virtual-machines/windows/sizes.md).
+Tamanho | Qualquer tamanho Azure VM com pelo menos 2 núcleos cpu e 1 GB de RAM | Verifique os [tamanhos da máquina virtual Azure](../virtual-machines/sizes.md).
 Conjuntos de disponibilidade | Suportado | Se ativar a replicação de um VM Azure com as opções predefinidas, é criado automaticamente um conjunto de disponibilidade, com base nas definições da região de origem. Pode modificar estas definições.
 Zonas de disponibilidade | Suportado |
 Benefício de Utilização Híbrida (HUB) | Suportado | Se a fonte VM tiver uma licença HUB ativada, um teste falhado ou falhado sobre vM também utiliza a licença HUB.
@@ -205,7 +205,7 @@ Tamanho máximo do disco de SO | 2048 GB | [Saiba mais](../virtual-machines/wind
 Disco temporário | Não suportado | O disco temporário está sempre excluído da replicação.<br/><br/> Não guarde dados persistentes no disco temporário. [Saiba mais](../virtual-machines/windows/managed-disks-overview.md).
 Tamanho máximo do disco de dados | 8192 GB para discos geridos<br></br>4095 GB para discos não geridos|
 Tamanho mínimo do disco de dados | Sem restrições para discos não geridos. 2 GB para discos geridos |
-Número máximo do disco de dados | Até 64, de acordo com o suporte para um tamanho Azure VM específico | [Saiba mais](../virtual-machines/windows/sizes.md) sobre os tamanhos de VM.
+Número máximo do disco de dados | Até 64, de acordo com o suporte para um tamanho Azure VM específico | [Saiba mais](../virtual-machines/sizes.md) sobre os tamanhos de VM.
 Taxa de alteração do disco de dados | Máximo de 20 MBps por disco para armazenamento premium. Máximo de 2 MBps por disco para armazenamento standard. | Se a taxa média de alteração de dados no disco for continuamente superior ao máximo, a replicação não se alcança.<br/><br/>  No entanto, se o máximo for ultrapassado esporadicamente, a replicação pode recuperar, mas poderá ver pontos de recuperação ligeiramente atrasados.
 Disco de dados - conta de armazenamento padrão | Suportado |
 Disco de dados - conta de armazenamento premium | Suportado | Se um VM tiver discos espalhados por contas de armazenamento premium e standard, pode selecionar uma conta de armazenamento de alvo diferente para cada disco, para garantir que tem a mesma configuração de armazenamento na região alvo.
@@ -219,7 +219,7 @@ Encriptação em repouso (SSE) | Suportado | SSE é a definição padrão nas co
 Encriptação em repouso (CMK) | Suportado | Tanto as teclas de Software como as teclas HSM são suportadas para discos geridos
 Dupla encriptação em repouso | Suportado | Saiba mais sobre regiões apoiadas para [Windows](../virtual-machines/windows/disk-encryption.md) e [Linux](../virtual-machines/linux/disk-encryption.md)
 Encriptação do disco Azure (ADE) para o Windows OS | Suportado para VMs com discos geridos. | Os VMs que utilizam discos não geridos não são suportados. <br/><br/> As chaves protegidas pelo HSM não são suportadas. <br/><br/> A encriptação de volumes individuais num único disco não é suportada. |
-Encriptação do disco Azure (ADE) para Linux OS | Suportado para VMs com discos geridos. | Os VMs que utilizam discos não geridos não são suportados. <br/><br/> As chaves protegidas pelo HSM não são suportadas. <br/><br/> A encriptação de volumes individuais num único disco não é suportada. <br><br> Problema conhecido com ativar a replicação. [Saiba mais.](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-troubleshoot-errors#enable-protection-failed-as-the-installer-is-unable-to-find-the--root-disk-error-code-151137) |
+Encriptação do disco Azure (ADE) para Linux OS | Suportado para VMs com discos geridos. | Os VMs que utilizam discos não geridos não são suportados. <br/><br/> As chaves protegidas pelo HSM não são suportadas. <br/><br/> A encriptação de volumes individuais num único disco não é suportada. <br><br> Problema conhecido com ativar a replicação. [Saiba mais.](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137) |
 Rotação da chave SAS | Não suportado | Se a chave SAS para contas de armazenamento for rotativa, o cliente precisa de desativar e reativar a replicação. |
 Adicionar quente    | Suportado | Ativar a replicação de um disco de dados que adiciona a um VM Azure replicado é suportado para VMs que utilizam discos geridos. <br/><br/> Apenas um disco pode ser adicionado quente a um Azure VM de cada vez. A adição paralela de vários discos não é suportada. |
 Disco de remoção quente    | Não suportado | Se remover o disco de dados no VM, tem de desativar a replicação e ativar novamente a replicação para o VM.
@@ -290,4 +290,3 @@ Acesso de ligação privada ao serviço de Recuperação de Sítios | Suportado 
 
 - Leia [orientação de rede](./azure-to-azure-about-networking.md) para replicar VMs Azure.
 - Implementar a recuperação de [desastres replicando VMs Azure](./azure-to-azure-quickstart.md).
-

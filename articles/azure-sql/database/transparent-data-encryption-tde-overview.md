@@ -1,5 +1,5 @@
 ---
-title: Encriptação de Dados Transparente
+title: Encriptação de dados transparente
 titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
 description: Uma visão geral da encriptação transparente de dados para Azure SQL Database, Azure SQL Managed Instance e Azure Synapse Analytics. O documento cobre os seus benefícios e as opções de configuração, que inclui encriptação de dados transparentes geridas pelo serviço e Bring Your Own Key.
 services: sql-database
@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 06/15/2020
-ms.openlocfilehash: 8bf1a19c8756e8c51b79ec63f10822efa7816d32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d9bc5e91d45b75c47cee31c45b937f7d3f0118b8
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84986941"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836688"
 ---
 # <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Encriptação de dados transparente para base de dados SQL, SQL Managed Instance e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "84986941"
 
 O TDE executa a encriptação e desencriptação em tempo real dos dados ao nível da página. Cada página é desencriptada quando é lida na memória e encriptada antes de ser escrita no disco. O TDE encripta o armazenamento de uma base de dados inteira utilizando uma chave simétrica chamada Chave de Encriptação da Base de Dados (DEK). No arranque da base de dados, o DEK encriptado é desencriptado e depois utilizado para desencriptação e reencriminação dos ficheiros de base de dados no processo do motor do motor de base de dados sql Server. O DEK está protegido pelo protetor TDE. O protetor TDE é um certificado gerido pelo serviço (encriptação de dados transparente gerido pelo serviço) ou uma chave assimétrica armazenada no [Cofre da Chave Azure](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) (encriptação de dados transparente gerida pelo cliente).
 
-Para a Base de Dados Azure SQL e Azure Synapse, o protetor TDE é definido ao nível do [servidor](logical-servers.md) e é herdado por todas as bases de dados associadas a esse servidor. Para Azure SQL Managed Instance (recurso BYOK em pré-visualização), o protetor TDE é definido ao nível da instância e é herdado por todas as bases de dados encriptadas nesse caso. O *servidor* de termo refere-se tanto ao servidor como à instância em todo este documento, a menos que indicado de forma diferente.
+Para a Base de Dados Azure SQL e Azure Synapse, o protetor TDE é definido ao nível do [servidor](logical-servers.md) e é herdado por todas as bases de dados associadas a esse servidor. Para Azure SQL Managed Instance, o protetor TDE é definido ao nível de instância e é herdado por todas as bases de dados encriptadas nesse caso. O *servidor* de termo refere-se tanto ao servidor como à instância em todo este documento, a menos que indicado de forma diferente.
 
 > [!IMPORTANT]
 > Todas as bases de dados recentemente criadas na Base de Dados SQL são encriptadas por padrão utilizando encriptação de dados transparente gerida pelo serviço. As bases de dados SQL existentes criadas antes de maio de 2017 e as bases de dados SQL criadas através da restauração, da geo-replicação e da cópia da base de dados não são encriptadas por padrão. As bases de dados existentes de SqL Managed Instance criadas antes de fevereiro de 2019 não são encriptadas por padrão. Bases de dados SQL Managed Instance criadas através da restauração do estado de encriptação herdada da fonte.
@@ -71,7 +71,7 @@ A única exceção é quando exporta uma base de dados de e para a Base de Dados
 
 ## <a name="manage-transparent-data-encryption"></a>Gerir encriptação de dados transparentes
 
-# <a name="the-azure-portal"></a>[O portal do Azure](#tab/azure-portal)
+# <a name="the-azure-portal"></a>[O portal Azure](#tab/azure-portal)
 
 Gerir o TDE no portal Azure.
 

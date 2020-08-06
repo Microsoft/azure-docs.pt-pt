@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: f780bf946e81e9873a1828f9d697f69c81cef513
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6391b21faaf6cd2a61dbe84af50ae12e4289dff9
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84509326"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837294"
 ---
 # <a name="private-link-for-azure-database-for-mysql"></a>Link privado para base de dados Azure para MySQL
 
@@ -20,7 +20,7 @@ O Private Link permite-lhe ligar-se a vários serviços PaaS em Azure através d
 Para obter uma lista de serviços PaaS que suportem a funcionalidade Private Link, reveja a [documentação](https://docs.microsoft.com/azure/private-link/index)private Link . Um ponto final privado é um endereço IP privado dentro de um [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) e Subnet específicos.
 
 > [!NOTE]
-> Esta funcionalidade está disponível em todas as regiões do Azure onde a Base de Dados Azure para o MySQL suporta os níveis de preços otimizados para fins gerais e memória.
+> A funcionalidade de ligação privada só está disponível para a Base de Dados Azure para servidores MySQL nos níveis de preços otimizados para fins gerais ou memória. Certifique-se de que o servidor de base de dados está num destes níveis de preços.
 
 ## <a name="data-exfiltration-prevention"></a>Prevenção de exfiltração de dados
 
@@ -124,7 +124,7 @@ Quando esta definição é definida como *SIM,* apenas as ligações através de
 
 Para saber como configurar o Acesso à **Rede Pública de Negação** para a sua Base de Dados Azure para o MySQL a partir do portal Azure, consulte como configurar o [Acesso à Rede Pública de Negação](howto-deny-public-network-access.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a Base de Dados Azure para funcionalidades de segurança MySQL, consulte os seguintes artigos:
 

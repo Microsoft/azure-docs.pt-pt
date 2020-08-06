@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 12/18/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: bf55c1f7de751f03fb804eb263cf0810a48378e1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 32efde2cb2497fb8aab415d09a1063ff07c6b0f0
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494892"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837198"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Escolher o número certo de domínios de falha para conjuntos de dimensionamento de máquinas virtuais
 Os conjuntos de escala de máquina virtual são criados com cinco domínios de falha por padrão nas regiões de Azure sem zonas. Para as regiões que suportam a implantação zonal de conjuntos de escala de máquinas virtuais e esta opção é selecionada, o valor padrão da contagem de domínio de avaria é 1 para cada uma das zonas. FD=1 neste caso implica que os casos de VM pertencentes ao conjunto de escala serão espalhados por muitos racks numa melhor base de esforço.
@@ -40,5 +40,5 @@ az vmss create \
 
 A criação e configuração de todas as VMs e recursos do conjunto de dimensionamento demora alguns minutos.
 
-## <a name="next-steps"></a>Próximos passos
-- Saiba mais sobre [disponibilidade e recursos de redundância](../virtual-machines/windows/availability.md) para ambientes Azure.
+## <a name="next-steps"></a>Passos seguintes
+- Saiba mais sobre [disponibilidade e recursos de redundância](../virtual-machines/availability.md) para ambientes Azure.

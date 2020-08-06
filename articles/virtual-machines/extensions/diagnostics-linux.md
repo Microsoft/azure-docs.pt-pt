@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: ddbd64049307dcfd9b27cde1418eef2378b4f6b4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c03105326b6d189b3c6fde72ff959211b3009517
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085695"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837045"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Using Linux Diagnostic Extension to monitor metrics and logs (Utilizar a Extensão de Diagnóstico do Linux para monitorizar métricas e registos)
 
@@ -36,7 +36,7 @@ A extensão de diagnóstico Linux ajuda um utilizador a monitorizar a saúde de 
 
 Esta extensão funciona com ambos os modelos de implantação Azure.
 
-## <a name="installing-the-extension-in-your-vm"></a>Installing the extension in your VM (Instalar a extensão na sua VM)
+## <a name="installing-the-extension-in-your-vm"></a>Instalar a extensão na sua VM
 
 Pode ativar esta extensão utilizando os cmdlets Azure PowerShell, scripts Azure CLI, modelos ARM ou o portal Azure. Para obter mais informações, consulte [as funcionalidades de extensões.](features-linux.md)
 
@@ -173,7 +173,7 @@ Este conjunto de informações de configuração contém informações sensívei
 }
 ```
 
-Name | Valor
+Nome | Valor
 ---- | -----
 storageAccountName | O nome da conta de armazenamento em que os dados são escritos pela extensão.
 armazenamentoAccountEndPoint | (opcional) O ponto final identificando a nuvem em que a conta de armazenamento existe. Se esta definição estiver ausente, o LAD desrescume da nuvem pública Azure, `https://core.windows.net` . Para utilizar uma conta de armazenamento na Alemanha Azure, no Governo Azure ou na Azure China, decidiu esse valor em conformidade.
@@ -580,7 +580,7 @@ Assumindo que as suas definições protegidas estão no ficheiro ProtectedSettin
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
-O comando pressupõe que está a utilizar o modo Azure Resource Management (ARM) do Azure CLI. Para configurar o LAD para o modelo clássico de implementação (ASM) VMs, mude para o modo "asm" ( `azure config mode asm` ) e omita o nome do grupo de recursos no comando. Para mais informações, consulte a [documentação do CLI de plataforma cruzada.](/azure/xplat-cli-connect)
+O comando pressupõe que está a utilizar o modo de Gestão de Recursos Azure do Azure CLI. Para configurar o LAD para o modelo clássico de implementação (ASM) VMs, mude para o modo "asm" ( `azure config mode asm` ) e omita o nome do grupo de recursos no comando. Para mais informações, consulte a [documentação do CLI de plataforma cruzada.](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ### <a name="powershell"></a>PowerShell
 
@@ -757,7 +757,7 @@ Os dados enviados para as pias JsonBlob são armazenados em bolhas na conta de a
 Além disso, pode utilizar estas ferramentas de UI para aceder aos dados no Azure Storage:
 
 * Explorador visual do servidor do estúdio.
-* [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Explorador do Storage do Azure").
+* [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Explorador de Armazenamento do Azure").
 
 Esta imagem de uma sessão do Microsoft Azure Storage Explorer mostra as mesas e recipientes de armazenamento Azure gerados a partir de uma extensão LAD 3.0 corretamente configurada num VM de teste. A imagem não corresponde exatamente à [configuração lad 3.0](#an-example-lad-30-configuration)da amostra .
 

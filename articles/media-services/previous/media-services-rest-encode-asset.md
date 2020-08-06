@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 9320677e970d9194e2cccad07522d7a63b6353d6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e9cf5a65c664df321e8cee1c867e637a4718c9ee
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999977"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837334"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Como codificar um ativo utilizando o Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "86999977"
 
 Para entregar vídeo digital através da Internet, tem de comprimir os meios de comunicação. Os ficheiros de vídeo digitais são grandes e podem ser demasiado grandes para serem entregues através da Internet, ou para que os dispositivos dos seus clientes sejam exibidos corretamente. A codificação é o processo de compressão de vídeo e áudio para que os seus clientes possam ver os seus meios de comunicação.
 
-Os postos de trabalho na codificação são uma das operações de processamento mais comuns na Azure Media Services. Cria-se trabalhos de codificação para converter ficheiros de meios de comunicação de uma codificação para outra. Ao codificar, pode utilizar o codificadora incorporado media Services (Media Encoder Standard). Também pode utilizar um codificar fornecido por um parceiro de Serviços de Comunicação Social. Os codificadores de terceiros estão disponíveis através do Azure Marketplace. Pode especificar os detalhes das tarefas de codificação utilizando cadeias predefinidas definidas para o seu codificante ou utilizando ficheiros de configuração predefinidos. Para ver os tipos de predefinições disponíveis, consulte [Predefinições de Tarefa para Media Encoder Standard](/azure/media-services/previous/media-services-mes-presets-overview).
+Os postos de trabalho na codificação são uma das operações de processamento mais comuns na Azure Media Services. Cria-se trabalhos de codificação para converter ficheiros de meios de comunicação de uma codificação para outra. Ao codificar, pode utilizar o codificadora incorporado media Services (Media Encoder Standard). Também pode utilizar um codificar fornecido por um parceiro de Serviços de Comunicação Social. Os codificadores de terceiros estão disponíveis através do Azure Marketplace. Pode especificar os detalhes das tarefas de codificação utilizando cadeias predefinidas definidas para o seu codificante ou utilizando ficheiros de configuração predefinidos. Para ver os tipos de predefinições disponíveis, consulte [Predefinições de Tarefa para Media Encoder Standard](./media-services-mes-presets-overview.md).
 
 Cada trabalho pode ter uma ou mais tarefas dependendo do tipo de processamento que pretende realizar. Através da API REST, pode criar empregos e suas tarefas relacionadas de uma de duas maneiras:
 
@@ -65,7 +65,7 @@ Para obter informações sobre como ligar à AMS API, consulte [Aceda à API dos
 >
 >
 
-O exemplo que se segue mostra como criar e publicar um trabalho com uma tarefa definida para codificar um vídeo numa resolução e qualidade específicas. Quando codificar com o Media Encoder Standard, pode utilizar predefinições de configuração de tarefas especificadas [aqui](/azure/media-services/previous/media-services-mes-presets-overview).
+O exemplo que se segue mostra como criar e publicar um trabalho com uma tarefa definida para codificar um vídeo numa resolução e qualidade específicas. Quando codificar com o Media Encoder Standard, pode utilizar predefinições de configuração de tarefas especificadas [aqui](./media-services-mes-presets-overview.md).
 
 Pedido:
 

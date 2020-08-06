@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 06/07/2019
 ms.author: rogarana
-ms.openlocfilehash: b28427b3ede0cfaeb9e08d3c73b15ea7f2961f1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c2bd10ab4c98fe2e77332c3cc2566ab2f0c7ad42
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71180067"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87841971"
 ---
 #### <a name="additional-premium-file-share-level-limits"></a>Limites adicionais de nível de ações de ficheiros premium
 
@@ -25,7 +25,7 @@ ms.locfileid: "71180067"
 
 |Área  |Arquivo premium  |Arquivo padrão |
 |---------|---------|---------|
-|Tamanho                  |1 TiB         |1 TiB|
+|Tamanho                  |4 TiB         |1 TiB|
 |Max IOPS por ficheiro     |5000         |1,000|
 |Pegas simultâneas    |2.000         |2.000|
 |Saída  |300 MiB/seg|      Ver valores de produção de ficheiros padrão|

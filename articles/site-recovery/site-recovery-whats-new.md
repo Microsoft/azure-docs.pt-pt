@@ -3,12 +3,12 @@ title: Novidades na Recuperação do Local de Azure
 description: Fornece um resumo de novas funcionalidades e as últimas atualizações no serviço de Recuperação do Site Azure.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 4e3153ae611f368f66b045a69bab23ca0a52a033
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 28bdf902ab74bf4bb94a6bc02a558bf200b25e52
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089520"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836637"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novidades no Site Recovery
 
@@ -46,7 +46,7 @@ Para os componentes de Recuperação de Sítios, apoiamos as versões N-4, onde 
 **Correções/melhorias de problemas** | Uma série de correções e melhorias conforme detalhado no rollup.
 
 > [!NOTE]
-> O rollup 48 da atualização tem um problema conhecido com a replicação de máquinas Linux encriptadas através do ADE. [Saiba mais](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-troubleshoot-errors#enable-protection-failed-as-the-installer-is-unable-to-find-the--root-disk-error-code-151137).
+> O rollup 48 da atualização tem um problema conhecido com a replicação de máquinas Linux encriptadas através do ADE. [Saiba mais](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137).
 
 ### <a name="update-rollup-47"></a>Atualização rollup 47
 

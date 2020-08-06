@@ -8,12 +8,12 @@ ms.devlang: azurepowershel
 ms.topic: how-to
 ms.date: 4/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0f85283ad90f219dfbf404c437a843e1191b19fa
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5571d5a937fc48030c38ebe78c86ef27d6727a67
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498740"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837300"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mysql-server-using-powershell"></a>Como fazer o back up e restaurar uma Base de Dados Azure para o servidor MySQL usando o PowerShell
 
@@ -133,4 +133,4 @@ O novo servidor criado durante uma restauração não possui os pontos finais do
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Personalize a Base de Dados de Azure para os parâmetros do servidor MySQL utilizando o PowerShell](howto-configure-server-parameters-using-powershell.md)
+> [Como gerar uma base de dados Azure para a cadeia de conexão MySQL com PowerShell](howto-connection-string-powershell.md)

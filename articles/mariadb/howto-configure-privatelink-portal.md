@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 08e146ebde34c6d85e258c93a1ed1780bb97727b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 6c96c4803293db9d9bacfc43f0de2f7803e6c41c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206449"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836484"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Criar e gerir o Link Privado para Azure Database para MariaDB usando o Portal
 
@@ -20,7 +20,7 @@ Um Ponto Final Privado é o bloco de construção fundamental para a ligação p
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 > [!NOTE]
-> Esta funcionalidade está disponível em todas as regiões do Azure onde a Base de Dados Azure para MariaDB suporta os níveis de preços otimizados para fins gerais e memória.
+> A funcionalidade de ligação privada só está disponível para a Base de Dados Azure para servidores MariaDB nos níveis de preços otimizados para fins gerais ou memória. Certifique-se de que o servidor de base de dados está num destes níveis de preços.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 Inicie sessão no [portal do Azure](https://portal.azure.com).
@@ -84,7 +84,7 @@ Nesta secção, irá criar uma Rede Virtual e a sub-rede para hospedar o VM que 
     | ------- | ----- |
     | Rede virtual | Deixe a **Rede MyVirtual padrão**.  |
     | Espaço de endereços | Deixe o **padrão 10.1.0.0/24**.|
-    | Sub-rede | Deixe o **mySubnet predefinido (10.1.0.0/24)**.|
+    | Subrede | Deixe o **mySubnet predefinido (10.1.0.0/24)**.|
     | IP público | Deixe o **padrão (novo) myVm-ip**. |
     | Portas de entrada públicas | Selecione **Deixe as portas selecionadas.** |
     | Selecione portas de entrada | Selecione **HTTP** e **RDP**.|
@@ -164,9 +164,9 @@ Nesta secção, irá criar um ponto final privado para o servidor MariaDB.
     | ------- | ----- |
     |**NETWORKING**| |
     | Rede virtual| Selecione *MyVirtualNetwork*. |
-    | Sub-rede | Selecione *mySubnet*. |
+    | Subrede | Selecione *mySubnet*. |
     |**INTEGRAÇÃO PRIVADA DE DNS**||
-    |Integrar-se com a zona privada de DNS |Selecione **Yes** (Sim). |
+    |Integrar-se com a zona privada de DNS |Selecione **Sim**. |
     |Zona privada de DNS |Selecione *(Novo)privatelink.mariadb.database.azure.com* |
     |||
 

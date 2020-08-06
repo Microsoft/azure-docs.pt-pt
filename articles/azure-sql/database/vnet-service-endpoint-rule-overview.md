@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 65ec92aeca44a514467a642de1dab06f06c220e9
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 880ec24c377091173202098a3c54b5776bf69a98
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533857"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836620"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Utilize pontos finais de serviço de rede virtual e regras para servidores na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -59,7 +59,7 @@ Existe uma separação de funções de segurança na administração dos pontos 
 
 Os papéis de Administração de Rede e Administração de Bases de Dados têm mais capacidades do que as necessárias para gerir as regras de rede virtuais. Apenas um subconjunto das suas capacidades é necessário.
 
-Tem a opção de usar o controlo de acesso baseado em [funções (RBAC)][rbac-what-is-813s] em Azure para criar um único papel personalizado que tenha apenas o subconjunto de capacidades necessário. O papel personalizado poderia ser usado em vez de envolver o Administrador de Rede ou o Administrador de Base de Dados. A área de superfície da sua exposição à segurança é menor se adicionar um utilizador a uma função personalizada, em vez de adicionar o utilizador às outras duas principais funções de administrador.
+Você tem a opção de usar o [controle de acesso baseado em funções Azure (Azure RBAC)][rbac-what-is-813s] em Azure para criar um único papel personalizado que tem apenas o subconjunto necessário de capacidades. O papel personalizado poderia ser usado em vez de envolver o Administrador de Rede ou o Administrador de Base de Dados. A área de superfície da sua exposição à segurança é menor se adicionar um utilizador a uma função personalizada, em vez de adicionar o utilizador às outras duas principais funções de administrador.
 
 > [!NOTE]
 > Em alguns casos, a base de dados na Base de Dados Azure SQL e na sub-rede VNet estão em diferentes subscrições. Nestes casos, deve assegurar as seguintes configurações:

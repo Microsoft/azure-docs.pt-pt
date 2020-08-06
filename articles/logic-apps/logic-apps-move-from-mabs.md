@@ -8,12 +8,12 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: 975dcc357e244469f33385f84f2e15a89997597b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6c07ab4b18c017bd29723d2640129b8e67374e3c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078207"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837385"
 ---
 # <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>Migrar as suas apps e soluções dos Serviços BizTalk para a Azure Logic Apps
 
@@ -103,7 +103,7 @@ No processamento dos Serviços BizTalk, o estágio Enrich adiciona propriedades 
 
 ### <a name="run-custom-code"></a>Executar código personalizado
 
-A BizTalk Services permite-lhe [executar código personalizado](/previous-versions/azure/dn232389(v=azure.100)) que é carregado nas suas próprias assembléias. Esta funcionalidade é implementada pela interface [IMessageInspector.](/azure/logic-apps/logic-apps-move-from-mabs) Cada etapa da ponte inclui duas propriedades (Inspetor On Enter, e On Exit Inspetor) que fornecem o tipo .NET que criou que implementa esta interface. O código personalizado permite-lhe realizar um processamento mais complexo em dados e permite-lhe reutilizar o código existente em conjuntos que executam lógicas de negócio comuns. 
+A BizTalk Services permite-lhe [executar código personalizado](/previous-versions/azure/dn232389(v=azure.100)) que é carregado nas suas próprias assembléias. Esta funcionalidade é implementada pela interface [IMessageInspector.]() Cada etapa da ponte inclui duas propriedades (Inspetor On Enter, e On Exit Inspetor) que fornecem o tipo .NET que criou que implementa esta interface. O código personalizado permite-lhe realizar um processamento mais complexo em dados e permite-lhe reutilizar o código existente em conjuntos que executam lógicas de negócio comuns. 
 
 As Aplicações Lógicas fornecem duas formas primárias de executar código personalizado: Funções Azure e Aplicações API. As Funções Azure podem ser criadas e chamadas a partir de aplicações lógicas. Consulte [adicionar e executar código personalizado para aplicações lógicas através de Funções Azure](../logic-apps/logic-apps-azure-functions.md). Utilize aplicativos API, parte do Azure App Service, para criar os seus próprios gatilhos e ações. Saiba mais sobre [a criação de uma API personalizada para usar com as Aplicações Lógicas.](../logic-apps/logic-apps-create-api-app.md) 
 

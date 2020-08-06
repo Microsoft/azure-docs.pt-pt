@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: 8c6b6dcf748b0c6ef6162e9f20726123673abb33
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 86910ece57d8fb72ade0c67a9e6787023c4283f3
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283270"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836926"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Como criar uma máquina virtual Linux em Azure com vários cartões de interface de rede
 
@@ -79,7 +79,7 @@ az network nic create \
 ```
 
 ## <a name="create-a-vm-and-attach-the-nics"></a>Crie um VM e anexe os NICs
-Quando criar o VM, especifique os NICs com os quais criou `--nics` . Também tem de ter cuidado ao selecionar o tamanho VM. Existem limites para o número total de NICs que pode adicionar a um VM. Leia mais sobre [os tamanhos linux VM](sizes.md).
+Quando criar o VM, especifique os NICs com os quais criou `--nics` . Também tem de ter cuidado ao selecionar o tamanho VM. Existem limites para o número total de NICs que pode adicionar a um VM. Leia mais sobre [os tamanhos linux VM](../sizes.md).
 
 Crie uma VM com [az vm create](/cli/azure/vm). O exemplo a seguir cria um VM chamado *myVM:*
 
@@ -97,7 +97,7 @@ az vm create \
 Adicione mesas de encaminhamento ao so convidado, completando os passos em [Configurar o SO convidado para vários NICs](#configure-guest-os-for-multiple-nics).
 
 ## <a name="add-a-nic-to-a-vm"></a>Adicione um NIC a um VM
-Os passos anteriores criaram um VM com vários NICs. Também pode adicionar NICs a um VM existente com o Azure CLI. Diferentes [tamanhos VM](sizes.md) suportam um número variado de NICs, por isso dimensione o seu VM em conformidade. Se necessário, pode [redimensionar um VM](change-vm-size.md).
+Os passos anteriores criaram um VM com vários NICs. Também pode adicionar NICs a um VM existente com o Azure CLI. Diferentes [tamanhos VM](../sizes.md) suportam um número variado de NICs, por isso dimensione o seu VM em conformidade. Se necessário, pode [redimensionar um VM](change-vm-size.md).
 
 Crie outro NIC com [a criação de nic de rede az.](/cli/azure/network/nic) O exemplo a seguir cria um NIC chamado *myNic3* ligado à sub-rede de back-end e ao grupo de segurança da rede criado nos passos anteriores:
 
@@ -242,6 +242,6 @@ ping bing.com -c 4 -I eth1
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Reveja [os tamanhos linux VM](sizes.md) ao tentar criar um VM com vários NICs. Preste atenção ao número máximo de NICs que cada tamanho VM suporta.
+Reveja [os tamanhos linux VM](../sizes.md) ao tentar criar um VM com vários NICs. Preste atenção ao número máximo de NICs que cada tamanho VM suporta.
 
 Para proteger ainda mais os seus VMs, utilize o acesso vm mesmo a tempo. Esta funcionalidade abre as regras do grupo de segurança de rede para o tráfego de SSH quando necessário, e por um período de tempo definido. Para obter mais informações, veja [Manage virtual machine access using just in time](../../security-center/security-center-just-in-time.md) (Gerir o acesso da máquina virtual através do just in time).

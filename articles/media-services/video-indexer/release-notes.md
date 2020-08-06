@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 06/02/2020
+ms.date: 08/05/2020
 ms.author: juliako
-ms.openlocfilehash: d7667f7c5194762b227c3cddd5bea5ed9d50a96e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1b11dc0ee17fd0686776a7262c4bc99bd98bcc3e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042635"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837314"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de lançamento do Azure Media Services Video Indexer
 
@@ -29,6 +29,28 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 * Problemas conhecidos
 * Correções de erros
 * Funcionalidade preterida
+
+## <a name="july-2020"></a>Julho de 2020
+
+### <a name="ga-for-multi-language-identification"></a>GA para identificação multi-linguístico
+
+A identificação multi-idioma é transferida da pré-visualização para a AG e pronta para uso produtivo.
+
+Não existe qualquer impacto nos preços relacionados com a transição "Pré-visualização para GA".
+
+### <a name="video-indexer-website-improvements"></a>Melhorias no site do Indexer de Vídeo
+
+#### <a name="adjustments-in-the-video-gallery"></a>Ajustes na galeria de vídeo
+
+Foi adicionada uma nova barra de pesquisa para insights profundos com capacidades de filtragem adicionais. Os resultados da pesquisa também foram melhorados.
+
+Nova vista de lista com capacidade de classificar e gerir arquivo de vídeo com vários ficheiros.
+
+#### <a name="new-panel-for-easy-selection-and-configuration"></a>Novo painel para fácil seleção e configuração
+
+Foi adicionado painel lateral para uma fácil seleção e configuração do utilizador, permitindo a criação e partilha de conta simples e rápida, bem como a configuração de configuração.
+
+O painel lateral também é utilizado para as preferências do utilizador e ajuda.
 
 ## <a name="june-2020"></a>Junho de 2020
 
@@ -269,4 +291,4 @@ Além do formato de legendagem fechado já suportado (SRT, VTT e TTML), o Video 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Descrição geral](video-indexer-overview.md)
+[Descrição Geral](video-indexer-overview.md)

@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 08/20/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: db6a8965b6a0d03c3de95644d3d455ce3c950960
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5521e49c767a2510bf7c8c53cf6ac5e86b73b466
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080442"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837181"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Planned maintenance notifications for virtual machine scale sets (Notificações de manutenção planeada para conjuntos de dimensionamento de máquinas virtuais)
 
@@ -84,7 +84,7 @@ A coluna **de manutenção de autosserviço** aparece agora na lista de conjunto
 | Valor | Descrição |
 |-------|-------------|
 | Sim | Pelo menos um VM no seu conjunto de escala de máquina virtual está numa janela de autosserviço. Pode iniciar a manutenção a qualquer momento durante esta janela de autosserviço. | 
-| No | Não há VMs numa janela de autosserviço no conjunto de escala de máquina virtual afetado. | 
+| Não | Não há VMs numa janela de autosserviço no conjunto de escala de máquina virtual afetado. | 
 | - | Os conjuntos de escala de máquinas virtuais não fazem parte de uma onda de manutenção planeada.| 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notificação e alertas no portal
@@ -181,7 +181,7 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **A:** As máquinas virtuais implantadas num conjunto de disponibilidade ou em conjuntos de escala de máquinas virtuais utilizam domínios de atualização. Ao realizar a manutenção, o Azure honra a restrição de domínio de atualização e não reinicia os VMs de um domínio de atualização diferente (dentro do mesmo conjunto de disponibilidade). O Azure também espera pelo menos 30 minutos antes de se mudar para o próximo grupo de VMs. 
 
-Para obter mais informações sobre a elevada disponibilidade, consulte [Regiões e disponibilidade para máquinas virtuais em Azure.](../virtual-machines/windows/availability.md)
+Para obter mais informações sobre a elevada disponibilidade, consulte [Regiões e disponibilidade para máquinas virtuais em Azure.](../virtual-machines/availability.md)
 
 **P: Como posso ser notificado sobre a manutenção planeada?**
 

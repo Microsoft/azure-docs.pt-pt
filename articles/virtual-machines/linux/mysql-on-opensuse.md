@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 07fde5a8e7e3d542ed3fa3bc54b761d5434ac710
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: eee32dc7edd4256dd2bd120609504042d7ab78ea
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284868"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836891"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Instale o MySQL numa máquina virtual em execução OpenSUSE Linux em Azure
 
@@ -32,7 +32,7 @@ Primeiro, criar um grupo de recursos. Neste exemplo, o grupo de recursos é nome
 az group create --name mySQLSUSEResourceGroup --location eastus
 ```
 
-Criar o VM. Neste exemplo, o VM é nomeado *myVM* e o tamanho VM é *Standard_D2s_v3*, mas você deve escolher o [tamanho VM](sizes.md) que você acha mais adequado para a sua carga de trabalho.
+Criar o VM. Neste exemplo, o VM é nomeado *myVM* e o tamanho VM é *Standard_D2s_v3*, mas você deve escolher o [tamanho VM](../sizes.md) que você acha mais adequado para a sua carga de trabalho.
 
 ```azurecli-interactive
 az vm create --resource-group mySQLSUSEResourceGroup \
@@ -157,7 +157,3 @@ quit
 
 ## <a name="next-steps"></a>Passos seguintes
 Para mais informações sobre o MySQL, consulte a [Documentação MySQL](https://dev.mysql.com/doc).
-
-
-
-

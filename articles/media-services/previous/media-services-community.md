@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 11902e363428a45bc158a99d251343e13b62540d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e8318b480cfa0d399a7fb2a0e7f6ebed1488397
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836435"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836503"
 ---
 # <a name="azure-media-services-community"></a>Comunidade dos Serviços de Multimédia do Azure  
 
@@ -36,7 +36,7 @@ Esta página comunitária do Azure Media Services (AMS) discute diferentes forma
 ## <a name="provide-feedback-and-make-suggestions"></a>Fornecer feedback e fazer sugestões
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="discussion"></a>Discussão
+## <a name="discussion"></a>Debate
 
 ### <a name="twitter"></a>Twitter
 
@@ -48,7 +48,7 @@ Os seguintes fóruns podem ser usados para fazer perguntas sobre produtos e func
 
 Atualmente, a MSDN é o principal fórum comunitário da equipa de Media Services.
 
-[![MSDN](./media/media-services-community/msdn.png)](https://docs.microsoft.com/answers/topics/azure-media-services.html) 
+[![MSDN](./media/media-services-community/msdn.png)](/answers/topics/azure-media-services.html) 
 
 A equipa também monitoriza as questões marcadas no Stack Overflow com "azure-media-services".
 
@@ -58,6 +58,6 @@ A equipa também monitoriza as questões marcadas no Stack Overflow com "azure-m
 
 Você pode abrir um bilhete de apoio navegando para [novo pedido de apoio](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-[Descrição geral](media-services-overview.md)
+[Descrição Geral](media-services-overview.md)

@@ -4,12 +4,12 @@ description: Fornece respostas a algumas das perguntas comuns sobre Azure VMware
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: f160e617163f11c02e4d661cbf1c14f63a6772f8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b6bf8e924b0776ace282e94f62ae2b0a67439efd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003428"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836586"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Perguntas frequentes sobre pré-visualização da Solução VMware Azure (AVS)
 
@@ -25,7 +25,7 @@ Respostas para perguntas frequentes sobre Azure VMware Solution (AVS).
 
 **Onde é que o AVS está disponível hoje?**
 
-Durante a pré-estreia, está disponível nos EUA Leste na América do Norte e em Amesterdão na Europa Ocidental.
+O serviço está continuamente a ser adicionado a novas regiões, por isso veja as [últimas informações de disponibilidade de serviços](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware) para mais detalhes. 
 
 **As cargas de trabalho que executam numa Solução VMware Azure (AVS) podem consumir ou integrar-se com os serviços Azure?**
 
@@ -33,7 +33,7 @@ Todos os serviços da Azure estarão disponíveis para clientes de solução AVS
 
 **Uso as mesmas ferramentas que uso agora para gerir recursos privados em nuvem?**
 
-Yes. O portal Azure é utilizado para implantação e várias operações de gestão. vCenter e NSX Manager são usados para gerir recursos vSphere e NSX-T.
+Sim. O portal Azure é utilizado para implantação e várias operações de gestão. vCenter e NSX Manager são usados para gerir recursos vSphere e NSX-T.
 
 **Posso gerir uma nuvem privada com o meu vCenter no local?**
 
@@ -45,7 +45,7 @@ Integrações específicas e casos de utilização podem ser avaliados caso a ca
 
 **Posso migrar vSphere VMs de ambientes no local para nuvens privadas AVS?**
 
-Yes. A migração vM e vMotion podem ser usadas para mover VMs para uma nuvem privada se o vCenter padrão cruzado [requisitos vMotion][ https://kb.vmware.com/s/article/210695 forem cumpridos.
+Sim. A migração vM e vMotion podem ser usadas para mover VMs para uma nuvem privada se o vCenter padrão cruzado [requisitos vMotion][ https://kb.vmware.com/s/article/210695 forem cumpridos.
 
 **É necessária uma versão específica da vSphere em ambientes no local?**
 
@@ -65,7 +65,7 @@ Não há qualquer alteração à solução Azure VMware da CloudSimple. Continua
 
 **Posso migrar da Azure VMware Solution by CloudSimple para esta nova solução?**
 
-Sim, a Azure VMware Solution suporta a migração utilizando ferramentas VMware familiares como o HCX. Para os clientes interessados em migrar para a nova solução, por favor, trabalhe com a sua equipa de conta microsoft para explorar opções e suporte disponível.
+Sim, a Azure VMware Solution suporta a migração utilizando ferramentas VMware familiares como o HCX. Para os clientes interessados em migrar para a nova solução, trabalhe com a sua equipa de conta microsoft para explorar opções e suporte disponível.
 
 
 
@@ -89,7 +89,7 @@ Cada anfitrião ESXi tem dois grupos de discos vSAN com um nível de capacidade 
 
 **Qual a largura de banda disponível em cada anfitrião ESXi?**
 
-Os anfitriões ESXi suportam largura de banda de conectividade até 25 Gbps.
+Cada anfitrião ESXi é AVS é configurado com quatro NICs de 25 Gbps, com dois NICs previstos para o tráfego do sistema ESXi e dois NICs previstos para o tráfego de carga de trabalho. 
 
 **Os dados armazenados nas datas-tores vSAN são encriptados em repouso?**
 
@@ -166,7 +166,7 @@ Não. O tráfego de rede a entrar da internet diretamente para nuvens privadas n
 
 **Preciso de restringir o acesso à Internet de VMs em redes lógicas para a internet?**
 
-Yes. Terá de usar o gestor NSX-T para criar uma firewall que restringe o acesso de VM à internet.
+Sim. Terá de usar o gestor NSX-T para criar uma firewall que restringe o acesso de VM à internet.
 
 ## <a name="accounts-and-privileges"></a>Contas e privilégios
 
@@ -197,11 +197,11 @@ A faturação de AVS durante a pré-visualização é mensal numa base pay-as-yo
 
 **Como será estruturado o preço durante a pré-visualização do AVS?**
 
-Para questões gerais sobre preços consulte a página [de preços](https://azure.microsoft.com/pricing/details/azure-vmware) da Solução VMware Azure. Os preços de pré-visualização estão disponíveis a pedido, contacte a sua equipa de conta ou siga o link na página de preços para contactar as vendas.
+Para questões gerais sobre preços consulte a página [de preços](https://azure.microsoft.com/pricing/details/azure-vmware) da Solução VMware Azure. Os preços de pré-visualização estão disponíveis a pedido, contactem a equipa da sua conta ou sigam o link na página de preços para contactar as vendas.
 
 **Quem apoia o AVS?**
 
-O suporte para AVS é entregue pela Microsoft. Por favor, note, de acordo com as nossas diretrizes de pré-visualização, forneceremos suporte durante as 21:00 horas úteis do PST de segunda a sexta-feira. Você pode levantar um bilhete de apoio a partir [deste link](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+O suporte para AVS é entregue pela Microsoft. Nota, de acordo com as nossas diretrizes de pré-visualização, forneceremos apoio durante as 21:00 horas úteis do PST de segunda a sexta-feira. Você pode levantar um bilhete de apoio a partir [deste link](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 **Que contas preciso para criar uma nuvem privada AVS?**
 

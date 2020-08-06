@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 47c3d1b4d603e2dde2de8d4a95fb953744d71409
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c98aeaff3ba39a28fad68454d76f6f4d33f44e5d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259010"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836739"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Saiba mais sobre as diferenças entre os Serviços cloud e o Tecido de Serviço antes de migrar as aplicações.
 O Microsoft Azure Service Fabric é a plataforma de aplicações cloud de próxima geração para aplicações distribuídas altamente escaláveis e altamente fiáveis. Introduz muitas novidades para a embalagem, implantação, upgrade e gestão de aplicações em nuvem distribuídas. 
@@ -81,7 +81,7 @@ O mesmo modelo de comunicação pode ser utilizado no Tecido de Serviço. Isto p
 ![Comunicação direta do Tecido de Serviço][8]
 
 ## <a name="parity"></a>Parity
-[Os Serviços cloud são semelhantes ao Service Fabric em grau de controlo versus facilidade de utilização, mas agora é um serviço antigo e o Tecido de Serviço é recomendado para novos desenvolvimentos;](/azure/app-service/overview-compare) trata-se de uma comparação com a API:
+[Os Serviços cloud são semelhantes ao Service Fabric em grau de controlo versus facilidade de utilização, mas agora é um serviço antigo e o Tecido de Serviço é recomendado para novos desenvolvimentos;](/azure/architecture/guide/technology-choices/compute-decision-tree) trata-se de uma comparação com a API:
 
 
 | **API de Serviço de Nuvem** | **API de Tecido de Serviço** | **Notas** |

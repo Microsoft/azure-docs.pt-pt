@@ -1,5 +1,5 @@
 ---
-title: Configurar um caso e autenticação (portal)
+title: Configurar uma instância e a autenticação (portal)
 titleSuffix: Azure Digital Twins
 description: Veja como configurar uma instância do serviço Azure Digital Twins usando o portal Azure
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 73b7171b89b26926992e95f77e376e7bb7731eff
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: c7027f474c9ff5cbd90ed1800d74e3b4ebd60b3e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87408412"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836943"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurar uma instância e autenticação Azure Digital Twins (portal)
 
@@ -62,7 +62,7 @@ Na página *de Criar Recursos,* preencha os valores abaixo indicados:
 
 Quando terminar, selecione _Review + create_. Isto irá levá-lo a uma página de resumo, onde pode rever os detalhes de casos introduzidos e bater _Create_. 
 
-### <a name="verify-success"></a>Verificar o sucesso
+### <a name="verify-success-and-collect-important-values"></a>Verifique o sucesso e colete valores importantes
 
 Depois de empurrar *Criar,* pode visualizar o estado da implementação do seu caso nas notificações do Azure ao longo da barra de ícones do portal. A notificação indicará quando a implementação foi bem sucedida, e poderá selecionar o botão _De recurso para_ visualizar a sua instância criada.
 
@@ -171,7 +171,7 @@ Tome nota do ID de *Aplicação (cliente)* e *Diretório (inquilino)* mostrado n
 
 [!INCLUDE [digital-twins-setup-additional-requirements.md](../../includes/digital-twins-setup-additional-requirements.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja como ligar a aplicação do seu cliente ao seu caso escrevendo o código de autenticação da aplicação do cliente:
 * [*Como fazer: Escrever código de autenticação de aplicativos*](how-to-authenticate-client.md)

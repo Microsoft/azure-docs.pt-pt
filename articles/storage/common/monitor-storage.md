@@ -1,6 +1,6 @@
 ---
 title: Monitor Azure Storage / Microsoft Docs
-description: Saiba como monitorizar o desempenho e disponibilidade do Azure Storage.
+description: Saiba como monitorizar o desempenho e disponibilidade do Azure Storage. Monitorize os dados de Armazenamento Azure, aprenda sobre a configuração e analise dados métricos e de registo.
 author: normesta
 services: storage
 ms.service: storage
@@ -9,12 +9,12 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: 2f6320bf4606dc9357ac676b3bc5d7421b24a36c
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: e1be9a7e543f8513f3b30182dfbc421dc38bdbce
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86182717"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836671"
 ---
 # <a name="monitor-azure-storage"></a>Monitor Azure Storage
 
@@ -86,9 +86,9 @@ Também tem de especificar as categorias de operações para as quais pretende r
 
 | Categoria | Descrição |
 |:---|:---|
-| ArmazenamentoRead | Leia as operações em bolhas. |
-| ArmazenamentoPorite | Escreva operações em bolhas. |
-| StorageDelete | Eliminar operações em bolhas. |
+| ArmazenamentoRead | Leia as operações em objetos. |
+| ArmazenamentoPorite | Escreva operações em objetos. |
+| StorageDelete | Eliminar operações em objetos. |
 
 ## <a name="analyze-metric-data"></a>Analisar dados métricos
 

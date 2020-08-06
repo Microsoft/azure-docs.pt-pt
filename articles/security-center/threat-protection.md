@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: f5218b2346b6ddebcee87a0e24f4924deafdb0f2
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: e74dac779fc1eafaf33ffbc63bf997cf26b64954
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037193"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836807"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Proteção contra ameaças no Centro de Segurança do Azure
 
@@ -54,11 +54,15 @@ O Azure Security Center integra-se com os serviços Azure para monitorizar e pro
 
     Quando o Microsoft Defender ATP deteta uma ameaça, desencadeia um alerta. O alerta é mostrado no painel do Centro de Segurança. A partir do painel de instrumentos, podes orientar-te para a consola ATP do Microsoft Defender e realizar uma investigação detalhada para descobrir o alcance do ataque. Para obter mais informações sobre o Microsoft Defender ATP, consulte [os servidores onboard para o serviço ATP Microsoft Defender](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
 
-* **Deteção de ataque sem ficheiros** <a name="windows-fileless"></a> - Os ataques sem ficheiros dirigidos aos seus pontos finais são comuns. Para evitar a deteção, os ataques sem ficheiros injetam cargas maliciosas na memória. As cargas do intruso persistem na memória de processos comprometidos e realizam uma vasta gama de atividades maliciosas.
+* **Deteção de ataque sem ficheiros** <a name="windows-fileless"></a> - Ataques sem ficheiros injetam cargas maliciosas na memória para evitar a deteção por técnicas de digitalização baseadas em discos. A carga útil do intruso persiste então na memória de processos comprometidos e executa uma ampla gama de atividades maliciosas.
 
-    Com a deteção de ataques sem ficheiros, as técnicas forenses de memória automatizada identificam kits de ferramentas de ataque sem ficheiros, técnicas e comportamentos. Esta solução analisa periodicamente a sua máquina em tempo de execução e extrai insights diretamente da memória de processos críticos de segurança.
+    Com a deteção de ataques sem ficheiros, as técnicas forenses de memória automatizada identificam kits de ferramentas de ataque sem ficheiros, técnicas e comportamentos. Esta solução analisa periodicamente a sua máquina em tempo de execução e extrai insights diretamente da memória dos processos. Informações específicas para o Linux incluem a identificação de: 
 
-    Encontra provas de exploração, injeção de código e execução de cargas maliciosas. A deteção de ataques sem ficheiros gera alertas de segurança detalhados para acelerar a triagem de alerta, a correlação e o tempo de resposta a jusante. Esta abordagem complementa as soluções EDR baseadas em eventos, proporcionando uma maior cobertura de deteção.
+    - Kits de ferramentas bem conhecidos e software de mineração de cripto 
+    - Shellcode, que é um pequeno pedaço de código normalmente usado como carga útil na exploração de uma vulnerabilidade de software.
+    - Injetado malicioso executável na memória do processo
+
+    A deteção de ataques sem ficheiros gera alertas de segurança detalhados que contenham as descrições com metadados de processo adicionais, como a atividade da rede. Isto acelera a triagem de alerta, a correlação e o tempo de resposta a jusante. Esta abordagem complementa as soluções EDR baseadas em eventos e proporciona uma maior cobertura de deteção.
 
     Para obter mais detalhes sobre os alertas de deteção de ataques sem ficheiro, consulte a [tabela de alertas de referência](alerts-reference.md#alerts-windows).
 
@@ -134,7 +138,7 @@ Você verá alertas quando há atividades de base de dados suspeitas, potenciais
 
 A Advanced Threat Protection for Azure SQL Database and SQL faz parte do pacote unificado de Segurança avançada de [Dados (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) para capacidades avançadas de segurança SQL, abrangendo a Base de Dados Azure SQL, Instâncias Geridas Azure SQL, bases de dados do Armazém de Dados Azure SQL e servidores SQL em Máquinas Virtuais Azure.
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 * [Como permitir a Proteção Avançada de Ameaças para Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)
 * [Como permitir a proteção avançada de ameaças para servidores SQL em Máquinas Virtuais Azure](security-center-iaas-advanced-data.md)
@@ -181,11 +185,11 @@ Quando se suspeita que um ficheiro contenha malware, o Security Center apresenta
 
 
 
-### <a name="next-steps"></a>Próximos passos 
+### <a name="next-steps"></a>Passos seguintes 
 
 Para obter detalhes sobre os preços, incluindo um teste gratuito de 30 dias, consulte a página de preços do [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 * [Como permitir a proteção avançada de ameaças para armazenamento de Azure](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
 * [A lista de alertas de proteção contra ameaças para o Armazenamento Azure](alerts-reference.md#alerts-azurestorage)
@@ -204,7 +208,7 @@ Para obter mais informações, consulte:
 
 Os alertas DB do Azure Cosmos são gerados por tentativas incomuns e potencialmente nocivas de aceder ou explorar contas DB do Azure Cosmos.
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 * [Proteção avançada de ameaças para Azure Cosmos DB (Pré-visualização)](../cosmos-db/cosmos-db-advanced-threat-protection.md)
 * [A lista de alertas de proteção contra ameaças para Azure Cosmos DB (Preview)](alerts-reference.md#alerts-azurecosmos)
@@ -299,7 +303,7 @@ Para se defender dos ataques do DDoS, compre uma licença para a Azure DDoS Prot
 Para obter uma lista dos alertas de Proteção DDoS Azure, consulte a [tabela de alertas de referência](alerts-reference.md#alerts-azureddos).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre os alertas de segurança destes recursos de proteção contra ameaças, consulte os seguintes artigos:
 
 * [Tabela de referência para todos os alertas do Centro de Segurança Azure](alerts-reference.md)

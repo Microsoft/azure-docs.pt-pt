@@ -3,12 +3,12 @@ title: Glossário - LUIS
 description: O glossário explica os termos que poderá encontrar enquanto trabalha com o Serviço LUIS API.
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: 93e3df755596f7f77d2cd11edfa616c44d1f6c16
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 44749648559994d986e4d84b06f38369850de6ca
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056383"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836416"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossário de compreensão linguística do vocabulário e conceitos comuns
 O glossário de Compreensão linguística (LUIS) explica termos que poderá encontrar enquanto trabalha com o serviço LUIS.
@@ -72,7 +72,7 @@ Nos testes de lote, a precisão (também chamada de valor preditivo positivo) é
 
 Exemplo de um ensaio de lote de animais é o número de ovinos que foram previstos divididos pelo número total de animais (ovinos e não ovinos).
 
-### <a name="recall"></a>Recall
+### <a name="recall"></a>Chamar de volta
 
 Nos testes de lote, lembre-se (também conhecido como sensibilidade), é a capacidade de a LUIS generalizar.
 
@@ -94,11 +94,11 @@ Uma [intenção](#intent) é um exemplo de um classificador.
 
 ## <a name="collaborator"></a>Colaborador
 
-Um colaborador é conceptualmente a mesma coisa que um [contribuinte.](#contributor) Um colaborador tem acesso quando um proprietário adiciona o endereço de e-mail do colaborador a uma app que não é controlada com acesso baseado em funções (RBAC). Se ainda estiver a utilizar colaboradores, deve migrar a sua conta LUIS e utilizar recursos de autoria do LUIS para gerir colaboradores com o RBAC.
+Um colaborador é conceptualmente a mesma coisa que um [contribuinte.](#contributor) Um colaborador tem acesso quando um proprietário adiciona o endereço de e-mail do colaborador a uma app que não é controlada com o controlo de acesso baseado em funções Azure (Azure RBAC). Se ainda estiver a utilizar colaboradores, deve migrar a sua conta LUIS e utilizar recursos de autoria do LUIS para gerir colaboradores com o RBAC.
 
-## <a name="contributor"></a>Contribuidor
+## <a name="contributor"></a>Contribuinte
 
-Um contribuinte não é o [proprietário](#owner) da app, mas tem as mesmas permissões para adicionar, editar e apagar as intenções, entidades, expressões. Um contribuinte fornece acesso baseado em funções (RBAC) a uma aplicação LUIS.
+Um contribuinte não é o [proprietário](#owner) da app, mas tem as mesmas permissões para adicionar, editar e apagar as intenções, entidades, expressões. Um colaborador fornece o controlo de acesso baseado em funções Azure (Azure RBAC) a uma aplicação LUIS.
 
 Veja também:
 * [Como adicionar](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource) contribuintes
@@ -107,11 +107,11 @@ Veja também:
 
 Um descritor é o termo anteriormente usado para uma funcionalidade de aprendizagem [automática](#features).
 
-## <a name="domain"></a>Domain
+## <a name="domain"></a>Domínio
 
 No contexto LUIS, um domínio é uma área de conhecimento. O seu domínio é específico do seu cenário. Diferentes domínios usam linguagem e terminologia específicas que têm significado no contexto do domínio. Por exemplo, se estiver a construir uma aplicação para tocar música, a sua aplicação teria termos e linguagem específicas para a música – palavras como "música, faixa, álbum, letra, lado b, artista". Por exemplo, ver domínios [pré-construídos.](#prebuilt-domain)
 
-## <a name="endpoint"></a>Ponto Final
+## <a name="endpoint"></a>Ponto final
 
 ### <a name="authoring-endpoint"></a>Ponto final de autoria
 
@@ -228,7 +228,7 @@ Uma entidade pré-construída é uma entidade que a LUIS fornece para tipos comu
 
 Uma intenção pré-construída é uma intenção que o LUIS fornece para tipos comuns de informação e vem com as suas próprias expressões de exemplo rotuladas.
 
-## <a name="prediction"></a>Previsão
+## <a name="prediction"></a>Predição
 
 Uma previsão é um pedido de REPOUSO ao serviço de previsão Azure LUIS que acolhe novos dados (expressão de utilizador), e aplica a aplicação treinada e publicada a esses dados para determinar que intenções e entidades são encontradas.
 
@@ -283,7 +283,7 @@ Nas [entidades da lista](reference-entity-list.md)LUIS, pode criar um valor norm
 
 |Valor nãomalizado| Sinónimos|
 |--|--|
-|Pequeno| o pequenino, 8 onça|
+|Small| o pequenino, 8 onça|
 |Médio| regular, 12 onça|
 |Grande| grande, 16 onça|
 |Xtra grande| o maior, 24 onças|
@@ -305,7 +305,7 @@ Um [símbolo](luis-language-support.md#tokenization) é a menor unidade de texto
 
 Para **inglês**, um símbolo é um vão contínuo (sem espaços ou pontuação) de letras e números. Um espaço não é um símbolo.
 
-|Frase|Contagem de token|Explicação|
+|Expressão|Contagem de token|Explicação|
 |--|--|--|
 |`Dog`|1|Uma única palavra sem pontuação ou espaços.|
 |`RMT33W`|1|Um número de localizador de registos. Pode ter números e letras, mas não tem qualquer pontuação.|

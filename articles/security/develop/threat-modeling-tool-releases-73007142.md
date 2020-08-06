@@ -1,0 +1,37 @@
+---
+title: Microsoft Threat Modeling Tool release 07/14/2020 - Azure
+description: Documentando as notas de lançamento para a ferramenta de modelação de ameaças
+author: jegeib
+ms.author: jegeib
+ms.service: security
+ms.topic: article
+ms.date: 07/14/2020
+ms.openlocfilehash: 741d8c96059d379ae453f7ac1da1d5a02127a680
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87839899"
+---
+# <a name="threat-modeling-tool-update-release-73007142---07142020"></a>Lançamento da atualização da ferramenta de modelação de ameaças 7.3.00714.2 - 07/14/2020
+
+A versão 7.3.00714.2 da Ferramenta de Modelação de Ameaças da Microsoft (TMT) foi lançada a 14 de julho de 2020 e contém as seguintes alterações:
+
+- Melhorias de acessibilidade
+
+## <a name="system-requirements"></a>Requisitos de sistema
+
+- Sistemas Operativos Suportados
+  - [Atualização de Aniversário do Microsoft Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) ou mais tarde
+- .VERSÃO NET Necessária
+  - [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) ou mais tarde
+- Requisitos Adicionais
+  - É necessária uma ligação à Internet para receber atualizações da ferramenta, bem como modelos.
+
+## <a name="documentation-and-feedback"></a>Documentação e feedback
+
+- A documentação da Ferramenta de Modelação de Ameaças encontra-se no [docs.microsoft.com](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool), e inclui informações [sobre a utilização da ferramenta.](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool-getting-started)
+
+## <a name="next-steps"></a>Passos seguintes
+
+Descarregue a versão mais recente da [Ferramenta de Modelação de Ameaças da Microsoft](https://aka.ms/threatmodelingtool).
