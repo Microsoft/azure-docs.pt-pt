@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ad84b8910e8d4f8af9845c33c22d128e317dedc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 870027637d9c45d0d5150db12046e454146ff169
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74232112"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829636"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planear um Azure Ative Directory reportando e monitorizando a implementação
 
@@ -189,10 +189,8 @@ Dependendo das decisões que tomou anteriormente usando a orientação de design
 
  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Considere implementar a [Gestão de Identidade Privilegiada](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) 
 
-Considere implementar o [controlo de acesso baseado em funções (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
-
- 
+Considere implementar o [controlo de acesso baseado em funções do Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)

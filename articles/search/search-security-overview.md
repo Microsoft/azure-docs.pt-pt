@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
-ms.openlocfilehash: 9e4181956d81ddbe0a385987689a8cb0248ac535
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: fb265f8a8ab34972dac8529d267e41edaf0acb4c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553959"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829293"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Segurança em Azure Cognitive Search - visão geral
 
@@ -127,7 +127,7 @@ Se necessitar de controlo granular por utilizador sobre os resultados da pesquis
 
 ## <a name="administrative-rights"></a>Direitos administrativos
 
-[O acesso baseado em funções (RBAC)](../role-based-access-control/overview.md) é um sistema de autorização construído com [o Azure Resource Manager](../azure-resource-manager/management/overview.md) para o fornecimento de recursos Azure. Na Pesquisa Cognitiva Azure, o Gestor de Recursos é utilizado para criar ou eliminar o serviço, gerir as teclas API e escalar o serviço. Como tal, as atribuições de funções da Azure determinarão quem pode executar essas tarefas, independentemente de estarem a utilizar o [portal](search-manage.md), [PowerShell,](search-manage-powershell.md)ou as [APIs de Rest de Gestão.](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api)
+[O Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) é um sistema de autorização construído no [Azure Resource Manager](../azure-resource-manager/management/overview.md) para o fornecimento de recursos Azure. Na Pesquisa Cognitiva Azure, o Gestor de Recursos é utilizado para criar ou eliminar o serviço, gerir as teclas API e escalar o serviço. Como tal, as atribuições de funções da Azure determinarão quem pode executar essas tarefas, independentemente de estarem a utilizar o [portal](search-manage.md), [PowerShell,](search-manage-powershell.md)ou as [APIs de Rest de Gestão.](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api)
 
 Em contrapartida, os direitos de administração sobre os conteúdos alojados no serviço, tais como a capacidade de criar ou eliminar um índice, são conferidos através de teclas API, conforme descrito na [secção anterior](#index-access).
 

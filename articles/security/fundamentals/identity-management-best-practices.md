@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 852a8c8eb7e6a87739c58967eefd6c18e996b225
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b354fda4d23d13b8defed4381335ab147bbece5d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367406"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835906"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Gestão de Identidade Azure e controlo de segurança de acessos as melhores práticas
 
@@ -195,7 +195,7 @@ Organizações que não adicionam camadas extra de proteção de identidade, com
 
 ## <a name="use-role-based-access-control"></a>Utilizar o controlo de acesso baseado em funções
 
-A gestão de acesso a recursos na nuvem é fundamental para qualquer organização que utilize a nuvem. [O controlo de acesso baseado em funções (RBAC) ajuda-o](/azure/role-based-access-control/overview)a gerir quem tem acesso aos recursos Azure, o que podem fazer com esses recursos e a que áreas têm acesso.
+A gestão de acesso a recursos na nuvem é fundamental para qualquer organização que utilize a nuvem. [O controlo de acesso baseado em funções (Azure RBAC) ajuda-o](/azure/role-based-access-control/overview)a gerir quem tem acesso aos recursos Azure, o que podem fazer com esses recursos e a que áreas têm acesso.
 
 Designar grupos ou funções individuais responsáveis por funções específicas em Azure ajuda a evitar confusões que podem levar a erros humanos e de automação que criam riscos de segurança. Restringir o acesso com base na [necessidade de conhecer](https://en.wikipedia.org/wiki/Need_to_know) e menos [privilégios](https://en.wikipedia.org/wiki/Principle_of_least_privilege) princípios de segurança é imperativo para as organizações que querem impor políticas de segurança para o acesso aos dados.
 

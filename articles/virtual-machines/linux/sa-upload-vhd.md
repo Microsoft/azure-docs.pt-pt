@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/10/2017
 ms.author: cynthn
 ms.custom: storage accounts
-ms.openlocfilehash: 288a697339fc6f8b001b445840e3fa98ab92f9a4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d667ff3949fcf58affc72b5d75a40abd8ca0dcb6
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292253"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830313"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Faça upload e crie um Linux VM a partir de disco personalizado com o Azure CLI
 
@@ -72,9 +72,9 @@ az vm create --resource-group myResourceGroup --location westus \
     --use-unmanaged-disk
 ```
 
-A conta de armazenamento de destino tem de ser a mesma de onde fez o upload do seu disco virtual. Também precisa de especificar, ou responder a solicitações para, todos os parâmetros adicionais exigidos pelo **az vm criar** comando como rede virtual, endereço IP público, nome de utilizador e teclas SSH. Pode ler mais sobre os [parâmetros clássicos do Gestor de Recursos CLI disponíveis.](../azure-cli-arm-commands.md#virtual-machines)
+A conta de armazenamento de destino tem de ser a mesma de onde fez o upload do seu disco virtual. Também precisa de especificar, ou responder a solicitações para, todos os parâmetros adicionais exigidos pelo **az vm criar** comando como rede virtual, endereço IP público, nome de utilizador e teclas SSH. Pode ler mais sobre os [parâmetros clássicos do Gestor de Recursos CLI disponíveis.](/previous-versions/azure/virtual-machines/azure-cli-arm-commands#virtual-machines)
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 Para completar os seguintes passos, é necessário:
 
 * **Sistema operativo Linux instalado num ficheiro .vhd** - Instale uma distribuição Linux com base no [Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (ou consulte [informações para distribuições não endossadas)](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)num disco virtual no formato VHD. Existem várias ferramentas para criar um VM e VHD:

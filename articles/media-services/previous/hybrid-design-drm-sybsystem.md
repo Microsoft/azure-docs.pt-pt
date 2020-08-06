@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: juliako
-ms.openlocfilehash: ad4c60d6a3facd49f08749b2b3f4b01242d3844c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ce2fbe8c706870250973974c7a73a3964dedd04a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091798"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831894"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Design híbrido dos subsistemas DRM 
 
@@ -99,11 +99,11 @@ Com base nas explicações na secção anterior, os **Content key**seguintes cin
 |---|---|---|---|---|---|
 |AMS|AMS|AMS|Sim|Sim|Exemplo 1|
 |AMS|AMS|Terceiros|Sim|Sim|Exemplo 2|
-|AMS|Terceiros|AMS|Yes|No|Exemplo 3|
+|AMS|Terceiros|AMS|Sim|Não|Exemplo 3|
 |AMS|Terceiros|Lá fora|Não|Não|Exemplo 4|
-|Terceiros|Terceiros|AMS|Yes|No|    
+|Terceiros|Terceiros|AMS|Sim|Não|    
 
-Nas amostras, a proteção PlayReady funciona tanto para o DASH como para o streaming suave. Os URLs de vídeo abaixo são URLs de streaming suaves. Para obter os URLs DASH correspondentes, basta anexar "(formato=mpd-time-csf)". Você poderia usar o leitor [de teste de mídia azul](https://aka.ms/amtest) para testar em um navegador. Permite-lhe configurar qual o protocolo de streaming a utilizar, segundo o qual a tecnologia. IE11 e Microsoft Edge no Suporte do Windows 10 PlayReady através do EME. Para mais informações, consulte [detalhes sobre a ferramenta de teste.](/azure/media-services/previous/offline-playready-streaming-windows-10)
+Nas amostras, a proteção PlayReady funciona tanto para o DASH como para o streaming suave. Os URLs de vídeo abaixo são URLs de streaming suaves. Para obter os URLs DASH correspondentes, basta anexar "(formato=mpd-time-csf)". Você poderia usar o leitor [de teste de mídia azul](https://aka.ms/amtest) para testar em um navegador. Permite-lhe configurar qual o protocolo de streaming a utilizar, segundo o qual a tecnologia. IE11 e Microsoft Edge no Suporte do Windows 10 PlayReady através do EME. Para mais informações, consulte [detalhes sobre a ferramenta de teste.](./offline-playready-streaming-windows-10.md)
 
 ### <a name="sample-1"></a>Exemplo 1
 

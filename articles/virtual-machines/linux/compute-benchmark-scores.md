@@ -5,12 +5,12 @@ ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.reviewer: davberg
-ms.openlocfilehash: 61deac4c94902dc392a23f05674e2b1fb3f3cf87
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: efbd90eee8d072c1979565209c8c04a4ee5c55f9
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373424"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830534"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Pontuações de referência do Cálculo para Os VMs do Linux
 As seguintes pontuações de referência do CoreMark mostram o desempenho do computação para a linha VM de alto desempenho da Azure que executa ubuntu. As pontuações de referência do computo também estão disponíveis para [VMs do Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -469,6 +469,5 @@ As seguintes pontuações de referência do CoreMark mostram o desempenho do com
 Os números de Linux foram calculados executando [CoreMark](https://www.eembc.org/coremark/faq.php) em Ubuntu. CoreMark foi configurado com o número de fios definidos para o número de CPUs virtuais, e concurrency definido para PThreads. O número de iterações-alvo foi ajustado com base no desempenho esperado para proporcionar um tempo de funcionaamento de pelo menos 20 segundos (normalmente muito mais longo). A pontuação final representa o número de iterações completas divididas pelo número de segundos que demorou a executar o teste. Cada teste foi executado pelo menos sete vezes em cada VM. Datas de teste mostradas acima. Os testes realizados em vários VMs em todas as regiões públicas do Azure o VM foi apoiado na data executada. Séries Básicas A e B (Burstable) não mostradas porque o desempenho é variável. As séries N não são mostradas como centradas na GPU e a Coremark não mede o desempenho da GPU.
 
 ## <a name="next-steps"></a>Passos seguintes
-* Para capacidades de armazenamento, detalhes do disco e considerações adicionais para escolher entre tamanhos VM, consulte [tamanhos para máquinas virtuais.](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* Para capacidades de armazenamento, detalhes do disco e considerações adicionais para escolher entre tamanhos VM, consulte [tamanhos para máquinas virtuais.](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * Para executar os scripts CoreMark em VMs Linux, descarregue o [pacote de scripts CoreMark](https://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip).
-

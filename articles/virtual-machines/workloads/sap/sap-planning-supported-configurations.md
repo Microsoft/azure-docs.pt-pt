@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a79db217c5444e59e35d4dfad9fbb98bbccbd251
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1945dc3b9fa03354ef447f813d95b6040a4b7b91
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079813"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833339"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Carga de trabalho SAP em cenários de máquinas virtuais do Azure suportados
 Projetar a arquitetura de sistemas SAP NetWeaver, Business one `Hybris` ou S/4HANA em Azure abre uma série de oportunidades diferentes para várias arquiteturas e ferramentas para usar para chegar a uma implementação escalável, eficiente e altamente disponível. Embora dependente do sistema operativo ou DBMS utilizado, existem restrições. Além disso, nem todos os cenários que são apoiados no local são apoiados da mesma forma em Azure. Este documento conduzirá através das configurações de não alta disponibilidade suportadas e configurações e arquiteturas de alta disponibilidade utilizando exclusivamente VMs Azure. Para cenários apoiados com [HANA Large Instances](./hana-overview-architecture.md), consulte o artigo [Cenários suportados para HANA Grandes Instâncias](./hana-supported-scenario.md). 
@@ -246,7 +246,7 @@ Para a camada DBMS, são suportadas configurações utilizando os mecanismos de 
 - O redimensionamento entre as famílias VM pode ser um problema quando os VMs diferentes são recolhidos num Conjunto de Disponibilidade de Azure ou quando o redimensionamento deve acontecer entre a família M-Series e a família Mv2 de VMs
 - CPU e consumo de memória para a área da base de dados podendo receber o fluxo de alterações com o mínimo de atraso e recursos suficientes de CPU e memória para aplicar estas alterações com o mínimo de atraso nos dados  
 
-Mais detalhes sobre limitações de diferentes tamanhos VM podem ser encontrados [aqui](../../linux/sizes.md) 
+Mais detalhes sobre limitações de diferentes tamanhos VM podem ser encontrados [aqui](../../sizes.md) 
 
 Outro método suportado de implantação de um alvo DR é ter uma segunda instância DBMS instalada num VM que executa uma instância DBMS não-produção de um caso SAP não produtivo. Isto pode ser um pouco mais desafiante, uma vez que precisa de descobrir o que na memória, recursos de CPU, largura de banda de rede e largura de banda de armazenamento são necessários para os casos-alvo específicos que devem funcionar como exemplo principal no cenário DR. Especialmente em HANA é altamente recomendado que você esteja configurando o caso que funciona como alvo DR em um hospedeiro compartilhado para que os dados não sejam pré-carregados na instância alvo DR.
 

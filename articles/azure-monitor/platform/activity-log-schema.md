@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/09/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: e50d6b6fe88cbad42d238ee2779abfe10e752f0e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 656161849ce8d48fb15cfac4024ec5b77adb5fee
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327281"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829514"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de evento de registo de atividade azure
 O [registo de Atividades Azure](platform-logs-overview.md) fornece informações sobre quaisquer eventos de nível de subscrição que ocorreram em Azure. Este artigo descreve categorias de registo de atividade e o esquema para cada um. 
@@ -796,7 +796,7 @@ Esta categoria contém registos de todas as operações de ação de efeito real
 Ao transmitir o registo de Atividade Azure para uma conta de armazenamento ou centro de eventos, os dados seguem o [esquema de registo de recursos](./resource-logs-schema.md). A tabela abaixo fornece um mapeamento de propriedades dos esquemas acima para o esquema de registos de recursos.
 
 > [!IMPORTANT]
-> O formato de dados de registo de atividades escritos numa conta de armazenamento alterado para JSON Lines em 1 de novembro de 2018. Consulte [Prepare-se para alterar o formato dos registos de recursos do Azure Monitor arquivados numa conta de armazenamento](/azure/azure-monitor/platform/resource-logs-blob-format) para obter detalhes sobre esta alteração de formato.
+> O formato de dados de registo de atividades escritos numa conta de armazenamento alterado para JSON Lines em 1 de novembro de 2018. Consulte [Prepare-se para alterar o formato dos registos de recursos do Azure Monitor arquivados numa conta de armazenamento](./resource-logs-blob-format.md) para obter detalhes sobre esta alteração de formato.
 
 
 | Propriedade de esquema de registos de recursos | Atividade Log REST API schema propriedade | Notas |
@@ -885,4 +885,3 @@ Segue-se um exemplo de um evento que usa este esquema..
 ## <a name="next-steps"></a>Passos seguintes
 * [Saiba mais sobre o Registo de Atividades](platform-logs-overview.md)
 * [Crie uma definição de diagnóstico para enviar Log de Atividade para Log Analytics espaço de trabalho, armazenamento de Azure ou centros de eventos](diagnostic-settings.md)
-

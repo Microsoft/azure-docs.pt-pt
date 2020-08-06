@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dc283d1845926b79fb541d8ccb011fe853f50484
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f363b8fc2fec659ee1b101c13d1ba6ac629f29d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81870288"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835494"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrar dos Serviços Web da Amazon (AWS) e de outras plataformas para Discos Geridos em Azure
 
@@ -31,7 +31,7 @@ Pode carregar VHDs generalizados e especializados.
 >
 
 
-| Scenario                                                                                                                         | Documentation                                                                                                                       |
+| Cenário                                                                                                                         | Documentação                                                                                                                       |
 |----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | Tem instâncias AWS EC2 existentes que gostaria de migrar para VMs Azure usando discos geridos                              | [Mover um VM da Amazon Web Services (AWS) para Azure](aws-to-azure.md)                           |
 | Tem um VM de outra plataforma de virtualização que gostaria de usar como imagem para criar vários VMs Azure. | [Faça upload de um VHD generalizado e use-o para criar um novo VM em Azure](upload-generalized-managed.md) |
@@ -55,7 +55,7 @@ Escolha um local onde os Discos Geridos Azure estão disponíveis. Se estiver a 
 
 ### <a name="vm-sizes"></a>Tamanhos de VM
 
-Se estiver a migrar para Discos Geridos Premium, tem de atualizar o tamanho do tamanho do VM para o tamanho do Armazenamento Premium disponível na região onde o VM está localizado. Reveja os tamanhos VM que são capazes de armazenamento premium. As especificações do tamanho Azure VM estão listadas em [Tamanhos para máquinas virtuais](sizes.md).
+Se estiver a migrar para Discos Geridos Premium, tem de atualizar o tamanho do tamanho do VM para o tamanho do Armazenamento Premium disponível na região onde o VM está localizado. Reveja os tamanhos VM que são capazes de armazenamento premium. As especificações do tamanho Azure VM estão listadas em [Tamanhos para máquinas virtuais](../sizes.md).
 Reveja as características de desempenho das máquinas virtuais que funcionam com o Premium Storage e escolha o tamanho VM mais adequado que melhor se adapte à sua carga de trabalho. Certifique-se de que existe largura de banda suficiente disponível no seu VM para conduzir o tráfego do disco.
 
 ### <a name="disk-sizes"></a>Tamanhos de disco

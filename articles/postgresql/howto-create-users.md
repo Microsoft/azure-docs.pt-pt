@@ -6,18 +6,18 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2019
-ms.openlocfilehash: f25bda1a450919264c7ddba3886554381009c546
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 1ae627a7ee1a7e2a704cc17cc8ec9ccc9846c109
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119604"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829310"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Criar utilizadores na Base de Dados Azure para PostgreSQL - Servidor Único
 
 Este artigo descreve como pode criar utilizadores dentro de uma Base de Dados Azure para servidor PostgreSQL.
 
-Se quiser aprender como criar e gerir os utilizadores de subscrição Azure e seus privilégios, pode visitar o artigo de [controlo de acesso baseado em funções Azure (RBAC)](../role-based-access-control/built-in-roles.md) ou rever como [personalizar funções.](../role-based-access-control/custom-roles.md)
+Se quiser aprender como criar e gerir os utilizadores de subscrição Azure e seus privilégios, pode visitar o artigo do [Azure role-based access control (Azure RBAC)](../role-based-access-control/built-in-roles.md) ou rever [como personalizar funções.](../role-based-access-control/custom-roles.md)
 
 ## <a name="the-server-admin-account"></a>A conta de administrador do servidor
 
@@ -82,7 +82,7 @@ A conta de utilizador de administração do servidor pode ser usada para criar u
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=db_user@mydemoserver --dbname=newdb
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Abra a firewall para os endereços IP das máquinas dos novos utilizadores para permitir a sua ligação: [Criar e gerir a Base de Dados Azure para regras de firewall PostgreSQL utilizando o portal Azure](howto-manage-firewall-using-portal.md) ou [Azure CLI](howto-manage-firewall-using-cli.md).
 

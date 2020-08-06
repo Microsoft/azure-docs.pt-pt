@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: ac9c8b0fe974c0a4dfebf1bcc303a379e2bd07ed
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0b032f48e18651af7f360471cc2834a5c45acc56
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87268038"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831418"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale em Azure
 
@@ -67,7 +67,7 @@ Esta arquitetura executa os níveis de aplicação, armazenamento e dados em má
 
 -   Um aglomerado DB2 pureScale. O tipo de recursos de computação que precisa no Azure depende da sua configuração. Em geral, pode utilizar duas abordagens:
 
-    -   Utilize uma rede de computação multi-nólada e de alto desempenho (HPC) onde as pequenas e médias instâncias acedem ao armazenamento partilhado. Para este tipo de configuração HPC, as máquinas virtuais da série E otimizadas pela memória Azure ou [as máquinas virtuais](../windows/sizes.md) da série L otimizadas para armazenamento fornecem a potência de computação necessária.
+    -   Utilize uma rede de computação multi-nólada e de alto desempenho (HPC) onde as pequenas e médias instâncias acedem ao armazenamento partilhado. Para este tipo de configuração HPC, as máquinas virtuais da série E otimizadas pela memória Azure ou [as máquinas virtuais](../sizes.md) da série L otimizadas para armazenamento fornecem a potência de computação necessária.
 
     -   Utilize menos grandes casos de máquinas virtuais para os motores de dados. Em grandes casos, as maiores máquinas virtuais da [série M](https://azure.microsoft.com/pricing/details/virtual-machines/series/) otimizadas pela memória são ideais para cargas de trabalho pesadas na memória. Você pode precisar de um caso dedicado, dependendo do tamanho da partição lógica (LPAR) que é usada para executar DB2.
 

@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 05/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 46ea77b26bb0c31a10cfac11c389ea5a21a8f4ac
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a3870ae192955df11107f0ebb5c618b90a0cc799
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502545"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833254"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mariadb-server-using-powershell"></a>Como fazer o back up e restaurar uma Base de Dados Azure para o servidor MariaDB usando o PowerShell
 
@@ -78,7 +78,7 @@ O conjunto de **parâmetros PointInTimeRestore** do `Restore-AzMariaDbServer` cm
 | Definição | Valor sugerido | Descrição  |
 | --- | --- | --- |
 | ResourceGroupName |  myResourceGroup |  O grupo de recursos onde existe o servidor de origem.  |
-| Name | mydemoserver-restored | O nome do novo servidor que é criado pelo comando restore. |
+| Nome | mydemoserver-restored | O nome do novo servidor que é criado pelo comando restore. |
 | RestaurarPointInTime | 2020-03-13T13:59:00Z | Selecione um ponto no tempo para restaurar. Esta data e hora têm de estar dentro do período de retenção de cópias de segurança do servidor de origem. Utilize o formato de data e hora ISO8601. Por exemplo, pode utilizar o seu próprio fuso horário local, como **2020-03-13T05:59:00-08:00**. Também pode utilizar o formato UTC Zulu, por exemplo, **2018-03-13T13:59:00Z**. |
 | UsePointInTimeRestore | `<SwitchParameter>` | Utilize o modo ponto-a-tempo para restaurar. |
 
@@ -120,7 +120,7 @@ O conjunto de **parâmetros GeoRestore** do `Restore-AzMariaDbServer` cmdlet req
 | Definição | Valor sugerido | Descrição  |
 | --- | --- | --- |
 |ResourceGroupName | myResourceGroup | O nome do grupo de recursos a que pertence o novo servidor pertence.|
-|Name | mydemoserver-georestored | O nome do novo servidor. |
+|Nome | mydemoserver-georestored | O nome do novo servidor. |
 |Localização | eastus | A localização do novo servidor. |
 |UseGeoRestore | `<SwitchParameter>` | Utilize o modo geo para restaurar. |
 
@@ -133,4 +133,4 @@ O novo servidor criado durante uma restauração não possui os pontos finais do
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Personalize a Base de Dados de Azure para parâmetros do servidor MariaDB utilizando o PowerShell](howto-configure-server-parameters-using-powershell.md)
+> [Como gerar uma base de dados Azure para cadeia de ligação MariaDB com PowerShell](howto-connection-string-powershell.md)

@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer, devx-track-azurecli
-ms.openlocfilehash: 2898364811616c16a0c33ea26dcaacace9c2c4ed
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: de8cfa66d6d52fe16cc40c5df0f41a39fff134fd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87491804"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832642"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>VMs Azure Spot para conjuntos de escala de máquina virtual 
 
@@ -40,6 +40,11 @@ Se quiser que as suas instâncias na escala spot sejam eliminadas quando forem d
 
 Os utilizadores podem optar por receber notificações in-VM através de [Eventos Agendados Azure.](../virtual-machines/linux/scheduled-events.md) Isto irá notificá-lo se os seus VMs estiverem a ser despejados e terá 30 segundos para terminar quaisquer trabalhos e executar tarefas de encerramento antes do despejo. 
 
+## <a name="placement-groups"></a>Grupos de colocação
+O grupo de colocação é uma construção semelhante a um conjunto de disponibilidades Azure, com os seus próprios domínios de falha e domínios de upgrade. Por predefinição, um conjunto de dimensionamento consiste num único grupo de colocação com o tamanho máximo de 100 VMs. Se a propriedade definida em escala `singlePlacementGroup` for definida como *falsa,* o conjunto de escala pode ser composto por vários grupos de colocação e tem uma gama de 0-1.000 VMs. 
+
+> [!IMPORTANT]
+> A menos que você esteja usando Infiniband com HPC, é fortemente recomendado definir a propriedade definida `singlePlacementGroup` escala para *falso* para permitir vários grupos de colocação para uma melhor escala em toda a região ou zona. 
 
 ## <a name="deploying-spot-vms-in-scale-sets"></a>Implantação de VMs spot em conjuntos de escala
 
@@ -64,6 +69,7 @@ az vmss create \
     --name myScaleSet \
     --image UbuntuLTS \
     --upgrade-policy-mode automatic \
+    --single-placement-group false \
     --admin-username azureuser \
     --generate-ssh-keys \
     --priority Spot \
@@ -89,14 +95,26 @@ $vmssConfig = New-AzVmssConfig `
 
 O processo para criar um conjunto de escala que utilize VMs spot é o mesmo que detalhado no artigo de início para [Linux](quick-create-template-linux.md) ou [Windows](quick-create-template-windows.md). 
 
-Para implementações de modelos spot, use `"apiVersion": "2019-03-01"` ou mais tarde. Adicione o `priority` , e propriedades à secção no seu `evictionPolicy` `billingProfile` `"virtualMachineProfile":` modelo: 
+Para implementações de modelos spot, use `"apiVersion": "2019-03-01"` ou mais tarde. 
+
+Adicione o `priority` , e propriedades à `evictionPolicy` `billingProfile` `"virtualMachineProfile":` seção e a propriedade à `"singlePlacementGroup": false,` secção no seu `"Microsoft.Compute/virtualMachineScaleSets"` modelo:
 
 ```json
-                "priority": "Spot",
+
+{
+  "type": "Microsoft.Compute/virtualMachineScaleSets",
+  },
+  "properties": {
+    "singlePlacementGroup": false,
+    }
+
+        "virtualMachineProfile": {
+              "priority": "Spot",
                 "evictionPolicy": "Deallocate",
                 "billingProfile": {
                     "maxPrice": -1
                 }
+            },
 ```
 
 Para eliminar o caso depois de ter sido despejado, altere o `evictionPolicy` parâmetro para `Delete` .
@@ -156,11 +174,11 @@ Para eliminar o caso depois de ter sido despejado, altere o `evictionPolicy` par
 
 | Canais Azure               | Disponibilidade de VMs Azure Spot       |
 |------------------------------|-----------------------------------|
-| Contrato Enterprise         | Sim                               |
-| Pay As You Go                | Sim                               |
+| Contrato Enterprise         | Yes                               |
+| Pay As You Go                | Yes                               |
 | Fornecedor de serviços na nuvem (CSP) | [Contacte o seu parceiro](/partner-center/azure-plan-get-started) |
 | Benefícios                     | Não disponível                     |
-| Patrocinado                    | Sim                               |
+| Patrocinado                    | Yes                               |
 | Avaliação Gratuita                   | Não disponível                     |
 
 

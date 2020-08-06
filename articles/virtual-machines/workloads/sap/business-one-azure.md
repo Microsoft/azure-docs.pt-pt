@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f119acc06883dc077218c56accd31c805092db85
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 293a0fcd1211739be07e58f414bd6861bf47eb76
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088296"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831112"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One em Máquinas Virtuais do Azure
 Este documento fornece orientações para implantar o SAP Business One em Azure Virtual Machines. A documentação não substitui a documentação de instalação do Negócios um para a SAP. A documentação deve abranger as diretrizes básicas de planeamento e implantação para a infraestrutura Azure para executar aplicações do Business One.
@@ -149,7 +149,7 @@ Para o backup e restauro de estratégias de backback SAP HANA, deve ler o guia d
 ### <a name="business-one-client-server"></a>Servidor de clientes Business One
 Para estes componentes, as considerações de armazenamento não são a principal preocupação. no entanto, quer ter uma plataforma confiável. Portanto, deve utilizar o Azure Premium Storage para este VM, mesmo para o VHD base. Dimensionamento do VM, com os dados dados no [GUIA de Requisitos de Hardware SAP Business One](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). Para o Azure, é necessário concentrar-se e calcular com os requisitos indicados no capítulo 2.4 do documento. Ao calcular os requisitos, precisa compará-los com os seguintes documentos para encontrar o VM ideal para si:
 
-- [Tamanhos de máquinas virtuais do Windows no Azure](../../windows/sizes.md)
+- [Tamanhos de máquinas virtuais do Windows no Azure](../../sizes.md)
 - [Nota SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533)
 
 Compare o número de CPUs e memória necessária ao que é documentado pela Microsoft. Tenha também em mente o rendimento da rede ao escolher os VMs.

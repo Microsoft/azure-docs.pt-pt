@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: cdcc26a8a22e9a1dc7af75667cdb33bb044c7858
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fcbcb89505130dddb42d97c153b172a22a9b29b2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288583"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831486"
 ---
 # <a name="av2-series"></a>Série Av2
 
@@ -52,7 +52,7 @@ Atualizações de preservação da memória: Suportadas
 
 Calculadora de preços : [Calculadora de Preços](https://azure.microsoft.com/pricing/calculator/)
 
-Mais informações sobre tipos de discos : [tipos de discos](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
+Mais informações sobre tipos de discos : [tipos de discos](./linux/disks-types.md#ultra-disk)
 
 ## <a name="next-steps"></a>Passos seguintes
 

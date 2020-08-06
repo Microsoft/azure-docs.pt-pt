@@ -8,18 +8,18 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4443c92fad2510b6bc4bc1214840aca5553556a5
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 84c7b72e3ac7a5726dea38b21b14b5bd83b42340
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553466"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831027"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>Cenário: Isolamento personalizado para VNets
 
 Ao trabalhar com o encaminhamento virtual do hub virtual WAN, existem alguns cenários disponíveis. Num cenário de isolamento personalizado para os VNets, o objetivo é evitar que um conjunto específico de VNets seja capaz de alcançar outro conjunto específico de VNets. No entanto, os VNets são necessários para chegar a todos os ramos (VPN/ER/User VPN). Para obter mais informações sobre o encaminhamento de hubs virtuais, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).
 
-## <a name="scenario-design"></a><a name="design"></a>Design de cenário
+## <a name="design"></a><a name="design"></a>Conceção
 
 Para descobrir quantas tabelas de rotas serão necessárias, você pode construir uma matriz de conectividade. Para este cenário será o seguinte, onde cada célula representa se uma fonte (linha) pode comunicar a um destino (coluna):
 
@@ -53,7 +53,7 @@ Os ramos terão de aprender os prefixos tanto dos VNets vermelhos como dos azuis
 
 Para obter mais informações sobre o encaminhamento de hubs virtuais, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).
 
-## <a name="scenario-workflow"></a><a name="architecture"></a>Fluxo de trabalho de cenário
+## <a name="workflow"></a><a name="architecture"></a>Fluxo de trabalho
 
 Na **Figura 1,** existem ligações VNet Azul e Vermelha.
 
@@ -74,7 +74,7 @@ Isto resultará em alterações na configuração do encaminhamento, como visto 
 
 :::image type="content" source="./media/routing-scenarios/custom-isolation/custom.png" alt-text="figura 1":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre o VIRTUAL WAN, consulte as [FAQ.](virtual-wan-faq.md)
 * Para obter mais informações sobre o encaminhamento de hubs virtuais, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).

@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Aprenda a resolver problemas e resolva problemas comuns ao ativar e utilizar espaços Azure Dev
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: cd242dc56e4a3215954fbe6703f47e29bd417ea8
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 1efaa178c2abda316cfad3e375dfdd38b41d75e0
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534401"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835702"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure Dev Spaces resolução de problemas
 
@@ -267,7 +267,7 @@ Este erro ocorre porque a Azure Dev Spaces não suporta atualmente construções
 
 ### <a name="network-traffic-is-not-forwarded-to-your-aks-cluster-when-connecting-your-development-machine"></a>O tráfego de rede não é encaminhado para o seu cluster AKS ao ligar a sua máquina de desenvolvimento
 
-Ao utilizar [o Azure Dev Spaces para ligar o seu cluster AKS à sua máquina de desenvolvimento,](how-to/local-process-kubernetes-vs-code.md)poderá encontrar um problema em que o tráfego de rede não seja reencaminhado entre a sua máquina de desenvolvimento e o seu cluster AKS.
+Ao utilizar [o Azure Dev Spaces para ligar o seu cluster AKS à sua máquina de desenvolvimento,](https://code.visualstudio.com/docs/containers/local-process-kubernetes)poderá encontrar um problema em que o tráfego de rede não seja reencaminhado entre a sua máquina de desenvolvimento e o seu cluster AKS.
 
 Ao ligar a sua máquina de desenvolvimento ao seu cluster AKS, a Azure Dev Spaces encaminha o tráfego de rede entre o seu cluster AKS e a sua máquina de desenvolvimento modificando o ficheiro da sua máquina de `hosts` desenvolvimento. A Azure Dev Spaces cria uma entrada no `hosts` endereço do serviço Kubernetes que está a substituir como nome de anfitrião. Esta entrada é utilizada com o encaminhamento da porta para o tráfego direto da rede entre a sua máquina de desenvolvimento e o cluster AKS. Se um serviço na sua máquina de desenvolvimento entrar em conflito com a porta do serviço Kubernetes que está a substituir, a Azure Dev Spaces não pode encaminhar o tráfego de rede para o serviço Kubernetes. Por exemplo, o serviço *Windows BranchCache* está normalmente ligado a *0.0.0.0.0:80*, que os conflitos causarão um conflito para o porto 80 em todos os IPs locais.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/20/2020
 ms.author: allensu
-ms.openlocfilehash: 690543ebc91e346e77509fbf993493f6978374ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d75f13f6a0621158bdb9a2f1682d0c85eaacb59d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84688286"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836110"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Resolução de problemas Azure Rede Virtual NAT conectividade
 
@@ -195,6 +195,14 @@ _**Solução:**_
 Não é necessário reiniciar uma máquina virtual configurando uma sub-rede para um recurso de gateway NAT.  No entanto, se uma máquina virtual for reiniciada, o estado de ligação é lavado.  Quando o estado de ligação tiver sido lavado, todas as ligações começarão a utilizar o endereço IP do recurso (es) do recurso GATEWAY NAT.  No entanto, este é um efeito colateral da máquina virtual sendo reiniciada e não um indicador de que é necessário um reboot.
 
 Se ainda tiver problemas, abra um caso de apoio para mais resolução de problemas.
+
+### <a name="connection-setup-time"></a>Tempo de configuração da ligação
+
+Uma vez que as regras de saída do Balancer de Carga atribuem estáticamente piscinas de portas SNAT a máquinas virtuais específicas, criar novos fluxos de saída é mais rápido do que usar o NAT de Rede Virtual. Por isso, quando mudar de Regras de Saída do Balanceador de Carga, poderá ver uma maior latência ao criar uma nova ligação de saída. Como explicado anteriormente, para maximizar o desempenho da sua aplicação, deve utilizar fluxos de longa duração (por exemplo, ligações TCP reutilizadas).
+
+_**Solução:**_
+
+Se estiver interessado principalmente na latência mínima de configuração de conibição, utilize as Regras de Saída do Balanceador de Carga.
 
 ## <a name="next-steps"></a>Passos seguintes
 

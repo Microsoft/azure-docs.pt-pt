@@ -4,15 +4,15 @@ description: Como monitorizar o Azure File Sync.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/28/2019
+ms.date: 08/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0232a0c6526d6dcdfec86dedec437c71e7e21080
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81224e0c055ad4a94bd57ebb3aa7c8a3b30c2dd7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515195"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832625"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorizar o Azure File Sync
 
@@ -20,7 +20,11 @@ Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organi
 
 Este artigo descreve como monitorizar a implementação do Azure File Sync utilizando o Monitor Azure, o Serviço de Sincronização de Armazenamento e o Servidor do Windows.
 
-As seguintes opções de monitorização estão atualmente disponíveis.
+Os seguintes cenários estão abrangidos por este guia: 
+- Ver métricas de Sincronização de Ficheiros Azure no Monitor Azure.
+- Crie alertas no Azure Monitor para o notificar proativamente das condições críticas.
+- Monitorize a saúde da sua implementação Azure File Sync utilizando o portal Azure.
+- Como utilizar os registos de eventos e os contadores de desempenho nos seus Servidores windows para monitorizar a saúde da sua implementação de Azure File Sync. 
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
@@ -48,18 +52,28 @@ As seguintes métricas para Azure File Sync estão disponíveis no Azure File Sy
 
 ### <a name="alerts"></a>Alertas
 
-Para configurar alertas no Azure Monitor, selecione o Serviço de Sincronização de Armazenamento e, em seguida, selecione a [métrica Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#metrics) para usar para o alerta.  
+Os alertas notificam-no proativamente quando forem encontradas condições importantes nos seus dados de monitorização. Para saber mais sobre a configuração de alertas no Azure Monitor, consulte [a visão geral dos alertas no Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+
+**Como criar alertas para a Azure File Sync**
+
+- Aceda ao seu **Serviço de Sincronização de Armazenamento** no portal **Azure**. 
+- Clique em **Alertas** na secção de Monitorização e, em seguida, clique **em + Nova regra de alerta**.
+- Clique **em Selecionar a condição** e fornecer as seguintes informações para o alerta: 
+    - **Métrica**
+    - **Nome de dimensão**
+    - **Lógica de alerta**
+- Clique **em Selecionar grupo de ação** e adicione um grupo de ação (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
+- Preencha os **detalhes do Alerta** como o nome da regra de **alerta,** **descrição** e **severidade**.
+- Clique **em Criar regra de alerta** para criar o alerta.  
 
 A tabela a seguir enumera alguns cenários de exemplo para monitorizar e a métrica adequada a utilizar para o alerta:
 
-| Scenario | Métrica para usar para alerta |
+| Cenário | Métrica para usar para alerta |
 |-|-|
 | Saúde do ponto final do servidor no portal = Erro | Resultado da sessão de sincronização |
 | Os ficheiros não estão a sincronizar um servidor ou ponto final na nuvem | Ficheiros não sincronizados |
 | O servidor registado não está a comunicar com o Serviço de Sincronização de Armazenamento | Estado on-line do servidor |
 | O tamanho da recuperação do nível da nuvem ultrapassou os 500GiB num dia  | Tamanho de recuperação de nível de nuvem |
-
-Para saber mais sobre a configuração de alertas no Azure Monitor, consulte [a visão geral dos alertas no Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
 ## <a name="storage-sync-service"></a>Serviço de Sincronização de Armazenamento
 
@@ -145,9 +159,9 @@ Os seguintes contadores de desempenho para Azure File Sync estão disponíveis n
 | Operações de sincronização AFS\Ficheiros de sincronização carregados/seg | Número de ficheiros enviados por segundo. |
 | OPERAÇÕES DE SINCRONIZAÇÃO AFS\Total sync operações/seg | Número total de ficheiros sincronizados (carregar e transferir). |
 
-## <a name="next-steps"></a>Próximos passos
-- [Planear uma implementação da Sincronização de Ficheiros do Azure](storage-sync-files-planning.md)
+## <a name="next-steps"></a>Passos seguintes
+- [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
 - [Considere as definições de firewall e proxy](storage-sync-files-firewall-and-proxy.md)
-- [Implementar Azure File Sync](storage-sync-files-deployment-guide.md)
-- [Resolver problemas da Sincronização de Ficheiros do Azure](storage-sync-files-troubleshoot.md)
+- [Implementar o Azure File Sync](storage-sync-files-deployment-guide.md)
+- [Resolver problemas do Azure File Sync](storage-sync-files-troubleshoot.md)
 - [Ficheiros Azure frequentemente fazem perguntas](storage-files-faq.md)

@@ -10,12 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: d1ab9834d4bf25c7c18171ecb271f18b213d15b0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d754f27a1510d9db0837eabb96b3a7cf75f76fc1
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507884"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835532"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Rehosagem de mainframe em máquinas virtuais Azure
 
@@ -90,7 +90,7 @@ Com o Azure IaaS, como um VM, as funções específicas do sistema fornecem supo
 
 ### <a name="scalability"></a>Escalabilidade
 
-Os mainframes normalmente escalam, enquanto os ambientes em nuvem escalam. O Azure oferece uma gama de tamanhos [Linux](../../linux/sizes.md) e [Windows](../../windows/sizes.md) para atender às suas necessidades. A nuvem também escala para cima ou para baixo para corresponder às especificações exatas do utilizador. A [escala](/azure/architecture/best-practices/auto-scaling) de potência, armazenamento e serviços de cálculo a pedido sob um modelo de faturação baseado no uso.
+Os mainframes normalmente escalam, enquanto os ambientes em nuvem escalam. O Azure oferece uma gama de tamanhos [Linux](../../sizes.md) e [Windows](../../sizes.md) para atender às suas necessidades. A nuvem também escala para cima ou para baixo para corresponder às especificações exatas do utilizador. A [escala](/azure/architecture/best-practices/auto-scaling) de potência, armazenamento e serviços de cálculo a pedido sob um modelo de faturação baseado no uso.
 
 ### <a name="storage"></a>Armazenamento
 
@@ -110,7 +110,7 @@ O Governo de Azure obteve uma Autoridade Provisória para Operar (P-ATO) para o 
 
 Para começar, baixe a [nuvem do Governo do Microsoft Azure para aplicações mainframe](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/en-us/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Peça aos [nossos parceiros](partner-workloads.md) que o ajudem a migrar ou a reenquadrar as suas aplicações mainframe. 
 

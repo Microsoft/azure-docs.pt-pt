@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviwer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 1ee4c8a52098bfa7c012e85f25371c306b106b86
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b5e786a64d7d9606a3a99a3f1b3f8c67c9869cd1
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029438"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830687"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Resolver problemas de dimensionamento automático em Conjuntos de Dimensionamento de Máquinas Virtuais
 **Problema** – criou uma infraestrutura de autoscalização no Azure Resource Manager utilizando conjuntos de escala de máquinas virtuais – por exemplo, ao implementar um modelo como este: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale – tem as suas regras de escala definidas e funciona muito bem, exceto que por mais carga que coloque nos VMs, não se autoescala.
@@ -23,7 +23,7 @@ ms.locfileid: "87029438"
 Algumas coisas a considerar incluem:
 
 * Quantos vCPUs cada VM tem, e está a carregar cada vCPU?
-  A amostra anterior Azure Quickstart modelo tem um script do_work.php, que carrega um único vCPU. Se estiver a utilizar um VM maior do que um tamanho VM de um único vCPU como Standard_A1 ou D1, terá de executar esta carga várias vezes. Verifique quantos vCPUs para os seus VMs, analisando [tamanhos para máquinas virtuais Windows em Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+  A amostra anterior Azure Quickstart modelo tem um script do_work.php, que carrega um único vCPU. Se estiver a utilizar um VM maior do que um tamanho VM de um único vCPU como Standard_A1 ou D1, terá de executar esta carga várias vezes. Verifique quantos vCPUs para os seus VMs, analisando [tamanhos para máquinas virtuais Windows em Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * Quantos VMs no conjunto de escala de máquina virtual, está a trabalhar em cada um deles?
   
     Um evento de escala só ocorre quando o CPU médio em **todos os** VMs em uma escala definida excede o valor limiar, ao longo do tempo definido nas regras de autoescala.

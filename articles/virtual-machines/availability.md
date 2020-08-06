@@ -6,12 +6,12 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: d26e1edb53f963d591b1ee1fba58b87fd454e898
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 18d7755bf6bf9d09a8da30cb5c2892af6ed90c7d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288570"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830653"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Opções de disponibilidade das máquinas virtuais no Azure
 
@@ -47,11 +47,11 @@ Esta abordagem garante que, pelo menos, uma instância da aplicação permanece 
 
 ## <a name="virtual-machines-scale-sets"></a>Conjuntos de escala de máquinas virtuais 
 
-Conjuntos de escala de máquina virtual Azure permitem criar e gerir um grupo de VMs equilibrados de carga. O número de instâncias de VM pode aumentar ou diminuir automaticamente como resposta à procura ou horário definido. Os conjuntos de escala proporcionam uma elevada disponibilidade para as suas aplicações e permitem-lhe gerir, configurar e atualizar muitos VMs. Recomendamos que sejam criados dois ou mais VMs dentro de uma escala definida para fornecer uma aplicação altamente disponível e para atender o [Azure SLA de 99,95%.](https://azure.microsoft.com/support/legal/sla/virtual-machines/) Não há qualquer custo para a escala em si, você só paga por cada instância VM que você cria. Quando um único VM está a utilizar [SSDs premium Azure,](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd)o Azure SLA aplica-se a eventos de manutenção não planeados. Máquinas virtuais num conjunto de escala podem ser implantadas em vários domínios de atualização e domínios de avarias para maximizar a disponibilidade e a resiliência a falhas devido a interrupções no centro de dados e eventos de manutenção planeados ou não planeados. Máquinas virtuais em um conjunto de escala também podem ser implantadas numa única zona de Disponibilidade, ou regionalmente. As opções de implantação da zona de disponibilidade podem diferir com base no modo de orquestração.
+Conjuntos de escala de máquina virtual Azure permitem criar e gerir um grupo de VMs equilibrados de carga. O número de instâncias de VM pode aumentar ou diminuir automaticamente como resposta à procura ou horário definido. Os conjuntos de escala proporcionam uma elevada disponibilidade para as suas aplicações e permitem-lhe gerir, configurar e atualizar muitos VMs. Recomendamos que sejam criados dois ou mais VMs dentro de uma escala definida para fornecer uma aplicação altamente disponível e para atender o [Azure SLA de 99,95%.](https://azure.microsoft.com/support/legal/sla/virtual-machines/) Não há qualquer custo para a escala em si, você só paga por cada instância VM que você cria. Quando um único VM está a utilizar [SSDs premium Azure,](./windows/disks-types.md#premium-ssd)o Azure SLA aplica-se a eventos de manutenção não planeados. Máquinas virtuais num conjunto de escala podem ser implantadas em vários domínios de atualização e domínios de avarias para maximizar a disponibilidade e a resiliência a falhas devido a interrupções no centro de dados e eventos de manutenção planeados ou não planeados. Máquinas virtuais em um conjunto de escala também podem ser implantadas numa única zona de Disponibilidade, ou regionalmente. As opções de implantação da zona de disponibilidade podem diferir com base no modo de orquestração.
 
 **Domínios de avaria e domínios de atualização**
 
-Os conjuntos de escala de máquina virtual simplificam o design para uma alta disponibilidade, alinhando domínios de falhas e domínios de atualização. Só terá de definir a contagem de domínios de avaria para o conjunto de escalas. O número de domínios de avaria disponíveis para os conjuntos de escala pode variar por região. Ver [Gerir a disponibilidade de máquinas virtuais em Azure](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability).
+Os conjuntos de escala de máquina virtual simplificam o design para uma alta disponibilidade, alinhando domínios de falhas e domínios de atualização. Só terá de definir a contagem de domínios de avaria para o conjunto de escalas. O número de domínios de avaria disponíveis para os conjuntos de escala pode variar por região. Ver [Gerir a disponibilidade de máquinas virtuais em Azure](./windows/manage-availability.md).
 
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidade
@@ -72,4 +72,3 @@ Os VMs dentro de um conjunto de disponibilidade também são distribuídos autom
 
 ## <a name="next-steps"></a>Passos seguintes
 Pode agora começar a utilizar estas funcionalidades de redundância e disponibilidade para criar o seu ambiente do Azure. Para informações relativas a melhores práticas, veja [Melhores Práticas de Disponibilidade do Azure](/azure/architecture/checklist/resiliency-per-service).
-

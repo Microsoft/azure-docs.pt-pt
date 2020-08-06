@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 7f78b5d0baff149fc687d2b4bb71d70186315def
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: d00b897f41ab00f0e3c23292eeb5f431bf5c070c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543831"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835940"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 ## <a name="overview"></a>Descrição geral
@@ -179,7 +179,7 @@ Para muitas organizações, a encriptação de dados em repouso é um passo obri
 
 Os serviços de armazenamento Azure suportam agora o CORS de modo a que, uma vez definidas as regras CORS para o serviço, seja avaliado um pedido devidamente autenticado contra o serviço de um domínio diferente para determinar se é permitido de acordo com as regras especificadas.
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 A secção fornece informações adicionais sobre as principais funcionalidades da segurança da rede Azure e informações sumárias sobre estas capacidades.
 
 ### <a name="network-layer-controls"></a>Controlos da camada de rede
@@ -239,10 +239,10 @@ Fornece ativação pós-falha, pedidos HTTP de encaminhamento de desempenho entr
 
 A aplicação fornece muitas funcionalidades do Controlador de Entrega de Aplicações (ADC), incluindo equilíbrio de carga HTTP, afinidade da sessão baseada em [cookies, descarregamento de TLS,](../../application-gateway/tutorial-restrict-web-traffic-powershell.md)sondas de saúde personalizadas, suporte para vários sites, e muitos outros.
 
-### <a name="web-application-firewall"></a>Firewall de Aplicação Web
+### <a name="web-application-firewall"></a>Firewall de Aplicações Web
 Web Application Firewall é uma característica do [Azure Application Gateway](../../application-gateway/overview.md) que fornece proteção para aplicações web que usam o gateway de aplicação para funções padrão de Controlo de Entrega de Aplicações (ADC). A Firewall de aplicações Web fá-lo ao protegê-las contra a maioria das 10 principais vulnerabilidades Web da OWASP.
 
-![Firewall de Aplicação Web](./media/overview/azure-security-fig1.png)
+![Firewall de Aplicações Web](./media/overview/azure-security-fig1.png)
 
 -   Proteção contra injeção de SQL
 
@@ -336,7 +336,7 @@ A Microsoft utiliza múltiplas práticas e tecnologias de segurança em todos os
 
 -   [A autenticação baseada em token](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/) permite a autenticação através do Azure Ative Directory.
 
--   [O controlo de acesso baseado em funções (RBAC) permite-lhe](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/) conceder acesso com base no papel atribuído ao utilizador, facilitando aos utilizadores apenas a quantidade de acesso de que necessitam para desempenharem as suas funções. Pode personalizar o RBAC de acordo com o modelo de negócio da sua organização e a tolerância ao risco.
+-   [O controlo de acesso baseado em funções (Azure RBAC) permite-lhe](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/) conceder acesso com base na função atribuída ao utilizador, facilitando aos utilizadores apenas a quantidade de acesso de que necessitam para desempenharem as suas funções. Pode personalizar o RBAC de acordo com o modelo de negócio da sua organização e a tolerância ao risco.
 
 -   [A gestão integrada da identidade (identidade híbrida)](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/) permite manter o controlo do acesso dos utilizadores através de datacenters internos e plataformas cloud, criando uma identidade única de utilizador para a autenticação e autorização de todos os recursos.
 

@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 31755ea096724ffd314d970b2119f0d5ed31bf03
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 71bffacb3f865ffe487ebdd4bee0c0c229be332d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87268429"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830330"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Perguntas frequentes sobre máquinas virtuais Linux
 Este artigo aborda algumas questões comuns sobre máquinas virtuais Linux criadas em Azure usando o modelo de implementação do Gestor de Recursos. Para a versão Windows deste tópico, consulte [perguntas frequentes sobre máquinas virtuais do Windows](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -21,7 +21,7 @@ Este artigo aborda algumas questões comuns sobre máquinas virtuais Linux criad
 Todos os subscritores podem executar software de servidor numa máquina virtual do Azure. Para mais informações, consulte [Linux em Distribuições Endossadas Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Quanto armazenamento posso utilizar com uma máquina virtual?
-Cada disco de dados pode chegar a 32.767 GiB. O número de discos de dados que pode utilizar depende do tamanho da máquina virtual. Para obter mais detalhes, veja [Tamanhos das Virtual Machines](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Cada disco de dados pode chegar a 32.767 GiB. O número de discos de dados que pode utilizar depende do tamanho da máquina virtual. Para obter mais detalhes, veja [Tamanhos das Virtual Machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Os Discos Geridos Azure são as ofertas recomendadas de armazenamento de discos para utilização com máquinas virtuais Azure para armazenamento persistente de dados. Pode utilizar vários Discos Geridos com cada Máquina Virtual. Os Discos Geridos oferecem dois tipos de opções de armazenamento duráveis: Discos Standard e Geridos. Para obter informações sobre preços, consulte [preços dos discos geridos.](https://azure.microsoft.com/pricing/details/managed-disks)
 
@@ -36,7 +36,7 @@ Se tiver problemas, consulte as [ligações Troubleshoot Secure Shell (SSH).](..
 Não utilize o disco temporário (/dev/sdb1) para armazenar dados. Só existe para armazenamento temporário. Arrisca-se a perder dados que não podem ser recuperados.
 
 ## <a name="can-i-copy-or-clone-an-existing-azure-vm"></a>Posso copiar ou clonar um Azure VM existente?
-Yes. Para obter instruções, consulte [como criar uma cópia de uma máquina virtual Linux no modelo de implementação do Gestor de Recursos](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Sim. Para obter instruções, consulte [como criar uma cópia de uma máquina virtual Linux no modelo de implementação do Gestor de Recursos](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="why-am-i-not-seeing-canada-central-and-canada-east-regions-through-azure-resource-manager"></a>Porque é que não estou a ver as regiões do Canadá Central e do Canadá do Leste através do Azure Resource Manager?
 As duas novas regiões do Canadá Central e Do Leste do Canadá não estão automaticamente registadas para a criação de máquinas virtuais para as assinaturas Azure existentes. Este registo é feito automaticamente quando uma máquina virtual é implantada através do portal Azure para qualquer outra região usando O Gestor de Recursos Azure. Depois de uma máquina virtual ser implantada em qualquer outra região de Azure, as novas regiões devem estar disponíveis para máquinas virtuais subsequentes.
@@ -45,10 +45,10 @@ As duas novas regiões do Canadá Central e Do Leste do Canadá não estão auto
 Sim, isto agora é possível. O VM primeiro precisa de ser interrompido. Em seguida, pode adicionar ou remover um NIC (a menos que seja o último NIC no VM). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>Há algum requisito de nome de computador?
-Yes. O nome do computador pode ter um comprimento máximo de 64 caracteres. Consulte [as regras e restrições das convenções](/azure/architecture/best-practices/resource-naming) de nomeação para obter mais informações sobre o nome dos seus recursos.
+Sim. O nome do computador pode ter um comprimento máximo de 64 caracteres. Consulte [as regras e restrições das convenções](/azure/architecture/best-practices/resource-naming) de nomeação para obter mais informações sobre o nome dos seus recursos.
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>Existem requisitos de nome de grupo de recursos?
-Yes. O nome do grupo de recursos pode ter um comprimento máximo de 90 caracteres. Consulte [as regras e restrições das convenções](/azure/architecture/best-practices/resource-naming) de nomeação para obter mais informações sobre grupos de recursos.
+Sim. O nome do grupo de recursos pode ter um comprimento máximo de 90 caracteres. Consulte [as regras e restrições das convenções](/azure/architecture/best-practices/resource-naming) de nomeação para obter mais informações sobre grupos de recursos.
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>Quais são os requisitos do nome de utilizador ao criar um VM?
 

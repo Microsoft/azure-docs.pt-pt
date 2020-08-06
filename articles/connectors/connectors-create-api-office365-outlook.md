@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 07/27/2020
 tags: connectors
-ms.openlocfilehash: aa5be3d58ee1a0a40d0b817e1f5999ccd4bc423d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e0e152b3c0e10c34bc6213ddf867b79c58d1d767
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319240"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832982"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Gerir e-mails, contactos e calendários no Outlook do Office 365 com o Azure Logic Apps
 
@@ -48,7 +48,7 @@ Um [gatilho](../logic-apps/logic-apps-overview.md#logic-app-concepts) é um even
 1. Se for solicitado a iniciar scontabilidade, forneça as credenciais do Seu Office 365 para que a sua aplicação lógica possa ligar-se à sua conta. Caso contrário, se a sua ligação já existir, forneça as informações para as propriedades do gatilho.
 
    > [!NOTE]
-   > A sua ligação não expira até ser revogada, mesmo que altere as suas credenciais de inscrição. Para obter mais informações, consulte [as vidas de símbolos configurantes no Diretório Ativo Azure](../active-directory/active-directory-configurable-token-lifetimes.md).
+   > A sua ligação não expira até ser revogada, mesmo que altere as suas credenciais de inscrição. Para obter mais informações, consulte [as vidas de símbolos configurantes no Diretório Ativo Azure](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
 
    Este exemplo seleciona o calendário que o gatilho verifica, por exemplo:
 
@@ -81,7 +81,7 @@ Uma [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) é uma ope
 1. Se for solicitado a iniciar scontabilidade, forneça as credenciais do Seu Office 365 para que a sua aplicação lógica possa ligar-se à sua conta. Caso contrário, se a sua ligação já existir, forneça as informações para os imóveis da ação.
 
    > [!NOTE]
-   > A sua ligação não expira até ser revogada, mesmo que altere as suas credenciais de inscrição. Para obter mais informações, consulte [as vidas de símbolos configurantes no Diretório Ativo Azure](../active-directory/active-directory-configurable-token-lifetimes.md).
+   > A sua ligação não expira até ser revogada, mesmo que altere as suas credenciais de inscrição. Para obter mais informações, consulte [as vidas de símbolos configurantes no Diretório Ativo Azure](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
 
    Este exemplo seleciona a pasta de contactos onde a ação cria o novo contacto, por exemplo:
 

@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 5ee58f6a2058158308cab8ec49b1d79587998d39
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1c2330f1ba71e2a72a1a44df7af6444181f5f9ea
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247035"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836399"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Perguntas frequentes sobre o Registo de Contentores Azure
 
@@ -254,7 +254,9 @@ A quarentena de imagem é atualmente uma característica de pré-visualização 
 
 ### <a name="how-do-i-enable-anonymous-pull-access"></a>Como posso permitir o acesso anónimo?
 
-A criação de um registo de contentores Azure para acesso anónimo (público) é atualmente uma funcionalidade de pré-visualização. Para permitir o acesso ao público, abra um bilhete de apoio em https://aka.ms/acr/support/create-ticket . Para mais detalhes, consulte o [Azure Feedback Forum](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+A criação de um registo de contentores Azure para acesso anónimo (público) é atualmente uma funcionalidade de pré-visualização. Se tiver algum [mapa de âmbito (utilizador) ou recursos simbólicos](https://aka.ms/acr/repo-permissions) no seu registo, por favor, apague-os antes de levantar um bilhete de apoio (os mapas de âmbito do sistema podem ser ignorados). Para permitir o acesso ao público, abra um bilhete de apoio em https://aka.ms/acr/support/create-ticket . Para mais detalhes, consulte o [Azure Feedback Forum](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+
+
 
 
 ## <a name="diagnostics-and-health-checks"></a>Diagnósticos e exames de saúde
@@ -501,10 +503,10 @@ Atualmente, não apoiamos o GitLab para os gatilhos de origem.
 
 | Serviço git | Contexto de origem | Construção manual | Construção automática através do gatilho de comprometimento |
 |---|---|---|---|
-| GitHub | `https://github.com/user/myapp-repo.git#mybranch:myfolder` | Sim | Yes |
-| Repositórios do Azure | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` | Sim | Yes |
-| GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | Yes | Não |
-| BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | Yes | Não |
+| GitHub | `https://github.com/user/myapp-repo.git#mybranch:myfolder` | Sim | Sim |
+| Repositórios do Azure | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` | Sim | Sim |
+| GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | Sim | Não |
+| BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | Sim | Não |
 
 ## <a name="run-error-message-troubleshooting"></a>Executar resolução de problemas de mensagem de erro
 

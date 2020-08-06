@@ -3,12 +3,12 @@ title: Como direcionar as versões de tempo de execução do Azure Functions
 description: O Azure Functions suporta várias versões do tempo de execução. Saiba como especificar a versão de tempo de execução de uma aplicação de função hospedada no Azure.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 3d4e40af1ba1e28bc9e9a433872e1315ffbe7747
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 74ee0d382dcd468aed118a7de330eef95b329402
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079660"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830874"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Como direcionar as versões de tempo de execução do Azure Functions
 
@@ -16,12 +16,12 @@ Uma aplicação de função executa numa versão específica do tempo de execuç
 
 ## <a name="automatic-and-manual-version-updates"></a>Atualizações automáticas e manuais da versão
 
-As Funções Azure permitem-lhe direcionar uma versão específica do tempo de execução utilizando a definição de `FUNCTIONS_EXTENSION_VERSION` aplicação numa aplicação de função. A aplicação de função é mantida na versão principal especificada até que você explicitamente opte por mudar para uma nova versão.
+As Funções Azure permitem-lhe direcionar uma versão específica do tempo de execução utilizando a definição de `FUNCTIONS_EXTENSION_VERSION` aplicação numa aplicação de função. A aplicação de função é mantida na versão principal especificada até que você explicitamente opte por mudar para uma nova versão. Se especificar apenas a versão principal, a aplicação de função é automaticamente atualizada para novas versões menores do tempo de execução quando ficam disponíveis. As novas versões menores não devem introduzir mudanças de rutura. 
 
-Se especificar apenas a versão principal, a aplicação de função é automaticamente atualizada para novas versões menores do tempo de execução quando ficam disponíveis. As novas versões menores não devem introduzir mudanças de rutura. Se especificar uma versão menor (por exemplo, "2.0.12345"), a aplicação de função é fixada a essa versão específica até que a altere explicitamente.
+Se especificar uma versão menor (por exemplo, "2.0.12345"), a aplicação de função é fixada a essa versão específica até que a altere explicitamente. Versões menores mais antigas são regularmente removidas do ambiente de produção. Depois de isto ocorrer, a sua aplicação de função é executado na versão mais recente em vez da versão definida em `FUNCTIONS_EXTENSION_VERSION` . Por isso, deve resolver rapidamente quaisquer problemas com a sua app de função que exijam uma versão menor específica, para que possa, em vez disso, direcionar a versão principal. As remoçãos de versão menores são anunciadas nos [anúncios do Serviço de Aplicações](https://github.com/Azure/app-service-announcements/issues).
 
 > [!NOTE]
-> Se se fixar numa versão específica de Azure Functions e tentar publicar para a Azure usando o Visual Studio, uma janela de diálogo aparecerá levando-o a atualizar para a versão mais recente ou cancelar a publicação. Para evitar isto, adicione a `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` propriedade no seu `.csproj` arquivo.
+> Se se fixar numa versão específica e importante de Azure Functions e tentar publicar para o Azure usando o Visual Studio, uma janela de diálogo aparecerá levando-o a atualizar para a versão mais recente ou cancelar a publicação. Para evitar isto, adicione a `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` propriedade no seu `.csproj` arquivo.
 
 Quando uma nova versão está disponível publicamente, um pedido no portal dá-lhe a oportunidade de avançar para essa versão. Depois de mudar para uma nova versão, pode sempre utilizar a definição de `FUNCTIONS_EXTENSION_VERSION` aplicação para voltar a uma versão anterior.
 

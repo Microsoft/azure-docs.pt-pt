@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 27691d8fab3e7c8ccd60351dc0be83898ff984ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: baa15b656f061d812b29ded99d55da13294f9800
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73622437"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835855"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Rede acelerada com recuperação de desastres de máquina virtual Azure
 
@@ -45,7 +45,7 @@ O Networking Acelerado é suportado na maioria dos tamanhos de instância otimiz
 
 Em casos que suportam a hiper-leitura, o Networking Acelerado é suportado em instâncias VM com 4 ou mais vCPUs. As séries suportadas são: D/DSv3, E/ESv3, Fsv2 e Ms/Mms
 
-Para obter mais informações sobre as instâncias VM, consulte os [tamanhos do Windows VM](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Para obter mais informações sobre as instâncias VM, consulte os [tamanhos do Windows VM](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="accelerated-networking-with-linux-vms"></a>Networking acelerado com VMs Linux
 
@@ -66,7 +66,7 @@ O Networking Acelerado é suportado na maioria dos tamanhos de instância otimiz
 
 Em casos que suportam a hiper-leitura, o Networking Acelerado é suportado em instâncias VM com 4 ou mais vCPUs. As séries suportadas são: D/DSv3, E/ESv3, Fsv2 e Ms/Mms.
 
-Para obter mais informações sobre os casos de VM, consulte os [tamanhos do Linux VM](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Para obter mais informações sobre os casos de VM, consulte os [tamanhos do Linux VM](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="enabling-accelerated-networking-for-replicated-vms"></a>Habilitação de rede acelerada para VMs replicados
 
@@ -85,7 +85,7 @@ Se tiver ativado o Networking Acelerado na máquina virtual de origem depois de 
 
 O processo acima também deve ser seguido para máquinas virtuais replicadas existentes, que não tinham anteriormente Rede Acelerada ativada automaticamente pela Recuperação do Site.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [os benefícios da Rede Acelerada.](../virtual-network/create-vm-accelerated-networking-powershell.md#benefits)
 - Saiba mais sobre limitações e restrições de Rede Acelerada para [máquinas virtuais Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#limitations-and-constraints) e [máquinas virtuais Linux.](../virtual-network/create-vm-accelerated-networking-cli.md#limitations-and-constraints)
 - Saiba mais sobre [planos de recuperação](site-recovery-create-recovery-plans.md) para automatizar o failover da aplicação.

@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/08/2016
-ms.openlocfilehash: 38861ed941d49317e69bfab9afd17638a790bf7b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: da583a1c884ddcae0815849c43dc0eb335005e53
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072434"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832744"
 ---
 # <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Criar mapas que transformam XML entre formatos no Azure Logic Apps com o Enterprise Integration Pack
 
@@ -36,7 +36,7 @@ Depois de fazer o upload da transformação/mapa para a sua conta de integraçã
 
 Agora que já tratou dos pré-requisitos, está na hora de criar a sua aplicação Logic:  
 
-1. Crie uma aplicação Lógica e [ligue-a à sua conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md "Aprenda a ligar uma conta de integração a uma aplicação Logic") que contenha o mapa.
+1. Crie uma aplicação Lógica e [ligue-a à sua conta de integração](./logic-apps-enterprise-integration-create-integration-account.md "Aprenda a ligar uma conta de integração a uma aplicação Logic") que contenha o mapa.
 2. Adicione um gatilho **de pedido** à sua aplicação Logic  
    ![Screenshot do dropdown "Show Microsoft managed APIs" com o gatilho Request selecionado. O dropdown está numa aplicação Lógica criada usando o Visual Studio Enterprise Integration SDK.](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
 3. Adicione a ação **Transform XML** selecionando pela primeira vez **Adicione uma ação**   
@@ -136,4 +136,3 @@ Por defeito, a resposta da transformação começa com a Marca byte Order (BOM).
 ## <a name="learn-more"></a>Saiba mais
 * [Saiba mais sobre o Pacote de Integração Empresarial](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Pacote de Integração Empresarial")  
 * [Saiba mais sobre mapas](../logic-apps/logic-apps-enterprise-integration-maps.md "Conheça os mapas de integração empresarial")  
-

@@ -3,12 +3,12 @@ title: Descrição geral da arquitetura
 description: Fornece uma visão geral da arquitetura, componentes e processos utilizados pelo serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 45e5634188b675198e0fc4c07a8a43964217f91a
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: fc57f275d7693c9cf93adf04dc5dcc7524ba0567
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532497"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835736"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes Azure Backup
 
@@ -42,7 +42,7 @@ Os cofres dos Serviços de Recuperação têm as seguintes características:
 - Os cofres facilitam a organização dos seus dados de backup, minimizando a sobrecarga de gestão.
 - Em cada subscrição do Azure, pode criar até 500 cofres.
 - Pode monitorizar itens de apoio num cofre, incluindo VMs Azure e máquinas no local.
-- Você pode gerir o acesso ao cofre com [o controlo de acesso baseado em funções Azure (RBAC)](../role-based-access-control/role-assignments-portal.md).
+- Você pode gerir o acesso ao cofre com [o controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md).
 - Especifica como os dados no cofre são replicados para redundância:
   - **Armazenamento localmente redundante (LRS)**: Para proteger contra falhas num datacenter, pode utilizar LRS. O LRS replica dados numa unidade de escala de armazenamento. [Saiba mais](../storage/common/storage-redundancy.md).
   - **Armazenamento geo-redundante (GRS)**: Para proteger contra interrupções em toda a região, pode utilizar GRS. GRS replica os seus dados para uma região secundária. [Saiba mais](../storage/common/storage-redundancy.md).

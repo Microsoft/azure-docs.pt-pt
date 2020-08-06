@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 07/17/2020
 ms.author: cynthn
-ms.openlocfilehash: 5567274fd9ee2cfaf41f9ff4c6e71bb2faab7b1d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 36ac0058f8f2cf3ca106b30c86207e46d0712193
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292372"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830551"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Utilize ferramentas de automação de infraestruturas com máquinas virtuais em Azure
 
@@ -34,9 +34,9 @@ Para criar e gerir máquinas virtuais Azure (VMs) de forma consistente em escala
 
 Aprenda a:
 
-- [Instale e configuure Ansível no Linux para utilização com a Azure](../ansible/ansible-install-configure.md).
-- [Crie uma máquina virtual Linux.](../ansible/ansible-create-vm.md)
-- [Gerir uma máquina virtual Linux.](../ansible/ansible-manage-linux-vm.md)
+- [Instale e configuure Ansível no Linux para utilização com a Azure](/azure/developer/ansible/install-on-linux-vm).
+- [Crie uma máquina virtual Linux.](/azure/developer/ansible/vm-configure)
+- [Gerir uma máquina virtual Linux.](/azure/developer/ansible/vm-manage)
 
 
 ## <a name="chef"></a>Chef
@@ -45,7 +45,7 @@ Aprenda a:
 Aprenda a:
 
 - [Implementar chef Automate do Azure Marketplace.](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate?tab=Overview)
-- [Instale o Chef no Windows e crie VMs Azure](../chef/chef-automation.md).
+- [Instale o Chef no Windows e crie VMs Azure](/azure/developer/chef/windows-vm-configure).
 
 
 ## <a name="puppet"></a>Puppet
@@ -81,7 +81,7 @@ Aprenda a:
 
 
 ## <a name="azure-custom-script-extension"></a>Extensão de Script Personalizado do Azure
-A extensão de script personalizado Azure para [o Linux](./linux/extensions-customscript.md) ou [Windows](./windows/extensions-customscript.md) descarrega e executa scripts em VMs Azure. Pode utilizar a extensão quando criar um VM, ou em qualquer momento após a utilização do VM.
+A extensão de script personalizado Azure para [o Linux](./extensions/custom-script-linux.md) ou [Windows](./extensions/custom-script-windows.md) descarrega e executa scripts em VMs Azure. Pode utilizar a extensão quando criar um VM, ou em qualquer momento após a utilização do VM.
 
 Os scripts podem ser descarregados a partir de um armazenamento Azure ou de qualquer local público, como um repositório GitHub. Com a extensão de script personalizado, pode escrever scripts em qualquer idioma que seja executado no VM de origem. Estes scripts podem ser utilizados para instalar aplicações ou configurar o VM conforme desejado. Para obter credenciais seguras, informações sensíveis como palavras-passe podem ser armazenadas numa configuração protegida. Estas credenciais só são desencriptadas dentro do VM.
 
@@ -116,7 +116,7 @@ A Azure Automation também fornece um serviço de Configuração Estatal (DSC) q
 
 Aprenda a:
 
-- [Criar um livro de execução PowerShell](../automation/automation-first-runbook-textual-powershell.md).
+- [Criar um livro de execução PowerShell](../automation/learn/automation-tutorial-runbook-textual-powershell.md).
 - [Utilize o Trabalhador de Runbook Híbrido para gerir os recursos no local.](../automation/automation-hybrid-runbook-worker.md)
 - [Utilizar a Azure Automation DSC](../automation/automation-dsc-getting-started.md).
 
@@ -126,7 +126,7 @@ Aprenda a:
 
 Saiba mais sobre:
 
-- [Serviços Azure DevOps](https://docs.microsoft.com/azure/devops/user-guide/index?view=vsts).
+- [Serviços Azure DevOps](/azure/devops/user-guide/index?view=vsts).
 
 
 ## <a name="jenkins"></a>Jenkins
@@ -134,7 +134,7 @@ Saiba mais sobre:
 
 Aprenda a:
 
-- [Crie uma infraestrutura de desenvolvimento num Linux VM em Azure com Jenkins, GitHub e Docker.](../jenkins/tutorial-jenkins-github-docker-cicd.md)
+- [Crie uma infraestrutura de desenvolvimento num Linux VM em Azure com Jenkins, GitHub e Docker.](/azure/developer/jenkins/pipeline-with-github-and-docker)
 
 
 ## <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
@@ -149,4 +149,3 @@ Aprenda a:
 
 ## <a name="next-steps"></a>Passos seguintes
 Existem muitas opções diferentes para usar ferramentas de automação de infraestruturas em Azure. Tem a liberdade de usar a solução que melhor se adequa às suas necessidades e ambiente. Para começar e experimentar algumas das ferramentas incorporadas no Azure, veja como automatizar a personalização de um [Linux](./linux/tutorial-automate-vm-deployment.md) ou [Windows](./windows/tutorial-automate-vm-deployment.md) VM.
-

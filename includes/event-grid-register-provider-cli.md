@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: event-grid
 author: tfitzmac
 ms.service: event-grid
@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 08/17/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: ace22a6896a121f5cd8af838c7b0e427bd0287dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b48e5e28b15d17796138d493a7d9c628791df2e6
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67183941"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830138"
 ---
-## <a name="enable-event-grid-resource-provider"></a>Ativar o fornecedor de recursos do Event Grid
+## <a name="enable-the-event-grid-resource-provider"></a>Ativar o fornecedor de recursos da Grelha de Eventos
 
-Se ainda não tiver utilizado anteriormente o Event Grid na sua subscrição do Azure, precisa de registar o fornecedor de recursos do Event Grid. Execute o seguinte comando para registar o fornecedor:
+Se ainda não utilizou a Grade de Eventos na sua subscrição Azure, poderá ter de registar o fornecedor de recursos da Grelha de Eventos. Execute o seguinte comando para registar o fornecedor:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.EventGrid
 ```
 
-Pode demorar algum tempo para o registo terminar. Para ver o estado, execute:
+Pode levar um momento para o registo terminar. Para ver o estado, execute:
 
 ```azurecli-interactive
 az provider show --namespace Microsoft.EventGrid --query "registrationState"

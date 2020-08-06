@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: b2f7e45c7f6092566314e6e4867bc0345683e4eb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4800234b55507b7c8d8a16d16ce4d2fef3365baa
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318390"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829599"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Troubleshooting metrics charts (Resolução de problemas de gráficos de métricas)
 
@@ -42,7 +42,7 @@ Explorar métricas requer que o fornecedor de recursos *Microsoft.Insights* este
 
 ### <a name="you-dont-have-sufficient-access-rights-to-your-resource"></a>Não tem direitos de acesso suficientes para o seu recurso
 
-No Azure, o acesso às métricas é controlado pelo [controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md). Tem de ser um membro do [leitor de monitorização](../../role-based-access-control/built-in-roles.md#monitoring-reader), [contribuidor de monitorização](../../role-based-access-control/built-in-roles.md#monitoring-contributor) ou [contribuidor](../../role-based-access-control/built-in-roles.md#contributor) para explorar as métricas de qualquer recurso.
+Em Azure, o acesso às métricas é controlado pelo [controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md). Tem de ser um membro do [leitor de monitorização](../../role-based-access-control/built-in-roles.md#monitoring-reader), [contribuidor de monitorização](../../role-based-access-control/built-in-roles.md#monitoring-contributor) ou [contribuidor](../../role-based-access-control/built-in-roles.md#contributor) para explorar as métricas de qualquer recurso.
 
 **Solução:** Certifique-se de que tem permissões suficientes para o recurso a partir do qual está a explorar métricas.
 
@@ -118,4 +118,3 @@ Por predefinição, as métricas do SO convidado são armazenadas na conta de Ar
 * [Conheça as funcionalidades avançadas do Metric Explorer](metrics-charts.md)
 * [See a list of available metrics for Azure services](metrics-supported.md) (Ver uma lista de métricas disponíveis para serviços do Azure)
 * [See examples of configured charts](metric-chart-samples.md) (Ver exemplos de gráficos configurados)
-

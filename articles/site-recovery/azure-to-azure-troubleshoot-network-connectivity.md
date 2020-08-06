@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 8396ffa958e41e12e9258766483310baef0cabbe
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9600f1cae61b59af5d026eb74f504658395a11ae
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421438"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835889"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Problemas de resolução Azure-to-Azure Problemas de conectividade da rede VM
 
@@ -18,7 +18,7 @@ Este artigo descreve as questões comuns relacionadas com a conectividade da red
 
 Para que a replicação da Recuperação do Local funcione, é necessária conectividade de saída a URLs específicos ou gamas IP do VM. Se o seu VM estiver por detrás de uma firewall ou utilizar regras de grupo de segurança de rede (NSG) para controlar a conectividade de saída, poderá enfrentar um destes problemas.
 
-| **Nome**                  | **Comercial**                               | **Governo**                                 | **Descrição** |
+| **Nome**                  | **Comercial**                               | **Administração Pública**                                 | **Descrição** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Armazenamento                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Necessário para que os dados possam ser escritos na conta de armazenamento de cache na região de origem a partir do VM. Se souber de todas as contas de armazenamento de cache dos seus VMs, pode utilizar uma lista de admissões para os URLs de conta de armazenamento específicos. Por exemplo, `cache1.blob.core.windows.net` e `cache2.blob.core.windows.net` em vez `*.blob.core.windows.net` de. . |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Requerida autorização e autenticação para os URLs do serviço de Recuperação do Local. |
@@ -51,7 +51,7 @@ Tente aceder ao servidor DNS a partir da máquina virtual. Se o servidor DNS nã
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Edição 2: A configuração da recuperação do local falhou (151196)
 
 > [!NOTE]
-> Se os VMs estiverem por trás de um balanceador de carga interno **Standard,** por padrão, não teria acesso ao Office 365 IPs tais como `login.microsoftonline.com` . Altere-o para o tipo **básico** de balançador interno de carga ou crie acesso de saída, conforme mencionado no artigo [Configure as regras de equilíbrio e saída de carga no Balanceador de Carga Padrão utilizando o Azure CLI](../load-balancer/configure-load-balancer-outbound-cli.md).
+> Se os VMs estiverem por trás de um balanceador de carga interno **Standard,** por padrão, não teria acesso ao Office 365 IPs tais como `login.microsoftonline.com` . Altere-o para o tipo **básico** de balançador interno de carga ou crie acesso de saída, conforme mencionado no artigo [Configure as regras de equilíbrio e saída de carga no Balanceador de Carga Padrão utilizando o Azure CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration).
 
 #### <a name="possible-cause"></a>Causa possível
 
@@ -145,6 +145,6 @@ As definições de procuração personalizadas são inválidas e o agente de ser
 
 Para permitir [os URLs necessários](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou os [intervalos IP necessários,](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)siga os passos no [documento de orientação de rede](./azure-to-azure-about-networking.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Replicar VMs Azure para outra região do Azure](azure-to-azure-how-to-enable-replication.md)

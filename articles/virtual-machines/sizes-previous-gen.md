@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: d6fb5c384d5e9489c4213277a43d5be0ed14afb6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 01c7d5610daa703e910fb485b5e9d945a6cdc940
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289717"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831299"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Gerações anteriores de tamanhos de máquinas virtuais
 
@@ -80,7 +80,7 @@ Cada GPU em instâncias NVv2 vem com uma licença GRID. Esta licença dá-lhe a 
 
 ## <a name="older-generations-of-virtual-machine-sizes"></a>Gerações mais velhas de tamanhos de máquinas virtuais
 
-Esta secção fornece informações sobre gerações mais antigas de tamanhos de máquinas virtuais. Estes tamanhos ainda são suportados, mas não receberão capacidade adicional. Existem tamanhos mais recentes ou alternativos que geralmente estão disponíveis. Consulte os [Tamanhos das máquinas virtuais Linux em Azure](linux/sizes.md) para escolher os tamanhos VM que melhor se adaptem à sua necessidade.  
+Esta secção fornece informações sobre gerações mais antigas de tamanhos de máquinas virtuais. Estes tamanhos ainda são suportados, mas não receberão capacidade adicional. Existem tamanhos mais recentes ou alternativos que geralmente estão disponíveis. Consulte os [Tamanhos das máquinas virtuais Linux em Azure](./sizes.md) para escolher os tamanhos VM que melhor se adaptem à sua necessidade.  
 
 Para obter mais informações sobre o redimensionamento de um Linux VM, consulte [Resize um Linux VM](linux/change-vm-size.md).  
 

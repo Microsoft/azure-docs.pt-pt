@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: 721848b996bc4887370b77404e3d571975815624
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a623436cdeaac89d140b3834808fb975bd733f4e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421897"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835957"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administração de serviços para Azure Cognitive Search no portal Azure
 
@@ -56,7 +56,7 @@ No que diz respeito ao acesso ao ponto final, qualquer pessoa com acesso ao URL 
 * O acesso apenas à leitura do serviço é direitos de consulta, normalmente concedidos a uma aplicação de cliente, dando-lhe o URL e uma chave api de consulta.
 * O acesso à escrita de leitura fornece a capacidade de adicionar, eliminar ou modificar objetos do servidor, incluindo chaves api, índices, indexadores, fontes de dados e horários. O acesso à leitura-escrita é concedido através da indicação do URL, uma chave API de administração.
 
-Os direitos ao aparelho de prestação de serviços são concedidos através de atribuições de funções. [O acesso baseado em funções (RBAC)](../role-based-access-control/overview.md) é um sistema de autorização construído com [o Azure Resource Manager](../azure-resource-manager/management/overview.md) para o fornecimento de recursos Azure. 
+Os direitos ao aparelho de prestação de serviços são concedidos através de atribuições de funções. [O Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) é um sistema de autorização construído no [Azure Resource Manager](../azure-resource-manager/management/overview.md) para o fornecimento de recursos Azure. 
 
 No contexto da Azure Cognitive Search, as atribuições de [funções da Azure](search-security-rbac.md) determinarão quem pode executar tarefas, independentemente de estarem a utilizar o [portal,](search-manage.md) [o PowerShell,](search-manage-powershell.md)ou as [APIs de Rest de Gestão:](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api)
 
@@ -137,7 +137,7 @@ Não existe um método de deteção que lhe diga quais os fragmentos de índice 
 
 Para ajudar no planeamento futuro, pode querer verificar o armazenamento (usando [as estatísticas do Índice Get](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)) para ver quanto realmente utilizou. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Automatize com [PowerShell](search-manage-powershell.md)
 

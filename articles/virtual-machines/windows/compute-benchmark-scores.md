@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 04/29/2020
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: 019c627743c344fc0f07c8954ebdfdf2eca0437b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ccaf44f733958bff461e954c78196f7376a59771
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87267052"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836212"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Pontuações de referência do Compute para VMs do Windows
 As seguintes pontuações de referência SPECInt mostram desempenho do cálculo para selecionar VMs Azure executando O Windows Server. As pontuações de referência do computo também estão disponíveis para [Os VMs do Linux.](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -389,5 +389,4 @@ As seguintes pontuações de referência SPECInt mostram desempenho do cálculo 
 Os números do Windows foram calculados executando [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) no Windows Server. A SPECint foi executada utilizando a opção de taxa base (SPECint_rate2006), com uma cópia por vCPU. A SPECint consiste em 12 testes distintos, cada uma executada três vezes, tomando o valor mediano de cada teste e ponderando-os para formar uma pontuação composta. Esses testes foram então executados em vários VMs para fornecer as pontuações médias mostradas.
 
 ## <a name="next-steps"></a>Passos seguintes
-* Para capacidades de armazenamento, detalhes do disco e considerações adicionais para escolher entre tamanhos VM, consulte [tamanhos para máquinas virtuais.](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
+* Para capacidades de armazenamento, detalhes do disco e considerações adicionais para escolher entre tamanhos VM, consulte [tamanhos para máquinas virtuais.](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

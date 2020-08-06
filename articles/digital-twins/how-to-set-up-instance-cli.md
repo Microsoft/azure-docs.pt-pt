@@ -1,5 +1,5 @@
 ---
-title: Configurar um caso e autenticação (CLI)
+title: Configurar uma instância e a autenticação (CLI)
 titleSuffix: Azure Digital Twins
 description: Veja como configurar um caso do serviço Azure Digital Twins usando o CLI
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 287ee62acf3a078c4b47803060f61c9dd4134ab7
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: ba03acabb3325045a71d55f583343a26b4d121ca
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87408353"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832361"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configurar uma instância e autenticação Azure Digital Twins (CLI)
 
@@ -46,7 +46,7 @@ Utilize estes valores no seguinte comando para criar o caso:
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l <region>
 ```
 
-### <a name="verify-success"></a>Verificar o sucesso
+### <a name="verify-success-and-collect-important-values"></a>Verifique o sucesso e colete valores importantes
 
 Se o caso foi criado com sucesso, o resultado na Cloud Shell parece algo parecido com isto, despavendo informações sobre o recurso que criou:
 
@@ -71,12 +71,16 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 
 O resultado deste comando é informação sobre a atribuição de funções que foi criada.
 
-> [!TIP]
-> Se obter um erro *400: BadRequest,* executar o seguinte comando para obter o *ObjectID* para o utilizador:
-> ```azurecli
-> az ad user show --id <Azure-AD-email-of-user-to-assign> --query objectId
-> ```
-> Em seguida, repita o comando de atribuição de funções utilizando o *ID* do objeto do utilizador no lugar do seu e-mail.
+> [!NOTE]
+> Se este comando retornar um erro dizendo que o CLI **não pode encontrar o utilizador ou o principal de serviço na base de dados de gráficos:**
+>
+> Utilize o *ID* do objeto do utilizador em vez do seu e-mail. Isto pode acontecer para utilizadores em [contas pessoais da Microsoft (MSAs)](https://account.microsoft.com/account). 
+>
+> Utilize a [página do portal Azure dos utilizadores do Azure Ative Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) para selecionar a conta de utilizador e abrir os seus dados. Copie o *ObjectID*do utilizador:
+>
+> :::image type="content" source="media/includes/user-id.png" alt-text="Vista da página do utilizador no portal Azure destacando o GUID no campo 'Objeto ID'" lightbox="media/includes/user-id.png":::
+>
+> Em seguida, repita o comando da lista de atribuições de funções utilizando o *ID* do objeto do utilizador no lugar do e-mail.
 
 ### <a name="verify-success"></a>Verificar o sucesso
 
@@ -117,7 +121,7 @@ Navegue até ao *manifest.jsem* que acabou de criar e bater "Open".
 Em seguida, executar o seguinte comando para criar um registo de aplicações (substituindo os espaços reservados, se necessário):
 
 ```azurecli
-az ad app create --display-name <name-for-your-app> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
+az ad app create --display-name <name-for-your-app-registration> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
 ```
 
 Aqui está um excerto da saída deste comando, mostrando informações sobre o registo que criou:
@@ -144,7 +148,7 @@ Tome nota do ID de *Aplicação (cliente)* e *Diretório (inquilino)* mostrado n
 
 [!INCLUDE [digital-twins-setup-additional-requirements.md](../../includes/digital-twins-setup-additional-requirements.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja como ligar a aplicação do seu cliente ao seu caso escrevendo o código de autenticação da aplicação do cliente:
 * [*Como fazer: Escrever código de autenticação de aplicativos*](how-to-authenticate-client.md)

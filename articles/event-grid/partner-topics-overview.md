@@ -3,12 +3,12 @@ title: Tópicos parceiros da Azure Event Grid
 description: Envie eventos de parceiros de eventos de terceiros SaaS e PaaS diretamente para os serviços da Azure com a Azure Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 97829f262a00e2353624b2a3fa9df210518ad3a0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e56055c55a3b30c5d13736b9838257f3c0bbec10
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116000"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831911"
 ---
 # <a name="partner-topics-in-azure-event-grid-preview"></a>Tópicos de parceiro na Grelha de Eventos Azure (pré-visualização)
 Ao utilizar tópicos de parceiros, pode ligar fontes de eventos de terceiros diretamente à Azure Event Grid. Esta integração permite-lhe subscrever eventos de parceiros da mesma forma que subscreve eventos dos serviços Azure. 
@@ -22,12 +22,12 @@ O primeiro parceiro disponível através dos tópicos parceiros da Event Grid é
 Os tópicos dos parceiros são cobrados à mesma taxa de operação que os tópicos do sistema.
 
 ## <a name="limits"></a>Limites
-Os tópicos dos parceiros estão em visualização pública. Durante a pré-visualização pública, os tópicos dos parceiros estão sujeitos aos [mesmos limites](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#event-grid-limits) que os tópicos do sistema e tópicos personalizados.
+Os tópicos dos parceiros estão em visualização pública. Durante a pré-visualização pública, os tópicos dos parceiros estão sujeitos aos [mesmos limites](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits) que os tópicos do sistema e tópicos personalizados.
 
 ## <a name="how-do-i-become-an-event-grid-partner"></a>Como posso tornar-me um parceiro de Grade de Eventos?
 A infraestrutura criada para apoiar este lançamento torna fácil e rápido para os novos parceiros integrarem as suas capacidades de eventos com a Event Grid. Para mais informações, consulte a [documentação do parceiro no embarque.](partner-onboarding-overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Tópico parceiro Auth0](auth0-overview.md)
 - [Como usar o tópico parceiro Auth0](auth0-how-to.md)

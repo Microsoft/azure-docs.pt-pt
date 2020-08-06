@@ -1,36 +1,39 @@
 ---
-title: Pré-visualização responsável de machine learning (ML)
+title: O que é o machine learning responsável (pré-visualização)
 titleSuffix: Azure Machine Learning
-description: Saiba o que é ml responsável e como usá-lo em Azure Machine Learning
+description: Saiba o que é a aprendizagem automática responsável e como usá-la em Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 07/09/2020
-ms.openlocfilehash: 4f14d4a9207b3bd0ba242973443b8e756527fd70
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 08/05/2020
+ms.openlocfilehash: 689b90fc1f45faad72640f47e5eebe936d2dc8b7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201933"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829395"
 ---
-# <a name="responsible-machine-learning-ml-preview"></a>Pré-visualização responsável de machine learning (ML)
+# <a name="what-is-responsible-machine-learning-preview"></a>O que é a aprendizagem automática responsável? (pré-visualização)
 
-Neste artigo, você vai aprender o que é ML Responsável e maneiras de colocá-lo em prática com Azure Machine Learning.
+Neste artigo, você vai aprender o que é o machine learning responsável (ML) e maneiras de colocá-lo em prática com Azure Machine Learning.
 
-Ao longo do desenvolvimento e utilização dos sistemas de IA, a confiança deve estar no centro. Confiança na plataforma, processo e modelos. Na Microsoft, o ML Responsável engloba os seguintes valores e princípios:
+## <a name="responsible-machine-learning-principles"></a>Princípios responsáveis de aprendizagem automática
+
+Ao longo do desenvolvimento e utilização dos sistemas de IA, a confiança deve estar no centro. Confiança na plataforma, processo e modelos. Na Microsoft, a aprendizagem automática responsável engloba os seguintes valores e princípios:
 
 - Compreender modelos de aprendizagem automática
   - Interpretar e explicar o comportamento do modelo
   - Avaliar e mitigar a injustiça do modelo
 - Proteger as pessoas e os seus dados
-  - Prevenir a exposição de dados com privacidade diferencial  
+  - Prevenir a exposição de dados com privacidade diferencial
+  - Trabalhar com dados encriptados usando encriptação homomórfica
 - Controlar o processo de aprendizagem automática de ponta a ponta
   - Documente o ciclo de vida de aprendizagem automática com folhas de dados
 
-:::image type="content" source="media/concept-responsible-ml/responsible-ml-pillars.png" alt-text="Pilares ML responsáveis":::
+:::image type="content" source="media/concept-responsible-ml/responsible-ml-pillars.png" alt-text="Pilares ML responsáveis - interpretação, privacidade diferencial, encriptação homomórfica, pista de auditoria - Azure Machine Learning":::
 
 À medida que a inteligência artificial e os sistemas autónomos se integram mais no tecido da sociedade, é importante fazer um esforço proactivo para antecipar e mitigar as consequências não intencionais destas tecnologias.
 
@@ -40,7 +43,7 @@ Ao longo do desenvolvimento e utilização dos sistemas de IA, a confiança deve
 
 Para construir sistemas de IA interpretáveis, utilize [o InterpretML,](https://github.com/interpretml/interpret)um pacote de código aberto construído pela Microsoft. [A InterpretML pode ser utilizada dentro da Azure Machine Learning](how-to-machine-learning-interpretability.md) para [interpretar e explicar os seus modelos de aprendizagem automática,](how-to-machine-learning-interpretability-aml.md)incluindo [modelos automatizados de aprendizagem automática.](how-to-machine-learning-interpretability-automl.md)
 
-## <a name="assess-and-mitigate-model-unfairness"></a>Avaliar e mitigar a injustiça do modelo
+## <a name="mitigate-fairness-in-machine-learning-models"></a>Mitigar a equidade nos modelos de aprendizagem automática
 
 À medida que os sistemas de IA se envolvem mais na tomada de decisões diárias da sociedade, é de extrema importância que estes sistemas funcionem bem na prestação de resultados justos para todos.
 
@@ -64,6 +67,16 @@ Nos cenários tradicionais, os dados brutos são armazenados em ficheiros e base
 > [!NOTE]
 > Por favor, note que estamos renomeando o kit de ferramentas e apresentaremos o novo nome nas próximas semanas. 
 
+## <a name="work-on-encrypted-data-with-homomorphic-encryption"></a>Trabalhar em dados encriptados com encriptação homomórfica
+
+Nas soluções tradicionais de armazenamento e computação em nuvem, a nuvem precisa de ter acesso desencriptado aos dados dos clientes para calcular sobre o mesmo. Este acesso expõe os dados aos operadores de nuvem. A privacidade dos dados baseia-se em políticas de controlo de acesso implementadas pela nuvem e confiáveis pelo cliente.
+
+A encriptação homomórfica permite que os cálculos sejam feitos em dados encriptados sem exigir o acesso a uma chave secreta (desencriptação). Os resultados dos cálculos são encriptados e só podem ser revelados pelo proprietário da chave secreta. Utilizando encriptação homomórfica, os operadores de nuvem nunca terão acesso desencriptado aos dados que estão a armazenar e a computar. Os cálculos são realizados diretamente em dados encriptados. A privacidade dos dados baseia-se na criptografia de última geração, e o titular dos dados controla todas as versões de informação. Para obter mais informações sobre encriptação homomórfica na Microsoft, consulte [a Microsoft Research](https://www.microsoft.com/research/project/homomorphic-encryption/).
+
+Para começar com encriptação homomórfica em Azure Machine Learning, utilize as ligações [Python de inferência encriptada](https://pypi.org/project/encrypted-inference/) para [o Microsoft SEAL](https://github.com/microsoft/SEAL). O Microsoft SEAL é uma biblioteca de encriptação homomórfica de código aberto que permite que adições e multiplicações sejam realizadas em inteiros encriptados ou números reais. Para saber mais sobre o Microsoft SEAL, consulte o [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal) ou a página do [projeto Microsoft Research](https://www.microsoft.com/research/project/microsoft-seal/).
+
+Consulte a seguinte amostra para [aprender a implementar um serviço web de inferenização encriptado em Azure Machine Learning](how-to-homomorphic-encryption-seal.md).
+
 ## <a name="document-the-machine-learning-lifecycle-with-datasheets"></a>Documente o ciclo de vida de aprendizagem automática com folhas de dados
 
 Documentar a informação certa no processo de aprendizagem automática é fundamental para tomar decisões responsáveis em cada fase. As folhas de dados são uma forma de documentar os ativos de aprendizagem automática que são usados e criados como parte do ciclo de vida de aprendizagem automática.
@@ -83,5 +96,5 @@ Consulte a amostra seguinte para aprender a usar o Azure Machine Learning SDK pa
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- Utilize encriptação homomórfica para [implementar um serviço web de inferenculação encriptado](how-to-homomorphic-encryption-seal.md).
+- Para mais informações, consulte o [kit de ferramentas de inovação responsável](https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/) para saber mais sobre as melhores práticas.
 - Saiba mais sobre o conjunto de diretrizes [do ML](https://www.partnershiponai.org/about-ml/) PARA a documentação do sistema de aprendizagem automática.

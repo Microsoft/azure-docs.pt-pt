@@ -1,5 +1,5 @@
 ---
-title: Avaliar e mitigar problemas de equidade em modelos de aprendizagem automática (pré-visualização)
+title: Mitigar a equidade nos modelos de aprendizagem automática (pré-visualização)
 titleSuffix: Azure Machine Learning
 description: Saiba mais sobre a equidade nos modelos de machine learning e como o pacote Fairlearn Python pode ajudá-lo a construir modelos mais justos.
 services: machine-learning
@@ -8,22 +8,22 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 07/09/2020
-ms.openlocfilehash: 2cc3228c20fba322ec804a3bcc9ee322c7d37907
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 08/05/2020
+ms.openlocfilehash: 0d3e49fbb11af92d016910e91b0144f6de998238
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207297"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829378"
 ---
-# <a name="build-fairer-machine-learning-models-preview"></a>Construa modelos de aprendizagem automática mais justos (pré-visualização)
+# <a name="mitigate-fairness-in-machine-learning-models-preview"></a>Mitigar a equidade nos modelos de aprendizagem automática (pré-visualização)
 
-Saiba mais sobre a equidade na aprendizagem automática e como o pacote De pitão de código aberto [fairlearn](https://fairlearn.github.io/) pode ajudá-lo a construir modelos que sejam mais justos. Se não está a fazer um esforço para compreender as questões de equidade e avaliar a equidade na construção de modelos de aprendizagem automática, pode construir modelos que produzam resultados injustos. 
+Saiba mais sobre a equidade na aprendizagem automática e como o pacote Deton python de código aberto [fairlearn](https://fairlearn.github.io/) pode ajudá-lo a mitigar problemas de equidade em modelos de aprendizagem automática. Se não está a fazer um esforço para compreender as questões de equidade e avaliar a equidade na construção de modelos de aprendizagem automática, pode construir modelos que produzam resultados injustos.
 
 O seguinte resumo do guia de [utilizador](https://fairlearn.github.io/user_guide/index.html) para o pacote fairlearn open-source, descreve como usá-lo para avaliar a equidade dos sistemas de IA que está a construir.  O pacote fairlearn open-source também pode oferecer opções para ajudar a mitigar, ou ajudar a reduzir, quaisquer problemas de equidade que você observa.  Consulte os cadernos [de como fazer](how-to-machine-learning-fairness-aml.md) e [amostrar](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) para permitir a avaliação da equidade dos sistemas de IA durante a formação em Azure Machine Learning.
 
 
-## <a name="what-is-fairness-in-machine-learning-systems"></a>O que é a equidade nos sistemas de aprendizagem automática?
+## <a name="what-is-fairness-in-machine-learning-models"></a>O que é a equidade nos modelos de aprendizagem automática?
 
 >[!NOTE]
 > A justiça é um desafio sociotérmico. Muitos aspetos da equidade, como a justiça e o devido processo, não são capturados em métricas de justiça quantitativa. Além disso, muitas métricas de justiça quantitativa não podem ser satisfeitas simultaneamente. O objetivo com o pacote fairlearn open-source é permitir que os humanos avaliem diferentes estratégias de impacto e mitigação. Em última análise, cabe aos utilizadores humanos construir em inteligência artificial e modelos de machine learning fazer trocas adequadas ao seu cenário.
@@ -38,7 +38,6 @@ Dois tipos comuns de danos causados pela IA são:
 
 Para reduzir comportamentos injustos nos sistemas de IA, é preciso avaliar e mitigar estes danos.
 
-
 ## <a name="fairness-assessment-and-mitigation-with-fairlearn"></a>Avaliação e mitigação da equidade com Fairlearn
 
 Fairlearn é um pacote python de código aberto que permite aos desenvolvedores de sistemas de aprendizagem automática avaliar a equidade dos seus sistemas e mitigar as questões de equidade observadas.
@@ -50,7 +49,8 @@ O pacote fairlearn open-source tem dois componentes:
 
 Juntos, estes componentes permitem que cientistas de dados e líderes empresariais naveguem em quaisquer trocas entre justiça e desempenho, e selecionem a estratégia de mitigação que melhor se adequa às suas necessidades.
 
-## <a name="fairness-assessment"></a>Avaliação da equidade
+## <a name="assess-fairness-in-machine-learning-models"></a>Avaliar a equidade nos modelos de aprendizagem automática
+
 No pacote fairlearn open-source, a equidade é conceptualizada embora uma abordagem conhecida como **justiça de grupo**, que pergunta: Que grupos de indivíduos estão em risco de sofrer danos? Os grupos relevantes, também conhecidos como subpopulações, são definidos através de **características sensíveis** ou atributos sensíveis. As características sensíveis são transmitidas a um estimador no pacote fairlearn de código aberto como um vetor ou uma matriz chamada `sensitive_features` . O termo sugere que o designer de sistemas deve ser sensível a estas características ao avaliar a equidade do grupo. 
 
 Algo a ter em conta é se estas funcionalidades contêm implicações de privacidade devido a dados privados. Mas a palavra "sensível" não implica que estas características não devam ser usadas para fazer previsões.
@@ -72,7 +72,7 @@ Durante a fase de avaliação, a equidade é quantificada através de métricas 
 
 - Disparidade na taxa de seleção: Esta métrica contém a diferença na taxa de seleção entre diferentes subgrupos. Um exemplo disso é a disparidade na taxa de aprovação dos empréstimos. Taxa de seleção: a fração de pontos de dados em cada classe classificada como 1 (na classificação binária) ou distribuição dos valores de previsão (em regressão).
 
-## <a name="unfairness-mitigation"></a>Mitigação da injustiça
+## <a name="mitigate-unfairness-in-machine-learning-models"></a>Mitigar a injustiça nos modelos de aprendizagem automática
 
 ### <a name="parity-constraints"></a>Restrições de paridade
 

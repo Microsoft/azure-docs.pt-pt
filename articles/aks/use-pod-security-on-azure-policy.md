@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/06/2020
 author: jluk
-ms.openlocfilehash: 8be0b05c260037bbe8afc92726d81668e1391d4a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5677cb3d240381e06c76ed73354981f782bdb0dd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050464"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830228"
 ---
 # <a name="secure-pods-with-azure-policy-preview"></a>Cápsulas seguras com política Azure (pré-visualização)
 
@@ -47,7 +47,7 @@ Este documento pressupõe que tem o seguinte que é implantado no walk-through l
 
 Num cluster AKS, um controlador de admissão é utilizado para intercetar pedidos para o servidor API quando um recurso deve ser criado e atualizado. O controlador de admissão pode então *validar* o pedido de recursos contra um conjunto de regras sobre a sua criação.
 
-Anteriormente, a política de segurança do pod de recurso [(pré-visualização)](use-pod-security-policies.md) foi ativada através do projeto Kubernetes para limitar quais as cápsulas que podem ser implementadas. Esta funcionalidade já não está em desenvolvimento ativo a partir do projeto Kubernetes.
+Anteriormente, a política de segurança do pod de recurso [(pré-visualização)](use-pod-security-policies.md) foi ativada através do projeto Kubernetes para limitar quais as cápsulas que podem ser implementadas.
 
 Ao utilizar o Azure Policy Add-on, um cluster AKS pode usar políticas Azure incorporadas que protegem cápsulas e outros recursos Kubernetes semelhantes à política de segurança do pod anteriormente. O Azure Policy Add-on for AKS instala uma instância gerida de [Gatekeeper](https://github.com/open-policy-agent/gatekeeper), um controlador de admissão validador. A política de Azure para Kubernetes baseia-se no agente de política aberta open policy que se baseia na [linguagem política do Rego.](../governance/policy/concepts/policy-for-kubernetes.md#policy-language)
 

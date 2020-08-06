@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: cynthn
-ms.openlocfilehash: 31979854ad3f6bd6d1cf4e73fc3c993520ac423d
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 4860422fefb5a95fe41912b4898f02867f7b3aeb
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432677"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832251"
 ---
 # <a name="resize-a-windows-vm"></a>Redimensionar VMs do Windows
 
-Este artigo mostra-lhe como mover um VM para um [tamanho VM](sizes.md)diferente .
+Este artigo mostra-lhe como mover um VM para um [tamanho VM](../sizes.md)diferente .
 
 Depois de criar uma máquina virtual (VM), pode escalar o VM para cima ou para baixo alterando o tamanho VM. Em alguns casos, primeiro tem de negociar com o VM. Isto pode acontecer se o novo tamanho não estiver disponível no cluster de hardware que está atualmente hospedando o VM.
 
@@ -117,6 +117,6 @@ $virtualMachines | Update-AzVM
 $virtualMachines | Start-AzVM
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma escalabilidade adicional, executar vários casos de VM e escalar para fora. Para obter mais informações, consulte [automaticamente as máquinas windows num conjunto de escala de máquina virtual](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md).

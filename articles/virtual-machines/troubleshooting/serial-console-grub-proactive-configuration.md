@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/10/2019
 ms.author: mimckitt
-ms.openlocfilehash: 3f4846947b18adb1d3f33f1d46482b5c02ee831e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c48ef0321ece2e7e0ffcdfcb8c0907c5f839e738
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509159"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831367"
 ---
 # <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>Garantir proativamente que você tem acesso a GRUB e sysrq poderia economizar muito tempo de insudor
 
@@ -436,5 +436,5 @@ Para obter mais informações sobre como aceder ao modo de utilizador único, co
 ![single_user_ubuntu](./media/virtual-machines-serial-console/single-user-ubuntu.png)
 
 
-## <a name="next-steps"></a>Próximos passos
-Saiba mais sobre [a Consola em Série Azure]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
+## <a name="next-steps"></a>Passos seguintes
+Saiba mais sobre [a Consola em Série Azure]( ./serial-console-linux.md)

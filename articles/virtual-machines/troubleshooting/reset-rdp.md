@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 03c1d8e6d6b5b1d55fee964b509c1bc08537cf6b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 80bcac36271d86334e11cb3cd161cd96777e6fe5
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088585"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832455"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Repor serviços de ambiente de trabalho remoto ou a sua senha de administrador num VM do Windows
 Se não conseguir ligar-se a uma máquina virtual do Windows (VM), pode redefinir a palavra-passe do administrador local ou redefinir a configuração de Serviços de Ambiente de Trabalho Remoto (não suportado nos controladores de domínio do Windows). Para repor a palavra-passe, utilize o portal do Azure ou a extensão VM Access, no Azure PowerShell. Depois de iniciar sessão na VM, reponha a palavra-passe desse administrador local.  
-Se estiver a utilizar o PowerShell, certifique-se de que tem o [mais recente módulo PowerShell instalado e configurado](/powershell/azure/) e está inscrito na sua subscrição Azure. Também pode [seguir estes passos para VMs criadas com o modelo de implementação clássica](/azure/virtual-machines/windows/classic/reset-rdp).
+Se estiver a utilizar o PowerShell, certifique-se de que tem o [mais recente módulo PowerShell instalado e configurado](/powershell/azure/) e está inscrito na sua subscrição Azure. Também pode [seguir estes passos para VMs criadas com o modelo de implementação clássica](/previous-versions/azure/virtual-machines/windows/classic/reset-rdp).
 
 Pode repor os Serviços de Ambiente de Trabalho Remoto e as credenciais das seguintes formas:
 

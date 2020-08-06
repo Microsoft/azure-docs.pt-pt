@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: ce8e8b083b108d24c11d828ae1cbd4e47e090fc0
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: de1345fca418118e88929870cd2f4007dd36b3a4
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963211"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835991"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parâmetros do servidor na Base de Dados Azure para o MySQL
 
@@ -61,10 +61,10 @@ Reveja a documentação do [MySQL](https://dev.mysql.com/doc/refman/5.7/en/innod
 
 #### <a name="servers-supporting-up-to-4-tb-storage"></a>Servidores que suportam até 4 armazenamento de TB
 
-|**Nível de preços**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
+|**Escalão de Preço**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
-|Básica|1|872415232|134217728|872415232|
-|Básica|2|2684354560|134217728|2684354560|
+|Básico|1|872415232|134217728|872415232|
+|Básico|2|2684354560|134217728|2684354560|
 |Fins Gerais|2|3758096384|134217728|3758096384|
 |Fins Gerais|4|8053063680|134217728|8053063680|
 |Fins Gerais|8|16106127360|134217728|16106127360|
@@ -79,10 +79,10 @@ Reveja a documentação do [MySQL](https://dev.mysql.com/doc/refman/5.7/en/innod
 
 #### <a name="servers-support-up-to-16-tb-storage"></a>Servidores suportam até 16 armazenamento de TB
 
-|**Nível de preços**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
+|**Escalão de Preço**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
-|Básica|1|872415232|134217728|872415232|
-|Básica|2|2684354560|134217728|2684354560|
+|Básico|1|872415232|134217728|872415232|
+|Básico|2|2684354560|134217728|2684354560|
 |Fins Gerais|2|7516192768|134217728|7516192768|
 |Fins Gerais|4|16106127360|134217728|16106127360|
 |Fins Gerais|8|32212254720|134217728|32212254720|
@@ -108,10 +108,10 @@ A Azure Database for MySQL suporta no maior, **1 TB,** num único ficheiro de da
 
 Reveja a documentação do [MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_join_buffer_size) para saber mais sobre este parâmetro.
 
-|**Nível de preços**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
+|**Escalão de Preço**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
-|Básica|1|Não configurável no nível básico|N/D|N/D|
-|Básica|2|Não configurável no nível básico|N/D|N/D|
+|Básico|1|Não configurável no nível básico|N/D|N/D|
+|Básico|2|Não configurável no nível básico|N/D|N/D|
 |Fins Gerais|2|262144|128|268435455|
 |Fins Gerais|4|262144|128|536870912|
 |Fins Gerais|8|262144|128|1073741824|
@@ -126,10 +126,10 @@ Reveja a documentação do [MySQL](https://dev.mysql.com/doc/refman/5.7/en/serve
 
 ### <a name="max_connections"></a>max_connections
 
-|**Nível de preços**|**vCore(s)**|**Valor predefinido**|**Valor mínimo**|**Valor máximo**|
+|**Escalão de Preço**|**vCore(s)**|**Valor predefinido**|**Valor mínimo**|**Valor máximo**|
 |---|---|---|---|---|
-|Básica|1|50|10|50|
-|Básica|2|100|10|100|
+|Básico|1|50|10|50|
+|Básico|2|100|10|100|
 |Fins Gerais|2|300|10|600|
 |Fins Gerais|4|625|10|1250|
 |Fins Gerais|8|1250|10|2500|
@@ -157,10 +157,10 @@ Criar novas ligações de clientes ao MySQL leva tempo e uma vez estabelecidos, 
 
 Reveja a documentação do [MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size) para saber mais sobre este parâmetro.
 
-|**Nível de preços**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
+|**Escalão de Preço**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
-|Básica|1|Não configurável no nível básico|N/D|N/D|
-|Básica|2|Não configurável no nível básico|N/D|N/D|
+|Básico|1|Não configurável no nível básico|N/D|N/D|
+|Básico|2|Não configurável no nível básico|N/D|N/D|
 |Fins Gerais|2|16777216|16384|268435455|
 |Fins Gerais|4|16777216|16384|536870912|
 |Fins Gerais|8|16777216|16384|1073741824|
@@ -182,10 +182,10 @@ Reveja a documentação do [MySQL](https://dev.mysql.com/doc/refman/5.7/en/serve
 > [!NOTE]
 > A cache de consulta é depreciada a partir de MySQL 5.7.20 e foi removida no MySQL 8.0
 
-|**Nível de preços**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo **|
+|**Escalão de Preço**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo **|
 |---|---|---|---|---|
-|Básica|1|Não configurável no nível básico|N/D|N/D|
-|Básica|2|Não configurável no nível básico|N/D|N/D|
+|Básico|1|Não configurável no nível básico|N/D|N/D|
+|Básico|2|Não configurável no nível básico|N/D|N/D|
 |Fins Gerais|2|0|0|16777216|
 |Fins Gerais|4|0|0|33554432|
 |Fins Gerais|8|0|0|67108864|
@@ -198,14 +198,29 @@ Reveja a documentação do [MySQL](https://dev.mysql.com/doc/refman/5.7/en/serve
 |Otimizada para Memória|16|0|0|134217728|
 |Otimizada para Memória|32|0|0|134217728|
 
+### <a name="lower_case_table_names"></a>lower_case_table_names
+
+O lower_case_table_name está definido para 1 por padrão e pode atualizar este parâmetro no MySQL 5.6 e No MySQL 5.7
+
+Reveja a documentação do [MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lower_case_table_names) para saber mais sobre este parâmetro.
+
+> [!NOTE]
+> No MySQL 8.0, o lower_case_table_name está definido para 1 por padrão e não é possível alterá-lo.
+
+### <a name="innodb_strict_mode"></a>innodb_strict_mode
+
+Se receber um erro semelhante ao "Tamanho da linha demasiado grande (> 8126)" então é melhor desligar o parâmetro **innodb_strict_mode**. O parâmetro do servidor **innodb_strict_mode** não é permitido ser modificado globalmente ao nível do servidor porque se o tamanho dos dados de linha for superior a 8k, os dados serão truncados sem um erro que conduza à perda de dados potenciais. Recomendamos modificar o esquema para se ajustar ao limite de tamanho da página. 
+
+Este parâmetro pode ser definido a um nível de sessão utilizando `init_connect` . Para definir **innodb_strict_mode** ao nível da sessão, consulte o [parâmetro de definição não listado](https://docs.microsoft.com/azure/mysql/howto-server-parameters#setting-parameters-not-listed).
+
 ### <a name="sort_buffer_size"></a>sort_buffer_size
 
 Reveja a documentação do [MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size) para saber mais sobre este parâmetro.
 
-|**Nível de preços**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
+|**Escalão de Preço**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
-|Básica|1|Não configurável no nível básico|N/D|N/D|
-|Básica|2|Não configurável no nível básico|N/D|N/D|
+|Básico|1|Não configurável no nível básico|N/D|N/D|
+|Básico|2|Não configurável no nível básico|N/D|N/D|
 |Fins Gerais|2|524288|32768|4194304|
 |Fins Gerais|4|524288|32768|8388608|
 |Fins Gerais|8|524288|32768|16777216|
@@ -222,10 +237,10 @@ Reveja a documentação do [MySQL](https://dev.mysql.com/doc/refman/5.7/en/serve
 
 Reveja a documentação do [MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size) para saber mais sobre este parâmetro.
 
-|**Nível de preços**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
+|**Escalão de Preço**|**vCore(s)**|**Valor predefinido (bytes)**|**Valor mínimo (bytes)**|**Valor máximo (bytes)**|
 |---|---|---|---|---|
-|Básica|1|Não configurável no nível básico|N/D|N/D|
-|Básica|2|Não configurável no nível básico|N/D|N/D|
+|Básico|1|Não configurável no nível básico|N/D|N/D|
+|Básico|2|Não configurável no nível básico|N/D|N/D|
 |Fins Gerais|2|16777216|1024|67108864|
 |Fins Gerais|4|16777216|1024|134217728|
 |Fins Gerais|8|16777216|1024|268435456|
@@ -256,7 +271,7 @@ Os parâmetros do servidor abaixo não são configuráveis no serviço:
 
 Outras variáveis não listadas aqui são definidas para os valores padrão MySQL fora da caixa. Consulte os docs MySQL para versões [8.0](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html), [5.7](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html)e [5.6](https://dev.mysql.com/doc/refman/5.6/en/server-system-variables.html) para os valores predefinidos. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [configurar parâmetros de corte utilizando o portal Azure](./howto-server-parameters.md)
 - Saiba como [configurar parâmetros de corte utilizando o Azure CLI](./howto-configure-server-parameters-using-cli.md)

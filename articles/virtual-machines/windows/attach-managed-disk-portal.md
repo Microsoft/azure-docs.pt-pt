@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: e8fd330fdb6e0c7d857ea99f6d51b05436c17d1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b100676cd8cfbffd273ea6ad50b63545f2d6037a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84657179"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836229"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Anexar um disco de dados gerido a um Windows VM utilizando o portal Azure
 
-Este artigo mostra-lhe como anexar um novo disco de dados gerido a uma máquina virtual do Windows (VM) utilizando o portal Azure. O tamanho do VM determina quantos discos de dados pode anexar. Para obter mais informações, consulte [tamanhos para máquinas virtuais.](sizes.md)
+Este artigo mostra-lhe como anexar um novo disco de dados gerido a uma máquina virtual do Windows (VM) utilizando o portal Azure. O tamanho do VM determina quantos discos de dados pode anexar. Para obter mais informações, consulte [tamanhos para máquinas virtuais.](../sizes.md)
 
 
 ## <a name="add-a-data-disk"></a>Adicionar um disco de dados
@@ -45,7 +45,7 @@ Este artigo mostra-lhe como anexar um novo disco de dados gerido a uma máquina 
 9. Aparece um aviso a notificar-lhe que a formatação dos discos apaga todos os dados. Selecione **OK**.
 10. Quando a formatação estiver completa, selecione **OK**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Também pode [anexar um disco de dados utilizando o PowerShell](attach-disk-ps.md).
 - Se a sua aplicação precisar de utilizar o *D:* conduzir para armazenar dados, pode [alterar a letra de unidade do disco temporário do Windows.](change-drive-letter.md)

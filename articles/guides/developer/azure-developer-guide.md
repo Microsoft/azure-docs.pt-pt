@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 10c9e2c3ecefedded393d6949be1480f2f02973b
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: aae0ed4efa7f96ab6258dbf0ce4c34a6879ecbc2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131060"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832812"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
@@ -285,7 +285,7 @@ Além de definir identidades individuais da conta Azure, também *chamados utili
 
 ### <a name="manage-your-subscriptions"></a>Gerir as subscrições
 
-Uma subscrição é um agrupamento lógico de serviços Azure que está ligado a uma conta Azure. Uma única conta Azure pode conter várias subscrições. A faturação dos serviços Azure é feita por subscrição. Para obter uma lista das ofertas de subscrição disponíveis por tipo, consulte [os Detalhes da Oferta do Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/). As subscrições do Azure têm um Administrador de Conta que tem controlo total sobre a subscrição. Dispõem ainda de um Administrador de Serviço que tem controlo sobre todos os serviços da subscrição. Para obter informações sobre administradores de subscrição clássicos, consulte [adicionar ou alterar administradores de subscrição do Azure](../../cost-management-billing/manage/add-change-subscription-administrator.md). As contas individuais podem ser concedidas a um controlo pormenorizado dos recursos Azure utilizando [o controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md).
+Uma subscrição é um agrupamento lógico de serviços Azure que está ligado a uma conta Azure. Uma única conta Azure pode conter várias subscrições. A faturação dos serviços Azure é feita por subscrição. Para obter uma lista das ofertas de subscrição disponíveis por tipo, consulte [os Detalhes da Oferta do Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/). As subscrições do Azure têm um Administrador de Conta que tem controlo total sobre a subscrição. Dispõem ainda de um Administrador de Serviço que tem controlo sobre todos os serviços da subscrição. Para obter informações sobre administradores de subscrição clássicos, consulte [adicionar ou alterar administradores de subscrição do Azure](../../cost-management-billing/manage/add-change-subscription-administrator.md). As contas individuais podem ser concedidas a um controlo pormenorizado dos recursos Azure utilizando [o controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 
 #### <a name="resource-groups"></a>Grupos de recursos
 

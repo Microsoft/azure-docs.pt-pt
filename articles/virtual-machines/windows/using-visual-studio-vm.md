@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: cathys
 keywords: visuaistudio
-ms.openlocfilehash: f1da7dabfb562ea32697745460d92ed27089878c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5ec8e0f6448e725998628e41b917942966d3ef2a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525539"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836161"
 ---
 # <a name="visual-studio-images-on-azure"></a>Imagens do Estúdio Visual em Azure
 Usar o Visual Studio numa máquina virtual Azure pré-configurada (VM) é uma maneira rápida e fácil de ir do nada para um ambiente de desenvolvimento em funcionamento. Imagens de sistema com diferentes configurações do Estúdio Visual estão disponíveis no [Azure Marketplace.](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure)
@@ -31,7 +31,7 @@ As imagens para as versões mais recentes, Visual Studio 2019, Visual Studio 201
 | Versão de lançamento                                                                                                                                                | Edições              | Versão do Produto   |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------:|:-----------------:|
 | [Visual Studio 2019: Mais recente (Versão 16.5)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Empresa, Comunidade | Versão 16.5.4    |
-| Visual Studio 2019: RTW                         | Enterprise | Versão 16.0.13    |
+| Visual Studio 2019: RTW                         | Grandes Empresas | Versão 16.0.13    |
 | Visual Studio 2017: Mais recente (Versão 15.9)           | Empresa, Comunidade | Versão 15.9.22   |
 | Visual Studio 2017: RTW                             | Empresa, Comunidade | Versão 15.0.28  |
 | Visual Studio 2015: Mais recente (Atualização 3)               | Empresa, Comunidade | Versão 14.0.25431.01 |
@@ -77,7 +77,7 @@ O Azure oferece uma gama completa de tamanhos de máquinas virtuais. Como o Visu
    * Standard_D2S_v2
    * Standard_D3_v2
     
-Para obter mais informações sobre os tamanhos mais recentes da máquina, consulte [tamanhos para máquinas virtuais windows em Azure.](./sizes.md)
+Para obter mais informações sobre os tamanhos mais recentes da máquina, consulte [tamanhos para máquinas virtuais windows em Azure.](../sizes.md)
 
 Com o Azure, pode reequilibrar a sua escolha inicial redimensionando o VM. Pode providenciar um novo VM com um tamanho mais adequado, ou redimensionar o seu VM existente para diferentes hardware subjacentes. Para obter mais informações, consulte [Redimensionar um VM do Windows](./resize-vm.md).
 
@@ -106,7 +106,7 @@ Para obter mais informações, consulte [Criar uma imagem gerida de um VM genera
 
 Além disso, as suas tarefas ou tecnologias de desenvolvimento podem necessitar de mais escala, como variedades de configurações de desenvolvimento e múltiplas configurações de máquinas. Você pode usar Azure DevTest Labs para criar _receitas_ que automatizam a construção da sua "imagem dourada". Também pode usar a DevTest Labs para gerir políticas para os VMs da sua equipa. [Usar a Azure DevTest Labs para desenvolvedores](../../devtest-labs/devtest-lab-developer-lab.md) é a melhor fonte para mais informações sobre a DevTest Labs.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Agora que sabe sobre as imagens pré-configuradas do Visual Studio, o próximo passo é criar um novo VM:
 
 * [Criar um VM através do portal Azure](quick-create-portal.md)

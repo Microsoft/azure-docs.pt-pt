@@ -1,6 +1,6 @@
 ---
 title: O controlador de files Azure Blob para Azure Data Lake Storage Gen2
-description: O controlador de ficheiros ABFS Hadoop
+description: Saiba mais sobre o controlador de files Azure Blob (ABFS), um controlador dedicado de armazenamento Azure para Hadoop. Aceder a dados em Azure Data Lake Storage Gen2 utilizando este motorista.
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 3db039d39ef532ea51143dc9cbdb6bd5f29d6225
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9c56f59d6dd64002632a5f74e9f39c51293caab
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75970281"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836365"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>O controlador de files Azure Blob (ABFS): Um controlador dedicado de armazenamento Azure para Hadoop
 
@@ -63,7 +63,7 @@ Os detalhes de todas as entradas de configuração suportadas estão especificad
 
 O motorista da ABFS está totalmente documentado na documentação oficial do [Hadoop](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar um cluster de databricks Azure](./data-lake-storage-quickstart-create-databricks-account.md)
 - [Utilizar o URI do Azure Data Lake Storage Gen2](./data-lake-storage-introduction-abfs-uri.md)

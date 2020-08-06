@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 50fb9c597a74a7aa08dfc3d8b7acd9b94760a9df
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: f09d2604a1dbf06caebb604ba2d63a09560fd33b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542896"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835923"
 ---
 # <a name="azure-operational-security-overview"></a>Visão geral da segurança operacional do Azure
 
@@ -50,7 +50,7 @@ O Azure Backup oferece componentes que descarrega e implementa no computador ou 
 
 Para obter mais informações, consulte a [tabela de componentes de backup Azure](/azure/backup/backup-overview#what-can-i-back-up).
 
-### <a name="site-recovery"></a>Site Recovery
+### <a name="site-recovery"></a>Recuperação de sites
 
 [A Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery) proporciona continuidade de negócios orquestrando a replicação de máquinas virtuais e físicas no local para Azure, ou para um site secundário. Se o seu site principal não estiver disponível, falha na localização secundária para que os utilizadores possam continuar a trabalhar. Falhas quando os sistemas voltam a funcionar. Utilize o Centro de Segurança Azure para realizar uma deteção de ameaças mais inteligente e eficaz.
 
@@ -87,7 +87,7 @@ Com o Azure Ative Directory, todas as aplicações que publica para os seus parc
 - Validação de encriptação de disco.
 - Ataques baseados em rede.
 
-O Security Center utiliza [o Controlo de Acesso Baseado em Funções (RBAC)](/azure/role-based-access-control/role-assignments-portal). O RBAC fornece [funções incorporadas](../../role-based-access-control/built-in-roles.md) que podem ser atribuídas a utilizadores, grupos e serviços em Azure.
+O Security Center utiliza [o controlo de acesso baseado em funções Azure (Azure RBAC)](/azure/role-based-access-control/role-assignments-portal). O RBAC fornece [funções incorporadas](../../role-based-access-control/built-in-roles.md) que podem ser atribuídas a utilizadores, grupos e serviços em Azure.
 
 O Centro de Segurança avalia a configuração dos seus recursos para identificar problemas de segurança e vulnerabilidades. No Security Center, vê informações relacionadas com um recurso apenas quando lhe é atribuída a função de proprietário, colaborador ou leitor para a subscrição ou grupo de recursos a que pertence um recurso.
 

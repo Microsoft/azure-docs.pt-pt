@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: f05b70c8197283d9fa576d6ea464aa08554dd773
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 92d4fb638e41c668c557ef9e618d30677481585d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206765"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829854"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Criar e gerir o Link Privado para Base de Dados de Azure para PostgreSQL - Servidor único usando o Portal
 
@@ -20,7 +20,7 @@ Um Ponto Final Privado é o bloco de construção fundamental para a ligação p
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 > [!NOTE]
-> Esta funcionalidade está disponível em todas as regiões do Azure onde a Base de Dados Azure para servidor Single PostgreSQL suporta os níveis de preços otimizados para fins gerais e memória.
+> A funcionalidade de ligação privada só está disponível para a Base de Dados Azure para servidores PostgreSQL nos níveis de preços otimizados para fins gerais ou memória. Certifique-se de que o servidor de base de dados está num destes níveis de preços.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 Inicie sessão no [portal do Azure](https://portal.azure.com).
@@ -84,7 +84,7 @@ Nesta secção, irá criar uma Rede Virtual e a sub-rede para hospedar o VM que 
     | ------- | ----- |
     | Rede virtual | Deixe a **Rede MyVirtual padrão**.  |
     | Espaço de endereços | Deixe o **padrão 10.1.0.0/24**.|
-    | Sub-rede | Deixe o **mySubnet predefinido (10.1.0.0/24)**.|
+    | Subrede | Deixe o **mySubnet predefinido (10.1.0.0/24)**.|
     | IP público | Deixe o **padrão (novo) myVm-ip**. |
     | Portas de entrada públicas | Selecione **Deixe as portas selecionadas.** |
     | Selecione portas de entrada | Selecione **HTTP** e **RDP**.|
@@ -164,9 +164,9 @@ Nesta secção, irá criar um servidor PostgreSQL e adicionar-lhe um ponto final
     | ------- | ----- |
     |**NETWORKING**| |
     | Rede virtual| Selecione *MyVirtualNetwork*. |
-    | Sub-rede | Selecione *mySubnet*. |
+    | Subrede | Selecione *mySubnet*. |
     |**INTEGRAÇÃO PRIVADA DE DNS**||
-    |Integrar-se com a zona privada de DNS |Selecione **Yes** (Sim). |
+    |Integrar-se com a zona privada de DNS |Selecione **Sim**. |
     |Zona privada de DNS |Selecione *(Novo)privatelink.postgres.database.azure.com* |
     |||
 

@@ -3,12 +3,12 @@ title: Autorizar o acesso com o Azure Active Directory
 description: Este artigo fornece informações sobre a autorização de acesso aos recursos do Event Hubs utilizando o Azure Ative Directory.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: af9278d801dfd858ce8bba5ec5786d521f72218c
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 101e40420493156c7b1a0c3c5b767eda023e62c6
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534571"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831843"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorizar o acesso aos recursos do Event Hubs utilizando o Azure Ative Directory
 O Azure Event Hubs suporta a utilização do Azure Ative Directory (Azure AD) para autorizar pedidos aos recursos do Event Hubs. Com o Azure AD, pode utilizar o controlo de acesso baseado em funções (RBAC) para conceder permissões a um principal de segurança, que pode ser um utilizador ou um diretor de serviço de aplicação. Para saber mais sobre papéis e atribuições de papéis, consulte [compreender os diferentes papéis.](../role-based-access-control/overview.md)
@@ -26,7 +26,7 @@ O passo de autorização requer que uma ou mais funções da Azure sejam atribu�
 Aplicações nativas e aplicações web que fazem pedidos para Os Centros de Eventos também podem autorizar com a Azure AD. Para saber como solicitar um token de acesso e usá-lo para autorizar pedidos de recursos do Event Hubs, consulte [autenticar o acesso aos Hubs de Eventos Azure com Azure AD a partir de uma aplicação.](authenticate-application.md) 
 
 ## <a name="assign-azure-roles-for-access-rights"></a>Atribuir funções da Azure para direitos de acesso
-O Azure Ative Directory (Azure AD) autoriza os direitos de acesso a recursos seguros através [do controlo de acesso baseado em funções (RBAC)](../role-based-access-control/overview.md). O Azure Event Hubs define um conjunto de funções incorporadas do Azure que englobam conjuntos comuns de permissões usadas para aceder a dados do centro de eventos e também pode definir funções personalizadas para aceder aos dados.
+O Azure Ative Directory (Azure AD) autoriza os direitos de acesso a recursos seguros através do [controlo de acesso baseado em funções da Azure (Azure RBAC)](../role-based-access-control/overview.md). O Azure Event Hubs define um conjunto de funções incorporadas do Azure que englobam conjuntos comuns de permissões usadas para aceder a dados do centro de eventos e também pode definir funções personalizadas para aceder aos dados.
 
 Quando um papel de Azure é atribuído a um diretor de segurança da AZure, a Azure concede acesso a esses recursos para esse diretor de segurança. O acesso pode ser analisado ao nível de subscrição, ao grupo de recursos, ao espaço de nomes do Event Hubs ou a qualquer recurso sob o mesmo. Um diretor de segurança Azure AD pode ser um utilizador, ou um diretor de serviço de aplicação, ou uma [identidade gerida para os recursos da Azure.](../active-directory/managed-identities-azure-resources/overview.md)
 

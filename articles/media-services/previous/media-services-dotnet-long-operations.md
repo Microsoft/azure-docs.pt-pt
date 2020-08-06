@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 7298e935da8b4c81bfb0a7b07d9f94f7c100b2b9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1c5b008b9771e636201f95f3a56f81d4e75b7ea2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038788"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831741"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Entrega de streaming ao vivo com serviços de media Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "87038788"
 
 O Microsoft Azure Media Services oferece APIs que enviam pedidos aos Media Services para iniciar operações (por exemplo: criar, iniciar, parar ou apagar um canal). Estas operações são longas.
 
-O Serviço de Comunicação Social .NET SDK fornece APIs que enviam o pedido e aguardam que a operação esteja concluída (internamente, as APIs estão a sondar para o progresso da operação em alguns intervalos). Por exemplo, quando liga para o canal. Start(), o método regressa após o início do canal. Também pode utilizar a versão assíncronea: aguarde o canal. StartAsync() (para obter informações sobre o Padrão Assíncrodo baseado em Tarefas, consulte [TAP](/azure/media-services/previous/media-services-mes-schema)). As APIs que enviam um pedido de operação e depois pesquisam o estado até que a operação esteja concluída são chamadas de "métodos de votação". Estes métodos (especialmente a versão Async) são recomendados para aplicações de clientes ricos e/ou serviços estatais.
+O Serviço de Comunicação Social .NET SDK fornece APIs que enviam o pedido e aguardam que a operação esteja concluída (internamente, as APIs estão a sondar para o progresso da operação em alguns intervalos). Por exemplo, quando liga para o canal. Start(), o método regressa após o início do canal. Também pode utilizar a versão assíncronea: aguarde o canal. StartAsync() (para obter informações sobre o Padrão Assíncrodo baseado em Tarefas, consulte [TAP](./media-services-mes-schema.md)). As APIs que enviam um pedido de operação e depois pesquisam o estado até que a operação esteja concluída são chamadas de "métodos de votação". Estes métodos (especialmente a versão Async) são recomendados para aplicações de clientes ricos e/ou serviços estatais.
 
 Há cenários em que uma aplicação não pode esperar por um pedido http de longa duração e quer fazer sondagens para a operação avançar manualmente. Um exemplo típico seria um navegador interagindo com um serviço web apátrida: quando o navegador solicita a criação de um canal, o serviço web inicia uma longa operação e devolve o ID de operação ao navegador. O navegador poderia então pedir ao serviço web para obter o estado de funcionamento com base no ID. O Media Services .NET SDK fornece APIs que são úteis para este cenário. Estas APIs são chamadas de "métodos não-eleitorais".
 Os "métodos de não votação" têm o seguinte padrão de nomeação: Enviar*Operação Operação Natal*(por exemplo, Envio de Operações). Enviar*OperaçãoName*Métodos de operação devolvem o objeto **IOperação;** o objeto devolvido contém informações que podem ser usadas para rastrear a operação. Os métodos de regresso da*Operação Operação Operação Operação*Operação OperaçãoSync **. \<IOperation> **

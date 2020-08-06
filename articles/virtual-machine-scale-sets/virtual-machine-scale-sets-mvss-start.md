@@ -9,12 +9,12 @@ ms.subservice: template
 ms.date: 04/26/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 6f47e07dcffd977121b4142924a77bdb93de3fc3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 55c826b4baf38732684aaa0465aeaab6a45564db
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503052"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831503"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Saiba mais sobre modelos de conjunto de escala de máquina virtual
 Os [modelos do Azure Resource Manager](../azure-resource-manager/templates/overview.md#template-deployment-process) são uma ótima maneira de implementar grupos de recursos relacionados. Esta série tutorial mostra como criar um modelo de conjunto de escala básica e como modificar este modelo para se adequar a vários cenários. Todos os exemplos vêm deste [repositório GitHub.](https://github.com/gatneil/mvss)
@@ -115,7 +115,7 @@ Neste caso, existe apenas um elemento na lista, a rede virtual do exemplo anteri
 ## <a name="specify-scale-set-properties"></a>Especifique propriedades definidas de escala
 Os conjuntos de escala têm muitas propriedades para personalizar os VMs no conjunto de escala. Para obter uma lista completa destas propriedades, consulte a [referência do modelo](/azure/templates/microsoft.compute/virtualmachinescalesets). Para este tutorial, apenas algumas propriedades comumente usadas são definidas.
 ### <a name="supply-vm-size-and-capacity"></a>Tamanho e capacidade de fornecimento de VM
-O conjunto de escala precisa de saber qual o tamanho de VM para criar ("sku name") e quantos VMs para criar ("capacidade sku"). Para ver quais os tamanhos VM disponíveis, consulte a [documentação VM Sizes](../virtual-machines/windows/sizes.md).
+O conjunto de escala precisa de saber qual o tamanho de VM para criar ("sku name") e quantos VMs para criar ("capacidade sku"). Para ver quais os tamanhos VM disponíveis, consulte a [documentação VM Sizes](../virtual-machines/sizes.md).
 
 ```json
        "sku": {
@@ -198,6 +198,6 @@ No entanto, o identificador da rede virtual não é suficiente. Forneça a sub-r
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

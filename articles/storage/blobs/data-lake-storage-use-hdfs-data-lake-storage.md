@@ -1,6 +1,6 @@
 ---
 title: Utilização do HDFS CLI com Azure Data Lake Storage Gen2
-description: Introdução ao HDFS CLI para data lake storage gen2
+description: Utilize o Sistema de Ficheiros Distribuídos Hadoop (HDFS) CLI para a Azure Data Lake Storage Gen2. Crie um recipiente, obtenha uma lista de ficheiros ou diretórios, e muito mais.
 services: storage
 author: normesta
 ms.service: storage
@@ -9,12 +9,12 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
-ms.openlocfilehash: 36e6b39aaf481abaabe4fb5a4a71a527d1e74749
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 1d720aed44358dd314bc4226adb9ad517139cd18
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109455"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836314"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Utilização do HDFS CLI com data lake storage gen2
 
@@ -116,7 +116,7 @@ Ver [chmod](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-com
 
 Pode ver a lista completa de comandos no Site do Guia da Concha do [Sistema de Ficheiros Apache Hadoop 2.4.1.](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Utilize uma conta capaz de armazenamento de dados Azure, Gen2, em Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md)
 

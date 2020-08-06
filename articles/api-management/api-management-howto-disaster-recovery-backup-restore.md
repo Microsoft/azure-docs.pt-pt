@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 4c6f4bbae180184c13041863a85e2a7025f06a6e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 826f47115d15b9c46476af711eddc5499afab419
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250469"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830262"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação após desastre através do serviço de cópia de segurança e restauro na Gestão de API do Azure
 
@@ -169,19 +169,24 @@ Desa estada o valor do cabeçalho do `Content-Type` pedido para `application/jso
 
 A cópia de segurança é uma operação de longa duração que pode demorar mais de um minuto a ser concluída. Se o pedido tiver sido bem sucedido e o processo de backup tiver começado, receberá um `202 Accepted` código de estado de resposta com um `Location` cabeçalho. Faça pedidos 'GET' à URL no `Location` cabeçalho para saber o estado da operação. Enquanto a cópia de segurança está em andamento, continua a receber um código de estado '202 Aceitos'. Um código de resposta `200 OK` indica a conclusão bem sucedida da operação de backup.
 
-Note os seguintes constrangimentos ao fazer um pedido de backup ou restauro:
+#### <a name="constraints-when-making-backup-or-restore-request"></a>Constrangimentos ao fazer backup ou restaurar o pedido
 
 -   **Deve** **existir**o recipiente especificado no organismo de pedido .
 -   Enquanto a cópia de segurança está em andamento, **evite alterações de gestão no serviço,** tais como upgrade ou downgrade SKU, mudança no nome de domínio, e muito mais.
 -   A recuperação de um **backup só é garantida por 30 dias** desde o momento da sua criação.
--   **Os dados de utilização utilizados** para criar relatórios de análise **não estão incluídos** na cópia de segurança. Utilize [a Azure API Management REST API][azure api management rest api] para recuperar periodicamente relatórios de análise para segurança.
--   Além disso, os seguintes itens não fazem parte dos dados de backup: certificados de domínio personalizado TLS/SSL e quaisquer certificados intermédios ou de raiz carregados por cliente, conteúdo do portal do desenvolvedor e definições de integração de rede virtual.
--   A frequência com que executa cópias de segurança de serviço afeta o seu objetivo de ponto de recuperação. Para minimizá-lo, recomendamos a implementação de backups regulares e a realização de backups a pedido depois de efetuar alterações no seu serviço de Gestão API.
 -   **As alterações efetuadas** na configuração do serviço (por exemplo, APIs, políticas e aparência do portal do desenvolvedor) enquanto a operação de backup está em processo **pode ser excluída da cópia de segurança e será perdida**.
--   **Permitir** o acesso do avião de controlo à Conta de Armazenamento Azure, se tiver [firewall][azure-storage-ip-firewall] ativada. O cliente deve abrir o conjunto de endereços IP do Avião de Controlo de [Gestão da API da Azure][control-plane-ip-address] na sua Conta de Armazenamento para Cópia de Segurança ou Restauro a partir de. 
+-   **Permitir** o acesso do avião de controlo à Conta de Armazenamento Azure, se tiver [firewall][azure-storage-ip-firewall] ativada. O cliente deve abrir o conjunto de endereços IP do Avião de Controlo de [Gestão da API da Azure][control-plane-ip-address] na sua Conta de Armazenamento para Cópia de Segurança ou Restauro a partir de. Isto porque os pedidos para o Azure Storage não são SNATed para um IP público da Compute > (Azure Api Management control Plane). O pedido de armazenamento da Região Cruzada será SNATED.
 
-> [!NOTE]
-> Se tentar fazer backup/restaurar de/para um serviço de Gestão API usando uma conta de armazenamento que tenha [ativado][azure-storage-ip-firewall] firewall, na mesma Região Azure, então isso não funcionará. Isto porque os pedidos para o Azure Storage não são SNATed para um IP público da Compute > (Azure Api Management control Plane). O pedido de armazenamento da Região Cruzada será SNATED.
+#### <a name="what-is-not-backed-up"></a>O que não é apoiado
+-   **Os dados de utilização utilizados** para criar relatórios de análise **não estão incluídos** na cópia de segurança. Utilize [a Azure API Management REST API][azure api management rest api] para recuperar periodicamente relatórios de análise para segurança.
+-   [Certificados TLS/SSL de domínio personalizado](configure-custom-domain.md)
+-   [Certificado AC personalizado](api-management-howto-ca-certificates.md) que inclui certificados intermédios ou de raiz carregados pelo cliente
+-   [Definições de](api-management-using-with-vnet.md) integração de rede virtual.
+-   [Configuração de identidade gerida.](api-management-howto-use-managed-service-identity.md)
+-   [Diagnóstico do Monitor Azure](api-management-howto-use-azure-monitor.md) A configuração.
+-   Protocolos e definições [de Cipher.](api-management-howto-manage-protocols-ciphers.md)
+
+A frequência com que executa cópias de segurança de serviço afeta o seu objetivo de ponto de recuperação. Para minimizá-lo, recomendamos a implementação de backups regulares e a realização de backups a pedido depois de efetuar alterações no seu serviço de Gestão API.
 
 ### <a name="restore-an-api-management-service"></a><a name="step2"> </a>Restaurar um serviço de Gestão API
 

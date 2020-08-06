@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 907ea5c600202b65195ef61cf740b5711928225d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 07b9e3e7529aa867a4baf51ffe5c4bbf23599d32
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499403"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836195"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Pré-visualização: Criar uma imagem do Windows e distribuí-la para uma Galeria de Imagens Partilhadas 
 
@@ -219,7 +219,7 @@ O seu modelo deve ser submetido ao serviço, isto irá descarregar quaisquer art
 New-AzResourceGroupDeployment `
    -ResourceGroupName $imageResourceGroup `
    -TemplateFile $templateFilePath `
-   -api-version "2019-05-01-preview" `
+   -apiversion "2019-05-01-preview" `
    -imageTemplateName $imageTemplateName `
    -svclocation $location
 ```
@@ -298,7 +298,7 @@ dir c:\
 Você deve ver um diretório chamado `buildActions` que foi criado durante a personalização da imagem.
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se pretender agora tentar re-personalizar a versão de imagem para criar uma nova versão da mesma imagem, **ignore este passo** e continue a utilizar o [Azure Image Builder para criar outra versão de imagem](image-builder-gallery-update-image-version.md).
 
 

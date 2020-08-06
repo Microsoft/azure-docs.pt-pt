@@ -12,12 +12,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: b9d66dc4f0e2e637ac8512022336f257f5d585a9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 183273e6f93bbfda8ed4e5fe913192994a0b6ce2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035745"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833390"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>SAP HANA Azure Backup no nível de ficheiro
 
@@ -25,7 +25,7 @@ ms.locfileid: "87035745"
 
 Este artigo é um artigo relacionado com [o guia de backup da SAP HANA em Azure Virtual Machines,](./sap-hana-backup-guide.md)que fornece uma visão geral e informações sobre como começar e mais detalhes sobre o serviço de backup Azure e instantâneos de armazenamento. 
 
-Diferentes tipos de VM em Azure permitem um número diferente de VHDs ligados. Os detalhes exatos estão documentados em [Tamanhos para máquinas virtuais Linux em Azure](../../linux/sizes.md). Para os testes referidos nesta documentação utilizamos um GS5 Azure VM, que permite 64 discos de dados anexados. Para sistemas SAP HANA maiores, um número significativo de discos pode já ser levado para ficheiros de dados e registos, possivelmente em combinação com a tira de software para uma produção ótima de IO do disco. Para obter mais detalhes sobre as configurações sugeridas do disco para implementações SAP HANA em VMs Azure, leia o artigo [Configurações de armazenamento de máquinas virtuais SAP HANA Azure](./hana-vm-operations-storage.md). As recomendações feitas incluem recomendações de espaço em disco para cópias de segurança locais também.
+Diferentes tipos de VM em Azure permitem um número diferente de VHDs ligados. Os detalhes exatos estão documentados em [Tamanhos para máquinas virtuais Linux em Azure](../../sizes.md). Para os testes referidos nesta documentação utilizamos um GS5 Azure VM, que permite 64 discos de dados anexados. Para sistemas SAP HANA maiores, um número significativo de discos pode já ser levado para ficheiros de dados e registos, possivelmente em combinação com a tira de software para uma produção ótima de IO do disco. Para obter mais detalhes sobre as configurações sugeridas do disco para implementações SAP HANA em VMs Azure, leia o artigo [Configurações de armazenamento de máquinas virtuais SAP HANA Azure](./hana-vm-operations-storage.md). As recomendações feitas incluem recomendações de espaço em disco para cópias de segurança locais também.
 
 A forma padrão de gerir backup/restauro ao nível do ficheiro é com uma cópia de segurança baseada em ficheiros através do SAP HANA Studio ou através de declarações SAP HANA SQL. Para mais informações, leia o artigo [SAP HANA SQL e System Views Reference](https://help.sap.com/hana/SAP_HANA_SQL_and_System_Views_Reference_en.pdf).
 

@@ -7,15 +7,15 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: 2667ff571070b2e62dcfa4af6e202f1851aa3e80
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ed1c5b749b778ef8334ea3b31ef17d3bf106484f
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525777"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835549"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Criar e gerir uma máquina virtual Windows que tenha vários NICs
-As máquinas virtuais (VMs) em Azure podem ter vários cartões de interface de rede virtuais (NICs) ligados a eles. Um cenário comum é ter sub-redes diferentes para a conectividade frontal e traseira. Pode associar vários NICs num VM a várias sub-redes, mas essas sub-redes devem residir todas na mesma rede virtual (vNet). Este artigo detalha como criar um VM que tenha vários NICs ligados a ele. Também aprende a adicionar ou remover NICs de um VM existente. Diferentes [tamanhos VM](sizes.md) suportam um número variado de NICs, por isso dimensione o seu VM em conformidade.
+As máquinas virtuais (VMs) em Azure podem ter vários cartões de interface de rede virtuais (NICs) ligados a eles. Um cenário comum é ter sub-redes diferentes para a conectividade frontal e traseira. Pode associar vários NICs num VM a várias sub-redes, mas essas sub-redes devem residir todas na mesma rede virtual (vNet). Este artigo detalha como criar um VM que tenha vários NICs ligados a ele. Também aprende a adicionar ou remover NICs de um VM existente. Diferentes [tamanhos VM](../sizes.md) suportam um número variado de NICs, por isso dimensione o seu VM em conformidade.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -73,7 +73,7 @@ $myNic2 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
 Normalmente, também se cria um [grupo de segurança](../../virtual-network/security-overview.md) de rede para filtrar o tráfego de rede para o VM e um [equilibrador](../../load-balancer/load-balancer-overview.md) de carga para distribuir tráfego por vários VMs.
 
 ### <a name="create-the-virtual-machine"></a>Criar a máquina virtual
-Agora comece a construir a sua configuração VM. Cada tamanho VM tem um limite para o número total de NICs que pode adicionar a um VM. Para obter mais informações, consulte [os tamanhos do Windows VM](sizes.md).
+Agora comece a construir a sua configuração VM. Cada tamanho VM tem um limite para o número total de NICs que pode adicionar a um VM. Para obter mais informações, consulte [os tamanhos do Windows VM](../sizes.md).
 
 1. Desajuste as suas credenciais VM à `$cred` variável da seguinte forma:
 
@@ -119,7 +119,7 @@ Agora comece a construir a sua configuração VM. Cada tamanho VM tem um limite 
 6. Adicione as rotas para os NICs secundários ao SO, completando as etapas em [Configurar o sistema operativo para vários NICs](#configure-guest-os-for-multiple-nics).
 
 ## <a name="add-a-nic-to-an-existing-vm"></a>Adicione um NIC a um VM existente
-Para adicionar um NIC virtual a um VM existente, você negoceia o VM, adicione o NIC virtual e, em seguida, inicie o VM. Diferentes [tamanhos VM](sizes.md) suportam um número variado de NICs, por isso dimensione o seu VM em conformidade. Se necessário, pode [redimensionar um VM](resize-vm.md).
+Para adicionar um NIC virtual a um VM existente, você negoceia o VM, adicione o NIC virtual e, em seguida, inicie o VM. Diferentes [tamanhos VM](../sizes.md) suportam um número variado de NICs, por isso dimensione o seu VM em conformidade. Se necessário, pode [redimensionar um VM](resize-vm.md).
 
 1. Translocar o VM com [Stop-AzVM](/powershell/module/az.compute/stop-azvm). O exemplo seguinte é o que a VM nomeou *myVM* no *myResourceGroup:*
 
@@ -287,5 +287,5 @@ O Azure atribui um portal predefinido à primeira interface de rede (primária) 
 
     A rota listada com *192.168.1.1 no* **gateway,** é a rota que existe por padrão para a interface de rede primária. A rota com *192.168.2.1* em **Gateway,** é a rota que adicionou.
 
-## <a name="next-steps"></a>Próximos passos
-Reveja [os tamanhos do Windows VM](sizes.md) quando estiver a tentar criar um VM que tenha vários NICs. Preste atenção ao número máximo de NICs que cada tamanho VM suporta. 
+## <a name="next-steps"></a>Passos seguintes
+Reveja [os tamanhos do Windows VM](../sizes.md) quando estiver a tentar criar um VM que tenha vários NICs. Preste atenção ao número máximo de NICs que cada tamanho VM suporta. 

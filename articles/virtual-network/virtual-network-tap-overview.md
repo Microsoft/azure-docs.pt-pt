@@ -15,28 +15,44 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: 47db03460ad3c5194a5445f0b25cb8e742e60c21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7013c8ed338e727dd79a3845ff3b85749c0f5cee
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707842"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836093"
 ---
 # <a name="virtual-network-tap"></a>TAP de rede virtual
+> [!IMPORTANT]
+> A rede virtual TAP Preview encontra-se atualmente em espera em todas as regiões do Azure. Pode enviar-nos um e-mail <azurevnettap@microsoft.com> com o seu ID de subscrição e iremos notificá-lo com futuras atualizações sobre a pré-visualização. Entretanto, pode utilizar soluções baseadas em agentes ou NVA que forneçam funcionalidades de visibilidade TAP/Rede através das [nossas soluções de parceiros Packet Broker](#virtual-network-tap-partner-solutions) disponíveis nas [Ofertas do Mercado Azure.](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/networking?page=1&subcategories=appliances%3Ball&search=Network%20Traffic&filters=partners)
 
 A rede virtual Azure TAP (Terminal Access Point) permite-lhe transmitir continuamente o tráfego da rede de máquinas virtuais para um coletor de pacotes de rede ou uma ferramenta de análise. A ferramenta de coletor ou de análise é fornecida por um parceiro [de aparelho virtual de rede.](https://azure.microsoft.com/solutions/network-appliances/) Para obter uma lista de soluções parceiras validadas para trabalhar com a rede virtual TAP, consulte [soluções parceiras.](#virtual-network-tap-partner-solutions)
+A imagem que se segue mostra como funciona a rede virtual TAP. Pode adicionar uma configuração TAP numa interface de [rede](virtual-network-network-interface.md) que esteja ligada a uma máquina virtual implantada na sua rede virtual. O destino é um endereço IP de rede virtual na mesma rede virtual que a interface de rede monitorizada ou uma rede [virtual vigiada.](virtual-network-peering-overview.md) A solução de coletor para a rede virtual TAP pode ser implantada atrás de um equilibrador de carga interna Azure para uma elevada disponibilidade.
+![Como funciona a rede virtual TAP](./media/virtual-network-tap/architecture.png)
 
-> [!IMPORTANT]
-> A rede virtual TAP encontra-se neste momento em pré-visualização em todas as regiões do Azure. Para utilizar a rede virtual TAP, tem de se inscrever na pré-visualização enviando um e-mail  <azurevnettap@microsoft.com> para o seu ID de subscrição. Receberá um e-mail assim que a sua subscrição tiver sido inscrita. Não poderá utilizar a capacidade até receber um e-mail de confirmação. Esta pré-visualização é fornecida sem um contrato de nível de serviço e não deve ser utilizada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Consulte os [Termos Complementares de Utilização para visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)   para obter mais detalhes.
+## <a name="prerequisites"></a>Pré-requisitos
+
+Antes de criar uma rede virtual TAP, deve ter recebido um e-mail de confirmação de que está inscrito na pré-visualização, e ter uma ou mais máquinas virtuais criadas utilizando o modelo de implementação [do Azure Resource Manager](../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e uma solução parceira para agregar o tráfego tap na mesma região do Azure. Se não tiver uma solução parceira na sua rede virtual, consulte [soluções parceiras](#virtual-network-tap-partner-solutions) para implementar uma. Pode utilizar o mesmo recurso de rede virtual TAP para agregar tráfego de várias interfaces de rede nas mesmas ou diferentes subscrições. Se as interfaces de rede monitorizadas estiverem em diferentes subscrições, as subscrições devem ser associadas ao mesmo inquilino do Azure Ative Directory. Além disso, as interfaces de rede monitorizadas e o ponto final de destino para agregação do tráfego TAP podem estar em redes virtuais vigiadas na mesma região. Se estiver a utilizar este modelo de implementação, certifique-se de que o [espremiamento da rede virtual](virtual-network-peering-overview.md) está ativado antes de configurar a rede virtual TAP.
+
+## <a name="permissions"></a>Permissões
+
+As contas que utiliza para aplicar a configuração TAP nas interfaces de rede devem ser atribuídas à função [de contribuinte](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) de rede ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que seja atribuída a partir do quadro seguinte:
+
+| Ação | Nome |
+|---|---|
+| Microsoft.Network/virtualNetworkTaps/* | Necessário para criar, atualizar, ler e apagar um recurso TAP de rede virtual |
+| Microsoft.Network/networkInterfaces/read | Obrigado a ler o recurso de interface de rede em que a TAP será configurada |
+| Microsoft.Network/tapConfigurations/* | Necessário para criar, atualizar, ler e eliminar a configuração TAP numa interface de rede |
+
 
 ## <a name="virtual-network-tap-partner-solutions"></a>Soluções parceiras da rede virtual TAP
 
 ### <a name="network-packet-brokers"></a>Corretores de pacotes de rede
 
-- [Big Switch Big Monitoring Fabric](https://www.bigswitch.com/products/big-monitoring-fabric/public-cloud/microsoft-azure)
 - [Gigamon GigaSECURE](https://blog.gigamon.com/2018/09/13/why-microsofts-new-vtap-service-works-even-better-with-gigasecure-for-azure)
 - [Ixia CloudLens](https://www.ixiacom.com/cloudlens/cloudlens-azure)
 - [Prismas de Nubeva](https://www.nubeva.com/azurevtap)
+- [Big Switch Big Monitoring Fabric](https://www.bigswitch.com/products/big-monitoring-fabric/public-cloud/microsoft-azure)
 
 ### <a name="security-analytics-networkapplication-performance-management"></a>Análise de segurança, gestão do desempenho da rede/aplicação
 
@@ -52,24 +68,8 @@ A rede virtual Azure TAP (Terminal Access Point) permite-lhe transmitir continua
 - [RSA NetWitness® Plataforma](https://www.rsa.com/azure)
 - [Vectra Cognito](https://vectra.ai/microsoftazure)
 
-A imagem que se segue mostra como funciona a rede virtual TAP. Pode adicionar uma configuração TAP numa interface de [rede](virtual-network-network-interface.md) que esteja ligada a uma máquina virtual implantada na sua rede virtual. O destino é um endereço IP de rede virtual na mesma rede virtual que a interface de rede monitorizada ou uma rede [virtual vigiada.](virtual-network-peering-overview.md) A solução de coletor para a rede virtual TAP pode ser implantada atrás de um equilibrador de carga interna Azure para uma elevada disponibilidade. Para avaliar opções de implantação para solução individual, consulte [soluções parceiras.](#virtual-network-tap-partner-solutions)
 
-![Como funciona a rede virtual TAP](./media/virtual-network-tap/architecture.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
-
-Antes de criar uma rede virtual TAP, deve ter recebido um e-mail de confirmação de que está inscrito na pré-visualização, e ter uma ou mais máquinas virtuais criadas utilizando o modelo de implementação [do Azure Resource Manager](../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e uma solução parceira para agregar o tráfego tap na mesma região azul. Se não tiver uma solução parceira na sua rede virtual, consulte [soluções parceiras](#virtual-network-tap-partner-solutions) para implementar uma. Pode utilizar o mesmo recurso de rede virtual TAP para agregar tráfego de várias interfaces de rede nas mesmas ou diferentes subscrições. Se as interfaces de rede monitorizadas estiverem em diferentes subscrições, as subscrições devem ser associadas ao mesmo inquilino do Azure Ative Directory. Além disso, as interfaces de rede monitorizadas e o ponto final de destino para agregação do tráfego TAP podem estar em redes virtuais vigiadas na mesma região. Se estiver a utilizar este modelo de implementação, certifique-se de que o [espremiamento da rede virtual](virtual-network-peering-overview.md) está ativado antes de configurar a rede virtual TAP.
-
-## <a name="permissions"></a>Permissões
-
-As contas que utiliza para aplicar a configuração TAP nas interfaces de rede devem ser atribuídas à função [de contribuinte](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) de rede ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que seja atribuída a partir do quadro seguinte:
-
-| Ação | Name |
-|---|---|
-| Microsoft.Network/virtualNetworkTaps/* | Necessário para criar, atualizar, ler e apagar um recurso TAP de rede virtual |
-| Microsoft.Network/networkInterfaces/read | Obrigado a ler o recurso de interface de rede em que a TAP será configurada |
-| Microsoft.Network/tapConfigurations/* | Necessário para criar, atualizar, ler e eliminar a configuração TAP numa interface de rede |
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar uma rede virtual TAP.](tutorial-tap-virtual-network-cli.md)
