@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 08/04/2020
-ms.openlocfilehash: c24a78413b09de04a10266f883e11617bb7a2f27
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 205e99303cd53adf6aa952ccd65441b72471f3a2
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554044"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810287"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backups automatizados - Azure SQL Database & SQL Managed Instance
 
@@ -26,22 +26,38 @@ ms.locfileid: "87554044"
 
 ## <a name="what-is-a-database-backup"></a>O que é uma cópia de segurança da base de dados?
 
-As cópias de dados são uma parte essencial de qualquer estratégia de continuidade de negócios e recuperação de desastres, porque protegem os seus dados contra corrupção ou eliminação.
+As cópias de dados são uma parte essencial de qualquer estratégia de continuidade de negócios e recuperação de desastres, porque protegem os seus dados contra corrupção ou eliminação. Estas cópias de segurança permitem que a base de dados restabeleça um ponto no tempo dentro do período de retenção configurado. Se as suas regras de proteção de dados exigirem que as suas cópias de segurança estejam disponíveis por um período prolongado (até 10 anos), pode configurar [a retenção a longo prazo](long-term-retention-overview.md) para bases de dados individuais e agimidas.
+
+### <a name="backup-frequency"></a>Frequência de cópia de segurança
 
 Tanto a SQL Database como a SQL Managed Instance utilizam a tecnologia SQL Server para criar [cópias de segurança completas](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server) todas as [semanas, cópias de segurança diferenciais](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) a cada 12-24 horas e [cópias de segurança](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) de registo de transações a cada 5 a 10 minutos. A frequência das cópias de segurança dos registos de transações baseia-se no tamanho do cálculo e na quantidade de atividade da base de dados.
 
 Quando restaura uma base de dados, o serviço determina quais as cópias de segurança completas, diferenciais e de registo de transações que precisam de ser restauradas.
 
-Estas cópias de segurança permitem que a base de dados restabeleça um ponto no tempo dentro do período de retenção configurado. As cópias de segurança são armazenadas como [bolhas de armazenamento RA-GRS](../../storage/common/storage-redundancy.md) que são replicadas numa [região emparelhada](../../best-practices-availability-paired-regions.md) para proteção contra falhas que impactam o armazenamento de backup na região primária. 
+### <a name="backup-storage-redundancy"></a>Redundância de armazenamento de backup
 
-Se as suas regras de proteção de dados exigirem que as suas cópias de segurança estejam disponíveis por um período prolongado (até 10 anos), pode configurar [a retenção a longo prazo](long-term-retention-overview.md) para bases de dados individuais e agimidas.
+> [!IMPORTANT]
+> A redundância de armazenamento configurado para cópias de segurança só está disponível para a SQL Managed Instance, e só pode ser especificada durante o processo de instância gerido por criar. Uma vez que o recurso é aprovisionado, não pode alterar a opção de redundância de armazenamento de backup.
+
+A opção de configurar a redundância de armazenamento de backup proporciona a flexibilidade para escolher entre bolhas de armazenamento redundantes locais (LRS), zonas redundantes (ZRS) ou [blobs](../../storage/common/storage-redundancy.md)de armazenamento geo-redundantes (RA-GRS). Os mecanismos de redundância de armazenamento armazenam várias cópias dos seus dados para que seja protegido contra eventos planeados e não planeados, incluindo falhas de hardware transitórios, falhas de rede ou de energia, ou desastres naturais maciços. Atualmente, esta funcionalidade só está disponível para SQL Managed Instance.
+
+As bolhas de armazenamento RA-GRS são replicadas numa [região emparelhada](../../best-practices-availability-paired-regions.md) para proteger contra falhas que impactam o armazenamento de backup na região primária e permitem restaurar o seu servidor numa região diferente em caso de desastre. 
+
+Inversamente, as bolhas de armazenamento LRS e ZRS asseguram que os seus dados permanecem na mesma região onde a sua Base de Dados SQL ou SQL Managed Instance são implantados. Atualmente, o armazenamento redundante de zona (ZRS) só está disponível em [determinadas regiões).](../../storage/common/storage-redundancy.md#zone-redundant-storage)
+
+> [!IMPORTANT]
+> Em SQL Managed Instance, o despedimento de backup configurado é aplicado tanto a definições de retenção de backup de curto prazo que são usadas para restaurar pontual (PITR) e backups de retenção a longo prazo utilizados para backups de longo prazo (LTR).
+
+### <a name="backup-usage"></a>Utilização de backup
 
 Pode utilizar estas cópias de segurança para:
 
-- [Restaurar uma base de dados existente a um ponto no tempo no passado](recovery-using-backups.md#point-in-time-restore) dentro do período de retenção, utilizando o portal Azure PowerShell, Azure CLI ou REST API. Para bases de dados individuais e agrárias, esta operação criará uma nova base de dados no mesmo servidor que a base de dados original, mas com um nome diferente para evitar a sobreescrita da base de dados original. Uma vez concluída a restauração, pode eliminar ou [renomear](https://docs.microsoft.com/sql/relational-databases/databases/rename-a-database) a base de dados original e mudar o nome da base de dados restaurada para ter o nome de base de dados original. Num caso gerido, esta operação pode igualmente criar uma cópia da base de dados sobre o mesmo ou um caso gerido diferente sob a mesma subscrição e na mesma região.
-- [Restaurar uma base de dados eliminada à hora de eliminação](recovery-using-backups.md#deleted-database-restore) ou a qualquer ponto no tempo dentro do período de retenção. A base de dados eliminada só pode ser restaurada no mesmo servidor ou caso gerido onde a base de dados original foi criada. Ao eliminar uma base de dados, o serviço recebe uma cópia de segurança final do registo de transações antes da eliminação, para evitar qualquer perda de dados.
-- [Restaurar uma base de dados para outra região geográfica.](recovery-using-backups.md#geo-restore) O geo-restauro permite-lhe recuperar de um desastre geográfico quando não consegue aceder à sua base de dados ou cópias de segurança na região primária. Cria uma nova base de dados em qualquer servidor ou instância gerida existente, em qualquer região do Azure.
-- [Restaurar uma base de dados a partir de uma cópia](long-term-retention-overview.md) de segurança específica a longo prazo de uma única base de dados ou de uma base de dados agrária, se a base de dados tiver sido configurada com uma política de retenção a longo prazo (LTR). O LTR permite restaurar uma versão antiga da base de dados utilizando [o portal Azure](long-term-backup-retention-configure.md#using-the-azure-portal) ou [a Azure PowerShell](long-term-backup-retention-configure.md#using-powershell) para satisfazer um pedido de conformidade ou executar uma versão antiga da aplicação. Para obter mais informações, veja [Retenção de longa duração](long-term-retention-overview.md).
+- **Restabelecemento pontual da base de dados**  -  existente [Restaurar uma base de dados existente a um ponto no tempo no passado](recovery-using-backups.md#point-in-time-restore) dentro do período de retenção, utilizando o portal Azure PowerShell, Azure CLI ou REST API. Para a Base de Dados SQL, esta operação cria uma nova base de dados no mesmo servidor que a base de dados original, mas utiliza um nome diferente para evitar a sobreescrita da base de dados original. Após a restauração concluída, pode eliminar a base de dados original. Em alternativa, pode [renomear](https://docs.microsoft.com/sql/relational-databases/databases/rename-a-database) a base de dados original e, em seguida, mudar o nome da base de dados restaurada para o nome original da base de dados. Da mesma forma, para a SQL Managed Instance, esta operação cria uma cópia da base de dados sobre o mesmo ou diferente caso gerido na mesma subscrição e na mesma região.
+- **Restabelecemento pontual da base de dados**  -  eliminada [Restaurar uma base de dados eliminada à hora de eliminação](recovery-using-backups.md#deleted-database-restore) ou a qualquer ponto no tempo dentro do período de retenção. A base de dados eliminada só pode ser restaurada no mesmo servidor ou caso gerido onde a base de dados original foi criada. Ao eliminar uma base de dados, o serviço recebe uma cópia de segurança final do registo de transações antes da eliminação, para evitar qualquer perda de dados.
+- **Geo-restauro**  -  [Restaurar uma base de dados para outra região geográfica.](recovery-using-backups.md#geo-restore) O geo-restauro permite-lhe recuperar de um desastre geográfico quando não consegue aceder à sua base de dados ou cópias de segurança na região primária. Cria uma nova base de dados em qualquer servidor ou instância gerida existente, em qualquer região do Azure.
+   > [!IMPORTANT]
+   > O geo-restauro só está disponível para casos geridos com armazenamento de backup geo-redundante configurado (RA-GRS).
+- **Restaurar a partir de backup**  -  a longo prazo [Restaurar uma base de dados a partir de uma cópia](long-term-retention-overview.md) de segurança específica a longo prazo de uma única base de dados ou de uma base de dados agrária, se a base de dados tiver sido configurada com uma política de retenção a longo prazo (LTR). O LTR permite restaurar uma versão antiga da base de dados utilizando [o portal Azure](long-term-backup-retention-configure.md#using-the-azure-portal) ou [a Azure PowerShell](long-term-backup-retention-configure.md#using-powershell) para satisfazer um pedido de conformidade ou executar uma versão antiga da aplicação. Para obter mais informações, veja [Retenção de longa duração](long-term-retention-overview.md).
 
 Para efetuar uma restauração, consulte [a base de dados Restaurar a partir de backups](recovery-using-backups.md).
 
@@ -50,13 +66,13 @@ Para efetuar uma restauração, consulte [a base de dados Restaurar a partir de 
 
 Pode tentar a configuração de backup e restaurar as operações utilizando os seguintes exemplos:
 
-| | Portal do Azure | Azure PowerShell |
+| Operação | Portal do Azure | Azure PowerShell |
 |---|---|---|
-| **Alterar a retenção de backup** | [Base de dados única](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Instância gerida](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [Base de dados única](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Instância gerida](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
-| **Alterar a retenção de backup a longo prazo** | [Base de dados única](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Caso gerido - N/A  | [Base de dados única](long-term-backup-retention-configure.md)<br/>Caso gerido - N/A  |
-| **Restaurar uma base de dados a partir de um ponto no tempo** | [Base de dados única](recovery-using-backups.md#point-in-time-restore) | [Base de dados única](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Instância gerida](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
-| **Restaurar uma base de dados eliminada** | [Base de dados única](recovery-using-backups.md) | [Base de dados única](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Instância gerida](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
-| **Restaurar uma base de dados a partir do armazenamento da Azure Blob** | Base de dados única - N/A <br/>Caso gerido - N/A  | Base de dados única - N/A <br/>[Instância gerida](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
+| **Alterar a retenção de backup** | [Base de Dados SQL](automated-backups-overview.md?tabs=single-database#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Instância Gerida do SQL](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [Base de Dados SQL](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Instância Gerida do SQL](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| **Alterar a retenção de backup a longo prazo** | [Base de Dados SQL](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Sql Caso gerido - N/A  | [Base de Dados SQL](long-term-backup-retention-configure.md)<br/>[Instância Gerida do SQL](../managed-instance/long-term-backup-retention-configure.md)  |
+| **Restaurar uma base de dados a partir de um ponto no tempo** | [Base de Dados SQL](recovery-using-backups.md#point-in-time-restore)<br>[Instância Gerida do SQL](../managed-instance/point-in-time-restore.md) | [Base de Dados SQL](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Instância Gerida do SQL](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
+| **Restaurar uma base de dados eliminada** | [Base de Dados SQL](recovery-using-backups.md)<br>[Instância Gerida do SQL](../managed-instance/point-in-time-restore.md#restore-a-deleted-database) | [Base de Dados SQL](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Instância Gerida do SQL](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| **Restaurar uma base de dados a partir do armazenamento da Azure Blob** | Base de Dados SQL - N/A <br/>Sql Caso gerido - N/A  | Base de Dados SQL - N/A <br/>[Instância Gerida do SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
 
 ## <a name="backup-scheduling"></a>Agendamento de backup
 
@@ -98,6 +114,7 @@ O consumo de armazenamento de backup até ao tamanho máximo de dados para uma b
 - Para grandes operações de carga de dados, considere a utilização de [índices de lojas de colunas agrupadas](https://docs.microsoft.com/sql/database-engine/using-clustered-columnstore-indexes) e seguir [as melhores práticas relacionadas,](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance)e/ou reduzir o número de índices não agrupados.
 - No nível de serviço de Finalidade Geral, o armazenamento de dados forvisionado é mais barato do que o preço do armazenamento de backup. Se tiver custos de armazenamento de backup em excesso continuamente elevados, poderá considerar aumentar o armazenamento de dados para economizar no armazenamento de backup.
 - Utilize o TempDB em vez de tabelas permanentes na lógica de aplicação para armazenar resultados temporários e/ou dados transitórios.
+- Utilize armazenamento de backup localmente redundante sempre que possível (por exemplo, ambientes dev/teste)
 
 ## <a name="backup-retention"></a>Retenção da cópia de segurança
 
@@ -112,15 +129,13 @@ A retenção de backup para fins de PITR nos últimos 1-35 dias é por vezes cha
 
 ### <a name="long-term-retention"></a>Retenção de longa duração
 
-Para bases de dados individuais e aginhadas e casos geridos, pode configurar a retenção de longo prazo (LTR) de cópias de segurança completas até 10 anos no armazenamento Azure Blob. Se ativar uma política LTR, as cópias de segurança completas semanais são automaticamente copiadas para um recipiente de armazenamento RA-GRS diferente. Para satisfazer vários requisitos de conformidade, pode selecionar diferentes períodos de retenção para backups completos semanais, mensais e/ou anualmente. O consumo de armazenamento depende da frequência selecionada de backups LTR, e do período ou períodos de retenção. Pode utilizar a [calculadora de preços LTR](https://azure.microsoft.com/pricing/calculator/?service=sql-database) para estimar o custo do armazenamento ltr.
-
-Tal como as cópias de segurança pitr, as cópias de segurança LTR estão protegidas com armazenamento geo-redundante. Para obter mais informações, veja [Redundância do Armazenamento do Microsoft Azure](../../storage/common/storage-redundancy.md).
+Tanto para a Base de Dados SQL como para a SQL Managed Instance, pode configurar a retenção completa de longo prazo (LTR) por um período máximo de 10 anos no armazenamento Azure Blob. Após a configuração da política LTR, as cópias de segurança completas são automaticamente copiadas para um recipiente de armazenamento diferente semanalmente. Para satisfazer vários requisitos de conformidade, pode selecionar diferentes períodos de retenção para backups completos semanais, mensais e/ou anualmente. O consumo de armazenamento depende dos períodos de frequência e retenção selecionados de backups LTR. Pode utilizar a [calculadora de preços LTR](https://azure.microsoft.com/pricing/calculator/?service=sql-database) para estimar o custo do armazenamento ltr.
 
 Para obter mais informações sobre o LTR, consulte [a retenção de backup a longo prazo.](long-term-retention-overview.md)
 
 ## <a name="storage-costs"></a>Custos de armazenamento
 
-O preço para armazenamento de backup varia consoante esteja a usar o modelo DTU ou o modelo vCore, e também na sua região. O armazenamento de backup é cobrado por GB/mês consumido, para preços ver página [de preços da Base de Dados Azure SQL](https://azure.microsoft.com/pricing/details/sql-database/single/) e página de preços de Instância Gerida [Azure SQL.](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)
+O preço para armazenamento de backup varia e depende do seu modelo de compra (DTU ou vCore), opção de redundância de armazenamento de backup escolhida, e também da sua região. O armazenamento de backup é cobrado por GB/mês consumido, para preços ver página [de preços da Base de Dados Azure SQL](https://azure.microsoft.com/pricing/details/sql-database/single/) e página de preços de Instância Gerida [Azure SQL.](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)
 
 ### <a name="dtu-model"></a>Modelo de DTU
 
@@ -153,6 +168,18 @@ Agora, um exemplo mais complexo. Suponha que a mesma base de dados ociosa tenha 
 Os cenários reais de faturação de backup são mais complexos. Como a taxa de alterações na base de dados depende da carga de trabalho e é variável ao longo do tempo, o tamanho de cada diferencial e backup de registo também variará, fazendo com que o consumo de armazenamento de backup horária oscile em conformidade. Além disso, cada cópia de segurança diferencial contém todas as alterações feitas na base de dados desde a última cópia de segurança completa, pelo que o tamanho total de todas as cópias de segurança diferenciais aumenta gradualmente ao longo de uma semana, e depois cai acentuadamente uma vez que um conjunto mais antigo de cópias de segurança completas, diferenciais e registos envelhece. Por exemplo, se uma intensa atividade de escrita, como a reconstrução de índices, tiver sido executada logo após a conclusão de uma cópia de segurança completa, então as modificações efetuadas pela reconstrução do índice serão incluídas nas cópias de segurança do registo de transações tomadas durante a duração da reconstrução, na próxima cópia de segurança diferencial e em cada cópia de segurança diferencial tomada até que o próximo backup completo ocorra. Para este último cenário em bases de dados maiores, uma otimização no serviço cria uma cópia de segurança completa em vez de uma cópia de segurança diferencial se uma cópia de segurança diferencial for excessivamente grande de outra forma. Isto reduz o tamanho de todas as cópias de segurança diferenciais até ao seguinte backup completo.
 
 Pode monitorizar o consumo total de armazenamento de backup para cada tipo de cópia de segurança (registo completo, diferencial, de transação) ao longo do tempo, conforme descrito no [consumo do Monitor](#monitor-consumption).
+
+### <a name="backup-storage-redundancy"></a>Redundância de armazenamento de backup
+
+A redundância de armazenamento de backup tem impacto nos custos de backup da seguinte forma:
+- Preço LRS = x
+- Preço ZRS = 1.25x
+- Preço RA-GRS = 2x
+
+Para mais detalhes sobre preços de armazenamento de backup visite a [página de preços da Base de Dados Azure SQL](https://azure.microsoft.com/pricing/details/sql-database/single/) e a página de preços de [Azure SQL Managed Instance](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+
+> [!IMPORTANT]
+> A redundância de armazenamento configurado para cópias de segurança só está disponível para a SQL Managed Instance, e só pode ser especificada durante o processo de instância gerido por criar. Uma vez que o recurso é aprovisionado, não pode alterar a opção de redundância de armazenamento de backup.
 
 ### <a name="monitor-costs"></a>Monitorizar os custos
 
@@ -301,7 +328,55 @@ Código de estado: 200
 
 Para obter mais informações, consulte [a API de Retenção de Retenção de Reserva.](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies)
 
-## <a name="next-steps"></a>Próximos passos
+#### <a name="sample-request"></a>Pedido de amostra
+
+```http
+PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
+```
+
+#### <a name="request-body"></a>Corpo do pedido
+
+```json
+{
+  "properties":{
+    "retentionDays":28
+  }
+}
+```
+
+#### <a name="sample-response"></a>Resposta de amostra
+
+Código de estado: 200
+
+```json
+{
+  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Sql/resourceGroups/resourceGroup/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default",
+  "name": "default",
+  "type": "Microsoft.Sql/resourceGroups/servers/databases/backupShortTermRetentionPolicies",
+  "properties": {
+    "retentionDays": 28
+  }
+}
+```
+
+Para obter mais informações, consulte [a API de Retenção de Retenção de Reserva.](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies)
+
+## <a name="configure-backup-storage-redundancy"></a>Configure a redundância de armazenamento de backup
+
+> [!NOTE]
+> A redundância de armazenamento configurado para cópias de segurança só está disponível para a SQL Managed Instance, e só pode ser especificada durante o processo de instância gerido por criar. Uma vez que o recurso é aprovisionado, não pode alterar a opção de redundância de armazenamento de backup.
+
+Uma redundância de armazenamento de reserva de uma instância gerida só pode ser definida durante a criação de exemplo. O valor predefinido é o armazenamento geo-redundante (RA-GRS). Para diferenças de preços entre a página de preços redundante localmente (LRS), a zona redundante (ZRS) e a visita de armazenamento de backup geo-redundante (RA-GRS) [gerida por instâncias](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+
+### <a name="configure-backup-storage-redundancy-by-using-the-azure-portal"></a>Configurar redundância de armazenamento de backup utilizando o portal Azure
+
+No portal Azure, a opção de alterar a redundância de armazenamento de backup está localizada na lâmina **de armazenamento Compute +** acessível a partir da opção **Configure Managed Instance** no separador **Basics** quando estiver a criar a sua SQL Managed Instance.
+![Lâmina de configuração Open Compute+Storage](./media/automated-backups-overview/open-configuration-blade-mi.png)
+
+Encontre a opção de selecionar a redundância de armazenamento de backup na lâmina **de armazenamento Compute +.**
+![Configure a redundância de armazenamento de backup](./media/automated-backups-overview/select-backup-storage-redundancy-mi.png)
+
+## <a name="next-steps"></a>Passos seguintes
 
 - As cópias de dados são uma parte essencial de qualquer estratégia de continuidade de negócios e recuperação de desastres porque protegem os seus dados de corrupção acidental ou eliminação. Para conhecer as outras soluções de continuidade de negócios da SQL Database, consulte [a visão geral da continuidade do Negócio.](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 - Obtenha mais informações sobre como [restaurar uma base de dados a um ponto no tempo, utilizando o portal Azure](recovery-using-backups.md).

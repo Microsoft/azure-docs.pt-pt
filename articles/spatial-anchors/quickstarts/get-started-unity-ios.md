@@ -1,29 +1,29 @@
 ---
-title: 'Quickstart: Criar uma app iOS de unidade'
-description: Neste arranque rápido, aprende-se a construir uma aplicação iOS com a Unity utilizando âncoras espaciais.
+title: 'Quickstart: Criar uma aplicação iOS da Unidade'
+description: Neste quickstart, aprende-se a construir uma aplicação iOS com Unidade usando Âncoras Espaciais.
 author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 02/24/2019
+ms.date: 07/31/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 37a82c4001dd42a4cfbbb9dabec29f28359afd75
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1fbd7138c393809b279d780004ff476cea4735fe
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240591"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810331"
 ---
-# <a name="quickstart-create-a-unity-ios-app-with-azure-spatial-anchors"></a>Quickstart: Criar uma app de unidade iOS com âncoras espaciais Azure
+# <a name="quickstart-create-a-unity-ios-app-with-azure-spatial-anchors"></a>Quickstart: Criar uma aplicação iOS da Unidade com âncoras espaciais Azure
 
-Este quickstart cobre como criar uma aplicação Unity iOS utilizando [âncoras espaciais Azure](../overview.md). O Azure Spatial Anchors é um serviço de desenvolvimento de plataformas cruzadas que permite criar experiências de realidade mista utilizando objetos que persistem a sua localização através de dispositivos ao longo do tempo. Quando terminar, terá uma aplicação ARKit iOS construída com Unidade que pode salvar e recordar uma âncora espacial.
+Este quickstart abrange como criar uma aplicação unity iOS usando [Âncoras Espaciais Azure](../overview.md). Azure Spatial Anchors é um serviço de desenvolvedor de plataformas cruzadas que permite criar experiências de realidade mista usando objetos que persistem a sua localização através dos dispositivos ao longo do tempo. Quando terminar, terá uma aplicação ARKit iOS construída com Unidade que pode salvar e recordar uma âncora espacial.
 
 Vai aprender a:
 
 > [!div class="checklist"]
 > * Criar uma conta de Âncoras Espaciais
-> * Prepare as configurações de construção da Unidade
+> * Preparar definições de construção de unidade
 > * Configure o identificador de conta Spatial Anchors e a chave de conta
 > * Exportar o projeto Xcode
 > * Implementar e executar num dispositivo iOS
@@ -34,13 +34,13 @@ Vai aprender a:
 
 Para concluir este início rápido, certifique-se de que tem:
 
-- Uma máquina macOS com <a href="https://unity3d.com/get-unity/download" target="_blank">Unidade 2019.1 ou 2019.2</a>, a versão mais recente do <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a>e <a href="https://cocoapods.org" target="_blank">CocoaPods instaladas.</a>
-- Git instalado via HomeBrew. Introduza o seguinte comando numa única `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`linha do Terminal: . Então, `brew install git` `brew install git-lfs`corra e.
-- Um desenvolvedor ativou o dispositivo <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">iOS compatível com ARKit.</a>
+- Uma máquina macOS com <a href="https://unity3d.com/get-unity/download" target="_blank">Unidade 2019.4 (LTS)</a>, a versão mais recente do <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a>e <a href="https://cocoapods.org" target="_blank">CocoaPods</a> instaladas.
+- Git instalado via HomeBrew. Introduza o seguinte comando numa única linha do Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` . Então, corra `brew install git` `brew install git-lfs` e.
+- Um desenvolvedor permitiu que o dispositivo iOS <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">compatível com ARKit.</a>
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-## <a name="download-and-open-the-unity-sample-project"></a>Descarregue e abra o projeto de amostra da Unidade
+## <a name="download-and-open-the-unity-sample-project"></a>Descarregue e abra o projeto de amostra de Unidade
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
@@ -48,13 +48,7 @@ Para concluir este início rápido, certifique-se de que tem:
 
 [!INCLUDE [iOS Unity Build Settings](../../../includes/spatial-anchors-unity-ios-build-settings.md)]
 
-## <a name="configure-account-identifier-and-key"></a>Configurar identificador de conta e chave
-
-No painel do **Projeto,** navegue e `Assets/AzureSpatialAnchors.Examples/Scenes` abra o arquivo de `AzureSpatialAnchorsBasicDemo.unity` cena.
-
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
-
-Guarde a cena selecionando **File** -> **Save**.
 
 ## <a name="export-the-xcode-project"></a>Exportar o projeto Xcode
 
@@ -70,11 +64,11 @@ Quando terminar, pare a aplicação premindo **Stop** in Xcode.
 
 ### <a name="rendering-issues"></a>Questões de renderização
 
-Ao executar a aplicação, se não vê a câmara como o fundo (por exemplo, vê uma textura em branco, azul ou outra) então provavelmente precisa de reimportar ativos na Unidade. Pare a aplicação. A partir do menu superior da Unidade, escolha **Ativos -> Reimportar tudo.** Em seguida, executar a aplicação novamente.
+Ao executar a aplicação, se não vir a câmara como o fundo (por exemplo, vê uma textura em branco, azul ou outra) então provavelmente terá de re importar ativos em Unidade. Pare a aplicação. A partir do menu de topo em Unidade, escolha **Ativos -> Re-importe todos**. Em seguida, executar a aplicação novamente.
 
-### <a name="cocoapods-issues-on-macos-catalina-1015"></a>Problemas de CocoaPods no macOS Catalina (10.15)
+### <a name="cocoapods-issues-on-macos-catalina-1015"></a>Problemas de cacau no macOS Catalina (10.15)
 
-Se atualizou recentemente o macOS Catalina (10.15) e mandou instalar previamente cocoaPods, os CocoaPods podem `.xcworkspace` estar em estado de sabotado e não configurar corretamente as suas cápsulas e ficheiros de projeto. Para resolver este problema, terá de reinstalar os CocoaPods executando os seguintes comandos:
+Se recentemente atualizado para o macOS Catalina (10.15) e tiver os Cacau instalados previamente, os CocoaPods podem estar em estado de avaria e não configurar adequadamente os seus pods e `.xcworkspace` ficheiros de projeto. Para resolver este problema, terá de reinstalar cacau executando os seguintes comandos:
 
 ```shell
 brew update
@@ -82,13 +76,12 @@ brew install cocoapods --build-from-source
 brew link --overwrite cocoapods
 ```
 
-### <a name="unity-20193"></a>Unidade 2019.3
-
-Devido a alterações de rutura, a Unidade 2019.3 não é atualmente apoiada. Utilize a Unidade 2019.1 ou 2019.2.
-
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 
 > [!div class="nextstepaction"]
-> [Tutorial: Partilhar âncoras espaciais em dispositivos](../tutorials/tutorial-share-anchors-across-devices.md)
+> [Tutorial: Partilhar Âncoras Espaciais através de dispositivos](../tutorials/tutorial-share-anchors-across-devices.md)
+
+> [!div class="nextstepaction"]
+> [Como: Configurar âncoras espaciais Azure num projeto de unidade](../how-tos/setup-unity-project.md)

@@ -4,12 +4,12 @@ description: Fornece um resumo das definições e limitações de suporte ao faz
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 3be5bdffd999907234fff64f8f88459d9c9b18b6
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 9d7e3b4f565fac42d0a91d155846e672c7437f2d
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531868"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810467"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte da cópia de segurança de uma VM do Azure
 
@@ -137,7 +137,7 @@ Restaurar VM em diferentes redes virtuais |Suportado.<br/><br/> A rede virtual d
 
 **Computação** | **Suporte**
 --- | ---
-Tamanho da VM |Qualquer tamanho Azure VM com pelo menos 2 núcleos CPU e RAM de 1 GB.<br/><br/> [Saiba mais.](../virtual-machines/windows/sizes.md)
+Tamanho da VM |Qualquer tamanho Azure VM com pelo menos 2 núcleos CPU e RAM de 1 GB.<br/><br/> [Saiba mais.](../virtual-machines/sizes.md)
 Apoiar VMs em [conjuntos de disponibilidade](../virtual-machines/availability.md#availability-sets) | Suportado.<br/><br/> Não é possível restaurar um VM num conjunto disponível utilizando a opção de criar rapidamente um VM. Em vez disso, quando restaurar o VM, restaure o disco e use-o para implantar um VM, ou restaurar um disco e usá-lo para substituir um disco existente.
 Back up VMs que são implantados com [Benefício de Utilização Híbrida (HUB)](../virtual-machines/windows/hybrid-use-benefit-licensing.md) | Suportado.
 Apoiar VMs que são implantados em um [conjunto de escala](../virtual-machine-scale-sets/overview.md) |Suportado. [O modo de orquestração](../virtual-machine-scale-sets/orchestration-modes.md) deve ser definido para 2 para o domínio da falha. O conjunto de disponibilidade não é suportado.
