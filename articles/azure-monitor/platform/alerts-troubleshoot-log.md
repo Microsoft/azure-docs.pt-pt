@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
-ms.openlocfilehash: a66cb190309fb9e966392f57a251eff746bfa315
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d61e052b10b7255cac37531f889324075d596f3c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321110"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828460"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Alertas de registo de resolução de problemas no Azure Monitor  
 
@@ -190,7 +190,7 @@ Cada regra de alerta de registo criada no Azure Monitor como parte da sua config
 
 ## <a name="alert-rule-quota-was-reached"></a>A quota de regra de alerta foi atingida
 
-O número de regras de alerta de registo por subscrição e recurso está sujeito aos limites de quota [descritos aqui.](https://docs.microsoft.com/azure/azure-monitor/service-limits)
+O número de regras de alerta de registo por subscrição e recurso está sujeito aos limites de quota [descritos aqui.](../service-limits.md)
 
 ### <a name="recommended-steps"></a>Passos Recomendados
     
@@ -201,7 +201,7 @@ Se tiver atingido o limite de quota, os seguintes passos podem ajudar a resolver
 
     - IDs de subscrição para os quais os limites de quota têm de ser aumentados
     - Razão para o aumento das quotas
-    - Tipo de recurso para o aumento da quota: **Log Analytics,** **Application Insights** ect.
+    - Tipo de recurso para o aumento da quota: **Log Analytics,** **Application Insights,** etc.
     - Limite de quota solicitado
 
 
@@ -226,4 +226,3 @@ Se tiver atingido o limite de quota, os seguintes passos podem ajudar a resolver
 - Saiba mais sobre [os alertas de registo em Azure](./alerts-unified-log.md).
 - Saiba mais sobre [a Aplicação Insights](../log-query/log-query-overview.md).
 - Saiba mais sobre [consultas de registo.](../log-query/log-query-overview.md)
-

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 96783955eac6ade90a155236891307720616ed20
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e3c5f6d7e04620cf36f6cd952467d47afd775b19
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323949"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824771"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Ativar o Monitor Azure para visão geral dos VMs
 
@@ -80,7 +80,7 @@ Se não tiver um espaço de trabalho log analytics, pode criar um utilizando um 
 
 A tabela que se segue lista os sistemas operativos Windows e Linux que o Azure Monitor suporta para VMs. Mais tarde nesta secção, você encontrará uma lista completa que detalha o lançamento principal e menor do Linux OS e as versões de kernel suportadas.
 
-|Versão do SO |Desempenho |Maps |
+|Versão do SO |Desempenho |Mapas |
 |-----------|------------|-----|
 |Windows Server 2019 | X | X |
 |Windows Server 2016 1803 | X | X |
@@ -157,9 +157,9 @@ O Azure Monitor para VMs está disponível para servidores ativados aZure Arc em
 
 | Origem ligada | Suportado | Descrição |
 |:--|:--|:--|
-| Agentes do Windows | Sim | Juntamente com o [agente Log Analytics para windows,](../platform/log-analytics-agent.md)os agentes windows precisam do agente Dependency. Para obter mais informações, consulte [os sistemas operativos suportados.](#supported-operating-systems) |
-| Agentes do Linux | Sim | Juntamente com o [agente Log Analytics para o Linux,](../platform/log-analytics-agent.md)os agentes Linux precisam do agente Desadependição. Para obter mais informações, consulte [os sistemas operativos suportados.](#supported-operating-systems) |
-| Grupo de gestão do System Center Operations Manager | Não | |
+| Agentes do Windows | Yes | Juntamente com o [agente Log Analytics para windows,](../platform/log-analytics-agent.md)os agentes windows precisam do agente Dependency. Para obter mais informações, consulte [os sistemas operativos suportados.](#supported-operating-systems) |
+| Agentes do Linux | Yes | Juntamente com o [agente Log Analytics para o Linux,](../platform/log-analytics-agent.md)os agentes Linux precisam do agente Desadependição. Para obter mais informações, consulte [os sistemas operativos suportados.](#supported-operating-systems) |
+| Grupo de gestão do System Center Operations Manager | No | |
 
 ## <a name="agents"></a>Agentes
 O Azure Monitor para VMs requer que os dois agentes seguintes sejam instalados em cada máquina virtual ou escala de máquina virtual definida para ser monitorizada. Instalar estes agentes e ligá-los ao espaço de trabalho é o único requisito para embarcar no recurso.
@@ -174,10 +174,10 @@ Seguem-se múltiplos métodos para a implantação destes agentes.
 
 | Método | Descrição |
 |:---|:---|
-| [Portal do Azure](vminsights-enable-single-vm.md) | Instale ambos os agentes numa única máquina virtual, num conjunto de balanças de máquinas virtuais ou em máquinas virtuais híbridas ligadas ao Arco Azure. |
-| [Modelos do Resource Manager](vminsights-enable-powershell.md) | Instale ambos os agentes utilizando qualquer um dos métodos suportados para implementar um modelo de Gestor de Recursos, incluindo CLI e PowerShell. |
-| [Azure Policy](vminsights-enable-at-scale-policy.md) | Atribua a iniciativa Azure Policy para instalar automaticamente os agentes quando for criada uma máquina virtual ou um conjunto de escala de máquina virtual. |
-| [Instalação manual](vminsights-enable-hybrid-cloud.md) | Instale os agentes no sistema operativo dos hóspedes em computadores alojados fora do Azure, incluindo no seu datacenter ou noutros ambientes em nuvem. |
+| [Portal do Azure](./vminsights-enable-portal.md) | Instale ambos os agentes numa única máquina virtual, num conjunto de balanças de máquinas virtuais ou em máquinas virtuais híbridas ligadas ao Arco Azure. |
+| [Modelos de gestor de recursos](vminsights-enable-powershell.md) | Instale ambos os agentes utilizando qualquer um dos métodos suportados para implementar um modelo de Gestor de Recursos, incluindo CLI e PowerShell. |
+| [Azure Policy](./vminsights-enable-policy.md) | Atribua a iniciativa Azure Policy para instalar automaticamente os agentes quando for criada uma máquina virtual ou um conjunto de escala de máquina virtual. |
+| [Instalação manual](./vminsights-enable-hybrid.md) | Instale os agentes no sistema operativo dos hóspedes em computadores alojados fora do Azure, incluindo no seu datacenter ou noutros ambientes em nuvem. |
 
 
 
@@ -200,4 +200,3 @@ Para obter mais informações sobre a recolha e utilização de dados, consulte 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a utilizar a função de monitorização de desempenho, consulte [o View Azure Monitor para o desempenho dos VMs](vminsights-performance.md). Para ver as dependências de aplicações descobertas, consulte [o Monitor do Azure para o Mapa de VMs](vminsights-maps.md).
-

@@ -1,6 +1,6 @@
 ---
 title: Camadas de acesso quentes, frescos e de arquivo para bolhas - Azure Storage
-description: Níveis de acesso quentes, frescos e arquivados para contas de armazenamento Azure.
+description: Leia sobre os níveis de acesso quentes, frescos e de arquivo para armazenamento Azure Blob. Reveja as contas de armazenamento que suportam o tiering. Compare as opções de armazenamento de blogs de blocos.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 03/23/2019
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: dc9e4e0a896677fd22baf33e7776e8158bd0bee6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 17df78f846d8422c0200ce5fc75b4722d21d35df
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011350"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828277"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Armazenamento de blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivo
 
@@ -42,14 +42,14 @@ O tiering de dados de armazenamento de objetos entre o calor, o frio e o arquivo
 
 O armazenamento de blob e as contas GPv2 expõem o atributo **Access Tier** ao nível da conta. Este atributo permite especificar o nível de acesso predefinido para qualquer bolha que não o tenha explicitamente definido ao nível do objeto. Para objetos com o nível definido ao nível do objeto, o nível de conta não se aplica. O nível de arquivo só pode ser aplicado ao nível do objeto. Pode alternar entre estes níveis de acesso a qualquer momento.
 
-## <a name="hot-access-tier"></a>Escalão de acesso frequente
+## <a name="hot-access-tier"></a>Camada de armazenamento frequente
 
 O nível de acesso a quente tem custos de armazenamento mais elevados do que os níveis de arquivo e frescos, mas os custos de acesso mais baixos. Os cenários de utilização de exemplo para o nível de acesso quente incluem:
 
 - Dados que estão em uso ativo ou que se espera que sejam acedidos (lidos e escritos para) frequentemente.
 - Dados que são encenados para o processamento e eventual migração para o nível de acesso legal.
 
-## <a name="cool-access-tier"></a>Escalão de acesso esporádico
+## <a name="cool-access-tier"></a>Camada de armazenamento esporádico
 
 O nível de acesso fresco tem custos de armazenamento mais baixos e custos de acesso mais elevados em comparação com o armazenamento quente. Esta camada destina-se de dados que permanecem na camada de acesso esporádico durante, pelo menos, 30 dias. Os cenários de utilização de exemplo para o nível de acesso fresco incluem:
 
@@ -57,7 +57,7 @@ O nível de acesso fresco tem custos de armazenamento mais baixos e custos de ac
 - Conteúdo de multimédia mais antigo que já não é visualizado com frequência, mas que deverá estar disponível de imediato quando acedido.
 - Grandes conjuntos de dados que devem ser armazenados de forma económica enquanto são recolhidos mais dados para processamento futuro. (*Por exemplo,*, armazenamento a longo prazo de dados científicos, dados de telemetria não processados de uma instalação de fabrico)
 
-## <a name="archive-access-tier"></a>Camada de acesso de arquivo
+## <a name="archive-access-tier"></a>Camada de armazenamento de arquivo
 
 O nível de acesso ao arquivo tem o menor custo de armazenamento. Mas tem custos de recuperação de dados mais elevados em comparação com os níveis quentes e frescos. Os dados devem permanecer no nível de arquivo durante pelo menos 180 dias ou estar sujeitos a uma taxa de eliminação antecipada. Os dados no nível de arquivo podem demorar várias horas a recuperar dependendo da prioridade da reidratação. Para objetos pequenos, um rehidrato de alta prioridade pode recuperar o objeto do arquivo em menos de 1 hora. Consulte [os dados do blob rehidrata do nível de arquivo](storage-blob-rehydration.md) para saber mais.
 
@@ -230,7 +230,7 @@ A estrutura de preços entre as contas GPv1 e GPv2 são diferentes e os clientes
 
 **Posso armazenar objetos nos três níveis de acesso (quentes, frescos e de arquivo) na mesma conta?**
 
-Yes. O atributo **Access Tier** definido ao nível da conta é o nível de conta padrão que se aplica a todos os objetos nessa conta sem um nível definido explícito. O nível de nível de bolhas permite-lhe definir o nível de acesso ao nível do objeto, independentemente da definição do nível de acesso na conta. Podem existir bolhas em qualquer uma das três camadas de acesso (quentes, frias ou arquivadas) dentro da mesma conta.
+Sim. O atributo **Access Tier** definido ao nível da conta é o nível de conta padrão que se aplica a todos os objetos nessa conta sem um nível definido explícito. O nível de nível de bolhas permite-lhe definir o nível de acesso ao nível do objeto, independentemente da definição do nível de acesso na conta. Podem existir bolhas em qualquer uma das três camadas de acesso (quentes, frias ou arquivadas) dentro da mesma conta.
 
 **Posso alterar o nível de acesso predefinido da minha conta de armazenamento Blob ou GPv2?**
 

@@ -3,12 +3,12 @@ title: Ver registos de atividades do Azure para monitorizar recursos
 description: Utilize os registos de atividade para rever as ações e erros do utilizador. Mostra o portal Azure PowerShell, Azure CLI e REST.
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 9511090099894fad6708843f106570ed029f0c1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b02865e4487a187d1296b2971918aa101d711b5b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75478139"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827066"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Ver registos de atividades para monitorizar ações em recursos
 
@@ -188,10 +188,10 @@ Pode utilizar o Gráfico de Recursos para ver o histórico de alteração de um 
 
 As operações REST para trabalhar com o registo de atividades fazem parte da [API REST das Informações](/rest/api/monitor/). Para obter eventos do registo de atividades, veja [Listar os eventos de gestão numa subscrição](/rest/api/monitor/activitylogs).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Os registos de atividades Azure podem ser usados com Power BI para obter maiores informações sobre as ações na sua subscrição. Ver [e analisar Registos de AtividadeS Azure em Power BI e muito mais](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
-* Para saber sobre a definição de políticas de segurança, consulte [o Controlo de Acesso baseado em funções Azure.](../../role-based-access-control/role-assignments-portal.md)
+* Para saber sobre a definição de políticas de segurança, consulte [o controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 * Para ver mais detalhes sobre as alterações às suas aplicações a partir da camada de infraestrutura até à implementação da aplicação, consulte [a Análise de Alteração de Aplicações de Utilização no Azure Monitor](../../azure-monitor/app/change-analysis.md).
 * Para saber mais sobre os comandos de visualização das operações de implantação, consulte [as operações de implantação da visualização](../templates/deployment-history.md).
 * Para aprender a prevenir supressões num recurso para todos os utilizadores, consulte [os recursos de Bloqueio com o Azure Resource Manager](lock-resources.md).

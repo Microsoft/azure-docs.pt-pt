@@ -12,18 +12,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: amverma
-ms.openlocfilehash: 9085549486333968b98b4d34679c8616282d960f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eb06f98d1a6e9b76c321e3d202043d656a2d94eb
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099360"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829055"
 ---
 # <a name="infiniband-driver-extension-for-linux"></a>Extensão do condutor infiniband para Linux
 
 Esta extensão instala controladores InfiniBand OFED em InfiniBand e SÉRIE H ('r' série [H](../sizes-hpc.md) e VMs [da série N](../sizes-gpu.md) que executam o Linux. Dependendo da família VM, a extensão instala os controladores apropriados para o Connect-X NIC.
 
-As instruções sobre a instalação manual dos controladores OFED estão disponíveis [aqui](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband#manually-install-mellanox-ofed).
+As instruções sobre a instalação manual dos controladores OFED estão disponíveis [aqui](../workloads/hpc/enable-infiniband.md#manual-installation).
 
 Uma extensão também está disponível para instalar controladores InfiniBand para [VMs Windows](hpc-compute-infiniband-windows.md).
 
@@ -69,9 +69,9 @@ O JSON seguinte mostra o esquema para a extensão.
 
 ### <a name="properties"></a>Propriedades
 
-| Name | Valor / Exemplo | Tipo de Dados |
+| Nome | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | data |
+| apiVersion | 2015-06-15 | date |
 | publicador | Microsoft.HpcCompute | string |
 | tipo | InfiniBandDriverLinux | string |
 | typeHandlerVersion | 1.1 | int |
@@ -149,7 +149,7 @@ O exemplo a seguir instala a mais recente extensão infiniBandDriverLinux da ver
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
-### <a name="troubleshoot"></a>Resolução de Problemas
+### <a name="troubleshoot"></a>Resolução de problemas
 
 Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure, e utilizando a Azure PowerShell e a Azure CLI. Para ver o estado de implantação das extensões para um determinado VM, executar o seguinte comando.
 

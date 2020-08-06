@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: d41a71ff5f97449968d82812119cfdfd4bc2ef44
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 09c56646ffa9bcadcec821bcd83411077d6a55ae
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261168"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824601"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planeamento e dimensionamento de capacidades para o tecido de serviço Azure
 
@@ -19,7 +19,7 @@ Antes de criar qualquer cluster de tecido de serviço Azure ou recursos de compu
 Além de considerar o tipo de nó e as características do cluster, deve esperar que as operações de escala levem mais de uma hora para completar para um ambiente de produção. Esta consideração é verdadeira independentemente do número de VMs que está a adicionar.
 
 ## <a name="autoscaling"></a>Dimensionamento automático
-Deve realizar operações de escala através de modelos Azure Resource Manager, porque é a melhor prática para tratar [as configurações]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)de recursos como código . 
+Deve realizar operações de escala através de modelos Azure Resource Manager, porque é a melhor prática para tratar [as configurações](./service-fabric-best-practices-infrastructure-as-code.md)de recursos como código . 
 
 A utilização de escalas automáticas através de conjuntos de escala de máquinas virtuais fará com que o seu modelo de Gestor de Recursos em versão defina incorretamente as suas contagens de exemplo para conjuntos de escala de máquina virtual. A definição imprecisa aumenta o risco de futuras implementações causarem operações de escala não intencionais. Em geral, deve utilizar auto-cálculo se:
 

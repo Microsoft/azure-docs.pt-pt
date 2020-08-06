@@ -14,12 +14,12 @@ ms.date: 04/28/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6597c268a2a017280d00f73366562de61b4781e
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 82c0fbb62f411ccc3056d782518c6c3b570106d2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529794"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828630"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implementar gestão de identidade privilegiada da Azure AD (PIM)
 
@@ -82,7 +82,7 @@ Para mais informações, veja [o que é Azure AD Gestão de Identidade Privilegi
 
 **Funções AZure AD** – Estas funções estão todas no Azure Ative Directory (como Administrador Global, Administrador de Câmbio e Administrador de Segurança). Pode ler mais sobre as funções e a sua funcionalidade nas [permissões de funções de Administrador no Azure Ative Directory](../users-groups-roles/directory-assign-admin-roles.md). Para obter ajuda para determinar quais as funções a atribuir aos seus administradores, consulte [as funções menos privilegiadas por tarefa](../users-groups-roles/roles-delegate-by-task.md).
 
-**Funções de recursos Azure** – Estas funções estão ligadas a um recurso Azure, grupo de recursos, subscrição ou grupo de gestão. A Gestão de Identidade Privilegiada proporciona acesso just-in-time a ambos os papéis incorporados, como Proprietário, Administrador de Acesso ao Utilizador e Colaborador, bem como [a funções personalizadas.](../../role-based-access-control/custom-roles.md) Para obter mais informações sobre as funções de recursos Azure, consulte [o controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md).
+**Funções de recursos Azure** – Estas funções estão ligadas a um recurso Azure, grupo de recursos, subscrição ou grupo de gestão. A Gestão de Identidade Privilegiada proporciona acesso just-in-time a ambos os papéis incorporados, como Proprietário, Administrador de Acesso ao Utilizador e Colaborador, bem como [a funções personalizadas.](../../role-based-access-control/custom-roles.md) Para obter mais informações sobre as funções de recursos Azure, consulte [o controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 
 Para mais informações, consulte [Funções que não pode gerir em Gestão de Identidade Privilegiada.](pim-roles.md)
 
@@ -100,7 +100,7 @@ A secção seguinte ajuda-o a identificar todas as partes interessadas envolvida
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-ad-roles"></a>Stakeholders: Gestão privilegiada da identidade para funções de Ad Azure
 
-| Name | Função | Ação |
+| Nome | Função | Ação |
 | --- | --- | --- |
 | Nome e e-mail | **Arquiteto de identidade ou Administrador Global da Azure**<br/>Um representante da equipa de gestão de identidade responsável por definir como esta mudança está alinhada com a infraestrutura de gestão de identidade central na sua organização. | SO/R/I |
 | Nome e e-mail | **Proprietário de serviço / gestor de linha**<br/>Um representante dos proprietários de TI de um serviço ou de um grupo de serviços. São fundamentais para tomar decisões e ajudar a lançar a Gestão de Identidade Privilegiada para a sua equipa. | SO/R/I |
@@ -110,7 +110,7 @@ A secção seguinte ajuda-o a identificar todas as partes interessadas envolvida
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-resource-roles"></a>Stakeholders: Gestão privilegiada da identidade para funções de recursos do Azure
 
-| Name | Função | Ação |
+| Nome | Função | Ação |
 | --- | --- | --- |
 | Nome e e-mail | **Assinatura / Titular de recursos**<br/>Um representante dos proprietários de TI de cada subscrição ou recurso que pretende implementar Gestão de Identidade Privilegiada para | SO/R/I |
 | Nome e e-mail | **Proprietário de segurança**<br/>Um representante da equipa de segurança que pode assinar que o plano cumpre os requisitos de segurança da sua organização. | SO/R |
@@ -244,16 +244,16 @@ Antes de implementar a sua solução de Gestão de Identidade Privilegiada, é u
 | Função | Requerer MFA | Notificação | Bilhete de incidente | Requerer aprovação | Aprovador | Duração da ativação | Administrador permanente |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Administrador Global | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Outros Administradores Globais | 1 Hora | Contas de acesso de emergência |
-| Administrador de Intercâmbio | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | Nenhuma | 2 Horas | Nenhuma |
-| Administrador helpdesk | :x: | :x: | :heavy_check_mark: | :x: | Nenhuma | 8 Horas | Nenhuma |
+| Administrador de Intercâmbio | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | Nenhum | 2 Horas | Nenhum |
+| Administrador helpdesk | :x: | :x: | :heavy_check_mark: | :x: | Nenhum | 8 Horas | Nenhum |
 
 #### <a name="privileged-identity-management-settings-for-azure-resource-roles"></a>Definições privilegiadas de Gestão de Identidade para funções de recursos Azure
 
 | Função | Requerer MFA | Notificação | Requerer aprovação | Aprovador | Duração da ativação | Administrador ativo | Expiração ativa | Expiração elegível |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Proprietário de subscrições críticas | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Outros proprietários da subscrição | 1 Hora | Nenhuma | n/a | 3 meses |
-| Administrador de Acesso ao Utilizador de subscrições menos críticas | :heavy_check_mark: | :heavy_check_mark: | :x: | Nenhuma | 1 Hora | Nenhuma | n/a | 3 meses |
-| Contribuidor de Máquina Virtual | :x: | :heavy_check_mark: | :x: | Nenhuma | 3 Horas | Nenhuma | n/a | 6 meses |
+| Proprietário de subscrições críticas | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Outros proprietários da subscrição | 1 Hora | Nenhum | n/a | 3 meses |
+| Administrador de Acesso ao Utilizador de subscrições menos críticas | :heavy_check_mark: | :heavy_check_mark: | :x: | Nenhum | 1 Hora | Nenhum | n/a | 3 meses |
+| Contribuidor de Máquina Virtual | :x: | :heavy_check_mark: | :x: | Nenhum | 3 Horas | Nenhum | n/a | 6 meses |
 
 A tabela seguinte descreve cada uma das definições.
 

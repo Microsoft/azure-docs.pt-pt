@@ -2,7 +2,7 @@
 title: Adicione uma subscrição Azure existente ao seu inquilino - Azure AD
 description: Instruções sobre como adicionar uma assinatura Azure existente ao seu inquilino Azure Ative Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86223c35118c9c54be49fa830a264a0059ef3937
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 95c3ad5fa66e1327c1fe646303f268ae4e84bd89
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494439"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825026"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma subscrição do Azure ao inquilino do Azure Active Directory
 
@@ -31,7 +31,7 @@ Se a sua subscrição expirar, perde o acesso a todos os outros recursos associa
 Todos os seus utilizadores têm um único *diretório caseiro* para autenticação. Os seus utilizadores também podem ser convidados em outros diretórios. Você pode ver tanto os diretórios de casa como os convidados para cada utilizador em Azure AD.
 
 > [!Important]
-> Quando associa uma subscrição a um diretório diferente, os utilizadores que têm funções atribuídas usando [o controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/role-assignments-portal.md) perdem o seu acesso. Os administradores de subscrição clássicos, incluindo o Administrador de Serviços e os Coadministradores, também perdem o acesso.
+> Quando associa uma subscrição a um diretório diferente, os utilizadores que têm funções atribuídas usando [o controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) perdem o seu acesso. Os administradores de subscrição clássicos, incluindo o Administrador de Serviços e os Coadministradores, também perdem o acesso.
 >
 > As Atribuições de Políticas também são removidas de uma subscrição quando a subscrição é associada a um diretório diferente.
 >

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 512688345c03ea9d5da0e4933cd6a794eaaf597b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d979d2d0167a4398d31271bb896c812bbe86be73
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84660755"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827865"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migrar para partilhas de ficheiros do Azure
 
@@ -81,7 +81,7 @@ Um cenário sem ligação ainda não tem um guia de migração publicado. Verifi
 | Origem | Destino: </br>Implantação híbrida | Destino: </br>Implantação apenas em nuvem |
 |:---|:--|:--|
 | | Combinação de ferramentas:| Combinação de ferramentas: |
-| Windows Server 2012 R2 e mais tarde | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync e Azure Data Box](storage-sync-offline-data-transfer.md)</li><li>Serviço de Sincronização e Migração de Arquivos Azure</li></ul> | <ul><li>Azure File Sync</li><li>Azure File Sync e Caixa de Dados</li><li>Serviço de Sincronização e Migração de Arquivos Azure</li><li>RoboCopy</li></ul> |
+| Windows Server 2012 R2 e mais tarde | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync e Azure Data Box](storage-sync-offline-data-transfer.md)</li><li>[Azure File Sync e ficheiros pré-semeados na nuvem](storage-sync-offline-data-transfer.md#azure-file-sync-and-pre-seeded-files-in-the-cloud)</li><li>Serviço de Sincronização e Migração de Arquivos Azure</li></ul> | <ul><li>Azure File Sync</li><li>Azure File Sync e Caixa de Dados</li><li>Serviço de Sincronização e Migração de Arquivos Azure</li><li>RoboCopy</li></ul> |
 | Windows Server 2012 e mais cedo | <ul><li>Azure File Sync e Caixa de Dados</li><li>Serviço de Sincronização e Migração de Arquivos Azure</li></ul> | <ul><li>Serviço de Sincronização e Migração de Arquivos Azure</li><li>RoboCopy</li></ul> |
 | Armazenamento ligado à rede (NAS) | <ul><li>[Azure File Sync e RoboCopy](storage-files-migration-nas-hybrid.md)</li></ul> | <ul><li>RoboCopy</li></ul> |
 | Linux ou Samba | <ul><li>[Azure File Sync e RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>RoboCopy</li></ul> |
@@ -144,7 +144,7 @@ Pode utilizar a ferramenta para criar uma perspetiva antes de uma [implementaç�
 
 A versão testada da ferramenta é a versão 4.4.1. É compatível com ficheiros com camadas de nuvem. A ferramenta não provocará a recolha de ficheiros hierárquicos durante o seu funcionamento normal.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 1. Crie um plano para o qual a implementação de ações de ficheiros Azure (apenas em nuvem ou híbrida) pretende.
 1. Reveja a lista de guias de migração disponíveis para encontrar o guia detalhado que corresponda à sua origem e implementação de ações de ficheiros Azure.
@@ -152,5 +152,5 @@ A versão testada da ferramenta é a versão 4.4.1. É compatível com ficheiros
 Aqui está mais informações sobre as tecnologias Azure Files mencionadas neste artigo:
 
 * [Visão geral da partilha de ficheiros Azure](storage-files-introduction.md)
-* [Planear uma implementação da Sincronização de Ficheiros do Azure](storage-sync-files-planning.md)
+* [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
 * [Azure File Sync: Cloud Tiering](storage-sync-cloud-tiering.md)

@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: cd96fe550a508e54c467ca52cd36322581029654
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e420fe81941352d1002ed2c25c04fc686115c7c2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283236"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827457"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuais num modelo do Azure Resource Manager
 
@@ -274,7 +274,7 @@ Para definir esta propriedade, a interface de rede deve existir. Portanto, preci
 
 Vários elementos de perfil são utilizados ao definir um recurso de máquina virtual. Alguns são necessários e outros são opcionais. Por exemplo, são necessários elementos hardwareProfile, osProfile, armazenamentoProfile e redeProfile, mas o diagnósticoProfile é opcional. Estes perfis definem definições como:
    
-- [tamanho](sizes.md)
+- [tamanho](../sizes.md)
 - [nome](/azure/architecture/best-practices/resource-naming) e credenciais
 - definições de discos e [sistemas operativos](cli-ps-findimage.md)
 - [interface de rede](/previous-versions/azure/virtual-network/virtual-network-deploy-multinic-classic-ps) 
@@ -353,7 +353,7 @@ Se pretender criar uma máquina virtual a partir de uma imagem gerida, altere o 
 
 ### <a name="attach-data-disks"></a>Anexar discos de dados
 
-Pode opcionalmente adicionar discos de dados aos VMs. O [número de discos](sizes.md) depende do tamanho do disco do sistema operativo que utiliza. Com o tamanho dos VMs definidos para Standard_DS1_v2, o número máximo de discos de dados que poderiam ser adicionados aos mesmos é de dois. No exemplo, um disco de dados gerido está a ser adicionado a cada VM:
+Pode opcionalmente adicionar discos de dados aos VMs. O [número de discos](../sizes.md) depende do tamanho do disco do sistema operativo que utiliza. Com o tamanho dos VMs definidos para Standard_DS1_v2, o número máximo de discos de dados que poderiam ser adicionados aos mesmos é de dois. No exemplo, um disco de dados gerido está a ser adicionado a cada VM:
 
 ```json
 "dataDisks": [
@@ -449,7 +449,7 @@ Se estiver curioso sobre o estado dos recursos na implantação, consulte o grup
     
 Não é um problema usar o mesmo modelo para criar recursos ou atualizar os recursos existentes. Quando utiliza comandos para implementar modelos, tem a oportunidade de dizer qual [o modo](../../azure-resource-manager/templates/deploy-powershell.md) que pretende utilizar. O modo pode ser definido para **Completo** ou **Incremental**. O padrão é fazer atualizações incrementais. Tenha cuidado ao utilizar o modo **Complete** porque pode eliminar acidentalmente os recursos. Quando define o modo para **Completar,** o Gestor de Recursos elimina quaisquer recursos do grupo de recursos que não estejam no modelo.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 - Crie o seu próprio modelo utilizando [modelos de Gestor de Recursos Azure authoring](../../azure-resource-manager/templates/template-syntax.md).
 - Implemente o modelo que criou usando [Criar uma máquina virtual do Windows com um modelo de Gestor de Recursos](ps-template.md).

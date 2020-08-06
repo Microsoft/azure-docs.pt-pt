@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: ccf4ad960abfd737a9a05d8fdc77a8bb1ea92d2d
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 3b30cefdd72286c15095828c409a87f173200a7b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87417119"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828409"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-virtual-machine"></a>Ativar o Azure Monitor para VMs para uma máquina virtual híbrida
 Este artigo descreve como ativar o Azure Monitor para VMs para uma máquina virtual fora de Azure, incluindo no local e outros ambientes em nuvem.
@@ -158,7 +158,7 @@ Se a instalação do seu agente de dependência tiver sido bem sucedida, mas nã
 
     **Linux**: Procure o processo de execução "microsoft-dependency-agent".
 
-2. Está no [nível de preços gratuitos do Log Analytics?](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) O plano Free permite até cinco computadores únicos. Quaisquer computadores subsequentes não aparecerão no mapa, mesmo que os cinco anteriores já não estejam a enviar dados.
+2. Está no [nível de preços gratuitos do Log Analytics?](./solutions.md) O plano Free permite até cinco computadores únicos. Quaisquer computadores subsequentes não aparecerão no mapa, mesmo que os cinco anteriores já não estejam a enviar dados.
 
 3. O computador está a enviar registos e dados perf para registos do Monitor Azure? Execute a seguinte consulta para o seu computador:
 
@@ -175,7 +175,7 @@ Se vir o seu servidor no mapa, mas não tiver dados de processo ou ligação, is
 Verifique o ficheiro C:\Programas\Microsoft Dependency Agent\logs\wrapper.log (Windows) ou o ficheiro /var/opt/microsoft/dependency-agent/log/service.log (Linux). As últimas linhas do ficheiro devem indicar o motivo pelo qual kernel não carregou. Por exemplo, o kernel poderá não ser suportado pelo Linux se tiver atualizado o kernel.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que a monitorização está ativada para as suas máquinas virtuais, esta informação está disponível para análise com o Azure Monitor para VMs.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: c3c4c4ea25a8f8057a5830ad2207bb674d9cc011
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 919ff7474dd64cfe3005975beb4cab6f77c177ce
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86501556"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825264"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Poupe custos com reservas de anfitriões dedicados Azure
 
@@ -24,7 +24,7 @@ Quando se comprometer com uma instância reservada de Anfitriões Dedicados Azur
 
 Antes de comprar uma reserva, deverá determinar qual o anfitrião dedicado que precisa. Um SKU é definido para um anfitrião dedicado que representa a série e tipo VM. 
 
-Comece por ver os tamanhos suportados para [a máquina virtual do Windows](./windows/sizes.md) ou [linux](./linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para identificar a série VM.
+Comece por ver os tamanhos suportados para [a máquina virtual do Windows](./sizes.md) ou [linux](./sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para identificar a série VM.
 
 Em seguida, verifique se é suportado em Azure Dedicados Anfitriões. [A página de preços dos anfitriões dedicados Azure](https://aka.ms/ADHPricing) tem a lista completa de anfitriões dedicados SKUs, suas informações de CPU, e várias opções de preços (incluindo instâncias reservadas).
 
@@ -70,7 +70,7 @@ Se tiver um acordo EA, pode utilizar a **opção Adicionar mais**   rapidament
 
 | **Campo**           | **Descrição**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Subscrição        | A assinatura usada para pagar a reserva. O método de pagamento da subscrição é cobrado os custos da reserva. O tipo de subscrição deve ser um acordo de empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou Microsoft Customer Agreement ou uma subscrição individual com taxas pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Os encargos são deduzidos do saldo de compromissos monetários, se disponíveis, ou cobrados como excesso. Para uma subscrição com taxas pay-as-you-go, os encargos são cobrados no cartão de crédito ou no método de pagamento da fatura na subscrição. |
+| Subscrição        | A assinatura usada para pagar a reserva. Os custos de reserva são cobrados de acordo com o método de pagamento indicado na subscrição. O tipo de subscrição deve ser um acordo de empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou Microsoft Customer Agreement ou uma subscrição individual com taxas pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Os custos são deduzidos do saldo de fidelização monetária, se disponível, ou cobrados como utilização excedida. Para uma subscrição com taxas pay-as-you-go, os encargos são cobrados no cartão de crédito ou no método de pagamento da fatura na subscrição. |
 | Âmbito               | O âmbito da reserva pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Região              | A região de Azure que está coberta pela reserva.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Tamanho do hospedeiro dedicado | O tamanho das instâncias dedicadas do hospedeiro.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
@@ -81,7 +81,7 @@ Se tiver um acordo EA, pode utilizar a **opção Adicionar mais**   rapidament
 
 - **Âmbito de subscrição**   único — Aplica o desconto de reserva aos recursos correspondentes na subscrição selecionada.
 
-- **Âmbito compartilhado**   — Aplica o desconto de reserva aos recursos correspondentes em subscrições elegíveis que estão no contexto da faturação. Para os clientes da EA, o contexto de faturação é a inscrição. Para subscrições individuais com taxas de pay as you go, o âmbito da faturação corresponde a todas as subscrições elegíveis criadas pelo administrador de conta.
+- **Âmbito compartilhado**   — Aplica o desconto de reserva aos recursos correspondentes em subscrições elegíveis que estão no contexto da faturação. Para os clientes da EA, o contexto de faturação é a inscrição. Para subscrições individuais com taxas pay as you go, o âmbito da faturação reside em todas as subscrições elegíveis criadas pelo administrador de conta.
 
 ## <a name="usage-data-and-reservation-utilization"></a>Dados de utilização e utilização de reservas
 

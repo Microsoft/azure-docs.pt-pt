@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: a21fbcd04c5916e686f13e375bc1854935d1c4fe
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d5dda567d0cfa89863731a3e8e651aede4ab5957
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500349"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825196"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Perguntas frequentes sobre máquinas virtuais do Windows
 Este artigo aborda algumas questões comuns sobre máquinas virtuais do Windows criadas no Azure utilizando o modelo de implementação do Gestor de Recursos. Para a versão Linux deste tópico, consulte [perguntas frequentes sobre máquinas virtuais Linux.](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -23,7 +23,7 @@ Todos os subscritores podem executar software de servidor numa máquina virtual 
 Algumas versões do Windows 7, Windows 8.1 e Windows 10 estão disponíveis para assinantes do MSDN Azure benefit e msdn Dev e test Pay-As-You-Go, para tarefas de desenvolvimento e teste. Para obter mais detalhes, incluindo instruções e limitações, veja [Imagens do cliente Windows para subscritores MSDN](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/). 
 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Quanto armazenamento posso utilizar com uma máquina virtual?
-Cada disco de dados pode chegar a 32.767 GiB. O número de discos de dados que pode utilizar depende do tamanho da máquina virtual. Para obter mais detalhes, veja [Tamanhos das Virtual Machines](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Cada disco de dados pode chegar a 32.767 GiB. O número de discos de dados que pode utilizar depende do tamanho da máquina virtual. Para obter mais detalhes, veja [Tamanhos das Virtual Machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Os Discos Geridos Azure são as ofertas recomendadas de armazenamento de discos para utilização com máquinas virtuais Azure para armazenamento persistente de dados. Pode utilizar vários Discos Geridos com cada Máquina Virtual. Os Discos Geridos oferecem dois tipos de opções de armazenamento duráveis: Discos Standard e Geridos. Para obter informações sobre preços, consulte [preços dos discos geridos.](https://azure.microsoft.com/pricing/details/managed-disks)
 
@@ -49,29 +49,29 @@ Pode alterar a letra de unidade movendo o ficheiro de página e reatribuindo as 
 Não. Se quiser que o seu VM faça parte de um conjunto de disponibilidade, tem de criar o VM dentro do conjunto. Atualmente não existe uma forma de adicionar um VM a um conjunto de disponibilidade depois de ter sido criado.
 
 ## <a name="can-i-upload-a-virtual-machine-to-azure"></a>Posso enviar uma máquina virtual para o Azure?
-Yes. Para obter instruções, consulte [VMs migratórios no local para Azure](on-prem-to-azure.md).
+Sim. Para obter instruções, consulte [VMs migratórios no local para Azure](on-prem-to-azure.md).
 
 ## <a name="can-i-resize-the-os-disk"></a>Posso redimensionar o disco de so?
-Yes. Para obter instruções, consulte [como expandir a unidade de so de uma máquina virtual num Grupo de Recursos Azure](expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Sim. Para obter instruções, consulte [como expandir a unidade de so de uma máquina virtual num Grupo de Recursos Azure](expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="can-i-copy-or-clone-an-existing-azure-vm"></a>Posso copiar ou clonar um Azure VM existente?
-Yes. Utilizando imagens geridas, pode criar uma imagem de uma máquina virtual e depois usar a imagem para construir vários novos VMs. Para obter instruções, consulte [Criar uma imagem personalizada de um VM](tutorial-custom-images.md).
+Sim. Utilizando imagens geridas, pode criar uma imagem de uma máquina virtual e depois usar a imagem para construir vários novos VMs. Para obter instruções, consulte [Criar uma imagem personalizada de um VM](tutorial-custom-images.md).
 
 ## <a name="why-am-i-not-seeing-canada-central-and-canada-east-regions-through-azure-resource-manager"></a>Porque é que não estou a ver as regiões do Canadá Central e do Canadá do Leste através do Azure Resource Manager?
 
 As duas novas regiões do Canadá Central e Do Leste do Canadá não estão automaticamente registadas para a criação de máquinas virtuais para as assinaturas Azure existentes. Este registo é feito automaticamente quando uma máquina virtual é implantada através do portal Azure para qualquer outra região usando O Gestor de Recursos Azure. Depois de uma máquina virtual ser implantada em qualquer outra região de Azure, as novas regiões devem estar disponíveis para máquinas virtuais subsequentes.
 
 ## <a name="does-azure-support-linux-vms"></a>O Azure suporta os VMs Linux?
-Yes. Para criar rapidamente um Linux VM para experimentar, consulte [Criar um Linux VM em Azure utilizando o Portal](../linux/quick-create-portal.md).
+Sim. Para criar rapidamente um Linux VM para experimentar, consulte [Criar um Linux VM em Azure utilizando o Portal](../linux/quick-create-portal.md).
 
 ## <a name="can-i-add-a-nic-to-my-vm-after-its-created"></a>Posso adicionar um NIC ao meu VM depois de ser criado?
 Sim, isto agora é possível. O VM primeiro precisa de ser interrompido. Em seguida, pode adicionar ou remover um NIC (a menos que seja o último NIC no VM). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>Há algum requisito de nome de computador?
-Yes. O nome do computador pode ter um comprimento máximo de 15 caracteres. Consulte [as regras e restrições das convenções](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) de nomeação para obter mais informações sobre o nome dos seus recursos.
+Sim. O nome do computador pode ter um comprimento máximo de 15 caracteres. Consulte [as regras e restrições das convenções](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) de nomeação para obter mais informações sobre o nome dos seus recursos.
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>Existem requisitos de nome de grupo de recursos?
-Yes. O nome do grupo de recursos pode ter um comprimento máximo de 90 caracteres. Consulte [as regras e restrições das convenções](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming) de nomeação para obter mais informações sobre grupos de recursos.
+Sim. O nome do grupo de recursos pode ter um comprimento máximo de 90 caracteres. Consulte [as regras e restrições das convenções](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming) de nomeação para obter mais informações sobre grupos de recursos.
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>Quais são os requisitos do nome de utilizador ao criar um VM?
 

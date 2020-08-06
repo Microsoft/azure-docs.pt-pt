@@ -5,12 +5,12 @@ author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
 ms.date: 05/25/2020
-ms.openlocfilehash: bd7619f000d16a55e1cfb31cc3b9cfb3b6d33502
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 7f9c5afbeed0c772f76e013a37dd870ed2185be7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432614"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827678"
 ---
 # <a name="replicate-azure-virtual-machines-running-in-proximity-placement-groups-to-another-region"></a>Replicar máquinas virtuais Azure em execução em Grupos de Colocação de Proximidade para outra região
 
@@ -42,7 +42,7 @@ Num cenário típico, poderá ter as suas máquinas virtuais a funcionar num gru
 ## <a name="set-up-site-recovery-for-virtual-machines-in-proximity-placement-group"></a>Configurar a recuperação do site para máquinas virtuais no Grupo de Colocação de Proximidade
 
 > [!NOTE]
-> Certifique-se de que tem à mão o ID único do Grupo de Colocação de Proximidade alvo. Se está a criar um novo Grupo de Colocação de Proximidade, verifique o comando [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#create-a-proximity-placement-group) e se estiver a utilizar um Grupo de Colocação de Proximidade existente, use o comando [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#list-proximity-placement-groups).
+> Certifique-se de que tem à mão o ID único do Grupo de Colocação de Proximidade alvo. Se está a criar um novo Grupo de Colocação de Proximidade, verifique o comando [aqui](../virtual-machines/windows/proximity-placement-groups.md#create-a-proximity-placement-group) e se estiver a utilizar um Grupo de Colocação de Proximidade existente, use o comando [aqui](../virtual-machines/windows/proximity-placement-groups.md#list-proximity-placement-groups).
 
 ### <a name="azure-to-azure"></a>Azure para o Azure
 
@@ -203,7 +203,7 @@ Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $Protecti
 8. Executar um teste [falhado](./hyper-v-azure-powershell-resource-manager.md#step-8-run-a-test-failover).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para realizar reprotegido e failback para VMware para Azure, siga os passos [aqui](./vmware-azure-prepare-failback.md)descritos .
 

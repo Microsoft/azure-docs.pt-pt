@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 438fe490bb241cbc42e53d8502e9065454ebcc4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dda05331163d071a9a47c6f6af8c758a11ec7dd8
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514394"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827899"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync-with-azure-databox"></a>Migrar dados em massa para o Azure File Sync com o Azure DataBox
 Pode migrar dados em massa para o Azure File Sync de duas formas:
@@ -49,7 +49,7 @@ Eis como configurar o Azure File Sync de uma forma compatível com ferramentas d
 
 ![Diagrama mostrando como configurar o Azure File Sync](media/storage-sync-files-offline-data-transfer/data-box-integration-1-600.png)
 
-| Passo | Detalhe |
+| Passo | Detalhes |
 |---|---------------------------------------------------------------------------------------|
 | ![Passo 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Encomende a sua Caixa de Dados.](../../databox/data-box-deploy-ordered.md) A família Data Box oferece [vários produtos](https://azure.microsoft.com/services/storage/databox/data) para atender às suas necessidades. Quando receber a sua Caixa de Dados, siga a sua [documentação para copiar os seus dados](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) para esta trajetória unc na Caixa de * \\ Dados:<DeviceIPAddres \> \<StorageAccountName_AzFile\> \<ShareName\> *. Aqui, *ShareName* é o nome da participação na encenação. Envie a Caixa de Dados de volta para Azure. |
 | ![Passo 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Aguarde até que os seus ficheiros apareçam nas ações de ficheiros Azure que escolheu como ações de encenação temporária. *Não permita sincronizar estas ações.* |
@@ -89,6 +89,13 @@ Desative o modo de transferência de dados offline apenas quando o estado estive
 > [!IMPORTANT]
 > Depois de desativar o modo de transferência de dados offline, não poderá voltar a ativá-lo, mesmo que a parte de paragem da migração a granel ainda esteja disponível.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="azure-file-sync-and-pre-seeded-files-in-the-cloud"></a>Azure File Sync e ficheiros pré-semeados na nuvem
+
+Se tiver semeado ficheiros numa partilha de ficheiros Azure por outros meios que não o DataBox - por exemplo, via AzCopy, RoboCopy a partir de uma cópia de segurança na nuvem ou de qualquer outro método - então deve continuar a seguir o [processo de Transferência de Dados Offline](#process-for-offline-data-transfer) descrito neste artigo. Basta ignorar o DataBox à medida que o método os seus ficheiros se movem para a nuvem. No entanto, é fundamental garantir que ainda está a seguir o processo de semear os ficheiros numa *partilha de encenação* e não na parte final, a ação conectada a Azure File Sync.
+
+> [!WARNING]
+> **Siga o processo de sementeira de ficheiros numa partilha de encenação e não na**parte final , Azure File Sync conectada. Caso não o faça, podem ocorrer conflitos de ficheiros (ambas as versões de ficheiros serão armazenadas) bem como os ficheiros eliminados no servidor ao vivo podem voltar, se ainda existirem no seu conjunto de ficheiros mais antigo e semeado. Além disso, as mudanças de pasta fundir-se-ão entre si, tornando muito difícil separar o espaço de nome após tal erro.
+
+## <a name="next-steps"></a>Passos seguintes
 - [Plano para uma implementação de Sincronização de Ficheiros Azure](storage-sync-files-planning.md)
-- [Implementar Azure File Sync](storage-sync-files-deployment-guide.md)
+- [Implementar o Azure File Sync](storage-sync-files-deployment-guide.md)

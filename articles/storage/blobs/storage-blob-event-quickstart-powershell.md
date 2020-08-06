@@ -1,6 +1,6 @@
 ---
-title: Envie eventos de armazenamento Azure Blob para o web endpoint - Powershell Microsoft Docs
-description: Utilize a Azure Event Grid para subscrever a eventos de armazenamento de Blobs.
+title: Envie eventos de armazenamento Azure Blob para o ponto final da Web - PowerShell Microsoft Docs
+description: Use a Grelha de Eventos Azure para subscrever eventos de armazenamento Blob, desencadear um evento e ver o resultado. Utilize o Azure PowerShell para encaminhar eventos de armazenamento para um ponto final web.
 author: normesta
 ms.author: normesta
 ms.reviewer: dastanfo
@@ -8,12 +8,12 @@ ms.date: 08/23/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: f0dae5ae79234ea29e6b17627fc07abcb3b5dfcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 809ab593d4d3f58fa3c91b896e5df3a0db7865f9
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68847168"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824516"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Quickstart: Route storage events to web endpoint with PowerShell
 
@@ -161,14 +161,14 @@ Acionou o evento e o Event Grid enviou a mensagem para o ponto final que configu
 
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se pretender continuar a trabalhar com esta conta de armazenamento e subscrição de eventos, não limpe os recursos criados neste artigo. Se não pretende continuar, use o seguinte comando para apagar os recursos criados neste artigo.
 
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que sabe como criar tópicos e subscrições de eventos, saiba mais sobre os Eventos de armazenamento de Blobs o que o Event Grid pode ajudá-lo a fazer:
 

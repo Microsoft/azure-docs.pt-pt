@@ -6,16 +6,16 @@ manager: jureid
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: jureid
-ms.openlocfilehash: 6a03d5e67e859a29cb18e29223fe74134aef75fb
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 7feb49266a10b7423121dc5362b0bd6bda4d0e08
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057624"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824499"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Conceder acesso para criar subscrições da Azure Enterprise (pré-visualização)
 
-Como cliente da Azure no [Enterprise Agreement (EA),](https://azure.microsoft.com/pricing/enterprise-agreement/)pode dar a outro utilizador ou principal de serviço permissão para criar subscrições faturadas na sua conta. Neste artigo, aprende-se a usar o [Controlo de Acesso Baseado em Papéis (RBAC)](../../role-based-access-control/role-assignments-portal.md) para partilhar a capacidade de criar subscrições e como auditar criações de subscrições. Deve ter o papel de Proprietário na conta que pretende partilhar.
+Como cliente da Azure no [Enterprise Agreement (EA),](https://azure.microsoft.com/pricing/enterprise-agreement/)pode dar a outro utilizador ou principal de serviço permissão para criar subscrições faturadas na sua conta. Neste artigo, aprende-se a usar o [controlo de acesso baseado em funções (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) para partilhar a capacidade de criar subscrições e como auditar criações de subscrições. Deve ter o papel de Proprietário na conta que pretende partilhar.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -189,7 +189,7 @@ Para acompanhar as subscrições criadas através desta API, utilize a API de Re
 
 Para chamar convenientemente esta API a partir da linha de comandos, experimente [ARMClient](https://github.com/projectkudu/ARMClient).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Agora que o utilizador ou o principal de serviço tem permissão para criar uma subscrição, pode usar essa identidade para [criar programáticamente subscrições da Azure Enterprise](programmatically-create-subscription.md).
 * Para um exemplo sobre a criação de subscrições utilizando .NET, consulte [o código de amostra no GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).

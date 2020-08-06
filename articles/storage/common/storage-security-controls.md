@@ -1,7 +1,7 @@
 ---
 title: Controlos de segurança
 titleSuffix: Azure Storage
-description: Uma lista de controlos de segurança para avaliar o Armazenamento Azure.
+description: Consulte as listas de verificação do controlo de segurança para avaliar o Azure Storage. As áreas abrangidas são a proteção de dados, a rede, a monitorização e o registo, identidade e configuração.
 services: storage
 author: msmbaldwin
 ms.author: mbaldwin
@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 96fde15eb5071e157fedcff6154e6b0635a34721
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b816e7bd5e00b21700bc994fc0860195d39f2915
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82128027"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826522"
 ---
 # <a name="security-controls-for-azure-storage"></a>Controlos de segurança para armazenamento Azure
 
@@ -26,42 +26,42 @@ Este artigo documenta os controlos de segurança incorporados no Azure Storage.
 
 | Controlo de segurança | Sim/Não | Notas |
 |---|---|--|
-| Encriptação do lado do servidor em repouso: teclas geridas pela Microsoft | Yes |  |
-| Encriptação do lado do servidor em repouso: teclas geridas pelo cliente (BYOK) | Yes | Consulte [a encriptação do serviço de armazenamento utilizando as chaves geridas pelo cliente no Cofre da Chave Azure](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
+| Encriptação do lado do servidor em repouso: teclas geridas pela Microsoft | Sim |  |
+| Encriptação do lado do servidor em repouso: teclas geridas pelo cliente (BYOK) | Sim | Consulte [a encriptação do serviço de armazenamento utilizando as chaves geridas pelo cliente no Cofre da Chave Azure](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
 | Encriptação de nível de coluna (Serviços de Dados Azure)| N/D |  |
-| Encriptação em trânsito (como encriptação ExpressRoute, na encriptação VNet e encriptação VNet-VNet)| Yes | Suportar mecanismos HTTPS/TLS padrão.  Os utilizadores também podem encriptar dados antes de serem transmitidos ao serviço. |
-| Chamadas da API encriptadas| Yes |  |
+| Encriptação em trânsito (como encriptação ExpressRoute, na encriptação VNet e encriptação VNet-VNet)| Sim | Suportar mecanismos HTTPS/TLS padrão.  Os utilizadores também podem encriptar dados antes de serem transmitidos ao serviço. |
+| Chamadas da API encriptadas| Sim |  |
 
 ## <a name="network"></a>Rede
 
 | Controlo de segurança | Sim/Não | Notas |
 |---|---|--|
-| Suporte ao ponto final de serviço| Yes |  |
-| Suporte de tags de serviço| Yes | Consulte [as etiquetas de serviço Azure](../../virtual-network/service-tags-overview.md) para obter mais informações sobre etiquetas de serviço suportadas pelo Azure Storage. |
+| Suporte ao ponto final de serviço| Sim |  |
+| Suporte de tags de serviço| Sim | Consulte [as etiquetas de serviço Azure](../../virtual-network/service-tags-overview.md) para obter mais informações sobre etiquetas de serviço suportadas pelo Azure Storage. |
 | Suporte à injeção VNet| N/D |  |
-| Isolamento de rede e suporte a firewall| Yes | |
+| Isolamento de rede e suporte a firewall| Sim | |
 | Suporte de túneis forçados| N/D |  |
 
 ## <a name="monitoring--logging"></a>Monitorização & registos
 
 | Controlo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Suporte de monitorização Azure (análise de log, insights de aplicativo, etc.)| Yes | Métricas do Monitor Azure|
-| Registo e auditoria de avião de controlo e gestão | Yes | Registo de Atividades do Azure |
-| Registo e auditoria de planos de dados| Yes | Registos de recursos do monitor Azure |
+| Suporte de monitorização Azure (análise de log, insights de aplicativo, etc.)| Sim | Métricas do Monitor Azure|
+| Registo e auditoria de avião de controlo e gestão | Sim | Registo de Atividades do Azure |
+| Registo e auditoria de planos de dados| Sim | Registos de recursos do monitor Azure |
 
 ## <a name="identity"></a>Identidade
 
 | Controlo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Autenticação| Yes | Azure Ative Directory, Chave Partilhada, Ficha de Acesso Partilhada. |
-| Autorização| Yes | Autorização de Apoio via RBAC, POSIX ACLs e Sas Tokens |
+| Autenticação| Sim | Azure Ative Directory, Chave Partilhada, Ficha de Acesso Partilhada. |
+| Autorização| Sim | Autorização de Apoio via RBAC, POSIX ACLs e Sas Tokens |
 
 ## <a name="configuration-management"></a>Gestão da configuração
 
 | Controlo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Suporte de gestão de configuração (versão da configuração, etc.)| Yes | Versões do Fornecedor de Recursos de Suporte através de APIs do Gestor de Recursos Azure |
+| Suporte de gestão de configuração (versão da configuração, etc.)| Sim | Versões do Fornecedor de Recursos de Suporte através de APIs do Gestor de Recursos Azure |
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -7,17 +7,17 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/8/2019
-ms.openlocfilehash: 85366b8b3e3ba7d612373e6b754aa9805d00f8f5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8a1b38b9f673669adb0b5fcf67d9d560c24d5c2a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116969"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825961"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Criar utilizadores na Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
 
 > [!NOTE]
-> O termo "utilizadores" refere-se aos utilizadores dentro de um grupo de servidores De Hiperescala (Citus). Para saber em vez disso sobre os utilizadores de subscrição Azure e seus privilégios, visite o artigo de [controlo de acesso baseado em funções Azure (RBAC)](../role-based-access-control/built-in-roles.md) ou reveja como [personalizar funções.](../role-based-access-control/custom-roles.md)
+> O termo "utilizadores" refere-se aos utilizadores dentro de um grupo de servidores De Hiperescala (Citus). Para saber em vez disso sobre os utilizadores de subscrição Azure e seus privilégios, visite o artigo do [Azure role-based access control (Azure RBAC)](../role-based-access-control/built-in-roles.md) ou [reveja como personalizar funções](../role-based-access-control/custom-roles.md).
 
 ## <a name="the-server-admin-account"></a>A conta de administrador do servidor
 
@@ -81,7 +81,7 @@ Para atualizar um utilizador, visite a página **Roles** para o seu grupo de ser
 
 O `citus` papel é privilegiado e não pode ser apagado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Abra a firewall para os endereços IP das máquinas dos novos utilizadores para permitir a sua ligação: [Criar e gerir as regras de firewall hyperscale (Citus) utilizando o portal Azure](howto-hyperscale-manage-firewall-using-portal.md).
 

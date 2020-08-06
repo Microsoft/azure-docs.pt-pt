@@ -4,12 +4,12 @@ description: Impedir que os utilizadores atualem ou apaguem recursos críticos d
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 30a74960113951327f7f89eddc07f8f90a5028c6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e76287c4524831a84a22fb23ddf8a5fdee8bc12b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87484781"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827287"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloquear recursos para prevenir alterações inesperadas
 
@@ -22,7 +22,7 @@ Como administrador, pode ser necessário bloquear uma subscrição, um grupo de 
 
 Quando se aplica uma fechadura no âmbito dos pais, todos os recursos dentro desse âmbito herdam a mesma fechadura. Até os recursos que adicionas mais tarde herda a fechadura do progenitor. O bloqueio mais restritivo na herança tem precedência.
 
-Ao contrário do controlo de acesso baseado em funções, pode utilizar a gestão de bloqueios para aplicar uma restrição a todos os utilizadores e a todas as funções. Para saber mais sobre a definição de permissões para utilizadores e funções, consulte [o Controlo de Acesso baseado em funções Azure](../../role-based-access-control/role-assignments-portal.md).
+Ao contrário do controlo de acesso baseado em funções, pode utilizar a gestão de bloqueios para aplicar uma restrição a todos os utilizadores e a todas as funções. Para saber mais sobre a definição de permissões para utilizadores e funções, consulte [o controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 
 Os bloqueios do Resource Manager aplicam-se apenas a operações que ocorrem no painel de gestão, o que consiste em operações enviadas para `https://management.azure.com`. Os bloqueios não restringem a forma como os recursos desempenham as suas próprias funções. As alterações dos recursos são restritas, mas as operações dos recursos não o são. Por exemplo, um bloqueio ReadOnly numa Base de Dados SQL impede-o de eliminar ou modificar a base de dados. Não impede a criação, atualização ou eliminação dos dados na base de dados. As transações de dados são permitidas porque essas operações não são enviadas para `https://management.azure.com`.
 

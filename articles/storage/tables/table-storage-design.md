@@ -1,6 +1,6 @@
 ---
 title: Desenhe mesas escaláveis e performantes no armazenamento da mesa Azure. | Microsoft Docs
-description: Desenhe mesas escaláveis e performantes no armazenamento da mesa Azure.
+description: Aprenda a desenhar mesas escaláveis e performantes no armazenamento de mesaS Azure. Rever divisórias de tabela, Transações do Grupo de Entidades e considerações de capacidade e custos.
 services: storage
 author: SnehaGunda
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 1dba3a6f3ebd7b6675e6d0d90d98a45625ad04ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 59af13bcae14839a5b583ad7e063668b5305b30a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83656905"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824414"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Criar tabelas escaláveis e de desempenho
 
@@ -37,7 +37,7 @@ O exemplo a seguir mostra um design de mesa simples para armazenar funcionários
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Carimbo de data/hora</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>
@@ -146,7 +146,7 @@ Os EGTs também introduzem uma potencial compensação para que possa avaliar no
 ## <a name="cost-considerations"></a>Considerações de custos
 O armazenamento de mesa é relativamente barato, mas deve incluir estimativas de custos tanto para o uso da capacidade como para a quantidade de transações como parte da sua avaliação de qualquer solução de serviço de tabela. No entanto, em muitos cenários, armazenar dados denormalizados ou duplicados de forma a melhorar o desempenho ou escalabilidade da sua solução é uma abordagem válida. Para obter mais informações sobre preços, consulte [o Preço de Armazenamento Azure](https://azure.microsoft.com/pricing/details/storage/).  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Padrões de design de mesa](table-storage-design-patterns.md)
 - [Modelar relações](table-storage-design-modeling.md)

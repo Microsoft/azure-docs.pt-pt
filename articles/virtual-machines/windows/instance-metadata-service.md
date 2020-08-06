@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: 071baacd375cb5595bc99eeead7e818a35c4539b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d074c3f806b36ff530396fbafcb3c7c6f9661fcf
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500417"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827576"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados Azure Instance
 
@@ -44,7 +44,7 @@ Mais exemplos de como consultar o IMDS podem ser encontrados em [amostras de met
 
 Abaixo está o código de amostra para recuperar todos os metadados para um exemplo, para aceder a fonte de dados específica, ver secção [API de metadados.](#metadata-apis) 
 
-**Pedido**
+**Pedir**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2019-06-01
@@ -203,7 +203,7 @@ Quando nenhuma versão é especificada, um erro é devolvido com uma lista das v
 > [!NOTE]
 > A resposta é uma corda JSON. O exemplo a seguir indica a condição de erro quando a versão não é especificada, a resposta é bastante impressa para a legibilidade.
 
-**Pedido**
+**Pedir**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance
@@ -262,14 +262,14 @@ tagsList | Tags formatadas como uma matriz JSON para uma análise programática 
 versão | Versão da imagem VM | 2017-04-02
 vmId | [Identificador único](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) para o VM | 2017-04-02
 vmScaleSetName | [Conjunto de escala de máquina virtual Nome](../../virtual-machine-scale-sets/overview.md) do seu conjunto de escala de máquina virtual | 2017-12-01
-vmSize | [Tamanho VM](sizes.md) | 2017-04-02
+vmSize | [Tamanho VM](../sizes.md) | 2017-04-02
 zona | [Zona de disponibilidade](../../availability-zones/az-overview.md) da sua máquina virtual | 2017-12-01
 
 ### <a name="sample-1-tracking-vm-running-on-azure"></a>Amostra 1: VM de rastreio em execução em Azure
 
 Como prestador de serviços, poderá ser necessário rastrear o número de VMs que executam o seu software ou ter agentes que precisam de rastrear a singularidade do VM. Para conseguir obter um ID único para um VM, utilize o `vmId` campo do Serviço de Metadados de Exemplo.
 
-**Pedido**
+**Pedir**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
@@ -287,7 +287,7 @@ Para certos cenários, a colocação de diferentes réplicas de dados é de prim
 Também pode utilizar [Zonas de Disponibilidade](../../availability-zones/az-overview.md) para as instâncias para tomar estas decisões.
 Pode consultar estes dados diretamente através do Serviço de Metadados de Exemplo.
 
-**Pedido**
+**Pedir**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
@@ -303,7 +303,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 
 Como prestador de serviços, poderá receber uma chamada de apoio onde gostaria de saber mais informações sobre o VM. Pedir ao cliente que partilhe os metadados do cálculo pode fornecer informações básicas para que o profissional de suporte saiba sobre o tipo de VM no Azure.
 
-**Pedido**
+**Pedir**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance/compute?api-version=2019-06-01
@@ -403,7 +403,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 
 Azure tem várias nuvens soberanas como [o Governo de Azure.](https://azure.microsoft.com/overview/clouds/government/) Às vezes é preciso o Ambiente Azure para tomar algumas decisões de tempo de execução. A amostra que se segue mostra como pode alcançar este comportamento.
 
-**Pedido**
+**Pedir**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
@@ -442,7 +442,7 @@ macAddress | Endereço de mac VM | 2017-04-02
 
 #### <a name="sample-1-retrieving-network-information"></a>Amostra 1: Recuperar informações sobre a rede
 
-**Pedido**
+**Pedir**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance/network?api-version=2017-08-01
@@ -537,7 +537,7 @@ writeAcceleratorEnabled | Se escrever Ou não OAccelerador está ativado no disc
 
 O exemplo a seguir mostra como consultar as informações de armazenamento do VM.
 
-**Pedido**
+**Pedir**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance/compute/storageProfile?api-version=2019-06-01
@@ -609,7 +609,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 As tags VM estão incluídas no ponto final da API de instância/compute/tags.
 As etiquetas podem ter sido aplicadas ao seu Azure VM para organizar logicamente uma taxonomia. As etiquetas atribuídas a um VM podem ser recuperadas utilizando o pedido abaixo.
 
-**Pedido**
+**Pedir**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/tags?api-version=2018-10-01&format=text"
@@ -623,7 +623,7 @@ Department:IT;Environment:Test;Role:WebRole
 
 O `tags` campo é uma corda com as etiquetas delimitadas por pontos-e-vírguis. Esta saída pode ser um problema se os e-tím9is forem utilizados nas próprias etiquetas. Se um analisador for escrito para extrair programáticamente as etiquetas, deve confiar no `tagsList` campo. O `tagsList` campo é uma matriz JSON sem delimiters, e consequentemente, mais fácil de analisar.
 
-**Pedido**
+**Pedir**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04
@@ -657,7 +657,7 @@ Parte do cenário servido pelo Serviço de Metadados de Exemplo é fornecer gara
 > [!NOTE]
 > Todas as respostas da API são cordas JSON. As respostas de exemplo a seguir são bastante impressas para a legibilidade.
 
-**Pedido**
+**Pedir**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
@@ -922,4 +922,4 @@ Utilize o Tipo de Problema `Management` e selecione `Instance Metadata Service` 
 
 Saiba mais sobre:
 1.  [Adquirir um símbolo de acesso para o VM](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
-2.  [Scheduled Events](scheduled-events.md)
+2.  [Eventos Agendados](scheduled-events.md)

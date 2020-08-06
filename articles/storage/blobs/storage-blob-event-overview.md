@@ -1,6 +1,6 @@
 ---
 title: Reagindo aos eventos de armazenamento da Azure Blob Microsoft Docs
-description: Utilize a Azure Event Grid para subscrever a eventos de armazenamento de Blobs.
+description: Utilize a Grelha de Eventos Azure para subscrever e reagir a eventos de armazenamento blob. Compreenda o modelo do evento, filtrando eventos e práticas para consumir eventos.
 author: normesta
 ms.author: normesta
 ms.date: 04/06/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: dineshm
-ms.openlocfilehash: 8f51b6f94ae8a245471757d256a923570582bb12
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62cd31ab6f63aec5ddeb675bca3621a329ab1f2b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809079"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826573"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagir aos eventos de armazenamento de Blobs
 
@@ -105,7 +105,7 @@ As aplicações que lidam com eventos de armazenamento Blob devem seguir algumas
 > * Se pretender garantir que o evento **Microsoft.Storage.BlobCreated** só é acionado quando um Block Blob estiver completamente comprometido, filtre o evento para chamadas `CopyBlob` , ou REST `PutBlob` `PutBlockList` `FlushWithClose` API. Estas chamadas API desencadeiam o evento **Microsoft.Storage.BlobCreated** apenas depois de os dados estiverem totalmente comprometidos com uma Blob de Bloco. Para aprender a criar um filtro, consulte [eventos de filtro para grelha de eventos.](https://docs.microsoft.com/azure/event-grid/how-to-filter-events)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a Grade de Eventos e dê uma oportunidade aos eventos de armazenamento blob:
 

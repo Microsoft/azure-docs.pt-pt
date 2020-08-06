@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 07/28/2020
-ms.openlocfilehash: 30d665cc1d573ec47681599f2bde6a40864796c9
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 04536836c4d061249201c82f738aa41501f0847e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387715"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828868"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Compreender o uso da máquina virtual Azure
 Ao analisar os seus dados de utilização do Azure, podem obter-se informações de consumo poderosas – insights que podem permitir uma melhor gestão e alocação de custos em toda a sua organização. Este documento fornece um mergulho profundo nos detalhes do consumo do Azure Compute. Para obter mais detalhes sobre o uso geral do Azure, navegue para [compreender a sua conta](../../cost-management-billing/understand/review-individual-bill.md).
@@ -35,7 +35,7 @@ Para começar, [descarregue os seus dados de utilização](../../cost-management
 | Consumido| A quantidade do recurso que foi consumido para aquele dia. Para o Compute, cobramos por cada minuto que o VM correu por uma hora (até 6 decimais de precisão).| `1, 0.5`|
 | Localização do Recurso  | Identifica o datacenter onde o recurso está em execução.| `JA East`|
 | Serviço Consumido | O serviço de plataforma Azure que usou.| `Microsoft.Compute`|
-| Grupo de Recursos | O grupo de recursos no qual o recurso implementado está em execução. Para mais informações, consulte [a visão geral do Azure Resource Manager.](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)|`MyRG`|
+| Grupo de Recursos | O grupo de recursos no qual o recurso implementado está em execução. Para mais informações, consulte [a visão geral do Azure Resource Manager.](../../azure-resource-manager/management/overview.md)|`MyRG`|
 | ID da Instância | O identificador do recurso. O identificador contém o nome que especificou para o recurso quando o criou. Para os VMs, o ID de exemplo conterá o SubscriptionId, o ResourceGroupName e o VMName (ou nome definido em escala para utilização definida na escala).| `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1`<br><br>ou<br><br>`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1`|
 | Etiquetas| Marque o que atribuir ao recurso. Utilize etiquetas para agrupar os registos de faturação. Aprenda a [etiquetar as suas Máquinas Virtuais.](tag.md) Isto está disponível apenas para VMs do Gestor de Recursos.| `{"myDepartment":"RD","myUser":"myName"}`|
 | Informações Adicionais | Metadados específicos do serviço. Para os VMs, preenchemos os seguintes dados no campo de informações adicionais: <br><br> Imagem tipo- imagem específica que correu. Encontre a lista completa de cordas suportadas abaixo em Tipos de Imagem.<br><br> Tipo de serviço: o tamanho que implementou.<br><br> VMName: nome do seu VM. Este campo só é preenchido para VMs definidos em escala. Se precisar do seu VM Name para vMs definidos em escala, pode encontrá-lo na cadeia de identificação de instância acima.<br><br> UseType: Isto especifica o tipo de utilização que isto representa.<br><br> ComputeHR é o uso da Hora de Cálculo para o VM subjacente, como Standard_D1_v2.<br><br> ComputeHR_SW é a taxa de software premium se o VM estiver a usar software premium, como o Microsoft R Server. | Máquinas Virtuais<br>`{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}`<br><br>Conjuntos de Dimensionamento de Máquinas Virtuais<br> `{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}`<br><br>Premium Software<br> `{"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"}` |
@@ -136,5 +136,5 @@ No modelo Clássico, a faturação de recursos é agregada ao nível do Cloud Se
 ### <a name="why-is-pricing-not-available-for-dsfsgsls-sizes-on-the-pricing-page"></a>Porque é que os preços não estão disponíveis para os tamanhos DS/FS/GS/LS na página de preços?
 Os VMs capazes de armazenamento premium são faturados ao mesmo ritmo que os VMs capazes de armazenamento não premium. Apenas os seus custos de armazenamento diferem. Visite a [página de preços de armazenamento](https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/) para mais informações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre os seus dados de utilização, consulte [a sua conta para o Microsoft Azure.](../../cost-management-billing/understand/review-individual-bill.md)

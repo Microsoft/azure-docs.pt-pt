@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: 211b7aedc901031e366c60a6c7a2cee396bbe124
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: bd575eb5f646b749b431516670c64c764f4d4c9c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563845"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828511"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor perguntas frequentes
 
@@ -670,7 +670,7 @@ Se as suas máquinas virtuais já estiverem ligadas a um espaço de trabalho log
 ### <a name="can-i-onboard-to-a-new-workspace"></a>Posso embarcar num novo espaço de trabalho? 
 Se os seus VMs não estiverem atualmente ligados a um espaço de trabalho log analytics existente, precisa de criar um novo espaço de trabalho para armazenar os seus dados. A criação de um novo espaço de trabalho predefinido é feita automaticamente se configurar um único Azure VM para Azure Monitor para VMs através do portal Azure.
 
-Se optar por utilizar o método baseado em scripts, estes passos estão cobertos no [Enable Azure Monitor para VMs utilizando o artigo de modelo Azure PowerShell ou Resource Manager.](insights/vminsights-enable-at-scale-powershell.md) 
+Se optar por utilizar o método baseado em scripts, estes passos estão cobertos no [Enable Azure Monitor para VMs utilizando o artigo de modelo Azure PowerShell ou Resource Manager.](./insights/vminsights-enable-powershell.md) 
 
 ### <a name="what-do-i-do-if-my-vm-is-already-reporting-to-an-existing-workspace"></a>O que faço se o meu VM já está a reportar a um espaço de trabalho existente?
 Se já está a recolher dados das suas máquinas virtuais, pode já tê-lo configurado para reportar dados a um espaço de trabalho do Log Analytics existente.  Enquanto esse espaço de trabalho estiver numa das nossas regiões apoiadas, pode permitir que o Azure Monitor para VMs seja esse espaço de trabalho pré-existente.  Se o espaço de trabalho que já está a utilizar não estiver numa das nossas regiões apoiadas, não poderá embarcar no Azure Monitor para VMs neste momento.  Estamos a trabalhar ativamente para apoiar regiões adicionais.
@@ -691,7 +691,7 @@ Se tiver iniciado o embarque e visto as mensagens indicando que o VM precisa de 
 ### <a name="i-dont-see-some-or-any-data-in-the-performance-charts-for-my-vm"></a>Não vejo alguns ou quaisquer dados nos gráficos de desempenho para o meu VM
 Os nossos gráficos de desempenho foram atualizados para utilizar os dados armazenados na tabela *InsightsMetrics.*  Para ver dados nestes gráficos, terá de atualizar para utilizar a nova solução VM Insights.  Consulte a nossa [GA FAQ](insights/vminsights-ga-release-faq.md) para obter informações adicionais.
 
-Se não vir dados de desempenho na tabela de discos ou em algumas das tabelas de desempenho, os seus contadores de desempenho podem não estar configurados no espaço de trabalho. Para resolver, executar o seguinte [script PowerShell](insights/vminsights-enable-at-scale-powershell.md#enable-with-powershell).
+Se não vir dados de desempenho na tabela de discos ou em algumas das tabelas de desempenho, os seus contadores de desempenho podem não estar configurados no espaço de trabalho. Para resolver, executar o seguinte [script PowerShell](./insights/vminsights-enable-powershell.md).
 
 
 ### <a name="how-is-azure-monitor-for-vms-map-feature-different-from-service-map"></a>Como é que o Monitor Azure para O Mapa de VMs é diferente do Mapa de Serviços?
@@ -741,7 +741,7 @@ Se tiver configurado o Azure Monitor com um espaço de trabalho Log Analytics ut
 Nesta condição, será solicitado com a opção **Try Now** quando abrir o VM e selecionar **Insights** a partir do painel esquerdo, mesmo depois de já ter sido instalado no VM.  No entanto, não é solicitado com opções como normalmente ocorreria se este VM não fosse a bordo do Azure Monitor para VMs. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Se a sua pergunta não for respondida aqui, pode consultar os seguintes fóruns para perguntas e respostas adicionais.
 
 - [Log Analytics](/answers/topics/azure-monitor.html)

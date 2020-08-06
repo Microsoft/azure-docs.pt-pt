@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: a6788651928b631d9298867a140f29b273f14734
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: feee3a0d6de97ac6aaa1f9a92f20860f3f461ae3
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057556"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827236"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gerir grupos de recursos do Azure Resource Manager utilizando o portal Azure
 
@@ -62,7 +62,7 @@ O grupo de recursos armazena metadados sobre os recursos. Por conseguinte, quand
 ## <a name="open-resource-groups"></a>Grupos de recursos abertos
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Selecione **Grupos de recursos**.
+2. Selecione **grupos de recursos**.
 3. Selecione o grupo de recursos que pretende abrir.
 
 ## <a name="delete-resource-groups"></a>Eliminar grupos de recursos
@@ -105,7 +105,7 @@ Para obter informações sobre modelos de exportação, consulte [exportação �
 
 ## <a name="manage-access-to-resource-groups"></a>Gerir o acesso a grupos de recursos
 
-[O controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md) é a forma como gere o acesso aos recursos em Azure. Para obter mais informações, veja [Gerir o acesso através do RBAC e do portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+[O controlo de acesso baseado em funções (Azure RBAC)](../../role-based-access-control/overview.md) é a forma como gere o acesso aos recursos em Azure. Para obter mais informações, veja [Gerir o acesso através do RBAC e do portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

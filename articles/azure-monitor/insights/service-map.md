@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 77684ffef6be988dbb6b7057ba8c56f5227007b6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e422b019dd17c8c56ba99b5826e9f6215459c382
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326074"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825366"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilizar a solução Mapa de Serviços no Azure
 
@@ -35,7 +35,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 ## <a name="enable-service-map"></a>Ativar mapa de serviço
 
 1. Ativar a solução de Mapa de Serviços a partir do [Mercado Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) ou utilizando o processo descrito nas [soluções de monitorização Add da Galeria de Soluções.](solutions.md)
-1. [Instale o agente Desac dependência no Windows](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-windows) ou [instale o agente Desadependição no Linux](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-linux) em cada computador onde pretende obter dados. O Agente de Dependência pode monitorizar as ligações dos vizinhos imediatos, pelo que poderá não precisar de um agente em cada computador.
+1. [Instale o agente Desac dependência no Windows](./vminsights-enable-hybrid.md#install-the-dependency-agent-on-windows) ou [instale o agente Desadependição no Linux](./vminsights-enable-hybrid.md#install-the-dependency-agent-on-linux) em cada computador onde pretende obter dados. O Agente de Dependência pode monitorizar as ligações dos vizinhos imediatos, pelo que poderá não precisar de um agente em cada computador.
 
 Aceda ao Mapa de Serviços no portal Azure a partir do seu espaço de trabalho Log Analytics e selecione as **soluções** de opção a partir do painel esquerdo.<br><br> ![Selecione a opção Soluções no espaço de ](./media/service-map/select-solution-from-workspace.png) trabalho.<br> A partir da lista de soluções, selecione **ServiceMap (workspaceName)** e na página de visão geral do Mapa de Serviço clique no tile resumo do Mapa de Serviço.<br><br> ![Azulejo sumário do mapa de serviço ](./media/service-map/service-map-summary-tile.png) .
 
@@ -603,4 +603,3 @@ Verifique o `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` 
 ## <a name="suggestions"></a>Sugestões
 
 Tem algum feedback sobre o Mapa de Serviços ou esta documentação?  Visite a nossa [página De Voz do Utilizador,](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map)onde pode sugerir funcionalidades ou votar as sugestões existentes.
-

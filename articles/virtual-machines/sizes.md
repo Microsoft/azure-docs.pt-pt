@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 07/21/2020
 ms.author: jushiman
-ms.openlocfilehash: 99419a73386f39492d78ee93aeb61f432ac9c690
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 65b4bf5e8a681bea36ab381771a2843ac1d1fbe4
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421064"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827627"
 ---
 # <a name="sizes-for-virtual-machines-in-azure"></a>Tamanhos para máquinas virtuais em Azure
 
@@ -31,7 +31,7 @@ Este artigo descreve os tamanhos e opções disponíveis para as máquinas virtu
 - Para obter informações sobre preços dos vários tamanhos, consulte as páginas de preços do [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux) ou [do Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows).
 - Para disponibilidade de tamanhos VM nas regiões de Azure, consulte [os produtos disponíveis por região.](https://azure.microsoft.com/regions/services/)
 - Para ver os limites gerais dos VMs Azure, consulte [os limites de subscrição e serviços da Azure, quotas e restrições.](../azure-resource-manager/management/azure-subscription-service-limits.md)
-- Para obter mais informações sobre como a Azure dá nome aos seus VMs, consulte [o tamanho da máquina virtual Azure que nomeia convenções.](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions)
+- Para obter mais informações sobre como a Azure dá nome aos seus VMs, consulte [o tamanho da máquina virtual Azure que nomeia convenções.](./vm-naming-conventions.md)
 
 ## <a name="rest-api"></a>API REST
 
@@ -55,7 +55,7 @@ Saiba mais sobre o desempenho do cálculo dos VMs do Windows utilizando as [pont
 
 [!INCLUDE [cost-management-horizontal](../../includes/cost-management-horizontal.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre os diferentes tamanhos VM que estão disponíveis:
 

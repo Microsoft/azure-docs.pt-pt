@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 0707d578f90f70318c2a01f324b50092d9962965
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 3a628a70d8ce62827f79c1f7e16d2826be8d80f5
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513847"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827253"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores do Azure Logic Apps
 
@@ -393,7 +393,7 @@ As ligações podem aceder ao serviço ou sistema alvo enquanto esse serviço ou
 
 ## <a name="custom-apis-and-connectors"></a>APIs e conectores personalizados
 
-Para chamar APIs que executam código personalizado ou não estão disponíveis como conectores, você pode estender a plataforma De Aplicações Lógicas [criando aplicações API personalizadas](../logic-apps/logic-apps-create-api-app.md). Também pode [criar conectores personalizados](../logic-apps/custom-connector-overview.md) para *quaisquer* APIs baseadas em REST ou SOAP, que disponibilizam essas APIs a qualquer aplicação lógica na sua subscrição Azure. Para tornar públicas as aplicações ou conectores API personalizados para qualquer pessoa utilizar no Azure, pode [submeter conectores para certificação microsoft.](../logic-apps/custom-connector-submit-certification.md)
+Para chamar APIs que executam código personalizado ou não estão disponíveis como conectores, você pode estender a plataforma De Aplicações Lógicas [criando aplicações API personalizadas](../logic-apps/logic-apps-create-api-app.md). Também pode [criar conectores personalizados](../logic-apps/custom-connector-overview.md) para *quaisquer* APIs baseadas em REST ou SOAP, que disponibilizam essas APIs a qualquer aplicação lógica na sua subscrição Azure. Para tornar públicas as aplicações ou conectores API personalizados para qualquer pessoa utilizar no Azure, pode [submeter conectores para certificação microsoft.](/connectors/custom-connectors/submit-certification)
 
 > [!NOTE]
 > As aplicações lógicas que implementa e funciona num [ambiente de serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) podem aceder diretamente aos recursos numa rede virtual Azure. Se tiver conectores personalizados que requerem o gateway de dados no local, e criou esses conectores fora de um ISE, as aplicações lógicas num ISE também podem usar esses conectores.
@@ -618,4 +618,3 @@ Se a sua organização não permitir a ligação a recursos específicos utiliza
 [x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Codificar mensagens que usam o protocolo X12"
 [xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Transformar mensagens XML"
 [xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Validar mensagens XML"
-

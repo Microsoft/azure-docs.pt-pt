@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 65fbd84a6fa4b03db9f5dfce81eeba23aceebbc9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ae3851da1dbcc5f7ac37821a64cada20164c7661
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042307"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825009"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Tipos de Armazenamento do Azure para a carga de trabalho SAP
 O Azure tem inúmeros tipos de armazenamento que diferem muito em capacidades, produção, latência e preços. Alguns dos tipos de armazenamento não são, ou de usutilizável limitado para cenários SAP. Enquanto que vários tipos de armazenamento Azure são bem adequados ou otimizados para cenários específicos de carga de trabalho SAP. Especialmente para o SAP HANA, alguns tipos de armazenamento Azure foram certificados para o uso com SAP HANA. Neste documento, estamos a analisar os diferentes tipos de armazenamento e a descrever a sua capacidade e usabilidade com cargas de trabalho SAP e componentes SAP.
@@ -134,7 +134,7 @@ A Azure tem um único exemplo VM SLA de 99,9% que está ligado ao uso de armazen
 
 A matriz de capacidade para a carga de trabalho SAP parece:
 
-| Capacidade| Comentário| Notas/Links | 
+| Funcionalidade| Comentário| Notas/Links | 
 | --- | --- | --- | 
 | OS base VHD | adequado | todos os sistemas |
 | Disco de dados | adequado | todos os sistemas - [especialmente para SAP HANA](../../windows/how-to-enable-write-accelerator.md) |
@@ -146,7 +146,7 @@ A matriz de capacidade para a carga de trabalho SAP parece:
 | Latência | baixo a médio | - |
 | IOPS SLA | SIM | - |
 | IOPS linear à capacidade | semi linear em parênteses  | [Preços geridos do disco](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| IOPS máximo por disco | 20.000 [dependentes do tamanho do disco](https://azure.microsoft.com/pricing/details/managed-disks/) | Considere também [os limites de VM](../../linux/sizes.md) |
+| IOPS máximo por disco | 20.000 [dependentes do tamanho do disco](https://azure.microsoft.com/pricing/details/managed-disks/) | Considere também [os limites de VM](../../sizes.md) |
 | Produção SLA | SIM | - |
 | Produção linear à capacidade | semi linear em parênteses | [Preços geridos do disco](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | HANA certificada | SIM | [especialmente para SAP HANA](../../windows/how-to-enable-write-accelerator.md) |
@@ -192,7 +192,7 @@ O custo de um único disco é determinado pelas três dimensões que pode defini
 
 A matriz de capacidade para a carga de trabalho SAP parece:
 
-| Capacidade| Comentário| Notas/Links | 
+| Funcionalidade| Comentário| Notas/Links | 
 | --- | --- | --- | 
 | OS base VHD | não funciona | - |
 | Disco de dados | adequado | todos os sistemas  |
@@ -247,7 +247,7 @@ Como já acontece com o armazenamento premium Azure, um tamanho de produção fi
 
 A matriz de capacidade para a carga de trabalho SAP parece:
 
-| Capacidade| Comentário| Notas/Links | 
+| Funcionalidade| Comentário| Notas/Links | 
 | --- | --- | --- | 
 | OS base VHD | não funciona | - |
 | Disco de dados | adequado | SAP HANA apenas  |
@@ -280,7 +280,7 @@ Funcionalidade adicional incorporada do armazenamento da ANF:
 ## <a name="azure-standard-ssd-storage"></a>Armazenamento SSD padrão Azure
 Em comparação com o armazenamento HDD padrão Azure, o armazenamento SSD padrão Azure proporciona uma melhor disponibilidade, consistência, fiabilidade e latência. É otimizado para cargas de trabalho que precisam de um desempenho consistente em níveis de IOPS mais baixos. Este armazenamento é o armazenamento mínimo utilizado para sistemas SAP não produtivos que têm baixas iops e exigências de produção. A matriz de capacidade para a carga de trabalho SAP parece:
 
-| Capacidade| Comentário| Notas/Links | 
+| Funcionalidade| Comentário| Notas/Links | 
 | --- | --- | --- | 
 | OS base VHD | restrito adequado | sistemas não produtivos |
 | Disco de dados | restrito adequado | alguns sistemas de não produção com baixa iops e exigências de latência |
@@ -307,7 +307,7 @@ Em comparação com o armazenamento HDD padrão Azure, o armazenamento SSD padr�
 ## <a name="azure-standard-hdd-storage"></a>Armazenamento HDD padrão Azure
 O armazenamento Azure Standard HDD foi o único tipo de armazenamento quando a infraestrutura Azure foi certificada para a carga de trabalho SAP NetWeaver no ano de 2014. No ano de 2014, as máquinas virtuais Azure eram pequenas e baixas de armazenamento. Portanto, este tipo de armazenamento foi capaz de apenas acompanhar as exigências. O armazenamento é ideal para cargas de trabalho insensíveis à latência, que dificilmente experimenta no espaço SAP. Com o aumento da produção de VMs Azure e o aumento da carga de trabalho que estes VMs estão produzindo, este tipo de armazenamento já não é considerado para o uso com cenários SAP. A matriz de capacidade para a carga de trabalho SAP parece:
 
-| Capacidade| Comentário| Notas/Links | 
+| Funcionalidade| Comentário| Notas/Links | 
 | --- | --- | --- | 
 | OS base VHD | não é adequado | - |
 | Disco de dados | não é adequado | - |
@@ -335,11 +335,11 @@ Ao contrário dos cenários no local, o tipo VM individual que está a seleciona
 
 | Tipo de armazenamento| Linux | Windows | Comentários |
 | --- | --- | --- | --- |
-| HDD Standard | [Tamanhos para LMs Linux em Azure](../../linux/sizes.md) | [Tamanhos para VMs windows em Azure](../../windows/sizes.md) | Provavelmente difícil de tocar nos limites de armazenamento de VMs médios ou grandes |
-| SSD Standard | [Tamanhos para LMs Linux em Azure](../../linux/sizes.md) | [Tamanhos para VMs windows em Azure](../../windows/sizes.md) | Provavelmente difícil de tocar nos limites de armazenamento de VMs médios ou grandes |
-| Armazenamento Premium | [Tamanhos para LMs Linux em Azure](../../linux/sizes.md) | [Tamanhos para VMs windows em Azure](../../windows/sizes.md) | Fácil de atingir limites de IOPS ou de produção de armazenamento VM com configuração de armazenamento |
-| Armazenamento ultra disco | [Tamanhos para LMs Linux em Azure](../../linux/sizes.md) | [Tamanhos para VMs windows em Azure](../../windows/sizes.md) | Fácil de atingir limites de IOPS ou de produção de armazenamento VM com configuração de armazenamento |
-| Azure NetApp Files | [Tamanhos para LMs Linux em Azure](../../linux/sizes.md) | [Tamanhos para VMs windows em Azure](../../windows/sizes.md) | O tráfego de armazenamento está a utilizar largura de banda de produção de rede e não largura de banda de armazenamento! |
+| HDD Standard | [Tamanhos para LMs Linux em Azure](../../sizes.md) | [Tamanhos para VMs windows em Azure](../../sizes.md) | Provavelmente difícil de tocar nos limites de armazenamento de VMs médios ou grandes |
+| SSD Standard | [Tamanhos para LMs Linux em Azure](../../sizes.md) | [Tamanhos para VMs windows em Azure](../../sizes.md) | Provavelmente difícil de tocar nos limites de armazenamento de VMs médios ou grandes |
+| Armazenamento Premium | [Tamanhos para LMs Linux em Azure](../../sizes.md) | [Tamanhos para VMs windows em Azure](../../sizes.md) | Fácil de atingir limites de IOPS ou de produção de armazenamento VM com configuração de armazenamento |
+| Armazenamento ultra disco | [Tamanhos para LMs Linux em Azure](../../sizes.md) | [Tamanhos para VMs windows em Azure](../../sizes.md) | Fácil de atingir limites de IOPS ou de produção de armazenamento VM com configuração de armazenamento |
+| Azure NetApp Files | [Tamanhos para LMs Linux em Azure](../../sizes.md) | [Tamanhos para VMs windows em Azure](../../sizes.md) | O tráfego de armazenamento está a utilizar largura de banda de produção de rede e não largura de banda de armazenamento! |
 
 Como limitações, pode notar que:
 

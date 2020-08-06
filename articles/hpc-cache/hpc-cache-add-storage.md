@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.author: v-erkel
-ms.openlocfilehash: 7ad910823c4dd2430aeae085dd8e510fcd42c80f
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 585ea3b5ddd16acb9af83c1c1e0e4aa6ca9e631a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532599"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826709"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
 
@@ -112,7 +112,7 @@ Quando terminar, clique **em OK** para adicionar o alvo de armazenamento.
 
 ### <a name="add-the-access-control-roles-to-your-account"></a>Adicione as funções de controlo de acesso à sua conta
 
-A Azure HPC Cache utiliza [o controlo de acesso baseado em funções (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) para autorizar o serviço de cache a aceder à sua conta de armazenamento para alvos de armazenamento Azure Blob.
+A Azure HPC Cache utiliza [o controlo de acesso baseado em funções Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) para autorizar o serviço de cache a aceder à sua conta de armazenamento para alvos de armazenamento Azure Blob.
 
 O proprietário da conta de armazenamento deve adicionar explicitamente as funções [Contribuidor de Conta de Armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) e Colaborador de [Dados blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) para o utilizador "HPC Cache Resource Provider".
 
@@ -147,7 +147,7 @@ Passos para adicionar os papéis do Azure:
 
 Antes de adicionar um alvo de armazenamento de bolhas, verifique se a cache tem as funções corretas para aceder à conta de armazenamento, e que as definições de firewall permitirão a criação do alvo de armazenamento.
 
-A Azure HPC Cache utiliza [o controlo de acesso baseado em funções (RBAC)](../role-based-access-control/index.yml) para autorizar o serviço de cache a aceder à sua conta de armazenamento para alvos de armazenamento Azure Blob.
+A Azure HPC Cache utiliza [o controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/index.yml) para autorizar o serviço de cache a aceder à sua conta de armazenamento para alvos de armazenamento Azure Blob.
 
 O proprietário da conta de armazenamento deve adicionar explicitamente as funções [Contribuidor de Conta de Armazenamento](../role-based-access-control/built-in-roles.md#storage-account-contributor) e Colaborador de [Dados blob de armazenamento](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) para o utilizador "HPC Cache Resource Provider".
 
@@ -220,9 +220,9 @@ Esta tabela resume as diferenças do modelo de utilização:
 
 | Modelo de utilização                   | Modo caching | Verificação de back-end | Atraso máximo de desatrada |
 |-------------------------------|--------------|-----------------------|--------------------------|
-| Leia escritos pesados e pouco frequentes | Ler         | Nunca                 | Nenhuma                     |
+| Leia escritos pesados e pouco frequentes | Ler         | Nunca                 | Nenhum                     |
 | Mais de 15% escreve       | Leitura/escrita   | Nunca                 | Uma hora                   |
-| Os clientes contornam a cache      | Ler         | 30 segundos            | Nenhuma                     |
+| Os clientes contornam a cache      | Ler         | 30 segundos            | Nenhum                     |
 
 ### <a name="create-an-nfs-storage-target"></a>Criar um alvo de armazenamento NFS
 

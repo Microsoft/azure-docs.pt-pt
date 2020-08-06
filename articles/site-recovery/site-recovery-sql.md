@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5fa591530e92682c582b5929240e74a5430fb559
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 1b02b089fea7e883bdc6c58c7a2845af12b50a37
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534996"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824533"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configurar a recuperação de desastres para o SQL Server
 
@@ -48,7 +48,7 @@ SQL Server em um Azure IaaS VM ou no local.| Replicação com recuperação do l
 > * Certifique-se de que a taxa de alteração de dados observada na máquina está dentro [dos limites de Recuperação do Local](vmware-physical-azure-support-matrix.md#churn-limits). A taxa de variação é medida em bytes de escrita por segundo. Para as máquinas que executam o Windows, pode ver esta taxa de alteração selecionando o separador **Desempenho** no Gestor de Tarefas. Observe a velocidade de escrita de cada disco.
 > * A Recuperação do Site suporta a replicação de Instâncias de Cluster Failover em Espaços de Armazenamento Direto. Para saber mais, consulte [como ativar a replicação direta dos Espaços de Armazenamento.](azure-to-azure-how-to-enable-replication-s2d-vms.md)
 > 
-> Quando migrar a sua carga de trabalho SQL para Azure, é aconselhável aplicar as diretrizes de desempenho do [SQL Server em Máquinas Virtuais Azure](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices).
+> Quando migrar a sua carga de trabalho SQL para Azure, é aconselhável aplicar as diretrizes de desempenho do [SQL Server em Máquinas Virtuais Azure](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md).
 
 ## <a name="disaster-recovery-of-an-application"></a>Recuperação de desastres de uma aplicação
 

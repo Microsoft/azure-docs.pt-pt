@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2020
-ms.openlocfilehash: 00b7f675e7dd8fb347399ee7740318e129f12746
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d4398b2bf37ad5dcf60a931f5d4991a3ad00845a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504182"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826539"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilize grupos de falha automática para permitir a falha transparente e coordenada de várias bases de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -135,7 +135,7 @@ Para alcançar a continuidade real do negócio, adicionar redundância de base d
   
 ## <a name="permissions"></a>Permissões
 
-As permissões para um grupo de failover são geridas através [do controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md). A [função sql Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor) tem todas as permissões necessárias para gerir grupos de failover.
+As permissões para um grupo de failover são geridas através do [controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md). A [função sql Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor) tem todas as permissões necessárias para gerir grupos de failover.
 
 ### <a name="create-failover-group"></a>Criar grupo de failover
 

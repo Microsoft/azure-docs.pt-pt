@@ -1,7 +1,7 @@
 ---
 title: Redundância de dados
 titleSuffix: Azure Storage
-description: Os dados na sua conta de Armazenamento Microsoft Azure são replicados para durabilidade e alta disponibilidade. As configurações de despedimento incluem armazenamento localmente redundante (LRS), armazenamento redundante de zona (ZRS), armazenamento geo-redundante (GRS), armazenamento geo-redundante de acesso à leitura (RA-GRS), armazenamento redundante de zonas geo-zona (GZRS) e armazenamento de zonas de acesso à leitura redundantes (RA-GZRS).
+description: Compreenda a redundância de dados no Azure Storage. Os dados na sua conta de Armazenamento Microsoft Azure são replicados para durabilidade e alta disponibilidade.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,12 @@ ms.date: 07/21/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e4ec4925da40cf6051b88d77fbbc35d93ececf87
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8fa775ab4d183d75fef41529a95555fe3bcdc91c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036731"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827848"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância de armazenamento Azure
 
@@ -164,7 +164,7 @@ A tabela a seguir indica se os seus dados são duráveis e disponíveis num dete
 | Cenário de paralisação | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
 | Um nó dentro de um centro de dados torna-se indisponível | Sim | Sim | Sim | Sim |
-| Um centro de dados inteiro (zonal ou não-zonal) torna-se indisponível | No | Yes | Sim<sup>1</sup> | Yes |
+| Um centro de dados inteiro (zonal ou não-zonal) torna-se indisponível | Não | Sim | Sim<sup>1</sup> | Sim |
 | Uma paralisação em toda a região ocorre na região primária | Não | Não | Sim<sup>1</sup> | Sim<sup>1</sup> |
 | Leia o acesso à região secundária disponível se a região primária ficar indisponível | Não | Não | Sim (com RA-GRS) | Sim (com RA-GZRS) |
 

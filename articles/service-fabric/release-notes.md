@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 08808fa0577077b642d0f21e3995931726d4d8a3
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 8a9ca656ec102a101df9aafb87652680a1001f31
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423546"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826284"
 ---
 # <a name="service-fabric-releases"></a>Lançamentos de tecido de serviço
 
@@ -51,9 +51,9 @@ Estamos entusiasmados por anunciar o próximo lançamento da Service Fabric. Est
 ### <a name="improve-application-life-cycle-experience"></a>Melhorar a experiência do ciclo de vida da aplicação
 
 - **[Pré-visualização:Pedido de drenagem](./service-fabric-application-upgrade-advanced.md#avoid-connection-drops-during-stateless-service-planned-downtime)**: Durante a manutenção planeada do serviço, tais como atualizações de serviço ou desativação de nó, gostaria de permitir que os serviços drene graciosamente as ligações. Esta função adiciona uma duração de atraso de proximidade de instância na configuração do serviço. Durante as operações planeadas, a SF removerá o endereço do Serviço da descoberta e, em seguida, esperará esta duração antes de desligar o serviço.
-- **[Deteção e equilíbrio automáticos do subclusão:](/azure/service-fabric/cluster-resource-manager-subclustering )** A subclustering acontece quando os serviços com diferentes restrições de colocação têm uma [métrica](./service-fabric-cluster-resource-manager-metrics.md)de carga comum . Se a carga nos diferentes conjuntos de nós diferir significativamente, o Service Fabric Cluster Resource Manager acredita que o cluster está desequilibrado, mesmo quando tem o melhor equilíbrio possível devido às restrições de colocação. Como resultado, tenta reequilibrar o cluster, potencialmente causando movimentos de serviço desnecessários (uma vez que o "desequilíbrio" não pode ser substancialmente melhorado). A partir desta versão, o Cluster Resource Manager tentará agora detetar automaticamente este tipo de configurações e compreender quando o desequilíbrio pode ser corrigido através do movimento, e quando em vez disso deve deixar as coisas em paz, uma vez que não é possível fazer nenhuma melhoria substancial.  
+- **[Deteção e equilíbrio automáticos do subclusão:](./cluster-resource-manager-subclustering.md)** A subclustering acontece quando os serviços com diferentes restrições de colocação têm uma [métrica](./service-fabric-cluster-resource-manager-metrics.md)de carga comum . Se a carga nos diferentes conjuntos de nós diferir significativamente, o Service Fabric Cluster Resource Manager acredita que o cluster está desequilibrado, mesmo quando tem o melhor equilíbrio possível devido às restrições de colocação. Como resultado, tenta reequilibrar o cluster, potencialmente causando movimentos de serviço desnecessários (uma vez que o "desequilíbrio" não pode ser substancialmente melhorado). A partir desta versão, o Cluster Resource Manager tentará agora detetar automaticamente este tipo de configurações e compreender quando o desequilíbrio pode ser corrigido através do movimento, e quando em vez disso deve deixar as coisas em paz, uma vez que não é possível fazer nenhuma melhoria substancial.  
 - [**Custo de Movimento Diferente para réplicas secundárias**](./service-fabric-cluster-resource-manager-movement-cost.md): Introduzimos um novo valor de custo de movimento VeryHigh que proporciona flexibilidade adicional em alguns cenários para definir se um custo de movimento separado deve ser usado para réplicas secundárias.
-- Mecanismo [**de sonda Liveness**](/azure/service-fabric/probes-codepackage ) ativado para aplicações contentorizadas. A Liveness Probe ajuda a anunciar a vivacidade da aplicação contentorizada e quando não respondem em tempo útil, resultará num recomeço.
+- Mecanismo [**de sonda Liveness**](./probes-codepackage.md) ativado para aplicações contentorizadas. A Liveness Probe ajuda a anunciar a vivacidade da aplicação contentorizada e quando não respondem em tempo útil, resultará num recomeço.
 - [**Executar até a conclusão/uma vez para serviços**](./run-to-completion.md)**
 
 ### <a name="image-store-improvements"></a>Melhorias da Loja de Imagens

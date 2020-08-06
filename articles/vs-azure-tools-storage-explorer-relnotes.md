@@ -1,6 +1,6 @@
 ---
 title: Notas de lançamento do Microsoft Azure Storage Explorer
-description: Notas de lançamento para Microsoft Azure Storage Explorer
+description: Leia as notas de lançamento para a versão mais recente do Microsoft Azure Storage Explorer. As notas de lançamento para versões anteriores também são mostradas.
 services: storage
 documentationcenter: na
 author: cawaMS
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 986da8980a569583ef454833957ace85dd1bfbb6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91bc7adaf7829766c471056c50c1c3abd70dda63
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80351063"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828783"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de lançamento do Microsoft Azure Storage Explorer
 
@@ -97,7 +97,7 @@ Para baixar versões anteriores do Storage Explorer, pode visitar a [página de 
 * Se escolher o certificado PIN/Smartcard errado, terá de reiniciar para que o Explorador de Armazenamento esqueça essa decisão.
 * A renomeação de bolhas (individualmente ou dentro de um recipiente de bolhas renomeado) não preserva instantâneos. Todas as outras propriedades e metadados para bolhas, ficheiros e entidades são preservados durante um renome.
 * A Azure Stack não suporta as seguintes funcionalidades. Tentar utilizar estas funcionalidades enquanto trabalha com os recursos do Azure Stack pode resultar em erros inesperados.
-   * Partilhas de Ficheiros
+   * Partilhas de ficheiros
    * Camadas de acesso
    * Eliminação suave
    * ADLS Gen2
@@ -213,7 +213,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
 * Se escolher o certificado PIN/Smartcard errado, terá de reiniciar para que o Explorador de Armazenamento esqueça essa decisão.
 * A renomeação de bolhas (individualmente ou dentro de um recipiente de bolhas renomeado) não preserva instantâneos. Todas as outras propriedades e metadados para bolhas, ficheiros e entidades são preservados durante um renome.
 * A Azure Stack não suporta as seguintes funcionalidades. Tentar utilizar estas funcionalidades enquanto trabalha com os recursos do Azure Stack pode resultar em erros inesperados.
-   * Partilhas de Ficheiros
+   * Partilhas de ficheiros
    * Camadas de acesso
    * Eliminação suave
    * ADLS Gen2
@@ -287,7 +287,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
 * Se escolher o certificado PIN/Smartcard errado, terá de reiniciar para que o Explorador de Armazenamento esqueça essa decisão.
 * A renomeação de bolhas (individualmente ou dentro de um recipiente de bolhas renomeado) não preserva instantâneos. Todas as outras propriedades e metadados para bolhas, ficheiros e entidades são preservados durante um renome.
 * A Azure Stack não suporta as seguintes funcionalidades. Tentar utilizar estas funcionalidades enquanto trabalha com os recursos do Azure Stack pode resultar em erros inesperados.
-   * Partilhas de Ficheiros
+   * Partilhas de ficheiros
    * Camadas de acesso
    * Eliminação suave
    * ADLS Gen2
@@ -346,7 +346,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
 * Se escolher o certificado PIN/Smartcard errado, terá de reiniciar para que o Explorador de Armazenamento esqueça essa decisão.
 * A renomeação de bolhas (individualmente ou dentro de um recipiente de bolhas renomeado) não preserva instantâneos. Todas as outras propriedades e metadados para bolhas, ficheiros e entidades são preservados durante um renome.
 * A Azure Stack não suporta as seguintes funcionalidades. Tentar utilizar estas funcionalidades enquanto trabalha com os recursos do Azure Stack pode resultar em erros inesperados.
-   * Partilhas de Ficheiros
+   * Partilhas de ficheiros
    * Camadas de acesso
    * Eliminação suave
    * ADLS Gen2
@@ -403,7 +403,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
 * Se escolher o certificado PIN/Smartcard errado, terá de reiniciar para que o Explorador de Armazenamento esqueça essa decisão.
 * A renomeação de bolhas (individualmente ou dentro de um recipiente de bolhas renomeado) não preserva instantâneos. Todas as outras propriedades e metadados para bolhas, ficheiros e entidades são preservados durante um renome.
 * A Azure Stack não suporta as seguintes funcionalidades. Tentar utilizar estas funcionalidades enquanto trabalha com os recursos do Azure Stack pode resultar em erros inesperados.
-   * Partilhas de Ficheiros
+   * Partilhas de ficheiros
    * Camadas de acesso
    * Eliminação suave
    * ADLS Gen2
@@ -455,7 +455,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
 * Se escolher o certificado PIN/Smartcard errado, terá de reiniciar para que o Explorador de Armazenamento esqueça essa decisão.
 * A renomeação de bolhas (individualmente ou dentro de um recipiente de bolhas renomeado) não preserva instantâneos. Todas as outras propriedades e metadados para bolhas, ficheiros e entidades são preservados durante um renome.
 * A Azure Stack não suporta as seguintes funcionalidades. Tentar utilizar estas funcionalidades enquanto trabalha com os recursos do Azure Stack pode resultar em erros inesperados.
-   * Partilhas de Ficheiros
+   * Partilhas de ficheiros
    * Camadas de acesso
    * Eliminação suave
    * ADLS Gen2
@@ -512,7 +512,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
 * Se escolher o certificado PIN/Smartcard errado, terá de reiniciar para que o Explorador de Armazenamento esqueça essa decisão.
 * A renomeação de bolhas (individualmente ou dentro de um recipiente de bolhas renomeado) não preserva instantâneos. Todas as outras propriedades e metadados para bolhas, ficheiros e entidades são preservados durante um renome.
 * A Azure Stack não suporta as seguintes funcionalidades. Tentar utilizar estas funcionalidades enquanto trabalha com os recursos do Azure Stack pode resultar em erros inesperados.
-   * Partilhas de Ficheiros
+   * Partilhas de ficheiros
    * Camadas de acesso
    * Eliminação suave
 * A concha electron utilizada pelo Storage Explorer tem problemas com alguma aceleração de hardware gpu (unidade de processamento de gráficos). Se o Storage Explorer apresentar uma janela principal em branco (vazia), pode tentar lançar o Storage Explorer a partir da linha de comando e desativar a aceleração da GPU adicionando o `--disable-gpu` interruptor:
@@ -584,7 +584,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
 * Se escolher o certificado PIN/Smartcard errado, terá de reiniciar para que o Explorador de Armazenamento esqueça essa decisão.
 * A renomeação de bolhas (individualmente ou dentro de um recipiente de bolhas renomeado) não preserva instantâneos. Todas as outras propriedades e metadados para bolhas, ficheiros e entidades são preservados durante um renome.
 * A Azure Stack não suporta as seguintes funcionalidades. Tentar utilizar estas funcionalidades enquanto trabalha com os recursos do Azure Stack pode resultar em erros inesperados.
-   * Partilhas de Ficheiros
+   * Partilhas de ficheiros
    * Camadas de acesso
    * Eliminação suave
 * A concha electron utilizada pelo Storage Explorer tem problemas com alguma aceleração de hardware gpu (unidade de processamento de gráficos). Se o Storage Explorer apresentar uma janela principal em branco (vazia), pode tentar lançar o Storage Explorer a partir da linha de comando e desativar a aceleração da GPU adicionando o `--disable-gpu` interruptor:
@@ -653,7 +653,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
 * Se escolher o certificado PIN/Smartcard errado, terá de reiniciar para que o Explorador de Armazenamento esqueça essa decisão.
 * A renomeação de bolhas (individualmente ou dentro de um recipiente de bolhas renomeado) não preserva instantâneos. Todas as outras propriedades e metadados para bolhas, ficheiros e entidades são preservados durante um renome.
 * A Azure Stack não suporta as seguintes funcionalidades. Tentar utilizar estas funcionalidades enquanto trabalha com os recursos do Azure Stack pode resultar em erros inesperados.
-   * Partilhas de Ficheiros
+   * Partilhas de ficheiros
    * Camadas de acesso
    * Eliminação suave
 * A concha electron utilizada pelo Storage Explorer tem problemas com alguma aceleração de hardware gpu (unidade de processamento de gráficos). Se o Storage Explorer apresentar uma janela principal em branco (vazia), pode tentar lançar o Storage Explorer a partir da linha de comando e desativar a aceleração da GPU adicionando o `--disable-gpu` interruptor:
@@ -708,7 +708,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
 * Se escolher o certificado PIN/Smartcard errado, terá de reiniciar para que o Explorador de Armazenamento esqueça essa decisão.
 * A renomeação de bolhas (individualmente ou dentro de um recipiente de bolhas renomeado) não preserva instantâneos. Todas as outras propriedades e metadados para bolhas, ficheiros e entidades são preservados durante um renome.
 * A Azure Stack não suporta as seguintes funcionalidades. Tentar utilizar estas funcionalidades enquanto trabalha com os recursos do Azure Stack pode resultar em erros inesperados.
-   * Partilhas de Ficheiros
+   * Partilhas de ficheiros
    * Camadas de acesso
    * Eliminação suave
 * A concha electron utilizada pelo Storage Explorer tem problemas com alguma aceleração de hardware gpu (unidade de processamento de gráficos). Se o Storage Explorer apresentar uma janela principal em branco (vazia), pode tentar lançar o Storage Explorer a partir da linha de comando e desativar a aceleração da GPU adicionando o `--disable-gpu` interruptor:
@@ -772,7 +772,7 @@ Finalmente, o suporte para a utilização do AzCopy com ações de ficheiros vir
 * Se escolher o certificado PIN/Smartcard errado, terá de reiniciar para que o Explorador de Armazenamento esqueça essa decisão.
 * A renomeação de bolhas (individualmente ou dentro de um recipiente de bolhas renomeado) não preserva instantâneos. Todas as outras propriedades e metadados para bolhas, ficheiros e entidades são preservados durante um renome.
 * A Azure Stack não suporta as seguintes funcionalidades. Tentar utilizar estas funcionalidades enquanto trabalha com os recursos do Azure Stack pode resultar em erros inesperados.
-   * Partilhas de Ficheiros
+   * Partilhas de ficheiros
    * Camadas de acesso
    * Eliminação suave
 * A concha electron utilizada pelo Storage Explorer tem problemas com alguma aceleração de hardware gpu (unidade de processamento de gráficos). Se o Storage Explorer apresentar uma janela principal em branco (vazia), pode tentar lançar o Storage Explorer a partir da linha de comando e desativar a aceleração da GPU adicionando o `--disable-gpu` interruptor:
@@ -1057,7 +1057,7 @@ Finalmente, o suporte para a utilização do AzCopy com ações de ficheiros vir
 * Se escolher o certificado PIN/Smartcard errado, terá de reiniciar para que o Explorador de Armazenamento esqueça essa decisão.
 * A renomeação de bolhas (individualmente ou dentro de um recipiente de bolhas renomeado) não preserva instantâneos. Todas as outras propriedades e metadados para bolhas, ficheiros e entidades são preservados durante um renome.
 * O Azure Stack não suporta as seguintes funcionalidades, e tentar usá-las enquanto trabalha com a Azure Stack pode resultar em erros inesperados:
-   * Partilhas de Ficheiros
+   * Partilhas de ficheiros
    * Camadas de acesso
    * Eliminação suave
 * A concha electron utilizada pelo Storage Explorer tem problemas com alguma aceleração de hardware gpu (unidade de processamento de gráficos). Se o Storage Explorer apresentar uma janela principal em branco (vazia), pode tentar lançar o Storage Explorer a partir da linha de comando e desativar a aceleração da GPU adicionando o `--disable-gpu` interruptor:

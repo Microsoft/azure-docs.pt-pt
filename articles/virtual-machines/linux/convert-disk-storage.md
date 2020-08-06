@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 51ebecf784b7a3ec38f84703a74e96d277afa70c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf16ee0af1c5816822f6a201ad1d5a70127082db
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658206"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825383"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>Converter o armazenamento de discos geridos da Azure de Standard a Premium ou Premium para Standard
 
@@ -30,7 +30,7 @@ Este artigo mostra como converter discos geridos de Standard a Premium ou Premiu
 
 ## <a name="switch-all-managed-disks-of-a-vm-between-premium-and-standard"></a>Altere todos os discos geridos de um VM entre Premium e Standard
 
-Este exemplo mostra como converter todos os discos de um VM do armazenamento Standard para Premium ou do armazenamento Premium para Standard. Para utilizar discos geridos Premium, o seu VM deve utilizar um [tamanho VM](sizes.md) que suporte o armazenamento Premium. Este exemplo também muda para um tamanho que suporta o armazenamento Premium.
+Este exemplo mostra como converter todos os discos de um VM do armazenamento Standard para Premium ou do armazenamento Premium para Standard. Para utilizar discos geridos Premium, o seu VM deve utilizar um [tamanho VM](../sizes.md) que suporte o armazenamento Premium. Este exemplo também muda para um tamanho que suporta o armazenamento Premium.
 
  ```azurecli
 
@@ -67,7 +67,7 @@ az vm start --name $vmName --resource-group $rgName
 ```
 ## <a name="switch-individual-managed-disks-between-standard-and-premium"></a>Altere discos geridos individuais entre Standard e Premium
 
-Para a sua carga de trabalho de dev/teste, talvez queira ter uma mistura de discos Standard e Premium para reduzir os seus custos. Pode optar por atualizar apenas os discos que precisam de um melhor desempenho. Este exemplo mostra como converter um único disco VM de standard para armazenamento Premium ou de armazenamento Premium para Standard. Para utilizar discos geridos Premium, o seu VM deve utilizar um [tamanho VM](sizes.md) que suporte o armazenamento Premium. Este exemplo também muda para um tamanho que suporta o armazenamento Premium.
+Para a sua carga de trabalho de dev/teste, talvez queira ter uma mistura de discos Standard e Premium para reduzir os seus custos. Pode optar por atualizar apenas os discos que precisam de um melhor desempenho. Este exemplo mostra como converter um único disco VM de standard para armazenamento Premium ou de armazenamento Premium para Standard. Para utilizar discos geridos Premium, o seu VM deve utilizar um [tamanho VM](../sizes.md) que suporte o armazenamento Premium. Este exemplo também muda para um tamanho que suporta o armazenamento Premium.
 
  ```azurecli
 
@@ -129,7 +129,7 @@ az vm start --ids $vmId
 
 ## <a name="switch-managed-disks-between-standard-and-premium-in-azure-portal"></a>Switch geriu discos entre Standard e Premium no portal Azure
 
-Siga estes passos.
+Siga estes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione o VM da lista de **máquinas Virtuais.**
@@ -142,6 +142,6 @@ Siga estes passos.
 
 A atualização do tipo de disco é instantânea. Pode reiniciar o seu VM após a conversão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Faça uma cópia apenas de leitura de um VM utilizando [instantâneos](snapshot-copy-managed-disk.md).

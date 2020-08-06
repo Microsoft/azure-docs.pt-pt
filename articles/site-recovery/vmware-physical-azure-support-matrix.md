@@ -3,12 +3,12 @@ title: Matriz de suporte para vMware/recuperação de desastres físicos na recu
 description: Resume o suporte para a recuperação de desastres de VMware VMs e servidor físico para Azure usando a Recuperação do Site Azure.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 56c86993e4e98764bc7e3ce04180f9e870cc612d
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 595f12f9204dff58af0bfebb60402cc89ffb386a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87458030"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826250"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastres de VMware VMs e servidores físicos para Azure
 
@@ -229,7 +229,7 @@ Guest/server - excluir o disco | Sim
 Multipata de hóspedes/servidores (MPIO) | Não
 Divisórias GPT de hóspedes/servidor | Cinco divisórias são suportadas a partir do [Update Rollup 37](https://support.microsoft.com/help/4508614/) (versão 9.25 do serviço mobility) em diante. Anteriormente quatro foram apoiados.
 ReFS | O Sistema de Ficheiros Resiliente é suportado com a versão 9.23 ou superior do serviço de mobilidade
-Bota EFI/UEFI de hóspedes/servidor | - Suportado para todos os [OSes uefi do mercado Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-images-in-azure-marketplace) com a versão 9.30 do agente de mobilidade de recuperação do local. <br/> - O tipo de arranque UEFI seguro não é suportado. [Saiba mais.](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#on-premises-vs-azure-generation-2-vms)
+Bota EFI/UEFI de hóspedes/servidor | - Suportado para todos os [OSes uefi do mercado Azure](../virtual-machines/windows/generation-2.md#generation-2-vm-images-in-azure-marketplace) com a versão 9.30 do agente de mobilidade de recuperação do local. <br/> - O tipo de arranque UEFI seguro não é suportado. [Saiba mais.](../virtual-machines/windows/generation-2.md#on-premises-vs-azure-generation-2-vms)
 
 ## <a name="replication-channels"></a>Canais de replicação
 
