@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 61592ee8ad5991c9540f5b418cafe2441ab4d3ea
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2b12eb88f0297c44fabb62e40d315517f3d3b954
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317736"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800359"
 ---
 # <a name="create-a-saas-offer"></a>Criar uma oferta SaaS
 
@@ -282,12 +282,16 @@ Este campo é obrigatório.
 #### <a name="files-and-images"></a>Ficheiros e Imagens
 
 - **Documentos** (obrigatórios) – Adicione documentos de marketing relacionados para a sua oferta, em formato PDF, de pelo menos um e até três documentos por oferta.
-- **Imagens** (opcional) – Existem vários locais onde as imagens de logótipo da sua oferta podem aparecer em todo o mercado, requerendo os seguintes tamanhos de pixel em formato PNG:
+- **Imagens** (necessárias) – Existem vários locais onde as imagens do logotipo da sua oferta podem aparecer em todo o mercado. Forneça um ficheiro PNG para o logotipo de tamanho **grande** (entre 216 x 216 e 350 x 350 pixels). O Partner Center utilizará isto para criar um logótipo de tamanho **Pequeno** (48 x 48 pixels) e um logotipo de tamanho **Médio** (90 x 90 pixels). Pode substituir opcionalmente estas imagens diferentes. Adicionar um logotipo **Wide** é opcional.
 
-  - **Pequeno** (48 x 48, necessário)
-  - **Médio** (90 x 90, necessário)
-  - **Grande** (216 x 216, necessário)
-  - **Largo** (255 x 115)
+    São necessários três tamanhos de logotipo para utilização em diferentes locais da listagem; uma é opcional:
+
+    - **Pequeno** (48 x 48)
+    - **Médio** (90 x 90)
+    - **Grande** (entre 216 x 216 e 350 x 350)
+    - **Largo** (255 x 115), *opcional*
+
+    [!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 - **Screenshots** (obrigatórios) – Adicione um máximo de cinco imagens que demonstrem a sua oferta, dimensionadas a 1280 x 720 pixels. Todas as imagens devem estar dentro . Formato PNG.
 - **Vídeos** (opcional) – Adicione links a vídeos que demonstrem a sua oferta. Pode utilizar links para vídeos do YouTube e/ou Vimeo, que são mostrados juntamente com a sua oferta aos clientes. Também terá de introduzir uma imagem miniatura do vídeo, dimensionada para 1280 x 720 pixels em formato PNG. Pode exibir um máximo de quatro vídeos por oferta.

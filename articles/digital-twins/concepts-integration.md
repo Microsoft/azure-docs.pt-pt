@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 9c7c1000ed5229886d4a964161042eca6517c230
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: d0bca2ad14216873836c751dc002ea915baa3a66
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367441"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800488"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integre a Azure Digital Twins com outros serviços
 
@@ -33,7 +33,7 @@ A Azure Digital Twins pode enviar dados para **pontos finais conectados**. Os po
 * [Event Grid](../event-grid/overview.md)
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
-Os pontos finais são anexados a Azure Digital Twins utilizando APIs de gestão ou o portal Azure. Saiba mais sobre como anexar um ponto final às Gémeas Digitais Azure em [*Como-a: Gerir pontos finais e rotas*](how-to-manage-routes.md).
+Os pontos finais são anexados a Azure Digital Twins utilizando APIs de gestão ou o portal Azure. Saiba mais sobre como anexar um ponto final às Gémeas Digitais Azure em [*Como-a: Gerir pontos finais e rotas*](how-to-manage-routes-apis-cli.md).
 
 Existem muitos outros serviços onde poderá querer, em última análise, direcionar os seus dados, tais como [Azure Storage](../storage/common/storage-introduction.md) ou [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md). Para enviar os seus dados para serviços como estes, anexe o serviço de destino a um ponto final.
 

@@ -2,7 +2,7 @@
 title: Armazenamento de dados de identidade para clientes australianos e neozelandeses - Azure AD
 description: Saiba onde o Azure Ative Directory armazena dados relacionados com a identidade para os seus clientes australianos.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.author: ajburnle
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 850298719d5636e964b0c338d7a2a4cc9bb8aece
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 97d651a1a6ce8ef412c148f16d0aa4412df94cb0
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77370288"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799553"
 ---
 # <a name="identity-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>Armazenamento de dados de identidade para clientes australianos e neozelandeses em Azure Ative Directory
 
@@ -36,6 +36,6 @@ Todos os outros serviços AZure AD armazenam dados de clientes em datacenters gl
 
 MFA armazena Dados de Clientes de Identidade em datacenters globais. Para saber mais sobre as informações do utilizador recolhidas e armazenadas pelo Azure MFA e pelo Azure MFA Server, consulte [a recolha de dados do utilizador Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-data-residency).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre qualquer uma das funcionalidades e funcionalidades acima descritas, consulte estes artigos:
 - [What is Multi-Factor Authentication?](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication) (O que é o Multi-Factor Authentication)

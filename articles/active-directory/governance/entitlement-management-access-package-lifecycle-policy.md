@@ -3,7 +3,7 @@ title: Alterar as definições do ciclo de vida para um pacote de acesso na gest
 description: Saiba como alterar as definições do ciclo de vida para um pacote de acesso na gestão de direitos do Azure Ative Directory.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 538ed31c1f3bbca8c2151a6ac0d2a3ad561bc6a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c628c3c1f11cb973176e7a689856b64177036c9
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078779"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798703"
 ---
 # <a name="change-lifecycle-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Alterar as definições do ciclo de vida para um pacote de acesso na gestão de direitos Ad Azure
 
@@ -53,6 +53,6 @@ Para alterar as definições do ciclo de vida para um pacote de acesso, é neces
 
 [!INCLUDE [Entitlement management lifecycle policy](../../../includes/active-directory-entitlement-management-lifecycle-policy.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Alterar as definições de pedido e aprovação para um pacote de acesso](entitlement-management-access-package-request-policy.md)

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: bb1de5d51afd01cf0aa519f12aa3665bee804efd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1060cbf1b2204c3feba413b8c8ce0cba58941c6
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79471681"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799128"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Suporte de protocolo para cabeçalhos HTTP na Porta frontal Azure
 Este artigo descreve o protocolo que a Porta frontal suporta com partes do caminho de chamada (ver imagem). As seguintes secções fornecem mais informações sobre cabeçalhos HTTP suportados pela Porta frontal.
@@ -44,6 +44,7 @@ A Porta frontal inclui cabeçalhos de um pedido de entrada, a menos que seja rem
 | X-Forward-Forward-Host | X-Forward-Host: contoso.azurefd.net </br> O campo de cabeçalho HTTP X-Forwarded-Host é um método comum utilizado para identificar o anfitrião original solicitado pelo cliente no cabeçalho de pedido HTTP do anfitrião. Isto porque o nome de anfitrião da Porta Frontal pode diferir para o servidor backend que manusece o pedido. |
 | X-Forwarded-Proto | X-Forwarded-Proto: http </br> O campo de cabeçalho X-Forwardd-Proto HTTP é frequentemente utilizado para identificar o protocolo de origem de um pedido HTTP porque a Porta Frontal, com base na configuração, pode comunicar com o backend utilizando HTTPS. Isto é verdade mesmo que o pedido para o representante inverso seja HTTP. |
 | X-FD-HealthProbe | O campo de cabeçalho X-FD-HealthProbe HTTP é utilizado para identificar a sonda de saúde da Porta frontal. Se este cabeçalho estiver definido para 1, o pedido é sonda de saúde. Pode utilizar quando pretender aceder rigorosamente a partir de uma porta frontal específica com o campo de cabeçalho X-Forwarded-Host. |
+|X-Azure-FDID | Cabeçalho X-Azure-FDID: 437c82cd-360a-4a54-94c3-5ff707647783 </br> Este campo contém frontdoorID que pode ser usado para identificar de que porta frontal é o pedido de entrada. Este campo é povoado pelo serviço Front Door. | 
 
 ## <a name="front-door-to-client"></a>Porta da frente para o cliente
 
@@ -53,7 +54,7 @@ Quaisquer cabeçalhos enviados para a Porta da Frente a partir do backend també
 | ------------- | ------------- |
 | X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOJBV2NT4TY6SQVJC0zV1NURURHRTA2MTKANDM3YzgyY2QtMzYwYS0YTU0LTU0LT0YZMTNHMNzA3NjQ3Nzgz* </br> Esta é uma cadeia de referência única que identifica um pedido servido pela Porta da Frente. Isto é fundamental para a resolução de problemas, uma vez que é usado para pesquisar registos de acesso.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma Porta de Entrada](quickstart-create-front-door.md)
 - [Como funciona a Porta da Frente](front-door-routing-architecture.md)

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: eb4a150a1680dd4101249458894ded652cde15a0
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: a1a99e9f02a25f5e1d57ea485930a4f26149b53f
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87338049"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808410"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Quickstart: Configure propriedades para uma aplicação no seu inquilino Azure Ative (Azure AD)
 
@@ -95,9 +95,17 @@ Para utilizar um logótipo personalizado:
    > [!NOTE]
    > A miniatura exibida neste painel **de propriedades** não atualiza imediatamente. Pode fechar e reabrir o painel **de propriedades** para ver o ícone atualizado.
 
+
+> [!TIP]
+> Pode automatizar a gestão de aplicações utilizando a API do Gráfico, ver [Gestão de aplicações do Automamate com a Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Se não vai continuar com a série quickstart, então considere apagar a app para limpar o seu inquilino de teste. A eliminação da aplicação é abrangida pelo último quickstart desta série, ver [Delete uma aplicação](delete-application-portal.md).
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que configuraste as propriedades de uma aplicação, podes continuar a configurar uma única inscrição.
-
-- [Configurar o início de sessão único](add-application-portal-setup-sso.md)
-- [Eliminar uma aplicação](delete-application-portal.md)
+Avance para o próximo artigo para aprender a configurar um único sº de sôs-on para uma aplicação.
+> [!div class="nextstepaction"]
+> [Configurar o início de sessão único](add-application-portal-setup-sso.md)

@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - tracking-python
 - devx-track-azurecli
-ms.openlocfilehash: dfc7cf0a0d3b46020d94e86a3158b1e0cbf6ea5f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0ab19e538d2ffb97f9bb80c47f9ce5471bdb87a9
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87485291"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799469"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Implementar uma aplicação web Django com PostgreSQL no Azure App Service
 
@@ -31,6 +31,9 @@ Neste tutorial, você usa o CLI Azure para completar as seguintes tarefas:
 > * Atualize o seu código e reimplante
 > * Ver registos de diagnóstico
 > * Gerir a aplicação web no portal Azure
+
+Também pode utilizar a [versão do portal Azure deste tutorial.](/azure/developer/python/tutorial-python-postgresql-app-portal)
+
 
 ## <a name="set-up-your-initial-environment"></a>Configurar o seu ambiente inicial
 
@@ -403,7 +406,7 @@ Por predefinição, o portal mostra a página **geral** da sua aplicação, que 
 
 ![Gerencie a sua app Python Django na página Overview no portal Azure](./media/tutorial-python-postgresql-app/manage-django-app-in-app-services-in-the-azure-portal.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se quiser manter a app ou continuar até ao próximo tutorial, avance para os [próximos passos](#next-steps). Caso contrário, para evitar incorrer em encargos em curso, pode eliminar o grupo de recursos criado para este tutorial:
 

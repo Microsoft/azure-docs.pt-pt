@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 1a349883c8144aaff4aed70ba46ad0eaab04fe69
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 402eda92d5cc8e5c2566345d31c9ae625b82695c
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388442"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809408"
 ---
-# <a name="troubleshooting-azure-digital-twins-with-diagnostics-logging"></a>Resolução de problemas Azure Digital Twins com registo de diagnósticos
+# <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Resolução de problemas Azure Digital Twins: Registo de diagnósticos
 
-A Azure Digital Twins recolhe [métricas](how-to-view-metrics.md) para a sua instância de serviço que dão informações sobre o estado dos seus recursos. Você pode usar estas métricas para avaliar a saúde geral do serviço Azure Digital Twins e os recursos ligados a ele. Estas estatísticas viradas para o utilizador ajudam-no a ver o que se passa com as suas Gémeas Digitais Azure e ajudam a realizar análises de causa-raiz em problemas sem necessidade de contactar o suporte do Azure.
+A Azure Digital Twins recolhe [métricas](troubleshoot-metrics.md) para a sua instância de serviço que dão informações sobre o estado dos seus recursos. Você pode usar estas métricas para avaliar a saúde geral do serviço Azure Digital Twins e os recursos ligados a ele. Estas estatísticas viradas para o utilizador ajudam-no a ver o que se passa com as suas Gémeas Digitais Azure e ajudam a realizar análises de causa-raiz em problemas sem necessidade de contactar o suporte do Azure.
 
 Este artigo mostra-lhe como ligar **o registo de diagnósticos** para os seus dados de métricas a partir da sua instância Azure Digital Twins. Pode utilizar estes registos para ajudá-lo a resolver problemas de serviço.
 
@@ -26,7 +26,7 @@ Este artigo mostra-lhe como ligar **o registo de diagnósticos** para os seus da
 
 2. Selecione **as definições** de diagnóstico do menu e, em seguida, **adicione a definição de diagnóstico**.
 
-    :::image type="content" source="media/how-to-view-metrics/diagnostic-settings.png" alt-text="Screenshot mostrando a página e botão de definições de diagnóstico para adicionar":::
+    :::image type="content" source="media/troubleshoot-metrics/diagnostic-settings.png" alt-text="Screenshot mostrando a página e botão de definições de diagnóstico para adicionar":::
 
 3. Na página que se segue, preencha os seguintes valores:
      * **Nome de definição de**diagnóstico : Dê um nome às definições de diagnóstico.
@@ -49,7 +49,7 @@ Este artigo mostra-lhe como ligar **o registo de diagnósticos** para os seus da
 
 As novas definições fazem efeito em cerca de 10 minutos. Depois disso, os registos aparecem no alvo configurado de volta na página **de definições de Diagnóstico,** para o seu exemplo. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre a configuração de diagnósticos, consulte [*recolher e consumir dados de registo dos seus recursos Azure.*](../azure-monitor/platform/platform-logs-overview.md)
-* Para obter informações sobre as métricas Azure Digital Twins, consulte [*Como fazer: Ver métricas com o Azure Monitor*](how-to-view-metrics.md).
+* Para obter informações sobre as métricas Azure Digital Twins, consulte [*resolução de problemas: Ver métricas com O Monitor Azure*](troubleshoot-metrics.md).

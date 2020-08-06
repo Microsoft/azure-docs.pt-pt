@@ -2,7 +2,7 @@
 title: Planos de implantação - Azure Ative Directory / Microsoft Docs
 description: Orientação de ponta a ponta sobre como implementar muitas capacidades do Azure Ative Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c439bbded7fe55f1edd5eb1597f98b339e340956
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d839fc71992802e9ee2b6a66d0bc407c5caaecf
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386339"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799062"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Planos de implementação do Azure Active Directory
 Procura orientação de ponta a ponta sobre a implementação de capacidades do Azure Ative Directory (Azure AD) ? Os planos de implementação da AD AZure percorrem o valor do negócio, as considerações de planeamento e os procedimentos operacionais necessários para implementar com sucesso as capacidades comuns da AD Azure.
@@ -81,7 +81,7 @@ O alargamento do lançamento a grupos maiores de utilizadores deve ser efetuado 
 | -| -|
 | [ADFS para Sincronização Hash de Palavras-passe](../hybrid/plan-migrate-adfs-password-hash-sync.md)| Com a sincronização de Hash Password, as hashes de senhas de utilizador são sincronizadas desde o Ative Directy no local até ao Azure AD, permitindo que o Azure AD autente os utilizadores sem qualquer interação com o Ative Directory no local |
 | [ADFS para Autenticação Pass-through](../hybrid/plan-migrate-adfs-pass-through-authentication.md)| A Azure AD AD Authentication ajuda os seus utilizadores a iniciar súmis tanto no local como em aplicações baseadas na nuvem usando as mesmas palavras-passe. Esta funcionalidade proporciona aos utilizadores uma melhor experiência - uma palavra-passe a menos para se lembrarem - e reduz os custos de IT helpdesk porque os utilizadores são menos propensos a esquecer como fazer o s. Quando as pessoas iniciam sessão com o Azure AD, esta funcionalidade valida as respetivas palavras-passe diretamente no seu Active Directory no local. |
-| [Proxy de Aplicações do Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-deployment-plan) |Os colaboradores dos nossos dias querem ser produtivos em qualquer sítio, em qualquer altura e em qualquer dispositivo. Precisam de aceder a aplicações SaaS na nuvem e aplicações corporativas no local. O proxy da Azure AD Application permite este acesso robusto sem redes privadas virtuais (VPNs) ou zonas desmilitarizadas (DMZs). |
+| [Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-deployment-plan) |Os colaboradores dos nossos dias querem ser produtivos em qualquer sítio, em qualquer altura e em qualquer dispositivo. Precisam de aceder a aplicações SaaS na nuvem e aplicações corporativas no local. O proxy da Azure AD Application permite este acesso robusto sem redes privadas virtuais (VPNs) ou zonas desmilitarizadas (DMZs). |
 | [SSO totalmente integrado](../hybrid/how-to-connect-sso-quick-start.md)| O Início de Sessão Único Totalmente Integrado do Azure Active Directory (SSO Totalmente Integrado do Azure AD) inicia sessão automaticamente pelos utilizadores quando estão a utilizar os dispositivos da empresa ligados à sua rede empresarial. Com esta funcionalidade, os utilizadores não precisarão de digitar as suas palavras-passe para iniciar sação no AZure AD e normalmente não precisarão de introduzir os seus nomes de utilizador. Esta funcionalidade proporciona aos utilizadores autorizados um fácil acesso às suas aplicações baseadas na nuvem sem necessitar de componentes adicionais no local. |
 
 ## <a name="deploy-user-provisioning"></a>Implementar o fornecimento de utilizadores

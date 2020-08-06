@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2019
+ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: 77b4336fd9430b523f4f9fa288b7451117f7e0c5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 95c46550570d579af7ab8107686ad20838a3a62e
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87016977"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809957"
 ---
-# <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning-preview"></a>Tutorial: Configurar os sapscos para o provisionamento do utilizador do Ative Directory (Preview)
-O objetivo deste tutorial é mostrar os passos que você precisa para executar para os utilizadores de SuccessFactors Employee Central em Ative Directory (AD) e Azure AD, com a write-back opcional de endereço de e-mail para SuccessFactors. Esta integração está em pré-visualização pública e suporta a recuperação de mais de [70 atributos](../app-provisioning/sap-successfactors-attribute-reference.md) de utilizador da SuccessFactors Employee Central.
+# <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>Tutorial: Configurar os sap successFactors para o provisionamento do utilizador do Ative Directory 
+O objetivo deste tutorial é mostrar os passos que você precisa para executar para os utilizadores de SuccessFactors Employee Central em Ative Directory (AD) e Azure AD, com a write-back opcional de endereço de e-mail para SuccessFactors. 
 
 >[!NOTE]
 >Utilize este tutorial se os utilizadores que pretender obter do SuccessFactors necessitarem de uma conta AD no local e opcionalmente uma conta AD AZure. Se os utilizadores do SuccessFactors apenas precisarem da conta AD Azure (utilizadores apenas na nuvem), consulte o tutorial sobre configurar o fornecimento de [utilizadores SAP SuccessFactors para o Azure AD.](sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) 
@@ -82,7 +82,7 @@ Configurar o fornecimento de utilizadores orientados pela Cloud HR de SuccessFac
 * Número de successFactors para aplicações de fornecimento de utilizadores AD para implementar
 * ID correspondente, mapeamento de atributos, transformação e filtros de scoping
 
-Consulte o [plano de implementação de RH em nuvem](../app-provisioning/plan-cloud-hr-provision.md) para obter orientações abrangentes em torno destes tópicos. 
+Consulte o [plano de implementação de RH em nuvem](../app-provisioning/plan-cloud-hr-provision.md) para obter orientações abrangentes em torno destes tópicos. Consulte a referência de [integração sap SuccessFactors](../app-provisioning/sap-successfactors-integration-reference.md) para saber sobre as entidades apoiadas, processamento de detalhes e como personalizar a integração para diferentes cenários de RH. 
 
 ## <a name="configuring-successfactors-for-the-integration"></a>Configurar o SucessoFactors para a integração
 
@@ -346,7 +346,7 @@ Uma vez concluídas as configurações de aplicações do SuccessFactors, pode l
 
 1. No **separador Provisioning,** desa fixação do **Estado de Provisionamento** para **On**.
 
-2. Clique em **Save** (Guardar).
+2. Clique em **Guardar**.
 
 3. Esta operação iniciará a sincronização inicial, que pode demorar um número variável de horas dependendo de quantos utilizadores estão no inquilino successFactors. Pode verificar a barra de progresso para acompanhar o progresso do ciclo de sincronização. 
 

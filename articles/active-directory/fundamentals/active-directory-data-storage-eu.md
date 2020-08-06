@@ -2,7 +2,7 @@
 title: Armazenamento de dados de identidade para clientes europeus - Azure AD
 description: Saiba onde o Azure Ative Directory armazena dados relacionados com a identidade para os seus clientes europeus.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.author: ajburnle
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7360b11f41cc08c2beb3ffa227e1658881798502
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 99d8ae8c5e3218959a483e78f70a6502bf7a5a47
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75423005"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799111"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Armazenamento de dados de identidade para clientes europeus no Azure Ative Directory
 Os dados de identidade são armazenados pela Azure AD numa localização geográfica com base no endereço fornecido pela sua organização ao subscrever um serviço Microsoft Online como o Office 365 e o Azure. Para obter informações sobre onde os seus dados de identidade são armazenados, pode utilizar a secção [Onde os seus dados estão localizados?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)
@@ -59,7 +59,7 @@ Os serviços e aplicações que integram a Azure AD têm acesso a dados de ident
 
 Para obter mais informações sobre a residência de dados dos serviços Microsoft, veja a secção [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) (Onde estão localizados os seus dados) do Microsoft Trust Center.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre qualquer uma das funcionalidades e funcionalidades acima descritas, consulte estes artigos:
 - [What is Multi-Factor Authentication?](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication) (O que é o Multi-Factor Authentication)
 

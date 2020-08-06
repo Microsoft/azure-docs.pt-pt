@@ -3,7 +3,7 @@ title: Rever o acesso a um pacote de acesso na gestão de direitos Azure AD
 description: Saiba como concluir uma revisão de acesso aos pacotes de acesso à gestão de direitos em avaliações de acesso ao Azure Ative Directory (Preview).
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d4de2ac3ee74d60eb532bd469b20523fa937db0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1115c08214db19227b4b8d7be671ce4da1cf2b1
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078575"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798602"
 ---
 # <a name="review-access-of-an-access-package-in-azure-ad-entitlement-management"></a>Rever o acesso a um pacote de acesso na gestão de direitos Azure AD
 
@@ -101,6 +101,6 @@ Para rever o acesso a vários utilizadores mais rapidamente, pode utilizar as re
 
 1.  Clique **em Submeter-se** para aceitar as recomendações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Auto-revisão dos pacotes de acesso](entitlement-management-access-reviews-self-review.md)

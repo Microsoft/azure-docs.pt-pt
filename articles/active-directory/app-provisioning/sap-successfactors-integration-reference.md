@@ -10,12 +10,12 @@ ms.topic: reference
 ms.workload: identity
 ms.date: 07/20/2020
 ms.author: chmutali
-ms.openlocfilehash: 4aac13bf34394c359837ecd7a85abd78495bc4b4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ea47f8a6fc29571a27f8976bd0ad9bbd30ed0ad9
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283117"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808461"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-sap-successfactors"></a>Como o provisionamento do Azure Ative Directory se integra com os SAP SuccessFactors 
 
@@ -33,7 +33,7 @@ O serviço de fornecimento de Azure AD utiliza a autenticação básica para lig
 Para garantir ainda mais a conectividade entre o serviço de fornecimento de AD Azure e os SuccessFactors, pode adicionar as gamas AD AD AD no SuccessFactors IP allow-list utilizando os passos descritos abaixo:
 
 1. Descarregue os [mais recentes Intervalos IP](https://www.microsoft.com/download/details.aspx?id=56519) para a Nuvem Pública do Azure 
-1. Abra o ficheiro e procure as tags **AzureActiveDirectory** e **AzureActiveDirectoryDomainServices** 
+1. Abra o ficheiro e procure a etiqueta **AzureActiveDirectory** 
 
    >[!div class="mx-imgBorder"] 
    >![Gama Azure AD IP](media/sap-successfactors-integration-reference/azure-active-directory-ip-range.png)

@@ -12,13 +12,12 @@ ms.date: 04/09/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 249cdbef6214eb8c66da841d9eae817bcf794996
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: dce579596563855022f14bb2c07353b84d1e6127
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055397"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808376"
 ---
 # <a name="quickstart-view-the-list-of-applications-that-are-using-your-azure-active-directory-azure-ad-tenant-for-identity-management"></a>Quickstart: Veja a lista de aplicações que estão a usar o seu inquilino Azure Ative (Azure AD) para gestão de identidade
 
@@ -68,11 +67,17 @@ Para procurar uma determinada aplicação:
 3. Experimente introduzir as primeiras letras do nome de uma aplicação. Este exemplo mostra todas as aplicações que começam com **Sales**.
     ![Exemplo mostra todas as aplicações que começam com Vendas](media/view-applications-portal/search-by-prefix.png)
 
-## <a name="next-steps"></a>Próximos passos
 
-Neste arranque rápido, você aprendeu a ver as aplicações no seu inquilino AZure AD. Aprendeu a filtrar a lista de aplicações por tipo de aplicação, estado e visibilidade. Também aprendeu a procurar aplicações específicas.
+> [!TIP]
+> Pode automatizar a gestão de aplicações utilizando a API do Gráfico, ver [Gestão de aplicações do Automamate com a Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
 
-- [Adicionar uma aplicação](add-application-portal.md)
-- [Configurar uma aplicação](add-application-portal-configure.md)
-- [Configurar o início de sessão único](add-application-portal-setup-sso.md)
-- [Eliminar uma aplicação](delete-application-portal.md)
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Não criou novos recursos neste arranque rápido, por isso não há nada para limpar.
+
+## <a name="next-steps"></a>Passos seguintes
+
+Avance para o próximo artigo para aprender a usar a Azure AD como fornecedor de identidade para uma aplicação.
+> [!div class="nextstepaction"]
+> [Adicionar uma aplicação](add-application-portal.md)

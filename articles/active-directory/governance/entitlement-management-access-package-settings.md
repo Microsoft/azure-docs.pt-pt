@@ -3,7 +3,7 @@ title: Partilhar o link para solicitar um pacote de acesso na gestão de direito
 description: Saiba como partilhar o link para solicitar um pacote de acesso na gestão de direitos do Azure Ative Directory.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a29f0a0231cdea5a73b7798088002e63ec93324
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 32973d063c36a45eee79db0b4da4e7419cb70013
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078559"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798551"
 ---
 # <a name="share-link-to-request-an-access-package-in-azure-ad-entitlement-management"></a>Partilhar o link para solicitar um pacote de acesso na gestão de direitos Azure AD
 
@@ -47,7 +47,7 @@ Desde que o catálogo do pacote de acesso esteja [ativado para utilizadores exte
 
 1. Envie e-mail ou envie o link para o seu parceiro de negócios externo. Podem partilhar a ligação com os seus utilizadores para solicitar o pacote de acesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Solicitar acesso a um pacote de acesso](entitlement-management-request-access.md)
 - [Aprovar ou negar pedidos de acesso](entitlement-management-request-approve.md)

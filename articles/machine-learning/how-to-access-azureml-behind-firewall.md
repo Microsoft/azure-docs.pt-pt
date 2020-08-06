@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 27b625dfa31b366d95922e1dd0bad7fda6e86ed4
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 23ec12daa2e5c236da482615228b7c44037282fb
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87540075"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808121"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Use espaço de trabalho atrás de uma firewall para aprendizagem de máquinas Azure
 
@@ -34,7 +34,7 @@ Na sua firewall, crie uma regra de rede que permite o tráfego de e para os ende
 > [!TIP]
 > Ao adicionar a regra da rede, desa um __protocolo__ a qualquer e às portas para `*` .
 >
-> Para obter mais informações sobre a configuração do Azure Firewall, consulte [implementar e configurar a Firewall Azure](../firewall/tutorial-firewall-deploy-portal.md#configure-a-network-rule).
+> Para obter mais informações sobre a configuração do Azure Firewall, consulte [implementar e configurar a Firewall Azure](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
 
 ## <a name="microsoft-hosts"></a>Anfitriões da Microsoft
 
@@ -57,7 +57,7 @@ Os anfitriões desta secção são propriedade da Microsoft e fornecem serviços
 | **azurecr.io** | Registo de Contentores do Azure |
 | **mcr.microsoft.com** | Registo de contentores da Microsoft para imagens base do estivador |
 | **your-acr-server-name.azurecr.io** | Só é necessário se o registo do seu contentor Azure estiver por detrás da rede virtual. Nesta configuração, é criado um link privado do ambiente da Microsoft para a instância ACR na sua subscrição. Utilize o nome do servidor ACR para o seu espaço de trabalho Azure Machine Learning. |
-
+| **\*.notebooks.azure.net** | Necessário pelos cadernos no estúdio Azure Machine Learning. |
 ## <a name="python-hosts"></a>Anfitriões python
 
 Os anfitriões desta secção são utilizados para instalar pacotes Python. São necessários durante o desenvolvimento, formação e implantação. 

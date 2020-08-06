@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/23/2020
+ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: 5181cc0f6457c5eb98cca828ecb91c52f47f3fbe
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f150d6abf2ac6a423a99d3347df9bf0adc9b294b
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87273545"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809937"
 ---
-# <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors-preview"></a>Tutorial: Configure atribui write-back de Azure AD a SAP SuccessFactors (Preview)
+# <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Tutorial: Configure atribui write-back de Azure AD a SAP SuccessFactors
 O objetivo deste tutorial é mostrar os passos para anular atributos de Azure AD a SAP SuccessFactors Employee Central. 
 
 ## <a name="overview"></a>Descrição geral
@@ -299,7 +299,7 @@ Uma vez concluídas as configurações de aplicações do SuccessFactors, pode l
 
 1. No **separador Provisioning,** desa fixação do **Estado de Provisionamento** para **On**.
 
-2. Clique em **Save** (Guardar).
+2. Clique em **Guardar**.
 
 3. Esta operação iniciará a sincronização inicial, que pode demorar um número variável de horas dependendo de quantos utilizadores estão no inquilino successFactors. Pode verificar a barra de progresso para acompanhar o progresso do ciclo de sincronização. 
 
@@ -314,7 +314,7 @@ Uma vez concluídas as configurações de aplicações do SuccessFactors, pode l
 
 Consulte a [secção de cenários writeback](../app-provisioning/sap-successfactors-integration-reference.md#writeback-scenarios) do guia de referência de integração SAP SuccessFactors. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Mergulho profundo na Azure AD e NAUS SuccessFactors referência de integração](../app-provisioning/sap-successfactors-integration-reference.md)
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)

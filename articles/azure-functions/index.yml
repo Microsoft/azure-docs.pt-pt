@@ -9,12 +9,12 @@ metadata:
   author: ggailey777
   ms.author: azfundocs
   ms.date: 09/17/2019
-  ms.openlocfilehash: a08908b699d50a7e1e740f162a0b3f53fa96e434
-  ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+  ms.openlocfilehash: 7a6f493bef86952de212eea264cccea1c0bcfeca
+  ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/08/2020
-  ms.locfileid: "80886573"
+  ms.lasthandoff: 08/05/2020
+  ms.locfileid: "87810059"
 landingContent:
 - title: Acerca das Funções do Azure
   linkLists:
@@ -121,7 +121,7 @@ landingContent:
     - text: Criar e implementar com Pipelines do Azure
       url: functions-how-to-azure-devops.md
     - text: Implementar com o plug-in do Jenkins
-      url: /azure/jenkins/jenkins-azure-functions-deploy
+      url: /azure/developer/jenkins/deploy-to-azure-functions
 - title: Desempenho e monitorização
   linkLists:
   - linkListType: concept

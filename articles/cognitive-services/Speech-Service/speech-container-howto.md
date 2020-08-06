@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: e120eb20d247ce2def7f7c322ead3066c1d4386e
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 4f14a5cf21a372c66378521fd293b7569b181653
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84974658"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808665"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalar e executar recipientes de serviço de fala (pré-visualização)
 
@@ -39,7 +39,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Os seguintes pré-requisitos antes da utilização dos recipientes de fala:
 
-| Necessário | Objetivo |
+| Obrigatório | Objetivo |
 |--|--|
 | Motor do Docker | Precisa do Motor Docker instalado num [computador anfitrião.](#the-host-computer) O Docker oferece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para um manual de noções básicas do Docker e do contentor, veja a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contentores se conectem e enviem dados de faturação para a Azure. <br><br> **No Windows,** o Docker também deve ser configurado para suportar recipientes Linux.<br><br> |
 | Familiaridade com Docker | Você deve ter uma compreensão básica de conceitos docker, como registos, repositórios, contentores e imagens de contentores, bem como conhecimento de `docker` comandos básicos. |
@@ -354,7 +354,7 @@ ApiKey={API_KEY}
 Este comando:
 
 * Executa um recipiente *texto-a-fala* a partir da imagem do recipiente.
-* Aloca 2 núcleos de CPU e um gigabyte (GB) de memória.
+* Atribui 1 núcleo cpu e 2 gigabytes (GB) de memória.
 * Expõe a porta TCP 5000 e atribui um pseudo-TTY para o recipiente.
 * Remove automaticamente o recipiente depois de sair. A imagem do recipiente ainda está disponível no computador anfitrião.
 
@@ -394,7 +394,7 @@ ApiKey={API_KEY}
 Este comando:
 
 * Executa um recipiente *de texto para a fala personalizado* a partir da imagem do recipiente.
-* Aloca 2 núcleos de CPU e um gigabyte (GB) de memória.
+* Atribui 1 núcleo cpu e 2 gigabytes (GB) de memória.
 * Carrega o modelo *de texto para voz personalizado* a partir do suporte de entrada de volume, por exemplo *C:\CustomVoice*.
 * Expõe a porta TCP 5000 e atribui um pseudo-TTY para o recipiente.
 * Descarrega o modelo dado o `ModelId` (se não for encontrado no suporte de volume).
@@ -406,7 +406,7 @@ Este comando:
 > [!IMPORTANT]
 > As `Eula` `Billing` opções , e `ApiKey` opções devem ser especificadas para executar o recipiente; caso contrário, o recipiente não arranca.  Para mais informações, consulte [Billing.](#billing)
 
-## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto final de previsão do contentor
+## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto final de predição do contentor
 
 > [!NOTE]
 > Utilize um número de porta único se estiver a executar vários contentores.

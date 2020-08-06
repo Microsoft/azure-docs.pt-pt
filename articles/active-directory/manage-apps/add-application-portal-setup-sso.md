@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f8f19e6b98143bb48430decdd51f5626e72d422
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 461a424f23161e1567c6b32a38db0225efc56b1e
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387290"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808393"
 ---
 # <a name="quickstart-set-up-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Quickstart: Configurar um único sign-on (SSO) para uma aplicação no seu inquilino Azure Ative Directory (Azure AD)
 
@@ -61,6 +61,16 @@ Para configurar um único sinal de inscrição para uma aplicação:
     :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="O Screenshot mostra a opção de inscrição única na subscrição enterprise da página de preços do GitHub.":::
 
 
-## <a name="next-step"></a>Passo seguinte
+> [!TIP]
+> Pode automatizar a gestão de aplicações utilizando a API do Gráfico, ver [Gestão de aplicações do Automamate com a Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
 
-- [Eliminar uma aplicação](delete-application-portal.md)
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Quando terminar com esta série de arranque rápido, considere apagar a app para limpar o seu inquilino de teste. A eliminação da aplicação é abrangida pelo último quickstart desta série, ver [Delete uma aplicação](delete-application-portal.md).
+
+## <a name="next-steps"></a>Passos seguintes
+
+Avance para o próximo artigo para aprender a apagar uma aplicação.
+> [!div class="nextstepaction"]
+> [Eliminar uma aplicação](delete-application-portal.md)

@@ -2,7 +2,7 @@
 title: Inscreva-se para edições premium - Azure Ative Directory / Microsoft Docs
 description: Instruções sobre como se inscrever para as edições Azure Ative Directory Premium.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c146640112190fe08bb1b3b806c95a2854da9083
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f2e3e9376c26bae2c0b3c0dda06b781b5f2f7c4
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604459"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799162"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>Inscrever-se nas edições Premium do Azure Active Directory
 Pode adquirir e associar edições premium do Azure Ative Directory (Azure AD) com a sua assinatura Azure. Se tiver de criar uma subscrição nova do Azure, também terá de ativar o plano de licenciamento e o acesso ao serviço Microsoft Azure AD.

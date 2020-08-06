@@ -3,12 +3,12 @@ title: Melhores práticas de modelos
 description: Descreve abordagens recomendadas para a autoria de modelos do Gestor de Recursos Azure. Oferece sugestões para evitar problemas comuns ao usar modelos.
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: 272c7e7f824eb193ed48d79c5256167f1dbbbce5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1121c66e0bcd7de39afd5bea85866fd9ad007ce4
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248922"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809260"
 ---
 # <a name="arm-template-best-practices"></a>As melhores práticas do modelo ARM
 
@@ -226,7 +226,7 @@ As seguintes informações podem ser úteis quando se trabalha com [recursos:](t
    
      Para obter mais informações sobre a ligação a máquinas virtuais, consulte:
    
-   * [Executar VMs para uma arquitetura n-tier em Azure](../../guidance/guidance-compute-n-tier-vm.md)
+   * [Executar VMs para uma arquitetura n-tier em Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
    * [Configurar o acesso winrm para VMs em Azure Resource Manager](../../virtual-machines/windows/winrm.md)
    * [Permitir o acesso externo ao seu VM utilizando o portal Azure](../../virtual-machines/windows/nsg-quickstart-portal.md)
    * [Permitir o acesso externo ao seu VM utilizando o PowerShell](../../virtual-machines/windows/nsg-quickstart-powershell.md)

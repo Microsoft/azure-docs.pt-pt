@@ -3,7 +3,7 @@ title: Complete uma revisão de acesso de grupos & aplicações - Azure AD
 description: Saiba como completar uma revisão de acesso dos membros do grupo ou acesso a aplicações em avaliações de acesso ao Azure Ative.
 services: active-directory
 documentationcenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 251ca1dc2b288d3448cdcda0f28335a92c54b431
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23266043d5efd65a4e6e79dd515a54a2c321b077
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078857"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798839"
 ---
 # <a name="complete-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Complete uma revisão de acesso de grupos e aplicações em avaliações de acesso Azure AD
 
@@ -86,7 +86,7 @@ Para obter todos os resultados de uma revisão de acesso, clique no botão **Des
 
  Por predefinição, um utilizador eliminado permanecerá eliminado no Azure AD para 30 dias, durante o qual pode ser restaurado por um administrador, se necessário.  Após 30 dias, esse utilizador é eliminado permanentemente.  Além disso, através do portal do Azure Active Directory, um Administrador Global pode explicitamente [eliminar permanentemente um utilizador recentemente eliminado](../fundamentals/active-directory-users-restore.md) antes desse período de tempo ser atingido.  Depois de um utilizador ser eliminado de maneira permanente, subsequentemente os dados sobre esse utilizador serão removidos das revisões de acesso ativas.  As informações de auditoria sobre os utilizadores eliminados permanecem no registo de auditoria.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Gerir o acesso de utilizador com as revisões de acesso do Azure AD](manage-user-access-with-access-reviews.md)
 - [Gerir o acesso de convidado com as revisões de acesso do Azure AD](manage-guest-access-with-access-reviews.md)

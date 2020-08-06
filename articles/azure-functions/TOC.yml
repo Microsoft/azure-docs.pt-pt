@@ -263,7 +263,7 @@
         - name: Funções no local
           href: functions-runtime-install.md
         - name: Implementar com o plug-in do Jenkins
-          href: /azure/jenkins/jenkins-azure-functions-deploy
+          href: /azure/developer/jenkins/deploy-to-azure-functions
           maintainContext: true
     - name: Configurar
       items:

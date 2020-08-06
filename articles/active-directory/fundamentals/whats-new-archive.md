@@ -2,7 +2,7 @@
 title: Arquivo para o que há de novo no Azure Ative Directory? | Microsoft Docs
 description: As novas notas de lançamento na secção Visão Geral deste conjunto de conteúdos contêm 6 meses de atividade. Após 6 meses, os artigos são removidos do artigo principal e colocados neste artigo de arquivo.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d981bad30bf57fde64d1f6e903039dda5007e526
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e8b09293f80b5aee2dd76abba3f165a50a5eeee5
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87483914"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799145"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivo para o que há de novo no Azure Ative Directory?
 

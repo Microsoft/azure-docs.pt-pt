@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: how-to
 ms.date: 07/23/2020
-ms.openlocfilehash: 6efe6392c32221f979a9ac319b4385b4b94b1235
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 0418785fe558503b716ff1e798446fb64db998b1
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171311"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799843"
 ---
 # <a name="use-azure-active-directory-for-authentication-with-mysql"></a>Utilize o Diretório Ativo Azure para autenticação com o MySQL
 
@@ -22,7 +22,7 @@ Este artigo irá acompanhá-lo através dos passos como configurar o acesso do A
 
 ## <a name="setting-the-azure-ad-admin-user"></a>Definição do utilizador Azure AD Admin
 
-Apenas um utilizador Admin AD AD Azure pode criar/permitir aos utilizadores a autenticação baseada em Azure. Para criar e Azure AD Ad Admin utilizador, siga os seguintes passos
+Apenas um utilizador Admin AD AD Azure pode criar/permitir aos utilizadores a autenticação baseada em Azure. Para criar um utilizador Azure AD Ad, siga os seguintes passos
 
 1. No portal Azure, selecione a instância da Base de Dados Azure para o MySQL que pretende ativar para Azure AD.
 2. Em Definições, selecione Ative Directory Admin:

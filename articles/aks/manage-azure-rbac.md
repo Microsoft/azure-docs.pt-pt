@@ -4,15 +4,15 @@ titleSuffix: Azure Kubernetes Service
 description: Saiba como utilizar o Azure RBAC para autorização kubernetes com o Serviço Azure Kubernetes (AKS).
 services: container-service
 ms.topic: article
-ms.date: 07/07/2020
+ms.date: 07/20/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 8b28507c072f338342dc1a936cb1ab5f3910eea1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 824146e7e0b1130b8e5f6c087dbf5ccbac2c8224
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498111"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799366"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Utilizar o RBAC do Azure para Autorização do Kubernetes (pré-visualização)
 
@@ -33,29 +33,25 @@ A capacidade de gerir o RBAC para os recursos de Kubernetes da Azure dá-lhe a o
 
 ### <a name="prerequisites"></a>Pré-requisitos 
 - Inscreva-se para a pré-visualização <https://aka.ms/aad-rbac-sign-up-form> .
+- Certifique-se de que tem a versão Azure CLI 2.9.0 ou mais tarde
 - Certifique-se de que tem a bandeira de `EnableAzureRBACPreview` recurso ativada.
-- Certifique-se de que tem a bandeira de `AAD-V2` recurso ativada.
 - Certifique-se de que tem a `aks-preview` [extensão CLI][az-extension-add] v0.4.55 ou superior instalada
 - Certifique-se de que instalou [kubectl v1.18.3+][az-aks-install-cli]
 
-#### <a name="register-enableazurerbacpreview-and-aad-v2-preview-features"></a>Funcionalidades de registo `EnableAzureRBACPreview` e `AAD-V2` pré-visualização
+#### <a name="register-enableazurerbacpreview-preview-feature"></a>Registar `EnableAzureRBACPreview` recurso de pré-visualização
 
-Para criar um cluster AKS que utilize O RBAC Azure para a Autorização Kubernetes, deve ativar as `EnableAzureRBACPreview` bandeiras e `AAD-V2` as bandeiras da sua subscrição.
+Para criar um cluster AKS que utilize O RBAC Azure para a Autorização Kubernetes, tem de ativar a bandeira de `EnableAzureRBACPreview` funcionalidades na sua subscrição.
 
-Registar as `EnableAzureRBACPreview` bandeiras e `AAD-V2` características utilizando o comando [de registo de recurso az,][az-feature-register] como mostra o seguinte exemplo:
+Registe a bandeira de `EnableAzureRBACPreview` características utilizando o comando [de registo de recurso az,][az-feature-register] como mostra o seguinte exemplo:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureRBACPreview"
-
-az feature register --namespace "Microsoft.ContainerService"  --name "AAD-V2"
 ```
 
 Demora alguns minutos para que o estado seja *apresentado.* Pode verificar o estado de registo utilizando o comando [da lista de recursos az:][az-feature-list]
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAzureRBACPreview')].{Name:name,State:properties.state}"
-
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AAD-V2')].{Name:name,State:properties.state}"
 ```
 
 Quando estiver pronto, reaprovi o registo do fornecedor de recursos *Microsoft.ContainerService* utilizando o comando [az-provider-register]:

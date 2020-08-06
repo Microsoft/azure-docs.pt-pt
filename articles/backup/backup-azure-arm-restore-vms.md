@@ -4,12 +4,12 @@ description: Restaurar uma máquina virtual Azure a partir de um ponto de recupe
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 600979e56ac3e88b6530d833e930a9700fad2d9a
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: a43e7d1d97196afdad0a1e451b0c1618f0ea3a16
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533713"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809189"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Como restaurar os dados do Azure VM no portal Azure
 
@@ -195,7 +195,7 @@ Há uma série de cenários comuns em que poderá ser necessário restaurar os V
 **Cenário** | **Orientação**
 --- | ---
 **Restaurar VMs usando benefício de uso híbrido** | Se um Windows VM utilizar [o licenciamento Hybrid Use Benefit (HUB),](../virtual-machines/windows/hybrid-use-benefit-licensing.md)restaure os discos e crie um novo VM utilizando o modelo fornecido (com o Tipo de **Licença** definido para **Windows_Server),** ou PowerShell.  Esta definição também pode ser aplicada após a criação do VM.
-**Restaurar VMs durante um desastre do datacenter Azure** | Se o cofre utilizar GRS e o centro de dados primário para o VM diminuir, o Azure Backup suporta restaurar os VMs apoiados no centro de dados emparelhado. Selecione uma conta de armazenamento no datacenter emparelhado e restaure normalmente. A Azure Backup utiliza o serviço de computação na região emparelhada para criar o VM restaurado. [Saiba mais](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md) sobre a resiliência do datacenter.<br><br> Se o cofre utilizar GRS, pode escolher a nova funcionalidade, [Cross Region Restore](#cross-region-restore). Isto permite-lhe restaurar uma segunda região em cenários de paragem total ou parcial, ou mesmo que não haja nenhuma paragem.
+**Restaurar VMs durante um desastre do datacenter Azure** | Se o cofre utilizar GRS e o centro de dados primário para o VM diminuir, o Azure Backup suporta restaurar os VMs apoiados no centro de dados emparelhado. Selecione uma conta de armazenamento no datacenter emparelhado e restaure normalmente. A Azure Backup utiliza o serviço de computação na região emparelhada para criar o VM restaurado. [Saiba mais](/azure/architecture/resiliency/recovery-loss-azure-region) sobre a resiliência do datacenter.<br><br> Se o cofre utilizar GRS, pode escolher a nova funcionalidade, [Cross Region Restore](#cross-region-restore). Isto permite-lhe restaurar uma segunda região em cenários de paragem total ou parcial, ou mesmo que não haja nenhuma paragem.
 **Restaurar o único controlador de domínio VM em domínio único** | Restaurar o VM como qualquer outro VM. Tenha em atenção que:<br/><br/> Do ponto de vista do Ative Directory, o Azure VM é como qualquer outro VM.<br/><br/> O Modo de Restauro de Serviços de Diretório (DSRM) também está disponível, pelo que todos os cenários de recuperação do Diretório Ativo são viáveis. [Saiba mais](#post-restore-steps) sobre backup e restaure considerações para controladores de domínio virtualizados.
 **Restaurar vários VMs controladores de domínio em domínio único** | Se outros controladores de domínio no mesmo domínio puderem ser alcançados ao longo da rede, o controlador de domínio pode ser restaurado como qualquer VM. Se for o último controlador de domínio restante no domínio, ou se for realizada uma recuperação numa rede isolada, utilize uma [recuperação florestal](/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Restaurar vários domínios numa floresta** | Recomendamos uma [recuperação florestal.](/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery)

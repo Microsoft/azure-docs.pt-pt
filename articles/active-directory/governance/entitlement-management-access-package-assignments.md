@@ -3,7 +3,7 @@ title: Ver, adicionar e remover atribuições para um pacote de acesso na gestã
 description: Saiba como ver, adicionar e remover atribuições para um pacote de acesso na gestão de direitos do Azure Ative Directory.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55f17703060d19baebe55ef648cb182cb2c6d00a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78bed4f5c600bfa0218f924dc4444119e9729e28
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078832"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798754"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Ver, adicionar e remover atribuições para um pacote de acesso na gestão de direitos AD Azure
 
@@ -110,7 +110,7 @@ Também pode atribuir diretamente um utilizador a um pacote de acesso utilizando
 
     Aparecerá uma notificação informando-o de que a atribuição foi removida. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Alterar pedido e configurações para um pacote de acesso](entitlement-management-access-package-request-policy.md)
 - [Ver relatórios e registos](entitlement-management-reports.md)

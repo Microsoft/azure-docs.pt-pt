@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 08/01/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 122a3e243f314395ea7b1d32b88a5e20b0965eef
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: d0344247ba4dfffee275782bc2db83142d34cff3
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512011"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800250"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Tamanhos de VM de computação de alto desempenho
 
@@ -52,8 +52,7 @@ Esta interface permite que as instâncias com capacidade RDMA se comuniquem atra
 
    Para adicionar a extensão VM a um VM, pode utilizar cmdlets [Azure PowerShell.](/powershell/azure/) Para obter mais informações, consulte [extensões e funcionalidades da máquina virtual.](./extensions/overview.md) Também pode trabalhar com extensões para VMs implantados no [modelo clássico de implantação.](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic)
 
-- **MPI** - O SR-IOV permitiu que os tamanhos VM em Azure (HBv2, HB, HC, NCv3, NDv2) permitam que quase qualquer sabor de MPI seja usado com Mellanox OFED.
-Em VMs não-SR-IOV habilitados, implementações de MPI suportadas utilizam a interface Microsoft Network Direct (ND) para comunicar entre VMs. Assim, apenas as versões Microsoft MPI (MS-MPI) 2012 R2 ou posterior e Intel MPI 5.x são suportadas. Versões posteriores (2017, 2018) da biblioteca de tempo de execução do INTEL MPI podem ou não ser compatíveis com os controladores Azure RDMA.
+- **MPI** - O SR-IOV permitiu que os tamanhos VM em Azure (HBv2, HB, HC, NCv3, NDv2) permitam que quase qualquer sabor de MPI seja usado com Mellanox OFED. Em VMs não-SR-IOV habilitados, implementações de MPI suportadas utilizam a interface Microsoft Network Direct (ND) para comunicar entre VMs. Assim, apenas as versões Microsoft MPI (MS-MPI) 2012 R2 ou posterior e Intel MPI 5.x são suportadas. Versões posteriores (2017, 2018) da biblioteca de tempo de execução do INTEL MPI podem ou não ser compatíveis com os controladores Azure RDMA. Consulte [o MPI de configuração para hpc](./workloads/hpc/setup-mpi.md) para obter mais detalhes sobre a configuração de MPI em VMs HPC em Azure.
 
 - **Espaço de endereço de rede RDMA** - A rede RDMA em Azure reserva o espaço de endereço 172.16.0.0/16. Para executar aplicações MPI em casos implantados numa rede virtual Azure, certifique-se de que o espaço de endereço de rede virtual não se sobrepõe à rede RDMA.
 

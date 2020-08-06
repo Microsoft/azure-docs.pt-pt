@@ -3,14 +3,14 @@ title: Fornecedores de recursos por serviços Azure
 description: Lista todos os espaços de nome do fornecedor de recursos para O Gestor de Recursos Azure e mostra o serviço Azure para esse espaço de nome.
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.openlocfilehash: 1f57f5cd5822e9acf59462c9ecd6d0fda359b5a0
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 6c57f3523ca8f3f4ad1565d18791d24c0e698ad6
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054377"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808342"
 ---
-# <a name="resource-providers-for-azure-services"></a>Fornecedores de recursos para serviços Azure
+# <a name="resource-providers-for-azure-services"></a>Resource providers for Azure services (Fornecedor de recursos para serviços do Azure)
 
 Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam para os serviços Azure.
 
@@ -59,7 +59,7 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.Consumption<sup>1</sup> | [Cost Management](/azure/cost-management/) |
 | Microsoft.ContainerInstance | [Container Instances](../../container-instances/index.yml) |
 | Microsoft.ContainerRegistry | [Container Registry](../../container-registry/index.yml) |
-| Microsoft.ContainerService | [Serviço de Kubernetes do Azure (AKS)](../../aks/index.yml) |
+| Microsoft.ContainerService | [Azure Kubernetes Service (AKS)](../../aks/index.yml) |
 | Microsoft.CostManagement<sup>1</sup> | [Cost Management](/azure/cost-management/) |
 | Microsoft.CostManagementExports | [Cost Management](/azure/cost-management/) |
 | Microsoft.CustomerLockbox | [Lockbox do cliente para Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md) |
@@ -91,8 +91,8 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.EventHub | [Hubs de Eventos](../../event-hubs/index.yml) |
 | Microsoft.Features<sup>1</sup> | [Azure Resource Manager](../index.yml) |
 | Microsoft.GuestConfiguration | [Azure Policy](../../governance/policy/index.yml) |
-| Microsoft.HanaOnAzure | [SAP HANA em Azure Grandes Instâncias](../../virtual-machines/workloads/sap/hana-overview-architecture.md) |
-| Microsoft.HardwareSecurityModules | [HSM Dedicado do Azure](../../dedicated-hsm/index.yml) |
+| Microsoft.HanaOnAzure | [SAP HANA nas Instâncias Grandes do Azure](../../virtual-machines/workloads/sap/hana-overview-architecture.md) |
+| Microsoft.HardwareSecurityModules | [Azure Dedicated HSM](../../dedicated-hsm/index.yml) |
 | Microsoft.HDInsight | [HDInsight](../../hdinsight/index.yml) |
 | Microsoft.HealthcareApis | [API do Azure para FHIR](../../healthcare-apis/index.yml) |
 | Microsoft.HybridCompute | [Azure Arc](../../azure-arc/index.yml) |
@@ -102,11 +102,11 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.IoTCentral | [Azure IoT Central](../../iot-central/index.yml) |
 | Microsoft.IoTSpaces | [Azure Digital Twins](../../digital-twins/index.yml) |
 | Microsoft.KeyVault | [Cofre de Chaves](../../key-vault/index.yml) |
-| Microsoft.Kubernetes | [Serviço de Kubernetes do Azure (AKS)](../../aks/index.yml) |
-| Microsoft.KubernetesConfiguration | [Serviço de Kubernetes do Azure (AKS)](../../aks/index.yml) |
+| Microsoft.Kubernetes | [Azure Kubernetes Service (AKS)](../../aks/index.yml) |
+| Microsoft.KubernetesConfiguration | [Azure Kubernetes Service (AKS)](../../aks/index.yml) |
 | Microsoft.Kusto | [Azure Data Explorer](/azure/data-explorer/) |
 | Microsoft.LabServices | [Azure Lab Services](../../lab-services/index.yml) |
-| Microsoft.Logic | [Aplicações Lógicas](../../logic-apps/index.yml) |
+| Microsoft.Logic | [Logic Apps](../../logic-apps/index.yml) |
 | Microsoft.MachineLearning | [Machine Learning Studio](../../machine-learning/studio/index.yml) |
 | Microsoft.MachineLearningServices | [Azure Machine Learning](../../machine-learning/index.yml) |
 | Microsoft.Maintenance | [Manutenção Azure](../../virtual-machines/maintenance-control-cli.md) |
@@ -167,7 +167,7 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 | Microsoft.VirtualMachineImages | [Azure Image Builder](../../virtual-machines/linux/image-builder-overview.md) |
 | microsoft.visualstudio | [Azure DevOps](/azure/devops/?view=azure-devops) |
 | Microsoft.VMware | [Solução VMware no Azure](../../azure-vmware/index.yml) |
-| Microsoft.VMwareCloudSimple | [Azure VMware Solution by CloudSimple](/azure/vmware-cloudsimple/) |
+| Microsoft.VMwareCloudSimple | [Azure VMware Solution by CloudSimple](../../vmware-cloudsimple/index.md) |
 | Microsoft.VSOnline | [Azure DevOps](/azure/devops/?view=azure-devops) |
 | Microsoft.Web | [Serviço de Aplicações](../../app-service/index.yml)<br />[Funções do Azure](../../azure-functions/index.yml) |
 | Microsoft.WindowsESU | Atualizações de segurança alargadas |
@@ -176,6 +176,6 @@ Este artigo mostra como os espaços de nome do fornecedor de recursos mapeiam pa
 
 <sup>1</sup> Registado por predefinição
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre os fornecedores de recursos, incluindo como registar um fornecedor de recursos, consulte [os fornecedores e tipos de recursos da Azure](resource-providers-and-types.md)

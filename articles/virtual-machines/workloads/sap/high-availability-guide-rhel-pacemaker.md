@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/24/2020
+ms.date: 08/04/2020
 ms.author: radeltch
-ms.openlocfilehash: eed53725507325351dcf51fbe368331c2a4fd2f8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a1e097692eade956446b46782bca5ecf3a17de75
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065137"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800267"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configuração do Pacemaker na Red Hat Enterprise Linux em Azure
 
@@ -125,7 +125,11 @@ Os seguintes itens são prefixados com **ambos [A]** - aplicável a todos os nó
 1. **[A]** Resolução do nome do anfitrião da configuração
 
    Pode utilizar um servidor DNS ou modificar os /etc/anfitriões em todos os nós. Este exemplo mostra como utilizar o ficheiro /etc/hosts.
-   Substitua o endereço IP e o nome de anfitrião nos seguintes comandos. O benefício da utilização /etc/anfitriões é que o seu cluster se torna independente do DNS, o que pode ser um único ponto de falhas também.
+   Substitua o endereço IP e o nome de anfitrião nos seguintes comandos.  
+
+   >[!IMPORTANT]
+   > Se utilizar nomes de anfitriões na configuração do cluster, é vital ter uma resolução fiável do nome do anfitrião. A comunicação do cluster falhará, se os nomes não estiverem disponíveis e isso pode levar a atrasos de falha no cluster.
+   > O benefício da utilização /etc/anfitriões é que o seu cluster se torna independente do DNS, o que pode ser um único ponto de falhas também.  
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>

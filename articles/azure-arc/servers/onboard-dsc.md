@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 03/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: f3dee468764f27d930081b5a3cd415c48bb79c0d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 02661ff3c21fa27367cc9f2c399341ed2b86db3f
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104015"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809617"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Como instalar o agente da Máquina Conectada utilizando o Windows PowerShell DSC
 
@@ -81,7 +81,7 @@ Seguem-se os parâmetros que passa para o script PowerShell para utilizar.
 
 3. Isto criará uma `localhost.mof file` nova pasta chamada `C:\dsc` .
 
-Depois de instalar o agente e configurá-lo para ligar ao Azure Arc para servidores (pré-visualização), vá ao portal Azure para verificar se o servidor foi conectado com sucesso. Veja as suas máquinas no [portal Azure](https://aka.ms/hybridmachineportal).
+Depois de instalar o agente e configurá-lo para ligar ao Azure Arc para servidores (pré-visualização), vá ao portal Azure para verificar se o servidor foi conectado com sucesso. Veja as suas máquinas no [portal do Azure](https://aka.ms/hybridmachineportal).
 
 ## <a name="adding-to-existing-configurations"></a>Adicionar às configurações existentes
 
@@ -89,8 +89,8 @@ Este recurso pode ser adicionado às configurações DSC existentes para represe
 
 O módulo [CompsiteResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) da PowerShell Gallery pode ser usado para criar um [recurso composto](/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) da configuração do exemplo, para simplificar ainda mais as configurações combinadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Aprenda a gerir a sua máquina utilizando [a Azure Policy](../../governance/policy/overview.md), para coisas como [a configuração do hóspede](../../governance/policy/concepts/guest-configuration.md)VM , verificando se a máquina está a reportar ao espaço de trabalho esperado do Log Analytics, permitir a monitorização com o [Azure Monitor com VMs](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md), e muito mais.
+- Aprenda a gerir a sua máquina utilizando [a Azure Policy](../../governance/policy/overview.md), para coisas como [a configuração do hóspede](../../governance/policy/concepts/guest-configuration.md)VM , verificando se a máquina está a reportar ao espaço de trabalho esperado do Log Analytics, permitir a monitorização com o [Azure Monitor com VMs](../../azure-monitor/insights/vminsights-enable-policy.md), e muito mais.
 
 - Saiba mais sobre o [agente Log Analytics.](../../azure-monitor/platform/log-analytics-agent.md) O agente Log Analytics para Windows e Linux é necessário quando pretende monitorizar proactivamente o SISTEMA e as cargas de trabalho em funcionamento na máquina, geri-lo utilizando livros de automação ou soluções como a Update Management, ou utilizar outros serviços Azure como o [Azure Security Center.](../../security-center/security-center-intro.md)

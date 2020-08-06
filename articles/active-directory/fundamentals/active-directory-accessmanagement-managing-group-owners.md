@@ -2,7 +2,7 @@
 title: Adicionar ou remover os proprietários do grupo - Azure Ative Directory / Microsoft Docs
 description: Instruções sobre como adicionar ou remover os proprietários do grupo utilizando o Diretório Azure Ative.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 09/11/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd5fc389ccb52c4a5eeec0e0f544a17b011333a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e696ff576ffa8e788312344c4ebd103184173fa4
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604527"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799587"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Adicionar ou remover os proprietários do grupo no Azure Ative Directory
 Os grupos Azure Ative Directory (Azure AD) são propriedade e geridos pelos proprietários do grupo. Os proprietários do grupo podem ser utilizadores ou diretores de serviço, e são capazes de gerir o grupo, incluindo a adesão. Apenas os proprietários de grupos existentes ou administradores de gestão de grupos podem atribuir aos proprietários do grupo. Os donos do grupo não são obrigados a ser membros do grupo.
@@ -60,7 +60,7 @@ Remova um proprietário de um grupo que utilize a Azure AD.
 
     Depois de remover o proprietário, pode voltar à página **dos Proprietários** e ver se o nome foi removido da lista de proprietários.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Gerir o acesso aos recursos com grupos do Azure Active Directory](active-directory-manage-groups.md)
 
 - [Cmdlets do Azure Active Directory para configurar definições de grupo](../users-groups-roles/groups-settings-cmdlets.md)

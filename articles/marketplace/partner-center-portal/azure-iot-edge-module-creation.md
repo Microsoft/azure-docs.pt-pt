@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 5ead227d886805c0ed48ebb52c4c0e30ef13b851
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 779fc1cfc617e18eee4d84dcfd007f10ddb31f96
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320039"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808716"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Criar uma oferta de módulo do IoT Edge
 
@@ -50,9 +50,9 @@ A página **geral da Oferta** mostra uma representação visual dos passos neces
 
 Esta página inclui links para executar operações nesta oferta com base na seleção que faz. Por exemplo:
 
-- Se a oferta for um rascunho - [Eliminar oferta de projeto)](update-existing-offer.md#delete-a-draft-offer)
-- Se a oferta for ao vivo - [Pare de vender a oferta)](update-existing-offer.md#stop-selling-an-offer-or-plan)
-- Se a oferta estiver em pré-visualização - [Go-live](publishing-status.md#publisher-approval))
+- Se a oferta for um rascunho - [Eliminar oferta de rascunho](update-existing-offer.md#delete-a-draft-offer)
+- Se a oferta for ao vivo - [Pare de vender a oferta](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- Se a oferta estiver em pré-visualização - [Go-live](publishing-status.md#publisher-approval)
 - Se ainda não tiver concluído a assinatura do editor - [Cancele a publicação.](update-existing-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Configuração de oferta
@@ -199,14 +199,15 @@ Forneça logotipos e imagens para utilizar com a sua oferta. Todas as imagens de
 
 #### <a name="store-logos"></a>Logotipos da loja
 
-Forneça ficheiros PNG do logótipo da sua oferta em cada um dos seguintes quatro tamanhos de pixel:
+Forneça um ficheiro PNG para o logotipo de tamanho **grande** (entre 216 x 216 e 350 x 350 pixels). O Partner Center utilizará isto para criar um logótipo de tamanho **Pequeno** (48 x 48 pixels) e um logotipo de tamanho **Médio** (90 x 90 pixels). Pode substituir opcionalmente estas imagens diferentes.
 
-- **Pequeno (48 x 48)**
-- **Médio (90 x 90)**
-- **Grande (216 x 216)**
-- **Largo (255 x 115)**
+Todos os três tamanhos do logotipo são necessários para ser utilizados em diferentes locais da listagem:
 
-Todos os quatro logótipos são necessários e são usados em diferentes lugares na listagem do mercado.
+- **Pequeno** (48 x 48)
+- **Médio** (90 x 90)
+- **Grande** (entre 216 x 216 e 350 x 350)
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots-optional"></a>Screenshots (opcional)
 

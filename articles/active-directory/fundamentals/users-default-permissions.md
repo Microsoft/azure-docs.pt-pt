@@ -2,7 +2,7 @@
 title: Permissões de utilizador predefinidas - Azure Ative Directory / Microsoft Docs
 description: Saiba mais sobre as diferentes permissões de utilizador disponíveis no Azure Ative Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 227230f2d6f46fae27e2cec69d99390f5054c7db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bae802d8aa9378155bcca0713992a8cc041ea1a9
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80366258"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799027"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Quais são as permissões de utilizador predefinidas no Azure Ative Directory?
 No Azure Active Directory (Azure AD), é concedido a todos os utilizadores um conjunto de permissões predefinidas. O acesso de um utilizador consiste no tipo de utilizador, nas suas [atribuições de papel](active-directory-users-assign-role-azure-portal.md)e na sua propriedade de objetos individuais. Este artigo descreve essas permissões predefinidas e contém uma comparação entre as predefinições do utilizador membro e convidado. As permissões do utilizador predefinidas só podem ser alteradas nas definições do utilizador em Azure AD.
@@ -32,7 +32,7 @@ As permissões predefinidas para os convidados são restritivas por predefiniç�
 
 ## <a name="compare-member-and-guest-default-permissions"></a>Comparar as permissões predefinidas de membro e convidado
 
-**Área** | **Permissões de utilizador membro** | **Permissões de utilizador convidado**
+**Área** | **Permissões dos utilizadores membros** | **Permissões de utilizador convidado**
 ------------ | --------- | ----------
 Utilizadores e contactos | Ler todas as propriedades públicas de utilizadores e contactos<br>Convidar convidados<br>Alterar a própria palavra-passe<br>Gerir o próprio número de telemóvel<br>Gerir a própria fotografia<br>Invalidar os próprios tokens de atualização | Ler as próprias propriedades<br>Leia o nome do visor, e-mail, sinal no nome, foto, nome principal do utilizador e propriedades do tipo de utilizador de outros utilizadores e contactos<br>Alterar a própria palavra-passe
 Grupos | Criar grupos de segurança<br>Criar grupos do Office 365<br>Ler todas as propriedades dos grupos<br>Ler as associações de grupo não oculto<br>Associações de grupo de leitura oculto do Office 365 para grupo associado<br>Gerir propriedades, propriedade e adesão de grupos que o utilizador detém<br>Adicionar convidados a grupos detidos<br>Gerir definições de associação dinâmica<br>Eliminar grupos detidos<br>Restaurar grupos detidos do Office 365 | Ler todas as propriedades dos grupos<br>Ler as associações de grupo não oculto<br>Associações a grupo de leitura oculto do Office 365 para grupos associados<br>Gerir grupos detidos<br>Adicionar convidados a grupos detidos (se permitido)<br>Eliminar grupos detidos<br>Restaurar grupos detidos do Office 365<br>Leia propriedades de grupos a que pertencem, incluindo a adesão.

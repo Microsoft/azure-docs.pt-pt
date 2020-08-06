@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: f1871871fa3a191c636a965977dba485d2c77f1f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1cf29438d3785a3406aa8ce3b75929a5d5261121
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037513"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800375"
 ---
 # <a name="azure-spring-cloud-faq"></a>FAQ de nuvem de primavera de Azure
 
@@ -72,7 +72,7 @@ A Azure Spring Cloud suporta a exportação de registos e métricas de aplicaç�
 
 ### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>O Azure Spring Cloud suporta o rastreio distribuído?
 
-Yes. Para obter mais informações, consulte [Tutorial: Use Rastreio Distribuído com Nuvem de primavera Azure](spring-cloud-tutorial-distributed-tracing.md).
+Sim. Para obter mais informações, consulte [Tutorial: Use Rastreio Distribuído com Nuvem de primavera Azure](spring-cloud-tutorial-distributed-tracing.md).
 
 ### <a name="what-resource-types-does-service-binding-support"></a>Que tipos de recursos suporta o suporte de ligação de serviço?
 
@@ -83,7 +83,7 @@ Atualmente, três serviços são suportados:
 
 ### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>Posso ver, adicionar ou mover volumes persistentes de dentro das minhas aplicações?
 
-Yes.
+Sim.
 
 ### <a name="when-i-deletemove-an-azure-spring-cloud-service-instance-will-its-extension-resources-be-deletedmoved-as-well"></a>Quando apagar/mover uma instância de serviço Azure Spring Cloud, os seus recursos de extensão também serão eliminados/movidos?
 
@@ -137,7 +137,7 @@ Patches de segurança críticos (pontuação CVE >= 9) aplicáveis à Nuvem de p
 ## <a name="deployment"></a>Implementação
 
 ### <a name="does-azure-spring-cloud-support-blue-green-deployment"></a>A Azure Spring Cloud suporta a implantação azul-esverdeado?
-Yes. Para obter mais informações, consulte [Configurar um ambiente de preparação.](spring-cloud-howto-staging-environment.md)
+Sim. Para obter mais informações, consulte [Configurar um ambiente de preparação.](spring-cloud-howto-staging-environment.md)
 
 ### <a name="can-i-access-kubernetes-to-manipulate-my-application-containers"></a>Posso aceder a Kubernetes para manipular os meus recipientes de aplicação?
 
@@ -145,7 +145,7 @@ Não.  Azure Spring Cloud abstrata o desenvolvedor da arquitetura subjacente, pe
 
 ### <a name="does-azure-spring-cloud-support-building-containers-from-source"></a>A Azure Spring Cloud suporta contentores de construção de fonte?
 
-Yes. Para obter mais informações, consulte [lançar a sua aplicação Cloud Spring a partir do código fonte](spring-cloud-launch-from-source.md).
+Sim. Para obter mais informações, consulte [lançar a sua aplicação Cloud Spring a partir do código fonte](spring-cloud-launch-from-source.md).
 
 ### <a name="does-azure-spring-cloud-support-autoscaling-in-app-instances"></a>O Azure Spring Cloud suporta autoscaling em instâncias de aplicações?
 
@@ -161,6 +161,21 @@ Não.
 * Recomendamos que utilize bibliotecas oficiais e estáveis da primavera Pivotal. Versões não oficiais, beta ou forquilhadas de bibliotecas da primavera Pivotal não têm suporte a acordo de nível de serviço (SLA).
 
 Após a migração, monitorize as suas métricas de CPU/RAM e o tráfego de rede para garantir que as instâncias de aplicação são dimensionadas adequadamente.
+
+## <a name="trouble-shooting"></a>Tiro de Problemas
+
+### <a name="what-are-the-impacts-of-service-registry-rarely-unavailable"></a>Quais são os impactos do registo de serviço raramente indisponíveis?
+
+Em algum cenário raramente aconteceu, você pode ver alguns erros como 
+```
+RetryableEurekaHttpClient: Request execution failure with status code 401; retrying on another server if available
+```
+a partir dos seus registos de aplicações. Esta questão introduzida pelo quadro da primavera com uma taxa muito baixa devido a problemas de rede instáveis ou outros problemas de rede. 
+
+Não deve haver impactos na experiência do utilizador, o cliente eureka tem simultaneamente batimentos cardíacos e política de retenção para cuidar disto. Pode considerá-lo um erro transitório e ignorá-lo com segurança.
+
+Vamos melhorar esta parte e evitar este erro das aplicações dos utilizadores num futuro curto.
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

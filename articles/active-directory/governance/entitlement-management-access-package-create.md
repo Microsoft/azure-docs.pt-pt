@@ -3,7 +3,7 @@ title: Criar um novo pacote de acesso na gestão de direitos - Azure AD
 description: Saiba como criar um novo pacote de recursos de acesso que pretende partilhar na gestão de direitos do Azure Ative Directory.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d54c4e5980383c721629143910eafbd5ae6a527
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64f5c88de72bcd241f0cd42d338acbe707de6f34
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078942"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798788"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Criar um novo pacote de acesso na gestão de direitos AD da Azure
 
@@ -67,7 +67,7 @@ Aqui estão os passos de alto nível para criar um novo pacote de acesso.
    
     ![Gestão de direitos no portal Azure](./media/entitlement-management-shared/access-packages-list.png)
 
-## <a name="basics"></a>Noções básicas
+## <a name="basics"></a>Informações básicas
 
 No **separador Básicos,** você dá ao pacote de acesso um nome e especifica qual catálogo para criar o pacote de acesso dentro
 
@@ -119,7 +119,7 @@ Dependendo de quem pretender solicitar este pacote de acesso, execute os passos 
 
 [!INCLUDE [Entitlement management lifecycle policy](../../../includes/active-directory-entitlement-management-lifecycle-policy.md)]
 
-## <a name="review--create"></a>Revisão + criar
+## <a name="review--create"></a>Rever + criar
 
 No **separador 'Rever +' criar,** pode rever as suas definições e verificar eventuais erros de validação.
 
@@ -141,7 +141,7 @@ Também pode criar um pacote de acesso utilizando o Microsoft Graph.  Um utiliza
 1. [Criar um accessPackageAssignmentPolicy](https://docs.microsoft.com/graph/api/accesspackageassignmentpolicy-post?view=graph-rest-beta).
 1. [Crie um AccessPackageResourceRoleScope](https://docs.microsoft.com/graph/api/accesspackage-post-accesspackageresourcerolescopes?view=graph-rest-beta) para cada função de recurso necessária no pacote de acesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Partilhar link para solicitar um pacote de acesso](entitlement-management-access-package-settings.md)
 - [Alterar funções de recursos para um pacote de acesso](entitlement-management-access-package-resources.md)

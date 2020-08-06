@@ -3,16 +3,18 @@ title: Análise de utilização com Azure Application Insights / Docs da Microso
 description: Compreenda os seus utilizadores e o que fazem com a sua aplicação.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: bd0b95fe92171d2c5a1515941dbf86a0e31e04be
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4ace90b0893eed24227cadcb9a5b9fae7d502ff8
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323558"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800216"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análise de utilização com o Application Insights
 
 Quais as funcionalidades da sua web ou aplicação móvel mais populares? Os seus utilizadores alcançam os seus objetivos com a sua app? Desempatam em determinados pontos, e voltam mais tarde?  [O Azure Application Insights](./app-insights-overview.md) ajuda-o a obter informações poderosas sobre como as pessoas usam a sua aplicação. Sempre que atualizar a sua aplicação, pode avaliar o quão bem funciona para os utilizadores. Com este conhecimento, pode tomar decisões orientadas para dados sobre os seus próximos ciclos de desenvolvimento.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Cijb]
 
 ## <a name="send-telemetry-from-your-app"></a>Envie telemetria a partir da sua app
 
@@ -174,7 +176,7 @@ Todos os novos TelemetriaClients adicionam automaticamente o valor da propriedad
    - [Utilizadores, Sessões, Eventos](usage-segmentation.md)
    - [Funis](usage-funnels.md)
    - [Retenção](usage-retention.md)
-   - [Fluxos do Utilizador](usage-flows.md)
+   - [Fluxos de Utilizador](usage-flows.md)
    - [Livros](../platform/workbooks-overview.md)
    - [Adicionar contexto de utilizador](usage-send-user-context.md)
 

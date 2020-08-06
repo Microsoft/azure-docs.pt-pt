@@ -3,12 +3,12 @@ title: Faça o backup de uma base de dados SAP HANA para Azure com Azure Backup
 description: Neste artigo, aprenda a fazer backup de uma base de dados SAP HANA para máquinas virtuais Azure com o serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 2f42b119c361eaddcb84dda738b50c8accc84f9c
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 0efd26272bbfc4c8f63f7f02a605d48e53577390
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439751"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809141"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados SAP HANA nas VMs do Azure
 
@@ -67,7 +67,7 @@ Se utilizar grupos de segurança de rede (NSG), utilize a etiqueta de serviço *
 
 1. Clique **em Adicionar** para salvar a regra de segurança de saída recém-criada.
 
-Pode igualmente criar regras de segurança de saída NSG para Azure Storage e Azure AD. Para obter mais informações sobre etiquetas de serviço, consulte [este artigo.](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+Pode igualmente criar regras de segurança de saída NSG para Azure Storage e Azure AD. Para obter mais informações sobre etiquetas de serviço, consulte [este artigo.](../virtual-network/service-tags-overview.md)
 
 #### <a name="azure-firewall-tags"></a>Tags Azure Firewall
 

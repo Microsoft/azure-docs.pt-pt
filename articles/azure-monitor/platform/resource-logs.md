@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 6a7b24de860b543778d7e6ceabc95d10bf7c44c2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ccf470abadb28919e4fca3c4862b71946a5bb204
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077072"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800505"
 ---
 # <a name="azure-resource-logs"></a>Registos de recursos Azure
 Os registos de recursos Azure são [registos de plataformas](platform-logs-overview.md) que fornecem informações sobre operações que foram realizadas dentro de um recurso Azure. O conteúdo dos registos de recursos varia consouros e de tipo de recurso. Os registos de recursos não são recolhidos por predefinição. Tem de criar uma definição de diagnóstico para cada recurso Azure para enviar os seus registos de recursos para um espaço de trabalho do Log Analytics para utilizar com [registos do Monitor Azure,](data-platform-logs.md)Azure Event Hubs para encaminhar para fora do Azure, ou para o Azure Storage para arquivar.
 
-Consulte [Criar definições de diagnóstico para enviar registos e métricas da plataforma para diferentes destinos](diagnostic-settings.md) para obter detalhes sobre a criação de uma definição de diagnóstico e [implementar o Monitor Azure em escala utilizando a Política Azure](deploy-scale.md) para obter detalhes sobre a utilização da Política Azure para criar automaticamente uma definição de diagnóstico para cada recurso Azure que criar.
+Consulte [Criar definições de diagnóstico para enviar registos e métricas da plataforma para diferentes destinos](diagnostic-settings.md) para obter detalhes sobre a criação de uma definição de diagnóstico e [implementar o Monitor Azure em escala utilizando a Política Azure](../deploy-scale.md) para obter detalhes sobre a utilização da Política Azure para criar automaticamente uma definição de diagnóstico para cada recurso Azure que criar.
 
 ## <a name="send-to-log-analytics-workspace"></a>Enviar para a área de trabalho do Log Analytics
  Envie registos de recursos para um espaço de trabalho do Log Analytics para permitir as funcionalidades dos Registos do [Monitor Azure,](data-platform-logs.md) que inclui os seguintes:

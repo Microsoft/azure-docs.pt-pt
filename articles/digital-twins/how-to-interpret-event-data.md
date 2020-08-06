@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 34624358a26fbd52db5832cf3531a6f1d3b91e5b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3bb4d70b4c4f3f9edc525ffe5973bca633ddd1be
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87061761"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800420"
 ---
 # <a name="understand-event-data"></a>Compreender os dados do evento
 
@@ -103,7 +103,7 @@ As notificações do ciclo de vida são desencadeadas quando:
 
 Aqui estão os campos no corpo de uma notificação de ciclo de vida.
 
-| Name | Valor |
+| Nome | Valor |
 | --- | --- |
 | `id` | Identificador da notificação, como um UUID ou um balcão mantido pelo serviço. `source` + `id`é único para cada evento distinto. |
 | `source` | Nome do hub IoT ou exemplo de Azure Digital Twins, como *myhub.azure-devices.net* ou *mydigitaltwins.westus2.azuredigitaltwins.net* |
@@ -189,7 +189,7 @@ Aqui está outro exemplo de um gémeo digital. Este baseia-se num [modelo](conce
 
 Aqui estão os campos no corpo de uma notificação de mudança de borda.
 
-| Name    | Valor |
+| Nome    | Valor |
 | --- | --- |
 | `id` | Identificador da notificação, como um UUID ou um balcão mantido pelo serviço. `source` + `id`é único para cada evento distinto |
 | `source` | Nome do exemplo das Gémeas Digitais Azure, como *mydigitaltwins.westus2.azuredigitaltwins.net* |
@@ -245,7 +245,7 @@ Aqui está um exemplo de uma notificação de relacionamento de criar ou excluir
 
 Aqui estão os campos no corpo de uma notificação digital de mudança de gémeos.
 
-| Name    | Valor |
+| Nome    | Valor |
 | --- | --- |
 | `id` | Identificador da notificação, como um UUID ou um balcão mantido pelo serviço. `source` + `id`é único para cada evento distinto |
 | `source` | Nome do hub IoT ou exemplo de Azure Digital Twins, como *myhub.azure-devices.net* ou *mydigitaltwins.westus2.azuredigitaltwins.net*
@@ -300,7 +300,7 @@ A notificação correspondente (se executada sincronizadamente pelo serviço, co
 ## <a name="next-steps"></a>Passos seguintes
 
 Veja como criar pontos finais e rotas para entregar eventos:
-* [*Como fazer: Gerir pontos finais e rotas*](how-to-manage-routes.md)
+* [*Como fazer: Gerir pontos finais e rotas*](how-to-manage-routes-apis-cli.md)
 
 Ou, saiba mais sobre as opções Azure Digital Twins APIs e SDK:
 * [*Como fazer: Use as APIs e SDKs de gémeos digitais Azure*](how-to-use-apis-sdks.md)

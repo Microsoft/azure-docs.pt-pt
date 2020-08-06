@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 07/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 80c133eceb6af419d0eb5aa35ff784a0f9321d37
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 73ece3f1bc8d5e88d4c1c37e1040f2494230e4ee
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87474959"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809600"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gerir e manter o agente da Máquina Conectada
 
@@ -320,6 +320,6 @@ sudo azcmagent_proxy remove
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Aprenda a gerir a sua máquina utilizando [a Azure Policy](../../governance/policy/overview.md), para coisas como [a configuração do hóspede](../../governance/policy/concepts/guest-configuration.md)VM , verificando se a máquina está a reportar ao espaço de trabalho esperado do Log Analytics, permitir a monitorização com o [Azure Monitor com VMs](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md), e muito mais.
+- Aprenda a gerir a sua máquina utilizando [a Azure Policy](../../governance/policy/overview.md), para coisas como [a configuração do hóspede](../../governance/policy/concepts/guest-configuration.md)VM , verificando se a máquina está a reportar ao espaço de trabalho esperado do Log Analytics, permitir a monitorização com o [Azure Monitor com VMs](../../azure-monitor/insights/vminsights-enable-policy.md), e muito mais.
 
 - Saiba mais sobre o [agente Log Analytics.](../../azure-monitor/platform/log-analytics-agent.md) O agente Log Analytics para Windows e Linux é necessário quando pretende monitorizar proactivamente o SISTEMA e as cargas de trabalho em funcionamento na máquina, geri-lo utilizando livros de automação ou funcionalidades como Update Management, ou utilizar outros serviços Azure como [o Azure Security Center](../../security-center/security-center-intro.md).

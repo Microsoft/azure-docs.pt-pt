@@ -12,17 +12,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: e12d5d7e9cfc6cfa80de1032e3d4d5659c44c0a7
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6b07b6c3e54f4aebcda6c2e84047ecd1a27b3d5b
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075914"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809481"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Recuperar usando cópias de dados automatizadas - Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Por predefinição, a Base de Dados Azure SQL e as cópias de segurança Azure SQL Managed Instance são armazenadas em armazenamento de bolhas geo-replicadas (tipo de armazenamento RA-GRS). As seguintes opções estão disponíveis para a recuperação de bases de dados utilizando [cópias de dados automatizadas](automated-backups-overview.md). Pode:
+As seguintes opções estão disponíveis para a recuperação de bases de dados utilizando [cópias de dados automatizadas](automated-backups-overview.md). Pode:
 
 - Crie uma nova base de dados no mesmo servidor, recuperada a um ponto especificado no tempo dentro do período de retenção.
 - Crie uma base de dados no mesmo servidor, recuperada até ao tempo de eliminação de uma base de dados eliminada.
@@ -33,6 +33,11 @@ Se configurar [a retenção de longo prazo de backup,](long-term-retention-overv
 
 > [!IMPORTANT]
 > Não pode substituir uma base de dados existente durante a restauração.
+
+Por predefinição, a Base de Dados Azure SQL e as cópias de segurança Azure SQL Managed Instance são armazenadas em armazenamento de bolhas geo-replicadas (tipo de armazenamento RA-GRS). Além disso, a SQL Managed Instance suporta o armazenamento de backup localmente redundante (LRS) e redundante de zona (ZRS). A redundância garante que os seus dados estão protegidos contra eventos planeados e não planeados, incluindo falhas de hardware transitórios, falhas de rede ou de energia, e desastres naturais maciços. O armazenamento redundante de zona (ZRS) só está disponível em [determinadas regiões.](../../storage/common/storage-redundancy.md#zone-redundant-storage)
+
+> [!IMPORTANT]
+> Configurar a redundância de armazenamento para cópias de segurança está disponível apenas para instâncias geridas e permitidas durante o processo de criação. Uma vez que o recurso é aprovisionado, não é possível alterar a opção de redundância de armazenamento de backup.
 
 Quando estiver a utilizar o nível de serviço Standard ou Premium, a sua restauração da base de dados pode incorrer num custo extra de armazenamento. O custo extra é incorrido quando o tamanho máximo da base de dados restaurada é maior do que a quantidade de armazenamento incluída com o nível de serviço e nível de desempenho da base de dados-alvo. Para obter detalhes sobre preços de armazenamento extra, consulte a [página de preços da Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). Se a quantidade real de espaço usado for inferior à quantidade de armazenamento incluída, pode evitar este custo extra definindo o tamanho máximo da base de dados para a quantidade incluída.
 
@@ -51,7 +56,7 @@ Para uma base de dados grande ou muito ativa, a restauração pode demorar vári
 
 Para uma única subscrição, existem limitações no número de pedidos de restauro simultâneos. Estas limitações aplicam-se a qualquer combinação de restauros pontuais, geo-restauros e restauros a partir de backup de retenção a longo prazo.
 
-|| **Max # de pedidos simultâneos sendo processados** | **Max # de pedidos simultâneos sendo submetidos** |
+| **Opção de implementação** | **Max # de pedidos simultâneos sendo processados** | **Max # de pedidos simultâneos sendo submetidos** |
 | :--- | --: | --: |
 |**Base de dados única (por subscrição)**|10|60|
 |**Piscina elástica (por piscina)**|4|200|
@@ -137,6 +142,9 @@ Para uma amostra do script PowerShell que mostra como restaurar uma base de dado
 
 ## <a name="geo-restore"></a>Georrestauro
 
+> [!IMPORTANT]
+> O geo-restauro só está disponível para instâncias geridas configuradas com o tipo de armazenamento de backup geo-redundante (RA-GRS). Casos geridos configurados com tipos de armazenamento de backup localmente redundantes ou redundantes em zonas não suportam o geo-restauro.
+
 Pode restaurar uma base de dados em qualquer servidor de base de dados SQL ou uma base de dados de instâncias em qualquer instância gerida em qualquer região do Azure a partir das cópias de segurança geo-replicadas mais recentes. Geo-restauração utiliza uma cópia de segurança geo-replicada como fonte. Pode solicitar a geo-restauração mesmo que a base de dados ou o datacenter esteja inacessível devido a uma paragem.
 
 Geo-restauração é a opção de recuperação padrão quando a sua base de dados não está disponível devido a um incidente na região de hospedagem. Pode restaurar a base de dados para um servidor em qualquer outra região. Há um atraso entre quando um backup é tomado e quando é geo-replicado para uma bolha Azure em uma região diferente. Como resultado, a base de dados restaurada pode estar até uma hora atrás da base de dados original. A seguinte ilustração mostra uma recuperação da base de dados a partir da última cópia de segurança disponível noutra região.
@@ -162,7 +170,7 @@ Complete o processo de criação de uma nova base de dados a partir da cópia de
 
 #### <a name="sql-managed-instance"></a>Instância Gerida do SQL
 
-Para restaurar uma base de dados de instância gerida do portal Azure para um caso gerido existente numa região à sua escolha, selecione uma instância gerida em que deseja que uma base de dados seja restaurada. Siga estes passos.
+Para restaurar uma base de dados de instância gerida do portal Azure para um caso gerido existente numa região à sua escolha, selecione uma instância gerida em que deseja que uma base de dados seja restaurada. Siga estes passos:
 
 1. Selecione **Nova base de dados**.
 2. Digite um nome de base de dados desejado.
@@ -251,9 +259,9 @@ Para restaurar uma base de dados de instância gerida utilizando o Azure CLI, co
 
 As cópias de segurança automáticas protegem as suas bases de dados contra erros de utilizador e aplicação, eliminação acidental da base de dados e interrupções prolongadas. Esta capacidade incorporada está disponível para todos os níveis de serviço e tamanhos de cálculo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral da continuidade do negócio](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 - [Backups automatizados da Base de Dados SQL](automated-backups-overview.md)
-- [Retenção de longa duração](long-term-retention-overview.md)
+- [Retenção a longo prazo](long-term-retention-overview.md)
 - Para saber mais rapidamente opções de recuperação, consulte [grupos](auto-failover-group-overview.md) [de geo-replicação ativa](active-geo-replication-overview.md) ou de falha automática .

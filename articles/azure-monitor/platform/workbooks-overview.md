@@ -8,16 +8,20 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: 044786d6a6aa4f9f3d163090c0edfa3832023b10
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 1d85f011289bfa27bcf1e94d8da8cd7a32092c2c
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116956"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799570"
 ---
 # <a name="azure-monitor-workbooks"></a>Livros de trabalho do Monitor Azure
 
 Os livros fornecem uma tela flexível para análise de dados e a criação de relatórios visuais ricos dentro do portal Azure. Permitem-lhe aceder a várias fontes de dados de todo o Azure e combiná-las em experiências interativas unificadas. 
+
+Aqui está um vídeo sobre a criação de livros.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4B4Ap]
 
 ## <a name="data-sources"></a>Origens de dados
 

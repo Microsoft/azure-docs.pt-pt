@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: fe26731a7f217d0f441a3dea1650f2652677a57f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: bc9bc034abce789046803bbcad5b750984c905cb
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133015"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809532"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Ligue máquinas híbridas ao Azure a partir do portal Azure
 
@@ -167,6 +167,6 @@ Depois de instalar o agente e configurá-lo para ligar ao Azure Arc para servido
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Aprenda a gerir a sua máquina utilizando [a Azure Policy](../../governance/policy/overview.md), para coisas como [a configuração do hóspede](../../governance/policy/concepts/guest-configuration.md)VM , verificando se a máquina está a reportar ao espaço de trabalho esperado do Log Analytics, permitir a monitorização com o [Azure Monitor com VMs](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md), e muito mais.
+- Aprenda a gerir a sua máquina utilizando [a Azure Policy](../../governance/policy/overview.md), para coisas como [a configuração do hóspede](../../governance/policy/concepts/guest-configuration.md)VM , verificando se a máquina está a reportar ao espaço de trabalho esperado do Log Analytics, permitir a monitorização com o [Azure Monitor com VMs](../../azure-monitor/insights/vminsights-enable-policy.md), e muito mais.
 
 - Saiba mais sobre o [agente Log Analytics.](../../azure-monitor/platform/log-analytics-agent.md) O agente Log Analytics para Windows e Linux é necessário quando pretende monitorizar proactivamente o SISTEMA e as cargas de trabalho em funcionamento na máquina, geri-lo utilizando livros de automação ou soluções como a Update Management, ou utilizar outros serviços Azure como o [Azure Security Center.](../../security-center/security-center-intro.md)

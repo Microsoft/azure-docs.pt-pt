@@ -7,7 +7,7 @@
       href: what-is-application-management.md
     - name: O que é o Início de Sessão Único (SSO)?
       href: what-is-single-sign-on.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Ver as suas aplicações
@@ -108,8 +108,6 @@
           href: configure-password-single-sign-on-non-gallery-applications.md
         - name: Configurar o início de sessão ligado
           href: configure-linked-sign-on.md
-        - name: Automatizar o início de sessão único baseado em SAML com as MS Graph APIs
-          href: application-saml-sso-configure-api.md
     - name: Atribuir utilizadores e gerir o acesso às aplicações
       items:
         - name: Configurar o consentimento do utilizador

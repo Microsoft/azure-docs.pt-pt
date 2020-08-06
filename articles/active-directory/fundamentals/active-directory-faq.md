@@ -2,7 +2,7 @@
 title: Perguntas frequentes (FAQ) - Azure Ative Directory Microsoft Docs
 description: Perguntas e respostas comuns sobre O Diretório Ativo Azure e Azure, gestão de passwords e acesso a aplicações.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 775b71dd88c26dfe3ee62326615f6a81ee237deb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7c119b56d33908dbc0e53d588f3ac4ea155c8de
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604425"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799100"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Perguntas frequentes sobre O Diretório Ativo Azure
 O Azure Active Directory (Azure AD) é uma solução identidade como um Serviço (IDaaS) completa que abrange todos os aspetos relativos à identidade, gestão de acesso e segurança.
@@ -32,7 +32,7 @@ Para obter mais informações, consulte [What is Azure Active Directory? (O que 
 **R:** Para aceder ao portal do Azure, cada utilizador precisa de permissões com uma subscrição do Azure. Se não tiver uma subscrição paga do Office 365 ou da AD Azure, terá de ativar uma [conta Azure](https://azure.microsoft.com/free/
 ) gratuita ou uma subscrição paga.
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 * [Como as subscrições do Azure estão associadas ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 
@@ -160,7 +160,7 @@ Para obter a lista completa das aplicações previamente integradas, consulte [A
 
 **R:** Com o Azure AD Premium, pode adicionar e configurar qualquer aplicação que desejar. Dependendo das capacidades da sua aplicação e das suas preferências, pode configurar sSO e provisões automatizadas.  
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 * [Configurar o início de sessão único em aplicações que não fazem parte da galeria de aplicações do Azure Active Directory](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [Utilizar o SCIM para ativar o aprovisionamento automático de utilizadores e grupos do Azure Active Directory a aplicações](../app-provisioning/use-scim-to-provision-users-and-groups.md)
@@ -182,7 +182,7 @@ Para obter mais informações, consulte [experiências do utilizador final para 
 
 **R:** O Azure AD suporta vários protocolos normalizados para a autenticação e autorização, tais como SAML 2.0, OpenID Connect, OAuth 2.0 e WS-Federation. O Azure AD também suporta cofres de palavras-passe e as capacidades de início de sessão automatizado para aplicações que apenas suportam autenticação baseada em formulários.  
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 * [Cenários de autenticação do Azure AD](../develop/authentication-scenarios.md)
 * [Protocolos de autenticação de diretório ativo](https://msdn.microsoft.com/library/azure/dn151124.aspx)

@@ -10,13 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec0b3ef559abe1c65872d8ecf87f63e6ff3ed4b0
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 422c174116bb6973993f5c6093a83f8bdb42a62a
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223912"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808240"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>Quickstart: Elimine uma aplicação do seu inquilino Azure Ative Directory (Azure AD)
 
@@ -44,9 +43,15 @@ Para eliminar uma aplicação do seu inquilino AZure AD:
 1. Na secção **Gerir** no painel esquerdo, selecione **Propriedades**.
 1. **Selecione Eliminar**, e em seguida, selecione **Sim** para confirmar que deseja eliminar a aplicação do seu inquilino AD Azure.
 
+> [!TIP]
+> Pode automatizar a gestão de aplicações utilizando a API do Gráfico, ver [Gestão de aplicações do Automamate com a Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Quando terminar com esta série de arranque rápido, considere apagar a app para limpar o seu inquilino de teste. A eliminação da aplicação foi coberta por este arranque rápido.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Gestão de aplicações boas práticas](application-management-fundamentals.md)
-- [Cenários comuns de gestão de aplicações](common-scenarios.md)
-- [Visibilidade e controlo da gestão da aplicação](cloud-app-security.md)
+Completou a série de arranque rápido! Como próximo passo, leia sobre as melhores práticas na gestão de aplicações.
+> [!div class="nextstepaction"]
+> [Gestão de aplicações boas práticas](application-management-fundamentals.md)

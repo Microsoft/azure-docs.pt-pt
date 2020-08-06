@@ -3,23 +3,23 @@ title: Implantação do modelo e se (Pré-visualização)
 description: Determine quais as alterações que irão acontecer aos seus recursos antes de implementar um modelo de Gestor de Recursos Azure.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 08/05/2020
 ms.author: tomfitz
-ms.openlocfilehash: 1e2c83167e7ccc1e3e98b23711fba567ef11ac23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27efe1e03b8a0d373d566106a53a41007731973e
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888740"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810076"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Implantação do modelo ARM e se operação (Pré-visualização)
 
-Antes de implementar um modelo Azure Resource Manager (ARM), pode visualizar as alterações que irão ocorrer. O Azure Resource Manager fornece o e-se a operação para que você veja como os recursos vão mudar se implementar o modelo. A operação "e se" não altera os recursos existentes. Em vez disso, prevê as alterações se o modelo especificado for implantado.
+Antes de implementar um modelo de Gestor de Recursos Azure (modelo ARM), pode visualizar as alterações que irão ocorrer. O Azure Resource Manager fornece o e-se a operação para que você veja como os recursos vão mudar se implementar o modelo. A operação "e se" não altera os recursos existentes. Em vez disso, prevê as alterações se o modelo especificado for implantado.
 
 > [!NOTE]
 > A operação "e se" está atualmente em pré-visualização. Como um lançamento de pré-visualização, os resultados podem por vezes mostrar que um recurso vai mudar quando realmente não acontecerá nenhuma alteração. Estamos a trabalhar para reduzir estes problemas, mas precisamos da sua ajuda. Por favor, informe estas questões em [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
 
-Pode utilizar a operação "e se" com as operações Azure PowerShell, Azure CLI ou REST API. E se for suportado para implementações de grupo de recursos e de nível de subscrição.
+Pode utilizar a operação "e se" com as operações Azure PowerShell, Azure CLI ou REST API. E se for suportado para implantações de grupo de recursos, subscrição, grupo de gestão e nível de inquilino.
 
 ## <a name="install-azure-powershell-module"></a>Instalar módulo Azure PowerShell
 
@@ -125,20 +125,23 @@ Os comandos anteriores devolvem um resumo de texto que pode inspecionar manualme
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para pré-visualizar alterações antes de implementar um modelo, utilize [o grupo de implementação az what-if](/cli/azure/deployment/group#az-deployment-group-what-if) ou [az deployment sub-if](/cli/azure/deployment/sub#az-deployment-sub-what-if).
+Para pré-visualizar alterações antes de implementar um modelo, use:
 
-* `az deployment group what-if`para implementações de grupos de recursos
-* `az deployment sub what-if`para implementações de nível de subscrição
+* [grupo de implantação az e se](/cli/azure/deployment/group#az-deployment-group-what-if) para implantações de grupos de recursos
+* [az implantação sub-e-se](/cli/azure/deployment/sub#az-deployment-sub-what-if) para implementações de nível de subscrição
+* [az implantação mg e se](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-what-if) para implantações de grupos de gestão
+* [az inquilino de implantação o que se](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-what-if) para implantações de inquilinos
 
-Pode utilizar o `--confirm-with-what-if` interruptor (ou a sua forma `-c` curta) para visualizar as alterações e ser solicitado para continuar com a implementação. Adicione este interruptor à [criação do grupo de implantação AZ](/cli/azure/deployment/group#az-deployment-group-create) ou [à criação do submarino de implantação AZ](/cli/azure/deployment/sub#az-deployment-sub-create).
+Pode utilizar o `--confirm-with-what-if` interruptor (ou a sua forma `-c` curta) para visualizar as alterações e ser solicitado para continuar com a implementação. Adicione este interruptor a:
 
-* `az deployment group create --confirm-with-what-if`ou `-c` para implantações de grupos de recursos
-* `az deployment sub create --confirm-with-what-if`ou `-c` para implementações de nível de subscrição
+* [az grupo de implementação criar](/cli/azure/deployment/group#az-deployment-group-create)
+* [sub de implantação az criar](/cli/azure/deployment/sub#az-deployment-sub-create).
+* [mg de implantação az criar](/cli/azure/deployment/mg#az-deployment-mg-create)
+* [inquilino de implantação az criar](/cli/azure/deployment/tenant#az-deployment-tenant-create)
 
-Os comandos anteriores devolvem um resumo de texto que pode inspecionar manualmente. Para obter um objeto JSON que possa inspecionar programaticamente para obter alterações, use:
+Por exemplo, utilização `az deployment group create --confirm-with-what-if` ou `-c` para implantações de grupos de recursos.
 
-* `az deployment group what-if --no-pretty-print`para implementações de grupos de recursos
-* `az deployment sub what-if --no-pretty-print`para implementações de nível de subscrição
+Os comandos anteriores devolvem um resumo de texto que pode inspecionar manualmente. Para obter um objeto JSON que possa inspecionar programaticamente as alterações, utilize o `--no-pretty-print` interruptor. Por exemplo, utilizar `az deployment group what-if --no-pretty-print` para implantações de grupos de recursos.
 
 Se pretender devolver os resultados sem cores, abra o seu ficheiro [de configuração Azure CLI.](/cli/azure/azure-cli-configuration) Desateia **no_color** para **sim.**
 
@@ -147,7 +150,9 @@ Se pretender devolver os resultados sem cores, abra o seu ficheiro [de configura
 Para REST API, utilize:
 
 * [Implementações - E se](/rest/api/resources/deployments/whatif) para implantações de grupos de recursos
-* [Implementações - E se no âmbito de subscrição](/rest/api/resources/deployments/whatifatsubscriptionscope) para implementações de nível de subscrição
+* [Implementações - E se no âmbito de subscrição](/rest/api/resources/deployments/whatifatsubscriptionscope) para implementações de subscrição
+* [Implementações - E se estiver em gestão de âmbito do grupo](/rest/api/resources/deployments/whatifatmanagementgroupscope) para implantações de grupos de gestão
+* [Implantações - E se no âmbito do arrendatário](/rest/api/resources/deployments/whatifattenantscope) para implantações de inquilinos.
 
 ## <a name="change-types"></a>Tipos de alteração
 
@@ -312,7 +317,7 @@ Resource changes: 1 to modify.
 
 Note na parte superior da saída que as cores são definidas para indicar o tipo de alterações.
 
-Na parte inferior da saída, mostra que a etiqueta Proprietário foi eliminada. O prefixo do endereço passou de 10.0.0.0/16 para 10.0.0.0/15. A sub-rede denominada sub-rede001 foi eliminada. Lembre-se que estas mudanças não foram realmente implementadas. Você vê uma pré-visualização das alterações que irão acontecer se implementar o modelo.
+Na parte inferior da saída, mostra que a etiqueta Proprietário foi eliminada. O prefixo do endereço passou de 10.0.0.0/16 para 10.0.0.0/15. A sub-rede denominada sub-rede001 foi eliminada. Lembre-se que estas mudanças não foram implementadas. Você vê uma pré-visualização das alterações que irão acontecer se implementar o modelo.
 
 Algumas das propriedades que estão listadas como eliminadas não vão realmente mudar. As propriedades podem ser incorretamente reportadas como eliminadas quando não estão no modelo, mas são automaticamente definidas durante a implementação como valores predefinidos. Este resultado é considerado "ruído" na resposta "e se". O recurso implantado final terá os valores definidos para as propriedades. À medida que a operação se amadurecer, estas propriedades serão filtradas do resultado.
 
@@ -416,7 +421,7 @@ Pode utilizar a operação "e se" através dos Azure SDKs.
 
 * Para .NET, utilize [a classe DeploymentWhatIf](/dotnet/api/microsoft.azure.management.resourcemanager.models.deploymentwhatif?view=azure-dotnet).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Se notar resultados incorretos a partir da pré-visualização do "e se", por favor reporte as questões em [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
 - Para implementar modelos com Azure PowerShell, consulte [implementar recursos com modelos ARM e Azure PowerShell](deploy-powershell.md).
