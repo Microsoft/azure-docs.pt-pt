@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 22bfab5b9f00a392054fa1aef6a93195180fd968
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 30e57736d0b0e40eb01573d6acca2c618dcf6ee3
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373492"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759704"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database migração de tráfego para gateways mais recentes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,17 +29,20 @@ Os clientes serão notificados via e-mail e no portal Azure com muita antecedên
 # <a name="in-progress"></a>[Em curso](#tab/in-progress-ip)
 ### <a name="september-2020"></a>Setembro de 2020
 
-Novos Gateways SQL estão a ser adicionados às seguintes regiões:
+Novos Gateways SQL estão a ser adicionados às seguintes regiões. Estes GATEWAYS SQL começarão a aceitar o tráfego de clientes no dia 10 de setembro de 2020:
+
+- Centro-Oeste dos EUA : 13.78.248.43 
+- África do Sul Norte : 102.133.120.2  
+
+Novos Gateways SQL estão a ser adicionados às seguintes regiões. Estes GATEWAYS SQL começarão a aceitar o tráfego de clientes no dia 1 de setembro de 2020:
 
 - Norte da Europa : 13.74.104.113 
 - West US2 : 40.78.248.10 
 - Europa Ocidental : 52.236.184.163 
 - Centro Sul dos EUA : 20.45.121.1, 20.49.88.1 
 
-Os gateways SQL existentes começarão a aceitar o tráfego nas seguintes regiões:
+Os gateways SQL existentes começarão a aceitar o tráfego nas seguintes regiões. Estes SQL Gateways começarão a aceitar o tráfego de clientes no dia 1 de setembro de 2020. :
 - Japão Leste : 40.79.184.8, 40.79.192.5
-
-Estes SQL Gateways começarão a aceitar o tráfego de clientes no dia 1 de setembro de 2020. 
 
 ### <a name="august-2020"></a>agosto de 2020
 
@@ -82,7 +85,7 @@ Pode ser afetado se:
 - Utilize a [configuração redundante](high-availability-sla.md#zone-redundant-configuration) da zona para a sua base de dados
 
 Não será impactado se tiver:
-
+ 
 - Redireccionamento como a política de ligação
 - Ligações à Base de Dados SQL a partir do interior do Azure e usando Tags de Serviço
 - As ligações efetuadas utilizando versões suportadas do JDBC Driver para o SQL Server não verão qualquer impacto. Para versões JDBC suportadas, consulte [Download Microsoft JDBC Driver for SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).

@@ -2,7 +2,7 @@
 title: Adicionar ou atualizar informações sobre o perfil do utilizador - Azure AD
 description: Instruções sobre como adicionar informações ao perfil de um utilizador no Azure Ative Directory, incluindo uma imagem e detalhes do trabalho.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 04/11/2019
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 277f4c7016849fbdbac4b5070c2a4db681cc66a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63b716aa22954af51a9eb53a0d04a8299d348c71
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604017"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797242"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Adicionar ou atualizar as informações do perfil de um utilizador com o Azure Active Directory
 Adicione informações sobre o perfil do utilizador, incluindo uma imagem de perfil, informações específicas do trabalho e algumas definições utilizando o Azure Ative Directory (Azure AD). Para obter mais informações sobre a adição de novos utilizadores, consulte [Como adicionar ou eliminar utilizadores no Azure Ative Directory](add-users-azure-active-directory.md).
@@ -57,7 +57,7 @@ Como pode ver, há mais informação disponível no perfil de um utilizador do q
     >[!Note]
     >Tem de utilizar o Windows Server Ative Directory para atualizar a identidade, informações de contacto ou informações de trabalho para utilizadores cuja fonte de autoridade é o Windows Server Ative Directory. Depois de completar a atualização, tem de esperar que o próximo ciclo de sincronização esteja concluído antes de ver as alterações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Depois de atualizar os perfis dos seus utilizadores, pode realizar os seguintes processos básicos:
 
 - [Adicionar ou eliminar utilizadores](add-users-azure-active-directory.md)

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 06/11/2020
-ms.openlocfilehash: 85d8d288a8b2d0f256294b0c8975afc367e6e381
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5ddcd083dfae1d0d4b79cd534b6ae4d034903b9
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736055"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759313"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Portas para além da porta 1433 para ADO.NET 4.5
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -77,7 +77,7 @@ Esta secção esclarece os nomes que se referem às versões do produto. Também
 * ADO.NET 4,5 foi lançado em 15 de agosto de 2012. Um anúncio de blog da equipa .NET está disponível [aqui.](https://devblogs.microsoft.com/dotnet/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code/)
   * Uma publicação de blog sobre ADO.NET 4.5.1 está disponível [aqui.](https://devblogs.microsoft.com/dotnet/announcing-the-net-framework-4-5-1-preview/)
 
-* Microsoft® ODBC Driver 17 para SQL Server® - Windows, Linux, & macOShttps://www.microsoft.com/download/details.aspx?id=56567
+* Microsoft ODBC Driver 17 para SQL Serverhttps://aka.ms/downloadmsodbcsql
 
 * Ligue-se à Base de Dados V12 do Azure SQL através da reorientaçãohttps://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
 

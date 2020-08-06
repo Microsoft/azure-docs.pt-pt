@@ -2,7 +2,7 @@
 title: O que é o Azure Active Directory? - Diretório Ativo Azure / Microsoft Docs
 description: Visão geral e informação conceptual sobre o Azure Ative Directory, incluindo terminologia, quais as licenças disponíveis, e uma lista de funcionalidades associadas com links para mais informações.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddfb0343e925354a57a54e02f3eb98b7a1d01bcb
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bd63e82788856624c3babe078de52e698f190ce0
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495119"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87796630"
 ---
 # <a name="what-is-azure-active-directory"></a>O que é o Azure Active Directory?
 

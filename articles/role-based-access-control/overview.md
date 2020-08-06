@@ -14,12 +14,13 @@ ms.workload: identity
 ms.date: 07/23/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 45601e820bc03b263fbf664a43ce34266dc4a488
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.custom: azuread-video-2020
+ms.openlocfilehash: cb77bfb6173e94ea3cdaadf4456947de75676565
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171576"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761132"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>O que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?
 
@@ -134,9 +135,8 @@ Seguem-se os passos de alto nível que o Azure RBAC utiliza para determinar se t
 
 [!INCLUDE [Azure AD free license](../../includes/active-directory-free-license.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Quickstart: Ver o acesso que um utilizador tem aos recursos da Azure](check-access.md)
 - [Adicione ou remova atribuições de funções Azure usando o portal Azure](role-assignments-portal.md)
 - [Compreender as diferentes funções](rbac-and-directory-admin-roles.md)
 - [Cloud Adopt Framework: Gestão do acesso a recursos em Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

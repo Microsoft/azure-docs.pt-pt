@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: 388fb7e36a823d7f6e9ee1d58220d3a1008d8cec
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b7bcdaf9e3935c01a0906ecfaa1570e4bc7caba9
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498055"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798125"
 ---
 # <a name="offer-listing-best-practices"></a>Melhores práticas de listagem de ofertas
 
@@ -119,9 +119,9 @@ As palavras-chave podem ajudar os clientes a encontrar a sua oferta quando pesqu
 ## <a name="storefront-marketing-details"></a>Detalhes de marketing à beira da loja
 | Configuração da frente da loja | Melhores práticas |
 |:--- |:--- |  
-| Logotipo da oferta (formato PNG, 48 &nbsp; &times; &nbsp; 48): página de pesquisa | Desenhe e otimize o seu logótipo para um meio digital:<br>Faça o upload do logótipo em formato PNG para a página de pesquisa da sua oferta. |
-| Logotipo da oferta (formato PNG, 216 &nbsp; &times; &nbsp; 216): página de detalhes da aplicação | Desenhe e otimize o seu logótipo para um meio digital:<br>Faça o upload do logótipo em formato PNG para a página de listagem de detalhes da aplicação da sua oferta. |
-| Documentos "Saiba mais" | Incluir ativos de vendas e marketing de apoio em "Saiba mais", alguns exemplos são: <ul> <li> papéis brancos, </li> <li> brochuras, </li> <li> listas de verificação, ou </li> <li> Apresentações de PowerPoint.</li> </ul>Guarde todos os ficheiros em formato PDF. O seu objetivo aqui deve ser educar os clientes, não vendê-los. <br><br>Adicione um link à sua página de aterragem da aplicação a todos os seus documentos e adicione parâmetros de URL para ajudá-lo a rastrear visitantes e testes. |
+| Logotipo da oferta (formato PNG, entre 216 × 216 e 350 x 350 pixels): página de detalhes da aplicação | Desenhe e otimize o seu logótipo para um meio digital:<br>Faça o upload do logótipo em formato PNG para a página de listagem de detalhes da aplicação da sua oferta. O Partner Center irá redimensioná-lo para os tamanhos de logotipo necessários. |
+| Logotipo de oferta (formato PNG, 48 × 48 pixels): página de pesquisa | O Partner Center gerará este logótipo a partir do logotipo Grande que carregou. Pode substituir opcionalmente isto por uma imagem diferente. |
+| Documentos "Saiba mais" | Incluir ativos de vendas e marketing de apoio em "Saiba mais", alguns exemplos são:<ul><li>papéis brancos</li><li> brochuras</li><li>listas de verificação, ou</li><li> Apresentações de PowerPoint</li></ul><br>Guarde todos os ficheiros em formato PDF. O seu objetivo aqui deve ser educar os clientes, não vendê-los.<br><br>Adicione um link à sua página de aterragem da aplicação a todos os seus documentos e adicione parâmetros de URL para ajudá-lo a rastrear visitantes e testes. |
 | Vídeos: AppSource, serviços de consultoria e SaaS oferece apenas | Os vídeos mais fortes comunicam o valor da sua oferta em forma narrativa:<ul> <li> Faça do seu cliente, não da sua empresa, o herói da história. </li> <li> O seu vídeo deve abordar os principais desafios e objetivos do seu cliente alvo. </li> <li> Comprimento recomendado: 60-90 segundos.</li> <li> Incorpore palavras de pesquisa chave que usam o nome dos vídeos. </li> <li> Considere adicionar vídeos adicionais, como como fazer, começar ou testemunhos de clientes. </li> </ul> |
 | Screenshots (1280 &nbsp; &times; &nbsp; 720) | Adicione até cinco imagens:<br>Incorpore palavras de pesquisa chave nos nomes dos ficheiros. |
 

@@ -5,14 +5,14 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 06/22/2020
+ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: 6260a4b78197329e020bebaa3bc08db5ad792086
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f729176d3f79c2a1f6fabb5631d49747219db48f
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559302"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760095"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Referência do motor de regras standard para a CDN do Azure
 
@@ -59,17 +59,9 @@ Um sinal por cento é usado para indicar codificação de URL (por exemplo, `%20
 
 ### <a name="wildcard-values"></a>Valores wildcard
 
-Texto que é interpretado como um valor wildcard atribui significado adicional a caracteres especiais. A tabela a seguir descreve como caracteres especiais específicos são interpretados no motor de regras Standard:
+Atualmente apoiamos o personagem wildcard na Condição de **Jogo urlPath** no motor de regras padrão. O \* personagem é um asterisco que representa um ou mais caracteres. 
 
-Caráter | Descrição
-----------|------------
-\ | Uma pestana é usada para escapar a qualquer um dos caracteres especificados nesta tabela. Uma pestana deve ser especificada diretamente antes do carácter especial que deve ser escapado. Por exemplo, a seguinte sintaxe escapa a um asterisco:`\*`
-% | Um sinal por cento é usado para indicar codificação de URL (por exemplo, `%20` ).
-\* | Um asterisco é um wildcard que representa um ou mais caracteres.
-espaço | Um caractere espacial indica que uma condição de correspondência pode ser satisfeita por qualquer um dos valores ou padrões especificados.
-aspas únicas | Uma única marca de citação não tem um significado especial. No entanto, um conjunto de aspas únicas indica que um valor deve ser tratado como um valor literal. As aspas individuais podem ser utilizadas das seguintes formas:<ul><li>Para permitir que uma condição de jogo seja satisfeita sempre que o valor especificado corresponda a qualquer parte do valor de comparação.  Por exemplo, `'ma'` corresponderia a qualquer uma das seguintes cordas: <ul><li>/business/**ma**rathon/asset.htm</li><li>**ma**p.gif</li><li>/business/template. **ma**p</li></ul><li>Para permitir que um personagem especial seja especificado como um personagem literal. Por exemplo, pode especificar um personagem de espaço literal, encerrando um personagem espacial num conjunto de aspas únicas `' '` (ou `'<sample value>'` ).</li><li>Para permitir a especificação de um valor em branco. Especificar um valor em branco especificando um conjunto de aspas únicas **('»**).</li></ul>**Importante:**<br /><ul><li>Se o valor especificado não contiver um wildcard, o valor é automaticamente considerado um valor literal. Não precisa especificar um conjunto de aspas únicas por um valor literal.</li><li>Se uma pestana não for usada para escapar de outro personagem nesta tabela, o retrocesso é ignorado quando é especificado num conjunto de aspas únicas.</li><li>Outra forma de especificar um personagem especial como personagem literal é escapar-lhe usando um backslash `\` ().</li></ul>
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Condições de jogo no motor de regras standard](cdn-standard-rules-engine-match-conditions.md)
 - [Ações no motor de regras Standard](cdn-standard-rules-engine-actions.md)

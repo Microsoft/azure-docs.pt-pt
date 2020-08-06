@@ -1,24 +1,24 @@
 ---
 title: Suporte do Sistema de Ficheiros de Rede 3.0 no armazenamento Azure Blob (pré-visualização) Microsoft Docs
-description: O armazenamento blob suporta agora o protocolo Sistema de Ficheiros de Rede (NFS) 3.0. Este suporte permite que os clientes do Linux montem um recipiente no armazenamento Blob a partir de uma Máquina Virtual Azure (VM) ou um computador no local.
+description: O armazenamento blob suporta agora o protocolo Sistema de Ficheiros de Rede (NFS) 3.0. Este suporte permite que os clientes Windows e Linux montem um recipiente no armazenamento Blob a partir de uma Máquina Virtual Azure (VM) ou um computador que funciona no local.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: ab8d262e4eac08ce21b7ad01402c3608d52a1aab
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 32eafc41451c42a9c929e94d30450b923e7eae83
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372897"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760928"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Suporte ao protocolo do Sistema de Ficheiros de Rede (NFS) 3.0 no armazenamento do Azure Blob (pré-visualização)
 
-O armazenamento blob suporta agora o protocolo Sistema de Ficheiros de Rede (NFS) 3.0. Este suporte permite que os clientes do Linux montem um recipiente no armazenamento Blob a partir de uma Máquina Virtual Azure (VM) ou um computador no local. 
+O armazenamento blob suporta agora o protocolo Sistema de Ficheiros de Rede (NFS) 3.0. Este suporte permite que os clientes Windows ou Linux montem um recipiente no armazenamento Blob a partir de uma Máquina Virtual Azure (VM) ou um computador no local. 
 
 > [!NOTE]
 > O suporte ao protocolo NFS 3.0 no armazenamento Azure Blob está em pré-visualização pública e está disponível nas seguintes regiões: EUA Leste, US Central e Canadá Central.
@@ -41,7 +41,7 @@ Para montar um contentor de conta de armazenamento, terá que fazer estas coisas
 
 7. Monte o contentor.
 
-Para obter orientação passo a passo, consulte [o armazenamento do Monte Blob no Linux utilizando o protocolo Sistema de Ficheiros de Rede (NFS) 3.0 (pré-visualização)](network-file-system-protocol-support-how-to.md).
+Para obter orientação passo a passo, consulte [o armazenamento do Mount Blob utilizando o protocolo Network File System (NFS) 3.0 (pré-visualização)](network-file-system-protocol-support-how-to.md).
 
 > [!IMPORTANT]
 > É importante completar estas tarefas em ordem. Não é possível montar recipientes que crie antes de ativar o protocolo NFS 3.0 na sua conta. Além disso, depois de ter ativado o protocolo NFS 3.0 na sua conta, não pode desativá-lo.
@@ -113,7 +113,7 @@ Uma transação não é cobrada durante a pré-visualização. Os preços das tr
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para começar, consulte [o armazenamento do Monte Blob no Linux utilizando o protocolo Network File System (NFS) 3.0 (pré-visualização)](network-file-system-protocol-support-how-to.md).
+Para começar, consulte [o armazenamento do Mount Blob utilizando o protocolo Network File System (NFS) 3.0 (pré-visualização)](network-file-system-protocol-support-how-to.md).
 
 
 

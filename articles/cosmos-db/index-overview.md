@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: 44a51972e459f64f44a791ef1cf40825dddedf91
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7417515d6f3c293368868e380ac53f0c524b872d
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85798158"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760877"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexação no Azure Cosmos DB – Descrição geral
 
@@ -174,7 +174,6 @@ Enquanto um pré-filtro de filtros utilizar um do tipo indexado, o motor de cons
 
 * Pode acelerar as consultas e evitar análises completas dos contentores quando utilizar funções que não utilizem o índice (por exemplo, CONTAINS) adicionando predicados de filtros adicionais que utilizam o índice. A ordem das cláusulas de filtragem não é importante. O motor de consulta é vai descobrir quais os predicados são mais seletivos e executar a consulta em conformidade.
 
-
 ## <a name="querying-with-indexes"></a>Consulta com índices
 
 Os caminhos extraídos ao indexar dados facilitam a procura do índice ao processar uma consulta. Ao combinar a `WHERE` cláusula de uma consulta com a lista de caminhos indexados, é possível identificar os itens que correspondem à consulta predicado muito rapidamente.
@@ -186,7 +185,7 @@ Por exemplo, considere a seguinte consulta: `SELECT location FROM location IN co
 > [!NOTE]
 > Uma `ORDER BY` cláusula que ordena por uma única propriedade *sempre* precisa de um índice de alcance e falhará se o caminho que referenciar não tiver um. Da mesma forma, uma `ORDER BY` consulta que encomenda por múltiplas propriedades *sempre* precisa de um índice composto.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia mais sobre a indexação nos seguintes artigos:
 

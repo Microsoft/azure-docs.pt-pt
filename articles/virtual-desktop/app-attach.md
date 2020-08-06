@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6f8e20f97ae19a33674631e4dee18901d54462b3
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 328f7bb8c03cb78f4b5375eb4f6e3d9891b83942
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291519"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760673"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurar a anexação da aplicação MSIX
 
@@ -24,7 +24,7 @@ ms.locfileid: "87291519"
 
 Este tópico irá acompanhá-lo como configurar a aplicação MSIX anexar num ambiente de desktop virtual do Windows.
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 Antes de começar, eis o que precisa para configurar o anexo da app MSIX:
 
@@ -202,12 +202,12 @@ Se a sua aplicação usa um certificado que não seja de confiança pública ou 
 
 1. Clique com o botão direito no pacote e selecione **Propriedades.**
 2. Na janela que aparece, selecione o separador **assinaturas Digitais.** Deve haver apenas um item na lista no separador, como mostrado na imagem seguinte. Selecione o item para realçar o item e, em seguida, selecione **Detalhes**.
-3. Quando aparecer a janela de detalhes de assinatura digital, selecione o separador **Geral** e, em seguida, selecione **o certificado de instalação**.
+3. Quando aparecer a janela de detalhes de assinatura digital, selecione o separador **Geral** e, em seguida, selecione **'Ver' Certificate**e, em seguida, selecione **o certificado de instalação**.
 4. Quando o instalador abrir, selecione **a máquina local** como local de armazenamento e, em seguida, selecione **Seguinte**.
 5. Se o instalador lhe perguntar se pretende permitir que a aplicação faça alterações no seu dispositivo, selecione **Sim**.
 6. Selecione **Coloque todos os certificados na loja seguinte**e, em seguida, selecione **Procurar**.
 7. Quando aparecer a janela da loja de certificados selecionada, **selecione Pessoas Fidedignas**e, em seguida, selecione **OK**.
-8. Selecione **Concluir**.
+8. Selecione **Seguinte** e **Termine**.
 
 ## <a name="prepare-powershell-scripts-for-msix-app-attach"></a>Prepare scripts PowerShell para anexação de aplicações MSIX
 

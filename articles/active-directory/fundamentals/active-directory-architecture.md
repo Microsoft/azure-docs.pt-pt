@@ -2,7 +2,7 @@
 title: Visão geral da arquitetura - Azure Ative Directory / Microsoft Docs
 description: Saiba o que é um inquilino do Azure Ative Directory e como gerir o Azure usando o Azure Ative Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 854fb4649f8c1113f20abe5807dd0ce473ba6ee3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5599ce6f086ca9c3dcbf7ac406306b6198d3080a
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77368061"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797619"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>O que é a arquitetura do Diretório Ativo Azure?
 
@@ -121,6 +121,6 @@ Se qualquer serviço AD Azure não estiver a funcionar como esperado, serão tom
 
 Utilizando controlos operacionais como a autenticação de vários fatores (MFA) para qualquer operação, bem como a auditoria de todas as operações. Além disso, utilizar um sistema de elevação just-in-time para conceder o acesso temporário necessário a qualquer tarefa operacional a pedido numa base contínua. Para obter mais informações, veja [A Cloud de Confiança](https://azure.microsoft.com/support/trust-center).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Guia para programadores do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop)

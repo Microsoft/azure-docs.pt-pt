@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 5d9d7c59244474c76e63271c0be92f835c2ed087
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 3250e4c35f6b898f4431d0f2fe15f84d915c1c8e
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543355"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760401"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consulta o gráfico gémeo Azure Digital Twins
 
@@ -172,7 +172,7 @@ Pode haver um atraso de até 10 segundos antes que as alterações no seu caso s
 Existem limitações adicionais na utilização `JOIN` durante a pré-visualização.
 * Não há subqueries suportados dentro da `FROM` declaração.
 * `OUTER JOIN`a semântica não é suportada, o que significa que se a relação tem uma classificação de zero, então toda a "linha" é eliminada do conjunto de resultados de saída.
-* Durante a pré-visualização pública, a profundidade transversal do gráfico é restrita: apenas uma `JOIN` é permitida por consulta.
+* Durante a pré-visualização, a profundidade transversal do gráfico é limitada a cinco `JOIN` níveis por consulta.
 * A fonte de `JOIN` operações é restrita: a consulta deve declarar os gémeos onde a consulta começa.
 
 ## <a name="query-best-practices"></a>Melhores práticas de consulta

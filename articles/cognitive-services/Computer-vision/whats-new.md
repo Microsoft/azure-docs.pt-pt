@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: ceb9e731b1052d47131dfbc6754e1cb921a8f585
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0b432a224aa32edf762f6610990027451abe9acc
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280839"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759211"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novidades na Visão Computacional
 
@@ -23,15 +23,15 @@ Saiba o que há de novo no serviço. Estes itens podem ser notas de lançamento,
 
 ## <a name="july-2020"></a>Julho de 2020
 
-### <a name="read-api-v31-preview1-adds-support-for-simplified-chinese"></a>Leia API v3.1-preview.1 adiciona suporte para chinês simplificado
-A API de Leitura da Visão De Computador v3.1-preview.1 adiciona suporte para chinês simplificado.
+### <a name="read-api-v31-public-preview-adds-simplified-chinese-support"></a>Ler API v3.1 Visualização pública adiciona suporte chinês simplificado
+A pré-visualização pública da API v3.1 da Computer Vision adiciona suporte para chinês simplificado.
 
 * Esta versão de pré-visualização da API de leitura suporta línguas inglesa, holandesa, francesa, alemã, italiana, portuguesa, chinesa simplificada e espanhola.
 
 Consulte a [visão geral](concept-recognizing-text.md) da API para saber mais.
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre a API v3.1-preview.1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
+> [Saiba mais sobre a API v3.1 Visualização pública](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
 
 ## <a name="may-2020"></a>Maio de 2020
 A API de Visão Computacional v3.0 entrou na Disponibilidade Geral, com atualizações para [ler a API:](concept-recognizing-text.md)

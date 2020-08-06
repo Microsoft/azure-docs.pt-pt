@@ -2,7 +2,7 @@
 title: Excluir um grupo - Azure Ative Directory / Microsoft Docs
 description: Instruções sobre como eliminar um grupo utilizando o Azure Ative Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf309c10dc5924374d8c3a191f6fd11cceb2ac49
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 869def6b3187e10727a170377f2635fb3652f98b
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604289"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797598"
 ---
 # <a name="delete-a-group-using-azure-active-directory"></a>Excluir um grupo que usa o Azure Ative Directory
 Pode eliminar um grupo Azure Ative Directory (Azure AD) por várias razões, mas normalmente será porque:
@@ -44,7 +44,7 @@ Pode eliminar um grupo Azure Ative Directory (Azure AD) por várias razões, mas
 
     ![Política do MDM - Página de Visão Geral do Oriente, excluir opção realçada](media/active-directory-groups-delete-group/group-overview-blade.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Se eliminar um grupo por engano, pode criá-lo novamente. Para obter mais informações, consulte [Como criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md).
 

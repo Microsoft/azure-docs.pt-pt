@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 799206ee08dc3b1cdac46a0e4e79d2c929138c31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d2262017b257e9d7540d8dc640123ab584223d6
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84718617"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797157"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: Configurar o Local de Trabalho pelo Facebook para o fornecimento automático de utilizadores
 
@@ -32,6 +32,8 @@ Este tutorial descreve os passos que precisa de executar tanto no Workplace do F
 > * Remova os utilizadores no Workplace pelo Facebook quando já não necessitam de acesso
 > * Mantenha os atributos do utilizador sincronizados entre AZure AD e Workplace pelo Facebook
 > * [Único sinal de trabalho](https://docs.microsoft.com/azure/active-directory/saas-apps/workplacebyfacebook-tutorial) por facebook (recomendado)
+
+>[!VIDEO https://www.youtube.com/embed/oF7I0jjCfrY]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -66,7 +68,7 @@ Antes de configurar e ativar o serviço de fornecimento, é necessário decidir 
 
 Adicione Workplace pelo Facebook a partir da galeria de aplicações AZure AD para começar a gerir o fornecimento ao Workplace pelo Facebook. Se já configurar workplace by Facebook for SSO pode utilizar a mesma aplicação. No entanto, recomenda-se que crie uma aplicação separada ao testar inicialmente a integração. Saiba mais sobre a adição de uma aplicação na galeria [aqui.](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)
 
-## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passo 4. Definir quem estará no âmbito do provisionamento 
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passo 4: Definir quem estará no âmbito do provisionamento 
 
 O serviço de prestação de Ad Azure permite-lhe atear âmbito a quem será a provisionado com base na atribuição à aplicação e ou com base em atributos do utilizador/grupo. Se optar por escolher o âmbito de aplicação de quem será aprovisionado na sua aplicação com base na atribuição, pode utilizar os [seguintes passos](../manage-apps/assign-user-or-group-access-portal.md) para atribuir utilizadores e grupos à aplicação. Se optar por escolher o âmbito de aplicação de quem será a provisionado apenas com base em atributos do utilizador ou grupo, pode utilizar um filtro de deteção como descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
@@ -162,6 +164,6 @@ Depois de configurar o provisionamento, utilize os seguintes recursos para monit
 * [Gestão do fornecimento de conta de utilizador para apps empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)

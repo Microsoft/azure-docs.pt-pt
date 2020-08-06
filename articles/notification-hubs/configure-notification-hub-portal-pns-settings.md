@@ -12,20 +12,20 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7832f2db73655d76cc29dc17dd823fc5e0e7fcb3
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c8e2372e22c9db3aa5ea8b0bd953f18a2c01fbe2
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504267"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761030"
 ---
 # <a name="quickstart-set-up-push-notifications-in-a-notification-hub"></a>Quickstart: Configurar notificações push num centro de notificação
 
 O Azure Notification Hubs fornece um motor de pressão fácil de usar e que escala. Utilize os Centros de Notificações para enviar notificações para qualquer plataforma (iOS, Android, Windows, Baidu) e a partir de qualquer extremidade traseira (nuvem ou no local). Para mais informações, veja [o que é a Azure Notification Hubs?](notification-hubs-push-notification-overview.md)
 
-Neste arranque rápido, irá utilizar as definições do sistema de notificações da plataforma (PNS) nos Centros de Notificações para configurar notificações push em várias plataformas. O quickstart mostra-lhe os passos a dar no portal Azure.  [O Google Firebase Cloud Messaging](?tabs=azure-cli#google-firebase-cloud-messaging-fcm) inclui instruções para a utilização do CLI Azure.
+Neste arranque rápido, irá utilizar as definições do sistema de notificações da plataforma (PNS) nos Centros de Notificações para configurar notificações push em várias plataformas. O quickstart mostra-lhe os passos a dar no portal Azure. [O Google Firebase Cloud Messaging](?tabs=azure-cli#google-firebase-cloud-messaging-fcm) inclui instruções para a utilização do CLI Azure.
 
-Se ainda não criou um centro de notificação, crie um agora. Para obter mais informações, consulte [Criar um centro de notificação Azure no portal Azure](create-notification-hub-portal.md) ou criar um centro de [notificação Azure utilizando o Azure CLI](create-notification-hub-azure-cli.md)
+Se ainda não criou um centro de notificação, crie um agora. Para obter mais informações, consulte [Criar um centro de notificação Azure no portal Azure](create-notification-hub-portal.md) ou criar um centro de [notificação Azure utilizando o Azure CLI](create-notification-hub-azure-cli.md).
 
 ## <a name="apple-push-notification-service"></a>Serviço Apple Push Notification
 
@@ -109,9 +109,7 @@ Antes de começar, deve ter o seguinte:
 
 Obtenha referências Azure CLI para outras plataformas com o comando [credencial az notification-hub.](/cli/azure/ext/notification-hub/notification-hub/credential)
 
----
-
-Para obter mais informações sobre a pressão das notificações para uma aplicação Android, consulte [Enviar notificações push para dispositivos Android utilizando o Firebase](notification-hubs-android-push-notification-google-fcm-get-started.md).
+Para obter mais informações sobre o envio de notificações para uma aplicação Android, consulte [Enviar notificações push para dispositivos Android utilizando o Firebase](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
 ## <a name="windows-push-notification-service"></a>Serviço de Notificação push do Windows
 

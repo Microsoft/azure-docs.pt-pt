@@ -3,7 +3,7 @@ title: Governação da Identidade - Diretório Ativo Azure / Microsoft Docs
 description: O Azure Ative Directory Identity Governance permite-lhe equilibrar a necessidade de segurança e produtividade dos colaboradores da sua organização com os processos e visibilidade certos.
 services: active-directory
 documentationcenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f65cd11f61c25af205fa1b6400a8243382673e47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dcb7ab566d861e0c4256acda8f8facd1e94d4ad6
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85077885"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87796782"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>O que é o Azure AD Identity Governance?
 

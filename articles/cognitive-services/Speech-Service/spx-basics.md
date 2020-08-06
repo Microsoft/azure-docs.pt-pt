@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 3af3134f715dc124b4aee3ac0a7bfbf11df6a462
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 5b516eb913bf9e7b8337a41483682e1201c58890
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85801874"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759041"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Conheça os fundamentos do Discurso CLI
 
@@ -62,7 +62,7 @@ Os comandos na secção anterior são ótimos para ver rapidamente como funciona
 Se tiver um diretório de ficheiros áudio, é fácil com o CLI do Discurso executar rapidamente o reconhecimento da fala de lote. Basta executar o seguinte comando, apontando para o seu diretório com o `--files` comando. Neste exemplo, você anexa `\*.wav` ao diretório para reconhecer todos os `.wav` ficheiros presentes no dir. Além disso, especifique o `--threads` argumento para executar o reconhecimento em 10 linhas paralelas.
 
 > [!NOTE]
-> O `--threads` argumento também pode ser usado na próxima secção para `spx synthesize` comandos, e os fios disponíveis dependerão do CPU e da sua percentagem de carga atual.
+> O `--threads` argumento também pode ser usado na secção seguinte para `spx synthesize` comandos, e os fios disponíveis dependerão do CPU e da sua percentagem de carga atual.
 
 ```shell
 spx recognize --files C:\your_wav_file_dir\*.wav --output file C:\output_dir\speech_output.tsv --threads 10

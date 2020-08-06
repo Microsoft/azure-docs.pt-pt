@@ -1,14 +1,14 @@
 ---
 title: Visão geral da amostra de amostra do governo australiano ISM PROTECTED
 description: Visão geral da amostra de planta protegida do governo australiano ISM. Esta amostra de planta ajuda os clientes a avaliar controlos ism protected específicos.
-ms.date: 03/10/2020
+ms.date: 08/03/2020
 ms.topic: sample
-ms.openlocfilehash: d82598498fa7eb24ec2ea3f591d08ce8f9503b54
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
+ms.openlocfilehash: 750cc5551f0bbf05e0da6ad41d46729231243f72
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85517104"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760435"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>Controlo do mapeamento da amostra de planta protegida do Governo australiano ISM PROTECTED
 
@@ -106,10 +106,10 @@ Esta planta ajuda-o a restringir a localização para a implantação de todos o
 
 - Auditoria acesso ilimitado à rede a contas de armazenamento
 - Os clusters de tecido de serviço só devem utilizar o Azure Ative Directy para a autenticação do cliente
-- \[Pré-visualização \] : Mostrar resultados de auditoria de VMs Linux que permitem ligações remotas a partir de contas sem senhas
-- \[Pré-visualização \] : Implementar pré-requisitos para auditar VMs Linux que permitem ligações remotas a partir de contas sem senhas
-- \[Pré-visualização \] : Mostrar resultados de auditoria de VMs Linux que têm contas sem senhas
-- \[Pré-visualização \] : Implementar pré-requisitos para auditar Os VMs do Linux que têm contas sem senhas
+- Mostrar resultados de auditoria de VMs Linux que permitem ligações remotas a partir de contas sem senhas
+- Implementar pré-requisitos para auditar VMs Linux que permitem ligações remotas a partir de contas sem senhas
+- Mostrar resultados de auditoria de VMs Linux que têm contas sem senhas
+- Implementar pré-requisitos para auditar Os VMs do Linux que têm contas sem senhas
 
 ### <a name="0974-multi-factor-authentication-is-used-to-authenticate-standard-users"></a>0974 A autenticação multi-factor é utilizada para autenticar utilizadores padrão
 
@@ -122,8 +122,8 @@ Esta planta ajuda-o a restringir a localização para a implantação de todos o
 
 ### <a name="0421-passphrases-used-for-single-factor-authentication-are-a-minimum-of-14-characters-with-complexity-ideally-as-4-random-words"></a>0421 As frases-passe utilizadas para a autenticação de um único fator são um mínimo de 14 caracteres com complexidade, idealmente como 4 palavras aleatórias
 
-- \[Pré-visualização \] : Mostrar resultados de auditoria das configurações do Windows VMs em 'Definições de Segurança - Políticas de Conta'
-- \[Pré-visualização \] : Implementar pré-requisitos para auditar configurações de VMs do Windows em 'Definições de Segurança - Políticas de Conta'
+- Mostrar os resultados da auditoria das configurações do Windows VMs em 'Definições de Segurança - Políticas de Conta'
+- Implementar pré-requisitos para auditar configurações de VMs do Windows em 'Definições de Segurança - Políticas de Conta'
 
 ## <a name="guidelines-for-system-management---system-administration"></a>Diretrizes para a Gestão do Sistema - Administração do Sistema
 
@@ -147,7 +147,7 @@ Esta planta ajuda-o a restringir a localização para a implantação de todos o
 - As vulnerabilidades nas suas bases de dados SQL devem ser remediadas
 - A avaliação da vulnerabilidade deve ser ativada nos seus servidores SQL
 - A avaliação da vulnerabilidade deve ser ativada nas suas instâncias geridas pelo SQL
-- \[Pré-visualização \] : A avaliação da vulnerabilidade deve ser ativada em Máquinas Virtuais
+- A avaliação da vulnerabilidade deve ser ativada em Máquinas
 - As vulnerabilidades na configuração de segurança nos conjuntos de escala de máquina virtual devem ser remediadas
 - As vulnerabilidades devem ser remediadas por uma solução de Avaliação de Vulnerabilidades
 - As vulnerabilidades na configuração de segurança das suas máquinas devem ser remediadas
@@ -159,7 +159,7 @@ Esta planta ajuda-o a restringir a localização para a implantação de todos o
 - As vulnerabilidades nas suas bases de dados SQL devem ser remediadas
 - A avaliação da vulnerabilidade deve ser ativada nos seus servidores SQL
 - A avaliação da vulnerabilidade deve ser ativada nas suas instâncias geridas pelo SQL
-- \[Pré-visualização \] : A avaliação da vulnerabilidade deve ser ativada em Máquinas Virtuais
+- A avaliação da vulnerabilidade deve ser ativada em Máquinas Virtuais
 - As vulnerabilidades na configuração de segurança nos conjuntos de escala de máquina virtual devem ser remediadas
 - As vulnerabilidades devem ser remediadas por uma solução de Avaliação de Vulnerabilidades
 - As vulnerabilidades na configuração de segurança das suas máquinas devem ser remediadas
@@ -171,7 +171,7 @@ Esta planta ajuda-o a restringir a localização para a implantação de todos o
 - As vulnerabilidades nas suas bases de dados SQL devem ser remediadas
 - A avaliação da vulnerabilidade deve ser ativada nos seus servidores SQL
 - A avaliação da vulnerabilidade deve ser ativada nas suas instâncias geridas pelo SQL
-- \[Pré-visualização \] : A avaliação da vulnerabilidade deve ser ativada em Máquinas Virtuais
+- A avaliação da vulnerabilidade deve ser ativada em Máquinas Virtuais
 - As vulnerabilidades na configuração de segurança nos conjuntos de escala de máquina virtual devem ser remediadas
 - As vulnerabilidades devem ser remediadas por uma solução de Avaliação de Vulnerabilidades
 - As vulnerabilidades na configuração de segurança das suas máquinas devem ser remediadas
@@ -183,7 +183,7 @@ Esta planta ajuda-o a restringir a localização para a implantação de todos o
 - As vulnerabilidades nas suas bases de dados SQL devem ser remediadas
 - A avaliação da vulnerabilidade deve ser ativada nos seus servidores SQL
 - A avaliação da vulnerabilidade deve ser ativada nas suas instâncias geridas pelo SQL
-- \[Pré-visualização \] : A avaliação da vulnerabilidade deve ser ativada em Máquinas Virtuais
+- A avaliação da vulnerabilidade deve ser ativada em Máquinas Virtuais
 - As vulnerabilidades na configuração de segurança nos conjuntos de escala de máquina virtual devem ser remediadas
 - As vulnerabilidades devem ser remediadas por uma solução de Avaliação de Vulnerabilidades
 - As vulnerabilidades na configuração de segurança das suas máquinas devem ser remediadas
@@ -195,7 +195,7 @@ Esta planta ajuda-o a restringir a localização para a implantação de todos o
 - As vulnerabilidades nas suas bases de dados SQL devem ser remediadas
 - A avaliação da vulnerabilidade deve ser ativada nos seus servidores SQL
 - A avaliação da vulnerabilidade deve ser ativada nas suas instâncias geridas pelo SQL
-- \[Pré-visualização \] : A avaliação da vulnerabilidade deve ser ativada em Máquinas Virtuais
+- A avaliação da vulnerabilidade deve ser ativada em Máquinas Virtuais
 - As vulnerabilidades na configuração de segurança nos conjuntos de escala de máquina virtual devem ser remediadas
 - As vulnerabilidades devem ser remediadas por uma solução de Avaliação de Vulnerabilidades
 - As vulnerabilidades na configuração de segurança das suas máquinas devem ser remediadas
@@ -207,7 +207,7 @@ Esta planta ajuda-o a restringir a localização para a implantação de todos o
 - As vulnerabilidades nas suas bases de dados SQL devem ser remediadas
 - A avaliação da vulnerabilidade deve ser ativada nos seus servidores SQL
 - A avaliação da vulnerabilidade deve ser ativada nas suas instâncias geridas pelo SQL
-- \[Pré-visualização \] : A avaliação da vulnerabilidade deve ser ativada em Máquinas Virtuais
+- A avaliação da vulnerabilidade deve ser ativada em Máquinas Virtuais
 - As vulnerabilidades na configuração de segurança nos conjuntos de escala de máquina virtual devem ser remediadas
 - As vulnerabilidades devem ser remediadas por uma solução de Avaliação de Vulnerabilidades
 - As vulnerabilidades na configuração de segurança das suas máquinas devem ser remediadas
@@ -229,8 +229,8 @@ Esta planta ajuda-o a restringir a localização para a implantação de todos o
 ### <a name="0582-the-following-events-are-logged-for-operating-systems-access-to-important-data-and-processes-application-crashes-and-any-error-messages-attempts-to-use-special-privileges-changes-to-accounts-changes-to-security-policy-changes-to-system-configurations-domain-name-system-dns-and-hypertext-transfer-protocol-http-requests-failed-attempts-to-access-data-and-system-resources-service-failures-and-restarts-system-startup-and-shutdown-transfer-of-data-to-external-media-user-or-group-management-use-of-special-privileges"></a>0582 Os seguintes eventos são registados para sistemas operativos: acesso a dados e processos importantes, falhas de aplicações e quaisquer mensagens de erro, tentativas de utilização de privilégios especiais, alterações nas contas, alterações na política de segurança, alterações nas configurações do sistema, sistema de nome de domínio (DNS) e pedidos de Protocolo de Transferência de Hipertexto (HTTP), tentativas falhadas de aceder a dados e recursos do sistema, falhas de serviço e reinícios, startups de sistemas e encerramentos, startups e paralisações do sistema, startups e paralisações do sistema, startups e paralisações do sistema, startups e paralisações do sistema, startups e paralisações do sistema, startups e paralisações do sistema, startups e paralisações do sistema, startups e paralisações do sistema, startups e paralisações do sistema, startups e paralisações do sistema, startups e paralisações do sistema, startups e paralisações do sistema, startups e paralisações do sistema , transferência de dados para meios externos, gestão de utilizadores ou grupos, utilização de privilégios especiais
 
 - \[Pré-visualização \] : Implementação do agente de análise de registo de auditoria - VM Image (OS) não listado
-- \[Pré-visualização \] : Implementação do agente de análise de registo de auditoria em VMSS - VM Image (OS) não listado
-- \[Pré-visualização \] : Audit Log Analytics Workspace for VM - Report Incompatibilidade
+- Implementação do agente de análise de registo de auditoria em VMSS - VM Image (OS) não listado
+- Audit Log Analytics Workspace for VM - Report Incompatibilidade
 - Definição de diagnóstico de auditoria
 
 ### <a name="1537-the-following-events-are-logged-for-databases-access-to-particularly-important-information-addition-of-new-users-especially-privileged-users-any-query-containing-comments-any-query-containing-multiple-embedded-queries-any-query-or-database-alerts-or-failures-attempts-to-elevate-privileges-attempted-access-that-is-successful-or-unsuccessful-changes-to-the-database-structure-changes-to-user-roles-or-database-permissions-database-administrator-actions-database-logons-and-logoffs-modifications-to-data-use-of-executable-commands"></a>1537 Os seguintes eventos são registados para bases de dados: acesso a informações particularmente importantes, adição de novos utilizadores, especialmente utilizadores privilegiados, qualquer consulta que contenha comentários, qualquer consulta que contenha múltiplas consultas incorporadas, qualquer consulta ou alertas de bases de dados ou falhas, tentativas de elevação de privilégios, tentativas de acesso bem sucedidas ou mal sucedidas, alterações na estrutura da base de dados, alterações nas funções de utilizador ou permissões de bases de dados, ações de administração de administradores , logons de base de dados e logoffs, modificações aos dados, utilização de comandos executáveis
@@ -246,7 +246,7 @@ Esta planta ajuda-o a restringir a localização para a implantação de todos o
 - As vulnerabilidades nas suas bases de dados SQL devem ser remediadas
 - A avaliação da vulnerabilidade deve ser ativada nos seus servidores SQL
 - A avaliação da vulnerabilidade deve ser ativada nas suas instâncias geridas pelo SQL
-- \[Pré-visualização \] : A avaliação da vulnerabilidade deve ser ativada em Máquinas Virtuais
+- A avaliação da vulnerabilidade deve ser ativada em Máquinas Virtuais
 - As vulnerabilidades na configuração de segurança nos conjuntos de escala de máquina virtual devem ser remediadas
 - As vulnerabilidades devem ser remediadas por uma solução de Avaliação de Vulnerabilidades
 - As vulnerabilidades na configuração de segurança das suas máquinas devem ser remediadas

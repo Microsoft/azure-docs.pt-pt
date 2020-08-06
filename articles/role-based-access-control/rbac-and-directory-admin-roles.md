@@ -15,12 +15,12 @@ ms.date: 07/07/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 64b4b0bd8c1e387229144e02293b573062ab196c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 4c501368dfbeb95be1c5d2af9ff7aae3850257b3
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087831"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761149"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Funções clássicas de administrador de subscrição, funções de Azure e Azure AD
 
@@ -126,9 +126,8 @@ Vários papéis de Azure AD abrangem Azure AD e Microsoft Office 365, tais como 
 
 ![Azure RBAC contra Azure AD](./media/rbac-and-directory-admin-roles/azure-office-roles.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [O que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?](overview.md)
 - [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) (Permissões de cargos de administrador no Azure Active Directory)
 - [Administradores de subscrição clássicos do Azure](classic-administrators.md)
-- [Cloud Adopt Framework: Gestão do acesso a recursos em Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

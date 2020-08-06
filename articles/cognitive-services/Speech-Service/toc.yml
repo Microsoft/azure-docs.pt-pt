@@ -494,10 +494,8 @@
       items:
         - name: Descrição geral de palavra-chave personalizada
           href: custom-keyword-overview.md
-        - name: Diretrizes de nomenclatura de palavras-chave personalizadas
-          href: speech-devices-sdk-kws-guidelines.md
-        - name: Reconhecimento de palavras-chave personalizadas
-          href: speech-devices-sdk-create-kws.md
+        - name: Informações básicas sobre a palavra-chave personalizada
+          href: custom-keyword-basics.md
 - name: Reconhecimento de Orador
   items:
     - name: Descrição geral

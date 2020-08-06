@@ -7,20 +7,27 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: 9ba0ad1414a09aec7ec2fb6b8c209b23f3f37050
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6bbb2abe24eba96fd2c55b7aaf15ccd8ae33530
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82202218"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760957"
 ---
 # <a name="what-is-azure-private-link-service"></a>O que é o serviço Azure Private Link?
 
 O serviço Azure Private Link é a referência ao seu próprio serviço que é alimentado pela Azure Private Link. O seu serviço que está a funcionar atrás do [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md) pode ser ativado para acesso private Link para que os consumidores do seu serviço possam aceder a ele em privado a partir dos seus próprios VNets. Os seus clientes podem criar um ponto final privado dentro do seu VNet e mapeá-lo para este serviço. Este artigo explica conceitos relacionados com o lado do prestador de serviços. 
 
+:::image type="content" source="./media/private-link-service-overview/consumer-provider-endpoint.png" alt-text="Fluxo de trabalho do serviço de ligação privada" border="true":::
+
+*Figura: Azure Private Link Service.*
+
 ## <a name="workflow"></a>Fluxo de trabalho
 
 ![Fluxo de trabalho do serviço private link](media/private-link-service-overview/private-link-service-workflow.png)
+
+
+*Figura: Fluxo de trabalho do serviço Azure Private Link.*
 
 ### <a name="create-your-private-link-service"></a>Crie o seu Serviço de Ligação Privada
 
@@ -104,7 +111,7 @@ Esta informação é codificada usando um vetor personalizado de valor de compri
 
 Detalhes personalizados da TLV:
 
-|Campo |Comprimento (Octetos)  |Description  |
+|Campo |Comprimento (Octetos)  |Descrição  |
 |---------|---------|----------|
 |Tipo  |1        |PP2_TYPE_AZURE (0xEE)|
 |Comprimento  |2      |Comprimento do valor|

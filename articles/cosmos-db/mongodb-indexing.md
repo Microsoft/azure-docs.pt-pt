@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 08/04/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 473bc8677c5369833928eb4648f32bb146e83e65
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: b8db9e2d8b58047ebe29865bb95d7f218732c88e
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420656"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761166"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gerir a indexação na API da Azure Cosmos para a MongoDB
 
@@ -319,7 +319,12 @@ Os detalhes do progresso do índice mostram a percentagem de progresso para a op
 
 Independentemente do valor especificado para a propriedade do índice **de fundo,** as atualizações de índice são sempre feitas em segundo plano. Uma vez que as atualizações de índice consomem Unidades de Pedido (RUs) com uma prioridade inferior à de outras operações de base de dados, as alterações de índice não resultarão em tempo de inatividade para as escritas, atualizações ou eliminações.
 
-Quando adicionar um novo índice, as consultas usarão imediatamente o índice. Isto significa que as consultas podem não devolver todos os resultados correspondentes e fá-lo-ão sem retornar quaisquer erros. Quando a transformação do índice estiver concluída, os resultados da consulta serão consistentes. Pode [acompanhar o progresso do índice.](#track-index-progress)
+Não há impacto em ler disponibilidade ao adicionar um novo índice. As consultas só utilizarão novos índices uma vez que a transformação do índice esteja completa. Durante a transformação do índice, o motor de consulta continuará a utilizar os índices existentes, pelo que observará um desempenho de leitura semelhante durante a transformação de indexação ao que tinha observado antes de iniciar a alteração de indexação. Ao adicionar novos índices, também não existe o risco de resultados de consulta incompletos ou inconsistentes.
+
+Ao remover índices e fazer imediatamente consultas, os filtros nos índices caídos, os resultados podem ser inconsistentes e incompletos até que a transformação do índice termine. Se remover índices, o motor de consulta não garante resultados consistentes ou completos quando as consultas filtram estes índices recentemente removidos. A maioria dos desenvolvedores não baixa índices e, em seguida, tenta imediatamente consultá-los para que, na prática, esta situação seja improvável.
+
+> [!NOTE]
+> Pode [acompanhar o progresso do índice.](#track-index-progress)
 
 ## <a name="migrate-collections-with-indexes"></a>Migrar coleções com índices
 
@@ -350,7 +355,7 @@ Os índices compostos contêm referências a vários campos de um documento. Se 
 
 Se pretender criar um índice wildcard, atualize para a versão 3.6, apresentando um pedido de [apoio](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Indexação no Azure Cosmos DB](../cosmos-db/index-policy.md)
 * [Expire os dados em Azure Cosmos DB automaticamente com tempo de vida](../cosmos-db/time-to-live.md)

@@ -2,7 +2,7 @@
 title: Criar um grupo básico e adicionar membros - Azure Ative Directory / Microsoft Docs
 description: Instruções sobre como criar um grupo básico utilizando o Azure Ative Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4539fe1d8f5fbfab8e73de3a9ac35baa154b142
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51b257eb833f6c270f2f1b79b2cccd247c8a2d42
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604357"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797666"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Crie um grupo básico e adicione membros usando o Azure Ative Directory
 Pode criar um grupo básico através do portal do Microsoft Azure Active Directory (Microsoft Azure AD). Para os fins deste artigo, um grupo básico é adicionado a um único recurso pelo proprietário do recurso (administrador) e inclui membros específicos (funcionários) que precisam de aceder a esse recurso. Para cenários mais complexos, incluindo associações dinâmicas e criação de regras, veja [Documentação da gestão de utilizadores do Azure Active Directory](../users-groups-roles/index.yml).
@@ -27,11 +27,11 @@ Pode criar um grupo básico através do portal do Microsoft Azure Active Directo
 Existem vários tipos de grupos e membros. As seguintes informações explicam cada grupo e tipo de membro e por que são usados, para ajudá-lo a decidir que opções usar quando criar um grupo.
 
 ### <a name="group-types"></a>Tipos de grupo:
-- **A segurança.** Serve para gerir o acesso de membros e de computadores a recursos partilhados de um grupo de utilizadores. Por exemplo, pode criar um grupo de segurança para uma política de segurança específica. Ao fazê-lo desta maneira, pode dar um conjunto de permissões a todos os membros de uma só vez, em vez de precisar de adicionar permissões a cada membro individualmente. Um grupo de segurança pode ter utilizadores, dispositivos, grupos e diretores de serviço como seus membros e utilizadores e diretores de serviço como seus proprietários. Para obter mais informações sobre a gestão de acesso a recursos, veja [Gerir o acesso a recursos com grupos do Azure Active Directory](active-directory-manage-groups.md).
+- **Segurança**. Serve para gerir o acesso de membros e de computadores a recursos partilhados de um grupo de utilizadores. Por exemplo, pode criar um grupo de segurança para uma política de segurança específica. Ao fazê-lo desta maneira, pode dar um conjunto de permissões a todos os membros de uma só vez, em vez de ter de adicionar permissões a cada membro individualmente. Um grupo de segurança pode ter utilizadores, dispositivos, grupos e diretores de serviço como seus membros e utilizadores e diretores de serviço como seus proprietários. Para obter mais informações sobre a gestão de acesso a recursos, veja [Gerir o acesso a recursos com grupos do Azure Active Directory](active-directory-manage-groups.md).
 - **Escritório 365**. Proporciona oportunidades de colaboração ao conceder aos membros o acesso a uma caixa de correio partilhada, calendário, ficheiros, site do SharePoint, entre outros. Esta opção também lhe permite conceder às pessoas fora da organização acesso ao grupo. Um grupo office 365 só pode ter utilizadores como seus membros. Tanto os utilizadores como os principais de serviço podem ser proprietários de um grupo office 365. Para obter mais informações sobre os Grupos do Office 365, veja [Saiba mais sobre os Grupos do Office 365](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
 
 ### <a name="membership-types"></a>Tipos de adesão:
-- **Atribuído.** Permite-lhe adicionar utilizadores específicos para serem membros deste grupo e terem permissões exclusivas. Para os fins deste artigo, estamos a utilizar esta opção.
+- **Designado.** Permite-lhe adicionar utilizadores específicos para serem membros deste grupo e terem permissões exclusivas. Para os fins deste artigo, estamos a utilizar esta opção.
 - **Utilizador dinâmico.** Permite-lhe utilizar regras dinâmicas de adesão para adicionar e remover automaticamente os membros. Se os atributos de um membro mudarem, o sistema analisará as regras de grupo dinâmicas do diretório para ver se o membro cumpre os requisitos da regra (é adicionado) ou se já não cumpre os requisitos das regras (é removido).
 - **Dispositivo dinâmico.** Permite-lhe utilizar regras de grupo dinâmicas para adicionar e remover dispositivos automaticamente. Se os atributos de um dispositivo mudarem, o sistema analisa as regras de grupo dinâmicas para o diretório para ver se o dispositivo cumpre os requisitos da regra (é adicionado) ou já não cumpre os requisitos das regras (é removido).
 

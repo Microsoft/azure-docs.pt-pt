@@ -2,7 +2,7 @@
 title: Restaurar ou remover permanentemente o utilizador recentemente eliminado - Azure AD
 description: Como visualizar utilizadores restauradores, restaurar um utilizador eliminado ou eliminar permanentemente um utilizador com o Azure Ative Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ad71d75eb80f15c09e0a4dff4edc4a0eaae9e1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1822e41c8cfb3646ab43fde1b9a86569ce2c399
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603932"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87796765"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Restaurar ou remover um utilizador recentemente eliminado usando o Azure Ative Directory
 Depois de eliminar um utilizador, a conta permanece em estado suspenso durante 30 dias. Durante essa janela de 30 dias, a conta do utilizador pode ser restaurada, juntamente com todas as suas propriedades. Após a janela de 30 dias passar, o utilizador é automaticamente e permanentemente eliminado.
@@ -79,7 +79,7 @@ Pode eliminar permanentemente um utilizador da sua organização sem esperar os 
 
     ![Utilizadores - Página de utilizadores eliminada, com a opção de utilizador Restaurar em destaque](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Depois de restaurar ou apagar os seus utilizadores, pode realizar os seguintes processos básicos:
 
 - [Adicionar ou eliminar utilizadores](add-users-azure-active-directory.md)

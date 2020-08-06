@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2020
 ms.author: sohamnc
-ms.openlocfilehash: a0946da7ff516aa241a0c6d845723c43618ce70e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1b8c432673712b637d51a64ce87b4eb2131be7d
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809486"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760418"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Perguntas frequentes para Azure Front Door
 
@@ -30,7 +30,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 
 ### <a name="what-is-azure-front-door"></a>O que é o Azure Front Door?
 
-A Azure Front Door é uma Rede de Entrega de Aplicações (ADN) como um serviço, oferecendo várias capacidades de equilíbrio de carga de camada 7 para as suas aplicações. Proporciona uma aceleração dinâmica do site (DSA) juntamente com o equilíbrio global da carga com quase falhas em tempo real. É um serviço altamente disponível e escalável, que é totalmente gerido pela Azure.
+A Azure Front Door é uma Rede de Entrega de Aplicações (ADN) como um serviço, oferecendo várias capacidades de equilíbrio de carga de camada 7 para as suas aplicações. Proporciona a aceleração de sites dinâmicos (DSA), juntamente com um balanceamento de carga global com ativação pós-falha quase em tempo real. É um serviço altamente disponível e dimensionável, totalmente gerido pelo Azure.
 
 ### <a name="what-features-does-azure-front-door-support"></a>Quais as funcionalidades que o Azure Front Door suporta?
 
@@ -159,9 +159,12 @@ Para a opção de certificado gerido pela Porta da Frente, os certificados são 
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door"></a>Quais são as atuais suítes de cifra suportadas pela Porta frontal Azure?
 
-Para tls1.2 as seguintes suítes cifra são suportadas
+Para tls1.2 são suportadas as seguintes suítes cifradas: 
 
-TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 
 Ao utilizar domínios personalizados com TLS1.0/1.1 ativado, suportam-se as seguintes suítes cifradas:
 
@@ -235,7 +238,7 @@ Os registos de auditoria estão disponíveis para a Porta frontal Azure. No port
 
 Sim, a Porta frontal Azure faz alertas de apoio. Os alertas estão configurados em métricas. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como funciona o Front Door](front-door-routing-architecture.md).

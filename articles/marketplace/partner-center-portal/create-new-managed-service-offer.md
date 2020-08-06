@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 07/07/2020
-ms.openlocfilehash: 8546e5fde51ddc8a29a852a2c5dbcd25fffad287
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: ae079fce02f58d6c6457d7fe6401526f4002662f
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405250"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798193"
 ---
 # <a name="create-a-managed-service-offer"></a>Criar uma oferta de Serviço Gerido
 
@@ -133,23 +133,17 @@ Nesta secção, pode fornecer logotipos e imagens que serão utilizados ao mostr
 >[!NOTE]
 >Se tiver um problema de upload de ficheiros, certifique-se de que a rede local não bloqueia o https://upload.xboxlive.com serviço utilizado pelo Partner Center.
 
-#### <a name="marketplace-logos"></a>Logotipos do mercado
+#### <a name="store-logos"></a>Logotipos da loja
 
-Forneça o logótipo da sua oferta em quatro tamanhos de pixel:
+Forneça um ficheiro PNG para o logotipo de tamanho **grande** (entre 216 x 216 e 350 x 350 pixels). O Partner Center utilizará isto para criar um logótipo de tamanho **Pequeno** (48 x 48 pixels) e um logotipo de tamanho **Médio** (90 x 90 pixels). Pode substituir opcionalmente estas imagens diferentes.
+
+Todos os três tamanhos do logotipo são necessários para ser utilizados em diferentes locais da listagem:
 
 - **Pequeno** (48 x 48)
 - **Médio** (90 x 90)
-- **Grande** (216 x 216)
-- **Largo** (255 x 115)
+- **Grande** (entre 216 x 216 e 350 x 350)
 
-Siga estas diretrizes para os seus logotipos:
-
-- O design do Azure tem uma paleta de cores simples. Limite o número de cores primárias e secundárias no logótipo.
-- As cores do tema do portal são preto e branco. Não utilize estas cores como cor de fundo do logótipo. Utilize uma cor que realce o logótipo no portal. Recomendamos cores primárias simples.
-- Se utilizar um fundo transparente, certifique-se de que o logótipo e o texto não são brancos, pretos ou azuis.
-- O aspeto e funcionalidade do logótipo deve ser simples e evitar gradações. Não utilize um fundo de gradação no logótipo.
-- Não coloque texto no logótipo, nem mesmo o nome da empresa ou da marca.
-- Certifique-se que o logótipo não está ampliado.
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de ecrã
 

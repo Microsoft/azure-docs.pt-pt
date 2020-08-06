@@ -5,14 +5,14 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 11/01/2019
+ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: 29138b4fc6716ae5361cc4d7f97ceba41b90c2da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 051737a9f5e0d4092cda26a3f7ce3df1d7f535ef
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81259957"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760129"
 ---
 # <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Ações no motor standard para Azure CDN
 
@@ -33,8 +33,8 @@ Utilize esta ação para substituir o valor do tempo de vida (TTL) do ponto fina
 Comportamento da cache |  Descrição              
 ---------------|----------------
 Cache de bypass | Quando esta opção é selecionada e a regra coincide, o conteúdo não está em cache.
-Substituição | Quando esta opção é selecionada e a regra coincide, o valor TTL devolvido da sua origem é substituído com o valor especificado na ação.
-Conjunto se faltar | Quando esta opção é selecionada e a regra coincide, se nenhum valor TTL foi devolvido da sua origem, a regra define o TTL ao valor especificado na ação.
+Substituição | Quando esta opção é selecionada e a regra coincide, o valor TTL devolvido da sua origem é substituído com o valor especificado na ação. Este comportamento só será aplicado se a resposta for cacheable. Para o cabeçalho de resposta de controlo de cache com valores "sem cache", "privado", "não armazenar", a ação não será aplicável.
+Conjunto se faltar | Quando esta opção é selecionada e a regra coincide, se nenhum valor TTL foi devolvido da sua origem, a regra define o TTL ao valor especificado na ação. Este comportamento só será aplicado se a resposta for cacheable. Para o cabeçalho de resposta de controlo de cache com valores "sem cache", "privado", "não armazenar", a ação não será aplicável.
 
 #### <a name="additional-fields"></a>Campos adicionais
 
@@ -51,7 +51,7 @@ Utilize esta ação para modificar a chave cache com base em cadeias de consulta
 Comportamento | Descrição
 ---------|------------
 Incluir | Quando esta opção é selecionada e a regra coincide, as cadeias de consulta especificadas nos parâmetros são incluídas quando a tecla de cache é gerada. 
-Colocar em cache todos os URL exclusivos | Quando esta opção é selecionada e a regra coincide, cada URL único tem a sua própria chave cache. 
+Colocar em cache todos os URLs exclusivos | Quando esta opção é selecionada e a regra coincide, cada URL único tem a sua própria chave cache. 
 Excluir | Quando esta opção é selecionada e a regra coincide, as cadeias de consulta especificadas nos parâmetros são excluídas quando a tecla de cache é gerada.
 Ignorar cadeias de consulta | Quando esta opção é selecionada e a regra coincide, as cadeias de consulta não são consideradas quando a tecla de cache é gerada. 
 
@@ -108,7 +108,7 @@ Padrão de origem | Defina o padrão de origem no caminho URL para substituir. A
 Destino | Defina o caminho de destino a utilizar na reescrita. O caminho de destino substitui o padrão de origem.
 Preservar caminho inigualável | Se definido para **Sim,** o caminho restante após o padrão de origem é anexado à nova rota de destino. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral do Azure CDN](cdn-overview.md)
 - [Referência do Motor de regras standard](cdn-standard-rules-engine-reference.md)

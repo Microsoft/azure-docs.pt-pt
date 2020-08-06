@@ -3,7 +3,7 @@ title: Aprovar ou negar pedidos de acesso - Gestão de direitos AZure AD
 description: Saiba como usar o portal My Access para aprovar ou negar pedidos a um pacote de acesso na gestão de direitos do Azure Ative Directory.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: mamtakumar
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78c3c177bfcd5ee969e1430306c7294f0a14b658
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4703a7d1928415d78eae63c42051542b035d3b1a
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078103"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798363"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Aprovar ou negar pedidos de acesso na gestão de direitos da AD Azure
 
@@ -73,7 +73,7 @@ Depois de abrir um pedido de acesso pendente de aprovação, pode ver detalhes q
 
     Se nenhum dos aprovadores configurados puder aprovar ou negar o pedido de acesso, o pedido expira após a duração do pedido configurado. O utilizador é notificado de que o seu pedido de acesso expirou e que precisa de reenviar o pedido de acesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Solicitar acesso a um pacote de acesso](entitlement-management-request-access.md)
 - [Processo de pedido e notificações de e-mail](entitlement-management-process.md)

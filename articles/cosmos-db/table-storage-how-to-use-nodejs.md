@@ -9,12 +9,12 @@ ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 9404232533ae86e14f9b87c65fdd086f84e8aebb
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 6a9a3df1d200aae9e5ea401652752656ed9ff423
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87414008"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760979"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Como utilizar o Armazenamento de tabelas do Azure ou a API de Tabelas do Azure Cosmos DB a partir de Node.js
 
@@ -123,7 +123,7 @@ function (returnObject, finalCallback, next)
 
 Nesta chamada, e após o processamento `returnObject` da (resposta do pedido ao servidor), a chamada deve invocar `next` se existir para continuar a processar outros filtros ou simplesmente invocar `finalCallback` o contrário para terminar a invocação do serviço.
 
-Dois filtros que implementam a lógica de retícula estão incluídos no Azure SDK para Node.js, `ExponentialRetryPolicyFilter** and ` LinearRetryPolicyFilter `. The following creates a ` TableService ` object that uses the ` ExponentialRetryPolicyFilter':
+Dois filtros que implementam a lógica de repetição estão incluídos no Azure SDK para Node.js, `ExponentialRetryPolicyFilter` e `LinearRetryPolicyFilter` . O seguinte cria um `TableService` objeto que utiliza `ExponentialRetryPolicyFilter` o:
 
 ```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
@@ -477,7 +477,7 @@ Depois de definir a ACL, pode criar uma SAS com base no ID de uma política. O e
 tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte os seguintes recursos.
 

@@ -1,59 +1,59 @@
 ---
 title: Quickstart para adicionar bandeiras de recurso ao ASP.NET Core
-description: Adicione bandeiras de recurso para ASP.NET aplicações Core e gerencie-as usando a configuração da app Azure
+description: Adicione bandeiras de funcionalidades para ASP.NET aplicações Core e geri-las usando a Configuração de Aplicações Azure
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: b3579d12981e2b0add916a280bac7b4f9392d8ba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a25a40346d588f56028bf08294b070823b729e25
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80803148"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760146"
 ---
-# <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação ASP.NET Core
+# <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação core ASP.NET
 
-Neste arranque rápido, cria-se uma implementação final da gestão de funcionalidades numa aplicação ASP.NET Core utilizando a Configuração de Aplicações Azure. Utilizará o serviço de Configuração de Aplicações para armazenar centralmente todas as suas bandeiras de funcionalidades e controlar os seus estados. 
+Neste quickstart, cria-se uma implementação de ponta a ponta da gestão de funcionalidades numa aplicação core ASP.NET utilizando a Configuração da App Azure. Utilizará o serviço de Configuração de Aplicações para armazenar centralmente todas as suas bandeiras de funcionalidades e controlar os seus estados. 
 
-As bibliotecas .NET Core Feature Management alargam o quadro com um suporte abrangente de bandeira de características. Estas bibliotecas são construídas em cima do sistema de configuração .NET Core. Integram-se perfeitamente com a Configuração da App através do seu fornecedor de configuração .NET Core.
+As bibliotecas de Gestão de Recursos Centrais .NET alargam o quadro com suporte abrangente de bandeira de recurso. Estas bibliotecas são construídas em cima do sistema de configuração .NET Core. Integram-se perfeitamente com a Configuração de Aplicações através do seu fornecedor de configuração .NET Core.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Assinatura Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/)
+- Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
 - [.NET Core SDK](https://dotnet.microsoft.com/download).
 
-## <a name="create-an-app-configuration-store"></a>Criar uma loja de configuração de aplicações
+## <a name="create-an-app-configuration-store"></a>Criar uma loja de configuração de aplicativos
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione > Gestor de **Funcionalidades** `Beta`**+Adicione** para adicionar uma bandeira de recurso chamada .
+6. Selecione **Feature Manager**  >  **+Adicione** para adicionar uma bandeira de recurso chamada `Beta` .
 
     > [!div class="mx-imgBorder"]
     > ![Ativar a bandeira de recurso chamada Beta](media/add-beta-feature-flag.png)
 
-    Deixe `label` indefinido por enquanto. Selecione **Aplicar** para salvar a nova bandeira de recurso.
+    Deixe `label` indefinida por enquanto. **Selecione Aplicar** para guardar a nova bandeira de funcionalidade.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Criar uma aplicação Web ASP.NET Core
 
-Utilize a [interface de linha de comando .NET Core (CLI)](https://docs.microsoft.com/dotnet/core/tools/) para criar um novo ASP.NET projeto de aplicação web Core MVC. A vantagem de utilizar o CLI .NET Core em vez do Visual Studio é que o CLI .NET Core está disponível nas plataformas Windows, macOS e Linux.
+Utilize a [interface de linha de comando .NET Core (CLI)](https://docs.microsoft.com/dotnet/core/tools/) para criar um novo projeto de aplicação web Core MVC ASP.NET. A vantagem de utilizar o .NET Core CLI em vez do Visual Studio é que o CLI .NET Core está disponível nas plataformas Windows, macOS e Linux.
 
 1. Crie uma pasta nova para o projeto. Para este arranque rápido, nomeie-o *TestFeatureFlags*.
 
-1. Na nova pasta, execute o seguinte comando para criar um novo ASP.NET projeto de aplicação web Core MVC:
+1. Na nova pasta, executar o seguinte comando para criar um novo projeto de aplicação web Core MVC ASP.NET:
 
    ```    
    dotnet new mvc --no-https
    ```
 
-## <a name="add-secret-manager"></a>Adicionar Gestor Secreto
+## <a name="add-secret-manager"></a>Adicionar Gerente Secreto
 
-Para utilizar o Secret `UserSecretsId` Manager, adicione um elemento ao seu ficheiro *.csproj.*
+Para utilizar o Gestor Secreto, adicione um `UserSecretsId` elemento ao seu ficheiro *.csproj.*
 
 1. Abra o ficheiro *.csproj.*
 
-1.  Adicione `UserSecretsId` um elemento como mostrado aqui. Pode utilizar o mesmo GUID, ou pode substituir este valor pelo seu.
+1.  Adicione um `UserSecretsId` elemento como mostrado aqui. Pode usar o mesmo GUID, ou pode substituir este valor pelo seu.
 
     > [!IMPORTANT]
     > `CreateHostBuilder`substitui `CreateWebHostBuilder` em .NET Core 3.0.  Selecione a sintaxe correta com base no seu ambiente.
@@ -95,26 +95,26 @@ Para utilizar o Secret `UserSecretsId` Manager, adicione um elemento ao seu fich
 Esta ferramenta armazena os dados confidenciais dos projetos de programação fora da árvore dos projetos. Esta abordagem ajuda a evitar a partilha acidental de segredos de aplicações no código fonte.
 
 > [!TIP]
-> Para saber mais sobre o Secret Manager, consulte [o armazenamento seguro de segredos de aplicações em desenvolvimento em ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets).
+> Para saber mais sobre o Secret Manager, consulte [o armazenamento seguro de segredos de aplicações em desenvolvimento em ASP.NET Core.](https://docs.microsoft.com/aspnet/core/security/app-secrets)
 
-## <a name="connect-to-an-app-configuration-store"></a>Ligar a uma loja de configuração de aplicações
+## <a name="connect-to-an-app-configuration-store"></a>Conecte-se a uma loja de configuração de aplicativos
 
-1. Adicione referência `Microsoft.Azure.AppConfiguration.AspNetCore` aos `Microsoft.FeatureManagement.AspNetCore` pacotes NuGet e NuGet executando os seguintes comandos:
+1. Adicione referência aos `Microsoft.Azure.AppConfiguration.AspNetCore` pacotes e aos `Microsoft.FeatureManagement.AspNetCore` NuGet executando os seguintes comandos:
 
     ```dotnetcli
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
     dotnet add package Microsoft.FeatureManagement.AspNetCore
     ```
 
-1. Execute o seguinte comando para restaurar as embalagens para o seu projeto:
+1. Executar o seguinte comando para restaurar pacotes para o seu projeto:
 
     ```dotnetcli
     dotnet restore
     ```
 
-1. Adicione um segredo chamado **ConnectionStrings:AppConfig** ao Secret Manager.
+1. Adicione um segredo chamado **ConnectionStrings:AppConfig** ao Gestor Secreto.
 
-    Este segredo contém a cadeia de ligação para aceder à sua loja de configuração de aplicações. Substitua `<your_connection_string>` o valor no seguinte comando com a cadeia de ligação para a sua loja de configuração de aplicações. Pode encontrar a cadeia de ligação sob **teclas** de acesso no portal Azure.
+    Este segredo contém o fio de ligação para aceder à sua loja de Configuração de Aplicações. Substitua o `<your_connection_string>` valor no seguinte comando com o fio de ligação para a sua loja de Configuração de Aplicações. Pode encontrar a cadeia de ligação sob **as teclas de acesso** no portal Azure.
 
     Este comando tem de ser executado no mesmo diretório que o ficheiro *.csproj*.
 
@@ -122,11 +122,11 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
     dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
     ```
 
-    Usa o Secret Manager apenas para testar a aplicação web localmente. Quando implementa a aplicação para o [Azure App Service](https://azure.microsoft.com/services/app-service), por exemplo, utiliza uma definição de aplicação chamada **Connection Strings** no Serviço de Aplicações em vez de utilizar o Secret Manager para armazenar a cadeia de ligação.
+    Você usa Secret Manager apenas para testar a aplicação web localmente. Quando implementa a aplicação para o [Azure App Service](https://azure.microsoft.com/services/app-service), por exemplo, utiliza uma definição de aplicação chamada **Connection Strings** in App Service em vez de utilizar o Secret Manager para armazenar a cadeia de ligação.
 
-    Pode aceder a este segredo com a API de Configuração de Aplicações. Um cólon (:) trabalha no nome de configuração com a API de Configuração de Aplicações em todas as plataformas suportadas. Ver [Configuração por ambiente.](https://docs.microsoft.com/aspnet/core/fundamentals/configuration)
+    Pode aceder a este segredo com a API de Configuração de Aplicações. Um cólon (:) funciona no nome de configuração com a API de Configuração de Aplicações em todas as plataformas suportadas. Ver [Configuração por ambiente](https://docs.microsoft.com/aspnet/core/fundamentals/configuration).
 
-1. Em *Program.cs,* `CreateWebHostBuilder` atualize o método para `config.AddAzureAppConfiguration()` utilizar a Configuração da Aplicação, ligando para o método.
+1. Em *Program.cs,* atualize o `CreateWebHostBuilder` método para utilizar a Configuração da Aplicação, chamando o `config.AddAzureAppConfiguration()` método.
 
     > [!IMPORTANT]
     > `CreateHostBuilder`substitui `CreateWebHostBuilder` em .NET Core 3.0.  Selecione a sintaxe correta com base no seu ambiente.
@@ -165,13 +165,13 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
     ```
     ---
 
-1. Abra *Startup.cs*e adicione referências ao gestor de funcionalidades .NET Core:
+1. Abra *Startup.cs*, e adicione referências ao gestor de funcionalidades .NET Core:
 
     ```csharp
     using Microsoft.FeatureManagement;
     ```
 
-1. Atualize `ConfigureServices` o método para adicionar `services.AddFeatureManagement()` suporte à bandeira de recurso, chamando o método. Opcionalmente, pode incluir qualquer filtro a ser `services.AddFeatureFilter<FilterType>()`utilizado com bandeiras de características, chamando:
+1. Atualize o `ConfigureServices` método para adicionar suporte de bandeira de recurso chamando o `services.AddFeatureManagement()` método. Opcionalmente, pode incluir qualquer filtro a ser usado com bandeiras de características `services.AddFeatureFilter<FilterType>()` chamando:
 
     #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
     ```csharp
@@ -186,7 +186,7 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllersWithViews();
-        services.AddFeatureManagement();
+        services.AddSingleton(Configuration).AddFeatureManagement();
     }
 
     ---
@@ -255,7 +255,7 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
     }
     ```
 
-1. Adicione *BetaController.cs* ao diretório dos *Controladores:*
+1. Adicione *BetaController.cs* ao *diretório de controladores:*
 
     ```csharp
     using Microsoft.AspNetCore.Mvc;
@@ -282,13 +282,13 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
     }
     ```
 
-1. Abra *_ViewImports.cshtml* no diretório *Views* e adicione o ajudante de etiqueta de gestor de funcionalidades:
+1. Abra *_ViewImports.cshtml* no diretório *views* e adicione o ajudante de etiquetas de recurso:
 
     ```html
     @addTagHelper *, Microsoft.FeatureManagement.AspNetCore
     ```
 
-1. Abra *_Layout.cshtml* no diretório*partilhado* *views*\\e `<body>`  >  `<header>` substitua o código de `<nav>` barras por baixo do seguinte código:
+1. Abra *_Layout.cshtml* no diretório *Views* \\ *Shared* e substitua o código de `<nav>` barras por baixo do seguinte `<body>`  >  `<header>` código:
 
     ```html
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -317,7 +317,7 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
     </nav>
     ```
 
-1. Crie um diretório *Beta* em *Views* e *adicione-lhe Index.cshtml:*
+1. Crie um *diretório Beta* em *Visualizações* e adicione *Index.cshtml:*
 
     ```html
     @{
@@ -329,47 +329,47 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
     </h1>
     ```
 
-## <a name="build-and-run-the-app-locally"></a>Construir e executar a app localmente
+## <a name="build-and-run-the-app-locally"></a>Construa e execute a app localmente
 
-1. Para construir a aplicação utilizando o CLI .NET Core, execute o seguinte comando na concha de comando:
+1. Para construir a aplicação utilizando o .NET Core CLI, executar o seguinte comando na concha de comando:
 
     ```
     dotnet build
     ```
 
-1. Depois de a construção concluída com sucesso, execute o seguinte comando para executar a aplicação web localmente:
+1. Após a construção concluída com sucesso, executar o seguinte comando para executar a aplicação web localmente:
 
     ```
     dotnet run
     ```
 
-1. Abra uma janela do `https://localhost:5000`navegador e vá para , que é o URL padrão para a aplicação web hospedada localmente.
-    Se estiver a trabalhar na Casca de Nuvem Azure, selecione o botão *de pré-visualização web* seguido de *Configurar*.  Quando solicitado, selecione a porta 5000.
+1. Abra uma janela do navegador e vá para `https://localhost:5000` , que é o URL padrão para a aplicação web hospedada localmente.
+    Se estiver a trabalhar no Azure Cloud Shell, selecione o botão *de pré-visualização web* seguido de *Configuração*.  Quando solicitado, selecione a porta 5000.
 
-    ![Localizar o botão de pré-visualização da Web](./media/quickstarts/cloud-shell-web-preview.png)
+    ![Localizar o botão de pré-visualização web](./media/quickstarts/cloud-shell-web-preview.png)
 
-    O seu navegador deve apresentar uma página semelhante à imagem abaixo.
-    ![Lançamento de app Quickstart local](./media/quickstarts/aspnet-core-feature-flag-local-before.png)
+    O seu navegador deve exibir uma página semelhante à imagem abaixo.
+    ![Quickstart app lançar local](./media/quickstarts/aspnet-core-feature-flag-local-before.png)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Todos os recursos**e selecione a instância da loja de configuração de aplicações que criou no arranque rápido.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Todos os recursos**e selecione a instância da loja de Configuração de Aplicações que criou no arranque rápido.
 
-1. Selecione Gestor de **Funcionalidades**e altere o estado da chave **Beta** para **On**.
+1. Selecione **'Feature Manager'** e altere o estado da tecla **Beta** para **On**.
 
-1. Volte ao pedido de comando `dotnet` e `Ctrl-C`cancele o processo de funcionamento premindo .  Reiniciar a `dotnet run`sua aplicação utilizando .
+1. Volte ao comando e cancele o processo de funcionamento `dotnet` premindo `Ctrl-C` .  Reinicie a sua aplicação utilizando `dotnet run` .
 
-1. Refresque a página do navegador para ver as novas configurações de configuração.
+1. Refresque a página do navegador para ver as novas definições de configuração.
 
-    ![Lançamento de app Quickstart local](./media/quickstarts/aspnet-core-feature-flag-local-after.png)
+    ![Quickstart app lançar local](./media/quickstarts/aspnet-core-feature-flag-local-after.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste quickstart, criou uma nova loja de configuração de aplicações e utilizou-a para gerir funcionalidades numa ASP.NET aplicação web Core através das bibliotecas de Gestão de [Recursos.](https://go.microsoft.com/fwlink/?linkid=2074664)
+Neste quickstart, criou uma nova loja de Configuração de Aplicações e utilizou-a para gerir funcionalidades numa aplicação web core ASP.NET através das [bibliotecas de Gestão de Recursos.](https://go.microsoft.com/fwlink/?linkid=2074664)
 
-- Saiba mais sobre gestão de [recursos.](./concept-feature-management.md)
-- [Gerir as bandeiras de recurso.](./manage-feature-flags.md)
-- [Utilize bandeiras de recurso numa aplicação ASP.NET Core](./use-feature-flags-dotnet-core.md).
-- [Utilize a configuração dinâmica numa aplicação ASP.NET Core](./enable-dynamic-configuration-aspnet-core.md)
+- Saiba mais sobre [gestão de recursos.](./concept-feature-management.md)
+- [Gerir bandeiras de características](./manage-feature-flags.md).
+- [Utilize bandeiras de recurso numa aplicação core ASP.NET.](./use-feature-flags-dotnet-core.md)
+- [Utilize a configuração dinâmica numa aplicação core ASP.NET](./enable-dynamic-configuration-aspnet-core.md)

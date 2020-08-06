@@ -5,26 +5,17 @@ author: austonli
 ms.author: aul
 ms.subservice: ''
 ms.topic: conceptual
-ms.date: 02/07/2020
-ms.openlocfilehash: 977dcc71fd25b19e09cfa9126bf01d380f581aca
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 08/04/2020
+ms.openlocfilehash: 19fd1d064a3f106d7b770481d1e456c51cf1e166
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289122"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759432"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-transition-guide"></a>Azure Monitor vê designer para guia de transição de livros
-[O view designer](view-designer.md) é uma funcionalidade do Azure Monitor que lhe permite criar visualizações personalizadas para o ajudar a visualizar dados no seu espaço de trabalho Log Analytics, com gráficos, listas e linhas de tempo. Estão a ser eliminados e substituídos por livros que fornecem funcionalidades adicionais. Este artigo fornece uma visão geral do processo de conversão das suas opiniões existentes em livros de trabalho.
+[O view designer](view-designer.md) é uma funcionalidade do Azure Monitor que lhe permite criar visualizações personalizadas para o ajudar a visualizar dados no seu espaço de trabalho Log Analytics, com gráficos, listas e linhas de tempo. Foram transitados para livros de trabalho para fornecer uma tela flexível para análise de dados e criação de relatórios visuais ricos dentro do portal Azure. Este artigo ajuda-o a fazer a transição de View designer para Workbooks. 
 
-## <a name="retirement-schedule"></a>Horário de aposentadoria
-
-| Alterar | O que isto significa | Data Prevista |
-|:---|:---|:---|
-| Desativar a criação de novos pontos de vista criados através do View Designer. | Deixará de ser capaz de criar e guardar novas vistas personalizadas no portal Azure.| novembro de 2020 |
-| Desative a função de edição para visualizações existentes com o View Designer. | Deixará de ser capaz de modificar e guardar alterações nas suas vistas personalizadas existentes. | novembro de 2020 |
-| Desativar a implementação de pontos de vista para os espaços de trabalho do Log Analytics | Deixará de ser capaz de implementar vistas personalizadas utilizando os espaços de trabalho DA ARM para registar o trabalho. | março de 2021 |
-| Ver Designer já não disponível no portal Azure | A experiência do portal deixará de suportar o View Designer. | junho de 2021 |
-| Vistas personalizadas removidas do Resumo do Espaço de Trabalho | Deixará de poder aceder aos seus dados de visualização personalizados. | dezembro de 2021 |
 
 ## <a name="workbooks-overview"></a>Visão geral dos livros de trabalho
 [Os livros combinam](../insights/vminsights-workbooks.md) texto, [consultas de registo,](../log-query/query-language.md)métricas e parâmetros em ricos relatórios interativos. Os membros da equipa com o mesmo acesso aos recursos do Azure também podem editar livros de trabalho.

@@ -5,27 +5,19 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/10/2019
-ms.openlocfilehash: c0af92bdec6248a38040f972734764fa1bc10226
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 08/04/2020
+ms.openlocfilehash: f3ae081c8657a3ee6a27b0f9208c3eb4e4e745cc
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289093"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759738"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Crie vistas personalizadas utilizando o View Designer no Azure Monitor
 Ao utilizar o View Designer no Azure Monitor, pode criar uma variedade de visualizações personalizadas no portal Azure que podem ajudá-lo a visualizar dados no seu espaço de trabalho Log Analytics. Este artigo apresenta uma visão geral do View Designer e procedimentos para criar e editar vistas personalizadas.
 
 > [!IMPORTANT]
-> As vistas no Azure Monitor estão a ser eliminadas e substituídas por livros que fornecem [funcionalidades](workbooks-overview.md) adicionais. Consulte [o Azure Monitor ver designer para guia de transição de livros](view-designer-conversion-overview.md) de trabalho para obter detalhes sobre a conversão das suas vistas existentes em livros de trabalho. Consulte a tabela seguinte para as etapas que serão tomadas ao longo dos próximos meses.
-> 
-> | Alterar | O que isto significa | Data Prevista |
-> |:---|:---|:---|
-> | Desativar a criação de novos pontos de vista criados através do View Designer. | Deixará de ser capaz de criar e guardar novas vistas personalizadas no portal Azure.| novembro de 2020 |
-> | Desative a função de edição para visualizações existentes com o View Designer. | Deixará de ser capaz de modificar e guardar alterações nas suas vistas personalizadas existentes. | novembro de 2020 |
-> | Desativar a implementação de pontos de vista para os espaços de trabalho do Log Analytics | Deixará de ser capaz de implementar vistas personalizadas utilizando os espaços de trabalho DA ARM para registar o trabalho. | março de 2021 |
-> | Ver Designer já não disponível no portal Azure | A experiência do portal deixará de suportar o View Designer. | junho de 2021 |
-> | Vistas personalizadas removidas do Resumo do Espaço de Trabalho | Deixará de poder aceder aos seus dados de visualização personalizados. | dezembro de 2021 |
+> As opiniões no Azure Monitor foram transitadas para livros que fornecem [funcionalidades](workbooks-overview.md) adicionais. Consulte [o Azure Monitor ver designer para guia de transição de livros](view-designer-conversion-overview.md) de trabalho para obter detalhes sobre a conversão das suas vistas existentes em livros de trabalho.
  
 
 

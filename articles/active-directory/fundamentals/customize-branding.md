@@ -2,7 +2,7 @@
 title: Adicione marca à página de assinatura da sua organização - Azure AD
 description: Instruções sobre como adicionar a marca da sua organização à página de inscrição do Diretório Ativo Azure.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14e1e84fa96b1e6b686d039abedd38e080b5720e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f664f55f2870f4f0e06f3a96a3f2b7ae91e7a378
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603915"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87796799"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicione marca à página de inscrição do Azure Ative Directory da sua organização
 Use o logótipo da sua organização e esquemas de cores personalizados para fornecer um look-and-feel consistente nas suas páginas de inscrição do Azure Ative(Azure AD). As suas páginas de insusição aparecem quando os utilizadores acedem às aplicações web da sua organização, como o Office 365, que utiliza a Azure AD como fornecedor de identidade.
@@ -50,7 +50,7 @@ A sua marca personalizada não aparecerá imediatamente quando os seus utilizado
 
         ![Configurar a página de marca da empresa, com configurações gerais concluídas](media/customize-branding/configure-company-branding-general-settings.png)
 
-        - **A linguagem.** O idioma é automaticamente definido como o seu padrão e não pode ser alterado.
+        - **Idioma.** O idioma é automaticamente definido como o seu padrão e não pode ser alterado.
         
         - **Imagem de fundo de página de iniciar s-in.** Selecione um ficheiro de imagem .png ou .jpg para aparecer como fundo para as suas páginas de inscrição. A imagem será ancorada ao centro do navegador, e escalará para o tamanho do espaço visível. Não é possível selecionar uma imagem maior do que 1920x1080 pixels de tamanho ou que tenha um tamanho de ficheiro superior a 300 KB.
         

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 2c6c6b3fb4f863840b39de6f56fe473be693fe87
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 657c41fbcda30ffb5af4c5a27d58ef17c02a46bc
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001439"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798261"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Criar uma oferta do Dynamics 365 for Operations
 
@@ -191,11 +191,14 @@ Nesta secção, pode fornecer logotipos e imagens que serão utilizados ao mostr
 
 #### <a name="store-logos"></a>Logotipos da loja
 
-Forneça o logótipo da sua oferta em dois tamanhos de pixel:
+Forneça um ficheiro PNG para o logotipo de tamanho **grande** (entre 216 x 216 e 350 x 350 pixels). O Partner Center irá usá-lo para criar um logotipo de tamanho **Pequeno** (48 x 48 pixels). Pode substituir opcionalmente isto por uma imagem diferente.
+
+Ambos os tamanhos do logotipo são necessários para serem utilizados em diferentes locais da listagem:
 
 - **Pequeno** (48 x 48)
-- **Grande** (216 x 216)
+- **Grande** (entre 216 x 216 e 350 x 350)
 
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de ecrã
 

@@ -8,12 +8,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 08/04/2020
-ms.openlocfilehash: 1f6624c454364ca19c8ce112cb1cbbef134f162d
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 8547c07214e94176babe4909504b9292d45c06f9
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/04/2020
-ms.locfileid: "87568047"
+ms.locfileid: "87759619"
 ---
 # <a name="azure-sql-edge-usage-and-diagnostics-data-configuration"></a>Azure SQL Edge utiliza e diagnostica a configuração de dados
 
@@ -87,7 +87,7 @@ O componente de Auditoria Local da recolha de dados de utilização e diagnósti
 
 Para ativar os dados de utilização e diagnóstico de auditoria local no Azure SQL Edge
 
-1. Crie um directório-alvo para o novo armazenamento de registos de auditoria local. Este directório-alvo deve ser criado no mesmo volume de montagem que é mapeado para /var/opt/mssql/ caminho em SQL Edge.
+1. Crie um directório-alvo para o novo armazenamento de registos de auditoria local. Este directório-alvo pode estar no hospedeiro ou dentro do contentor. No exemplo abaixo, o directório-alvo é criado no mesmo volume de montagem que é mapeado para /var/opt/mssql/ caminho em SQL Edge.
 
    ```bash
    sudo mkdir <host mount path>/audit
@@ -95,17 +95,17 @@ Para ativar os dados de utilização e diagnóstico de auditoria local no Azure 
 
 2. Configure a auditoria de dados de utilização e diagnóstico utilizando variáveis ambientais ou ficheiro mssql.conf.
 
-   - Utilização de variáveis ambientais - Adicione a seguinte variável de ambiente à sua implantação SQL Edge.
+   - Utilização de variáveis ambientais - Adicione a seguinte variável de ambiente à sua implementação SQL Edge e especifique o directório-alvo para os ficheiros de auditoria.
    
-     `*MSSQL_TELEMETRY_DIR = /var/opt/mssql/audit*`
+     `*MSSQL_TELEMETRY_DIR = <host mount path>/audit*`
    
-   - Utilização do ficheiro mssql.conf - Adicione as seguintes linhas no ficheiro mssql.conf.
+   - Utilização do ficheiro mssql.conf - Adicione as seguintes linhas no ficheiro mssql.conf e especifique o directório-alvo para os ficheiros de auditoria.
        ```ini
        [telemetry]
-       userrequestedlocalauditdirectory  = /var/opt/mssql/audit
+       userrequestedlocalauditdirectory  = <host mount path>/audit
        ```  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Ligue-se à Borda Azure SQL](connect.md)
 - [Construa uma solução IoT de ponta a ponta com o SQL no Edge](tutorial-deploy-azure-resources.md)

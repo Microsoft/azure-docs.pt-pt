@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 11f4091489a8ef8c980ece0589945c8e1c7dc8b8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8dd0abb5c127d51a0feaf0c71188b7fc48e2fd69
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317778"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798227"
 ---
 # <a name="create-a-consulting-service-offer"></a>Criar uma oferta de serviço de consultoria
 
@@ -207,12 +207,14 @@ Forneça logotipos e imagens para utilizar com a sua oferta. Todas as imagens de
 
 #### <a name="store-logos"></a>Logotipos da loja
 
-Forneça ficheiros PNG do logótipo da sua oferta em cada um dos seguintes tamanhos de pixel:
+Forneça um ficheiro PNG para o logotipo de tamanho **grande** (entre 216 x 216 e 350 x 350 pixels). O Partner Center irá usá-lo para criar um logotipo de tamanho **Pequeno** (48 x 48 pixels). Pode substituir opcionalmente isto por uma imagem diferente.
 
-- **Pequeno (48 x 48)**
-- **Grande (216 x 216)**
+Ambos os tamanhos do logotipo são necessários para serem utilizados em diferentes locais da listagem:
 
-Todos os logótipos são necessários e são utilizados em diferentes locais da listagem do mercado.
+- **Pequeno** (48 x 48)
+- **Grande** (entre 216 x 216 e 350 x 350)
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots-optional"></a>Screenshots (opcional)
 

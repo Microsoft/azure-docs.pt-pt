@@ -2,7 +2,7 @@
 title: Adicione o seu domínio personalizado - Azure Ative Directory / Microsoft Docs
 description: Instruções sobre como adicionar um domínio personalizado utilizando o Azure Ative Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cfa00cceac6c30219d4577cc4ba29c84cb1a75a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8035744cd7ff7bb3d8347a7d26796531a666bbd
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603966"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87796816"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Adicione o seu nome de domínio personalizado usando o portal Azure Ative Directory
 
@@ -54,7 +54,7 @@ Depois de criar o seu diretório, pode adicionar o seu nome de domínio personal
 
     ![Página de nomes de domínio personalizado, com adicionar domínio personalizado mostrado](media/add-custom-domain/add-custom-domain.png)
 
-1. Em **nome de domínio personalizado,** insira o novo nome da sua organização, neste exemplo, *contoso.com*. Selecione **Add domain** (Adicionar domínio).
+1. Em **nome de domínio personalizado,** insira o novo nome da sua organização, neste exemplo, *contoso.com*. Selecione **Adicionar domínio**.
 
     ![Página de nomes de domínio personalizado, com adicionar página de domínio personalizado](media/add-custom-domain/add-custom-domain-blade.png)
 
@@ -65,7 +65,7 @@ Depois de criar o seu diretório, pode adicionar o seu nome de domínio personal
 
     ![Página contoso com informações de entrada de DNS](media/add-custom-domain/contoso-blade-with-dns-info.png)
 
-## <a name="add-your-dns-information-to-the-domain-registrar"></a>Adicione as suas informações dns ao registo de domínio
+## <a name="add-your-dns-information-to-the-domain-registrar"></a>Adicionar as informações de DNS à entidade de registo de domínios
 
 Depois de adicionar o seu nome de domínio personalizado ao Azure AD, deve voltar ao seu registo de domínio e adicionar as informações de DNS AD Azure do seu ficheiro TXT copiado. A criação deste registo TXT para o seu domínio verifica a propriedade do seu nome de domínio.
 
@@ -108,7 +108,7 @@ Se a Azure AD não puder verificar um nome de domínio personalizado, experiment
 
 - **Certifique-se de não ter nenhum inquilino de Bi de energia não gerido.** Se os seus utilizadores ativaram o Power BI através de uma inscrição de self-service e criaram um inquilino não gerido para a sua organização, deve assumir a gestão como administrador interno ou externo, utilizando o PowerShell. Para obter mais informações, veja [Take over an unmanaged directory as administrator in Azure Active Directory](../users-groups-roles/domains-admin-takeover.md) (Assumir um diretório não gerido como administrador no Azure Active Directory).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Adicione outro administrador global ao seu diretório. Para obter mais informações, consulte [Como atribuir funções e administradores.](active-directory-users-assign-role-azure-portal.md)
 

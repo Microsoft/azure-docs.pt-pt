@@ -7,12 +7,12 @@ ms.topic: article
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: f9d7e88e78800df07dfe82d7336324eef38b92d5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7a0f04344d2e4213bbbabb63d57bdaf933154388
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326682"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797900"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicações do Azure
 
@@ -38,7 +38,7 @@ Reveja os seguintes recursos enquanto prepara a sua oferta de candidatura a Azur
 
 * Guias de Início Rápido:
 
-    * [Modelos Azure Quickstart](https://azure.microsoft.com/documentation/templates/)
+    * [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/)
     * [Guia de boas práticas de modelos de Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
     * [Publicar a definição da aplicação](../../managed-applications/publish-service-catalog-app.md)
     * [Implementar a aplicação do catálogo de serviços](../../managed-applications/deploy-service-catalog-quickstart.md)
@@ -72,7 +72,7 @@ Escolha um ou ambos os seguintes ambientes de script para ajudar a gerir a sua a
 
 Recomendamos adicionar as seguintes ferramentas ao seu ambiente de desenvolvimento:
 
-* [Explorador do Storage do Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [Explorador de Armazenamento do Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Código do Estúdio Visual](https://code.visualstudio.com/) com as seguintes extensões:
     * Extensão: [Ferramentas do gestor de recursos Azure](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     * Extensão: [Embelezamento](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -247,14 +247,15 @@ Forneça logotipos e imagens para utilizar com a sua oferta. Todas as imagens de
 
 #### <a name="store-logos"></a>Logotipos da loja
 
-Forneça ficheiros PNG do logótipo da sua oferta nos seguintes três tamanhos de pixel:
+Forneça um ficheiro PNG para o logotipo de tamanho **grande** (entre 216 x 216 e 350 x 350 pixels). O Partner Center utilizará isto para criar um logótipo de tamanho **Pequeno** (48 x 48 pixels) e um logotipo de tamanho **Médio** (90 x 90 pixels). Pode substituir opcionalmente estas imagens diferentes.
+
+Todos os três tamanhos de logotipo são necessários para serem utilizados em diferentes locais da listagem:
 
 - **Pequeno** (48 x 48)
 - **Médio** (90 x 90)
-- **Grande** (216 x 216)
-- **Largo** (255 x 115)
+- **Grande** (entre 216 x 216 e 350 x 350)
 
-Todos os três logótipos são necessários e são usados em diferentes lugares na listagem.
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de ecrã
 
@@ -512,7 +513,7 @@ Indique quem deve ter acesso à gestão a esta aplicação gerida em cada nuvem 
 
 **Autorizações** – Adicione o ID do objeto Azure Ative Do utilizador, grupo ou aplicação que pretende ser autorizado ao grupo de recursos geridos. Identifique o utilizador pelo seu ID principal, que pode ser encontrado na lâmina de utilizadores do [Azure Ative Directory no portal Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
-Para cada principal, selecione uma das funções incorporadas AZure da lista (Proprietário ou Contribuinte). A função selecionada descreverá as permissões que o principal terá sobre os recursos na subscrição do cliente. Para mais informações, consulte [as funções incorporadas do Azure.](../../role-based-access-control/built-in-roles.md) Para obter mais informações sobre o controlo de acesso baseado em funções (RBAC), consulte [Começar com o RBAC no portal Azure](../../role-based-access-control/overview.md).
+Para cada principal, selecione uma das funções incorporadas AZure da lista (Proprietário ou Contribuinte). A função selecionada descreverá as permissões que o principal terá sobre os recursos na subscrição do cliente. Para obter mais informações, veja [Funções incorporadas do Azure](../../role-based-access-control/built-in-roles.md). Para obter mais informações sobre o controlo de acesso baseado em funções (RBAC), consulte [Começar com o RBAC no portal Azure](../../role-based-access-control/overview.md).
 
 >[!Note]
 >Embora possa adicionar até 100 autorizações por nuvem, é geralmente mais fácil criar um grupo de utilizadores do Ative Directory e especificar o seu ID no "ID principal". Isto permitir-lhe-á adicionar mais utilizadores ao grupo de gestão após a implementação do plano e reduzir a necessidade de atualizar o plano apenas para adicionar mais autorizações.
