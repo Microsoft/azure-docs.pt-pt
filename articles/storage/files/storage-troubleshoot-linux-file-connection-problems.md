@@ -1,18 +1,18 @@
 ---
 title: Problemas na Azure Files em Linux Microsoft Docs
-description: Problemas na resolução de problemas dos Ficheiros Azure em Linux
+description: Problemas na resolução de problemas dos Ficheiros Azure em Linux. Consulte questões comuns relacionadas com os Ficheiros Azure quando se conecta com os clientes Linux e veja possíveis resoluções.
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 4dddc2eab5004377afd6743c4722498dd5c6e2a0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a01d9e90e87d1c23b9aefc5f2d9ba3ba84d0f59f
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260008"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904926"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Problemas na resolução de ficheiros Azure em Linux
 

@@ -3,12 +3,12 @@ title: Apoiar o SQL Server para Azure como uma carga de trabalho DPM
 description: Uma introdução para fazer backup das bases de dados do SQL Server utilizando o serviço de backup Azure
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: dd091f9446cafdb6ff91ae5679c703e07457169c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ef8ffcb2445a7be27f7fd3da2115f76fe961fd74
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055372"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876313"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Apoiar o SQL Server para Azure como uma carga de trabalho DPM
 
@@ -21,6 +21,9 @@ Para fazer uma base de dados do SQL Server para Azure e recuperá-la do Azure:
 1. Crie uma política de backup para proteger as bases de dados do SQL Server no Azure.
 1. Crie cópias de backup a pedido no Azure.
 1. Recupere a base de dados do Azure.
+
+>[!NOTE]
+>DPM 2019 UR2 suporta sql server Failover Cluster Instances (FCI) usando Cluster Shared Volumes (CSV).
 
 ## <a name="prerequisites-and-limitations"></a>Pré-requisitos e limitações
 

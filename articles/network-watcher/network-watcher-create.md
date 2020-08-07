@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 6b7453a0100233896e3d01769897ed224a0b2618
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03fe71855c43ba831f4b7a4ab746f05bd3bbb4a3
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737551"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846858"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Criar uma instância do Observador de Rede do Azure
 
@@ -57,7 +57,7 @@ Quando ativa o Network Watcher utilizando o portal, o nome da instância Do Obse
 
 A instância do Observador de Rede é criada automaticamente num grupo de recursos chamado *NetworkWatcherRG*. O grupo de recursos é criado se já não existir.
 
-Se desejar personalizar o nome de uma instância do Observador de Rede e do grupo de recursos em que é colocado, pode utilizar o Powershell, o Azure CLI, o REST API ou os métodos ARMClient descritos nas secções que se seguem. Em cada opção, o grupo de recursos deve existir antes de criar um Observador de Rede nele.  
+Se desejar personalizar o nome de uma instância do Observador de Rede e do grupo de recursos em que é colocado, pode utilizar o PowerShell, o Azure CLI, o REST API ou os métodos ARMClient descritos nas secções que se seguem. Em cada opção, o grupo de recursos deve existir antes de criar um Observador de Rede nele.  
 
 ## <a name="create-a-network-watcher-with-powershell"></a>Criar um Observador de Rede com PowerShell
 
@@ -101,6 +101,10 @@ $requestBody = @"
 armclient put "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}?api-version=${api-version}" $requestBody
 ```
 
+## <a name="create-a-network-watcher-using-azure-quickstart-template"></a>Criar um Observador de Rede usando o modelo de arranque rápido do Azure
+
+Para criar uma instância de Observador de Rede consulte este [Modelo quickstart](https://azure.microsoft.com/resources/templates/101-networkwatcher-create/)
+
 ## <a name="delete-a-network-watcher-in-the-portal"></a>Excluir um Observador de Rede no portal
 
 Navegue para O Observador de Rede de Todos **os Serviços.**  >  **Networking**  >  **Network Watcher**
@@ -121,14 +125,14 @@ New-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroup NetworkWa
 Remove-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroup NetworkWatcherRG
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que tem um exemplo de Network Watcher, conheça as funcionalidades disponíveis:
 
 * [Topologia](network-watcher-topology-overview.md)
 * [Captura de pacotes](network-watcher-packet-capture-overview.md)
 * [Verificação do fluxo de IP](network-watcher-ip-flow-verify-overview.md)
-* [Salto seguinte](network-watcher-next-hop-overview.md)
+* [Próximo salto](network-watcher-next-hop-overview.md)
 * [Vista do grupo de segurança](network-watcher-security-group-view-overview.md)
 * [Registo de fluxo nSG](network-watcher-nsg-flow-logging-overview.md)
 * [Resolução de problemas do Gateway de Rede Virtual](network-watcher-troubleshoot-overview.md)

@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6fe9fdd68f9419a9f730ea64b5aea19f583d751c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: f582159b0ce1355b34c42496dc7516264b62d365
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496751"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902036"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-postgresql-server-using-powershell"></a>Como fazer o back up e restaurar uma Base de Dados Azure para servidor PostgreSQL usando PowerShell
 
@@ -78,7 +78,7 @@ O conjunto de **parâmetros PointInTimeRestore** do `Restore-AzPostgreSqlServer`
 | Definição | Valor sugerido | Descrição  |
 | --- | --- | --- |
 | ResourceGroupName |  myResourceGroup |  O grupo de recursos onde existe o servidor de origem.  |
-| Name | mydemoserver-restored | O nome do novo servidor que é criado pelo comando restore. |
+| Nome | mydemoserver-restored | O nome do novo servidor que é criado pelo comando restore. |
 | RestaurarPointInTime | 2020-03-13T13:59:00Z | Selecione um ponto no tempo para restaurar. Esta data e hora têm de estar dentro do período de retenção de cópias de segurança do servidor de origem. Utilize o formato de data e hora ISO8601. Por exemplo, pode utilizar o seu próprio fuso horário local, como **2020-03-13T05:59:00-08:00**. Também pode utilizar o formato UTC Zulu, por exemplo, **2018-03-13T13:59:00Z**. |
 | UsePointInTimeRestore | `<SwitchParameter>` | Utilize o modo ponto-a-tempo para restaurar. |
 
@@ -120,7 +120,7 @@ O conjunto de **parâmetros GeoRestore** do `Restore-AzPostgreSqlServer` cmdlet 
 | Definição | Valor sugerido | Descrição  |
 | --- | --- | --- |
 |ResourceGroupName | myResourceGroup | O nome do grupo de recursos a que pertence o novo servidor pertence.|
-|Name | mydemoserver-georestored | O nome do novo servidor. |
+|Nome | mydemoserver-georestored | O nome do novo servidor. |
 |Localização | eastus | A localização do novo servidor. |
 |UseGeoRestore | `<SwitchParameter>` | Utilize o modo geo para restaurar. |
 
@@ -133,4 +133,4 @@ O novo servidor criado durante uma restauração não possui os pontos finais do
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Personalize a Base de Dados de Azure para parâmetros de servidor PostgreSQL utilizando o PowerShell](howto-configure-server-parameters-using-powershell.md)
+> [Como gerar uma base de dados Azure para cadeia de conexão PostgreSQL com PowerShell](howto-connection-string-powershell.md)

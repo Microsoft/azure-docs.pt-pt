@@ -9,21 +9,22 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: dapine
-ms.openlocfilehash: 8fcac761ab1f0805a3b2b75107e0119fbfb9db6e
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: 6f5df14d9488f8ccb1f93c2a16ba52998f25e268
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148094"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876585"
 ---
-# <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurar redes virtuais de Serviços Cognitivos Azure
+# <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurar redes virtuais dos Serviços Cognitivos do Azure
 
-A Azure Cognitive Services fornece um modelo de segurança em camadas. Este modelo permite-lhe assegurar as suas contas de Serviços Cognitivos a um subconjunto específico de redes. Quando as regras de rede são configuradas, apenas os pedidos de dados sobre o conjunto especificado de redes podem aceder à conta. Pode limitar o acesso aos seus recursos com a filtragem de pedidos. Permitindo apenas pedidos originários de endereços IP especificados, intervalos IP ou de uma lista de sub-redes em [Redes Virtuais Azure](../virtual-network/virtual-networks-overview.md). Se estiver interessado nesta oferta, terá de solicitar o acesso de [pré-visualização](https://aka.ms/cog-svc-vnet-signup).
+A Azure Cognitive Services fornece um modelo de segurança em camadas. Este modelo permite-lhe proteger as suas contas dos Serviços Cognitivos para um subconjunto específico de redes. Quando as regras de rede são configuradas, apenas as aplicações que pedem dados sobre o conjunto especificado de redes podem aceder à conta. Pode limitar o acesso aos recursos com a filtragem de pedidos. Permitindo apenas pedidos originários de endereços IP especificados, intervalos IP ou de uma lista de sub-redes em [Redes Virtuais Azure](../virtual-network/virtual-networks-overview.md).
 
 Uma aplicação que acede a um recurso de Serviços Cognitivos quando as regras da rede estão em vigor requer autorização. A autorização é suportada com credenciais [Azure Ative Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) ou com uma chave API válida.
 
 > [!IMPORTANT]
 > Ligar as regras de firewall para a sua conta Serviços Cognitivos bloqueia pedidos de dados por padrão. Para permitir a passagem dos pedidos, é necessário reunir uma das seguintes condições:
+
 > * O pedido deve ter origem num serviço que opera dentro de uma Rede Virtual Azure (VNet) na lista de sub-redes permitida da conta de Serviços Cognitivos alvo. O ponto final dos pedidos originados pela VNet tem de ser definido como o [subdomínio personalizado](cognitive-services-custom-subdomains.md) da sua conta de Serviços Cognitivos.
 > * Ou o pedido deve ter origem numa lista permitida de endereços IP.
 >
@@ -39,39 +40,39 @@ As regras de rede são aplicadas em todos os protocolos de rede aos Serviços Co
 
 ## <a name="supported-regions-and-service-offerings"></a>Regiões apoiadas e ofertas de serviços
 
-O apoio de rede virtual para serviços cognitivos listados abaixo está limitado às regiões *central norte-americanas EUAP*, *South Central US*, East *US*, West *US 2*, *North Europe*, South *Africa North*, West *Europe*, *Central India*, Australia *East,* *West US*, e eua Gov *Virginia* Azure regiões. Se a oferta de serviço não estiver listada aqui, não suporta redes virtuais.
+Os Serviços Cognitivos listados abaixo suportam redes virtuais em Nuvem Comercial e Nuvem Gov dos EUA. Se o serviço não está listado aqui, ainda não suporta redes virtuais.
 
 > [!div class="checklist"]
+
 > * [Detetor de Anomalias](./anomaly-detector/index.yml)
 > * [Imagem Digitalizada](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
 > * [Visão Personalizada](./custom-vision-service/index.yml)
-> * [Rostos](./face/index.yml)
+> * [Face](./face/index.yml)
 > * [Reconhecedor de Formato](./form-recognizer/index.yml)
-> * [LUIS](./luis/index.yml)
+> * [Language Understanding](./luis/index.yml)
 > * [Personalizador](./personalizer/index.yml)
 > * [Análise de Texto](./text-analytics/index.yml)
-> * [QnA Maker](./qnamaker/index.yml)
-
-O suporte de rede virtual para serviços cognitivos listados abaixo está limitado às regiões *central norte-americanas EUAP*, *South Central US*, East *US,* *West US 2*, *Global*e Eua *Gov Virginia* Azure.
-> [!div class="checklist"]
-> * [Texto do Tradutor](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
+> * [Criador de FAQ](./qnamaker/index.yml)
+> * [Tradução de Texto](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
 
 ## <a name="service-tags"></a>Etiquetas de Serviço
-Além de apoiar os pontos finais do serviço de rede virtual para os serviços acima referidos, os Serviços Cognitivos também suportam uma etiqueta de serviço para configuração de regras de rede de saída. Os seguintes serviços estão incluídos na etiqueta de serviço CognitiveServicesManagement.
+
+Os Serviços Cognitivos suportam tags de serviço para a configuração das regras de rede. Os serviços listados abaixo estão incluídos na etiqueta de serviço **CognitiveServicesManagement.**
 > [!div class="checklist"]
+
 > * [Detetor de Anomalias](./anomaly-detector/index.yml)
 > * [Imagem Digitalizada](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
 > * [Visão Personalizada](./custom-vision-service/index.yml)
-> * [Rostos](./face/index.yml)
+> * [Face](./face/index.yml)
 > * [Reconhecedor de Formato](./form-recognizer/index.yml)
-> * [LUIS](./luis/index.yml)
+> * [Compreensão de Idiomas (LUIS)](./luis/index.yml)
 > * [Personalizador](./personalizer/index.yml)
 > * [Análise de Texto](./text-analytics/index.yml)
-> * [QnA Maker](./qnamaker/index.yml)
+> * [Criador de FAQ](./qnamaker/index.yml)
 > * [Tradutor](./translator/index.yml)
-> * [Serviço de Voz](./speech-service/index.yml)
+> * [Serviço de Fala](./speech-service/index.yml)
 
 ## <a name="change-the-default-network-access-rule"></a>Change the default network access rule (Alterar a regra de acesso de rede predefinida)
 
@@ -330,6 +331,7 @@ Pode gerir as regras de rede virtual para recursos de Serviços Cognitivos atrav
         -g "myresourcegroup" -n "myaccount" \
         --subnet $subnetid
     ```
+
 ***
 
 > [!IMPORTANT]
@@ -491,13 +493,13 @@ Pode utilizar [pontos finais privados](../private-link/private-endpoint-overview
 
 Os pontos finais privados para os recursos dos Serviços Cognitivos permitem-lhe:
 
-- Proteja o seu recurso de Serviços Cognitivos configurando a firewall para bloquear todas as ligações no ponto final público para o serviço de Serviços Cognitivos.
-- Aumentar a segurança para o VNet, permitindo-lhe bloquear a exfiltração de dados a partir do VNet.
-- Conectar-se seguramente aos recursos dos Serviços Cognitivos a partir de redes no local que se conectam ao VNet [usando VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [ExpressRoutes](../expressroute/expressroute-locations.md) com o seu olhar privado.
+* Proteja o seu recurso de Serviços Cognitivos configurando a firewall para bloquear todas as ligações no ponto final público para o serviço de Serviços Cognitivos.
+* Aumentar a segurança para o VNet, permitindo-lhe bloquear a exfiltração de dados a partir do VNet.
+* Conectar-se seguramente aos recursos dos Serviços Cognitivos a partir de redes no local que se conectam ao VNet [usando VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [ExpressRoutes](../expressroute/expressroute-locations.md) com o seu olhar privado.
 
 ### <a name="conceptual-overview"></a>Descrição geral conceptual
 
-Um ponto final privado é uma interface de rede especial para um serviço Azure no seu [VNet](../virtual-network/virtual-networks-overview.md). Quando cria um ponto final privado para o seu recurso Serviços Cognitivos, proporciona uma conectividade segura entre os clientes no seu VNet e o seu recurso. O ponto final privado é atribuído um endereço IP a partir do intervalo de endereço IP do seu VNet. A ligação entre o ponto final privado e o serviço de Serviços Cognitivos utiliza uma ligação privada segura.
+Um ponto final privado é uma interface de rede especial para um recurso Azure no seu [VNet](../virtual-network/virtual-networks-overview.md). A criação de um ponto final privado para o seu recurso Serviços Cognitivos proporciona uma conectividade segura entre os clientes no seu VNet e o seu recurso. O ponto final privado é atribuído um endereço IP a partir do intervalo de endereço IP do seu VNet. A ligação entre o ponto final privado e o serviço de Serviços Cognitivos utiliza uma ligação privada segura.
 
 As aplicações no VNet podem ligar-se ao serviço através do ponto final privado de forma perfeita, utilizando as mesmas cordas de ligação e mecanismos de autorização que utilizariam de outra forma. A exceção é o Serviço de Fala, que requer um ponto final separado. Consulte a secção [de pontos finais privados com o Serviço de Fala](#private-endpoints-with-the-speech-service). Os pontos finais privados podem ser utilizados com todos os protocolos suportados pelo recurso Serviços Cognitivos, incluindo REST.
 
@@ -509,11 +511,11 @@ Os proprietários de recursos dos Serviços Cognitivos podem gerir os pedidos de
 
 ### <a name="private-endpoints"></a>Pontos finais privados
 
-Ao criar o ponto final privado, deve especificar o recurso serviços cognitivos a que se conecta. Para obter mais informações sobre a criação de um ponto final privado, consulte os seguintes artigos:
+Ao criar o ponto final privado, deve especificar o recurso serviços cognitivos a que se conecta. Para obter mais informações sobre a criação de um ponto final privado, consulte:
 
-- [Criar um ponto final privado utilizando o Private Link Center no portal Azure](../private-link/create-private-endpoint-portal.md)
-- [Criar um ponto final privado usando O Azure CLI](../private-link/create-private-endpoint-cli.md)
-- [Criar um ponto final privado usando a Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
+* [Criar um ponto final privado utilizando o Private Link Center no portal Azure](../private-link/create-private-endpoint-portal.md)
+* [Criar um ponto final privado usando O Azure CLI](../private-link/create-private-endpoint-cli.md)
+* [Criar um ponto final privado usando a Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
 
 ### <a name="connecting-to-private-endpoints"></a>Ligação a pontos finais privados
 
@@ -523,7 +525,7 @@ Criamos uma [zona de DNS privada](../dns/private-dns-overview.md) anexada ao VNe
 
 ### <a name="private-endpoints-with-the-speech-service"></a>Pontos finais privados com o Serviço de Fala
 
-Ao utilizar pontos finais privados com o Serviço de Fala, deve utilizar um ponto final personalizado para ligar para a API do Serviço de Fala. Não podes usar o ponto final global. Deve utilizar um ponto final do formulário {conta}. {stt[tts] voice[dls}.speech.microsoft.com.
+Ao utilizar pontos finais privados com o Serviço de Fala, deve utilizar um ponto final personalizado para ligar para o Serviço de Fala. Não podes usar o ponto final global. O ponto final deve seguir este padrão: `{account}.{stt|tts|voice|dls}.speech.microsoft.com` .
 
 ### <a name="dns-changes-for-private-endpoints"></a>DNS alterações para pontos finais privados
 
@@ -531,23 +533,23 @@ Quando cria um ponto final privado, o registo de recursos DNS CNAME para o recur
 
 Quando resolve o URL de ponto final de fora do VNet com o ponto final privado, resolve-se para o ponto final público do recurso Serviços Cognitivos. Quando resolvido a partir do VNet que hospeda o ponto final privado, o URL do ponto final resolve-se para o endereço IP do ponto final privado.
 
-Esta abordagem permite o acesso ao recurso Serviços Cognitivos utilizando a mesma cadeia de ligação para clientes no VNet que hospedam os pontos finais privados, bem como clientes fora do VNet.
+Esta abordagem permite o acesso ao recurso Serviços Cognitivos utilizando a mesma cadeia de ligação para clientes no VNet que hospeda os pontos finais privados e clientes fora do VNet.
 
-Se estiver a utilizar um servidor DNS personalizado na sua rede, os clientes devem ser capazes de resolver o nome de domínio totalmente qualificado (FQDN) para o ponto final de recursos dos Serviços Cognitivos para o endereço IP do ponto final privado. Deverá configurar o seu servidor DNS para delegar o seu subdomínio de ligação privada para a zona privada de DNS para o VNet.
+Se estiver a utilizar um servidor DNS personalizado na sua rede, os clientes devem ser capazes de resolver o nome de domínio totalmente qualificado (FQDN) para o ponto final de recursos dos Serviços Cognitivos para o endereço IP do ponto final privado. Configure o seu servidor DNS para delegar o seu subdomínio de ligação privada para a zona privada de DNS para o VNet.
 
 > [!TIP]
 > Ao utilizar um servidor DNS personalizado ou no local, deverá configurar o seu servidor DNS para resolver o nome do recurso Serviços Cognitivos no subdomínio 'privatelink' para o endereço IP do ponto final privado. Pode fazê-lo delegando o subdomínio 'privatelink' para a zona privada de DNS do VNet, ou configurando a zona DNS no seu servidor DNS e adicionando os registos DNS A.
 
 Para obter mais informações sobre a configuração do seu próprio servidor DNS para suportar pontos finais privados, consulte os seguintes artigos:
 
-- [Name resolution for resources in Azure virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server) (Resolução de nomes para recursos em redes virtuais do Azure)
-- [Configuração DE DNS para pontos finais privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+* [Name resolution for resources in Azure virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server) (Resolução de nomes para recursos em redes virtuais do Azure)
+* [Configuração DE DNS para pontos finais privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
 
 ### <a name="pricing"></a>Preços
 
 Para obter detalhes sobre os preços, consulte [os preços do Azure Private Link](https://azure.microsoft.com/pricing/details/private-link).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Explore os vários [Serviços Cognitivos Azure](welcome.md)
 * Saiba mais sobre [os pontos finais do Serviço de Rede Virtual Azure](../virtual-network/virtual-network-service-endpoints-overview.md)

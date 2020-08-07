@@ -3,16 +3,16 @@ title: Ligue-se aos hubs de eventos Azure
 description: Criar tarefas automatizadas e fluxos de trabalho que monitorizem e gerem eventos utilizando hubs de eventos Azure e Apps Azure Logic
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
-ms.openlocfilehash: 7dab9753334a1f071d85d0d2bccbd88340e37634
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9e3bc4cdab62dd304c5266ff6c9cccf66600fb7b
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284103"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87848848"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorizar, receber e enviar eventos com Hubs de Eventos do Azure e Azure Logic Apps
 
@@ -62,6 +62,9 @@ Nas Azure Logic Apps, todas as aplicações lógicas devem começar com um [gati
 
 Este exemplo mostra como pode iniciar um fluxo de trabalho de aplicações lógicas quando novos eventos são enviados para o seu Centro de Eventos. 
 
+> [!NOTE]
+> Todos os gatilhos do Event Hub são gatilhos *de sondagens longas,* o que significa que o gatilho processa todos os eventos e, em seguida, espera 30 segundos por partição para que mais eventos apareçam no seu Event Hub. Então, se o gatilho for configurado com quatro divisórias, este atraso pode levar até dois minutos antes que o gatilho termine de sondar todas as divisórias. Se não forem recebidos eventos dentro deste atraso, o gatilho é ignorado. Caso contrário, o gatilho continua a ler eventos até que o seu Centro de Eventos esteja vazio. A próxima sondagem do gatilho acontece com base no intervalo de recorrência que se especifica nas propriedades do gatilho.
+
 1. No portal Azure ou Visual Studio, crie uma aplicação lógica em branco, que abre o Logic Apps Designer. Este exemplo utiliza o portal Azure.
 
 1. Na caixa de pesquisa, introduza "centros de eventos" como filtro. A partir da lista de gatilhos, selecione este gatilho: **Quando os eventos estiverem disponíveis no Event Hub - Event Hubs**
@@ -100,11 +103,6 @@ Este exemplo mostra como pode iniciar um fluxo de trabalho de aplicações lógi
 1. Agora continue a adicionar uma ou mais ações à sua aplicação lógica para as tarefas que pretende executar com os resultados do gatilho. 
 
    Por exemplo, para filtrar eventos com base num valor específico, como uma categoria, pode adicionar uma condição para que a ação do **evento Enviar** envie apenas os eventos que satisfaçam a sua condição. 
-
-> [!NOTE]
-> Todos os gatilhos do Event Hub são gatilhos *de sondagens longas,* o que significa que quando um gatilho dispara, o gatilho processa todos os eventos e, em seguida, aguarda por 30 segundos para que mais eventos apareçam no seu Event Hub.
-> Se não forem recebidos eventos em 30 segundos, o gatilho é ignorado. Caso contrário, o gatilho continua a ler eventos até que o seu Centro de Eventos esteja vazio.
-> A próxima sondagem do gatilho acontece com base no intervalo de recorrência que se especifica nas propriedades do gatilho.
 
 <a name="add-action"></a>
 

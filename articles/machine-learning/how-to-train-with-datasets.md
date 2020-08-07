@@ -11,13 +11,13 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: caaf1a2622d4642850d0d981e813ee438eb4eca8
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: acd030d8108ef3983be29fe85de6d7b3caf620af
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513779"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849340"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Treine com conjuntos de dados em Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]

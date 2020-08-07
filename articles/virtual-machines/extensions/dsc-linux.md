@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: a33d74c01771c2b60ac8667a1494ebe80271a8ac
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a1a166d12ef753a7a6fc7225d0467ead08514f99
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494790"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876721"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extensão DSC para Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -29,25 +29,17 @@ Desired State Configuration (DSC) é uma plataforma de gestão que pode utilizar
 
 A extensão DSCForLinux é publicada e suportada pela Microsoft. A extensão instala o agente OMI e DSC em máquinas virtuais Azure. A extensão do DSC também pode fazer as seguintes ações:
 
-
 - Registe o Linux VM numa conta Azure Automation para retirar configurações do serviço Azure Automation (Register ExtensionAction).
 - Empurre as configurações MOF para o Linux VM (Push ExtensionAction).
 - Aplique a configuração meta MOF no Linux VM para configurar um servidor de puxar para puxar a configuração do nó (Pull ExtensionAction).
 - Instale módulos DSC personalizados no Linux VM (Instalar ExtensionAction).
 - Remova os módulos DSC personalizados do Linux VM (Remover ExtensionAction).
 
- 
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operativo
 
-A extensão DSC Linux suporta todas as [distribuições Linux endossadas em Azure,](../linux/endorsed-distros.md) exceto:
-
-| Distribuição | Versão |
-|---|---|
-| Debian | Todas as versões |
-| Ubuntu| 18.04 |
+Para os nós que executam o Linux, a extensão DSC Linux suporta todas as distribuições Linux listadas na [documentação do DSC powerShell](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
  
 ### <a name="internet-connectivity"></a>Conectividade Internet
 
@@ -410,7 +402,7 @@ Set-AzVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
-### <a name="troubleshoot"></a>Resolver Problemas
+### <a name="troubleshoot"></a>Resolução de problemas
 
 Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure e utilizando o CLI Azure. Para ver o estado de implantação das extensões para um determinado VM, executar o seguinte comando utilizando o CLI Azure.
 
@@ -433,5 +425,5 @@ Em alguns casos, a extensão DSC Linux não instala o OMI quando já existe uma 
 
 Se precisar de mais ajuda em qualquer ponto deste artigo, contacte os especialistas da Azure nos [fóruns msdn Azure e Stack Overflow](https://azure.microsoft.com/support/community/). Em alternativa, pode arquivar um incidente de Suporte Azure. Vá ao [site de suporte do Azure](https://azure.microsoft.com/support/options/)e selecione Obter **suporte**. Para obter informações sobre a utilização do Suporte Azure, leia o [Microsoft Azure Support FAQ](https://azure.microsoft.com/support/faq/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre extensões, consulte [extensões e funcionalidades de máquina virtual para Linux.](features-linux.md)

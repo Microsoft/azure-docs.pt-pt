@@ -2,18 +2,18 @@
 title: Encontre iDs de objeto de identidade para autenticação - Azure API para FHIR
 description: Este artigo explica como localizar os IDs de objeto de identidade necessários para configurar a autenticação para AZure API para FHIR
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: mihansen
-ms.openlocfilehash: 8e1fdcbbdefb9c36d84b345d422d49f088077954
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.author: matjazl
+ms.openlocfilehash: 5b42d61d59a3c816c3b664297470cfbf91f17439
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133499"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851771"
 ---
 # <a name="find-identity-object-ids-for-authentication-configuration"></a>Encontre iDs de objeto de identidade para configuração de autenticação
 
@@ -68,7 +68,7 @@ Se estiver a utilizar o Azure CLI, pode utilizar:
 az ad group show --group "mygroup" --query objectId --out tsv
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu como encontrar iDs de objeto de identidade necessários para configurar a API Azure para fHIR para usar um inquilino externo ou secundário do Azure Ative Directory. Leia em seguida como usar os IDs do objeto para configurar as definições locais de RBAC:
  

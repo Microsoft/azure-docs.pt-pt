@@ -10,13 +10,13 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 48393ac14805c60ac12df9256f915721ee928758
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: 93401ee32da8218fa53568a3f46cae3805a5d939
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84552847"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87875324"
 ---
 # <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Opções de ingestão de dados para fluxos de trabalho de aprendizagem automática Azure
 
@@ -37,7 +37,7 @@ A ingestão de dados é o processo em que os dados não estruturados são extra�
 
 A tabela seguinte resume os prós e os contras para a utilização da Azure Data Factory para os seus fluxos de trabalho de ingestão de dados.
 
-|Vantagens|Contras
+|Vantagens|Desvantagens
 ---|---
 Especificamente construído para extrair, carregar e transformar dados.|Atualmente oferece um conjunto limitado de tarefas de pipeline Azure Data Factory 
 Permite-lhe criar fluxos de trabalho orientados por dados para orquestrar movimentos de dados e transformações em escala.|Caro para construir e manter. Consulte a página de [preços](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) da Azure Data Factory para obter mais informações.
@@ -64,7 +64,7 @@ Com o [Python SDK,](https://docs.microsoft.com/python/api/overview/azure/ml)pode
 
 A tabela seguinte resume os prós e o contra para a utilização do SDK e um passo de gasoduto ml para tarefas de ingestão de dados.
 
-Vantagens| Contras
+Vantagens| Desvantagens
 ---|---
 Configure os seus próprios scripts Python | Não suporta de forma nativa o desencadeamento de alterações na fonte de dados. Requer implementações de Aplicação Lógica ou Função Azure
 Preparação de dados como parte de cada execução de formação de modelos|Requer competências de desenvolvimento para criar um script de ingestão de dados
@@ -74,7 +74,7 @@ No diagrama seguinte, o gasoduto Azure Machine Learning consiste em dois passos:
 
 ![Pipeline Azure + Ingestão de dados SDK](media/concept-data-ingestion/data-ingest-option-two.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Siga estes artigos como fazer:
 * [Construir um pipeline de ingestão de dados com a Azure Data Factory](how-to-data-ingest-adf.md)

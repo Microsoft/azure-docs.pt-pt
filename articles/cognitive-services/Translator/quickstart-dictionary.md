@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.author: erhopf
-ms.custom: tracking-python, devx-track-javascript
+ms.custom: devx-track-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 366e914b6d9084d1076a7b1cb6a03b84afb11ceb
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 75a28f866e901361c184d7f73339743b7e0aa070
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87404634"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876194"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary"></a>Quickstart: Procure palavras com dicionário bilingue
 
@@ -45,7 +45,7 @@ Este quickstart requer uma [conta Azure Cognitive Services](https://docs.microso
 [!INCLUDE [Python quickstart](includes/dictionary-python.md)]
 ::: zone-end
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Traduzir texto](quickstart-translate.md)
 * [Transliterar texto](quickstart-transliterate.md)

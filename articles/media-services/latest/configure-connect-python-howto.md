@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
-ms.custom: tracking-python
-ms.openlocfilehash: b283d04c7d9ddf7639c198625ea69ca958170210
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-python
+ms.openlocfilehash: 834d87f607ca65a9d9e0ebee12d2772f5baf7949
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001184"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849646"
 ---
 # <a name="connect-to-media-services-v3-api---python"></a>Ligue-se aos Serviços de Mídia v3 API - Python
 

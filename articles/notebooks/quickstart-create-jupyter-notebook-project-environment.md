@@ -3,13 +3,13 @@ title: Crie um projeto de pré-visualização de cadernos Azure com um ambiente 
 description: Crie um novo projeto no Azure Notebooks Preview que esteja configurado com um conjunto específico de pacotes instalados e scripts de arranque.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.custom: tracking-python
-ms.openlocfilehash: c5f73b73b4bab99e07874c2d16d47da69f8026ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: 655c016b55abdcf4b6f546a1fe16348ec4c83724
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85832904"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853369"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment-in-azure-notebooks-preview"></a>Quickstart: Criar um projeto com um ambiente personalizado em Azure Notebooks Preview
 
@@ -52,7 +52,7 @@ Um projeto em Azure Notebooks é uma coleção de ficheiros, como cadernos, fich
 
 1. O comando **+ Adicionar** cria um passo definido por uma operação e um ficheiro-alvo que é selecionado a partir dos ficheiros do seu projeto. São suportadas as seguintes operações:
 
-   | Operação | Description |
+   | Operação | Descrição |
    | --- | --- |
    | Requirements.txt | Os projetos python definem as suas dependências num ficheiro requirements.txt. Com esta opção, selecione o ficheiro apropriado da lista de ficheiros do projeto e selecione também a versão Python no drop-down adicional que aparece. Se necessário, **selecione Cancelar** para voltar ao projeto, carregar ou criar o ficheiro, em seguida, voltar ao separador **Ambiente Definições**de Projeto e criar um novo  >  **Environment** passo. Com este passo no lugar, executar um caderno no projeto corre automaticamente`pip install -r <file>` |
    | Script de concha | Utilize para indicar um script de concha de bash (normalmente um ficheiro com a extensão *.sh)* que contém quaisquer comandos que deseje executar para inicializar o ambiente. |

@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: tisande
-ms.custom: tracking-python, devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: b3234d524adc8256373acce7480319a8fd4b76ac
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.custom: devx-track-python, devx-track-javascript, devx-track-azurecli
+ms.openlocfilehash: de9cdaf1dcc398c5db55de78643a19179f6bfdbc
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761111"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876483"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gerir políticas de indexação no Azure Cosmos DB
 

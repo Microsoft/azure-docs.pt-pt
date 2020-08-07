@@ -1,6 +1,6 @@
 ---
 title: Exemplo de Script do Azure Power Shell - Configurar a política de limite de taxa | Microsoft Docs
-description: Exemplo de Script do Azure Power Shell - Configurar a política de limite de taxa
+description: Saiba como configurar a política de limite de taxa com a Azure PowerShell. Consulte um script de amostra e veja recursos disponíveis adicionais.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,16 +12,16 @@ ms.topic: sample
 ms.date: 11/16/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 991a9fd9fa0717c97a549d371ca47c5b389d1a27
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 40bbd520eb265b70f95c6b365b590727af8ea144
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008766"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851295"
 ---
 # <a name="set-up-rate-limit-policy"></a>Configurar a política de limite de taxa
 
-Este script de exemplo configura uma política de limite de taxa. 
+Este guião de amostra estabelece a política de limite de taxa. 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -33,7 +33,7 @@ Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer a
 
 [!code-powershell[main](../../../powershell_scripts/api-management/setup-rate-limit-policy/setup_rate_limit_policy.ps1 "Set up rate limit policy")]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos relacionados.
 

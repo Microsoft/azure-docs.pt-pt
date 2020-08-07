@@ -9,13 +9,13 @@ ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: 7a9c367c1669aab18da5a7cb1f7d732f9b8aee9e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 0a043bf79818480e045fb1f82640639fd7dcb232
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319070"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847640"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Aprendizagem de reforço (pré-visualização) com Azure Machine Learning
 
@@ -40,7 +40,7 @@ Este artigo baseia-se no [exemplo RLlib Pong](https://aka.ms/azureml-rl-pong) qu
 
 Execute este código em qualquer um dos seguintes ambientes. Recomendamos que experimente a azure machine learning para a experiência de arranque mais rápida. Os cadernos de amostra de reforço estão disponíveis para clonar rapidamente e funcionar em instância de cálculo Azure Machine Learning.
 
- - Exemplo de computação de aprendizagem automática Azure
+ - Instância de computação do Azure Machine Learning
 
      - Saiba como clonar cadernos de amostras em [Tutorial: Ambiente de configuração e espaço de trabalho.](tutorial-1st-experiment-sdk-setup.md)
          - Clone a pasta **como usar-azureml** em vez de **tutoriais**

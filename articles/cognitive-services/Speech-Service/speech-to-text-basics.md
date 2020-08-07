@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: trbye
-ms.custom: tracking-python, devx-track-javascript
+ms.custom: devx-track-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: db3f3eaacabd22af2623610b9edd3aef1f3a62c5
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 92ba3127bfa3b4de67bef3f9b97b95a7713bed84
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405875"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874593"
 ---
 # <a name="learn-the-basics-of-speech-recognition"></a>Aprenda os fundamentos do reconhecimento da fala
 
@@ -51,6 +51,6 @@ Uma das características centrais do serviço de fala é a capacidade de reconhe
 [!INCLUDE [More languages include](./includes/how-to/speech-to-text-basics/more.md)]
 ::: zone-end
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Utilize formatos de áudio comprimido codec](how-to-use-codec-compressed-audio-input-streams.md)

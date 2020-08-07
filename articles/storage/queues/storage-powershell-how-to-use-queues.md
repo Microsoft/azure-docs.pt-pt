@@ -1,6 +1,6 @@
 ---
 title: Execute ações de armazenamento da fila Azure em PowerShell
-description: Como realizar operações no armazenamento da Fila Azure com o PowerShell
+description: Escote operações no armazenamento da fila Azure com o PowerShell. Com o armazenamento da Fila Azure, pode armazenar um grande número de mensagens acessíveis por HTTP/HTTPS.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 05/15/2019
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 8a3de37f6442900f600f3c6a3efaf75141d151bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 873f1bd0187eb5609456592b7dc37a48671b7e42
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808978"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905708"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Realizar operações no armazenamento de Filas do Azure com o Azure PowerShell
 
@@ -170,7 +170,7 @@ Para eliminar uma fila e todas as mensagens contidas nela, ligue para o cmdlet R
 Remove-AzStorageQueue –Name $queueName –Context $ctx
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover todos os ativos que criou neste exercício, remova o grupo de recursos. Isto também elimina todos os recursos contidos no grupo. Neste caso, remove a conta de armazenamento criada e o próprio grupo de recursos.
 
@@ -178,7 +178,7 @@ Para remover todos os ativos que criou neste exercício, remova o grupo de recur
 Remove-AzResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo de como fazer, aprendeu sobre a gestão básica de armazenamento de filas com a PowerShell, incluindo como:
 

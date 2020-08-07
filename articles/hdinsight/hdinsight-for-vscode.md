@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 04/07/2020
-ms.custom: tracking-python
-ms.openlocfilehash: d00e4ad8b0a9f1f50c30144867babcd8c782734d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.custom: devx-track-python
+ms.openlocfilehash: bf31ad3311d6cbfd82ad1071d28bb7fee1bb9d2b
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087134"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876789"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Use ferramentas de colmeia spark & para código de estúdio visual
 
@@ -69,7 +69,7 @@ Para um utilizador nacional de nuvem, siga estes passos para definir primeiro o 
 
    ![Definir configuração de entrada de login predefinido](./media/hdinsight-for-vscode/set-default-login-entry-configuration.png)
 
-## <a name="connect-to-an-azure-account"></a>Ligue-se a uma conta Azure
+## <a name="connect-to-an-azure-account"></a>Ligar a uma conta do Azure
 
 Antes de poder submeter scripts aos seus clusters a partir do Código do Estúdio Visual, o utilizador pode iniciar sposição na subscrição do Azure ou [ligar um cluster HDInsight](#link-a-cluster). Utilize o nome de utilizador/palavra-passe ambari ou a credencial de domínio para o cluster ESP ligar ao seu cluster HDInsight. Siga estes passos para ligar a Azure:
 
@@ -438,7 +438,7 @@ Ao submeter o trabalho a um cluster HDInsight, é solicitado a ligar o cluster s
   >
   >![Ferramentas de hive & para leitor de código de estúdio visual ligado](./media/hdinsight-for-vscode/list-cluster-result1.png)
 
-## <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2
+## <a name="azure-data-lake-storage-gen2"></a>Armazenamento do Azure Data Lake Ger2
 
 ### <a name="browse-a-data-lake-storage-gen2-account"></a>Navegue numa conta Gen2 de armazenamento de dados
 
@@ -473,6 +473,6 @@ A partir da barra de menu, vá à **Paleta de**Comando  >  **Ver,** e depois ins
 
 ![questões conhecidas](./media/hdinsight-for-vscode/known-issue.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para um vídeo que demonstre a utilização de Spark & Hive para Visual Studio Code, consulte [Spark & Hive for Visual Studio Code](https://go.microsoft.com/fwlink/?linkid=858706).

@@ -2,18 +2,18 @@
 title: Registe uma aplicação confidencial de clientes em Azure AD - Azure API para FHIR
 description: Registe uma aplicação confidencial de cliente no Azure Ative Directory que autentica em nome de um utilizador e solicita acesso a aplicações de recursos.
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: mihansen
-ms.openlocfilehash: 6642adf5f51be1f4f54c538624829fe9004d3907
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: matjazl
+ms.openlocfilehash: 756645d2df22f1222c3004a44e5a46c7a3bc1a2f
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871877"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852553"
 ---
 # <a name="register-a-confidential-client-application-in-azure-active-directory"></a>Registar um pedido de cliente confidencial no Azure Ative Directory
 
@@ -71,7 +71,7 @@ Em seguida, adicione permissões API:
 
 3. Uma vez gerado, será exibido no portal apenas uma vez. Tome nota e guarde-o de forma segura.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a registar um pedido de cliente confidencial no Azure Ative Directory. Está agora pronto para implantar a [API Azure para fHIR](fhir-paas-powershell-quickstart.md).
 

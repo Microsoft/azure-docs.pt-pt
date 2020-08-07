@@ -9,24 +9,24 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 2657f1998e3ca908bc52166154ac3353e1e5a66b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0a64c0a9653bd274e9298401163ad7abc1af99f
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81415033"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852298"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto final DO REST utilizando a Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como utilizar a Copy Activity na Azure Data Factory para copiar dados de um ponto final DO REST. O artigo baseia-se [na Copy Activity in Azure Data Factory,](copy-activity-overview.md)que apresenta uma visão geral da Atividade de Cópia.
 
-A diferença entre este conector REST, [conector HTTP](connector-http.md) e o [conector](connector-web-table.md) de mesa Web são:
+A diferença entre este conector REST, [conector HTTP,](connector-http.md)e o [conector de mesa Web](connector-web-table.md) são:
 
 - **O conector REST** suporta especificamente a cópia de dados de APIs RESTful; 
-- **O conector HTTP** é genérico para obter dados de qualquer ponto final HTTP, por exemplo, para descarregar ficheiros. Antes de este conector REST ficar disponível, pode por acaso utilizar o conector HTTP para copiar dados da API RESTful, que é suportado mas menos funcional em comparação com o conector REST.
+- **O conector HTTP** é genérico para obter dados de qualquer ponto final HTTP, por exemplo, para descarregar ficheiro. Antes de este conector REST ficar disponível, pode por acaso utilizar o conector HTTP para copiar dados da API RESTful, que é suportado mas menos funcional em comparação com o conector REST.
 - **O conector da tabela web** extrai o conteúdo da tabela a partir de uma página web HTML.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
@@ -57,22 +57,22 @@ As secções seguintes fornecem detalhes sobre propriedades que pode usar para d
 
 As seguintes propriedades são suportadas para o serviço ligado REST:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** deve ser definida para **RestService**. | Yes |
-| url | O URL base do serviço REST. | Yes |
-| enableServerCertificateValidation | Se validar o certificado TLS/SSL do lado do servidor ao ligar-se ao ponto final. | No<br /> (o padrão é **verdadeiro)** |
-| authenticationType | Tipo de autenticação utilizada para ligar ao serviço REST. Os valores permitidos são **Anónimos,** **Básicos,** **AadServicePrincipal** e **ManagedServiceIdentity.** Consulte as secções correspondentes abaixo em mais propriedades e exemplos, respectivamente. | Yes |
-| connectVia | O [Tempo de Execução de Integração](concepts-integration-runtime.md) para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, esta propriedade utiliza o tempo de execução de integração Azure predefinido. |No |
+| tipo | A propriedade **tipo** deve ser definida para **RestService**. | Sim |
+| url | O URL base do serviço REST. | Sim |
+| enableServerCertificateValidation | Se validar o certificado TLS/SSL do lado do servidor ao ligar-se ao ponto final. | Não<br /> (o padrão é **verdadeiro)** |
+| authenticationType | Tipo de autenticação utilizada para ligar ao serviço REST. Os valores permitidos são **Anónimos,** **Básicos,** **AadServicePrincipal**e **ManagedServiceIdentity**. Consulte as secções correspondentes abaixo em mais propriedades e exemplos, respectivamente. | Sim |
+| connectVia | O [Tempo de Execução de Integração](concepts-integration-runtime.md) para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, esta propriedade utiliza o tempo de execução de integração Azure predefinido. |Não |
 
 ### <a name="use-basic-authentication"></a>Utilizar a autenticação básica
 
 Desautense a propriedade **autenticaçãoType** para **Basic**. Além das propriedades genéricas descritas na secção anterior, especifique as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| userName | O nome de utilizador a utilizar para aceder ao ponto final REST. | Yes |
-| palavra-passe | A palavra-passe para o utilizador (o valor **do nome do utilizador).** Marque este campo como um tipo **SecureString** para armazená-lo de forma segura na Data Factory. Também pode [fazer referência a um segredo armazenado no Cofre da Chave Azure.](store-credentials-in-key-vault.md) | Yes |
+| userName | O nome de utilizador a utilizar para aceder ao ponto final REST. | Sim |
+| palavra-passe | A palavra-passe para o utilizador (o valor **do nome do utilizador).** Marque este campo como um tipo **SecureString** para armazená-lo de forma segura na Data Factory. Também pode [fazer referência a um segredo armazenado no Cofre da Chave Azure.](store-credentials-in-key-vault.md) | Sim |
 
 **Exemplo**
 
@@ -102,12 +102,13 @@ Desautense a propriedade **autenticaçãoType** para **Basic**. Além das propri
 
 Desa estaione a propriedade **autenticaçãoType** para **a AadServicePrincipal**. Além das propriedades genéricas descritas na secção anterior, especifique as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| servicePrincipalId | Especificar o ID do cliente do Azure Ative Directory. | Yes |
-| servicePrincipalKey | Especifique a chave da aplicação do Diretório Ativo Azure. Marque este campo como um **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
-| inquilino | Especifique a informação do inquilino (nome de domínio ou ID do inquilino) sob a qual a sua aplicação reside. Recupere-o pairando sobre o rato no canto superior direito do portal Azure. | Yes |
-| aadResourceId | Especifique o recurso AAD que está a solicitar autorização, por `https://management.core.windows.net` exemplo.| Yes |
+| servicePrincipalId | Especificar o ID do cliente do Azure Ative Directory. | Sim |
+| servicePrincipalKey | Especifique a chave da aplicação do Diretório Ativo Azure. Marque este campo como um **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
+| inquilino | Especifique a informação do inquilino (nome de domínio ou ID do inquilino) sob a qual a sua aplicação reside. Recupere-o pairando sobre o rato no canto superior direito do portal Azure. | Sim |
+| aadResourceId | Especifique o recurso AAD que está a solicitar para autorização, por exemplo, `https://management.core.windows.net` .| Sim |
+| AzureCloudType | Para a autenticação principal do serviço, especifique o tipo de ambiente em nuvem Azure para o qual a sua aplicação AAD está registada. <br/> Os valores permitidos são **AzurePublic,** **AzureChina,** **AzureUsGovernment,** e **AzureGermany**. Por padrão, o ambiente em nuvem da fábrica de dados é utilizado. | Não |
 
 **Exemplo**
 
@@ -139,9 +140,9 @@ Desa estaione a propriedade **autenticaçãoType** para **a AadServicePrincipal*
 
 Desaprova a propriedade **autenticaçãoType** para **ManagedServiceIdentity**. Além das propriedades genéricas descritas na secção anterior, especifique as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| aadResourceId | Especifique o recurso AAD que está a solicitar autorização, por `https://management.core.windows.net` exemplo.| Yes |
+| aadResourceId | Especifique o recurso AAD que está a solicitar para autorização, por exemplo, `https://management.core.windows.net` .| Sim |
 
 **Exemplo**
 
@@ -171,10 +172,10 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da REST, suportam-se as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** do conjunto de dados deve ser definida para **RestResource**. | Yes |
-| relativoUrl | Um URL relativo ao recurso que contém os dados. Quando esta propriedade não é especificada, apenas é utilizado o URL especificado na definição de serviço ligado. O conector HTTP copia os dados do URL combinado: `[URL specified in linked service]/[relative URL specified in dataset]` . | No |
+| tipo | A propriedade **tipo** do conjunto de dados deve ser definida para **RestResource**. | Sim |
+| relativoUrl | Um URL relativo ao recurso que contém os dados. Quando esta propriedade não é especificada, apenas é utilizado o URL especificado na definição de serviço ligado. O conector HTTP copia os dados do URL combinado: `[URL specified in linked service]/[relative URL specified in dataset]` . | Não |
 
 Se estiver a configurar `requestMethod` , e em conjunto de `additionalHeaders` `requestBody` `paginationRules` dados, ainda é suportado como está, enquanto é sugerido que utilize o novo modelo na fonte de atividade que vai para a frente.
 
@@ -207,15 +208,15 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 As seguintes propriedades são suportadas na secção fonte de **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** da fonte de atividade de cópia deve ser definida como **RestSource**. | Yes |
-| requestMethod | O método HTTP. Os valores permitidos são **Get** (predefinido) e **Post**. | No |
-| cabeçalhos adicionais | Cabeçalhos de pedido HTTP adicionais. | No |
-| requestCorp | O corpo para o pedido HTTP. | No |
-| paginationRules | As regras de paginação para compor os pedidos da próxima página. Consulte a secção [de suporte de paginação](#pagination-support) sobre detalhes. | No |
-| httpRequestTimeout | O tempo limite (o valor **TimeSpan)** para o pedido HTTP obter uma resposta. Este valor é o tempo limite para obter uma resposta, não o tempo limite para ler dados de resposta. O valor predefinido é **00:01:40**.  | No |
-| solicitaçãoInterval | O tempo para esperar antes de enviar o pedido para a próxima página. O valor predefinido é **00:00:01** |  No |
+| tipo | A propriedade **tipo** da fonte de atividade de cópia deve ser definida como **RestSource**. | Sim |
+| requestMethod | O método HTTP. Os valores permitidos são **Get** (predefinido) e **Post**. | Não |
+| cabeçalhos adicionais | Cabeçalhos de pedido HTTP adicionais. | Não |
+| requestCorp | O corpo para o pedido HTTP. | Não |
+| paginationRules | As regras de paginação para compor os pedidos da próxima página. Consulte a secção [de suporte de paginação](#pagination-support) sobre detalhes. | Não |
+| httpRequestTimeout | O tempo limite (o valor **TimeSpan)** para o pedido HTTP obter uma resposta. Este valor é o tempo limite para obter uma resposta, não o tempo limite para ler dados de resposta. O valor predefinido é **00:01:40**.  | Não |
+| solicitaçãoInterval | O tempo para esperar antes de enviar o pedido para a próxima página. O valor predefinido é **00:00:01** |  Não |
 
 >[!NOTE]
 >O conector REST ignora qualquer cabeçalho "Aceitar" especificado em `additionalHeaders` . Como o conector REST apenas suporta a resposta em JSON, gerará automaticamente um cabeçalho de `Accept: application/json` .
@@ -305,21 +306,21 @@ Este conector GENÉRICO REST suporta os seguintes padrões de paginação:
 * Cabeçalho do próximo pedido = valor da propriedade no corpo de resposta atual
 * Cabeçalho do próximo pedido = valor do cabeçalho nos cabeçalhos de resposta atuais
 
-**As regras de paginação** são definidas como um dicionário no conjunto de dados que contém um ou mais pares de valor-chave sensíveis a casos. A configuração será usada para gerar o pedido a partir da segunda página. O conector deixará de iterar quando receber o código de estado HTTP 204 (Sem Conteúdo), ou qualquer das expressões JSONPath em "paginationRules" retorna de nulo.
+**As regras de paginação** são definidas como um dicionário no conjunto de dados, que contém um ou mais pares de valor-chave sensíveis a casos. A configuração será usada para gerar o pedido a partir da segunda página. O conector deixará de iterar quando receber o código de estado HTTP 204 (Sem Conteúdo), ou qualquer das expressões JSONPath em "paginationRules" retorna de nulo.
 
 **Chaves suportadas** nas regras de paginação:
 
-| Chave | Description |
+| Chave | Descrição |
 |:--- |:--- |
 | AbsoluteUrl | Indica o URL para emitir o próximo pedido. Pode ser **URL absoluto ou URL relativo.** |
-| ConsultasParametros. *request_query_parameter* OU ConsultasParameters ['request_query_parameter'] | "request_query_parameter" é definido pelo utilizador que faz referência a um nome de parâmetro de consulta no URL de pedido http seguinte. |
-| Cabeçalhos. *request_header* OU Cabeçalhos ['request_header'] | "request_header" é definido pelo utilizador que faz referência a um nome de cabeçalho no próximo pedido HTTP. |
+| ConsultasParametros. *request_query_parameter* OU ConsultasParameters ['request_query_parameter'] | "request_query_parameter" é definido pelo utilizador, que faz referência a um nome de parâmetro de consulta no URL de pedido http seguinte. |
+| Cabeçalhos. *request_header* OU Cabeçalhos ['request_header'] | "request_header" é definido pelo utilizador, que faz referência a um nome de cabeçalho no próximo pedido HTTP. |
 
 **Valores suportados** nas regras de paginação:
 
-| Valor | Description |
+| Valor | Descrição |
 |:--- |:--- |
-| Cabeçalhos. *response_header* OU Cabeçalhos ['response_header'] | "response_header" é definido pelo utilizador que faz referência a um nome de cabeçalho na resposta HTTP atual, do qual o valor será utilizado para emitir o próximo pedido. |
+| Cabeçalhos. *response_header* OU Cabeçalhos ['response_header'] | "response_header" é definido pelo utilizador, que faz referência a um nome de cabeçalho na resposta HTTP atual, do qual será utilizado o valor para emitir o próximo pedido. |
 | Uma expressão JSONPath a começar por "$" (representando a raiz do corpo de resposta) | O corpo de resposta deve conter apenas um objeto JSON. A expressão JSONPath deve devolver um único valor primitivo, que será usado para emitir o próximo pedido. |
 
 **Exemplo:**

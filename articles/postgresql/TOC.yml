@@ -255,6 +255,8 @@
           items:
             - name: Configurar TLS
               href: howto-tls-configurations.md
+            - name: Azure PowerShell
+              href: howto-connection-string-powershell.md
         - name: Configurar parâmetros do servidor
           items:
             - name: Portal do Azure

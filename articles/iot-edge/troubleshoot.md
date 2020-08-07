@@ -8,12 +8,12 @@ ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9b6265bed138960a3839091ed1593413fc85710a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e4ec7127df288ec1818df307da1ea9824141309
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82858590"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902461"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Resolução de problemas do seu dispositivo IoT Edge
 
@@ -141,7 +141,7 @@ No Windows:
   * Adicione uma variável de ambiente ao nível do sistema:
 
       ```powershell
-      [Environment]::SetEnvironmentVariable("IOTEDGE_LOG", "edgelet=debug", [EnvironmentVariableTarget]::Machine)
+      [Environment]::SetEnvironmentVariable("IOTEDGE_LOG", "debug", [EnvironmentVariableTarget]::Machine)
       ```
 
   * Reinicie o Daemon de Segurança IoT Edge:
@@ -261,7 +261,7 @@ Embora o IoT Edge forneça uma configuração melhorada para assegurar o tempo d
 |AMQP|5671|BLOQUEADO (Padrão)|ABRIR (Predefinição)|<ul> <li>Protocolo de comunicação padrão para IoT Edge. <li> Deve ser configurado para ser aberto se Azure IoT Edge não estiver configurado para outros protocolos suportados ou AMQP é o protocolo de comunicação pretendido.<li>5672 para AMQP não é suportado pela IoT Edge.<li>Bloqueie esta porta quando o Azure IoT Edge utilizar um protocolo ioT hub diferente.<li>As ligações de entrada (entrada) devem ser bloqueadas.</ul></ul>|
 |HTTPS|443|BLOQUEADO (Padrão)|ABRIR (Predefinição)|<ul> <li>Configure outgoing (Outbound) para ser aberto em 443 para provisão IoT Edge. Esta configuração é necessária quando se utilizam scripts manuais ou serviço de provisionamento de dispositivos Azure IoT (DPS). <li>A ligação de entrada (entrada) deve ser aberta apenas para cenários específicos: <ul> <li>  Se tiver uma porta de entrada transparente com dispositivos de folha que pode enviar pedidos de método. Neste caso, o Porto 443 não precisa de estar aberto a redes externas para ligar ao IoTHub ou fornecer serviços IoTHub através do Azure IoT Edge. Assim, a regra de entrada poderia ser restrita apenas a abrir a Entrada (Entrada) da rede interna. <li> Para cenários de Cliente a Dispositivo (C2D).</ul><li>80 para HTTP não é suportado pela IoT Edge.<li>Se os protocolos não-HTTP (por exemplo, AMQP ou MQTT) não puderem ser configurados na empresa; as mensagens podem ser enviadas por WebSockets. A porta 443 será utilizada para a comunicação WebSocket nesse caso.</ul>|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Encontrou um erro na plataforma do IoT Edge? [Submeter um problema](https://github.com/Azure/iotedge/issues) para que possamos continuar a melhorar.
 

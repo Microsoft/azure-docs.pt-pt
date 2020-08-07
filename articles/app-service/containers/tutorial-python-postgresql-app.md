@@ -9,14 +9,14 @@ ms.custom:
 - seodec18
 - seo-python-october2019
 - cli-validate
-- tracking-python
+- devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 0ab19e538d2ffb97f9bb80c47f9ce5471bdb87a9
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 2148668b555afe0d11156a6ee213248b1cad1beb
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799469"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904841"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Implementar uma aplicação web Django com PostgreSQL no Azure App Service
 
@@ -118,7 +118,7 @@ Estas alterações são específicas para configurar o Django para funcionar em 
 ## <a name="create-postgres-database-in-azure"></a>Criar base de dados postgres em Azure
 
 <!-- > [!NOTE]
-> Before you create an Azure Database for PostgreSQL server, check which [compute generation](/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores) is available in your region. If your region doesn't support Gen4 hardware, change *--sku-name* in the following command line to a value that's supported in your region, such as B_Gen4_1.  -->
+> Before you create an Azure Database for PostgreSQL server, check which [compute generation](/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores) is available in your region. -->
 
 Instale a `db-up` extensão para o Azure CLI:
 
@@ -131,12 +131,12 @@ Se o `az` comando não for reconhecido, certifique-se de que tem o CLI Azure ins
 Em seguida, crie a base de dados Postgres em Azure com o [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) comando:
 
 ```azurecli
-az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --sku-name B_Gen4_1 --server-name <postgre-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
+az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --sku-name B_Gen5_1 --server-name <postgre-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
 ```
 
 - Substitua *\<postgres-server-name>* por um nome único em todo o Azure (o ponto final do servidor `https://\<postgres-server-name>.postgres.database.azure.com` é). Um bom padrão é usar uma combinação do nome da sua empresa e outro valor único.
 - Para *\<admin-username>* e *\<admin-password>* , especificar credenciais para criar um utilizador de administrador para este servidor Postgres.
-- O B_Gen4_1 (Básico, Gen4, 1 core) [nível de preços](../../postgresql/concepts-pricing-tiers.md) usado aqui é o menos caro. Para as bases de dados de produção, omita o `--sku-name` argumento de utilizar o nível GP_Gen5_2 (Final geral, Gen 5, 2 núcleos).
+- O B_Gen5_1 (Básico, Gen5, 1 core) [nível de preços](../../postgresql/concepts-pricing-tiers.md) usado aqui é o menos caro. Para as bases de dados de produção, omita o `--sku-name` argumento de utilizar o nível GP_Gen5_2 (Final geral, Gen 5, 2 núcleos).
 
 Este comando executa as seguintes ações, que podem demorar alguns minutos:
 

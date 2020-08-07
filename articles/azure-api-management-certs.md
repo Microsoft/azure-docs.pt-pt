@@ -1,6 +1,6 @@
 ---
 title: Faça o upload de um Certificado de Gestão de Serviços Azure ! Microsoft Docs
-description: Saiba como fazer o upload do certificado de Gestão de Serviços para o portal Azure.
+description: Saiba como fazer o upload do certificado de Gestão de Serviços para o portal Azure. Os certificados de gestão permitem-lhe autenticar com o modelo clássico de implantação.
 services: cloud-services
 documentationcenter: .net
 author: georgewallace
@@ -10,12 +10,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: gwallace
-ms.openlocfilehash: 4b49a9b391eeca2d2e249b171d99f231bda6fdff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d2436b524ba6df68b12206bcb545e54a405b731
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78329124"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87848558"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Faça upload de um Certificado de Gestão de Serviços Azure
 Os certificados de gestão permitem-lhe autenticar com o modelo de implementação clássico fornecido pela Azure. Muitos programas e ferramentas (por exemplo, o Visual Studio ou o SDK do Azure) utilizam estes certificados para automatizar a configuração e a implementação de vários serviços do Azure. 
@@ -51,5 +51,5 @@ Uma vez criado um certificado de gestão(ficheiro.cer apenas com a chave públic
 
     ![Definições](./media/azure-api-management-certs/certificate_details.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Agora que tem um certificado de gestão associado a uma subscrição, pode (depois de ter instalado o certificado de correspondência localmente) ligar-se programáticamente ao [modelo de implementação clássico REST API](/azure/?pivot=sdkstools) e automatizar os vários recursos Azure que também estão associados a essa subscrição.
