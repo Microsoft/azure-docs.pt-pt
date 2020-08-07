@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 2bd17e10e6123c48087116e947dc21f4cf788ef3
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 5dd5cd1ac0463c6c07496e4ea49edd08178a5a54
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84987872"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87834393"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: Reconhecer logotipos de serviço Azure em imagens de câmara
 
@@ -67,7 +67,7 @@ No painel esquerdo, desaceia o interruptor **Tags** para **Tagged** para exibir 
 
 ![O site Da Visão Personalizada, no separador Imagens de Treino. Nesta imagem, o botão Train é delineado](media/azure-logo-tutorial/train-model.png)
 
-## <a name="get-the-prediction-url"></a>Obtenha o URL de previsão
+## <a name="get-the-prediction-url"></a>Obter o URL de predição
 
 Depois de o seu modelo ser treinado, está pronto para integrá-lo na sua aplicação. Terá de obter o URL do ponto final (o endereço do seu modelo, que a aplicação irá consultar) e a chave de previsão (para conceder à app acesso aos pedidos de previsão). No **separador Desempenho,** selecione o botão **URL de previsão** no topo da página.
 
@@ -171,7 +171,7 @@ Siga estes passos para executar a aplicação:
 
     ![Um ecrã de aplicativo mostrando campos para a região de implementação e grupo de recursos](media/azure-logo-tutorial/app-deployment-options.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se seguiu todos os passos deste cenário e utilizou a app para implantar os serviços Azure na sua conta, vá ao [portal Azure.](https://ms.portal.azure.com/) Aí, cancele os serviços que não quer usar.
 

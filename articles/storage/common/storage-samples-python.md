@@ -7,13 +7,13 @@ ms.date: 02/13/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.custom: tracking-python
-ms.openlocfilehash: 439e645369cd063e3084b5d975b3d1672e20a73e
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.custom: devx-track-python
+ms.openlocfilehash: 0d1bfd146729a4a0ef94099a0ad79972517b4f42
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84554019"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87848191"
 ---
 # <a name="azure-storage-samples-using-v12-python-client-libraries"></a>Amostras de armazenamento Azure usando bibliotecas de clientes v12 Python
 
@@ -166,7 +166,7 @@ As tabelas seguintes fornecem uma visão geral do repositório de amostras e dos
    :::column-end:::
 :::row-end:::
 
-### <a name="blob"></a>Blobs
+### <a name="blob"></a>Blob
 
 :::row:::
    :::column span="":::
@@ -470,7 +470,7 @@ As tabelas seguintes fornecem uma visão geral do repositório de amostras e dos
    :::column-end:::
 :::row-end:::
 
-### <a name="queue"></a>Filas
+### <a name="queue"></a>Fila
 
 :::row:::
    :::column span="":::
@@ -593,5 +593,5 @@ Para obter informações sobre amostras para outras línguas:
 
 * .NET: [Amostras de armazenamento Azure usando .NET](storage-samples-dotnet.md)
 * Java: [Amostras de armazenamento Azure usando Java](storage-samples-java.md)
-* JavaScript/Node.js: [Amostras de armazenamento Azure usando JavaScript](storage-samples-javascript.md)
+* JavaScript/Node.js: [Amostras de armazenamento de Azure usando JavaScript](storage-samples-javascript.md)
 * Todas as outras línguas: [amostras de armazenamento Azure](storage-samples.md)

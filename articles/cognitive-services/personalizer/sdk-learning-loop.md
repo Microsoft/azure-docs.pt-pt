@@ -3,14 +3,14 @@ title: 'Quickstart: Criar e utilizar o ciclo de aprendizagem com a SDK - Persona
 description: Este quickstart mostra-lhe como criar e gerir a sua base de conhecimentos utilizando o cliente SDK.
 ms.topic: quickstart
 ms.date: 07/30/2020
-ms.custom: tracking-python, devx-track-javascript
+ms.custom: devx-track-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: 05657d350616502c3d32b500a32b394a748ab2f6
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 480e860952c2659d053f8a5659e312feacff2d2b
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461134"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874491"
 ---
 # <a name="quickstart-personalizer-client-library"></a>Quickstart: Biblioteca de clientes personalizado
 

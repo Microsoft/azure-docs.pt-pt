@@ -3,13 +3,13 @@ title: Referência do desenvolvedor python para funções Azure
 description: Entenda como desenvolver funções com Python
 ms.topic: article
 ms.date: 12/13/2019
-ms.custom: tracking-python
-ms.openlocfilehash: 6be225c1384892dfdb94da3375707351887c8344
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.custom: devx-track-python
+ms.openlocfilehash: 776355ce981ba5cc2a24bfe473da2f55427eadf6
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87564015"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87850751"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia de desenvolvedores de Azure Functions Python
 
@@ -697,7 +697,7 @@ Segue-se uma lista de guias de resolução de problemas para questões comuns:
 
 Todos os problemas e pedidos de funcionalidades conhecidos são rastreados utilizando a lista [de problemas do GitHub.](https://github.com/Azure/azure-functions-python-worker/issues) Se encontrar um problema e não encontrar o problema no GitHub, abra um novo problema e inclua uma descrição detalhada do problema.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, veja os seguintes recursos:
 

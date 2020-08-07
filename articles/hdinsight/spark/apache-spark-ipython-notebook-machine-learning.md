@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.custom: hdinsightactive,mvc, tracking-python
+ms.custom: hdinsightactive,mvc, devx-track-python
 ms.date: 04/07/2020
-ms.openlocfilehash: 0dfdb324013a246010c12d36a50c80b4fbef503e
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 0029761f8a1c48ab595dfa5bc2a87fca12d90e3d
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84607096"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873930"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Tutorial: Construir uma aplicação de aprendizagem automática Apache Spark em Azure HDInsight
 
@@ -21,7 +21,7 @@ Neste tutorial, você aprende a usar o [Jupyter Notebook](https://jupyter.org/) 
 
 [MLlib](https://spark.apache.org/docs/latest/ml-guide.html) é a biblioteca de aprendizagem automática adaptável da Spark, composta por algoritmos de aprendizagem comuns e utilitários. (Classificação, regressão, agrupamento, filtragem colaborativa e redução da dimensionalidade. Além disso, primitivos de otimização subjacentes.)
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Desenvolver uma aplicação de aprendizagem automática Apache Spark
 
@@ -33,7 +33,7 @@ Neste tutorial, vai aprender a:
 
 ## <a name="understand-the-data-set"></a>Compreender o conjunto de dados
 
-A aplicação utiliza a amostra **de dados de AVAC.csv** que está disponível em todos os clusters por padrão. O ficheiro está localizado em `\HdiSamples\HdiSamples\SensorSampleData\hvac` . Os dados mostram a temperatura pretendida e a temperatura real de alguns edifícios que têm sistemas HVAC instalados. A coluna **System** (Sistema) representa o ID do sistema e a coluna **SystemAge** (Idade do sistema) representa há quanto anos o sistema HVAC foi implementado nesse edifício. Você pode prever se um edifício será mais quente ou frio com base na temperatura-alvo, dada a identificação do sistema, e a idade do sistema.
+A aplicação utiliza a amostra **HVAC.csv** dados que estão disponíveis em todos os clusters por padrão. O ficheiro está localizado em `\HdiSamples\HdiSamples\SensorSampleData\hvac` . Os dados mostram a temperatura pretendida e a temperatura real de alguns edifícios que têm sistemas HVAC instalados. A coluna **System** (Sistema) representa o ID do sistema e a coluna **SystemAge** (Idade do sistema) representa há quanto anos o sistema HVAC foi implementado nesse edifício. Você pode prever se um edifício será mais quente ou frio com base na temperatura-alvo, dada a identificação do sistema, e a idade do sistema.
 
 ![Instantâneo de dados utilizados para exemplo de aprendizagem de máquinas de faísca](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Instantâneo de dados utilizados para exemplo de aprendizagem de máquinas de faísca")
 
@@ -188,7 +188,7 @@ Esta aplicação utiliza um [oleoduto Spark ML](https://spark.apache.org/docs/2.
 
 Os clusters do Apache Spark no HDInsight incluem bibliotecas de Anaconda. Também inclui a biblioteca **scikit-learn** para machine learning. Esta biblioteca inclui igualmente vários conjuntos de dados que pode utilizar para criar aplicações de exemplo diretamente a partir de blocos de notas do Jupyter. Por exemplo, sobre a utilização da biblioteca de aprendizagem de scikit, consulte [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html) .
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não continuar a utilizar esta aplicação, elimine o cluster que criou com os seguintes passos:
 
@@ -204,7 +204,7 @@ Se não continuar a utilizar esta aplicação, elimine o cluster que criou com o
 
 ![Portal Azure elimina um cluster HDInsight](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "Excluir o cluster HDInsight")
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a usar o Jupyter Notebook para construir uma aplicação de aprendizagem automática Apache Spark para Azure HDInsight. Avance para o próximo tutorial para saber como utilizar o IntelliJ IDEA para trabalhos do Spark.
 

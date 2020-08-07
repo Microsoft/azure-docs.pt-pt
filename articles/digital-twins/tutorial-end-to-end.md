@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: aae1797f7f1a252a4f094ee9f1b079fb60ba72f3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 0407046dcafb0dcc1872d5083669e09b378a75cd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131757"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827389"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Construir uma solução de ponta a ponta
 
@@ -95,6 +95,20 @@ O próximo passo é criar uma [app Azure Functions](../azure-functions/functions
 
 Nesta secção, publicará a aplicação de função pré-escrita e garantirá que a aplicação de função pode aceder a Azure Digital Twins atribuindo-lhe uma identidade de Azure Ative Directory (Azure AD). O preenchimento destes passos permitirá que o resto do tutorial utilize as funções dentro da aplicação de função. 
 
+De volta à janela do Estúdio Visual, onde o projeto _**AdtE2ESample**_ está aberto, a aplicação de função está localizada no ficheiro de projeto _**SampleFunctionsApp.**_ Pode vê-lo no painel *Solution Explorer.*
+
+### <a name="update-dependencies"></a>Atualizar dependências
+
+Antes de publicar a app, é uma boa ideia certificar-se de que as suas dependências estão atualizadas, certificando-se de que tem a versão mais recente de todos os pacotes incluídos.
+
+No painel *Solution Explorer,* expanda *sampleFunctionsApp > Dependencies*. *Selecione pacotes e* escolha Gerir *Pacotes NuGet...*.
+
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Estúdio Visual: Gerir pacotes NuGet para o projeto SampleFunctionsApp" border="false":::
+
+Isto abrirá o Gestor de Pacotes NuGet. Selecione o separador *Atualizações* e se houver pacotes a serem atualizados, consulte a caixa para *Selecionar todas as embalagens*. Em seguida, *acerte o Update*.
+
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-2.png" alt-text="Estúdio Visual: Selecionando para atualizar todos os pacotes no Gestor de Pacotes NuGet":::
+
 ### <a name="publish-the-app"></a>Publicar a aplicação
 
 De volta à janela do Estúdio Visual onde o projeto _**AdtE2ESample**_ está aberto, a partir do painel *Solution Explorer,* selecione à direita o ficheiro de projeto _**SampleFunctionsApp**_ e clique **em Publicar.**
@@ -134,19 +148,21 @@ No painel *publicar* que se abre de volta na janela principal do Estúdio Visual
 :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-6.png" alt-text="Publicar função Azure em Visual Studio: publicar":::
 
 > [!NOTE]
-> Você pode ver um popup como este: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Publicar a função Azure em Visual Studio: publicar credenciais" border="false":::
-> Em caso afirmativo, selecione **Tente obter credenciais de Azure** e **Save**.
+> Se vir um popup como este: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Publicar a função Azure em Visual Studio: publicar credenciais" border="false":::
+> Selecione **Tente obter credenciais de Azure** e **Save**.
 >
-> Se vir um aviso de que *a sua versão do tempo de execução das funções não corresponde à versão em execução no Azure,* siga as instruções para atualizar para a versão mais recente do tempo de execução do Azure Functions. Este problema pode ocorrer se estiver a utilizar uma versão mais antiga do Visual Studio do que a recomendada na secção *Pré-Requisitos* no início deste tutorial.
+> Se vir um aviso para a *versão 'Atualizar funções' no Azure* ou se *a sua versão do tempo de execução das funções não corresponder à versão em execução em Azure:*
+>
+> Siga as instruções para atualizar para a versão mais recente do tempo de execução do Azure Functions. Este problema pode ocorrer se estiver a utilizar uma versão mais antiga do Visual Studio do que a recomendada na secção *Pré-Requisitos* no início deste tutorial.
 
 ### <a name="assign-permissions-to-the-function-app"></a>Atribuir permissões à aplicação de função
 
-Para permitir que a aplicação de função aceda a Azure Digital Twins, o próximo passo é configurar uma configuração de uma aplicação, atribuir à app uma identidade AD AD gerida pelo sistema e dar a este *proprietário* de identidade permissões na instância Azure Digital Twins.
+Para permitir que a aplicação de função aceda a Azure Digital Twins, o próximo passo é configurar uma configuração de uma aplicação, atribuir à app uma identidade AD AD gerida pelo sistema e dar a esta identidade o papel *de Azure Digital Twins Owner (Preview)* no caso Azure Digital Twins. Esta função é necessária para qualquer utilizador ou função que pretenda realizar muitas atividades de data plane no caso. Pode ler mais sobre segurança e atribuições de papéis em [*Soluções Concepts: Security for Azure Digital Twins.*](concepts-security.md)
 
-No Azure Cloud Shell, utilize o seguinte comando para definir uma definição de aplicação que a sua aplicação de função utilizará para fazer referência à sua instância de gémeos digitais.
+No Azure Cloud Shell, utilize o seguinte comando para definir uma definição de aplicação que a sua aplicação de função utilizará para fazer referência à sua instância Azure Digital Twins.
 
 ```azurecli-interactive
-az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-digital-twin-instance-URL>"
+az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
 
 Utilize o seguinte comando para criar a identidade gerida pelo sistema. Tome nota do campo *principalid* na saída.
@@ -155,7 +171,7 @@ Utilize o seguinte comando para criar a identidade gerida pelo sistema. Tome not
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
-Utilize o valor *principalid* no seguinte comando para atribuir a identidade da aplicação de função à função *de proprietário* para a sua instância Azure Digital Twins:
+Utilize o valor *principal* da saída no seguinte comando, para atribuir a identidade da aplicação de função à função *Azure Digital Twins Owner (Preview)* para a sua instância Azure Digital Twins:
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
@@ -339,7 +355,7 @@ Também pode verificar se a criação de ponto final foi bem sucedida executando
 az dt endpoint show --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> 
 ```
 
-Procure o `provisioningState` campo na saída, e verifique se o valor é "Bem sucedido".
+Procure o `provisioningState` campo na saída, e verifique se o valor é "Bem sucedido". Pode também dizer "Provisioning", o que significa que o ponto final ainda está a ser criado. Neste caso, aguarde alguns segundos e volte a executar o comando para verificar se foi concluído com sucesso.
 
 :::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Resultado da consulta de ponto final, mostrando o ponto final com um Estado de provisionamento de Sucesso":::
 
@@ -354,6 +370,9 @@ az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name
 ```
 
 A saída deste comando é alguma informação sobre a rota que criou.
+
+>[!NOTE]
+>Os pontos finais (a partir do passo anterior) devem ser concluídos antes de poder configurar uma rota de eventos que os utilize. Se a criação da rota falhar porque os pontos finais não estão prontos, aguarde alguns minutos e tente novamente.
 
 #### <a name="connect-the-function-to-event-grid"></a>Ligue a função à Grelha de Eventos
 
@@ -431,7 +450,7 @@ az ad app delete --id <your-application-ID>
 
 Por fim, elimine a pasta de amostras de projeto que descarregou da sua máquina local.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou um cenário de ponta a ponta que mostra as Gémeas Digitais Azure a serem impulsionadas por dados de dispositivos ao vivo.
 

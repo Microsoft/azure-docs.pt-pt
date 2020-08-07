@@ -6,13 +6,13 @@ ms.date: 11/27/2018
 ms.custom:
 - seo-python-october2019
 - mvc
-- tracking-python
-ms.openlocfilehash: 5c4f8a90a43d19f3bc94da04681d9d690dc33e70
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+- devx-track-python
+ms.openlocfilehash: 7cef08c81a4122fcbfcc18160ad8e6602f335569
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561783"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852570"
 ---
 # <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Quickstart: Use a Python API para executar um trabalho no Azure Batch
 
@@ -167,7 +167,7 @@ new_pool = batch.models.PoolAddParameter(
 batch_service_client.pool.add(new_pool)
 ```
 
-### <a name="create-a-batch-job"></a>Criar um trabalho do Batch
+### <a name="create-a-batch-job"></a>Criar uma tarefa do Batch
 
 Uma tarefa do Batch é um agrupamento lógico para uma ou mais tarefas. Os trabalhos incluem definições comuns às tarefas, como a prioridade e o conjunto no qual as tarefas vão ser executadas. Esta aplicação utiliza a classe [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) para criar um trabalho no conjunto. O método [job.add](/python/api/azure-batch/azure.batch.operations.joboperations) adiciona um trabalho à conta batch especificada. Inicialmente, o trabalho não tem tarefas.
 
@@ -221,7 +221,7 @@ for task in tasks:
     print(file_text)
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 A aplicação elimina automaticamente o contentor de armazenamento criado e oferece-lhe a opção de eliminar o conjunto e o trabalho do Batch. É cobrado o conjunto enquanto os nós estiverem em execução, mesmo se não existirem tarefas agendadas. Quando já não precisar do conjunto, elimine-o. Quando eliminar o conjunto, todos os resultados da tarefa nos nós são eliminados. 
 

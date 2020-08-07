@@ -9,17 +9,17 @@ ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: bfbe67c20fdec292dca0d6e07a05f2ff27637396
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 6edb6f026f3062dfb2beafd863cf090519f6b66a
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87427965"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87875988"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticação de serviço-a-serviço para Azure Key Vault usando .NET
 
 > [!NOTE]
-> **Microsoft.Azure.Services.AppAuthentication** é depreciada. É substituído a nova biblioteca de identidade Azure **DefaultAzureCredentis** disponível para .NET, Java, TypeScript e Python e deve ser usada para todos os novos desenvolvimentos. Mais informações podem ser encontradas aqui: [Autenticação e a Azure SDK](https://azure.github.io/azure-sdk/posts/2020-02-25/defaultazurecredentials.html).
+> **Microsoft.Azure.Services.AppAuthentication** já não é recomendado para usar com o novo Key Vault SDK. É substituído a nova biblioteca de identidade Azure **DefaultAzureCredentis** disponível para .NET, Java, TypeScript e Python e deve ser usada para todos os novos desenvolvimentos. Mais informações podem ser encontradas aqui: [Autenticação e a Azure SDK](https://azure.github.io/azure-sdk/posts/2020-02-25/defaultazurecredentials.html).
 
 Para autenticar o Azure Key Vault, precisa de uma credencial Azure Ative Directory (Azure AD), seja um segredo partilhado ou um certificado.
 
