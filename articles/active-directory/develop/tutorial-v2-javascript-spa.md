@@ -1,6 +1,7 @@
 ---
-title: Tutorial de aplicação de página única JavaScript - Plataforma de identidade da Microsoft Rio Azure
-description: Como as aplicações javaScript SPA podem chamar uma API que requer acesso a tokens por Azure Ative Directory v2.0 endpoint
+title: Tutorial de aplicação de página única JavaScript Rio Azure
+titleSuffix: Microsoft identity platform
+description: Neste tutorial, você aprende como as aplicações de uma página única JavaScript (SPAs) podem chamar uma API que requer acesso a tokens emitidos pela plataforma de identidade microsoft.
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -8,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-javascript
-ms.openlocfilehash: 745132284ee48270b46b6bd2f785d8bec19404fb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 303caf36b613e4bcd6a5c48317710b69a3ffbc0a
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129683"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87875222"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Inscreva-se nos utilizadores e ligue para a API do Gráfico microsoft a partir de uma aplicação de página única JavaScript (SPA)
 
@@ -25,8 +26,8 @@ Este guia demonstra como uma aplicação de página única JavaScript (SPA) pode
 - Adquirir um token de acesso
 - Ligue para a Microsoft Graph API ou outras APIs que requerem tokens de acesso a partir do ponto final da *plataforma de identidade* da Microsoft
 
->[!NOTE]
-> Se é novo na plataforma de identidade da Microsoft, recomendamos que comece com o [Sinal nos utilizadores e obtenha um token de acesso num quickstart JavaScript SPA](quickstart-v2-javascript.md).
+>[!TIP]
+> Este tutorial utiliza MSAL.js v1.x que se limita a utilizar o fluxo de subvenção implícito para aplicações de uma página única. Recomendamos que todas as novas aplicações utilizem [MSAL.js 2.x e o fluxo de código de autorização com suporte AKCE e CORS.](tutorial-v2-javascript-auth-code.md)
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Como funciona a aplicação de amostras gerada por este guia
 
@@ -415,7 +416,7 @@ O SPA gerado por este guia chama `acquireTokenSilent` e/ou `acquireTokenPopup` p
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de utilizador interativamente
 
-Após a iniciação inicial, não pretende pedir aos utilizadores que reauttenenássem sempre que precisam de pedir um token para aceder a um recurso. Assim, *adquirir oTokenSilent* deve ser usado na maior parte do tempo para adquirir fichas. Existem situações, no entanto, em que é necessário forçar os utilizadores a interagirem com o ponto final da plataforma de identidade da Microsoft. Os exemplos incluem:
+Após a iniciação inicial, não pretende pedir aos utilizadores que reauttenenássem sempre que precisam de pedir um token para aceder a um recurso. Assim, *adquirir oTokenSilent* deve ser usado na maior parte do tempo para adquirir fichas. Existem situações, no entanto, em que é necessário forçar os utilizadores a interagirem com o ponto final da plataforma de identidade da Microsoft. Alguns exemplos incluem:
 
 - Os utilizadores precisam de reentrar nas suas credenciais porque a palavra-passe expirou.
 - A sua aplicação está a solicitar o acesso a um recurso e precisa do consentimento do utilizador.

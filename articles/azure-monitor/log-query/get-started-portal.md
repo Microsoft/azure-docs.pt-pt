@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 522a13c6de87dd8074b76f95670baf79fc96d419
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8917c73474b81ee76e6acdf8c6f274e962ee1215
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075337"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874236"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>Tutorial: Começar com consultas de Log Analytics
 
@@ -32,7 +32,7 @@ Para obter um tutorial detalhado sobre consultas de registo de escrita, consulte
 ## <a name="open-log-analytics"></a>Abrir analítica de registo
 Para utilizar o Log Analytics, tem de ser inscrito numa conta Azure. Se não tiver uma conta Azure, [crie uma de graça.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
-Para completar a maioria dos passos neste tutorial, você pode usar [este ambiente de demonstração](https://portal.loganalytics.io/demo), que inclui abundância de dados de amostra. Com o ambiente de demonstração, não será capaz de guardar consultas ou pin resulta num dashboard.
+Para completar a maioria dos passos neste tutorial, você pode usar [este ambiente de demonstração](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), que inclui abundância de dados de amostra. Com o ambiente de demonstração, não será capaz de guardar consultas ou pin resulta num dashboard.
 
 Também pode utilizar o seu próprio ambiente, se estiver a utilizar o Azure Monitor para recolher dados de registo em pelo menos um recurso Azure. Para abrir um espaço de trabalho Log Analytics, no seu Monitor Azure deixou a navegação, selecione **Logs**. 
 
@@ -90,7 +90,7 @@ Para utilizar o controlo de **intervalo de tempo,** selecione-o na barra superio
 ### <a name="run-a-query"></a>Run a query (Executar uma consulta)
 Para executar uma consulta, coloque o cursor algures dentro da consulta e selecione **Executar** na barra superior ou **Shift** + **pressione**Shift Enter . A consulta vai até encontrar uma linha em branco.
 
-## <a name="filter-results"></a>Resultados da filtragem
+## <a name="filter-results"></a>Filtrar os resultados
 Log Analytics limita os resultados a um máximo de 10.000 registos. Uma consulta geral como `Event` devolve demasiados resultados para ser útil. Pode filtrar os resultados da consulta, quer restringindo os elementos de tabela na consulta, quer adicionando explicitamente um filtro aos resultados. A filtragem através dos elementos de tabela devolve um novo conjunto de resultados, enquanto um filtro explícito se aplica ao conjunto de resultados existente.
 
 ### <a name="filter-by-restricting-table-elements"></a>Filtrar restringindo elementos de mesa

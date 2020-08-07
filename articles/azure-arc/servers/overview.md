@@ -7,14 +7,15 @@ ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 keywords: automação azul, DSC, powershell, configuração de estado desejada, gestão de atualização, rastreio de alterações, inventário, runbooks, python, gráfico, híbrido
-ms.date: 03/24/2020
+ms.custom: references_regions
+ms.date: 08/06/2020
 ms.topic: overview
-ms.openlocfilehash: e775945526a5453085946ed4eea2a2e19761ba78
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 8c02b22d27fbae0465ed3b8c97622544256854e0
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85482195"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905623"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>O que é Azure Arc para servidores (pré-visualização)?
 
@@ -28,10 +29,15 @@ Para entregar esta experiência com as suas máquinas híbridas hospedadas fora 
 
 ## <a name="supported-scenarios"></a>Cenários suportados
 
-O Azure Arc para servidores (pré-visualização) suporta os seguintes cenários com máquinas conectadas:
+Quando liga a sua máquina ao Azure Arc para servidores (pré-visualização), permite a capacidade de executar as seguintes tarefas de gestão de configuração:
 
 - Atribua [configurações de hóspedes da Azure Policy](../../governance/policy/concepts/guest-configuration.md) usando a mesma experiência que a atribuição de políticas para máquinas virtuais Azure.
-- Os dados de registo recolhidos pelo agente Log Analytics, armazenados no espaço de trabalho Log Analytics, a máquina está registada. Os dados de registo da máquina híbrida contêm agora propriedades específicas da máquina, como um ID de recursos, que pode ser usado para suportar o acesso ao registo [de contexto de recursos.](../../azure-monitor/platform/design-logs-deployment.md#access-mode)
+
+- Monitorize o desempenho do sistema operativo do hóspede da máquina conectada e descubra componentes de aplicação para monitorizar os seus processos e dependências com outros recursos que a aplicação comunica utilizando [o Azure Monitor para VMs](../../azure-monitor/insights/vminsights-overview.md).
+
+- Simplificar a implementação com outros serviços Azure Automation State Configuration e Azure Monitor Log Analytics utilizando as [extensões Azure VM](manage-vm-extensions.md) suportadas para as suas máquinas não-Azure Windows ou Linux. Isto inclui a realização de configuração pós-implantação ou instalação de software utilizando a extensão de script personalizado.
+
+Registar dados recolhidos e armazenados num espaço de trabalho log Analytics da máquina híbrida agora contém propriedades específicas da máquina, como um ID de recursos. Isto pode ser usado para suportar o acesso ao registo [de contexto de recursos.](../../azure-monitor/platform/design-logs-deployment.md#access-mode)
 
 ## <a name="supported-regions"></a>Regiões suportadas
 
@@ -42,7 +48,7 @@ Com Azure Arc para servidores (pré-visualização), apenas certas regiões são
 - Europa Ocidental
 - Sudeste da Ásia
 
-Na maioria dos casos, a localização selecionada quando cria o script de instalação deve ser a região Azure geograficamente mais próxima da localização da sua máquina. Os dados em repouso serão armazenados dentro da geografia Azure que contém a região especificada, o que também pode afetar a sua escolha de região se tiver requisitos de residência de dados. Se a região Azure a que a sua máquina está ligada for afetada por uma falha, a máquina ligada não é afetada, mas as operações de gestão utilizando o Azure podem não conseguir completar. Para resiliência em caso de paragem regional, se tiver múltiplas localizações que fornecem um serviço geograficamente redundante, o melhor é ligar as máquinas em cada local a uma região de Azure diferente.
+Na maioria dos casos, a localização selecionada quando cria o script de instalação deve ser a região Azure geograficamente mais próxima da localização da sua máquina. Os dados em repouso serão armazenados dentro da geografia Azure que contém a região especificada, o que também pode afetar a sua escolha de região se tiver requisitos de residência de dados. Se a região Azure a que a sua máquina está ligada for afetada por uma falha, a máquina ligada não é afetada, mas as operações de gestão utilizando o Azure podem não conseguir completar. Em caso de paragem regional, se tiver múltiplas localizações que fornecem um serviço geograficamente redundante, o melhor é ligar as máquinas em cada local a uma região de Azure diferente.
 
 ### <a name="agent-status"></a>Estado do agente
 

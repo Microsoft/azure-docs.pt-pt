@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/05/2020
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,18 +19,18 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 68e6ec0af0b24771b21dac35c944fc7fa098b404
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 333e48ff963ec42dd2ee00956fa046a5a038c099
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203104"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903787"
 ---
 # <a name="odata-orderby-syntax-in-azure-cognitive-search"></a>OData $orderby sintaxe na pesquisa cognitiva de Azure
 
  Pode utilizar o [parâmetro OData **$orderby** ](query-odata-filter-orderby-syntax.md) para aplicar uma ordem de classificação personalizada para resultados de pesquisa em Azure Cognitive Search. Este artigo descreve a sintaxe de **$orderby** em detalhe. Para obter informações mais gerais sobre como utilizar **$orderby** ao apresentar resultados de pesquisa, consulte [Como trabalhar com os resultados da pesquisa na Azure Cognitive Search](search-pagination-page-layout.md).
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 O parâmetro **$orderby** aceita uma lista separada por vírgula de até 32 **cláusulas de encomenda**. A sintaxe de uma cláusula de encomenda é descrita pelo seguinte formulário EBNF[(Formulário Backus-Naur Alargado):](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)
 
@@ -50,7 +50,9 @@ Está também disponível um diagrama de sintaxe interativo:
 > [!NOTE]
 > Consulte [a referência de sintaxe de expressão OData para Azure Cognitive Search](search-query-odata-syntax-reference.md) para o EBNF completo.
 
-Cada cláusula tem critérios de classificação, opcionalmente seguidos por uma direção de tipo `asc` (para subir ou `desc` descer). Se não especificar uma direção, o padrão está a subir. Os critérios de tipo podem ser o caminho de um `sortable` campo ou uma chamada para as [`geo.distance`](search-query-odata-geo-spatial-functions.md) funções ou para as [`search.score`](search-query-odata-search-score-function.md) funções.
+Cada cláusula tem critérios de classificação, opcionalmente seguidos por uma direção de tipo `asc` (para subir ou `desc` descer). Se não especificar uma direção, o padrão está a subir. Se houver valores nulos no campo, os valores nulos aparecem primeiro se o tipo for `asc` e durar se o tipo for `desc` .
+
+Os critérios de tipo podem ser o caminho de um `sortable` campo ou uma chamada para as [`geo.distance`](search-query-odata-geo-spatial-functions.md) funções ou para as [`search.score`](search-query-odata-search-score-function.md) funções.
 
 Se vários documentos tiverem os mesmos critérios de tipo e a `search.score` função não for utilizada (por exemplo, se ordenar por um campo numérico `Rating` e três documentos todos tiverem uma classificação de 4), os laços serão quebrados pela pontuação do documento por ordem descendente. Quando as pontuações dos documentos são as mesmas (por exemplo, quando não há consulta de pesquisa de texto completo especificada no pedido), então a encomenda relativa dos documentos vinculados é indeterminada.
 

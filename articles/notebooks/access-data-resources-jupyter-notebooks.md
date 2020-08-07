@@ -3,13 +3,13 @@ title: Dados de acesso em cadernos Jupyter - Pré-visualização de cadernos Azu
 description: Saiba como aceder a ficheiros, APIs de REST, bases de dados e diferentes recursos de Armazenamento Azure a partir de um bloco de notas Jupyter.
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.custom: tracking-python
-ms.openlocfilehash: e0473a885860fad71c066f9d129f859528fa16e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: b2254e6d966ca3281cd9c8b0771cb77fb6dede33
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833490"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846620"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Aceder a dados da cloud num bloco de notas
 
@@ -79,6 +79,6 @@ O Azure fornece uma série de outros tipos de base de dados que pode utilizar. O
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
   - [Copy Wizard for Azure Data Factory](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como: Trabalhar com ficheiros de dados do projeto](work-with-project-data-files.md)

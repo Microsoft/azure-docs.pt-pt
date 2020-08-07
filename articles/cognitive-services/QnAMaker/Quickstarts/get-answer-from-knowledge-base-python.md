@@ -3,14 +3,14 @@ title: 'Quickstart: Obtenha resposta da base de conhecimento - REST, Python - Qn
 description: Este quickstart baseado em Python REST acompanha-o através de obter uma resposta de uma base de conhecimento, programáticamente.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27, tracking-python
+ms.custom: RESTCURL2020FEB27, devx-track-python
 ms.topic: how-to
-ms.openlocfilehash: d985bafe3303acdaf8b47e70a9d5368e3b26335c
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 2d693a63360890b9f658baa1a37d251f311d5617
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610139"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87875018"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-python"></a>Quickstart: Obtenha respostas para uma pergunta de uma base de conhecimento com Python
 
@@ -27,7 +27,7 @@ Este quickstart acompanha-o programáticamente recebendo uma resposta de uma bas
 
     As definições da página de publicação incluem o valor da rota POST, o valor do anfitrião e o valor endpointKey.
 
-    ![Publish settings (Definições de publicação)](../media/qnamaker-quickstart-get-answer/publish-settings.png)
+    ![Definições de publicação](../media/qnamaker-quickstart-get-answer/publish-settings.png)
 
 ## <a name="create-a-python-file"></a>Criar um ficheiro Python
 
@@ -57,7 +57,7 @@ O seguinte código faz um pedido HTTPS à API do Fabricante QNA para enviar a pe
 
 O `Authorization` valor do cabeçalho inclui a `EndpointKey` corda.
 
-## <a name="run-the-program"></a>Execute o programa
+## <a name="run-the-program"></a>Executar o programa
 
 Executar o programa a partir da linha de comando. Enviará automaticamente o pedido para a API do Criador QnA, e depois imprimirá na janela da consola.
 
@@ -73,7 +73,7 @@ Saiba mais sobre o [pedido](../how-to/metadata-generateanswer-usage.md#generatea
 
 [!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Referência à API REST do Criador de FAQ](https://go.microsoft.com/fwlink/?linkid=2092179)

@@ -3,13 +3,13 @@ title: Tutorial - crie e execute um caderno Jupyter - Azure Notebooks Preview
 description: Aprenda a criar e executar um caderno Jupyter em Azure Notebooks Preview que demonstra o processo de regressão linear na ciência dos dados.
 ms.topic: tutorial
 ms.date: 01/11/2019
-ms.custom: tracking-python
-ms.openlocfilehash: fd7fc324894595a991074c6d83ffc0f9fa3cff75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: f6480a93610761061462be8e83ce3e719f3e8bdf
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85834136"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846917"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: criar e executar um caderno Jupyter com Python
 
@@ -152,7 +152,7 @@ Jupyter fornece um tour incorporado dos elementos primários da UI. Inicie o tou
 
 Os grupos de comandos de menu são os seguintes:
 
-| Menu | Description |
+| Menu | Descrição |
 | --- | --- |
 | Ficheiro | Os comandos para gerir o ficheiro do portátil, incluindo comandos para criar e copiar cadernos, mostrar uma pré-visualização de impressão e descarregar o caderno em vários formatos. |
 | Editar | Comandos típicos para cortar, copiar e colar células, encontrar e substituir valores, gerir os anexos celulares e inserir imagens.  |

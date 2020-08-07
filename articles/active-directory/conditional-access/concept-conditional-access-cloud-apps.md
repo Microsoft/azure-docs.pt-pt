@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be80ff95cc03f8cf2a08e9ce92146fe5028dcb9c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: defb959a56446da337c4c7c16ee118ceecd3e674
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87275277"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846314"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acesso Condicional: aplicativos ou ações na nuvem
 
@@ -117,7 +117,7 @@ Além das aplicações da Microsoft, os administradores podem adicionar qualquer
 - [Candidaturas adicionadas da galeria](../manage-apps/add-application-portal.md)
 - [Aplicações personalizadas não na galeria](../manage-apps/add-non-gallery-app.md)
 - [Aplicações legacy publicadas através de controladores e redes de entrega de aplicações](../manage-apps/secure-hybrid-access.md)
-- Aplicações que usam [palavra-passe com base em sing-on único](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
+- Aplicações que usam [palavra-passe com base num único sign-on](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
 > [!NOTE]
 > Uma vez que a política de acesso condicional define os requisitos para aceder a um serviço, não é possível aplicá-lo a uma aplicação de cliente (público/nativo). Outras palavras, a apólice não é definida diretamente numa aplicação de cliente (público/nativo), mas é aplicada quando um cliente chama um serviço. Por exemplo, uma política definida no serviço SharePoint aplica-se aos clientes que ligam para o SharePoint. Uma política definida no Exchange aplica-se à tentativa de aceder ao e-mail utilizando o cliente Outlook. É por isso que as aplicações de cliente (público/nativo) não estão disponíveis para seleção na opção Cloud Apps picker e Conditional Access não está disponível nas configurações de aplicação para o cliente (público/nativo) registada no seu inquilino. 

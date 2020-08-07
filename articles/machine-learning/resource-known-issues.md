@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
-ms.date: 03/31/2020
-ms.openlocfilehash: 8f58fcef1a35494053803d98b43ce97fed7205e0
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.date: 08/06/2020
+ms.openlocfilehash: 23b749a45e130e99b660cd5bc56349732159e340
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373696"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905501"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Questões conhecidas e resolução de problemas em Azure Machine Learning
 
@@ -131,7 +131,7 @@ Para obter mais informações sobre a resolução de problemas, consulte os [pr�
 
     Em alternativa, pode utilizar scripts init se continuar a enfrentar problemas de instalação com bibliotecas Python. Esta abordagem não é oficialmente apoiada. Para obter mais informações, consulte [scripts init com âmbito de cluster.](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts)
 
-* **Erro de importação de dados: não pode importar o nome 'Timedelta' de 'pandas._libs.tslibs'**: Se vir este erro ao utilizar machine learning automatizado, execute as duas seguintes linhas no seu caderno:
+* **Erro de importação de dados: não pode importar nome `Timedelta` a partir `pandas._libs.tslibs` de: **Se vir este erro quando utilizar machine learning automatizado, execute as duas seguintes linhas no seu caderno:
     ```
     %sh rm -rf /databricks/python/lib/python3.7/site-packages/pandas-0.23.4.dist-info /databricks/python/lib/python3.7/site-packages/pandas
     %sh /databricks/python/bin/pip install pandas==0.23.4
@@ -219,7 +219,7 @@ Limitações e questões conhecidas para monitores de deriva de dados:
     | Categórico | corda, bool, int, flutuar | O número de valores únicos na funcionalidade é inferior a 100 e menos de 5% do número de linhas. | O nulo é tratado como a sua própria categoria. | 
     | Numérico | int, flutuar | Os valores na funcionalidade são de um tipo de dado numérico e não correspondem à condição de uma característica categórica. | A função caiu se >15% dos valores forem nulos. | 
 
-* Quando tiver [criado um monitor à deriva de dados,](how-to-monitor-datasets.md) mas não conseguir ver dados na página de monitores do **Dataset** no estúdio Azure Machine Learning, experimente o seguinte.
+* Quando tiver [criado um monitor de deriva de dados](how-to-monitor-datasets.md) mas não conseguir ver dados na página de monitores do **Dataset** no estúdio Azure Machine Learning, experimente o seguinte.
 
     1. Verifique se selecionou o intervalo de datas certo no topo da página.  
     1. No **separador Dataset Monitors,** selecione o link de experiência para verificar o estado da execução.  Esta ligação está na extrema direita da mesa.
@@ -283,7 +283,7 @@ time.sleep(600)
 
 ## <a name="automated-machine-learning"></a>Aprendizagem automática automatizada
 
-* **TensorFlow**: A partir da versão 1.5.0 do SDK, a aprendizagem automática de máquinas não instala modelos de tensorflow por predefinição. Para instalar o tensorflow e utilizá-lo com as suas experiências automatizadas de ML, instale tensorflow==1.12.0 via CondaDependecies. 
+* **TensorFlow**: A partir da versão 1.5.0 do SDK, a aprendizagem automática de máquinas não instala modelos TensorFlow por predefinição. Para instalar o TensorFlow e utilizá-lo com as suas experiências automatizadas de ML, instale tensorflow==1.12.0 via CondaDependecies. 
  
    ```python
    from azureml.core.runconfig import RunConfiguration
@@ -307,7 +307,7 @@ time.sleep(600)
 
 Tome estas ações para os seguintes erros:
 
-|Erro  | Resolução  |
+|Error  | Resolução  |
 |---------|---------|
 |Falha na construção de imagem ao implementar o serviço web     |  Adicione "pynacl==1.2.1" como uma dependência de pip ao ficheiro Conda para configuração de imagem       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Altere o SKU para VMs utilizados na sua implantação para um que tenha mais memória. |
@@ -382,5 +382,5 @@ Ver mais artigos de resolução de problemas para Azure Machine Learning:
 * [Resolução de problemas de implementação de Docker com Azure Machine Learning](how-to-troubleshoot-deployment.md)
 * [Oleodutos de aprendizagem automática de depuragem de depurações](how-to-debug-pipelines.md)
 * [Depurar a aula ParallelRunStep do Azure Machine Learning SDK](how-to-debug-parallel-run-step.md)
-* [Depuragem interativa de uma instância computacional de aprendizagem automática com código VS](how-to-set-up-vs-code-remote.md)
+* [Depuragem interativa de uma instância computacional de aprendizagem automática com código VS](how-to-debug-visual-studio-code.md)
 * [Utilizar insights de aplicações para depurar oleodutos de aprendizagem automática](how-to-debug-pipelines-application-insights.md)

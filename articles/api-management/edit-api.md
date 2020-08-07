@@ -1,6 +1,6 @@
 ---
 title: Editar uma API com o portal do Azure | Microsoft Docs
-description: Este tutorial mostra como utilizar a Gestão de API (APIM) para editar uma API.
+description: Saiba como utilizar a API Management (APIM) para editar uma API. Adicione, elimine ou rebatize as operações no caso APIM, ou edite a arrogância da API.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/08/2017
 ms.author: apimpm
-ms.openlocfilehash: 6be36493fabce07838991c789e111e918a9a826d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8d3f476f4a6ecf05d63223f3ba2c2b5173e1d0bf
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "70072162"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905164"
 ---
 # <a name="edit-an-api"></a>Editar uma API
 
@@ -64,5 +64,5 @@ Pode atualizar a API do seu back-end no portal do Azure, seguindo estes passos:
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Amostras](policy-samples.md)
-> de política da APIM[Transforme e proteja uma API publicada](transform-api.md)
+> Amostras de [política da APIM](policy-samples.md) 
+>  [Transformar e proteger uma API publicada](transform-api.md)

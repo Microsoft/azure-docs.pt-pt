@@ -1,18 +1,18 @@
 ---
 title: Adicionar/remover um ponto final do servidor Azure File Sync / Microsoft Docs
-description: Saiba o que considerar ao planear uma implementação de Ficheiros Azure.
+description: Aprenda a adicionar ou remover um ponto final do servidor com Azure File Sync. Um ponto final do servidor é uma determinada localização num servidor registado, como uma pasta num volume de servidor.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 70cdf01cb327d1be6b2ac4b9cae414f87e27964f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9273ca66c0304afc5df58ace5dd584c20c90abfd
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509477"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905062"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Adicionar/remover um ponto final do servidor Azure File Sync
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. Fá-lo transformando os seus Servidores Windows numa cache rápida da sua partilha de ficheiros Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter o número de caches que precisar em todo o mundo.
@@ -71,7 +71,7 @@ Para remover o ponto final do servidor:
 
     ![Remover um ponto final do servidor de um grupo de sincronização](media/storage-sync-files-server-endpoint/remove-server-endpoint-1.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Registar/não registar um servidor com Azure File Sync](storage-sync-files-server-registration.md)
-- [Planear uma implementação da Sincronização de Ficheiros do Azure](storage-sync-files-planning.md)
+- [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
 - [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)

@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: 479e580ee8821f0a6de054c631714c5386927e4f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0849aeb6180a17238f0885896a863936cfdf715d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083921"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827661"
 ---
 # <a name="quickstart-create-an-ubuntu-linux-virtual-machine-using-an-arm-template"></a>Quickstart: Criar uma máquina virtual Ubuntu Linux usando um modelo ARM
 
@@ -21,7 +21,7 @@ Este quickstart mostra-lhe como usar um modelo de Gestor de Recursos Azure (mode
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-linux%2fazuredeploy.json)
 
@@ -31,7 +31,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="review-the-template"></a>Rever o modelo
 
-O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/).
+O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/).
 
 :::code language="json" source="~/quickstart-templates/101-vm-simple-linux/azuredeploy.json" range="1-261" highlight="110-260":::
 
@@ -65,7 +65,7 @@ Vários recursos são definidos no modelo:
     - **Prefixo da etiqueta DNS**: introduza um identificador único para utilizar como parte da etiqueta DNS.
     - **Versão Ubuntu OS**: selecione qual a versão de Ubuntu que pretende executar no VM.
     - **Localização:** o padrão é a mesma localização que o grupo de recursos, se já existir.
-    - **Tamanho VM**: selecione o [tamanho](sizes.md) a utilizar para o VM.
+    - **Tamanho VM**: selecione o [tamanho](../sizes.md) a utilizar para o VM.
     - **Nome da rede virtual**: nome a utilizar para o vNet.
     - **Nome da sub-rede**: nome para a sub-rede que o VM deve utilizar.
     - **Nome do grupo de segurança da**rede : nome para o NSG.
@@ -79,7 +79,7 @@ O portal do Azure é utilizado para implementar o modelo. Além do portal Azure,
 Pode utilizar o portal Azure para verificar o VM e outros recursos que foram criados. Depois de concluída a implementação, selecione **Ir ao grupo de recursos** para ver o VM e outros recursos.
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos, que elimina o VM e todos os recursos do grupo de recursos. 
 
@@ -88,7 +88,7 @@ Quando já não for necessário, elimine o grupo de recursos, que elimina o VM e
 1. Quando solicitado, digite o nome do grupo de recursos e, em seguida, **selecione Delete**.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, lançou uma máquina virtual simples utilizando um modelo ARM. Para saber mais sobre as máquinas virtuais do Azure, continue para o tutorial das VMs do Linux.
 

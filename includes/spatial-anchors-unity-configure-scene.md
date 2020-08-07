@@ -4,15 +4,19 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/2/2019
 ms.author: crtreasu
-ms.openlocfilehash: 7e7825e8247e78cbc0c0e9e22bdbd9326939e0a8
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 43e64dadc5e339d174d08788cc7a98506841ee88
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83998110"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810185"
 ---
-O próximo passo é configurar a aplicação para utilizar o identificador de conta e a chave de conta. Copiou-os para um editor de texto ao [criar o recurso Spatial Anchors.](#create-a-spatial-anchors-resource)
+## <a name="configure-the-account-information"></a>Configurar a informação da conta
 
-No painel do **Projeto,** navegue para `Assets\AzureSpatialAnchors.SDK\Resources` . Selecione `SpatialAnchorConfig`. Em seguida, no painel do **Inspetor,** insira o `Account Key` valor para e como o valor para `Spatial Anchors Account Key` `Account ID` `Spatial Anchors Account Id` .
+No painel do **Projeto,** vá e `Assets/AzureSpatialAnchors.Examples/Scenes` abra o arquivo da `AzureSpatialAnchorsBasicDemo.unity` cena.
 
-Em seguida, `SpatialAnchorManager.cs` abra. Encontre `CreateSessionAsync()` e adicione a seguinte linha, substituindo no domínio da sua conta anterior: `session.Configuration.AccountDomain = "MyAccountDomain";` . Pode adicionar esta linha diretamente antes deste comentário `// Configure authentication` .
+O próximo passo é configurar a app para usar as informações da sua conta. Copiou-os para um editor de texto ao [configurar o recurso Spatial Anchors](#create-a-spatial-anchors-resource).
+
+No painel do **Projeto,** navegue `Assets\AzureSpatialAnchors.SDK\Resources` para. Selecione `SpatialAnchorConfig`. Em seguida, no painel de **inspetor,** insira o `Account Key` valor `Spatial Anchors Account Key` para, o `Account ID` valor para , e o como o valor para `Spatial Anchors Account Id` `Account Domain` `Spatial Anchors Account Domain` .
+
+Guarde a cena selecionando **o Ficheiro**  >  **Save**.
