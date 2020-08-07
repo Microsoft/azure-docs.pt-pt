@@ -2,18 +2,18 @@
 title: Registe uma aplicação de cliente público em Azure AD - Azure API para FHIR
 description: Este artigo explica como registar uma aplicação de cliente público no Azure Ative Directory, em preparação para a implantação da FHIR API em Azure.
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: mihansen
-ms.openlocfilehash: 5aa9e5a33dbe66e3ebd787decfa3a520454fc6f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: matjazl
+ms.openlocfilehash: df1e6159baafc11c4b73c33feaf936784c05469e
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871793"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853046"
 ---
 # <a name="register-a-public-client-application-in-azure-active-directory"></a>Registar um pedido de cliente público no Azure Ative Directory
 
@@ -59,7 +59,7 @@ Se a aplicação que registou neste artigo e o seu servidor FHIR estiver no mesm
 
 Se configurar a sua aplicação de cliente num inquilino AD Azure diferente do seu servidor FHIR, terá de atualizar a **Autoridade**. Na Azure API para FHIR, define a Autoridade em Definições -- > Autenticação. Desemaça a sua Autoridade para **https://login.microsoftonline.com/\<TENANT-ID>** .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a registar uma aplicação de cliente público no Azure Ative Directory. Em seguida, teste o acesso ao seu servidor FHIR usando o Carteiro.
  

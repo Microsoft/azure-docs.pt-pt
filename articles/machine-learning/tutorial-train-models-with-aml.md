@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
 ms.date: 03/18/2020
-ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 3cdd39ea9581384e7dd37ed67c641849f2696e1c
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.custom: seodec18, devx-track-python
+ms.openlocfilehash: f56b289f65bf12c1ad89d046d6bc26acd76249ce
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558337"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849784"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Tutorial: Modelos de classificação de imagem de comboio com dados do MNIST e scikit-learn 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -84,7 +84,7 @@ print("Azure ML SDK Version: ", azureml.core.VERSION)
 
 ### <a name="connect-to-a-workspace"></a>Ligar-se a um espaço de trabalho
 
-Crie um objeto de área de trabalho a partir da área de trabalho existente. `Workspace.from_config()`lê o ficheiro **config.json** e carrega os detalhes num objeto chamado `ws` :
+Crie um objeto de área de trabalho a partir da área de trabalho existente. `Workspace.from_config()`lê o ficheiro **config.js** e carrega os detalhes num objeto chamado `ws` :
 
 ```python
 # load workspace configuration from the config.json file in the current folder.
@@ -440,7 +440,7 @@ model = run.register_model(model_name='sklearn_mnist',
 print(model.name, model.id, model.version, sep='\t')
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 

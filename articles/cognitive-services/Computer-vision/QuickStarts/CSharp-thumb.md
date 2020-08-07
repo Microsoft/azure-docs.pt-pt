@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 15dd5ff1036df1ca562fc238a247ca3b7830459e
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: d2289bd7247deb195b07653c8d2d41342c5ba253
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84987841"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835345"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-c"></a>Quickstart: Gere uma miniatura utilizando a API e C de Visão De Computador #
 
@@ -40,7 +40,7 @@ Para criar o exemplo no Visual Studio, siga os seguintes passos:
     1. No menu, clique em **Ferramentas**, selecione **Gestor de Pacotes NuGet** e, em seguida, **Gerir Pacotes NuGet para Solução**.
     1. Clique no separador **Procurar** e, na caixa do tipo **Pesquisa** "Newtonsoft.Json".
     1. Selecione **Newtonsoft.Json** quando for apresentado e, em seguida, clique na caixa de verificação junto do nome do seu projeto, e em **Instalar**.
-1. Execute o programa.
+1. Executar o programa.
 1. Na linha de comandos, introduza o caminho para uma imagem local.
 
 ```csharp

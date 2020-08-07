@@ -1,6 +1,6 @@
 ---
 title: Comparação baseada em recursos dos escalões de Gestão da API da Azure Microsoft Docs
-description: Este artigo compara os níveis de Gestão da API com base nas funcionalidades que oferecem.
+description: Compare os níveis de Gestão da API com base nas funcionalidades que oferecem. Consulte uma tabela que resume as principais funcionalidades disponíveis em cada nível de preços.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: apimpm
-ms.openlocfilehash: ef16339d9a584eb12c611a25d636a9287265953a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 262d12e1b0ff74570b44b7794f8b55619a9afa97
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284341"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905147"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Comparação baseada em recursos dos escalões de Gestão API da Azure
 
@@ -26,7 +26,7 @@ Cada [nível de preços da](https://aka.ms/apimpricing) API Management oferece u
 > [!IMPORTANT]
 > Por favor, note que o nível de Desenvolvedor é para casos e avaliações de utilização não-produção. Não oferece SLA.
 
-| Funcionalidade                                                                                      | Consumo | Programador | Básica | Standard | Premium |
+| Funcionalidade                                                                                      | Consumo | Developer (Programador) | Básica | Standard | Premium |
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | ----- | -------- | ------- |
 | Integração AD AZure<sup>1</sup>                                                             | Não          | Sim       | Não    | Sim      | Sim     |
 | Suporte de Rede Virtual (VNet)                                                               | Não          | Sim       | Não    | Não       | Sim     |

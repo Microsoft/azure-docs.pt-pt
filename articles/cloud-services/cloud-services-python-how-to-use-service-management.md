@@ -14,13 +14,13 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: tagore
-ms.custom: tracking-python
-ms.openlocfilehash: 311d882814c45b3b001fde2a4f3f9027e879f29c
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.custom: devx-track-python
+ms.openlocfilehash: 35d0f77d5f4dde9e156d22e64881ba674189d327
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919888"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851516"
 ---
 # <a name="use-service-management-from-python"></a>Utilize a gestão de serviços da Python
 Este guia mostra-lhe como executar programáticamente tarefas comuns de gestão de serviços a partir de Python. A classe **ServiceManagementService** no [Azure SDK para Python](https://github.com/Azure/azure-sdk-for-python) suporta o acesso programático a grande parte da funcionalidade relacionada com a gestão de serviços que está disponível no [portal Azure.][management-portal] Pode utilizar esta funcionalidade para criar, atualizar e eliminar serviços na nuvem, implementações, serviços de gestão de dados e máquinas virtuais. Esta funcionalidade pode ser útil na construção de aplicações que necessitem de acesso programático à gestão de serviços.
@@ -118,7 +118,7 @@ Quando cria um serviço de cloud ou serviço de armazenamento, precisa fornecer 
 
 * Europa Ocidental
 * Europa do Norte
-* Ásia Sudeste
+* Sudeste Asiático
 * Ásia Leste
 * E.U.A. Central
 * E.U.A. Centro-Norte
@@ -450,7 +450,7 @@ Para saber mais sobre como capturar uma máquina virtual Linux no modelo clássi
 
 Para saber mais sobre como capturar uma máquina virtual do Windows no modelo clássico de implementação, consulte [Capture a windows virtual machine](../virtual-machines/windows/classic/capture-image-classic.md).
 
-## <a name="next-steps"></a><a name="What's Next"> </a>Próximos passos
+## <a name="next-steps"></a><a name="What's Next"> </a>Passos seguintes
 Agora que aprendeu o básico da gestão de serviços, pode aceder à documentação de referência completa da [API para o Azure Python SDK](https://azure-sdk-for-python.readthedocs.org/) e executar tarefas complexas facilmente para gerir a sua aplicação Python.
 
 Para obter mais informações, consulte o [Centro para Programadores do Python](https://azure.microsoft.com/develop/python/).

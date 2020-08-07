@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/10/2020
 ms.author: erhopf
-ms.custom: tracking-python, devx-track-javascript
-ms.openlocfilehash: 48e5f6d453e69dcbafd9aefe283eb2c880d4b48e
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-python, devx-track-javascript
+ms.openlocfilehash: 2b3f7934a24f67992d6b80ac359c29ebe2a40b09
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406644"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849561"
 ---
 # <a name="azure-cognitive-services-security"></a>Segurança dos Serviços Cognitivos Azure
 
@@ -205,8 +205,8 @@ O Lockbox do cliente está disponível para este Serviço Cognitivo:
 
 Para os seguintes serviços, os engenheiros da Microsoft não acederão a quaisquer dados do cliente no nível E0: 
 
-* Language Understanding
-* Rostos
+* Compreensão de Idiomas
+* Face
 * Content Moderator
 * Personalizador
 
@@ -220,7 +220,7 @@ O serviço de discurso não suporta atualmente o Lockbox do Cliente. No entanto,
 > [!IMPORTANT]
 > A Microsoft **não** utiliza os dados dos clientes para melhorar os seus modelos De Discurso. Além disso, se a sessão de registo de pontos finais for desativada e não forem utilizadas personalizações, não são armazenados dados do cliente. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Explore os vários [Serviços Cognitivos](welcome.md)
 * Saiba mais sobre [redes virtuais de serviços cognitivos](cognitive-services-virtual-networks.md)

@@ -8,13 +8,13 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 04/27/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 62e9140a1bab44d913e164304af13204f375f461
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: devx-track-python
+ms.openlocfilehash: 3aa45050286888dd8ae1d26d96c8ed02da197326
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131978"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876738"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>Tutorial: Use personalizar em Azure Notebook
 
@@ -659,7 +659,7 @@ Se não pretende continuar a série tutorial, limpe os seguintes recursos:
 * Elimine o seu projeto Azure Notebook.
 * Elimine o seu recurso Personalizer.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O [bloco de notas Jupyter e os ficheiros de dados utilizados](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook) nesta amostra estão disponíveis no repo GitHub para Personalizar.
 

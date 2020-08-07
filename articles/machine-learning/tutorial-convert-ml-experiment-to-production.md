@@ -8,13 +8,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/30/2020
-ms.custom: tracking-python
-ms.openlocfilehash: eabd4ceced77e90646169d80d08338c81af96e2f
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.custom: devx-track-python
+ms.openlocfilehash: 3a6ce5860704e6fd16b79fc253650dd45ec743e7
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025646"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852621"
 ---
 # <a name="tutorial-convert-ml-experiments-to-production-python-code"></a>Tutorial: Converter experiências ml para produzir código Python
 
@@ -522,7 +522,7 @@ def test_train_model():
     np.testing.assert_almost_equal(preds, [9.93939393939394, 9.03030303030303])
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que entende como se converter de uma experiência para código de produção, consulte os seguintes links para mais informações e próximos passos:
 

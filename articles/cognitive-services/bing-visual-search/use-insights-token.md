@@ -10,13 +10,13 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 4/26/2019
 ms.author: scottwhi
-ms.custom: tracking-python, devx-track-javascript
-ms.openlocfilehash: dc0097396bbd3d624fd043c54f2f37e434ad5b50
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-python, devx-track-javascript
+ms.openlocfilehash: 49daf816c4075820c9efc93611f33c4854a6042d
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87403991"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849578"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Use um token insights para obter insights para uma imagem
 
@@ -496,7 +496,7 @@ if __name__ == '__main__':
     main()
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar uma aplicação web de pesquisa visual de uma página](tutorial-bing-visual-search-single-page-app.md)  
 [O que é a API de Pesquisa Visual do Bing?](overview.md)  

@@ -10,13 +10,13 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.custom: tracking-python
-ms.openlocfilehash: c535683323428dadedeaefd5f76f4387569f9427
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.custom: devx-track-python
+ms.openlocfilehash: 53f9badbb15c788606390921cb8ef62495c19839
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84604138"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852757"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>Quickstart: Envie um pedido de pesquisa para a API de Pesquisa de Entidade Bing usando Python
 
@@ -142,7 +142,7 @@ Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTf
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar uma aplicação web de página única](../tutorial-bing-entities-search-single-page-app.md)

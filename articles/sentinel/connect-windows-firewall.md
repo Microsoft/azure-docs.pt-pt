@@ -1,5 +1,5 @@
 ---
-title: Ligue os dados da firewall do Windows ao Azure Sentinel. Microsoft Docs
+title: Ligue os dados do Windows Defender Firewall ao Azure Sentinel ! Microsoft Docs
 description: Ativar o conector de firewall do Windows no Azure Sentinel para transmitir facilmente eventos de firewall a partir de máquinas windows que tenham agentes do Log Analytics instalados.
 services: sentinel
 documentationcenter: na
@@ -10,54 +10,80 @@ ms.assetid: 0e41f896-8521-49b8-a244-71c78d469bc3
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 08/05/2020
 ms.author: yelevin
-ms.openlocfilehash: d33ba0dbb62cd7206829ed9ae580ea2aa3334bcf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2cf984e629d6b86beef9292dac819b554f49749
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559484"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87850700"
 ---
-# <a name="connect-windows-firewall"></a>Ligar à firewall do Windows
+# <a name="connect-windows-defender-firewall-with-advanced-security-to-azure-sentinel"></a>Ligue firewall do Windows Defender com Segurança Avançada a Azure Sentinel
 
+O [Windows Defender Firewall com](https://docs.microsoft.com/windows/security/threat-protection/windows-firewall/windows-firewall-with-advanced-security) conector de segurança avançada permite que o Azure Sentinel ingere facilmente firewall do Windows Defender com registos de Segurança Avançada de quaisquer máquinas windows no seu espaço de trabalho. Esta ligação permite-lhe visualizar e analisar eventos do Windows Firewall nos seus livros de trabalho, usá-los na criação de alertas personalizados e incorporá-los nas suas investigações de segurança, dando-lhe mais informações sobre a rede da sua organização e melhorando as suas capacidades de operações de segurança. 
 
-
-O conector de firewall do Windows permite-lhe ligar facilmente os registos de firewalls do Windows, se estiver ligado ao seu espaço de trabalho Azure Sentinel. Esta ligação permite-lhe visualizar dashboards, criar alertas personalizados e melhorar a investigação. Isto dá-lhe mais informações sobre a rede da sua organização e melhora as suas capacidades de operação de segurança. A solução recolhe eventos de firewall do Windows a partir das máquinas do Windows nas quais está instalado um agente Log Analytics. 
-
+A solução recolhe eventos de firewall do Windows a partir das máquinas do Windows nas quais está instalado um agente Log Analytics. 
 
 > [!NOTE]
 > - Os dados serão armazenados na localização geográfica do espaço de trabalho em que está a executar o Azure Sentinel.
+>
 > - Se o Azure Sentinel e o Azure Security Center forem recolhidos para o mesmo espaço de trabalho, não há necessidade de ativar a solução Windows Firewall através deste conector. Se o ativou de qualquer forma, não causará dados duplicados. 
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Deve ter lido e escrito permissões no espaço de trabalho ao qual as máquinas que deseja monitorizar estão ligadas.
+
+- Deve ser-lhe atribuída a função **de Colaborador de Log Analytics** na solução SecurityInsights nesse espaço de trabalho, para além de quaisquer funções do **Azure Sentinel.** [Saiba mais](../role-based-access-control/built-in-roles.md#log-analytics-contributor)
 
 ## <a name="enable-the-connector"></a>Ativar o conector 
 
-1. No portal Azure Sentinel, selecione **os conectores de dados** e, em seguida, clique no azulejo da firewall do **Windows.** 
-1.  Se as suas máquinas Windows estiverem em Azure:
-    1. Clique **em Instalar o agente na máquina virtual Azure Windows**.
-    1. Na lista **de máquinas Virtuais,** selecione a máquina Windows que pretende transmitir para o Azure Sentinel. Certifique-se de que este é um VM Windows.
-    1. Na janela que se abre para o VM, clique **em Connect**.  
-    1. Clique em **Ativar** na janela do **conector de firewall** do Windows. 
+1. No portal Azure Sentinel, selecione **conectores** de dados do menu de navegação.
 
-2. Se a sua máquina Windows não for um Azure VM:
-    1. Clique **em Instalar o agente em máquinas não-Azure**.
-    1. Na janela **do agente Direct,** selecione **o agente do Windows (64 bit)** ou **o agente do Windows de descarregamento (32 bits).**
-    1. Instale o agente na sua máquina Windows. Copie o ID do **espaço de trabalho,** **a tecla primária**e a **tecla secundária** e use-as quando solicitada durante a instalação.
+1. Selecione **o Windows Firewall** na galeria de conectores e clique na página do **conector Open**.
 
-4. Selecione quais os tipos de dados que pretende transmitir.
-5. Clique **na solução de instalação**.
-6. Para utilizar o esquema relevante no Log Analytics para a firewall do Windows, procure o **SecurityEvent**.
+### <a name="instructions-tab"></a>Separador de instruções
+
+- **Se as suas máquinas Windows estiverem em Azure:**
+
+    1. Selecione **Instalar o agente na Máquina Virtual Azure Windows**.
+
+    1. Clique no **Agente de instalação de descarregamento & para máquinas virtuais Azure Windows >** link que aparece.
+
+    1. Na lista **de máquinas Virtuais,** selecione a máquina Windows que pretende transmitir para o Azure Sentinel. (Pode selecionar o **Windows** no filtro da coluna OS para garantir que apenas são apresentados VMs do Windows).
+
+    1. Na janela que se abre para o VM, clique **em Connect**.
+
+    1. Volte ao painel **de Máquinas Virtuais** e repita os dois passos anteriores para quaisquer outros VMs que pretenda ligar. Quando terminar, volte ao painel de firewall do **Windows.**
+
+- **Se a sua máquina Windows não for um Azure VM:**
+
+    1. Selecione **Instalar o agente na máquina do Windows não-Azure**.
+
+    1. Clique no **Agente de instalação de descarregamento & para máquinas não-Azure Windows >** link que aparece.
+
+    1. No painel **de gestão** de agentes, selecione **download Windows Agent (64 bit)** ou **Download Windows Agent (32 bit)**, conforme necessário.
+
+    1. Copie o ID do **espaço de trabalho,** **a tecla primária**e as cordas de **teclas secundárias** num ficheiro de texto. Copie esse ficheiro e o ficheiro de instalação descarregado para a sua máquina Windows. Executar o ficheiro de instalação e, quando solicitado, introduza o ID e as cordas das chaves no ficheiro de texto durante a instalação.
+
+    1. Volte ao painel de firewall do **Windows.**
+
+1. Clique **na solução de instalação**.
+
+### <a name="next-steps-tab"></a>Separador de passos seguintes
+
+- Consulte os livros de trabalho recomendados disponíveis e as amostras de consulta agregadas ao conector de dados do **Windows Firewall** para obter informações sobre os dados de registo do Windows Firewall.
+
+- Para consultar os dados de firewall do Windows em **Logs,** **digite o WindowsFirewall** na janela de consulta.
 
 ## <a name="validate-connectivity"></a>Validar conectividade
+ 
+Uma vez que os registos do Windows Firewall são enviados para o Azure Sentinel apenas quando o ficheiro de registo local atingir a capacidade, deixando o registo no seu tamanho padrão de 4096 KB provavelmente resultará em alta latência de recolha. Pode baixar a latência baixando o tamanho do ficheiro de registo. Consulte as instruções para [configurar o registo do Windows Firewall](https://docs.microsoft.com/windows/security/threat-protection/windows-firewall/configure-the-windows-firewall-log). Note que ao definir o tamanho mínimo possível de log (1 KB) irá praticamente eliminar a latência da recolha, podendo também afetar negativamente o desempenho da máquina local. 
 
-Pode demorar mais de 20 minutos até que os seus registos comecem a aparecer no Log Analytics. 
-
-
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a ligar firewall do Windows ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
 - Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)

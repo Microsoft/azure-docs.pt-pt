@@ -1,6 +1,6 @@
 ---
-title: Migrar VMs do AWS para o Azure com o Azure com o serviço Azure Site Recovery | Microsoft Docs
-description: Este artigo descreve como migrar VMs do Windows em execução no Amazon Web Services (AWS) para o Azure com o Azure Site Recovery.
+title: Migrar VMS AWS para Azure com Azure Migrate
+description: Este artigo descreve opções para migrar instâncias AWS para Azure, e recomenda Azure Migrate.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/27/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: dd91e99b45405cca10b9ddc2982674e72ad6bf86
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 83d8106b9f206da9095c37b6179bdda8001b439c
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281298"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852774"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrar VMs do Amazon Web Services (AWS) para o Azure
 
@@ -22,7 +22,7 @@ Este artigo descreve opções para migrar casos da Amazon Web Services (AWS) par
 
 ## <a name="migrate-with-azure-migrate"></a>Migrar com Azure Migrar
 
-Recomendamos que emigre as instâncias AWS para Azure utilizando o serviço [Azure Migrate.](../migrate/migrate-services-overview.md) A Azure Migrate fornece um centro centralizado para avaliação e migração de máquinas no local para Azure, utilizando Azure Migrate, outros serviços Azure e ferramentas de terceiros.
+Recomendamos que emigre as instâncias AWS EC2 para Azure utilizando o serviço [Azure Migrate.](../migrate/migrate-services-overview.md) Azure Migrate é construído de propósito para a migração de servidores. Azure Migrate fornece um centro centralizado para a descoberta, avaliação e migração de máquinas no local para Azure.
 
 [Aprenda](../migrate/tutorial-migrate-aws-virtual-machines.md) a migrar casos AWS com Azure Migrate. 
 

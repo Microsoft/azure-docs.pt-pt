@@ -58,6 +58,8 @@
       href: network-best-practices.md
     - name: Proteção contra DDOS
       href: ddos-best-practices.md
+    - name: Linha de segurança de base do DDoS Protection
+      href: ddos-protection-security-baseline.md
     - name: DNS pendente e aquisição de subdomínio
       href: subdomain-takeover.md
     - name: Arquitetura de rede híbrida segura

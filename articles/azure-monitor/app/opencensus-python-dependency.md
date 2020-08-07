@@ -5,13 +5,13 @@ ms.topic: conceptual
 author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
-ms.custom: tracking-python
-ms.openlocfilehash: c5f78535a3bd5ab93d3020d14a6242257c492297
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-python
+ms.openlocfilehash: abfd5e104bd4854781a0d3c9d08544506279518a
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321297"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87850088"
 ---
 # <a name="track-dependencies-with-opencensus-python"></a>Dependências de pistas com OpenCensus Python
 

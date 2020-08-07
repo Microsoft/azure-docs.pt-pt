@@ -7,13 +7,13 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: tracking-python
-ms.openlocfilehash: 135ad450f7b0491200aeafd470e7a551d577e96a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-python
+ms.openlocfilehash: b31f22f9a3909df308fdcfa994833887828f2539
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285561"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876364"
 ---
 # <a name="quickstart-azure-key-vault-secrets-client-library-for-python"></a>Quickstart: Azure Key Vault secreta biblioteca de clientes para Python
 

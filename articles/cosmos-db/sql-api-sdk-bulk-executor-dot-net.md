@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 05/27/2020
+ms.date: 08/05/2020
 ms.author: anfeldma
-ms.openlocfilehash: 5fcde46738417a03cac8e5e99bea840ce2fd8bc6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6644a62252c715bc8c09079edf8f0b98c50736ab
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392102"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852672"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Biblioteca de executor a granel .NET: Descarregar informações 
 
@@ -26,6 +26,8 @@ ms.locfileid: "85392102"
 > * [SDK v4 de Java](sql-api-sdk-java-v4.md)
 > * [SDK v2 Java assíncrono](sql-api-sdk-async-java.md)
 > * [SDK v2 Java síncrono](sql-api-sdk-java.md)
+> * [Spring Data](sql-api-sdk-java-spring.md)
+> * [Conector de faíscas](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](/rest/api/cosmos-db-resource-provider/)
@@ -159,7 +161,7 @@ ms.locfileid: "85392102"
 
 * Apoio adicional às operações bulkimport e BulkUpdate para as contas AZure Cosmos DL API.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a biblioteca java do executor a granel, consulte o seguinte artigo:
 

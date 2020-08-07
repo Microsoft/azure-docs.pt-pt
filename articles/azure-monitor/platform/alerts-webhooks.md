@@ -6,14 +6,18 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: alerts
-ms.openlocfilehash: 5561dfee3ede72f9cd28adbd47caf2db4e634360
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 47ed723ecfc544673ac8aa6374c27ae5a7cf166b
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073591"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852111"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Ligue para um webhook com um alerta métrico clássico no Azure Monitor
+
+> [!WARNING]
+> Este artigo descreve como usar alertas métricos clássicos mais antigos. O Azure Monitor suporta agora [novos alertas métricos em tempo real e uma nova experiência de alertas.](./alerts-overview.md) Os alertas clássicos são [retirados](./monitoring-classic-retirement.md), embora ainda em uso limitado para recursos que ainda não suportam os novos alertas.
+>
 
 Pode utilizar webhooks para encaminhar uma notificação de alerta Azure para outros sistemas para ações pós-processamento ou personalizadas. Você pode usar um webhook em um alerta para encaminhá-lo para serviços que enviam mensagens SMS, para registar bugs, para notificar uma equipe através de serviços de chat ou mensagens, ou para várias outras ações. 
 

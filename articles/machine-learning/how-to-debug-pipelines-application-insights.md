@@ -9,13 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 01/16/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: c2218d9ec641f1edba4caff09666436fc8928558
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 6a9c49fbbf1b917d3f912f38581929885a51de4a
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326346"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852842"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Recolha ficheiros de registo de gasodutos de aprendizagem automática em Application Insights para alertas e depurações
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -162,7 +162,7 @@ Algumas das consultas abaixo utilizam 'customDimensions.Level'. Estes níveis de
 | Registar resultados com severidade Erro de nível dos últimos 7 dias              | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.Level == 'ERROR'                     |
 | Contagem de resultados de registo com severidade Erro de nível nos últimos 7 dias     | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.Level == 'ERROR' \| <br>summarize count()</pre> |
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 Uma vez que tenha registos na sua instância De Insights de Aplicação, podem ser usados para definir [alertas do Azure Monitor](../azure-monitor/platform/alerts-overview.md#what-you-can-alert-on) com base nos resultados da consulta.
 

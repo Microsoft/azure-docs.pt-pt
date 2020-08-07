@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: be4211d793c593dac50d5764d7a15e7daa21c3f4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 093f86f0373791326cf4658bdab7179fbca1307d
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320158"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849663"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e utilizar metas de computação para a formação de modelos 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -77,7 +77,7 @@ Utilize as secções abaixo para configurar estes alvos de cálculo:
 
 * [Computador local](#local)
 * [Aglomerado de computação Azure Machine Learning](#amlcompute)
-* [Exemplo de computação de aprendizagem automática Azure](#instance)
+* [Instância de computação do Azure Machine Learning](#instance)
 * [Máquinas virtuais remotas](#vm)
 * [Azure HDInsight](#hdinsight)
 
@@ -151,7 +151,7 @@ Utilize qualquer uma destas formas de especificar um VM de baixa prioridade:
 
 
 
-### <a name="azure-machine-learning-compute-instance"></a><a id="instance"></a>Exemplo de computação de aprendizagem automática Azure
+### <a name="azure-machine-learning-compute-instance"></a><a id="instance"></a>Instância de computação do Azure Machine Learning
 
 [A azure Machine Learning compute instance](concept-compute-instance.md) é uma infraestrutura de computação gerida que permite criar facilmente um único VM. O cálculo é criado dentro da sua região do espaço de trabalho, mas ao contrário de um cluster de cálculo, um caso não pode ser partilhado com outros utilizadores no seu espaço de trabalho. Também o caso não diminui automaticamente.  Tem de parar o recurso para evitar cargas em curso.
 

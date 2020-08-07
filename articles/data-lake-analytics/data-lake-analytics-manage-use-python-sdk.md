@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: how-to
 ms.date: 06/08/2018
-ms.custom: tracking-python
-ms.openlocfilehash: 5d107a94fde7627188bcd040a5c647fc32c163d1
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: devx-track-python
+ms.openlocfilehash: dd3511fefe39f51a521aa211454a49763224a6d9
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125586"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876245"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Gerir a Azure Data Lake Analytics usando Python
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]

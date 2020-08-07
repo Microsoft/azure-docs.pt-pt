@@ -4,13 +4,13 @@ description: Saiba como configurar um recipiente Python pré-construído para a 
 ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
-ms.custom: mvc, seodec18, tracking-python
-ms.openlocfilehash: 94398c90f820b0e08ea8d4f0a492d96ba8039631
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.custom: mvc, seodec18, devx-track-python
+ms.openlocfilehash: 0a0422dadd1c9b59e63da00b27a22fc7020bff93
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84905630"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849969"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configure uma aplicação Linux Python para o Azure App Service
 
@@ -53,7 +53,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 Se implementar a sua aplicação utilizando pacotes Git ou zip com automatização de construção ligada, o Serviço de Aplicações constrói passos de automação através da seguinte sequência:
 
 1. Executar script personalizado se especificado por `PRE_BUILD_SCRIPT_PATH` .
-1. Execute `pip install -r requirements.txt`.
+1. Execute o `pip install -r requirements.txt`.
 1. Se *manage.py* for encontrado na raiz do repositório, corra *manage.py coleta*. No entanto, se `DISABLE_COLLECTSTATIC` estiver definido para , este passo é `true` ignorado.
 1. Executar script personalizado se especificado por `POST_BUILD_SCRIPT_PATH` .
 

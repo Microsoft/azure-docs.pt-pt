@@ -2,14 +2,14 @@
 title: Desempenho dos serviços de aplicações Monitor Azure Microsoft Docs
 description: Monitorização do desempenho da aplicação para serviços de aplicações Azure. Cartografe o tempo de carga e resposta, informações de dependência e definir alertas sobre o desempenho.
 ms.topic: conceptual
-ms.date: 12/11/2019
+ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: f96d994f9f88a0debf110de2ca4f6da60e8ea3bc
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6c0d99e89e17c2aad3c7dcfe0056b597aa88d2a2
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373169"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876398"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorizar o desempenho do Serviço de Aplicações do Azure
 
@@ -396,6 +396,12 @@ Se utilizar APPINSIGHTS_JAVASCRIPT_ENABLED=verdade nos casos em que o conteúdo 
 Isto deve-se à APPINSIGHTS_JAVASCRIPT_ENABLED configuração da aplicação estar a ser definida como verdadeira e codificação de conteúdos ao mesmo tempo. Este cenário ainda não está apoiado. A solução é remover APPINSIGHTS_JAVASCRIPT_ENABLED das definições da sua aplicação. Infelizmente, isto significa que, se a instrumentação JavaScript do lado do cliente/navegador ainda for necessária, são necessárias referências SDK manual para as suas páginas web. Siga as [instruções](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) de instrumentação manual com o JavaScript SDK.
 
 Para obter as informações mais recentes sobre o agente/extensão application insights, consulte as [notas de lançamento](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
+
+### <a name="default-website-deployed-with-web-apps-does-not-support-automatic-client-side-monitoring"></a>O website predefinido implementado com aplicações web não suporta monitorização automática do lado do cliente
+
+Quando cria uma aplicação web com os `ASP.NET` tempos de `.NET Core` execução ou tempos de execução nos Serviços de Aplicações Azure, implementa uma única página de HTML estática como um website inicial. A página web estática também carrega uma peça web gerida .NET no IIS. Isto permite testar a monitorização do lado do servidor sem código, mas não suporta a monitorização automática do lado do cliente.
+
+Se desejar testar o servidor sem código e a monitorização do lado do cliente para ASP.NET ou ASP.NET Core numa aplicação web Azure App Services recomendamos seguir os guias oficiais para [criar uma aplicação web Core ASP.NET](../../app-service/app-service-web-get-started-dotnet.md) e criar uma [aplicação web ASP.NET Framework](../../app-service/app-service-web-get-started-dotnet-framework.md) e, em seguida, usar as instruções no artigo atual para permitir a monitorização.
 
 ### <a name="php-and-wordpress-are-not-supported"></a>PHP e WordPress não são suportados
 
