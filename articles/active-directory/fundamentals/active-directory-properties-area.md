@@ -2,7 +2,7 @@
 title: Adicione a informação de privacidade da sua organização - Azure Ative Directory Microsoft Docs
 description: Instruções sobre como adicionar as informações de privacidade da sua organização à área Azure Ative Directory Properties.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: bpham
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03a8d1f3e541d61d515b28bf56964c0add3b390e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfc60eacd70576d9cfa79dbc03368c8e8c4a8636
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830643"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797398"
 ---
 # <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Adicione as informações de privacidade da sua organização usando o Azure Ative Directory
 Este artigo explica como um administrador inquilino pode adicionar informações relacionadas com a privacidade ao inquilino Azure Ative Directory (Azure AD) de uma organização, através do portal Azure.
@@ -55,6 +55,6 @@ Você adiciona as informações de privacidade da sua organização na área **d
 
 4. Selecione **Guardar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Azure Ative Directory B2B convite de colaboração resgate](../b2b/redemption-experience.md)
 - [Adicionar ou alterar informações de perfil para um utilizador no Azure Ative Directory](active-directory-users-profile-azure-portal.md)

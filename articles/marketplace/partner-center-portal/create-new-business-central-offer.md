@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 456764ae2b08b9852e56b2ab3f7cd9238b540b58
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5ec8949d1ba614ca947f9848182ae2c94e044fc3
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121950"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800403"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Criar uma oferta do Dynamics 365 Business Central
 
@@ -134,7 +134,7 @@ Aqui está um exemplo de como as informações de oferta aparecem no Microsoft A
 9. Descrição
 10. Screenshots/vídeos
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 
 O nome que introduzir aqui será mostrado aos clientes como o título da sua listagem de oferta. Este campo é pré-povoado com o texto que inseriu para **o pseudónimo Oferta** quando criou a oferta, mas pode alterar este valor. Este nome pode ser comercializado (e pode incluir símbolos de marca registada ou de direitos autorais). O nome não pode ter mais de 50 caracteres e não pode incluir emojis.
 
@@ -180,15 +180,19 @@ Na secção **de contacto de Suporte,** também deve fornecer o **URL de suporte
 
 Forneça aqui pelo menos um (e até três) documentos de marketing relacionados, tais como livros brancos, brochuras, listas de verificação ou apresentações. Estes documentos devem estar em formato .pdf.
 
-### <a name="marketplace-images"></a>Imagens do mercado
+### <a name="store-logos"></a>Logotipos da loja
 
-Forneça logotipos e imagens para a sua oferta. Todas as imagens devem estar em formato PNG. Faça upload do seu logotipo de oferta em dois tamanhos:
+Forneça um ficheiro PNG para o logotipo de tamanho **grande** (entre 216 x 216 e 350 x 350 pixels). O Partner Center irá usá-lo para criar um logotipo de tamanho **Pequeno** (48 x 48 pixels). Pode substituir opcionalmente isto por uma imagem diferente.
 
-* **Pequeno** (48 x 48 pixels)
-* **Grande** (216 x 216 pixels)
+Ambos os tamanhos do logotipo são necessários para serem utilizados em diferentes locais da listagem:
+
+- **Pequeno** (48 x 48)
+- **Grande** (entre 216 x 216 e 350 x 350)
 
 >[!NOTE]
 >Se tiver um problema de upload de ficheiros, certifique-se de que a rede local não bloqueia o `https://upload.xboxlive.com` serviço utilizado pelo Partner Center.
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de ecrã
 
@@ -309,6 +313,6 @@ Se é a sua primeira vez publicando esta oferta, você pode:
 - Na secção **Notas para certificação,** forneça instruções de teste à equipa de certificação para garantir que a sua aplicação seja testada corretamente, além de quaisquer notas suplementares úteis para a compreensão da sua aplicação.
 - Submeta a oferta de publicação selecionando Enviar por ela que **não se possa fazer uma publicação.** Enviaremos um e-mail quando estiver disponível uma versão de pré-visualização da oferta para que possa rever e aprovar. Volte ao Partner Center e selecione **Go-live** para a oferta de publicar a sua oferta ao público.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atualizar uma oferta existente no Marketplace Comercial](./update-existing-offer.md)

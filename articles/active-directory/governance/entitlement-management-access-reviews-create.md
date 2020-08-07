@@ -3,7 +3,7 @@ title: Criar uma revisão de acesso de um pacote de acesso na gestão de direito
 description: Saiba como criar uma política de revisão de acesso para pacotes de acesso à gestão de direitos em avaliações de acesso ao Azure Ative Directory (Preview).
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7aed942058a922fc8da504fe14c5ad8e0bed59a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 012eefe9140703a62d7bb1074ab763191a0976cb
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078595"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798516"
 ---
 # <a name="create-an-access-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Criar uma revisão de acesso de um pacote de acesso na gestão de direitos Azure AD
 
@@ -92,7 +92,7 @@ O e-mail incluirá instruções sobre como rever o acesso aos pacotes de acesso.
   
 Se você atribuiu utilizadores convidados como revisores, e eles não aceitaram o seu convite para convidados Azure AD, eles não receberão e-mails de comentários de acesso AD Azure. Primeiro devem aceitar o convite e criar uma conta com a Azure AD antes de poderem receber os e-mails. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Rever o acesso aos pacotes de acesso](entitlement-management-access-reviews-review-access.md)
 - [Auto-revisão dos pacotes de acesso](entitlement-management-access-reviews-self-review.md)

@@ -1,6 +1,6 @@
 ---
 title: Exemplo de Script do Azure PowerShell - Adicionar um utilizador | Microsoft Docs
-description: Exemplo de Script do Azure PowerShell - Adicionar um utilizador
+description: Saiba como adicionar um utilizador na API Management e obtenha uma chave de subscrição. Consulte um script de amostra e veja recursos disponíveis adicionais.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 11/16/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 2cfbfdfc4374d528159e9e026016a0583a1a9ac9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0573097d9821b8cf14573f2e5c5291461c2c7ed7
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87009072"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843883"
 ---
 # <a name="add-a-user"></a>Adicionar um utilizador
 
@@ -33,7 +33,7 @@ Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer a
 
 [!code-powershell[main](../../../powershell_scripts/api-management/add-user-and-get-subscription-key/add_a_user_and_get_a_subscriptionKey.ps1 "Add a user")]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos relacionados.
 

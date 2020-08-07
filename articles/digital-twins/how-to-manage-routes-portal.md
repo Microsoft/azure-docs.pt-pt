@@ -7,12 +7,12 @@ ms.author: v-lakast
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7786f970f612d2856948e2286ed234e2b0895072
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 7d563c7706529c6f3e280f7d138c0d6ba0dfc849
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836972"
+ms.locfileid: "87902212"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gerir pontos finais e rotas em Azure Digital Twins (portal)
 
@@ -129,44 +129,49 @@ Para enviar dados da Azure Digital Twins para um ponto final, terá de definir u
 
 ### <a name="create-an-event-route"></a>Criar uma rota de eventos 
 
-Uma definição de rota de evento pode conter estes elementos:
-* O ID da rota que você quer usar
+Uma definição de rota de evento contém estes elementos:
+* O nome da rota que pretende usar
 * O nome do ponto final que quer usar
 * Um filtro que define quais os eventos enviados para o ponto final
+    - Para desativar a rota para que não sejam enviados eventos, use um valor de filtro de`false`
+    - Para ativar uma rota que não tenha filtragem específica, use um valor de filtro de`true`
+    - Para obter mais informações sobre qualquer outro tipo de filtro, consulte a secção [*de eventos do Filtro*](#filter-events) abaixo.
 
-Se não houver ID de rota, nenhuma mensagem é encaminhada para fora da Azure Digital Twins.
-Se houver um ID de rota e o filtro estiver `true` , todas as mensagens são encaminhadas para o ponto final.
-Se houver um ID de rota e um filtro diferente for adicionado, as mensagens serão filtradas com base no filtro.
-
-Uma rota deve permitir a seleção de várias notificações e tipos de eventos.
+Uma única rota pode permitir a seleção de várias notificações e tipos de eventos.
 
 Para criar uma rota de eventos, aceda à página de detalhes para a sua instância Azure Digital Twins no [portal Azure](https://portal.azure.com) (pode encontrar a instância introduzindo o seu nome na barra de pesquisa do portal).
 
 A partir do menu de instâncias, selecione _rotas de Eventos._ Em seguida, a partir da página *de rotas do Evento* que se segue, selecione + Crie uma rota de *eventos.* 
 
-Na página de rota de *eventos* que se abre, escolha no mínimo um nome para o seu percurso no campo _Nome_ e selecione o _Ponto Final_ que gostaria de utilizar para criar rota a partir do dropdown.
+Na página de rota de *eventos* Create que se abre, escolha no mínimo:
+* Um nome para o seu percurso no campo _Nome_
+* O _Ponto Final_ que gostaria de usar para criar a rota 
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Screenshot de criar rota de eventos para o seu exemplo.":::
+Para que o percurso seja ativado, também deve adicionar um filtro de rota de **eventos** de pelo menos `true` . (Deixar o valor padrão de `false` irá criar a rota, mas nenhum evento será enviado para ele.) Para isso, alternar o interruptor para o _editor Avançado_ para o ativar e escrever na `true` caixa *Filtro.*
+
+:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Screenshot de criar rota de eventos para o seu exemplo." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
 
 Quando terminar, premir o botão _Guardar_ para criar a sua rota de evento.
 
 ### <a name="filter-events"></a>Filtrar eventos
 
-Sem filtragem, os pontos finais recebem uma variedade de eventos da Azure Digital Twins:
+Como descrito acima, as rotas têm um campo **de filtro.** Se o valor do filtro na sua rota `false` for, não serão enviados eventos para o seu ponto final. 
+
+Depois de permitir o filtro mínimo `true` de, os pontos finais receberão uma variedade de eventos da Azure Digital Twins:
 * Telemetria disparada por [gémeos digitais](concepts-twins-graph.md) usando o serviço Azure Digital Twins API
 * Notificações de mudança de propriedade gémea, disparadas sobre alterações de propriedade para qualquer gémeo no caso Azure Digital Twins
 * Eventos de ciclo de vida, disparados quando gémeos ou relacionamentos são criados ou eliminados
 * Eventos de mudança de modelo, disparados quando [os modelos](concepts-models.md) configurados numa instância Azure Digital Twins são adicionados ou eliminados
 
-Pode restringir os eventos que estão a ser enviados adicionando um **filtro** para um ponto final na sua rota de eventos.
+Pode restringir os tipos de eventos que são enviados definindo um filtro mais específico.
 
-Para adicionar um filtro enquanto está a criar uma rota de eventos, utilize a secção de filtro de rota de _eventos_ da página Criar uma página de *rota de evento.* 
+Para adicionar um filtro de eventos enquanto está a criar uma rota de eventos, utilize a secção de filtro de rota de _eventos_ da página Criar uma página de *rota de evento.* 
 
 Pode selecionar a partir de algumas opções básicas de filtro comum ou utilizar as opções avançadas de filtro para escrever os seus próprios filtros personalizados.
 
 #### <a name="use-the-basic-filters"></a>Use os filtros básicos
 
-Para utilizar os filtros básicos, expanda a opção _de tipos de Eventos_ e selecione as caixas de verificação correspondentes aos eventos em que pretende filtrar. 
+Para utilizar os filtros básicos, expanda a opção _de tipos de Eventos_ e selecione as caixas de verificação correspondentes aos eventos que pretende enviar para o seu ponto final. 
 
 :::row:::
     :::column:::

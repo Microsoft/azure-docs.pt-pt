@@ -6,19 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 09db7684c84bbde038c67f9ccfb3f27f6b61bee6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 24897826c6a70d0810b239b9b8f639787c3dac2a
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539555"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843390"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparar as suas aplicações lógicas e runbooks para a migração de regras de alerta clássicas
 
-Como [já tinha sido anunciado,](monitoring-classic-retirement.md)os alertas clássicos no Azure Monitor estão a ser retirados em setembro de 2019 (foi originalmente julho de 2019). Uma ferramenta de migração está disponível no portal Azure para clientes que usam regras de alerta clássicas e que querem desencadear a migração por si mesmos.
-
 > [!NOTE]
-> Devido ao atraso no lançamento da ferramenta de migração, a data de aposentação dos alertas clássicos de migração foi alargada até 31 de agosto de 2019 a partir da data inicialmente anunciada de 30 de junho de 2019.
+> Como [já foi anunciado,](monitoring-classic-retirement.md)os alertas clássicos no Azure Monitor estão reformados, embora ainda em uso limitado para recursos que ainda não suportam os novos alertas. A data de reforma desses alertas foi alargada. Uma nova data será anunciada em breve.
+>
 
 Se optar por migrar voluntariamente as suas regras clássicas de alerta para novas regras de alerta, esteja ciente de que existem algumas diferenças entre os dois sistemas. Este artigo explica essas diferenças e como pode preparar-se para a mudança.
 
@@ -162,7 +161,7 @@ A maioria dos [nossos parceiros que se integram com alertas clássicos](./partne
 
 Se estiver a utilizar uma integração de parceiros que não está listada aqui, confirme com o fornecedor de integração que a integração funciona com novos alertas métricos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como utilizar a ferramenta de migração](alerts-using-migration-tool.md)
 - [Compreender como funciona a ferramenta de migração](alerts-understand-migration.md)

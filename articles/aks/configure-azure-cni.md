@@ -4,12 +4,12 @@ description: Aprenda a configurar a rede Azure CNI (avançada) no Serviço Azure
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: d025bcddfdee25cddac311ac9a201b7f3afebd22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1bf459c530195b8855169123b8f496e4969403b
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84416856"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87872434"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurar a rede CNI Azure no Serviço Azure Kubernetes (AKS)
 
@@ -73,7 +73,7 @@ Se não especificar maxPods ao criar novos conjuntos de nós, recebe um valor pa
 
 É aplicado um valor mínimo para as cápsulas máximas por nó para garantir espaço para as cápsulas do sistema críticas à saúde do cluster. O valor mínimo que pode ser definido para os pods máximos por nó é de 10 se e somente se a configuração de cada piscina de nós tiver espaço para um mínimo de 30 cápsulas. Por exemplo, definir as cápsulas máximas por nó no mínimo de 10 requer que cada piscina individual de nó tenha um mínimo de 3 nós. Este requisito aplica-se também a cada novo conjunto de nós criado, pelo que se 10 for definido como cápsulas máximas por nó, cada piscina de nó adicionado deve ter pelo menos 3 nós.
 
-| Redes | Mínimo | Máximo |
+| Rede | Mínimo | Máximo |
 | -- | :--: | :--: |
 | Azure CNI | 10 | 250 |
 | Kubenet | 10 | 110 |
@@ -87,7 +87,7 @@ Se não especificar maxPods ao criar novos conjuntos de nós, recebe um valor pa
 
 ### <a name="configure-maximum---existing-clusters"></a>Configurar máximo - aglomerados existentes
 
-A definição maxPod por nó pode ser definida quando se cria uma nova piscina de nós. Se precisar de aumentar a definição de maxPod por nó num cluster existente, adicione uma nova piscina de nós com a nova contagem de maxPod desejada. Depois de migrar as suas cápsulas para a nova piscina, apague a piscina mais antiga. Para eliminar qualquer piscina mais antiga num cluster, certifique-se de que está a configurar os modos de piscina de nó definidos no sistema de conjunto de nós do sistema de node do sistema [sistema[de node-pool do sistema de node do sistema de node do sistema].
+A definição maxPod por nó pode ser definida quando se cria uma nova piscina de nós. Se precisar de aumentar a definição de maxPod por nó num cluster existente, adicione uma nova piscina de nós com a nova contagem de maxPod desejada. Depois de migrar as suas cápsulas para a nova piscina, apague a piscina mais antiga. Para eliminar qualquer piscina mais antiga num cluster, certifique-se de que está a configurar os modos de piscina de nó, conforme definido no documento de [piscinas de nó][system-node-pools]do sistema .
 
 ## <a name="deployment-parameters"></a>Parâmetros de implantação
 
@@ -145,7 +145,7 @@ A imagem a seguir do portal Azure mostra um exemplo de configuração destas def
 
 ![Configuração avançada de rede no portal Azure][portal-01-networking-advanced]
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 As seguintes perguntas e respostas aplicam-se à configuração de rede **Azure CNI.**
 
@@ -171,7 +171,7 @@ As seguintes perguntas e respostas aplicam-se à configuração de rede **Azure 
 
   Não é recomendado, mas esta configuração é possível. A gama de endereços de serviço é um conjunto de IPs virtuais (VIPs) que a Kubernetes atribui a serviços internos no seu cluster. O Azure Networking não tem visibilidade na gama ip de serviço do cluster Kubernetes. Devido à falta de visibilidade na gama de endereços de serviço do cluster, é possível criar mais tarde uma nova sub-rede na rede virtual do cluster que se sobreponha à gama de endereços de serviço. Se tal sobreposição ocorrer, kubernetes poderia atribuir um serviço um IP que já está em uso por outro recurso na sub-rede, causando comportamentos ou falhas imprevisíveis. Ao garantir que utiliza um intervalo de endereços fora da rede virtual do cluster, pode evitar este risco de sobreposição.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre networking em AKS nos seguintes artigos:
 
@@ -214,4 +214,4 @@ Os clusters Kubernetes criados com suporte a motor AKS suportam os plugins [kube
 [network-policy]: use-network-policies.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [network-comparisons]: concepts-network.md#compare-network-models
-[sistema-nó-piscinas]: use-system-pools.md
+[system-node-pools]: use-system-pools.md

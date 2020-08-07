@@ -2,7 +2,7 @@
 title: Edite as informações do seu grupo - Azure Ative Directory / Microsoft Docs
 description: Instruções sobre como editar as informações do seu grupo utilizando o Diretório Ativo Azure.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 410570798e468244763c05b3275801427dc4b2fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e9b38208526ba83e0a0e31e2e139e340a3ee511
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604238"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797530"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Edite as informações do seu grupo utilizando o Azure Ative Directory
 
@@ -55,7 +55,7 @@ Utilizando o Azure Ative Directory (Azure AD), pode editar as definições de um
     
     - **Identificação de objeto.** Não é possível alterar o ID do objeto, mas pode copiá-lo para ser utilizado nos comandos PowerShell para o grupo. Para obter mais informações sobre a utilização de cmdlets PowerShell, consulte [cmdlets do Azure Ative Directory para configurar as definições do grupo](../users-groups-roles/groups-settings-v2-cmdlets.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Estes artigos fornecem informações adicionais acerca do Azure Active Directory.
 
 - [Ver os seus grupos e membros](active-directory-groups-view-azure-portal.md)

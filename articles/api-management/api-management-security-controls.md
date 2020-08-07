@@ -1,18 +1,18 @@
 ---
 title: Controlos de segurança para a Azure API Management
-description: Uma lista de controlos de segurança para avaliar a Gestão da API
+description: Reveja uma lista de controlos de segurança para avaliar a Gestão da API. Estes incluem controlos de rede, identidade e proteção de dados.
 services: api-management
 author: vladvino
 ms.service: api-management
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: vlvinogr
-ms.openlocfilehash: 670050efe01fb658fab52a43914f193e9798b828
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a147179f7b55e43379b3c3fa3a7a0767cc97b198
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75751134"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902580"
 ---
 # <a name="security-controls-for-api-management"></a>Controlos de segurança para a Gestão da API
 
@@ -22,7 +22,7 @@ Este artigo documenta os controlos de segurança incorporados na API Management.
 
 ## <a name="network"></a>Rede
 
-| Controlo de segurança | Sim/Não | Notas | Documentation |
+| Controlo de segurança | Sim/Não | Notas | Documentação |
 |---|---|--|--|
 | Suporte ao ponto final de serviço| Não | |  |
 | Suporte à injeção VNet| Sim | |  |
@@ -31,7 +31,7 @@ Este artigo documenta os controlos de segurança incorporados na API Management.
 
 ## <a name="monitoring--logging"></a>Monitorização & registos
 
-| Controlo de segurança | Sim/Não | Notas| Documentation |
+| Controlo de segurança | Sim/Não | Notas| Documentação |
 |---|---|--|--|
 | Suporte de monitorização Azure (análise de log, insights de aplicativo, etc.)| Sim | | |
 | Registo e auditoria de avião de controlo e gestão| Sim | [Registos de atividade do Monitor Azure](../azure-monitor/platform/platform-logs-overview.md) | |
@@ -40,14 +40,14 @@ Este artigo documenta os controlos de segurança incorporados na API Management.
 
 ## <a name="identity"></a>Identidade
 
-| Controlo de segurança | Sim/Não | Notas| Documentation |
+| Controlo de segurança | Sim/Não | Notas| Documentação |
 |---|---|--|--|
 | Autenticação| Sim | |  |
 | Autorização| Sim | |  |
 
 ## <a name="data-protection"></a>Proteção de dados
 
-| Controlo de segurança | Sim/Não | Notas | Documentation |
+| Controlo de segurança | Sim/Não | Notas | Documentação |
 |---|---|--|--|
 | Encriptação do lado do servidor em repouso: teclas geridas pela Microsoft | Sim | Dados sensíveis, tais como certificados, chaves e valores de nome secreto são encriptados com chaves geridas pelo serviço, por instância de serviço. |  |
 | Encriptação do lado do servidor em repouso: teclas geridas pelo cliente (BYOK) | Não | Todas as chaves de encriptação são por instância de serviço e são geridas pelo serviço. |  |
@@ -58,7 +58,7 @@ Este artigo documenta os controlos de segurança incorporados na API Management.
 
 ## <a name="configuration-management"></a>Gestão da configuração
 
-| Controlo de segurança | Sim/Não | Notas| Documentation |
+| Controlo de segurança | Sim/Não | Notas| Documentação |
 |---|---|--|--|
 | Suporte de gestão de configuração (versão da configuração, etc.)| Sim | Utilizando o [Kit de Recursos de Gestão de API da Azure](https://aka.ms/apimdevops) |  |
 
@@ -70,6 +70,6 @@ Esta secção documenta vulnerabilidades comuns que não afetam a Azure API Mana
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ticketbleed (CVE-2016-9244) | A ticketbleed é uma vulnerabilidade na implementação da extensão TLS SessionTicket encontrada em alguns produtos F5. Permite a fuga ("sangramento") de até 31 bytes de dados de memória não iniializada. Isto é causado pela pilha TLS acolchoando um ID de sessão, passado do cliente, com dados para torná-lo 32 bits de comprimento. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre os [controlos de segurança incorporados nos serviços da Azure.](../security/fundamentals/security-controls.md)

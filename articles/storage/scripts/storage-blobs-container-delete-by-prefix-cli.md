@@ -1,6 +1,6 @@
 ---
 title: Exemplo do Script da CLI do Azure - Eliminar contentores pelo prefixo | Microsoft Docs
-description: Elimine contentores de blobs do Armazenamento do Azure com base num prefixo do nome do contentor.
+description: Elimine os recipientes de bolhas de armazenamento Azure com base num prefixo do nome do recipiente e, em seguida, limpe a colocação. Consulte links de ajuda para comandos utilizados na amostra de script.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,12 @@ ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 66869b7dc38e11b614ebc89538c2c195122b5bb3
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: aeccf255004cd4512fbc591942324341504b20f7
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87479562"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87901900"
 ---
 # <a name="use-an-azure-cli-script-to-delete-containers-based-on-container-name-prefix"></a>Utilize um script Azure CLI para apagar contentores com base no prefixo do nome do recipiente
 

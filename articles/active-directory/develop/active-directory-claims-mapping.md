@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 08/06/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 29dc03d663d590c13a1948411ed597388750c1d7
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 82866daaf720fc6b1ea9ba823587c921fd438b9c
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428008"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902478"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: Personalizar reclamações emitidas em fichas para uma aplicação específica num inquilino (Preview)
 
@@ -261,13 +261,15 @@ Para controlar as reclamações emitidas e de onde os dados provêm, utilize as 
 **Tipo de dados:** Bolha JSON com uma ou mais entradas de esquema de reclamação
 
 **Resumo:** Este imóvel define quais as reclamações que estão presentes nos tokens afetados pela apólice, além do conjunto de reclamações básicas e do conjunto de reclamações fundamentais.
-Para cada entrada de esquema de reclamação definida neste imóvel, é necessária determinadas informações. Especifique de onde os dados são provenientes **(par valor** ou **origem/iD),** e que alegam que os dados são emitidos como **(Tipo de Reclamação).**
+Para cada entrada de esquema de reclamação definida neste imóvel, é necessária determinadas informações. Especifique de onde os dados provêm **(Valor**, **par de fonte/ID**, ou **par Source/ExtensionID**), e que alegam que os dados são emitidos como **(Tipo de Reclamação).**
 
 ### <a name="claim-schema-entry-elements"></a>Elementos de entrada de esquema de reclamação
 
 **Valor:** O elemento Valor define um valor estático como os dados a emitir na reclamação.
 
-**Par de origem/ID:** Os elementos De Origem e ID definem de onde provêm os dados da reclamação. 
+**Par de origem/ID:** Os elementos De Origem e ID definem de onde provêm os dados da reclamação.  
+
+**Par Source/ExtensionID:** Os elementos Source e ExtensionID definem o atributo de extensão do esquema de diretório de onde os dados da reclamação são provenientes. Para obter mais informações, consulte [utilizando atributos de extensão de esquema de diretório em sinistros](active-directory-schema-extensions.md).
 
 Desaguise o elemento Fonte a um dos seguintes valores: 
 
@@ -284,7 +286,7 @@ O elemento ID identifica qual o imóvel na fonte que fornece o valor para a recl
 
 #### <a name="table-3-valid-id-values-per-source"></a>Quadro 3: Valores de identificação válidos por fonte
 
-| Origem | ID | Descrição |
+| Fonte | ID | Descrição |
 |-----|-----|-----|
 | Utilizador | surname | Nome da família |
 | Utilizador | givenname | Nome Próprio |
@@ -385,7 +387,7 @@ Com base no método escolhido, espera-se um conjunto de entradas e saídas. Defi
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Quadro 5: Atributos permitidos como fonte de dados para SAML NameID
 
-|Origem|ID|Descrição|
+|Fonte|ID|Descrição|
 |-----|-----|-----|
 | Utilizador | correio|Endereço de E-mail|
 | Utilizador | nome do utilizadorprincipal|Nome Principal de Utilizador|
@@ -528,7 +530,7 @@ Neste exemplo, cria-se uma política que emite uma reivindicação personalizada
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - Para saber como personalizar as reclamações emitidas no token SAML através do portal Azure, consulte [Como: Personalizar reclamações emitidas no token SAML para aplicações empresariais](active-directory-saml-claims-customization.md)
 - Para saber mais sobre os atributos de extensão, consulte [utilizando atributos de extensão de esquema de diretório em sinistros](active-directory-schema-extensions.md).

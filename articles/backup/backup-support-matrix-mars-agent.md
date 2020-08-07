@@ -3,12 +3,12 @@ title: Matriz de suporte para o agente MARS
 description: Este artigo resume o suporte de backup do Azure quando faz cópias de segurança que estão a executar o agente Microsoft Azure Recovery Services (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5ff9510dfa31bb947d50b1a91fb7f73c2d767471
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2b719bd36c27336b3fe24cdb904715bf8194ed70
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538654"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87872417"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para cópia de segurança com o agente Microsoft Azure Recovery Services (MARS)
 
@@ -45,7 +45,7 @@ Quando utiliza o agente MARS para fazer o armazenamento de dados, o agente tira 
 --- | ---
 Tamanho |  O espaço livre na pasta cache deve ser de pelo menos 5 a 10% do tamanho total dos seus dados de backup.
 Localização | A pasta cache deve ser armazenada localmente na máquina que está a ser apoiada, e deve estar online. A pasta cache não deve estar numa partilha de rede, em suportes amovíveis ou num volume offline.
-Pasta | A pasta cache não deve ser encriptada num volume deduplicado ou numa pasta que seja comprimida, que seja escassa, ou que tenha um ponto de reparse.
+Pasta | A pasta de cache não deve ser encriptada num volume deduplicado ou numa pasta que seja comprimida, que seja escassa, ou que tenha um ponto de reparse.
 Alterações de localização | Pode alterar a localização da cache, parando o motor de reserva `net stop bengine` () e copiando a pasta de cache para uma nova unidade. (Certifique-se de que a nova unidade tem espaço suficiente.) Em seguida, atualize duas entradas de registo em **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** **(Config/ScratchLocation** e **Config/CloudBackUpProvider/ScratchLocation**) para a nova localização e reinicie o motor.
 
 ## <a name="networking-and-access-support"></a>Suporte em rede e acesso
@@ -54,7 +54,7 @@ Alterações de localização | Pode alterar a localização da cache, parando o
 
 O agente MARS precisa de acesso a estes URLs:
 
-- <http://www.msftncsi.com/ncsi.txt>
+- `http://www.msftncsi.com/ncsi.txt`
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *. MicrosoftOnline.com
@@ -69,7 +69,7 @@ O acesso a todos os endereços URLs e IP listados acima utiliza o protocolo HTTP
 
 ### <a name="azure-expressroute-support"></a>Suporte Azure ExpressRoute
 
-Pode fazer o back up dos seus dados através do Azure ExpressRoute com o espreitamento público (disponível para circuitos antigos) e o espreitamento da Microsoft. O backup sobre o espreitamento privado não é suportado.
+Pode fazer o back up dos seus dados através do Azure ExpressRoute com o espreitamento público (disponível para circuitos antigos) e o espreitamento da Microsoft. Backup sobre olhando privado não é apoiado.
 
 Com o acompanhamento público: Garantir o acesso aos seguintes domínios/endereços:
 
@@ -79,7 +79,7 @@ Com o acompanhamento público: Garantir o acesso aos seguintes domínios/endere�
 - `.microsoftonline.com`
 - `.windows.net`
 
-Com o olhar da Microsoft, selecione os seguintes serviços/regiões e valores comunitários relevantes:
+Com o estomamento da Microsoft, selecione os seguintes serviços/regiões e valores comunitários relevantes:
 
 - Diretório Ativo Azure (12076:5060)
 - Região microsoft Azure (de acordo com a localização do cofre dos Serviços de Recuperação)
@@ -89,6 +89,16 @@ Para obter mais informações, consulte os [requisitos de encaminhamento Express
 
 >[!NOTE]
 >O "Peering Público" é precotado para novos circuitos.
+
+### <a name="private-endpoint-support"></a>Suporte private Endpoint
+
+Agora pode utilizar o Private Endpoints para fazer o back up de segurança dos seus dados dos servidores até ao cofre dos Serviços de Recuperação. Uma vez que o Azure Ative Directory não suporta atualmente pontos finais privados, os IPs e FQDNs necessários para o Azure Ative Directory terão de ser autorizados a aceder separadamente.
+
+Quando utilizar o Agente MARS para fazer o apoio aos seus recursos no local, certifique-se de que a sua rede no local (que contém os seus recursos a serem apoiados) é espremiada com o Azure VNet que contém um ponto final privado para o cofre. Em seguida, pode continuar a instalar o agente MARS e configurar a cópia de segurança. No entanto, deve garantir que todas as comunicações de backup acontecem apenas através da rede de esprevação.
+
+Se remover os pontos finais privados do cofre depois de um agente da MARS ter sido registado, terá de voltar a registar o contentor com o cofre. Não precisas de parar de proteção para eles.
+
+Leia mais sobre [os pontos finais privados para a Azure Backup](private-endpoints.md).
 
 ### <a name="throttling-support"></a>Apoio de estrangulamento
 
@@ -124,7 +134,7 @@ Para obter mais informações, consulte [os sistemas operativos MABS e DPM supor
 
 ### <a name="operating-systems-at-end-of-support"></a>Sistemas operativos no final do suporte
 
-Os seguintes sistemas operativos encontram-se no final do suporte e é fortemente recomendado atualizar o sistema operativo para continuar protegido.
+Os seguintes sistemas operativos estão no final do suporte e é fortemente recomendado atualizar o sistema operativo para continuar protegido.
 
 Se os compromissos existentes impedirem a atualização do sistema operativo, considere migrar os servidores windows para Azure VMs e aproveitar as cópias de segurança Azure VM para continuar a manter-se protegida. Visite [a página de migração aqui](https://azure.microsoft.com/migration/windows-server/) para obter mais informações sobre a migração do seu servidor Windows.
 
@@ -199,7 +209,7 @@ Ao utilizar a funcionalidade [de Restauro Instantâneo](backup-instant-restore-c
 
 As cópias de segurança não podem ser restauradas numa máquina-alvo que está a executar uma versão anterior do sistema operativo. Por exemplo, uma cópia de segurança tirada de um computador que está a executar o Windows 7 pode ser restaurada no Windows 8 ou posteriormente. Mas uma cópia de segurança tirada de um computador que está a executar o Windows 8 não pode ser restaurada num computador que está a executar o Windows 7.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a arquitetura de backup que usa o agente MARS.](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders)
 - Saiba o que é suportado quando [executar o agente MARS no MABS ou num servidor DPM](backup-support-matrix-mabs-dpm.md).

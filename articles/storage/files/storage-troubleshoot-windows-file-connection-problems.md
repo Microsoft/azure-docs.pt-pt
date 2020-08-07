@@ -1,18 +1,18 @@
 ---
 title: Resolução de problemas Azure Files problemas no Windows Microsoft Docs
-description: Problemas de resolução de problemas no Azure Files no Windows
+description: Problemas de resolução de problemas no Azure Files no Windows. Consulte questões comuns relacionadas com ficheiros Azure quando se conecta a partir de clientes windows e veja possíveis resoluções.
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e855ed169a0c4eca7dda696c03deedb9e519e9bf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ecd7b0bc34d532e7d748bc9468d3a155b9aa2ad2
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259979"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87901747"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Resolver problemas de Ficheiros do Azure no Windows
 
