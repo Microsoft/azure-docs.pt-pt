@@ -3,12 +3,12 @@ title: Fazer o back bases de dados do SQL Server para o Azure
 description: Este artigo explica como fazer o back up SQL Server para Azure. O artigo também explica a recuperação do SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: df8543d7f083dd2bf9d2421b4808de5b60a51e30
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 28644065619771069e556c941d2c5a77626e1ba6
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513783"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922902"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sobre a Cópia de Segurança do SQL Server em VMs do Azure
 
@@ -40,7 +40,7 @@ Esta solução aproveita as APIs nativas do SQL para obter cópias de segurança
 Antes de começar, verifique o seguinte:
 
 1. Certifique-se de que tem uma instância SQL Server a decorrer em Azure. Pode [criar rapidamente uma instância SQL Server](../azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart.md) no mercado.
-2. Reveja a [consideração](sql-support-matrix.md#feature-consideration-and-limitations) de recursos e [suporte ao cenário](sql-support-matrix.md#scenario-support).
+2. Reveja as [considerações](sql-support-matrix.md#feature-considerations-and-limitations) de recurso e [o suporte ao cenário](sql-support-matrix.md#scenario-support).
 3. [Reveja questões comuns](faq-backup-sql-server.md) sobre este cenário.
 
 ## <a name="set-vm-permissions"></a>Definir permissões VM
@@ -148,7 +148,7 @@ catch
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como](backup-sql-server-database-azure-vms.md) fazer o backup das bases de dados do SQL Server.
 * [Saiba como](restore-sql-database-azure-vm.md) restaurar as bases de dados do SQL Server.

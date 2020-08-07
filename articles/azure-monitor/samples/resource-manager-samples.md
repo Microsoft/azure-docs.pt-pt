@@ -7,16 +7,16 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: ''
-ms.openlocfilehash: 4446eef481e8370f7457311f6eae6ce40f9e6727
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ab869fc8577d4d1934be96404ded5a2051237bbf
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539266"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922733"
 ---
 # <a name="resource-manager-template-samples-for-azure-monitor"></a>Amostras de modelo de gestor de recursos para monitor Azure
 
-O Azure Monitor pode ser implantado e configurado à escala utilizando o [modelo do Gestor de Recursos Azure](../../azure-resource-manager/templates/template-syntax.md). Os seguintes artigos fornecem modelos de amostra para diferentes funcionalidades do Monitor Azure. Estas amostras podem ser modificadas para os seus requisitos específicos e implementadas usando qualquer método padrão para a implementação de modelos de Gestor de Recursos. 
+O Monitor Azure pode ser implantado e configurado à escala utilizando o [modelo do Gestor de Recursos Azure](../../azure-resource-manager/templates/template-syntax.md). Os seguintes artigos fornecem modelos de amostra para diferentes funcionalidades do Monitor Azure. Estas amostras podem ser modificadas para os seus requisitos específicos e implementadas usando qualquer método padrão para a implementação de modelos de Gestor de Recursos. 
 
 ## <a name="deploying-the-sample-templates"></a>Implantação dos modelos de amostra
 Os passos básicos para utilizar as amostras são:
@@ -49,7 +49,7 @@ az deployment group create \
 - Alertas
   - [Regras](resource-manager-alerts-log.md) de alerta de registo - Alertas de consultas de registo e registo de atividades Azure.
   - [Regras de alerta métrico](resource-manager-alerts-metric.md) - Alertas de métricas usando diferentes tipos de lógica.
-- Insights de Aplicação - Em breve.
+- [Application Insights](resource-manager-app-resource.md)
 - [Definições de diagnóstico](resource-manager-diagnostic-settings.md) - Crie definições de diagnóstico para encaminhar registos e métricas de diferentes tipos de recursos.
 - [Consultas de registo](resource-manager-log-queries.md) - Crie consultas de registos guardados num espaço de trabalho log analytics.
 - [Log Analytics Workspace](resource-manager-workspace.md) - Criar log analytics workspace e configurar a recolha de diferentes fontes de dados do agente Log Analytics.
@@ -59,6 +59,6 @@ az deployment group create \
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [os modelos do Gestor de Recursos](../../azure-resource-manager/templates/overview.md)

@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/05/2020
-ms.openlocfilehash: b621b16d789e16a6f44536a6e8c18b5aa3690d74
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: a2a860a2ff96c74f9d19fe7abfd845bbae8023cd
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905453"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922273"
 ---
 # <a name="quickstart-create-a-search-index-using-the-azuresearchdocuments-client-library"></a>Quickstart: Criar um índice de pesquisa utilizando a biblioteca de clientes Azure.Search.Documents
 
 Utilize a nova [biblioteca de clientesAzure.Search.Doc(versão 11)](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) para criar uma aplicação de consola .NET Core em C# que cria, carrega e consulta um índice de pesquisa.
 
-[Faça o download do código fonte](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart-v11) para começar com um projeto acabado ou siga os passos deste artigo para criar o seu próprio.
+[Faça o download do código fonte](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart-v11) para começar com um projeto acabado ou siga os passos deste artigo para criar o seu próprio.
 
 > [!NOTE]
 > À procura de uma versão anterior? Consulte [Criar um índice de pesquisa utilizando microsoft.Azure.Search v10](search-get-started-dotnet-v10.md) em vez disso.
@@ -183,13 +183,17 @@ Ao carregar documentos, deve utilizar um objeto [IndexDocumentsBatch.](https://d
 
     Console.WriteLine("{0}", "Loading index...\n");
     qryclient.IndexDocuments(batch, idxoptions);
+    ```
 
+    Uma vez inicializando o objeto [IndexDocumentsBatch,](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) pode enviá-lo para o índice chamando [IndexDocuments](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient.indexdocuments) no seu objeto [SearchClient.](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient)
+
+1. Como esta é uma aplicação de consola que executa todos os comandos sequencialmente, adicione um tempo de espera de 2 segundos entre indexação e consultas.
+
+    ```csharp
     // Wait 2 seconds for indexing to complete before starting queries (for demo and console-app purposes only)
     Console.WriteLine("Waiting for indexing...\n");
     System.Threading.Thread.Sleep(2000);
     ```
-
-    Uma vez inicializando o objeto [IndexDocumentsBatch,](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) pode enviá-lo para o índice chamando [IndexDocuments](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient.indexdocuments) no seu objeto [SearchClient.](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient)
 
     O atraso de 2 segundos compensa a indexação, que é assíncronia, para que todos os documentos possam ser indexados antes de as consultas serem executadas. A codificação num atraso é normalmente apenas necessária em demos, testes e aplicações de amostra.
 
@@ -275,7 +279,7 @@ Prima F5 para reconstruir a app e executar o programa na sua totalidade.
 
 A saída inclui mensagens de [Console.WriteLIne,](https://docs.microsoft.com/dotnet/api/system.console.writeline)com a adição de informações e resultados de consulta.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 

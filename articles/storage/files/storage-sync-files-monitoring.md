@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9a4e4a30c5a84baf5a78d0a90f7302e2b31a5946
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 1d7b29bbd508223888c6f205e25008c0b29fecea
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903532"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922939"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorizar o Azure File Sync
 
@@ -70,12 +70,14 @@ Os alertas notificam-no proativamente quando forem encontradas condições impor
 
 A tabela a seguir enumera alguns cenários de exemplo para monitorizar e a métrica adequada a utilizar para o alerta:
 
-| Cenário | Métrica para usar para alerta |
+| Scenario | Métrica para usar para alerta |
 |-|-|
-| Saúde do ponto final do servidor no portal = Erro | Resultado da sessão de sincronização |
+| Saúde do ponto final do servidor mostra um erro no portal | Resultado da sessão de sincronização |
 | Os ficheiros não estão a sincronizar um servidor ou ponto final na nuvem | Ficheiros não sincronizados |
 | O servidor registado não está a comunicar com o Serviço de Sincronização de Armazenamento | Estado on-line do servidor |
 | O tamanho da recuperação do nível da nuvem ultrapassou os 500GiB num dia  | Tamanho de recuperação de nível de nuvem |
+
+Para obter instruções sobre como criar alertas para estes cenários, consulte a secção [Exemplos de Alerta.](#alert-examples)
 
 ## <a name="storage-sync-service"></a>Serviço de Sincronização de Armazenamento
 
@@ -110,7 +112,7 @@ Para visualizar a saúde do servidor registado, a saúde do ponto final do servi
 
 ## <a name="windows-server"></a>Windows Server
 
-No Windows Server, pode visualizar o tiering da nuvem, o servidor registado e a saúde sincronizada.
+No Windows Server que tem o agente Azure File Sync instalado, pode visualizar o tiering da nuvem, o servidor registado e a saúde sincronizada.
 
 ### <a name="event-logs"></a>Registos de eventos
 
@@ -162,6 +164,100 @@ Os seguintes contadores de desempenho para Azure File Sync estão disponíveis n
 | Operações de sincronização DA AFS\Ficheiros de sincronização descarregados/seg | Número de ficheiros descarregados por segundo. |
 | Operações de sincronização AFS\Ficheiros de sincronização carregados/seg | Número de ficheiros enviados por segundo. |
 | OPERAÇÕES DE SINCRONIZAÇÃO AFS\Total sync operações/seg | Número total de ficheiros sincronizados (carregar e transferir). |
+
+## <a name="alert-examples"></a>Exemplos de alerta
+Esta secção fornece alguns alertas de exemplo para Azure File Sync.
+
+  > [!Note]  
+  > Se criar um alerta e for muito barulhento, ajuste o valor do limiar e alerte a lógica.
+  
+### <a name="how-to-create-an-alert-if-the-server-endpoint-health-shows-an-error-in-the-portal"></a>Como criar um alerta se a saúde do ponto final do servidor mostrar um erro no portal
+
+1. No **portal Azure,** navegue para o respetivo **Serviço de Sincronização de Armazenamento**. 
+2. Vá à secção **de Monitorização** e clique em **Alertas**. 
+3. Clique em **+ Nova regra de alerta** para criar uma nova regra de alerta. 
+4. Configure a condição clicando **em Selecionar a condição**.
+5. Dentro da lâmina **lógica de sinal configurar,** clique no **resultado da sessão de Sincronização** com o nome do sinal.  
+6. Selecione a seguinte configuração de dimensão: 
+    - Nome de dimensão: **Nome do ponto final do servidor**  
+    - Operador:**=** 
+    - Valores de dimensão: **Todos os valores atuais e futuros**  
+7. Navegue para **a Lógica de Alerta** e complete o seguinte: 
+    - Limite definido para **Estática** 
+    - Operador: **Menos de** 
+    - Tipo de agregação: **Máximo**  
+    - Valor limiar: **1** 
+    - Avaliado com base em: Granularidade agregação = **24 horas** Frequência de avaliação = **A cada hora** 
+    - Clique **em 'Fazer'.** 
+8. Clique **em Selecionar grupo de ação** para adicionar um grupo de ação (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
+9. Preencha os **detalhes do Alerta** como o nome da regra de **alerta,** **descrição** e **severidade**.
+10. Clique em **Criar regra de alerta**. 
+
+### <a name="how-to-create-an-alert-if-files-are-failing-to-sync-to-a-server-or-cloud-endpoint"></a>Como criar um alerta se os ficheiros não estiverem a sincronizar um servidor ou ponto final na nuvem
+
+1. No **portal Azure,** navegue para o respetivo **Serviço de Sincronização de Armazenamento**. 
+2. Vá à secção **de Monitorização** e clique em **Alertas**. 
+3. Clique em **+ Nova regra de alerta** para criar uma nova regra de alerta. 
+4. Configure a condição clicando **em Selecionar a condição**.
+5. Dentro da lâmina lógica de **sinal configurar,** clique em **Ficheiros não sincronizando** com o nome do sinal.  
+6. Selecione a seguinte configuração de dimensão: 
+     - Nome de dimensão: **Nome do ponto final do servidor**  
+     - Operador:**=** 
+     - Valores de dimensão: **Todos os valores atuais e futuros**  
+7. Navegue para **a Lógica de Alerta** e complete o seguinte: 
+     - Limite definido para **Estática** 
+     - Operador: **Maior do que** 
+     - Tipo de agregação: **Total**  
+     - Valor limiar: **100** 
+     - Avaliado com base em: Granularidade agregação = **5 minutos** / Frequência de avaliação = **A cada 5 minutos** 
+     - Clique **em 'Fazer'.** 
+8. Clique **em Selecionar grupo de ação** para adicionar um grupo de ação (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
+9. Preencha os **detalhes do Alerta** como o nome da regra de **alerta,** **descrição** e **severidade**.
+10. Clique em **Criar regra de alerta**. 
+
+### <a name="how-to-create-an-alert-if-a-registered-server-is-failing-to-communicate-with-the-storage-sync-service"></a>Como criar um alerta se um servidor registado não estiver a comunicar com o Serviço de Sincronização de Armazenamento
+
+1. No **portal Azure,** navegue para o respetivo **Serviço de Sincronização de Armazenamento**. 
+2. Vá à secção **de Monitorização** e clique em **Alertas**. 
+3. Clique em **+ Nova regra de alerta** para criar uma nova regra de alerta. 
+4. Configure a condição clicando **em Selecionar a condição**.
+5. Dentro da lâmina lógica de **sinal configurar,** clique no **estado on-line do Servidor** com o nome de sinal.  
+6. Selecione a seguinte configuração de dimensão: 
+     - Nome de dimensão: **Nome do servidor**  
+     - Operador:**=** 
+     - Valores de dimensão: **Todos os valores atuais e futuros**  
+7. Navegue para **a Lógica de Alerta** e complete o seguinte: 
+     - Limite definido para **Estática** 
+     - Operador: **Menos de** 
+     - Tipo de agregação: **Máximo**  
+     - Valor limiar (em bytes): **1** 
+     - Avaliado com base em: Granularidade agregação = **1 hora** / Frequência de avaliação = **A cada 30 minutos** 
+     - Clique **em 'Fazer'.** 
+8. Clique **em Selecionar grupo de ação** para adicionar um grupo de ação (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
+9. Preencha os **detalhes do Alerta** como o nome da regra de **alerta,** **descrição** e **severidade**.
+10. Clique em **Criar regra de alerta**. 
+
+### <a name="how-to-create-an-alert-if-the-cloud-tiering-recall-size-has-exceeded-500gib-in-a-day"></a>Como criar um alerta se o tamanho de recolha de nível de nuvem excedeu 500GiB num dia
+
+1. No **portal Azure,** navegue para o respetivo **Serviço de Sincronização de Armazenamento**. 
+2. Vá à secção **de Monitorização** e clique em **Alertas**. 
+3. Clique em **+ Nova regra de alerta** para criar uma nova regra de alerta. 
+4. Configure a condição clicando **em Selecionar a condição**.
+5. Dentro da lâmina **lógica de sinal configurar,** clique no **tamanho da recuperação do nível de nuvem** sob o nome de sinal.  
+6. Selecione a seguinte configuração de dimensão: 
+     - Nome de dimensão: **Nome do servidor**  
+     - Operador:**=** 
+     - Valores de dimensão: **Todos os valores atuais e futuros**  
+7. Navegue para **a Lógica de Alerta** e complete o seguinte: 
+     - Limite definido para **Estática** 
+     - Operador: **Maior do que** 
+     - Tipo de agregação: **Total**  
+     - Valor limiar (in bytes): **67108864000** 
+     - Avaliado com base em: Granularidade agregação = **24 horas** Frequência de avaliação = **A cada hora** 
+    - Clique **em 'Fazer'.** 
+8. Clique **em Selecionar grupo de ação** para adicionar um grupo de ação (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
+9. Preencha os **detalhes do Alerta** como o nome da regra de **alerta,** **descrição** e **severidade**.
+10. Clique em **Criar regra de alerta**. 
 
 ## <a name="next-steps"></a>Passos seguintes
 - [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)

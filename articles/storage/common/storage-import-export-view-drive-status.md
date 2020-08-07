@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: c75c9a2d0b491cc00d0fc58054b9bb1e58a364b8
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: bf44b24b9222072bf5f1493b36b0dfcca24b5389
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905725"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923616"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Ver o estado das tarefas de Importação/Exportação do Azure
 
@@ -31,7 +31,7 @@ Você vê um dos seguintes estatutos de trabalho dependendo de onde a sua unidad
 | Estatuto do Trabalho | Descrição |
 |:--- |:--- |
 | Criação | Após a criação de um trabalho, o seu estado está definido para **criar.** Enquanto o trabalho está no estado **de Criação,** o serviço de Importação/Exportação assume que as unidades não foram enviadas para o centro de dados. Um trabalho pode permanecer neste estado por até duas semanas, após o qual é automaticamente eliminado pelo serviço. |
-| Shipping | Depois de enviar o seu pacote, deverá atualizar as informações de rastreio no portal Azure.  Isto transforma o trabalho em estado **de transporte.** O trabalho permanece no estado **de transporte** por até duas semanas. 
+| Envio | Depois de enviar o seu pacote, deverá atualizar as informações de rastreio no portal Azure.  Isto transforma o trabalho em estado **de transporte.** O trabalho permanece no estado **de transporte** por até duas semanas. 
 | Recebido | Depois de todas as unidades serem recebidas no centro de dados, o estado de trabalho está definido para **Recebido.** |
 | Transferência | Uma vez iniciada a transformação de pelo menos uma unidade, o estado de trabalho está definido para **a transferência.** Para mais informações, vá à [Drive States.](#view-drive-status) |
 | Empacotamento | Depois de todas as unidades terem concluído o processamento, o trabalho é colocado no estado **de Embalagem** até que as unidades sejam enviadas de volta para si. |
@@ -73,7 +73,7 @@ O tempo necessário para processar um trabalho de importação/exportação vari
 -  Tipo de trabalho e tamanho dos dados que estão a ser copiados
 -  Número de discos num trabalho. 
 
-O serviço de importação/exportação não tem um SLA, mas o serviço esforça-se por completar a cópia em 7 a 10 dias após a recebido dos discos. Além do estado publicado no Portal Azure, as APIs rest podem ser usadas para acompanhar o progresso do trabalho. O parâmetro por cento completo na chamada API da operação [Empregos listas](/previous-versions/azure/dn529083(v=azure.100)) fornece o progresso percentual da cópia.
+O serviço de importação/exportação não tem um SLA, mas o serviço esforça-se por completar a cópia em 7 a 10 dias após a recebido dos discos. Além do estado publicado no portal Azure, as APIs REST podem ser usadas para acompanhar o progresso do trabalho. O parâmetro por cento completo na chamada API da operação [Empregos listas](/previous-versions/azure/dn529083(v=azure.100)) fornece o progresso percentual da cópia.
 
 
 ## <a name="next-steps"></a>Passos seguintes

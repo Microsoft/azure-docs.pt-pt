@@ -2,13 +2,13 @@
 title: Mobilizar recursos para inquilino
 description: Descreve como implantar recursos no âmbito do inquilino num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
-ms.date: 07/27/2020
-ms.openlocfilehash: a6523ff70dc7307713bb6aecf90e2ea9f8e2bfdd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/06/2020
+ms.openlocfilehash: 3fbf869e371f385a335e4a154bc811a6fc8cab97
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321756"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922528"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Criar recursos ao nível dos inquilinos
 
@@ -27,7 +27,6 @@ Para políticas de Azure, utilize:
 Para o controlo de acesso baseado em funções, utilize:
 
 * [papéAs de assinaturas](/azure/templates/microsoft.authorization/roleassignments)
-* [funçõesDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
 
 Para modelos aninhados que se desdobram em grupos de gestão, subscrições ou grupos de recursos, utilize:
 

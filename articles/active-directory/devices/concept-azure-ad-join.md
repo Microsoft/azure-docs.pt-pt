@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3839c7b87e5d07368727d037b585965dce91303a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 31374b851d90e43e7380024923c3ad025859b7a0
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058092"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923735"
 ---
 # <a name="azure-ad-joined-devices"></a>Dispositivos associados ao Azure AD
 
@@ -28,14 +28,14 @@ A ad a ad azure destina-se a organizações que querem ser apenas cloud-first ou
 | **Público primário** | Adequado para organizações apenas em nuvem e híbridas. |
 |   | Aplicável a todos os utilizadores de uma organização |
 | **Propriedade dos dispositivos** | Organização |
-| **Sistemas Operativos** | Todos os dispositivos Windows 10 |
+| **Sistemas Operativos** | Todos os dispositivos Windows 10, exceto o Windows 10 Home |
 |   | [Máquinas virtuais do Windows Server 2019 em execução em Azure](howto-vm-sign-in-azure-ad-windows.md) (o núcleo do servidor não é suportado) |
 | **Aprovisionamento** | Self-service: Windows OOBE ou Definições |
 |   | Inscrição em massa |
 |   | Windows Autopilot |
 | **Sinal do dispositivo em opções** | Contas organizacionais utilizando: |
 |   | Palavra-passe |
-|   | Windows Hello para Empresas |
+|   | Windows Hello para empresas |
 |   | Teclas de segurança FIDO2.0 (pré-visualização) |
 | **Gestão de dispositivos** | Gestão de Dispositivos Móveis (exemplo: Microsoft Intune) |
 |   | Cogestão com o Microsoft Intune e o Microsoft Endpoint Configuration Manager |
@@ -62,7 +62,7 @@ Embora a associação do Azure AD se destine principalmente a organizações que
 - Quer gerir um grupo de utilizadores no Azure AD em vez de no Active Directory. Este cenário pode aplicar-se, por exemplo, a trabalhadores sazonais, empreiteiros ou estudantes.
 - Quer disponibilizar capacidades de associação aos colaboradores em sucursais remotas com uma infraestrutura no local limitada.
 
-Pode configurar dispositivos associados ao Azure AD para dispositivos Windows 10.
+Pode configurar dispositivos ligados a Azure AD para todos os dispositivos Windows 10, com exceção do Windows 10 Home.
 
 O objetivo dos dispositivos associados ao Azure AD é simplificar:
 

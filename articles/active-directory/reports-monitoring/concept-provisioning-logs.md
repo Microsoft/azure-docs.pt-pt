@@ -17,12 +17,12 @@ ms.date: 11/04/2019
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30cc8be6ad9ebffcad58c5b2412ae15ff3f26fa5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38cffdcc9c99cdec2aeac8bf6fe1dc1575691c8d
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81113334"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924035"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Relatórios de provisionamento no portal Azure Ative Directory (pré-visualização)
 
@@ -85,7 +85,7 @@ Isto permite-lhe apresentar campos adicionais ou remover campos que já são apr
 
 Selecione um item na vista da lista para obter informações mais detalhadas.
 
-![Informações detalhadas](./media/concept-provisioning-logs/steps.png "Filtrar")
+![Informações detalhadas](./media/concept-provisioning-logs/steps.png "Filtro")
 
 
 ## <a name="filter-provisioning-activities"></a>Atividades de provisão de filtros
@@ -94,12 +94,12 @@ Pode filtrar os seus dados de atenção. Alguns valores de filtro são dinamicam
 Na vista predefinitiva, pode selecionar os seguintes filtros:
 
 - Identidade
-- Data
+- Date
 - Estado
 - Ação
 
 
-![Filtro](./media/concept-provisioning-logs/default-filter.png "Filtrar")
+![Filtro](./media/concept-provisioning-logs/default-filter.png "Filtro")
 
 O filtro **identidade** permite especificar o nome ou a identidade que lhe interessa. Esta identidade pode ser um utilizador, grupo, papel ou outro objeto. Pode pesquisar pelo nome ou identificação do objeto. O ID varia por cenário. Por exemplo, ao aprovisionar um objeto do Azure AD à SalesForce, o ID de Origem é o ID do objeto do utilizador em Azure AD enquanto o TargetID é o ID do utilizador em Salesforce. Ao ser fornecida de Workday a Ative Directory, o ID de Origem é o ID do trabalhador do Workday. Note que o nome do utilizador pode nem sempre estar presente na coluna Identidade. Haverá sempre uma identificação. 
 
@@ -118,8 +118,8 @@ Quando selecionar um prazo personalizado, pode configurar uma data de início e 
 
 O filtro **'Estado'** permite-lhe selecionar:
 
-- Todos
-- Êxito
+- Tudo
+- Success
 - Falha
 - Ignorado
 
@@ -190,7 +190,7 @@ O separador **Passos** descreve os passos dados para a disposição de um objeto
 
 
 
-![Filtro](./media/concept-provisioning-logs/steps.png "Filtrar")
+![Filtro](./media/concept-provisioning-logs/steps.png "Filtro")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Resolução de problemas e recomendações
@@ -243,9 +243,9 @@ Utilize a tabela abaixo para entender melhor como resolver os erros que pode enc
 |DuplicateTargets  |A operação não pôde ser concluída porque mais de um utilizador na aplicação-alvo foi encontrado com os atributos de correspondência configurados. Remova o utilizador duplicado da aplicação-alvo ou reconfigure os mapeamentos do seu atributo como descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
 |DuplicateSourceEntries | A operação não pôde ser concluída porque mais de um utilizador foi encontrado com os atributos de correspondência configurados. Remova o utilizador duplicado ou reconfigure os mapeamentos do seu atributo como descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Verifique o estado do fornecimento do utilizador](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)
+* [Verifique o estado do fornecimento do utilizador](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)
 * [Problema de configuração do fornecimento de um utilizador a uma aplicação da Galeria AD Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem)
 
 

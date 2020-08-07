@@ -3,16 +3,16 @@ title: Papéis e permissões Azure
 description: Utilize o controlo de acesso baseado em funções Azure (Azure RBAC) e a gestão de identidade e acesso (IAM) para fornecer permissões de grãos finos aos recursos num registo de contentores Azure.
 ms.topic: article
 ms.date: 12/02/2019
-ms.openlocfilehash: 90546b96f081893d312e66aae04e2125c1c210e5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 23a9c08162c03d4b34ed289d650fddcd7413ed08
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533313"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920080"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Funções e permissões do Registo de Contentores de Azure
 
-O serviço de registo de contentores Azure suporta um conjunto de [funções Azure incorporadas](../role-based-access-control/built-in-roles.md) que fornecem diferentes níveis de permissões a um registo de contentores Azure. Utilize o [controlo de acesso baseado em funções](../role-based-access-control/index.yml) (RBAC) para atribuir permissões específicas aos utilizadores, principais de serviços ou outras identidades que necessitem de interagir com um registo. 
+O serviço de registo de contentores Azure suporta um conjunto de [funções Azure incorporadas](../role-based-access-control/built-in-roles.md) que fornecem diferentes níveis de permissões a um registo de contentores Azure. Utilize [o controlo de acesso baseado em funções (Azure RBAC)](../role-based-access-control/index.yml) para atribuir permissões específicas aos utilizadores, principais de serviços ou outras identidades que necessitem de interagir com um registo. 
 
 | Função/Permissão       | [Gestor de Recursos de Acesso](#access-resource-manager) | [Criar/apagar registo](#create-and-delete-registry) | [Imagem de empurrar](#push-image) | [Imagem de puxar](#pull-image) | [Eliminar dados de imagem](#delete-image-data) | [Mudar políticas](#change-policies) |   [Assinar imagens](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |

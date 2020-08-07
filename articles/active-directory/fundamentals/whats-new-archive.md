@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8b09293f80b5aee2dd76abba3f165a50a5eeee5
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 4fd7ce0229d5e26bc4bf3b05f7b97d20d2a23dff
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799145"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927203"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivo para o que há de novo no Azure Ative Directory?
 
@@ -1106,7 +1106,7 @@ Para obter mais informações sobre como proteger melhor a sua organização uti
 
 Atualizámos a experiência de provisionamento da AD Azure para incluir uma nova barra de progresso que mostra o quão longe está no processo de fornecimento de utilizadores. Esta experiência atualizada também fornece informações sobre o número de utilizadores a provisionados durante o ciclo atual, bem como quantos utilizadores foram a provisionados até à data.
 
-Para obter mais informações, [consulte verifique o estado do fornecimento do utilizador](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user).
+Para obter mais informações, [consulte verifique o estado do fornecimento do utilizador](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user).
 
 ---
 

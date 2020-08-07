@@ -4,12 +4,12 @@ description: Fornece um resumo das definições e limitações de suporte para o
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: d75e7053bfff14fbcb6deeae48c48f09e3e9ac0d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: f2f3d26f74c6227ad257c188d4088fd41fca7075
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531885"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922321"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para backup Azure
 
@@ -32,7 +32,7 @@ A tabela a seguir descreve as características dos cofres dos Serviços de Recup
 **Funcionalidade** | **Detalhes**
 --- | ---
 **Cofres em subscrição** | Até 500 cofres dos Serviços de Recuperação numa única subscrição.
-**Máquinas em um cofre** | Até 1.000 VMs Azure num único cofre.<br/><br/> Até 50 servidores MABS podem ser registados num único cofre.
+**Máquinas em um cofre** | Até 2000 fontes de dados em todas as cargas de trabalho (como VMs Azure, SQL Server VM, MABS Servers, e assim por diante) podem ser protegidas num único cofre.<br><br>Até 1.000 VMs Azure num único cofre.<br/><br/> Até 50 servidores MABS podem ser registados num único cofre.
 **Origens de dados** | O tamanho máximo de uma fonte de [dados](./backup-azure-backup-faq.md#how-is-the-data-source-size-determined) individual é de 54.400 GB. Este limite não se aplica às cópias de segurança Azure VM. Não se aplicam limites à quantidade total de dados que podes fazer até ao cofre.
 **Backups para o cofre** | **VMs Azure:** Uma vez por dia.<br/><br/>**Máquinas protegidas por DPM/MABS:** Duas vezes por dia.<br/><br/> **Máquinas apoiadas diretamente utilizando o agente MARS:** Três vezes por dia.
 **Backups entre cofres** | O reforço está dentro de uma região.<br/><br/> Precisa de um cofre em todas as regiões do Azure que contenham VMs que queira apoiar. Não pode voltar para outra região.
@@ -85,7 +85,7 @@ Aqui está o que é suportado se quiser apoiar as máquinas Linux:
 
 ## <a name="daylight-saving-time-support"></a>Suporte de horário de verão
 
-A Azure Backup não suporta o ajuste automático do relógio para o horário de verão para as cópias de segurança Azure VM. Não muda a hora do backup para a frente ou para trás. Para garantir que a cópia de segurança é executado no momento pretendido, modifique as políticas de backup manualmente, conforme necessário.
+A Azure Backup não suporta o ajuste automático do relógio para o horário de verão para as cópias de segurança Azure VM. Não muda a hora do apoio para a frente ou para trás. Para garantir que a cópia de segurança é executado no momento pretendido, modifique as políticas de backup manualmente, conforme necessário.
 
 ## <a name="disk-deduplication-support"></a>Suporte à desduplicação de disco
 

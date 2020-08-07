@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 26dba14baa95a91c12e9ccd277731b91207b4a4c
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: f9995b82c1dc437cdaa2f9f987abba3e9681454a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533262"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926761"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Acesso seguro a um cofre de chaves
 
@@ -129,9 +129,9 @@ A tabela seguinte resume as permissões de acesso para as nossas funções e apl
 | Função | Permissões do plano de gestão | Permissões do plano de dados |
 | --- | --- | --- |
 | Equipa de segurança | Contribuidor do Cofre Chave | Chaves: criar cópia de segurança, criar, eliminar, obter, importar, listar, restaurar<br>Segredos: todas as operações |
-| Desenvolvedores e &nbsp; operadores | Permissão de implantação do Cofre de Chaves<br><br> **Nota:** Esta permissão permite que os VM implantados tragam segredos de um cofre de chaves. | Nenhuma |
-| Auditores | Nenhuma | Chaves: listar<br>Segredos: listar<br><br> **Nota:** Esta permissão permite que os auditores inspecionem atributos (tags, datas de ativação, datas de validade) para obter chaves e segredos não emitidos nos registos. |
-| Aplicação | Nenhuma | Chaves: assinar<br>Segredos: obter |
+| Desenvolvedores e &nbsp; operadores | Permissão de implantação do Cofre de Chaves<br><br> **Nota:** Esta permissão permite que os VM implantados tragam segredos de um cofre de chaves. | Nenhum |
+| Auditores | Nenhum | Chaves: listar<br>Segredos: listar<br><br> **Nota:** Esta permissão permite que os auditores inspecionem atributos (tags, datas de ativação, datas de validade) para obter chaves e segredos não emitidos nos registos. |
+| Aplicação | Nenhum | Chaves: assinar<br>Segredos: obter |
 
 As três funções da equipa precisam de acesso a outros recursos, juntamente com permissões do Key Vault. Para implementar VMs (ou a funcionalidade de Aplicações Web do Azure App Service), os desenvolvedores e operadores precisam de `Contributor` acesso a esses tipos de recursos. Os auditores precisam de ler o acesso à conta de armazenamento onde os registos do Cofre de Chaves estão armazenados.
 
@@ -197,7 +197,7 @@ Recomendamos que crie um acesso adicional e seguro ao cofre de chaves [configura
 
 ## <a name="resources"></a>Recursos
 
-* [Azure AD RBAC](../../role-based-access-control/role-assignments-portal.md)
+* [Azure RBAC](../../role-based-access-control/role-assignments-portal.md)
 
 * [RBAC: Funções incorporadas](../../role-based-access-control/built-in-roles.md)
 

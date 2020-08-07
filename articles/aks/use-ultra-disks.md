@@ -4,12 +4,12 @@ description: Saiba como ativar e configurar Discos Ultra num cluster Azure Kuber
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 46be67a415f67e260262e5b80e5a1dad534aea79
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 540269c7ecf42a7e022aa2efb048df7b11587d1a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532130"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926744"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Utilize discos ultra Azure no Serviço Azure Kubernetes (pré-visualização)
 
@@ -97,7 +97,7 @@ Pode ativar discos ultra em clusters existentes adicionando uma nova piscina de 
 
 
 ```azurecli
-az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableEncryptionAtHost=true
+az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true
 ```
 
 Se pretender criar novos conjuntos de nós sem suporte para discos ultra, pode fazê-lo omitindo o `--aks-custom-headers` parâmetro personalizado.
@@ -229,7 +229,7 @@ Events:
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre discos ultra, consulte [o Uso de discos ultra Azure](../virtual-machines/linux/disks-enable-ultra-ssd.md).
 - Para obter mais informações sobre as melhores práticas de armazenamento, consulte [as melhores práticas de armazenamento e backups no Serviço Azure Kubernetes (AKS)][operator-best-practices-storage]

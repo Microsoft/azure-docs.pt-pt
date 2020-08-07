@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 670a38b48ee89930078078dc4a8ac1a2876648e2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ec5c98d90facf9458769f235880f17d14708e425
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503740"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923660"
 ---
 # <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>Escala A produção DB do Cosmos da escala utilizando o gatilho do temporizador de funções Azure
 
@@ -23,7 +23,7 @@ Pode definir a produção através de [Modelos de Gestor de Recursos Azure,](res
 
 Para simplificar o processo para escalar a Azure Cosmos DB numa programação, criámos um projeto de amostra chamado [Azure Cosmos.](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler) Este projeto é uma aplicação Azure Functions com dois gatilhos temporizadores: "ScaleUpTrigger" e "ScaleDownTrigger". Os gatilhos executam um script PowerShell que define a produção de cada recurso tal como definido no `resources.json` ficheiro em cada gatilho. O ScaleUpTrigger está configurado para funcionar às 8 AM UTC e o ScaleDownTrigger está configurado para funcionar às 18:00 UTC e estes tempos podem ser facilmente atualizados dentro do `function.json` ficheiro para cada gatilho.
 
-Você pode clonar este projeto localmente, modificá-lo para especificar os recursos DB Azure Cosmos para escalar para cima e para baixo e o horário a executar. Mais tarde, pode implantá-lo numa subscrição do Azure e garanti-lo utilizando a identidade de serviço gerida com permissões de Controlo de Acesso (RBAC) [baseadas em funções](role-based-access-control.md) com o papel de "Azure Cosmos DB operator" para definir a produção nas suas contas Azure Cosmos.
+Você pode clonar este projeto localmente, modificá-lo para especificar os recursos DB Azure Cosmos para escalar para cima e para baixo e o horário a executar. Mais tarde, pode implantá-lo numa subscrição da Azure e garanti-la utilizando a identidade de serviço gerida com permissões [de controlo de acesso baseado em funções Azure (Azure RBAC)](role-based-access-control.md) com o papel de "Azure Cosmos DB operator" para definir a produção nas suas contas Azure Cosmos.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

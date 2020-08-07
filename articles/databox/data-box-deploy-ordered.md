@@ -1,6 +1,6 @@
 ---
 title: Tutorial para encomendar Caixa de Dados Azure / Microsoft Docs
-description: Aprenda os pré-requisitos de implementação e como encomendar um Azure Data Box
+description: Neste tutorial, conheça a Azure Data Box, uma solução híbrida que permite importar dados no local para o Azure e como encomendar a Azure Data Box.
 services: databox
 author: priestlg
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: v-grpr
-ms.openlocfilehash: fd841dee5f3a845d793255f5e13b416fb1add4f4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9f742af1a3c9ede4857e329697eb959a5a51dc95
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007390"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926370"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Encomendar o Azure Data Box
 
@@ -89,7 +89,7 @@ You have logged in. Now let us find all the subscriptions to which you have acce
 
 **Instale a extensão CLI da Caixa de Dados Azure**
 
-Antes de poder utilizar os comandos CLI da Caixa de Dados Azure, tem de instalar a extensão. As extensões Azure CLI dão-lhe acesso a comandos experimentais e pré-lançamento que ainda não foram enviados como parte do núcleo CLI. Para obter mais informações sobre extensões, consulte [extensões de utilização com Azure CLI](/cli/azure/azure-cli-extensions-overview).
+Antes de poder utilizar os comandos CLI da Caixa de Dados Azure, tem de instalar a extensão. As extensões da CLI do Azure dão-lhe acesso a comandos experimentais e de pré-lançamento que ainda não foram enviados como parte do núcleo da CLI. Para obter mais informações sobre extensões, consulte [extensões de utilização com Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
 Para instalar a extensão para Azure Data Box, execute o seguinte `az extension add --name databox` comando:
 

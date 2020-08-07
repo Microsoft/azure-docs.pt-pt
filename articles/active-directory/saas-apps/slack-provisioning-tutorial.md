@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/06/2020
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ca536ddacb0f81459625b733eb79282e145afba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9aa97595f9a6ab2a866a8c8ebccde7e53854dbd1
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87016344"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924551"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configure Slack para o fornecimento automático de utilizadores
 
@@ -108,34 +108,34 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
    |Atributo|Tipo|
    |---|---|
    |ativo|Booleano|
-   |externoId|Cadeia|
-   |displayName|Cadeia|
-   |nome.famíliaName|Cadeia|
-   |nome.dado Nome|Cadeia|
-   |título|Cadeia|
-   |e-mails[tipo eq "work"].value|Cadeia|
-   |userName|Cadeia|
-   |nickName|Cadeia|
-   |endereços[tipo eq "untyped"].streetAddress|Cadeia|
-   |endereços[tipo eq "untyped"].localidade|Cadeia|
-   |endereços[tipo eq "untyped"].região|Cadeia|
-   |endereços[tipo eq "untyped"].postalCode|Cadeia|
-   |endereços[tipo eq "untyped"].país|Cadeia|
-   |números de telefone[tipo eq "mobile"].valor|Cadeia|
-   |phoneNumbers[tipo eq "work"].value|Cadeia|
-   |papéis[eq primário "Verdadeiro"].valor|Cadeia|
-   |região|Cadeia|
-   |nome.honorificPrefix|Cadeia|
-   |fotos[tipo eq "foto"].valor|Cadeia|
-   |profileUrl|Cadeia|
-   |timezone|Cadeia|
-   |userType|Cadeia|
-   |urn:scim:schemas:extensão:enterprise:1.0.department|Cadeia|
+   |externoId|String|
+   |displayName|String|
+   |nome.famíliaName|String|
+   |nome.dado Nome|String|
+   |título|String|
+   |e-mails[tipo eq "work"].value|String|
+   |userName|String|
+   |nickName|String|
+   |endereços[tipo eq "untyped"].streetAddress|String|
+   |endereços[tipo eq "untyped"].localidade|String|
+   |endereços[tipo eq "untyped"].região|String|
+   |endereços[tipo eq "untyped"].postalCode|String|
+   |endereços[tipo eq "untyped"].país|String|
+   |números de telefone[tipo eq "mobile"].valor|String|
+   |phoneNumbers[tipo eq "work"].value|String|
+   |papéis[eq primário "Verdadeiro"].valor|String|
+   |região|String|
+   |nome.honorificPrefix|String|
+   |fotos[tipo eq "foto"].valor|String|
+   |profileUrl|String|
+   |timezone|String|
+   |userType|String|
+   |urn:scim:schemas:extensão:enterprise:1.0.department|String|
    |urn:scim:schemas:extensão:enterprise:1.0.manager|Referência|
-   |urn:scim:schemas:extensão:enterprise:1.0.employeeNumber|Cadeia|
-   |urn:scim:schemas:extensão:enterprise:1.0.costCenter|Cadeia|
-   |urn:scim:schemas:extensão:enterprise:1.0.organization|Cadeia|
-   |urn:scim:schemas:extensão:enterprise:1.0.division|Cadeia|
+   |urn:scim:schemas:extensão:enterprise:1.0.employeeNumber|String|
+   |urn:scim:schemas:extensão:enterprise:1.0.costCenter|String|
+   |urn:scim:schemas:extensão:enterprise:1.0.organization|String|
+   |urn:scim:schemas:extensão:enterprise:1.0.division|String|
 
 12. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups to Slack**.
 
@@ -143,7 +143,7 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
       |Atributo|Tipo|
       |---|---|
-      |displayName|Cadeia|
+      |displayName|String|
       |membros|Referência|
 
 14. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro de escotagem](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -166,7 +166,7 @@ Esta operação inicia o ciclo inicial de sincronização de todos os utilizador
 Depois de configurar o provisionamento, utilize os seguintes recursos para monitorizar a sua implantação:
 
 1. Utilize os [registos de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais os utilizadores que foram a provisionados com sucesso ou sem sucesso
-2. Verifique a [barra de progresso](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) para ver o estado do ciclo de provisionamento e quão perto está da sua conclusão
+2. Verifique a [barra de progresso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver o estado do ciclo de provisionamento e quão perto está da sua conclusão
 3. Se a configuração do provisionamento parecer estar num estado pouco saudável, a aplicação entrará em quarentena. Saiba mais sobre estados de quarentena [aqui.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)
 
 ## <a name="troubleshooting-tips"></a>Sugestões de Resolução de Problemas

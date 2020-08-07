@@ -1,18 +1,18 @@
 ---
 title: 'Azure VPN Gateway: Ligações ponto-a-local de resolução de problemas: clientes Mac OS X'
-description: Passos para resolver problemas nas ligações de clientes P2S Mac OS X VPN
+description: 'Resolução de problemas Conectividade ponto-a-local a partir de Mac OS X. Verifique estas definições: endereço do servidor, ID remoto, ID local, definições de autenticação e versão OS.'
 services: vpn-gateway
 author: kumudD
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: 8dbed35659e409e5e3bcad74b378dba1f71b1f29
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ae7ca9ad69bc5bea20fc959f86e41439bd01cd5c
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86998498"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920760"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Resolução de problemas Ligações VPN ponto-a-local de clientes Mac OS X VPN
 

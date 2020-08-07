@@ -3,12 +3,12 @@ title: Controlos de amostras de plantas ISO 27001
 description: Controlo do mapeamento da amostra de planta ISO 27001. Cada controlo é mapeado para uma ou mais Políticas Azure que ajudam na avaliação.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: d6a8b1c1f08b6eed54e27e5027e2e9bce1bafc10
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5ae720bd5be9d80d8e1be8315d2aea88a99dc54e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006828"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927271"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Mapeamento de controlo da amostra de planta ISO 27001
 
@@ -34,7 +34,7 @@ O serviço de Avaliação de [Vulnerabilidades SQL](../../../../azure-sql/databa
 
 ## <a name="a912-access-to-networks-and-network-services"></a>A.9.1.2 Acesso a redes e serviços de rede
 
-O Azure implementa [o controlo de acesso baseado em funções](../../../../role-based-access-control/overview.md) (RBAC) para gerir quem tem acesso aos recursos da Azure. Esta planta ajuda-o a controlar o acesso aos recursos da Azure, atribuindo sete definições [de Política Azure.](../../../policy/overview.md) Estas políticas auditam a utilização de tipos de recursos e configurações que podem permitir um acesso mais permissivo aos recursos.
+A Azure implementa [o controlo de acesso baseado em funções Azure (Azure RBAC)](../../../../role-based-access-control/overview.md) para gerir quem tem acesso aos recursos Azure. Esta planta ajuda-o a controlar o acesso aos recursos da Azure, atribuindo sete definições [de Política Azure.](../../../policy/overview.md) Estas políticas auditam a utilização de tipos de recursos e configurações que podem permitir um acesso mais permissivo aos recursos.
 Compreender os recursos que estão a violar estas políticas pode ajudá-lo a tomar medidas corretivas para garantir que os recursos Azure de acesso são restritos aos utilizadores autorizados.
 
 - Implementar pré-requisitos para auditar Os VMs do Linux que têm contas sem senhas
@@ -69,7 +69,7 @@ Este projeto atribui três definições [de Política Azure](../../../policy/ove
 
 ## <a name="a925-review-of-user-access-rights"></a>A.9.2.5 Revisão dos direitos de acesso ao utilizador
 
-O Azure implementa o controlo de acesso baseado em funções (RBAC) para [ajudá-lo](../../../../role-based-access-control/overview.md) a gerir quem tem acesso a recursos em Azure. Utilizando o portal Azure, pode rever quem tem acesso aos recursos do Azure e às suas permissões. Este projeto atribui quatro definições [de Política Azure](../../../policy/overview.md) a contas de auditoria que devem ser priorizadas para revisão, incluindo contas amortizadas e contas externas com permissões elevadas.
+A Azure implementa [o controlo de acesso baseado em funções (Azure RBAC) para ajudá-lo](../../../../role-based-access-control/overview.md) a gerir quem tem acesso a recursos em Azure. Utilizando o portal Azure, pode rever quem tem acesso aos recursos do Azure e às suas permissões. Este projeto atribui quatro definições [de Política Azure](../../../policy/overview.md) a contas de auditoria que devem ser priorizadas para revisão, incluindo contas amortizadas e contas externas com permissões elevadas.
 
 - As contas preprecadas devem ser removidas da sua subscrição
 - Contas pregridadas com permissões do proprietário devem ser removidas da sua subscrição
@@ -78,7 +78,7 @@ O Azure implementa o controlo de acesso baseado em funções (RBAC) para [ajudá
 
 ## <a name="a926-removal-or-adjustment-of-access-rights"></a>A.9.2.6 Remoção ou ajustamento dos direitos de acesso
 
-O Azure implementa o controlo de acesso baseado em funções (RBAC) para [ajudá-lo](../../../../role-based-access-control/overview.md) a gerir quem tem acesso a recursos em Azure. Utilizando [o Azure Ative Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) e o RBAC, pode atualizar as funções dos utilizadores para refletir as alterações organizacionais. Quando necessário, as contas podem ser bloqueadas de iniciar sessão (ou removida), o que elimina imediatamente os direitos de acesso aos recursos da Azure. Este projeto atribui duas definições [da Política Azure](../../../policy/overview.md) à auditoria de conta amortizada que deve ser considerada para remoção.
+A Azure implementa [o controlo de acesso baseado em funções (Azure RBAC) para ajudá-lo](../../../../role-based-access-control/overview.md) a gerir quem tem acesso a recursos em Azure. Utilizando [o Azure Ative Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) e o RBAC, pode atualizar as funções dos utilizadores para refletir as alterações organizacionais. Quando necessário, as contas podem ser bloqueadas de iniciar sessão (ou removida), o que elimina imediatamente os direitos de acesso aos recursos da Azure. Este projeto atribui duas definições [da Política Azure](../../../policy/overview.md) à auditoria de conta amortizada que deve ser considerada para remoção.
 
 - As contas preprecadas devem ser removidas da sua subscrição
 - Contas pregridadas com permissões do proprietário devem ser removidas da sua subscrição

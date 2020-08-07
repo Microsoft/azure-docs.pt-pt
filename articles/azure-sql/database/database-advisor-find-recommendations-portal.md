@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 27fcbcec07012dc34c846f316fccf788a0d25329
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72f0d361f69232894df3a9131d173411614a2055
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84041319"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921219"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Encontre e aplique recomendações de desempenho
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ Pode utilizar o portal Azure para encontrar recomendações de desempenho que po
 
 ## <a name="viewing-recommendations"></a>Recomendações de visualização
 
-Para visualizar e aplicar recomendações de desempenho, precisa das permissões corretas [de controlo de acesso baseadas](../../role-based-access-control/overview.md) em funções em Azure. **Leitor**, **Permissões de Contribuinte DB SQL** são necessárias para visualizar recomendações, e **Proprietário,** **permissões de contribuinte dB SQL** são necessárias para executar quaisquer ações; criar ou largar índices e cancelar a criação de índices.
+Para visualizar e aplicar recomendações de desempenho, precisa das permissões corretas [de controlo de acesso baseado em funções (Azure RBAC)](../../role-based-access-control/overview.md) em Azure. **Leitor**, **Permissões de Contribuinte DB SQL** são necessárias para visualizar recomendações, e **Proprietário,** **permissões de contribuinte dB SQL** são necessárias para executar quaisquer ações; criar ou largar índices e cancelar a criação de índices.
 
 Utilize os seguintes passos para encontrar recomendações de desempenho no portal Azure:
 
@@ -41,9 +41,9 @@ As recomendações são ordenadas pelo seu impacto potencial no desempenho nas s
 
 | Impacto | Descrição |
 |:--- |:--- |
-| Alta |Recomendações de alto impacto devem proporcionar o impacto de desempenho mais significativo. |
+| Alto |Recomendações de alto impacto devem proporcionar o impacto de desempenho mais significativo. |
 | Médio |Recomendações de impacto médio devem melhorar o desempenho, mas não substancialmente. |
-| Baixa |Recomendações de baixo impacto devem proporcionar um melhor desempenho do que sem, mas as melhorias podem não ser significativas. |
+| Baixo |Recomendações de baixo impacto devem proporcionar um melhor desempenho do que sem, mas as melhorias podem não ser significativas. |
 
 > [!NOTE]
 > A Azure SQL Database precisa de monitorizar as atividades pelo menos durante um dia, a fim de identificar algumas recomendações. A Base de Dados Azure SQL pode otimizar mais facilmente para padrões de consulta consistentes do que para explosões aleatórias de atividade. Se as recomendações não estiverem disponíveis atualmente, a página **de recomendação de Desempenho** fornece uma mensagem explicando o porquê.
@@ -132,8 +132,8 @@ A aplicação de uma recomendação pode não acontecer instantaneamente. O port
 | Pendente |O comando de recomendação foi recebido e está agendado para a execução. |
 | Execução |A recomendação está a ser aplicada. |
 | Validação |A recomendação foi aplicada com sucesso e o serviço está a medir os benefícios. |
-| Êxito |A recomendação foi aplicada com êxito e os benefícios foram medidos. |
-| Erro |Ocorreu um erro durante o processo de aplicação da recomendação. Isto pode ser um problema transitório, ou possivelmente uma mudança de esquema para a tabela e o script já não é válido. |
+| Success |A recomendação foi aplicada com êxito e os benefícios foram medidos. |
+| Error |Ocorreu um erro durante o processo de aplicação da recomendação. Isto pode ser um problema transitório, ou possivelmente uma mudança de esquema para a tabela e o script já não é válido. |
 | Reverter |A recomendação foi aplicada, mas foi considerada não-performante e está a ser automaticamente revertida. |
 | Revertido |A recomendação foi revertida. |
 
@@ -160,7 +160,7 @@ Depois de as recomendações serem implementadas com sucesso (atualmente, opera�
 
 A Azure SQL Database fornece recomendações para melhorar o desempenho da base de dados. Ao fornecer scripts T-SQL, obtém assistência na otimização da sua base de dados e, em última análise, na melhoria do desempenho da consulta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Monitorize as suas recomendações e continue a aplicá-las para aperfeiçoar o desempenho. As cargas de trabalho da base de dados são dinâmicas e mudam continuamente. A Azure SQL Database continua a monitorizar e a fornecer recomendações que podem potencialmente melhorar o desempenho da sua base de dados.
 
@@ -172,4 +172,4 @@ Monitorize as suas recomendações e continue a aplicá-las para aperfeiçoar o 
 
 * [Arquivo de Consultas](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Controlo de acesso baseado em funções](../../role-based-access-control/overview.md)
+* [Controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md)

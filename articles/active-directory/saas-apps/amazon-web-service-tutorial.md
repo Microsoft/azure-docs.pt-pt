@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 04/20/2020
+ms.date: 07/14/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e16fdaed8ce7e73718569652e88e66844850175
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 79e23f516fe31b4a21232f75286540e6c0d9019d
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87416599"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923017"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Amazon Web Services (AWS)
 
@@ -81,7 +81,7 @@ Para configurar a integração da Amazon Web Services (AWS) no AD Azure, é nece
 1. Na secção Add a partir da secção **de galeria,** digite Amazon **Web Services (AWS)** na caixa de pesquisa.
 1. Selecione **Amazon Web Services (AWS)** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-amazon-web-services-aws"></a>Configure e teste Azure AD único sign-on para Amazon Web Services (AWS)
+## <a name="configure-and-test-azure-ad-sso-for-amazon-web-services-aws"></a>Configure e teste Azure AD SSO para serviços web da Amazon (AWS)
 
 Configure e teste Azure AD SSO com Amazon Web Services (AWS) usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado na Amazon Web Services (AWS).
 
@@ -133,7 +133,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **certificado de assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregue** para descarregar o certificado e guarde-o no seu computador.
 
-    ![O link de descarregamento de certificado](common/metadataxml.png)
+    ![O link de descarregamento de certificado](./media/amazon-web-service-tutorial/certificate.png)
 
 1. Na secção Configurar os **Serviços Web da Amazon (AWS),** copie os URL(s) apropriados com base no seu requisito.
 
@@ -150,7 +150,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 

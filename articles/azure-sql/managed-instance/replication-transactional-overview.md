@@ -12,19 +12,21 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 04/20/2020
-ms.openlocfilehash: ee481067a3904c208061607b7109fcba0f3faaa7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ec1dfa3edea5364151c543889d974944a1a1cd5a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504072"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920131"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance"></a>Replicação transacional com Azure SQL Caso Gerido
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-A replicação transacional é uma característica do Azure SQL Managed Instance e do SQL Server que lhe permite replicar dados de uma tabela em Azure SQL Managed Instance ou uma instância do SQL Server para tabelas colocadas em bases de dados remotas. Esta funcionalidade permite sincronizar várias tabelas em diferentes bases de dados.
+A replicação transacional é uma característica do Azure SQL Managed Instance e do SQL Server que lhe permite replicar dados de uma tabela em Azure SQL Managed Instance ou uma instância do SQL Server para tabelas colocadas em bases de dados remotas. Esta funcionalidade permite sincronizar várias tabelas em diferentes bases de dados. 
 
-## <a name="overview"></a>Descrição Geral
+A replicação transacional está atualmente em pré-visualização pública para SQL Managed Instance. 
+
+## <a name="overview"></a>Descrição geral
 
 Pode utilizar a replicação transacional para impulsionar as alterações efetuadas numa Instância Gerida Azure SQL para:
 
@@ -188,7 +190,7 @@ Se a geo-replicação for ativada numa instância **de assinante** num grupo de 
 - Para uma falha com a perda de dados, a replicação também funcionará. Vai replicar as mudanças perdidas novamente.
 - Para uma falha com a perda de dados, mas a perda de dados está fora do período de retenção da base de dados de distribuição, o administrador da SQL Managed Instance terá de reinitializar a base de dados de subscrição.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a configuração da replicação transacional, consulte os seguintes tutoriais:
 

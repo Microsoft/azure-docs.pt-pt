@@ -3,12 +3,12 @@ title: Restaurar bases de dados do SQL Server num Azure VM
 description: Este artigo descreve como restaurar as bases de dados do SQL Server que estão a funcionar num Azure VM e que são cópias de segurança do Azure.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 2c3b81c4d0bc4c7548fec8ec131fea66684a7aa8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 97cf8a7d7fcae0e31dde14e045b222c5899dbb02
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054578"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921151"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurar bases de dados do SQL Server em VMs Azure
 
@@ -30,6 +30,7 @@ Antes de restaurar uma base de dados, note o seguinte:
 - Pode restaurar a base de dados a um exemplo de um SQL Server na mesma região do Azure.
 - O servidor de destino deve estar registado no mesmo cofre que a fonte.
 - Para restaurar uma base de dados encriptada TDE para outro SqL Server, é necessário restaurar primeiro [o certificado no servidor de destino](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
+- [As](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-ver15) bases de dados ativadas pelo CDC devem ser restauradas utilizando a opção [Restaurar como ficheiros.](#restore-as-files)
 - Antes de restaurar a base de dados "master", inicie a instância do SQL Server no modo de utilizador único utilizando a opção de arranque **-m AzureWorkloadBackup**.
   - O valor para **-m** é o nome do cliente.
   - Apenas o nome do cliente especificado pode abrir a ligação.

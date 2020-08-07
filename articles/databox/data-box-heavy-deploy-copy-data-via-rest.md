@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Copiar dados para o armazenamento de blob da caixa de dados Azure através de APIs REST'
-description: Saiba como copiar dados para o seu armazenamento de bolhas pesadas da caixa de dados Azure através de APIs REST
+description: Neste tutorial, aprenda a ligar-se ao armazenamento de Blob da Caixa de Dados Azure utilizando APIs REST em http ou https e, em seguida, copie dados da Azure Data Box Heavy.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: a57dc6c57e10c82f9548490c4c2e98fd87f677af
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: f9134b57d8a3e76417283e5d863724651b4f6a6f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849421"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921168"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Tutorial: Copiar dados para o armazenamento de blob da caixa de dados Azure através de APIs REST  
 
@@ -30,7 +30,7 @@ Neste tutorial, ficará a saber como:
 
 Antes de começar, certifique-se de que:
 
-1. Completou o [Tutorial: Configurar a Caixa de Dados Azure Pesada.](data-box-heavy-deploy-set-up.md)
+1. Concluiu o [Tutorial: Configurar o Azure Data Box Heavy](data-box-heavy-deploy-set-up.md).
 2. Recebeu o Data Box Heavy e o estado da encomenda no portal é **Entregue**.
 3. Reviu os [requisitos](data-box-system-requirements-rest.md) do sistema para o armazenamento de Data Box Blob e está familiarizado com versões suportadas de APIs, SDKs e ferramentas.
 4. Tem acesso a um computador anfitrião que tem os dados que pretende copiar para data box heavy. O computador anfitrião tem de

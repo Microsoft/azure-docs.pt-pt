@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: ecd7b0bc34d532e7d748bc9468d3a155b9aa2ad2
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: f9e4fdb0fe8872c505bbbbb10da11d8fb74a22b3
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87901747"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927220"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Resolver problemas de Ficheiros do Azure no Windows
 
@@ -305,27 +305,27 @@ Para resolver este problema, ajustando o valor do registo **DirectoryCacheEntryS
  
 Por exemplo, pode defini-lo para 0x100000 e ver se o desempenho melhora.
 
-## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-domain-service-aad-ds-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>Error AadDsTenantNotFound em permitir a autenticação do Azure Ative Directory Domain Service (AAD DS) para ficheiros Azure "Incapaz de localizar inquilinos ativos com inquilinos Id aad-tenant-id"
+## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-domain-service-azure-ad-ds-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>Error AadDsTenantNotFound em permitir a autenticação do Azure Ative Directory Domain Service (Azure AD DS) para ficheiros Azure "Incapaz de localizar inquilinos ativos com iD-inquilino-id"
 
 ### <a name="cause"></a>Causa
 
-Error AadDsTenantNotFound acontece quando tenta ativar a [autenticação dos Serviços de Domínio do Diretório Ativo (Azure AD DS) em Ficheiros Azure](storage-files-identity-auth-active-directory-domain-service-enable.md) numa conta de armazenamento onde o [Serviço de Domínio AAD (AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) não é criado no inquilino AAD da subscrição associada.  
+Error AadDsTenantNotFound acontece quando tenta ativar a [autenticação dos Serviços de Domínio do Diretório Ativo (Azure AD DS) em Ficheiros Azure](storage-files-identity-auth-active-directory-domain-service-enable.md) numa conta de armazenamento onde o [Azure AD Domain Service (Azure AD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) não é criado no inquilino AD AD da subscrição associada.  
 
 ### <a name="solution"></a>Solução
 
-Ativar a AAD DS no inquilino AAD da subscrição para a qual a sua conta de armazenamento está implantada. Precisa de privilégios de administrador do inquilino da AAD para criar um domínio gerido. Se não for o administrador do inquilino Azure AD, contacte o administrador e siga a orientação passo a passo para Ativar os [Serviços de Domínio do Diretório Ativo Azure utilizando o portal Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
+Ativar o Azure AD DS no inquilino AZure AD da subscrição para a qual a sua conta de armazenamento está implantada. Você precisa de privilégios de administrador do inquilino AD Azure para criar um domínio gerido. Se não for o administrador do inquilino Azure AD, contacte o administrador e siga a orientação passo a passo para Ativar os [Serviços de Domínio do Diretório Ativo Azure utilizando o portal Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
-## <a name="error-system-error-1359-has-occurred-an-internal-error-received-over-smb-access-to-file-shares-with-azure-active-directory-domain-service-aad-ds-authentication-enabled"></a>Ocorreu o erro do sistema 1359. Um erro interno' recebido sobre o acesso do SMB a ações de ficheiros com a autenticação do Azure Ative Directory Domain Service (AAD DS)
+## <a name="error-system-error-1359-has-occurred-an-internal-error-received-over-smb-access-to-file-shares-with-azure-active-directory-domain-service-azure-ad-ds-authentication-enabled"></a>Ocorreu o erro do sistema 1359. Um erro interno' recebido sobre o acesso da SMB a ações de ficheiros com a autenticação do Azure Ative Directory Domain Service (Azure AD DS)
 
 ### <a name="cause"></a>Causa
 
-Ocorreu o erro do sistema 1359. Um erro interno ocorre quando tenta ligar à sua partilha de ficheiros com a autenticação AAD DS ativada contra um DS AAD com o nome DNS de domínio a começar por um carácter numérico. Por exemplo, se o nome DE DNS do domínio AAD DS for "1domain", terá este erro ao tentar montar a partilha de ficheiros usando credenciais AAD. 
+Ocorreu o erro do sistema 1359. Um erro interno ocorre quando tenta ligar à sua partilha de ficheiros com a autenticação AZure AD DS ativada contra um AD DS AD Azure com o nome DNS de domínio a começar por um carácter numérico. Por exemplo, se o nome DNS do domínio Azure AD DS for "1domain", terá este erro ao tentar montar a partilha de ficheiros usando credenciais Azure AD. 
 
 ### <a name="solution"></a>Solução
 
-Atualmente, pode considerar a recolocação do seu AAD DS utilizando um novo nome DNS de domínio que se aplica às regras abaixo:
+Atualmente, pode considerar a recolocação do seu Azure AD DS utilizando um novo nome DNS de domínio que se aplica às regras abaixo:
 - Os nomes não podem começar com um personagem numérico.
 - Os nomes devem ter entre 3 e 63 caracteres.
 
@@ -350,7 +350,7 @@ O cmdlet executa estas verificações abaixo em sequência e fornece orientaçã
 4. CheckGetKerberosTicket: Tente obter um bilhete Kerberos para ligar à conta de armazenamento 
 5. CheckADObjectPasswordIsCorrect: Certifique-se de que a palavra-passe configurada na identidade AD que representa a conta de armazenamento corresponde à da conta de armazenamento kerb1 ou kerb2
 6. CheckSidHasAadUser: Verifique se o utilizador com sessão registada no utilizador AD está sincronizado com a Azure AD. Se quiser analisar se um utilizador específico de AD está sincronizado com AZure AD, pode especificar o -UserName e -Domain nos parâmetros de entrada.
-7. CheckAadUserHasSid: Verifique se um utilizador AD Azure tem um SID em AD, esta verificação requer que o utilizador introduza o Object Id do utilizador Azure AD com o parâmetro -ObjectId. 
+7. CheckAadUserHasSid: Verifique se um utilizador AD Azure tem um SID em AD, esta verificação requer que o utilizador introduza o ID do Objeto do utilizador Azure AD com o parâmetro -ObjectId. 
 8. CheckStorageAccountDomainJoined: Verifique as propriedades da conta de armazenamento para ver se a autenticação AD foi ativada e as propriedades de AD da conta são povoadas.
 
 ## <a name="unable-to-configure-directoryfile-level-permissions-windows-acls-with-windows-file-explorer"></a>Não é possível configurar permissões de diretório/nível de ficheiro (ACLs windows) com o Windows File Explorer

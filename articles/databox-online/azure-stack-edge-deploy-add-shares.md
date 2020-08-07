@@ -1,6 +1,6 @@
 ---
-title: Tutorial para transferir dados para partilhas com Azure Stack Edge Microsoft Docs
-description: Aprenda a adicionar e a ligar-se a ações no dispositivo Azure Stack Edge.
+title: Tutorial para transferir dados para ações com a Azure Stack Edge Microsoft Docs
+description: Neste tutorial, aprenda a adicionar e a ligar-se a ações no seu dispositivo Azure Stack Edge, para que o Azure Stack Edge possa transferir dados para o Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: e62d746be92583abead1c3edb93900068b123838
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: fc47497eeceff20e8357195226c2d44cea64fa88
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82571078"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926115"
 ---
-# <a name="tutorial-transfer-data-with-azure-stack-edge"></a>Tutorial: Transferir dados com Borda de Stack Azure
+# <a name="tutorial-transfer-data-with-azure-stack-edge"></a>Tutorial: Dados de transferência com Azure Stack Edge
 
-Este tutorial descreve como adicionar e conectar-se a ações no seu dispositivo Azure Stack Edge. Depois de adicionar as ações, o Azure Stack Edge pode transferir dados para o Azure.
+Este tutorial descreve como adicionar e conectar-se a ações no seu dispositivo Azure Stack Edge. Depois de adicionar as ações, a Azure Stack Edge pode transferir dados para o Azure.
 
 Este procedimento pode demorar cerca de 10 minutos a concluir.
 
@@ -33,57 +33,57 @@ Neste tutorial, ficará a saber como:
 
 Antes de adicionar ações ao Azure Stack Edge, certifique-se de que:
 
-- Instalou o seu dispositivo físico conforme descrito na [Instalação azure Stack Edge](azure-stack-edge-deploy-install.md).
+- Instalou o seu dispositivo físico como descrito na [Instalação Azure Stack Edge](azure-stack-edge-deploy-install.md).
 
-- Ativou o dispositivo físico conforme descrito no [Connect, configurae e ativou o Azure Stack Edge](azure-stack-edge-deploy-connect-setup-activate.md).
+- Ativou o dispositivo físico como descrito no [Connect, configurar e ativar o Azure Stack Edge](azure-stack-edge-deploy-connect-setup-activate.md).
 
 
 ## <a name="add-a-share"></a>Adicionar uma partilha
 
-Para criar uma parte, faça o seguinte procedimento:
+Para criar uma partilha, faça o seguinte procedimento:
 
-1. No [portal Azure,](https://portal.azure.com/)selecione o seu recurso Azure Stack Edge e, em seguida, vá para a **visão geral**. O seu dispositivo deve estar online.
+1. No [portal Azure,](https://portal.azure.com/)selecione o seu recurso Azure Stack Edge e, em seguida, vá à **Visão Geral**. O seu dispositivo deve estar online.
 
    ![Dispositivo online](./media/azure-stack-edge-deploy-add-shares/device-online-1.png)
 
-2. Selecione **+ Adicione a partilha** na barra de comando do dispositivo.
+2. **Selecione + Adicione a partilha** na barra de comando do dispositivo.
 
    ![Adicionar uma partilha](./media/azure-stack-edge-deploy-add-shares/select-add-share-1.png)
 
-3. No painel **de partilha adicionar,** faça o seguinte procedimento:
+3. No painel **de partilha Add,** faça o seguinte procedimento:
 
     a. Na caixa **Nome,** forneça um nome único para a sua parte.  
     O nome da partilha só pode ter letras minúsculas, algarismos e hífenes. Deve ter entre 3 a 63 caracteres e começar com uma letra ou um numeral. Os hífenes devem ser precedidos e seguidos por uma letra ou um numeral.
     
     b. Selecione um **Tipo** para a partilha.  
     O tipo pode ser **SMB** ou **NFS**, sendo que SMB é a predefinição. SMB é o padrão para clientes Windows, e NFS é utilizado para clientes Linux.  
-    Dependendo se escolhe ações da SMB ou da NFS, as restantes opções variam ligeiramente. 
+    Dependendo se escolhe ações SMB ou NFS, as restantes opções variam ligeiramente. 
 
-    c. Forneça uma conta de armazenamento onde a parte resida. 
+    c. Forneça uma conta de armazenamento onde a parte residirá. 
 
     > [!IMPORTANT]
-    > Certifique-se de que a conta de Armazenamento Azure que utiliza não tem políticas de imutabilidade definidas se estiver a usá-la com um dispositivo Azure Stack Edge ou Data Box Gateway. Para mais informações, consulte definir e gerir as políticas de [imutabilidade para armazenamento de blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+    > Certifique-se de que a conta de Armazenamento Azure que utiliza não tem políticas de imutabilidade definidas se estiver a usá-la com um dispositivo Azure Stack Edge ou Data Box Gateway. Para obter mais informações, consulte [Definir e gerir políticas de imutabilidade para armazenamento de bolhas](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
     
-    d. Na lista de drop-down do **serviço de armazenamento,** selecione **Block Blob,** **Page Blob**ou **Files**.  
-    O tipo de serviço que selecionar depende do formato que pretende utilizar os dados no Azure. Neste exemplo, porque queremos armazenar os dados como blocos blobs em Azure, selecionamos **Block Blob**. Se selecionar o **Page Blob,** certifique-se de que os seus dados estão alinhados 512 bytes. Por exemplo, um VHDX tem sempre um alinhamento de 512 bytes.
+    d. Na lista de drop-down **do serviço de armazenamento,** selecione **Block Blob**, **Page Blob**ou **Files**.  
+    O tipo de serviço que seleciona depende do formato que pretende utilizar no Azure. Neste exemplo, porque queremos armazenar os dados como blobs de bloco em Azure, selecionamos **Block Blob**. Se selecionar **Page Blob,** certifique-se de que os seus dados estão alinhados com 512 bytes. Por exemplo, um VHDX tem sempre um alinhamento de 512 bytes.
 
-    e. Crie um novo recipiente de bolhas ou utilize um existente a partir da lista de abandono. Se criar um recipiente de bolhas, forneça um nome de recipiente. Se um recipiente já não existe, é criado na conta de armazenamento com o nome de partilha recém-criado.
+    e. Crie um novo recipiente blob ou utilize um existente na lista de retiradas. Se criar um recipiente de bolhas, forneça um nome de recipiente. Se um recipiente já não existe, é criado na conta de armazenamento com o nome de ação recém-criado.
    
-    f. Dependendo se criou uma quota SMB ou uma participação nFS, faça um dos seguintes passos: 
+    f. Dependendo se criou uma participação na SMB ou numa participação da NFS, faça um dos seguintes passos: 
      
-    - **Partilha SMB**: Sob **todos os privilégios do utilizador local,** selecione **Criar novo** ou **utilizar existentes**. Se criar um novo utilizador local, introduza um nome de utilizador e uma senha e, em seguida, confirme a palavra-passe. Esta ação atribui permissões ao utilizador local. Depois de atribuir as permissões aqui, pode usar o File Explorer para modificá-las.
+    - **Partilha SMB**: Sob **todos os privilégios utilizador local,** selecione **Criar novo** ou **utilizar existente**. Se criar um novo utilizador local, introduza um nome de utilizador e senha e, em seguida, confirme a palavra-passe. Esta ação atribui permissões ao utilizador local. Depois de ter atribuído as permissões aqui, pode utilizar o File Explorer para as modificar.
 
-        Se selecionar a caixa de verificação de **operações apenas para** ver estas ações, pode especificar utilizadores apenas de leitura.
+        Se selecionar a caixa **de verificação de operações de leitura apenas** para estes dados de partilha, pode especificar utilizadores apenas de leitura.
 
         ![Adicionar uma partilha SMB](./media/azure-stack-edge-deploy-add-shares/add-share-smb-1.png)
    
-    - **NFS share**: Introduza os endereços IP de clientes autorizados que possam aceder à partilha.
+    - **NFS partilhar**: Introduza os endereços IP de clientes autorizados que possam aceder à parte.
 
         ![Adicionar uma partilha NFS](./media/azure-stack-edge-deploy-add-shares/add-share-nfs-1.png)
    
-4. Selecione **Criar** para criar a parte.
+4. Selecione **Criar** para criar a partilha.
     
-    Foi notificado de que a criação de ações está em andamento. Após a criação da parte com as definições especificadas, as atualizações de azulejos **de Partilha** para refletir a nova ação.
+    Foi-lhe notificada de que a criação de ações está em andamento. Após a criação da partilha com as definições especificadas, **as ações** tile atualizações para refletir a nova ação.
     
 
 ## <a name="connect-to-the-share"></a>Ligar à partilha
@@ -92,14 +92,14 @@ Agora pode ligar-se a uma ou mais das ações que criou no último passo. Depend
 
 ### <a name="connect-to-an-smb-share"></a>Ligar a uma partilha SMB
 
-No seu cliente Do Windows Server ligado ao seu dispositivo Azure Stack Edge, ligue-se a uma parte SMB ao introduzir os comandos:
+No seu cliente Windows Server ligado ao seu dispositivo Azure Stack Edge, conecte-se a uma partilha SMB inserindo os comandos:
 
 
 1. Numa janela de comando, escreva:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
-2. Quando for solicitado, introduza a palavra-passe para a partilha.  
+2. Quando lhe for solicitado, insira a palavra-passe para a partilha.  
    A saída de exemplo deste comando é apresentada aqui.
 
     ```powershell
@@ -116,8 +116,8 @@ No seu cliente Do Windows Server ligado ao seu dispositivo Azure Stack Edge, lig
 
 3. No seu teclado, selecione Windows + R.
 
-4. Na janela **Correr,** `\\<device IP address>`especifique o , e, em seguida, selecione **OK**.  
-   O Explorador de Ficheiros abre. Agora deve poder ver as ações que criou como pastas. No File Explorer, clique duas vezes numa partilha (pasta) para visualizar o conteúdo.
+4. Na janela **Executar,** especifique o `\\<device IP address>` , e, em seguida, selecione **OK**.  
+   O Explorador de Ficheiros abre. Deverá agora ser capaz de ver as ações que criou como pastas. No File Explorer, clique duas vezes numa partilha (pasta) para ver o conteúdo.
  
     ![Ligar a uma partilha SMB](./media/azure-stack-edge-deploy-add-shares/connect-to-share2.png)
 
@@ -133,22 +133,22 @@ No seu cliente Linux ligado ao seu dispositivo Azure Stack Edge, faça o seguint
 
     Para obter mais informações, aceda a [Instalar cliente NFSv4](https://help.ubuntu.com/community/SettingUpNFSHowTo#NFSv4_client).
 
-2. Depois de instalado o cliente NFS, monte a parte NFS que criou no seu dispositivo Azure Stack Edge utilizando o seguinte comando:
+2. Depois de instalar o cliente NFS, monte a partilha NFS que criou no seu dispositivo Azure Stack Edge utilizando o seguinte comando:
 
    `sudo mount -t nfs -o sec=sys,resvport <device IP>:/<NFS shares on device> /home/username/<Folder on local Linux computer>`
 
     > [!IMPORTANT]
-    > A `sync` utilização da opção ao montar ações melhora as taxas de transferência de ficheiros grandes.
-    > Antes de montar a parte, certifique-se de que os diretórios que funcionarão como pontos de montagem no seu computador local já estão criados. Estes diretórios não devem conter ficheiros ou subpastas.
+    > A `sync` utilização da opção ao acumular ações melhora as taxas de transferência de grandes ficheiros.
+    > Antes de montar a partilha, certifique-se de que os diretórios que funcionarão como pontos de montagem no seu computador local já estão criados. Estes diretórios não devem conter quaisquer ficheiros ou sub-dobradores.
 
-    O exemplo que se segue mostra como ligar via NFS a uma parte no seu dispositivo Azure Stack Edge. O IP do dispositivo é `10.10.10.60`. A partilha `mylinuxshare2` é montada no ubuntuVM. O ponto de montagem da partilha é `/home/databoxubuntuhost/edge`.
+    O exemplo a seguir mostra como ligar via NFS a uma partilha no seu dispositivo Azure Stack Edge. O IP do dispositivo é `10.10.10.60`. A partilha `mylinuxshare2` é montada no ubuntuVM. O ponto de montagem da partilha é `/home/databoxubuntuhost/edge`.
 
     `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/Edge`
 
 > [!NOTE] 
-> As seguintes ressalvas aplicam-se a esta libertação:
-> - Depois de um ficheiro ser criado na parte, a renomeação do ficheiro não é suportada. 
-> - A eliminação de um ficheiro de uma ação não elimina a entrada na conta de armazenamento.
+> As seguintes ressalvas são aplicáveis a esta versão:
+> - Depois de um ficheiro ser criado na partilha, o renomeamento do ficheiro não é suportado. 
+> - A eliminação de um ficheiro de uma ação não apaga a entrada na conta de armazenamento.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -161,6 +161,6 @@ Neste tutorial, você aprendeu sobre os seguintes tópicos Azure Stack Edge:
 Para aprender a transformar os seus dados utilizando o Azure Stack Edge, avance para o próximo tutorial:
 
 > [!div class="nextstepaction"]
-> [Transforme dados com Borda de Stack Azure](./azure-stack-edge-deploy-configure-compute.md)
+> [Transforme dados com Azure Stack Edge](./azure-stack-edge-deploy-configure-compute.md)
 
 

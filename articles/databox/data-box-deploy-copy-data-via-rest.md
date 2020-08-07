@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Copiar para blob armazenamento via REST APIs'
 titleSuffix: Azure Data Box
-description: Saiba como copiar dados para o seu armazenamento de blob da caixa de dados Azure através de APIs REST
+description: Neste tutorial, aprenda a ligar-se ao armazenamento de Blob da Caixa de Dados Azure utilizando APIs REST em http ou https e, em seguida, copie dados da Caixa de Dados Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 07/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 50c4daabe3dc980937f52db7e56cd778890b84d8
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 71f966cd62ffd2c735259dcfa98b9b97f87d9a19
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960690"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926200"
 ---
 # <a name="tutorial-use-rest-apis-to-copy-data-to-azure-data-box-blob-storage"></a>Tutorial: Use APIs de REPOUSO para copiar dados para o armazenamento de blob da caixa de dados Azure  
 
@@ -133,7 +133,7 @@ Vários, como Ubuntu e Debian, usam o `update-ca-certificates` comando.
 Versões recentes de RHEL, Fedora e CentOS usam o `update-ca-trust` comando.
 
 * Copie o ficheiro do certificado para o `/etc/pki/ca-trust/source/anchors` diretório.
-* Execute `update-ca-trust`.
+* Execute o `update-ca-trust`.
 
 Consulte a documentação específica para a sua distribuição para mais detalhes.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0bed20dfd087783e865dd2e68897870ad56507c2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0b9792ce25541917bfde3291b3864f58d70d6d03
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87294639"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924041"
 ---
 # <a name="tutorial-configure-webroot-security-awareness-training-for-automatic-user-provisioning"></a>Tutorial: Configurar a Formação de Sensibilização para a Segurança da Webroot para o fornecimento automático de utilizadores
 
@@ -120,10 +120,10 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
    |Atributo|Tipo|Suportado para filtragem|
    |---|---|---|
-   |externoId|Cadeia|&check;|
-   |nome.dado Nome|Cadeia|
-   |nome.famíliaName|Cadeia|
-   |e-mails[tipo eq "work"].value|Cadeia|
+   |externoId|String|&check;|
+   |nome.dado Nome|String|
+   |nome.famíliaName|String|
+   |e-mails[tipo eq "work"].value|String|
 
 10. Na secção **Mappings,** selecione **Provision Azure Ative Directory Groups**.
 
@@ -131,9 +131,9 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
       |Atributo|Tipo|Suportado para filtragem|
       |---|---|---|
-      |displayName|Cadeia|&check;|
+      |displayName|String|&check;|
       |membros|Referência|
-      |externoId|Cadeia|
+      |externoId|String|
 
 12. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro de escotagem](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -155,7 +155,7 @@ Esta operação inicia o ciclo inicial de sincronização de todos os utilizador
 Depois de configurar o provisionamento, utilize os seguintes recursos para monitorizar a sua implantação:
 
 1. Utilize os [registos de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais os utilizadores que foram a provisionados com sucesso ou sem sucesso
-2. Verifique a [barra de progresso](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) para ver o estado do ciclo de provisionamento e quão perto está da sua conclusão
+2. Verifique a [barra de progresso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver o estado do ciclo de provisionamento e quão perto está da sua conclusão
 3. Se a configuração do provisionamento parecer estar num estado pouco saudável, a aplicação entrará em quarentena. Saiba mais sobre estados de quarentena [aqui.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)  
 
 ## <a name="additional-resources"></a>Recursos adicionais

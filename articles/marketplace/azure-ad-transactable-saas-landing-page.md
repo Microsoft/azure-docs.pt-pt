@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.openlocfilehash: 1ff366e24adb82a0d7d4660d4afaffa0bbca0b3c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 737e2fc682e630775b763dd2f22f904d895a120f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328481"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921271"
 ---
 # <a name="build-the-landing-page-for-your-transactable-saas-offer-in-the-commercial-marketplace"></a>Construa a página de aterragem para a sua oferta de SaaS transacionável no mercado comercial
 
@@ -56,7 +56,7 @@ Para começar, siga as instruções para [registar uma nova aplicação](https:/
 
 Se pretender consultar a Microsoft Graph API, [configuure a sua nova aplicação para aceder a APIs web](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis). Quando seleciona as permissões API para esta aplicação, o padrão do **Utilizador.Read** é suficiente para recolher informações básicas sobre o comprador para tornar o processo de embarque suave e automático. Não solicite quaisquer permissões API etiquetadas **que necessitem de consentimento administrativo,** pois isso impedirá todos os utilizadores não administradores de visitarem a sua página de aterragem.
 
-Se necessitar de permissões elevadas como parte do seu processo de embarque ou provisionamento, considere usar a funcionalidade [de consentimento incremental](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis) da Azure AD para que todos os compradores enviados do mercado possam interagir inicialmente com a página de aterragem.
+Se necessitar de permissões elevadas como parte do seu processo de embarque ou provisionamento, considere usar a funcionalidade [de consentimento incremental](https://aka.ms/incremental-consent) da Azure AD para que todos os compradores enviados do mercado possam interagir inicialmente com a página de aterragem.
 
 ## <a name="use-a-code-sample-as-a-starting-point"></a>Use uma amostra de código como ponto de partida
 
@@ -90,16 +90,7 @@ Para autenticar a sua aplicação com as APIs de cumprimento do SaaS, precisa de
 
 ### <a name="call-the-resolve-endpoint"></a>Chame o ponto final de resolução
 
-As APIs de cumprimento do SaaS implementam o ponto final de [resolução](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) que pode ser chamado para confirmar a validade do token do mercado e para devolver informações sobre a subscrição, incluindo os valores indicados nesta tabela.
-
-| Valor | Descrição |
-| ------------ | ------------- |
-| Id | Identificador único (GUID) para esta subscrição. Você precisará deste valor em futuras chamadas para as APIs de cumprimento saas. |
-| subscriptionName | Nome da subscrição, que foi definida quando a oferta foi adicionada ao Partner Center. |
-| offerId | Identificador para a oferta específica (definido quando a oferta foi adicionada). |
-| planId | Identificador para o plano específico para a oferta (definido quando a oferta foi adicionada). |
-| Quantidade | Entrada de quantidade pelo comprador durante a compra. |
-|||
+As APIs de cumprimento do SaaS implementam o ponto final de [resolução](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) que pode ser chamado para confirmar a validade do token do mercado e para devolver informações sobre a subscrição.
 
 ## <a name="read-information-from-claims-encoded-in-the-id-token"></a>Leia informações de reclamações codificadas no token de ID
 

@@ -1,22 +1,22 @@
 ---
 title: Exemplos do Azure PowerShell para o Gateway de VPN
-description: Exemplos do Azure PowerShell para o Gateway de VPN.
+description: Utilize estes scripts Azure PowerShell para criar gateways VPN baseados em rotas, ligações VNet-to-VNet e baixar o modelo de dispositivo VPN.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: sample
 ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: fcae37da3ef9c5b2b7633db1dd16cec247a782af
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: c92e3bad0e8e49ff07997dd37ed7098087c39d5e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203818"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921559"
 ---
 # <a name="azure-powershell-samples-for-vpn-gateway"></a>Exemplos do Azure PowerShell para o Gateway de VPN
 
-A tabela seguinte inclui ligações para scripts do Azure PowerShell:
+A tabela seguinte inclui links para scripts Azure PowerShell:
 
 | Script | Descrição |
 |----|----|

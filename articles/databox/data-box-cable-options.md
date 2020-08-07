@@ -1,6 +1,6 @@
 ---
 title: Opções de cablagem do Azure Data Box | Microsoft Docs
-description: Descreve as várias opções de cablagem do Azure Data Box.
+description: Saiba mais sobre as diferentes formas de cabo da sua Caixa de Dados Azure para transferência de dados utilizando a porta MGMT ou a porta DATA.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 10/24/2018
 ms.author: alkohli
-ms.openlocfilehash: ffabd917eff1c545bba734ab1621b947ee8d9ae9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a1ce22cd700368d630d70912ea266d16fd772bf
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77920642"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925214"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Opções de cablagem do Azure Data Box
 
@@ -129,6 +129,6 @@ Execute os seguintes passos para instalar os cabos do dispositivo.
 2. Utilize um servidor DHCP ou DNS para identificar o endereço IP.
 3. A partir de um servidor na mesma rede, aceda à UI Web local do dispositivo com o endereço IP atribuído pelo servidor DHCP. Inicie sessão e desbloqueie o Data Box com a palavra-passe de desbloqueio no portal do Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Depois de instalar os cabos do dispositivo, aceda a [Copiar dados para o Azure Data Box](data-box-deploy-copy-data.md).

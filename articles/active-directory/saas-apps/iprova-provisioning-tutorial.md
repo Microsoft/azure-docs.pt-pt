@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 16cba1896a9e9e4038091769fb78ca0c0469710e
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 799713c237d8a528b7e458da1e26695484ca1080
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448829"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923174"
 ---
 # <a name="tutorial-configure-iprova-for-automatic-user-provisioning"></a>Tutorial: Configurar iProva para fornecimento automático de utilizadores
 
@@ -123,33 +123,33 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
    |Atributo|Tipo|
    |---|---|
    |ativo|Booleano|
-   |displayName|Cadeia|
-   |título|Cadeia|
-   |e-mails[tipo eq "work"].value|Cadeia|
-   |preferiuLanguage|Cadeia|
-   |userName|Cadeia|
-   |endereços[tipo eq "work"].país|Cadeia|
-   |endereços[tipo eq "work"].localidade|Cadeia|
-   |endereços[tipo eq "work"].postalCode|Cadeia|
-   |endereços[tipo eq "work"].formatado|Cadeia|
-   |endereços[tipo eq "work"].região|Cadeia|
-   |endereços[tipo eq "work"].streetAddress|Cadeia|
-   |endereços[tipo eq "outros"].formatados|Cadeia|
-   |nome.dado Nome|Cadeia|
-   |nome.famíliaName|Cadeia|
-   |nome.formatado|Cadeia|
-   |números de telefone[tipo eq "fax"].valor|Cadeia|
-   |números de telefone[tipo eq "mobile"].valor|Cadeia|
-   |phoneNumbers[tipo eq "work"].value|Cadeia|
-   |externoId|Cadeia|
-   |papéis[eq primário "True"].display|Cadeia|
-   |papéis[eq primário "Verdadeiro"].tipo|Cadeia|
-   |papéis[eq primário "Verdadeiro"].valor|Cadeia|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|Cadeia|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|Cadeia|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|Cadeia|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|Cadeia|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|Cadeia|
+   |displayName|String|
+   |título|String|
+   |e-mails[tipo eq "work"].value|String|
+   |preferiuLanguage|String|
+   |userName|String|
+   |endereços[tipo eq "work"].país|String|
+   |endereços[tipo eq "work"].localidade|String|
+   |endereços[tipo eq "work"].postalCode|String|
+   |endereços[tipo eq "work"].formatado|String|
+   |endereços[tipo eq "work"].região|String|
+   |endereços[tipo eq "work"].streetAddress|String|
+   |endereços[tipo eq "outros"].formatados|String|
+   |nome.dado Nome|String|
+   |nome.famíliaName|String|
+   |nome.formatado|String|
+   |números de telefone[tipo eq "fax"].valor|String|
+   |números de telefone[tipo eq "mobile"].valor|String|
+   |phoneNumbers[tipo eq "work"].value|String|
+   |externoId|String|
+   |papéis[eq primário "True"].display|String|
+   |papéis[eq primário "Verdadeiro"].tipo|String|
+   |papéis[eq primário "Verdadeiro"].valor|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
 
 
 10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups para iProva**.
@@ -158,7 +158,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
       |Atributo|Tipo|
       |---|---|
-      |displayName|Cadeia|
+      |displayName|String|
       |membros|Referência|
 
 12. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro de escotagem](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -182,7 +182,7 @@ Esta operação inicia a sincronização inicial de todos os utilizadores e/ou g
 Depois de configurar o provisionamento, utilize os seguintes recursos para monitorizar a sua implantação:
 
 1. Utilize os [registos de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais os utilizadores que foram a provisionados com sucesso ou sem sucesso
-2. Verifique a [barra de progresso](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) para ver o estado do ciclo de provisionamento e quão perto está da sua conclusão
+2. Verifique a [barra de progresso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver o estado do ciclo de provisionamento e quão perto está da sua conclusão
 3. Se a configuração do provisionamento parecer estar num estado pouco saudável, a aplicação entrará em quarentena. Saiba mais sobre estados de quarentena [aqui.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)  
 
 ## <a name="change-log"></a>Change log

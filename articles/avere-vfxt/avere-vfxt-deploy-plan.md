@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 6acc1ffd197ddba4290ff7c0751b259d98a70927
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 995ac2776f4197dac1c2ef73fd209833474be5a5
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80754389"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922681"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planear o seu sistema Avere vFXT
 
@@ -166,7 +166,7 @@ Ao criar o cluster, pode escolher se deve ou não criar um endereço IP público
 
 ## <a name="vm-access-roles"></a>Funções de acesso VM
 
-O Azure utiliza [o controlo de acesso baseado em funções](../role-based-access-control/index.yml) (RBAC) para autorizar os VMs do cluster a executar certas tarefas. Por exemplo, o controlador de cluster precisa de autorização para criar e configurar os VMs do nó de cluster. Os nós de cluster precisam de ser capazes de atribuir ou reatribuir endereços IP a outros nós de cluster.
+O Azure usa [o controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/index.yml) para autorizar os VMs do cluster a executar certas tarefas. Por exemplo, o controlador de cluster precisa de autorização para criar e configurar os VMs do nó de cluster. Os nós de cluster precisam de ser capazes de atribuir ou reatribuir endereços IP a outros nós de cluster.
 
 Duas funções Azure incorporadas são usadas para as máquinas virtuais Avere vFXT:
 
@@ -175,6 +175,6 @@ Duas funções Azure incorporadas são usadas para as máquinas virtuais Avere v
 
 Se precisar de personalizar funções de acesso para componentes Avere vFXT, tem de definir o seu próprio papel e atribuí-lo aos VMs no momento em que são criados. Não é possível utilizar o modelo de implantação no Mercado Azure. Consulte o Serviço e Suporte ao Cliente da Microsoft abrindo um bilhete no portal Azure, conforme descrito no [Get Help with your system](avere-vfxt-open-ticket.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [A visão geral da implementação](avere-vfxt-deploy-overview.md) dá uma visão geral dos passos necessários para criar um sistema Avere vFXT para Azure e prepa levá-lo para servir os dados.

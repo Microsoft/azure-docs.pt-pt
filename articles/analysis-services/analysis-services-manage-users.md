@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b1f848b5e6fa053d81754d441fd4845c1a24ee5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15ae1ca6902c27732812a591f492430150c84ecb
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361494"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926183"
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticação e permissões de utilizador
 
@@ -68,7 +68,7 @@ Os utilizadores do Excel podem ligar-se a um servidor utilizando uma conta Windo
 
 ![Controlo de acessos no portal Azure](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 
-As funções a este nível aplicam-se aos utilizadores ou contas que precisam de executar tarefas que possam ser concluídas no portal ou utilizando modelos de Gestor de Recursos Azure. Para saber mais, consulte [o Controlo de Acesso Baseado em Fun.](../role-based-access-control/overview.md) 
+As funções a este nível aplicam-se aos utilizadores ou contas que precisam de executar tarefas que possam ser concluídas no portal ou utilizando modelos de Gestor de Recursos Azure. Para saber mais, consulte [o controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/overview.md). 
 
 ## <a name="database-roles"></a>Funções de base de dados
 
@@ -76,9 +76,9 @@ As funções a este nível aplicam-se aos utilizadores ou contas que precisam de
   
  Por padrão, quando cria um novo projeto de modelo tabular, o projeto modelo não tem quaisquer funções. As funções podem ser definidas utilizando a caixa de diálogo Role Manager no Estúdio Visual. Quando as funções são definidas durante o design do projeto do modelo, são aplicadas apenas à base de dados do espaço de trabalho do modelo. Quando o modelo é implantado, as mesmas funções são aplicadas ao modelo implantado. Depois de implementado um modelo, os administradores de servidores e de bases de dados podem gerir funções e membros utilizando SSMS. Para saber mais, consulte [Gerir as funções de base de dados e os utilizadores.](analysis-services-database-users.md)
   
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Gerir o acesso a recursos com grupos Azure Ative Directory](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [Gerir funções de base de dados e utilizadores](analysis-services-database-users.md)  
 [Gerir administradores de servidor](analysis-services-server-admins.md)  
-[Controlo de Acesso Baseado em Função](../role-based-access-control/overview.md)  
+[Controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/overview.md)  

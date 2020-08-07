@@ -10,15 +10,15 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 08/04/2020
+ms.date: 08/06/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 1b2d707569221a79ad53f04bcc379f5067ed9b04
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 210b2935cd2df81b0ff079c9a1c945fe770933f9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905538"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926523"
 ---
 # <a name="set-up-message-passing-interface-for-hpc"></a>Configurar interface de passagem de mensagens para HPC
 
@@ -95,11 +95,24 @@ Verifique a sua chave de partição como mencionado acima.
 
 ## <a name="intel-mpi"></a>Intel MPI
 
-[Baixar Intel MPI](https://software.intel.com/mpi-library/choose-download).
+Descarregue a sua versão de versão da [Intel MPI](https://software.intel.com/mpi-library/choose-download). Altere a variável ambiente I_MPI_FABRICS dependendo da versão. Para Intel MPI 2018, utilize `I_MPI_FABRICS=shm:ofa` e para 2019, utilize `I_MPI_FABRICS=shm:ofi` .
 
-Altere a variável ambiente I_MPI_FABRICS dependendo da versão. Para Intel MPI 2018, utilize `I_MPI_FABRICS=shm:ofa` e para 2019, utilize `I_MPI_FABRICS=shm:ofi` .
+### <a name="non-sr-iov-vms"></a>VMs não SR-IOV
+Para vMs não SR-IOV, um exemplo de descarregamento da [versão de avaliação gratuita](https://registrationcenter.intel.com/en/forms/?productid=1740) de 5.x é o seguinte:
+```bash
+wget http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/9278/l_mpi_p_5.1.3.223.tgz
+```
+Para etapas de instalação, consulte o [Guia de Instalação da Biblioteca Intel MPI](https://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html).
+Opcionalmente, pode querer ativar ptrace para processos não-depurados sem raiz (necessário para as versões mais recentes do INTEL MPI).
+```bash
+echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+```
 
-A fixação do processo funciona corretamente para 15, 30 e 60 PPN por padrão.
+### <a name="suse-linux"></a>SUSE Linux
+Para as versões de imagem SUSE Linux Enterprise Server VM - SLES 12 SP3 para HPC, SLES 12 SP3 para HPC (Premium), SLES 12 SP1 para HPC, SLES 12 SP1 para HPC (Premium), SLES 12 SP4 e SLES 15, os controladores RDMA estão instalados e os pacotes De MPI da Intel estão distribuídos no VM. Instale o Intel MPI executando o seguinte comando:
+```bash
+sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
+```
 
 ## <a name="mpich"></a>MPICH
 

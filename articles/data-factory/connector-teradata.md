@@ -9,16 +9,17 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 4eed79210e3e39f82b892ac0681e161ebb59597e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 182e04625f829304168bfdefe000bb8797646c75
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81418036"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926897"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copiar dados da Teradata Vantage utilizando a Azure Data Factory
+
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 >
 > * [Versão 1](v1/data-factory-onprem-teradata-connector.md)
@@ -59,18 +60,19 @@ As secções seguintes fornecem detalhes sobre propriedades que são usadas para
 
 O serviço ligado à Teradata suporta as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para **Teradata.** | Yes |
-| conexãoStragem | Especifica a informação necessária para se ligar à instância Teradata. Consulte as seguintes amostras.<br/>Também pode colocar uma palavra-passe no Cofre da Chave Azure e retirar a `password` configuração da cadeia de ligação. Consulte [as credenciais da Loja no Cofre de Chaves Azure](store-credentials-in-key-vault.md) com mais detalhes. | Yes |
-| o nome de utilizador | Especifique um nome de utilizador para ligar ao Teradata. Aplica-se quando estiver a utilizar a autenticação do Windows. | No |
-| palavra-passe | Especifique uma palavra-passe para a conta de utilizador especificada para o nome de utilizador. Também pode optar por fazer referência a [um segredo armazenado no Cofre da Chave Azure.](store-credentials-in-key-vault.md) <br>Aplica-se quando estiver a utilizar a autenticação do Windows ou a fazer referência a uma palavra-passe no Cofre de Chaves para autenticação básica. | No |
-| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |No |
+| tipo | A propriedade tipo deve ser definida para **Teradata.** | Sim |
+| conexãoStragem | Especifica a informação necessária para se ligar à instância Teradata. Consulte as seguintes amostras.<br/>Também pode colocar uma palavra-passe no Cofre da Chave Azure e retirar a `password` configuração da cadeia de ligação. Consulte [as credenciais da Loja no Cofre de Chaves Azure](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
+| nome de utilizador | Especifique um nome de utilizador para ligar ao Teradata. Aplica-se quando estiver a utilizar a autenticação do Windows. | Não |
+| palavra-passe | Especifique uma palavra-passe para a conta de utilizador especificada para o nome de utilizador. Também pode optar por fazer referência a [um segredo armazenado no Cofre da Chave Azure.](store-credentials-in-key-vault.md) <br>Aplica-se quando estiver a utilizar a autenticação do Windows ou a fazer referência a uma palavra-passe no Cofre de Chaves para autenticação básica. | Não |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |Não |
 
 Mais propriedades de conexão que pode definir em cadeia de ligação por sua caixa:
 
 | Propriedade | Descrição | Valor predefinido |
 |:--- |:--- |:--- |
+| UtilizaçãoDataEncrypation | Especifica se encriptar todas as comunicações com a base de dados Teradata. Os valores permitidos são 0 ou 1.<br><br/>- **0 (desativado, predefinido)**: Encripta apenas informações de autenticação.<br/>- **1 (ativado)**: Encripta todos os dados que são transmitidos entre o controlador e a base de dados. | Não |
 | Conjunto de Caracteres | O conjunto de caracteres para usar para a sessão. Por exemplo, `CharacterSet=UTF16` .<br><br/>Este valor pode ser um conjunto de caracteres definido pelo utilizador, ou um dos seguintes conjuntos de caracteres pré-definidos: <br/>- ASCII<br/>- UTF8<br/>- UTF16<br/>- LATIN1252_0A<br/>- LATIN9_0A<br/>- LATIN1_0A<br/>- Shift-JIS (Windows, DOS compatível, KANJISJIS_0S)<br/>- EUC (compatível com Unix, KANJIEC_0U)<br/>- Ibm Mainframe (KANJIEBCDIC5035_0I)<br/>- KANJI932_1S0<br/>- BIG5 (TCHBIG5_1R0)<br/>- GB (SCHGB2312_1T0)<br/>- SCHINESE936_6R0<br/>- TCHINESE950_8R0<br/>- NetworkKorean (HANGULKSC5601_2R4)<br/>- HANGUL949_7R0<br/>- ARABIC1256_6A0<br/>- CYRILLIC1251_2A0<br/>- HEBREW1255_5A0<br/>- LATIN1250_1A0<br/>- LATIN1254_7A0<br/>- LATIN1258_8A0<br/>- THAI874_4A0 | O valor predefinido é `ASCII` . |
 | MaxRespSize |O tamanho máximo do tampão de resposta para pedidos SQL, em kilobytes (KBs). Por exemplo, `MaxRespSize=‭10485760‬` .<br/><br/>Para a versão 16.00 ou posterior da Teradata Database, o valor máximo é de 7361536. Para ligações que usam versões anteriores, o valor máximo é 1048576. | O valor predefinido é `65536` . |
 
@@ -146,11 +148,11 @@ Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dado
 
 Para copiar dados da Teradata, suportam-se as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade do tipo do conjunto de dados deve ser definida para `TeradataTable` . | Yes |
+| tipo | A propriedade do tipo do conjunto de dados deve ser definida para `TeradataTable` . | Sim |
 | base de dados | O nome do caso Teradata. | Não (se for especificada "consulta" na fonte de atividade) |
-| table | O nome da mesa no caso Teradata. | Não (se for especificada "consulta" na fonte de atividade) |
+| tabela | O nome da mesa no caso Teradata. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo:**
 
@@ -200,15 +202,15 @@ Esta secção fornece uma lista de imóveis suportados por fonte teradata. Para 
 
 Para copiar dados da Teradata, as seguintes propriedades são suportadas na secção **fonte de origem** da atividade da cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade do tipo da fonte de atividade de cópia deve ser definida para `TeradataSource` . | Yes |
+| tipo | A propriedade do tipo da fonte de atividade de cópia deve ser definida para `TeradataSource` . | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Um exemplo é `"SELECT * FROM MyTable"`.<br>Quando ativar a carga partida, tem de ligar os parâmetros de partição incorporados correspondentes na sua consulta. Por exemplo, consulte a cópia paralela da secção [Teradata.](#parallel-copy-from-teradata) | Não (se a tabela no conjunto de dados for especificada) |
-| partitionOptions | Especifica as opções de partição de dados utilizadas para carregar dados da Teradata. <br>Os valores de permitir são: **Nenhum** (padrão), **Hash** e **DynamicRange**.<br>Quando uma opção de partição é ativada (isto é, `None` não), o grau de paralelismo para carregar simultaneamente os dados de Teradata é controlado pela [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) definição da atividade da cópia. | No |
-| divisóriasSas | Especificar o grupo das definições para a partilha de dados. <br>Aplicar quando a opção de partição não `None` for. | No |
-| partitionColumnName | Especifique o nome da coluna de origem que será utilizada por partição de alcance ou partição hash para cópia paralela. Se não for especificado, o índice primário da tabela é detetado automaticamente e utilizado como coluna de partição. <br>Aplicar quando a opção de partição for `Hash` ou `DynamicRange` . Se utilizar uma consulta para recuperar os dados de origem, o gancho `?AdfHashPartitionCondition` ou `?AdfRangePartitionColumnName` a cláusula WHERE. Veja o exemplo na cópia paralela da secção [Teradata.](#parallel-copy-from-teradata) | No |
-| partitionUpperBound | O valor máximo da coluna de partição para copiar dados. <br>Aplicar quando a opção de partição for `DynamicRange` . Se utilizar a consulta para obter dados de origem, `?AdfRangePartitionUpbound` ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [Teradata.](#parallel-copy-from-teradata) | No |
-| partitionLowerBound | O valor mínimo da coluna de partição para copiar dados. <br>Aplicar quando a opção de partição for `DynamicRange` . Se utilizar uma consulta para recuperar os dados de origem, `?AdfRangePartitionLowbound` ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [Teradata.](#parallel-copy-from-teradata) | No |
+| partitionOptions | Especifica as opções de partição de dados utilizadas para carregar dados da Teradata. <br>Os valores de permitir são: **Nenhum** (padrão), **Hash** e **DynamicRange**.<br>Quando uma opção de partição é ativada (isto é, `None` não), o grau de paralelismo para carregar simultaneamente os dados de Teradata é controlado pela [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) definição da atividade da cópia. | Não |
+| divisóriasSas | Especificar o grupo das definições para a partilha de dados. <br>Aplicar quando a opção de partição não `None` for. | Não |
+| partitionColumnName | Especifique o nome da coluna de origem que será utilizada por partição de alcance ou partição hash para cópia paralela. Se não for especificado, o índice primário da tabela é autodetectado e utilizado como coluna de partição. <br>Aplicar quando a opção de partição for `Hash` ou `DynamicRange` . Se utilizar uma consulta para recuperar os dados de origem, o gancho `?AdfHashPartitionCondition` ou `?AdfRangePartitionColumnName` a cláusula WHERE. Veja o exemplo na cópia paralela da secção [Teradata.](#parallel-copy-from-teradata) | Não |
+| partitionUpperBound | O valor máximo da coluna de partição para copiar dados. <br>Aplicar quando a opção de partição for `DynamicRange` . Se utilizar a consulta para obter dados de origem, `?AdfRangePartitionUpbound` ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [Teradata.](#parallel-copy-from-teradata) | Não |
+| partitionLowerBound | O valor mínimo da coluna de partição para copiar dados. <br>Aplicar quando a opção de partição for `DynamicRange` . Se utilizar uma consulta para recuperar os dados de origem, `?AdfRangePartitionLowbound` ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [Teradata.](#parallel-copy-from-teradata) | Não |
 
 > [!NOTE]
 >
@@ -256,7 +258,7 @@ Quando ativa a cópia dividida, a Data Factory executa consultas paralelas contr
 
 Sugere-se que ative uma cópia paralela com a partilha de dados, especialmente quando carrega uma grande quantidade de dados a partir do seu Teradata. São sugeridas configurações para diferentes cenários. Ao copiar dados para a loja de dados baseada em ficheiros, é recomcomcomerado para escrever para uma pasta como vários ficheiros (especificar apenas o nome da pasta), caso em que o desempenho é melhor do que escrever para um único ficheiro.
 
-| Cenário                                                     | Definições sugeridas                                           |
+| Scenario                                                     | Definições sugeridas                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Carga completa da mesa grande.                                   | **Opção de partição**: Haxixe. <br><br/>Durante a execução, a Data Factory deteta automaticamente a coluna de índice primário, aplica um haxixe contra ela e copia dados por partições. |
 | Carregue uma grande quantidade de dados utilizando uma consulta personalizada.                 | **Opção de partição**: Haxixe.<br>**Consulta:** `SELECT * FROM <TABLENAME> WHERE ?AdfHashPartitionCondition AND <your_additional_where_clause>` .<br>**Coluna de partição**: Especificar a coluna utilizada para aplicar a partição de haxixe. Se não for especificado, a Data Factory deteta automaticamente a coluna PK da tabela especificada no conjunto de dados Teradata.<br><br>Durante a execução, a Data Factory `?AdfHashPartitionCondition` substitui-se pela lógica de partição de haxixe e envia para Teradata. |
@@ -297,14 +299,14 @@ Quando copia dados da Teradata, aplicam-se os seguintes mapeamentos. Para saber 
 | Tipo de dados teradata | Tipo de dados provisórios da Data Factory |
 |:--- |:--- |
 | BigInt |Int64 |
-| Blobs |Byte[] |
+| Blob |Byte[] |
 | Byte |Byte[] |
 | ByteInt |Int16 |
 | Char |String |
 | Clob |String |
 | Date |DateTime |
 | Decimal |Decimal |
-| Double |Double |
+| Double (Duplo) |Double (Duplo) |
 | Gráfico |Não suportado. Aplicar elenco explícito na consulta de origem. |
 | Número inteiro |Int32 |
 | Dia do Intervalo |Não suportado. Aplicar elenco explícito na consulta de origem. |
@@ -320,7 +322,7 @@ Quando copia dados da Teradata, aplicam-se os seguintes mapeamentos. Para saber 
 | Intervalo Segundo |Não suportado. Aplicar elenco explícito na consulta de origem. |
 | Ano de Intervalo |Não suportado. Aplicar elenco explícito na consulta de origem. |
 | Intervalo ano a mês |Não suportado. Aplicar elenco explícito na consulta de origem. |
-| Número |Double |
+| Número |Double (Duplo) |
 | Período (Data) |Não suportado. Aplicar elenco explícito na consulta de origem. |
 | Período (Tempo) |Não suportado. Aplicar elenco explícito na consulta de origem. |
 | Período (Tempo com Fuso Horário) |Não suportado. Aplicar elenco explícito na consulta de origem. |
@@ -329,7 +331,7 @@ Quando copia dados da Teradata, aplicam-se os seguintes mapeamentos. Para saber 
 | PequenoInt |Int16 |
 | Hora |TimeSpan |
 | Tempo com fuso horário |TimeSpan |
-| Carimbo de data/hora |DateTime |
+| Timestamp |DateTime |
 | Relógio com fuso horário |DateTime |
 | Rio VarByte |Byte[] |
 | Rio VarChar |String |

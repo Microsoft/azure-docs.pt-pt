@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: rohink
-ms.openlocfilehash: 28453af7eb38f4195774d70c5960eacc8467dedd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a3293cac15636ddf29df24cc1eff471aee25ec1
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84417009"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926540"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Gestor de tráfego frequentemente perguntas (FAQ)
 
@@ -300,13 +300,13 @@ Pode desligar a Vista de Tráfego para qualquer perfil utilizando o Portal ou a 
 
 Os preços de Visualização de Tráfego baseiam-se no número de pontos de dados utilizados para criar a saída. Atualmente, o único tipo de dados suportado são as consultas que o seu perfil recebe. Além disso, só é cobrado o processamento que foi feito quando tem a Vista de Tráfego ativada. Isto significa que, se ativar a Traffic View durante algum período de tempo num mês e desligá-lo durante outros tempos, apenas os pontos de dados processados enquanto tinha a conta ativada para a sua conta.
 
-## <a name="traffic-manager-endpoints"></a>Pontos finais do Gestor de tráfego
+## <a name="traffic-manager-endpoints"></a>Pontos finais do Gestor de Tráfego
 
 ### <a name="can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions"></a>Posso utilizar o Traffic Manager com pontos finais de várias subscrições?
 
 A utilização de pontos finais de várias subscrições não é possível com as Aplicações Web Azure. As Aplicações Web Azure exigem que qualquer nome de domínio personalizado usado com Web Apps seja utilizado apenas numa única subscrição. Não é possível utilizar aplicações web a partir de várias subscrições com o mesmo nome de domínio.
 
-Para outros tipos de pontos finais, é possível utilizar o Traffic Manager com pontos finais de mais de uma subscrição. No Gestor de Recursos, os pontos finais de qualquer subscrição podem ser adicionados ao Gestor de Tráfego, desde que a pessoa que configura o perfil do Gestor de Tráfego tenha lido o acesso ao ponto final. Estas permissões podem ser concedidas através do [controlo de acesso baseado em funções do Azure Resource Manager (RBAC)](../role-based-access-control/role-assignments-portal.md). Os pontos finais de outras subscrições podem ser adicionados utilizando [a Azure PowerShell](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) ou o [Azure CLI](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create).
+Para outros tipos de pontos finais, é possível utilizar o Traffic Manager com pontos finais de mais de uma subscrição. No Gestor de Recursos, os pontos finais de qualquer subscrição podem ser adicionados ao Gestor de Tráfego, desde que a pessoa que configura o perfil do Gestor de Tráfego tenha lido o acesso ao ponto final. Estas permissões podem ser concedidas através do [controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). Os pontos finais de outras subscrições podem ser adicionados utilizando [a Azure PowerShell](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) ou o [Azure CLI](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create).
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>Posso utilizar o Gestor de Tráfego com slots de 'Staging' do Serviço de Nuvem?
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/02/2020
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8a82b0b70b7be8897d8f85cabea2ee21ce84d913
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0a997733e015a9f65b59ffc99cc137dae3d2d62a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169617"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927441"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implementar no Azure Container Instances a partir do Azure Container Registry
 
@@ -25,7 +25,7 @@ ms.locfileid: "86169617"
 
 ## <a name="configure-registry-authentication"></a>Configurar a autenticação do registo
 
-Num cenário de produção em que se fornece acesso a serviços e aplicações "sem cabeça", recomenda-se configurar o acesso ao registo através de um [principal serviço.](../container-registry/container-registry-auth-service-principal.md) Um chefe de serviço [permite-lhe](../container-registry/container-registry-roles.md) fornecer controlo de acesso baseado em funções às imagens do seu contentor. Por exemplo, pode configurar um principal de serviço com acesso a um registo apenas por pedido.
+Num cenário de produção em que se fornece acesso a serviços e aplicações "sem cabeça", recomenda-se configurar o acesso ao registo através de um [principal serviço.](../container-registry/container-registry-auth-service-principal.md) Um chefe de serviço [permite-lhe fornecer o controlo de acesso baseado em funções (Azure RBAC)](../container-registry/container-registry-roles.md) às imagens do seu contentor. Por exemplo, pode configurar um principal de serviço com acesso a um registo apenas por pedido.
 
 O Registo de Contentores Azure oferece opções de [autenticação](../container-registry/container-registry-authentication.md)adicionais.
 

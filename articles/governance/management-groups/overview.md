@@ -3,12 +3,12 @@ title: Organize os seus recursos com grupos de gestão - Azure Governance
 description: Saiba mais sobre os grupos de gestão, como as permissões destes funcionam e como utilizá-los.
 ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: 787658cebcb8345edd616bcdde485883ea43e8dc
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: c1c054ab67a94b5782187092c572e1e73752c8c2
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529352"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920165"
 ---
 # <a name="what-are-azure-management-groups"></a>O que são grupos de gestão Azure?
 
@@ -25,7 +25,7 @@ Pode criar uma estrutura flexível de grupos de gestão e de subscrições para 
 
 Pode criar uma hierarquia que se aplique a uma política, para, por exemplo, limitar as localizações das VMs à Região E.U.A. Oeste no grupo com o nome "Produção". Esta política herdará a todas as assinaturas do Acordo Empresarial (EA) que são descendentes desse grupo de gestão e aplicar-se-á a todos os VMs ao abrigo dessas subscrições. Esta política de segurança não pode ser alterada pelo proprietário do recurso ou da subscrição, o que permite uma melhor governação.
 
-Outro cenário em que utilizaria os grupos de gestão seria para fornecer acesso de utilizador a várias subscrições. Ao mover várias subscrições para esse grupo de gestão, pode criar uma atribuição de [controlo de acesso baseado em funções](../../role-based-access-control/overview.md) (RBAC) no grupo de gestão, o que faz com que todas as subscrições herdem esse acesso. Uma única atribuição no grupo de gestão pode permitir que os utilizadores tenham acesso a tudo o que precisam, sem a necessidade de criar scripts de RBAC para diferentes subscrições.
+Outro cenário em que utilizaria os grupos de gestão seria para fornecer acesso de utilizador a várias subscrições. Ao mover várias subscrições sob esse grupo de gestão, pode criar uma [atribuição de papel Azure](../../role-based-access-control/overview.md) no grupo de gestão, que herdará esse acesso a todas as subscrições. Uma única atribuição no grupo de gestão pode permitir que os utilizadores tenham acesso a tudo o que precisam, sem a necessidade de criar scripts de RBAC para diferentes subscrições.
 
 ### <a name="important-facts-about-management-groups"></a>Factos importantes sobre grupos de gestão
 
