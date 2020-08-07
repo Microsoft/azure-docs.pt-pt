@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: 6138dc06e8ed70ba85f4ccfc3370c044f34bd1f1
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: bd1362db2e70d4f9f46d80b00805856e08aedac4
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963959"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987346"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Tutorial: Configurar o SQL Data Sync entre bases de dados na Base de Dados Azure SQL e no SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -55,11 +55,11 @@ Para exemplos de PowerShell sobre como configurar o SQL Data Sync, consulte [com
 
    Na página **'Criar Grupo de Sincronização de Dados',** altere as seguintes definições:
 
-   | Definição                        | Descrição |
+   | Definições                        | Descrição |
    | ------------------------------ | ------------------------------------------------- |
    | **Nome do grupo de sincronização** | Insira um nome para o novo grupo de sincronização. Este nome é distinto do nome da própria base de dados. |
    | **Base de Dados de Metadados sincronizado** | Opte por criar uma base de dados (recomendada) ou utilizar uma base de dados existente.<br/><br/>Se escolher **Nova base de dados,** selecione Criar uma nova base de **dados.** Em seguida, na página **sql Database,** nome e configurar a nova base de dados e selecione **OK**.<br/><br/>Se escolher **Utilizar a base de dados existente,** selecione a base de dados da lista. |
-   | **Sincronização automática** | Selecione **Ligado** ou **Desligado**.<br/><br/>Se escolher **On**, introduza um número e selecione **Segundos**, **Minutos,** **Horas**ou **Dias** na secção Frequência **de Sincronização.** |
+   | **Sincronização automática** | Selecione **Ligado** ou **Desligado**.<br/><br/>Se escolher **On**, introduza um número e selecione **Segundos**, **Minutos,** **Horas**ou **Dias** na secção Frequência **de Sincronização.**<br/> A primeira sincronização começa após o período de intervalo selecionado decorrer a partir do momento em que a configuração é guardada.|
    | **Resolução de Conflitos** | Selecione **o Hub ganhe** ou o Membro **ganhe**.<br/><br/>**A vitória** do hub significa que quando ocorrem conflitos, os dados na base de dados do hub substituem dados contraditórios na base de dados dos membros.<br/><br/>**A vitória do membro** significa que quando ocorrem conflitos, os dados na base de dados dos membros substituem dados contraditórios na base de dados do hub. |
 
    > [!NOTE]
@@ -83,7 +83,7 @@ Na secção **Base de Dados** dos Membros, adicione opcionalmente uma base de da
 
   Na página **Configure Azure SQL Database,** altere as seguintes definições:
 
-  | Definição                       | Descrição |
+  | Definições                       | Descrição |
   | ----------------------------- | ------------------------------------------------- |
   | **Nome do membro do sync** | Forneça um nome para o novo membro da sincronização. Este nome é distinto do próprio nome da base de dados. |
   | **Subscrição** | Selecione a subscrição Azure associada para efeitos de faturação. |
@@ -231,7 +231,7 @@ Depois de exportar uma base de dados como ficheiro *.bacpac* e importar o fichei
 
 Para perguntas frequentes sobre o agente cliente, consulte [o Agente FAQ.](sql-data-sync-agent-overview.md#agent-faq)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Parabéns! Criou um grupo de sincronização que inclui uma instância sql database e uma base de dados SQL Server.
 

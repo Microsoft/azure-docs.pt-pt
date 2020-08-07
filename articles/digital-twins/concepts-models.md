@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 2d062ea4f38742129d44be0e2b7ff51fe3ad8dd1
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 4d0ed9826326256e3b91815746e43d34b6934ba0
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562434"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985887"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Compreender modelos gémeos em Azure Digital Twins
 
@@ -204,16 +204,9 @@ A interface de extensão não pode alterar nenhuma das definições das interfac
 
 ## <a name="validating-models"></a>Modelos de validação
 
-> [!TIP]
-> É aconselhável validar os seus modelos offline antes de os enviar para a sua instância Azure Digital Twins.
+[!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-Existe uma amostra agnóstica linguística disponível para validar documentos de modelo para garantir que o DTDL está correto. Está localizado aqui: [**Amostra de Validador DTDL**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
-
-A amostra validador DTDL é construída numa biblioteca de parser DTDL .NET, que está disponível no NuGet como biblioteca do lado do cliente: [**Microsoft.Azure.DigitalTwins.Parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). Também pode usar a biblioteca diretamente para desenhar a sua própria solução de validação. Ao utilizar a biblioteca parser, certifique-se de que utiliza uma versão compatível com a versão que o Azure Digital Twins está a executar. Durante a pré-visualização, esta é a versão *3.7.0*.
-
-Pode saber mais sobre a biblioteca de parser, incluindo exemplos de utilização, em [*Como-a-: Parse e validar modelos*](how-to-use-parser.md).
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja como gerir os modelos com as APIs digitalTwinsModels:
 * [*Como fazer: Gerir modelos personalizados*](how-to-manage-model.md)

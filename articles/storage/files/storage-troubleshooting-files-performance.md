@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 1c0d7e5c7c021f8cdad8980bd7659d819b85f899
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: ceadc2d37b9d13502b5ae20605ff083edfd5c51f
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905019"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987006"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Problemas de resolução de problemas Problemas de desempenho dos Ficheiros Azure
 
@@ -174,35 +174,30 @@ Maior do que o esperado, a latência acede aos Ficheiros Azure para cargas de tr
 
 ## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Como criar um alerta se uma partilha de ficheiros for acelerada
 
-1. No [portal Azure](https://portal.azure.com), clique no **Monitor**. 
-
-2. Clique **em Alertas** e, em seguida, clique **em + Nova regra de alerta**.
-
-3. Clique **em Selecionar** para selecionar a conta de **armazenamento/recurso de ficheiro** que contém a partilha de ficheiros que pretende alertar e, em seguida, clicar em **'Fazer'.** Por exemplo, se o nome da conta de armazenamento for contoso, selecione o recurso contoso/ficheiro.
-
-4. Clique **em Adicionar** para adicionar uma condição.
-
+1. Aceda à sua **conta de armazenamento** no portal **Azure.**
+2. Na secção 'Monitorização', clique em **Alertas** e clique em **+ Nova regra de alerta**.
+3. Clique **em Editar o recurso,** selecione o **tipo de recurso De ficheiro** para a conta de armazenamento e, em seguida, clique em **Fazer**. Por exemplo, se o nome da conta de armazenamento for contoso, selecione o recurso contoso/ficheiro.
+4. Clique **em Selecionar Condição** para adicionar uma condição.
 5. Verá uma lista de sinais suportados para a conta de armazenamento, selecione a métrica **de Transações.**
+6. Na lâmina lógica de **sinal configurar,** clique no **nome Dimension** drop-down e selecione o tipo **de resposta**.
+7. Clique nos valores de **dimensionamento** e selecione **SuccessWithThrottling** (para SMB) ou **ClientThrottlingError** (para REST).
 
-6. Na lâmina lógica de **sinal configurar,** vá para a dimensão do **tipo Resposta,** clique nos **valores** de Dimension para baixo e selecione **SuccessWithThrottling** (para SMB) ou **ClientThrottlingError** (para REST). 
+> [!NOTE]
+> Se o valor da dimensão SuccessWithThrottling ou ClientThrottlingError não estiver listado, isto significa que o recurso não foi estrangulado. Para adicionar o valor de dimensão, clique em **Adicionar valor personalizado** ao lado dos **valores** de Dimension para baixo, **digite SuccessWithThrottling** ou **ClientThrottlingError,** clique em **OK** e repita o passo #7.
 
-  > [!NOTE]
-  > Se o valor da dimensão SuccessWithThrottling ou ClientThrottlingError não estiver listado, isto significa que o recurso não foi estrangulado.  Para adicionar o valor de dimensão, clique **+** ao lado dos **valores** de Dimension drop-down, **digite SuccessWithThrottling** ou **ClientThrottlingError,** clique em **OK** e repita o passo #6.
+8. Clique no **drop-down** do nome Dimension e selecione A partilha **de ficheiros**.
+9. Clique nos **valores** de Dimension drop-down e selecione as ações de ficheiros em que pretende alertar.
 
-7. Vá para a dimensão **'Partilhar** ficheiros', clique nos **valores** de Dimension drop-down e selecione a(s) partilha de ficheiros que pretende alertar. 
+> [!NOTE]
+> Se a partilha de ficheiros for uma partilha de ficheiros padrão, selecione **Todos os valores atuais e futuros**. Os valores de dimensão não listam as ações de ficheiros porque as métricas por ação não estão disponíveis para ações de ficheiros padrão. Os alertas de estrangulamento para as ações de ficheiros padrão serão desencadeados se alguma parte do ficheiro dentro da conta de armazenamento for acelerada e o alerta não identificar qual a partilha de ficheiros que foi acelerada. Uma vez que as métricas por ação não estão disponíveis para ações de ficheiros padrão, a recomendação é ter uma ação de ficheiro por conta de armazenamento.
 
-  > [!NOTE]
-  > Se a partilha de ficheiros for uma partilha de ficheiros padrão, os valores de dimensão descerão em branco porque as métricas por ação não estão disponíveis para ações de ficheiros padrão. Os alertas de estrangulamento para as ações de ficheiros padrão serão desencadeados se alguma parte do ficheiro dentro da conta de armazenamento for acelerada e o alerta não identificar qual a partilha de ficheiros que foi acelerada. Uma vez que as métricas por ação não estão disponíveis para ações de ficheiros padrão, a recomendação é ter uma ação de ficheiro por conta de armazenamento. 
+10. Defina os **parâmetros** de alerta (valor limiar, operador, granularidade de agregação e frequência de avaliação) e clique em **Fazer**.
 
-8. Defina os **parâmetros** de alerta (limiar, operador, granularidade de agregação e frequência) que são utilizados para avaliar a regra de alerta métrico e clicar em **Fazer**.
+> [!TIP]
+> Se estiver a utilizar um limiar estático, o gráfico métrico pode ajudar a determinar um valor limiar razoável se a parte do ficheiro estiver atualmente a ser estrangulada. Se estiver a utilizar um limiar dinâmico, o gráfico métrico apresentará os limiares calculados com base em dados recentes.
 
-  > [!TIP]
-  > Se estiver a utilizar um limiar estático, o gráfico métrico pode ajudar a determinar um limiar razoável se a parte do ficheiro estiver atualmente a ser estrangulada. Se estiver a utilizar um limiar dinâmico, o gráfico métrico apresentará os limiares calculados com base em dados recentes.
-
-9. Adicione um **grupo de ação** (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
-
-10. Preencha os **detalhes do Alerta** como o nome da regra de **alerta,** **descrição** e **severidade**.
-
-11. Clique **em Criar regra de alerta** para criar o alerta.
+11. Clique **em Selecionar grupo de ação** para adicionar um grupo de **ação** (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
+12. Preencha os **detalhes do Alerta** como o nome da regra de **alerta,** **descrição** e **severidade**.
+13. Clique **em Criar regra de alerta** para criar o alerta.
 
 Para saber mais sobre a configuração de alertas no Azure Monitor, consulte [a visão geral dos alertas no Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).

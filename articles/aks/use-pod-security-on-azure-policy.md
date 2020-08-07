@@ -5,22 +5,18 @@ services: container-service
 ms.topic: article
 ms.date: 07/06/2020
 author: jluk
-ms.openlocfilehash: 5677cb3d240381e06c76ed73354981f782bdb0dd
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 18947f409ebcef570998671f9f421f8228e9692d
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830228"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987363"
 ---
 # <a name="secure-pods-with-azure-policy-preview"></a>Cápsulas seguras com política Azure (pré-visualização)
 
 Para melhorar a segurança do seu cluster AKS, pode controlar as funções que as cápsulas são concedidas e se alguma coisa está a correr contra a política da empresa. Este acesso é definido através de políticas incorporadas fornecidas pelo [Azure Policy Add-on for AKS][kubernetes-policy-reference]. Ao fornecer um controlo adicional sobre os aspetos de segurança da especificação da sua cápsula, como privilégios de raiz, permite uma maior adesão e visibilidade à segurança do que é implantado no seu cluster. Se uma cápsula não cumprir as condições especificadas na apólice, a Azure Policy pode não permitir que a cápsula inicie ou sinalize uma violação. Este artigo mostra-lhe como usar a Política Azure para limitar a implantação de cápsulas em AKS.
 
-> [!IMPORTANT]
-> As funcionalidades de pré-visualização AKS são opt-in de autosserviço. As pré-visualizações são fornecidas "as-is" e "conforme disponível" e estão excluídas dos contratos de nível de serviço e garantia limitada. As pré-visualizações AKS são parcialmente cobertas pelo apoio ao cliente na melhor base de esforço. Como tal, estas características não se destinam ao uso da produção. Para mais informações, consulte os seguintes artigos de apoio:
->
-> * [Políticas de apoio da AKS][aks-support-policies]
-> * [FAQ de suporte Azure][aks-faq]
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="before-you-begin"></a>Before you begin
 
@@ -87,8 +83,8 @@ Ambas as iniciativas incorporadas são construídas a partir de definições uti
 |Restringir qualquer utilização do sistema de ficheiros hospedeiro|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F098fc59e-46c7-4d99-9b16-64990e543d75)| Sim | Sim
 |Restringir as capacidades do Linux ao [conjunto predefinido](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26596ff-4d70-4e6a-9a30-c2506bd2f80c) | Sim | Sim
 |Restringir a utilização de tipos de volume definidos|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F16697877-1118-4fb1-9b65-9898ec2509ec)| - | Sim - os tipos de volume permitidos `configMap` `emptyDir` são, `projected` , `downwardAPI` ,`persistentVolumeClaim`|
-|Escalada de privilégio para raiz|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) | - | Yes |
-|Restringir os IDs do utilizador e do grupo do recipiente|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Yes|
+|Escalada de privilégio para raiz|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) | - | Sim |
+|Restringir os IDs do utilizador e do grupo do recipiente|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Sim|
 |Restringir a atribuição de um FSGroup que detém os volumes da cápsula|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Sim - regras permitidas `runAsUser: mustRunAsNonRoot` `supplementalGroup: mustRunAs 1:65536` são, `fsGroup: mustRunAs 1:65535` , . . `runAsGroup: mustRunAs 1:65535` .  |
 |Requer perfil de seccomp|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F975ce327-682c-4f2e-aa46-b9598289b86c) | - | Sim, os Proffiles permitidos são * `docker/default` ou`runtime/default` |
 
@@ -278,12 +274,12 @@ Para migrar da política de segurança da pod, você precisa tomar as seguintes 
 
 Abaixo está um resumo das mudanças de comportamento entre a política de segurança da pod e a Política Azure.
 
-|Cenário| Política de segurança da Pod | Azure Policy |
+|Scenario| Política de segurança da Pod | Azure Policy |
 |---|---|---|
 |Instalação|Ativar a funcionalidade de política de segurança do pod |Ativar o Add-on da Política Azure
 |Implementar políticas| Implementar recurso de política de segurança de pod| Atribua as políticas Azure ao âmbito do grupo de subscrição ou recursos. O Add-on de política Azure é necessário para aplicações de recursos Kubernetes.
 | Políticas predefinidos | Quando a política de segurança do pod é ativada em AKS, são aplicadas políticas privilegiadas e sem restrições. | Não são aplicadas políticas predefinidas, permitindo o Add-on de Política Azure. Deve permitir explicitamente políticas na Política Azure.
-| Quem pode criar e atribuir políticas | O administrador do cluster cria um recurso de política de segurança do pod | Os utilizadores devem ter um papel mínimo de permissões de "proprietário" ou "Contribuinte de Política de Recursos" no grupo de recursos do cluster AKS. - Através da API, os utilizadores podem atribuir políticas no âmbito do cluster AKS. O utilizador deve ter o mínimo de permissões de "proprietário" ou "Contribuinte de Política de Recursos" no recurso de cluster AKS. - No Portal Azure, as políticas podem ser atribuídas ao nível do grupo Management/subscrição/grupo de recursos.
+| Quem pode criar e atribuir políticas | O administrador do cluster cria um recurso de política de segurança do pod | Os utilizadores devem ter um papel mínimo de permissões de "proprietário" ou "Contribuinte de Política de Recursos" no grupo de recursos do cluster AKS. - Através da API, os utilizadores podem atribuir políticas no âmbito do cluster AKS. O utilizador deve ter o mínimo de permissões de "proprietário" ou "Contribuinte de Política de Recursos" no recurso de cluster AKS. - No portal Azure, as políticas podem ser atribuídas ao nível do grupo Management/subscrição/grupo de recursos.
 | Políticas de autorização| Os utilizadores e contas de serviço requerem permissões explícitas para utilizar as políticas de segurança do pod. | Não é necessária nenhuma atribuição adicional para autorizar políticas. Uma vez que as políticas são atribuídas no Azure, todos os utilizadores do cluster podem usar estas políticas.
 | Aplicabilidade da política | O utilizador administrador ignora a aplicação das políticas de segurança da pod. | Todos os utilizadores (administrador & não administrador) vêem as mesmas políticas. Não existe invólucro especial baseado nos utilizadores. A aplicação da política pode ser excluída ao nível do espaço de nome.
 | Âmbito de política | As políticas de segurança da Pod não são nomeadas | Os modelos de restrição utilizados pela Política Azure não são com o nome de um limite.

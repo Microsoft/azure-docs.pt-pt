@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 08e36f8ef31114b18a166e7a14d6d7ad8385582c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 3fb13a4912fbd2a9bea39b56333adbd1329efef6
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850377"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985908"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Crie & utilize ambientes de software em Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -320,6 +320,14 @@ myenv.python.interpreter_path = "/opt/miniconda/bin/python"
 > [!WARNING]
 > Se instalar algumas dependências python na sua imagem Docker e se esquecer de definir user_managed_dependencies = Verdade, esses pacotes não existirão no ambiente de execução, causando assim falhas no tempo de execução. Por padrão, o Azure ML construirá um ambiente Conda com dependências especificadas, e executará a execução nesse ambiente em vez de usar quaisquer bibliotecas Python que instalou na imagem base.
 
+### <a name="retrieve-image-details"></a>Recuperar detalhes de imagem
+
+Para um ambiente registado, pode obter detalhes de imagem utilizando o seguinte código onde `details` está uma instância de [DockerImageDetails](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockerimagedetails?view=azure-ml-py) (AzureML Python SDK >= 1.11) e fornece todas as informações sobre a imagem do ambiente, como o ficheiro de estiva, registo e nome de imagem.
+
+```python
+details = environment.get_image_details()
+```
+
 ## <a name="use-environments-for-training"></a>Utilizar ambientes para formação
 
 Para submeter uma corrida de treino, precisa combinar o seu ambiente, [o seu alvo de computação](concept-compute-target.md)e o seu script python de treino numa configuração de execução. Esta configuração é um objeto de invólucro que é usado para submeter corridas.
@@ -376,12 +384,6 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 # Submit the run 
 run = experiment.submit(sk_est)
-```
-### <a name="retrieve-dockerfile-from-a-run"></a>Recuperar Dockerfile de uma corrida
-
-Utilize o seguinte código para obter o Dockerfile para uma execução ativada pelo Docker.
-```python
-print(run.get_environment().get_image_details().dockerfile)
 ```
 
 ## <a name="use-environments-for-web-service-deployment"></a>Use ambientes para implantação de serviços web

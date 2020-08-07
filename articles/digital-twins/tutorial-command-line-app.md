@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: ce3f775b7a72239fba7eb7c1538ec4f0831f1c74
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d02766d82690d2f546fdcbad76efcda043f54471
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124575"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986276"
 ---
 # <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>Explore a Azure Digital Twins com uma aplicação de cliente de amostra
 
@@ -78,7 +78,7 @@ Certifique-se de que guarda o ficheiro antes de seguir em frente.
 > Se quiser tentar criar o seu próprio modelo, pode colar o código do modelo *Room* num novo ficheiro que guarde com uma extensão *.json* na pasta *AdtSampleApp\SampleClientApp\Models.* Depois, brinque com a adição de propriedades e relacionamentos para representar o que quiser. Também pode olhar para os outros modelos de amostra desta pasta para ideias.
 
 > [!TIP] 
-> Existe uma [amostra de DTDL Validador](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) agnóstico que pode usar para verificar documentos de modelo para se certificar de que o DTDL é válido. É construído sobre a biblioteca de parser DTDL, sobre a qual pode ler mais em [*Como-a: Parse e validar modelos.*](how-to-use-parser.md)
+> Existe uma [amostra de DTDL Validador](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) agnóstico que pode usar para verificar documentos de modelo para se certificar de que o DTDL é válido. É construído sobre a biblioteca de parser DTDL, sobre a qual pode ler mais em [*Como-a: Parse e validar modelos.*](how-to-parse-models.md)
 
 ### <a name="get-started-with-the-command-line-app"></a>Começar com a app de linha de comando
 
@@ -283,7 +283,7 @@ Uma das principais características da Azure Digital Twins é a capacidade [de c
 
     :::image type="content" source="media/tutorial-command-line-app/output-query-compound.png" alt-text="Resultados da consulta composta, sem resultados":::
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 O projeto neste tutorial constitui a base para o próximo tutorial, [*Tutorial: Conecte uma solução de ponta a ponta*](tutorial-end-to-end.md). Se pretender continuar para o próximo tutorial, pode manter os recursos que criou aqui para continuar a usar esta instância Azure Digital Twins e uma aplicação de amostra configurada.
 * Neste caso, pode utilizar a aplicação da amostra `DeleteAllTwins` e `DeleteAllModels` os comandos para limpar os gémeos e modelos no seu caso, respectivamente. Isto vai dar-lhe uma ficha limpa para o próximo tutorial.
@@ -309,7 +309,7 @@ az ad app delete --id <your-application-ID>
 
 Por fim, elimine a pasta de amostras de projeto que descarregou para a sua máquina local.
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 
 Neste tutorial, começou com a Azure Digital Twins, criando uma instância e uma aplicação de cliente para interagir com o caso. Usou a aplicação do cliente para explorar a Azure Digital Twins, criando modelos, gémeos digitais e relacionamentos. Também fez algumas perguntas sobre a solução, para ter uma ideia do tipo de perguntas que a Azure Digital Twins pode responder sobre um ambiente.
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: jawilley
-ms.openlocfilehash: 30fdc3c2b75d8ae567acfc612514ab080b929c5f
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 9816ea7dd9f5aef9dcdd62319f8cc4408eff3fd8
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850253"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987261"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Sugestões de desempenho para o Azure Cosmos DB e .NET
 
@@ -107,7 +107,7 @@ Ao executar o protocolo TCP, o cliente otimiza para a latência utilizando as li
 
 Em cenários em que tenha acesso escasso e se notar uma contagem de ligação mais alta quando comparado com o acesso ao modo gateway, pode:
 
-* Configure a propriedade [CosmosClientOptions.PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) para `PrivatePortPool` (eficaz com a versão-quadro>= versão 4.6.1 e .net core >= 2.0): Esta propriedade permite ao SDK usar uma pequena piscina de portas efémeras para diferentes pontos finais de destino Azure Cosmos DB.
+* Configure a propriedade [CosmosClientOptions.PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) para `PrivatePortPool` (eficaz com a versão-quadro>= versão 4.6.1 e .NET Core >= 2.0): Esta propriedade permite ao SDK usar uma pequena piscina de portas efémeras para diferentes extremidades de destino Azure Cosmos DB.
 * Configure a propriedade [CosmosClientOptions.IdleConnectionTimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) deve ser maior ou igual a 10 minutos. Os valores recomendados são entre 20 minutos e 24 horas.
 
 <a id="same-region"></a>
@@ -149,7 +149,7 @@ Ao trabalhar em Funções Azure, as instâncias também devem seguir as [diretri
 
 **Desativar a resposta ao conteúdo nas operações de escrita**
 
-Para cargas de trabalho que tenham feito o heave criar cargas útil definir a opção de pedido EnableContentResponseOnWrite para falso. O serviço deixará de devolver o recurso criado ou atualizado ao SDK. Normalmente, a aplicação tem o objeto a ser criado, pelo que não necessita do serviço para o devolver. Os valores do cabeçalho ainda estão acessíveis como taxa de pedido. Isto pode melhorar o desempenho porque o SDK não precisará mais de alocar memória ou serializar o corpo da resposta. Isto também reduz o uso da largura de banda da rede para ajudar ainda mais o desempenho.  
+Para cargas de trabalho pesadas, crie cargas útil, definir a opção de pedido enableContentResponseOnWrite para falso. O serviço deixará de devolver o recurso criado ou atualizado ao SDK. Normalmente, a aplicação tem o objeto a ser criado, pelo que não necessita do serviço para o devolver. Os valores do cabeçalho ainda estão acessíveis como taxa de pedido. Isto pode melhorar o desempenho porque o SDK não precisará mais de alocar memória ou serializar o corpo da resposta. Isto também reduz o uso da largura de banda da rede para ajudar ainda mais o desempenho.  
 
 ```csharp
 ItemRequestOption requestOptions = new ItemRequestOptions() { EnableContentResponseOnWrite = false };
@@ -265,7 +265,7 @@ O comportamento de relembolso automatizado ajuda a melhorar a resiliência e a u
 
 A taxa de pedido (isto é, o custo de processamento de pedido) de uma determinada operação está diretamente relacionada com a dimensão do documento. As operações em grandes documentos custam mais do que operações em pequenos documentos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para uma aplicação de amostra que é usada para avaliar Azure Cosmos DB para cenários de alto desempenho em algumas máquinas de clientes, consulte testes de [desempenho e escala com Azure Cosmos DB](performance-testing.md).
 
 Para saber mais sobre a conceção da sua aplicação para escala e alto desempenho, consulte [Partition e dimensionamento em Azure Cosmos DB](partition-data.md).

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: be490c5ec11ab4bafcd68731a535483d1803a8c7
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 0dd0b86a11c7060040f8734c0102252f18d9f114
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146423"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987176"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Adicionar um certificado TLS/SSL no Serviço de Aplicações do Azure
 
@@ -64,6 +64,7 @@ O Certificado Gerido por Serviço de Aplicações gratuito é uma solução chav
 - Não suporta certificados wildcard.
 - Não suporta domínios nus.
 - Não é exportável.
+- Não é suportado no Ambiente de Serviço de Aplicações (ASE)
 - Não suporta registos A. Por exemplo, a renovação automática não funciona com registos A.
 
 > [!NOTE]
@@ -113,7 +114,7 @@ Inicie uma ordem de certificado de Serviço de Aplicação na <a href="https://p
 
 Utilize a seguinte tabela para ajudá-lo a configurar o certificado. Quando terminar, clique em **Criar**.
 
-| Definição | Descrição |
+| Definições | Descrição |
 |-|-|
 | Nome | Um nome amigável para o seu certificado de Serviço de Aplicações. |
 | Nome do anfitrião do domínio nu | Especifique o domínio raiz aqui. O certificado emitido assegura tanto o domínio raiz *como* o `www` subdomínio. No certificado emitido, o campo Nome Comum contém o domínio raiz, e o campo nome alternativo sujeito contém o `www` domínio. Para garantir apenas qualquer subdomínio, especifique o nome de domínio totalmente qualificado do subdomínio aqui (por exemplo, `mysubdomain.contoso.com` ).|
@@ -134,7 +135,7 @@ Selecione o certificado na página [de Certificados de Serviço](https://portal.
 
 Na página **Key Vault Status,** clique no **Repositório do Cofre de Chaves** para criar um novo cofre ou escolha um cofre existente. Se optar por criar um novo cofre, utilize a seguinte tabela para o ajudar a configurar o cofre e clique em Criar. Crie o novo Key Vault dentro do mesmo grupo de subscrição e recursos que a sua aplicação App Service.
 
-| Definição | Descrição |
+| Definições | Descrição |
 |-|-|
 | Nome | Um nome único que consiste em caracteres alfanuméricos e traços. |
 | Grupo de recursos | Como recomendação, selecione o mesmo grupo de recursos que o certificado de Serviço de Aplicações. |
@@ -191,7 +192,7 @@ A partir da navegação à esquerda da sua aplicação, selecione **TLS/SSL**  >
 
 Utilize a seguinte tabela para ajudá-lo a selecionar o certificado.
 
-| Definição | Descrição |
+| Definições | Descrição |
 |-|-|
 | Subscrição | A assinatura a que pertence o Cofre-Chave. |
 | Cofre de Chaves | O cofre com o certificado que quer importar. |

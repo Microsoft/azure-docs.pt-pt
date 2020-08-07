@@ -3,14 +3,14 @@ title: 'Quickstart: Criar uma aplicação de ASP.NET C#'
 description: Aprenda a executar aplicações web no Azure App Service implementando o modelo de aplicação web C# padrão ASP.NET do Visual Studio.
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
-ms.date: 04/21/2020
+ms.date: 08/06/2020
 ms.custom: mvc, devcenter, seodec18
-ms.openlocfilehash: 4f3b9966e1d146479ef6aa57e13cbb4ddadb415f
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: d4406841c235061dd90a510c577be796852a7417
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85205854"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986989"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Criar uma aplicação Web ASP.NET Framework no Azure
 
@@ -80,7 +80,7 @@ Crie uma aplicação web ASP.NET seguindo estes passos:
 
 1. No diálogo do **Plano de Alojamento configurado,** insira os valores a partir da tabela seguinte e, em seguida, selecione **OK**.
 
-   | Definição | Valor sugerido | Description |
+   | Definição | Valor sugerido | Descrição |
    |-|-|-|
    | Plano de Alojamento| myAppServicePlan | Nome do plano de serviço de aplicações. |
    | Localização | Europa Ocidental | O centro de dados onde o a aplicação Web está alojada. |

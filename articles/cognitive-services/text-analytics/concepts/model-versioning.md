@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 04/21/2020
+ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: c9c598d385768e604d9b42e3ea055629e6ae2866
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b3e8c2c8a5e95cc5c862112410f5073a5e600651
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108554"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986768"
 ---
 # <a name="model-versioning-in-the-text-analytics-api"></a>Versão de modelo na API de Análise de Texto
 
@@ -26,23 +26,23 @@ A versão 3 da API text Analytics permite-lhe escolher a versão modelo que é u
 Utilize a tabela abaixo para saber quais as versões do modelo suportadas por cada ponto final.
 
 
-| Ponto Final                        | Versões Suportadas                       | versão mais recente |
-|---------------------------------|------------------------------------------|----------------|
-| `/sentiment`                    | `2019-10-01`, `2020-04-01`               | `2020-04-01`   |
-| `/languages`                    | `2019-10-01`                             | `2019-10-01`   |
-| `/entities/linking`             | `2019-10-01`, `2020-02-01`               | `2020-02-01`   |
-| `/entities/recognition/general` | `2019-10-01`, `2020-02-01`, `2020-04-01` | `2020-04-01`   |
-| `/entities/recognition/pii`     | `2019-10-01`, `2020-02-01`, `2020-04-01` | `2020-04-01`   |
-| `/keyphrases`                   | `2019-10-01`                             | `2019-10-01`   |
+| Ponto final                        | Versões Suportadas                                     | versão mais recente |
+|---------------------------------|--------------------------------------------------------|----------------|
+| `/sentiment`                    | `2019-10-01`, `2020-04-01`                             | `2020-04-01`   |
+| `/languages`                    | `2019-10-01`, `2020-07-01`                             | `2020-07-01`   |
+| `/entities/linking`             | `2019-10-01`, `2020-02-01`                             | `2020-02-01`   |
+| `/entities/recognition/general` | `2019-10-01`, `2020-02-01`, `2020-04-01`,              | `2020-04-01`   |
+| `/entities/recognition/pii`     | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`  | `2020-07-01`   |
+| `/keyphrases`                   | `2019-10-01`, `2020-07-01`                             | `2020-07-01`   |
 
 
 Pode encontrar detalhes sobre as atualizações para estes modelos no [Que há de novo.](../whats-new.md)
 
-## <a name="text-analytics-for-health"></a>Análise de Texto para A Saúde
+## <a name="text-analytics-for-health"></a>Análise de Texto para a Saúde
 
 O [recipiente Text Analytics for Health](../how-tos/text-analytics-for-health.md) utiliza a versão de modelo separada do que os pontos finais da API acima.  Por favor, note que apenas uma versão modelo está disponível por imagem de recipiente.
 
-| Ponto Final                        | Etiqueta de imagem de recipiente                     | Versão modelo |
+| Ponto final                        | Etiqueta de imagem de recipiente                     | Versão modelo |
 |---------------------------------|-----------------------------------------|---------------|
 | `/domains/health`               | `1.1.012640001-amd64-preview`ou mais recente | `2020-05-08`  |
 | `/domains/health`               | `1.1.012420001-amd64-preview`           | `2020-05-08`  |
@@ -51,8 +51,8 @@ O [recipiente Text Analytics for Health](../how-tos/text-analytics-for-health.md
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Descrição Geral da Análise de Texto](../overview.md)
+* [Descrição geral da Análise de Texto](../overview.md)
 * [Análise de sentimento](../how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Reconhecimento de entidades](../how-tos/text-analytics-how-to-entity-linking.md)

@@ -2,20 +2,27 @@
 title: Quota de implantação excedida
 description: Descreve como resolver o erro de ter mais de 800 implementações no histórico do grupo de recursos.
 ms.topic: troubleshooting
-ms.date: 06/25/2020
-ms.openlocfilehash: 1b0c3de6007964b487a13e71cd43bd984cd970f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/07/2020
+ms.openlocfilehash: 8996d7817eea2f8daf44fbc9b4416c884b05940f
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391184"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987057"
 ---
 # <a name="resolve-error-when-deployment-count-exceeds-800"></a>Resolver erro quando a contagem de implementação excede 800
 
 Cada grupo de recursos está limitado a 800 implementações no seu histórico de implantação. Este artigo descreve o erro que recebe quando uma implementação falha porque excederia as 800 implementações permitidas. Para resolver este erro, elimine as implementações do histórico do grupo de recursos. Excluir uma implantação da história não afeta nenhum dos recursos que foram mobilizados.
 
-> [!NOTE]
-> O Azure Resource Manager em breve começará a eliminar automaticamente as implementações do seu histórico à medida que se aproxima do limite. Pode ainda ver este erro se tiver optado por excluir as supressões automáticas. Para obter mais informações, consulte [as supressões automáticas do histórico de implantação](deployment-history-deletions.md).
+O Azure Resource Manager elimina automaticamente as implementações do seu histórico à medida que se aproxima do limite. Pode ainda ver este erro por uma das seguintes razões:
+
+1. Tem um bloqueio CanNotDelete no grupo de recursos que impede as supressões do histórico de implantação.
+1. Optou por não fazer supressões automáticas.
+1. Tem um grande número de implementações em execução simultaneamente e as eliminações automáticas não são processadas rapidamente o suficiente para reduzir o número total.
+
+Para obter informações sobre a remoção do bloqueio ou a exclusão automática, consulte [supressões automáticas do histórico de implantação](deployment-history-deletions.md).
+
+Este artigo descreve como apagar manualmente as implementações da história.
 
 ## <a name="symptom"></a>Sintoma
 

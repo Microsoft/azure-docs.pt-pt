@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c65b4ede6f4851418bf17d42db5b3215dafa9234
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c60c0324b04bca0a8115f4ac884704012e8e1d8c
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83995178"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986853"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>Acesso Condicional: Requer dispositivos compatíveis
 
@@ -40,11 +40,11 @@ As seguintes medidas ajudarão a criar uma política de Acesso Condicional para 
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
    1. Em **Incluir**, selecione **Todos os utilizadores**.
    1. Em **'Excluir',** selecione **Utilizadores e grupos** e escolha as contas de acesso de emergência ou break-glass da sua organização. 
-   1. Selecione **Done** (Concluído).
+   1. Selecione **Concluído**.
 1. No **âmbito de aplicações ou ações cloud**  >  **Inclua**, selecione todas as **aplicações em nuvem**.
    1. Se tiver de excluir aplicações específicas da sua política, pode selecioná-las no separador **Excluir** em **Aplicações de nuvem excluídas** e escolher **Select**.
-   1. Selecione **Done** (Concluído).
-1. Em **Condições**  >  **As aplicações do Cliente (Pré-visualização)**, **configurar configurar** para **Sim**, e selecione **Feito**.
+   1. Selecione **Concluído**.
+1. **Em Condições As**  >  **aplicações do Cliente (Pré-visualização)**  >  **Selecione as aplicações do cliente a que esta política se aplicará,** deixe todas as predefinições selecionadas e selecione **Feito**.
 1. Sob **controlos de acesso**  >  **Grant**, **selecione Exigir que o dispositivo seja marcado como conforme**.
    1. Selecione **Selecionar**.
 1. Confirme as suas definições e defina **Ativar** a política para **on**.
@@ -57,7 +57,7 @@ As seguintes medidas ajudarão a criar uma política de Acesso Condicional para 
 
 No Windows 7, iOS, Android, macOS e alguns navegadores web de terceiros, a Azure AD identifica o dispositivo usando um certificado de cliente que é a provisionado quando o dispositivo está registado no Azure AD. Quando um utilizador entra pela primeira vez através do navegador, o utilizador é solicitado a selecionar o certificado. O utilizador final deve selecionar este certificado antes de poder continuar a utilizar o navegador.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 

@@ -3,16 +3,16 @@ title: Resolução de problemas Azure Cosmos DB HTTP 408 ou solicitar problemas 
 description: Como diagnosticar e corrigir .NET SDK solicitar exceção de tempo limite
 author: j82w
 ms.service: cosmos-db
-ms.date: 07/29/2020
+ms.date: 08/06/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 3d6fed539581b2d1add87ade92e34bcf2e1913e8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a0469feed391025f8dd50a7f8b11b96265b0df29
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87417612"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987414"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout"></a>Diagnóstico e resolução de problemas Azure Cosmos DB .NET SDK solicitar tempo limite
 O erro HTTP 408 ocorre se o SDK não conseguir completar o pedido antes do prazo de tempo ocorrer.
@@ -45,9 +45,12 @@ A aplicação do cliente que utiliza o SDK deve ser dimensionada para cima/para 
 Ao correr em Azure, os clientes que usam o .NET SDK podem atingir a exaustão da porta Azure SNAT (PAT).
 
 #### <a name="solution-1"></a>Solução 1:
-Siga o [guia de exaustão do porto SNAT](troubleshoot-dot-net-sdk.md#snat).
+Se estiver a correr em VMs Azure, siga o [guia de exaustão do porto SNAT](troubleshoot-dot-net-sdk.md#snat).
 
 #### <a name="solution-2"></a>Solução 2:
+Se estiver a executar o Azure App Service, siga o [guia de resolução de erros de ligação](../app-service/troubleshoot-intermittent-outbound-connection-errors.md#cause) e [utilize diagnósticos do Serviço de Aplicações](https://azure.github.io/AppService/2018/03/01/Deep-Dive-into-TCP-Connections-in-App-Service-Diagnostics.html).
+
+#### <a name="solution-3"></a>Solução 3:
 Se utilizar um representante HTTP, certifique-se de que consegue suportar o número de ligações configuradas no SDK `ConnectionPolicy` .
 Caso contrário, terá problemas de ligação.
 
@@ -81,6 +84,6 @@ A aplicação deve ser capaz de lidar com falhas transitórias e tentar novament
 ### <a name="8-failure-rate-is-violating-the-cosmos-db-sla"></a>8. A taxa de avaria está a violar o Cosmos DB SLA
 Por favor contacte o suporte da Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Diagnosticar e resolver problemas](troubleshoot-dot-net-sdk.md) ao utilizar a Azure Cosmos DB .NET SDK
 * Conheça as diretrizes de desempenho para [.NET V3](performance-tips-dotnet-sdk-v3-sql.md) e [.NET V2](performance-tips.md)

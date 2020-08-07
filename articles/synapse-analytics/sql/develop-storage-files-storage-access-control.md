@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: b7005954b14a9263ec074c836180853a99812dd5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: fd4cc4cfa7b7be9085ac404cab7fc7447b6d66a7
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534775"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987142"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Acesso à conta de armazenamento de controlo para SQL a pedido (pré-visualização)
 
@@ -81,12 +81,13 @@ Na tabela abaixo pode encontrar os tipos de autorização disponíveis:
 
 Pode utilizar as seguintes combinações de autorizações e tipos de armazenamento Azure:
 
-|                     | Armazenamento de Blobs   | ADLS Gen1        | ADLS Gen2     |
+| Tipo de autorização  | Armazenamento de Blobs   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
-| *SAS*               | Suportado      | Não suportado   | Suportado     |
-| *Identidade gerida* | Suportado      | Suportado        | Suportado     |
-| *Identidade do Utilizador*    | Suportado      | Suportado        | Suportado     |
+| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Suportado\*      | Não suportado   | Suportado\*     |
+| [Identidade Gerida](?tabs=managed-identity#supported-storage-authorization-types) | Suportado      | Suportado        | Suportado     |
+| [Identidade do Utilizador](?tabs=user-identity#supported-storage-authorization-types)    | Suportado\*      | Suportado\*        | Suportado\*     |
 
+\*O token SAS e a identidade AD Ad Azure podem ser usados para aceder a um armazenamento que não esteja protegido com firewall.
 
 > [!IMPORTANT]
 > Ao aceder ao armazenamento protegido com a firewall, apenas a Identidade Gerida pode ser utilizada. Precisa de [permitir serviços de confiança da Microsoft... definição](../../storage/common/storage-network-security.md#trusted-microsoft-services) e atribuição explicitamente [de um papel Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) à [identidade gerida atribuída pelo sistema](../../active-directory/managed-identities-azure-resources/overview.md) para essa instância de recursos. Neste caso, o âmbito de acesso, por exemplo, corresponde à função Azure atribuída à identidade gerida.
@@ -177,27 +178,46 @@ As credenciais de âmbito de base de dados permitem o acesso ao armazenamento Az
 
 Os utilizadores de AD Azure podem aceder a qualquer ficheiro no armazenamento Azure se tiverem, pelo `Storage Blob Data Owner` `Storage Blob Data Contributor` menos, ou `Storage Blob Data Reader` papel. Os utilizadores de AD Azure não precisam de credenciais para aceder ao armazenamento.
 
+```sql
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>'
+)
+```
+
 Os utilizadores do SQL não podem utilizar a autenticação AZURE AD para aceder ao armazenamento.
 
 ### <a name="shared-access-signature"></a>[Assinatura de acesso partilhado](#tab/shared-access-signature)
 
-O seguinte script cria uma credencial que é usada para aceder a ficheiros no armazenamento usando o token SAS especificado na credencial.
+O seguinte script cria uma credencial que é usada para aceder a ficheiros no armazenamento usando o token SAS especificado na credencial. O script criará uma amostra de fonte de dados externa que utiliza este token SAS para aceder ao armazenamento.
 
 ```sql
+-- Optional: Create MASTER KEY if not exists in database:
+-- CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<Very Strong Password>'
+GO
 CREATE DATABASE SCOPED CREDENTIAL [SasToken]
 WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
      SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
 GO
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>',
+          CREDENTIAL = SasToken
+)
 ```
 
 ### <a name="managed-identity"></a>[Identidade Gerida](#tab/managed-identity)
 
-O seguinte script cria uma credencial de âmbito de base de dados que pode ser usada para personificar o atual utilizador Azure AD como Identidade Gerida de Serviço. 
+O seguinte script cria uma credencial de âmbito de base de dados que pode ser usada para personificar o atual utilizador Azure AD como Identidade Gerida de Serviço. O script criará uma amostra de fonte de dados externa que utiliza a identidade do espaço de trabalho para aceder ao armazenamento.
 
 ```sql
-CREATE DATABASE SCOPED CREDENTIAL [SynapseIdentity]
+-- Optional: Create MASTER KEY if not exists in database:
+-- CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<Very Strong Password>
+CREATE DATABASE SCOPED CREDENTIAL SynapseIdentity
 WITH IDENTITY = 'Managed Identity';
 GO
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>',
+          CREDENTIAL = SynapseIdentity
+)
 ```
 
 A credencial de base de dados não precisa de corresponder ao nome da conta de armazenamento porque será explicitamente utilizada na DATA SOURCE que define a localização do armazenamento.
@@ -206,6 +226,11 @@ A credencial de base de dados não precisa de corresponder ao nome da conta de a
 
 A credencial de âmbito de dados não é necessária para permitir o acesso a ficheiros disponíveis ao público. Crie [fonte de dados sem credencial](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) de âmbito de base de dados para aceder a ficheiros disponíveis publicamente no armazenamento Azure.
 
+```sql
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.blob.core.windows.net/<container>/<path>'
+)
+```
 ---
 
 As credenciais de rastreio da base de dados são utilizadas em fontes de dados externas para especificar que método de autenticação será utilizado para aceder a este armazenamento:

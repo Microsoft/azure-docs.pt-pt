@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 07/22/2020
 ms.author: damendo
 ms.custom: subject-armqs
-ms.openlocfilehash: fd0f295fbc47a8e461885916dbe48f7604e182c3
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 7d8cb89b1187bb15e7b361e1b6b9505400c612b5
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87854659"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986322"
 ---
 # <a name="quickstart-configure-nsg-flow-logs-from-arm-template"></a>Quickstart: Configurar registos de fluxo NSG do modelo ARM
 
@@ -69,6 +69,7 @@ Se estiver a utilizar os modelos do Azure Resource Manager pela primeira vez, po
 * [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell#deploy-local-template)
 * [Tutorial: Criar e implementar o seu primeiro modelo de Gestor de Recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell)
 
+O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-networkwatcher-flowlogs-create).
 
 Abaixo exemplo de modelo completo é a versão mais simples com parâmetros mínimos passados para configurar registos de fluxo NSG. Para mais exemplos, aceda a este [link.](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-azure-resource-manager)
 

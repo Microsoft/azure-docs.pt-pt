@@ -3,16 +3,16 @@ title: Resolução de problemas Serviço DB da Azure Cosmos indisponível exceç
 description: Como diagnosticar e corrigir o serviço Cosmos DB exceção indisponível
 author: j82w
 ms.service: cosmos-db
-ms.date: 07/13/2020
+ms.date: 08/06/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 12ecec7cf8f406ed53fb5e054fc304bf672cbbb0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b9c24ee3b94be86ccf9d27b928c42fc194800a3b
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87294522"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987380"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-service-unavailable"></a>Diagnosticar e resolver problemas Serviço DB Azure Cosmos indisponível
 O SDK não foi capaz de ligar ao serviço Azure Cosmos DB.
@@ -20,19 +20,22 @@ O SDK não foi capaz de ligar ao serviço Azure Cosmos DB.
 ## <a name="troubleshooting-steps"></a>Passos de resolução de problemas
 A lista que se segue contém causas e soluções conhecidas para exceções indisponíveis do serviço.
 
-### <a name="1-the-required-ports-are-not-enabled"></a>1. As portas necessárias não estão ativadas.
+### <a name="1-the-required-ports-are-being-blocked"></a>1. As portas necessárias estão a ser bloqueadas
 Verifique se todas as [portas necessárias](performance-tips-dotnet-sdk-v3-sql.md#networking) estão ativadas.
 
-## <a name="if-an-existing-application-or-service-started-getting-503"></a>Se uma aplicação ou serviço existente começar a receber 503
+### <a name="2-client-side-transient-connectivity-issues"></a>2. Problemas de conectividade transitória do lado do cliente
+As exceções indisponíveis do serviço podem surgir quando existem problemas transitórios de conectividade que estão a causar intervalos de tempo. Normalmente, os vestígios da pilha relacionados com este cenário conterão `TransportException` um, por exemplo:
 
-### <a name="1-there-is-an-outage"></a>1. Há uma paragem
+```C#
+TransportException: A client transport error occurred: The request timed out while waiting for a server response. 
+(Time: xxx, activity ID: xxx, error code: ReceiveTimeout [0x0010], base error: HRESULT 0x80131500
+```
+
+Acompanhe o tempo limite de [tempo de pedido](troubleshoot-dot-net-sdk-request-timeout.md#troubleshooting-steps) para resolver o problema.
+
+### <a name="3-service-outage"></a>3. Paragem de serviço
 Verifique o [Estado de Azure](https://status.azure.com/status) para ver se há algum problema em curso.
 
-### <a name="2-snat-port-exhaustion"></a>2. Exaustão do Porto SNAT
-Siga o [guia de exaustão do porto SNAT](troubleshoot-dot-net-sdk.md#snat).
-
-### <a name="3-the-required-ports-are-being-blocked"></a>3. As portas necessárias estão a ser bloqueadas
-Verifique se todas as [portas necessárias](performance-tips-dotnet-sdk-v3-sql.md#networking) estão ativadas.
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Diagnosticar e resolver problemas](troubleshoot-dot-net-sdk.md) ao utilizar a Azure Cosmos DB .NET SDK

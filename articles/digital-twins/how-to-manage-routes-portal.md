@@ -2,17 +2,17 @@
 title: Gerir pontos finais e rotas (portal)
 titleSuffix: Azure Digital Twins
 description: Veja como configurar e gerir pontos finais e rotas de eventos para dados da Azure Digital Twins utilizando o portal Azure.
-author: v-lakast
-ms.author: v-lakast
+author: baanders
+ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7d563c7706529c6f3e280f7d138c0d6ba0dfc849
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 87b674a9c6b7f7d591b39f1baf54c4d54082f306
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902212"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987312"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gerir pontos finais e rotas em Azure Digital Twins (portal)
 

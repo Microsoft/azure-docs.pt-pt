@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 0a0feb6b638cb6e3a74fcd30baea5e8a04375699
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c638b434ceb31b57689b11971f48eb322b94726
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82857800"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985619"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>Utilizar a API REST do modelo de conversão
 
@@ -45,7 +45,7 @@ O serviço de conversão fornece três pontos finais rest API para:
 ### <a name="start-conversion-using-a-linked-storage-account"></a>Iniciar a conversão usando uma conta de armazenamento ligada
 A sua Conta de Renderização Remota Azure precisa de ter acesso à conta de armazenamento fornecida seguindo os passos sobre como ligar as [contas de armazenamento](../create-an-account.md#link-storage-accounts).
 
-| Ponto Final | Método |
+| Ponto final | Método |
 |-----------|:-----------|
 | /v1/accounts/**accountID**/conversões/criar | POST |
 
@@ -53,6 +53,8 @@ Devolve o ID da conversão em curso, embrulhado num documento JSON. O nome de ca
 
 #### <a name="request-body"></a>Corpo do pedido
 
+> [!NOTE]
+> Tudo em baixo `input.folderPath` será recuperado para realizar a conversão no Azure. Se `input.folderPath` não for especificado, todo o conteúdo do recipiente será recuperado. Todas as bolhas e pastas que são recuperadas devem ter [nomes de ficheiros válidos do Windows](https://docs.microsoft.com/windows/win32/fileio/naming-a-file#naming-conventions).
 
 ```json
 {
@@ -75,11 +77,11 @@ Devolve o ID da conversão em curso, embrulhado num documento JSON. O nome de ca
 ### <a name="start-conversion-using-provided-shared-access-signatures"></a>Iniciar a conversão usando assinaturas de acesso partilhado fornecidas
 Se a sua conta ARR não estiver ligada à sua conta de armazenamento, esta interface REST permite-lhe fornecer acesso através de *Assinaturas de Acesso Partilhado (SAS)*.
 
-| Ponto Final | Método |
+| Ponto final | Método |
 |-----------|:-----------|
 | /v1/accounts/**accountID**/conversions/createWithSharedAccessSignature | POST |
 
-Devolve o ID da conversão em curso, embrulhado num documento JSON. O nome de campo é "conversionId".
+Devolve o ID da conversão em curso, embrulhado num documento JSON. O nome do campo `conversionId` é.
 
 #### <a name="request-body"></a>Corpo do pedido
 
@@ -88,6 +90,8 @@ O organismo de pedido é o mesmo que na chamada de criação REST acima, mas a e
 > [!NOTE]
 > Estes tokens SAS URI são as cordas de consulta e não o URI completo. 
 
+> [!NOTE]
+> Tudo em baixo `input.folderPath` será recuperado para realizar a conversão no Azure. Se `input.folderPath` não for especificado, todo o conteúdo do recipiente será recuperado. Todas as bolhas e pastas que são recuperadas devem ter [nomes de ficheiros válidos do Windows](https://docs.microsoft.com/windows/win32/fileio/naming-a-file#naming-conventions).
 
 ```json
 {
@@ -114,7 +118,7 @@ O organismo de pedido é o mesmo que na chamada de criação REST acima, mas a e
 O estado de uma conversão em curso iniciada com uma das chamadas REST acima pode ser consultado utilizando a seguinte interface:
 
 
-| Ponto Final | Método |
+| Ponto final | Método |
 |-----------|:-----------|
 | /v1/accounts/**accountID**/conversões/conversãoId**conversionId** | GET |
 
@@ -127,7 +131,7 @@ Devolve um documento JSON com um campo de "status" que pode ter os seguintes val
 
 Se o estado for "Falha", haverá um campo adicional de "erro" com um subcampo de "mensagem" contendo informações de erro. Registos adicionais serão enviados para o seu recipiente de saída.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Utilizar o Armazenamento de Blobs do Azure para conversão de modelos](blob-storage.md)
 - [Conversão de modelo](model-conversion.md)

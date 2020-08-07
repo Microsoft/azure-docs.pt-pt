@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: eb82422aa0e3d45743539da623fcb919e8e77bbc
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 0e60ba0517fb3b9388045762853c651869cffb6a
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141823"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986462"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Exemplo de cenários de utilizador para a API de Análise de Texto
 
@@ -29,7 +29,7 @@ Desenhe informações dos resultados do inquérito ao cliente e ao empregado, pr
 
 ## <a name="analyze-recorded-inbound-customer-calls"></a>Analise as chamadas de clientes de entrada gravadas
 
-Extrair informações das chamadas de serviços ao cliente utilizando texto para discurso, análise de sentimento e extração de frases-chave. Exiba os resultados no painel Power BI ou num portal para entender melhor os clientes, destacar as tendências de atendimento ao cliente e impulsionar o envolvimento do cliente. Envie pedidos de API como um lote para reportagem, ou em tempo real para intervenção. Consulte o código de amostra [no GitHub.](https://github.com/rlagh2/callcenteranalytics)
+Extrair informações das chamadas de serviços ao cliente utilizando a análise de discurso a texto, a análise do sentimento e a extração de frases-chave. Exiba os resultados no painel Power BI ou num portal para entender melhor os clientes, destacar as tendências de atendimento ao cliente e impulsionar o envolvimento do cliente. Envie pedidos de API como um lote para reportagem, ou em tempo real para intervenção. Consulte o código de amostra [no GitHub.](https://github.com/rlagh2/callcenteranalytics)
 
 ![Uma imagem descrevendo como automatizar informações de chamadas de atendimento ao cliente usando análise de sentimento](media/use-cases/azure-inbound.svg)
 
@@ -58,7 +58,7 @@ Opiniões de grupo relacionadas com aspetos específicos de um produto ou servi�
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="media/use-cases/aspect-based-sentiment.png" alt-text="Exemplo de opiniões sobre um hotel.":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [O que é a API de Análise de Texto?](overview.md)
 * [Envie um pedido à API text Analytics usando a biblioteca do cliente](quickstarts/text-analytics-sdk.md)

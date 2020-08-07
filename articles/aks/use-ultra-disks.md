@@ -4,12 +4,12 @@ description: Saiba como ativar e configurar Discos Ultra num cluster Azure Kuber
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 540269c7ecf42a7e022aa2efb048df7b11587d1a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: f74da764f5a0b021199782dbad03e6e95cceb7f2
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926744"
+ms.locfileid: "87986836"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Utilize discos ultra Azure no Serviço Azure Kubernetes (pré-visualização)
 
@@ -49,11 +49,7 @@ Quando estiver pronto, reaprovi o registo do fornecedor de recursos *Microsoft.C
 az provider register --namespace Microsoft.ContainerService
 ```
 
-> [!IMPORTANT]
-> As funcionalidades de pré-visualização AKS são opt-in de autosserviço. As pré-visualizações são fornecidas "as-is" e "conforme disponível" e estão excluídas dos contratos de nível de serviço e garantia limitada. As pré-visualizações AKS são parcialmente cobertas pelo apoio ao cliente na melhor base de esforço. Como tal, estas características não se destinam ao uso da produção. Para mais informações, consulte os seguintes artigos de apoio:
->
-> - [Políticas de apoio da AKS](support-policies.md)
-> - [FAQ de suporte Azure](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI aks-preview
 
@@ -95,9 +91,8 @@ Se pretender criar clusters sem suporte ultra disco, pode fazê-lo omitindo o `-
 
 Pode ativar discos ultra em clusters existentes adicionando uma nova piscina de nós ao seu cluster que suporta discos ultra. Configure um novo conjunto de nós para usar encriptação baseada no hospedeiro usando a `--aks-custom-headers` bandeira.
 
-
 ```azurecli
-az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true
+az aks nodepool add --name ultradisk --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true
 ```
 
 Se pretender criar novos conjuntos de nós sem suporte para discos ultra, pode fazê-lo omitindo o `--aks-custom-headers` parâmetro personalizado.

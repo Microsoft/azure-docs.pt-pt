@@ -3,14 +3,14 @@ title: 'Quickstart: Criar uma aplicação C# ASP.NET Core'
 description: Aprenda a executar aplicações web no Azure App Service implementando o modelo de aplicação web C# C# padrão ASP.NET Core do Visual Studio.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 04/22/2020
+ms.date: 08/06/2020
 ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: d489ed9dbf9b8075951258e0841675877e11be38
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 77ff1e907b15b129ef03d7ce799631d6d0a9671d
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506796"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986190"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Quickstart: Criar uma aplicação web core ASP.NET em Azure
 
@@ -142,7 +142,7 @@ A página **'Vista Geral'** para a sua aplicação web contém opções para ges
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, você usou o Visual Studio para criar e implementar uma aplicação web core ASP.NET para o Azure App Service.
 

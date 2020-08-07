@@ -2,24 +2,22 @@
 title: Eliminações do histórico de implementações
 description: Descreve como o Azure Resource Manager elimina automaticamente as implementações do histórico de implementação. As implementações são eliminadas quando o histórico está perto de ultrapassar o limite de 800.
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: 8ec3291dc5e35689d4e2c614949e0328057fbfd3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 08/07/2020
+ms.openlocfilehash: 736a25a3c73f8f4c70c5fb6c686fa2b8bb86666d
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248991"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986513"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Supressões automáticas do histórico de implantação
 
 Sempre que implementa um modelo, as informações sobre a implementação são escritas para o histórico de implementação. Cada grupo de recursos está limitado a 800 implementações no seu histórico de implantação.
 
-O Azure Resource Manager em breve começará a eliminar automaticamente as implementações do seu histórico à medida que se aproxima do limite. A eliminação automática é uma mudança do comportamento do passado. Anteriormente, tinha de eliminar manualmente as implementações do histórico de implementação para evitar um erro. **Esta funcionalidade ainda não foi adicionada ao Azure. Estamos a notificá-lo desta próxima mudança, caso queira optar.**
+O Azure Resource Manager elimina automaticamente as implementações do seu histórico à medida que se aproxima do limite. A eliminação automática é uma mudança do comportamento do passado. Anteriormente, tinha de eliminar manualmente as implementações do histórico de implementação para evitar um erro. **Esta alteração foi implementada no dia 6 de agosto de 2020.**
 
 > [!NOTE]
 > Excluir uma implantação da história não afeta nenhum dos recursos que foram mobilizados.
->
-> Se tiver um [bloqueio CanNotDelete](../management/lock-resources.md) num grupo de recursos, as implementações desse grupo de recursos não podem ser eliminadas. Tem de remover o cadeado para tirar partido das supressões automáticas no histórico de implantação.
 
 ## <a name="when-deployments-are-deleted"></a>Quando as implementações são eliminadas
 
@@ -35,6 +33,24 @@ As implementações são eliminadas do seu histórico quando atinge 775 ou mais 
 Além das implementações, também desencadeia supressões quando executa o [e-se operação](template-deploy-what-if.md) ou valida uma implementação.
 
 Quando se dá a uma implantação o mesmo nome que um na história, repõe-se o seu lugar na história. A implantação muda-se para o lugar mais recente da história. Também reinicia o lugar de uma implantação quando [retroceda para essa implantação](rollback-on-error.md) após um erro.
+
+## <a name="remove-locks-that-block-deletions"></a>Remover fechaduras que bloqueiam supressões
+
+Se tiver um [bloqueio CanNotDelete](../management/lock-resources.md) num grupo de recursos, as implementações desse grupo de recursos não podem ser eliminadas. Tem de remover o cadeado para tirar partido das supressões automáticas no histórico de implantação.
+
+Para utilizar o PowerShell para eliminar uma fechadura, execute os seguintes comandos:
+
+```azurepowershell-interactive
+$lockId = (Get-AzResourceLock -ResourceGroupName lockedRG).LockId
+Remove-AzResourceLock -LockId $lockId
+```
+
+Para utilizar o Azure CLI para apagar uma fechadura, execute os seguintes comandos:
+
+```azurecli-interactive
+lockid=$(az lock show --resource-group lockedRG --name deleteLock --output tsv --query id)
+az lock delete --ids $lockid
+```
 
 ## <a name="opt-out-of-automatic-deletions"></a>Opte por excluir as supressões automáticas
 
@@ -78,7 +94,7 @@ Para reencontrar as supressões automáticas, utilize [o registo de recurso az](
 az feature unregister --namespace Microsoft.Resources --name DisableDeploymentGrooming
 ```
 
-# <a name="rest"></a>[DESCANSE](#tab/rest)
+# <a name="rest"></a>[REST](#tab/rest)
 
 Para REST API, utilize [funcionalidades - Registar.](/rest/api/resources/features/register)
 

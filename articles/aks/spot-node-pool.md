@@ -5,12 +5,12 @@ services: container-service
 ms.service: container-service
 ms.topic: article
 ms.date: 02/25/2020
-ms.openlocfilehash: ce2871883300e9eb135b51fdb2f5566e451084f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbb003c287a18810c2c14c4f2ea401fa55cca427
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374615"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987295"
 ---
 # <a name="preview---add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>Pré-visualização - Adicione uma piscina de nó de ponto a um cluster Azure Kubernetes Service (AKS)
 
@@ -32,11 +32,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Quando criar um cluster para utilizar uma piscina de nó de ponto, esse cluster também deve usar conjuntos de balança de máquina virtual para piscinas de nó e o balançador de carga *SKU padrão.* Também deve adicionar uma piscina adicional de nó depois de criar o seu cluster para usar uma piscina de nó de ponto. A adição de um conjunto adicional de nós é coberta num passo posterior, mas primeiro precisa de ativar uma funcionalidade de pré-visualização.
 
-> [!IMPORTANT]
-> As funcionalidades de pré-visualização AKS são de autosserviço, opt-in. São fornecidos para recolher feedback e bugs da nossa comunidade. Na pré-visualização, estas funcionalidades não se destinam ao uso da produção. As características na pré-visualização pública estão sob o apoio de "melhor esforço". A assistência das equipas de apoio técnico da AKS está disponível apenas durante o horário do Pacífico (PST). Para mais informações, consulte os seguintes artigos de apoio:
->
-> * [Políticas de apoio da AKS][aks-support-policies]
-> * [FAQ de suporte Azure][aks-faq]
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="register-spotpoolpreview-preview-feature"></a>Funcionalidade de pré-visualização do spotpoolpreview
 
@@ -60,7 +56,7 @@ Quando estiver pronto, reaprovi o registo do fornecedor de recursos *Microsoft.C
 az provider register --namespace Microsoft.ContainerService
 ```
 
-### <a name="install-aks-preview-cli-extension"></a>Instale extensão CLI de pré-visualização aks
+### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI aks-preview
 
 Para criar um cluster AKS que utilize uma piscina de nó de ponto, você precisa da versão de extensão CLI *de pré-visualização aks* 0.4.32 ou superior. Instale a extensão Azure CLI *de pré-visualização aks* utilizando o comando [de adicionar extensão az][az-extension-add] e, em seguida, verifique se há atualizações disponíveis utilizando o comando de atualização de [extensão az:][az-extension-update]
 
@@ -85,7 +81,7 @@ Aplicam-se as seguintes limitações quando cria e gere clusters AKS com uma pis
 * Uma piscina de nó de pontos terá a etiqueta *kubernetes.azure.com/scalesetpriority:spot,* a mancha *kubernetes.azure.com/scalesetpriority=spot:NoSchedule*, e as cápsulas do sistema terão anti-afinidade.
 * Deve adicionar uma [tolerância correspondente][spot-toleration] para agendar cargas de trabalho numa piscina de nó no local.
 
-## <a name="add-a-spot-node-pool-to-an-aks-cluster"></a>Adicione uma piscina de nó de ponto a um cluster AKS
+## <a name="add-a-spot-node-pool-to-an-aks-cluster"></a>Adicionar um conjunto de nós spot a um cluster do AKS
 
 Você deve adicionar uma piscina de nó de ponto a um cluster existente que tem várias piscinas de nó ativadas. Mais detalhes sobre a criação de um cluster AKS com várias piscinas de nós estão disponíveis [aqui.][use-multiple-node-pools]
 
@@ -142,7 +138,7 @@ Quando uma cápsula com esta tolerância é implantada, kubernetes pode agendar 
 
 Com preços variáveis, você tem a opção de definir um preço máximo, em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor *0.98765* seria um preço máximo de $0.98765 USD por hora. Se fixar o preço máximo para *-1,* o caso não será despejado com base no preço. O preço, por exemplo, será o preço atual para o Spot ou o preço para uma instância padrão, o que for menor, desde que exista capacidade e quota disponível.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu a adicionar uma piscina de nó de ponto a um cluster AKS. Para obter mais informações sobre como controlar os casulos em piscinas de nós, consulte [as melhores práticas para funcionalidades avançadas de programador em AKS][operator-best-practices-advanced-scheduler].
 

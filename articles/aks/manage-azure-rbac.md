@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/20/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 824146e7e0b1130b8e5f6c087dbf5ccbac2c8224
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 064a62b030a1fd9f3c875fce646ad8553b75d513
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799366"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986632"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Utilizar o RBAC do Azure para Autorização do Kubernetes (pré-visualização)
 
@@ -25,11 +25,7 @@ Este documento abrange uma nova abordagem que permite a gestão unificada e o co
 
 A capacidade de gerir o RBAC para os recursos de Kubernetes da Azure dá-lhe a opção de gerir o RBAC para os recursos do cluster, quer utilizando mecanismos Azure ou Kubernetes nativos. Quando ativados, os principais AD do Azure serão validados exclusivamente pela Azure RBAC, enquanto os utilizadores regulares de Kubernetes e contas de serviço são validados exclusivamente pela Kubernetes RBAC. Para mais detalhes sobre a autenticação, autorização e RBAC na AKS consulte [aqui.](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview)
 
-> [!IMPORTANT]
-> As funcionalidades de pré-visualização AKS estão disponíveis numa base de autosserviço, opt-in. As pré-visualizações são fornecidas "as-is" e "conforme disponível", e estão excluídas dos Contratos de Nível de Serviço e garantia limitada. As pré-visualizações da AKS são parcialmente cobertas pelo apoio ao cliente numa base de melhor esforço. Como tal, estas características não se destinam ao uso da produção. Para mais informações, consulte os seguintes artigos de apoio:
->
-> - [Políticas de apoio da AKS](support-policies.md)
-> - [FAQ de suporte Azure](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="prerequisites"></a>Pré-requisitos 
 - Inscreva-se para a pré-visualização <https://aka.ms/aad-rbac-sign-up-form> .
