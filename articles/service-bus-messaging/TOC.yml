@@ -7,7 +7,9 @@
     - name: Comparar serviços de mensagens
       href: ../event-grid/compare-messaging-services.md
       maintainContext: true
-- name: Inícios rápidos
+    - name: Utilizar o Service Bus com o Java Message Service (JMS) 2.0 (pré-visualização)
+      href: how-to-use-java-message-service-20.md
+- name: Guias de Início Rápido
   items:
     - name: Filas do Service Bus
       items:
@@ -127,6 +129,8 @@
           items:
             - name: 'Filas, tópicos e subscrições'
               href: service-bus-queues-topics-subscriptions.md
+            - name: Java Message Service (JMS) 2.0 entidades (pré-visualização)
+              href: java-message-service-20-entities.md
             - name: 'Mensagens, payloads e serialização'
               href: service-bus-messages-payloads.md
             - name: 'Transferências de mensagens, bloqueios e acordo'

@@ -75,7 +75,7 @@
       href: ./policy-samples.md
 - name: Conceitos
   items:
-    - name: Arquivo de chave-valor
+    - name: Chaves e valores
       href: concept-key-value.md
     - name: Instantâneo para um ponto anterior no tempo
       href: concept-point-time-snapshot.md

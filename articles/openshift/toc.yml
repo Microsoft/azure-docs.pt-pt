@@ -28,6 +28,12 @@
           href: configure-azure-ad-cli.md
         - name: Configurar a autenticação do Azure Active Directory (Portal)
           href: configure-azure-ad-ui.md
+    - name: Criar uma cópia de segurança e restaurar uma aplicação com o Velero
+      items:
+        - name: Criar uma cópia de segurança de uma aplicação de cluster com o Velero
+          href: howto-create-a-backup.md
+        - name: Criar um restauro de uma aplicação de cluster com o Velero
+          href: howto-create-a-restore.md
     - name: Monitorização e registos do Azure Red Hat OpenShift 4
       items:
         - name: Azure Monitor para Contentores no Azure Red Hat OpenShift 4 (pré-visualização)

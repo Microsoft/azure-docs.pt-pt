@@ -94,7 +94,7 @@
               href: reservations/understand-reserved-instance-usage.md?toc=/azure/cost-management-billing/toc.json
             - name: Dados de utilização de clientes Enterprise
               href: reservations/understand-reserved-instance-usage-ea.md?toc=/azure/cost-management-billing/toc.json
-        - name: Terminologia de faturação
+        - name: Faturação
           items:
             - name: Termos de utilização de subscrições individuais
               href: understand/understand-usage.md
@@ -108,6 +108,8 @@
               href: manage/mca-understand-pricesheet.md
             - name: Termos da fatura do Contrato de Parceiro da Microsoft
               href: understand/mpa-invoice-terms.md
+            - name: Alterações à sua conta de faturação individual atualizada
+              href: understand/mosp-new-customer-experience.md
             - name: Contas de faturação do Contrato de Cliente Microsoft
               href: understand/mca-overview.md
             - name: Contas de faturação do Contrato de Parceiro da Microsoft

@@ -6,7 +6,7 @@
       href: overview-reports.md
     - name: O que é a monitorização do Azure AD?
       href: overview-monitoring.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Transferir um relatório de início de sessão
@@ -23,6 +23,8 @@
       href: tutorial-access-api-with-certificates.md
     - name: Transmitir registos no hub de eventos
       href: tutorial-azure-monitor-stream-logs-to-event-hub.md
+    - name: Assistente de análise de registos
+      href: tutorial-log-analytics-wizard.md
 - name: Conceitos
   items:
     - name: Planear uma implementação de relatórios e monitorização

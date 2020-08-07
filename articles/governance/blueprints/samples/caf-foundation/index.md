@@ -3,12 +3,12 @@ title: Descrição geral do exemplo de esquema Fundação do CAF
 description: Descrição geral e arquitetura do exemplo de esquema da Fundação do Framework de Adoção da Cloud (CAF) para o Azure.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 3291fdc299652d2b22bff89f5b1dadbdc064e561
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: b8bd0015d5f95fc61806197ca21fdaeeb3452700
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901292"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852349"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Descrição geral do exemplo de esquema Fundação do Microsoft Cloud Adoption Framework para o Azure
 
@@ -35,7 +35,7 @@ Esta implementação incorpora vários serviços do Azure utilizados para fornec
   - Pedir a Encriptação de transferência segura da Conta de Armazenamento do Azure
   - Negar tipos de recurso (escolha durante a implementação)  
 - Iniciativas
-  - Ativar a monitorização no Centro de Segurança do Azure (89 Políticas)
+  - Ativar a monitorização no Centro de Segurança do Azure (mais de 100 definições de políticas)
 
 Todos estes elementos obedecem às práticas comprovadas publicados no [Centro de Arquitetura do Azure - Arquiteturas de Referência](/azure/architecture/reference-architectures/).
 

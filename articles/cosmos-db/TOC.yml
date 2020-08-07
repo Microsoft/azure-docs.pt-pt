@@ -1248,7 +1248,7 @@
           href: sql-api-sdk-dotnet-changefeed.md
         - name: Biblioteca de executor em massa v2 de .NET
           href: sql-api-sdk-bulk-executor-dot-net.md
-    - name: SDKs de Java
+    - name: Conectores e SDKs de Java
       items:
         - name: SDK v4 de Java
           href: sql-api-sdk-java-v4.md
@@ -1256,6 +1256,10 @@
           href: sql-api-sdk-async-java.md
         - name: SDK v2 Java síncrono
           href: sql-api-sdk-java.md
+        - name: Spring Data Connector para a API SQL
+          href: sql-api-sdk-java-spring.md
+        - name: Spark Connector para a API SQL
+          href: sql-api-sdk-java-spark.md
         - name: Biblioteca de executor em massa v2 de Java
           href: sql-api-sdk-bulk-executor-java.md
     - name: Node.js

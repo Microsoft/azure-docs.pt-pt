@@ -229,7 +229,7 @@
         - name: Definir diretórios de entrada e de saída
           displayName: 'large data, write, experiment files, size limit'
           href: how-to-save-write-experiment-files.md
-        - name: Depuração interativa
+        - name: Visual Studio Code
           displayName: 'Visual Studio Code, VSCode, debug, bugs, remote, compute, instance'
           href: how-to-set-up-vs-code-remote.md
         - name: Integração no Git
@@ -437,26 +437,28 @@
           href: how-to-schedule-pipelines.md
         - name: Acionar um pipeline
           href: how-to-trigger-published-pipeline.md
+        - name: Estruturador (arrastar e largar)
+          items:
+            - name: Métricas de registo
+              displayName: 'designer, logging'
+              href: how-to-track-designer-experiments.md
+            - name: Transformar dados
+              displayName: pipeline
+              href: how-to-designer-transform-data.md
+            - name: Preparar novamente com pipelines publicados
+              displayName: 'retrain, designer, published pipeline'
+              href: how-to-retrain-designer.md
+            - name: Predições em lote
+              displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+              href: how-to-run-batch-predictions-designer.md
+            - name: Executar código Python
+              displayName: 'feature extraction, feature engineering'
+              href: how-to-designer-python.md
         - name: Depurar e resolver problemas de pipelines
           displayName: designer
           href: how-to-debug-pipelines.md
         - name: Depurar pipelines no Application Insights
           href: how-to-debug-pipelines-application-insights.md
-        - name: Métricas de registo do estruturador
-          displayName: 'designer, logging'
-          href: how-to-track-designer-experiments.md
-        - name: Dados de transformação do estruturador
-          displayName: pipeline
-          href: how-to-designer-transform-data.md
-        - name: Reeducação do estruturador com pipelines publicados
-          displayName: 'retrain, designer, published pipeline'
-          href: how-to-retrain-designer.md
-        - name: Predições em lote de estruturador
-          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
-          href: how-to-run-batch-predictions-designer.md
-        - name: Código Python executado pelo estruturador
-          displayName: 'feature extraction, feature engineering'
-          href: how-to-designer-python.md
         - name: Utilizar passo de execução paralela
           displayName: score scoring batch consume pipeline parallelrunstep inference
           href: how-to-use-parallel-run-step.md
@@ -475,6 +477,9 @@
     - name: Gerir recursos do VS Code
       displayName: 'vscode,resources'
       href: how-to-manage-resources-vscode.md
+    - name: Depuração interativa do VS Code
+      displayName: 'vscode,remote,debug,pipelines,deployments,ssh'
+      href: how-to-debug-visual-studio-code.md
     - name: Exportar e eliminar dados
       displayName: GDPR
       href: how-to-export-delete-data.md

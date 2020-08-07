@@ -59,6 +59,8 @@
       href: ../../postgresql/postgresql-hyperscale-security-baseline.md
     - name: Linha de base de segurança do Azure Databricks
       href: ../../azure-databricks/security-baseline.md
+    - name: Linha de base de segurança do Azure Firewall
+      href: ../../firewall/security-baseline.md
     - name: Linha de base de segurança das Funções do Azure
       href: ../../azure-functions/security-baseline.md
     - name: Linha de base de segurança do Azure Policy
@@ -83,6 +85,8 @@
       href: ../fundamentals/customer-lockbox-security-baseline.md
     - name: Linha de base de segurança do Data Lake Analytics
       href: ../../data-lake-analytics/security-baseline.md
+    - name: Linha de base de segurança do DDoS Protection
+      href: ../fundamentals/ddos-protection-security-baseline.md
     - name: Linha de base de segurança dos Hubs de Eventos
       href: ../../event-hubs/security-baseline.md
     - name: Linha de base de segurança do ExpressRoute
@@ -95,6 +99,8 @@
       href: ../../logic-apps/security-baseline.md
     - name: Linha de base de segurança do Observador de Rede
       href: ../../network-watcher/security-baseline.md
+    - name: Linha de base do Centro de Segurança
+      href: ../../security-center/security-baseline.md
     - name: Linha de base do Service Fabric
       href: ../../service-fabric/security-baseline.md
     - name: Linha de base de segurança do Stream Analytics

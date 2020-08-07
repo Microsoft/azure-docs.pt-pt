@@ -209,14 +209,14 @@
       items:
         - name: Criar fábricas de dados visualmente
           href: author-visually.md
+        - name: Desenvolvimento e depuração iterativos
+          href: iterative-development-debugging.md
         - name: Hub de gestão
           href: author-management-hub.md
         - name: Controlo de código fonte
           href: source-control.md
         - name: Integração e entrega contínuas
           href: continuous-integration-deployment.md
-        - name: Desenvolvimento e depuração iterativos
-          href: iterative-development-debugging.md
     - name: Conectores
       items:
         - name: Descrição geral do conector
@@ -562,6 +562,8 @@
       items:
         - name: Parametrizar os serviços ligados
           href: parameterize-linked-services.md
+        - name: Parâmetros globais
+          href: author-global-parameters.md
         - name: Expressão de Idioma
           href: control-flow-expression-language-functions.md
         - name: Variáveis do sistema

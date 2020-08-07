@@ -13,10 +13,10 @@
       items:
         - name: Registar uma aplicação
           href: quickstart-register-app.md
-        - name: Configurar a aplicação para aceder às APIs Web
-          href: quickstart-configure-app-access-web-apis.md
-        - name: Configurar a aplicação para expor as APIs Web
+        - name: Configurar a aplicação para expor a API Web
           href: quickstart-configure-app-expose-web-apis.md
+        - name: Configurar a aplicação para aceder a uma API Web
+          href: quickstart-configure-app-access-web-apis.md
         - name: Modificar as contas suportadas por uma aplicação
           href: quickstart-modify-supported-accounts.md
         - name: Remover uma aplicação
@@ -34,7 +34,7 @@
       items:
         - name: ASP.NET
           href: quickstart-v2-aspnet-webapp.md
-        - name: ASP.NET Core
+        - name: Núcleo de ASP.NET
           href: quickstart-v2-aspnet-core-webapp.md
         - name: NodeJS
           href: quickstart-v2-nodejs-webapp.md
