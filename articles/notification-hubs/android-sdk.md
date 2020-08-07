@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/27/2020
-ms.openlocfilehash: 292f7b65528c13d23d4f2b72467538c43c6ad75e
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: d8c61c90456607d73fc0e8abc24709d901328ecf
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84172495"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829531"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-100-preview1"></a>Tutorial: Enviar notificações push para dispositivos Android usando a versão 1.0.0-preview do Firebase SDK
 
@@ -71,7 +71,7 @@ O primeiro passo é criar um projeto no Android Studio:
 
    2. Selecione **o aplicativo Registar**.
 
-4. Selecione **Baixar google-services.json,** guardar o ficheiro na pasta de **aplicações**   do seu projeto e, em seguida, selecione **Next**.
+4. Selecione **Descarregue google-services.jsligado**, guarde o ficheiro na pasta de **aplicações**   do seu projeto e, em seguida, selecione **Next**.
 
    :::image type="content" source="media/android-sdk/download-google-service-button.png" alt-text="Baixar o serviço Google":::
 
@@ -79,7 +79,7 @@ O primeiro passo é criar um projeto no Android Studio:
 
    :::image type="content" source="media/android-sdk/notification-hubs-firebase-console-project-settings.png" alt-text="Definições de projeto":::
 
-6. Se ainda não descarregou o ficheiro **google-services.json** na pasta de **aplicações**   do seu projeto Android Studio, pode fazê-lo nesta página.
+6. Se ainda não descarregou o **google-services.jsficheiro na** pasta de **aplicações**   do seu projeto Android Studio, pode fazê-lo nesta página.
 
 7. Mude para o **separador Mensagens**   cloud.
 
@@ -269,7 +269,7 @@ Antes de testar notificações push dentro de um emulador, certifique-se de que 
 
 Certifique-se também de que adicionou a sua conta Google ao seu emulador de funcionamento em **Contas de**   >  **Definições.** Caso contrário, as suas tentativas de se registar na FCM podem resultar numa **AUTHENTICATION_FAILED**   exceção.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, utilizou o Firebase Cloud Messaging para transmitir notificações a todos os dispositivos Android que foram registados no serviço. Para saber como enviar notificações push para dispositivos específicos, avance para o tutorial seguinte:
 
@@ -278,7 +278,7 @@ Neste tutorial, utilizou o Firebase Cloud Messaging para transmitir notificaçõ
 
 Segue-se uma lista de outros tutoriais para envio de notificações:
 
-- Aplicativos Azure Mobile: Para um exemplo de como enviar notificações de uma aplicação móvel de volta integrada com Os Hubs de Notificação, consulte [Adicionar Notificações push à sua aplicação iOS](/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
+- Aplicativos Azure Mobile: Para um exemplo de como enviar notificações de uma aplicação móvel de volta integrada com Os Hubs de Notificação, consulte [Adicionar Notificações push à sua aplicação iOS](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
 
 - ASP.NET: Utilize [os Centros de Notificação para enviar notificações push aos utilizadores](notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
 

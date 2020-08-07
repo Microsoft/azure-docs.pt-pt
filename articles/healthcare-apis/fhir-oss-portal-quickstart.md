@@ -2,18 +2,18 @@
 title: 'Portal Azure: Implementar servidor FHIR de código aberto para Azure - Azure API para FHIR'
 description: Este quickstart explica como implementar o servidor FHIR do Microsoft Open Source utilizando o portal Azure.
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 02/07/2019
-ms.author: mihansen
-ms.openlocfilehash: 5109c9a7c6432e42c6841b89cc28bde3e92c74aa
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.author: matjazl
+ms.openlocfilehash: 7fa119db0c974c93aff667060d153b21b8de16bb
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "84820187"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843492"
 ---
 # <a name="quickstart-deploy-open-source-fhir-server-using-azure-portal"></a>Quickstart: Implementar o servidor FHIR open source usando o portal Azure
 
@@ -43,7 +43,7 @@ Depois de preencher os detalhes, pode iniciar a implantação.
 
 Uma vez concluída a implementação, pode apontar o seu navegador `https://SERVICENAME.azurewebsites.net/metadata` para obter uma declaração de capacidade. Levará um minuto ou mais para o servidor responder pela primeira vez.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não é necessário, pode eliminar o grupo de recursos e todos os recursos relacionados. Para tal, selecione o grupo de recursos que contém os recursos aprovisionados, selecione **Delete resource group**, em seguida, confirme o nome do grupo de recursos para eliminar.
 

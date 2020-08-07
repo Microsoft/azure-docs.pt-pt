@@ -5,13 +5,13 @@ author: anthonychu
 ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: antchu
-ms.custom: mvc, tracking-python
-ms.openlocfilehash: 89b2fc9ffe05853e34670b6f33ed665240d59457
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: mvc, devx-track-python
+ms.openlocfilehash: bd46044b6ba6d4dfca8dd90612d8f2530638c6f8
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540201"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844461"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Tutorial: Aplicar modelos de aprendizagem automática em funções Azure com Python e TensorFlow
 
@@ -302,11 +302,11 @@ Para testar a invocação do ponto final da função a partir de outra aplicaç�
 > [!NOTE]
 > O modelo classifica sempre o conteúdo da imagem como um gato ou um cão, independentemente de a imagem conter ou não, desresposição do cão. Imagens de tigres e panteras, por exemplo, tipicamente classificam-se como gatos, mas imagens de elefantes, cenouras ou aviões classificam-se como cães.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Como todo este tutorial funciona localmente na sua máquina, não existem recursos ou serviços Azure para limpar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a construir e personalizar um ponto final http API com Funções Azure para classificar as imagens utilizando um modelo TensorFlow. Também aprendeu a chamar a API de uma aplicação web. Você pode usar as técnicas neste tutorial para construir APIs de qualquer complexidade, tudo enquanto executa no modelo de computação sem servidor fornecido pela Azure Functions.
 

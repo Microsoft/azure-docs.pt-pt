@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3dc9d62141a63574a6796982542cb1491108eedc
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: f91e130bfa83c6a9b116c05d7293aa70945e2dc2
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259872"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903549"
 ---
 # <a name="linux-support"></a>Apoio Técnico para Linux
 
-Os parceiros podem utilizar o Linux SDK para o Windows Virtual Desktop para construir um cliente virtual do Windows. Também pode usá-lo para ativar o suporte virtual do Windows desktop na sua aplicação ao cliente. Este guia rápido explicará o que é o Linux SDK e como começar a usá-lo.
+Pode aceder aos recursos de Desktop Virtual do Windows a partir dos seus dispositivos Linux com os seguintes clientes suportados, fornecidos pelos nossos parceiros de clientes finos Linux. Estamos a trabalhar com vários parceiros para permitir clientes de Desktop Virtual do Windows suportados em mais sistemas operativos e dispositivos baseados no Linux. Se você quiser o suporte virtual do Windows desktop numa plataforma Linux que não está listada aqui, por favor, informe-nos na nossa [página UserVoice](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux).
 
 ## <a name="connect-with-your-linux-device"></a>Conecte-se com o seu dispositivo Linux
 
@@ -29,14 +29,7 @@ Os seguintes parceiros aprovaram clientes do Windows Virtual Desktop para dispos
 
 ## <a name="what-is-the-linux-sdk"></a>O que é o Linux SDK?
 
-Pode utilizar as APIs SDK para recuperar feeds de recursos, ligar-se a sessões de aplicações de ambiente de trabalho ou remotas e utilizar muitas das reorientações que os nossos clientes de primeira parte suportam.
-
-> [!NOTE]
-> O SDK está atualmente em desenvolvimento. Atualizaremos este documento com instruções para aceder ao SDK quando estiver geralmente disponível.
-
-### <a name="supported-linux-distributions"></a>Distribuição apoiada do Linux
-
-O SDK é compatível com a maioria dos sistemas operativos com base no Ubuntu 18.04 ou posterior. Se tiver uma distribuição Linux diferente, podemos trabalhar consigo para descobrir como melhor suportar as suas necessidades.
+Os parceiros de clientes finos do Linux podem usar as APIs do Windows Virtual Desktop Linux para recuperar feeds de recursos, ligar-se a sessões de aplicações de ambiente de trabalho ou remotas e utilizar muitas das reorientações que os nossos clientes de primeira parte suportam. O SDK é compatível com a maioria dos sistemas operativos com base no Ubuntu 18.04 ou posterior.
 
 ### <a name="feature-support"></a>Suporte de recursos
 
@@ -57,13 +50,6 @@ O SDK suporta múltiplas ligações a sessões de secretária e aplicações rem
 O SDK também suporta várias configurações de visualização do monitor, desde que os monitores selecionados para a sessão sejam contíguos.
 
 Atualizaremos este documento à medida que adicionamos suporte para novas funcionalidades e redirecionamentos. Se pretender sugerir novas funcionalidades e outras melhorias, visite a nossa [página UserVoice](https://go.microsoft.com/fwlink/?linkid=2116523).
-
-## <a name="get-started-with-the-linux-sdk"></a>Começa com o Linux SDK
-
-Antes de poder desenvolver um cliente Linux para o Windows Virtual Desktop, tem de fazer as seguintes coisas:
-
-1. Construa e implemente um ambiente de ambiente de trabalho virtual do Windows para testes ou utilização de produção.
-2. Teste os clientes de primeira parte disponíveis para se familiarizar com a experiência do utilizador virtual do Windows Desktop.
 
 ## <a name="next-steps"></a>Passos seguintes
 

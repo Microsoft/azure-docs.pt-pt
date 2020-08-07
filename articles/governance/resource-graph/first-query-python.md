@@ -3,13 +3,13 @@ title: 'Quickstart: A sua primeira consulta python'
 description: Neste arranque rápido, siga os passos para ativar a biblioteca de Gráficos de Recurso para Python e executar a sua primeira consulta.
 ms.date: 07/15/2020
 ms.topic: quickstart
-ms.custom: tracking-python
-ms.openlocfilehash: f7ca6ce5fab687e26007949898ad72c75d036782
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-python
+ms.openlocfilehash: a92eda343e8c0c38b9c9ebebb16d5c102d1b3f19
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511927"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873675"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-python"></a>Quickstart: Executar a sua primeira consulta de Gráfico de Recurso usando Python
 
@@ -125,7 +125,7 @@ Com as bibliotecas Python adicionadas ao seu ambiente de eleição, é hora de e
 
 Quando a consulta final é executada várias vezes, assumindo que nada no seu ambiente está a mudar, os resultados devolvidos são consistentes e encomendados pela propriedade **Name,** mas ainda limitados aos cinco melhores resultados.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se desejar remover as bibliotecas instaladas do seu ambiente Python, pode fazê-lo utilizando o seguinte comando:
 
@@ -134,7 +134,7 @@ Se desejar remover as bibliotecas instaladas do seu ambiente Python, pode fazê-
 pip uninstall azure-mgmt-resourcegraph azure-mgmt-resource azure-cli-core
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, adicionou as bibliotecas de Gráficos de Recurso ao seu ambiente Python e executou a sua primeira consulta. Para saber mais sobre a linguagem Resource Graph, continue na página de detalhes da linguagem de consulta.
 

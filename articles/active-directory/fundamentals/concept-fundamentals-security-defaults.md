@@ -12,16 +12,16 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 385107f3bb5dd30a118d3a5f7a5f14213f0ad1c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c5015cb6328dba70fed40053bc234966572ae98
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554532"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873726"
 ---
 # <a name="what-are-security-defaults"></a>O que são falhas de segurança?
 
-Gerir a segurança pode ser difícil com ataques comuns relacionados com a identidade, como spray de palavras-passe, repetição e phishing estão a tornar-se cada vez mais populares. As falhas de segurança facilitam a proteção da sua organização contra estes ataques com definições de segurança pré-configuradas:
+Gerir a segurança pode ser difícil com ataques comuns relacionados com a identidade, como spray de palavras-passe, repetição e phishing tornando-se cada vez mais popular. As falhas de segurança facilitam a proteção da sua organização contra estes ataques com definições de segurança pré-configuradas:
 
 - Exigindo que todos os utilizadores se registem para autenticação multi-factor Azure.
 - Exigindo que os administradores realizem a autenticação de vários fatores.
@@ -145,9 +145,9 @@ Pode utilizar o Acesso Condicional a políticas de configuração semelhantes a 
 
 Aqui estão guias passo a passo sobre como pode utilizar o Acesso Condicional a políticas equivalentes de configuração às políticas ativadas por incumprimentos de segurança:
 
-- [Exigir MFA para administradores](../conditional-access/howto-conditional-access-policy-admin-mfa.md)
+- [Exigir MFA aos administradores](../conditional-access/howto-conditional-access-policy-admin-mfa.md)
 - [Exigir MFA para a gestão do Azure](../conditional-access/howto-conditional-access-policy-azure-management.md)
-- [Bloquear a autenticação do legado](../conditional-access/howto-conditional-access-policy-block-legacy.md)
+- [Bloquear a autenticação legada](../conditional-access/howto-conditional-access-policy-block-legacy.md)
 - [Pedir MFA para todos os utilizadores](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
 - [Requer registo Azure MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md) - Requer proteção de identidade Azure AD parte do Azure AD Premium P2.
 
@@ -175,6 +175,6 @@ Para desativar as falhas de segurança no seu diretório:
 1. Desafine o **alternador de segurança** de Ativação para **Nº**.
 1. Selecione **Guardar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-[Políticas comuns de acesso condicional](../conditional-access/concept-conditional-access-policy-common.md)
+[Políticas de Acesso Condicional comuns](../conditional-access/concept-conditional-access-policy-common.md)

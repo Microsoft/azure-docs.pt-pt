@@ -1,6 +1,6 @@
 ---
 title: Design Azure Table armazenamento para consultas / Microsoft Docs
-description: Tabelas de design para consultas no armazenamento da mesa Azure.
+description: Tabelas de design para consultas no armazenamento da mesa Azure. Escolha uma chave de partição apropriada, otimize as consultas e sortifique os dados para o serviço Tabela.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 41a588ddc0c1be8014a84d8fe181013d8566f68d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d157e7d2880761fb6559723bdc1d6c34baffb09
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75457636"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903209"
 ---
 # <a name="design-for-querying"></a>Design das consultas
 As soluções de serviço de mesa podem ser lidas intensivamente, escrever intensivamente ou uma mistura das duas. Este artigo centra-se nas coisas a ter em conta quando está a desenhar o seu serviço de Mesa para suportar as operações de leitura de forma eficiente. Tipicamente, um design que suporta operações de leitura eficientemente também é eficiente para operações de escrita. No entanto, existem considerações adicionais a ter em conta ao conceber operações de escrita, discutidas no artigo [Design para modificação de dados](table-storage-design-for-modification.md).
@@ -39,8 +39,8 @@ Os exemplos a seguir assumem que o serviço de mesa está a armazenar entidades 
 | --- | --- |
 | **PartitionKey** (Nome do Departamento) |String |
 | **RowKey** (Id do empregado) |String |
-| **Primeiro Nome** |String |
-| **Último Nome** |String |
+| **FirstName** |String |
+| **LastName** |String |
 | **Idade** |Número inteiro |
 | **EmailAddress** |String |
 
@@ -96,7 +96,7 @@ Muitas aplicações têm requisitos para usar dados classificados em diferentes 
 * [Padrão de índice secundário inter-partição](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) - Guarde várias cópias de cada entidade utilizando diferentes valores RowKey em divisórias separadas em tabelas separadas para permitir pesquisas rápidas e eficientes e ordens de classificação alternativas utilizando diferentes valores RowKey.
 * [Registar o padrão da cauda](table-storage-design-patterns.md#log-tail-pattern) - Recupere as entidades *n* mais recentemente adicionadas a uma partição utilizando um valor **RowKey** que se classifica na ordem de data e hora inversa.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Padrões de design da tabela](table-storage-design-patterns.md)
 - [Modelar relações](table-storage-design-modeling.md)

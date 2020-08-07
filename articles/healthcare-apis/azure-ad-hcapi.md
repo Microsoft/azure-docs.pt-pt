@@ -3,18 +3,18 @@ title: Configuração de identidade do Diretório Ativo Azure para Azure API par
 description: Conheça os princípios de identidade, autenticação e autorização para servidores Azure FHIR.
 services: healthcare-apis
 author: caitlinv39
-ms.reviewer: mihansen
+ms.reviewer: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: cavoeg
-ms.openlocfilehash: 53adf974a3af4a2cc3e5c89156fe4b50571c7b79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cdb73670996341e9219230bb277e087009266f32
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871730"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846025"
 ---
 # <a name="azure-active-directory-identity-configuration-for-azure-api-for-fhir"></a>Configuração de identidade do Diretório Ativo Azure para Azure API para FHIR
 
@@ -106,7 +106,7 @@ As secções pertinentes da documentação da AD Azure são:
 
 Existem outras variações (por exemplo, em nome do fluxo) para a obtenção de um token. Consulte a documentação da AD Azure para obter mais detalhes. Ao utilizar a API Azure para fHIR, existem também alguns atalhos para obter um token de acesso (para fins de depuração) [utilizando o Azure CLI](get-healthcare-apis-access-token-cli.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, você aprendeu alguns dos conceitos básicos envolvidos em garantir o acesso à AZure API para FHIR usando Azure AD. Para aprender a implementar um exemplo da AZure API para fHIR, continue a implementar o quickstart.
 

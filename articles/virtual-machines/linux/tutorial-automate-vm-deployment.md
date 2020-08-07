@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/12/2019
 ms.author: cynthn
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 2a07480bf5b3defb4176437d99274e9ecfb4ba13
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: f1d439569f15d7680d54b35e7ec1c52ca7843af7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433017"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828970"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Tutorial – Como utilizar o cloud-init para personalizar uma máquina virtual do Linux no Azure no primeiro arranque
 
@@ -57,7 +57,7 @@ Para ver o cloud-init em ação, crie uma VM que instala o NGINX e executa uma a
 
 No seu pedido de festa ou na Cloud Shell, crie um ficheiro nomeado *cloud-init.txt* e cole a seguinte configuração. Por exemplo, `sensible-editor cloud-init.txt` escreva para criar o ficheiro e ver uma lista de editores disponíveis. Certifique-se de que o ficheiro de inicialização da cloud é copiado corretamente, especialmente a primeira linha:
 
-```bash
+```yaml
 #cloud-config
 package_upgrade: true
 packages:
@@ -269,7 +269,7 @@ O site NGINX protegido e a aplicação Node.js são apresentados como no exemplo
 ![Ver site NGINX seguro em execução](./media/tutorial-automate-vm-deployment/secured-nginx.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, configurou as VMs no primeiro arranque com o cloud-init. Aprendeu a:
 
 > [!div class="checklist"]

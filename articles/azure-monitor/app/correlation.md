@@ -6,13 +6,13 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.custom: tracking-python
-ms.openlocfilehash: fa68f1ea8c0dd0d4367d3dcf39f059d0bd8a77ea
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-python
+ms.openlocfilehash: f2645cc76f6b1a59e84ee01cbc8d4c650cd6c789
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421931"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843629"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria em Insights de Aplicação
 
@@ -370,7 +370,7 @@ A Aplicação Insights SDK, a começar pela versão 2.4.0-beta1, utiliza `Diagno
 
   O Arranque de Arranque de Mola atribui automaticamente `cloudRoleName` ao valor que introduz para a `spring.application.name` propriedade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Escreva [telemetria personalizada.](../../azure-monitor/app/api-custom-events-metrics.md)
 - Para cenários de correlação avançados em ASP.NET Core e ASP.NET, consulte [as operações personalizadas track](custom-operations-tracking.md).

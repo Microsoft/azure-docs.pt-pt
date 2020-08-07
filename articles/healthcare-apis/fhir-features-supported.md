@@ -2,18 +2,18 @@
 title: Funcionalidades de FHIR suportadas em Azure - Azure API para FHIR
 description: Este artigo explica quais as características da especificação FHIR que são implementadas na AZure API para fHIR
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
-ms.author: mihansen
-ms.openlocfilehash: 7f92395f19d84f904493af458d1334f8013fd263
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: matjazl
+ms.openlocfilehash: 1cb3af32f1ad16218c82f91c3f28d4f4ab47e677
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85808034"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843509"
 ---
 # <a name="features"></a>Funcionalidades
 
@@ -29,13 +29,13 @@ As versões anteriores também suportadas incluem:`3.0.2`
 
 | API                            | Suportado - PaaS | Suportado - OSS (SQL) | Suportado - OSS (Cosmos DB) | Comentário                                             |
 |--------------------------------|-----------|-----------|-----------|-----------------------------------------------------|
-| ler                           | Sim       | Sim       | Sim       |                                                     |
+| leitura                           | Sim       | Sim       | Sim       |                                                     |
 | vread                          | Sim       | Sim       | Sim       |                                                     |
 | update                         | Sim       | Sim       | Sim       |                                                     |
 | atualização com bloqueio otimista | Sim       | Sim       | Sim       |                                                     |
 | atualização (condicional)           | Sim       | Sim       | Sim       |                                                     |
 | patch                          | Não        | Não        | Não        |                                                     |
-| delete                         | Sim       | Sim       | Sim       |                                                     |
+| eliminação                         | Sim       | Sim       | Sim       |                                                     |
 | eliminar (condicional)           | Não        | Não        | Não        |                                                     |
 | criar                         | Sim       | Sim       | Sim       | Apoiar tanto o POST/PUT                               |
 | criar (condicional)           | Sim       | Sim       | Sim       |                                                     |
@@ -121,7 +121,7 @@ O Servidor FHIR utiliza [o Azure Ative Directory](https://azure.microsoft.com/se
 
 Atualmente, as ações permitidas para um determinado papel são aplicadas *globalmente* na API.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você leu sobre as funcionalidades de FHIR suportadas na Azure API para FHIR. Em seguida, implemente a AZure API para fHIR.
  

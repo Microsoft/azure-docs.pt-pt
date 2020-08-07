@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: ad9eb95c9e3a21cd33a367cc864a4d791888afb9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 3b68df1b3fc2f03d7659205fe03fdae09ecc3f7a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124573"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827374"
 ---
 ## <a name="configure-the-sample-project"></a>Configure o projeto da amostra
 
@@ -18,7 +18,7 @@ Em seguida, crie uma aplicação de cliente de amostra que irá interagir com a 
 
 Navegue para o ficheiro descarregado na sua máquina e desaperte-o.
 
-Uma vez dentro da pasta desapertado, navegue no _AdtSampleApp/_. Open _**AdtE2ESample.sln**_ in Visual Studio 2019. 
+Uma vez dentro da pasta desapertado, navegue no _AdtSampleApp_. Open _**AdtE2ESample.sln**_ in Visual Studio 2019. 
 
 No Visual Studio, utilize o painel *Solution Explorer* para criar uma cópia do _SampleClientApp > **serviceConfig.jsligado. Ficheiro MODELO** _ (pode utilizar os menus de seleção à direita para copiar e colar). Mude o nome da cópia *serviceConfig.js.* Isto servirá como um ficheiro JSON pré-definido com as variáveis de configuração necessárias para executar o projeto.
 
@@ -31,6 +31,8 @@ Selecione a *serviceConfig.jsno* ficheiro para abri-la na janela de edição. Al
   "instanceUrl": "https://<your-Azure-Digital-Twins-instance-hostName>"
 }
 ```
+
+
 
 Guarde e feche o ficheiro. 
 

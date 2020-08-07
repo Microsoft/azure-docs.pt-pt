@@ -7,14 +7,14 @@ ms.subservice: studio
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
-ms.custom: tracking-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.custom: devx-track-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: e938e7a8595b6d6b5b94dd265cb466b3e8719230
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: d2f2e01bda22c348d53ce2a1dd25d8d11e86ff3e
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432502"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843543"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Execute scripts de aprendizagem de máquina python no Azure Machine Learning Studio (clássico)
 
@@ -181,7 +181,7 @@ O ponto de entrada Python só é permitido devolver um único quadro de dados co
 
 Atualmente, a única maneira de adicionar módulos Python personalizados é através do mecanismo de ficheiro zip descrito anteriormente. Embora isto seja viável para pequenos módulos, é complicado para grandes módulos (especialmente módulos com DLLs nativos) ou um grande número de módulos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte o [Centro para Programadores do Python](https://azure.microsoft.com/develop/python/).
 

@@ -4,16 +4,16 @@ description: Visão geral das definições adicionais que pode definir para AZur
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.reviewer: mihansen
+ms.reviewer: matjazl
 ms.author: cavoeg
 author: CaitlinV39
 ms.date: 11/22/2019
-ms.openlocfilehash: 64bdc60f8f9e291c4dc084b23f8ec5054cdc528f
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 5de1d99442f307fc7850114915851f994258b537
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447263"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87845906"
 ---
 # <a name="additional-settings-for-azure-api-for-fhir"></a>Definições adicionais para Azure API para FHIR
 

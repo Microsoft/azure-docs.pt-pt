@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 04/13/2020
 ms.author: trbye
-ms.custom: tracking-python
-ms.openlocfilehash: 525417bd83a1d30479fd3effbce690ed04d9af73
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.custom: devx-track-python
+ms.openlocfilehash: 2c5469aba87fe06afc7308d6bd1e52cd4d87f22a
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608010"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873488"
 ---
 # <a name="convert-text-to-speech-using-python"></a>Converter texto-a-discurso usando Python
 
@@ -160,16 +160,16 @@ python tts.py
 
 Quando solicitado, digite o que quiser converter de texto para discurso. Se for bem sucedido, o ficheiro de fala está localizado na sua pasta de projeto. Jogue-o usando o seu leitor de media favorito.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Certifique-se de remover qualquer informação confidencial do código fonte da sua aplicação de amostra, como chaves de subscrição.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Explore as amostras de Python no GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Referência da API de conversão de texto em voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [Usando Python e Speech SDK para converter texto-a-discurso](quickstarts/speech-to-text-from-microphone.md)

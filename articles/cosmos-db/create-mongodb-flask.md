@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.custom: tracking-python
-ms.openlocfilehash: 211da48a08db948daac0257ff86f2c0b325efce9
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.custom: devx-track-python
+ms.openlocfilehash: 1ed15182e700f125072c69ba9bcf60caf4da5c88
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559813"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873046"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Quickstart: Construa uma app Python utilizando a API da Azure Cosmos DB para a MongoDB
 
@@ -152,7 +152,7 @@ Se não quiser criar um garfo deste repo, também pode selecionar o botão **Imp
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

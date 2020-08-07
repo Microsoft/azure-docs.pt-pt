@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
-ms.custom: aaddev, tracking-python
-ms.openlocfilehash: 6cc846d8d330459587745795edf21c5ac04f2291
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: aaddev, devx-track-python
+ms.openlocfilehash: 7352fe220e302730f2683d335de5d32ca13d9add
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026344"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87845175"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Aplicação web que assina nos utilizadores: Configuração de código
 
