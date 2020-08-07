@@ -7,16 +7,16 @@ ms.service: mysql
 ms.custom:
 - mvc
 - seo-python-october2019
-- tracking-python
+- devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 5e9729ef2a95a840d0e994c44ecfcf0b61444234
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 8d417fdc604fa132e3ada5380b9e0a1f7326af04
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561070"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843237"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-with-azure-database-for-mysql"></a>Quickstart: Use Python para ligar e consultar dados com a Base de Dados Azure para o MySQL
 
@@ -79,13 +79,13 @@ Para cada exemplo de código neste artigo:
 1. Para executar o código, abra uma visão de comando ou `bash` de concha e altere o diretório na pasta do projeto, por exemplo `cd pythonmysql` . Digite o `python` comando seguido pelo nome do ficheiro, por `python createtable.py` exemplo, e prima Enter. 
    
    > [!NOTE]
-   > No Windows, se *python.exe* não for encontrado, poderá ter de adicionar o caminho Python à variável ambiente PATH, ou fornecer o caminho completo para *python.exe,* por `C:\python27\python.exe createtable.py` exemplo.
+   > No Windows, se não for encontrado *python.exe,* poderá ter de adicionar o caminho Python à variável ambiente PATH, ou fornecer o caminho completo para *python.exe*, por `C:\python27\python.exe createtable.py` exemplo.
 
 ## <a name="create-a-table-and-insert-data"></a>Criar uma tabela e inserir dados
 
 Utilize o seguinte código para ligar ao servidor e à base de dados, criar uma tabela e carregar dados utilizando uma declaração **INSERT** SQL. 
 
-O código importa a biblioteca mysql.connector e utiliza a função [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) para ligar à Base de [Dados](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) Azure para o MySQL utilizando os argumentos na coleção config. O código utiliza um cursor na ligação e o método [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) executa a consulta SQL com a base de dados MySQL. 
+O código importa a biblioteca mysql.connector e utiliza a função [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) para ligar à Base de [Dados](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) Azure para o MySQL utilizando os argumentos na coleção config. O código utiliza um cursor na ligação, e o método [cursor.exefofo()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) executa a consulta SQL com a base de dados MySQL. 
 
 ```python
 import mysql.connector
@@ -140,7 +140,7 @@ else:
 
 Utilize o código seguinte para se ligar e ler dados com uma instrução SQL **SELECT**. 
 
-O código importa a biblioteca mysql.connector e utiliza a função [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) para ligar à Base de [Dados](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) Azure para o MySQL utilizando os argumentos na coleção config. O código utiliza um cursor na ligação e o método [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) executa a consulta SQL com a base de dados MySQL. 
+O código importa a biblioteca mysql.connector e utiliza a função [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) para ligar à Base de [Dados](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) Azure para o MySQL utilizando os argumentos na coleção config. O código utiliza um cursor na ligação, e o método [cursor.exefofo()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) executa a consulta SQL com a base de dados MySQL. 
 
 O código lê as linhas de dados utilizando o método [fetchall(),](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-fetchall.html) mantém o resultado definido numa linha de recolha e utiliza um `for` iterador para rodar sobre as linhas.
 
@@ -190,7 +190,7 @@ else:
 
 Utilize o código seguinte para se ligar e atualizar os dados com uma instrução SQL **UPDATE**. 
 
-O código importa a biblioteca mysql.connector e utiliza a função [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) para ligar à Base de [Dados](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) Azure para o MySQL utilizando os argumentos na coleção config. O código utiliza um cursor na ligação e o método [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) executa a consulta SQL com a base de dados MySQL. 
+O código importa a biblioteca mysql.connector e utiliza a função [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) para ligar à Base de [Dados](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) Azure para o MySQL utilizando os argumentos na coleção config. O código utiliza um cursor na ligação, e o método [cursor.exefofo()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) executa a consulta SQL com a base de dados MySQL. 
 
 ```python
 import mysql.connector
@@ -233,7 +233,7 @@ else:
 
 Utilize o código seguinte para se ligar e remover os dados com uma instrução SQL **DELETE**. 
 
-O código importa a biblioteca mysql.connector e utiliza a função [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) para ligar à Base de [Dados](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) Azure para o MySQL utilizando os argumentos na coleção config. O código utiliza um cursor na ligação e o método [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) executa a consulta SQL com a base de dados MySQL. 
+O código importa a biblioteca mysql.connector e utiliza a função [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) para ligar à Base de [Dados](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) Azure para o MySQL utilizando os argumentos na coleção config. O código utiliza um cursor na ligação, e o método [cursor.exefofo()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) executa a consulta SQL com a base de dados MySQL. 
 
 ```python
 import mysql.connector

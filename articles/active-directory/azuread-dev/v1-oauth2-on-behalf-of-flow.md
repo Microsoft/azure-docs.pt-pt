@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 08/5/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6f52ddbfbdfa30108670b985fba5c5263ce517b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6fc4de3ef934e2d1b9dcff46c78f45e7d0f3b6d8
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85551680"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87845464"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Chamadas de serviço para serviço que utilizam a identidade de utilizador delegada no fluxo On-Behalf-Of
 
@@ -59,10 +59,10 @@ Registe-se tanto o serviço de nível médio como o pedido de cliente no Azure A
 1. Nos **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft.**
 1. Desa um redirecione o URI para o URL base.
 1. Selecione **Registar** para criar a aplicação.
-1. Gere um segredo de cliente antes de sair do portal Azure.
 1. No portal Azure, escolha a sua candidatura e selecione **Certificados & segredos.**
 1. Selecione **novo segredo de cliente** e adicione um segredo com uma duração de um ano ou dois anos.
 1. Ao guardar esta página, o portal Azure apresenta o valor secreto. Copie e guarde o valor secreto num local seguro.
+1. Crie um âmbito na sua aplicação na página **Expor uma API** para a sua aplicação e clique em "Adicionar um âmbito".  O Portal pode exigir que crie também um ID URI de aplicação. 
 
 > [!IMPORTANT]
 > Precisa do segredo para configurar as definições de aplicação na sua implementação. Este valor secreto não é exibido novamente, e não é recuperável por qualquer outro meio. Grave-o assim que for visível no portal Azure.
@@ -79,7 +79,7 @@ Registe-se tanto o serviço de nível médio como o pedido de cliente no Azure A
 1. Selecione **Registar** para criar a aplicação.
 1. Configure permissões para a sua aplicação. Nas **permissões API**, selecione **Adicione uma permissão** e, em seguida, as **minhas APIs**.
 1. Digite o nome do serviço de nível médio no campo de texto.
-1. Escolha **Selecionar Permissões** e, em seguida, selecione **Access \<service name> **.
+1. Escolha **Escolha Permissões Selecionadas** e, em seguida, selecione o âmbito criado no último passo de registo do nível médio.
 
 ### <a name="configure-known-client-applications"></a>Configurar aplicações de clientes conhecidas
 
@@ -139,7 +139,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 Um pedido de sinal de acesso de serviço ao serviço com um certificado contém os seguintes parâmetros:
 
-| Parâmetro | Tipo | Description |
+| Parâmetro | Tipo | Descrição |
 | --- | --- | --- |
 | grant_type |obrigatório | O tipo de pedido simbólico. Um pedido da OBO utiliza um token de acesso JWT, pelo que o valor deve ser **urna:ietf:params:oauth:grant-type:jwt-bearer**. |
 | afirmação |obrigatório | O valor do símbolo utilizado no pedido. |
@@ -249,7 +249,7 @@ Alguns serviços web baseados em OAuth precisam de aceder a outros APIs de servi
 
 Um pedido de serviço-a-serviço para uma afirmação SAML contém os seguintes parâmetros:
 
-| Parâmetro | Tipo | Description |
+| Parâmetro | Tipo | Descrição |
 | --- | --- | --- |
 | grant_type |obrigatório | O tipo de pedido simbólico. Para um pedido que utilize um JWT, o valor deve ser **urna:ietf:params:oauth:grant-type:jwt-bearer**. |
 | afirmação |obrigatório | O valor do token de acesso utilizado no pedido.|
@@ -291,7 +291,7 @@ A resposta contém um token SAML codificado em UTF8 e Base64url.
 
 Os clientes públicos com URLs de resposta wildcard não podem usar um `id_token` para fluxos OBO. No entanto, um cliente confidencial ainda pode resgatar fichas de **acesso** adquiridas através do fluxo de subvenção implícita, mesmo que o cliente público tenha um wildcard redirecionado URI registado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o protocolo OAuth 2.0 e outra forma de realizar a autenticação de serviço-a-serviço que utiliza credenciais do cliente:
 

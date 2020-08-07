@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 11c1c307d00b9347081a313308ad2467086ec208
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e17edacf45583283d53c5484417f6a2dd7c6e012
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327400"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799927"
 ---
 # <a name="saas-offer-creation-checklist-in-partner-center"></a>SaaS oferecem lista de verificação de criação no Partner Center
 
@@ -79,9 +79,9 @@ A página de propriedades é onde você define as categorias e indústrias usada
 A página de listagem é onde fornece o texto e imagens que os clientes vêem ao visualizar a listagem da sua oferta no mercado. 
 
 | **Nome do campo**    | **Notas**   |
-| :---------------- | :-----------| 
+| :---------------- | :-----------|
 | Nome  | Obrigatório, máximo 50 chars. |
-| Resumo  | Obrigatório, máximo 100 chars. | 
+| Resumo  | Obrigatório, máximo 100 chars. |
 | Descrição  | Obrigatório, máximo 3000 chars. |
 | Instruções de início  | Obrigatório, máximo 3000 chars. |
 | Instruções de início  | Obrigatório, máximo 3000 chars. |
@@ -91,7 +91,7 @@ A página de listagem é onde fornece o texto e imagens que os clientes vêem ao
 | Links úteis Título + URL  | Opcional. |
 | Título de documentos comprovativos + arquivo  | Obrigatório, min 1 e máx. Deve ser o formato de ficheiro PDF. |
 | Capturas de ecrã  | Necessário, imagem de min 1 e máx. quatro ou mais recomendados. Deve ser 1280 X 720 em formato PNG. |
-| Logotipos da loja (Pequeno, Médio, Grande, Largo)  | Pequeno (48 X 48) e Grande (216 X 216) necessários; outros tamanhos opcionais, mas recomendados: Médio (90 x 90), Largo (255 x 115). Deve estar em. Formato PNG. |
+| Logotipos da loja (Pequeno, Médio, Grande)  | É necessário o logotipo grande (216 x 216). O Partner Center utilizará isto para criar um logótipo de tamanho Pequeno (48 x 48 pixels) e um logotipo de tamanho Médio (90 x 90 pixels). Pode substituir opcionalmente estas imagens diferentes. Os logótipos devem estar no formato PNG. |
 | Nome de vídeos + URL + miniatura  | Opcional, recomendado, máximo 4 vídeos. Miniatura deve ser de 1280 x 720 em formato PNG. O vídeo deve ser apresentado no YouTube ou no Vimeo. |
 | Contactos (Programa CSP, Engenharia, Apoio)  | Contacto de Engenharia e Apoio necessário (Nome, e-mail e número de telefone); CSP Programa contacto opcional, mas recomendado. |
 | URL de apoio  | Necessário. |
@@ -100,11 +100,11 @@ A página de listagem é onde fornece o texto e imagens que os clientes vêem ao
 
 A página de pré-visualização é onde especifica o público para ter acesso à pré-visualização da sua oferta, para verificar se a oferta cumpre todos os seus requisitos antes de entrar em direto. 
 
-| **Nome do campo**    | **Notas**   | 
-| :---------------- | :-----------| 
+| **Nome do campo**    | **Notas**   |
+| :---------------- | :-----------|
 | E-mail AAD/MSA + descrição | Necessário, min 1 e max 10 se introduzido manualmente, ou até 20 se carregar um ficheiro CSV. |
 
-## <a name="technical-configuration-page"></a>Página de configuração técnica 
+## <a name="technical-configuration-page"></a>Página de configuração técnica
 
 A página de configuração técnica é onde especifica os detalhes técnicos utilizados pela Microsoft para se ligar à sua oferta. Esta página não é visível para si se decidiu não vender através da Microsoft.
 

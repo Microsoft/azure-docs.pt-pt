@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,hdiseo17may2017, tracking-python
+ms.custom: hdinsightactive,hdiseo17may2017, devx-track-python
 ms.date: 12/16/2019
-ms.openlocfilehash: 0e8f13a8420873bdc753ed1b7d8c8928705e1f43
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 1f062a8f358ac311b53e657fb5714583458bd9b5
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086879"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87872587"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Desenvolver topologias de tempestade Apache usando Python em HDInsight
 
@@ -143,6 +143,6 @@ Assim que a topologia começa, emite informações para a consola local semelhan
 
 Para parar a topologia, utilize __Ctrl + C__.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes documentos para outras formas de utilizar Python com HDInsight: [Como utilizar funções definidas do utilizador Python (UDF) em Apache Pig e Apache Hive](../hadoop/python-udf-hdinsight.md).

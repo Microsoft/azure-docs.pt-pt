@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/27/2020
-ms.openlocfilehash: 397e455c8b6a1097e2a32473036e1acd2bbdf2eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/06/2020
+ms.openlocfilehash: 5d16e7f81a439d622a418dbc8cdff2d66c2a814f
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704187"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903566"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Compreender e ajustar as Unidades de Transmissão em Fluxo
 
@@ -27,7 +27,7 @@ A métrica de utilização de SU %, que varia entre 0% e 100%, descreve o consum
 
 2. Na lista de recursos, encontre o trabalho stream Analytics que deseja escalar e, em seguida, abri-lo. 
 
-3. Na página de trabalho, sob o **título Configure,** selecione **Scale**. 
+3. Na página de trabalho, sob o **título Configure,** selecione **Scale**.O número predefinido de SUs é 3 quando se cria um emprego.
 
     ![Configuração de trabalho do portal Azure Stream Analytics][img.stream.analytics.preview.portal.settings.scale]
     
@@ -145,7 +145,7 @@ Os dados de referência na ASA são carregados na memória para uma procura ráp
 ### <a name="use-of-udf-functions"></a>Utilização de funções UDF
 Quando adiciona uma função UDF, o Azure Stream Analytics carrega o tempo de execução JavaScript na memória. Isto vai afetar a SU.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Criar consultas paralizáveis no Azure Stream Analytics](stream-analytics-parallelization.md)
 * [Escala Azure Stream Analytics empregos para aumentar a produção](stream-analytics-scale-jobs.md)
 

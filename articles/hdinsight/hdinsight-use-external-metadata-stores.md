@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/30/2020
-ms.openlocfilehash: 2d6ebcd720a5cea8d41bf3c05f753f2e9d4775d1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 08/06/2020
+ms.openlocfilehash: 78c0526ac750977115a88e96bb5f7d5cb4e9803f
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085910"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873097"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Use external metadata stores in Azure HDInsight (Utilizar arquivos de metadados externos no Azure HDInsight)
 
@@ -38,10 +38,10 @@ Por padrão, o HDInsight cria uma meta-loja com cada tipo de cluster. Em vez dis
 
 * Não pode partilhar a meta-loja padrão com outros clusters.
 
-* A metástore predefinida utiliza a base de dados Azure SQL básica, que tem um limite de cinco DTU (unidade de transação de bases de dados).
-Esta metásta padrão é normalmente usada para cargas de trabalho relativamente simples. Cargas de trabalho que não requerem múltiplos clusters e não precisam de metadados preservados para além do ciclo de vida do cluster.
+* A metástore predefinido é recomendada apenas para cargas de trabalho simples. Cargas de trabalho que não requerem múltiplos clusters e não precisam de metadados preservados para além do ciclo de vida do cluster.
 
-* Para cargas de trabalho de produção, recomendamos migrar para uma meta-loja externa. Consulte a secção abaixo para mais detalhes.
+> [!IMPORTANT]
+> A metástore predefinida fornece uma Base de Dados Azure SQL com um **limite básico de DTU de nível 5 (não atualizável)**! Adequado para fins básicos de teste. Para cargas de trabalho grandes ou de produção, recomendamos migrar para uma meta-loja externa.
 
 ## <a name="custom-metastore"></a>Metástases personalizadas
 
@@ -81,9 +81,8 @@ Pode apontar o seu cluster para uma Base de Dados Azure SQL previamente criada a
 
 ## <a name="hive-metastore-guidelines"></a>Diretrizes da metásta rodoviária de colmeia
 
-* Utilize sempre que possível uma metásta personalizada para ajudar a separar os recursos de computação (o seu cluster de execução) e metadados (armazenados na metastore).
-
-* Comece com um nível S2, que fornece 50 DTU e 250 GB de armazenamento. Se vir um estrangulamento, pode escalar a base de dados.
+> [!NOTE]
+> Utilize sempre que possível uma metásta personalizada para ajudar a separar os recursos de computação (o seu cluster de execução) e metadados (armazenados na metastore). Comece com o nível S2, que fornece 50 DTU e 250 GB de armazenamento. Se vir um estrangulamento, pode escalar a base de dados.
 
 * Se pretender que vários clusters HDInsight acedam a dados separados, utilize uma base de dados separada para a metastore de cada cluster. Se partilhar uma meta-loja em vários clusters HDInsight, significa que os clusters usam os mesmos metadados e ficheiros de dados subjacentes ao utilizador.
 
@@ -111,6 +110,6 @@ Para obter instruções sobre a criação de uma meta-loja Oozie com base de dad
 
 Para utilizar a sua própria base de dados externa com Apache Ambari na HDInsight, consulte [a base de dados Personalizada Apache Ambari.](hdinsight-custom-ambari-db.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Configurar clusters no HDInsight com Apache Hadoop, Apache Spark, Apache Kafka e muito mais](./hdinsight-hadoop-provision-linux-clusters.md)

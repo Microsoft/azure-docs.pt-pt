@@ -9,18 +9,18 @@ ms.date: 08/03/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: 90aa2b9504008783649662019179a5998d534746
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 75b464c140bfda6c3f3559d3bfdbe1e6bc2e7f24
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543100"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760741"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Planear e gerir os custos do armazenamento da Azure Blob
 
 Este artigo ajuda-o a planear e gerir os custos para o armazenamento da Azure Blob. Em primeiro lugar, calcule os custos utilizando a calculadora de preços Azure. Depois de criar a sua conta de armazenamento, otimize a conta para que pague apenas pelo que precisa. Utilize funcionalidades de gestão de custos para definir orçamentos e monitorizar os custos. Também pode rever os custos previstos e monitorizar as tendências de gastos para identificar áreas onde possa querer agir.
 
-Tenha em mente que os custos para o Azure Storage são apenas uma parte dos custos mensais na sua conta Azure. Embora este artigo explique como estimar e gerir os custos para o Azure Storage, você está cobrado para todos os serviços e recursos Azure usados para a sua subscrição Azure, incluindo os serviços de terceiros. Depois de estar familiarizado com os custos de gestão do Azure Storage, pode aplicar métodos semelhantes para gerir custos para todos os serviços Azure utilizados na sua subscrição.
+Tenha em mente que os custos para o armazenamento blob são apenas uma parte dos custos mensais na sua conta Azure. Embora este artigo explique como estimar e gerir os custos para o armazenamento blob, você está cobrado para todos os serviços e recursos Azure usados para a sua subscrição Azure, incluindo os serviços de terceiros. Depois de estar familiarizado com os custos de gestão do armazenamento blob, pode aplicar métodos semelhantes para gerir custos para todos os serviços Azure utilizados na sua subscrição.
 
 ## <a name="estimate-costs"></a>Cálculo de custos
 

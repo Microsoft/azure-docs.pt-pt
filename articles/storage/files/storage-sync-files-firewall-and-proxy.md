@@ -1,18 +1,18 @@
 ---
 title: Azure File Sync no local firewall e configurações de procuração / Microsoft Docs
-description: Configuração da rede Azure File Sync nas instalações
+description: Compreenda as definições de proxy e firewall do Azure File Sync. Reveja detalhes de configuração para portas, redes e ligações especiais ao Azure.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7410e30c892eb083f9ed71b1d9ce379ae9a036b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e4f011d9286a0685f1b091b930155db969407423
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515292"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903719"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>As definições do proxy e da firewall do Azure File Sync
 O Azure File Sync liga os seus servidores no local aos Ficheiros Azure, permitindo a sincronização de vários locais e funcionalidades de tiering em nuvem. Como tal, um servidor no local deve ser ligado à internet. Um administrador de TI precisa decidir o melhor caminho para o servidor chegar aos serviços de cloud Azure.
@@ -111,33 +111,33 @@ Por razões de continuidade de negócios e recuperação de desastres (BCDR), po
 
 | Cloud  | Região | URL de ponto final primário | Região emparelhada | URL de descoberta |
 |--------|--------|----------------------|---------------|---------------|
-| Público |Leste da Austrália | https: \/ /australiaeast01.afs.azure.net<br>https: \/ /kailani-aue.one.microsoft.com | Austrália Sudeste | https: \/ /tm-australiaeast01.afs.azure.net<br>https: \/ /tm-kailani-aue.one.microsoft.com |
-| Público |Austrália Sudeste | https: \/ /australiasoutheast01.afs.azure.net<br>https: \/ /kailani-aus.one.microsoft.com | Leste da Austrália | https: \/ /tm-australiasoutheast01.afs.azure.net<br>https: \/ /tm-kailani-aus.one.microsoft.com |
-| Público | Sul do Brasil | https: \/ /brazilsouth01.afs.azure.net | E.U.A. Centro-Sul | https: \/ /tm-brazilsouth01.afs.azure.net |
-| Público | Canadá Central | https: \/ /canadacentral01.afs.azure.net<br>https: \/ /kailani-cac.one.microsoft.com | Leste do Canadá | https: \/ /tm-canadacentral01.afs.azure.net<br>https: \/ /tm-kailani-cac.one.microsoft.com |
-| Público | Leste do Canadá | https: \/ /canadaeast01.afs.azure.net<br>https: \/ /kailani-cae.one.microsoft.com | Canadá Central | https: \/ /tm-canadaeast01.afs.azure.net<br>https: \/ /tm-kailani.cae.one.microsoft.com |
-| Público | Índia Central | https: \/ /centralindia01.afs.azure.net<br>https: \/ /kailani-cin.one.microsoft.com | Sul da Índia | https: \/ /tm-centralindia01.afs.azure.net<br>https: \/ /tm-kailani-cin.one.microsoft.com |
-| Público | E.U.A. Central | https: \/ /centralus01.afs.azure.net<br>https: \/ /kailani-cus.one.microsoft.com | E.U.A. Leste 2 | https: \/ /tm-centralus01.afs.azure.net<br>https: \/ /tm-kailani-cus.one.microsoft.com |
-| Público | Ásia Leste | https: \/ /eastasia01.afs.azure.net<br>https: \/ /kailani11.one.microsoft.com | Ásia Sudeste | https: \/ /tm-eastasia01.afs.azure.net<br>https: \/ /tm-kailani11.one.microsoft.com |
-| Público | E.U.A. Leste | https: \/ /eastus01.afs.azure.net<br>https: \/ /kailani1.one.microsoft.com | E.U.A. Oeste | https: \/ /tm-eastus01.afs.azure.net<br>https: \/ /tm-kailani1.one.microsoft.com |
-| Público | E.U.A. Leste 2 | https: \/ /eastus201.afs.azure.net<br>https: \/ /kailani-ess.one.microsoft.com | E.U.A. Central | https: \/ /tm-eastus201.afs.azure.net<br>https: \/ /tm-kailani-ess.one.microsoft.com |
-| Público | Leste do Japão | https: \/ /japaneast01.afs.azure.net | Oeste do Japão | https: \/ /tm-japaneast01.afs.azure.net |
-| Público | Oeste do Japão | https: \/ /japanwest01.afs.azure.net | Leste do Japão | https: \/ /tm-japanwest01.afs.azure.net |
-| Público | Coreia do Sul Central | https: \/ /koreacentral01.afs.azure.net/ | Sul da Coreia do Sul | https: \/ /tm-koreacentral01.afs.azure.net/ |
-| Público | Sul da Coreia do Sul | https: \/ /koreasouth01.afs.azure.net/ | Coreia do Sul Central | https: \/ /tm-koreasouth01.afs.azure.net/ |
-| Público | E.U.A. Centro-Norte | https: \/ /northcentralus01.afs.azure.net | E.U.A. Centro-Sul | https: \/ /tm-northcentralus01.afs.azure.net |
-| Público | Europa do Norte | https: \/ /northeurope01.afs.azure.net<br>https: \/ /kailani7.one.microsoft.com | Europa Ocidental | https: \/ /tm-northeurope01.afs.azure.net<br>https: \/ /tm-kailani7.one.microsoft.com |
-| Público | E.U.A. Centro-Sul | https: \/ /southcentralus01.afs.azure.net | E.U.A. Centro-Norte | https: \/ /tm-southcentralus01.afs.azure.net |
-| Público | Sul da Índia | https: \/ /southindia01.afs.azure.net<br>https: \/ /kailani-sin.one.microsoft.com | Índia Central | https: \/ /tm-southindia01.afs.azure.net<br>https: \/ /tm-kailani-sin.one.microsoft.com |
-| Público | Ásia Sudeste | https: \/ /southeastasia01.afs.azure.net<br>https: \/ /kailani10.one.microsoft.com | Ásia Leste | https: \/ /tm-southeastasia01.afs.azure.net<br>https: \/ /tm-kailani10.one.microsoft.com |
-| Público | Sul do Reino Unido | https: \/ /uksouth01.afs.azure.net<br>https: \/ /kailani-uks.one.microsoft.com | Oeste do Reino Unido | https: \/ /tm-uksouth01.afs.azure.net<br>https: \/ /tm-kailani-uks.one.microsoft.com |
-| Público | Oeste do Reino Unido | https: \/ /ukwest01.afs.azure.net<br>https: \/ /kailani-ukw.one.microsoft.com | Sul do Reino Unido | https: \/ /tm-ukwest01.afs.azure.net<br>https: \/ /tm-kailani-ukw.one.microsoft.com |
-| Público | E.U.A. Centro-Oeste | https: \/ /westcentralus01.afs.azure.net | E.U.A.Oeste 2 | https: \/ /tm-westcentralus01.afs.azure.net |
-| Público | Europa Ocidental | https: \/ /westeurope01.afs.azure.net<br>https: \/ /kailani6.one.microsoft.com | Europa do Norte | https: \/ /tm-westeurope01.afs.azure.net<br>https: \/ /tm-kailani6.one.microsoft.com |
-| Público | E.U.A. Oeste | https: \/ /westus01.afs.azure.net<br>https: \/ /kailani.one.microsoft.com | E.U.A. Leste | https: \/ /tm-westus01.afs.azure.net<br>https: \/ /tm-kailani.one.microsoft.com |
-| Público | E.U.A.Oeste 2 | https: \/ /westus201.afs.azure.net | E.U.A. Centro-Oeste | https: \/ /tm-westus201.afs.azure.net |
-| Governo | US Gov - Arizona | https: \/ /usgovarizona01.afs.azure.us | US Gov - Texas | https: \/ /tm-usgovarizona01.afs.azure.us |
-| Governo | US Gov - Texas | https: \/ /usgovtexas01.afs.azure.us | US Gov - Arizona | https: \/ /tm-usgovtexas01.afs.azure.us |
+| Públicos |Leste da Austrália | https: \/ /australiaeast01.afs.azure.net<br>https: \/ /kailani-aue.one.microsoft.com | Sudeste da Austrália | https: \/ /tm-australiaeast01.afs.azure.net<br>https: \/ /tm-kailani-aue.one.microsoft.com |
+| Públicos |Sudeste da Austrália | https: \/ /australiasoutheast01.afs.azure.net<br>https: \/ /kailani-aus.one.microsoft.com | Leste da Austrália | https: \/ /tm-australiasoutheast01.afs.azure.net<br>https: \/ /tm-kailani-aus.one.microsoft.com |
+| Públicos | Sul do Brasil | https: \/ /brazilsouth01.afs.azure.net | E.U.A. Centro-Sul | https: \/ /tm-brazilsouth01.afs.azure.net |
+| Públicos | Canadá Central | https: \/ /canadacentral01.afs.azure.net<br>https: \/ /kailani-cac.one.microsoft.com | Leste do Canadá | https: \/ /tm-canadacentral01.afs.azure.net<br>https: \/ /tm-kailani-cac.one.microsoft.com |
+| Públicos | Leste do Canadá | https: \/ /canadaeast01.afs.azure.net<br>https: \/ /kailani-cae.one.microsoft.com | Canadá Central | https: \/ /tm-canadaeast01.afs.azure.net<br>https: \/ /tm-kailani.cae.one.microsoft.com |
+| Públicos | Central India | https: \/ /centralindia01.afs.azure.net<br>https: \/ /kailani-cin.one.microsoft.com | Sul da Índia | https: \/ /tm-centralindia01.afs.azure.net<br>https: \/ /tm-kailani-cin.one.microsoft.com |
+| Públicos | E.U.A. Central | https: \/ /centralus01.afs.azure.net<br>https: \/ /kailani-cus.one.microsoft.com | E.U.A. Leste 2 | https: \/ /tm-centralus01.afs.azure.net<br>https: \/ /tm-kailani-cus.one.microsoft.com |
+| Públicos | Ásia Leste | https: \/ /eastasia01.afs.azure.net<br>https: \/ /kailani11.one.microsoft.com | Sudeste Asiático | https: \/ /tm-eastasia01.afs.azure.net<br>https: \/ /tm-kailani11.one.microsoft.com |
+| Públicos | E.U.A. Leste | https: \/ /eastus01.afs.azure.net<br>https: \/ /kailani1.one.microsoft.com | E.U.A. Oeste | https: \/ /tm-eastus01.afs.azure.net<br>https: \/ /tm-kailani1.one.microsoft.com |
+| Públicos | E.U.A. Leste 2 | https: \/ /eastus201.afs.azure.net<br>https: \/ /kailani-ess.one.microsoft.com | E.U.A. Central | https: \/ /tm-eastus201.afs.azure.net<br>https: \/ /tm-kailani-ess.one.microsoft.com |
+| Públicos | Leste do Japão | https: \/ /japaneast01.afs.azure.net | Oeste do Japão | https: \/ /tm-japaneast01.afs.azure.net |
+| Públicos | Oeste do Japão | https: \/ /japanwest01.afs.azure.net | Leste do Japão | https: \/ /tm-japanwest01.afs.azure.net |
+| Públicos | Coreia do Sul Central | https: \/ /koreacentral01.afs.azure.net/ | Sul da Coreia do Sul | https: \/ /tm-koreacentral01.afs.azure.net/ |
+| Públicos | Sul da Coreia do Sul | https: \/ /koreasouth01.afs.azure.net/ | Coreia do Sul Central | https: \/ /tm-koreasouth01.afs.azure.net/ |
+| Públicos | E.U.A. Centro-Norte | https: \/ /northcentralus01.afs.azure.net | E.U.A. Centro-Sul | https: \/ /tm-northcentralus01.afs.azure.net |
+| Públicos | Europa do Norte | https: \/ /northeurope01.afs.azure.net<br>https: \/ /kailani7.one.microsoft.com | Europa Ocidental | https: \/ /tm-northeurope01.afs.azure.net<br>https: \/ /tm-kailani7.one.microsoft.com |
+| Públicos | E.U.A. Centro-Sul | https: \/ /southcentralus01.afs.azure.net | E.U.A. Centro-Norte | https: \/ /tm-southcentralus01.afs.azure.net |
+| Públicos | Sul da Índia | https: \/ /southindia01.afs.azure.net<br>https: \/ /kailani-sin.one.microsoft.com | Central India | https: \/ /tm-southindia01.afs.azure.net<br>https: \/ /tm-kailani-sin.one.microsoft.com |
+| Públicos | Sudeste Asiático | https: \/ /southeastasia01.afs.azure.net<br>https: \/ /kailani10.one.microsoft.com | Ásia Leste | https: \/ /tm-southeastasia01.afs.azure.net<br>https: \/ /tm-kailani10.one.microsoft.com |
+| Públicos | Sul do Reino Unido | https: \/ /uksouth01.afs.azure.net<br>https: \/ /kailani-uks.one.microsoft.com | Oeste do Reino Unido | https: \/ /tm-uksouth01.afs.azure.net<br>https: \/ /tm-kailani-uks.one.microsoft.com |
+| Públicos | Oeste do Reino Unido | https: \/ /ukwest01.afs.azure.net<br>https: \/ /kailani-ukw.one.microsoft.com | Sul do Reino Unido | https: \/ /tm-ukwest01.afs.azure.net<br>https: \/ /tm-kailani-ukw.one.microsoft.com |
+| Públicos | E.U.A. Centro-Oeste | https: \/ /westcentralus01.afs.azure.net | E.U.A. Oeste 2 | https: \/ /tm-westcentralus01.afs.azure.net |
+| Públicos | Europa Ocidental | https: \/ /westeurope01.afs.azure.net<br>https: \/ /kailani6.one.microsoft.com | Europa do Norte | https: \/ /tm-westeurope01.afs.azure.net<br>https: \/ /tm-kailani6.one.microsoft.com |
+| Públicos | E.U.A. Oeste | https: \/ /westus01.afs.azure.net<br>https: \/ /kailani.one.microsoft.com | E.U.A. Leste | https: \/ /tm-westus01.afs.azure.net<br>https: \/ /tm-kailani.one.microsoft.com |
+| Públicos | E.U.A. Oeste 2 | https: \/ /westus201.afs.azure.net | E.U.A. Centro-Oeste | https: \/ /tm-westus201.afs.azure.net |
+| Administração Pública | US Gov - Arizona | https: \/ /usgovarizona01.afs.azure.us | US Gov - Texas | https: \/ /tm-usgovarizona01.afs.azure.us |
+| Administração Pública | US Gov - Texas | https: \/ /usgovtexas01.afs.azure.us | US Gov - Arizona | https: \/ /tm-usgovtexas01.afs.azure.us |
 
 - Se utilizar contas de armazenamento redundantes locais (LRS) ou zonas redundantes (ZRS), só precisa de ativar o URL listado em "URL de ponto final primário".
 
@@ -279,7 +279,7 @@ As listas anteriores deste documento contêm o URLs Azure File Sync atualmente c
 
 A criação de regras de firewall de restrição de domínios pode ser uma medida para melhorar a segurança. Se estas configurações de firewall forem utilizadas, é preciso ter em mente que os URLs serão adicionados e poderão até mudar com o tempo. Verifique este artigo periodicamente.
 
-## <a name="next-steps"></a>Próximos passos
-- [Planear uma implementação da Sincronização de Ficheiros do Azure](storage-sync-files-planning.md)
-- [Implementar Azure File Sync](storage-sync-files-deployment-guide.md)
+## <a name="next-steps"></a>Passos seguintes
+- [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
+- [Implementar o Azure File Sync](storage-sync-files-deployment-guide.md)
 - [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)

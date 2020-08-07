@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: be04b690add70468335ac694e3be54fa55a94249
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 9a393e29c4b5b2faa48cbcd273c7bc7a46169ba3
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475656"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904195"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Criar um aglomerado Azure Red Hat OpenShift 4
 
@@ -49,9 +49,9 @@ Um segredo de puxar o chapéu vermelho permite ao seu cluster aceder aos registo
 
    Terá de iniciar sessão na sua conta Red Hat ou criar uma nova conta Red Hat com o seu email de negócios e aceitar os termos e condições.
 
-2. **Clique em Baixar O segredo de puxar.**
+2. Vá à página de [**produto OpenShift**](https://developers.redhat.com/products/codeready-containers) se esta for a sua primeira vez a criar um cluster. Após a inscrição, dirija-se à [**página red hat openshift cluster Manager**](https://cloud.redhat.com/openshift/), onde pode clicar em Baixar o **segredo** e baixar um segredo de puxar para ser usado com o seu cluster ARO.
 
-Mantenha o ficheiro guardado `pull-secret.txt` em algum lugar seguro - será usado em cada criação de cluster.
+Mantenha o ficheiro guardado `pull-secret.txt` num lugar seguro. O ficheiro será usado em cada criação de cluster se precisar de criar um cluster que inclua amostras ou operadores para Chapéu Vermelho ou parceiros certificados.
 
 Ao executar o `az aro create` comando, pode fazer referência ao seu segredo de puxar utilizando o `--pull-secret @pull-secret.txt` parâmetro. Execute `az aro create` a partir do diretório onde guardou o seu `pull-secret.txt` ficheiro. Caso contrário, `@pull-secret.txt` `@<path-to-my-pull-secret-file>` substitua-o por .
 

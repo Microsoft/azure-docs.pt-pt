@@ -2,18 +2,18 @@
 title: PERGUNTAS Frequentes sobre serviços FHIR em Azure - Azure API para FHIR
 description: Obtenha respostas a perguntas frequentes sobre a API Azure para FHIR, como a localização de armazenamento de dados por trás das APIs FHIR e suporte de versão.
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
-ms.author: mihansen
-ms.openlocfilehash: b3838c46dcd5515cca81f41a4b8ac55bc68ffe69
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.author: matjazl
+ms.openlocfilehash: 252abcac6e9e39930593c1b110bf6d55ffdfc33f
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552939"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843526"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Perguntas frequentes sobre a AZure API para FHIR
 
@@ -81,7 +81,7 @@ Quando estiver a executar o Conector FHIR IoMT para o Azure, tem acesso direto a
 
 Do ponto de vista do desenvolvimento, todas as funcionalidades são implantadas no conector IoMT FHIR de código aberto para o Azure primeiro. Uma vez validado em código aberto, será lançado para o Conector PaaS Azure IoT para a funcionalidade FHIR da Azure API para o serviço FHIR. O tempo entre o lançamento em open-source e PaaS depende da complexidade da funcionalidade e de outras prioridades do roteiro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você leu algumas das perguntas frequentes sobre a Azure API para FHIR. Leia sobre as funcionalidades suportadas no FHIR Server for Azure:
  
