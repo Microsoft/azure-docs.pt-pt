@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.author: sgilley
 author: sdgilley
 ms.date: 02/10/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 821b11dc89a3479f7310770db84d0947390a3109
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-python
+ms.openlocfilehash: be8f0c85f62779dec9231a9f44155d4608e88b52
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520549"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852706"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutorial: Treine o seu primeiro modelo ML
 
@@ -133,7 +133,7 @@ Depois de concluído o treino, ligue para a `experiment` variável para obter um
 experiment
 ```
 
-<table style="width:100%"><tr><th>Name</th><th>Área de trabalho</th><th>Página do relatório</th><th>Página docs</th></tr><tr><td>diabetes-experiência</td><td>seu espaço de trabalho-nome</td><td>Link para estúdio de Aprendizagem automática Azure</td><td>Ligação à Documentação</td></tr></table>
+<table style="width:100%"><tr><th>Nome</th><th>Área de trabalho</th><th>Página do relatório</th><th>Página docs</th></tr><tr><td>diabetes-experiência</td><td>seu espaço de trabalho-nome</td><td>Link para estúdio de Aprendizagem automática Azure</td><td>Ligação à Documentação</td></tr></table>
 
 ## <a name="view-training-results-in-studio"></a>Ver resultados de formação em estúdio
 
@@ -198,7 +198,7 @@ Ligue `download()` para o objeto de execução, especificando o nome do ficheiro
 best_run.download_file(name="model_alpha_0.1.pkl")
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Não preencha esta secção se planeia executar outros tutoriais de Aprendizagem automática Azure.
 
@@ -212,7 +212,7 @@ Não preencha esta secção se planeia executar outros tutoriais de Aprendizagem
 
 Também pode manter o grupo de recursos, mas eliminar um único espaço de trabalho. Mostrar as propriedades do espaço de trabalho e selecionar **Delete**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, fez as seguintes tarefas:
 

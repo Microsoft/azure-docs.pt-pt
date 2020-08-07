@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
-ms.custom: mvc, tracking-python, devx-track-javascript
+ms.custom: mvc, devx-track-python, devx-track-javascript
 ms.subservice: blobs
-ms.openlocfilehash: 60829e7755c31fdc5204b74c278b8eed21946c60
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 25f4c0244a027a0354809080bf13923e92d295f9
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432652"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844597"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Construa uma aplicação altamente disponível com armazenamento Blob
 
@@ -340,7 +340,7 @@ const pipeline = StorageURL.newPipeline(sharedKeyCredential, {
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Na primeira parte da série, aprendeu a disponibilizar uma aplicação altamente disponível com contas de armazenamento RA-GZRS.
 

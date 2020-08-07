@@ -8,13 +8,13 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: robinsh
-ms.custom: mqtt, tracking-python
-ms.openlocfilehash: 142ac150e863b69a4580812478828062c1f5c6c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mqtt, devx-track-python
+ms.openlocfilehash: 12b1d083ae1481f7c8b5fe60cac9156a56aeaa0a
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84605600"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87875477"
 ---
 # <a name="get-started-with-device-twins-python"></a>Começar com os gémeos do dispositivo (Python)
 
@@ -233,7 +233,7 @@ Nesta secção, cria-se uma aplicação para consola Python que se conecta ao se
 
     ![receber propriedades desejadas na aplicação do dispositivo](./media/iot-hub-python-twin-getstarted/device-2.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, configurou um novo Hub IoT no portal do Azure e, em seguida, criou uma identidade de dispositivo no registo de identidades do Hub IoT. Adicionou metadados de dispositivo como tags de uma aplicação de back-end, e escreveu uma aplicação de dispositivo simulado para reportar informações de conectividade do dispositivo no twin do dispositivo. Também aprendeu a consultar esta informação usando o registo.
 

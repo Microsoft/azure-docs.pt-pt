@@ -6,15 +6,15 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.reviewer: dseven
-ms.author: mihansen
-author: hansenms
+ms.author: matjazl
+author: matjazl
 ms.date: 02/07/2019
-ms.openlocfilehash: 6e0851a55673792adc905d27fdd3f5c13d572032
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: f8b5e344fc963d466571e75ff16f17367dc32971
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563964"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844852"
 ---
 # <a name="access-azure-api-for-fhir-with-postman"></a>Acesso Azure API para FHIR com Carteiro
 
@@ -127,7 +127,7 @@ Se repetir a procura do paciente, deve agora ver o registo do paciente:
 
 ![Paciente criado](media/tutorial-postman/postman-patient-found.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, acedeu a uma API FHIR usando carteiro. Leia sobre as funcionalidades de API suportadas na nossa secção de funcionalidades suportadas.
  

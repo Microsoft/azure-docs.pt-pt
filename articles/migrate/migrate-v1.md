@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2defb00827e6f3ccf49c336007198b7d9ac176f6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: bb4cfcd48608f90898648450a20d246f9fde002b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87306116"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836008"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Trabalhar com a versão anterior de Azure Migrate
 
@@ -101,9 +101,9 @@ A prontidão tem em conta uma série de propriedades VM, para identificar se o V
 --- | --- | ---
 **Tipo de bota** | BIOS suportado. UEFI não apoiada. | Condicionalmente pronto se o tipo de arranque for UEFI.
 **Núcleos** | Máquinas core <= o número máximo de núcleos (128) suportados para um Azure VM.<br/><br/> Se o histórico de desempenho estiver disponível, a Azure Migrate considera os núcleos utilizados.<br/>Se um fator de conforto for especificado nas definições de avaliação, o número de núcleos utilizados é multiplicado pelo fator de conforto.<br/><br/> Se não houver histórico de desempenho, a Azure Migrate utiliza os núcleos atribuídos, sem aplicar o fator de conforto. | Pronto se for inferior ou igual a limites.
-**Memória** | O tamanho da memória da máquina <= a memória máxima (3892 GB na série Azure M Standard_M128m &nbsp; <sup>2</sup>) para um Azure VM. [Saiba mais](../virtual-machines/windows/sizes.md).<br/><br/> Se o histórico de desempenho estiver disponível, Azure Migrate considera a memória utilizada.<br/><br/>Se for especificado um fator de conforto, a memória utilizada é multiplicada pelo fator de conforto.<br/><br/> Se não houver história, a memória atribuída é usada, sem aplicar o fator de conforto.<br/><br/> | Pronto se dentro dos limites.
+**Memória** | O tamanho da memória da máquina <= a memória máxima (3892 GB na série Azure M Standard_M128m &nbsp; <sup>2</sup>) para um Azure VM. [Saiba mais](../virtual-machines/sizes.md).<br/><br/> Se o histórico de desempenho estiver disponível, Azure Migrate considera a memória utilizada.<br/><br/>Se for especificado um fator de conforto, a memória utilizada é multiplicada pelo fator de conforto.<br/><br/> Se não houver história, a memória atribuída é usada, sem aplicar o fator de conforto.<br/><br/> | Pronto se dentro dos limites.
 **Disco de armazenamento** | O tamanho atribuído de um disco deve ser de 4 TB (4096 GB) ou menos.<br/><br/> O número de discos ligados à máquina deve ser de 65 ou menos, incluindo o disco SO. | Pronto se dentro dos limites.
-**Redes** | Uma máquina deve ter 32 OU menos NICs ligados a ela. | Pronto se dentro dos limites.
+**Rede** | Uma máquina deve ter 32 OU menos NICs ligados a ela. | Pronto se dentro dos limites.
 
 #### <a name="guest-operating-system"></a>Sistema operativo convidado
 
@@ -263,7 +263,7 @@ Para máquinas monitorizadas pelo System Center Operations Manager 2012 R2 ou po
     ```sh InstallDependencyAgent-Linux64.bin```
 
 - Saiba mais sobre o suporte do [agente Dependency](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) para os sistemas operativos Windows e Linux.
-- [Saiba mais](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) sobre como pode usar scripts para instalar o agente Dependency.
+- [Saiba mais](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent) sobre como pode usar scripts para instalar o agente Dependency.
 
 >[!NOTE]
 > O artigo do Monitor Azure para VMs referenciado para fornecer uma visão geral dos pré-requisitos e métodos do sistema para a implantação do agente de dependência são também aplicáveis à solução do Mapa de Serviços.

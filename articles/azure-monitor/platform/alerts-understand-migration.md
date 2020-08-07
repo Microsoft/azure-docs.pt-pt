@@ -1,44 +1,33 @@
 ---
-title: Compreenda a ferramenta de migração para alertas do Azure Monitor
-description: Entenda como funciona a ferramenta de migração de alertas e resolve problemas.
+title: Compreender a migração para alertas do Monitor Azure
+description: Entenda como funciona a migração dos alertas e resolve problemas.
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 533d114e08464ff95c654a6f071ea28a04caf510
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 52a74593fcfbdc2c1e464077e4ae460f6a5a9c39
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87564100"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852400"
 ---
-# <a name="understand-how-the-migration-tool-works"></a>Compreender como funciona a ferramenta de migração
+# <a name="understand-migration-options-to-newer-alerts"></a>Compreender opções de migração para alertas mais recentes
 
-Como [já foi anunciado,](monitoring-classic-retirement.md)os alertas clássicos no Azure Monitor estão a ser retirados até 31 de agosto de 2019 (foi originalmente 30 de junho de 2019). Uma ferramenta de migração está disponível no portal Azure para clientes que usam regras de alerta clássicas e que querem desencadear a migração por si mesmos.
+Os alertas clássicos são [retirados](./monitoring-classic-retirement.md), embora ainda em uso limitado para recursos que ainda não suportam os novos alertas. Em breve será anunciada uma nova data para os restantes alertas de migração, [nuvem do Governo Azure](../../azure-government/documentation-government-welcome.md)e [Azure China 21Vianet](https://docs.azure.cn/).
 
-Este artigo explica como funciona a ferramenta de migração voluntária. Também descreve remédios para alguns problemas comuns.
-
-> [!NOTE]
-> Devido ao atraso no lançamento da ferramenta de migração, a data de aposentação dos alertas clássicos de migração foi alargada até 31 de agosto de [2019 a](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) partir da data inicialmente anunciada de 30 de junho de 2019.
-
-## <a name="classic-alert-rules-that-will-not-be-migrated"></a>Regras de alerta clássicas que não serão migradas
+Este artigo explica como funciona a ferramenta de migração manual e de migração voluntária, que será usada para migrar as restantes regras de alerta. Também descreve remédios para alguns problemas comuns.
 
 > [!IMPORTANT]
 > Os alertas de registo de atividade (incluindo alertas de saúde do Serviço) e os alertas de log não são afetados pela migração. A migração aplica-se apenas às regras clássicas de alerta descritas [aqui.](monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform)
 
-Embora a ferramenta possa migrar quase todas [as regras clássicas de alerta,](monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform)existem algumas exceções. As seguintes regras de alerta não serão migradas utilizando a ferramenta (ou durante a migração automática a partir de setembro de 2019):
-
-- Regras clássicas de alerta em métricas de hóspedes de máquina virtual (windows e Linux). Consulte as [orientações para recriar tais regras de alerta em novos alertas métricos](#guest-metrics-on-virtual-machines) mais tarde neste artigo.
-- Regras clássicas de alerta em métricas clássicas de armazenamento. Consulte as [orientações para monitorizar as suas contas clássicas de armazenamento.](https://azure.microsoft.com/blog/modernize-alerting-using-arm-storage-accounts/)
-- Regras clássicas de alerta em algumas métricas de conta de armazenamento. Veja [mais](#storage-account-metrics) detalhes neste artigo.
-- Regras clássicas de alerta em algumas métricas do Cosmos DB. Veja [mais](#cosmos-db-metrics) detalhes neste artigo.
-- Regras clássicas de alerta em todas as máquinas virtuais clássicas e métricas de serviços na nuvem (Microsoft.ClassicCompute/virtualMachines e Microsoft.ClassicCompute/domainNames/slots/roles). Veja [mais](#classic-compute-metrics) detalhes neste artigo.
-
-Se a sua subscrição tiver tais regras clássicas, deve migrar manualmente. Como não podemos fornecer uma migração automática, quaisquer alertas métricos clássicos e existentes deste tipo continuarão a funcionar até junho de 2020. Esta extensão dá-lhe tempo para passar para novos alertas. Pode também continuar a criar novos alertas clássicos sobre as exceções acima listadas até junho de 2020. No entanto, para tudo o resto, não podem ser criados novos alertas clássicos após agosto de 2019.
-
 > [!NOTE]
-> Além das exceções acima enumeradas, se as suas regras clássicas de alerta forem inválidas, ou seja, se estiverem em [métricas ou recursos precotados](#classic-alert-rules-on-deprecated-metrics) que tenham sido eliminados, não serão migrados e não estarão disponíveis após o serviço ser retirado.
+> Se as suas regras clássicas de alerta forem inválidas, ou seja, se estiverem em métricas ou recursos [precotados](#classic-alert-rules-on-deprecated-metrics) que tenham sido eliminados, não serão migrados e não estarão disponíveis após o serviço ser retirado.
+
+## <a name="manually-migrating-classic-alerts-to-newer-alerts"></a>Migrar manualmente alertas clássicos para alertas mais recentes
+
+Os clientes interessados em migrar manualmente os seus restantes alertas já podem fazê-lo utilizando as seguintes secções. Estas secções também definem métricas que são aposentadas pelo fornecedor de recursos e que atualmente não podem ser migradas diretamente.
 
 ### <a name="guest-metrics-on-virtual-machines"></a>Métricas de hóspedes em máquinas virtuais
 
@@ -270,7 +259,7 @@ Como parte da migração, serão criados novos alertas métricos e novos grupos 
 - Excluindo as subscrições ou grupos de recursos durante a duração do processo de migração da atribuição de políticas. [Saiba mais sobre a gestão do âmbito de exclusão de políticas.](../../governance/policy/tutorials/create-and-manage.md#exempt-a-non-compliant-or-denied-resource-using-exclusion)
 - Remover ou alterar o efeito para "auditoria" ou "apêndice" (o que, por exemplo, pode resolver problemas relacionados com as etiquetas em falta). [Saiba mais sobre a gestão do efeito políticas.](../../governance/policy/concepts/definition-structure.md#policy-rule)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como utilizar a ferramenta de migração](alerts-using-migration-tool.md)
 - [Preparar para a migração](alerts-prepare-migration.md)

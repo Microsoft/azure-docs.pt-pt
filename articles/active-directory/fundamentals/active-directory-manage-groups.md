@@ -2,7 +2,7 @@
 title: Gerir o acesso & recursos através de grupos - Azure AD
 description: Saiba como gerir o acesso às aplicações baseadas na nuvem da sua organização, aplicações no local e recursos usando grupos de Diretório Azure Ative.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89c4fa536994ecc8cecb50c907d43df2110be7df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25dace3ad7d467d6add236782c5e39f85d6462a6
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80982604"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797312"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Gerir o acesso a aplicações e recursos com grupos do Azure Active Directory
 O Azure Ative Directory (Azure AD) permite-lhe utilizar grupos para gerir o acesso às suas aplicações baseadas na nuvem, aplicações no local e nos seus recursos. Os seus recursos podem fazer parte da organização Azure AD, tais como permissões para gerir objetos através de funções em AZure AD, ou externas à organização, tais como para aplicações de Software como um Serviço (SaaS), serviços Azure, sites SharePoint e recursos no local.
@@ -58,7 +58,7 @@ O proprietário do grupo pode permitir que os utilizadores encontrem os seus pr�
 
 Após um pedido de acesso a um grupo, o pedido é reencaminhado para o proprietário do grupo. Se for necessário, o proprietário pode aprovar o pedido e o utilizador é notificado da adesão ao grupo. No entanto, se tiver vários proprietários e um deles não aprovar, o utilizador é notificado, mas não é adicionado ao grupo. Para obter mais informações e instruções sobre como permitir que os seus utilizadores solicitem aderir a grupos, consulte [Configurar AZure AD para que os utilizadores possam solicitar para se juntarem a grupos](../users-groups-roles/groups-self-service-management.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Agora que tem uma pequena introdução à gestão de acessos usando grupos, começa a gerir os seus recursos e apps.
 
 - [Criar um novo grupo utilizando o Azure Ative Directory](active-directory-groups-create-azure-portal.md) ou [Criar e gerir um novo grupo usando cmdlets PowerShell](../users-groups-roles/groups-settings-v2-cmdlets.md)

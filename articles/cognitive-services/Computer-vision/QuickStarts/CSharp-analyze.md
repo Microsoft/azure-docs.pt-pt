@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 1ece80ce5337304d1b0d51e5e334cd64cc133619
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: dc6ec5f440efef153273f8678bd1a55400a1235b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84984411"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835430"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-computer-vision-rest-api-and-c"></a>Quickstart: Analise uma imagem local utilizando a API e C de Visão De Computador #
 
@@ -42,7 +42,7 @@ Para criar o exemplo no Visual Studio, siga os seguintes passos:
     1. Selecione **Newtonsoft.Js, em**seguida, clique na caixa de verificação ao lado do nome do seu projeto e **instale**.
 1. Copiar/colar o corte do código de amostra abaixo, no seu ficheiro Program.cs. Ajuste o nome do espaço de nome se for diferente daquele que criou.
 1. Adicione uma imagem à sua escolha na pasta bin/debug/netcoreappX.X e, em seguida, adicione o nome de imagem (com extensão) à variável 'imageFilePath'.
-1. Execute o programa.
+1. Executar o programa.
 
 ```csharp
 using Newtonsoft.Json.Linq;

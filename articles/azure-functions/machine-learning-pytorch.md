@@ -5,13 +5,13 @@ author: gvashishtha
 ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: gopalv
-ms.custom: tracking-python
-ms.openlocfilehash: bbb784a1245ecc8d6f3d3aee45b729984568fc6c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-python
+ms.openlocfilehash: ebedb7f205553f91e38e3976a02b0912cbee1fb0
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506098"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852434"
 ---
 # <a name="tutorial-deploy-a-pre-trained-image-classification-model-to-azure-functions-with-pytorch"></a>Tutorial: Implementar um modelo de classificação de imagem pré-treinado para funções Azure com PyTorch
 
@@ -254,11 +254,11 @@ Para testar a invocação do ponto final da função a partir de outra aplicaç�
 
     Se o navegador reportar um erro ao submeter o URL de imagem, verifique o terminal em que está a executar a aplicação de função. Se vir um erro como "Nenhum módulo encontrado 'PIL'", pode ter iniciado a aplicação de função na pasta *inicial* sem primeiro ativar o ambiente virtual que criou anteriormente. Se ainda vir erros, volte a correr `pip install -r requirements.txt` com o ambiente virtual ativado e procure erros.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Como todo este tutorial funciona localmente na sua máquina, não existem recursos ou serviços Azure para limpar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a construir e personalizar um ponto final http API com Funções Azure para classificar imagens usando um modelo PyTorch. Também aprendeu a chamar a API de uma aplicação web. Você pode usar as técnicas neste tutorial para construir APIs de qualquer complexidade, tudo enquanto executa no modelo de computação sem servidor fornecido pela Azure Functions.
 

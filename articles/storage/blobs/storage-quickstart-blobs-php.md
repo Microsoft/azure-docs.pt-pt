@@ -1,18 +1,18 @@
 ---
 title: Início Rápido do Azure – Criar um blob no armazenamento de objetos com PHP | Microsoft Docs
-description: Aprenda rapidamente a transferir objetos de/para o armazenamento de Blobs do Azure com PHP
+description: Aprenda rapidamente a transferir objetos de/para o armazenamento Azure Blob usando PHP. Faça upload, descarregue e liste blobs num recipiente no armazenamento de Azure Blob.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 11/14/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 0453d7465479fb1410d1436cc3fa53914633ece5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a19ff153ea0625a14401770de690dcfddeb74d88
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68726395"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835753"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Transferir objetos de/para o armazenamento de Blobs do Azure com PHP
 Neste início rápido, vai aprender a utilizar PHP para carregar, transferir e listar blobs de blocos num contentor no armazenamento de Blobs do Azure. 
@@ -24,7 +24,7 @@ Neste início rápido, vai aprender a utilizar PHP para carregar, transferir e l
 Certifique-se de que tem os seguintes pré-requisitos adicionais instalados:
 
 * [PHP](https://php.net/downloads.php)
-* [SDK de armazenamento azure para PHP](https://github.com/Azure/azure-storage-php)
+* [Azure Storage SDK para PHP](https://github.com/Azure/azure-storage-php)
 
 ## <a name="download-the-sample-application"></a>Transferir a aplicação de exemplo
 O [exemplo de aplicação](https://github.com/Azure-Samples/storage-blobs-php-quickstart.git) utilizado neste início rápido é uma aplicação PHP básica.  
@@ -173,7 +173,7 @@ Obtenha o conteúdo dos blobs com o método **getBlob()**. O código seguinte ap
     fpassthru($blob->getContentStream());
 ```
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 Se já não precisar dos blobs carregados neste início rápido, pode eliminar o contentor inteiro com o método **deleteContainer()**. Se os ficheiros criados já não forem necessários, utilize o método **deleteBlob()** para eliminar os ficheiros.
 
 ```PHP
@@ -207,7 +207,7 @@ Consulte estes recursos adicionais para o desenvolvimento de PHP com armazenamen
 Neste início rápido, aprendeu a transferir ficheiros entre um disco local e o armazenamento de Blobs do Azure com PHP. Para obter mais informações sobre como trabalhar com o PHP, avance para o nosso Centro de programadores de PHP.
 
 > [!div class="nextstepaction"]
-> [Centro de Desenvolvedores PHP](https://azure.microsoft.com/develop/php/)
+> [Centro de Desenvolvimento PHP](https://azure.microsoft.com/develop/php/)
 
 
 Para obter mais informações sobre o Explorador de armazenamento e os Blobs, veja [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Gerir recursos do armazenamento de Blobs do Azure com o Explorador de Armazenamento).

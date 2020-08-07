@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: cshoe
-ms.custom: tracking-python
-ms.openlocfilehash: 1a7cc37f297f902fb5de473303f1dc260cbea9ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: 3fcf26670ec03b1d3a496574e58ae706acdf5c53
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559093"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853296"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega contínua utilizando a GitHub Action
 
@@ -26,7 +26,7 @@ Para um fluxo de trabalho de Funções Azure, o ficheiro tem três secções:
 | Section | Tarefas |
 | ------- | ----- |
 | **Autenticação** | <ol><li>Defina um diretor de serviço.</li><li>Descarregue o perfil de publicação.</li><li>Criar um segredo do GitHub.</li></ol>|
-| **Compilação** | <ol><li>Crie o ambiente.</li><li>Construa o aplicativo de função.</li></ol> |
+| **Construir** | <ol><li>Crie o ambiente.</li><li>Construa o aplicativo de função.</li></ol> |
 | **Implementar** | <ol><li>Implemente a aplicação de função.</li></ol>|
 
 > [!NOTE]
@@ -198,7 +198,7 @@ O exemplo a seguir mostra a parte do fluxo de trabalho que constrói a aplicaç�
 ```
 ---
 
-## <a name="deploy-the-function-app"></a>Implementar a aplicação de função
+## <a name="deploy-the-function-app"></a>Implementar a aplicação de funções
 
 Para implementar o seu código numa aplicação de função, terá de utilizar a `Azure/functions-action` ação. Esta ação tem dois parâmetros:
 
@@ -218,9 +218,9 @@ O exemplo a seguir utiliza a versão 1 do `functions-action` :
         app-name: PLEASE_REPLACE_THIS_WITH_YOUR_FUNCTION_APP_NAME
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para visualizar um ficheiro de fluxo de trabalho completo .yaml, consulte um dos ficheiros do repo de amostras de [fluxo de trabalho Azure GitHub Actions](https://aka.ms/functions-actions-samples) que têm no `functionapp` nome. Pode utilizar estas amostras como ponto de partida para o seu fluxo de trabalho.
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre as ações do GitHub](https://help.github.com/en/articles/about-github-actions)
+> [Learn more about GitHub Actions](https://help.github.com/en/articles/about-github-actions) (Saiba mais sobre o GitHub Actions)

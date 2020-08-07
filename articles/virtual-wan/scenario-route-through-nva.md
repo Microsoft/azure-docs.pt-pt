@@ -1,19 +1,20 @@
 ---
-title: 'Cenário: Encaminhar o tráfego através de uma NVA'
+title: 'Cenário: Encaminhar o tráfego através de um aparelho virtual de rede (NVA)'
 titleSuffix: Azure Virtual WAN
 description: Encaminhar o tráfego através de uma NVA
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 08/04/2020
 ms.author: cherylmc
-ms.openlocfilehash: ed64b9d281cfbbf8202a99335ea2759b27a6fc42
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: fasttrack-edit
+ms.openlocfilehash: a8bed6c46b0660d5bf43863a5c7aaf4eeaf7e26f
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142963"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853235"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Cenário: Encaminhar o tráfego através de uma NVA
 
@@ -25,47 +26,108 @@ Ao trabalhar com o encaminhamento virtual do hub virtual WAN, existem alguns cen
 >* [Artigo PowerShell](virtual-wan-route-table-nva.md)
 >
 
-## <a name="scenario-architecture"></a><a name="architecture"></a>Arquitetura do cenário
+## <a name="design"></a><a name="design"></a>Conceção
 
-Na **Figura 1**, existem dois hubs; **Hub 1** e **Hub 2**.
+Neste cenário, utilizaremos a convenção de nomeação:
 
-* **O Hub 1** e **o Hub 2** estão diretamente ligados aos VNET 2 e **VNET 4**da NVA **VNET 2** .
+* "NVA VNets" para redes virtuais onde os utilizadores tenham implementado um NVA e tenham conectado outras redes virtuais como porta-vozes (VNet 2 e VNet 4 na **matriz de conectividade**, abaixo).
+* "NVA Spokes" para redes virtuais ligadas a um VNet NVA (VNet 5, VNet 6, VNet 7 e VNet 8 na **matriz de conectividade**, abaixo).
+* "VNets não-NVA" para redes virtuais ligadas a WAN virtuais que não tenham um NVA ou outros VNets com eles (VNet 1 e VNet 3 na **matriz de conectividade,** abaixo).
+* "Hubs" para Hubs VIRTUAIS WAN geridos pela Microsoft, onde os VNets NVA estão ligados. Os VNets de NVA não precisam de ser ligados aos hubs VIRTUAIS WAN, apenas aos VNets NVA.
 
-* **VNET 5** e **VNET 6** são espreitados com **VNET 2**.
+A seguinte matriz de conectividade, resume os fluxos suportados neste cenário:
 
-* **VNET 7** e **VNET 8** são espreitados com **VNET 4**.
+**Matriz de conectividade**
 
-* **Os VNETs 5,6,7,8** são porta-vozes indiretos, não diretamente ligados a um centro virtual.
+| De             | Para:|   *Porta-vozes da NVA*|*NVA VNets*|*VNets não-NVA*|*Ramos*|
+|---|---|---|---|---|---|
+| **Porta-vozes da NVA**   | &#8594; | 0/0 UDR  |  Peering |   0/0 UDR    |  0/0 UDR  |
+| **NVA VNets**    | &#8594; |   Estático |      X   |        X     |      X    |
+| **VNets não-NVA**| &#8594; |   Estático |      X   |        X     |      X    |
+| **Ramos**     | &#8594; |   Estático |      X   |        X     |      X    |
+
+Cada uma das células da matriz de conectividade descreve se uma ligação WAN virtual (o lado "From" do fluxo, os cabeçalhos de linha na tabela) aprende um prefixo de destino (o lado "To" do fluxo, os cabeçalhos da coluna em itálico na tabela) para um fluxo de tráfego específico. Considere o seguinte:
+
+* Os porta-vozes da NVA não são geridos pela Virtual WAN. Como resultado, os mecanismos com os quais comunicarão a outros VNets ou ramos são mantidos pelo utilizador. A conectividade com o VNet NVA é fornecida por um peering VNet, e uma rota padrão para 0.0.0.0/0 apontando para o NVA como o próximo salto deve cobrir conectividade com a Internet, com outros raios, e para sucursais
+* Os VNets NVA saberão dos seus próprios porta-vozes da NVA, mas não sobre os porta-vozes da NVA ligados a outros VNets NVA. Por exemplo, na Tabela 1, o VNet 2 sabe sobre o VNet 5 e o VNet 6, mas não sobre outros porta-vozes como o VNet 7 e o VNet 8. É necessária uma rota estática para injetar os prefixos de outros porta-vozes em VNets NVA
+* Da mesma forma, os balcões e os VNets não-NVA não saberão de nenhum porta-voz da NVA, uma vez que os porta-vozes da NVA não estão ligados aos hubs da VWAN. Como resultado, também aqui serão necessárias rotas estáticas.
+
+Tendo em conta que os porta-vozes da NVA não são geridos pela VIRTUAL WAN, todas as outras linhas apresentam o mesmo padrão de conectividade. Como resultado, uma única tabela de rotas (a predefinida) fará:
+
+* Redes virtuais (VNets não-hub e VNets de utilizadores- hub):
+  * Tabela de rotas associada: **Padrão**
+  * Propagação para tabelas de rotas: **Predefinido**
+* Ramos:
+  * Tabela de rotas associada: **Padrão**
+  * Propagação para tabelas de rotas: **Predefinido**
+
+No entanto, neste cenário, temos de pensar em que rotas estáticas para configurar. Cada rota estática terá dois componentes, uma parte no hub VIRTUAL WAN, dizendo aos componentes Virtuais WAN que ligação a utilizar para cada um dos raios, e outra nessa ligação específica que aponta para o endereço IP de betão atribuído ao NVA (ou a um balançador de carga em frente a vários NVAs), como a **Figura 1** mostra:
 
 **Figura 1**
 
-:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Figura 1":::
+:::image type="content" source="media/routing-scenarios/nva/nva-static-concept.png" alt-text="Figura 1":::
+
+Com isso, as rotas estáticas de que precisamos na tabela Predefinido para enviar tráfego para os porta-vozes da NVA por trás do VNet NVA são as seguintes:
+
+| Descrição | Tabela de rota | Rota estática              |
+| ----------- | ----------- | ------------------------- |
+| VNet 2       | Predefinição     | 10.2.0.0/16 -> eastusconn |
+| VNet 4       | Predefinição     | 10.4.0.0/16 -> weconn     |
+
+Agora a WAN virtual sabe para que ligação enviar os pacotes, mas a ligação precisa de saber o que fazer ao receber esses pacotes: É aqui que são utilizadas as tabelas de rota de ligação. Aqui utilizaremos os prefixos mais curtos (/24 em vez dos mais longos /16), para garantir que estas rotas têm preferência sobre as rotas que são importadas a partir dos VNet 2 e VNet 4):
+
+| Descrição | Ligação | Rota estática            |
+| ----------- | ---------- | ----------------------- |
+| VNet 5       | eastusconn | 10.2.1.0/24 -> 10.2.0.5 |
+| VNet 6       | eastusconn | 10.2.2.0/24 -> 10.2.0.5 |
+| VNet 7       | weconn     | 10.4.1.0/24 -> 10.4.0.5 |
+| VNet 8       | weconn     | 10.4.2.0/24 -> 10.4.0.5 |
+
+Agora NVA VNets, VNets não-NVA, e ramos sabem como chegar a todos os porta-vozes da NVA. Para obter mais informações sobre o encaminhamento de hubs virtuais, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).
+
+## <a name="architecture"></a><a name="architecture"></a>Arquitetura
+
+Na **Figura 2**, existem dois hubs; **Hub1** e **Hub2.**
+
+* **Hub1** e **Hub2** estão diretamente ligados aos VNet **2** e **VNet 4**da NVA VNet .
+
+* **VNet 5** e **VNet 6** são espreitados com **VNet 2**.
+
+* **VNet 7** e **VNet 8** são espreitados com **VNet 4**.
+
+* **Os VNets 5,6,7,8** são porta-vozes indiretos, não diretamente ligados a um hub virtual.
+
+**Figura 2**
+
+:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Figura 2" lightbox="./media/routing-scenarios/nva/nva.png":::
 
 ## <a name="scenario-workflow"></a><a name="workflow"></a>Fluxo de trabalho de cenário
 
 Para configurar o encaminhamento via NVA, aqui estão os passos a considerar:
 
-1. Identifique a ligação VNet falada pela NVA. Na **Figura 1**, são **ligações VNET 2 (eastusconn)** e **VNET 4 (weconn)**.
+1. Identifique a ligação VNet falada pela NVA. Na **Figura 2**, são **ligações VNet 2 (eastusconn)** e **VNet 4 (weconn)**.
 
    Certifique-se de que existem UDRs configurados:
-   * De VNET 5 e 6 a VNET 2 NVA IP
-   * De VNET 7 e 8 a VNET 4 NVA IP 
+   * De VNet 5 e VNet 6 a VNet 2 NVA IP
+   * De VNet 7 e VNet 8 a VNet 4 NVA IP 
    
-   Não é necessário ligar o VNET 5,6,7,8 diretamente aos centros virtuais. Certifique-se de que os NSGs em VNETs 5,6,7,8 permitem o tráfego de sucursais (VPN/ER/P2S) ou VNETs ligados aos seus VNETs remotos. Por exemplo, o VNET 5,6 deve garantir que os NSGs permitem o tráfego para prefixos de endereço no local e VNETs 7,8 que estão ligados ao hub remoto 2. 
+   Não é necessário ligar os VNets 5,6,7,8 diretamente aos centros virtuais. Certifique-se de que os NSGs em VNets 5,6,7,8 permitem o tráfego de sucursais (VPN/ER/P2S) ou VNets ligados aos seus VNets remotos. Por exemplo, os VNets 5.6 devem garantir que os NSGs permitem o tráfego de prefixos de endereço no local e VNets 7,8 que estão ligados ao hub remoto 2.
 
-2. Adicione uma entrada estática agregada para VNETs 2,5,6 à tabela de rota padrão do Hub 1. 
+2. Adicione uma entrada de rota estática agregada para VNets 2,5,6 à tabela de rota padrão do Hub 1.
 
    :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Exemplo":::
 
-3. Configure uma rota estática para VNETs 5,6 na ligação virtual da rede VNET 2. Para configurar a configuração de encaminhamento para uma ligação de rede virtual, consulte [o encaminhamento do hub virtual](how-to-virtual-hub-routing.md#routing-configuration).
+3. Configurar uma rota estática para VNets 5,6 na ligação de rede virtual do VNet 2. Para configurar a configuração de encaminhamento para uma ligação de rede virtual, consulte [o encaminhamento do hub virtual](how-to-virtual-hub-routing.md#routing-configuration).
 
-4. Adicione uma entrada estática agregada para VNETs 4,7,8 à tabela de rota padrão do Hub 1.
+4. Adicione uma entrada de rota estática agregada para VNets 4,7,8 à tabela de rota padrão do Hub 1.
 
 5. Repita os passos 2, 3 e 4 para a tabela de rota padrão do Hub 2.
 
-Isto resultará em alterações na configuração do encaminhamento, como visto na figura abaixo
+Isto resultará em alterações na configuração do encaminhamento, como mostra a **Figura 3**, abaixo.
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Result":::
+**Figura 3**
+
+   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Figura 3" lightbox="./media/routing-scenarios/nva/nva-result.png":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

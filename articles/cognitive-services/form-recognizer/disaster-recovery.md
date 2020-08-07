@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: ebc6ff2c7c0d72dff318c7582d9ae5339682bc95
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 42faf4ba0a596fc5b2b34f403a5117e5ceea82ed
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86028222"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903345"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Recue e recupere os seus modelos de Reconhecimento de Formulários
 
@@ -54,7 +54,7 @@ Terá uma `201\Created` resposta com um valor no `modelId` corpo. Esta corda é 
 ```
 HTTP/1.1 201 Created
 Location: https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/33f4d42c-cd2f-4e74-b990-a1aeafab5a5d
-{"modelId":"33f4d42c-cd2f-4e74-b990-a1aeafab5a5d","accessToken":"1855fe23-5ffc-427b-aab2-e5196641502f","expirationDateTimeTicks":637233481531659440}
+{"modelId":"<your model ID>","accessToken":"<your access token>","expirationDateTimeTicks":637233481531659440}
 ```
 
 ## <a name="start-copy-operation"></a>Iniciar operação de cópia
@@ -62,7 +62,7 @@ Location: https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0
 O seguinte pedido HTTP inicia a operação Copy no recurso de origem. Terá de introduzir o ponto final e a chave do seu recurso de origem como cabeçalhos. Note que o URL de pedido contém o ID do modelo de origem que pretende copiar.
 
 ```
-POST https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/eccc3f13-8289-4020-ba16-9f1d1374e96f/copy HTTP/1.1
+POST https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/<your model ID>/copy HTTP/1.1
 Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_API_KEY}
 ```
 
@@ -72,7 +72,7 @@ O corpo do seu pedido precisa de ter o seguinte formato. Terá de introduzir o I
 {
    "targetResourceId": "{TARGET_AZURE_FORM_RECOGNIZER_RESOURCE_ID}",  
    "targetResourceRegion": "{TARGET_AZURE_FORM_RECOGNIZER_RESOURCE_REGION_NAME}",
-   "copyAuthorization": {"modelId":"33f4d42c-cd2f-4e74-b990-a1aeafab5a5d","accessToken":"1855fe23-5ffc-427b-aab2-e5196641502f","expirationDateTimeTicks":637233481531659440}
+   "copyAuthorization": {"modelId":"<your model ID>","accessToken":"<your access token>","expirationDateTimeTicks":637233481531659440}
 }
 ```
 
@@ -88,7 +88,7 @@ Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecog
 
 ### <a name="common-errors"></a>Erros comuns
 
-|Erro|Resolução|
+|Error|Resolução|
 |:--|:--|
 | 400 / Mau Pedido com`"code:" "1002"` | Indica erro de validação ou pedido de cópia mal formado. As questões comuns incluem: a) Carga útil inválida ou `copyAuthorization` modificada. b) Valor expirado `expirationDateTimeTicks` para token `copyAuhtorization` (a carga útil é válida por 24 horas). c) Inválido ou não suportado `targetResourceRegion` . d) Cadeia inválida ou mal `targetResourceId` formada.
 |
@@ -112,7 +112,7 @@ Content-Type: application/json; charset=utf-8
 
 ### <a name="common-errors"></a>Erros comuns
 
-|Erro|Resolução|
+|Error|Resolução|
 |:--|:--|
 |"Erros":[{"código":"AutorizaçãoError",<br>"mensagem":"Falha de autorização devido a <br>pedidos de autorização em falta ou inválidos."}]   | Ocorre quando a `copyAuthorization` carga útil ou o conteúdo são modificados a partir do que foi devolvido pela `copyAuthorization` API. Certifique-se de que a carga útil é o mesmo conteúdo exato que foi devolvido da `copyAuthorization` chamada anterior.|
 |"Erros":[{"código":"AutorizaçãoError",<br>"mensagem":"Não foi possível recuperar a autorização <br>Metadados. Se esta questão persistir, use um diferente <br>modelo-alvo para copiar em."}] | Indica que a `copyAuthorization` carga está a ser reutilizada com um pedido de cópia. Um pedido de cópia que tenha sucesso não permitirá mais pedidos que utilizem a mesma `copyAuthorization` carga útil. Se levantar um erro separado (como os abaixo notados) e posteriormente voltar a tentar a cópia com a mesma carga útil de autorização, este erro é levantado. A resolução é gerar uma nova `copyAuthorization` carga útil e, em seguida, reeditar o pedido de cópia.|
@@ -159,7 +159,7 @@ curl -i -X POST "https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecogniz
 curl -i GET "https://<SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT>/formrecognizer/v2.0/custom/models/{SOURCE_MODELID}/copyResults/{RESULT_ID}" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_API_KEY}"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia, aprendeu a usar a API copy para fazer cópias dos seus modelos personalizados a um recurso secundário do Reconhecimento de Formulários. Em seguida, explore os docs de referência da API para ver o que mais pode fazer com o Form Recogniser.
 * [Documentação de referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)

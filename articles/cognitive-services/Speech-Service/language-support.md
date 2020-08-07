@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 3b70590002e9c49f2f8711bb7fe90de79e1d2a73
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: c01e543b251020581d96d61434d0b3309535ef0c
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554061"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902050"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Suporte linguístico e de voz para o serviço de fala
 
@@ -128,7 +128,7 @@ Para obter mais informações sobre a disponibilidade regional, consulte [as reg
 |Região  | Linguagem            | Sexo | Nome de voz | Suporte de estilo |
 |--|--|--|--|--|
 | `ar-EG` | Árabe (Egito)                  | Mulheres | `ar-EG-SalmaNeural`      | Geral |
-| `ar-SA` | Árabe (Arábia Saudita)           | Mulheres | `ar-SA-ZariyahNeura`     | Geral |
+| `ar-SA` | Árabe (Arábia Saudita)           | Mulheres | `ar-SA-ZariyahNeural`    | Geral |
 | `ca-ES` | Catalão (Espanha)                 | Mulheres | `ca-ES-AlbaNeural`       | Geral |
 | `da-DK` | Dinamarquês (Dinamarca)                | Mulheres | `da-DK-ChristelNeural`   | Geral |
 | `de-DE` | Alemão (Alemanha)                | Mulheres | `de-DE-KatjaNeural`      | Geral |

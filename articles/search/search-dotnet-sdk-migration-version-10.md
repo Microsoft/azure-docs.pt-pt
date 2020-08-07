@@ -1,5 +1,5 @@
 ---
-title: Upgrade para Azure Cognitive Search .NET SDK versão 10
+title: Upgrade para a versão 10 da NET SDK
 titleSuffix: Azure Cognitive Search
 description: Migrar código para a versão 10 da Azure Cognitive Search .NET SDK a partir de versões mais antigas. Saiba o que é novo e quais as alterações de código necessárias.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6ce4e308420fc3ea1928b44013a78d0ae57d2c35
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61fee97323d110875cb05fb48157527a39c80f56
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562383"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905786"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-10"></a>Upgrade para Azure Cognitive Search .NET SDK versão 10
 
@@ -154,7 +154,7 @@ Se optar por identificar habilidades por um nome personalizado, certifique-se de
 > [!NOTE]
 > Começamos a estruturar os nossos erros e avisos para incluir estes detalhes úteis sempre que possível. Estamos a trabalhar para garantir que, para todos os erros e avisos, estes detalhes estão presentes, mas é um trabalho em curso e estes detalhes adicionais podem nem sempre ser povoados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - As alterações na habilidade do Shaper têm o impacto mais potencial no código novo ou existente. Como próximo passo, certifique-se de revisitar este exemplo ilustrando a estrutura de entrada: [Exemplo de definição JSON de habilidade de modelador](cognitive-search-skill-shaper.md)
 - Ver a visão geral do [enriquecimento da IA.](cognitive-search-concept-intro.md)

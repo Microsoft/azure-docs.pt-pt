@@ -10,13 +10,13 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, tracking-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 486b89e5c93de7444758638ad36743ff2f0bcb37
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: dcbaaeb2868a421a41227e1b5d9fdd84a96248eb
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026343"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852366"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Utilizar a biblioteca de clientes de Python do Azure Machine Learning para aceder a conjuntos de dados com Python
 A pré-visualização da biblioteca de clientes Microsoft Azure Machine Learning Python pode permitir o acesso seguro aos seus conjuntos de dados de Aprendizagem de Máquinas Azure a partir de um ambiente python local e permite a criação e gestão de conjuntos de dados num espaço de trabalho.
@@ -92,7 +92,7 @@ As fichas de autorização são geridas na página **TOKENS DE AUTORIZAÇÃO** e
 2. Selecione o conjunto de dados a que pretende aceder. Pode selecionar qualquer um dos conjuntos de dados da lista **MY DATASETS** ou da lista **SAMPLES.**
 3. A partir da barra de ferramentas inferior, clique em **Gerar Código de Acesso a Dados.** Se os dados estiverem num formato incompatível com a biblioteca do cliente Python, este botão é desativado.
    
-    ![Conjuntos de Dados][datasets]
+    ![Conjuntos de dados][datasets]
 4. Selecione o corte de código da janela que aparece e copie-o para a sua área de transferência.
    
     ![Gerar botão de código de acesso a dados][dataset-access-code]

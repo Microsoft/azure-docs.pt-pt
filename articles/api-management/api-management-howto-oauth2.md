@@ -1,7 +1,7 @@
 ---
 title: Autorizar contas de programadores utilizando OAuth 2.0 em Gestão de API
 titleSuffix: Azure API Management
-description: Saiba como autorizar os utilizadores a utilizarem o OAuth 2.0 em Gestão API.
+description: Saiba como autorizar os utilizadores a utilizarem o OAuth 2.0 em Gestão API. A OAuth 2.0 assegura a API para que os utilizadores só possam aceder aos recursos a que têm direito.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 7eb77b9ffae49c7d8d3e5612b685e5725829898f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4a0e8c6eb87b053c0e3ee524c60435dc45d81ff3
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499788"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902263"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Como autorizar contas de programadores utilizando o OAuth 2.0 na Azure API Management
 
@@ -131,7 +131,7 @@ Uma vez que tenha assinado, os **cabeçalhos do Pedido** são preenchidos com um
 
 Neste ponto pode configurar os valores desejados para os parâmetros restantes, e submeter o pedido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a utilização da OAuth 2.0 e da API Management, consulte o seguinte vídeo e [artigo](api-management-howto-protect-backend-with-aad.md)de acompanhamento .
 

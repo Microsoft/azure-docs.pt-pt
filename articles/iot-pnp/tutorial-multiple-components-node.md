@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 808d1ad522f6678ced54de334e7ea39fb60cd165
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: d26179ab82f29ce8f937f5b444463c1308d92047
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420693"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904093"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-preview-multiple-component-device-application-to-iot-hub-nodejs"></a>Tutorial: Conecte uma aplicação de dispositivo de componente ioT plug e play de amostra ao IoT Hub (Node.js)
 
@@ -98,29 +98,29 @@ Abra o ficheiro *pnpTemperatureController.js* num editor de código à sua escol
 
 1. Defina o `modelId` que é o DTMI para o dispositivo que está a ser implementado. Este DTMI é definido pelo utilizador e deve coincidir com o DTMI do [modelo DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json)do controlador de temperatura .
 
-1. Implementar os componentes definidos no modelo DTDL do controlador de temperatura. Os componentes de um controlador de temperatura real devem implementar estas duas interfaces. Estas duas interfaces já estão publicadas num repositório central. Nesta amostra, as duas interfaces são:
+2. Implementar os componentes definidos no modelo DTDL do controlador de temperatura. Os componentes de um controlador de temperatura real devem implementar estas duas interfaces. Estas duas interfaces já estão publicadas num repositório central. Nesta amostra, as duas interfaces são:
   - Termóstato
   - Informação do dispositivo desenvolvida pela Azure
 
-1. Defina nomes de componentes. Esta amostra tem dois termostatos e um componente de informação do dispositivo.
+3. Defina nomes de componentes. Esta amostra tem dois termostatos e um componente de informação do dispositivo.
 
-1. Defina o nome de comando. Estes são os comandos a que o dispositivo responde.
+4. Defina o nome de comando. Estes são os comandos a que o dispositivo responde.
 
-1. Defina a `serialNumber` constante. O `serialNumber` dispositivo é fixado.
+5. Defina a `serialNumber` constante. O `serialNumber` dispositivo é fixado.
 
-1. Defina os manipuladores de comando.
+6. Defina os manipuladores de comando.
 
-1. Defina as funções para enviar respostas de comando.
+7. Defina as funções para enviar respostas de comando.
 
-1. Defina funções de ajudante para registar pedidos de comando.
+8. Defina funções de ajudante para registar pedidos de comando.
 
-1. Defina uma função de ajudante para criar as propriedades.
+9. Defina uma função de ajudante para criar as propriedades.
 
-1. Defina um ouvinte para atualizações de propriedade.
+10. Defina um ouvinte para atualizações de propriedade.
 
-1. Defina uma função para enviar telemetria a partir deste dispositivo. Tanto os termostatos como o componente da raiz enviam telemetria. Esta função recebe o nome do componente como parâmetro.
+11. Defina uma função para enviar telemetria a partir deste dispositivo. Tanto os termostatos como o componente da raiz enviam telemetria. Esta função recebe o nome do componente como parâmetro.
 
-1. Definir uma `main` função que:
+12. Definir uma `main` função que:
 
     1. Utiliza o dispositivo SDK para criar um cliente do dispositivo e ligar-se ao seu hub IoT. O dispositivo fornece o `modelId` modo de IoT Hub identificar o dispositivo como um dispositivo IoT Plug and Play.
 
@@ -156,7 +156,7 @@ Depois de iniciar a amostra do cliente do dispositivo, utilize a ferramenta expl
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a ligar um dispositivo IoT Plug and Play com componentes a um hub IoT. Para saber mais sobre os modelos ioT Plug e Play, consulte:
 

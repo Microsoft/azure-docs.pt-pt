@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.author: erhopf
-ms.custom: tracking-python, devx-track-javascript
+ms.custom: devx-track-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: c12deb3b4d917a8a9bbb56e6c84172100f3c8471
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 93daa49fd262cd802f217fcda4139039023af2e2
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406555"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876517"
 ---
 # <a name="quickstart-use-the-translator-to-detect-text-language"></a>Quickstart: Use o Tradutor para detetar linguagem de texto
 
@@ -45,7 +45,7 @@ Este quickstart requer uma [conta Azure Cognitive Services](https://docs.microso
 [!INCLUDE [Python quickstart](includes/detect-python.md)]
 ::: zone-end
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Traduzir texto](quickstart-translate.md)
 * [Transliterar texto](quickstart-transliterate.md)

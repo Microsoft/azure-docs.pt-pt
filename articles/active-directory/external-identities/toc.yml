@@ -1,0 +1,153 @@
+- name: Documentação sobre Identidades Externas
+  href: index.yml
+  items:
+    - name: Descrição geral
+      items:
+        - name: Comparar soluções para Identidades Externas
+          href: compare-with-b2c.md
+        - name: O que é o acesso do utilizador convidado B2B?
+          href: what-is-b2b.md
+    - name: Guias de Início Rápido
+      items:
+        - name: Adicionar utilizadores convidados no portal
+          href: b2b-quickstart-add-guest-users-portal.md
+        - name: Adicionar utilizadores convidados com o PowerShell
+          href: b2b-quickstart-invite-powershell.md
+    - name: Tutoriais
+      items:
+        - name: Convite em massa através do PowerShell
+          href: bulk-invite-powershell.md
+        - name: Convite em massa através do portal
+          href: tutorial-bulk-invite.md
+        - name: Reforçar autenticação multifator
+          href: b2b-tutorial-require-mfa.md
+    - name: Amostras
+      items:
+        - name: Exemplos para inscrição self-service
+          href: code-samples-self-service-sign-up.md
+        - name: Exemplos de códigos e do Azure PowerShell
+          href: code-samples.md
+    - name: Conceitos
+      expanded: false
+      items:
+        - name: Melhores práticas B2B
+          href: b2b-fundamentals.md
+        - name: Licenciamento B2B
+          href: licensing-guidance.md
+        - name: Partilha externa do Office 365 e B2B
+          href: o365-external-user.md
+        - name: Resgate de convite
+          href: redemption-experience.md
+        - name: E-mail de convite
+          href: invitation-email-elements.md
+        - name: Compreender o utilizador B2B
+          href: user-properties.md
+        - name: Mapeamento das afirmações de utilizador B2B
+          href: claims-mapping.md
+        - name: Token de utilizador B2B
+          href: user-token.md
+        - name: Acesso Condicional para B2B
+          href: conditional-access.md
+        - name: B2B para organizações híbridas
+          href: hybrid-organizations.md
+        - name: Identificar fornecedores para Identidades Externas
+          href: identity-providers.md
+        - name: Fluxos de utilizador de inscrição self-service (Pré-visualização)
+          href: self-service-sign-up-overview.md
+        - name: Conectores da API de inscrição self-service (Pré-visualização)
+          href: api-connectors-overview.md
+        - name: Gestão de direitos do Azure AD
+          href: self-service-portal.md
+        - name: Limitações atuais
+          href: current-limitations.md
+    - name: Guias de procedimentos
+      expanded: true
+      items:
+        - name: Configurar partilha externa
+          href: delegate-invitations.md
+        - name: Convidar utilizadores B2B
+          items:
+            - name: Administradores que adicionam utilizadores B2B
+              href: add-users-administrator.md
+            - name: Técnicos de informação que adicionam utilizadores B2B
+              href: add-users-information-worker.md
+            - name: Convidar utilizadores internos para B2B
+              href: invite-internal-users.md
+            - name: Permitir ou bloquear convites
+              href: allow-deny-list.md
+            - name: Adicionar utilizadores B2B sem convite
+              href: add-user-without-invite.md
+            - name: Convite da API e personalização
+              href: customize-invitation-api.md
+        - name: Federar com fornecedores de identidades
+          items:
+            - name: Federação da Google
+              href: google-federation.md
+            - name: Federação do Facebook
+              href: facebook-federation.md
+            - name: Federação direta
+              href: direct-federation.md
+            - name: Exemplo de Federação direta com o AD FS
+              href: direct-federation-adfs.md
+        - name: Autenticação com código de acesso único
+          href: one-time-passcode.md
+        - name: Inscrição personalizada (Pré-visualização)
+          items:
+            - name: Adicionar um fluxo de utilizador de inscrição personalizada
+              href: self-service-sign-up-user-flow.md
+            - name: Definir atributos personalizados
+              href: user-flow-add-custom-attributes.md
+            - name: Personalizar a linguagem de fluxo do utilizador
+              href: user-flow-customize-language.md
+            - name: Adicionar um conector de API
+              href: self-service-sign-up-add-api-connector.md
+            - name: Adicionar um sistema de aprovação personalizado
+              href: self-service-sign-up-add-approvals.md
+        - name: Gerir contas de convidado
+          items:
+            - name: Adicionar um utilizador B2B a uma função
+              href: add-guest-to-role.md
+            - name: Grupos dinâmicos e utilizadores B2B
+              href: use-dynamic-groups.md
+            - name: Compreender o utilizador B2B
+              href: user-properties.md
+            - name: B2B para aplicações integradas do Azure AD
+              href: configure-saas-apps.md
+        - name: Gerir o acesso numa organização híbrida
+          items:
+            - name: Conceder aos utilizadores locais acesso a aplicações na cloud
+              href: hybrid-on-premises-to-cloud.md
+            - name: Conceder aos utilizadores B2B acesso a aplicações locais
+              href: hybrid-cloud-to-on-premises.md
+        - name: Sair de uma organização
+          href: leave-the-organization.md
+        - name: Auditoria e relatórios
+          href: auditing-and-reporting.md
+        - name: Resolução de problemas B2B
+          href: troubleshoot.md
+    - name: Referência
+      items:
+        - name: API do gestor de convite
+          href: customize-invitation-api.md
+    - name: Recursos
+      items:
+        - name: FAQ
+          href: faq.md
+        - name: Obter suporte
+          href: 'https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto'
+        - name: Fórum de comentários do Azure
+          href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+        - name: Mapa do Azure
+          href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+        - name: Página de perguntas das Perguntas e Respostas da Microsoft
+          href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
+        - name: Preços
+          href: 'https://azure.microsoft.com/pricing/details/active-directory/'
+        - name: Calculadora de preços
+          href: 'https://azure.microsoft.com/pricing/calculator/'
+        - name: Atualizações de serviço
+          href: 'https://azure.microsoft.com/updates/?product=active-directory'
+        - name: Stack Overflow
+          href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
+        - name: Vídeos
+          href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

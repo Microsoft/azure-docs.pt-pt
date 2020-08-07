@@ -7,14 +7,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020, tracking-python
+ms.custom: seoapr2020, devx-track-python
 ms.date: 04/23/2020
-ms.openlocfilehash: ea2bda905879f6bdc6cc515f43474ff570e881b4
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 14f0c7177953e43b0c58b4f5432d0c08c5f03f45
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078889"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876619"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Configurar o ambiente interativo PySpark para o Código do Estúdio Visual
 
@@ -55,7 +55,7 @@ sudo apt-get install python-dev
 
 Reinicie o VSCode e, em seguida, volte ao editor VSCode e execute o comando **Spark: PySPark Interactive.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 ### <a name="demo"></a>Demonstração
 

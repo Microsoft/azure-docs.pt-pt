@@ -8,14 +8,14 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 08/06/2020
 ms.author: kumud
-ms.openlocfilehash: 28cb73df2df91fc96d7ac19e25d7bd13f47df41e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6894eb783b990ebe98f9ebe5eb2fe112a59309a4
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047308"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904501"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-website"></a>Personalize um modelo de Pessoa com o site do Indexer de Vídeo
 
@@ -126,9 +126,20 @@ Para ver o conteúdo de qualquer um dos seus modelos Pessoas, selecione a seta a
 
 ### <a name="manage-a-person"></a>Gerir uma pessoa
 
-Se selecionar **Gerir,** vê todos os rostos de que este modelo Pessoa está a ser treinado. Estes rostos provêm de ocorrências dessa pessoa em vídeos que usam este modelo Pessoa ou de imagens que fez o upload manual.
+Se selecionar **Gerir,** vê a janela **de detalhes da Pessoa** com todas as faces a que este modelo Pessoa está a ser treinado. Estes rostos provêm de ocorrências dessa pessoa em vídeos que usam este modelo Pessoa ou de imagens que fez o upload manual.
+
+> [!TIP]
+> Pode chegar à janela **de detalhes da Pessoa** clicando no nome da pessoa ou clicando em **Manage**, como mostrado acima.
+
+#### <a name="add-a-face"></a>Adicione um rosto
 
 Pode adicionar mais rostos à pessoa selecionando **Adicionar imagens**.
+
+#### <a name="delete-a-face"></a>Apagar um rosto
+
+Selecione a imagem deseja eliminar e clique em **Eliminar**.
+
+#### <a name="rename-and-delete-the-person"></a>Renomear e eliminar a pessoa 
 
 Pode utilizar o painel de gestão para mudar o nome da pessoa e eliminar a pessoa do modelo Pessoa.
 

@@ -3,13 +3,13 @@ title: 'Quickstart: Criar uma aplicação Linux Python'
 description: Começa com as aplicações Linux no Azure App Service, implementando a sua primeira aplicação Python num contentor Linux no Serviço de Aplicações.
 ms.topic: quickstart
 ms.date: 06/30/2020
-ms.custom: seo-python-october2019, cli-validate, tracking-python
-ms.openlocfilehash: 1411c6ccc5228aa9248d5185bf44ecbfd496ed1f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: seo-python-october2019, cli-validate, devx-track-python
+ms.openlocfilehash: 804ed6084454a70fa6fc4edff9a0579e43a3a872
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042359"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853488"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Quickstart: Criar uma aplicação Python no Azure App Service em Linux
 
@@ -228,7 +228,7 @@ A seleção da aplicação abre a sua página **de Visão Geral,** onde pode exe
 
 O menu Serviço de Aplicações fornece diferentes páginas para configurar a sua aplicação.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Nos passos anteriores, criou os recursos do Azure num grupo de recursos. O grupo de recursos tem um nome como "appsvc_rg_Linux_CentralUS" dependendo da sua localização. Se utilizar um SKU de Serviço de Aplicações que não seja o nível F1 gratuito, estes recursos incorrem em custos contínuos (ver [preços do Serviço de Aplicações).](https://azure.microsoft.com/pricing/details/app-service/linux/)
 

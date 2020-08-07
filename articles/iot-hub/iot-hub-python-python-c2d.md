@@ -8,13 +8,13 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: robinsh
-ms.custom: mqtt, tracking-python
-ms.openlocfilehash: 12d25fd06ddfa8265dbf046093d3854f7fde4f33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mqtt, devx-track-python
+ms.openlocfilehash: ad6399a4713520ca0550d143cf3f19f87d55337c
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609561"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876806"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Envie mensagens nuvem-para-dispositivo com IoT Hub (Python)
 
@@ -233,7 +233,7 @@ Pode agora executar as aplicações.
 
     ![Mensagem recebida](./media/iot-hub-python-python-c2d/device-2.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a enviar e receber mensagens cloud-to-device.
 

@@ -1,21 +1,21 @@
 ---
-title: Método de rutura de tradutor
+title: Método de quebra de tradutor
 titleSuffix: Azure Cognitive Services
-description: O método De Rutura do Tradutor identifica o posicionamento dos limites da frase num pedaço de texto.
+description: O método Desenteria do Tradutor identifica o posicionamento dos limites da frase num pedaço de texto.
 services: cognitive-services
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 01/21/2020
+ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: 01a5404100da6c669da4513ac9fd08c959df220e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 340b0ed02821fb98f271539ac39e0ccad8581082
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588637"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904008"
 ---
 # <a name="translator-30-breaksentence"></a>Tradutor 3.0: BreakSentence
 
@@ -31,26 +31,26 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 ## <a name="request-parameters"></a>Parâmetros de pedido
 
-Os parâmetros de pedido transmitidos na corda de consulta são:
+Os parâmetros de pedido passados na cadeia de consulta são:
 
 | Parâmetro de consulta | Descrição |
 | -------| ----------- |
-| api-version <img width=200/>   | **Parâmetro**de consulta necessário .<br/>Versão da API solicitada pelo cliente. O valor deve `3.0` ser. |
-| language | **Parâmetro de consulta opcional.**<br/>Etiqueta linguística identificando a linguagem do texto de entrada. Se um código não for especificado, será aplicada a deteção automática de idiomas. |
-| .    | **Parâmetro de consulta opcional.**<br/>Etiqueta script identificando o script utilizado pelo texto de entrada. Se um script não for especificado, o script padrão da língua será assumido.  | 
+| api-version <img width=200/>   | **Parâmetro de consulta exigido.**<br/>Versão da API solicitada pelo cliente. O valor deve `3.0` ser. |
+| language | **Parâmetro de consulta opcional.**<br/>Etiqueta linguística que identifica a linguagem do texto de entrada. Se um código não for especificado, aplicar-se-á a deteção automática da linguagem. |
+| script    | **Parâmetro de consulta opcional.**<br/>Etiqueta de script que identifica o script utilizado pelo texto de entrada. Se um script não for especificado, o script padrão da língua será assumido.  | 
 
 Os cabeçalhos de pedido incluem:
 
 | Cabeçalhos | Descrição |
 | ------- | ----------- |
-| Cabeçalho de autenticação <img width=200/>  | **Cabeçalho de pedido exigido**.<br/>Consulte <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação.</a> |
-| Content-Type | **Cabeçalho de pedido exigido**.<br/>Especifica o tipo de conteúdo da carga útil. Os valores possíveis são: `application/json` . |
-| Comprimento do conteúdo    | **Cabeçalho de pedido exigido**.<br/>O comprimento do corpo de pedido.  | 
-| X-ClientTraceid   | **Opcional.**<br/>Um GUID gerado pelo cliente para identificar exclusivamente o pedido. Note que pode omitir este cabeçalho se incluir o id de traço na corda de consulta usando um parâmetro de consulta chamado `ClientTraceId` .  | 
+| Cabeçalho de autenticação <img width=200/>  | **Cabeçalho de pedido necessário**.<br/>Consulte <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação.</a> |
+| Content-Type | **Cabeçalho de pedido necessário**.<br/>Especifica o tipo de conteúdo da carga útil. Os valores possíveis são: `application/json` . |
+| Comprimento do conteúdo    | **Cabeçalho de pedido necessário**.<br/>O comprimento do corpo do pedido.  | 
+| X-ClientTraceId   | **Opcional.**<br/>Um GUID gerado pelo cliente para identificar exclusivamente o pedido. Note que pode omitir este cabeçalho se incluir o ID de traço na cadeia de consulta utilizando um parâmetro de consulta denominado `ClientTraceId` .  | 
 
 ## <a name="request-body"></a>Corpo do pedido
 
-O corpo do pedido é uma matriz JSON. Cada elemento matriz é um objeto JSON com uma propriedade de cordas chamada `Text` . Os limites da sentença são calculados pelo valor da `Text` propriedade. Um corpo de pedido de amostra com um pedaço de texto é assim:
+O corpo do pedido é uma matriz JSON. Cada elemento de matriz é um objeto JSON com uma propriedade de corda chamada `Text` . Os limites da sentença são calculados pelo valor do `Text` imóvel. Um corpo de pedido de amostra com um pedaço de texto é assim:
 
 ```json
 [
@@ -61,23 +61,23 @@ O corpo do pedido é uma matriz JSON. Cada elemento matriz é um objeto JSON com
 Aplicam-se as seguintes limitações:
 
 * A matriz pode ter no máximo 100 elementos.
-* O valor de texto de um elemento matriz não pode exceder 10.000 caracteres, incluindo espaços.
+* O valor de texto de um elemento de matriz não pode exceder 50.000 caracteres, incluindo espaços.
 * Todo o texto incluído no pedido não pode exceder 50.000 caracteres, incluindo espaços.
-* Se o parâmetro de `language` consulta for especificado, todos os elementos da matriz devem estar na mesma língua. Caso contrário, a deteção automática da linguagem é aplicada a cada elemento matriz de forma independente.
+* Se o `language` parâmetro de consulta for especificado, todos os elementos de matriz devem estar na mesma língua. Caso contrário, a deteção automática da linguagem é aplicada a cada elemento de matriz de forma independente.
 
 ## <a name="response-body"></a>Corpo da resposta
 
-Uma resposta bem sucedida é um array JSON com um resultado para cada corda na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
+Uma resposta bem sucedida é uma matriz JSON com um resultado para cada cadeia na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
 
-  * `sentLen`: Um conjunto de inteiros que representam os comprimentos das frases no elemento texto. O comprimento da matriz é o número de frases, e os valores são o comprimento de cada frase. 
+  * `sentLen`: Uma série de inteiros que representam os comprimentos das frases no elemento de texto. O comprimento da matriz é o número de frases, e os valores são o comprimento de cada frase. 
 
   * `detectedLanguage`: Um objeto que descreve a linguagem detetada através das seguintes propriedades:
 
-     * `language`: Código da linguagem detetada.
+     * `language`: Código da língua detetada.
 
      * `score`: Um valor flutuante que indique a confiança no resultado. A pontuação é entre zero e um e uma pontuação baixa indica uma baixa confiança.
      
-    Note que a `detectedLanguage` propriedade só está presente no objeto de resultados quando é solicitada a deteção automática da linguagem.
+    Note que a `detectedLanguage` propriedade só está presente no objeto de resultado quando é solicitada a deteção automática da língua.
 
 Um exemplo de resposta JSON é:
 
@@ -99,14 +99,14 @@ Um exemplo de resposta JSON é:
   <th width="20%">Cabeçalhos</th>
   <th>Descrição</th>
   <tr>
-    <td>X-Requestid</td>
-    <td>Valor gerado pelo serviço para identificar o pedido. É usado para fins de resolução de problemas.</td>
+    <td>X-RequestId</td>
+    <td>Valor gerado pelo serviço para identificar o pedido. É utilizado para resolução de problemas.</td>
   </tr>
 </table> 
 
 ## <a name="response-status-codes"></a>Códigos de estado de resposta
 
-Seguem-se os possíveis códigos de estado http que um pedido devolve. 
+Seguem-se os possíveis códigos de estado HTTP que um pedido devolve. 
 
 <table width="100%">
   <th width="20%">Código de Estado</th>
@@ -117,7 +117,7 @@ Seguem-se os possíveis códigos de estado http que um pedido devolve.
   </tr>
   <tr>
     <td>400</td>
-    <td>Um dos parâmetros de consulta está em falta ou não é válido. Corretos parâmetros de pedido antes de tentar novamente.</td>
+    <td>Um dos parâmetros de consulta está em falta ou não é válido. Corretos parâmetros de pedido antes de voltar a tentar.</td>
   </tr>
   <tr>
     <td>401</td>
@@ -125,7 +125,7 @@ Seguem-se os possíveis códigos de estado http que um pedido devolve.
   </tr>
   <tr>
     <td>403</td>
-    <td>O pedido não está autorizado. Verifique a mensagem de erro dos detalhes. Isto indica frequentemente que todas as traduções gratuitas fornecidas com uma subscrição experimental foram usadas.</td>
+    <td>O pedido não está autorizado. Verifique a mensagem de erro dos detalhes. Isto indica frequentemente que todas as traduções gratuitas fornecidas com uma subscrição experimental foram utilizadas.</td>
   </tr>
   <tr>
     <td>429</td>
@@ -133,19 +133,19 @@ Seguem-se os possíveis códigos de estado http que um pedido devolve.
   </tr>
   <tr>
     <td>500</td>
-    <td>Ocorreu um erro inesperado. Se o erro persistir, informe-o com: data e hora da falha, solicite o identificador do cabeçalho de resposta `X-RequestId` e identificador do cliente do cabeçalho do pedido `X-ClientTraceId` .</td>
+    <td>Ocorreu um erro inesperado. Se o erro persistir, informe-o com: data e hora da falha, solicite o identificador do cabeçalho de resposta `X-RequestId` e o identificador do cliente do cabeçalho do pedido `X-ClientTraceId` .</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Servidor temporariamente indisponível. Tente o pedido. Se o erro persistir, informe-o com: data e hora da falha, solicite o identificador do cabeçalho de resposta `X-RequestId` e identificador do cliente do cabeçalho do pedido `X-ClientTraceId` .</td>
+    <td>Servidor temporariamente indisponível. Recandidutar o pedido. Se o erro persistir, informe-o com: data e hora da falha, solicite o identificador do cabeçalho de resposta `X-RequestId` e o identificador do cliente do cabeçalho do pedido `X-ClientTraceId` .</td>
   </tr>
 </table> 
 
-Se ocorrer um erro, o pedido também devolverá uma resposta de erro da JSON. O código de erro é um número de 6 dígitos que combina o código de estado HTTP de 3 dígitos seguido de um número de 3 dígitos para categorizar ainda mais o erro. Códigos de erro comuns podem ser encontrados na página de referência do [tradutor v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Se ocorrer um erro, o pedido também devolverá uma resposta de erro JSON. O código de erro é um número de 6 dígitos que combina o código de estado HTTP de 3 dígitos seguido de um número de 3 dígitos para categorizar ainda mais o erro. Os códigos de erro comuns podem ser encontrados na [página de referência do Tradutor V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Exemplos
 
-O exemplo que se segue mostra como obter limites de sentença para uma única frase. A linguagem da frase é automaticamente detetada pelo serviço.
+O exemplo a seguir mostra como obter limites de sentença para uma única frase. A linguagem da frase é detetada automaticamente pelo serviço.
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"
