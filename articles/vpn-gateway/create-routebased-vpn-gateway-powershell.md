@@ -1,18 +1,18 @@
 ---
 title: 'Gateway Azure VPN: Criar gateway baseado em rotas: PowerShell'
-description: Crie rapidamente um Gateway VPN baseado em rotas usando PowerShell
+description: Saiba como criar uma porta de entrada Azure VPN baseada em rotas utilizando o PowerShell. Utilize uma porta de entrada VPN para ligar à sua rede no local.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5cd0971b04d1bad140cf3aac29a8c153977cfa62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e6c8ec12927afbabd6c6d41ab348bad9814e82c
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987643"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923208"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>Criar uma porta VPN baseada em rotas usando PowerShell
 
@@ -209,7 +209,7 @@ Quando já não precisar dos recursos criados, utilize o comando [Remove-AzResou
 Remove-AzResourceGroup -Name TestRG1
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez que o gateway tenha terminado de criar, pode criar uma ligação entre a sua rede virtual e outro VNet. Ou criar uma ligação entre a sua rede virtual e um local no local.
 

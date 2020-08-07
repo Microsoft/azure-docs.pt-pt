@@ -9,16 +9,17 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/15/2020
+ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 8041ce07c08c3b6063e2a1b3c7b55b1cec59b19a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 43ab59f109e311d9d7312b77d34321fa98a952d6
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087763"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926812"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copie os dados do servidor HDFS utilizando a Azure Data Factory
+
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-hdfs-connector.md)
 > * [Versão atual](connector-hdfs.md)
@@ -57,7 +58,7 @@ As seguintes secções fornecem detalhes sobre propriedades que são usadas para
 
 As seguintes propriedades são suportadas para o serviço ligado ao HDFS:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade *tipo* deve ser definida para *Hdfs*. | Sim |
 | url |O URL para o HDFS |Sim |
@@ -118,7 +119,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 As seguintes propriedades são suportadas para HDFS `location` em definições no conjunto de dados baseado em formato:
 
-| Propriedade   | Descrição                                                  | Necessário |
+| Propriedade   | Descrição                                                  | Obrigatório |
 | ---------- | ------------------------------------------------------------ | -------- |
 | tipo       | A propriedade *tipo* em baixo `location` no conjunto de dados deve ser definida para *HdfsLocation*. | Sim      |
 | folderPath | O caminho para a pasta. Se pretender utilizar um wildcard para filtrar a pasta, ignore esta definição e especifique o caminho nas definições de origem da atividade. | Não       |
@@ -160,7 +161,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 As seguintes propriedades são suportadas para HDFS `storeSettings` em definições na fonte de cópia baseada em formato:
 
-| Propriedade                 | Descrição                                                  | Necessário                                      |
+| Propriedade                 | Descrição                                                  | Obrigatório                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | tipo                     | A propriedade *tipo* em baixo `storeSettings` deve ser definida para **HdfsReadSettings**. | Sim                                           |
 | ***Localizar os ficheiros para copiar*** |  |  |
@@ -253,10 +254,10 @@ Para utilizar o DistCp para copiar ficheiros como é do armazenamento de HDFS a 
 
 * Os serviços MapReduce e YARN estão ativados.  
 * A versão YARN é 2.5 ou mais tarde.  
-* O servidor HDFS está integrado na sua loja de dados-alvo: armazenamento Azure Blob ou a sua loja de data lake Azure:  
+* O servidor HDFS está integrado na sua loja de dados-alvo: **Azure Blob ou** **Azure Data Lake Store (ADLS Gen1)**: 
 
     - O Azure Blob FileSystem é suportado de forma nativa desde Hadoop 2.7. Basta especificar o caminho JAR na configuração do ambiente Hadoop.
-    - O Azure Data Lake Store FileSystem está embalado a partir de Hadoop 3.0.0-alpha1. Se a sua versão de cluster Hadoop for mais cedo do que essa versão, precisa de importar manualmente pacotes JAR relacionados com o Azure Data Lake Storage Gen2 (azure-datalake-store.jar) para o cluster a partir [daqui](https://hadoop.apache.org/releases.html), e especificar o caminho do ficheiro JAR na configuração do ambiente Hadoop.
+    - O Azure Data Lake Store FileSystem está embalado a partir de Hadoop 3.0.0-alpha1. Se a sua versão de cluster Hadoop for mais cedo do que essa versão, precisa de importar manualmente pacotes JAR relacionados com a Azure Data Lake Store (azure-datalake-store.jar) para o cluster a partir [daqui](https://hadoop.apache.org/releases.html), e especificar o caminho do ficheiro JAR na configuração do ambiente Hadoop.
 
 * Prepare uma pasta temporária em HDFS. Esta pasta temporária é usada para armazenar um script de concha DistCp, por isso ocupará o espaço ao nível do KB.
 * Certifique-se de que a conta de utilizador fornecida no serviço ligado ao HDFS tem permissão para:
@@ -275,7 +276,7 @@ Existem duas opções para configurar o ambiente no local para utilizar a autent
 
 ### <a name="option-1-join-a-self-hosted-integration-runtime-machine-in-the-kerberos-realm"></a><a name="kerberos-join-realm"></a>Opção 1: Junte-se a uma máquina de execução de integração auto-hospedada no reino de Kerberos
 
-#### <a name="requirements"></a>Requisitos
+#### <a name="requirements"></a>Requirements
 
 * A máquina de execução de integração auto-hospedada precisa de se juntar ao reino de Kerberos e não pode aderir a nenhum domínio windows.
 
@@ -309,7 +310,7 @@ Existem duas opções para configurar o ambiente no local para utilizar a autent
 
 ### <a name="option-2-enable-mutual-trust-between-the-windows-domain-and-the-kerberos-realm"></a><a name="kerberos-mutual-trust"></a>Opção 2: Permitir a confiança mútua entre o domínio Windows e o reino de Kerberos
 
-#### <a name="requirements"></a>Requisitos
+#### <a name="requirements"></a>Requirements
 
 *   A máquina de execução de integração auto-hospedada deve juntar-se a um domínio Windows.
 *   Precisa de permissão para atualizar as definições do controlador de domínio.
@@ -436,7 +437,7 @@ Para obter informações sobre as propriedades da atividade da Lookup, consulte 
 
 ### <a name="legacy-dataset-model"></a>Modelo de conjunto de dados legado
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade *tipo* do conjunto de dados deve ser definida para *FileShare* |Sim |
 | folderPath | O caminho para a pasta. Um filtro wildcard é suportado. Os wildcards permitidos são `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou a um único personagem); use `^` para escapar se o nome do seu ficheiro real tiver um wildcard ou este personagem de fuga dentro. <br/><br/>Exemplos: rootfolder/subfolder/, ver mais exemplos em [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). |Sim |
@@ -481,7 +482,7 @@ Para obter informações sobre as propriedades da atividade da Lookup, consulte 
 
 ### <a name="legacy-copy-activity-source-model"></a>Modelo de origem de atividade de cópia legacy Copy
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade *tipo* da fonte de atividade copy deve ser definida para *HdfsSource*. |Sim |
 | recursivo | Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. Quando a recursiva é definida como *verdadeira* e a pia é uma loja baseada em ficheiros, uma pasta ou sub-dobrador vazio não será copiado ou criado na pia.<br/>Os valores permitidos são *verdadeiros* (padrão) e *falsos.* | Não |
@@ -504,5 +505,5 @@ Para obter informações sobre as propriedades da atividade da Lookup, consulte 
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista de lojas de dados que são suportadas como fontes e sumidouros pela atividade Copy na Azure Data Factory, consulte lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9edc43f9b2b62a3d9da9d6fba5ab52318e8b6427
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: bc17d27837d5b96f06b5172fb019db873418db94
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077512"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922954"
 ---
 # <a name="manage-server-administrators"></a>Gerir administradores de servidor
 
@@ -50,9 +50,8 @@ Utilize [a Atualização](https://docs.microsoft.com/rest/api/analysisservices/s
 
 
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 
 [Autenticação e permissões de utilizador](analysis-services-manage-users.md)  
 [Gerir funções de base de dados e utilizadores](analysis-services-database-users.md)  
-[Controlo de Acesso Baseado em Função](../role-based-access-control/overview.md)  
-
+[Controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/overview.md)  

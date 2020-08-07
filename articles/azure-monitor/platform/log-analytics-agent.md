@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/04/2020
-ms.openlocfilehash: 36b94f53d3a9113c3980c94c3b8eff0713f11814
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/06/2020
+ms.openlocfilehash: ff8bb1fea863c8ba08434df9c718199ad9f51652
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446529"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925792"
 ---
 # <a name="log-analytics-agent-overview"></a>Visão geral do agente do Log Analytics
 O agente Azure Log Analytics foi desenvolvido para uma gestão abrangente através de máquinas virtuais em qualquer nuvem, máquinas no local, e as monitorizadas pelo [System Center Operations Manager](/system-center/scom/). Os agentes windows e Linux enviam dados recolhidos de diferentes fontes para o seu espaço de trabalho Log Analytics no Azure Monitor, bem como quaisquer registos ou métricas únicos definidos numa solução de monitorização. O agente Log Analytics também suporta insights e outros serviços no Azure Monitor, como [o Azure Monitor para VMs,](../insights/vminsights-enable-overview.md) [Azure Security Center,](../../security-center/index.yml)e [Azure Automation.](../../automation/automation-intro.md)
@@ -122,11 +122,19 @@ Começando com versões lançadas após agosto de 2018, estamos a fazer as segui
  - Ubuntu, Debian:`apt-get install -y python2`
  - SUSE:`zypper install -y python2`
 
-O python2 executável deve ser aliasado a "python" utilizando o seguinte comando:
+A piton2 executável deve ser aliasada à *pitão* utilizando o seguinte procedimento:
 
-```
-alternatives --set python `which python2`
-```
+1. Executar o seguinte comando para ver qualquer pseudónimo de python atual, se um existir. Se o fizer, tome nota da prioridade para o próximo passo.
+ 
+    ```
+    sudo update-alternatives ––display python
+    ```
+
+2. Execute o seguinte comando. Substitua *\<priority\>* por um número maior do que a prioridade de qualquer ligação existente, ou 1 se não existirem atualmente ligações.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 <priority>
+    ```
 
 ### <a name="supported-distros"></a>Distros apoiados
 
@@ -194,7 +202,7 @@ A tabela que se segue lista as informações de configuração de procuração e
 |*.blob.core.windows.net |Porto 443 |Saída|Sim |
 |*.azure-automation.net |Porto 443 |Saída|Sim |
 
-Para obter informações sobre firewall necessárias para o Governo de Azure, consulte [a gestão do Governo Azure](../../azure-government/compare-azure-government-global-azure.md#azure-monitor-logs). 
+Para obter informações sobre firewall necessárias para o Governo de Azure, consulte [a gestão do Governo Azure](../../azure-government/compare-azure-government-global-azure.md#azure-monitor). 
 
 Se pretender utilizar o Azure Automation Hybrid Runbook Worker para ligar e registar-se com o serviço de Automação para utilizar runbooks ou soluções de gestão no seu ambiente, deve ter acesso ao número de porta e aos URLs descritos em [Configurar a sua rede para o Trabalhador de Runbook Híbrido.](../../automation/automation-hybrid-runbook-worker.md#network-planning) 
 

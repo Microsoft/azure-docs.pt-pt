@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 1d157e7d2880761fb6559723bdc1d6c34baffb09
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 28a15541b9d706095bcd3d6d361bd7c983f195df
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903209"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926251"
 ---
 # <a name="design-for-querying"></a>Design das consultas
 As soluções de serviço de mesa podem ser lidas intensivamente, escrever intensivamente ou uma mistura das duas. Este artigo centra-se nas coisas a ter em conta quando está a desenhar o seu serviço de Mesa para suportar as operações de leitura de forma eficiente. Tipicamente, um design que suporta operações de leitura eficientemente também é eficiente para operações de escrita. No entanto, existem considerações adicionais a ter em conta ao conceber operações de escrita, discutidas no artigo [Design para modificação de dados](table-storage-design-for-modification.md).
@@ -38,7 +38,7 @@ Os exemplos a seguir assumem que o serviço de mesa está a armazenar entidades 
 | *Nome da coluna* | *Tipo de dados* |
 | --- | --- |
 | **PartitionKey** (Nome do Departamento) |String |
-| **RowKey** (Id do empregado) |String |
+| **RowKey** (ID do empregado) |String |
 | **FirstName** |String |
 | **LastName** |String |
 | **Idade** |Número inteiro |
@@ -81,14 +81,14 @@ Existem considerações adicionais na sua escolha de **PartitionKey** que se rel
 ## <a name="optimizing-queries-for-the-table-service"></a>Otimização de consultas para o serviço Mesa
 O serviço Tabela indexa automaticamente as suas entidades utilizando os valores **PartitionKey** e **RowKey** num único índice agrupado, daí a razão pela qual as consultas de pontos são as mais eficientes de usar. No entanto, não existem outros índices que não os do índice agrupado no **PartitionKey** e **no RowKey**.
 
-Muitos projetos devem satisfazer requisitos para permitir a procura de entidades com base em múltiplos critérios. Por exemplo, localizar entidades de colaboradores com base em e-mail, id de funcionário ou apelido. Os padrões descritos nos [Padrões de Design](table-storage-design-patterns.md) de Tabela abordam este tipo de requisitos e descrevem formas de trabalhar em torno do facto de que o serviço de tabela não fornece índices secundários:  
+Muitos projetos devem satisfazer requisitos para permitir a procura de entidades com base em múltiplos critérios. Por exemplo, localizar entidades de empregados com base em e-mail, ID do empregado ou apelido. Os padrões descritos nos [Padrões de Design](table-storage-design-patterns.md) de Tabela abordam este tipo de requisitos e descrevem formas de trabalhar em torno do facto de que o serviço de tabela não fornece índices secundários:  
 
 * [Padrão de índice secundário intra-partição](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) - Guarde várias cópias de cada entidade utilizando diferentes valores **RowKey** (na mesma partição) para permitir análises rápidas e eficientes e ordens de classificação alternativas utilizando diferentes valores **RowKey.**  
 * [Padrão de índice secundário inter-partição](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) - Guarde várias cópias de cada entidade utilizando diferentes valores **RowKey** em divisórias separadas ou em tabelas separadas para permitir pesquisas rápidas e eficientes e ordens de classificação alternativas utilizando diferentes valores **RowKey.**  
 * [Índice Entidades Padrononhou](table-storage-design-patterns.md#index-entities-pattern) - Manter entidades indexadas para permitir pesquisas eficientes que retornem listas de entidades.  
 
 ## <a name="sorting-data-in-the-table-service"></a>Triagem de dados no serviço tabela
-O serviço table devolve entidades classificadas por ordem ascendente com base na **PartitionKey** e depois no **RowKey**. Estas teclas são valores de cordas e para garantir que os valores numéricos se classificam corretamente, deve convertê-los num comprimento fixo e remá-los com zeros. Por exemplo, se o valor de identificação do empregado que usa como **RowKey** for um valor inteiro, deverá converter o id de **empregado 123** a **00000123**.  
+O serviço table devolve entidades classificadas por ordem ascendente com base na **PartitionKey** e depois no **RowKey**. Estas teclas são valores de cordas e para garantir que os valores numéricos se classificam corretamente, deve convertê-los num comprimento fixo e remá-los com zeros. Por exemplo, se o valor de identificação do empregado que usa como **RowKey** for um valor inteiro, deverá converter o ID do empregado **123** a **00000123**.  
 
 Muitas aplicações têm requisitos para usar dados classificados em diferentes ordens: por exemplo, classificar os colaboradores pelo nome, ou aderir à data. Os seguintes padrões abordam como alternar ordens de classificação para as suas entidades:  
 

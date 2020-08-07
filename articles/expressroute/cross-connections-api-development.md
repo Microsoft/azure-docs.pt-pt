@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: mialdrid
-ms.openlocfilehash: b4a83013d2cbeb2871a3963ec0c95144c02f4d66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 459a70c787dfdcd54fb3010655390787022c8f2e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77187016"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921627"
 ---
 # <a name="expressroute-crossconnnections-api-development-and-integration"></a>ExpressRoute CrossConnnections Desenvolvimento e integração da API
 
@@ -30,7 +30,7 @@ Benefícios da mudança para o recurso expressRouteCrossConnections:
 
 * Quaisquer melhorias futuras para os parceiros ExpressRoute serão disponibilizadas no recurso ExpressRouteCrossConnection.
 
-* Os parceiros podem aplicar [o Controlo de Acesso Baseado em Função](https://docs.microsoft.com/azure/role-based-access-control/overview) ao recurso expressRouteCrossConnection. Estes controlos podem definir permissões para as quais as contas dos utilizadores podem modificar o recurso expressRouteCrossConnection e adicionar/atualizar/eliminar configurações de peering.
+* Os parceiros podem aplicar [o controlo de acesso baseado em funções Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) ao recurso expressRouteCrossConnection. Estes controlos podem definir permissões para as quais as contas dos utilizadores podem modificar o recurso expressRouteCrossConnection e adicionar/atualizar/eliminar configurações de peering.
 
 * O recurso expressRouteCrossConnection expõe APIs que podem ser úteis na resolução de problemas das ligações ExpressRoute. Isto inclui tabela ARP, Resumo da Tabela de Rota BGP e detalhes da Tabela de Rota bGP. Esta capacidade não é suportada por APIs de implementação clássica.
 
@@ -82,6 +82,6 @@ Desenvolva-se contra a [API expressRouteCrossConnections](https://docs.microsoft
 
 Consulte [ExpressRoute CrossConnections REST API](https://docs.microsoft.com/rest/api/expressroute/expressroutecrossconnections) para documentação REST API.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre todas as APIs expressRoute REST, consulte [ExpressRoute REST APIs](https://docs.microsoft.com/rest/api/expressroute/).

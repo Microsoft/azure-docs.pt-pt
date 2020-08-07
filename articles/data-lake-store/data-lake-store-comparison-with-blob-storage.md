@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 9ab1e2ed4aeace0ec98cb358f32a07f64c3dfea2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f9a03b5636af4a60c4abf563e073e22c970b8a02
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075051"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921782"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Comparando o armazenamento de Azure Data Lake Gen1 e o armazenamento de blob Azure
 
@@ -33,7 +33,7 @@ A tabela deste artigo resume as diferenças entre o Azure Data Lake Storage Gen1
 | Operações de Dados - Autorização |Listas de Controlo de Acesso POSIX (ACLs).  Os ACLs baseados em Identidades do Diretório Ativo Azure podem ser definidos ao nível do ficheiro e da pasta. |Para autorização ao nível da conta - Utilize chaves de [acesso à conta](../storage/common/storage-account-keys-manage.md)<br>Para autorização de conta, contentor ou blob - Utilize [chaves de assinatura de acesso partilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
 | Operações de Dados - Auditoria |Disponível. Consulte [aqui](data-lake-store-diagnostic-logs.md) para obter informações. |Disponível |
 | Dados de encriptação em repouso |<ul><li>Transparente, lado do servidor</li> <ul><li>Com chaves geridas por serviço</li><li>Com chaves geridas pelo cliente em Azure KeyVault</li></ul></ul> |<ul><li>Transparente, lado do servidor</li> <ul><li>Com chaves geridas por serviço</li><li>Com chaves geridas pelo cliente em Azure KeyVault (pré-visualização)</li></ul><li>Encriptação do lado do cliente</li></ul> |
-| Operações de gestão (por exemplo, Criação de Conta) |[Controlo de acesso baseado em funções](../role-based-access-control/overview.md) (RBAC) fornecido pela Azure para gestão de contas |[Controlo de acesso baseado em funções](../role-based-access-control/overview.md) (RBAC) fornecido pela Azure para gestão de contas |
+| Operações de gestão (por exemplo, Criação de Conta) |[Controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/overview.md) para gestão de conta |[Controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/overview.md) para gestão de conta |
 | Desenvolvedores de SDKs |.NET, Java, Python, Node.js |.NET, Java, Python, Node.js, C++, Ruby, PHP, Go, Android, iOS |
 | Desempenho da carga de trabalho de Analytics |Desempenho otimizado para cargas de trabalho de análise paralela. High Throughput e IOPS. |Desempenho otimizado para cargas de trabalho de análise paralela. |
 | Limites de tamanho |Sem limites em tamanhos de conta, tamanhos de ficheiros ou número de ficheiros |Para limites específicos, consulte [os objetivos de escalabilidade para contas de armazenamento padrão](../storage/common/scalability-targets-standard-account.md) e [metas de escalabilidade e desempenho para armazenamento blob](../storage/blobs/scalability-targets.md). Limites de conta maiores disponíveis contactando o [Suporte Azure](https://azure.microsoft.com/support/faq/) |
@@ -41,5 +41,3 @@ A tabela deste artigo resume as diferenças entre o Azure Data Lake Storage Gen1
 | Estado do serviço |Disponível em Geral |Disponível em Geral |
 | Disponibilidade regional |Ver [aqui](https://azure.microsoft.com/regions/#services) |Disponível em todas as regiões do Azure |
 | Preço |Ver [Preços](https://azure.microsoft.com/pricing/details/data-lake-store/) |Ver [Preços](https://azure.microsoft.com/pricing/details/storage/) |
-
-

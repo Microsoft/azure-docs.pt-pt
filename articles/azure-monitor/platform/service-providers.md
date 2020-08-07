@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 766fb9fbe50f8a138eae020082680204872a653a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0869de4ccfe89cc3919ec2d2d80aa3e18749039a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87315450"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921097"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Registos de monitores Azure para Prestadores de Serviços
 
@@ -40,7 +40,7 @@ Existem duas formas de os administradores de prestadores de serviços terem aces
 
 As vantagens da arquitetura distribuída são:
 
-* O cliente pode confirmar níveis específicos de permissões através da [gestão de recursos delegados da Azure,](../../lighthouse/concepts/azure-delegated-resource-management.md)ou pode gerir o acesso aos registos utilizando o seu próprio [acesso baseado em funções.](../../role-based-access-control/overview.md)
+* O cliente pode confirmar níveis específicos de permissões através da [gestão de recursos delegados da Azure,](../../lighthouse/concepts/azure-delegated-resource-management.md)ou pode gerir o acesso aos registos utilizando o seu próprio [controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 * Os registos podem ser recolhidos de todos os tipos de recursos, e não apenas dados VM baseados em agentes. Por exemplo, Registos de Auditoria Azure.
 * Cada cliente pode ter diferentes configurações para o seu espaço de trabalho, como retenção e cobertura de dados.
 * Isolamento entre clientes para regulação e complicância.
@@ -90,4 +90,3 @@ Existem duas opções para implementar registos numa localização central:
 * Gerar relatórios sumários usando [Power BI](./powerbi.md)
 
 * Clientes a bordo da [Azure delegaram gestão de recursos.](../../lighthouse/concepts/azure-delegated-resource-management.md)
-

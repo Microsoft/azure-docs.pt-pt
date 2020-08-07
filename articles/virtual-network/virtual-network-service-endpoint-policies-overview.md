@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: 495d0bce905a980f840527f4cc8cd9e2116e3e66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c0b0f9f39620996245614b53c7ec274ec965d5b
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82133756"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921203"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Políticas de ponto final de serviço de rede virtual para armazenamento Azure
 
@@ -138,7 +138,7 @@ São aplicados os limites seguintes às políticas de ponto final de serviço:
  |Recurso | Limite predefinido |
  |---------|---------------|
  |ServiceEndpointPoliciesPerSubscription |500 |
- |ServiceEndpintPoliciesPerSubnet|100 |
+ |ServiceEndpointPoliciesPerSubnet|100 |
  |ServiceResourcesPerServiceEndpointPolicyDefinition|200 |
 
 ## <a name="next-steps"></a>Passos Seguintes

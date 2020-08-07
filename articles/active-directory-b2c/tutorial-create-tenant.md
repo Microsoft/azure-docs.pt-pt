@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Criar um inquilino Azure Ative Directory B2C
-description: Saiba como se preparar para registar as suas aplicações criando um inquilino Azure Ative Directory B2C utilizando o portal Azure.
+description: Siga este tutorial para aprender a preparar-se para registar as suas aplicações criando um inquilino Azure Ative Directory B2C utilizando o portal Azure.
 services: B2C
 author: msmimart
 manager: celestedg
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 044a2d2cb23e36234256b9b19363462e542176fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbccbcf1ac85b63c5610b9904a84e5e6e3fb6c63
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806855"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922199"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Criar um inquilino do Azure Active Directory B2C
 
@@ -30,6 +30,8 @@ Neste artigo, vai aprender a:
 > * Adicione o recurso Azure AD B2C como **favorito** no portal Azure
 
 Aprende-se a registar uma candidatura no próximo tutorial.
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

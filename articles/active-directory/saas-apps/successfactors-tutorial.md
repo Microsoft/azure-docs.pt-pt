@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9b141f3722a722a57e5ec7c5662ded4b9a8c790
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 1de6af0f30453d40348e9e836b2a5989652f49f1
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170433"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925129"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-successfactors"></a>Tutorial: Azure Ative Directory integração única (SSO) com SuccessFactors
 
@@ -116,7 +116,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     - `https://<companyname>.sapsf.cn/<companyname>`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de inscrição real, o identificador e o URL de resposta. Contacte [a equipa de suporte do Cliente SuccessFactors](https://www.successfactors.com/content/ssf-site/en/support.html) para obter estes valores.
+    > Estes valores não são reais. Atualize estes valores com o URL de inscrição real, o identificador e o URL de resposta. Contacte [a equipa de suporte do Cliente SuccessFactors](https://www.sap.com/support.html) para obter estes valores.
 
 4. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** encontre o Certificado **(Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
@@ -227,7 +227,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 Para permitir que os utilizadores de Azure AD inscrevam-se no SuccessFactors, devem ser aprovisionados em SuccessFactors. No caso dos SuccessFactors, o provisionamento é uma tarefa manual.
 
-Para conseguir que os utilizadores são criados em SuccessFactors, é necessário contactar a equipa de [suporte do SuccessFactors.](https://www.successfactors.com/content/ssf-site/en/support.html)
+Para conseguir que os utilizadores são criados em SuccessFactors, é necessário contactar a equipa de [suporte do SuccessFactors.](https://www.sap.com/support.html)
 
 ## <a name="test-sso"></a>Teste SSO 
 

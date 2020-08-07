@@ -1,19 +1,19 @@
 ---
 title: Configure um túnel VPN sempre ligado
 titleSuffix: Azure VPN Gateway
-description: Passos para configurar sempre no túnel VPN para VPN Gateway
+description: Saiba como configurar Always On, que mantém uma ligação VPN baseada em gatilhos, tais como o sôm-in do utilizador, a mudança do estado da rede ou o ecrã do dispositivo ativo.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6db48928ebac115c42c643d669f6541a3654a53a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24043576fca4910631ccddb3924303dd642c6842
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983126"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927067"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel"></a>Configurar um túnel de dispositivo VPN AlwaysOn
 
@@ -33,6 +33,6 @@ Para remover o perfil, executar o seguinte comando:
 
 ![Limpeza](./media/vpn-gateway-howto-always-on-device-tunnel/cleanup.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para resolver problemas, consulte [os problemas de ligação ponto-a-local do Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
