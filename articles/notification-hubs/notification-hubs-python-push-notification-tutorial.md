@@ -16,13 +16,13 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.custom: tracking-python
-ms.openlocfilehash: 5688caa16faf4a9d83b6d23b24676d43ad16697b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-python
+ms.openlocfilehash: 3b6a38087aee7f33861f980cb6d245024f8d51ee
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084301"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852332"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Como utilizar os centros de notificação da Python
 

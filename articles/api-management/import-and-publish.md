@@ -1,6 +1,6 @@
 ---
 title: Importe e publique a sua primeira API na Azure API Management
-description: Saiba como importar uma API de Especificação OpenAPI para a Azure API Management e teste a sua API no portal Azure.
+description: Aprenda a importar uma API de Especificação OpenAPI para a Azure API Management e, em seguida, teste a sua API no portal Azure.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 38b723cb823547d4737a68576575c2b629f5eb67
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 71a239393c61dccf39ed505aa2b08d7612b7e370
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206282"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905555"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importar e publicar a sua primeira API
 
@@ -57,7 +57,7 @@ Esta secção mostra como importar e publicar uma API de backend de especificaç
    |-------|-----|-----------|
    |**Especificação OpenAPI**|*https: \/ /conferenceapi.azurewebsites.net?format=json*|O serviço de implementação da API. A API de Gestão reencaminha os pedidos para este endereço.|
    |**Nome a apresentar**|Depois de introduzir o URL de serviço anterior, a API Management preenche este campo com base no JSON.|O nome apresentado no portal do desenvolvedor.|
-   |**Name**|Depois de introduzir o URL de serviço anterior, a API Management preenche este campo com base no JSON.|Um nome único para a API.|
+   |**Nome**|Depois de introduzir o URL de serviço anterior, a API Management preenche este campo com base no JSON.|Um nome único para a API.|
    |**Descrição**|Depois de introduzir o URL de serviço anterior, a API Management preenche este campo com base no JSON.|Uma descrição opcional da API.|
    |**Esquema do URL**|**HTTPS**|Quais os protocolos que podem ser usados para aceder à API.|
    |**Sufixo do URL da API**|*conferência*|O sufixo anexado ao URL base para o serviço de Gestão da API. A API Management distingue as APIs pelo seu sufixo, pelo que o sufixo deve ser único para cada API para um determinado editor.|

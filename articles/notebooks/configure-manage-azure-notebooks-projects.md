@@ -3,13 +3,13 @@ title: Configurar e gerir a pré-visualização de cadernos Azure
 description: Saiba como gerir metadados de projetos, ficheiros de projetos, ambiente do projeto e etapas de configuração através da UI Azure Notebooks e acesso direto ao terminal.
 ms.topic: how-to
 ms.date: 02/28/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 53acf7c916b402e291b9779948579761e79179ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: 7674c2151922d26e069b5cd285cb311d7a18fa98
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85834085"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852808"
 ---
 # <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" />Gerir e configurar projetos em Pré-visualização de Cadernos Azure
 
@@ -38,7 +38,7 @@ Por padrão, os projetos funcionam no nível **de Computação Livre,** que est�
 
 No painel de **instrumentos,** selecione Definições de Projeto, em seguida, selecione o **separador Informação,** que contém os metadados do projeto, conforme descrito na tabela seguinte. Pode alterar metadados de projeto a qualquer momento.
 
-| Definição | Descrição |
+| Definições | Descrição |
 | --- | --- |
 | Nome do projeto | Um nome amigável para o seu projeto que a Azure Notebooks usa para fins de exibição. Por exemplo, "Olá Mundo em Python". |
 | ID do Projeto | Um identificador personalizado que se torna parte do URL que usa para partilhar um projeto. Este ID só pode usar letras, números e hífens, está limitado a 30 caracteres, e não pode ser um [ID de projeto reservado](create-clone-jupyter-notebooks.md#reserved-project-ids). Se não tem a certeza do que usar, uma convenção comum é usar uma versão minúscula do seu nome de projeto onde os espaços são transformados em hífenes, como "my-notebook-project" (truncado se necessário para encaixar o limite de comprimento). |
@@ -82,7 +82,7 @@ Cada item na lista de ficheiros do projeto fornece comandos através de um menu 
 | Pré-visualizar | p | Abre uma pré-visualização HTML do ficheiro; para cadernos, a pré-visualização é uma renderização apenas de leitura do caderno. Para mais informações, consulte a secção [Pré-visualização.](#preview) |
 | Editar ficheiro | i | Abre o ficheiro para edição. |
 | Download | d | Descarrega um ficheiro zip que contém o ficheiro ou o conteúdo de uma pasta. |
-| Mudar o Nome | a | Solicita um novo nome para o ficheiro ou pasta. |
+| Mudar o Nome | um | Solicita um novo nome para o ficheiro ou pasta. |
 | Eliminar | x | Solicitações de confirmação e, em seguida, remove permanentemente o ficheiro do projeto. As supressões não podem ser desfeitas. |
 | Mover | m | Move um ficheiro para uma pasta diferente no mesmo projeto. |
 
@@ -187,7 +187,7 @@ Também pode utilizar o comando a partir de uma célula de código num caderno P
 !cat .nb.log
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como: Trabalhar com ficheiros de dados do projeto](work-with-project-data-files.md)
 - [Aceder a dados da cloud num bloco de notas](access-data-resources-jupyter-notebooks.md)

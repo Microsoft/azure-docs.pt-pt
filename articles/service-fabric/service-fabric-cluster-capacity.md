@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: f2af8dcb2460e4e95d29bd81e6994d145ac61a48
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4949a83ac2aac664c19be46a367fce2bbff4cb02
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247783"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904824"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planeamento da capacidade do cluster de tecidos de serviço
 
@@ -155,7 +155,7 @@ As necessidades de capacidade do seu cluster serão determinadas pelos seus requ
 
 #### <a name="virtual-machine-sizing"></a>Tamanho de máquina virtual
 
-**Para cargas de trabalho de produção, o tamanho VM recomendado (SKU) é Standard D2_V2 (ou equivalente) com um mínimo de 50 GB de SSD local.** Recomenda-se um mínimo de 50 GB de SSD local, no entanto algumas cargas de trabalho (como as que executam contentores windows) exigirão discos maiores. Ao escolher [outros tamanhos de VM](../virtual-machines/sizes-general.md) para cargas de trabalho de produção, tenha em mente os seguintes constrangimentos:
+**Para cargas de trabalho de produção, o tamanho VM recomendado (SKU) é [Standard D2_V2](../virtual-machines/dv2-dsv2-series.md) (ou equivalente) com um mínimo de 50 GB de SSD local, 2 núcleos e 4 GiB de memória.** Recomenda-se um mínimo de 50 GB de SSD local, no entanto algumas cargas de trabalho (como as que executam contentores windows) exigirão discos maiores. Ao escolher [outros tamanhos de VM](../virtual-machines/sizes-general.md) para cargas de trabalho de produção, tenha em mente os seguintes constrangimentos:
 
 - Os tamanhos de VM do núcleo parcial como o Standard A0 não são suportados.
 - *Série A* Os tamanhos VM não são suportados por razões de desempenho.

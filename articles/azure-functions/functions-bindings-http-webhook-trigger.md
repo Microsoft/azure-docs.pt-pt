@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.custom: tracking-python
-ms.openlocfilehash: d1b545129312e2954c76e296560d9476f37f4424
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-python
+ms.openlocfilehash: 47d023216c9e10eb7c2576eb3eb2aacc14a34419
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081768"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87850224"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Funções HTTP Trigger
 

@@ -1,6 +1,6 @@
 ---
 title: Introdução do Azure Data Lake Storage Gen2
-description: Fornece uma visão geral do Azure Data Lake Storage Gen2
+description: Leia uma introdução ao Azure Data Lake Storage Gen2. Aprenda as principais características. Reveja as funcionalidades de armazenamento blob suportadas, integrações de serviços Azure e plataformas.
 author: normesta
 ms.service: storage
 ms.topic: overview
@@ -8,12 +8,12 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: ee9f2f0366cc680c874c6748d27e02dcadb82e35
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: d85b0cd2f9fa7eb81f5c39bd5d163188e3cd7106
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84673314"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835770"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introdução ao Azure Data Lake Storage Gen2
 
@@ -49,7 +49,7 @@ Além disso, o Data Lake Storage Gen2 é muito rentável porque é construído e
 
 O Azure Storage é escalável por design, quer aceda através de interfaces de armazenamento do Data Lake Storage Gen2 ou Blob. É capaz de armazenar e servir *muitos exabytes de dados.* Esta quantidade de armazenamento está disponível com produção medida em gigabits por segundo (Gbps) em altos níveis de operações de entrada/saída por segundo (IOPS). Além da persistência, o processamento é executado em latências quase constantes por pedido que são medidas nos níveis de serviço, conta e arquivo.
 
-### <a name="cost-effectiveness"></a>Eficácia de custos
+### <a name="cost-effectiveness"></a>Rentabilidade
 
 Um dos muitos benefícios da construção da Data Lake Storage Gen2 em cima do armazenamento Azure Blob é o baixo custo de capacidade de armazenamento e transações. Ao contrário de outros serviços de armazenamento em nuvem, os dados armazenados na Data Lake Storage Gen2 não são necessários para serem movidos ou transformados antes da realização da análise. Para obter mais informações sobre preços, consulte [os preços de Armazenamento Azure](https://azure.microsoft.com/pricing/details/storage).
 
@@ -63,7 +63,7 @@ Seguem-se as entidades equivalentes, conforme descrito por diferentes conceitos.
 
 | Conceito                                | Organização de Alto Nível | Organização de nível inferior                                            | Contentor de Dados |
 |----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
-| Blobs - Armazenamento de objetos de finalidade geral | Contentor              | Diretório virtual (apenas SDK – não fornece manipulação atómica) | Blobs           |
+| Blobs - Armazenamento de objetos de finalidade geral | Contentor              | Diretório virtual (apenas SDK – não fornece manipulação atómica) | Blob           |
 | Azure Data Lake Storage Gen2 – Analytics Storage          | Contentor            | Diretório                                                           | Ficheiro           |
 
 ## <a name="supported-blob-storage-features"></a>Funcionalidades suportadas do Armazenamento de Blobs
@@ -80,7 +80,7 @@ O Data Lake Storage gen2 suporta vários serviços Azure que pode usar para inge
 
 Várias plataformas de código aberto suportam data lake storage gen2. Para obter uma lista completa, consulte [plataformas Open source que suportam a Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Problemas conhecidos com Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 - [Acesso multi-protocolo no Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)

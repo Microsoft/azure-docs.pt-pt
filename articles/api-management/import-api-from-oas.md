@@ -1,6 +1,6 @@
 ---
 title: Importar uma especificação de OpenAPI com o portal do Azure | Microsoft Docs
-description: Saiba como importar uma especificação de OpenAPI com a Gestão de API.
+description: Aprenda a importar uma especificação OpenAPI com a API Management e, em seguida, teste a API nos portais Azure e Developer.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 2e4dee74eb0c50e8e12d3f9ff0dccdd83271ea65
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 346156c624a4c8b1c1d6cc490fc0559f364b4b9d
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82202927"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905572"
 ---
 # <a name="import-an-openapi-specification"></a>Importar uma especificação de OpenAPI
 
@@ -32,21 +32,21 @@ Neste artigo, vai aprender a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Complete o seguinte quickstart: Criar uma instância de [Gestão API Azure](get-started-create-service-instance.md)
+Complete o seguinte quickstart: [Criar uma instância de gestão API Azure](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importar e publicar uma API de back-end
 
-1. Navegue para o seu serviço de Gestão API no portal Azure e selecione **APIs** do menu.
+1. Navegue para o seu serviço de Gestão API no portal Azure e selecione **APIs** no menu.
 2. Selecione **Especificação de OpenAPI** na lista **Adicionar uma API nova**.
 
     ![Especificação OpenAPI](./media/import-api-from-oas/oas-api.png)
-3. Introduza as definições da API. Pode definir os valores durante a criação ou configurá-los mais tarde, indo ao separador **Definições.** As definições são explicadas no Importar e publicar o seu primeiro tutorial [API.](import-and-publish.md#-import-and-publish-a-backend-api)
+3. Insira as definições de API. Pode definir os valores durante a criação ou configurá-los mais tarde, indo ao **separador Definições.** As definições são explicadas no Import e publicam o seu primeiro tutorial [da API.](import-and-publish.md#-import-and-publish-a-backend-api)
 4. Selecione **Criar**.
 
 > [!NOTE]
-> As limitações de importação da API estão documentadas num [outro artigo.](api-management-api-import-restrictions.md)
+> As limitações de importação da API estão documentadas [noutro artigo.](api-management-api-import-restrictions.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

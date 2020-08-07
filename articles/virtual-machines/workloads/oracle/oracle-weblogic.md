@@ -1,5 +1,5 @@
 ---
-title: Aplicações Azure do Servidor WebLogic da Oracle Microsoft Docs
+title: O que é o Oracle WebLogic Server em Azure?
 description: Saiba como executar o Oracle WebLogic Server no Microsoft Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,42 +13,44 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2020
 ms.author: edburns
-ms.openlocfilehash: 9ba4e3a66ae8ef71b39aa26fd54048381237c2fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe247e75040f658beb94a66176f802993268a7d8
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83665216"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851868"
 ---
-# <a name="oracle-weblogic-server-azure-applications"></a>Aplicações oracle WebLogic Server Azure
+# <a name="what-is-oracle-weblogic-server-on-azure"></a>O que é o Oracle WebLogic Server em Azure?
 
-## <a name="oracle-weblogic-server-is-a-scalable-enterprise-ready-java-ee-application-server"></a>O Oracle WebLogic Server é um servidor de aplicações Java EE escalável e pronto para empresas.
+Esta página descreve soluções para executar o WebLogic Server (WLS) em Azure Virtual Machines.  Estas soluções são desenvolvidas conjuntamente pela Oracle e Microsoft.
 
-O Oracle WebLogic Server é o primeiro servidor de aplicações de plataforma java nativo da nuvem do mundo para desenvolver e implementar aplicações empresariais distribuídas em vários níveis. O Azure WebLogic Server oferece-lhe para abraçar a computação em nuvem, proporcionando uma maior escolha e flexibilidade para a migração da WebLogic, incluindo levantar e transferir as suas aplicações Java EE para a Azure Cloud com o menor esforço e maior impacto. As ofertas capacitam-no a iniciar rapidamente as suas aplicações empresariais, fornecendo automaticamente recursos de rede virtual, armazenamento e Linux, instalação do WebLogic Server, criação de segurança com um grupo de segurança de rede, carregamento de equilíbrio com Gateway de aplicações Azure, autenticação com Diretório Ativo Azure e facilitação da conectividade da base de dados.
+O Oracle WebLogic Server é o primeiro servidor de aplicações de plataforma java nativo da nuvem do mundo para desenvolver e implementar aplicações empresariais distribuídas em vários níveis. As ofertas do Azure WebLogic Server permitem-lhe abraçar a computação em nuvem.  Obtém-se uma maior escolha e flexibilidade para a migração da WebLogic, incluindo o levantamento e a mudança das suas aplicações Java EE para a Azure Cloud.   A WLS em Azure produz um grande impacto com um pequeno esforço. As ofertas capacitam-no a iniciar rapidamente as suas aplicações de linha de negócios (LOB).  Cada oferta fornece automaticamente recursos de rede virtual, armazenamento e Linux.  Sem esforço, o WebLogic Server está instalado.  A WLS on Azure configura a segurança com um grupo de segurança de rede, o equilíbrio de carga com o Azure App Gateway, a autenticação com o Azure Ative Directory e liga-se automaticamente à base de dados existente.
 
-Existem quatro ofertas disponíveis para atender diferentes cenários: nó único sem um servidor de administração, nó único com um servidor de administração, cluster e cluster dinâmico.  Você deve se sentir livre para dar-lhes uma tentativa, as ofertas estão disponíveis gratuitamente.
+:::image type="content" source="media/oracle-weblogic/wls-on-azure.gif" alt-text="Pode utilizar o Portal Azure para implementar o Servidor WebLogic no Azure":::
 
-_Estas ofertas são "Bring-Your-Own-License"._ Eles assumem que você já obteve as licenças apropriadas com a Oracle e estão devidamente licenciados para executar ofertas no Microsoft Azure.
+Existem quatro ofertas disponíveis para atender diferentes cenários: nó único sem um servidor de administração, nó único com um servidor de administração, cluster e cluster dinâmico.  Experimente as ofertas, estão disponíveis gratuitamente.
 
-_Se quiser trabalhar de perto nos seus cenários de migração com a equipa de engenharia que desenvolve estas ofertas, basta premir o botão [CONTACTE ME](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview) _ no [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview). Gestores de programas, arquitetos e engenheiros irão contactá-lo em breve e iniciar a colaboração!
+_Estas ofertas são "Bring-Your-Own-License"._ Eles assumem que você já tem as licenças apropriadas com a Oracle e estão devidamente licenciados para executar ofertas no Microsoft Azure.
 
-### <a name="oracle-weblogic-server-single-node"></a>Nó único do servidor weblogic do Oracle
+_Se pretender trabalhar de perto nos seus cenários de migração com a equipa de engenharia que desenvolve estas ofertas, selecione o botão [CONTACTE ME](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview) _ no [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview). Gestores de programas, arquitetos e engenheiros vão contactar-te em breve e iniciar a colaboração!
 
-Esta oferta fornece uma única máquina virtual e instala o Oracle WebLogic Server nele. Não cria um domínio nem inicia o Servidor de Administração. Isto é útil para cenários com configuração de domínio altamente personalizada.
+## <a name="oracle-weblogic-server-single-node"></a>Nó único do servidor weblogic do Oracle
 
-### <a name="oracle-weblogic-server-with-admin-server"></a>Servidor WebLogic da Oracle com Servidor de Administração
+Esta oferta fornece uma única máquina virtual e instala WLS nela. Não cria um domínio nem inicia o Servidor de Administração. O nó único é útil para cenários com configuração de domínio altamente personalizada.
 
-Esta oferta fornece uma única máquina virtual e instala o Oracle WebLogic Server nele. Cria um domínio e inicia o Servidor de Administração, que lhe permite gerir o domínio.
+## <a name="oracle-weblogic-server-with-admin-server"></a>Servidor WebLogic da Oracle com Servidor de Administração
 
-### <a name="oracle-weblogic-server-cluster"></a>Oracle WebLogic Server Cluster
+Esta oferta fornece uma única máquina virtual e instala WLS nela. Cria um domínio e inicia o Servidor de Administração, que lhe permite gerir o domínio.
 
-Esta oferta cria um cluster altamente disponível de máquinas virtuais Oracle WebLogic Server. O Servidor de Administração e todos os servidores geridos são iniciados por padrão, o que lhe permite gerir o domínio.
+## <a name="oracle-weblogic-server-cluster"></a>Oracle WebLogic Server Cluster
 
-### <a name="oracle-weblogic-server-dynamic-cluster"></a>Cluster Dinâmico do Servidor WebLogic da Oracle
+Esta oferta cria um cluster altamente disponível de máquinas virtuais WLS. O Servidor de Administração e todos os servidores geridos são iniciados por padrão, o que lhe permite gerir o domínio.
 
-Esta oferta cria um cluster dinâmico altamente disponível e escalável de máquinas virtuais Oracle WebLogic Server. O Servidor de Administração e todos os servidores geridos são iniciados por padrão, o que lhe permite gerir o domínio.
+## <a name="oracle-weblogic-server-dynamic-cluster"></a>Cluster Dinâmico do Servidor WebLogic da Oracle
 
-## <a name="next-steps"></a>Próximos passos
+Esta oferta cria um cluster dinâmico altamente disponível e escalável de máquinas virtuais WLS. O Servidor de Administração e todos os servidores geridos são iniciados por padrão, o que lhe permite gerir o domínio.
+
+## <a name="next-steps"></a>Passos seguintes
 
 Explore as ofertas no Azure Marketplace.
 

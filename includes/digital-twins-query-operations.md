@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/28/2020
 ms.author: baanders
-ms.openlocfilehash: 82639a19ef728c22a74381d24754992e0f647976
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 6dfddd9179569075abdbd94b6c1afa719db9ba1e
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562480"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905601"
 ---
 ## <a name="query-language-features"></a>Características da linguagem de consulta
 
@@ -30,7 +30,7 @@ Obter gémeos digitais pelos seus...
 
 Pode ainda melhorar as suas consultas com as seguintes operações:
 * Obter gémeos em vários tipos de relacionamento `JOIN` (consultas). 
-  - Existem limitações no número de `JOIN` s permitidos (um nível para visualização pública).
+  - Durante a pré-visualização, são permitidos até cinco níveis de `JOIN` níveis.
 * Selecione apenas os resultados de consulta superior `Select TOP` (operador)
 * Utilize funções de escala: `IS_BOOL` , , , , , , , , , `IS_DEFINED` , , `IS_NULL` . `IS_NUMBER` `IS_OBJECT` `IS_PRIMITIVE` `IS_STRING` `STARTSWITH` `ENDSWITH` .
 * Utilize operadores de comparação de consultas: `IN` / `NIN` , , , `=` , , , , `!=` `<` `>` `<=` `>=` .

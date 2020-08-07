@@ -5,16 +5,16 @@ description: Detalhes sobre ferramentas incluídas na Máquina Virtual de Ciênc
 author: gvashishtha
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 34b4bbd9c2ed088aca10801c22c5f189264fdb1f
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 247840fe4719dc83be8048826ac4defc76d7ef9d
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955544"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852230"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Referência: Máquina Virtual Ubuntu (Linux) Data Science
 
@@ -255,7 +255,7 @@ Para obter informações sobre como implementar modelos em R e Python em Azure M
 
 ## <a name="machine-learning-tools"></a>Ferramentas de aprendizagem automática
 
-O VM vem com ferramentas de machine learning e algoritmos que foram pré-compilados e pré-instalados localmente. Incluem-se:
+O VM vem com ferramentas de machine learning e algoritmos que foram pré-compilados e pré-instalados localmente. Estas incluem:
 
 * **Vowpal Wabbit:** Um algoritmo de aprendizagem online rápido.
 * **xgboost**: Uma ferramenta que fornece algoritmos de árvores otimizados e impulsionados.
@@ -332,7 +332,7 @@ Agora uma interface gráfica abre com um conjunto de separadores. Utilize os seg
 > [!NOTE]
 > Se não tiver acesso à instalação do pacote no diretório do sistema (o padrão), poderá ver um pedido na janela da consola R para instalar pacotes na sua biblioteca pessoal. **Responda** se vir estas indicações.
 
-1. Selecione **Executar**.
+1. Selecione **Execute** (Executar).
 1. Aparece uma caixa de diálogo, perguntando-lhe se pretende utilizar o conjunto de dados meteorológicos de exemplo. Selecione **Sim** para carregar o exemplo.
 1. Selecione o **separador Modelo.**
 1. Selecione **Executar** para construir uma árvore de decisão.
@@ -346,6 +346,6 @@ Agora uma interface gráfica abre com um conjunto de separadores. Utilize os seg
 
 Pode sair do Rattle e do R. Agora pode modificar o script R gerado. Ou, use o script como está, e execute-o a qualquer hora para repetir tudo o que foi feito dentro da UI Rattle. Especialmente para principiantes em R, esta é uma forma de fazer rapidamente análises e machine learning numa interface gráfica simples, enquanto gera código automaticamente em R para modificar ou aprender.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Tem perguntas adicionais? Considere criar um [bilhete de apoio.](https://azure.microsoft.com/support/create-ticket/)

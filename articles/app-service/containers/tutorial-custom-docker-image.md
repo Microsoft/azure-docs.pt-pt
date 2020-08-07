@@ -7,13 +7,13 @@ ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: msangapu
-ms.custom: mvc, seodec18, tracking-python
-ms.openlocfilehash: bfe1e9fd2532e308c474aee6983615e28a8081f5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: mvc, seodec18, devx-track-python
+ms.openlocfilehash: 1c1313c7333c20dac5e581025a571c6a733dafc6
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506854"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87850921"
 ---
 # <a name="tutorial-run-a-custom-docker-image-in-app-service"></a>Tutorial: Executar uma imagem personalizada do Docker no Serviço de Aplicações
 
@@ -416,7 +416,7 @@ service ssh start
 
     Por exemplo, pode examinar os processos que estão a decorrer no seu interior utilizando o `top` comando.
     
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Os recursos que criou neste artigo podem incorrer em custos contínuos. para limpar os recursos, basta eliminar o grupo de recursos que os contém:
 
@@ -424,7 +424,7 @@ Os recursos que criou neste artigo podem incorrer em custos contínuos. para lim
 az group delete --name AppSvc-DockerTutorial-rg
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O que aprendeu:
 

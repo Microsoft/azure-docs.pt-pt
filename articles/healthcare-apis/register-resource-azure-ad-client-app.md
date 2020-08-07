@@ -2,18 +2,18 @@
 title: Registe uma aplicação de recursos em Azure AD - Azure API para FHIR
 description: Registe uma aplicação de recurso (ou API) no Azure Ative Directory, para que as aplicações do cliente possam solicitar o acesso ao recurso ao autenticar.
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: mihansen
-ms.openlocfilehash: 10b951300b8386b057744a980abd5d847b6b6907
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: matjazl
+ms.openlocfilehash: 3c5486e31dd3227cfcc8bd3b433602ce58cfa4fb
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871856"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852995"
 ---
 # <a name="register-a-resource-application-in-azure-active-directory"></a>Registar uma aplicação de recursos no Azure Ative Directory
 
@@ -105,7 +105,7 @@ A Azure API para fHIR e o SERVIDOR OSS FHIR para Azure utilizam [funções de ap
     ],
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a registar uma aplicação de recursos no Azure Ative Directory. Em seguida, implemente a AZure API para fHIR.
  

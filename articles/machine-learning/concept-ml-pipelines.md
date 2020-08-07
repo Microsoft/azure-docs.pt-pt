@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 04/01/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 7d34b54349a681061f80798a19ce65d2266f589d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: 441575a33e7c3d54de7b25c06f7a839805f8ac1b
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559475"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87875290"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>O que são os oleodutos Azure Machine Learning?
 
@@ -40,7 +40,7 @@ Saiba como [criar o seu primeiro oleoduto.](how-to-create-your-first-pipeline.md
 
 A nuvem Azure fornece vários outros oleodutos, cada um com um propósito diferente. A tabela que se segue enumera os diferentes oleodutos e para que são utilizados:
 
-| Scenario | Persona primária | Oferta azul | Oferta de OSS | Tubo canónico | Pontos fortes | 
+| Cenário | Persona primária | Oferta azul | Oferta de OSS | Tubo canónico | Pontos fortes | 
 | -------- | --------------- | -------------- | ------------ | -------------- | --------- | 
 | Orquestração modelo (Machine learning) | Cientista de dados | Gasodutos de aprendizagem de máquinas Azure | Gasodutos Kubeflow | Modelo data -> | Distribuição, caching, código-primeiro, reutilização | 
 | Orquestração de dados (preparação de dados) | Engenheiro de dados | [Pipelines do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Fluxo de ar Apache | Dados -> Dados | Movimento fortemente dactilografado. Atividades centradas em dados. |
@@ -221,7 +221,7 @@ Os módulos são semelhantes no uso dos passos de pipeline, mas fornecem versõe
 
 Consulte o [caderno](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-modulestep.ipynb) para obter exemplos de código sobre como criar, ligar e utilizar módulos em pipelines Azure Machine Learning.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os oleodutos Azure ML são uma instalação poderosa que começa a fornecer valor nas fases iniciais de desenvolvimento. O valor aumenta à medida que a equipa e o projeto crescem. Este artigo explicou como os oleodutos são especificados com o Azure Machine Learning Python SDK e orquestrados em Azure. Viu um código-fonte básico e foi introduzido em algumas das `PipelineStep` aulas que estão disponíveis. Deve ter uma noção de quando usar os oleodutos Azure ML e como o Azure os gere. 
 

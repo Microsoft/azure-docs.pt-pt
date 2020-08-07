@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 05/08/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
-ms.openlocfilehash: a75a5942ad0aac39f2fe6afb9c62a254c4645d0a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 4bd13adb9bb431749f1d0f52781ce22c832fc090
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372948"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846739"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gerir & aumentar quotas de recursos com a Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -46,13 +46,9 @@ Aqui está uma repartição dos limites de quota por vários tipos de recursos d
 > Os limites estão sujeitos a alterações. As últimas podem sempre ser encontradas no [documento](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits/) de quota de nível de serviço para toda a Azure.
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
-Para cada subscrição do Azure, existe um limite para o número de máquinas virtuais que pode ter através dos seus serviços ou autónomos. Este limite está ao nível da região, tanto no total dos núcleos como também em termos familiares.
-
-Os núcleos de máquinas virtuais têm um limite total regional e um limite regional por série de tamanho (Dv2, F, etc.), ambos são aplicados separadamente. Por exemplo, considere uma subscrição com um limite total de núcleos de VM na região E.U.A. Leste de 30, um limite de núcleos de série A de 30 e um limite de núcleos de série D de 30. Esta subscrição poderá implementar 30 VMs A1, 30 VMs D1 ou uma combinação de ambas que não excedam um total de 30 núcleos (por exemplo, 10 VMs A1 e 20 VMs D1).
+Para cada subscrição do Azure, existe um limite para o número de máquinas virtuais em todos os seus serviços ou autónomos. Os núcleos de máquinas virtuais têm um limite total regional e um limite regional por série de tamanho (Dv2, F, etc.), ambos são aplicados separadamente. Por exemplo, considere uma subscrição com um limite total de núcleos de VM na região E.U.A. Leste de 30, um limite de núcleos de série A de 30 e um limite de núcleos de série D de 30. Esta subscrição poderá implementar 30 VMs A1, 30 VMs D1 ou uma combinação de ambas que não excedam um total de 30 núcleos (por exemplo, 10 VMs A1 e 20 VMs D1).
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
-
-Para obter uma lista mais pormenorizada e atualizada dos limites de quotas, verifique o artigo de quota a [nível Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 ### <a name="azure-machine-learning-compute"></a>Computação do Machine Learning
 Para [o Azure Machine Learning Compute,](concept-compute-target.md#azure-machine-learning-compute-managed)existe um limite de quota padrão tanto no número de núcleos como no número de recursos computacional únicos permitidos por região numa subscrição. Esta quota é separada da quota-base VM acima e os limites de base não são partilhados entre os dois tipos de recursos, uma vez que a AmlCompute é um serviço gerido que utiliza recursos num modelo alojado em nome do modelo.
@@ -84,16 +80,10 @@ Para [os gasodutos de aprendizagem automática Azure,](concept-ml-pipelines.md)e
 - O número máximo de passos permitidos num oleoduto é de 30.000
 - O número máximo de execuções baseadas em horários e de "blob" para horários desencadeados por blogs de gasodutos publicados por subscrição por mês é de 100.000
 
-> [!NOTE]
-> Se pretender aumentar este limite, contacte [o Microsoft Support](https://azure.microsoft.com/support/options/).
-
 ### <a name="container-instances"></a>Instâncias de contentores
 
 Existe também um limite para o número de casos de contentores que pode girar num determinado período de tempo (anoiteça) ou em toda a subscrição.
-
-[!INCLUDE [container-instances-limits](../../includes/container-instances-limits.md)]
-
-Para obter uma lista mais pormenorizada e atualizada dos limites de quotas, consulte [aqui](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits)o artigo de quota a nível Azure.
+Para os limites, consulte os [limites de instâncias de contentores](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits).
 
 ### <a name="storage"></a>Armazenamento
 Existe um limite para o número de contas de armazenamento por região, bem como numa determinada subscrição. O limite de incumprimento é de 250 e inclui contas Standard e Premium Storage. Se necessitar de mais de 250 contas de armazenamento numa determinada região, faça um pedido através [do Apoio Azure.](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) A equipa de Armazenamento Azure irá rever o seu caso de negócio e poderá aprovar até 250 contas de armazenamento para uma determinada região.
@@ -126,7 +116,7 @@ O Azure Machine Learning Compute é gerido separadamente de outras quotas de rec
 1. Selecione uma subscrição para ver os limites de quota. Lembre-se de filtrar para a região que lhe interessa.
 
 1. Agora pode alternar entre uma vista de nível de subscrição e uma vista de nível de espaço de trabalho:
-    + **Vista de assinatura:** Isto permite-lhe visualizar o seu uso de quota principal pela família VM, expandindo-a por espaço de trabalho, e expandindo-a ainda mais pelos nomes reais do cluster. Esta vista é ideal para entrar rapidamente nos detalhes do uso do núcleo para uma determinada família VM ver a separação por espaços de trabalho e ainda mais pelos clusters subjacentes para cada um desses espaços de trabalho. A convenção geral neste ponto é (utilização/quota), onde a utilização é o número atual de núcleos dimensionado, e a quota é o número máximo lógico de núcleos a que o recurso pode escalar. Para cada **espaço de trabalho,** a quota seria a quota de nível de trabalho (como explicado acima) que denota o número máximo de núcleos a que se pode escalar para uma determinada família de VM. Para um **cluster** da mesma forma, a quota é na verdade os núcleos correspondentes ao número máximo de nós que o cluster pode escalar para definido pela propriedade max_nodes.
+    + **Vista de assinatura:** Exibe o seu uso de quota principal pela família VM, expandindo-a por espaço de trabalho, e expandindo-a ainda mais pelos nomes reais do cluster. Entre rapidamente nos detalhes do uso do núcleo para uma família VM específica para ver a separação por espaços de trabalho e ainda mais pelos clusters subjacentes para cada um desses espaços de trabalho. A convenção geral neste ponto é (utilização/quota), onde a utilização é o número atual de núcleos dimensionado, e a quota é o número máximo lógico de núcleos a que o recurso pode escalar. Para cada **espaço de trabalho,** a quota seria a quota de nível de trabalho (como explicado acima) que denota o número máximo de núcleos a que se pode escalar para uma determinada família de VM. Para um **cluster** da mesma forma, a quota é na verdade os núcleos correspondentes ao número máximo de nós que o cluster pode escalar para definido pela propriedade max_nodes.
 
     + **Vista do espaço de trabalho:** Isto permite-lhe visualizar o seu uso de quota principal pelo Workspace, expandindo-o pela família VM, e expandindo-o ainda mais pelos nomes reais do cluster. Esta visão é ideal para entrar rapidamente nos detalhes do uso do núcleo para um determinado espaço de trabalho para ver a separação por parte das famílias VM e ainda mais pelos clusters subjacentes para cada uma dessas famílias.
 
@@ -149,8 +139,4 @@ Ao solicitar um aumento de quota, precisa de selecionar o serviço que está a s
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais com estes artigos:
-
 + [Plano & gerir custos para a Azure Machine Learning](concept-plan-manage-cost.md)
-
-+ [Como aumentar a sua quota.](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors)

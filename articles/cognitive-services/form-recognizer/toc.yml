@@ -7,7 +7,7 @@
       href: overview.md
     - name: Novidades
       href: whats-new.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expaned: true
   items:
     - name: Utilizar a biblioteca de cliente
@@ -79,7 +79,7 @@
 - name: Recursos
   items:
     - name: Preços e limites
-      href: 'https://go.microsoft.com/fwlink/?linkid=2087258'
+      href: 'https://azure.microsoft.com/en-us/pricing/details/cognitive-services/form-recognizer/'
     - name: UserVoice
       href: 'https://go.microsoft.com/fwlink/?linkid=2090535'
     - name: Stack Overflow

@@ -82,11 +82,9 @@
     - name: Referência da CLI do Service Fabric Mesh
       href: /cli/azure/ext/mesh
     - name: APIs REST do Recurso de Cliente do Service Fabric
-      href: '/rest/api/servicefabric/sfclient-index#service-fabric-resource-model'
+      href: /rest/api/servicefabric/sfclient-index#service-fabric-resource-model
     - name: Referência da CLI do Maven do Service Fabric
       href: service-fabric-mesh-reference-maven.md
-    - name: Modelo do Resource Manager
-      href: /azure/templates/microsoft.servicefabricmesh/allversions
 - name: Recursos
   items:
     - name: Perguntas comuns

@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 8ba6141bddd60c2bdc2fdf17845e8f470dd6ef55
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-python
+ms.openlocfilehash: ff23a42d9b96b8411d8b2f82ab8303e2a8a69953
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520532"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852723"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: Começa a criar a tua primeira experiência de ML com o Python SDK
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -97,7 +97,7 @@ Você completa os seguintes passos de configuração de experiências no estúdi
         + O nome deve começar com uma letra (não um número ou um traço).
         + Se o carácter do traço for utilizado, deve ser seguido por pelo menos uma letra após o traço. Exemplo: O teste-, o teste-0, o teste-01 são inválidos, enquanto o teste-a0, o teste-0a são instâncias válidas.
 
-    1.  Selecione o tamanho da Máquina Virtual nas opções disponíveis.
+    1.  Selecione o tamanho da Máquina Virtual nas opções disponíveis. Para os tutoriais, o VM padrão é uma boa escolha.
 
     1. Em seguida, selecione **Criar**. Pode levar aproximadamente 5 minutos para configurar o seu VM.
 
@@ -105,7 +105,7 @@ Você completa os seguintes passos de configuração de experiências no estúdi
 
 Se tiver widgets personalizados ou preferir usar o Jupyter/JupyterLab selecione o **Jupyter** drop down na extrema-direita, então selecione **Jupyter** ou **JupyterLab**. A nova janela do navegador será aberta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, completou estas tarefas:
 

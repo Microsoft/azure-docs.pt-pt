@@ -6,13 +6,13 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/12/2019
-ms.openlocfilehash: e9617018b06d4f62b49946ae5593bd51805355e0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 08/06/2020
+ms.openlocfilehash: b4e34befbf28de2b985ff49ce17a87a25842015e
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044571"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87901696"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Configurar políticas de encomendas de eventos para Azure Stream Analytics
 
@@ -76,6 +76,11 @@ Esta mensagem para informá-lo de que pelo menos uma divisória na sua entrada e
 1. Certifique-se de que todas as divisórias do seu Centro de Eventos/IoT Hub recebem entrada. 
 2. Utilize a cláusula Partition by PartitionID na sua consulta. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="why-do-i-see-a-delay-of-5-seconds-even-when-my-late-arrival-policy-is-set-to-0"></a>Por que vejo um atraso de 5 segundos, mesmo quando a minha política de chegada tardia está definida para 0?
+Isto acontece quando há uma partição de entrada que nunca recebeu qualquer entrada. Pode verificar as métricas de entrada por partição para validar este comportamento. 
+
+Quando uma partição não tem dados para mais do que o limiar de chegada tardio configurado, a análise de fluxo avança o tempo de aplicação como explicado na secção de considerações de encomenda de eventos. Isto requer a hora estimada de chegada. Se a partição nunca teve dados, a análise do fluxo estima a hora de chegada como *hora local - 5 segundos*. Devido a estas divisórias que nunca tiveram dados poderiam mostrar um atraso de 5 segundos.  
+
+## <a name="next-steps"></a>Passos seguintes
 * [Considerações de processamento de tempo](stream-analytics-time-handling.md)
 * [Métricas disponíveis em Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-monitoring#metrics-available-for-stream-analytics)

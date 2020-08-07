@@ -3,14 +3,14 @@ title: Ligue as funções Azure ao Armazenamento Azure utilizando ferramentas de
 description: Saiba como ligar as Funções Azure a uma fila de Armazenamento Azure adicionando uma ligação de saída ao projeto da linha de comando.
 ms.date: 02/07/2020
 ms.topic: quickstart
-ms.custom: tracking-python
+ms.custom: devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 8a5f9cd42d13b7cfb4bc6e95809112a3b7045fe4
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 3e84db3aa13ae77f931a46683f0c5e4572f6ce44
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560107"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852638"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-command-line-tools"></a>Ligue as funções Azure ao Armazenamento Azure utilizando ferramentas de linha de comando
 
@@ -115,7 +115,7 @@ mvn azure-functions:deploy
 
 1. Volte a examinar a fila de armazenamento, tal como descrito na secção anterior, para verificar se contém a nova mensagem escrita na fila.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Depois de terminar, use o seguinte comando para eliminar o grupo de recursos e todos os seus recursos contidos para evitar incorrer em custos adicionais.
 
@@ -127,7 +127,7 @@ az group delete --name AzureFunctionsQuickstart-rg
 
 Atualizou a sua função HTTP para escrever dados numa fila de armazenamento. Agora pode aprender mais sobre o desenvolvimento de funções a partir da linha de comando utilizando Ferramentas Core e Azure CLI:
 
-+ [Trabalhar com as funções Azure Core Tools](functions-run-local.md)  
++ [Trabalhar com o Azure Functions Core Tools](functions-run-local.md)  
 
 ::: zone pivot="programming-language-csharp"  
 + [Exemplos de projetos completos de funções em C#](/samples/browse/?products=azure-functions&languages=csharp).

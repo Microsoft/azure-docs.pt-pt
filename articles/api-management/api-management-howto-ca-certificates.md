@@ -1,6 +1,6 @@
 ---
 title: Adicione um certificado ac personalizado - Azure API Management / Microsoft Docs
-description: Saiba como adicionar um certificado ac personalizado na Azure API Management.
+description: Saiba como adicionar um certificado ac personalizado na Azure API Management. Também pode ver instruções para apagar um certificado.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 21d5869f2bcdfb6383b6ef89869d8098135ea7ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e42e976e57dd69ffcbd9065cfb3aaf3af9c4b972
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70073610"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852077"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Como adicionar um certificado ac personalizado na Azure API Management
 

@@ -63,6 +63,8 @@
           href: security-center-policy-definitions.md
         - name: Utilizar as recomendações para melhorar a segurança
           href: security-center-using-recommendations.md
+        - name: Linha de base de segurança
+          href: security-baseline.md
     - name: Proteção contra ameaças e alertas de segurança
       items:
         - name: Descrição geral da proteção contra ameaças no centro de segurança

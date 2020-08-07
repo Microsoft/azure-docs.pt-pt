@@ -9,12 +9,12 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.date: 06/02/2020
-ms.openlocfilehash: 308d19fde78edacebb168b8d4e459169338acc41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bba49014fd6b082ea015da259402a8e87bf4afff
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84346046"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851997"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Centro de gestão na Azure Data Factory
 
@@ -58,7 +58,13 @@ Os gatilhos determinam quando deve ser iniciada uma conduta. Atualmente, os gati
 
 ![Gerir params personalizados](media/author-management-hub/management-hub-triggers.png)
 
-## <a name="next-steps"></a>Próximos passos
+### <a name="global-parameters"></a>Parâmetros globais
+
+Os parâmetros globais são constantes em toda uma fábrica de dados que pode ser consumida por um oleoduto em qualquer expressão. Para mais informações, saiba sobre [os parâmetros globais.](author-global-parameters.md)
+
+![Criar parâmetros globais](media/author-global-parameters/create-global-parameter-3.png)
+
+## <a name="next-steps"></a>Passos seguintes
 
 Aprenda a [configurar um repositório de git](source-control.md) para o seu ADF
 

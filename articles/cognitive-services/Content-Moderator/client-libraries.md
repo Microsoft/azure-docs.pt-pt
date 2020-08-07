@@ -11,13 +11,13 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 04/24/2020
 ms.author: pafarley
-ms.custom: tracking-python
-ms.openlocfilehash: f7de66a2abde812fc5916277288d5176fa5bfbf7
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.custom: devx-track-python
+ms.openlocfilehash: 944ac6acf587b14b3514d49c3663eb6e0f6b21a9
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84611006"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852060"
 ---
 # <a name="quickstart-use-the-content-moderator-client-library"></a>Quickstart: Utilize a biblioteca de clientes do Moderador de Conteúdo
 

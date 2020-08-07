@@ -6,17 +6,17 @@ ms.author: robb
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.subservice: alerts
-ms.openlocfilehash: 380a1366994e970c208a6c3ad505414cb12bc0c2
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d7d9f55bbd3d8060670008f321a77b2a28376e47
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324102"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849024"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica clássico com um modelo do Resource Manager
+
 > [!WARNING]
-> 
-> Este artigo descreve a criação de **alertas métricos clássicos** usando modelos de Gestor de Recursos. Os alertas clássicos foram retirados em agosto de 2019 e deverão ser totalmente depreciados em junho de 2020. Não pode criar novos alertas clássicos públicos Azure. Algumas versões regionais do Azure podem ainda ter a opção, mas sugerimos que em vez disso crie [alertas métricos mais recentes](./alerts-metric-near-real-time.md) usando modelos, se possível. [Este artigo](alerts-metric-create-templates.md) fornece os detalhes.
+> Este artigo descreve como criar alertas métricos clássicos mais antigos. O Azure Monitor suporta agora [novos alertas métricos em tempo real e uma nova experiência de alertas.](./alerts-overview.md) Os alertas clássicos são [retirados](./monitoring-classic-retirement.md), embora ainda em uso limitado para recursos que ainda não suportam os novos alertas.
 >
 
 Este artigo mostra como pode usar um [modelo de Gestor de Recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para configurar alertas métricos clássicos do Azure. Isto permite-lhe configurar automaticamente alertas sobre os seus recursos quando estes são criados para garantir que todos os recursos são monitorizados corretamente.
@@ -398,7 +398,7 @@ Um alerta num modelo de Gestor de Recursos é mais frequentemente útil ao criar
 }
 ```
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 * [Ler mais sobre Alertas](alerts-overview.md)
 * [Adicione definições de diagnóstico](./diagnostic-settings-template.md) ao seu modelo de Gestor de Recursos
 * Para a sintaxe e propriedades JSON, consulte a referência do modelo [Microsoft.Insights/alertrules.](/azure/templates/microsoft.insights/alertrules)

@@ -10,13 +10,13 @@ author: aniththa
 ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 2e22ac4601384508869ff43d473dd191f405cd43
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-python
+ms.openlocfilehash: c88d4b682fef0b21161e6ff2738626892405ee55
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092299"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851414"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutorial: Use machine learning automatizado para prever tarifas de táxi
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -1035,7 +1035,7 @@ A partir das duas métricas de precisão de previsão, você vê que o modelo é
 
 O processo tradicional de desenvolvimento de modelos de aprendizagem automática é altamente intensivo em recursos, e requer conhecimentos significativos de domínio e investimento no tempo para executar e comparar os resultados de dezenas de modelos. Usar machine learning automatizado é uma ótima maneira de testar rapidamente muitos modelos diferentes para o seu cenário.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Não preencha esta secção se planeia executar outros tutoriais de Aprendizagem automática Azure.
 
