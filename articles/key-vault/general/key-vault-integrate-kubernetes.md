@@ -6,12 +6,12 @@ ms.author: t-trtr
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 06/04/2020
-ms.openlocfilehash: 7acdee98e5e433567a3d177400ee4e7043d0895c
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: e70ee75344a939ea1632df3549d796617c7596af
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921562"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902002"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Configurar e executar o fornecedor Azure Key Vault para o motorista CSI Secrets Store em Kubernetes
 
@@ -71,7 +71,7 @@ Complete as secções "Criar um grupo de recursos", "Criar cluster AKS" e "Ligar
     ```azurecli
     az aks upgrade --kubernetes-version 1.16.9 --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
-1. Para exibir os metadados do cluster AKS que criou, utilize o seguinte comando. Copie o **principalId,** **clientId,** **subscriçãoId**e **nodeResourceGroup** para posterior utilização.
+1. Para exibir os metadados do cluster AKS que criou, utilize o seguinte comando. Copie o **principalId,** **clientId,** **subscriçãoId**e **nodeResourceGroup** para posterior utilização. Se o cluster ASK não foi criado com identidades geridas ativadas, o **principalid** e **clienteId** será nulo. 
 
     ```azurecli
     az aks show --name contosoAKSCluster --resource-group contosoResourceGroup
@@ -166,7 +166,7 @@ A imagem a seguir mostra a saída da consola para **a az keyvault show -- nome c
 
 ### <a name="assign-a-service-principal"></a>Atribuir um principal de serviço
 
-Se estiver a usar um diretor de serviço, conceda permissões para aceder ao cofre e recuperar segredos. Atribua o papel de *Leitor* e conceda ao serviço permissões principais para *obter* segredos do seu cofre chave, fazendo o seguinte:
+Se estiver a usar um diretor de serviço, conceda permissões para aceder ao cofre e recuperar segredos. Atribua o papel de *Leitor* e conceda ao serviço permissões principais para *obter* segredos do seu cofre chave, fazendo o seguinte comando:
 
 1. Atribua o seu principal de serviço ao cofre de chaves existente. O **parâmetro $AZURE_CLIENT_ID** é o **appId** que copiou depois de ter criado o seu principal de serviço.
     ```azurecli
@@ -204,10 +204,10 @@ az ad sp credential reset --name contosoServicePrincipal --credential-descriptio
 
 Se estiver a usar identidades geridas, atribua funções específicas ao cluster AKS que criou. 
 
-1. Para criar, listar ou ler uma identidade gerida atribuída pelo utilizador, o seu cluster AKS precisa de ser atribuído à função [de Contribuinte de Identidade Gerida.](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-contributor) Certifique-se de que o **$clientId** é o cliente do cluster Kubernetes.
+1. Para criar, listar ou ler uma identidade gerida atribuída pelo utilizador, o seu cluster AKS precisa de ser atribuído à função [de Operador de Identidade Gerida.](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) Certifique-se de que o **$clientId** é o cliente do cluster Kubernetes. Para o âmbito, estará sob o seu serviço de subscrição Azure, especificamente o grupo de recursos de nó que foi feito quando o cluster AKS foi criado. Este âmbito garantirá que apenas os recursos dentro desse grupo sejam afetados pelas funções abaixo atribuídas. 
 
     ```azurecli
-    az role assignment create --role "Managed Identity Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
+    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     
     az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     ```

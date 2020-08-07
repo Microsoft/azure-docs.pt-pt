@@ -13,12 +13,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 07//2020
-  ms.openlocfilehash: da549a54773365d39e3a19179acd6495a6ac1ce5
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.openlocfilehash: d6f78b4494a16a0522f93658b063d157819c519e
+  ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/23/2020
-  ms.locfileid: "87023369"
+  ms.lasthandoff: 08/06/2020
+  ms.locfileid: "87826148"
 highlightedContent:
   items:
   - title: Sobre os Serviços de Multimédia do Azure v3
@@ -38,7 +38,7 @@ highlightedContent:
     url: ./live-video-analytics-edge/overview.md
   - title: Media Player do Azure
     itemType: overview
-    url: https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview
+    url: ./azure-media-player/azure-media-player-overview.md
   - title: Sobre os Serviços de Multimédia do Azure v2 (legados)
     itemType: overview
     url: ./previous/media-services-overview.md
@@ -126,10 +126,10 @@ additionalContent:
   - items:
     - title: Storage do Azure
       summary: Saiba mais sobre blobs de blocos e contentores
-      url: https://docs.microsoft.com/azure/storage/
+      url: ../storage/index.yml
     - title: CDN
       summary: Utilizar o poder da CDN do Azure para transmitir em fluxo conteúdo em escala com os serviços do Akamai e da Verizon ou fazer o balanceamento de carga em várias redes de entrega de conteúdos
-      url: https://docs.microsoft.com/azure/cdn
+      url: ../cdn/index.yml
     - title: Event Grid
       summary: Saiba como utilizar o Azure Event Grid para reagir a eventos relevantes
       url: ../event-grid/index.yml

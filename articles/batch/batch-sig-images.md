@@ -3,13 +3,13 @@ title: Utilize a Galeria de Imagens Partilhadas para criar uma piscina de imagen
 description: As piscinas de imagem personalizadas são uma forma eficiente de configurar os nós computacional para executar as cargas de trabalho do Lote.
 ms.topic: conceptual
 ms.date: 07/01/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 38233bc5d279c1c0ae7789dd06acff78ea26fb89
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: devx-track-python
+ms.openlocfilehash: aad8b279ce821496d4c947bc7f9c707243468f07
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147292"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852417"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Utilize a Galeria de Imagens Partilhadas para criar uma piscina de imagens personalizada
 

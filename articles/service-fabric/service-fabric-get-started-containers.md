@@ -3,13 +3,13 @@ title: Criar uma aplicação de recipiente de tecido de serviço Azure
 description: Crie a sua primeira aplicação de contentor do Windows no Azure Service Fabric. Construa uma imagem Docker com uma aplicação Python, empurre a imagem para um registo de contentores, em seguida, construa e desloque o recipiente para o Tecido de Serviço Azure.
 ms.topic: conceptual
 ms.date: 01/25/2019
-ms.custom: tracking-python
-ms.openlocfilehash: c0baad5d2596de04b629c4cf9eb86c51b37b8cdc
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-python
+ms.openlocfilehash: 6303e37eaa8fa7ad45677d551b89337d20b1b604
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247409"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844444"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Criar a sua primeira aplicação de contentor do Service Fabric no Windows
 
@@ -323,7 +323,7 @@ Guarde todas as alterações e crie a aplicação. Para publicar a sua aplicaç�
 
 No **Ponto Final da Ligação**, introduza o ponto final de gestão para o cluster. Por exemplo, `containercluster.westus2.cloudapp.azure.com:19000`. Pode encontrar o ponto final de ligação do cliente no separador Descrição Geral do seu cluster no [portal do Azure](https://portal.azure.com).
 
-Clique em **Publicar**.
+Clique em **Publish** (Publicar).
 
 O [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) é uma ferramenta baseada na Web utilizada para inspecionar e gerir aplicações e nós num cluster do Service Fabric. Abra um browser e navegue para `http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/` e siga a implementação da aplicação. A aplicação é implementada, mas fica em estado de erro até que a imagem seja transferida nos nós do cluster (o que pode demorar algum tempo, consoante o tamanho da imagem): ![Erro][1]
 

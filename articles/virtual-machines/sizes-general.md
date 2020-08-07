@@ -9,16 +9,19 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: mimckitt
-ms.openlocfilehash: 542e16bc061b563a6e05dd55c0dc3a30b48a3c85
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 706635e019f77fe31c5efb609c6f4028a0304446
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835600"
+ms.locfileid: "87874305"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Tamanhos de máquina virtual de propósito geral
 
 Os tamanhos VM de finalidade geral proporcionam uma relação CPU-memória equilibrada. Ideais para testes e programação, bases de dados pequenas a médias e servidores Web de tráfego baixo a médio. Este artigo fornece informações sobre as ofertas para a computação para fins gerais.
+
+
+Adicionando uma linha para testes. Adicionar um [Link](https://aka.ms/computecontentrequest) para testes. Adicionar uma declaração **bold** para testes
 
 - Os VMs [da série Av2](av2-series.md) podem ser implantados numa variedade de tipos e processadores de hardware. Os VMs da série A têm configurações de desempenho e memória de CPU mais adequadas para cargas de trabalho de nível de entrada como desenvolvimento e teste. O tamanho é limitado com base no hardware de forma a proporcionar um desempenho de processador consistente para a instância em execução, independentemente do hardware no qual está implementado. Para determinar o hardware físico no qual este tamanho está implementado, consulte o hardware virtual a partir da Máquina Virtual. Os casos de uso de exemplo incluem servidores de desenvolvimento e teste, servidores web de baixo tráfego, bases de dados pequenas a médias, prova de conceitos e repositórios de código.
 

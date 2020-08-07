@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: c6780d952b9ce6ea58fc6c8a2509a4526add7149
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: da9445b12ce6f35d249fc3af1a4a0ef560ba35de
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86028258"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905096"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Construa um conjunto de dados de formação para um modelo personalizado
 
@@ -42,7 +42,7 @@ Certifique-se de que o seu conjunto de dados de treino também segue os requisit
 
 ## <a name="upload-your-training-data"></a>Faça upload dos seus dados de formação
 
-Quando tiver reunido o conjunto de documentos de formulário que vai usar para o treino, tem de o enviar para um recipiente de armazenamento de bolhas Azure. Se não souber como criar uma conta de armazenamento Azure com um recipiente, seguindo o [quickstart de Armazenamento Azure para o portal Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+Quando tiver reunido o conjunto de documentos de formulário que vai usar para o treino, tem de o enviar para um recipiente de armazenamento de bolhas Azure. Se não souber como criar uma conta de armazenamento Azure com um recipiente, seguindo o [quickstart de Armazenamento Azure para o portal Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). Utilize o nível de desempenho padrão.
 
 Se quiser utilizar dados etiquetados manualmente, também terá de carregar o *.labels.js* e *.ocr.jsem* ficheiros que correspondam aos seus documentos de treino. Pode utilizar a [ferramenta de rotulagem sample](./quickstarts/label-tool.md) (ou a sua própria UI) para gerar estes ficheiros.
 
@@ -69,7 +69,7 @@ Se adicionar o seguinte conteúdo ao organismo de pedido, a API irá treinar com
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a construir um conjunto de dados de treino, siga um quickstart para treinar um modelo personalizado de Reconhecimento de Formulários e comece a usá-lo nos seus formulários.
 

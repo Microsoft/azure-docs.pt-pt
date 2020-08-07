@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a43538ec7fa17764e8d9d53aad305480bd3ab4f5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 0dde9d8b50233c3c4033daf618e0e626c0174b0c
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419806"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903158"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identidade do dispositivo e virtualização do ambiente de trabalho
 
@@ -77,7 +77,7 @@ Se estiver a contar com a Ferramenta de Preparação do Sistema (sysprep.exe) e 
 
 Se estiver a contar com uma foto de Máquina Virtual (VM) para criar VMs adicionais, certifique-se de que o instantâneo não é de um VM que já está registado no AZure AD como ad AD Híbrido Azure.
 
-Ao implementar vDI não persistente, os administradores de TI devem estar atentos à gestão de dispositivos em Azure AD. A Microsoft recomenda que os administradores de TI implementem a orientação abaixo. Se não o fizer, o seu diretório terá muitos dispositivos híbridos Azure AD que foram registados a partir da sua plataforma VDI não persistente.
+A ad AD híbrida Azure para VDI não persistente não é suportada nas versões atuais do Windows. Ao implementar VDI não persistente para o nível de down-level do Windows, os administradores de TI devem estar atentos à gestão de dispositivos antigos em Azure AD. A Microsoft recomenda que os administradores de TI implementem a orientação abaixo. Se não o fizer, o seu diretório terá muitos dispositivos híbridos Azure AD que foram registados a partir da sua plataforma VDI não persistente.
 
 - Crie e utilize um prefixo para o nome de exibição do computador que indique o ambiente de trabalho como baseado em VDI.
 - Implementar o seguinte comando como parte do script logoff. Este comando irá desencadear uma chamada de melhor esforço para a Azure AD para eliminar o dispositivo.
@@ -85,6 +85,6 @@ Ao implementar vDI não persistente, os administradores de TI devem estar atento
 - Definir e implementar o processo de [gestão de dispositivos antigos.](manage-stale-devices.md)
    - Uma vez que tenha uma estratégia para identificar os dispositivos híbridos Azure AD não persistentes, pode ser mais agressivo na limpeza destes dispositivos para garantir que o seu diretório não seja consumido com muitos dispositivos antigos.
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Configurar o Azure Ative Directy híbrido junta-se ao ambiente federado](hybrid-azuread-join-federated-domains.md)

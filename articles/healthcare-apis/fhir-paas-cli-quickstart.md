@@ -2,19 +2,19 @@
 title: 'Quickstart: Implementar AZure API para FHIR utilizando O Azure CLI'
 description: Neste arranque rápido, você aprenderá a implementar Azure API para FHIR em Azure usando o Azure CLI.
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 10/15/2019
-ms.author: mihansen
+ms.author: matjazl
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e2fdd4c4298946d943ee8a806ebc53966c8dd624
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e1aa3362217a4edcfcf547c69b9effde00459f7e
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500900"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87850564"
 ---
 # <a name="quickstart-deploy-azure-api-for-fhir-using-azure-cli"></a>Quickstart: Implementar AZure API para FHIR utilizando O Azure CLI
 
@@ -58,7 +58,7 @@ Obtenha uma declaração de capacidade da API FHIR com:
 curl --url "https://nameoffhiraccount.azurehealthcareapis.com/metadata"
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não continuar a utilizar esta aplicação, elimine o grupo de recursos com os seguintes passos:
 

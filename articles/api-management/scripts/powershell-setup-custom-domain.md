@@ -1,6 +1,6 @@
 ---
 title: Exemplo de Script do Azure Power Shell - Configurar domínio personalizado | Microsoft Docs
-description: Exemplo de Script do Azure Power Shell - Configurar domínio personalizado
+description: Saiba como configurar um domínio personalizado sobre pontos finais de procuração ou portal do serviço de gestão API. Consulte os scripts da amostra e veja os recursos disponíveis adicionais.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 12/14/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: fedeb9fd1b2dd3bd47f3d950d506e2b2854bfd82
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 16da7891b5321006708dc59ec8d482754beb7d9e
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008794"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853301"
 ---
 # <a name="set-up-custom-domain"></a>Configurar domínio personalizado
 
@@ -33,7 +33,7 @@ Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer a
 
 [!code-powershell[main](../../../powershell_scripts/api-management/setup-custom-domain/setup_custom_domain.ps1 "Set up custom domain")]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos relacionados.
 

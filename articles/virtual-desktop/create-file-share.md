@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7c6b37cd8c127bf3c7643b39d54bfcdb8093c58c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: c9636a08b896cefdbec825e4979ad1ec89f8847b
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027397"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87842914"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Criar um recipiente de perfil com ficheiros Azure e DS AD
 
@@ -31,7 +31,7 @@ Primeiro, terá de criar uma conta de armazenamento do Azure Files.
 
 Para criar uma conta de armazenamento:
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 
 2. Procure uma **conta de armazenamento** na barra de pesquisa.
 
@@ -39,7 +39,7 @@ Para criar uma conta de armazenamento:
 
 4. Introduza as seguintes informações na página **de conta de armazenamento Criar:**
 
-    - Crie um novo grupo de recursos.
+    - Criar um novo grupo de recursos.
     - Introduza um nome único para a conta de armazenamento.
     - Para **localização**, recomendamos que escolha o mesmo local que a piscina de anfitriões virtual do Windows Desktop.
     - Em **Desempenho**, selecione **Standard**. (Dependendo dos seus requisitos de IOPS. Para obter mais informações, consulte [as opções de Armazenamento para recipientes de perfil FSLogix no Windows Virtual Desktop](store-fslogix-profile.md).)
@@ -56,7 +56,7 @@ Em seguida, terá de criar uma partilha de ficheiros Azure.
 
 Para criar uma partilha de ficheiros:
 
-1. Selecione **Ir para o recurso**.
+1. Selecione **Ir para recurso**.
 
 2. Na página 'Vista Geral', selecione **'Ficheiro'.**
 
@@ -190,8 +190,6 @@ Para configurar as suas permissões NTFS:
      icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
 
-5. Selecione **Aplicar**.
-
 ## <a name="configure-fslogix-on-session-host-vms"></a>Configure fSLogix em VMs anfitrião de sessão
 
 Esta secção vai mostrar-lhe como configurar uma VM com o FSLogix. Terá de seguir estas instruções sempre que configurar um anfitrião da sessão. Antes de começar a configurar, siga as instruções no [Download e instale o FSLogix](/fslogix/install-ht). Existem várias opções disponíveis que garantem que as chaves do registo estão definidas em todos os anfitriões da sessão. Pode definir estas opções numa imagem ou configurar uma política de grupo.
@@ -236,6 +234,6 @@ Para verificar as suas permissões na sua sessão:
 
 Para testes adicionais, siga as instruções em [Certificar-se de que o seu perfil funciona](create-profile-container-adds.md#make-sure-your-profile-works).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para resolver problemas, consulte [este guia de resolução de problemas](/fslogix/fslogix-trouble-shooting-ht).

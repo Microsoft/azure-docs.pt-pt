@@ -3,13 +3,13 @@ title: Crie e partilhe um caderno Jupyter na pré-visualização de cadernos Azu
 description: Crie e execute rapidamente um caderno Jupyter na Pré-visualização de Cadernos Azure e, em seguida, partilhe esse caderno com outros.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.custom: tracking-python
-ms.openlocfilehash: ec1a03cb1c05248458a47ec4b22a0243b31bafcd
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-python
+ms.openlocfilehash: 19773a6857d58f5b6af2a02ac28a3414c51fc917
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423291"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849406"
 ---
 # <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>Quickstart: Criar e partilhar um caderno em Pré-visualização de Cadernos Azure
 
@@ -103,7 +103,7 @@ Na página do projeto, também pode utilizar o menu **Partilhar** para obter um 
 
 ![Comando de partilha de projetos](media/quickstarts/share-project-command.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial: Criar e executar um caderno Jupyter para fazer regressão linear](tutorial-create-run-jupyter-notebook.md)

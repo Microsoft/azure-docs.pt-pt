@@ -6,17 +6,17 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: dcb3afd14a7355a08291cd8553d5050d96919aec
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 345d4fe218f5eed433204622bd47481628ec810f
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85801432"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874066"
 ---
-# <a name="get-started-with-log-queries-in-azure-monitor"></a>Começa com consultas de registo no Azure Monitor
+# <a name="get-started-with-log-queries-in-azure-monitor"></a>Introdução às consultas de registos no Azure Monitor
 
 > [!NOTE]
-> Pode trabalhar neste exercício no seu próprio ambiente se estiver a recolher dados de pelo menos uma máquina virtual. Se não, então use o nosso [ambiente Demo,](https://portal.loganalytics.io/demo)que inclui muitos dados da amostra.  Se já sabe como consultar em KQL, mas apenas precisa de criar rapidamente consultas úteis com base no tipo de recursos, consulte o [painel de consultas de exemplo guardado.](saved-queries.md)
+> Pode trabalhar neste exercício no seu próprio ambiente se estiver a recolher dados de pelo menos uma máquina virtual. Se não, então use o nosso [ambiente Demo,](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade)que inclui muitos dados da amostra.  Se já sabe como consultar em KQL, mas apenas precisa de criar rapidamente consultas úteis com base no tipo de recursos, consulte o [painel de consultas de exemplo guardado.](saved-queries.md)
 
 Neste tutorial você aprenderá a escrever consultas de log no Azure Monitor. Vai ensinar-te a:
 
@@ -112,7 +112,7 @@ Ao escrever condições de filtro, pode utilizar as seguintes expressões:
 | == | Verificar igualdade<br>(sensível a casos) | `Level == 8` |
 | =~ | Verificar igualdade<br>(caso-insensível) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
 | !=, <> | Verifique a desigualdade<br>(ambas as expressões são idênticas) | `Level != 4` |
-| *e*, *ou* | Exigido entre condições| `Level == 16 or CommandLine != ""` |
+| *e*, *ou* | Obrigatório entre condições| `Level == 16 or CommandLine != ""` |
 
 Para filtrar por várias condições, pode utilizar **e:**
 

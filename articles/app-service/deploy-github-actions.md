@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.custom: tracking-python
-ms.openlocfilehash: b40da0c8746bc63a99394027b61d777a611727e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: 51a340c2fb32de60f20c678e0bc23f2420261e44
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559595"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849884"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Implementar para o Serviço de Aplicações usando ações do GitHub
 
@@ -29,7 +29,7 @@ Para um fluxo de trabalho do Azure App Service, o ficheiro tem três secções:
 |Section  |Tarefas  |
 |---------|---------|
 |**Autenticação** | 1. Definir um chefe de serviço <br /> 2. Criar um segredo do GitHub |
-|**Compilação** | 1. Configurar o ambiente <br /> 2. Construir a aplicação web |
+|**Construir** | 1. Configurar o ambiente <br /> 2. Construir a aplicação web |
 |**Implementar** | 1. Implementar a aplicação web |
 
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço
@@ -269,7 +269,7 @@ jobs:
         az logout
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Você pode encontrar o nosso conjunto de Ações agrupadas em diferentes repositórios no GitHub, cada um contendo documentação e exemplos para ajudá-lo a usar GitHub para CI/CD e implementar suas aplicações para Azure.
 
@@ -283,7 +283,7 @@ Você pode encontrar o nosso conjunto de Ações agrupadas em diferentes reposit
 
 - [Login/logout do Docker](https://github.com/Azure/docker-login)
 
-- [Eventos que desencadeiam fluxos de trabalho](https://help.github.com/en/articles/events-that-trigger-workflows)
+- [Eventos que acionam fluxos de trabalho](https://help.github.com/en/articles/events-that-trigger-workflows)
 
 - [Implantação de K8s](https://github.com/Azure/k8s-deploy)
 

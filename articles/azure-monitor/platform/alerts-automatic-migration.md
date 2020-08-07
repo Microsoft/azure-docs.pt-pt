@@ -4,16 +4,16 @@ description: Saiba como funciona o processo de migração automática.
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.subservice: alerts
-ms.openlocfilehash: 8df83439d6754440648688ac1cc36ff66556a4e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a2d032c6aa33b72fe422638df45ca48bf8b1036
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77668252"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847288"
 ---
 # <a name="understand-the-automatic-migration-process-for-your-classic-alert-rules"></a>Compreenda o processo de migração automática para as suas regras clássicas de alerta
 
-Como [já tinha sido anunciado,](monitoring-classic-retirement.md)os alertas clássicos no Azure Monitor estão a ser retirados em setembro de 2019 (foi originalmente julho de 2019). Como parte do processo de aposentação, está disponível [uma ferramenta de migração](alerts-using-migration-tool.md) no portal Azure para que os clientes desencadeiem a migração em si. Se ainda não utilizou a ferramenta de migração até 31 de agosto de 2019, o Azure Monitor iniciará o processo de migração automática dos seus alertas clássicos a partir de 1 de setembro de 2019.
+Como [já foi anunciado,](monitoring-classic-retirement.md)os alertas clássicos no Azure Monitor estão reformados, embora ainda em uso limitado para recursos que ainda não suportam os novos alertas. Como parte do processo de aposentação, está disponível [uma ferramenta de migração](alerts-using-migration-tool.md) no portal Azure para que os clientes desencadeiem a migração em si.
 Este artigo acompanha-o através do processo de migração automática e ajuda-o a resolver quaisquer problemas que possa encontrar.
 
   > [!NOTE]
@@ -21,15 +21,15 @@ Este artigo acompanha-o através do processo de migração automática e ajuda-o
 
 ## <a name="what-will-happen-during-the-automatic-migration-process"></a>O que vai acontecer durante o processo de migração automática?
 
-- A partir de 1 de setembro de **2019,** os clientes não poderão criar novas regras clássicas de alerta, exceto em [determinadas métricas.](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated)
-  - Para as exceções, o cliente pode continuar a criar novas regras clássicas de alerta e usar os seus alertas clássicos até junho de 2020.
+- A partir de 1 de setembro de **2019,** os clientes não poderão criar novas regras clássicas de alerta, exceto em [determinadas métricas.](alerts-understand-migration.md#manually-migrating-classic-alerts-to-newer-alerts)
+- Para as exceções, o cliente pode continuar a criar novas regras clássicas de alerta e usar os seus alertas clássicos até novo anúncio.
 - A partir de 1 de setembro de **2019,** a migração de alertas clássicos será desencadeada em lotes para qualquer cliente que tenha alertas clássicos.
-- Tal como acontece com a ferramenta de migração voluntária, certas regras clássicas de alerta que não são migraveis serão deixadas como estão. Estas regras clássicas de alerta continuarão a ser apoiadas até junho de 2020. No entanto, quaisquer regras de alerta clássicas inválidas serão eliminadas por não serem funcionais.
+- Tal como acontece com a ferramenta de migração voluntária, certas regras clássicas de alerta que não são migraveis serão deixadas como estão. Estas regras clássicas de alerta continuarão a ser apoiadas até novo anúncio. No entanto, quaisquer regras de alerta clássicas inválidas serão eliminadas por não serem funcionais.
 Quaisquer regras clássicas de alerta que estejam a monitorizar os recursos-alvo eliminados ou em [métricas que já não sejam suportadas](alerts-understand-migration.md#classic-alert-rules-on-deprecated-metrics) são consideradas inválidas.
 - Uma vez iniciada a migração para a sua subscrição, a menos que haja problemas, a migração deve estar completa dentro de uma hora. Os clientes podem monitorizar o estado da migração [na lâmina de migração no Azure Monitor.](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel)
 - Os proprietários de subscrições receberão um e-mail sobre a conclusão bem sucedida da migração.
 - Se houver algum problema durante a migração, os proprietários de subscrição também receberão um e-mail informando-os do mesmo. Os clientes podem usar a lâmina de migração para ver todos os detalhes do problema.
-- Caso seja necessária uma ação do cliente, como desativar temporariamente um bloqueio de recursos ou alterar uma atribuição de políticas, os clientes terão de resolver quaisquer problemas até 31 de outubro de 2019. Se as questões não forem resolvidas até lá, a migração bem sucedida dos seus alertas clássicos não pode ser garantida.
+- Caso seja necessária uma ação por parte dos clientes, como desativar temporariamente um bloqueio de recursos ou alterar uma atribuição de políticas, os clientes terão de resolver tais problemas. Se as questões não forem resolvidas até lá, a migração bem sucedida dos seus alertas clássicos não pode ser garantida.
 
     > [!NOTE]
     > Se não quiser esperar pelo início do processo de migração automática, ainda pode desencadear a migração voluntariamente utilizando a ferramenta de migração.
@@ -40,7 +40,7 @@ O processo de migração converte regras clássicas de alerta para novas regras 
 
 - Os formatos de carga útil de notificação para novas regras de alerta são diferentes dos das regras clássicas de alerta, uma vez que suportam mais funcionalidades. Se tiver aplicações lógicas, runbooks ou webhooks que são desencadeados pela regra clássica de alerta, podem deixar de funcionar como esperado uma vez que a migração esteja completa devido a diferenças nas cargas de notificação. [Saiba como se preparar para a migração.](alerts-prepare-migration.md)
 
-- Algumas regras clássicas de alerta não podem ser migradas usando a ferramenta. [Saiba quais as regras que não podem ser migradas e o que fazer com elas.](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated)
+- Algumas regras clássicas de alerta não podem ser migradas usando a ferramenta. [Saiba quais as regras que não podem ser migradas e o que fazer com elas.](alerts-understand-migration.md#manually-migrating-classic-alerts-to-newer-alerts)
 
     > [!NOTE]
     > O processo de migração não terá impacto na avaliação das suas regras clássicas de alerta. Continuarão a correr e a enviar alertas até serem migrados e as novas regras de alerta entrarem em vigor.
@@ -52,9 +52,9 @@ Quando o processo de migração automática falhar, os proprietários de subscri
 Consulte o [guia de resolução de problemas](alerts-understand-migration.md#common-problems-and-remedies) para obter ajuda com problemas que possa enfrentar durante a migração.
 
   > [!NOTE]
-  > Caso seja necessária uma ação do cliente, como desativar temporariamente um bloqueio de recursos ou alterar uma atribuição de políticas, os clientes terão de resolver quaisquer problemas até 31 de outubro de 2019. Se as questões não forem resolvidas até lá, a migração bem sucedida dos seus alertas clássicos não pode ser garantida.
+  > Caso seja necessária uma ação por parte dos clientes, como desativar temporariamente um bloqueio de recursos ou alterar uma atribuição de políticas, os clientes terão de resolver tais problemas. Se as questões não forem resolvidas até lá, a migração bem sucedida dos seus alertas clássicos não pode ser garantida.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Preparar para a migração](alerts-prepare-migration.md)
 - [Compreender como funciona a ferramenta de migração](alerts-understand-migration.md)

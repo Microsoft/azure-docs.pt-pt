@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.custom: tracking-python
-ms.openlocfilehash: d9d48e825adeecd54375ce13c612d4a0c6eaaa18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: 6c095083f88c00f706d19d1c652e19da007c6542
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263420"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876432"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-c-notebooks-preview"></a>Use comandos e funcionalidades de cadernos incorporados em cadernos Azure Cosmos DB C# (pré-visualização)
 
@@ -162,7 +162,7 @@ Para redefinir o espaço de trabalho dos blocos de notas para as definições pr
 
 :::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Redefinir espaço de trabalho de cadernos":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça os benefícios dos [cadernos Azure Cosmos DB Jupyter](cosmosdb-jupyter-notebooks.md)
 - Conheça o [Azure Cosmos DB .NET SDK para API SQL](https://github.com/Azure/azure-cosmos-dotnet-v3)

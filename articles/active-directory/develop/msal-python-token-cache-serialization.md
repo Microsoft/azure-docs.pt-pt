@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 11/13/2019
 ms.author: rayluo
 ms.reviewer: nacanuma
-ms.custom: aaddev, tracking-python
-ms.openlocfilehash: 57efe11f0c44d7dfe6d35f2e56d512d6e2e2fa98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: aaddev, devx-track-python
+ms.openlocfilehash: 7aaf59377949101ba8dd5c9454b89229e925e859
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479288"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846195"
 ---
 # <a name="custom-token-cache-serialization-in-msal-for-python"></a>Serialização de cache de ficha personalizada em MSAL para Python
 
@@ -36,6 +36,6 @@ As aplicações de clientes públicos funcionam no dispositivo de um utilizador 
 
 Para aplicações web ou APIs web, você pode usar a sessão, ou uma cache Redis, ou uma base de dados para armazenar a cache simbólica. Deve haver uma cache simbólica por utilizador (por conta) para garantir que serialize a cache simbólica por conta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte [o ms-identidade-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/master/app.py#L64-L72) para um exemplo de como usar a cache simbólica para uma aplicação Web Windows ou Linux ou web API. O exemplo é para uma aplicação web que chama a API do Microsoft Graph.

@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: e7ebcf39c203f9956b23ef22754b38f32e9d9352
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 0a383e8e2c38dbd00e0a55f9debb9b4daf40fa9c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323017"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832761"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Começar pelos operadores de TI da Azure
 
@@ -178,7 +178,7 @@ Os administradores podem aceder ao Azure PowerShell e ao Azure CLI através de u
 
 ## <a name="azure-subscriptions"></a>Subscrições do Azure
 
-Uma subscrição é um agrupamento lógico de serviços Azure que está ligado a uma conta Azure. Uma única conta Azure pode conter várias subscrições. A faturação dos serviços Azure é feita por subscrição. As subscrições do Azure têm um Administrador de Conta, que tem controlo total sobre a subscrição, e um Administrador de Serviço, que tem controlo sobre todos os serviços na subscrição. Para obter informações sobre administradores de subscrição clássicos, consulte [adicionar ou alterar administradores de subscrição do Azure](../../cost-management-billing/manage/add-change-subscription-administrator.md). Para além dos administradores, as contas individuais podem ser concedidas a um controlo pormenorizado dos recursos da Azure utilizando [o controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md).
+Uma subscrição é um agrupamento lógico de serviços Azure que está ligado a uma conta Azure. Uma única conta Azure pode conter várias subscrições. A faturação dos serviços Azure é feita por subscrição. As subscrições do Azure têm um Administrador de Conta, que tem controlo total sobre a subscrição, e um Administrador de Serviço, que tem controlo sobre todos os serviços na subscrição. Para obter informações sobre administradores de subscrição clássicos, consulte [adicionar ou alterar administradores de subscrição do Azure](../../cost-management-billing/manage/add-change-subscription-administrator.md). Para além dos administradores, as contas individuais podem ser concedidas a um controlo pormenorizado dos recursos da Azure utilizando [o controlo de acesso baseado em funções da Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ### <a name="select-and-enable-an-azure-subscription"></a>Selecione e ative uma subscrição Azure
 
@@ -374,7 +374,7 @@ O Armazenamento do Azure suporta três tipos de blobs:
 
 - **As bolhas de bloco** são usadas para conter ficheiros comuns até 195 GB de tamanho (4 MB × 50.000 blocos). A utilização principal para blobs de blocos é o armazenamento de ficheiros que são lidos do início ao fim, como ficheiros multimédia ou ficheiros de imagem para sites. São chamadas blobs de bloco porque os ficheiros maiores que 64 MB devem ser carregados como blocos pequenos. Estes blocos são então consolidados (ou comprometidos) na bolha final.
 
-- **As bolhas de página** são usadas para conter ficheiros de acesso aleatório até 1 TB de tamanho. As bolhas de página são usadas principalmente como armazenamento de suporte para os VHDs que fornecem discos duráveis para Máquinas Virtuais Azure, o serviço de computação IaaS em Azure. São denominados blobs de páginas porque dão acesso aleatório de leitura/escrita a páginas de 512 bytes.
+- **As bolhas de página** são usadas para conter ficheiros de acesso aleatório até 1 TB de tamanho. As bolhas de página são usadas principalmente como armazenamento de suporte para os VHDs que fornecem discos duráveis para Máquinas Virtuais Azure, o serviço de computação IaaS em Azure. São denominados blobs de páginas pois dão um acesso aleatório de leitura/escrita para páginas de 512 bytes.
 
 - **As bolhas de apêndice** consistem em blocos como bolhas de bloco, mas são otimizadas para operações de apêndice. Estes são frequentemente utilizados para registar informações de uma ou mais fontes para a mesma bolha. Por exemplo, pode escrever todos os seus vestígios de registo no mesmo apêndice blob para uma aplicação que está em funcionamento em vários VMs. Um único blob de acréscimo pode ter até 195 GB.
 

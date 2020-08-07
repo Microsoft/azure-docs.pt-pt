@@ -4,16 +4,30 @@ description: Saiba as diferentes formas de implantar código para as Funções A
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 754a3ea2a316878cc8c2bd918b99476a7194b545
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: bf8944952abf83837d05019bd783bec2fd43cefe
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562944"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905130"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação em Funções Azure
 
-Pode utilizar algumas tecnologias diferentes para implementar o seu código de projeto Azure Functions para a Azure. Este artigo fornece uma lista exaustiva dessas tecnologias, descreve quais as tecnologias disponíveis para as quais os sabores das Funções, explica o que acontece quando se usa cada método, e fornece recomendações para o melhor método a utilizar em vários cenários. As várias ferramentas que suportam a implantação para as Funções Azure estão sintonizadas com a tecnologia certa com base no seu contexto. Em geral, a implantação zip é a tecnologia de implantação recomendada para funções Azure.
+Pode utilizar algumas tecnologias diferentes para implementar o seu código de projeto Azure Functions para a Azure. Este artigo fornece uma visão geral dos métodos de implementação disponíveis para si e recomendações para o melhor método a utilizar em vários cenários. Também fornece uma lista exaustiva de detalhes e detalhes fundamentais sobre as tecnologias de implantação sub-lyng. 
+
+## <a name="deployment-methods"></a>Métodos de implantação
+
+A tecnologia de implementação que utiliza para publicar código para a Azure é geralmente determinada pela forma como publica a sua aplicação. O método de implantação adequado é determinado por necessidades específicas e pelo ponto no ciclo de desenvolvimento. Por exemplo, durante o desenvolvimento e teste pode ser implantado diretamente a partir da sua ferramenta de desenvolvimento, como o Código do Estúdio Visual. Quando a sua aplicação está em produção, é mais provável que publique continuamente a partir do controlo de origem ou utilizando um pipeline de publicação automatizado, que inclui validação e testes adicionais.  
+
+A tabela seguinte descreve os métodos de implantação disponíveis para o seu projeto Function.
+
+| Tipo de implantação &nbsp; | Métodos | Melhor para... |
+| -- | -- | -- |
+| Baseado em ferramentas | &bull;&nbsp;[Publicação visual &nbsp; studio &nbsp; code &nbsp;](functions-develop-vs-code.md#publish-to-azure)<br/>&bull;&nbsp;[Publicação do Estúdio Visual](functions-develop-vs.md#publish-to-azure)<br/>&bull;&nbsp;[Publicação de Ferramentas Centrais](functions-run-local.md#publish) | Implementações durante o desenvolvimento e outras implementações de ad-hock. As implementações são geridas localmente pela ferramenta. | 
+| Serviço de Aplicações gerido| &bull;&nbsp;[Centro de Implantação &nbsp; &nbsp; (CI/CD)](functions-continuous-deployment.md)<br/>&bull;&nbsp;[&nbsp;Implantações de contentores](functions-create-function-linux-custom-image.md#enable-continuous-deployment-to-azure) |  Implantação contínua (CI/CD) do controlo de origem ou de um registo de contentores. As implementações são geridas pela plataforma de Serviço de Aplicações (Kudu).|
+| Gasodutos externos|&bull;&nbsp;[Oleodutos DevOps](functions-how-to-azure-devops.md)<br/>&bull;&nbsp;[Ações do GitHub](functions-how-to-github-actions.md) | Os oleodutos de produção e DevOps que incluem validação adicional, testes e outras ações são executados como parte de uma implementação automatizada. As implementações são geridas pelo gasoduto. |
+
+Embora as implementações específicas de funções utilizem a melhor tecnologia com base no seu contexto, a maioria dos métodos de implementação baseia-se na [implementação de zíperes](#zip-deploy).
 
 ## <a name="deployment-technology-availability"></a>Disponibilidade de tecnologia de implantação
 
@@ -194,7 +208,7 @@ A tabela a seguir mostra os sistemas operativos e os idiomas que suportam a edi�
 
 Quando implementar a sua aplicação de função para Azure, pode implementar para uma ranhura de implementação separada em vez de diretamente para a produção. Para obter mais informações sobre slots de implementação, consulte a documentação das [ranhuras de implantação de funções Azure](../app-service/deploy-staging-slots.md) para obter mais detalhes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia estes artigos para saber mais sobre a implementação das suas aplicações de função:
 

@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.custom: tracking-python, devx-track-javascript
-ms.openlocfilehash: 51b0e8b0518f9ba32c8954fce601bdd1d59b6f70
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-python, devx-track-javascript
+ms.openlocfilehash: 2dc701b15b0fd30af0f4a28e39153c0ee77ae128
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87413940"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87850343"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Como ligar aplicações à Base de Dados do Azure para MySQL
 Este tópico lista os tipos de cadeias de ligação que são suportados pela Base de Dados Azure para o MySQL, juntamente com modelos e exemplos. Pode ter diferentes parâmetros e configurações na sua cadeia de ligação.
@@ -67,5 +67,5 @@ No [portal Azure,](https://portal.azure.com)aceda à sua Base de Dados Azure par
 
 A cadeia fornece detalhes como o controlador, servidor e outros parâmetros de ligação da base de dados. Modifique estes exemplos para utilizar os seus próprios parâmetros, tais como nome de base de dados, palavra-passe, e assim por diante. Em seguida, pode utilizar este fio para ligar ao servidor a partir do seu código e aplicações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Para obter mais informações sobre bibliotecas de ligação, consulte [Conceitos - Bibliotecas de ligação.](./concepts-connection-libraries.md)

@@ -1,6 +1,7 @@
 ---
-title: Configure uma aplicação para expor APIs web - plataforma de identidade da Microsoft Azure
-description: Saiba como configurar uma aplicação para expor uma nova permissão/âmbito e função para disponibilizar a aplicação às aplicações cliente.
+title: 'Quickstart: Configurar uma app para expor uma API web Rio Azure'
+titleSuffix: Microsoft identity platform
+description: Neste arranque rápido, aprende-se a configurar uma aplicação para expor uma nova permissão/âmbito e papel para disponibilizar a aplicação às aplicações dos clientes.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -8,30 +9,27 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 08/14/2019
+ms.date: 08/05/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: e005ba9c5458849863bd4668ffde1e0f6fb4bf91
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 93b0c3392a32a6ff18a285d34fdaede6ceea6528
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76704226"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830296"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Quickstart: Configure uma aplicação para expor APIs web
+# <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>Quickstart: Configurar uma aplicação para expor uma API web
 
 Pode programar uma API Web e expor [permissões/âmbitos](developer-glossary.md#scopes) e [funções](developer-glossary.md#roles) para a disponibilizar às aplicações cliente. As APIs Web configuradas corretamente são disponibilizadas tal e qual as outras APIs Web da Microsoft, incluindo a Graph API e as APIs do Office 365.
 
-Neste início rápido, vai aprender a configurar uma aplicação para expor um novo âmbito para o disponibilizar às aplicações cliente.
+Neste arranque rápido, aprende-se a configurar uma aplicação para expor uma nova margem de manobra para a disponibilizar às aplicações dos clientes.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, certifique-se de que cumpre estes pré-requisitos:
-
-* Saiba mais sobre as [permissões e consentimentos](v2-permissions-and-consent.md) suportados, que é importante compreender se estiver a criar aplicações que têm de ser utilizadas por outros utilizadores ou aplicações.
-* Ter um inquilino com aplicações registadas.
-  * Se não tiver aplicações registadas, [saiba como registar aplicações na plataforma de identidade da Microsoft](quickstart-register-app.md).
+* Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Conclusão do [Quickstart: Registar uma aplicação com a plataforma de identidade microsoft](quickstart-register-app.md).
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Iniciar sessão no portal do Azure e selecionar a aplicação
 
@@ -39,7 +37,7 @@ Antes de poder configurar a aplicação, siga estes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
-1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure** e, em seguida, selecione **os registos**da App .
+1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure** e, em seguida, selecione **registos de Aplicações**.
 1. Encontre e selecione a aplicação que quer configurar. Depois de selecionar a aplicação, verá a página **Descrição Geral** da aplicação ou a página de registo principal.
 1. Escolha o método que quer utilizar, a IU ou o manifesto de aplicação para expor um novo âmbito:
     * [Expor um novo âmbito através da IU](#expose-a-new-scope-through-the-ui)
@@ -75,17 +73,28 @@ Para expor um novo âmbito através da IU:
 
 1. Defina o **Estado** e selecione **Adicionar âmbito** quando terminar.
 
+1. (Opcional) Para suprimir o pedido de consentimento dos utilizadores da sua app para os âmbitos definidos, pode "pré-autorizar" a aplicação do cliente a aceder à sua API web. Deve pré-autorizar *apenas* as aplicações de cliente em que confia, uma vez que os seus utilizadores não terão a oportunidade de recusar o consentimento.
+    1. Sob **aplicações de cliente autorizadas,** selecione **Adicionar uma aplicação ao cliente**
+    1. Introduza o ID de **Aplicação (cliente)** da aplicação do cliente que pretende pré-autorizar. Por exemplo, a de uma aplicação web que já registou anteriormente.
+    1. Nos **âmbitos autorizados,** selecione os âmbitos para os quais pretende suprimir o pedido de consentimento e, em seguida, selecione **Adicionar a aplicação**.
+
+    A aplicação do cliente é agora uma aplicação de cliente pré-autorizada (PCA), e os utilizadores não serão solicitados para consentimento ao iniciar sessão.
+
 1. Siga os passos para [verificar se a API Web está exposta a outras aplicações](#verify-the-web-api-is-exposed-to-other-applications).
 
 ## <a name="expose-a-new-scope-or-role-through-the-application-manifest"></a>Expor um novo âmbito ou função através do manifesto de aplicação
 
-[![Expor um novo âmbito usando a coleção oauth2Permissions no manifesto](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png#lightbox)
+O manifesto de aplicação serve como um mecanismo de atualização da entidade de aplicação que define os atributos de um registo de aplicações AD AZure.
 
-Para expor um novo âmbito através do manifesto de aplicação:
+[![Expor um novo âmbito utilizando a coleção de oauth2Permissions no manifesto](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png#lightbox)
+
+Para expor um novo âmbito editando o manifesto de aplicação:
 
 1. A partir da página **Descrição geral** da aplicação, selecione a secção **Manifesto**. É aberto um editor de manifesto baseado na Web, que lhe permite **Editar** o manifesto no portal. Opcionalmente, pode selecionar **Transferir**, editar o manifesto localmente e, em seguida, utilizar **Carregar** para o reaplicar à aplicação.
-    
+
     O exemplo seguinte mostra como expor um novo âmbito denominado `Employees.Read.All` no recurso/API ao adicionar o seguinte elemento JSON à coleção `oauth2Permissions`.
+
+    Gere o `id` valor programáticamente ou utilizando uma ferramenta de geração GUID como [o guidgen](https://www.microsoft.com/download/details.aspx?id=55984).
 
       ```json
       {
@@ -100,39 +109,41 @@ Para expor um novo âmbito através do manifesto de aplicação:
       }
       ```
 
-   > [!NOTE]
-   > O valor de `id` tem de ser gerado programaticamente ou com uma ferramenta de geração de GUID, como o [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). `id` representa um identificador exclusivo para o âmbito conforme é exposto pela API Web. Após um cliente ser devidamente configurado com permissões para aceder à sua API Web, o Azure AD emite um token de acesso OAuth 2.0 ao mesmo. Quando o cliente chamar a API Web, apresenta o token de acesso que tem a afirmação de âmbito (scp) definida como as permissões pedidas no registo da aplicação.
-   >
-   > Se necessário, pode expor âmbitos adicionais mais tarde. Considere que a API Web poderá expor vários âmbitos associados a diversas funções diferentes. O seu recurso pode controlar o acesso à API Web no runtime ao avaliar a afirmação ou afirmações do âmbito (`scp`) no token de acesso OAuth 2.0 recebido.
-
 1. Quando terminar, clique em **Guardar**. A sua API Web está agora configurada para ser utilizada por outras aplicações no seu diretório.
 1. Siga os passos para [verificar se a API Web está exposta a outras aplicações](#verify-the-web-api-is-exposed-to-other-applications).
 
+Para obter mais informações sobre a entidade de aplicação e o seu esquema, consulte a documentação de referência do tipo de recurso do [Microsoft][ms-graph-application] Graph.
+
+Para obter mais informações sobre o manifesto da aplicação, incluindo a sua referência de esquema, consulte [compreender o manifesto da aplicação AD AZure.](reference-app-manifest.md)
+
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>Verificar se a API Web está exposta a outras aplicações
 
-1. Regresse ao seu inquilino do Azure AD, selecione **Registos de aplicações**, localize e selecione a aplicação cliente que quer configurar.
+1. Volte ao seu inquilino Azure AD, selecione **registos de Aplicações**e, em seguida, encontre e selecione a aplicação do cliente que pretende configurar.
 1. Repita os passos descritos em [Configurar uma aplicação cliente para aceder a APIs Web](quickstart-configure-app-access-web-apis.md).
-1. Quando chegar ao passo para [selecionar um API,](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis
-)selecione o seu recurso. Deverá ver o novo âmbito disponível para pedidos de permissão de cliente.
+1. Quando chegar ao passo para [selecionar uma API,](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)selecione o seu recurso (o registo de aplicações da API na Web).
+    * Se criou o registo de aplicações da API web utilizando o portal Azure, o seu recurso API está listado no separador **My APIs.**
+    * Se permitiu que o Visual Studio criasse o registo de aplicações da API na web durante a criação do projeto, o seu recurso API está listado no **separador APIs que** a minha organização utiliza.
 
-## <a name="more-on-the-application-manifest"></a>Mais sobre o manifesto da aplicação
+Uma vez selecionado o recurso API web, deverá ver o novo âmbito disponível para pedidos de permissão do cliente.
 
-O manifesto de aplicação funciona como um mecanismo para atualizar a entidade da aplicação, que define todos os atributos de configuração de identidade de uma aplicação do Azure AD. Para obter mais informações sobre a entidade Aplicação e respetivo esquema, veja a documentação [Entidade de Aplicação da Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity). O artigo contém informações de referência completas sobre os membros da entidade Aplicação utilizados para especificar permissões para a sua API, incluindo:  
+## <a name="using-the-exposed-scopes"></a>Utilizando os âmbitos expostos
 
-* O membro appRoles, que é uma coleção de entidades [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type), utilizado para definir as [permissões da aplicação](developer-glossary.md#permissions) de uma API Web.
-* O membro oauth2Permissions, que é uma coleção de entidades [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type), utilizado para definir as [permissões delegadas](developer-glossary.md#permissions) de uma API Web.
+Uma vez que um cliente esteja devidamente configurado com permissões para aceder à sua API web, pode ser emitido um token de acesso OAuth 2.0 pela Azure AD. Quando o cliente liga para a API web, apresenta o token de acesso que tem o âmbito de aplicação ( `scp` ) reclamação definido para as permissões solicitadas no seu registo de inscrição.
 
-Para obter mais informações sobre os conceitos gerais do manifesto de aplicação, veja [Compreender o manifesto de aplicação do Azure Active Directory](reference-app-manifest.md).
+Se necessário, pode expor âmbitos adicionais mais tarde. Considere que a API Web poderá expor vários âmbitos associados a diversas funções diferentes. O seu recurso pode controlar o acesso à API Web no runtime ao avaliar a afirmação ou afirmações do âmbito (`scp`) no token de acesso OAuth 2.0 recebido.
+
+Nas suas aplicações, o valor de âmbito completo é uma concatenação do **ID URI** de aplicação da API web (o recurso) e do nome de **âmbito.**
+
+Por exemplo, se o ID URI de aplicação da sua Web for `https://contoso.com/api` e o nome do seu âmbito `Employees.Read.All` for, o âmbito completo é:
+
+`https://contoso.com/api/Employees.Read.All`
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre outros inícios rápidos de gestão de aplicações relacionados:
+Agora que expôs a sua API web configurando os seus âmbitos, configure o registo da sua aplicação cliente com permissão para aceder a esses âmbitos.
 
-* [Registar uma aplicação na plataforma de identidade da Microsoft](quickstart-register-app.md)
-* [Configurar uma aplicação cliente para aceder a APIs Web](quickstart-configure-app-access-web-apis.md)
-* [Modificar as contas suportadas por uma aplicação](quickstart-modify-supported-accounts.md)
-* [Remover uma aplicação registada na plataforma de identidade da Microsoft](quickstart-remove-app.md)
+> [!div class="nextstepaction"]
+> [Configurar um registo de aplicações para acesso web api](quickstart-configure-app-access-web-apis.md)
 
-Para saber mais sobre os dois objetos do Azure AD que representam uma aplicação registada e o relacionamento entre os mesmos, veja [Application objects and service principal objects](app-objects-and-service-principals.md) (Objetos da aplicação e objetos do principal de serviço).
-
-Para saber mais sobre as diretrizes de imagem corporativa que deve seguir quando desenvolver aplicações com o Azure Active Directory, veja [Diretrizes de imagem corporativa para aplicações](howto-add-branding-in-azure-ad-apps.md).
+<!-- REF LINKS -->
+[ms-graph-application]: /graph/api/resources/application

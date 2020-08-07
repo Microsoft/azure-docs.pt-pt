@@ -6,17 +6,17 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 07/29/2020
 ms.author: komammas
-ms.custom: mvc, tracking-python
-ms.openlocfilehash: 165f688233ef03a390e8e1d5cccf2b2e45218c43
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: mvc, devx-track-python
+ms.openlocfilehash: 9b58aa06b67f01cf9ce0b30cef0326185124306c
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407462"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853318"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Tutorial: Executar scripts Python através da Azure Data Factory usando Azure Batch
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, irá aprender a:
 
 > [!div class="checklist"]
 > * Autenticar com contas do Batch e de Armazenamento
@@ -147,7 +147,7 @@ Caso sejam produzidos avisos ou erros pela execução do seu script, pode verifi
 1. Clique na tarefa que tinha um código de saída de falha.
 1. Ver `stdout.txt` e investigar e diagnosticar o seu `stderr.txt` problema.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você explorou um exemplo que o ensinou a executar scripts Python como parte de um oleoduto através da Azure Data Factory usando Azure Batch.
 

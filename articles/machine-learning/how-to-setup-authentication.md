@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-javascript
-ms.openlocfilehash: 4061d7a3d21b8c2db2bf161c422994cb2742b0b4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9d73492110703e64df5f948ad8a2a1ed8d2c63b9
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489882"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904543"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurar a autenticação para recursos de aprendizagem automática Azure e fluxos de trabalho
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -36,6 +36,9 @@ Independentemente do tipo de autenticação utilizado, o controlo de acesso base
 * [Configure o seu ambiente de desenvolvimento](how-to-configure-environment.md) para instalar o Azure Machine Learning SDK, ou use um [VM de Aprendizagem de Máquinas Azure](concept-azure-machine-learning-architecture.md#compute-instance) com o SDK já instalado.
 
 ## <a name="interactive-authentication"></a>Autenticação interativa
+
+> [!IMPORTANT]
+> A autenticação interativa utiliza o seu navegador e requer cookies (incluindo cookies de 3ª parte). Se tiver cookies desativados, poderá receber um erro como "não podemos inscrevê-lo". Este erro também pode ocorrer se tiver ativado [a autenticação de vários fatores Azure](/azure/active-directory/authentication/concept-mfa-howitworks).
 
 A maioria dos exemplos na documentação e amostras utilizam a autenticação interativa. Por exemplo, ao utilizar o SDK existem duas chamadas de função que irão automaticamente insusá-lo com um fluxo de autenticação baseado em UI:
 

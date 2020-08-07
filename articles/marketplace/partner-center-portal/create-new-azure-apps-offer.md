@@ -7,12 +7,12 @@ ms.topic: article
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 7a0f04344d2e4213bbbabb63d57bdaf933154388
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 425ed63238c07ffcf53df10eeddfa0ac95679a2c
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797900"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904519"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicações do Azure
 
@@ -56,12 +56,12 @@ Reveja os seguintes recursos enquanto prepara a sua oferta de candidatura a Azur
 
 Os [modelos de solução de construção de vídeo e aplicações geridas para o Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) dão uma introdução abrangente ao tipo de oferta de aplicação Azure:
 
-* Que tipos de oferta estão disponíveis;
-* Que ativos técnicos são necessários;
-* Como autoria de um modelo de Gestor de Recursos Azure;
-* Desenvolvimento e teste da UI da aplicação;
-* Como publicar a oferta da app;
-* O processo de revisão de candidaturas.
+* Que tipos de oferta estão disponíveis
+* Que ativos técnicos são necessários
+* Como autor de um modelo de Gestor de Recursos Azure
+* Desenvolvimento e teste da UI da aplicação
+* Como publicar a oferta da app
+* O processo de revisão de candidaturas
 
 ### <a name="suggested-tools"></a>Ferramentas sugeridas
 
@@ -247,15 +247,14 @@ Forneça logotipos e imagens para utilizar com a sua oferta. Todas as imagens de
 
 #### <a name="store-logos"></a>Logotipos da loja
 
-Forneça um ficheiro PNG para o logotipo de tamanho **grande** (entre 216 x 216 e 350 x 350 pixels). O Partner Center utilizará isto para criar um logótipo de tamanho **Pequeno** (48 x 48 pixels) e um logotipo de tamanho **Médio** (90 x 90 pixels). Pode substituir opcionalmente estas imagens diferentes.
-
-Todos os três tamanhos de logotipo são necessários para serem utilizados em diferentes locais da listagem:
+Forneça ficheiros PNG do logótipo da sua oferta nos seguintes três tamanhos de pixel:
 
 - **Pequeno** (48 x 48)
 - **Médio** (90 x 90)
-- **Grande** (entre 216 x 216 e 350 x 350)
+- **Grande** (216 x 216)
+- **Largo** (255 x 115)
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+Todos os três logótipos são necessários e são usados em diferentes lugares na listagem.
 
 #### <a name="screenshots"></a>Capturas de ecrã
 
@@ -283,7 +282,7 @@ O seu público de pré-visualização é identificado por GUIDs de assinatura Az
 Adicione pelo menos um ID de subscrição Azure, individualmente (até 10) ou carregando um ficheiro CSV (até 100). Ao adicionar estes IDs de subscrição, define quem pode pré-visualizar a sua oferta antes de ser publicada ao vivo. Se a sua oferta já estiver ao vivo, poderá ainda definir um público de pré-visualização para testar alterações ou atualizações da sua oferta.
 
 > [!NOTE]
-> Um público de pré-visualização difere de uma audiência privada. Um público de pré-visualização pode aceder à sua oferta _antes_ de ser publicada ao vivo nos mercados. Eles podem ver e validar todos os planos, incluindo aqueles que estarão disponíveis apenas para um público privado após a sua oferta ser totalmente publicada no mercado. Um público privado (definido no **separador de preços e disponibilidade** do plano) tem acesso exclusivo a um determinado plano.
+> Um público de pré-visualização difere de uma audiência privada. Um público de pré-visualização pode aceder à sua oferta *antes* de ser publicada ao vivo nos mercados. Eles podem ver e validar todos os planos, incluindo aqueles que estarão disponíveis apenas para um público privado após a sua oferta ser totalmente publicada no mercado. Um público privado (definido no **separador de preços e disponibilidade** do plano) tem acesso exclusivo a um determinado plano.
 
 **Selecione Guardar o projeto** antes de continuar.
 
@@ -324,7 +323,7 @@ Uma vez criado, verá os nomes do seu plano, IDs, tipo de plano, disponibilidade
 
 ***ID do plano*** – Criar um ID de plano único para cada plano nesta oferta. Este ID será visível para os clientes no URL do produto.  Utilize apenas caracteres minúsculos, alfanuméricos, traços ou sublinhados. Um máximo de 50 caracteres são permitidos para este iD do plano. Este ID não pode ser modificado após a seleção criar.
 
-***Nome do*** plano - Os clientes verão este nome ao decidir qual o plano a selecionar dentro da sua oferta. Crie um nome de oferta único para cada plano nesta oferta. O nome do plano é usado para diferenciar planos de software que podem fazer parte da mesma oferta (por exemplo, nome de oferta: Windows Server; planos: Windows Server 2016, Windows Server 2019).
+***Nome do*** plano – Os clientes verão este nome ao decidir qual o plano a selecionar dentro da sua oferta. Crie um nome de oferta único para cada plano nesta oferta. O nome do plano é usado para diferenciar planos de software que podem fazer parte da mesma oferta (por exemplo, nome de oferta: Windows Server; planos: Windows Server 2016, Windows Server 2019).
 
 ### <a name="plan-setup"></a>Configuração do plano
 
@@ -335,7 +334,7 @@ Selecione o tipo de plano para a sua oferta. Um plano **de modelo de solução**
 
 #### <a name="re-use-technical-configuration"></a>Reutilizar a configuração técnica
 
-Se tiver mais do que um plano do mesmo tipo e as embalagens forem idênticas entre eles, poderá selecionar **este plano reutiliza pacotes de outro plano**.  Ao selecionar esta opção, poderá selecionar um dos outros planos do mesmo tipo para esta oferta de reutilização de pacotes a partir de. 
+Se tiver mais do que um plano do mesmo tipo e as embalagens forem idênticas entre eles, poderá selecionar **este plano reutiliza pacotes de outro plano**.  Ao selecionar esta opção, poderá selecionar um dos outros planos do mesmo tipo para esta oferta de reutilização de pacotes a partir de.
 
 >[!Note]
 >Quando reutilizar os pacotes a partir de outro plano, todo o separador de configuração técnica desaparecerá deste plano. Os detalhes de configuração técnica do outro plano, incluindo quaisquer atualizações que fizer no futuro, também serão utilizados para este plano.<br><br>Esta definição não pode ser alterada após a publicação deste plano.
@@ -416,9 +415,9 @@ Se já estabeleceu preços para o seu plano em Dólares dos Estados Unidos (USD)
 
 Forneça o preço mensal para este plano.  Este preço é além de qualquer infraestrutura Azure ou custos de software pay-as-you-go incorridos pelos recursos implementados por esta solução.
 
-Além do preço mensal, também pode definir preços para consumo de unidades não standard usando [faturação medido.](./azure-app-metered-billing.md)  Pode definir o preço por mês para zero e cobrar exclusivamente usando faturação medido, se quiser. 
+Além do preço mensal, também pode definir preços para consumo de unidades não standard usando [faturação medido.](./azure-app-metered-billing.md)  Pode definir o preço por mês para zero e cobrar exclusivamente usando faturação medido, se quiser.
 
-Os preços fixados em USD (USD = Dólar dos Estados Unidos) são convertidos na moeda local de todos os mercados selecionados utilizando as taxas de câmbio atuais quando guardados. Validar estes preços antes de publicar exportando a folha de cálculo de preços e revendo o preço em cada mercado. Se quiser definir preços personalizados num mercado individual, modifique e importe a folha de cálculo de preços. 
+Os preços fixados em USD (USD = Dólar dos Estados Unidos) são convertidos na moeda local de todos os mercados selecionados utilizando as taxas de câmbio atuais quando guardados. Validar estes preços antes de publicar exportando a folha de cálculo de preços e revendo o preço em cada mercado. Se quiser definir preços personalizados num mercado individual, modifique e importe a folha de cálculo de preços.
 
 >[!Note]
 >Primeiro, tem de guardar as suas alterações de preços para permitir a exportação de dados de preços.
@@ -442,8 +441,7 @@ Se tornar o plano privado, insira um **ID de assinatura Azure** e a sua descriç
 >[!Note]
 >As ofertas privadas não são suportadas com subscrições Azure estabelecidas através de um revendedor do programa Cloud Solution Provider (CSP).
 
-
-### <a name="technical-configuration"></a>Configuração técnica 
+### <a name="technical-configuration"></a>Configuração técnica
 
 Este separador permite-lhe fazer o upload do pacote de implementação que permitirá aos clientes implementar o seu plano.
 
@@ -501,15 +499,15 @@ Especifique um ponto final https Webhook para receber notificações sobre todas
 
 #### <a name="customize-allowed-customer-actions"></a>Personalizar ações permitidas ao cliente
 
-Selecione esta opção para especificar quais as ações que os clientes podem executar nos recursos geridos, além das `*/read` " ações " que estão disponíveis por padrão. 
+Selecione esta opção para especificar quais as ações que os clientes podem executar nos recursos geridos, além das `*/read` " ações " que estão disponíveis por padrão.
 
-Enuse as ações adicionais que pretende permitir que o seu cliente realize aqui, separadas por pontos de e vírgão.  Para obter mais informações, consulte [Understanding negar atribuições para recursos Azure](../../role-based-access-control/deny-assignments.md).  Para as ações disponíveis, consulte [as operações do fornecedor de recursos do Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md). Por exemplo, permitir que os consumidores reiniciem as máquinas virtuais, adicione `Microsoft.Compute/virtualMachines/restart/action` às ações permitidas.
+Enuse as ações adicionais que pretende permitir que o seu cliente realize aqui, separadas por pontos de e vírgão.  Para obter mais informações, consulte [Understanding negar atribuições para recursos Azure](../../role-based-access-control/deny-assignments.md). Para as ações disponíveis, consulte [as operações do fornecedor de recursos do Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md). Por exemplo, permitir que os consumidores reiniciem as máquinas virtuais, adicione `Microsoft.Compute/virtualMachines/restart/action` às ações permitidas.
 
 #### <a name="global-azure--azure-government-cloud"></a>Global Azure / Azure Government Cloud
 
-Indique quem deve ter acesso à gestão a esta aplicação gerida em cada nuvem suportada. Os utilizadores, grupos ou aplicações que pretende ser autorizados ao grupo de recursos geridos são identificados usando identidades do Azure Ative Directory (AAD).
+Indique quem deve ter acesso à gestão a esta aplicação gerida em cada nuvem suportada. Os utilizadores, grupos ou aplicações que pretende ser autorizados ao grupo de recursos geridos são identificados usando identidades do Azure Ative Directory (AD).
 
-**Azure Ative Directory Tenanty ID** – O ID do Inquilino AAD (também conhecido como ID do diretório) contendo as identidades dos utilizadores, grupos ou aplicações a que pretende conceder permissões. Pode encontrar o seu ID de Inquilino AAD no portal Azure, em [Propriedades para Diretório Ativo Azure.](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)
+**Azure Ative Directory Tenanty ID** – The Azure AD Tenant ID (também conhecido como ID de diretório) contendo as identidades dos utilizadores, grupos ou aplicações a que pretende conceder permissões. Você pode encontrar o seu ID de Inquilino Azure no portal Azure, em [Propriedades para Diretório Ativo Azure.](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)
 
 **Autorizações** – Adicione o ID do objeto Azure Ative Do utilizador, grupo ou aplicação que pretende ser autorizado ao grupo de recursos geridos. Identifique o utilizador pelo seu ID principal, que pode ser encontrado na lâmina de utilizadores do [Azure Ative Directory no portal Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
@@ -579,9 +577,9 @@ Descreva a experiência do test drive.
 Quando tiver concluído todas as secções necessárias da oferta, selecione **'Reveja' e publique** no canto superior direito do portal.
 
 Reveja o estado de conclusão de cada secção da oferta.
-    - *Não iniciada* - significa que a secção não foi tocada e precisa de ser concluída.
-    - *Incompleto* - significa que a secção tem erros que precisam de ser corrigidos ou exigem mais informações a fornecer. Volte para a secção(s) e atualize-a.
-    - *Completo* - significa que a secção está completa, todos os dados necessários foram fornecidos e não há erros. Todas as secções da oferta devem estar em estado completo antes de poder submeter a oferta.
+    - *Não iniciada* – significa que a secção não foi tocada e precisa de ser concluída.
+    - *Incompleto* – significa que a secção tem erros que precisam de ser corrigidos ou exigem mais informações a serem fornecidas. Volte para a secção(s) e atualize-a.
+    - *Completo* – significa que a secção está completa, todos os dados necessários foram fornecidos e não há erros. Todas as secções da oferta devem estar em estado completo antes de poder submeter a oferta.
 
 Se esta for a primeira vez que publica esta oferta, pode fornecer instruções de teste à equipa de certificação para garantir que a sua aplicação seja testada corretamente, além de quaisquer notas suplementares úteis para entender a sua app.
 

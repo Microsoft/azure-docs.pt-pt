@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: cedc400ac6659cf2b2d0e9c499bf8789a6311e32
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 234d6af25f37bf04d3240177142d5ef919e8dd2d
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141896"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903481"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treine um modelo de reconhecimento de formulários com etiquetas usando a ferramenta de rotulagem da amostra
 
@@ -26,7 +26,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Para completar este arranque rápido, você deve ter:
 
-- Um conjunto de pelo menos seis formas do mesmo tipo. Usará estes dados para treinar o modelo e testar um formulário. Pode utilizar um [conjunto de dados de amostra](https://go.microsoft.com/fwlink/?linkid=2090451) para este arranque rápido. Faça o upload dos ficheiros de treino para a raiz de um recipiente de armazenamento de bolhas numa conta de Armazenamento Azure.
+- Um conjunto de pelo menos seis formas do mesmo tipo. Usará estes dados para treinar o modelo e testar um formulário. Pode utilizar um [conjunto de dados de amostra](https://go.microsoft.com/fwlink/?linkid=2090451) para este arranque rápido. Faça o upload dos ficheiros de treino para a raiz de um recipiente de armazenamento de bolhas numa conta de armazenamento Azure de nível de desempenho padrão.
 
 ## <a name="create-a-form-recognizer-resource"></a>Criar um recurso de reconhecimento de formulários
 
@@ -133,7 +133,7 @@ Em seguida, irá criar tags (etiquetas) e aplicá-las aos elementos de texto que
    1. Clique **+** para criar uma nova etiqueta.
    1. Insira o nome da etiqueta.
    1. Pressione Insira para guardar a etiqueta.
-1. No editor principal, clique e arraste para selecionar uma ou múltiplas palavras dos elementos de texto realçados.
+1. No editor principal, clique para selecionar palavras dos elementos de texto realçados.
 1. Clique na etiqueta que pretende aplicar ou prima a tecla de teclado correspondente. As teclas numeradas são atribuídas como hotkeys para as primeiras 10 tags. Pode reencomendar as suas etiquetas utilizando os ícones de seta para cima e para baixo no painel de editores de etiquetas.
     > [!Tip]
     > Tenha em mente as seguintes dicas quando estiver a rotular os formulários.
@@ -192,7 +192,7 @@ Os seguintes tipos de valor e variações são atualmente suportados:
 
 Clique no ícone Train no painel esquerdo para abrir a página De Treino. Em seguida, clique no botão **Train** para começar a treinar o modelo. Assim que o processo de treino estiver concluído, verá as seguintes informações:
 
-* **ID modelo** - O ID do modelo que foi criado e treinado. Cada chamada de treino cria um novo modelo com a sua própria identificação. Copie esta cadeia para um local seguro; você vai precisar se você quiser fazer chamadas de previsão através da API REST.
+* **ID modelo** - O ID do modelo que foi criado e treinado. Cada chamada de treino cria um novo modelo com a sua própria identificação. Copie esta cadeia para um local seguro; você vai precisar se você quiser fazer chamadas de previsão através da [API REST](./curl-train-extract.md) ou [biblioteca de clientes](./client-library.md).
 * **Precisão média** - Precisão média do modelo. Pode melhorar a precisão do modelo rotulando formas adicionais e treinando novamente para criar um novo modelo. Recomendamos começar por rotular cinco formas e adicionar mais formas conforme necessário.
 * A lista de etiquetas e a precisão estimada por etiqueta.
 
@@ -230,7 +230,7 @@ Quando pretende retomar o seu projeto, primeiro tem de criar uma ligação ao me
 
 Por fim, vá à página principal (ícone da casa) e clique no Open Cloud Project. Em seguida, selecione a ligação de armazenamento de bolhas e selecione o ficheiro *.vott* do seu projeto. A aplicação irá carregar todas as configurações do projeto porque tem o token de segurança.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, aprendeu a usar a ferramenta de rotulagem da amostra do Form Recogniser para treinar um modelo com dados etiquetados manualmente. Se quiser integrar a ferramenta de rotulagem na sua própria aplicação, utilize as APIs REST que tratam da formação de dados etiquetada.
 

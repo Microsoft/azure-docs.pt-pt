@@ -1,7 +1,7 @@
 ---
 title: Introdução ao armazenamento blob (objeto)
 titleSuffix: Azure Storage
-description: O Armazenamento de blobs do Azure armazena grandes quantidades de dados de objetos não estruturados, como dados de texto ou binários. O Armazenamento de blobs do Azure é altamente dimensionável e disponível. Os clientes podem aceder a objetos de dados no Armazenamento de blobs do PowerShell ou da CLI do Azure, de forma programática através de bibliotecas de cliente do Armazenamento do Microsoft Azure ou através de REST.
+description: Utilize o armazenamento Azure Blob para armazenar quantidades massivas de dados de objetos não estruturados, tais como texto ou dados binários. O Armazenamento de blobs do Azure é altamente dimensionável e disponível.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 06/24/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 0d05e85a06ae1e893d5d7faa7e5389da78ad6389
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 55059f4edea19a1e559ea1ad99d9e7e60756cc96
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85559536"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836382"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introdução ao Armazenamento de blobs do Azure
 
@@ -56,7 +56,7 @@ Um contentor organiza um conjunto de bolhas, semelhantes a um diretório num sis
 O Azure Storage suporta três tipos de bolhas:
 
 - **As bolhas de bloco armazenam** texto e dados binários. Os blobs de blocos são constituídos por blocos de dados que podem ser geridos individualmente. As bolhas de bloco armazenam até cerca de 4,75 TiB de dados. Blobs de bloco maiores estão disponíveis na pré-visualização, até cerca de 190.7 TiB
-- **As bolhas de apêndice** são compostas por blocos como bolhas de bloco, mas são otimizadas para operações de apêndice. Os blobs de acréscimo são ideais para cenários como os dados de registo a partir de máquinas virtuais.
+- **As bolhas de apêndice** são compostas por blocos como bolhas de bloco, mas são otimizadas para operações de apêndice. Os blobs de acréscimo são ideais para cenários como o registo de dados a partir de máquinas virtuais.
 - **As bolhas de página** armazenam ficheiros de acesso aleatório até 8 TB de tamanho. As bolhas de página armazenam ficheiros de disco rígido virtual (VHD) e servem como discos para máquinas virtuais Azure. Para obter mais informações sobre as bolhas de página, consulte [a visão geral das bolhas da página de Azure](storage-blob-pageblob-overview.md)
 
 Para obter mais informações sobre os diferentes tipos de bolhas, consulte [Understanding Block Blobs, Append Blobs e Page Blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).

@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d63f8440ca527a746f73574bc156037d85fc3599
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 84353dd3c8b803f27073d113d6946152f059d9be
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68988212"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873420"
 ---
 # <a name="what-is-azure-active-directory-monitoring"></a>O que é a monitorização do Azure Active Directory?
 
@@ -33,6 +33,8 @@ Atualmente, pode encaminhar os registos para:
 - Uma conta de armazenamento do Azure.
 - Um hub de eventos do Azure, para que possa integrar em instâncias do Splunk e do Sumologic.
 - A área de trabalho do Azure Log Analytics, onde pode analisar os dados, criar o dashboard e alertar sobre eventos específicos
+
+**Papel pré-requisito**: Administração Global
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
@@ -57,16 +59,16 @@ Ao encaminhar os registos para uma conta de armazenamento do Azure, pode mantê-
 
 ## <a name="stream-logs-to-event-hub"></a>Transmitir registos no hub de eventos
 
-O encaminhamento de registos para um hub de eventos do Azure permite-lhe integrar com ferramentas SIEM de terceiros, como o Sumologic e o Splunk. Esta integração permite combinar dados de registo de atividade do Azure AD com outros dados geridos pelo seu SIEM, para fornecer informações mais ricas sobre o seu ambiente. Saiba como [transmitir registos a um hub de eventos](tutorial-azure-monitor-stream-logs-to-event-hub.md).
+O encaminhamento de registos para um hub de eventos do Azure permite-lhe integrar com ferramentas SIEM de terceiros, como o Sumologic e o Splunk. Esta integração permite-lhe combinar dados de registo de atividade Azure AD com outros dados geridos pelo seu SIEM, para fornecer informações mais ricas sobre o seu ambiente. Saiba como [transmitir registos a um hub de eventos](tutorial-azure-monitor-stream-logs-to-event-hub.md).
 
-## <a name="send-logs-to-azure-monitor-logs"></a>Envie registos para registos do Monitor Azure
+## <a name="send-logs-to-azure-monitor-logs"></a>Enviar registos para registos do Monitor Azure
 
-[Os registos](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) do Azure Monitor são uma solução que consolida a monitorização de dados de diferentes fontes e fornece um motor de linguagem e análise de consulta que lhe dá informações sobre o funcionamento das suas aplicações e recursos. Ao enviar registos de atividade da Azure AD para registos do Monitor Azure, pode recuperar, monitorizar e alertar rapidamente sobre os dados recolhidos. Saiba como [enviar dados para os registos do Monitor Azure](howto-integrate-activity-logs-with-log-analytics.md).
+[Os registos do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) são uma solução que consolida dados de monitorização de diferentes fontes e fornece um motor de linguagem e análise de consulta que lhe dá informações sobre o funcionamento das suas aplicações e recursos. Ao enviar registos de atividade azure AD para registos do Azure Monitor, pode rapidamente recuperar, monitorizar e alertar os dados recolhidos. Saiba como [enviar dados para os registos do Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md).
 
-Também pode instalar as vistas pré-criadas para os registos de atividades do Azure AD para monitorizar cenários comuns que envolvem inícios de sessão e eventos de auditoria. Aprenda a instalar e utilizar vistas de análise de [registos para registos de atividade da Azure AD](howto-install-use-log-analytics-views.md).
+Também pode instalar as vistas pré-criadas para os registos de atividades do Azure AD para monitorizar cenários comuns que envolvem inícios de sessão e eventos de auditoria. Saiba como [instalar e utilizar vistas de análise de registos para registos de atividades Azure AD](howto-install-use-log-analytics-views.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Registos de atividades no Azure Monitor](concept-activity-logs-azure-monitor.md)
 * [Transmitir registos no hub de eventos](tutorial-azure-monitor-stream-logs-to-event-hub.md)
-* [Envie registos para registos do Monitor Azure](howto-integrate-activity-logs-with-log-analytics.md)
+* [Enviar registos para registos do Monitor Azure](howto-integrate-activity-logs-with-log-analytics.md)

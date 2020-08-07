@@ -3,12 +3,12 @@ title: Aprenda a auditar o conteúdo das máquinas virtuais
 description: Saiba como a Azure Policy utiliza o agente de Configuração de Convidados para auditar as definições dentro de máquinas virtuais.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: f2f07a3e88984a84ca1529052d5899ad8570a268
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bec0215d3f10aa9f6a20eea7258ec9d5081e8f98
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072817"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87901985"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a Configuração de Convidado do Azure Policy
 
@@ -62,7 +62,7 @@ O cliente de Configuração de Hóspedes verifica novos conteúdos a cada 5 minu
 As políticas de configuração dos hóspedes incluem novas versões. As versões mais antigas dos sistemas operativos disponíveis no Azure Marketplace estão excluídas se o agente de Configuração de Hóspedes não for compatível.
 A tabela a seguir mostra uma lista de sistemas operativos suportados em imagens Azure:
 
-|Publisher|Name|Versões|
+|Publisher|Nome|Versões|
 |-|-|-|
 |Canónico|Ubuntu Server|14.04 e mais tarde|
 |Credativ|Debian|8 e mais tarde|
@@ -74,7 +74,26 @@ A tabela a seguir mostra uma lista de sistemas operativos suportados em imagens 
 
 As imagens de máquinas virtuais personalizadas são suportadas pelas políticas de Configuração do Hóspede, desde que sejam um dos sistemas operativos na tabela acima.
 
-## <a name="guest-configuration-extension-network-requirements"></a>Requisitos da rede de extensão de configuração do hóspede
+## <a name="network-requirements"></a>Requisitos de rede
+
+As máquinas virtuais em Azure podem utilizar o adaptador de rede local ou um link privado para comunicar com o serviço de Configuração do Hóspede.
+
+As máquinas Azure Arc conectam-se utilizando a infraestrutura de rede no local para chegar aos serviços Azure e reportar o estado de conformidade.
+
+### <a name="communicate-over-virtual-networks-in-azure"></a>Comunicar através de redes virtuais em Azure
+
+Máquinas virtuais que utilizam redes virtuais para comunicação exigirão acesso de saída aos datacenters da Azure na `443` porta. Se estiver a utilizar uma rede virtual privada em Azure que não permita tráfego de saída, configure exceções com as regras do Grupo de Segurança de Rede. A etiqueta de serviço "GuestAndHybridManagement" pode ser usada para fazer referência ao serviço de Configuração de Hóspedes.
+
+### <a name="communicate-over-private-link-in-azure"></a>Comunicar sobre ligação privada em Azure
+
+As máquinas virtuais podem utilizar [link privado](../../../private-link/private-link-overview.md) para comunicação ao serviço de Configuração do Hóspede. Aplique a etiqueta com o nome `EnablePrivateNeworkGC` e o valor para `TRUE` ativar esta função. A etiqueta pode ser aplicada antes ou depois das políticas de Configuração do Hóspede serem aplicadas à máquina.
+
+O tráfego é encaminhado usando o [endereço IP público virtual](../../../virtual-network/what-is-ip-address-168-63-129-16.md) Azure para estabelecer um canal seguro e autenticado com recursos da plataforma Azure.
+
+### <a name="azure-arc-connected-machines"></a>Máquinas ligadas a Azure Arc
+
+Os nós localizados fora de Azure que estão ligados pelo Azure Arc requerem conectividade ao serviço de Configuração do Hóspede.
+Detalhes sobre os requisitos de rede e procuração fornecidos na documentação do [Arco Azure](../../../azure-arc/servers/overview.md).
 
 Para comunicar com o fornecedor de recursos de Configuração de Hóspedes em Azure, as máquinas requerem acesso de saída aos datacenters Azure na porta **443**. Se uma rede em Azure não permitir o tráfego de saída, configure exceções com as regras [do Grupo de Segurança de Rede.](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) A [etiqueta de serviço](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" pode ser usada para fazer referência ao serviço de Configuração de Hóspedes.
 
