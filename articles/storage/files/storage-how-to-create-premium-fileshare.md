@@ -1,6 +1,6 @@
 ---
 title: Criar uma partilha de ficheiros Azure premium
-description: Neste artigo, aprende-se a criar uma partilha de ficheiros Azure premium.
+description: Neste artigo, aprenda a criar uma partilha de ficheiros Azure premium utilizando o portal Azure, PowerShell ou o Azure CLI.
 author: roygara
 ms.service: storage
 ms.topic: how-to
@@ -8,12 +8,12 @@ ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a5bdfbbc505f6abe4fee021df014e32d3ccae074
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: adeb1635489441b30c15fee69922e3abef0a53f9
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497635"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903821"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Como criar uma partilha de ficheiros Azure premium
 As ações de ficheiros premium são oferecidas em meios de armazenamento de discos de estado sólido (SSD) e são úteis para cargas de trabalho intensivas em IO, incluindo bases de dados de hospedagem e computação de alto desempenho (HPC). As ações de ficheiro premium estão hospedadas numa conta de armazenamento para fins especiais, chamada de conta FileStorage. As ações de ficheiros premium são projetadas para aplicações de alto desempenho e escala empresarial, proporcionando consistente baixa latência, alta IOPS e altas ações de produção.

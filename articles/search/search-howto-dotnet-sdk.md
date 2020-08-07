@@ -1,26 +1,29 @@
 ---
-title: Use a pesquisa cognitiva Azure em .NET
+title: Utilize Microsoft.Azure.Search (v10) em .NET
 titleSuffix: Azure Cognitive Search
-description: Saiba como utilizar a Azure Cognitive Search numa aplicação .NET utilizando C# e o .NET SDK. As tarefas baseadas em código incluem ligar ao serviço, indexar o conteúdo e consultar um índice.
+description: Saiba como criar e gerir objetos de pesquisa uma aplicação .NET utilizando C# e a versão 10 do .NET SDK. Os snippets de código demonstram a ligação ao serviço, criando índices e consultas.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
 ms.devlang: dotnet
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 929241d7bc5db5476bab84d00fde90d4db55aedc
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.date: 08/05/2020
+ms.openlocfilehash: 820ce3078b642f2cc672cd6906895f818c06f5b7
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146913"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905428"
 ---
-# <a name="how-to-use-azure-cognitive-search-from-a-net-application"></a>Como utilizar a Azure Cognitive Search a partir de uma aplicação .NET
+# <a name="how-to-use-microsoftazuresearch-v10-in-a-net-application"></a>Como utilizar o Microsoft.Azure.Search (v10) numa aplicação .NET
 
-Este artigo é um passo para levá-lo a funcionar com a [Azure Cognitive Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search). Pode utilizar o .NET SDK para implementar uma rica experiência de pesquisa na sua aplicação utilizando a Azure Cognitive Search.
+Este artigo explica como criar e gerir objetos de pesquisa utilizando C# e [a Pesquisa Cognitiva Azure (v10) .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search). A versão 10 é a última versão do pacote Microsoft.Azure.Search. Seguindo em frente, novas funcionalidades serão [lançadas](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme) emAzure.Search.Docda equipa Azure SDK.
 
-## <a name="whats-in-the-azure-cognitive-search-sdk"></a>O que está no Azure Cognitive Search SDK
+Se tiver projetos de desenvolvimento existentes ou de bordo, continue a utilizar a versão 10. Para novos projetos, ou para utilizar novas funcionalidades, deve transitar uma solução de pesquisa existente para a nova biblioteca.
+
+## <a name="whats-in-version-10"></a>O que está na versão 10
+
 O SDK é composto por algumas bibliotecas de clientes que lhe permitem gerir os seus índices, fontes de dados, indexadores e mapas de sinónimos, bem como carregar e gerir documentos, e executar consultas, tudo sem ter de lidar com os detalhes de HTTP e JSON. Estas bibliotecas de clientes são distribuídas como pacotes NuGet.
 
 O pacote principal do NuGet é `Microsoft.Azure.Search` , que é um meta-pacote que inclui todos os outros pacotes como dependências. Use este pacote se estiver apenas a começar ou se souber que a sua aplicação necessitará de todas as funcionalidades da Azure Cognitive Search.

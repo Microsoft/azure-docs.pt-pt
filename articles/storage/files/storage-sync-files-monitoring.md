@@ -1,18 +1,18 @@
 ---
 title: Monitor Azure File Sync / Microsoft Docs
-description: Como monitorizar o Azure File Sync.
+description: Reveja como monitorizar a implementação do Azure File Sync utilizando o Azure Monitor, o Storage Sync Service e o Windows Server.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 08/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 81224e0c055ad4a94bd57ebb3aa7c8a3b30c2dd7
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9a4e4a30c5a84baf5a78d0a90f7302e2b31a5946
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832625"
+ms.locfileid: "87903532"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorizar o Azure File Sync
 
@@ -23,7 +23,7 @@ Este artigo descreve como monitorizar a implementação do Azure File Sync utili
 Os seguintes cenários estão abrangidos por este guia: 
 - Ver métricas de Sincronização de Ficheiros Azure no Monitor Azure.
 - Crie alertas no Azure Monitor para o notificar proativamente das condições críticas.
-- Monitorize a saúde da sua implementação Azure File Sync utilizando o portal Azure.
+- Ver saúde da sua implementação Azure File Sync utilizando o portal Azure.
 - Como utilizar os registos de eventos e os contadores de desempenho nos seus Servidores windows para monitorizar a saúde da sua implementação de Azure File Sync. 
 
 ## <a name="azure-monitor"></a>Azure Monitor
@@ -34,7 +34,9 @@ Utilize [o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overvie
 
 As métricas do Azure File Sync são ativadas por predefinição e são enviadas para o Azure Monitor a cada 15 minutos.
 
-Para ver as métricas do Azure File Sync no Azure Monitor, selecione o tipo de recurso **Storage Sync Services.**
+**Como ver as métricas do Azure File Sync no Azure Monitor**
+- Vá ao seu **Serviço de Sincronização de Armazenamento** no portal **Azure** e clique em **Métricas**.
+- Clique na **métrica** e selecione a métrica que pretende visualizar.
 
 As seguintes métricas para Azure File Sync estão disponíveis no Azure File Sync:
 
@@ -82,7 +84,7 @@ Para visualizar a saúde do servidor registado, a saúde do ponto final do servi
 ### <a name="registered-server-health"></a>Saúde do servidor registado
 
 - Se o estado do **servidor registado** estiver **Online,** o servidor comunica-se com sucesso com o serviço.
-- Se o estado **do servidor registado** estiver **offline,** verifique se o processo do Monitor de Sincronização de Armazenamento (AzureStorageSyncMonitor.exe) no servidor está em execução. Se o servidor estiver por detrás de uma firewall ou procuração, consulte [este artigo](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) para configurar a firewall e o proxy.
+- Se o estado do **servidor registado** **for "Offline",** o processo de Monitor de Sincronização de Armazenamento (AzureStorageSyncMonitor.exe) não está em funcionamento ou o servidor não consegue aceder ao serviço Azure File Sync. Consulte a [documentação de resolução de problemas](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#server-endpoint-noactivity) para obter orientação.
 
 ### <a name="server-endpoint-health"></a>Saúde do ponto final do servidor
 
@@ -116,16 +118,18 @@ Utilize o registo de eventos de Telemetria no servidor para monitorizar a saúde
 
 Saúde sincronizada:
 
-- O ID 9102 do evento é registado após o final de uma sessão de sincronização. Utilize este evento para determinar se as sessões de sincronização são bem sucedidas **(HResult = 0**) e se existem erros de sincronização por item. Para obter mais informações, consulte a documentação de erros de [saúde](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) e [erros por item.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)
+- O ID 9102 do evento é registado assim que uma sessão de sincronização estiver concluída. Utilize este evento para determinar se as sessões de sincronização são bem sucedidas **(HResult = 0**) e se existem erros de sincronização por item. Para obter mais informações, consulte a documentação de erros de [saúde](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) e [erros por item.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)
 
   > [!Note]  
   > Por vezes, as sessões de sincronização falham globalmente ou têm um PerItemErrorCount não-zero. No entanto, eles ainda fazem progressos, e alguns ficheiros sincronizam com sucesso. Pode ver isto nos campos Aplicados como AppliedFileCount, AppliedDirCount, AppliedTombstoneCount e AppliedSizeBytes. Estes campos dizem-lhe quanto da sessão conseguiu. Se vir várias sessões de sincronização a falhar em linha e tiverem uma contagem de aplicação cada vez maior, dê tempo de sincronização para tentar novamente antes de abrir um bilhete de apoio.
+
+- O ID 9121 do evento é registado para cada erro por item assim que a sessão de sincronização estiver concluída. Utilize este evento para determinar o número de ficheiros que não estão a sincronizar com este erro **(PersistenteCount** e **TransientCount).** Erros persistentes por item devem ser investigados, ver [como vejo se existem ficheiros ou pastas específicas que não estão a sincronizar?](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)
 
 - O ID 9302 do evento é registado a cada 5 a 10 minutos se houver uma sessão de sincronização ativa. Utilize este evento para determinar se a sessão de sincronização atual está a progredir **(AppliedItemCount > 0**). Se a sincronização não estiver a progredir, a sessão de sincronização deverá eventualmente falhar e um ID 9102 do Evento será registado com o erro. Para obter mais informações, consulte a documentação de [progresso sincronizada.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session)
 
 Saúde do servidor registado:
 
-- O ID 9301 do evento é registado a cada 30 segundos quando um servidor consulta o serviço para empregos. Se o GetNextJob terminar com **o estado = 0,** o servidor é capaz de comunicar com o serviço. Se o GetNextJob terminar com um erro, verifique a [documentação de resolução de problemas](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) para obter orientação.
+- O ID 9301 do evento é registado a cada 30 segundos quando um servidor consulta o serviço para empregos. Se o GetNextJob terminar com **o estado = 0,** o servidor é capaz de comunicar com o serviço. Se o GetNextJob terminar com um erro, verifique a [documentação de resolução de problemas](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#server-endpoint-noactivity) para obter orientação.
 
 Saúde de nivelamento em nuvem:
 

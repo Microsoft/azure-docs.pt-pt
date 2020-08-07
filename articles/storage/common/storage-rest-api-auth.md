@@ -1,6 +1,6 @@
 ---
 title: Ligue para as operações da API com autorização de Chave Partilhada
-titleSuffix: Azure Storage
+titleSuffix: Discover how to call Azure Storage REST API operations with Shared Key authorization. Get detailed information about each step of the sample operation.
 description: Utilize a API A API do Azure Storage REST para fazer um pedido de armazenamento blob utilizando a autorização da Chave Partilhada.
 services: storage
 author: tamram
@@ -10,12 +10,12 @@ ms.date: 10/01/2019
 ms.author: tamram
 ms.reviewer: ozge
 ms.subservice: common
-ms.openlocfilehash: 237ad3215ef0330fed8662d987b1b72eca4aec81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d43df68f48273b03fa9bde9633b487d69c0834ed
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509188"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905385"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>Ligue para as operações da API com autorização de Chave Partilhada
 
@@ -567,7 +567,7 @@ Content-Length: 1135
 
 Neste artigo, aprendeu a fazer um pedido ao blob storage REST API. Com o pedido, pode obter uma lista de contentores ou uma lista de bolhas num recipiente. Aprendeu a criar a assinatura de autorização para a chamada REST API e como usá-la no pedido REST. Finalmente, aprendeu a examinar a resposta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [API REST de Serviço Blob](/rest/api/storageservices/blob-service-rest-api)
 - [API REST de Serviço de Ficheiros](/rest/api/storageservices/file-service-rest-api)

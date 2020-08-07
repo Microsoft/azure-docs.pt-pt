@@ -7,12 +7,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/3/2019
 ms.custom: mvc
-ms.openlocfilehash: 706ae5a6c93468da9a65293c1bb4eefb136b938d
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 49984349ce8d9d1bc43778c0042dd21485eded15
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553279"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829684"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Criar dashboards de KPI personalizados com o Azure Application Insights
 
@@ -34,7 +34,7 @@ Para concluir este tutorial:
 - Implemente uma aplicação .NET no Azure e [ative o Application Insights SDK](../app/asp-net.md).
 
 > [!NOTE]
-> As permissões necessárias para trabalhar com dashboards são discutidas no artigo sobre a compreensão do [controlo de acesso para os dashboards](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboard-share-access#understanding-access-control-for-dashboards).
+> As permissões necessárias para trabalhar com dashboards são discutidas no artigo sobre a compreensão do [controlo de acesso para os dashboards](../../azure-portal/azure-portal-dashboard-share-access.md#understanding-access-control-for-dashboards).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
@@ -126,9 +126,8 @@ Uma vez que o Azure Applications Insights Logs (Analytics) é um serviço separa
 5. Selecione **Partilhar** para republicar as suas alterações no seu painel de instrumentos que agora inclui uma variedade de gráficos e visualizações de Insights de Aplicação.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Agora que aprendeu a criar dashboards personalizados, veja a restante documentação do Application Insights, incluindo um caso prático.
 
 > [!div class="nextstepaction"]
 > [Diagnósticos avançados](../app/devops.md)
-

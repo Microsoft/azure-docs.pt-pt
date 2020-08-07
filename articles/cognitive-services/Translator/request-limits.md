@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: d9fda476a184731cd00317facbeceaf7bdf55edf
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 9ce2ea7da562372e5c1c25d4c0fe9ab410b02a1d
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85561466"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903412"
 ---
 # <a name="request-limits-for-translator"></a>Limites de pedido para Tradutor
 
@@ -23,18 +23,18 @@ Este artigo prevê limites de estrangulamento para o Tradutor. Os serviços incl
 
 ## <a name="character-and-array-limits-per-request"></a>Limites de caracteres e matrizes por pedido
 
-Cada pedido de tradução é limitado a 5.000 caracteres, em todas as línguas-alvo a que está a traduzir. Por exemplo, o envio de um pedido de tradução de 1.500 caracteres para traduzir para 3 idiomas diferentes resulta num tamanho de pedido de 1.500x3 = 4.500 caracteres, o que satisfaz o limite de pedido. É cobrado por carácter, não pelo número de pedidos. É recomendado enviar pedidos mais curtos.
+Cada pedido de tradução é limitado a 10.000 caracteres, em todas as línguas-alvo a que está a traduzir. Por exemplo, o envio de um pedido de tradução de 3.000 caracteres para traduzir para 3 idiomas diferentes resulta num tamanho de pedido de 3000x3 = 9.000 caracteres, o que satisfaz o limite de pedido. É cobrado por carácter, não pelo número de pedidos. É recomendado enviar pedidos mais curtos.
 
 A tabela que se segue enumera os limites de matriz e de caracteres para cada funcionamento do Tradutor.
 
 | Operação | Tamanho máximo do elemento matriz |    Número máximo de elementos de matriz |    Tamanho máximo do pedido (caracteres) |
 |:----|:----|:----|:----|
-| Traduzir | 5000    | 100    | 5000 |
-| Transliterar | 5000    | 10    | 5000 |
-| Detetar | 10,000 |    100 |    50.000 |
-| BreakSentence | 10,000    | 100 |    50.000 |
-| Pesquisa no Dicionário| 100 |    10    | 1,000 |
-| Exemplos do dicionário | 100 para texto e 100 para tradução (200 no total)| 10|    2.000 |
+| Traduzir | 10,000    | 100   | 10,000 |
+| Transliterar | 5000 | 10    | 5000 |
+| Detetar | 10,000 | 100 |   50 000 |
+| BreakSentence | 50 000    | 100 | 50 000 |
+| Pesquisa no Dicionário| 100 |  10  | 1,000 |
+| Exemplos do dicionário | 100 para texto e 100 para tradução (200 no total)| 10|   2.000 |
 
 ## <a name="character-limits-per-hour"></a>Limites de caracteres por hora
 
@@ -44,7 +44,7 @@ A quota horária deve ser consumida uniformemente ao longo da hora. Por exemplo,
 
 Se atingir ou ultrapassar estes limites, ou enviar uma parte muito grande da quota num curto espaço de tempo, provavelmente receberá uma resposta fora da quota. Não há limites para pedidos simultâneos.
 
-| Escalão | Limite de caracteres |
+| Escalão de serviço | Limite de caracteres |
 |------|-----------------|
 | F0 | 2 milhões de caracteres por hora |
 | S1 | 40 milhões de caracteres por hora |

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cf89864eb6e52baf925f82aa590619d7cfeabb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7d2bb927569a125015f1b0befa27fd3e1f17c00
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552118"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874780"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar a gestão de sessões de autenticação com o Acesso Condicional
 
@@ -107,8 +107,6 @@ O Acesso Condicional é uma capacidade AZure AD Premium e requer uma licença pr
 
 No Azure AD os dispositivos Windows registados no computador são considerados uma solicitação. Por exemplo, se tiver configurado a frequência de inscrição para 24 horas para aplicações do Office, os utilizadores em dispositivos Windows registados em Azure irão satisfazer a política de frequência de inscrição ao iniciar a sessão no dispositivo e não serão novamente solicitados ao abrir aplicações do Office.
 
-Se tiver configurado diferentes frequências de inscrição para diferentes aplicações web que estão a ser executadas na mesma sessão de navegador, a política mais rigorosa será aplicada a ambas as aplicações porque todas as aplicações em execução na mesma sessão de navegador partilham um token de sessão única.
-
 ### <a name="policy-2-persistent-browser-session"></a>Política 2: Sessão de navegador persistente
 
 1. Criar nova política
@@ -136,7 +134,7 @@ Utilize a ferramenta What-If para simular um login do utilizador para a aplicaç
 
 Para garantir que a sua política funciona como esperado, a melhor prática recomendada é testá-la antes de a lançar para a produção. Idealmente, use um inquilino de teste para verificar se a sua nova apólice funciona como pretendido. Para mais informações, consulte o artigo [As melhores práticas para acesso condicional no Diretório Ativo Azure.](best-practices.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Se quiser saber como configurar uma política de acesso condicional, consulte o artigo [Requer MFA para aplicações específicas com Acesso Condicional do Diretório Ativo Azure](app-based-mfa.md).
 * Se estiver pronto para configurar políticas de acesso condicional para o seu ambiente, consulte o artigo [As melhores práticas para acesso condicional no Diretório Ativo Azure.](best-practices.md)

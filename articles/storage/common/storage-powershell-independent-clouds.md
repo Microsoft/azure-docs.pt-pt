@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 0bc8da02a523479c3c543eff28a376136e29098f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ccacef6f9557bdcf683973c2ad5141b6066347b
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82176214"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904331"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gerir o Armazenamento nas nuvens independentes do Azure utilizando o PowerShell
 
@@ -84,7 +84,7 @@ Get-AzEnvironment | select Name, StorageEndpointSuffix
 
 Este comando retorna os seguintes resultados.
 
-| Name| StorageEndpointSuléix|
+| Nome| StorageEndpointSuléix|
 |----|----|
 | AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
@@ -112,6 +112,7 @@ Os resultados são semelhantes aos seguintes valores:
 | SqlDatabaseDnsS sulés | `.database.cloudapi.de` |
 | **StorageEndpointSuléix** | `core.cloudapi.de` |
 | ... | ... |
+
 Para recuperar apenas a propriedade de sufixo de ponto final de armazenamento, recupere a nuvem específica e peça apenas essa propriedade.
 
 ```powershell
@@ -154,7 +155,7 @@ table endpoint = http://myexistingstorageaccount.table.core.usgovcloudapi.net/
 
 Agora pode utilizar o PowerShell para gerir as suas contas de armazenamento e aceder a bolhas, filas, ficheiros e dados de tabela. Para mais informações, consulte [Az.Storage.](/powershell/module/az.storage)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se criou um novo grupo de recursos e uma conta de armazenamento para este exercício, pode remover ambos os ativos eliminando o grupo de recursos. Eliminar o grupo de recursos elimina todos os recursos incluídos no grupo.
 

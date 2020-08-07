@@ -5,19 +5,26 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 06/12/2020
+ms.date: 08/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: f22f81d69d746764af43d9167874aabedbd56f51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 475b2aa99296995c3adb51eca2d6bdb53616670e
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84765443"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903600"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Criar ExpressRoute Direct usando o portal Azure
 
 Este artigo mostra-lhe como criar ExpressRoute Direct usando o portal Azure.
 O ExpressRoute Direct permite-lhe ligar-se diretamente à rede global da Microsoft em locais de observação estrategicamente distribuídos em todo o mundo. Para obter mais informações, veja [Sobre o ExpressRoute Direct](expressroute-erdirect-about.md).
+
+## <a name="before-you-begin"></a><a name="before"></a>Before you begin
+
+Verifique se o fornecedor de recursos **Microsoft.Network** está registado na sua subscrição. O registo de um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos.
+
+1. Aceda às definições de subscrição descritas nos [fornecedores e tipos de recursos Azure](../azure-resource-manager/management/resource-providers-and-types.md).
+1. Na sua subscrição, para **Fornecedores de Recursos,** verifique se o fornecedor **Microsoft.Network** apresenta um estado **registado.** Se o fornecedor de recursos Microsoft.Network não estiver presente na lista de fornecedores registados, adicione-o.
 
 ## <a name="1-create-expressroute-direct"></a><a name="create-erdir"></a>1. Criar ExpressRoute Direct
 
@@ -102,6 +109,6 @@ Os seguintes passos ajudam-no a criar um circuito ExpressRoute a partir do fluxo
 
 1. Selecione **Criar**. Verá uma mensagem a dizer-lhe que a sua implantação está em curso. O estado será exibido nesta página à medida que os recursos forem criados. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre o ExpressRoute Direct, consulte a [Visão Geral.](expressroute-erdirect-about.md)

@@ -3,18 +3,18 @@ title: Instalar extensão de nuvem híbrida (HCX)
 description: Confiem a solução VMware Hybrid Cloud Extension (HCX) para a sua nuvem privada Azure VMware Solution (AVS)
 ms.topic: how-to
 ms.date: 07/15/2020
-ms.openlocfilehash: ea968cb21812f7273af342763d307c2faba1eea6
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 84388c3ec53d9067df2580aabb21ca5885d154b8
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475452"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904998"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Instale hCX para solução VMware Azure
 
 Neste artigo, percorremos procedimentos para configurar a solução VMWare Hybrid Cloud Extension (HCX) para a sua nuvem privada Azure VMWare Solution (AVS). O HCX permite a migração das suas cargas de trabalho VMware para a nuvem, e outros sites conectados através de vários tipos de migração suportados por HCX incorporados.
 
-HCX Advanced, a instalação predefinida, suporta até três vCenters. Se forem necessários mais de três, os clientes têm a opção de ativar o addon da Empresa HCX através do Suporte. A instalação da HCX Enterprise tem custos adicionais para os clientes após a disponibilidade geral (GA), mas fornece [funcionalidades adicionais.](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/)
+O HCX Advanced, a instalação predefinida, suporta até três ligações do local (no local ou nuvem para nuvem). Se forem necessárias mais de três ligações de site, os clientes têm a opção de ativar o addon da Empresa HCX através do Suporte, que está atualmente em pré-visualização. A HCX Enterprise tem custos adicionais para os clientes após a disponibilidade geral (GA), mas fornece [funcionalidades adicionais.](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/)
 
 
 Reveja minuciosamente [Antes de começar,](#before-you-begin) [os requisitos de versão de software](#software-version-requirements)e [pré-requisitos](#prerequisites) primeiro. 
@@ -22,7 +22,7 @@ Reveja minuciosamente [Antes de começar,](#before-you-begin) [os requisitos de 
 Então, vamos percorrer todos os procedimentos necessários para:
 
 > [!div class="checklist"]
-> * Implementar as instalações HCX OVA
+> * Implementar as instalações HCX OVA (Conector)
 > * Ativar e configurar hCX
 > * Configure a rede de ligação e malha de serviço
 > * Configuração completa verificando o estado do aparelho
@@ -36,11 +36,14 @@ Após completar a configuração, pode seguir os próximos passos recomendados n
 * Rever VMware docs [Migrando Máquinas Virtuais com VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g).
 * Rever opcionalmente [as considerações de implantação de VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html).
 * Analise opcionalmente materiais VMware relacionados em HCX, como a [série de blogs](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html) VMware vSphere em HCX. 
-* Encomende uma ativação AVS HCX Enterprise através de canais de suporte AVS.
+* Solicite uma ativação AVS HCX Enterprise através de canais de suporte AVS.
 
-Dimensionar cargas de trabalho contra os recursos de computação e armazenamento é um passo de planeamento essencial quando se prepara para usar a solução VS Private Cloud HCX. Aborde o passo de dimensionamento como parte do planeamento inicial do ambiente em nuvem privada.   
+Dimensionar cargas de trabalho contra os recursos de computação e armazenamento é um passo de planeamento essencial quando se prepara para usar a solução VS Private Cloud HCX. Aborde o passo de dimensionamento como parte do planeamento inicial do ambiente em nuvem privada. 
+
+Também pode dimensionar cargas de trabalho completando uma Avaliação AVS no portal Azure Migrate ( https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment) .
 
 ## <a name="software-version-requirements"></a>Requisitos de versão de software
+
 Os componentes da infraestrutura devem estar a executar a versão mínima necessária. 
                                                          
 | Tipo de Componente    | Requisitos ambientais de origem    | Requisitos do ambiente de destino   |
@@ -149,7 +152,7 @@ Após a instalação, execute os seguintes passos.
 
     ![Selecione serviços](./media/hybrid-cloud-extension-installation/select-services.png)
 
-1. Em **Select Service Resources**, selecione um ou mais recursos de serviço para os quais os serviços HCX selecionados devem ser ativados. Selecione **Continuar**.
+1. Em **Select Service Resources**, selecione um ou mais recursos de serviço para os quais os serviços HCX selecionados devem ser ativados. **Selecione Continuar**.
     
    ![Selecione recursos de serviço](./media/hybrid-cloud-extension-installation/select-service-resources.png)
   
@@ -190,7 +193,7 @@ Após a instalação, execute os seguintes passos.
     
    ![Selecione o perfil da rede de replicação vSphere](./media/hybrid-cloud-extension-installation/vsphere-replication-network-profile.png)
 
-1. A partir de **Switches Distribuídos Selecionados para Extensões de Rede**, selecione os DVS nos quais tem redes os VMs que serão integrados e estão ligados.  Selecione **Continuar**.  
+1. A partir de **Switches Distribuídos Selecionados para Extensões de Rede**, selecione os DVS nos quais tem redes os VMs que serão integrados e estão ligados.  **Selecione Continuar**.  
       
     ![Selecione comutadores virtuais distribuídos](./media/hybrid-cloud-extension-installation/distributed-switches.png)
 

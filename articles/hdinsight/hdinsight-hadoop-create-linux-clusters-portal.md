@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/27/2020
-ms.openlocfilehash: 95756e9951b384c779f61651555482b3c8cb7321
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 08/06/2020
+ms.openlocfilehash: 1ba2f5e4b88ae6ae0ed15dbfbbc4fa5c55c45a77
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083377"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874032"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Criar clusters baseados em Linux em HDInsight utilizando o portal Azure
 
@@ -39,7 +39,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 1. Selecione **Analytics**  >  **Azure HDInsight** para ir à página de **cluster Create HDInsight.**
 
-## <a name="basics"></a>Noções básicas
+## <a name="basics"></a>Informações básicas
 
 ![HDInsight criar básicos de cluster](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-basics.png "Criação de um novo cluster no portal Azure")
 
@@ -86,6 +86,9 @@ Opcional: **Selecione Adicionar armazenamento Azure** para armazenamento adicion
 
 Opcional: Especifique uma base de dados SQL existente para salvar a Colmeia Apache, Apache Oozie e, ou os metadados Apache Ambari fora do cluster. A Base de Dados Azure SQL que é utilizada para a meta-loja deve permitir a conectividade a outros serviços Azure, incluindo Azure HDInsight. Quando criar uma meta-loja, não diga o nome de uma base de dados com traços ou hífens. Estes caracteres podem fazer com que o processo de criação do cluster falhe.
 
+> [!IMPORTANT]
+> Para formas de cluster que suportam metastões, a metastore predefinida fornece uma Base de Dados Azure SQL com um **limite básico de DTU de nível 5 (não atualizável)**! Adequado para fins básicos de teste. Para cargas de trabalho grandes ou de produção, recomendamos migrar para uma meta-loja externa.
+
 Selecione **Seguinte: Segurança + rede >>** para avançar para o separador seguinte.
 
 ## <a name="security--networking"></a>Segurança + networking
@@ -121,7 +124,7 @@ A partir do **separador Configuração + preços,** forneça as seguintes inform
 
 Selecione **Review + crie >>** para validar a configuração do cluster e avançar para o separador final.
 
-## <a name="review--create"></a>Revisão + criar
+## <a name="review--create"></a>Rever + criar
 
 ![HDInsight criar resumo de cluster](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-review-create-hadoop.png "Especificar o número de nós de cluster")
 
@@ -152,7 +155,7 @@ Consulte [Eliminar um cluster HDInsight utilizando o seu navegador, PowerShell o
 
 Caso se depare com problemas com a criação de clusters do HDInsight, veja [aceder aos requisitos de controlo](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Criou com sucesso um cluster HDInsight. Agora aprende a trabalhar com o teu grupo.
 

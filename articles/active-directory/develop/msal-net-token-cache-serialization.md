@@ -13,12 +13,12 @@ ms.date: 09/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: abc4836b5e8729eec45a0eb2cd8b5fa7be6b1ce4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e86b89fbf325eb0af5e4127e7fe113b87b1b70c2
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82890565"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874270"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serialização da cache simbólica em MSAL.NET
 Após a aquisição de um [token,](msal-acquire-cache-tokens.md)é em cache pela Microsoft Authentication Library (MSAL).  O código de aplicação deve tentar obter um símbolo da cache antes de adquirir um token por outro método.  Este artigo discute a serialização padrão e personalizada da cache simbólica em MSAL.NET.
@@ -271,12 +271,15 @@ namespace CommonCacheMsalV3
 
 ### <a name="token-cache-for-a-web-app-confidential-client-application"></a>Cache token para uma aplicação web (aplicação confidencial do cliente)
 
-Em aplicativos web ou APIs web, a cache poderia alavancar a sessão, uma cache Redis ou uma base de dados.
+Em aplicativos web ou APIs web, o cache poderia aproveitar a sessão, uma cache Redis ou uma base de dados. Deve manter um cache simbólico por conta em aplicações web ou APIs web. 
 
-Em aplicativos web ou APIs web, mantenha um cache simbólico por conta.  Para aplicações web, a cache simbólica deve ser chaveda pelo ID da conta.  Para as APIs web, a conta deve ser chaveizada pelo haxixe do símbolo usado para chamar a API. MSAL.NET fornece serialização de cache de fichas personalizadas em subplataformas .NET Framework e .NET Core. Os eventos são disparados quando a cache é acedida, as aplicações podem escolher se serializam ou desserizam a cache. Em aplicações confidenciais de clientes que tratam os utilizadores (aplicações web que assinam em utilizadores e chamam APIs web, e APIs web chamando APIs a jusante da web), pode haver muitos utilizadores e os utilizadores são processados em paralelo. Por razões de segurança e desempenho, a nossa recomendação é serializar uma cache por utilizador. Os eventos de serialização calculam uma chave de cache com base na identidade do utilizador processado e serializam/deserializem uma cache simbólica para esse utilizador.
+Para aplicações web, a cache simbólica deve ser chaveda pelo ID da conta.
+
+Para as APIs web, a conta deve ser chaveizada pelo haxixe do símbolo usado para chamar a API.
+
+MSAL.NET fornece serialização de cache de fichas personalizadas em subplataformas .NET Framework e .NET Core. Os eventos são disparados quando a cache é acedida, as aplicações podem escolher se serializam ou desserizam a cache. Em aplicações confidenciais de clientes que tratam os utilizadores (aplicações web que assinam em utilizadores e chamam APIs web, e APIs web chamando APIs a jusante da web), pode haver muitos utilizadores e os utilizadores são processados em paralelo. Por razões de segurança e desempenho, a nossa recomendação é serializar uma cache por utilizador. Os eventos de serialização calculam uma chave de cache com base na identidade do utilizador processado e serializam/deserializem uma cache simbólica para esse utilizador.
 
 A biblioteca [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) fornece um pacote de pré-visualização Do [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) contendo a serialização da cache simbólica:
-
 
 | Método de Extensão | Microsoft.Identity.Web subconsecontos | Descrição  |
 | ---------------- | --------- | ------------ |
@@ -284,7 +287,7 @@ A biblioteca [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-ident
 | `AddSessionTokenCaches` | `TokenCacheProviders.Session` | A cache simbólica está ligada à sessão do utilizador. Esta opção não é ideal se o token de ID contiver muitas reclamações, uma vez que o cookie se tornaria demasiado grande.
 | `AddDistributedTokenCaches` | `TokenCacheProviders.Distributed` | A cache simbólica é um adaptador contra a implementação do núcleo `IDistributedCache` ASP.NET, permitindo-lhe escolher entre uma cache de memória distribuída, uma cache Redis, um NCache distribuído ou uma cache SQL Server. Para mais detalhes sobre as `IDistributedCache` implementações, consulte https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache .
 
-Caso simples utilizando a cache na memória:
+Aqui está um exemplo de utilização da cache na memória no método [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configureservices) da classe [Startup](/aspnet/core/fundamentals/startup) numa aplicação core ASP.NET:
 
 ```C#
 // or use a distributed Token Cache by adding
@@ -292,7 +295,6 @@ Caso simples utilizando a cache na memória:
     services.AddWebAppCallsProtectedWebApi(Configuration, new string[] { scopesToRequest })
             .AddInMemoryTokenCaches();
 ```
-
 
 Exemplos de possíveis caches distribuídos:
 
@@ -325,7 +327,7 @@ services.AddDistributedSqlServerCache(options =>
 
 A sua utilização é apresentada no tutorial de [aplicações web core ASP.NET](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/) na fase [2-2 Token Cache](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 As seguintes amostras ilustram a serialização da cache simbólica.
 

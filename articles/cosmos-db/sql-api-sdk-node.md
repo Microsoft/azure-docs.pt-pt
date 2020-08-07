@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 05/11/2020
+ms.date: 08/05/2020
 ms.author: anfeldma
 ms.custom: devx-track-javascript
-ms.openlocfilehash: ddbbb9f39dd17daf5c500bf582c100b4e1754a15
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: f280e6754d40ad5dc8cbfa4b760e090d0b5b81aa
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461362"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846484"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK para API SQL: Lançar notas e recursos
 > [!div class="op_single_selector"]
@@ -26,6 +26,8 @@ ms.locfileid: "87461362"
 > * [SDK v4 de Java](sql-api-sdk-java-v4.md)
 > * [SDK v2 Java assíncrono](sql-api-sdk-async-java.md)
 > * [SDK v2 Java síncrono](sql-api-sdk-java.md)
+> * [Spring Data](sql-api-sdk-java-spring.md)
+> * [Conector de faíscas](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](/rest/api/cosmos-db-resource-provider/)
@@ -57,7 +59,7 @@ ms.locfileid: "87461362"
 * Corrige bug quando o utilizador fornece opções parciais de retíduos
 
 ### <a name="303"></a><a name="3.0.3"></a>3.0.3
-* Impedir que o Webpack resolva os módulos chamados com a ressoemia
+* Impedir que o webpack resolva os módulos chamados com a ressoemia
 
 ### <a name="302"></a><a name="3.0.2"></a>3.0.2
 * Corrige um bug pendente onde rUs estavam sempre sendo reportados como 0 para consultas agregadas
@@ -183,7 +185,7 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 ```
 
 #### <a name="improved-browser-experience"></a>Experiência melhorada do navegador
-Embora fosse possível utilizar o V2 SDK no navegador, não foi uma experiência ideal. Você precisava de poliar várias bibliotecas node.js incorporadas e usar um pacote como Webpack ou Parcel. O V3 SDK torna a experiência fora da caixa muito melhor para os utilizadores do navegador.
+Embora fosse possível utilizar o V2 SDK no navegador, não foi uma experiência ideal. Você precisava de poliar várias bibliotecas node.js incorporadas e usar um pacote como webpack ou Parcel. O V3 SDK torna a experiência fora da caixa muito melhor para os utilizadores do navegador.
 
 * Substitua os internos do pedido por busca (#245)
 * Remover a utilização do tampão (#330)
@@ -471,6 +473,6 @@ A Microsoft fornece a notificação com pelo menos **12 meses** de antecedência
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 Para saber mais sobre cosmos DB, consulte a página de serviço [do Microsoft Azure Cosmos DB.](https://azure.microsoft.com/services/cosmos-db/)
 

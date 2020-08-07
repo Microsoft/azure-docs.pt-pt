@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive, tracking-python
+ms.custom: hdinsightactive, devx-track-python
 ms.date: 03/04/2020
-ms.openlocfilehash: 62034ec84f454e4d726348a1c71b492f8aa598b6
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ca5bff7f8a14efc0916210296048e3731aec5a59
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087440"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873471"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Connect to Apache Kafka on HDInsight through an Azure Virtual Network (Ligar ao Apache Kafka no HDInsight através de uma Rede Virtual do Azure)
 
@@ -366,7 +366,7 @@ Para validar a conectividade com a Kafka, utilize os seguintes passos para criar
 
     * Se tiver __ativado a resolução do nome através de um servidor DNS personalizado,__ substitua as `kafka_broker` entradas pelo FQDN dos nós do trabalhador.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a utilização do HDInsight com uma rede virtual, consulte o Plano de implementação de uma rede virtual para o documento [de clusters Azure HDInsight.](../hdinsight-plan-virtual-network-deployment.md)
 

@@ -3,12 +3,12 @@ title: Agente dos Serviços de Recuperação da Microsoft Azure (MARS) – FAQ
 description: Aborda questões comuns sobre o backup de ficheiros e pastas com Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: c4494b09a5cf838aae3dde01c1268042929ef213
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: e50e424f1a9f044aa1ed8e95c1bce002d134bffe
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563109"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874627"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Perguntas frequentes - Agente da Microsoft Azure Recovery Services (MARS)
 
@@ -32,7 +32,7 @@ As credenciais do cofre expiram após 10 dias. Se o ficheiro de credenciais expi
 
 ### <a name="what-characters-are-allowed-for-the-passphrase"></a>Que caracteres são permitidos para a palavra-passe?
 
-A palavra-passe deve utilizar caracteres do conjunto de caracteres ASCII, com valores ASCII inferiores ou iguais a 127.
+A palavra-passe deve utilizar caracteres do conjunto de caracteres ASCII, com [valores ASCII inferiores ou iguais a 127](https://docs.microsoft.com/office/vba/language/reference/user-interface-help/character-set-0127).
 
 ### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>De que unidades posso fazer o back-up de ficheiros e pastas?
 
@@ -211,6 +211,6 @@ Se um trabalho de restauro em curso for cancelado, o processo de restauro para. 
 * Para a opção de recuperação do Volume Restaurar, o agente MARS oferece uma opção para não restaurar permissões ACL no ficheiro ou pasta que está a ser recuperada
 * Para a opção de recuperação de ficheiros e pastas individuais, o agente MARS irá restaurar com permissões ACL (não há opção para ignorar a restauração da ACL).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Aprenda](tutorial-backup-windows-server-to-azure.md) a fazer o back up de uma máquina Windows.

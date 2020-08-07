@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/13/2020
 ms.author: ccompy
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: 9407e388a44ec78fa1e089542fc5ea3ef9387d60
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1e5c909dfebf9c2073ac1809e0a1b7dcbcc7a297
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073753"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874202"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloqueando um Ambiente de Serviço de Aplicações
 
@@ -61,7 +61,7 @@ Os passos para bloquear a saída do seu ASE existente com a Azure Firewall são:
    
    ![Adicionar regra de aplicação][1]
    
-1. A partir da coleção de regras de > regras > de rede de > de firewall Azure Firewall, selecione Add network rule collection. Forneça um nome, prioridade e definir Permitir. Na secção Regras nos endereços IP, forneça um nome, selecione um ptocol de **Qualquer**, definido * para endereços de Origem e Destino, e definir as portas para 123. Esta regra permite que o sistema execute sincronização do relógio utilizando NTP. Crie outra regra da mesma forma para o porto 12000 para ajudar a triagem de quaisquer problemas do sistema. 
+1. A partir da coleção de regras de > regras > de rede de > de firewall Azure Firewall, selecione Add network rule collection. Forneça um nome, prioridade e definir Permitir. Na secção Regras nos endereços IP, forneça um nome, selecione um protocolo de **Qualquer**, definido * para endereços de Origem e Destino, e definir as portas para 123. Esta regra permite que o sistema execute sincronização do relógio utilizando NTP. Crie outra regra da mesma forma para o porto 12000 para ajudar a triagem de quaisquer problemas do sistema. 
 
    ![Adicionar regra de rede NTP][3]
    

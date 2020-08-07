@@ -1,6 +1,6 @@
 ---
 title: Começa com o Storage Explorer Microsoft Docs
-description: Gerir recursos de armazenamento Azure com o Storage Explorer
+description: Comece a gerir os recursos de armazenamento da Azure com o Storage Explorer. Faça o download e instale o Azure Storage Explorer, ligue-se a uma conta de armazenamento ou serviço, e muito mais.
 services: storage
 author: cawaMS
 ms.service: storage
@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
-ms.openlocfilehash: f588ed6d35f3f8882d546b78ff833d62f33ac0a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff5480e6b78beda7fe50dc772eae925ccdb80664
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84975270"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905351"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introdução ao Explorador de Armazenamento
 
@@ -133,7 +133,7 @@ Existem várias formas de anexar a um recurso no Storage Explorer:
 
 Após a ligação ser adicionada com sucesso, a árvore de recursos vai para o nó que representa a ligação. O recurso aparece nos recipientes de & de armazenamento **Local & Attached**  >  **anexos**  >  **locais (contentores**  >  **anexos) .** Se o Storage Explorer não conseguir adicionar a sua ligação, ou se não conseguir aceder aos seus dados depois de adicionar a ligação com sucesso, consulte o [guia de resolução de problemas do Azure Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
 
-#### <a name="use-a-connection-string"></a>Use uma cadeia de ligação
+#### <a name="use-a-connection-string"></a>Utilizar uma cadeia de ligação
 
 1. Selecione o símbolo **'Ligar'** para abrir **o armazenamento do Azure**.
 
@@ -147,7 +147,7 @@ Após a ligação ser adicionada com sucesso, a árvore de recursos vai para o n
 
 Após a ligação ser adicionada com sucesso, a árvore de recursos vai para o nó que representa a ligação. O recurso aparece nas contas de armazenamento **anexadas &**  >  **Locais.** Se o Storage Explorer não conseguir adicionar a sua ligação, ou se não conseguir aceder aos seus dados depois de adicionar a ligação com sucesso, consulte o [guia de resolução de problemas do Azure Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
 
-#### <a name="use-a-shared-access-signature-uri"></a>Use uma assinatura de acesso compartilhado URI
+#### <a name="use-a-shared-access-signature-uri"></a>Utilizar um URI de assinatura de acesso partilhado
 
 1. Selecione o símbolo **'Ligar'** para abrir **o armazenamento do Azure**.
 
@@ -161,7 +161,7 @@ Após a ligação ser adicionada com sucesso, a árvore de recursos vai para o n
 
 Após a ligação ser adicionada com sucesso, a árvore de recursos vai para o nó que representa a ligação. O recurso aparece em & Contas de Armazenamento **Anexadas**  >  **Storage Accounts**  >  **(Contentores Anexos)**  >  *o nó de serviço para o tipo de recipiente que anexou*. Se o Storage Explorer não conseguir adicionar a sua ligação, consulte o [guia de resolução de problemas do Azure Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting). Consulte o guia de resolução de problemas se não conseguir aceder aos seus dados depois de ter acedido com sucesso a ligação.
 
-#### <a name="use-a-name-and-key"></a>Use um nome e chave
+#### <a name="use-a-name-and-key"></a>Utilizar um nome e uma chave
 
 1. Selecione o símbolo **'Ligar'** para abrir **o armazenamento do Azure**.
 
@@ -266,7 +266,7 @@ Ao introduzir texto na caixa de pesquisa, o Storage Explorer exibe todos os recu
 >
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gerir os recursos de armazenamento Azure Blob com o Storage Explorer](vs-azure-tools-storage-explorer-blobs.md)
 * [Trabalhar com dados com o Explorador de Armazenamento do Azure](./cosmos-db/storage-explorer.md)
